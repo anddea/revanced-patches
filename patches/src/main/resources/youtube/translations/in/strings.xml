@@ -177,6 +177,11 @@ Ketuk dan tahan untuk beralih jenis informasi yang ditambahkan."</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Menu flyout gaya lama digunakan.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Dialog khusus digunakan.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Jenis menu kualitas video</string>
+    <string name="revanced_auto_captions_style_entry_1">Selalu tampilkan</string>
+    <string name="revanced_auto_captions_style_entry_2">Jangan pernah tampilkan</string>
+    <string name="revanced_auto_captions_style_entry_3">Tampilkan saat dibisukan</string>
+    <string name="revanced_auto_captions_style_entry_4">Tampilkan saat dibisukan</string>
+    <string name="revanced_auto_captions_style_title">Ketentuan teks otomatis</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Batasan mode Sinematik untuk menghemat daya tidak diabaikan</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Batasan mode Sinematik untuk menghemat daya diabaikan</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Abaikan batasan mode Sinematik</string>
@@ -221,7 +226,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_share_sheet_summary_off">Lembar berbagi dalam aplikasi digunakan.</string>
     <string name="revanced_change_share_sheet_summary_on">Lembar berbagi sistem digunakan.</string>
     <string name="revanced_change_share_sheet_title">Ubah lembar berbagi</string>
-    <string name="revanced_change_start_page_entry_all_subscriptions">Semua Langganan</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Semua langganan</string>
     <string name="revanced_change_start_page_entry_browse">Jelajahi saluran</string>
     <string name="revanced_change_start_page_entry_courses">Kursus / Pembelajaran</string>
     <string name="revanced_change_start_page_entry_default">Bawaan</string>
@@ -243,7 +248,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_start_page_entry_shopping">Belanja</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Olahraga</string>
-    <string name="revanced_change_start_page_entry_subscriptions">Subscription</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Langganan</string>
     <string name="revanced_change_start_page_entry_trending">Sedang tren</string>
     <string name="revanced_change_start_page_entry_virtual_reality">Realitas Virtual</string>
     <string name="revanced_change_start_page_entry_watch_later">Tonton nanti</string>
@@ -301,7 +306,7 @@ Keterbatasan: Tombol Kembali pada bilah alat mungkin tidak berfungsi."</string>
     <string name="revanced_debug_logs_none_found">Tidak ditemukan catatan</string>
     <string name="revanced_debug_protobuffer_summary_off">Pencatatan debug tidak menyertakan buffer protokol</string>
     <string name="revanced_debug_protobuffer_summary_on">Pencatatan debug termasuk buffer protokol</string>
-    <string name="revanced_debug_protobuffer_title">Catatan debug buffer protokol</string>
+    <string name="revanced_debug_protobuffer_title">Buffer protokol log</string>
     <string name="revanced_debug_spannable_summary_off">Log debug tidak menyertakan spannable.</string>
     <string name="revanced_debug_spannable_summary_on">Log debug menyertakan spannable.</string>
     <string name="revanced_debug_spannable_title">Log spannable</string>
@@ -796,10 +801,10 @@ Toko"</string>
     <string name="revanced_hide_key_concepts_section_summary_off">Bagian Konsep utama ditampilkan</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Bagian Konsep utama disembunyikan</string>
     <string name="revanced_hide_key_concepts_section_title">Sembunyikan bagian \'Konsep utama\'</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Beranda / Berlangganan / Pencarian / Komentar disaring untuk menyembunyikan konten yang cocok dengan frasa kata kunci
+    <string name="revanced_hide_keyword_content_about_summary">"Beranda / Subscription / Pencarian / Komentar disaring untuk menyembunyikan konten yang cocok dengan frasa kata kunci
 
 Batasan:
-• Shorts tidak dapat disembunyikan berdasarkan nama saluran
+• Shorts tidak dapat disembunyikan berdasarkan nama channel
 • Beberapa komponen UI mungkin tidak disembunyikan
 • Pencarian kata kunci mungkin tidak menampilkan hasil"</string>
     <string name="revanced_hide_keyword_content_about_title">Tentang penyaringan kata kunci</string>
@@ -822,7 +827,7 @@ Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya: iPh
     <string name="revanced_hide_keyword_content_search_title">Sembunyikan hasil pencarian berdasarkan kata kunci</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Video di tab langganan tidak disaring berdasarkan kata kunci</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Video di tab langganan disaring berdasarkan kata kunci</string>
-    <string name="revanced_hide_keyword_content_subscriptions_title">Sembunyikan video langganan dengan kata kunci</string>
+    <string name="revanced_hide_keyword_content_subscriptions_title">Sembunyikan video subscription dengan kata kunci</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Kata kunci akan menyembunyikan semua video: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Tidak dapat menggunakan kata kunci: %s</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Tambahkan tanda kutip untuk menggunakan kata kunci: %s</string>
@@ -842,7 +847,7 @@ Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya: iPh
     <string name="revanced_hide_links_preview_title">Sembunyikan pratinjau tautan</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">Tombol tayangan ulang obrolan siaran langsung di hamparan pemutar ditampilkan</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Tombol tayangan ulang obrolan siaran langsung di hamparan pemutar disembunyikan</string>
-    <string name="revanced_hide_live_chat_replay_button_title">Sembunyikan tombol \'Putar ulang obrolan langsung\'</string>
+    <string name="revanced_hide_live_chat_replay_button_title">Sembunyikan tombol \'Rekaman live chat\'</string>
     <string name="revanced_hide_members_shelf_summary_off">Rak anggota ditampilkan</string>
     <string name="revanced_hide_members_shelf_summary_on">Rak anggota disembunyikan</string>
     <string name="revanced_hide_members_shelf_title">Sembunyikan rak anggota</string>
@@ -892,7 +897,7 @@ Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya: iPh
     <string name="revanced_hide_promotion_alert_banner_title">Sembunyikan spanduk peringatan promosi</string>
     <string name="revanced_hide_quick_actions_dislike_button_title">Sembunyikan tombol Tidak Suka</string>
     <string name="revanced_hide_quick_actions_like_button_title">Sembunyikan tombol Suka</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_title">Sembunyikan tombol \'Obrolan langsung\'</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_title">Sembunyikan tombol \'Live chat\'</string>
     <string name="revanced_hide_quick_actions_more_button_title">Sembunyikan tombol Lainnya</string>
     <string name="revanced_hide_quick_actions_share_button_title">Sembunyikan tombol Bagikan</string>
     <string name="revanced_hide_quick_actions_summary_off">Tindakan cepat dalam layar penuh ditampilkan</string>
@@ -1026,7 +1031,7 @@ Jika tata letak layar pemutar berubah karena perubahan di sisi server, tata leta
     <string name="revanced_hide_subscribe_button_title">Sembunyikan tombol Subscribe</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">Bilah saluran yang telah berlangganan ditampilkan</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">Bilah saluran yang telah berlangganan disembunyikan</string>
-    <string name="revanced_hide_subscribed_channels_bar_title">Sembunyikan bilah saluran yang telah disubscribe</string>
+    <string name="revanced_hide_subscribed_channels_bar_title">Sembunyikan bilah saluran yang disubscribe</string>
     <string name="revanced_hide_surveys_summary_off">Survei ditampilkan</string>
     <string name="revanced_hide_surveys_summary_on">Survei disembunyikan</string>
     <string name="revanced_hide_surveys_title">Sembunyikan survei</string>
@@ -1269,9 +1274,9 @@ Deskripsi
     <string name="revanced_restore_old_settings_menus_title">Pulihkan menu setelan lama YouTube</string>
     <string name="revanced_restore_old_video_action_bar_summary">"Memperbaiki masalah tombol Tidak Suka tidak ditampilkan dan tombol tindakan video tidak dapat disembunyikan
 
-Keterbatasan: Mengembalikan tampilan hamparan 'Video Lainnya' ke gaya lama"</string>
+Keterbatasan: Mengembalikan tampilan hamparan 'Video lainnya' ke gaya lama"</string>
     <string name="revanced_restore_old_video_action_bar_title">Kembalikan bilah tindakan video lama</string>
-    <string name="revanced_ryd_attribution_summary">"Data disediakan oleh Return YouTube Dislike API.
+    <string name="revanced_ryd_attribution_summary">"Data disediakan oleh API Return YouTube Dislike
 
 Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1301,6 +1306,7 @@ Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">Tombol kategori ditampilkan di bilah kategori komentar</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Tombol kategori kecuali \'Teratas\' dan \'Terbaru\' disembunyikan di bilah kategori komentar</string>
     <string name="revanced_sanitize_comments_category_bar_title">Bersihkan bilah kategori</string>
+    <string name="revanced_sanitize_video_subtitle_title">Bersihkan teks subtitel video</string>
     <string name="revanced_sb_api_url_changed">URL API diubah</string>
     <string name="revanced_sb_api_url_invalid">URL API tidak sah</string>
     <string name="revanced_sb_api_url_reset">Atur ulang URL API</string>
@@ -1554,6 +1560,9 @@ Sudah ada"</string>
     <string name="revanced_show_settings_button_index_title">Posisi tombol Pengaturan</string>
     <string name="revanced_show_settings_button_title">Tampilkan tombol Pengaturan</string>
     <string name="revanced_show_settings_button_type_title">Tindakan tombol pengaturan</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Posisi tombol Pengaturan</string>
+    <string name="revanced_show_toolbar_settings_button_title">Tampilkan tombol Pengaturan</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Tindakan tombol Pengaturan</string>
     <string name="revanced_spoof_app_version_summary">Menipu server agar menganggap Anda menggunakan versi aplikasi yang lebih lama untuk memulihkan fitur UI lama</string>
     <string name="revanced_spoof_app_version_summary_off">Versi asli</string>
     <string name="revanced_spoof_app_version_summary_on">Versi yang dipalsukan</string>

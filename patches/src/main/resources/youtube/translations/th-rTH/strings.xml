@@ -155,6 +155,11 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_2">กลาง</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">สิ้นสุด</string>
     <string name="revanced_alt_thumbnail_stills_time_title">ดึงเฟรมวิดีโอจาก</string>
+    <string name="revanced_auto_captions_style_entry_1">แสดงเสมอ</string>
+    <string name="revanced_auto_captions_style_entry_2">ไม่แสดง</string>
+    <string name="revanced_auto_captions_style_entry_3">แสดงเมื่อไม่ได้ปิดเสียง</string>
+    <string name="revanced_auto_captions_style_entry_4">แสดงเมื่อเงียบเสียง</string>
+    <string name="revanced_auto_captions_style_title">คำบรรยายแบบอัตโนมัติ</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">การจำกัดโหมดพักผ่อนสำหรับการประหยัดพลังงานไม่ถูกบายพาส</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">การจำกัดโหมดพักผ่อนสำหรับการประหยัดพลังงานถูกบายพาส</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">เลี่ยงข้อจำกัดของโหมดแสงอาทิตย์</string>
@@ -232,7 +237,7 @@
     <string name="revanced_debug_logs_none_found">ไม่พบบันทึก</string>
     <string name="revanced_debug_protobuffer_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมโปรโตคอลบัฟเฟอร์</string>
     <string name="revanced_debug_protobuffer_summary_on">บันทึกการแก้ไขข้อบกพร่องรวมถึงโปรโตคอลบัฟเฟอร์</string>
-    <string name="revanced_debug_protobuffer_title">โปรโตคอลบัฟเฟอร์บันทึกข้อมูล</string>
+    <string name="revanced_debug_protobuffer_title">บันทึกโปรโตคอลบัฟเฟอร์</string>
     <string name="revanced_debug_summary_off">การบันทึกการแก้ไขข้อบกพร่องถูกปิดใช้งาน</string>
     <string name="revanced_debug_summary_on">การบันทึกการแก้ไขข้อบกพร่องถูกเปิดใช้งาน</string>
     <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
@@ -785,7 +790,7 @@
 
 ข้อจำกัด: กลับไปใช้รูปแบบ 'วิดีโอเพิ่มเติม' แบบเดิม"</string>
     <string name="revanced_restore_old_video_action_bar_title">กู้คืนแถบการทำงานของวิดีโอแบบเดิม</string>
-    <string name="revanced_ryd_attribution_summary">"ข้อมูลนี้จัดทำโดย Return YouTube Dislike API
+    <string name="revanced_ryd_attribution_summary">"ข้อมูลนี้มาจาก Return YouTube Dislike API
 
 แตะที่นี่เพื่อเปิด ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -815,6 +820,7 @@
     <string name="revanced_sanitize_comments_category_bar_summary_off">ปุ่มหมวดหมู่จะแสดงอยู่ในแถบหมวดหมู่ความคิดเห็น</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">ปุ่มหมวดหมู่ยกเว้น \'ด้านบน\' และ \'ใหม่ล่าสุด\' จะซ่อนอยู่ในแถบหมวดหมู่ความคิดเห็น</string>
     <string name="revanced_sanitize_comments_category_bar_title">ลบความปลอดภัยแถบหมวดหมู่</string>
+    <string name="revanced_sanitize_video_subtitle_title">ล้างข้อความคำบรรยายวิดีโอ</string>
     <string name="revanced_sb_api_url_changed">API URL ถูกเปลื่ยนแล้ว</string>
     <string name="revanced_sb_api_url_invalid">API URL ไม่ถูกต้อง</string>
     <string name="revanced_sb_api_url_reset">API URL เปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
@@ -1062,6 +1068,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_show_settings_button_index_title">ทำให้แถบนำทางมองเห็นได้เสมอขณะเลื่อน</string>
     <string name="revanced_show_settings_button_title">ภาพเคลื่อนไหวการเปลี่ยนระหว่างแท็บ</string>
     <string name="revanced_show_settings_button_type_title">การดำเนินการปุ่มการตั้งค่า</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">ตำแหน่งปุ่มการตั้งค่า</string>
+    <string name="revanced_show_toolbar_settings_button_title">แสดงปุ่มการตั้งค่า</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">การดำเนินการปุ่มการตั้งค่า</string>
     <string name="revanced_spoof_app_version_summary">หลอกลวงเซิร์ฟเวอร์เพื่อให้คิดว่าคุณกำลังใช้แอปเวอร์ชันเก่าเพื่อคืนค่าคุณสมบัติ UI เดิม</string>
     <string name="revanced_spoof_app_version_summary_off">เวอร์ชันไม่ได้ปลอมแปลง</string>
     <string name="revanced_spoof_app_version_summary_on">เวอร์ชันปลอมแปลง</string>

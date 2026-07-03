@@ -175,6 +175,11 @@ Tap and hold to toggle the appended information type."</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Old style flyout menu is used.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Custom dialog is used.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Video quality menu type</string>
+    <string name="revanced_auto_captions_style_entry_1">Always show</string>
+    <string name="revanced_auto_captions_style_entry_2">Never show</string>
+    <string name="revanced_auto_captions_style_entry_3">Show when unmuted</string>
+    <string name="revanced_auto_captions_style_entry_4">Show when muted</string>
+    <string name="revanced_auto_captions_style_title">Auto captions visibility</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ambient mode is disabled in battery saver mode.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Ambient mode is enabled in battery saver mode.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Bypass Ambient mode restrictions</string>
@@ -328,11 +333,6 @@ Limitation: Back button on the toolbar may not work."</string>
 Info: In some accounts, the original audio track is used."</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Forced auto audio tracks are disabled.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
-    <string name="revanced_auto_captions_style_title">Auto captions visibility</string>
-    <string name="revanced_auto_captions_style_entry_1">Always show</string>
-    <string name="revanced_auto_captions_style_entry_2">Never show</string>
-    <string name="revanced_auto_captions_style_entry_3">Show when unmuted</string>
-    <string name="revanced_auto_captions_style_entry_4">Show when muted</string>
     <string name="revanced_disable_auto_captions_summary_off">Forced auto captions are enabled.</string>
     <string name="revanced_disable_auto_captions_summary_on">Forced auto captions are disabled.</string>
     <string name="revanced_disable_auto_captions_title">Disable forced auto captions</string>
@@ -1773,6 +1773,9 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_overlay_buttons_max_landscape_title">Max buttons in landscape</string>
     <string name="revanced_overlay_buttons_max_portrait_summary">Maximum number of overlay buttons to show in portrait mode (excluding Fullscreen button). Enter 0 to hide all.</string>
     <string name="revanced_overlay_buttons_max_portrait_title">Max buttons in portrait</string>
+    <string name="revanced_override_play_next_in_queue_summary_off">Play next in queue uses YouTube's native queue.</string>
+    <string name="revanced_override_play_next_in_queue_summary_on">Play next in queue opens the RVX queue manager.</string>
+    <string name="revanced_override_play_next_in_queue_title">Override Play next in queue</string>
     <string name="revanced_override_playlist_download_button_summary_off">Native playlist download button, if shown, opens the native in-app downloader.</string>
     <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button is always shown, and in public playlists, it opens your external downloader.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Native playlist download button, if shown, opens your external downloader.
@@ -1783,9 +1786,6 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
 
 To show the native playlist download button, turn on \'Spoof app version\' and change \'Spoof app version target\' to \'19.28.42\' or earlier."</string>
     <string name="revanced_override_playlist_download_button_title">Override playlist download button</string>
-    <string name="revanced_override_play_next_in_queue_summary_off">Play next in queue uses YouTube's native queue.</string>
-    <string name="revanced_override_play_next_in_queue_summary_on">Play next in queue opens the RVX queue manager.</string>
-    <string name="revanced_override_play_next_in_queue_title">Override Play next in queue</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_off">Native video download button opens your external downloader.</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Native video download button opens the queue manager.</string>
     <string name="revanced_override_video_download_button_queue_manager_title">Queue manager</string>
@@ -2455,10 +2455,6 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_show_toolbar_settings_button_summary_off">Settings button is not shown in the toolbar.</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">Settings button is shown in the toolbar.</string>
     <string name="revanced_show_toolbar_settings_button_title">Show Settings in toolbar</string>
-    <string name="revanced_show_toolbar_settings_button_type_summary_off">"Tap to open YouTube settings.
-Tap and hold to open RVX settings."</string>
-    <string name="revanced_show_toolbar_settings_button_type_summary_on">"Tap to open RVX settings.
-Tap and hold to open YouTube settings."</string>
     <string name="revanced_show_toolbar_settings_button_type_title">Settings button action</string>
     <string name="revanced_show_video_title_section_summary">"Shows the video title section in fullscreen.
 

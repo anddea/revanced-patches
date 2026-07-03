@@ -28,6 +28,7 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
     <string name="morphe_force_original_audio_summary_off">İlkin səs istifadəsi</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal səs dilini faydalanmaq</string>
     <string name="morphe_force_original_audio_title">Orijinal səs dilini zorla</string>
+    <string name="morphe_hide_sync_button_title">\"Videoya sinxronizasiya et\" düyməsin gizlət</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR-a daxil olmaq olmur: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR-a daxil olmaq olmur, veb sayt təsdiqlənməsi qəbul edilməyib</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 keçici olaraq əlçatan deyil</string>
@@ -150,6 +151,11 @@ DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Orta</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Bitmə</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Durğun kadrın götürüləcəyi video müddəti</string>
+    <string name="revanced_auto_captions_style_entry_1">Həmişə göstər</string>
+    <string name="revanced_auto_captions_style_entry_2">Heç vaxt göstərilmir</string>
+    <string name="revanced_auto_captions_style_entry_3">Səsli olduqda göstər</string>
+    <string name="revanced_auto_captions_style_entry_4">Sessiz halda göstər</string>
+    <string name="revanced_auto_captions_style_title">Avtomatik titrlərin görünüşü</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ambient rejimi məhdudiyyətlərini yan keç</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"Orijinal şəkil təminatçısın işlətmə
 
@@ -219,7 +225,7 @@ Avtomobil tərtibatı
     <string name="revanced_debug_logs_none_found">Qeydlər tapılmadı</string>
     <string name="revanced_debug_protobuffer_summary_off">Sazlama jurnallarına protokol buferi daxil deyil</string>
     <string name="revanced_debug_protobuffer_summary_on">Sazlama jurnallarına protokol buferi daxildir</string>
-    <string name="revanced_debug_protobuffer_title">Sazlanma qeydi protokol buferi</string>
+    <string name="revanced_debug_protobuffer_title">Bufer protokol sazlanma jurnalı</string>
     <string name="revanced_debug_summary_off">Sazlama jurnalı qeyri-aktivdir</string>
     <string name="revanced_debug_summary_on">Sazlama jurnalı işləkdir</string>
     <string name="revanced_debug_title">Sazlama jurnalı</string>
@@ -301,6 +307,7 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_fix_transcript_summary_on">Transkript əlçatandır</string>
     <string name="revanced_fix_transcript_title">Transkripti düzəlt</string>
     <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamları bağlandı.</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Filtrləmək üçün Kitabxana / Siz alt menyu adlarını yeni sətirlərlə ayrılmış şəkildə qeyd et</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Kitabxananı / Aşağı menyu filtriniz</string>
     <string name="revanced_hide_account_menu_title">Kitabxananı / Aşağı menyu filtrinizi aktivləşdirin</string>
     <string name="revanced_hide_action_bar_title">Fəaliyyət tabelin gizlət</string>
@@ -429,23 +436,24 @@ Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
     <string name="revanced_hide_key_concepts_section_summary_off">Əsas konseptlər bölməsi görünür</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Əsas konseptlər bölməsi gizlidir</string>
     <string name="revanced_hide_key_concepts_section_title">\'Əsas konseptlər\' bölməsini gizlət</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Ev/Abunəlik/Axtarış nəticələri açar söz ifadələrinə uyğun olan məzmunu gizlətmək üçün çeşidlənir
+    <string name="revanced_hide_keyword_content_about_summary">"Ev / Abunəliklər / Axtarış / Şərhlər açar söz ifadələrinə uyğun məzmunu gizlətmək üçün filtrlənir
 
-Məhdudiyyətlər
-• Shorts-lar kanal adı ilə gizlənə bilməz
-• Bəzi UI hissəcikləri gizlənə bilməz
-• Açar söz axtarma nəticə verməyə bilər"</string>
+Məhdudiyyətlər:
+• Shorts kanal adına görə gizlədilə bilməz
+• Bəzi UI elementləri gizlədilməyə bilər
+• Açar söz axtarışı heç bir nəticə göstərməyə bilər"</string>
     <string name="revanced_hide_keyword_content_about_title">Açar söz filtrləməsi haqqında</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Açar söz/frazanın qoşa dırnaqlarla əhatə olunması video adları və kanal adlarının qismən uyğunlaşmasına mane olacaq &lt;br&gt;&lt;br&gt;Məsələn,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; videonu gizlədəcək:&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt; lakin gizlətməyəcək: Düzgün;&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Bütün sözləri uyğunlaşdır</string>
+    <string name="revanced_hide_keyword_content_comments_title">Şərhləri açar sözlərə görə gizlət</string>
     <string name="revanced_hide_keyword_content_home_summary_off">Ev bölməsindəki videolar açar sözlərlə filtrlənmir</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Ev bölməsindəki videolar açar sözlərlə filtrlənir</string>
     <string name="revanced_hide_keyword_content_home_title">Ev videolarını açar sözlərə görə gizlət</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"Yeni sətirlərlə ayrılan, gizlədiləcək açar sözlər və ifadələr
+    <string name="revanced_hide_keyword_content_phrases_summary">"Gizlətmək üçün açar sözlər və ifadələri yeni sətirlərlə ayrılmış şəkildə qeyd et
 
-Açar sözlər kanal adları və ya video adlarında göstərilən istənilən mətn ola bilər.
+Açar sözlər video başlıqlarında və ya kanal adlarında görünən hər hansı mətn ola bilər
 
-Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, TikTok, LeBlanc)"</string>
+Ortada böyük hərflər olan sözlər tam uyğunlaşmalıdır (məsələn: iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Gizlədiləcək açar sözlər</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Axtarış nəticələri açar sözlərə görə çeşidlənmir</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Axtarış nəticələri açar sözlərə görə çeşidlənir</string>
@@ -490,7 +498,7 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_notify_me_button_title">\"Mənə bildir\" düyməsini gizlət</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi göstərilir</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib</string>
-    <string name="revanced_hide_paid_promotion_label_title">Ödənişli tanıtım etiketini gizlət</string>
+    <string name="revanced_hide_paid_promotion_label_title">\"Ödənişli tanıtım daxildir\" etiketini gizlət</string>
     <string name="revanced_hide_playables_summary_off">Oynadılanlar göstərilir</string>
     <string name="revanced_hide_playables_summary_on">Oynadılanlar gizlidir</string>
     <string name="revanced_hide_playables_title">Oynadılan elementləri gizlət</string>
@@ -676,9 +684,7 @@ Ortada böyük hərflli sözlər belə yerləşdirilməlidir (yəni: iPhone, Tik
     <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles animasiyası simvolda görünür</string>
     <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodles animasiyası simvolda gizlidir</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodle-ları gizlət</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles hər il dünyanın müxtəlif yerlərində bir neçə gün görünür.
-
-YouTube Doodles görünməsi xüsusi sərlövhələrin göstərilməsinə mane ola bilər."</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">YouTube Doodles-ların görünməsi fərdi sərlövhələrin görünməsinin qarşısını ala bilər.</string>
     <string name="revanced_language_DEFAULT">Tətbiq dili</string>
     <string name="revanced_language_title">ReVanced dili</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə yoxdur</string>
@@ -780,6 +786,7 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünməyə bilər"</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API əlçatan deyilsə ani bildiriş göstər</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sahib tərəfindən gizlədilib</string>
     <string name="revanced_sanitize_comments_category_bar_title">Kateqoriya tabelin təmizlə</string>
+    <string name="revanced_sanitize_video_subtitle_title">Video titrin təmizlə</string>
     <string name="revanced_sb_api_url_changed">API URL dəyişdirildi</string>
     <string name="revanced_sb_api_url_invalid">API URL etibarsızdır</string>
     <string name="revanced_sb_api_url_reset">API URL sıfırlaması</string>
@@ -1022,6 +1029,9 @@ Artıq mövcuddur"</string>
     <string name="revanced_show_settings_button_index_title">Ayarlar düyməsi mövqeyi</string>
     <string name="revanced_show_settings_button_title">Ayarlar düyməsini göstər</string>
     <string name="revanced_show_settings_button_type_title">Ayarlar düyməsi fəaliyyəti</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Ayarlar düyməsi mövqeyi</string>
+    <string name="revanced_show_toolbar_settings_button_title">Ayarlar düyməsini göstər</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Ayarlar düyməsi fəaliyyəti</string>
     <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>
     <string name="revanced_spoof_app_version_summary_on">Versiya saxtalaşdırıldı</string>
     <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
@@ -1083,4 +1093,9 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
     <string name="revanced_switch_create_with_notifications_button_summary_on">Yarat düyməsi Bildirişlər düyməsi ilə əvəz edilib</string>
     <string name="revanced_switch_create_with_notifications_button_title">\"Yarat\"ı \"Bildirişlər\" ilə dəyişdir</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Bu ayarı dəyişdirmək təsir etmirsə, Gizli rejimə keçməyə cəhd edin.</string>
+    <string name="revanced_vot_enabled_title">Səs üstələyici tərcümə</string>
+    <string name="revanced_vot_original_audio_volume_summary">Tərcümə səslənərkən orijinal YouTube səsinin səviyyəsi</string>
+    <string name="revanced_vot_original_audio_volume_title">Orijinal səs səviyyəsi</string>
+    <string name="revanced_vot_translation_volume_summary">Dublyaj olunmuş tərcümə səsinin səviyyəsi</string>
+    <string name="revanced_vot_translation_volume_title">Tərcümə səs səviyyəsi</string>
 </resources>

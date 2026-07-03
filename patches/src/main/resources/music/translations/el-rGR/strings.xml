@@ -17,6 +17,21 @@
     <string name="gms_core_settings_summary">Για να λαμβάνετε ειδοποιήσεις στο RVX Music, ενεργοποιήστε τις ρυθμίσεις Cloud Messaging.</string>
     <string name="gms_core_settings_title">Άνοιγμα ρυθμίσεων του MicroG GmsCore</string>
     <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν είναι εγκατεστημένο. Εγκαταστήστε το.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_1000ms">1 δευτερόλεπτο</string>
+    <string name="morphe_crossfade_duration_11000ms">11 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_12000ms">12 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_2000ms">2 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_250ms">250 χιλιοστά δευτερολέπτου</string>
+    <string name="morphe_crossfade_duration_3000ms">3 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_4000ms">4 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_5000ms">5 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_500ms">500 χιλιοστά δευτερολέπτου</string>
+    <string name="morphe_crossfade_duration_6000ms">6 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_7000ms">7 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_750ms">750 χιλιοστά δευτερολέπτου</string>
+    <string name="morphe_crossfade_duration_8000ms">8 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_9000ms">9 δευτερόλεπτα</string>
     <string name="morphe_disable_drc_audio_summary_off">Ο ήχος DRC είναι ενεργοποιημένος</string>
     <string name="morphe_disable_drc_audio_summary_on">Ο ήχος DRC είναι απενεργοποιημένος</string>
     <string name="morphe_disable_drc_audio_title">Απενεργοποίηση ήχου DRC</string>
@@ -27,6 +42,53 @@
     <string name="morphe_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
     <string name="morphe_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
     <string name="morphe_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
+    <string name="morphe_music_crossfade_about_best_summary">Κανονική αναπαραγωγή τραγουδιού, αυτόματη μετάβαση, επανάληψη ενός τραγουδιού (το τραγούδι διαβαθμίζεται στον εαυτό του) και τοπικό ήχο — ηχείο τηλεφώνου, ενσύρματα ακουστικά, Bluetooth ή USB.</string>
+    <string name="morphe_music_crossfade_about_best_title">Λειτουργεί καλύτερα με</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Λειτουργία Crossfade από τον VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Εύσημα</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Η διαβάθμιση επικαλύπτει το τέλος ενός τραγουδιού με την αρχή του επόμενου, μειώνοντας σταδιακά την ένταση του πρώτου καθώς αυξάνεται η ένταση του δεύτερου, ανάλογα με τη διάρκεια και την καμπύλη που έχετε επιλέξει.
+
+Λειτουργεί με αυτόματη μετάβαση (όταν ένα τραγούδι τελειώνει μόνο του) και με χειροκίνητη παράλειψη — κάθε λειτουργία έχει το δικό της διακόπτη παραπάνω. Στην αυτόματη μετάβαση, η ανάμειξη ξεκινά λίγα δευτερόλεπτα πριν το τέλος του τραγουδιού.
+
+Απαιτείται YouTube Music 9.x ή νεότερη έκδοση."</string>
+    <string name="morphe_music_crossfade_about_how_title">Πώς λειτουργεί</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Ένα μουσικό βίντεο που έχει οριστεί ως το πρώτο τραγούδι — ή ένα που ξεκίνησε από έξω από την τρέχουσα λίστα αναπαραγώγησης — ενδέχεται να εμφανιστεί στιγμιαία ως βίντεο πριν ενεργοποιηθεί η λειτουργία αναπαραγωγής μόνο ήχου.
+
+Η παύση του crossfade για να παρακολουθήσετε ένα μουσικό βίντεο μπορεί να αφήσει ορισμένα βίντεο μαύρα (αυτά των οποίων ο ήχος προέρχεται από το ίδιο το βίντεο). Η παύση του crossfade πριν επιλέξετε το τραγούδι το αποφεύγει."</string>
+    <string name="morphe_music_crossfade_about_known_title">Γνωστά προβλήματα</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Τα μουσικά βίντεο παίζουν μόνο ήχο κατά τη διάρκεια του crossfade (πατήστε παρατεταμένα το κουμπί ανακατέματος για να κάνετε παύση αν θέλετε να δείτε το βίντεο).
+
+Τραγούδια με διάρκεια μικρότερη από τη διάρκεια του crossfade ενδέχεται να παραλείψουν το crossfade.
+
+Η κλειδωμένη οθόνη ή η ειδοποίηση ενδέχεται να δείξουν στιγμιαία την προηγούμενη κατάσταση κατά τη μετάβαση."</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Δεν λειτουργεί απολύτως σωστά</string>
+    <string name="morphe_music_crossfade_about_summary">Πώς λειτουργεί η διαβάθμιση — και πότε δεν λειτουργεί</string>
+    <string name="morphe_music_crossfade_about_title">Πληροφορίες</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Μετάδοση ή κατοπτρισμός ήχου (Chromecast, κατοπτρισμός οθόνης ή ήχου) — το crossfade κάνει παύση επειδή είναι ασταθές εκεί και ενδέχεται να μην διορθωθεί ποτέ.
+
+YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκδόσεις 9.x και νεότερες"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Δεν λειτουργεί καθόλου</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Η διαβάθμιση παύεται κατά τη διάρκεια μετάδοσης ή αναπαραγωγής ήχου. Η διαβάθμιση κατά τη διάρκεια μετάδοσης/αναπαραγωγής είναι ασταθής και ενδέχεται να μην είναι ποτέ διορθώσιμη.</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Απαλή καθυστέρηση</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Ήπια ευκολία</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Ίση ισχύς</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Ομαλή S-καμπύλη</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Εισερχόμενη</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Εξερχόμενη</string>
+    <string name="morphe_music_crossfade_curve_title">Κάμπυλα εξασθένισης</string>
+    <string name="morphe_music_crossfade_duration_title">Διάρκεια εξασθένισης</string>
+    <string name="morphe_music_crossfade_enabled_title">Ενεργοποιήστε τη διασύνδεση</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Εφαρμόζει το εφέ crossfade όταν ένα κομμάτι τελειώνει φυσικά</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Εξασθένιση κατά την αυτόματη αναπαραγωγή</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Εφαρμόζει το εφέ crossfade όταν παραλείπετε χειροκίνητα το επόμενο κομμάτι</string>
+    <string name="morphe_music_crossfade_on_skip_title">Εξασθένιση κατά τη χειροκίνητη παράλειψη</string>
+    <string name="morphe_music_crossfade_paused_toast">Διακοπή της σταδιακής μετάβασης ήχου για αυτήν την περίοδο λειτουργίας</string>
+    <string name="morphe_music_crossfade_resumed_toast">Συνέχιση της σταδιακής μετάβασης ήχου</string>
+    <string name="morphe_music_crossfade_screen_summary">Εναρμόνιση κομματιών μεταξύ τους</string>
+    <string name="morphe_music_crossfade_screen_title">Διασύνδεση</string>
+    <string name="morphe_music_crossfade_session_control_summary">Πατήστε παρατεταμένα το κουμπί ανακατέματος για να παύσετε ή να συνεχίσετε το crossfade</string>
+    <string name="morphe_music_crossfade_session_control_title">Έλεγχος συνεδρίας</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Η λειτουργία βίντεο δεν είναι διαθέσιμη όταν είναι ενεργοποιημένη η σταδιακή μετάβαση ήχου</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Δεν είναι δυνατή η σύνδεση στο VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Δεν είναι δυνατή η είσοδος στο VR, η ταυτοποίηση δεν εγκρίθηκε</string>
     <string name="morphe_oauth2_connection_failure_generic">Το OAuth2 είναι προσωρινά μη διαθέσιμο</string>
@@ -157,8 +219,8 @@
 Χρησιμοποιείστε σκούρα χρώματα αν είναι δυνατόν, καθώς η εφαρμογή δεν υποστηρίζει φωτεινά θέματα."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Δευτερεύον χρώμα φόντου οθόνης αναπαραγωγής</string>
     <string name="revanced_custom_player_background_invalid_toast">Μη έγκυρο χρώμα φόντου οθόνης αναπαραγωγής.</string>
-    <string name="revanced_debug_protobuffer_summary">Συμπερίληψη του buffer πρωτοκόλλου στο αρχείο καταγραφής σφαλμάτων.</string>
-    <string name="revanced_debug_protobuffer_title">Καταγραφή του buffer πρωτοκόλλου</string>
+    <string name="revanced_debug_protobuffer_summary">Προσθέτει επιπλέον πληροφορίες καταγραφής για τους προγραμματιστές για να εντοπίσουν τα στοιχεία της εφαρμογής</string>
+    <string name="revanced_debug_protobuffer_title">Καταγραφή buffer πρωτοκόλλου</string>
     <string name="revanced_debug_spannable_summary">Συμπερίληψη μορφοποιημένου κειμένου στο αρχείο καταγραφής σφαλμάτων.</string>
     <string name="revanced_debug_spannable_title">Καταγραφή με μορφοποιήσεις κειμένου</string>
     <string name="revanced_debug_summary">Εκτύπωση του αρχείου καταγραφής σφαλμάτων.</string>

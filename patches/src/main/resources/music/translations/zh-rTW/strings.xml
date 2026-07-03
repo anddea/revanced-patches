@@ -17,6 +17,21 @@
     <string name="gms_core_settings_summary">打開GmsCore 設定，並啟用雲端訊息已接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
     <string name="gms_core_toast_not_installed_message">GmsCore未安裝，請安裝。</string>
+    <string name="morphe_crossfade_duration_10000ms">10 秒</string>
+    <string name="morphe_crossfade_duration_1000ms">1 秒</string>
+    <string name="morphe_crossfade_duration_11000ms">11 秒</string>
+    <string name="morphe_crossfade_duration_12000ms">12 秒</string>
+    <string name="morphe_crossfade_duration_2000ms">2 秒</string>
+    <string name="morphe_crossfade_duration_250ms">250 毫秒</string>
+    <string name="morphe_crossfade_duration_3000ms">3 秒</string>
+    <string name="morphe_crossfade_duration_4000ms">4 秒</string>
+    <string name="morphe_crossfade_duration_5000ms">5 秒</string>
+    <string name="morphe_crossfade_duration_500ms">500 毫秒</string>
+    <string name="morphe_crossfade_duration_6000ms">6 秒</string>
+    <string name="morphe_crossfade_duration_7000ms">7 秒</string>
+    <string name="morphe_crossfade_duration_750ms">750 毫秒</string>
+    <string name="morphe_crossfade_duration_8000ms">8 秒</string>
+    <string name="morphe_crossfade_duration_9000ms">9 秒</string>
     <string name="morphe_disable_drc_audio_summary_off">已啟用 DRC 音效</string>
     <string name="morphe_disable_drc_audio_summary_on">已停用 DRC 音效</string>
     <string name="morphe_disable_drc_audio_title">停用 DRC 音效</string>
@@ -27,6 +42,53 @@
     <string name="morphe_force_original_audio_summary_off">使用預設音訊</string>
     <string name="morphe_force_original_audio_summary_on">正在使用原始音訊語言</string>
     <string name="morphe_force_original_audio_title">強制使用原始音訊語言</string>
+    <string name="morphe_music_crossfade_about_best_summary">正常的歌曲播放和自動進階、單曲循環（歌曲會淡入淡出自身）、以及本地音頻 — 手機揚聲器、有線耳機、藍牙或 USB。</string>
+    <string name="morphe_music_crossfade_about_best_title">最適合</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Crossfade 功能由 VazerOG 提供</string>
+    <string name="morphe_music_crossfade_about_credit_title">鳴謝</string>
+    <string name="morphe_music_crossfade_about_how_summary">"淡入淡出功能會將一首歌的結尾與下一首歌的開頭重疊，在您選擇的時長和曲線之上，逐漸降低一首歌的音量，同時逐漸提高另一首歌的音量。
+
+它在自動進階（歌曲自行結束時）和手動跳過時運作 — 上方各有自己的切換開關。在自動進階時，淡入淡出效果會在歌曲結束前幾秒開始。
+
+需要 YouTube Music 9.x 或更新版本。"</string>
+    <string name="morphe_music_crossfade_about_how_title">運作方式</string>
+    <string name="morphe_music_crossfade_about_known_summary">"將音樂影片設定為第一首歌曲，或從目前佇列外部啟動的音樂影片，可能會在僅播放音訊模式開始前短暫顯示影片
+
+暫停淡出效果以觀看音樂影片可能會導致部分影片畫面變黑（那些音訊來自影片本身的影片）。在選擇歌曲之前暫停淡出效果可以避免此情況"</string>
+    <string name="morphe_music_crossfade_about_known_title">已知問題</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"播放音樂影片時，僅播放音訊（如果您想暫停影片，請長按隨機播放按鈕）
+
+低於淡出時長的歌曲可能會跳過淡出效果
+
+鎖定畫面或通知可能會短暫顯示過時的狀態，尤其是在轉換過程中"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">運作不太順暢</string>
+    <string name="morphe_music_crossfade_about_summary">淡入淡出功能如何運作 — 以及何時無法運作</string>
+    <string name="morphe_music_crossfade_about_title">關於</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"串流或鏡像音訊（Chromecast、螢幕或音訊鏡像）—淡出效果會暫停，因為在那裡並不穩定，而且可能無法修正。
+
+YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">完全無法運作</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">在投放或鏡像音頻時，淡入淡出功能已暫停。在投放/鏡像上使用淡入淡出功能不穩定，可能無法修復。</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">微妙延遲</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">柔和過渡</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">等功率</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">平滑S曲線</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">內寄</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">外寄</string>
+    <string name="morphe_music_crossfade_curve_title">淡出曲線</string>
+    <string name="morphe_music_crossfade_duration_title">淡出持續時間</string>
+    <string name="morphe_music_crossfade_enabled_title">啟用漸色混合</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">曲目自然結束時適用淡入淡出效果</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">自動循環時淡出</string>
+    <string name="morphe_music_crossfade_on_skip_summary">手動跳到下一首曲目時適用淡入淡出效果</string>
+    <string name="morphe_music_crossfade_on_skip_title">手動跳過時淡出</string>
+    <string name="morphe_music_crossfade_paused_toast">已暂停此會話的淡入淡出效果</string>
+    <string name="morphe_music_crossfade_resumed_toast">淡入淡出效果已恢復</string>
+    <string name="morphe_music_crossfade_screen_summary">將音軌平滑地混合在一起</string>
+    <string name="morphe_music_crossfade_screen_title">漸色混合</string>
+    <string name="morphe_music_crossfade_session_control_summary">長按洗牌按鈕以暫停或恢復淡入淡出效果</string>
+    <string name="morphe_music_crossfade_session_control_title">工作階段控制</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">啟用淡入淡出效果時，視訊模式不可用</string>
     <string name="morphe_oauth2_connection_failure_auth_error">無法登入 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">無法登入 VR，網站驗證未獲批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暫時不可用</string>
@@ -157,8 +219,8 @@
 如果可以，請使用深色，因為該應用程式不支援淺色主題。"</string>
     <string name="revanced_custom_player_background_color_secondary_title">播放器背景顏色</string>
     <string name="revanced_custom_player_background_invalid_toast">播放器背景顏色無效。</string>
-    <string name="revanced_debug_protobuffer_summary">在偵錯紀錄中包含原始緩衝區。</string>
-    <string name="revanced_debug_protobuffer_title">記錄檔協議緩衝區</string>
+    <string name="revanced_debug_protobuffer_summary">為開發者新增額外的記錄資訊，以便識別應用程式元件</string>
+    <string name="revanced_debug_protobuffer_title">偵錯日誌協定緩衝區</string>
     <string name="revanced_debug_spannable_summary">在偵錯紀錄中包含緩衝區。</string>
     <string name="revanced_debug_spannable_title">紀錄可擴充</string>
     <string name="revanced_debug_summary">列出偵錯紀錄。</string>

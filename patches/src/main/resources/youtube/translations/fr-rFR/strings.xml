@@ -178,6 +178,11 @@ Appuyez longuement pour modifier le type d'information ajouté."</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">L\'ancien style du menu déroulant est utilisé.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">La boîte de dialogue personnalisée est utilisée.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Type de menu de qualité vidéo</string>
+    <string name="revanced_auto_captions_style_entry_1">Toujours afficher</string>
+    <string name="revanced_auto_captions_style_entry_2">Ne jamais afficher</string>
+    <string name="revanced_auto_captions_style_entry_3">Afficher quand non coupé</string>
+    <string name="revanced_auto_captions_style_entry_4">Afficher quand coupé</string>
+    <string name="revanced_auto_captions_style_title">Visibilité des sous-titres automatiques</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Les restrictions d’économie d’énergie du mode Ambiant ne sont pas contournées</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Les restrictions d’économie d’énergie du mode Ambiant sont contournées</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Contourner les restrictions du mode Ambiant</string>
@@ -918,10 +923,10 @@ Limitation : certains liens de recherche mis en surbrillance qui n'ont pas de st
 
 Limitations :
 • Les Shorts ne peuvent pas être masqués par le nom de la chaîne
-• Certains composants de l’interface peuvent ne pas être masqués
-• La recherche d’un mot-clé peut n'afficher aucun résultat"</string>
+• Certains composants de l'interface peuvent ne pas être masqués
+• La recherche d'un mot-clé peut n'afficher aucun résultat"</string>
     <string name="revanced_hide_keyword_content_about_title">À propos du filtrage par mot-clé</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">Mettre un mot-clé ou une expression entre guillemets permet d’éviter les correspondances partielles avec le titre des vidéos et le nom des chaîne&lt;br&gt;&lt;br&gt;Par exemple,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; masquera la vidéo : &lt;b&gt;Comment fonctionnent les IA ?&lt;/b&gt;&lt;br&gt;mais ne masquera pas : &lt;b&gt;Quelles études pour devenir commercial ?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Mettre un mot-clé ou une expression entre guillemets permet d\'éviter les correspondances partielles avec le titre des vidéos et les noms de chaîne&lt;br&gt;&lt;br&gt;Par exemple,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; masquera la vidéo : &lt;b&gt;Comment fonctionnent les IA ?&lt;/b&gt;&lt;br&gt;mais ne masquera pas : &lt;b&gt;Quelles études pour devenir commercial ?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Correspondance aux mots entiers</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Les commentaires ne sont pas filtrés.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Les commentaires sont filtrés.</string>
@@ -1879,14 +1884,14 @@ Pour afficher le bouton de téléchargement de playlist natif, activez l'option 
     <string name="revanced_queue_manager_fetch_succeeded_create">File d\'attente créée</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">File d\'attente supprimée avec succès.</string>
     <string name="revanced_queue_manager_fetch_succeeded_remove">Supprimé de la file d\'attente</string>
-    <string name="revanced_queue_manager_fetch_succeeded_save">File d’attente enregistrée dans %s</string>
+    <string name="revanced_queue_manager_fetch_succeeded_save">File d\'attente enregistrée dans %s</string>
     <string name="revanced_queue_manager_open_queue">Ouvrir la file d\'attente</string>
     <string name="revanced_queue_manager_queue">File d\'attente</string>
     <string name="revanced_queue_manager_remove_from_queue">Supprimer de la file d\'attente</string>
     <string name="revanced_queue_manager_remove_from_queue_and_open_queue">Supprimer et ouvrir la file d\'attente</string>
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Supprimer et recharger la vidéo</string>
     <string name="revanced_queue_manager_remove_queue">Retirer de la file d\'attente</string>
-    <string name="revanced_queue_manager_save_queue">Enregistrer la file d’attente dans une playlist</string>
+    <string name="revanced_queue_manager_save_queue">Enregistrer la file d\'attente dans une playlist</string>
     <string name="revanced_queue_manager_show_original_video_information">Afficher les informations de la vidéo originale</string>
     <string name="revanced_queue_manager_user_dialog_message">"Au lieu d’ouvrir un téléchargeur externe, ouvrez la boîte de dialogue du gestionnaire de file d’attente.
 
@@ -1956,7 +1961,7 @@ Info :
     <string name="revanced_remember_video_quality_toast_shorts">Qualité des Shorts %1$s modifiée en : %2$s.</string>
     <string name="revanced_remember_video_quality_wifi">wifi</string>
     <string name="revanced_remix_button_index_title">Index du bouton \'Remix\'</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">Cela ne contourne pas la restriction d’âge. Elle est simplement acceptée automatiquement</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">Cela ne contourne pas la restriction d\'âge. Elle est simplement acceptée automatiquement</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer le message \'Confirmer votre âge\'</string>
     <string name="revanced_replace_channel_handle_summary_off">L\'identifiant de la chaîne est utilisé.</string>
     <string name="revanced_replace_channel_handle_summary_on">Le nom de la chaîne est utilisé.</string>
@@ -2013,7 +2018,7 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Allez sur &lt;a href=%1$s&gt;Nouveau projet&lt;/a&gt;.&lt;br&gt;2. Cliquez sur le bouton &lt;b&gt; Créer&lt;/b&gt;.&lt;br&gt;3. Allez sur &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Cliquez sur le bouton &lt;b&gt;ACTIVER&lt;/b&gt;.&lt;br&gt;5. Cliquez sur le bouton &lt;b&gt;CRÉER DES IDENTIFIANTS&lt;/b&gt;.&lt;br&gt;6. Sélectionnez l\'option &lt;b&gt;Données Publiques&lt;/b&gt;.&lt;br&gt;7. Cliquez sur le bouton &lt;b&gt;SUIVANT&lt;/b&gt;.&lt;br&gt;8. Copiez la clé API.&lt;br&gt;&lt;br&gt;※ La clé API ne doit jamais être partagée avec d\'autres personnes, par conséquent, elle n\'est pas incluse dans les paramètres Importer / Exporter.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Obtenir une clé développeur pour YouTube Data API v3</string>
     <string name="revanced_ryd_about">À propos</string>
-    <string name="revanced_ryd_attribution_summary">"Les données sont fournies par l’API Return YouTube Dislike.
+    <string name="revanced_ryd_attribution_summary">"Les données sont fournies par l'API Return YouTube Dislike.
 
 Appuyez ici pour ouvrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -2051,7 +2056,7 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_sanitize_comments_category_bar_title">Nettoyer la barre de catégories</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Les phrases telles que '#', 'Financement' 'Magasin' et 'produits' seront affichés sur les sous-titres vidéos."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Les phrases telles que '#', 'Financement' 'Magasin' et 'produits' seront masqués sur les sous-titres vidéos."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Nettoyer les sous-titres vidéo</string>
+    <string name="revanced_sanitize_video_subtitle_title">Nettoyer les sous-titres de la vidéo</string>
     <string name="revanced_sb_about">À propos</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Cliquez ici pour en savoir plus et voir les téléchargements pour d\'autres plateformes.</string>
@@ -2411,6 +2416,9 @@ La plupart des erreurs ne peuvent pas être corrigées en raison des limitations
     <string name="revanced_show_settings_button_index_title">Position du bouton \'Paramètres\'</string>
     <string name="revanced_show_settings_button_title">Afficher un bouton \'Paramètres\'</string>
     <string name="revanced_show_settings_button_type_title">Action du bouton \'Paramètres\'</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Position du bouton \'Paramètres\'</string>
+    <string name="revanced_show_toolbar_settings_button_title">Afficher un bouton \'Paramètres\'</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Action du bouton \'Paramètres\'</string>
     <string name="revanced_show_video_title_section_summary">"Affiche la section du titre de la vidéo en plein écran.
 
 Limitation : Le titre de la vidéo disparaît lorsque vous cliquez dessus."</string>

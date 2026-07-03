@@ -17,6 +17,21 @@
     <string name="gms_core_settings_summary">Щоб отримувати сповіщення у RVX Music, увімкніть \"Хмарні повідомлення\".</string>
     <string name="gms_core_settings_title">Відкрити налаштування GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не встановлено. Встановіть.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 секунд</string>
+    <string name="morphe_crossfade_duration_1000ms">1 секунда</string>
+    <string name="morphe_crossfade_duration_11000ms">11 секунд</string>
+    <string name="morphe_crossfade_duration_12000ms">12 секунд</string>
+    <string name="morphe_crossfade_duration_2000ms">2 секунди</string>
+    <string name="morphe_crossfade_duration_250ms">250 мілісекунд</string>
+    <string name="morphe_crossfade_duration_3000ms">3 секунди</string>
+    <string name="morphe_crossfade_duration_4000ms">4 секунди</string>
+    <string name="morphe_crossfade_duration_5000ms">5 секунд</string>
+    <string name="morphe_crossfade_duration_500ms">500 мілісекунд</string>
+    <string name="morphe_crossfade_duration_6000ms">6 секунд</string>
+    <string name="morphe_crossfade_duration_7000ms">7 секунд</string>
+    <string name="morphe_crossfade_duration_750ms">750 мілісекунд</string>
+    <string name="morphe_crossfade_duration_8000ms">8 секунд</string>
+    <string name="morphe_crossfade_duration_9000ms">9 секунд</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудіо DRC увімкнено</string>
     <string name="morphe_disable_drc_audio_summary_on">Аудіо DRC вимкнено</string>
     <string name="morphe_disable_drc_audio_title">Вимкнути аудіо DRC</string>
@@ -27,6 +42,53 @@
     <string name="morphe_force_original_audio_summary_off">Використовується звукова доріжка за замовчуванням</string>
     <string name="morphe_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
     <string name="morphe_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
+    <string name="morphe_music_crossfade_about_best_summary">Звичайне відтворення треку за треком та автоперехід, повтор одного треку (трек плавно переходить сам у себе) і локальний звук — динамік телефону, дротові навушники, Bluetooth або USB.</string>
+    <string name="morphe_music_crossfade_about_best_title">Найкраще працює з</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Функція плавного переходу від VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Подяки</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Плавний перехід накладає кінець однієї пісні на початок наступної, поступово знижуючи звук однієї та підвищуючи звук іншої впродовж обраної тривалості та за обраною кривою.
+
+Він працює як при автоматичному переході (коли пісня завершується сама), так і при ручному перемиканні — для кожного є власний перемикач вище. При автоматичному переході змішування починається за кілька секунд до завершення пісні.
+
+Потребує YouTube Music 9.x або новішої версії."</string>
+    <string name="morphe_music_crossfade_about_how_title">Як це працює</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Музичне відео, встановлене першим треком — або запущене не з поточної черги — може на короткий час показуватися як відео, перш ніж увімкнеться режим лише аудіо
+
+Призупинення плавного переходу для перегляду музичного відео може залишити деякі відео чорними (ті, чий звук надходить із самого відео). Призупинення плавного переходу перед вибором треку допомагає уникнути цього"</string>
+    <string name="morphe_music_crossfade_about_known_title">Відомі проблеми</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Музичні відео відтворюються лише як аудіо, коли увімкнено плавний перехід (довге натискання на перемішування для призупинення, якщо потрібне відео)
+
+Треки коротші за тривалість переходу можуть пропускати перехід
+
+Екран блокування або сповіщення можуть короткочасно показувати застарілий стан під час переходу"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Працює не зовсім правильно</string>
+    <string name="morphe_music_crossfade_about_summary">Як працює плавний перехід — і коли він не працює</string>
+    <string name="morphe_music_crossfade_about_title">Інформація</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляція або дублювання звуку (Chromecast, дублювання екрана чи звуку) — плавний перехід призупиняється, оскільки він нестабільний у цьому випадку, і можливо, ніколи не бути виправленим
+
+YouTube Music 8.x — плавний перехід працює лише на версії 9.x і новіших"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Не працює взагалі</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Плавний перехід призупинено під час трансляції або дублювання звуку. Плавний перехід через трансляцію/дублювання нестабільний, і можливо, ніколи не бути виправленим</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Незначна затримка</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">М’яке згладжування</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Рівномірна потужність</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Плавна S-крива</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Вхідний</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Вихідний</string>
+    <string name="morphe_music_crossfade_curve_title">Крива згасання</string>
+    <string name="morphe_music_crossfade_duration_title">Тривалість плавного переходу</string>
+    <string name="morphe_music_crossfade_enabled_title">Увімкнути плавний перехід</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Застосовує плавний перехід після природного завершення треку</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Плавний перехід при автоматичному переході</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Застосовує плавний перехід при ручному перемиканні треку</string>
+    <string name="morphe_music_crossfade_on_skip_title">Плавний перехід при ручному перемиканні</string>
+    <string name="morphe_music_crossfade_paused_toast">Плавний перехід призупинено для цієї сесії</string>
+    <string name="morphe_music_crossfade_resumed_toast">Плавний перехід відновлено</string>
+    <string name="morphe_music_crossfade_screen_summary">Плавно зводити треки один в інший</string>
+    <string name="morphe_music_crossfade_screen_title">Плавний перехід</string>
+    <string name="morphe_music_crossfade_session_control_summary">Утримуйте кнопку перемішування, щоб призупинити або відновити плавний перехід</string>
+    <string name="morphe_music_crossfade_session_control_title">Керування сесією</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Режим відео недоступний, коли ввімкнено плавний перехід</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не вдається ввійти до VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не вдається ввійти у VR, автентифікацію вебсайту не схвалено</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 тимчасово недоступний</string>
@@ -157,8 +219,8 @@
 По можливості використовуйте темні кольори, оскільки застосунок не підтримує світлі теми."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Вторинний колір фону плеєра</string>
     <string name="revanced_custom_player_background_invalid_toast">Недійсний колір фону плеєра.</string>
-    <string name="revanced_debug_protobuffer_summary">Включає протобуфер в журналу налагодження.</string>
-    <string name="revanced_debug_protobuffer_title">Журнал протоколу буфера</string>
+    <string name="revanced_debug_protobuffer_summary">Додає додаткову інформацію в журнал для розробників для ідентифікації компонентів застосунку</string>
+    <string name="revanced_debug_protobuffer_title">Налагоджувальний журнал протоколу буфера</string>
     <string name="revanced_debug_spannable_summary">Включає охоплення журналу налагодження.</string>
     <string name="revanced_debug_spannable_title">Охоплення журналу</string>
     <string name="revanced_debug_summary">Виводить журнал налагодження.</string>

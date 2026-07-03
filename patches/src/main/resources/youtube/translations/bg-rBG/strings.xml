@@ -161,6 +161,11 @@
     <string name="revanced_append_time_stamp_information_type_summary_off">Индикатор за скорост на възпроизвеждане.</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Индикатор за качество на видеото.</string>
     <string name="revanced_append_time_stamp_information_type_title">Добавете тип информация</string>
+    <string name="revanced_auto_captions_style_entry_1">Запазва навигационната лента видима, докато превъртате</string>
+    <string name="revanced_auto_captions_style_entry_2">Никога не показвай</string>
+    <string name="revanced_auto_captions_style_entry_3">Прави лентата на състоянието напълно непрозрачна</string>
+    <string name="revanced_auto_captions_style_entry_4">Показване при мълчание</string>
+    <string name="revanced_auto_captions_style_title">Видимост на автоматични надписи</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ограниченията на режима Ambient за енергосparing не са преодоляни</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Ограниченията на режима Ambient за енергосparing са преодоляни</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Избягване на ограниченията за режим на окружение</string>
@@ -260,7 +265,7 @@
     <string name="revanced_debug_logs_none_found">Не са намерени логове</string>
     <string name="revanced_debug_protobuffer_summary_off">Файлове с дневници за грешки не включват протоколни буфери</string>
     <string name="revanced_debug_protobuffer_summary_on">Файлове с дневници за грешки включват протоколни буфери</string>
-    <string name="revanced_debug_protobuffer_title">Протоколен буфер за отстраняване на грешки</string>
+    <string name="revanced_debug_protobuffer_title">Буфер на протокола за дневника</string>
     <string name="revanced_debug_summary_off">Дневникът за остраняване на грешки е деактивиран</string>
     <string name="revanced_debug_summary_on">Дневникът за остраняване на грешки е активиран</string>
     <string name="revanced_debug_title">Дневник на отстраняването на грешки</string>
@@ -1638,7 +1643,7 @@
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Отидете на &lt;a href=%1$s&gt;Създаване на нов проект&lt;/a&gt;.&lt;br&gt;2. Щракнете върху &lt;b&gt;СЪЗДАВАНЕ&lt;/b&gt; бутон.&lt;br&gt;3. Отидете на &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Щракнете върху &lt;b&gt;АКТИВИРАНЕ&lt;/b&gt; бутон.&lt;br&gt;5. Щракнете върху &lt;b&gt;СЪЗДАВАНЕ НА ИДЕНТИФИКАЦИИ&lt;/b&gt; бутон.&lt;br&gt;6. Изберете &lt;b&gt;Публични данни&lt;/b&gt; опция.&lt;br&gt;7. Щракнете върху &lt;b&gt;СЛЕДВАЩИЯ&lt;/b&gt; бутон.&lt;br&gt;8. Копирайте API ключа.&lt;br&gt;&lt;br&gt;※ API ключът никога не трябва да се споделя с други, така че не е включен в настройките за импортиране/експортиране.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Издаване на ключ за разработчици на YouTube Data API v3</string>
     <string name="revanced_ryd_about">За програмата</string>
-    <string name="revanced_ryd_attribution_summary">"Данните са предоставени от Return YouTube Dislike API.
+    <string name="revanced_ryd_attribution_summary">"Данните са предоставени от Return YouTube Dislike API
 
 Натиснете тук, за да отворите ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1675,7 +1680,7 @@
     <string name="revanced_sanitize_comments_category_bar_title">Почистване на лентата с категории</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Фрази като „#“, „Набиране на средства“, „Пазаруване“ и „продукти“ бяха показани от субтитрите на видеоклипа."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Фрази като „#“, „Набиране на средства“, „Пазаруване“ и „продукти“ бяха скрити от субтитрите на видеоклипа."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Филтриране на фрази в субтитрите</string>
+    <string name="revanced_sanitize_video_subtitle_title">Почистване на субтитрите на видео</string>
     <string name="revanced_sb_about">Относно</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Данните са предоставени от SponsorBlock API. Докоснете тук за повече информация и изтеглияния.</string>
@@ -1977,6 +1982,9 @@
     <string name="revanced_show_settings_button_index_title">Скрий менюто „Помощ и обратна връзка“</string>
     <string name="revanced_show_settings_button_title">Скрий менюто „Стабилна сила на звука“</string>
     <string name="revanced_show_settings_button_type_title">Действие на бутона за Настройки</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Позиция на бутона за настройки</string>
+    <string name="revanced_show_toolbar_settings_button_title">Показване на бутона за настройки</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Действие на бутона за настройки</string>
     <string name="revanced_show_video_title_section_summary">"Показва раздела със заглавието на видеоклипа на цял екран.
 
 Ограничение: Заглавието на видеоклипа изчезва при щракване."</string>

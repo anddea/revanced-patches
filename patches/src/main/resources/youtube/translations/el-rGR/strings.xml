@@ -177,6 +177,11 @@
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Εμφανίζεται το αναδυόμενο μενού παλιού στυλ.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Εμφανίζεται προσαρμοσμένο παράθυρο.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Τύπος μενού αλλαγής ποιότητας βίντεο</string>
+    <string name="revanced_auto_captions_style_entry_1">Απόκρυψη τμήματος Μουσικής</string>
+    <string name="revanced_auto_captions_style_entry_2">Δεν εμφανίζεται ποτέ</string>
+    <string name="revanced_auto_captions_style_entry_3">Απόκρυψη τμήματος Κουίζ</string>
+    <string name="revanced_auto_captions_style_entry_4">Εμφάνιση όταν σιωπηλός</string>
+    <string name="revanced_auto_captions_style_title">Ορατότητα αυτόματων υπότιτλων</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Οι περιορισμοί λειτουργίας για οικονομία ενέργειας δεν παραβιάζονται</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Οι περιορισμοί λειτουργίας γιαкономиία ενέργειας παραβιάζονται</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Παράκαμψη περιορισμών λειτουργίας περιβάλλοντος</string>
@@ -305,7 +310,7 @@
     <string name="revanced_debug_logs_none_found">Δεν βρέθηκαν αρχεία καταγραφής</string>
     <string name="revanced_debug_protobuffer_summary_off">Τα αρχεία καταγραφής σφαλμάτων δεν περιλαμβάνουν πρωτόκολλα buffer</string>
     <string name="revanced_debug_protobuffer_summary_on">Τα αρχεία καταγραφής σφαλμάτων περιλαμβάνουν πρωτόκολλα buffer</string>
-    <string name="revanced_debug_protobuffer_title">Εντοπισμός καταγραφής σφαλμάτων για πρωτόκολλα buffer</string>
+    <string name="revanced_debug_protobuffer_title">Καταγραφή buffer πρωτοκόλλου</string>
     <string name="revanced_debug_spannable_summary_off">Τα αρχεία καταγραφής σφαλμάτων δεν περιλαμβάνουν μορφοποιημένο κείμενο.</string>
     <string name="revanced_debug_spannable_summary_on">Τα αρχεία καταγραφής σφαλμάτων περιλαμβάνουν μορφοποιημένο κείμενο.</string>
     <string name="revanced_debug_spannable_title">Καταγραφή με μορφοποιήσεις κειμένου</string>
@@ -2017,7 +2022,7 @@ Playlists
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Μεταβείτε στη &lt;a href=%1$s&gt;δημιουργία νέου project&lt;/a&gt;.&lt;br&gt;2. Πατήστε το κουμπί &lt;b&gt;CREATE&lt;/b&gt;. &lt;br&gt;3. Μεταβείτε στην επιλογή &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Πατήστε το κουμπί &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Πατήστε το κουμπί &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Επιλέξτε την επιλογή &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Πατήστε το κουμπί &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Αντιγράψτε το κλειδί API.&lt;br&gt;&lt;br&gt;※ Το κλειδί API δεν πρέπει να το μοιράζεστε ποτέ με άλλους, οπότε δεν περιλαμβάνεται κατά την Εισαγωγή / Εξαγωγή ρυθμίσεων.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Έκδοση κλειδιού προγραμματιστή YouTube Data API v3</string>
     <string name="revanced_ryd_about">Σχετικά με</string>
-    <string name="revanced_ryd_attribution_summary">"Τα δεδομένα παρέχονται από το Return YouTube Dislike API.
+    <string name="revanced_ryd_attribution_summary">"Τα δεδομένα παρέχονται από το Return YouTube Dislike API
 
 Πατήστε εδώ για να ανοίξετε το ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -2055,7 +2060,7 @@ Playlists
     <string name="revanced_sanitize_comments_category_bar_title">Καθαρισμός γραμμής κατηγοριών</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Φράσεις όπως «#», «Έρανος», «Κατάστημα» και «N προϊόντα» εμφανίζονται στους υπότιτλους των βίντεο."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Φράσεις όπως «#», «Έρανος», «Κατάστημα» και «προϊόντα» είναι κρυμμένες από τους υπότιτλους των βίντεο."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Καθάρισμα υπότιτλων βίντεο</string>
+    <string name="revanced_sanitize_video_subtitle_title">Καθαρισμός υπότιτλων βίντεο</string>
     <string name="revanced_sb_about">Σχετικά με</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες.</string>
@@ -2413,6 +2418,9 @@ Playlists
     <string name="revanced_show_settings_button_index_title">Κάνει τη γραμμή πλοήγησης πλήρως αδιαφανή σε λειτουργία σκοτείνου</string>
     <string name="revanced_show_settings_button_title">Κάνει τη γραμμή πλοήγησης πλήρως αδιαφανή σε λειτουργία φωτός</string>
     <string name="revanced_show_settings_button_type_title">Δείκτης κουμπιού Ρυθμίσεων</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Θέση κουμπιού \'Ρυθμίσεις\'</string>
+    <string name="revanced_show_toolbar_settings_button_title">Εμφάνιση κουμπιού \'Ρυθμίσεις\'</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Δείκτης κουμπιού Ρυθμίσεων</string>
     <string name="revanced_show_video_title_section_summary">"Εμφάνιση τίτλου του βίντεο σε πλήρη οθόνη.
 
 Περιορισμός: Ο τίτλος εξαφανίζεται όταν πατηθεί."</string>
