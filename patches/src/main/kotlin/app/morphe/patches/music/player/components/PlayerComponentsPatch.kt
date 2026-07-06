@@ -81,6 +81,7 @@ import app.morphe.patches.music.utils.playservice.is_8_03_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_05_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_12_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_00_or_greater
 import app.morphe.patches.music.utils.playservice.is_9_15_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.colorGrey
@@ -94,7 +95,7 @@ import app.morphe.patches.music.utils.resourceid.topEnd
 import app.morphe.patches.music.utils.resourceid.topStart
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
-import app.morphe.patches.music.utils.settings.addPreferenceWithIntent
+import app.morphe.patches.music.utils.settings.addTextPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.music.utils.videotype.videoTypeHookPatch
@@ -633,12 +634,12 @@ val playerComponentsPatch = bytecodePatch(
                 "revanced_change_player_background_color",
                 "false"
             )
-            addPreferenceWithIntent(
+            addTextPreference(
                 CategoryType.PLAYER,
                 "revanced_custom_player_background_color_primary",
                 "revanced_change_player_background_color"
             )
-            addPreferenceWithIntent(
+            addTextPreference(
                 CategoryType.PLAYER,
                 "revanced_custom_player_background_color_secondary",
                 "revanced_change_player_background_color"
@@ -1051,6 +1052,26 @@ val playerComponentsPatch = bytecodePatch(
                         )
                         removeInstruction(getFieldIndex)
                     } ?: throw PatchException("Could not find targetMethod")
+                }
+
+                // endregion
+
+                // region Disable player page motion event
+
+                // YT Music 9.00+ consumes the downward motion before the watch-page dismiss
+                // handler.
+                if (is_9_00_or_greater) {
+                    PlayerPageBehaviorFingerprint.method.addInstructionsWithLabels(
+                        0,
+                        """
+                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSwipeToDismissMiniPlayer()Z
+                            move-result v0
+                            if-eqz v0, :ignore
+                            return-void
+                            :ignore
+                            nop
+                        """
+                    )
                 }
 
                 // endregion
