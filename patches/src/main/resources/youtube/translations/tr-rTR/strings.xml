@@ -125,7 +125,7 @@ YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak oynatma sorunlarına yol açabilir.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Gelişmiş video kalitesi menüsü gösterilmez</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Gelişmiş video kalitesi menüsü gösterilir</string>
-    <string name="revanced_advanced_video_quality_menu_title">Gelişmiş video kalitesi menüsünü göster</string>
+    <string name="revanced_advanced_video_quality_menu_title">\'Gelişmiş\' kalite menüsünü aç</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Eski stil açılır menü kullanılıyor.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Özel iletişim kutusu kullanılıyor.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Shorts\'ta gelişmiş video kalitesi menü türü</string>
@@ -309,7 +309,7 @@ Sınırlama: Araç çubuğundaki Geri butonu çalışmayabilir."</string>
     <string name="revanced_debug_logs_none_found">Kayıt bulunamadı</string>
     <string name="revanced_debug_protobuffer_summary_off">Hata ayıklama kayıtları protokol arabelleğini içermez</string>
     <string name="revanced_debug_protobuffer_summary_on">Hata ayıklama kayıtları protokol arabelleğini içerir</string>
-    <string name="revanced_debug_protobuffer_title">Hata ayıklama günlük protokol arabelleği</string>
+    <string name="revanced_debug_protobuffer_title">Hata ayıklama günlüğü protokol arabelleği</string>
     <string name="revanced_debug_spannable_summary_off">Hata ayıklama günlükleri spannable\'ı içermez.</string>
     <string name="revanced_debug_spannable_summary_on">Hata ayıklama günlükleri spannable\'ı içerir.</string>
     <string name="revanced_debug_spannable_title">Spannable\'ı günlükle</string>
@@ -591,9 +591,9 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_external_downloader_package_name_video_summary">Yüklü harici indirme uygulamanızın paket adı.</string>
     <string name="revanced_external_downloader_package_name_video_title">Video indirici paket adı</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"%s paket adıyla yüklü uygulama bulunamadı
+    <string name="revanced_external_downloader_package_not_found_warning">"%s paket adına sahip yüklü uygulama bulunamadı
 
-Paket adının doğru olduğunu ve uygulamanın yüklü olduğunu doğrulayın"</string>
+Paket adının doğru olduğundan ve uygulamanın yüklü olduğundan emin olun"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Hype düğmesinin simgesi gizli</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Hype düğmesinin simgesi görünür</string>
     <string name="revanced_fix_hype_button_icon_title">Hype düğmesinin simgesini düzelt</string>
@@ -1277,9 +1277,6 @@ Oynatıcı ekranının düzeni sunucu tarafındaki değişiklikler nedeniyle de�
     <string name="revanced_hide_shorts_comments_panel_summary_off">Yorumlar paneli gösterilir.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Yorumlar paneli gizlenir.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Yorum panelini gizle</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Beğenmeme düğmesi görünür</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Beğenmeme düğmesi gizli</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Beğenmeme düğmesini gizle</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">"Shorts kanal sekmesindeki 'Bu sesi kullan' gibi kayan düğmeler gösteriliyor."</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">"Shorts kanal sekmesindeki 'Bu sesi kullan' gibi kayan düğmeler gizlendi."</string>
     <string name="revanced_hide_shorts_floating_button_title">Butonları gizle</string>
@@ -1609,6 +1606,8 @@ Bilinen sorun: Bu ayar etkinleştirildiğinde YouTube Doodle'larına tıklanamaz
     <string name="revanced_language_VI">Vietnam dili</string>
     <string name="revanced_language_ZH">Çince\n<small>中文</small></string>
     <string name="revanced_language_title">ReVanced dili</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Yatay sürükleme ile oynatmayı duraklat</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Sürükleme durumunun konumunu hatırla</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Boyutlandırmak için çift dokunma ve sıkıştırma devre dışı</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Boyutlandırmak için çift dokunma ve sıkıştırma etkin
 
@@ -1996,9 +1995,9 @@ Bir API anahtarının nasıl alınacağını görmek için tıklayın."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Yeni bir proje oluştur&lt;/a&gt; adresine gidin.&lt;br&gt;2. &lt;b&gt;OLUŞTUR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; adresine gidin.&lt;br&gt;4. &lt;b&gt;ETKİNLEŞTİR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;5. &lt;b&gt;KİMLİK BİLGİLERİ OLUŞTUR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;6. &lt;b&gt;Herkese açık veri&lt;/b&gt; seçeneğini seçin.&lt;br&gt;7. &lt;b&gt;İLERİ&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;8. API anahtarını kopyalayın.&lt;br&gt;&lt;br&gt;※ API anahtarı asla başkalarıyla paylaşılmamalıdır, bu nedenle İçe/Dışa Aktarma ayarlarına dahil edilmemiştir.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 geliştirici anahtarı al</string>
     <string name="revanced_ryd_about">Hakkında</string>
-    <string name="revanced_ryd_attribution_summary">"Veriler Return YouTube Dislike API tarafından sağlanır.
+    <string name="revanced_ryd_attribution_summary">"Veriler Return YouTube Dislike API tarafından sağlanır
 
-ReturnYouTubeDislike.com'u açmak için buraya dokunun."</string>
+ReturnYouTubeDislike.com'u açmak için buraya dokunun"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Beğenme düğmesi en iyi görünüm için biçimlendirilir</string>
     <string name="revanced_ryd_compact_layout_summary_on">Beğenme düğmesi en az genişlik için biçimlendirilir</string>
@@ -2016,15 +2015,6 @@ ReturnYouTubeDislike.com'u açmak için buraya dokunun."</string>
     <string name="revanced_ryd_failure_connection_status_code">Beğenilmemeler kullanılamıyor (durum %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Beğenmemeler geçici olarak kullanılamıyor (API zaman aşımı)</string>
     <string name="revanced_ryd_failure_generic">Beğenilmemeler kullanılamıyor (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike ile oylamak için videoyu yenileyin</string>
-    <string name="revanced_ryd_shorts_summary_off">Shorts\'ta beğenilmeme sayıları gösterilmez</string>
-    <string name="revanced_ryd_shorts_summary_on">"Shorts'ta beğenilmeme sayıları gösterilir
-
-Kısıtlama: Beğenilmeme sayıları gizli modda görünmeyebilir"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts'da beğenmeme sayıları gösteriliyor.
-
-Kısıtlama: Gizli modda beğenmeme sayıları görünmeyebilir."</string>
-    <string name="revanced_ryd_shorts_title">Shorts\'ta beğenilmeme sayılarını göster</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike kullanılamadığında uyarı gösterilmez</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike kullanılamadığında uyarı gösterilir</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Bağlantı hatası uyarılarını göster</string>
@@ -2034,7 +2024,7 @@ Kısıtlama: Gizli modda beğenmeme sayıları görünmeyebilir."</string>
     <string name="revanced_sanitize_comments_category_bar_title">Kategori çubuğunu temizle</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"'#', 'Bağış Kampanyası', 'Alışveriş Yap' ve 'ürünler' gibi ifadeler video altyazılarında gösterilir."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"'#', 'Bağış Kampanyası', 'Alışveriş Yap' ve 'ürünler' gibi ifadeler video altyazılarından gizlenir."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Videoyu altyazısını temizle</string>
+    <string name="revanced_sanitize_video_subtitle_title">Video altyazısını temizle</string>
     <string name="revanced_sb_about">Hakkında</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Veriler, SponsorBlock API tarafından sağlanmaktadır. Daha fazla bilgi edinmek ve diğer platformlar için indirmeleri görmek için buraya dokunun.</string>

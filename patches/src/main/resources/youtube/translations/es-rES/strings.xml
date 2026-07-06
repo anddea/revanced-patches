@@ -125,7 +125,7 @@ Si eres un usuario de YouTube Premium, esta configuración podría no ser necesa
     <string name="morphe_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">No se muestra el menú de calidad de vídeo avanzado</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Se muestra el menú de calidad de vídeo avanzado</string>
-    <string name="revanced_advanced_video_quality_menu_title">Mostrar menú avanzado de calidad de vídeo</string>
+    <string name="revanced_advanced_video_quality_menu_title">Abrir el menú de calidad \'Avanzada\'</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Se utiliza el menú desplegable de estilo antiguo.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Se utiliza un cuadro de diálogo personalizado.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Tipo de menú de calidad de vídeo avanzado en Shorts</string>
@@ -268,7 +268,7 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_copy">Copiar</string>
     <string name="revanced_copy_error">Error al copiar el texto</string>
     <string name="revanced_credits_title">Créditos</string>
-    <string name="revanced_custom_filter_strings_summary">Lista de cadenas del constructor de rutas de componentes a filtrar separadas por una nueva línea</string>
+    <string name="revanced_custom_filter_strings_summary">Lista de cadenas del constructor de rutas de componentes a filtrar, una por línea</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
     <string name="revanced_custom_filter_summary_off">Filtro personalizado desactivado</string>
     <string name="revanced_custom_filter_summary_on">Filtro personalizado activado</string>
@@ -583,9 +583,9 @@ Para usar esta función, cambia \"Cliente predeterminado (Falsear datos de trans
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s no está instalado.
 Por favor, descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Advertencia</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálelo.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
     <string name="revanced_external_downloader_other_item">Otro</string>
-    <string name="revanced_external_downloader_other_item_hint">Introduce el nombre del paquete</string>
+    <string name="revanced_external_downloader_other_item_hint">Ingresa el nombre del paquete</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nombre del paquete del descargador de listas de reproducción</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">El nombre de paquete de tu descargador externo, como NewPipe o YTDLnis, al mantener pulsado</string>
@@ -1293,9 +1293,6 @@ Info:
     <string name="revanced_hide_shorts_comments_panel_summary_off">Se muestra el panel de comentarios.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">El panel de comentarios está oculto.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Ocultar panel de comentarios</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">El botón no me gusta se muestra</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">El botón no me gusta está oculto</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Ocultar botón \"No me gusta\"</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Los botones flotantes como \"Utilizar este sonido\" se muestran en la pestaña Shorts del canal.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Los botones flotantes como \"Utilizar este sonido\" se ocultan en la pestaña Shorts del canal.</string>
     <string name="revanced_hide_shorts_floating_button_title">Ocultar botón flotante</string>
@@ -1624,6 +1621,8 @@ Problema conocido: Cuando este ajuste está activado, no se puede pulsar en los 
     <string name="revanced_language_VI">Vietnamita\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chino\n<small>中文</small></string>
     <string name="revanced_language_title">Idioma de ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Pausar la reproducción con un arrastre horizontal</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Recordar la posición del estado de arrastre</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Acción de doble toque y pellizco para redimensionar está desactivado</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"La acción de doble toque y el pellizco para cambiar el tamaño están activados
 
@@ -2032,13 +2031,6 @@ Toca aquí para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_failure_connection_status_code">Los \"No me gusta\" no están disponibles (estado %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Los “No me gusta” no están disponibles temporalmente (la API no responde)</string>
     <string name="revanced_ryd_failure_generic">Los \"No me gusta\" no están disponibles (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recargar vídeo para votar usando Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">No se muestran los Dislikes en los Shorts</string>
-    <string name="revanced_ryd_shorts_summary_on">Los \"No me gusta\" están visibles en los Shorts.</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Los \"no me gusta\" están visibles en los Shorts.
-
-Limitación: es posible que los \"no me gusta\" no aparezcan en modo incógnito."</string>
-    <string name="revanced_ryd_shorts_title">Mostrar \"No me gusta\" en Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast no se muestra si Devolución de YouTube Dislike no está disponible</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast se muestra si Devolución de YouTube Dislike no está disponible</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostrar alertas de error de conexión</string>

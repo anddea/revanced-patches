@@ -42,31 +42,31 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
     <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
     <string name="morphe_force_original_audio_title">Forçar idioma do áudio original</string>
-    <string name="morphe_music_crossfade_about_best_summary">Reprodução normal de música, avanço automático, repetição de uma música (a música faz crossfade para si mesma) e áudio local — alto-falante do telefone, fones de ouvido com fio, Bluetooth ou USB.</string>
+    <string name="morphe_music_crossfade_about_best_summary">Reprodução normal entre músicas com avanço automático, repetição de uma única música (a música faz uma transição suave para ela mesma) e reprodução de áudio local — alto-falante do celular, fones de ouvido com fio, Bluetooth ou USB.</string>
     <string name="morphe_music_crossfade_about_best_title">Funciona melhor com</string>
     <string name="morphe_music_crossfade_about_credit_summary">Recurso de crossfade por VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Créditos</string>
-    <string name="morphe_music_crossfade_about_how_summary">"O crossfade sobrepõe o final de uma música ao início da próxima, diminuindo o volume de uma enquanto a outra aumenta gradualmente durante a duração e curva escolhidas.
+    <string name="morphe_music_crossfade_about_how_summary">"O Crossfade sobrepõe o final de uma música ao início da próxima, diminuindo gradualmente o volume de uma enquanto aumenta o da outra, durante a duração e a curva de transição que você escolher.
 
-Ele funciona no avanço automático (quando uma música termina sozinha) e em saltos manuais — cada um tem seu próprio botão acima. No avanço automático, a transição começa alguns segundos antes do final da música.
+Ele funciona tanto no avanço automático (quando a música termina naturalmente) e ao pular músicas manualmente — cada modo possui seu próprio botão de ativação acima. No avanço automático, a transição começa alguns segundos antes do fim da música.
 
 Requer o YouTube Music 9.x ou mais recente."</string>
     <string name="morphe_music_crossfade_about_how_title">Como funciona</string>
-    <string name="morphe_music_crossfade_about_known_summary">"Um vídeo de música definido como a primeira música — ou um iniciado fora da fila atual — pode aparecer como vídeo brevemente antes que o modo somente áudio entre em vigor
+    <string name="morphe_music_crossfade_about_known_summary">"Um videoclipe definido como a primeira música — ou iniciado fora da fila de reprodução atual — pode ser exibido brevemente como vídeo antes de alternar para o modo somente áudio.
 
-Pausar o crossfade para assistir a um videoclipe pode deixar alguns vídeos pretos (aqueles cujo áudio vem do próprio vídeo). Pausar o crossfade antes de selecionar a música evita isso"</string>
+Pausar o Crossfade para assistir a um videoclipe pode fazer com que alguns vídeos fiquem com a tela preta (aqueles cujo áudio é reproduzido diretamente do próprio vídeo). Para evitar isso, pause o Crossfade antes de selecionar a música."</string>
     <string name="morphe_music_crossfade_about_known_title">Problemas conhecidos</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"Vídeos de música são reproduzidos apenas com áudio quando o crossfade está ativado (pressione e segure o botão de aleatoriedade para pausar, se quiser o vídeo)
+    <string name="morphe_music_crossfade_about_quirks_summary">"Os videoclipes serão reproduzidos apenas como áudio enquanto o Crossfade estiver ativado (mantenha o botão de embaralhar pressionado para pausar se quiser assistir ao vídeo).
 
-As músicas com duração menor que a duração do fade podem pular o fade
+Músicas com duração menor que o tempo de transição configurado podem não aplicar o Crossfade.
 
-A tela de bloqueio ou a notificação podem exibir brevemente um estado desatualizado durante a transição"</string>
+A tela de bloqueio ou a notificação podem exibir temporariamente informações desatualizadas durante a transição entre músicas."</string>
     <string name="morphe_music_crossfade_about_quirks_title">Não funciona muito bem</string>
     <string name="morphe_music_crossfade_about_summary">Como o crossfade funciona — e quando não funciona</string>
     <string name="morphe_music_crossfade_about_title">Sobre</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Transmitir ou espelhar áudio (Chromecast, espelhamento de tela ou áudio) — o crossfade é pausado porque é instável ali e pode nunca ser corrigido.
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Transmissão ou espelhamento de áudio (Chromecast, espelhamento de tela ou de áudio) — o Crossfade é pausado, pois é instável nesses modos e talvez nunca seja possível corrigir essa limitação.
 
-YouTube Music 8.x — o crossfade só funciona na versão 9.x e mais recentes"</string>
+YouTube Music 8.x — o Crossfade funciona apenas no YouTube Music 9.x ou mais recente."</string>
     <string name="morphe_music_crossfade_about_unsupported_title">Não funciona</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">O crossfade é pausado durante a transmissão ou espelhamento de áudio. O crossfade em transmissão/espelhamento é instável e pode nunca ser corrigido.</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Pausa sutil</string>
@@ -79,9 +79,9 @@ YouTube Music 8.x — o crossfade só funciona na versão 9.x e mais recentes"</
     <string name="morphe_music_crossfade_duration_title">Duração do desvanecimento</string>
     <string name="morphe_music_crossfade_enabled_title">Ativar crossfade</string>
     <string name="morphe_music_crossfade_on_auto_advance_summary">Aplica o efeito de crossfade quando uma faixa termina naturalmente</string>
-    <string name="morphe_music_crossfade_on_auto_advance_title">Desvanecimento em avanço automático</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Crossfade em avanço automático</string>
     <string name="morphe_music_crossfade_on_skip_summary">Aplica o efeito de crossfade quando você pula manualmente para a próxima faixa</string>
-    <string name="morphe_music_crossfade_on_skip_title">Desvanecimento em pulo manual</string>
+    <string name="morphe_music_crossfade_on_skip_title">Crossfade em pulo manual</string>
     <string name="morphe_music_crossfade_paused_toast">Crossfade pausado para esta sessão</string>
     <string name="morphe_music_crossfade_resumed_toast">Crossfade retomado</string>
     <string name="morphe_music_crossfade_screen_summary">Misture as faixas de forma suave</string>
@@ -199,11 +199,11 @@ Se você é um usuário do YouTube Premium, esta configuração pode não ser ne
     <string name="revanced_change_start_page_summary">Selecione em qual página o aplicativo será aberto.</string>
     <string name="revanced_change_start_page_title">Página inicial</string>
     <string name="revanced_credits_title">Créditos</string>
-    <string name="revanced_custom_filter_strings_summary">Lista de componentes a serem filtradas separadas por uma nova linha.</string>
+    <string name="revanced_custom_filter_strings_summary">Lista de strings de componente de construção de caminhos para filtrar, separadas por novas linhas</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
     <string name="revanced_custom_filter_summary">Ativa o filtro personalizado para ocultar componentes do layout.</string>
     <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado inválido: %s.</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado inválido: %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Valor da cor da barra de navegação inválido.</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">Digite o código hexadecimal da cor da barra de navegação.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Valor da cor da barra de navegação personalizada</string>
@@ -336,6 +336,8 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_action_button_label_title">Ocultar rótulo do botão de ação</string>
     <string name="revanced_hide_action_button_like_dislike_summary">Oculta os botões de Like e Deslike. Não funciona no antigo layout do reprodutor.</string>
     <string name="revanced_hide_action_button_like_dislike_title">Ocultar botões de Like e Deslike</string>
+    <string name="revanced_hide_action_button_lyrics_summary">Oculta o botão de Letras.</string>
+    <string name="revanced_hide_action_button_lyrics_title">Botão Ocultar Letras</string>
     <string name="revanced_hide_action_button_radio_summary">Oculta o botão de Rádio.</string>
     <string name="revanced_hide_action_button_radio_title">Ocultar botão Rádio</string>
     <string name="revanced_hide_action_button_share_summary">Oculta botão de Compartilhar.</string>

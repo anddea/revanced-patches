@@ -125,7 +125,7 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
     <string name="morphe_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Trình đơn chất lượng video nâng cao không được hiển thị</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Trình đơn chất lượng video nâng cao được hiển thị</string>
-    <string name="revanced_advanced_video_quality_menu_title">Hiện menu chất lượng video nâng cao</string>
+    <string name="revanced_advanced_video_quality_menu_title">Mở menu chất lượng \'Nâng cao\'</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Trình đơn tuỳ chọn kiểu cũ được sử dụng.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Hộp thoại tuỳ chỉnh được sử dụng.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Kiểu trình đơn chất lượng video nâng cao trong Shorts</string>
@@ -588,7 +588,7 @@ Lưu ý:
     <string name="revanced_external_downloader_not_installed_dialog_message">"Có vẻ như %1$s chưa được cài đặt.
  Vui lòng tải xuống %2$s từ trang web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Cảnh báo</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Vui lòng cài đặt ứng dụng.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Hãy cài đặt nó đi.</string>
     <string name="revanced_external_downloader_other_item">Khác</string>
     <string name="revanced_external_downloader_other_item_hint">Nhập tên gói</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Chọn hoặc nhập tên gói ứng dụng trình tải xuống đã được cài đặt trên thiết bị của bạn.</string>
@@ -597,9 +597,9 @@ Lưu ý:
     <string name="revanced_external_downloader_package_name_video_long_press_title">Tên gói trình tải xuống video khi nhấn và giữ</string>
     <string name="revanced_external_downloader_package_name_video_summary">Chọn hoặc nhập tên gói ứng dụng trình tải xuống đã được cài đặt trên thiết bị của bạn.</string>
     <string name="revanced_external_downloader_package_name_video_title">Tên gói trình tải xuống video</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Không tìm thấy ứng dụng đã cài với tên gói: %s
+    <string name="revanced_external_downloader_package_not_found_warning">"Không tìm thấy ứng dụng đã cài đặt với tên gói: %s
 
-Vui lòng kiểm tra lại tên gói và đảm bảo ứng dụng đã được cài trên thiết bị"</string>
+Kiểm tra xem tên gói có chính xác không và ứng dụng đã được cài đặt chưa"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Biểu tượng nút Khuấy động đã ẩn.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Biểu tượng nút Khuấy động đã được hiển thị.</string>
     <string name="revanced_fix_hype_button_icon_title">Sữa lỗi nút Khuấy động</string>
@@ -1299,9 +1299,6 @@ Chi tiết: Cài đặt này dường như đã bị máy chủ loại bỏ. Tha
     <string name="revanced_hide_shorts_comments_panel_summary_off">Bảng bình luận được hiển thị.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Bảng bình luận đã ẩn.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Ẩn bảng bình luận</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Nút không thích được hiển thị</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Nút không thích đã bị ẩn</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Ẩn nút Không thích</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Các nút nổi trong trang Shorts được hiển thị.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Các nút nổi trong trang Shorts đã ẩn.</string>
     <string name="revanced_hide_shorts_floating_button_title">Ẩn các nút nổi</string>
@@ -1396,7 +1393,7 @@ Hạn chế: Tiêu đề chính thức trong kết quả tìm kiếm cũng sẽ 
     <string name="revanced_hide_shorts_sound_button_title">Ẩn nút âm thanh</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Nhãn siêu dữ liệu âm thanh được hiển thị</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Nhãn siêu dữ liệu âm thanh đã bị ẩn</string>
-    <string name="revanced_hide_shorts_sound_metadata_label_title">Ẩn nhãn siêu dữ liệu âm thanh</string>
+    <string name="revanced_hide_shorts_sound_metadata_label_title">Ẩn nhãn metadata âm thanh</string>
     <string name="revanced_hide_shorts_stickers_summary_off">Nhãn dán được hiển thị</string>
     <string name="revanced_hide_shorts_stickers_summary_on">Nhãn dán đã bị ẩn</string>
     <string name="revanced_hide_shorts_stickers_title">Ẩn nhãn dán</string>
@@ -1631,6 +1628,8 @@ Hạn chế: Không nhấn được vào YouTube Doodles."</string>
     <string name="revanced_language_VI">Tiếng Việt\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Tiếng Trung\n<small>中文</small></string>
     <string name="revanced_language_title">Ngôn ngữ ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Ngừng phát khi vuốt ngang</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Ghi nhớ vị trí vuốt</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Thao tác chạm hai lần và chụm để thay đổi kích thước đã tắt</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Thao tác chạm hai lần và chụm để thay đổi kích thước đã bật
 
@@ -2039,15 +2038,6 @@ Bấm vào đây để mở ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_failure_connection_status_code">Lượt không thích không khả dụng ( trạng thái %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Không thể hiện số Dislike (API hết thời gian chờ)</string>
     <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Tải lại video để bỏ phiếu bằng ReturnYouTubeDislike</string>
-    <string name="revanced_ryd_shorts_summary_off">Số lượt không thích trên Shorts không được hiển thị</string>
-    <string name="revanced_ryd_shorts_summary_on">"Số lượt không thích trên Shorts được hiển thị
-
-Hạn chế: Số lượt không thích có thể không xuất hiện ở chế độ ẩn danh"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Số lượt không thích được hiển thị trên Shorts.
-
-Hạn chế: Số lượt không thích có thể không hiển thị nếu người dùng không đăng nhập hoặc ở chế độ ẩn danh."</string>
-    <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo ngắn không hiện nếu Return YouTube Dislike không khả dụng</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Thông báo ngắn sẽ hiện nếu Return YouTube Dislike không khả dụng</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Hiện cảnh báo lỗi kết nối</string>

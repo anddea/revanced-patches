@@ -125,7 +125,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="morphe_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">고급 동영상 화질 설정 메뉴를 표시하지 않습니다</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">고급 동영상 화질 설정 메뉴를 표시합니다</string>
-    <string name="revanced_advanced_video_quality_menu_title">고급 동영상 화질 설정 메뉴 표시하기</string>
+    <string name="revanced_advanced_video_quality_menu_title">\'고급\' 화질 메뉴 열기</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">이전 메뉴 구성요소를 사용합니다.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">사용자 정의 다이얼로그를 사용합니다.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Shorts 고급 동영상 화질 메뉴 유형</string>
@@ -239,7 +239,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_change_start_page_entry_fashion">패션 &amp; 뷰티</string>
     <string name="revanced_change_start_page_entry_gaming">게임</string>
     <string name="revanced_change_start_page_entry_history">기록</string>
-    <string name="revanced_change_start_page_entry_hype">Hype</string>
+    <string name="revanced_change_start_page_entry_hype">하이프</string>
     <string name="revanced_change_start_page_entry_library">내 페이지</string>
     <string name="revanced_change_start_page_entry_liked_videos">좋아요 표시한 동영상</string>
     <string name="revanced_change_start_page_entry_live">실시간</string>
@@ -594,8 +594,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
 알림:
 • 일부 지역에서는 iOS TV를 사용할 수 없으며, 이 경우에 이 설정이 여전히 작동하지 않을 수 있습니다."</string>
     <string name="revanced_external_downloader_dialog_title">외부 다운로더 앱</string>
-    <string name="revanced_external_downloader_empty_warning">패키지명은 비워둘 수 없습니다</string>
-    <string name="revanced_external_downloader_not_found_title">앱이 설치되지 않습니다</string>
+    <string name="revanced_external_downloader_empty_warning">패키지명을 비워둘 수 없습니다</string>
+    <string name="revanced_external_downloader_not_found_title">앱이 설치되지 않음</string>
     <string name="revanced_external_downloader_not_installed">설치되어 있지 않습니다.</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 가 설치되어 있지 않습니다.
 웹사이트에서 %2$s 를 다운로드하고 설치하세요."</string>
@@ -609,19 +609,19 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_external_downloader_package_name_video_long_press_title">길게 탭하여 동영상 외부 다운로더 앱 패키지명</string>
     <string name="revanced_external_downloader_package_name_video_summary">설치된 외부 다운로더 앱 패키지명을 설정하세요.</string>
     <string name="revanced_external_downloader_package_name_video_title">동영상 외부 다운로더 앱 패키지명</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"패키지 이름이 '%s'인 설치된 앱을 찾을 수 없습니다
+    <string name="revanced_external_downloader_package_not_found_warning">"패키지명이 '%s'로 설치된 앱을 찾을 수 없습니다.
 
-패키지 이름이 올바르고 앱이 설치되어 있는지 확인하세요"</string>
-    <string name="revanced_fix_hype_button_icon_summary_off">Hype 버튼 아이콘이 숨겨집니다.</string>
-    <string name="revanced_fix_hype_button_icon_summary_on">Hype 버튼 아이콘이 표시됩니다.</string>
-    <string name="revanced_fix_hype_button_icon_title">Hype 버튼 아이콘 수정하기</string>
-    <string name="revanced_fix_hype_button_icon_user_dialog_message">"YouTube 19.25.39 이하 버전에서는 동영상 작업 버튼바 및 동영상 설명 패널에서 Hype 아이콘이 숨겨집니다.
+패키지명이 올바른지 앱이 설치되어 있는지 확인하세요."</string>
+    <string name="revanced_fix_hype_button_icon_summary_off">하이프 버튼 아이콘이 숨겨집니다</string>
+    <string name="revanced_fix_hype_button_icon_summary_on">하이프 버튼 아이콘이 표시됩니다</string>
+    <string name="revanced_fix_hype_button_icon_title">하이프 버튼 아이콘 수정하기</string>
+    <string name="revanced_fix_hype_button_icon_user_dialog_message">"YouTube 19.25.39 이하 버전에서는 동영상 작업 버튼바 및 동영상 설명 패널에서 하이프 아이콘이 숨겨집니다
 
-해결 방법으로 ‘/get_watch’ 엔드포인트와 ‘/next’ 엔드포인트에서 앱 버전이 19.26.42로 속여집니다.
+해결 방법으로 ‘/get_watch’ 엔드포인트와 ‘/next’ 엔드포인트에서 앱 버전이 19.26.42로 속여집니다
 
-이 설정을 비활성화할 경우에 동영상 작업 버튼바 및 동영상 설명 패널에 Hype 아이콘이 표시되지 않을 수 있습니다.
+이 설정을 비활성화할 경우에 동영상 작업 버튼바 및 동영상 설명 패널에 하이프 아이콘이 표시되지 않을 수 있습니다
 
-※ 이 설정을 비활성화하더라도 Hype 버튼이 숨겨지지 않을 수 있습니다."</string>
+※ 이 설정을 비활성화하더라도 하이프 버튼이 숨겨지지 않을 수 있습니다"</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_off">길게 탭하기 속도는 사용자가 화면을 길게 탭하지 않았더라도 작동될 수 있습니다.</string>
     <string name="revanced_fix_swipe_tap_and_hold_speed_summary_on">"길게 탭하기 속도는 사용자가 화면을 길게 탭했을 경우에만 작동됩니다.
 
@@ -794,9 +794,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_comments_carousel_filter_strings_title">댓글 좌우 슬라이드 필터</string>
     <string name="revanced_hide_comments_carousel_title">댓글 좌우 슬라이드 필터 활성화하기</string>
     <string name="revanced_hide_comments_carousel_user_dialog_message">"알림:
-• 좌우 슬라이드 항목의 정확한 이름을 입력하세요 (예: 질문하기, 이 동영상 Hype하기, YouTube Music에서 감상하기, etc.).
-• 좌우 슬라이드 항목이 숨겨지면 의도하지 않은 부작용이 발생할 수 있습니다.
-• 좌우 슬라이드 항목이 모두 숨겨지면 전체 댓글 섹션도 숨겨집니다."</string>
+• 좌우 슬라이드 항목의 정확한 이름을 입력하세요 (예: 질문하기, 이 동영상 하이프하기, YouTube Music에서 감상하기, etc.)
+• 좌우 슬라이드 항목이 숨겨지면 의도하지 않은 부작용이 발생할 수 있습니다
+• 좌우 슬라이드 항목이 모두 숨겨지면 전체 댓글 섹션도 숨겨집니다"</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Shorts 만들기 버튼이 표시됩니다</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Shorts 만들기 버튼이 숨겨집니다</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Shorts 만들기 버튼 숨기기</string>
@@ -913,15 +913,15 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_how_this_was_made_section_summary_off">이 콘텐츠가 제작된 방식 섹션이 표시됩니다</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">이 콘텐츠가 제작된 방식 섹션이 숨겨집니다</string>
     <string name="revanced_hide_how_this_was_made_section_title">\'이 콘텐츠가 제작된 방식\' 섹션 숨기기</string>
-    <string name="revanced_hide_hype_button_summary_off">Hype / 띄우기 버튼이 표시됩니다</string>
-    <string name="revanced_hide_hype_button_summary_on">Hype / 띄우기 버튼이 숨겨집니다</string>
-    <string name="revanced_hide_hype_button_title">Hype / 띄우기 버튼 숨기기</string>
-    <string name="revanced_hide_hype_points_section_summary_off">Hype 점수 섹션이 표시됩니다.</string>
-    <string name="revanced_hide_hype_points_section_summary_on">Hype 점수 섹션이 숨겨집니다.</string>
-    <string name="revanced_hide_hype_points_section_title">Hype 점수 섹션 숨기기</string>
-    <string name="revanced_hide_hype_points_summary_off">Hype 점수가 표시됩니다</string>
-    <string name="revanced_hide_hype_points_summary_on">Hype 점수가 숨겨집니다</string>
-    <string name="revanced_hide_hype_points_title">Hype 점수 숨기기</string>
+    <string name="revanced_hide_hype_button_summary_off">하이프 버튼이 표시됩니다</string>
+    <string name="revanced_hide_hype_button_summary_on">하이프 버튼이 숨겨집니다</string>
+    <string name="revanced_hide_hype_button_title">하이프 버튼 숨기기</string>
+    <string name="revanced_hide_hype_points_section_summary_off">하이프 점수 섹션이 표시됩니다</string>
+    <string name="revanced_hide_hype_points_section_summary_on">하이프 점수 섹션이 숨겨집니다</string>
+    <string name="revanced_hide_hype_points_section_title">하이프 점수 섹션 숨기기</string>
+    <string name="revanced_hide_hype_points_summary_off">하이프 점수가 표시됩니다</string>
+    <string name="revanced_hide_hype_points_summary_on">하이프 점수가 숨겨집니다</string>
+    <string name="revanced_hide_hype_points_title">하이프 점수 숨기기</string>
     <string name="revanced_hide_image_search_button_summary_off">Google 렌즈 버튼이 표시됩니다.</string>
     <string name="revanced_hide_image_search_button_summary_on">Google 렌즈 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_image_search_button_title">Google 렌즈 버튼 숨기기</string>
@@ -1336,9 +1336,6 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_shorts_comments_panel_summary_off">댓글 패널이 표시됩니다.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">댓글 패널이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_comments_panel_title">댓글 패널 숨기기</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">싫어요 버튼이 표시됩니다</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">싫어요 버튼이 숨겨집니다</string>
-    <string name="revanced_hide_shorts_dislike_button_title">싫어요 버튼 숨기기</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Shorts 페이지에서 플로팅 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Shorts 페이지에서 플로팅 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_floating_button_title">플로팅 버튼 숨기기</string>
@@ -1672,6 +1669,12 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_language_VI">베트남어\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">중국어\n<small>中文</small></string>
     <string name="revanced_language_title">ReVanced 언어</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">미니 플레이어를 화면 밖으로 드래그해도 재생이 계속됩니다</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">미니 플레이어를 화면 밖으로 드래그하면 재생이 일시 중지됩니다</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">수평 드래그로 동영상 재생 일시 중지</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_off">미니 플레이어를 화면 밖으로 드래그하면 원래의 자동 위치 조정 동작이 사용됩니다</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_on">미니플레이어를 화면 밖으로 드래그해도 UI 상태가 유지됩니다</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">드래그 상태 위치 기억하기</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">\'두 번 탭하기 작업\' 및 \'핀치하여 크기 조정\'을 비활성화합니다</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"'두 번 탭하기 작업' 및 '핀치하여 크기 조정'을 활성화합니다
 
@@ -1734,7 +1737,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
 길게 탭하면 타임스탬프가 복사됩니다."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프 URL 복사 버튼 표시하기</string>
     <string name="revanced_overlay_button_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
-    <string name="revanced_overlay_button_external_downloader_queue_manager_summary">외부 다운로더가 아닌 현재 재생목록 관리자를 실행할 수 있습니다.</string>
+    <string name="revanced_overlay_button_external_downloader_queue_manager_summary">외부 다운로더 대신 현재 재생목록 관리자를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">현재 재생목록 관리자</string>
     <string name="revanced_overlay_button_external_downloader_summary">버튼을 탭하여 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로더 버튼 표시하기</string>
@@ -1794,12 +1797,14 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_overlay_button_whitelist_summary">버튼을 탭하여 화이트리스트 다이얼로그를 열 수 있습니다.
 길게 탭하면 화이트리스트 설정 다이얼로그가 열립니다.</string>
     <string name="revanced_overlay_button_whitelist_title">화이트리스트 버튼 표시하기</string>
-    <string name="revanced_overlay_buttons_max_landscape_summary">가로 모드에서 표시할 오버레이 버튼의 최대 개수를 설정할 수 있습니다 (전체 화면 버튼 제외)
-모두 숨기려면 0를 입력하세요</string>
+    <string name="revanced_overlay_buttons_max_landscape_summary">가로 모드에서 표시할 오버레이 버튼의 최대 개수를 설정할 수 있습니다 (전체 화면 버튼 제외)\n
+모두 숨기려면 0를 입력하세요\n\n이 제한을 초과하는 버튼은 가로로 스와이프하여 표시할 수 있습니다</string>
     <string name="revanced_overlay_buttons_max_landscape_title">가로 모드에서 최대 버튼 수</string>
-    <string name="revanced_overlay_buttons_max_portrait_summary">세로 모드에서 표시할 오버레이 버튼의 최대 개수를 설정할 수 있습니다 (전체 화면 버튼 제외)
-모두 숨기려면 0를 입력하세요</string>
+    <string name="revanced_overlay_buttons_max_portrait_summary">세로 모드에서 표시할 오버레이 버튼의 최대 개수를 설정할 수 있습니다 (전체 화면 버튼 제외)\n모두 숨기려면 0를 입력하세요\n\n이 제한을 초과하는 버튼은 가로로 스와이프하여 표시할 수 있습니다</string>
     <string name="revanced_overlay_buttons_max_portrait_title">세로 모드에서 최대 버튼 수</string>
+    <string name="revanced_override_play_next_in_queue_summary_off">'현재 재생목록에서 다음 순서로 재생' 메뉴를 탭하면 YouTube 기본 현재 재생목록이 실행됩니다</string>
+    <string name="revanced_override_play_next_in_queue_summary_on">'현재 재생목록에서 다음 순서로 재생' 메뉴를 탭하면 RVX 현재 재생목록 관리자가 실행됩니다</string>
+    <string name="revanced_override_play_next_in_queue_title">현재 재생목록 메뉴 재정의하기</string>
     <string name="revanced_override_playlist_download_button_summary_off">기본 재생목록 오프라인 저장 버튼이 표시되어 있으면, 그 버튼으로 기본 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_override_playlist_download_button_summary_on">기본 재생목록 오프라인 저장 버튼이 항상 표시되어 있으며, 공개 재생목록에서는 그 버튼으로 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"기본 재생목록 오프라인 저장 버튼이 표시되어 있으면, 그 버튼으로 외부 다운로더를 실행할 수 있습니다.
@@ -1859,8 +1864,8 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_preference_screen_ambient_mode_title">앰비언트 모드</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">홈 피드, 구독 피드 그리고 검색 결과에서 좌우 슬라이드형 선반을 숨기거나 표시할 수 있습니다.</string>
     <string name="revanced_preference_screen_carousel_shelf_title">좌우 슬라이드형 선반</string>
-    <string name="revanced_preference_screen_category_bar_summary">피드, 관련 동영상, 검색 결과 그리고 시청 기록에서 카테고리 바를 숨기거나 표시할 수 있습니다.</string>
-    <string name="revanced_preference_screen_category_bar_title">카테고리 바</string>
+    <string name="revanced_preference_screen_category_bar_summary">피드, 관련 동영상, 검색 결과 그리고 시청 기록에서 필터 바를 숨기거나 표시할 수 있습니다.</string>
+    <string name="revanced_preference_screen_category_bar_title">필터 바</string>
     <string name="revanced_preference_screen_channel_bar_summary">플레이어에서 채널바 구성요소를 숨기거나 표시할 수 있습니다.</string>
     <string name="revanced_preference_screen_channel_bar_title">채널바</string>
     <string name="revanced_preference_screen_channel_page_summary">채널 페이지에서 구성요소를 숨기거나 표시할 수 있습니다.</string>
@@ -1949,7 +1954,7 @@ Gemini API Key를 발급받으려면 여기를 탭하세요."</string>
     <string name="revanced_queue_manager_remove_queue">현재 재생목록 제거</string>
     <string name="revanced_queue_manager_save_queue">현재 재생목록을 재생목록에 저장</string>
     <string name="revanced_queue_manager_show_original_video_information">원본 동영상 정보 표시</string>
-    <string name="revanced_queue_manager_user_dialog_message">"외부 다운로더가 아닌 현재 재생목록 관리자 다이얼로그를 실행할 수 있습니다.
+    <string name="revanced_queue_manager_user_dialog_message">"외부 다운로더 대신 현재 재생목록 관리자 다이얼로그를 실행할 수 있습니다.
 
 시스템 네비게이션 바에서 '뒤로 가기' 버튼을 길게 탭하여 현재 재생목록 관리자를 실행할 수도 있습니다.
 
@@ -2093,26 +2098,15 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (API 시간 초과)</string>
     <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike를 사용하여 투표하려면 동영상을 다시 불러오세요</string>
-    <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 수를 표시하지 않습니다</string>
-    <string name="revanced_ryd_shorts_summary_on">"Shorts에서 싫어요 수를 표시합니다
-
-제한 사항:
-• 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts에서 싫어요 수를 표시합니다.
-
-제한 사항:
-• 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다."</string>
-    <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 경우에 팝업 메시지를 표시합니다</string>
     <string name="revanced_ryd_toast_on_connection_error_title">연결 오류 알림 표시하기</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">소유자에 의해 숨겨짐</string>
-    <string name="revanced_sanitize_comments_category_bar_summary_off">댓글 카테고리 바에서 카테고리 버튼이 표시됩니다</string>
-    <string name="revanced_sanitize_comments_category_bar_summary_on">댓글 카테고리 바에서 \'인기순\'과 \'최신순\'을 제외한 카테고리 버튼이 숨겨집니다</string>
-    <string name="revanced_sanitize_comments_category_bar_title">카테고리 바 정리하기</string>
-    <string name="revanced_sanitize_video_subtitle_summary_off">"제목 하단에서 다음 문구들이 표시됩니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\nHype 순위 n위, 자동 더빙, 회원 전용, etc."</string>
-    <string name="revanced_sanitize_video_subtitle_summary_on">"제목 하단에서 다음 문구들이 숨겨집니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\nHype 순위 n위, 자동 더빙, 회원 전용, etc."</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_off">댓글 필터 바에서 필터 버튼이 표시됩니다</string>
+    <string name="revanced_sanitize_comments_category_bar_summary_on">댓글 필터 바에서 \'인기순\'과 \'최신순\'을 제외한 필터 버튼이 숨겨집니다</string>
+    <string name="revanced_sanitize_comments_category_bar_title">필터 바 정리하기</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"제목 하단에서 다음 문구들이 표시됩니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\n하이프 순위 n위, 자동 더빙, 회원 전용, etc."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"제목 하단에서 다음 문구들이 숨겨집니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품,\n하이프 순위 n위, 자동 더빙, 회원 전용, etc."</string>
     <string name="revanced_sanitize_video_subtitle_title">동영상 제목 하단 정리하기</string>
     <string name="revanced_sb_about">정보</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -2421,7 +2415,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_shorts_autoplay_background_title">백그라운드에서 자동재생</string>
     <string name="revanced_shorts_autoplay_disabled_toast">Shorts 자동재생을 비활성화하였습니다</string>
     <string name="revanced_shorts_autoplay_enabled_toast">Shorts 자동재생을 활성화하였습니다</string>
-    <string name="revanced_shorts_autoplay_summary">현재 Shorts를 반복 재생하는 것이 아닌 다음 Shorts로 자동으로 넘어갑니다</string>
+    <string name="revanced_shorts_autoplay_summary">현재 Shorts를 반복 재생하는 대신 다음 Shorts로 자동으로 넘어갑니다</string>
     <string name="revanced_shorts_autoplay_title">Shorts 자동재생</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"이 기능은 아직 실험 단계이므로, 완벽하게 작동한다는 보장은 없습니다.
 
@@ -2491,6 +2485,8 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_show_settings_button_type_summary_on">버튼을 탭하여 RVX 설정을 실행할 수 있습니다</string>
     <string name="revanced_show_settings_button_type_title">설정 버튼 작업</string>
     <string name="revanced_show_toolbar_settings_button_index_title">설정 버튼 위치</string>
+    <string name="revanced_show_toolbar_settings_button_summary_off">툴바에서 설정 버튼을 표시하지 않습니다</string>
+    <string name="revanced_show_toolbar_settings_button_summary_on">툴바에서 설정 버튼을 표시합니다</string>
     <string name="revanced_show_toolbar_settings_button_title">설정 버튼 표시하기</string>
     <string name="revanced_show_toolbar_settings_button_type_title">설정 버튼 작업</string>
     <string name="revanced_show_video_title_section_summary">"전체 화면에서 동영상 제목 섹션을 표시합니다.
@@ -2540,7 +2536,8 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
 • 강제 사용이 설정된 오디오 트랙이 비활성화되지 않을 수 있습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
-• 1080p+, AV1 그리고 HDR 동영상은 지원되지 않습니다.
+• AV1, HDR 그리고 60fps 동영상은 지원되지 않습니다.
+• 일부 동영상의 최대 화질이 720p로 제한될 수 있습니다.
 • 360° VR 몰입 모드를 사용할 수 없습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_no_sdk">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.
@@ -2884,6 +2881,6 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_yandex_status_youtube_specific">YouTube 오디오 요청 처리 중...</string>
     <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex는 모든 언어의 동영상을 텍스트로 기록할 수 있지만 출력은 영어(en), 러시아어(ru), 카자흐어(kk)로만 가능합니다. 다른 언어 코드 또는 앱의 기본 언어를 의미하는 \'app\'을 입력하면 Gemini에게 번역을 요청합니다. (API Key가 요구됨)</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex 언어</string>
-    <string name="revanced_yandex_transcribe_subtitles_summary">Gemini 대신에 Yandex 기록기를 사용할 수 있습니다. Yandex는 더 빠르고 안정적일 수 있습니다. API Key가 필요하지 않습니다.</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Gemini 대신 Yandex 기록기를 사용할 수 있습니다. Yandex는 더 빠르고 안정적일 수 있습니다. API Key가 필요하지 않습니다.</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex 기록기</string>
 </resources>

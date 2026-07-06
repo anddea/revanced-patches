@@ -83,7 +83,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">請輸入有效的播放器 JavaScript 雜湊值</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">播放器 JavaScript 雜湊值</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">播放器 JavaScript 變種</string>
-    <string name="morphe_spoof_video_streams_screen_summary">偽裝客戶端影片串流以避免播放問題</string>
+    <string name="morphe_spoof_video_streams_screen_summary">偽裝用戶端影片串流以避免播放問題</string>
     <string name="morphe_spoof_video_streams_screen_title">偽裝影片串流</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">尚未登入 Android VR。輕觸這裡即可登入</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">如要使用這項功能，請將「預設用戶端」改為 Android VR</string>
@@ -125,7 +125,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題。</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">不顯示進階影片畫質選單</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">已顯示進階影片畫質選單</string>
-    <string name="revanced_advanced_video_quality_menu_title">顯示進階影片畫質選單</string>
+    <string name="revanced_advanced_video_quality_menu_title">開啟「進階」畫質選單</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">使用舊式彈出式選單。</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">使用自訂對話框。</string>
     <string name="revanced_advanced_video_quality_menu_type_title">短影音中的進階影片畫質選單類型</string>
@@ -158,7 +158,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">使用中等品質靜態擷取。縮圖載入速度會更快，但直播、未發布或非常舊的影片可能會顯示空白縮圖</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">使用快速靜態擷取</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">中間</string>
-    <string name="revanced_alt_thumbnail_stills_time_entry_2">將粗體影片播放器控制項恢復為較舊、較細的視覺樣式</string>
+    <string name="revanced_alt_thumbnail_stills_time_entry_2">將粗體影片播放器控制項復原為較舊、較細的視覺樣式</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">結束</string>
     <string name="revanced_alt_thumbnail_stills_time_title">開始</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">訂閱標籤</string>
@@ -273,7 +273,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_copy">複製</string>
     <string name="revanced_copy_error">複製文字失敗</string>
     <string name="revanced_credits_title">感謝名單</string>
-    <string name="revanced_custom_filter_strings_summary">列出要篩選的元件路徑建構器字串，使用換行符號進行分隔</string>
+    <string name="revanced_custom_filter_strings_summary">以換行符號分隔的元件路徑建構器字串清單，用於篩選</string>
     <string name="revanced_custom_filter_strings_title">自訂篩選器</string>
     <string name="revanced_custom_filter_summary_off">已停用自訂篩選器</string>
     <string name="revanced_custom_filter_summary_on">已啟用自訂篩選器</string>
@@ -585,12 +585,12 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
 • 因此，如果將預設用戶端設定為 iOS TV，此設定可能不適用於某些影片。"</string>
     <string name="revanced_external_downloader_dialog_title">外部下載器</string>
     <string name="revanced_external_downloader_empty_warning">套件名稱不能為空</string>
-    <string name="revanced_external_downloader_not_found_title">應用程式未安裝</string>
+    <string name="revanced_external_downloader_not_found_title">找不到應用程式</string>
     <string name="revanced_external_downloader_not_installed">未安裝</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安裝。
 請從網站下載 %2$s。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-    <string name="revanced_external_downloader_not_installed_warning">未安裝 %s。請前往安裝。</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s 未安裝。請安裝它。</string>
     <string name="revanced_external_downloader_other_item">其他</string>
     <string name="revanced_external_downloader_other_item_hint">輸入套件名稱</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">您安裝的外部下載器應用程式的套件名稱。</string>
@@ -599,9 +599,9 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">長按時影片下載器套件名稱</string>
     <string name="revanced_external_downloader_package_name_video_summary">您安裝的外部下載器應用程式的套件名稱。</string>
     <string name="revanced_external_downloader_package_name_video_title">影片下載套件名稱</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"無法找到已安裝的應用程式，套件名稱為：%s
+    <string name="revanced_external_downloader_package_not_found_warning">"找不到具有套件名稱 %s 的已安裝應用程式
 
-請驗證套件名稱是否正確以及應用程式是否已安裝"</string>
+請確認套件名稱正確且應用程式已安裝"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">熱門按鈕圖示已隱藏。</string>
     <string name="revanced_fix_hype_button_icon_summary_on">熱門按鈕圖示已顯示。</string>
     <string name="revanced_fix_hype_button_icon_title">修復熱門按鈕圖標</string>
@@ -1174,7 +1174,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_remix_button_title">隱藏「Remix」按鈕</string>
     <string name="revanced_hide_report_button_summary_off">已顯示「檢舉」按鈕</string>
     <string name="revanced_hide_report_button_summary_on">已隱藏「檢舉」按鈕</string>
-    <string name="revanced_hide_report_button_title">隱藏舉報按鈕</string>
+    <string name="revanced_hide_report_button_title">隱藏檢舉按鈕</string>
     <string name="revanced_hide_rewards_button_summary_off">獎勵按鈕已顯示。</string>
     <string name="revanced_hide_rewards_button_summary_on">獎勵按鈕已隱藏。</string>
     <string name="revanced_hide_rewards_button_title">隱藏獎勵按鈕</string>
@@ -1302,9 +1302,6 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_shorts_comments_panel_summary_off">顯示評論面板。</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">評論面板已隱藏。</string>
     <string name="revanced_hide_shorts_comments_panel_title">隱藏評論面板</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">已顯示「不喜歡」按鈕</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">已隱藏「不喜歡」按鈕</string>
-    <string name="revanced_hide_shorts_dislike_button_title">隱藏「不喜歡」按鈕</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">短影音頻道分頁中會顯示「使用此音效」等浮動按鈕。</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">短影音頻道分頁中會顯示「使用此音效」等浮動按鈕。</string>
     <string name="revanced_hide_shorts_floating_button_title">隱藏浮動按鈕</string>
@@ -1634,6 +1631,8 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_language_VI">越南語\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">中文\n<small>中文</small></string>
     <string name="revanced_language_title">ReVanced 語言</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">使用水平拖曳暫停播放</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">記住拖曳狀態位置</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">已停用輕觸兩下動作和雙指撥動調整大小</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"已啟用輕觸兩下動作和雙指撥動調整大小
 
@@ -1995,9 +1994,9 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">將進度條縮略圖顯示在進度條上方。</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">還原舊版跳轉列縮圖</string>
     <string name="revanced_restore_old_settings_menus_title">還原舊版設定選單</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"修正無法顯示不喜歡以及無法隱藏影片動作按鈕
+    <string name="revanced_restore_old_video_action_bar_summary">"修正無法顯示不喜歡和隱藏影片動作按鈕的問題
 
-限制：恢復到舊式「更多影片」疊加層"</string>
+限制：復原為舊式「更多影片」疊加層"</string>
     <string name="revanced_restore_old_video_action_bar_title">還原舊版影片動作列</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">未使用舊版播放器介面。</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"正在使用舊版播放器介面。
@@ -2041,15 +2040,6 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_ryd_failure_connection_status_code">無法顯示不喜歡人數（狀態 %d）</string>
     <string name="revanced_ryd_failure_connection_timeout">暫時無法顯示不喜歡人數（API 逾時）</string>
     <string name="revanced_ryd_failure_generic">無法顯示不喜歡人數 (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新載入影片以使用 Return YouTube Dislike 進行投票</string>
-    <string name="revanced_ryd_shorts_summary_off">不顯示 Shorts 的不喜歡人數</string>
-    <string name="revanced_ryd_shorts_summary_on">"已顯示 Shorts 的不喜歡人數
-
-限制：在無痕模式下可能不會顯示不喜歡人數"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"在短影音中顯示不喜歡數。
-
-限制：若使用者未登入或使用無痕模式，可能不會顯示不喜歡數。"</string>
-    <string name="revanced_ryd_shorts_title">在 Shorts 中顯示不喜歡人數</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 無法使用，則不會顯示提示訊息</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 無法使用，則顯示提示訊息</string>
     <string name="revanced_ryd_toast_on_connection_error_title">顯示連線錯誤警示</string>
@@ -2419,8 +2409,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_shorts_player_type_regular_player_fullscreen">一般播放器全螢幕</string>
     <string name="revanced_shorts_player_type_shorts">Shorts 播放器</string>
     <string name="revanced_shorts_player_type_title">Shorts 開啟方式</string>
-    <string name="revanced_show_settings_button_index_title">隱藏「音訊軌道」選單頁尾</string>
-    <string name="revanced_show_settings_button_title">隱藏「音訊軌道」選單</string>
+    <string name="revanced_show_settings_button_index_title">設定按鈕位置</string>
+    <string name="revanced_show_settings_button_title">顯示設定按鈕</string>
     <string name="revanced_show_settings_button_type_title">設定按鈕動作</string>
     <string name="revanced_show_toolbar_settings_button_index_title">設定按鈕位置</string>
     <string name="revanced_show_toolbar_settings_button_title">顯示設定按鈕</string>

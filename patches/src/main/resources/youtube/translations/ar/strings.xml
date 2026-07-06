@@ -125,7 +125,7 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">قد يؤدي إيقاف تشغيل هذا الإعداد إلى مشكلات في التشغيل.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو المتقدمة</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو المتقدمة</string>
-    <string name="revanced_advanced_video_quality_menu_title">عرض قائمة جودة الفيديو المتقدمة</string>
+    <string name="revanced_advanced_video_quality_menu_title">فتح قائمة \'الجودة المتقدمة\'</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">يتم استخدام القائمة المنبثقة على الطراز القديم.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">يتم استخدام مربع حوار مخصص.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">نوع قائمة جودة الفيديو المتقدمة في Shorts</string>
@@ -271,7 +271,7 @@
     <string name="revanced_copy">نسخ</string>
     <string name="revanced_copy_error">فشل نسخ النص</string>
     <string name="revanced_credits_title">الشكر</string>
-    <string name="revanced_custom_filter_strings_summary">قائمة سلاسل منشئ مسار المكونات المراد تصفيتها مفصولة بسطر جديد</string>
+    <string name="revanced_custom_filter_strings_summary">قائمة بسلاسل بناء مسار المكونات المراد تصفيتها، مفصولة بأسطر جديدة</string>
     <string name="revanced_custom_filter_strings_title">فلتر مخصص</string>
     <string name="revanced_custom_filter_summary_off">تم تعطيل الفلتر المخصص</string>
     <string name="revanced_custom_filter_summary_on">تم تمكين الفلتر المخصص</string>
@@ -591,7 +591,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"لم يتم تثبيت %1$s.
 الرجاء تنزيل %2$s من الموقع."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">تحذير</string>
-    <string name="revanced_external_downloader_not_installed_warning">لم يتم تثبيت %s . الرجاء تثبيته.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s لم يتم تثبيته. قم بتثبيته.</string>
     <string name="revanced_external_downloader_other_item">أخرى</string>
     <string name="revanced_external_downloader_other_item_hint">أدخل اسم الحزمة</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك.</string>
@@ -600,9 +600,9 @@
     <string name="revanced_external_downloader_package_name_video_long_press_title">اسم حزمة تنزيل الفيديو بالضغط لفترة طويلة</string>
     <string name="revanced_external_downloader_package_name_video_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك.</string>
     <string name="revanced_external_downloader_package_name_video_title">اسم حزمة تنزيل الفيديو</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"تعذر العثور على التطبيق المثبت باسم الحزمة: %s
+    <string name="revanced_external_downloader_package_not_found_warning">"تعذر العثور على تطبيق مثبت باسم الحزمة: %s
 
-تأكد من أن اسم الحزمة صحيح وأن التطبيق مثبت"</string>
+تحقق من صحة اسم الحزمة وأن التطبيق مثبت"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">تم إخفاء أيقونة زر التشجيع.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">يتم عرض أيقونة زر التشجيع.</string>
     <string name="revanced_fix_hype_button_icon_title">إصلاح أيقونة زر التشجيع</string>
@@ -817,6 +817,7 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">يُعرض في موجز الاشتراكات.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">مخفي في موجز الاشتراكات.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">إخفاء في موجز الاشتراكات</string>
+    <string name="revanced_hide_connect_button_summary_off">العربية</string>
     <string name="revanced_hide_connect_button_title">إخفاء زر الاتصال</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">يتم عرض رف متجر المنشئ أسفل مشغل الفيديو</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">تم إخفاء رف متجر المنشئ أسفل مشغل الفيديو</string>
@@ -1306,9 +1307,6 @@
     <string name="revanced_hide_shorts_comments_panel_summary_off">لوحة التعليقات ظاهرة.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">لوحة التعليقات مخفية.</string>
     <string name="revanced_hide_shorts_comments_panel_title">إخفاء لوحة التعليقات</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">يتم عرض زر لم يعجبني</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">تم إخفاء زر لم يعجبني</string>
-    <string name="revanced_hide_shorts_dislike_button_title">إخفاء زر لم يعجبني</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">يتم عرض الأزرار العائمة في صفحات Shorts.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">تم إخفاء الأزرار العائمة في صفحات Shorts.</string>
     <string name="revanced_hide_shorts_floating_button_title">إخفاء الأزرار العائمة</string>
@@ -1638,6 +1636,8 @@
     <string name="revanced_language_VI">الفيتنامية\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">الصينية\n<small>中文</small></string>
     <string name="revanced_language_title">لغة ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">إيقاف التشغيل بالسحب الأفقي</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">تذكر موضع حالة السحب</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">إجراء النقر المزدوج والضغط لتغيير الحجم معطل</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"تم تمكين إجراء الضغط المزدوج والضغط لتغيير الحجم
 
@@ -1983,7 +1983,7 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">مصغرات شريط التقدم ستظهر فوق شريط تقدم الفيديو</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">استعادة مصغرات شريط التقدم القديمة</string>
     <string name="revanced_restore_old_settings_menus_title">استعادة شاشة إعدادات YouTube القديمة</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"إصلاح عدم ظهور الإعجابات وعدم القدرة على إخفاء أزرار إجراءات الفيديو
+    <string name="revanced_restore_old_video_action_bar_summary">"يُصلح عدم ظهور لم يعجبني وعدم إمكانية إخفاء أزرار إجراءات الفيديو
 
 القيود: يعود إلى نمط 'المزيد من الفيديوهات' القديم"</string>
     <string name="revanced_restore_old_video_action_bar_title">استعادة شريط إجراءات الفيديو القديم</string>
@@ -2029,15 +2029,6 @@
     <string name="revanced_ryd_failure_connection_status_code">لم يعجبني غير متاح (الحالة %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">لم يعجبني غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="revanced_ryd_failure_generic">لم يعجبني غير متاح (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">أعد تحميل الفيديو للتصويت بـ Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">لا يتم عرض مرات لم يعجبني على فيديوهات Shorts</string>
-    <string name="revanced_ryd_shorts_summary_on">"يتم عرض عدد مرات لم يعجبني في فيديوهات Shorts
-
-التقييد: قد لا تظهر مرات لم يعجبني في وضع التصفح المتخفي"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"إبداءات لم يعجبني التي تظهر على فيديوهات Shorts.
-
-التقييد: قد لا تظهر إبداءات لم يعجبني إذا لم يقم المستخدم بتسجيل الدخول أو في وضع التصفح المتخفي."</string>
-    <string name="revanced_ryd_shorts_title">عرض لم يعجني في فيديوهات Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
     <string name="revanced_ryd_toast_on_connection_error_title">عرض تنبيهات خطأ الاتصال</string>

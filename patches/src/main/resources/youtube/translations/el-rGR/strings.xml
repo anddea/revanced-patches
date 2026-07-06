@@ -125,7 +125,7 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Δεν εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
-    <string name="revanced_advanced_video_quality_menu_title">Εμφάνιση προχωρημένου μενού ποιότητας βίντεο</string>
+    <string name="revanced_advanced_video_quality_menu_title">Άνοιγμα μενού ποιότητας \'Προχωρημένων\'</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Εμφανίζεται το αναδυόμενο μενού παλιού στυλ.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Εμφανίζεται προσαρμοσμένο παράθυρο.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Εμφάνιση προχωρημένου μενού ποιότητας στα Shorts</string>
@@ -270,7 +270,7 @@
     <string name="revanced_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
     <string name="revanced_copy">Αντιγραφή</string>
     <string name="revanced_copy_error">Αποτυχία αντιγραφής κειμένου</string>
-    <string name="revanced_custom_filter_strings_summary">Λίστα συμβολοσειρών κατασκευαστή διαδρομής στοιχείου για φιλτράρισμα, χωρισμένη με νέες γραμμές</string>
+    <string name="revanced_custom_filter_strings_summary">Λίστα συμβολοσειρών στοιχείων δημιουργού διαδρομής για φιλτράρισμα, διαχωρισμένες με νέες γραμμές</string>
     <string name="revanced_custom_filter_strings_title">Προσαρμοσμένο φίλτρο</string>
     <string name="revanced_custom_filter_summary_off">Το προσαρμοσμένο φίλτρο είναι απενεργοποιημένο</string>
     <string name="revanced_custom_filter_summary_on">Το προσαρμοσμένο φίλτρο είναι ενεργοποιημένο</string>
@@ -584,15 +584,15 @@
 
 Σημείωση: Το πρόγραμμα πελάτη iOS TV δεν είναι διαθέσιμο σε ορισμένες περιοχές, οπότε αυτή η ρύθμιση μπορεί να μη λειτουργεί."</string>
     <string name="revanced_external_downloader_dialog_title">Εξωτερική εφαρμογή λήψης</string>
-    <string name="revanced_external_downloader_empty_warning">Το όνομα πακέτου δεν μπορεί να είναι κενό</string>
-    <string name="revanced_external_downloader_not_found_title">Η εφαρμογή δεν έχει εγκατασταθεί</string>
+    <string name="revanced_external_downloader_empty_warning">Το όνομα πακέτου δεν είναι δυνατό να είναι κενό</string>
+    <string name="revanced_external_downloader_not_found_title">Η εφαρμογή δεν είναι εγκατεστημένη</string>
     <string name="revanced_external_downloader_not_installed">Δεν έχει εγκατασταθεί</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"Το %1$s δεν είναι εγκατεστημένο.
 Παρακαλούμε εγκαταστήστε το %2$s από την ιστοσελίδα."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Προειδοποίηση</string>
-    <string name="revanced_external_downloader_not_installed_warning">Το %s δεν είναι εγκατεστημένο. Παρακαλούμε εγκαταστήστε το.</string>
+    <string name="revanced_external_downloader_not_installed_warning">Το %s δεν είναι εγκατεστημένο. Παρακαλώ εγκαταστήστε το.</string>
     <string name="revanced_external_downloader_other_item">Άλλο</string>
-    <string name="revanced_external_downloader_other_item_hint">Εισάγετε το όνομα πακέτου</string>
+    <string name="revanced_external_downloader_other_item_hint">Εισαγάγετε το όνομα πακέτου</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Όνομα πακέτου εφαρμογής λήψης λίστας αναπαραγωγής</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Όνομα πακέτου της εγκατεστημένης εφαρμογής εξωτερικής λήψης, όπως NewPipe ή YTDLnis, κατά το παρατεταμένο πάτημα.</string>
@@ -601,7 +601,7 @@
     <string name="revanced_external_downloader_package_name_video_title">Όνομα πακέτου εφαρμογής λήψης βίντεο</string>
     <string name="revanced_external_downloader_package_not_found_warning">"Δεν ήταν δυνατή η εύρεση εγκατεστημένης εφαρμογής με όνομα πακέτου: %s
 
-Επιβεβαιώστε ότι το όνομα πακέτου είναι σωστό και ότι η εφαρμογή είναι εγκατεστημένη"</string>
+Επαληθεύστε ότι το όνομα πακέτου είναι σωστό και ότι η εφαρμογή είναι εγκατεστημένη"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Το εικονίδιο του κουμπί «Hype» δεν εμφανίζεται.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Το εικονίδιο του κουμπί «Hype» εμφανίζεται.</string>
     <string name="revanced_fix_hype_button_icon_title">Διόρθωση εικονιδίου κουμπιού Hype</string>
@@ -1301,9 +1301,6 @@ Playlists
     <string name="revanced_hide_shorts_comments_panel_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Απόκρυψη πίνακα σχολίων</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Εμφανίζεται</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Κρυμμένο</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Κουμπί «Δεν μου αρέσει»</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Εμφανίζονται.
 
 Αφορά τα αιωρούμενα κουμπιά στην καρτέλα Shorts του καναλιού.</string>
@@ -1637,6 +1634,8 @@ Playlists
     <string name="revanced_language_VI">Βιετναμέζικα\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Κινέζικα\n<small>中文</small></string>
     <string name="revanced_language_title">Γλώσσα ρυθμίσεων ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Παύση αναπαραγωγής με οριζόντια μεταφορά</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Απομνημόνευση θέσης μεταφοράς</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι απενεργοποιημένη</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι ενεργοποιημένη
 
@@ -1996,9 +1995,9 @@ Playlists
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται πάνω από τη γραμμή προόδου</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Παλιές μικρογραφίες γραμμής προόδου</string>
     <string name="revanced_restore_old_settings_menus_title">Επαναφορά παλιών ρυθμίσεων μενού</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Διορθώνει την μη εμφάνιση των απορρίψεων και την αδυναμία απόκρυψης των κουμπιών ενεργειών βίντεο.
+    <string name="revanced_restore_old_video_action_bar_summary">"Διορθώνει την εμφάνιση των μη εμφανιζόμενων απορρίψεων και η γραμμή εργαλείων βίντεο δεν μπορεί να κρυφτεί
 
-Περιορισμοί: Επιστρέφει στην παλιά μορφή επικάλυψης 'Περισσότερα βίντεο'"</string>
+Περιορισμός: Επιστρέφει στην παλιά στυλ επικάλυψης 'Περισσότερα βίντεο'"</string>
     <string name="revanced_restore_old_video_action_bar_title">Επαναφορά γραμμής ενεργειών βίντεο παλαιού τύπου</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Η παλιά εμφάνιση της οθόνης αναπαραγωγής είναι απενεργοποιημένη.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Η παλιά εμφάνιση της οθόνης αναπαραγωγής είναι ενεργοποιημένη.
@@ -2042,15 +2041,6 @@ Playlists
     <string name="revanced_ryd_failure_connection_status_code">Δεδομένα dislike μη διαθέσιμα (κατάσταση %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Dislike προσωρινά μη διαθέσιμα (καθυστέρηση API)</string>
     <string name="revanced_ryd_failure_generic">Δεδομένα dislike μη διαθέσιμα (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Επαναφορτώστε το βίντεο για να ψηφίσετε χρησιμοποιώντας το Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">Τα «Δεν μου αρέσει» δεν εμφανίζονται στα Shorts</string>
-    <string name="revanced_ryd_shorts_summary_on">"Τα «Δεν μου αρέσει» εμφανίζονται στα Shorts
-
-Περιορισμός: Ενδέχεται να μην εμφανίζονται σε ανώνυμη λειτουργία"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Τα «Δεν μου αρέσει» εμφανίζονται στα Shorts.
-
-Περιορισμός: Τα «Δεν μου αρέσει» ενδέχεται να μην εμφανίζονται σε λειτουργία ανώνυμης περιήγησης ή αν δεν έχετε συνδεθεί στον λογαριασμό σας."</string>
-    <string name="revanced_ryd_shorts_title">Εμφάνιση στα Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Εμφάνιση ειδοποιήσεων σφάλματος σύνδεσης</string>

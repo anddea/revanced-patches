@@ -1643,18 +1643,18 @@ Known issue: When this setting is enabled, YouTube Doodles are not clickable."</
     <string name="revanced_language_VI">Vietnamese\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chinese\n<small>中文</small></string>
     <string name="revanced_language_title">RVX language</string>
-    <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled.</string>
-    <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled.
-
-• Double tap to increase Miniplayer size.
-• Double tap again to restore original size."</string>
-    <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">Playback continues when the miniplayer is dragged off-screen.</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">Playback will pause when the miniplayer is dragged off-screen.</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Disable playback with horizontal drag</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_summary_off">Dragging the miniplayer off-screen uses the original automatic reposition behavior.</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_summary_on">Dragging the miniplayer off-screen will preserve its UI state.</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">Prevent horizontal drag automatic reposition</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled.</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled.
+
+• Double tap to increase Miniplayer size.
+• Double tap again to restore original size."</string>
+    <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled.</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_on">"Drag and drop is enabled.
 
@@ -1772,9 +1772,9 @@ Tap and hold to reset playback speed to 1.0x. Tap and hold again to reset back t
     <string name="revanced_overlay_button_whitelist_summary">"Tap to open whitelist dialog.
 Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_overlay_button_whitelist_title">Show whitelist button</string>
-    <string name="revanced_overlay_buttons_max_landscape_summary">Maximum number of overlay buttons to show in landscape mode (excluding Fullscreen button). Enter 0 to hide all.</string>
+    <string name="revanced_overlay_buttons_max_landscape_summary">Maximum number of overlay buttons to show in landscape mode (excluding Fullscreen button). Enter 0 to hide all.\n\nSwipe horizontally to reveal any buttons exceeding this limit.</string>
     <string name="revanced_overlay_buttons_max_landscape_title">Max buttons in landscape</string>
-    <string name="revanced_overlay_buttons_max_portrait_summary">Maximum number of overlay buttons to show in portrait mode (excluding Fullscreen button). Enter 0 to hide all.</string>
+    <string name="revanced_overlay_buttons_max_portrait_summary">Maximum number of overlay buttons to show in portrait mode (excluding Fullscreen button). Enter 0 to hide all.\n\nSwipe horizontally to reveal any buttons exceeding this limit.</string>
     <string name="revanced_overlay_buttons_max_portrait_title">Max buttons in portrait</string>
     <string name="revanced_override_play_next_in_queue_summary_off">Play next in queue uses YouTube's native queue.</string>
     <string name="revanced_override_play_next_in_queue_summary_on">Play next in queue opens the RVX queue manager.</string>

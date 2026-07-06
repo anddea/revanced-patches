@@ -121,7 +121,7 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">Изключването на тази настройка може да причини проблеми при възпроизвеждане.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Менюто за разширено качество на видеото не се показва</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Показва се менюто за разширено качество на видеото</string>
-    <string name="revanced_advanced_video_quality_menu_title">Непрозрачност на миниплеера трябва да бъде между 0-100</string>
+    <string name="revanced_advanced_video_quality_menu_title">Отворете меню за качеството \'Разширени\'</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow осигурява crowdsourced превю за видеоклипове на YouTube. Тези превю са често по-релевантни от тези, предоставени от YouTube
 
 Ако е включено, URL-овете на видеоклиповете ще бъдат изпращани към сървъра на API и няма да се изпращат други данни. Ако видеоклип не има DeArrow превю, тогава ще се показват оригиналните или превю с кадри
@@ -238,12 +238,12 @@
     <string name="revanced_change_youtube_header_summary_on">Включен логотип Premium.</string>
     <string name="revanced_change_youtube_header_title">Промяна на логото на YouTube</string>
     <string name="revanced_copy">Копирай</string>
-    <string name="revanced_custom_filter_strings_summary">Списък с низ от пътя на компонента за филтриране, разделени с нови редове</string>
-    <string name="revanced_custom_filter_strings_title">Филтрите с използване на кастомни филтри са изключени</string>
+    <string name="revanced_custom_filter_strings_summary">Списък на низове на градителите на пътища на компоненти за филтриране, разделени с нови редове</string>
+    <string name="revanced_custom_filter_strings_title">Персонализиран филтър</string>
     <string name="revanced_custom_filter_summary_off">Потребителският филтър е деактивиран</string>
     <string name="revanced_custom_filter_summary_on">Потребителският филтър е активиран</string>
-    <string name="revanced_custom_filter_title">Бутона \'Създай\' е показан</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Списък на компонентите за филтри е невалиден: %s</string>
+    <string name="revanced_custom_filter_title">Активиране на персонализиран филтър</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Невалиден персонализиран филтър: %s</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_off">Използва се падащ панел в стар стил.</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_on">Използва се персонализиран диалогов прозорец.</string>
     <string name="revanced_custom_playback_speed_menu_type_title">Персонализиран панел за скорост на възпроизвеждане</string>
@@ -496,19 +496,21 @@
     <string name="revanced_expand_video_description_title">Автоматично отваряне на видео описание</string>
     <string name="revanced_external_downloader_dialog_title">Външна програма за изтегляне</string>
     <string name="revanced_external_downloader_empty_warning">Името на пакета не може да бъде празно</string>
-    <string name="revanced_external_downloader_not_found_title">Други</string>
+    <string name="revanced_external_downloader_not_found_title">Приложението не е инсталирано</string>
     <string name="revanced_external_downloader_not_installed">Не е инсталирано</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не е инсталиран.
 Моля, изтеглете %2$s от уебсайта."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Внимание</string>
-    <string name="revanced_external_downloader_not_installed_warning">Външен свалик</string>
-    <string name="revanced_external_downloader_other_item">Името на пакета не може да бъде празно</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s не е инсталиран. Моля, инсталирайте го.</string>
+    <string name="revanced_external_downloader_other_item">Други</string>
     <string name="revanced_external_downloader_other_item_hint">Въведете името на пакета</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Име на приложението за изтегляне</string>
     <string name="revanced_external_downloader_package_name_video_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Име на приложението за изтегляне на видео</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Външен свалик не е инсталиран. Инсталирайте го."</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"Не може да бъде намерено инсталирано приложение с име на пакет: %s
+
+Проверете дали името на пакета е правилно и приложението е инсталирано"</string>
     <string name="revanced_fix_transcript_summary_off">Преписът може да не е наличен поради неуспешен предварителен проверки</string>
     <string name="revanced_fix_transcript_summary_on">Преписът е наличен</string>
     <string name="revanced_fix_transcript_title">Изправи препис</string>
@@ -1079,9 +1081,6 @@
     <string name="revanced_hide_shorts_comments_button_summary_off">Бутон за коментари се показва</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Бутон за коментари е скрит</string>
     <string name="revanced_hide_shorts_comments_button_title">Дублирането на видеа е скрито</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Бутона за нехаресване се показва</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Бутона за нехаресване е скрит</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Дублирането на видеа е скрито</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Изскачащи бутони като „Използване на този звук“ Се показват в раздела Shorts.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Изскачащи бутони като „Използване на този звук“ са скрити в раздела Shorts.</string>
     <string name="revanced_hide_shorts_floating_button_title">Скриване на изскачащ бутон</string>
@@ -1364,6 +1363,8 @@
     <string name="revanced_language_VI">Виетнамски</string>
     <string name="revanced_language_ZH">Китайски</string>
     <string name="revanced_language_title">Език на ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Паузирайте възпроизвеждането с хоризонтален жест</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Запомнете позицията на драг състоянието</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Двойно докосване и щипване за преоразмеряване е деактивирано</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Активирано е двойно докосване и щипка за преоразмеряване
 
@@ -1617,9 +1618,9 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Над лентата за възпроизвеждане се появяват миниатюри</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Стари миниатюри на времевата линия</string>
     <string name="revanced_restore_old_settings_menus_title">Възстановяване на старите менюта за настройки</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Коригира проблем с неотчетени негативни оценки и невъзможност за скриване на видео бутоните за действия.
+    <string name="revanced_restore_old_video_action_bar_summary">"Отстранява проблема с неотчетените отрицателни оценки и невъзможността за скриване на бутоните за действие във видеоклипа
 
-Ограничения: Връща се към стар стил на наслагване на „Още видеа“"</string>
+Ограничение: Връща се към стария стил на покритието „Още видеоклипове“"</string>
     <string name="revanced_restore_old_video_action_bar_title">Възстановяване на стар видео бар с действия</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Старият интерфейс на плейъра е деактивиран.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старият интерфейс на плейъра е активиран.
@@ -1663,14 +1664,6 @@
     <string name="revanced_ryd_failure_connection_status_code">Дублирането на видеа е скрито</string>
     <string name="revanced_ryd_failure_connection_timeout">Скрий дублиране на видеа</string>
     <string name="revanced_ryd_failure_generic">Скрий дублиране на видеа</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Дублирането на видеа е скрито</string>
-    <string name="revanced_ryd_shorts_summary_off">Нехаресванията на Shorts не са показани</string>
-    <string name="revanced_ryd_shorts_summary_on">"Нехаресванията на Shorts са показани
-
-Ограничение: Нехаресванията може да не се показват в режим инкогнито"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Нехаресванията се показват в Shorts
-Ограничение: Нехаресванията може да не се показват в режим „инкогнито“ или ако не сте влезли в акаунта си."</string>
-    <string name="revanced_ryd_shorts_title">Скрий дублиране на видеа</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Не се показва известие, ако ReturnYouTube Dislike не е наличен</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Показва известие, ако Return YouTube Dislike не е наличен</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показвай предупреждения за грешки в връзката</string>

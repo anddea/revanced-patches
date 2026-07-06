@@ -126,7 +126,7 @@ Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas né
     <string name="morphe_spoof_video_streams_user_dialog_message">La désactivation de ce paramètre peut entraîner des problèmes de lecture.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Le menu de qualité vidéo avancé n\'est pas affiché</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Le menu de qualité vidéo avancé est affiché</string>
-    <string name="revanced_advanced_video_quality_menu_title">Afficher le menu de qualité vidéo avancé</string>
+    <string name="revanced_advanced_video_quality_menu_title">Ouvrir le menu qualité \'Avancée\'</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">L\'ancien style du menu déroulant est utilisé.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">La boîte de dialogue personnalisée est utilisée.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Type de menu de qualité vidéo avancé dans les Shorts</string>
@@ -586,9 +586,9 @@ Pour utiliser cette fonctionnalité, changez 'Client par défaut (Falsifier les 
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s n'est pas installé.
 Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Attention</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l\'installer.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l’installer.</string>
     <string name="revanced_external_downloader_other_item">Autre</string>
-    <string name="revanced_external_downloader_other_item_hint">Entrez le nom du paquet</string>
+    <string name="revanced_external_downloader_other_item_hint">Entrez le nom du paquet </string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nom du package de votre application de téléchargement externe installée.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nom du paquet du téléchargeur de la playlist</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Nom du package de votre application de téléchargement externe installée, telle que NewPipe ou YTDLnis, lorsque vous appuyez longuement dessus.</string>
@@ -1297,9 +1297,6 @@ Info :
     <string name="revanced_hide_shorts_comments_panel_summary_off">Le panneau des commentaires est affiché. </string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Le panneau des commentaires masqué. </string>
     <string name="revanced_hide_shorts_comments_panel_title">Masquer le panneau des commentaires</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Le bouton Je n\'aime pas est affiché</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Le bouton Je n\'aime pas est masqué</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Masquer le bouton \'Je n\'aime pas\'</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Les boutons flottants comme \'Utiliser ce son\' sont affichés dans l\'onglet Shorts des chaînes.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Les boutons flottants comme \'Utiliser ce son\' sont masqués dans l\'onglet Shorts des chaînes.</string>
     <string name="revanced_hide_shorts_floating_button_title">Masquer les boutons flottants</string>
@@ -1630,6 +1627,8 @@ Problème connu : lorsque ce paramètre est activé, les Doodles YouTube ne son
     <string name="revanced_language_VI">Vietnamien\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chinois\n<small>中文</small></string>
     <string name="revanced_language_title">Langue de ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Mettre la lecture en pause lors d\'un glissement horizontal</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Mémoriser la position de l\'état de glissement</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Action de double appui et Pincer pour redimensionner sont désactivés</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"L'action de double appui et Pincer pour redimensionner sont activés
 
@@ -1994,7 +1993,7 @@ Appuyez longuement pour ouvrir les paramètres YouTube."</string>
     <string name="revanced_restore_old_settings_menus_title">Restaurer les anciens menus de paramètres de YouTube</string>
     <string name="revanced_restore_old_video_action_bar_summary">"Corrige le problème des je n'aime pas non affichés et des boutons d’actions de la vidéo qui ne peuvent pas être masqués
 
-Limitations : Rétablit l’ancien style d'overlay 'Plus de vidéos'"</string>
+Limitation : Rétablit l’ancien style d'overlay 'Plus de vidéos'"</string>
     <string name="revanced_restore_old_video_action_bar_title">Restaurer l’ancienne barre d’actions vidéo</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">L\'ancienne mise en page du lecteur n\'est pas utilisée.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"L'ancienne mise en page du lecteur est utilisée.
@@ -2038,15 +2037,6 @@ Appuyez ici pour ouvrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_failure_connection_status_code">\'Je n\'aime pas\' indisponibles (statut %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">\'Je n\'aime pas\' temp. indispo. (pas de réponse)</string>
     <string name="revanced_ryd_failure_generic">\'Je n\'aime pas\' indisponibles (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recharger la vidéo pour voter avec Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">Les \"Je n\'aime pas\" ne sont pas affichés sur les Shorts</string>
-    <string name="revanced_ryd_shorts_summary_on">"Les \"Je n'aime pas\" sont affichés sur les Shorts
-
-Limitation : Il se peut que les \"Je n'aime pas\" n'apparaissent pas en mode navigation privée"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Les 'Je n'aime pas' sont affichés sur les Shorts.
-
-Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas connectés ou en mode incognito."</string>
-    <string name="revanced_ryd_shorts_title">Afficher les \'Je n\'aime pas\' sur les Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Aucun message toast affiché si Return YouTube Dislike n\'est pas disponible</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Un message toast est affiché si Return YouTube Dislike n\'est pas disponible</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Afficher les alertes d\'erreur de connexion</string>
