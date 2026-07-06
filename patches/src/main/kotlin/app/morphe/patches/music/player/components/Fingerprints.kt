@@ -52,6 +52,7 @@ package app.morphe.patches.music.player.components
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.OpcodesFilter.Companion.opcodesToFilters
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
@@ -228,6 +229,21 @@ internal object ModernMiniPlayerDefaultTextFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
     filters = listOf(resourceLiteral(ResourceType.STRING, "mini_player_default_text"))
+)
+
+/**
+ * Matches the player-page motion handler which must be bypassed for swipe dismissal on 9.00+.
+ */
+internal object PlayerPageBehaviorFingerprint : Fingerprint(
+    definingClass = "Lcom/google/android/apps/youtube/music/watchpage/ui/PlayerPageBehavior;",
+    accessFlags = listOf(AccessFlags.FINAL),
+    parameters = emptyList(),
+    returnType = "V",
+    filters = opcodesToFilters(
+        Opcode.CONST_4,
+        Opcode.IPUT_BOOLEAN,
+        Opcode.RETURN_VOID
+    )
 )
 
 internal val miniPlayerConstructorFingerprint = legacyFingerprint(
