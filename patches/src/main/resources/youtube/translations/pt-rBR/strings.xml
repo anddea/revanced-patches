@@ -124,7 +124,7 @@ Se você é um usuário do YouTube Premium, esta configuração pode não ser ne
     <string name="morphe_spoof_video_streams_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">O menu de qualidade de vídeo avançado não é exibido</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">O menu de qualidade de vídeo avançado é exibido</string>
-    <string name="revanced_advanced_video_quality_menu_title">Mostrar menu de qualidade de vídeo avançado</string>
+    <string name="revanced_advanced_video_quality_menu_title">Abrir menu de qualidade \'Avançado\'</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">O menu flutuante antigo é usado.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">O diálogo personalizado é usado.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Tipo de menu avançado de qualidade de vídeo nos Shorts</string>
@@ -271,7 +271,7 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar."</stri
     <string name="revanced_copy_error">Falha ao copiar texto</string>
     <string name="revanced_credits_title">créditos 
 </string>
-    <string name="revanced_custom_filter_strings_summary">Lista de strings de construção de caminho de componente para filtrar, separadas por novas linhas</string>
+    <string name="revanced_custom_filter_strings_summary">Lista de strings de componente de construção de caminhos para filtrar, separadas por novas linhas</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
     <string name="revanced_custom_filter_summary_off">Filtro personalizado está desativado</string>
     <string name="revanced_custom_filter_summary_on">Filtro personalizado está ativado</string>
@@ -577,23 +577,23 @@ Limitação: não funciona se o reprodutor estiver minimizado, no modo PiP ou em
     <string name="revanced_extended_audio_tracks_unavailable">Essa configuração está indisponível no momento. Para usar este recurso, mude \'Cliente padrão (Falsificar dados de streaming)\' para TV ou TV Simples.</string>
     <string name="revanced_external_downloader_dialog_title">Aplicativo de download externo</string>
     <string name="revanced_external_downloader_empty_warning">O nome do pacote não pode estar vazio</string>
-    <string name="revanced_external_downloader_not_found_title">Aplicativo não instalado</string>
+    <string name="revanced_external_downloader_not_found_title">App não instalado</string>
     <string name="revanced_external_downloader_not_installed">Não instalado</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s não está instalado.
 Por favor, baixe %2$s do site."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Aviso</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale-o.</string>
     <string name="revanced_external_downloader_other_item">Outro</string>
-    <string name="revanced_external_downloader_other_item_hint">Insira o nome do pacote</string>
+    <string name="revanced_external_downloader_other_item_hint">Digite o nome do pacote</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nome do pacote do seu aplicativo de download externo instalado. </string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nome do pacote do aplicativo de download de playlist</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Nome do pacote do seu aplicativo de download externo instalado, como NewPipe ou YTDLnis, ao pressionar longamente.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Nome do pacote do aplicativo de baixar vídeos por toque longo</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nome do pacote do seu aplicativo de download externo instalado.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome do pacote do aplicativo de download de vídeo</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Não foi possível encontrar o aplicativo instalado com o nome do pacote: %s
+    <string name="revanced_external_downloader_package_not_found_warning">"Não foi possível encontrar o app instalado com o nome do pacote: %s
 
-Verifique se o nome do pacote está correto e se o aplicativo está instalado"</string>
+Verifique se o nome do pacote está correto e se o app está instalado"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">O ícone do botão Hypar está oculto.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">O ícone do botão Hypar será exibido.</string>
     <string name="revanced_fix_hype_button_icon_title">Corrigir ícone do botão ‘hype’</string>
@@ -808,6 +808,8 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Exibido no feed de inscrições.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Oculto no feed de inscrições.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ocultar no feed de inscrições</string>
+    <string name="revanced_hide_connect_button_summary_off">O botão Conectar é exibido.</string>
+    <string name="revanced_hide_connect_button_summary_on">O botão Conectar está oculto.,</string>
     <string name="revanced_hide_connect_button_title">Ocultar botão Conectar</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Prateleira da loja do criador sob o reprodutor de vídeo é exibida</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">A prateleira da loja do criador sob o player de vídeo está oculta</string>
@@ -815,6 +817,9 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_crowdfunding_box_summary_off">Caixa de financiamento coletivo é mostrada</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Caixa de financiamento coletivo está oculta</string>
     <string name="revanced_hide_crowdfunding_box_title">Ocultar caixa de financiamento coletivo</string>
+    <string name="revanced_hide_dislike_button_summary_off">O botão "Não gostei" é exibido.</string>
+    <string name="revanced_hide_dislike_button_summary_on">O botão "Não gostei" está oculto.</string>
+    <string name="revanced_hide_dislike_button_title">Ocultar botão Não gostei</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">O filtro de sobreposição de toque duplo será exibido.</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">O filtro de sobreposição de toque duplo está oculto.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Ocultar filtro de sobreposição de toque duplo</string>
@@ -957,6 +962,9 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_latest_videos_button_summary_off">O botão Vídeos mais recentes é exibido</string>
     <string name="revanced_hide_latest_videos_button_summary_on">O botão Vídeos mais recentes está oculto</string>
     <string name="revanced_hide_latest_videos_button_title">Ocultar botão \'Vídeos recentes\'</string>
+    <string name="revanced_hide_like_button_summary_off">O botão Curtir é exibido.</string>
+    <string name="revanced_hide_like_button_summary_on">O botão Curtir está oculto.</string>
+    <string name="revanced_hide_like_button_title">Ocultar botão Curtir</string>
     <string name="revanced_hide_like_dislike_button_summary_off">Os botões Gostei e Não gostei são mostrados</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Os botões Gostei e Não gostei estão ocultos</string>
     <string name="revanced_hide_like_dislike_button_title">Ocultar botão \'Chat ao vivo\'</string>
@@ -981,6 +989,8 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_mix_playlists_summary_off">As playlists de mix são mostradas</string>
     <string name="revanced_hide_mix_playlists_summary_on">Playlists de mix estão ocultas</string>
     <string name="revanced_hide_mix_playlists_title">Ocultar playlists de mix</string>
+    <string name="revanced_hide_more_button_summary_off">O botão Mais é exibido.</string>
+    <string name="revanced_hide_more_button_summary_on">O botão Mais está oculto.</string>
     <string name="revanced_hide_more_button_title">Ocultar botão Mais</string>
     <string name="revanced_hide_movie_shelf_summary_off">Os painéis de filmes serão exibidos.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Os painéis de filmes estão ocultos.</string>
@@ -1288,9 +1298,6 @@ Se o layout da tela do reprodutor mudar devido a alterações no lado do servido
     <string name="revanced_hide_shorts_comments_panel_summary_off">O painel de comentários é exibido.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">O painel de comentários está oculto.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Ocultar painel de comentários</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Botão não gostei é mostrado</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Botão não gostei está oculto</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Ocultar botão Não curtir</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Os botões flutuantes como \"Usar este som\" serão exibidos na aba do canal do Shorts.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Os botões flutuantes como \"Usar este som\" estão ocultos na aba do canal do Shorts.</string>
     <string name="revanced_hide_shorts_floating_button_title">Ocultar botão flutuante</string>
@@ -1619,6 +1626,8 @@ Problema conhecido: Quando essa configuração está ativada, não é possível 
     <string name="revanced_language_VI">Vietnamita\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chinês\n<small>中文</small></string>
     <string name="revanced_language_title">Idioma do ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Pausar a reprodução com arrasto horizontal</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Lembrar a posição do arrasto</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Toque duplo e pinçar para redimensionar está desativado</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"A ação de toque duplo e beliscar para redimensionar está habilitada 
 
@@ -1699,6 +1708,15 @@ Toque aqui para obter uma chave de API."</string>
 
 Os resultados resumidos e transcritos são salvos, a menos que você feche o app ou use o Gemini em outro vídeo. Toque no botão novamente para ver os resultados."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Exibir botão do Gemini</string>
+    <string name="revanced_overlay_button_loop_segment_cleared_toast">Segmento do loop limpo.</string>
+    <string name="revanced_overlay_button_loop_segment_copy_toast">URL do segmento do loop copiada.</string>
+    <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Selecione primeiro o início e o fim do loop.</string>
+    <string name="revanced_overlay_button_loop_segment_enabled_toast">Repetindo %1$s - %2$s.</string>
+    <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Não foi possível utilizar o tempo de reprodução atual.</string>
+    <string name="revanced_overlay_button_loop_segment_start_toast">Início do loop selecionado: %s.</string>
+    <string name="revanced_overlay_button_loop_segment_summary">"Toque uma vez para selecionar o início, toque novamente para selecionar o fim e repetir esse segmento, toque uma terceira vez para limpar.
+Toque e segure para copiar um URL de vídeo com parâmetros de início e fim."</string>
+    <string name="revanced_overlay_button_loop_segment_title">Mostrar botão de segmento de loop</string>
     <string name="revanced_overlay_button_mute_volume_summary">Toque para silenciar o volume do vídeo atual. Toque novamente para desativar.</string>
     <string name="revanced_overlay_button_mute_volume_title">Exibir botão de volume mudo</string>
     <string name="revanced_overlay_button_not_allowed_warning">Toque e segure para alterar o estado do botão.</string>
@@ -1734,6 +1752,13 @@ Toque e segure novamente para redefinir para a velocidade padrão."</string>
     <string name="revanced_overlay_button_whitelist_summary">Toque para abrir a caixa de diálogo da lista branca.
 Toque e segure para abrir a caixa de diálogo de configuração da lista branca.</string>
     <string name="revanced_overlay_button_whitelist_title">Exibir botão de lista branca</string>
+    <string name="revanced_overlay_buttons_max_landscape_summary">Número máximo de botões sobrepostos a serem exibidos no modo paisagem (excluindo o botão Tela Cheia). Digite 0 para ocultar todos.</string>
+    <string name="revanced_overlay_buttons_max_landscape_title">Botões máximos no modo paisagem</string>
+    <string name="revanced_overlay_buttons_max_portrait_summary">Número máximo de botões sobrepostos a serem exibidos no modo retrato (excluindo o botão Tela Cheia). Digite 0 para ocultar todos.</string>
+    <string name="revanced_overlay_buttons_max_portrait_title">Botões máximos no modo retrato</string>
+    <string name="revanced_override_play_next_in_queue_summary_off">A opção "Reproduzir a seguir na fila" utiliza a fila nativa do YouTube.</string>
+    <string name="revanced_override_play_next_in_queue_summary_on">A opção "Reproduzir o próximo da fila" abre o gerenciador de filas do RVX.</string>
+    <string name="revanced_override_play_next_in_queue_title">Substituir Reproduzir o próximo da fila</string>
     <string name="revanced_override_playlist_download_button_summary_off">O botão de download de playlist nativo abre o download nativo do aplicativo.</string>
     <string name="revanced_override_playlist_download_button_summary_on">O botão de download de playlist nativo abre seu aplicativo de download externo.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"O botão nativo para baixar a lista de reprodução, se exibido, abre seu aplicativo de transferência externo.
@@ -1981,9 +2006,9 @@ Toque e segure para abrir as Configurações do YouTube."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">As miniaturas vão aparecer acima da barra de busca</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurar as miniaturas antigas da barra de busca</string>
     <string name="revanced_restore_old_settings_menus_title">Restaurar menus de configurações antigos</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Corrige a não exibição de dislikes e a impossibilidade de ocultar os botões de ação do vídeo
+    <string name="revanced_restore_old_video_action_bar_summary">"Corrige a falta de exibição de 'Não gostei' e a impossibilidade de ocultar os botões de ação do vídeo
 
-Limitações: Retorna à sobreposição 'Mais vídeos' no estilo antigo"</string>
+Limitação: Retorna à sobreposição 'Mais vídeos' no estilo antigo"</string>
     <string name="revanced_restore_old_video_action_bar_title">Restaurar barra de ações de vídeo antiga</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">O layout antigo do reprodutor não é utilizado.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"O layout antigo do reprodutor é utilizado.
@@ -2027,15 +2052,6 @@ Toque aqui para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_failure_connection_status_code">Não gostei indisponível (status %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Não gostei indisponível por um tempo (API expirou)</string>
     <string name="revanced_ryd_failure_generic">Não gostei indisponível (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recarregue o vídeo para votar usando o Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">\"Não gostei\" nos Shorts não são mostrados</string>
-    <string name="revanced_ryd_shorts_summary_on">"\"Não gostei\" nos Shorts são mostrados
-
-Limitação: \"Não gostei\" podem não aparecer no modo anônimo"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Exibindo dislikes em Shorts.
-
-Limitação: Dislikes pode não aparecer no modo incógnito."</string>
-    <string name="revanced_ryd_shorts_title">Mostrar não gostei no Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Notificação flutuante não vai ser exibida se o Return YouTube Dislike não estiver disponível</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Notificação flutuante vai ser exibida se o Return YouTube Dislike não estiver disponível</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostra uma notificação quando o servidor Return YouTube Dislike estiver indisponível</string>
@@ -2416,9 +2432,15 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_shorts_player_type_shorts">Reprodutor do Shorts</string>
     <string name="revanced_shorts_player_type_title">Abrir Shorts com</string>
     <string name="revanced_show_settings_button_index_title">Ocultar rodapé do menu \'Legendas\'</string>
+    <string name="revanced_show_settings_button_summary_off">O botão de configurações não é exibido.</string>
+    <string name="revanced_show_settings_button_summary_on">O botão de configurações é exibido.</string>
     <string name="revanced_show_settings_button_title">Ocultar menu \'Legendas\'</string>
+    <string name="revanced_show_settings_button_type_summary_off">Toque para abrir as configurações do YouTube.</string>
+    <string name="revanced_show_settings_button_type_summary_on">Toque para abrir as configurações do RVX.</string>
     <string name="revanced_show_settings_button_type_title">Ação do botão Configurações</string>
     <string name="revanced_show_toolbar_settings_button_index_title">Posição do botão de Configurações</string>
+    <string name="revanced_show_toolbar_settings_button_summary_off">O botão de configurações não é exibido na barra de ferramentas.</string>
+    <string name="revanced_show_toolbar_settings_button_summary_on">O botão Configurações é exibido na barra de ferramentas.</string>
     <string name="revanced_show_toolbar_settings_button_title">Mostrar botão de Configurações</string>
     <string name="revanced_show_toolbar_settings_button_type_title">Ação do botão Configurações</string>
     <string name="revanced_show_video_title_section_summary">"Exibe a seção de título do vídeo em tela cheia.
@@ -2719,6 +2741,20 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_live_voices_unavailable">revanced_vot_live_voices_unavailable</string>
     <string name="revanced_vot_oauth_account_management_title">Token OAuth do Yandex</string>
     <string name="revanced_vot_oauth_auth_method_message">Português brasileiro </string>
+    <string name="revanced_vot_oauth_auth_method_title">Autorização do Yandex</string>
+    <string name="revanced_vot_oauth_enter_manually_button">Insira o token manualmente</string>
+    <string name="revanced_vot_oauth_enter_token_title">Insira o token manualmente</string>
+    <string name="revanced_vot_oauth_expired_summary">O token expirou. Faça login novamente.</string>
+    <string name="revanced_vot_oauth_invalid_token">Token inválido</string>
+    <string name="revanced_vot_oauth_no_network">Sem conexão de rede</string>
+    <string name="revanced_vot_oauth_not_signed_in_summary">Não autorizado</string>
+    <string name="revanced_vot_oauth_sign_in_button">Faça login com o Yandex</string>
+    <string name="revanced_vot_oauth_sign_out_button">sair</string>
+    <string name="revanced_vot_oauth_signed_in_expires">Login efetuado como %1$s (expira em %2$d dias)</string>
+    <string name="revanced_vot_oauth_signed_in_summary">Entrou com o usuário %s</string>
+    <string name="revanced_vot_oauth_switch_token_button">Insira outro token</string>
+    <string name="revanced_vot_oauth_token_summary">Necessário para gravações ao vivo.</string>
+    <string name="revanced_vot_oauth_token_title">Token OAuth do Yandex</string>
     <string name="revanced_vot_original_audio_volume_summary">Volume do áudio original do YouTube enquanto a tradução está sendo reproduzida</string>
     <string name="revanced_vot_original_audio_volume_title">Volume do áudio original</string>
     <string name="revanced_vot_playback_error">Falha ao reproduzir áudio traduzido.</string>

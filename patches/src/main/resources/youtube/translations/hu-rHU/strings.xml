@@ -125,7 +125,7 @@ Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szüks
     <string name="morphe_spoof_video_streams_user_dialog_message">Ennek a beállításnak a kikapcsolása lejátszási problémákat okozhat.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">A speciális videóminőség menü nem látható</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">A speciális videóminőség menü látható</string>
-    <string name="revanced_advanced_video_quality_menu_title">Speciális videóminőség menü megjelenítése</string>
+    <string name="revanced_advanced_video_quality_menu_title">Nyissa meg a \"Speciális\" minőségi menüt</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">A régi stílusú előugró menüt használja.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Az egyéni menü van használatban.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Speciális videóminőség menü a shortok esetén</string>
@@ -583,22 +583,22 @@ Megjegyzés:
 • Az iOS TV nem támogatja bizonyos videók, például zenei videók lejátszását.
 • Ezért, ha az alapértelmezett kliens az iOS TV-re van állítva, ez a beállítás egyes videók esetében nem biztos, hogy működik."</string>
     <string name="revanced_external_downloader_dialog_title">Külső letöltéskezelő</string>
-    <string name="revanced_external_downloader_empty_warning">A csomagnév nem lehet üres</string>
+    <string name="revanced_external_downloader_empty_warning">A csomagnév nem lehet üres.</string>
     <string name="revanced_external_downloader_not_found_title">Az alkalmazás nincs telepítve</string>
     <string name="revanced_external_downloader_not_installed">Nincs telepítve</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"A(z) %1$s nincs telepítve.
 Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Figyelmeztetés</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérjük telepítse.</string>
+    <string name="revanced_external_downloader_not_installed_warning">A(z) %s nincs telepítve. Kérjük, telepítse.</string>
     <string name="revanced_external_downloader_other_item">Egyéb</string>
-    <string name="revanced_external_downloader_other_item_hint">Adja meg a csomagnevet</string>
+    <string name="revanced_external_downloader_other_item_hint">Adjon meg egy csomagnevet</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">A telepített külső letöltő alkalmazás csomagneve.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Lejátszási lista letöltő csomag neve</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">A telepített külső letöltőalkalmazás (pl. NewPipe vagy YTDLnis) csomagneve hosszú lenyomás esetén.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Hosszú lenyomásos videóletöltő csomagneve</string>
     <string name="revanced_external_downloader_package_name_video_summary">A telepített külső letöltő alkalmazás csomagneve.</string>
     <string name="revanced_external_downloader_package_name_video_title">Videó letöltő csomag neve</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Nem található telepített alkalmazás a következő csomagnévvel: %s
+    <string name="revanced_external_downloader_package_not_found_warning">"Nem található telepített alkalmazás a megadott csomagnévvel: %s
 
 Ellenőrizze, hogy a csomagnév helyes-e, és az alkalmazás telepítve van-e."</string>
     <string name="revanced_fix_hype_button_icon_summary_off">A Hype gomb ikonja rejtett.</string>
@@ -1295,9 +1295,6 @@ Információ:
     <string name="revanced_hide_shorts_comments_panel_summary_off">A megjegyzések panel látható.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">A megjegyzések panel rejtett.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Megjegyzések panel elrejtése</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">A nem tetszik gomb látható</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">A nem tetszik gomb elrejtve</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Nem tetszik gomb elrejtése</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Az olyan lebegő gombok, mint a \'Használja ezt a hangot\', a Shorts csatorna lapon láthatóak.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Az olyan lebegő gombok, mint a \'Használja ezt a hangot\', el vannak rejtve a Shorts csatorna lapon.</string>
     <string name="revanced_hide_shorts_floating_button_title">Lebegő gomb elrejtése</string>
@@ -1627,6 +1624,8 @@ Ismert probléma: Ha ez a beállítás engedélyezve van, a YouTube Doodle-ok ne
     <string name="revanced_language_VI">Vietnám\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Kínai\n<small>中文</small></string>
     <string name="revanced_language_title">ReVanced nyelve</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Megállítás a vízszintes húzással</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">A húzás állapotának megjegyzése</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">A dupla koppintás művelet és az átméretezéshez csípés le van tiltva</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"A dupla koppintásos művelet és a csippentés a méretezéshez engedélyezve van
 
@@ -1985,9 +1984,9 @@ Infó:
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">A keresősáv bélyegképei megjelennek a keresősáv felett</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Régi keresősáv bélyegképek visszaállítása</string>
     <string name="revanced_restore_old_settings_menus_title">Régi YouTube beállításképernyő visszaállítása</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Javítja a negatív értékelések megjelenítésének problémáját és lehetővé teszi a videós gombok elrejtését.
+    <string name="revanced_restore_old_video_action_bar_summary">"Javítja a nem megjelenő nemtetszéseket és a videós eszköztárak elrejtésének problémáját.
 
-Korlátozások: Visszatér a régi stílusú \"További videók\" átfedéshez."</string>
+Korlátozás: Visszatér a régi stílusú „További videók” réteghez."</string>
     <string name="revanced_restore_old_video_action_bar_title">Régi videós eszköztár visszaállítása</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">A régi lejátszó felülete nincs használatban.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"A régi lejátszó felület van használva.
@@ -2031,15 +2030,6 @@ Kattintson az API-kulcs kiadás folyamatának megtekintéséhez."</string>
     <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">A nem kedvelések jelenleg nem elérhetők (API időtúllépés)</string>
     <string name="revanced_ryd_failure_generic">A nem tetszik funkció nem elérhető (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Töltse újra a videót a Return YouTube Dislike-hoz</string>
-    <string name="revanced_ryd_shorts_summary_off">A nem tetszések a Shorts-on nem láthatók</string>
-    <string name="revanced_ryd_shorts_summary_on">"A nem tetszések a Shorts-on láthatók
-
-Korlátozás: A nem tetszések inkognitómódban nem jelenhetnek meg"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"A Shorts videók nem tetszései láthatóak.
-
-Korlátozás: A nem tetszések lehet nem jelennek meg kijelentkezett felhasználóval vagy inkognitó módban."</string>
-    <string name="revanced_ryd_shorts_title">A nem tetszések megjelenítése a Shorts videóknál</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Nem jelenik meg üzenet, ha a Return YouTube Dislike nem elérhető</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Üzenet megjelenítése, ha a Return YouTube Dislike nem elérhető</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Kapcsolati hibaüzenetek megjelenítése</string>

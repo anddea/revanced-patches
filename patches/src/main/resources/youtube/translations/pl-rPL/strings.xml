@@ -125,7 +125,7 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="morphe_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Zaawansowane menu jakości filmu nie jest wyświetlane</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Zaawansowane menu jakości filmu jest wyświetlane</string>
-    <string name="revanced_advanced_video_quality_menu_title">Pokaż zaawansowane menu jakości filmu</string>
+    <string name="revanced_advanced_video_quality_menu_title">Otwieraj menu jakości \"Zaawansowane\"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Stary</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Własny</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Typ zaawansowanego menu od jakości filmu w Shortsach</string>
@@ -215,7 +215,7 @@ Układ samochodowy
 • Strona główna jest uporządkowana według tematów i kanałów
 • Ustawienie odtwarzania na stronie głównej nie jest dostępne
 • Przyciski Remiks i Dźwięk nie są dostępne w Shortsach
-• Shortsy otwierają się w zwykłym odtwarzaczu
+• Filmy Short otwierają się w zwykłym odtwarzaczu
 • Stary pasek akcji filmu nie jest zwinięty"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Przełączniki</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Tekst</string>
@@ -572,9 +572,9 @@ Zakładka Ty → Zobacz kanał → Menu → Ustawienia"</string>
 Ograniczenie: nie działa jeśli odtwarzacz jest zminimalizowany, w trybie PiP lub w tle."</string>
     <string name="revanced_enter_fullscreen_title">Pełny ekran po rozpoczęciu filmu</string>
     <string name="revanced_exit_fullscreen_entry_1">Wyłączone</string>
-    <string name="revanced_exit_fullscreen_entry_2">Tylko w trybie pionowym</string>
-    <string name="revanced_exit_fullscreen_entry_3">Tylko w trybie poziomym</string>
-    <string name="revanced_exit_fullscreen_entry_4">W trybie pionowym i poziomym</string>
+    <string name="revanced_exit_fullscreen_entry_2">Tylko w orientacji pionowej</string>
+    <string name="revanced_exit_fullscreen_entry_3">Tylko w orientacji poziomej</string>
+    <string name="revanced_exit_fullscreen_entry_4">W orientacji pionowej i poziomej</string>
     <string name="revanced_exit_fullscreen_title">Wyjście z trybu pełnoekranowego po zakończeniu filmu</string>
     <string name="revanced_expand_video_description_summary_off">Ręcznie</string>
     <string name="revanced_expand_video_description_summary_on">Automatycznie</string>
@@ -593,7 +593,7 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Ostrzeżenie</string>
     <string name="revanced_external_downloader_not_installed_warning">%s nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_external_downloader_other_item">Inna</string>
-    <string name="revanced_external_downloader_other_item_hint">Wprowadź nazwę pakietu aplikacji</string>
+    <string name="revanced_external_downloader_other_item_hint">Wprowadź nazwę pakietu</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nazwa pakietu aplikacji od pobierania (playlisty)</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis przy długim przytrzymaniu.</string>
@@ -602,7 +602,7 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_package_name_video_title">Nazwa pakietu aplikacji od pobierania (filmy)</string>
     <string name="revanced_external_downloader_package_not_found_warning">"Nie można znaleźć zainstalowanej aplikacji o nazwie pakietu: %s
 
-Upewnij się, że nazwa pakietu jest poprawna, a aplikacja została zainstalowana"</string>
+Upewnij się, że nazwa pakietu jest poprawna i czy aplikacja jest zainstalowana"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Nie</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Tak</string>
     <string name="revanced_fix_hype_button_icon_title">Napraw widoczność ikony podbijania</string>
@@ -783,7 +783,7 @@ Sklep"</string>
 • Jeśli wszystkie elementy karuzeli zostaną ukryte, cała sekcja komentarzy również zostanie ukryta."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Przycisk Utwórz Short jest widoczny</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Przycisk Utwórz Short jest ukryty</string>
-    <string name="revanced_hide_comments_create_a_short_button_title">Ukryj przycisk \"Utwórz Shortsa\"</string>
+    <string name="revanced_hide_comments_create_a_short_button_title">Ukryj przycisk \"Utwórz Shorts\"</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Przyciski emoji i znacznika czasu są widoczne</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Przyciski emoji i znacznika czasu są ukryte</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Ukryj przyciski Emoji i Znaczniki czasu</string>
@@ -842,7 +842,7 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_end_screen_store_banner_title">Ukryj baner sklepowy po zakończeniu filmu</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_off">Widoczne</string>
     <string name="revanced_hide_end_screen_suggested_video_summary_on">Ukryte</string>
-    <string name="revanced_hide_end_screen_suggested_video_title">Ukryj sugerowane filmy na końcu filmu</string>
+    <string name="revanced_hide_end_screen_suggested_video_title">Ukryj proponowane filmy na końcu filmu</string>
     <string name="revanced_hide_expandable_card_entry_1">Pokaż wszystkie</string>
     <string name="revanced_hide_expandable_card_entry_2">Ukryj tylko produkty</string>
     <string name="revanced_hide_expandable_card_entry_3">Ukryj tylko podsumowanie</string>
@@ -932,7 +932,7 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_keyword_content_about_summary">"Strona główna / Subskrypcje / Wyniki wyszukiwania / Komentarze są filtrowane, aby ukryć treści, które zawierają słowa z filtra
 
 Ograniczenia:
-• Shortsy nie mogą być ukryte po nazwie kanału
+• Filmy Short nie mogą być ukryte po nazwie kanału
 • Niektóre elementy interfejsu mogą nie być ukryte
 • Wyszukiwanie słowa z filtru może nie pokazywać żadnych wyników"</string>
     <string name="revanced_hide_keyword_content_about_title">O filtrowaniu słów</string>
@@ -1318,9 +1318,6 @@ Informacje:
     <string name="revanced_hide_shorts_comments_panel_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_comments_panel_title">Panel komentarzy</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Przycisk łapki w dół jest widoczny</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Przycisk łapki w dół jest ukryty</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Ukryj przycisk Nie lubię</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_floating_button_title">Pływające przyciski nad tytułami</string>
@@ -1649,6 +1646,12 @@ Znany problem: gdy opcja jest włączona, YouTube Doodles stają się nieklikaln
     <string name="revanced_language_VI">Wietnamski\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chiński\n<small>中文</small></string>
     <string name="revanced_language_title">Język ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">Odtwarzanie będzie kontynuowane po przeciągnięciu miniodtwarzacza poza ekran.</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">Odtwarzanie zostanie wstrzymane, gdy miniodtwarzacz zostanie przeciągnięty poza ekran.</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Wstrzymaj odtwarzanie przy przeciągnięciu w poziomie</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_off">Przeciągnięcie miniodtwarzacza poza ekran powoduje użycie oryginalnego zachowania automatycznej zmiany położenia.</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_on">Przeciągnięcie miniodtwarzacza poza ekran spowoduje zachowanie stanu interfejsu użytkownika.</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Zapamiętaj pozycję przeciągnięcia</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Wyłączone</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Akcja dwukrotnego dotknięcia i gest szczypania w celu zmiany rozmiaru są włączone
 
@@ -1777,6 +1780,9 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_overlay_buttons_max_landscape_title">Maksymalna liczba przycisków w orientacji poziomej</string>
     <string name="revanced_overlay_buttons_max_portrait_summary">Maksymalna liczba przycisków nakładkowych wyświetlanych w trybie pionowym (z wyłączeniem przycisku pełnego ekranu). Wprowadź 0, aby ukryć wszystkie.</string>
     <string name="revanced_overlay_buttons_max_portrait_title">Maksymalna liczba przycisków w pionie</string>
+    <string name="revanced_override_play_next_in_queue_summary_off">Funkcja Odtwórz następne w kolejce korzysta z natywnej kolejki YouTube.</string>
+    <string name="revanced_override_play_next_in_queue_summary_on">Opcja Odtwórz następny w kolejce otwiera menedżera kolejek RVX.</string>
+    <string name="revanced_override_play_next_in_queue_title">Nadpisz Odtwórz następny w kolejce</string>
     <string name="revanced_override_playlist_download_button_summary_off">Natywne pobieranie (jeśli jest widoczne, otwiera natywne pobieranie filmu)</string>
     <string name="revanced_override_playlist_download_button_summary_on">Zewnętrzna aplikacja</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Natywny przycisk od pobierania playlisty, o ile jest widoczny, otwiera zewnętrzną aplikację od pobierania.
@@ -2027,7 +2033,7 @@ Stuknij i przytrzymaj, by otworzyć ustawienia YouTube."</string>
     <string name="revanced_restore_old_settings_menus_title">Przywróć stary ekran ustawień YouTube</string>
     <string name="revanced_restore_old_video_action_bar_summary">"Naprawia problem z niewidocznymi łapkami w dół i brakiem możliwości ukrycia przycisków akcji
 
-​Ograniczenia: Przywraca stary wygląd nakładki \"Więcej filmów\""</string>
+Ograniczenia: Przywraca stary wygląd nakładki \"Więcej filmów\""</string>
     <string name="revanced_restore_old_video_action_bar_title">Przywróć stary pasek akcji filmu</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Wyłączone</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Włączone"</string>
@@ -2070,15 +2076,6 @@ Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_failure_connection_status_code">Łapki w dół są niedostępne (status %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Łapki w dół są niedostępne (API nie reaguje)</string>
     <string name="revanced_ryd_failure_generic">Łapki w dół są niedostępne (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Odśwież film, aby zagłosować przez Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">Oceny negatywne na Shorts nie są widoczne</string>
-    <string name="revanced_ryd_shorts_summary_on">"Oceny negatywne na Shorts są widoczne
-
-Ograniczenie: Oceny negatywne mogą nie pojawiać się w trybie incognito"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Widoczna
-
-Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie jest zalogowany, bądź jest w trybie incognito."</string>
-    <string name="revanced_ryd_shorts_title">Pokaż liczbę łapek w dół w Shortsach</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Komunikat nie jest wyświetlany, jeśli Return YouTube Dislike nie jest dostępny</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Komunikat jest wyświetlany, jeśli Return YouTube Dislike nie jest dostępny</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Pokaż powiadomienia o błędach połączenia</string>
@@ -2393,12 +2390,12 @@ Może to nie działać, jeśli:
     <string name="revanced_share_copy_url_success">Adres URL skopiowany do schowka</string>
     <string name="revanced_share_copy_url_timestamp_success">URL ze znacznikiem czasu skopiowany</string>
     <string name="revanced_share_copy_video_information_success">Skopiowano informacje o filmie.</string>
-    <string name="revanced_shorts_autoplay_background_summary">Automatycznie przechodzi do następnego Shortsa podczas odtwarzania w tle</string>
+    <string name="revanced_shorts_autoplay_background_summary">Automatycznie przechodzi do następnego filmu Short podczas odtwarzania w tle</string>
     <string name="revanced_shorts_autoplay_background_title">Włącz autoodtwarzanie w tle</string>
     <string name="revanced_shorts_autoplay_disabled_toast">Automatyczne odtwarzanie filmów Short wyłączone</string>
     <string name="revanced_shorts_autoplay_enabled_toast">Automatyczne odtwarzanie filmów Short włączone</string>
-    <string name="revanced_shorts_autoplay_summary">Automatycznie przechodzi do następnego Shortsa, zamiast powtarzać bieżący</string>
-    <string name="revanced_shorts_autoplay_title">Włącz autoodtwarzanie Shortsów</string>
+    <string name="revanced_shorts_autoplay_summary">Automatycznie przechodzi do następnego filmu Short, zamiast powtarzać bieżący</string>
+    <string name="revanced_shorts_autoplay_title">Włącz autoodtwarzanie Shorts</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Funkcja ta jest nadal eksperymentalna, więc nie ma gwarancji, że będzie działać perfekcyjnie.
 
 Większość błędów nie może być naprawiona w skutek ograniczeń po stronie klienta, więc używaj tej funkcji jedynie do celów testowych."</string>
@@ -2457,8 +2454,8 @@ Większość błędów nie może być naprawiona wskutek ograniczeń po stronie 
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Wysokość pustego miejsca (procentowa)</string>
     <string name="revanced_shorts_player_type_regular_player">Standardowym odtwarzaczu</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Standardowym odtwarzaczu (pełny ekran)</string>
-    <string name="revanced_shorts_player_type_shorts">Odtwarzaczu Shortsów</string>
-    <string name="revanced_shorts_player_type_title">Otwieraj Shortsy w</string>
+    <string name="revanced_shorts_player_type_shorts">Odtwarzaczu Shorts</string>
+    <string name="revanced_shorts_player_type_title">Otwieraj Shorts w</string>
     <string name="revanced_show_settings_button_index_title">Pozycja przycisku Ustawienia</string>
     <string name="revanced_show_settings_button_summary_off">Ukryty.</string>
     <string name="revanced_show_settings_button_summary_on">Widoczny.</string>
@@ -2467,6 +2464,8 @@ Większość błędów nie może być naprawiona wskutek ograniczeń po stronie 
     <string name="revanced_show_settings_button_type_summary_on">Kliknij, aby otworzyć ustawienia RVX.</string>
     <string name="revanced_show_settings_button_type_title">Działanie przycisku Ustawienia</string>
     <string name="revanced_show_toolbar_settings_button_index_title">Pozycja przycisku Ustawienia</string>
+    <string name="revanced_show_toolbar_settings_button_summary_off">Przycisk Ustawienia nie jest wyświetlany na pasku narzędzi.</string>
+    <string name="revanced_show_toolbar_settings_button_summary_on">Przycisk Ustawienia jest wyświetlany na pasku narzędzi.</string>
     <string name="revanced_show_toolbar_settings_button_title">Pokaż przycisk Ustawienia</string>
     <string name="revanced_show_toolbar_settings_button_type_title">Działanie przycisku Ustawienia</string>
     <string name="revanced_show_video_title_section_summary">"Tytuły filmów w trybie pełnoekranowym są widoczne.

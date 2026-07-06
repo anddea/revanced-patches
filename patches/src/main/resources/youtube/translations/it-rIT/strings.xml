@@ -125,7 +125,7 @@ Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necess
     <string name="morphe_spoof_video_streams_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Il menu avanzato della qualità video non viene mostrato</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Viene mostrato il menu avanzato della qualità video</string>
-    <string name="revanced_advanced_video_quality_menu_title">Mostra il menù avanzato della qualità video</string>
+    <string name="revanced_advanced_video_quality_menu_title">Apri il menu qualità \'Avanzate\'</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">È in uso il menù a comparsa vecchio stile.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">È in uso una finestra personalizzata.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Cambia il tipo di menù della qualità video degli Shorts</string>
@@ -589,7 +589,7 @@ Nota: iOS TV non è disponibile in alcune regioni, nel tal caso questa impostazi
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s non è installato.
 Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Attenzione</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s non è installata. Installala.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s non è installato. Si prega di installarlo.</string>
     <string name="revanced_external_downloader_other_item">Altro</string>
     <string name="revanced_external_downloader_other_item_hint">Inserisci il nome del pacchetto</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Il nome del pacchetto dell\'app di download esterna installata.</string>
@@ -598,7 +598,7 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Nome pacchetto del downloader video su lunga pressione</string>
     <string name="revanced_external_downloader_package_name_video_summary">Il nome del pacchetto dell\'app di download esterna installata.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome del pacchetto del downloader esterno dei video</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Impossibile trovare l'app installata con il nome del pacchetto: %s
+    <string name="revanced_external_downloader_package_not_found_warning">"Impossibile trovare un'app installata con il nome del pacchetto: %s
 
 Verifica che il nome del pacchetto sia corretto e che l'app sia installata"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">L\'icona del pulsante Dai Hype è nascosta.</string>
@@ -1301,9 +1301,6 @@ Nota: questa impostazione sembra essere obsoleta sul server. Usa invece \"Nascon
     <string name="revanced_hide_shorts_comments_panel_summary_off">Il pannello dei commenti è mostrato.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Il pannello dei commenti è nascosto.</string>
     <string name="revanced_hide_shorts_comments_panel_title">nascondi il pannello dei commenti</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Il pulsante Non Mi Piace è visibile</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Il pulsante Non Mi Piace è nascosto</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Nascondi il pulsante Non mi piace</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">I pulsanti fluttuanti sono visibili.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">I pulsanti fluttuanti sono nascosti.</string>
     <string name="revanced_hide_shorts_floating_button_title">Nascondi i pulsanti fluttuanti</string>
@@ -1629,6 +1626,8 @@ Nota: il doodle di YouTube non è toccabile."</string>
     <string name="revanced_language_VI">Vietnamese\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Cinese\n<small>中文</small></string>
     <string name="revanced_language_title">Lingua di ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Metti in pausa la riproduzione con uno scorrimento orizzontale</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Ricorda la posizione dello scorrimento</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">L\'azione a doppio tocco e il pizzico da ridimensionare è disabilitato</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"I gesti Doppio Tocco e Pizzico per ridimensionare sono abilitati
 
@@ -1991,9 +1990,9 @@ Tocca e tieni premuto per aprire le impostazioni di YouTube."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Le miniature della barra di avanzamento appariranno sopra la barra di avanzamento</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Ripristina vecchie miniature della barra di avanzamento</string>
     <string name="revanced_restore_old_settings_menus_title">Ripristina la vecchia schermata delle impostazioni di YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Corregge la mancata visualizzazione dei \"Mi piace non mi piace\" e l'impossibilità di nascondere i pulsanti delle azioni video
+    <string name="revanced_restore_old_video_action_bar_summary">"Risolve il problema dei \"Mi piace\" non visualizzati e dei pulsanti delle azioni video che non possono essere nascosti
 
-Limitazioni: ritorna alla vecchia visualizzazione \"Altri video\""</string>
+Limitazione: ripristina lo stile precedente della sovrapposizione \"Altri video\""</string>
     <string name="revanced_restore_old_video_action_bar_title">Ripristina la barra delle azioni video precedente</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">La vecchia interfaccia è disattivata.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"La vecchia interfaccia è attivata.
@@ -2037,15 +2036,6 @@ Tocca qui per aprire ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_failure_connection_status_code">Non Mi Piace non disponibili (stato: %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Non Mi Piace temporaneamente non disponibili (API scaduto)</string>
     <string name="revanced_ryd_failure_generic">Non Mi Piace non disponibili (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Ricarica il video per votare usando Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">I \"Non mi piace\" sugli Shorts non sono visualizzati</string>
-    <string name="revanced_ryd_shorts_summary_on">"I \"Non mi piace\" sugli Shorts sono visualizzati
-
-Limitazione: i \"Non mi piace\" potrebbero non apparire in modalità incognito"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"I non mi piace degli Shorts sono visibili.
-
-Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'accesso o navigando in incognito."</string>
-    <string name="revanced_ryd_shorts_title">Mostra i Non Mi Piace degli Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Nessuna notifica viene mostrata se Return YouTube Dislike non è disponibile</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Una notifica è mostrata se Return YouTube Dislike non è disponibile</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostra avvisi di errore di connessione</string>

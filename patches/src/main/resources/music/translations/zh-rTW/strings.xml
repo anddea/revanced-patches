@@ -42,7 +42,7 @@
     <string name="morphe_force_original_audio_summary_off">使用預設音訊</string>
     <string name="morphe_force_original_audio_summary_on">正在使用原始音訊語言</string>
     <string name="morphe_force_original_audio_title">強制使用原始音訊語言</string>
-    <string name="morphe_music_crossfade_about_best_summary">正常的歌曲播放和自動進階、單曲循環（歌曲會淡入淡出自身）、以及本地音頻 — 手機揚聲器、有線耳機、藍牙或 USB。</string>
+    <string name="morphe_music_crossfade_about_best_summary">正常的歌曲播放和自動進階、單曲循環（歌曲會淡入淡出自身）、以及本機音訊 — 手機揚聲器、有線耳機、藍牙或 USB。</string>
     <string name="morphe_music_crossfade_about_best_title">最適合</string>
     <string name="morphe_music_crossfade_about_credit_summary">Crossfade 功能由 VazerOG 提供</string>
     <string name="morphe_music_crossfade_about_credit_title">鳴謝</string>
@@ -68,7 +68,7 @@
 
 YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="morphe_music_crossfade_about_unsupported_title">完全無法運作</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">在投放或鏡像音頻時，淡入淡出功能已暫停。在投放/鏡像上使用淡入淡出功能不穩定，可能無法修復。</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">投射或鏡像音訊時，淡入淡出效果會暫停。投射／鏡像時的淡入淡出效果不穩定，且可能永遠無法得到修正。</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">微妙延遲</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">柔和過渡</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">等功率</string>
@@ -82,11 +82,11 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">自動循環時淡出</string>
     <string name="morphe_music_crossfade_on_skip_summary">手動跳到下一首曲目時適用淡入淡出效果</string>
     <string name="morphe_music_crossfade_on_skip_title">手動跳過時淡出</string>
-    <string name="morphe_music_crossfade_paused_toast">已暂停此會話的淡入淡出效果</string>
-    <string name="morphe_music_crossfade_resumed_toast">淡入淡出效果已恢復</string>
+    <string name="morphe_music_crossfade_paused_toast">已暫停此工作階段的淡入淡出效果</string>
+    <string name="morphe_music_crossfade_resumed_toast">已復原淡入淡出效果</string>
     <string name="morphe_music_crossfade_screen_summary">將音軌平滑地混合在一起</string>
     <string name="morphe_music_crossfade_screen_title">漸色混合</string>
-    <string name="morphe_music_crossfade_session_control_summary">長按洗牌按鈕以暫停或恢復淡入淡出效果</string>
+    <string name="morphe_music_crossfade_session_control_summary">長按隨機播放按鈕以暫停或復原淡入淡出效果</string>
     <string name="morphe_music_crossfade_session_control_title">工作階段控制</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">啟用淡入淡出效果時，視訊模式不可用</string>
     <string name="morphe_oauth2_connection_failure_auth_error">無法登入 VR：%s</string>
@@ -123,7 +123,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">未能擷取任何用戶端串流</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">請輸入有效的播放器 JavaScript 雜湊值</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">播放器 JavaScript 雜湊值</string>
-    <string name="morphe_spoof_video_streams_screen_summary">偽裝客戶端影片串流以避免播放問題</string>
+    <string name="morphe_spoof_video_streams_screen_summary">偽裝用戶端影片串流以避免播放問題</string>
     <string name="morphe_spoof_video_streams_screen_title">偽裝影片串流</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">尚未登入 Android VR。輕觸這裡即可登入</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">如要使用這項功能，請將「預設用戶端」改為 Android VR</string>
@@ -152,9 +152,9 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">成功登入</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">無法發出啟動碼</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">無法頒發驗證權杖</string>
-    <string name="morphe_spoof_video_streams_summary">"透過要求相容的影片串流，修復大多數使用者的播放問題
+    <string name="morphe_spoof_video_streams_summary">"透過要求相容的影片串流，修正大多數使用者的播放問題
 
-如果您是 YouTube Premium 用戶，則可能不需要此設定"</string>
+如果您是 YouTube Premium 使用者，則可能不需要此設定"</string>
     <string name="morphe_spoof_video_streams_summary_off">"視訊串流未經偽裝
 
 影片可能無法播放"</string>
@@ -198,11 +198,11 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_change_start_page_entry_subscriptions">訂閱內容</string>
     <string name="revanced_change_start_page_summary">更改應用程式開啟時的頁面</string>
     <string name="revanced_change_start_page_title">開始頁面</string>
-    <string name="revanced_custom_filter_strings_summary">按行分隔篩選元件名稱</string>
-    <string name="revanced_custom_filter_strings_title">編輯自訂篩選</string>
+    <string name="revanced_custom_filter_strings_summary">以換行符號分隔的元件路徑建構器字串清單，用於篩選</string>
+    <string name="revanced_custom_filter_strings_title">自訂篩選器</string>
     <string name="revanced_custom_filter_summary">啟用自訂篩選以隱藏介面元件</string>
-    <string name="revanced_custom_filter_title">啟用自訂篩選</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">自訂過濾無效：%s</string>
+    <string name="revanced_custom_filter_title">啟用自訂篩選器</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">無效的自訂篩選器：%s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">無效的導覽列顏色值。</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">輸入導覽列顏色的十六進制代碼。</string>
     <string name="revanced_custom_navigation_bar_color_value_title">自訂導覽列顏色值</string>
@@ -219,7 +219,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
 如果可以，請使用深色，因為該應用程式不支援淺色主題。"</string>
     <string name="revanced_custom_player_background_color_secondary_title">播放器背景顏色</string>
     <string name="revanced_custom_player_background_invalid_toast">播放器背景顏色無效。</string>
-    <string name="revanced_debug_protobuffer_summary">為開發者新增額外的記錄資訊，以便識別應用程式元件</string>
+    <string name="revanced_debug_protobuffer_summary">為開發者新增額外的紀錄資訊，以便識別應用程式元件</string>
     <string name="revanced_debug_protobuffer_title">偵錯日誌協定緩衝區</string>
     <string name="revanced_debug_spannable_summary">在偵錯紀錄中包含緩衝區。</string>
     <string name="revanced_debug_spannable_title">紀錄可擴充</string>
@@ -306,7 +306,7 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安裝
  請到網站下載%2$s"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s 尚未安裝. 請先安裝該應用後重試.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s 未安裝。請安裝它。</string>
     <string name="revanced_external_downloader_package_name_summary">已安裝的外部下載程式的套件名稱，例如 NewPipe 或 Seal</string>
     <string name="revanced_external_downloader_package_name_title">外部下載程式的套件名稱</string>
     <string name="revanced_fullscreen_ads_closed_toast">全螢幕廣告已關閉。</string>
@@ -699,9 +699,9 @@ YouTube Music 8.x — 淡出效果僅在 9.x 及更高版本中運行"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">點擊查看如何取得身份驗證令牌。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">關於 Android VR 驗證</string>
     <string name="revanced_spoof_video_streams_default_client_title">預設用戶端</string>
-    <string name="revanced_spoof_video_streams_summary">"透過要求相容的影片串流，修復大多數使用者的播放問題
+    <string name="revanced_spoof_video_streams_summary">"透過要求相容的影片串流，修正大多數使用者的播放問題
 
-如果您是 YouTube Premium 用戶，則可能不需要此設定"</string>
+如果您是 YouTube Premium 使用者，則可能不需要此設定"</string>
     <string name="revanced_spoof_video_streams_title">偽裝影片串流</string>
     <string name="revanced_translations_title">翻譯</string>
     <string name="revanced_watch_history_type_entry_1">原始</string>

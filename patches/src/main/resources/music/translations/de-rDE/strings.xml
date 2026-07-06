@@ -38,7 +38,7 @@ Tippen Sie auf die Schaltfläche „Weiter“ und lassen Sie die Optimierungsän
     <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
     <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
-    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie \"Fälsche Video-Streams\" auf Android Reel oder TV</string>
+    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie \"Spoof Video-Streams\" auf Android Reel oder TV</string>
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
     <string name="morphe_force_original_audio_title">Original Audio erzwingen</string>
@@ -104,7 +104,7 @@ YouTube Music 8.x – der Crossfade funktioniert nur ab Version 9.x."</string>
     <string name="morphe_sanitize_sharing_links_summary">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
-    <string name="morphe_sanitize_sharing_links_title">Freigabe-Links säubern</string>
+    <string name="morphe_sanitize_sharing_links_title">Freigabelinks bereinigen</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Sperrt das Player JavaScript auf eine bestimmte Version fest.
 
@@ -123,10 +123,10 @@ Die Wiedergabe schlägt fehl, wenn der Player JavaScript Hash veraltet ist."</st
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geben Sie einen gültigen Player-JavaScript-Hash ein</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player-JavaScript-Hash</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Fälsche die Client-Video-Streams, um Wiedergabeprobleme zu verhindern</string>
-    <string name="morphe_spoof_video_streams_screen_title">Fälsche Video-Streams</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Client-Streams spoofen, um Wiedergabeprobleme zu vermeiden</string>
+    <string name="morphe_spoof_video_streams_screen_title">Video-Streams spoofen</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Sie sind nicht bei Android VR angemeldet. Tippen Sie hier zum Anmelden</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie \"Standard-Client\" zu Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie ihren \"Standard-Client\" zu Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Derzeit bei Android VR angemeldet</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR Anmeldung</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivierungscode: %s
@@ -161,7 +161,7 @@ Die Wiedergabe funktioniert möglicherweise nicht"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Videostreams werden gefälscht
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
-    <string name="morphe_spoof_video_streams_title">Fälsche Video-Streams</string>
+    <string name="morphe_spoof_video_streams_title">Video-Streams spoofen</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen.</string>
     <string name="revanced_add_miniplayer_next_button_summary">Fügt dem Miniplayer eine Schaltfläche für den nächsten Titel hinzu.</string>
     <string name="revanced_add_miniplayer_next_button_title">einen mini Player hinzufügen mit weiter Button </string>
@@ -175,10 +175,15 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_change_start_page_entry_search">Suchen</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
     <string name="revanced_change_start_page_title">Startseite</string>
+    <string name="revanced_custom_filter_strings_summary">Liste der Komponenten-Pfad-Generator-Zeichenketten zum Filtern, getrennt durch neue Zeilen</string>
+    <string name="revanced_custom_filter_strings_title">Eigener Filter</string>
+    <string name="revanced_custom_filter_title">Eigenen Filter aktivieren</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Ungültiger benutzerdefinierter Filter: %s</string>
     <string name="revanced_debug_protobuffer_summary">Fügt zusätzliche Protokollierungsinformationen für Entwickler hinzu, um App-Komponenten zu identifizieren</string>
     <string name="revanced_debug_protobuffer_title">Debug-Protokollpuffer</string>
     <string name="revanced_disable_drc_audio_title">DRC-Audio deaktivieren</string>
     <string name="revanced_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
+    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren Sie es zuerst.</string>
     <string name="revanced_hide_fullscreen_ads_title">Vollbild-Werbung ausblenden</string>
     <string name="revanced_preference_screen_general_title">Allgemein </string>
     <string name="revanced_restart_dialog_message">Starten Sie die App neu, damit die Änderungen wirksam werden.</string>
@@ -190,5 +195,5 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_spoof_video_streams_summary">"Behebt Wiedergabeprobleme für die meisten Nutzer, indem ein kompatibler Videostream angefordert wird
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
-    <string name="revanced_spoof_video_streams_title">Fälsche Video-Streams</string>
+    <string name="revanced_spoof_video_streams_title">Video-Streams spoofen</string>
 </resources>

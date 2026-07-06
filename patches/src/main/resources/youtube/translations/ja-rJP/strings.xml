@@ -1285,9 +1285,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_comments_panel_summary_off">コメント パネルが表示されます。</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">コメント パネルは非表示になっています。</string>
     <string name="revanced_hide_shorts_comments_panel_title">コメントパネルを非表示</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">[低評価] ボタンを非表示にします。</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">[低評価] ボタンを非表示にします。</string>
-    <string name="revanced_hide_shorts_dislike_button_title">[低評価] ボタンを非表示</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">[このサウンドを使用する] のようなフローティングボタンを、[ショート動画] タブから非表示にします。</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">[このサウンドを使用する] のようなフローティングボタンを、[ショート動画] タブから非表示にします。</string>
     <string name="revanced_hide_shorts_floating_button_title">フローティングボタンを非表示</string>
@@ -1619,6 +1616,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_language_VI">Vietnamese\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chinese\n<small>中文</small></string>
     <string name="revanced_language_title">Revanced Extended 設定の言語</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">最小化で再生を一時停止</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">最小化からの自動復帰を無効化</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップとピンチ(画面を 2 本指でつまむようにして拡大や縮小する操作)でサイズを変更できるようにします。\n\n・ダブルタップするとミニプレーヤーのサイズを拡大できます。\n・再度ダブルタップすると元のサイズに戻ります。</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチ(画面を 2 本指でつまむようにして拡大や縮小する操作)でサイズを変更できるようにします。
 
@@ -1982,7 +1981,7 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_restore_old_settings_menus_title">旧式の YouTube 設定メニューを復元</string>
     <string name="revanced_restore_old_video_action_bar_summary">"低評価数が表示されない不具合とアクション ボタンを非表示にできない不具合を修正します
 
-制限事項: 「その他の動画」オーバーレイも旧スタイルに戻ります"</string>
+制限事項:「その他の動画」オーバーレイも旧スタイルに戻ります"</string>
     <string name="revanced_restore_old_video_action_bar_title">アクションバーを旧式に戻す</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">昔のスタイルのプレーヤーレイアウトを復元します。\nこれによりプレーヤーの上部と下部から余白が削除されます。</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"昔のスタイルのプレーヤーレイアウトを復元します。
@@ -2024,13 +2023,6 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_ryd_failure_connection_status_code">低評価数は一時的に利用できません (ステータス: %d)。</string>
     <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません (API がタイムアウトしました)。</string>
     <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません (%s)。</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">投票するために Return YouTube Dislike を使用するため、動画を再読み込みします</string>
-    <string name="revanced_ryd_shorts_summary_off">ショート動画で低評価数を表示します。\n\n注意: ログインしていない場合や、シークレットモードでは低評価数が表示されないことがあります。</string>
-    <string name="revanced_ryd_shorts_summary_on">ショート動画で低評価数を表示します。\n\n注意: ログインしていない場合やシークレットモードでは、低評価数が表示されないことがあります。</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"ショート動画で低評価数を表示します。
-
-注意: ログインしていない場合やシークレットモードでは、低評価数が表示されない可能性があります。"</string>
-    <string name="revanced_ryd_shorts_title">ショート動画で低評価数を表示</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>

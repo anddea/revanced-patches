@@ -125,7 +125,7 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">关闭此设置可能会导致播放问题。</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">不显示高级视频质量菜单</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">显示高级视频质量菜单</string>
-    <string name="revanced_advanced_video_quality_menu_title">显示高级视频画质菜单</string>
+    <string name="revanced_advanced_video_quality_menu_title">打开“高级”画质菜单</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">使用旧版样式的弹出菜单。</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">使用自定义对话框。</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Shorts 中的高级视频画质菜单类型</string>
@@ -582,18 +582,18 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安装
 请从网站下载 %2$s"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s 未安装，请安装。</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s未安装。请安装它。</string>
     <string name="revanced_external_downloader_other_item">其他</string>
-    <string name="revanced_external_downloader_other_item_hint">输入包名</string>
+    <string name="revanced_external_downloader_other_item_hint">请输入包名</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">已安装的外部下载器应用的包名称。</string>
     <string name="revanced_external_downloader_package_name_playlist_title">播放列表下载器名称</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">长按时显示已安装的外部下载器应用程序的包名，例如 NewPipe 或 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">长按视频下载器包名</string>
     <string name="revanced_external_downloader_package_name_video_summary">你安装的外部下载器应用的包名。</string>
     <string name="revanced_external_downloader_package_name_video_title">视频下载器包名</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"找不到包名为 %s 的已安装应用
+    <string name="revanced_external_downloader_package_not_found_warning">"无法找到具有包名的已安装应用：%s
 
-请验证包名是否正确且应用已安装"</string>
+请验证包名是否正确以及该应用是否已安装。"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">已隐藏热门按钮图标。</string>
     <string name="revanced_fix_hype_button_icon_summary_on">已显示热门按钮图标。</string>
     <string name="revanced_fix_hype_button_icon_title">修复热门按钮图标</string>
@@ -1289,9 +1289,6 @@
     <string name="revanced_hide_shorts_comments_panel_summary_off">已显示评论面板。</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">已隐藏评论面板。</string>
     <string name="revanced_hide_shorts_comments_panel_title">隐藏评论面板</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">点踩按钮已显示</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">点踩按钮已隐藏</string>
-    <string name="revanced_hide_shorts_dislike_button_title">隐藏点踩按钮</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">‘使用此声音’等浮动按钮已在短视频频道标签中显示</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">‘使用此声音’等浮动按钮已在 Shorts 频道标签中隐藏</string>
     <string name="revanced_hide_shorts_floating_button_title">隐蔽悬浮按钮</string>
@@ -1620,6 +1617,8 @@
     <string name="revanced_language_VI">越南语\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">中文\n<small>中文</small></string>
     <string name="revanced_language_title">ReVanced 语</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">使用水平拖动暂停播放</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">记住拖动状态的位置</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">已禁用双击操作和捏合缩放</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"已启用双击操作和捏合以调整大小
 
@@ -1976,9 +1975,9 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">进度条缩略图将显示在进度条上方</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">恢复旧的进度条缩略图</string>
     <string name="revanced_restore_old_settings_menus_title">恢复旧设置菜单</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"修复无法显示不喜欢次数以及无法隐藏视频操作按钮的问题。
+    <string name="revanced_restore_old_video_action_bar_summary">"修复不喜欢数量未显示和视频操作按钮无法隐藏的问题
 
-限制：恢复到旧版“更多视频”叠加层"</string>
+限制：恢复到旧版“更多视频”叠加层样式"</string>
     <string name="revanced_restore_old_video_action_bar_title">恢复旧版视频操作栏</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">未使用旧版播放器布局。</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"使用旧版播放器布局。
@@ -2022,15 +2021,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_ryd_failure_connection_status_code">点踩数不可用 (状态 %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">点踩数暂时不可用 (API 连接超时)</string>
     <string name="revanced_ryd_failure_generic">点踩数不可用 (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新加载视频，使用 Return YouTube Dislike 投票</string>
-    <string name="revanced_ryd_shorts_summary_off">Shorts 上不显示“不喜欢”</string>
-    <string name="revanced_ryd_shorts_summary_on">"Shorts 上显示“不喜欢”
-
-限制：在隐身模式下可能不显示“不喜欢”"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"在 Shorts 中显示点踩数
-
-限制：在无痕模式下，点踩数可能不会显示"</string>
-    <string name="revanced_ryd_shorts_title">在 Shorts 上显示点踩数</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 不可用，则不显示提示</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 不可用，则显示提示</string>
     <string name="revanced_ryd_toast_on_connection_error_title">显示连接错误提醒</string>

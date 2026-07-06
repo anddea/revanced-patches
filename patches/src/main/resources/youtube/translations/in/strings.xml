@@ -125,7 +125,7 @@ Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"
     <string name="morphe_spoof_video_streams_user_dialog_message">Mematikan setelan ini dapat menyebabkan masalah pemutaran.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Menu kualitas video lanjutan tidak ditampilkan</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Menu kualitas video lanjutan ditampilkan</string>
-    <string name="revanced_advanced_video_quality_menu_title">Tampilkan menu kualitas video lanjutan</string>
+    <string name="revanced_advanced_video_quality_menu_title">Buka menu kualitas \'Lanjutan\'</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Menu flyout gaya lama digunakan.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Dialog khusus digunakan.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Menu jenis kualitas video lanjutan di Shorts</string>
@@ -226,7 +226,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_share_sheet_summary_off">Lembar berbagi dalam aplikasi digunakan.</string>
     <string name="revanced_change_share_sheet_summary_on">Lembar berbagi sistem digunakan.</string>
     <string name="revanced_change_share_sheet_title">Ubah lembar berbagi</string>
-    <string name="revanced_change_start_page_entry_all_subscriptions">Semua langganan</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Semua subscriptions</string>
     <string name="revanced_change_start_page_entry_browse">Jelajahi saluran</string>
     <string name="revanced_change_start_page_entry_courses">Kursus / Pembelajaran</string>
     <string name="revanced_change_start_page_entry_default">Bawaan</string>
@@ -248,7 +248,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_start_page_entry_shopping">Belanja</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Olahraga</string>
-    <string name="revanced_change_start_page_entry_subscriptions">Langganan</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_entry_trending">Sedang tren</string>
     <string name="revanced_change_start_page_entry_virtual_reality">Realitas Virtual</string>
     <string name="revanced_change_start_page_entry_watch_later">Tonton nanti</string>
@@ -583,7 +583,7 @@ Untuk menggunakan fitur ini, ubah 'Klien bawaan (Spoof data streaming)' menjadi 
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s tidak terpasang
 Silahkan unduh %2$s dari situs web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Peringatan</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s belum terpasang. Silakan pasang.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s belum dipasang. Pasang dulu.</string>
     <string name="revanced_external_downloader_other_item">Lainnya</string>
     <string name="revanced_external_downloader_other_item_hint">Masukkan nama paket</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nama paket aplikasi pengunduh eksternal yang Anda pasang.</string>
@@ -594,7 +594,7 @@ Silahkan unduh %2$s dari situs web."</string>
     <string name="revanced_external_downloader_package_name_video_title">Nama paket pengunduh video</string>
     <string name="revanced_external_downloader_package_not_found_warning">"Tidak dapat menemukan aplikasi terpasang dengan nama paket: %s
 
-Verifikasi nama paket sudah benar dan aplikasi sudah terpasang"</string>
+Pastikan nama paket benar dan aplikasi sudah terpasang"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Ikon tombol Hype disembunyikan.</string>
     <string name="revanced_fix_transcript_summary_off">Transkrip mungkin tidak tersedia karena gagal memenuhi syarat</string>
     <string name="revanced_fix_transcript_summary_on">Transkrip tersedia</string>
@@ -847,7 +847,7 @@ Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya: iPh
     <string name="revanced_hide_links_preview_title">Sembunyikan pratinjau tautan</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">Tombol tayangan ulang obrolan siaran langsung di hamparan pemutar ditampilkan</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Tombol tayangan ulang obrolan siaran langsung di hamparan pemutar disembunyikan</string>
-    <string name="revanced_hide_live_chat_replay_button_title">Sembunyikan tombol \'Rekaman live chat\'</string>
+    <string name="revanced_hide_live_chat_replay_button_title">Sembunyikan tombol \'Putar ulang live chat\'</string>
     <string name="revanced_hide_members_shelf_summary_off">Rak anggota ditampilkan</string>
     <string name="revanced_hide_members_shelf_summary_on">Rak anggota disembunyikan</string>
     <string name="revanced_hide_members_shelf_title">Sembunyikan rak anggota</string>
@@ -948,9 +948,6 @@ Jika tata letak layar pemutar berubah karena perubahan di sisi server, tata leta
     <string name="revanced_hide_shorts_comments_button_summary_off">Tombol komentar ditampilkan</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Tombol komentar disembunyikan</string>
     <string name="revanced_hide_shorts_comments_button_title">Sembunyikan tombol Komentar</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Tombol tidak suka ditampilkan</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Tombol tidak suka disembunyikan</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Sembunyikan tombol Tidak Suka</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">Tombol layar hijau ditampilkan</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">Tombol layar hijau disembunyikan</string>
     <string name="revanced_hide_shorts_green_screen_button_title">Sembunyikan tombol \'Layar Hijau\'</string>
@@ -1111,6 +1108,8 @@ Keterbatasan:
     <string name="revanced_language_DEFAULT">Bahasa aplikasi</string>
     <string name="revanced_language_ID">Indonesian\n<small>Indonesia</small></string>
     <string name="revanced_language_title">Bahasa ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Jeda pemutaran dengan menyeret secara horizontal</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Ingat posisi seret</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Tindakan ketuk dua kali dan cubit untuk mengubah ukuran dinonaktifkan</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Tindakan ketuk dua kali dan cubit untuk mengubah ukuran diaktifkan
 
@@ -1272,7 +1271,7 @@ Deskripsi
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thumbnail seekbar akan muncul di atas seekbar</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Pulihkan thumbnail seekbar yang lama</string>
     <string name="revanced_restore_old_settings_menus_title">Pulihkan menu setelan lama YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Memperbaiki masalah tombol Tidak Suka tidak ditampilkan dan tombol tindakan video tidak dapat disembunyikan
+    <string name="revanced_restore_old_video_action_bar_summary">"Memperbaiki masalah Tidak Suka tidak ditampilkan dan tombol tindakan video yang tidak dapat disembunyikan
 
 Keterbatasan: Mengembalikan tampilan hamparan 'Video lainnya' ke gaya lama"</string>
     <string name="revanced_restore_old_video_action_bar_title">Kembalikan bilah tindakan video lama</string>
@@ -1293,12 +1292,6 @@ Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_failure_connection_status_code">Dislike tidak tersedia (status %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Dislike sementara tidak tersedia (waktu API habis)</string>
     <string name="revanced_ryd_failure_generic">Dislike tidak tersedia (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Muat ulang video untuk memilih Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">Dislike pada Shorts tidak ditampilkan</string>
-    <string name="revanced_ryd_shorts_summary_on">"Dislike pada Shorts ditampilkan
-
-Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
-    <string name="revanced_ryd_shorts_title">Tampilkan dislike di Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan peringatan kesalahan sambungan</string>

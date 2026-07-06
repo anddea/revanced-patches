@@ -124,7 +124,7 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
-    <string name="revanced_advanced_video_quality_menu_title">แสดงเมนูคุณภาพวิดีโอขั้นสูง</string>
+    <string name="revanced_advanced_video_quality_menu_title">เปิดเมนูคุณภาพ \'ขั้นสูง\'</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow ให้ภาพขนาดย่อที่รวบรวมจากฝูงชนสำหรับวิดีโอ YouTube ภาพขนาดย่อเหล่านี้มักจะเกี่ยวข้องมากกว่าภาพขนาดย่อที่ให้โดย YouTube
 
 ถ้าเปิดใช้งาน URL ของวิดีโอจะถูกส่งไปยังเซิร์ฟเวอร์ API และไม่มีข้อมูลอื่นๆ ถูกส่งไป หากวิดีโอไม่มีภาพขนาดย่อ DeArrow ภาพขนาดย่อดั้งเดิมหรือภาพนิ่งจะถูกแสดง
@@ -216,7 +216,7 @@
     <string name="revanced_change_start_page_entry_watch_later">ดูต่อภายหลัง</string>
     <string name="revanced_change_start_page_entry_your_clips">คลิปของคุณ</string>
     <string name="revanced_change_start_page_title">หน้าเริ่มต้น</string>
-    <string name="revanced_custom_filter_strings_summary">รายการสตริงตัวสร้างเส้นทางส่วนประกอบที่จะกรอง โดยคั่นด้วยบรรทัดใหม่</string>
+    <string name="revanced_custom_filter_strings_summary">รายการสตริงตัวสร้างเส้นทางส่วนประกอบที่จะกรอง คั่นด้วยบรรทัดใหม่</string>
     <string name="revanced_custom_filter_strings_title">ตัวกรองแบบกำหนดเอง</string>
     <string name="revanced_custom_filter_summary_off">ตัวกรองแบบกำหนดเองปิดใช้งาน</string>
     <string name="revanced_custom_filter_summary_on">ตัวกรองแบบกำหนดเองเปิดใช้งาน</string>
@@ -308,14 +308,14 @@
     <string name="revanced_exit_fullscreen_entry_3">แนวนอนเท่านั้น</string>
     <string name="revanced_exit_fullscreen_entry_4">แนวตั้งและแนวนอน</string>
     <string name="revanced_exit_fullscreen_title">ออกจากโหมดเต็มหน้าจอเมื่อวิดีโอจบ</string>
-    <string name="revanced_external_downloader_empty_warning">ชื่อแพ็กเกจต้องไม่ว่างเปล่า</string>
-    <string name="revanced_external_downloader_not_found_title">ไม่ได้ติดตั้งแอป</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
+    <string name="revanced_external_downloader_empty_warning">ชื่อแพ็คเกจต้องไม่ว่างเปล่า</string>
+    <string name="revanced_external_downloader_not_found_title">ไม่พบแอป</string>
+    <string name="revanced_external_downloader_not_installed_warning">ไม่ได้ติดตั้ง %s โปรดติดตั้ง</string>
     <string name="revanced_external_downloader_other_item">อื่น ๆ</string>
-    <string name="revanced_external_downloader_other_item_hint">ป้อนชื่อแพ็กเกจ</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"ไม่พบแอปที่ติดตั้งด้วยชื่อแพ็กเกจ: %s
+    <string name="revanced_external_downloader_other_item_hint">ป้อนชื่อแพ็คเกจ</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"ไม่พบแอปที่ติดตั้งด้วยชื่อแพ็คเกจ: %s
 
-ตรวจสอบว่าชื่อแพ็กเกจถูกต้องและติดตั้งแอปแล้ว"</string>
+ตรวจสอบว่าชื่อแพ็คเกจถูกต้องและแอปได้ถูกติดตั้งแล้ว"</string>
     <string name="revanced_fix_transcript_summary_off">บทความอาจไม่มีอยู่เนื่องจากการตรวจสอบเงื่อนไขล้มเหลว</string>
     <string name="revanced_fix_transcript_summary_on">บทความมีอยู่</string>
     <string name="revanced_fix_transcript_title">แก้ไขบทความ</string>
@@ -571,9 +571,6 @@
     <string name="revanced_hide_shorts_comments_button_summary_off">ปุ่มความคิดเห็นถูกแสดงอยู่</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">ปุ่มความคิดเห็นถูกซ่อนอยู่</string>
     <string name="revanced_hide_shorts_comments_button_title">ซ่อนปุ่มแสดงความคิดเห็น</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">ปุ่ม \'ไม่ชอบ\' ถูกแสดงอยู่</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">ปุ่ม \'ไม่ชอบ\' ถูกซ่อนอยู่</string>
-    <string name="revanced_hide_shorts_dislike_button_title">ซ่อนปุ่มไม่ถูกใจ</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">ปุ่ม Green Screen  แสดงขึ้น</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">ปุ่ม Green Screen ถูกซ่อน</string>
     <string name="revanced_hide_shorts_green_screen_button_title">ซ่อนปุ่ม \'กรีนสกรีน\'</string>
@@ -696,6 +693,8 @@
     <string name="revanced_language_DEFAULT">ภาษาของแอป</string>
     <string name="revanced_language_TH">Thai\n<small>ไทย</small></string>
     <string name="revanced_language_title">ภาษา ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">หยุดการเล่นด้วยการลากในแนวนอน</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">จดจำตำแหน่งการลาก</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">การแตะสองครั้งและการบีบเพื่อปรับขนาดปิดใช้งานแล้ว</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"การกระทำแตะสองครั้ง และการบีบเพื่อปรับขนาด เปิดใช้งาน
 
@@ -786,9 +785,9 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">ภาพขนาดย่อสำหรับแถบเลื่อนจะปรากฏเหนือแถบเลื่อน</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">คืนค่าภาพขนาดย่อสำหรับแถบเลื่อนแบบเก่า</string>
     <string name="revanced_restore_old_settings_menus_title">กู้คืนเมนูการตั้งค่าแบบเก่า</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"แก้ไขปัญหาการแสดงผลที่ไม่ชอบและปุ่มการทำงานของวิดีโอซ่อนไม่ได้
+    <string name="revanced_restore_old_video_action_bar_summary">"แก้ไขปัญหาการไม่แสดงผลการไม่ชอบ และปุ่มการทำงานของวิดีโอไม่สามารถซ่อนได้
 
-ข้อจำกัด: กลับไปใช้รูปแบบ 'วิดีโอเพิ่มเติม' แบบเดิม"</string>
+ข้อจำกัด: กลับไปใช้การแสดงผล 'วิดีโอเพิ่มเติม' แบบเก่า"</string>
     <string name="revanced_restore_old_video_action_bar_title">กู้คืนแถบการทำงานของวิดีโอแบบเดิม</string>
     <string name="revanced_ryd_attribution_summary">"ข้อมูลนี้มาจาก Return YouTube Dislike API
 
@@ -807,12 +806,6 @@
     <string name="revanced_ryd_failure_connection_status_code">ไม่สามารถแสดงความไม่ชอบได้ (รหัสสถานะ %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">ไม่สามารถแสดงความไม่ชอบชั่วคราว (API หมดเวลา)</string>
     <string name="revanced_ryd_failure_generic">ไม่สามารถใช้งาน \"ไม่ชอบ\" ได้ (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">รีโหลดวิดีโอเพื่อลงคะแนนโดยใช้ Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">การไม่ถูกใจใน Shorts ไม่ได้แสดงอยู่</string>
-    <string name="revanced_ryd_shorts_summary_on">"การไม่ถูกใจใน Shorts แสดงอยู่
-
-ข้อจำกัด: การไม่ถูกใจอาจไม่ปรากฏในโหมดไม่ระบุตัวตน"</string>
-    <string name="revanced_ryd_shorts_title">แสดง \"ไม่ชอบ\" ใน Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast ไม่ปรากฏขึ้นหาก ไม่สามารถใช้งาน Return YouTube Dislike</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ข้อความแจ้งเตือนแสดงขึ้น หาก Return YouTube Dislike ไม่พร้อมใช้งาน</string>
     <string name="revanced_ryd_toast_on_connection_error_title">แสดงการแจ้งเตือนข้อผิดพลาดการเชื่อมต่อ</string>

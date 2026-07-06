@@ -126,7 +126,7 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">Выключение этой настройки может привести к возникновению проблем с воспроизведением.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Расширенное меню качества видео скрыто</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Расширенное меню качества видео показано</string>
-    <string name="revanced_advanced_video_quality_menu_title">Показать расширенное меню качества видео</string>
+    <string name="revanced_advanced_video_quality_menu_title">Открыть меню настройки качества \"Расширенные\"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Стиль расширенного меню качества отключен.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Стиль расширенного меню качества включен.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Расширенный тип меню качества Shorts</string>
@@ -272,7 +272,7 @@
     <string name="revanced_copy">Копировать</string>
     <string name="revanced_copy_error">Не удалось скопировать текст</string>
     <string name="revanced_credits_title">О разработчиках</string>
-    <string name="revanced_custom_filter_strings_summary">Список строк конструктора путей компонентов для фильтрации, разделенных новыми строками</string>
+    <string name="revanced_custom_filter_strings_summary">Список строк конструктора путей компонентов для фильтрации, разделенных новой строкой</string>
     <string name="revanced_custom_filter_strings_title">Кастомный фильтр</string>
     <string name="revanced_custom_filter_summary_off">Кастомный фильтр отключен</string>
     <string name="revanced_custom_filter_summary_on">Кастомный фильтр включен</string>
@@ -587,7 +587,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не установлен.
 Пожалуйста, скачайте %2$s с сайта."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Предупреждение</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Пожалуйста, установите его.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s не установлено. Пожалуйста, установите его.</string>
     <string name="revanced_external_downloader_other_item">Другое</string>
     <string name="revanced_external_downloader_other_item_hint">Введите имя пакета</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Название пакета установленного внешнего приложения для загрузки.</string>
@@ -598,7 +598,7 @@
     <string name="revanced_external_downloader_package_name_video_title">Внешний загрузчик для видео, название пакета</string>
     <string name="revanced_external_downloader_package_not_found_warning">"Не удалось найти установленное приложение с именем пакета: %s
 
-Убедитесь, что имя пакета указано правильно и приложение установлено"</string>
+Убедитесь, что имя пакета указано верно и приложение установлено"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Значок кнопки \"Шумиха\" скрыт.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Значок кнопки \"Шумиха\" отображается.</string>
     <string name="revanced_fix_hype_button_icon_title">Исправить значок кнопки \"Шумиха\"</string>
@@ -1290,9 +1290,6 @@ Shorts
     <string name="revanced_hide_shorts_comments_panel_summary_off">Панель комментариев отображена.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Панель комментариев скрыта.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Скрыть панель комментариев</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Кнопка \"Дизлайк\" в Shorts показана</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Кнопка \"Дизлайк\" в Shorts скрыта</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Скрыть кнопку \"Дизлайк\"</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Всплывающие кнопки, такие как «Использовать этот звук», во вкладке Shorts отображены.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Всплывающие кнопки, такие как «Использовать этот звук», во вкладке Shorts скрыты.</string>
     <string name="revanced_hide_shorts_floating_button_title">Всплывающая кнопка</string>
@@ -1636,6 +1633,8 @@ Shorts
     <string name="revanced_language_VI">Вьетнамский\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Китайский\n<small>中文</small></string>
     <string name="revanced_language_title">Язык настроек ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Приостановить воспроизведение горизонтальным жестом</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Запомнить положение при жесте</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Двойное нажатие и изменение размера щипком отключены</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Двойное нажатие и изменение размера щипком включены
 
@@ -2003,9 +2002,9 @@ Shorts
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Старые миниатюры полосы прогресса включены и показываются в мини окнах над полосой прогресса</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Включить старые миниатюры</string>
     <string name="revanced_restore_old_settings_menus_title">Восстановить старое меню настроек YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Исправляет проблему, из-за которой не отображаются отметки \"Не нравится\" и кнопки действий над видео не могут быть скрыты.
+    <string name="revanced_restore_old_video_action_bar_summary">"Исправляет проблему с не отображением отметки «Не нравится» и невозможностью скрыть кнопки управления видео
 
-Ограничения: Возврат к старому стилю наложения \"Другие видео\""</string>
+Ограничение: Возвращается к старому стилю наложения «Ещё видео»"</string>
     <string name="revanced_restore_old_video_action_bar_title">Восстановить старую панель действий видео</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Старый интерфейс плеера отключен.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старый макет плеера используется.
@@ -2049,16 +2048,6 @@ Shorts
     <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступны (статус %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки временно недоступны (таймаут API)</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступны (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Обновите видео для голосования с помощью Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">Дизлайки в Shorts скрыты</string>
-    <string name="revanced_ryd_shorts_summary_on">"Дизлайки в Shorts показаны
-
-Ограничение: дизлайки могут не показываться в режиме инкогнито"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Кнопка \"Дизлайк\" в Shorts отображена.
-
-Ограничение:
-Кнопка \"Дизлайк\" может отсутствовать в режиме инкогнито."</string>
-    <string name="revanced_ryd_shorts_title">Показать дизлайки в Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности Return YouTube Dislike скрыто</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности Return YouTube Dislike показано</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показывать оповещения об ошибках подключения</string>

@@ -51,7 +51,7 @@
     <string name="morphe_replace_music_with_youtube_title">Змінити посилання для поширення на youtube.com</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з поширених посилань</string>
-    <string name="morphe_sanitize_sharing_links_title">Очищення посилань для поширення</string>
+    <string name="morphe_sanitize_sharing_links_title">Очищувати посилання для поширення</string>
     <string name="morphe_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити працювати будь-якої миті</string>
     <string name="morphe_spoof_video_streams_about_js">• Якщо деобфускація не вдається, відтворення може завершитися невдачею</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Пункт меню \"Звукова доріжка\" відсутній</string>
@@ -125,7 +125,7 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">Вимкнення цього налаштування може спричинити проблеми з відтворенням.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Розширене меню якості відео не показується</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Розширене меню якості відео показується</string>
-    <string name="revanced_advanced_video_quality_menu_title">Показувати розширене меню якості відео</string>
+    <string name="revanced_advanced_video_quality_menu_title">Відкривати меню якості \"Розширені налаштування\"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Використовується висувне меню старого стилю.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Використовується специфічний діалог.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Тип розширеного меню якості відео в Shorts</string>
@@ -400,11 +400,11 @@
 Деякі серверні макети можуть не повертатися.
 
 Зміни включають:
-• Компоненти у спливаючому меню плеєра (або пов’язаних налаштуваннях) можуть не працювати.
+• Компоненти у висувному меню плеєра (або пов’язаних налаштуваннях) можуть не працювати.
 • Анімовані лічильники не анімуються.
 • Відображається вкладка \"Бібліотека\".
 • Секція \"Музика\" в описі відео може не працювати.
-• Елементи спливаючого меню плеєра не можна приховати.
+• Елементи висувного меню плеєра не можна приховати.
 • Кнопка перемикання облікового запису може не відображатися на вкладці \"Бібліотека\"."</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Кнопки Подобається та Не подобається відблискуватимуть при згадуванні.</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Кнопки Подобається та Не подобається не відблискуватимуть при згадуванні.</string>
@@ -585,24 +585,24 @@
 Примітка:
 • iOS TV недоступний у деяких регіонах, і в цьому випадку це налаштування може все ще не працювати."</string>
     <string name="revanced_external_downloader_dialog_title">Зовнішній завантажувач</string>
-    <string name="revanced_external_downloader_empty_warning">Ім\'я пакета не може бути порожнім</string>
+    <string name="revanced_external_downloader_empty_warning">Назва пакета не може бути порожньою</string>
     <string name="revanced_external_downloader_not_found_title">Застосунок не встановлено</string>
     <string name="revanced_external_downloader_not_installed">Не встановлено</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не встановлено.
 Будь ласка, завантажте %2$s з сайту."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Попередження</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s не встановлено. Встановіть його.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s не встановлено. Будь ласка, встановіть його.</string>
     <string name="revanced_external_downloader_other_item">Вказати інший</string>
-    <string name="revanced_external_downloader_other_item_hint">Введіть ім\'я пакета</string>
+    <string name="revanced_external_downloader_other_item_hint">Введіть назву пакета</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Ім\'я пакета встановленого зовнішнього завантажувача.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Ім\'я пакета завантажувача списку відтворення</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis, при довгому натисканні.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Ім\'я пакета завантажувача відео при довгому натисканні</string>
     <string name="revanced_external_downloader_package_name_video_summary">Ім\'я пакета встановленого зовнішнього завантажувача.</string>
     <string name="revanced_external_downloader_package_name_video_title">Ім\'я пакета завантажувача відео</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Не вдалося знайти встановлений застосунок з ім'ям пакета: %s
+    <string name="revanced_external_downloader_package_not_found_warning">"Не вдалося знайти встановлений застосунок з назвою пакета: %s
 
-Перевірте, чи правильне ім'я пакета та чи встановлено застосунок"</string>
+Перевірте правильність назви пакета та встановлення застосунку"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Іконку кнопки Розголос приховано.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Іконку кнопки Розголос показується.</string>
     <string name="revanced_fix_hype_button_icon_title">Виправити іконку кнопки Розголос</string>
@@ -1318,9 +1318,6 @@
     <string name="revanced_hide_shorts_comments_panel_summary_off">Панель коментарів показується.</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Панель коментарів приховано.</string>
     <string name="revanced_hide_shorts_comments_panel_title">Приховати панель коментарів</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">Кнопка \"Дизлайк\" показується</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">Кнопку \"Дизлайк\" приховано</string>
-    <string name="revanced_hide_shorts_dislike_button_title">Приховати кнопку \"Дизлайк\"</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Плавучі кнопки, такі як \'Використати цей звук\' показується у вкладці YouTube Shorts каналу.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Плавучі кнопки, такі як \'Використати цей звук\' приховано у вкладці YouTube Shorts каналу.</string>
     <string name="revanced_hide_shorts_floating_button_title">Приховати плавучу кнопку</string>
@@ -1651,6 +1648,8 @@
     <string name="revanced_language_VI">В'єтнамська\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Китайська\n<small>中文</small></string>
     <string name="revanced_language_title">Мова налаштувань ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Призупиняти відтворення при горизонтальному перетягуванні</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Запам\'ятовувати позицію при перетягуванні</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та зміну розміру щипком вимкнено</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Подвійне натискання та зміну розміру щипком увімкнено
 
@@ -2066,15 +2065,6 @@
     <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (тайм-аут API)</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Оновіть відео, щоб проголосувати за допомогою Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">Дизлайки в Shorts не показуються</string>
-    <string name="revanced_ryd_shorts_summary_on">"Дизлайки в Shorts показуються
-
-Обмеження: Дизлайки не можуть показуватися в анонімному режимі"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Дизлайки показується на Shorts.
-
-Застереження: Дизлайки не можуть відображатися якщо користувач не увійшов чи в анонімному режимі."</string>
-    <string name="revanced_ryd_shorts_title">Показувати дизлайки в Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Return YouTube Dislike не доступний</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Return YouTube Dislike не доступний</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показувати сповіщення про помилки з’єднання</string>
