@@ -1,4 +1,45 @@
 /*
+ * Copyright (C) 2025-2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
+/*
  * Portions of this file are ported from Morphe:
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
@@ -195,21 +236,34 @@ public class PlaylistPatch {
         try {
             String currentPlaylistId = playlistId;
             String currentVideoId = videoId;
+            Logger.printDebug(() -> "fetchQueue called: remove=" + remove
+                    + ", openPlaylist=" + openPlaylist
+                    + ", openVideo=" + openVideo
+                    + ", reload=" + reload
+                    + ", currentPlaylistId=" + currentPlaylistId
+                    + ", currentVideoId=" + currentVideoId);
             synchronized (lastVideoIds) {
                 if (currentPlaylistId.isEmpty()) { // Queue is empty, create new playlist.
+                    Logger.printDebug(() -> "fetchQueue: currentPlaylistId is empty, starting CreatePlaylistRequest");
                     CreatePlaylistRequest.fetchRequestIfNeeded(currentVideoId, AuthUtils.getRequestHeader());
                     runOnMainThreadDelayed(() -> {
+                        Logger.printDebug(() -> "fetchQueue delayed callback (create) running. currentVideoId=" + currentVideoId);
                         CreatePlaylistRequest request = CreatePlaylistRequest.getRequestForVideoId(currentVideoId);
+                        Logger.printDebug(() -> "fetchQueue delayed callback (create): request=" + request);
                         if (request != null) {
                             Pair<String, String> playlistIds = request.getPlaylistId();
+                            Logger.printDebug(() -> "fetchQueue delayed callback (create): playlistIds=" + playlistIds);
                             if (playlistIds != null) {
                                 String createdPlaylistId = playlistIds.getFirst();
                                 String setVideoId = playlistIds.getSecond();
+                                Logger.printDebug(() -> "fetchQueue delayed callback (create): createdPlaylistId="
+                                        + createdPlaylistId + ", setVideoId=" + setVideoId);
                                 if (createdPlaylistId != null && setVideoId != null) {
                                     playlistId = createdPlaylistId;
                                     lastVideoIds.putIfAbsent(currentVideoId, setVideoId);
                                     showToast(fetchSucceededCreate);
-                                    Logger.printDebug(() -> "Queue successfully created, playlistId: " + createdPlaylistId + ", setVideoId: " + setVideoId);
+                                    Logger.printInfo(() -> "Queue successfully created, playlistId: "
+                                            + createdPlaylistId + ", setVideoId: " + setVideoId);
                                     if (openPlaylist) {
                                         openQueue(currentVideoId, openVideo, reload);
                                     }
@@ -217,17 +271,22 @@ public class PlaylistPatch {
                                 }
                             }
                         }
+                        Logger.printInfo(() -> "fetchQueue delayed callback (create): failed to create queue. request=" + request);
                         showToast(fetchFailedCreate);
                     }, DELAY_MILLISECONDS);
                 } else { // Queue is not empty, add or remove video.
                     String setVideoId = lastVideoIds.get(currentVideoId);
+                    Logger.printDebug(() -> "fetchQueue: currentPlaylistId is not empty, setVideoId="
+                            + setVideoId + ", starting EditPlaylistRequest");
                     EditPlaylistRequest.fetchRequestIfNeeded(currentVideoId, currentPlaylistId, setVideoId, AuthUtils.getRequestHeader());
 
                     runOnMainThreadDelayed(() -> {
+                        Logger.printDebug(() -> "fetchQueue delayed callback (edit) running. currentVideoId=" + currentVideoId);
                         EditPlaylistRequest request = EditPlaylistRequest.getRequestForVideoId(currentVideoId);
+                        Logger.printDebug(() -> "fetchQueue delayed callback (edit): request=" + request);
                         if (request != null) {
                             String fetchedSetVideoId = request.getResult();
-                            Logger.printDebug(() -> "fetchedSetVideoId: " + fetchedSetVideoId);
+                            Logger.printDebug(() -> "fetchQueue delayed callback (edit): fetchedSetVideoId=" + fetchedSetVideoId);
                             if (remove) { // Remove from queue.
                                 if ("".equals(fetchedSetVideoId)) {
                                     lastVideoIds.remove(currentVideoId, setVideoId);
@@ -244,12 +303,13 @@ public class PlaylistPatch {
                                     lastVideoIds.putIfAbsent(currentVideoId, fetchedSetVideoId);
                                     EditPlaylistRequest.clearVideoId(currentVideoId);
                                     showToast(fetchSucceededAdd);
-                                    Logger.printDebug(() -> "Video successfully added, setVideoId: " + fetchedSetVideoId);
+                                    Logger.printInfo(() -> "Video successfully added, setVideoId: " + fetchedSetVideoId);
                                     if (openPlaylist) {
                                         openQueue(currentVideoId, openVideo, reload);
                                     }
                                     return;
                                 }
+                                Logger.printInfo(() -> "fetchQueue delayed callback (edit): failed to add. fetchedSetVideoId=" + fetchedSetVideoId);
                                 showToast(fetchFailedAdd);
                             }
                         }
@@ -477,9 +537,10 @@ public class PlaylistPatch {
                 "yt_outline_list_play_arrow_black_24",
                 () -> fetchQueue(false, true, true, false)
         ),
+        // The circle reload icon is missing on 19.28, while this 24dp repeat icon exists on 19.28 and 20.51.
         ADD_TO_QUEUE_AND_RELOAD_VIDEO(
                 "revanced_queue_manager_add_to_queue_and_reload_video",
-                "yt_outline_arrow_circle_black_24",
+                "yt_outline_arrow_repeat_black_24",
                 () -> fetchQueue(false, true, true, true)
         ),
         REMOVE_FROM_QUEUE(
@@ -494,7 +555,7 @@ public class PlaylistPatch {
         ),
         REMOVE_FROM_QUEUE_AND_RELOAD_VIDEO(
                 "revanced_queue_manager_remove_from_queue_and_reload_video",
-                "yt_outline_arrow_circle_black_24",
+                "yt_outline_arrow_repeat_black_24",
                 () -> fetchQueue(true, true, true, true)
         ),
         OPEN_QUEUE(
