@@ -123,13 +123,6 @@ public final class ShortsButtonFilter extends Filter {
                 "reel_like_toggled_button."
         );
 
-        StringFilterGroup dislikeButton = new StringFilterGroup(
-                Settings.HIDE_SHORTS_DISLIKE_BUTTON,
-                "shorts_dislike_button.",
-                "reel_dislike_button.",
-                "reel_dislike_toggled_button."
-        );
-
         autoDubbedLabel = new StringFilterGroup(
                 Settings.HIDE_SHORTS_AUTO_DUBBED_LABEL,
                 "badge."
@@ -191,7 +184,7 @@ public final class ShortsButtonFilter extends Filter {
                     suggestedAction, joinButton, subscribeButton, metaPanelButton,
                     pausedOverlayButtons, autoDubbedLabel, channelBar, videoLinkLabel,
                     videoTitle, reelSoundMetadata, infoPanel, liveHeader, livePreview,
-                    previewComment, soundButton, stickers, likeButton, dislikeButton, shortsCommentsPanel,
+                    previewComment, soundButton, stickers, likeButton, shortsCommentsPanel,
                     likeFountain, shortsActionBar
             );
         } else {
@@ -199,7 +192,7 @@ public final class ShortsButtonFilter extends Filter {
                     suggestedAction, actionButton, joinButton, subscribeButton, metaPanelButton,
                     pausedOverlayButtons, autoDubbedLabel, channelBar, videoLinkLabel,
                     videoTitle, reelSoundMetadata, infoPanel, liveHeader, livePreview,
-                    previewComment, soundButton, stickers, likeButton, dislikeButton, shortsCommentsPanel,
+                    previewComment, soundButton, stickers, likeButton, shortsCommentsPanel,
                     likeFountain, shortsActionBar
             );
         }

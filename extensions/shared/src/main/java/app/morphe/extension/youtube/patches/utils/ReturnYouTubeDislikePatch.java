@@ -42,7 +42,6 @@
 package app.morphe.extension.youtube.patches.utils;
 
 import static app.morphe.extension.shared.returnyoutubedislike.ReturnYouTubeDislike.Vote;
-import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -82,7 +81,6 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.components.ActionButtonsFilter;
 import app.morphe.extension.youtube.patches.components.ActionButtonsFilter.ActionButton;
-import app.morphe.extension.youtube.patches.components.ReturnYouTubeDislikeFilterPatch;
 import app.morphe.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.BottomSheetState;
@@ -94,47 +92,15 @@ import kotlin.Unit;
 
 /**
  * Handles all interaction of UI patch components.
- * <p>
- * Known limitation:
- * The implementation of Shorts litho requires blocking the loading the first Short until RYD has completed.
- * This is because it modifies the dislikes text synchronously, and if the RYD fetch has
- * not completed yet then the UI will be temporarily frozen.
- * <p>
- * A (yet to be implemented) solution that fixes this problem.  Any one of:
- * - Modify patch to hook onto the Shorts Litho TextView, and update the dislikes text asynchronously.
- * - Find a way to force Litho to rebuild it's component tree,
- * and use that hook to force the shorts dislikes to update after the fetch is completed.
- * - Hook into the dislikes button image view, and replace the dislikes thumb down image with a
- * generated image of the number of dislikes, then update the image asynchronously.  This Could
- * also be used for the regular video player to give a better UI layout and completely remove
- * the need for the Rolling Number patches.
  */
 @SuppressWarnings("unused")
 public class ReturnYouTubeDislikePatch {
-
-    public static final boolean IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER =
-            isSpoofingToLessThan("18.34.00");
 
     /**
      * RYD data for the current video on screen.
      */
     @Nullable
     private static volatile ReturnYouTubeDislike currentVideoData;
-
-    /**
-     * The last litho based Shorts loaded.
-     * It may be the same value as {@link #currentVideoData}, but usually is the next short to swipe to.
-     */
-    @Nullable
-    private static volatile ReturnYouTubeDislike lastLithoShortsVideoData;
-
-    /**
-     * Because litho Shorts spans are created offscreen after {@link ReturnYouTubeDislikeFilterPatch}More actions
-     * detects the video ids, but the current Short can arbitrarily reload the same span,
-     * then use the {@link #lastLithoShortsVideoData} if this value is greater than zero.
-     */
-    @GuardedBy("ReturnYouTubeDislikePatch.class")
-    private static int useLithoShortsVideoDataCount;
 
     /**
      * Last video id prefetched. Field is to prevent prefetching the same video id multiple times in a row.
@@ -205,42 +171,23 @@ public class ReturnYouTubeDislikePatch {
 
     private static void clearData() {
         currentVideoData = null;
-        lastLithoShortsVideoData = null;
         regularActionButtonCountVideoId = null;
         regularLikeActionButtonCountText = null;
         regularDislikeActionButtonCountText = null;
         regularActionButtonCountFetchVideoId = null;
         Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::removeRegularActionButtonCountOverlays);
-        synchronized (ReturnYouTubeDislike.class) {
-            useLithoShortsVideoDataCount = 0;
-        }
-        // Rolling number text should not be cleared,
-        // as it's used if incognito Short is opened/closed
-        // while a regular video is on screen.
-    }
-
-    /**
-     * @return If {@link #useLithoShortsVideoDataCount} was greater than zero.
-     */
-    private static boolean decrementUseLithoDataIfNeeded() {
-        synchronized (ReturnYouTubeDislikePatch.class) {
-            if (useLithoShortsVideoDataCount > 0) {
-                useLithoShortsVideoDataCount--;
-                return true;
-            }
-
-            return false;
-        }
+        // Rolling number text should not be cleared because existing regular video
+        // TextViews can redraw before Litho creates a fresh replacement span.
     }
 
     //
-    // Litho player for both regular videos and Shorts.
+    // Litho player for regular videos.
     //
 
     /**
      * Injection point.
      * <p>
-     * For Litho segmented buttons and Litho Shorts player.
+     * For Litho segmented buttons.
      */
     @NonNull
     public static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,
@@ -290,106 +237,12 @@ public class ReturnYouTubeDislikePatch {
             }
 
             if (isRollingNumber) {
-                return original; // No need to check for Shorts in the context.
-            }
-
-            if (Utils.containsAny(conversionContextString,
-                    "|shorts_dislike_button.", "|reel_dislike_button."
-            )) {
-                return getShortsSpan(original, true);
-            }
-
-            if (Utils.containsAny(conversionContextString,
-                    "|shorts_like_button.", "|reel_like_button."
-            )) {
-                if (!Utils.containsNumber(original)) {
-                    Logger.printDebug(() -> "Replacing hidden likes count");
-                    return getShortsSpan(original, false);
-                } else {
-                    decrementUseLithoDataIfNeeded();
-                }
+                return original;
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onLithoTextLoaded failure", ex);
         }
         return original;
-    }
-
-    //
-    // Litho Shorts player in the incognito mode / live stream.
-    //
-
-    /**
-     * Injection point.
-     * <p>
-     * This method is used in the following situations.
-     * <p>
-     * 1. When the dislike counts are fetched in the Incognito mode.
-     * 2. When the dislike counts are fetched in the live stream.
-     *
-     * @param original Original span that was created or reused by Litho.
-     * @return The original span (if nothing should change), or a replacement span that contains dislikes.
-     */
-    public static CharSequence onCharSequenceLoaded(@NonNull Object conversionContext,
-                                                    @NonNull CharSequence original) {
-        try {
-            String conversionContextString = conversionContext.toString();
-            if (!Settings.RYD_ENABLED.get()) {
-                return original;
-            }
-            if (!Settings.RYD_SHORTS.get()) {
-                return original;
-            }
-
-            final boolean fetchDislikeLiveStream =
-                    conversionContextString.contains("immersive_live_video_action_bar.")
-                            && conversionContextString.contains("|dislike_button.");
-
-            if (!fetchDislikeLiveStream) {
-                return original;
-            }
-
-            ReturnYouTubeDislike videoData = ReturnYouTubeDislike.getFetchForVideoId(ReturnYouTubeDislikeFilterPatch.getShortsVideoId());
-            videoData.setVideoIdIsShort(true);
-            lastLithoShortsVideoData = videoData;
-            synchronized (ReturnYouTubeDislikePatch.class) {
-                // Use litho Shorts data for the next like and dislike spans.
-                useLithoShortsVideoDataCount = 2;
-            }
-
-            return videoData.getDislikeSpanForShort(SHORTS_LOADING_SPAN);
-        } catch (Exception ex) {
-            Logger.printException(() -> "onCharSequenceLoaded failure", ex);
-        }
-        return original;
-    }
-
-
-    private static CharSequence getShortsSpan(@NonNull CharSequence original, boolean isDislikesSpan) {
-        // Litho Shorts player.
-        if (!Settings.RYD_SHORTS.get() || (isDislikesSpan && Settings.HIDE_SHORTS_DISLIKE_BUTTON.get())
-                || (!isDislikesSpan && Settings.HIDE_SHORTS_LIKE_BUTTON.get())) {
-            return original;
-        }
-
-        final ReturnYouTubeDislike videoData;
-        if (decrementUseLithoDataIfNeeded()) {
-            // New Short is loading off-screen.
-            videoData = lastLithoShortsVideoData;
-        } else {
-            videoData = currentVideoData;
-        }
-
-        if (videoData == null) {
-            // The Shorts litho video id filter did not detect the video id.
-            // This is normal in incognito mode, but otherwise is abnormal.
-            Logger.printDebug(() -> "Cannot modify Shorts litho span, data is null");
-            return original;
-        }
-
-        return isDislikesSpan
-                ? videoData.getDislikeSpanForShort((Spanned) original)
-                : videoData.getLikeSpanForShort((Spanned) original);
     }
 
     //
@@ -515,8 +368,7 @@ public class ReturnYouTubeDislikePatch {
 
             CharSequence replacement = rollingNumberSpan;
             if (replacement == null) {
-                // User enabled RYD while a video was open,
-                // or user opened/closed a Short while a regular video was opened.
+                // User enabled RYD while a video was open, before Litho created a replacement span.
                 Logger.printDebug(() -> "Cannot update rolling number (field is null)");
                 removeRollingNumberPatchChanges(view);
                 return original;
@@ -546,6 +398,8 @@ public class ReturnYouTubeDislikePatch {
      * Injection point.
      * <p>
      * Called when a regular video EML action bar has lazily converted its action buttons.
+     * This hook can be invoked from Litho background work, so the view-tree search is always
+     * dispatched to the main thread before touching Android views.
      */
     public static void onLazilyConvertedElementLoaded(@NonNull List<Object> treeNodeResultList,
                                                       @NonNull String identifier) {
@@ -553,7 +407,7 @@ public class ReturnYouTubeDislikePatch {
             return;
         }
 
-        scheduleRegularActionButtonCountOverlayUpdates();
+        Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::scheduleRegularActionButtonCountOverlayUpdates);
     }
 
     private static boolean isRegularVideoActionBar(@NonNull String identifier) {
@@ -567,8 +421,16 @@ public class ReturnYouTubeDislikePatch {
             return;
         }
 
-        if (!canShowRegularActionButtonCountOverlays(playerType)) {
+        if (regularActionButtonCountOverlaysAreUnsupported()) {
             removeRegularActionButtonCountOverlays();
+            return;
+        }
+
+        if (playerType != PlayerType.WATCH_WHILE_MAXIMIZED) {
+            // Keep the current video's labels and button scale across player transitions. The
+            // labels are hidden only when the action-bar anchors disappear during scrolling.
+            removeRegularActionButtonCountSearchUpdates();
+            showTrackedRegularActionButtonCountLabels();
             return;
         }
 
@@ -578,8 +440,16 @@ public class ReturnYouTubeDislikePatch {
     }
 
     private static void onBottomSheetStateChangedForRegularActionButtonCounts(@NonNull BottomSheetState state) {
-        if (state.isOpen() || !Settings.RYD_ENABLED.get()) {
+        if (!Settings.RYD_ENABLED.get()) {
             removeRegularActionButtonCountOverlays();
+            return;
+        }
+
+        if (state.isOpen()) {
+            // Keep the labels anchored to the already identified video action buttons. Searching
+            // the decor tree while a sheet is open can resolve the sheet's own Like/Dislike
+            // controls instead.
+            removeRegularActionButtonCountSearchUpdates();
             return;
         }
 
@@ -589,8 +459,15 @@ public class ReturnYouTubeDislikePatch {
     }
 
     private static void onEngagementPanelChangedForRegularActionButtonCounts(@NonNull String panelId) {
-        if (!panelId.isEmpty() || !Settings.RYD_ENABLED.get()) {
+        if (!Settings.RYD_ENABLED.get()) {
             removeRegularActionButtonCountOverlays();
+            return;
+        }
+
+        if (!panelId.isEmpty()) {
+            // Keep the labels anchored to the regular action bar while the engagement panel is
+            // open, never search the panel for replacement anchors.
+            removeRegularActionButtonCountSearchUpdates();
             return;
         }
 
@@ -605,15 +482,32 @@ public class ReturnYouTubeDislikePatch {
     }
 
     private static boolean canShowRegularActionButtonCountOverlays(@NonNull PlayerType playerType) {
-        if (Settings.DISABLE_LAYOUT_UPDATES.get() || Settings.RESTORE_OLD_VIDEO_ACTION_BAR.get()) {
+        if (regularActionButtonCountOverlaysAreUnsupported()) {
             return false;
         }
 
         return playerType == PlayerType.WATCH_WHILE_MAXIMIZED
-                && !BottomSheetState.getCurrent().isOpen()
-                && !EngagementPanel.isOpen()
+                && !regularActionButtonCountOverlaysAreBlockedBySurface();
+    }
+
+    /**
+     * These player-adjacent surfaces can expose their own Like/Dislike controls in the same
+     * decor tree. While one is open, the regular-player overlay search is ambiguous and must
+     * stay detached until the main action bar is the only visible owner of those buttons.
+     */
+    private static boolean regularActionButtonCountOverlaysAreBlockedBySurface() {
+        return BottomSheetState.getCurrent().isOpen() || EngagementPanel.isOpen();
+    }
+
+    /**
+     * Unsupported layouts need the overlay removed. Player transitions are handled separately so
+     * the native action row is restored outside the maximized new-layout player.
+     */
+    private static boolean regularActionButtonCountOverlaysAreUnsupported() {
+        return Settings.DISABLE_LAYOUT_UPDATES.get()
+                || Settings.RESTORE_OLD_VIDEO_ACTION_BAR.get()
                 // Segmented/old layouts already receive the count through onLithoTextLoaded().
-                && !ActionButtonsFilter.hasCurrentVideoActionButton(ActionButton.LIKE_DISLIKE);
+                || ActionButtonsFilter.hasCurrentVideoActionButton(ActionButton.LIKE_DISLIKE);
     }
 
     /**
@@ -625,9 +519,32 @@ public class ReturnYouTubeDislikePatch {
      * allowing the background thread to fetch estimated and original values without blocking/sleeping.
      */
     private static void scheduleRegularActionButtonCountOverlayUpdates() {
+        if (!Utils.isCurrentlyOnMainThread()) {
+            Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::scheduleRegularActionButtonCountOverlayUpdates);
+            return;
+        }
+
         ReturnYouTubeDislike videoData = currentVideoData;
         if (videoData == null) {
             removeRegularActionButtonCountOverlays();
+            return;
+        }
+
+        if (regularActionButtonCountOverlaysAreUnsupported()) {
+            removeRegularActionButtonCountOverlays();
+            return;
+        }
+
+        if (PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MAXIMIZED) {
+            removeRegularActionButtonCountSearchUpdates();
+            showTrackedRegularActionButtonCountLabels();
+            return;
+        }
+
+        if (regularActionButtonCountOverlaysAreBlockedBySurface()) {
+            // Do not retarget existing labels to controls belonging to a bottom sheet or
+            // engagement panel. The position listener will resume after it closes.
+            removeRegularActionButtonCountSearchUpdates();
             return;
         }
 
@@ -651,7 +568,7 @@ public class ReturnYouTubeDislikePatch {
 
         updateRegularActionButtonCountOverlaysFromCache(videoData);
         if (!canShowRegularActionButtonCountOverlays()) {
-            hideTrackedRegularActionButtonCountLabels();
+            removeRegularActionButtonCountSearchUpdates();
         }
 
         String videoId = videoData.getVideoId();
@@ -722,7 +639,9 @@ public class ReturnYouTubeDislikePatch {
         try {
             ReturnYouTubeDislike currentData = currentVideoData;
             if (currentData == null || !videoId.equals(currentData.getVideoId())) {
-                removeRegularActionButtonCountOverlays();
+                // A fetch for the previous video can finish after a new video has started.
+                // It must not remove or disturb overlays already created for the new video.
+                Logger.printDebug(() -> "Ignoring stale action button counts for video: " + videoId);
                 return;
             }
 
@@ -736,22 +655,21 @@ public class ReturnYouTubeDislikePatch {
             }
 
             if (!canShowRegularActionButtonCountOverlays()) {
-                // Player, bottom-sheet, and engagement-panel transitions reschedule explicitly.
-                // Do not keep a per-frame search alive while another surface owns the action row.
                 removeRegularActionButtonCountSearchUpdates();
-                hideTrackedRegularActionButtonCountLabels();
+                if (regularActionButtonCountOverlaysAreUnsupported()) {
+                    removeRegularActionButtonCountOverlays();
+                }
                 return;
             }
 
             RegularActionButtonAnchors anchors = findRegularActionButtonAnchors(decorViewRoot);
             if (anchors == null) {
+                hideTrackedRegularActionButtonCountLabels();
                 if (hasVisibleSegmentedRegularActionButtonCount(decorViewRoot)) {
                     removeRegularActionButtonCountSearchUpdates();
-                    hideTrackedRegularActionButtonCountLabels();
                     return;
                 }
                 ensureRegularActionButtonCountSearchUpdates(decorViewRoot);
-                hideTrackedRegularActionButtonCountLabels();
                 return;
             }
 
@@ -787,21 +705,20 @@ public class ReturnYouTubeDislikePatch {
             if (previousRoot != null && previousRoot != overlayHost) {
                 removeTrackedRegularActionButtonCountLabels();
                 removeRegularActionButtonCountPositionUpdates();
-                restoreRegularActionButtons();
             }
 
             removeRegularActionButtonCountSearchUpdates();
-            TextView likeLabel = null;
-            TextView dislikeLabel = null;
+            TextView likeLabel;
+            TextView dislikeLabel;
             if (anchors.likeButton() != null) {
                 likeLabel = getOrCreateRegularActionButtonCountLabel(overlayHost, true);
             } else {
-                removeRegularActionButtonCountLabel(true);
+                likeLabel = getTrackedRegularActionButtonCountLabel(true);
             }
             if (anchors.dislikeButton() != null) {
                 dislikeLabel = getOrCreateRegularActionButtonCountLabel(overlayHost, false);
             } else {
-                removeRegularActionButtonCountLabel(false);
+                dislikeLabel = getTrackedRegularActionButtonCountLabel(false);
             }
             setRegularActionButtonCountAnchors(
                     overlayHost,
@@ -918,9 +835,56 @@ public class ReturnYouTubeDislikePatch {
         }
 
         int targetViewIndex = knownViewIndex + targetActionIndex - knownActionIndex;
-        return targetViewIndex >= 0 && targetViewIndex < rowButtons.size()
-                ? rowButtons.get(targetViewIndex)
+        if (targetViewIndex < 0 || targetViewIndex >= rowButtons.size()) {
+            return null;
+        }
+
+        View targetButton = rowButtons.get(targetViewIndex);
+        return canUseOrderResolvedRegularActionButton(targetButton, targetAction)
+                ? targetButton
                 : null;
+    }
+
+    /**
+     * The order fallback is only for native buttons that omit the Like/Dislike label.
+     * If the resolved sibling exposes a different action label, reject it instead of
+     * placing a count under Share, Save, More, or another nearby action.
+     */
+    private static boolean canUseOrderResolvedRegularActionButton(@NonNull View view,
+                                                                  @NonNull ActionButton targetAction) {
+        CharSequence contentDescription = view.getContentDescription();
+        if (contentDescription == null) {
+            return true;
+        }
+
+        if (targetAction == ActionButton.LIKE) {
+            if (hasRegularActionButtonContentDescription(view, true)) {
+                return true;
+            }
+            if (hasRegularActionButtonContentDescription(view, false)) {
+                return false;
+            }
+        } else if (targetAction == ActionButton.DISLIKE) {
+            if (hasRegularActionButtonContentDescription(view, false)) {
+                return true;
+            }
+            if (hasRegularActionButtonContentDescription(view, true)) {
+                return false;
+            }
+        }
+
+        String description = contentDescription.toString().toLowerCase(Locale.ROOT);
+        return !description.contains("action menu")
+                && !description.contains("more")
+                && !description.contains("overflow")
+                && !description.contains("share")
+                && !description.contains("save")
+                && !description.contains("playlist")
+                && !description.contains("download")
+                && !description.contains("clip")
+                && !description.contains("comment")
+                && !description.contains("remix")
+                && !description.contains("thanks");
     }
 
     @NonNull
@@ -1025,7 +989,7 @@ public class ReturnYouTubeDislikePatch {
         return bestCandidate;
     }
 
-    private static void collectRegularActionButtonCandidates(@NonNull View view,
+    private static void collectRegularActionButtonCandidates(@Nullable View view,
                                                              int resourceId,
                                                              boolean likeButton,
                                                              @NonNull List<View> candidates) {
@@ -1170,7 +1134,7 @@ public class ReturnYouTubeDislikePatch {
         return containsVisibleNumberTextView(root, minimumX, maximumX, minimumY, maximumY);
     }
 
-    private static boolean containsVisibleNumberTextView(@NonNull View view,
+    private static boolean containsVisibleNumberTextView(@Nullable View view,
                                                          int minimumX,
                                                          int maximumX,
                                                          int minimumY,
@@ -1332,7 +1296,7 @@ public class ReturnYouTubeDislikePatch {
         }
     }
 
-    private static void collectRegularActionButtonRowCandidates(@NonNull View view,
+    private static void collectRegularActionButtonRowCandidates(@Nullable View view,
                                                                 @NonNull List<View> candidates) {
         if (!isVisibleOnScreen(view) || isRegularActionButtonCountOverlay(view)) {
             return;
@@ -1429,13 +1393,46 @@ public class ReturnYouTubeDislikePatch {
         });
     }
 
+    /**
+     * Temporarily hides count labels while the player is transitioning without discarding the
+     * labels or the action-button state needed when the same video is reopened.
+     */
+    private static void hideTrackedRegularActionButtonCountLabels() {
+        TextView likeLabel = regularLikeActionButtonCountLabel == null
+                ? null
+                : regularLikeActionButtonCountLabel.get();
+        TextView dislikeLabel = regularDislikeActionButtonCountLabel == null
+                ? null
+                : regularDislikeActionButtonCountLabel.get();
+
+        if (likeLabel != null) {
+            likeLabel.setVisibility(View.GONE);
+        }
+        if (dislikeLabel != null) {
+            dislikeLabel.setVisibility(View.GONE);
+        }
+    }
+
+    private static void showTrackedRegularActionButtonCountLabels() {
+        TextView likeLabel = regularLikeActionButtonCountLabel == null
+                ? null
+                : regularLikeActionButtonCountLabel.get();
+        TextView dislikeLabel = regularDislikeActionButtonCountLabel == null
+                ? null
+                : regularDislikeActionButtonCountLabel.get();
+
+        if (likeLabel != null && !TextUtils.isEmpty(likeLabel.getText())) {
+            likeLabel.setVisibility(View.VISIBLE);
+        }
+        if (dislikeLabel != null && !TextUtils.isEmpty(dislikeLabel.getText())) {
+            dislikeLabel.setVisibility(View.VISIBLE);
+        }
+    }
+
     @NonNull
     private static TextView getOrCreateRegularActionButtonCountLabel(@NonNull ViewGroup root,
                                                                      boolean likeButton) {
-        WeakReference<TextView> textViewReference = likeButton
-                ? regularLikeActionButtonCountLabel
-                : regularDislikeActionButtonCountLabel;
-        TextView textView = textViewReference == null ? null : textViewReference.get();
+        TextView textView = getTrackedRegularActionButtonCountLabel(likeButton);
         if (textView != null && textView.getParent() == root) {
             return textView;
         }
@@ -1462,6 +1459,14 @@ public class ReturnYouTubeDislikePatch {
 
         root.addView(textView, createRegularActionButtonCountLayoutParams(root));
         return textView;
+    }
+
+    @Nullable
+    private static TextView getTrackedRegularActionButtonCountLabel(boolean likeButton) {
+        WeakReference<TextView> textViewReference = likeButton
+                ? regularLikeActionButtonCountLabel
+                : regularDislikeActionButtonCountLabel;
+        return textViewReference == null ? null : textViewReference.get();
     }
 
     @NonNull
@@ -1529,21 +1534,42 @@ public class ReturnYouTubeDislikePatch {
         }
 
         ReturnYouTubeDislike videoData = currentVideoData;
-        if (videoData == null || !canShowRegularActionButtonCountOverlays()) {
+        if (videoData == null) {
             removeRegularActionButtonCountOverlays();
+            return;
+        }
+        if (regularActionButtonCountOverlaysAreUnsupported()) {
+            removeRegularActionButtonCountOverlays();
+            return;
+        }
+
+        if (PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MAXIMIZED) {
+            removeRegularActionButtonCountSearchUpdates();
+            showTrackedRegularActionButtonCountLabels();
+            return;
+        }
+
+        if (!canShowRegularActionButtonCountOverlays()) {
+            removeRegularActionButtonCountSearchUpdates();
+            return;
+        }
+
+        if (regularActionButtonCountOverlaysAreBlockedBySurface()) {
+            // The tracked anchors still belong to the regular action bar. Do not look for new
+            // anchors until the panel closes, otherwise panel controls can receive the counts.
+            removeRegularActionButtonCountSearchUpdates();
             return;
         }
 
         if (!trackedRegularActionButtonCountAnchorsAreVisible(root, likeButton, dislikeButton)) {
             RegularActionButtonAnchors anchors = findRegularActionButtonAnchors(root);
             if (anchors == null) {
+                hideTrackedRegularActionButtonCountLabels();
                 if (hasVisibleSegmentedRegularActionButtonCount(root)) {
                     removeRegularActionButtonCountSearchUpdates();
-                    hideTrackedRegularActionButtonCountLabels();
                     return;
                 }
                 ensureRegularActionButtonCountSearchUpdates(root);
-                hideTrackedRegularActionButtonCountLabels();
                 return;
             }
 
@@ -1705,8 +1731,6 @@ public class ReturnYouTubeDislikePatch {
                     likeAvailableWidth,
                     sharedTextSizeSp
             );
-        } else if (likeLabel != null) {
-            likeLabel.setVisibility(View.GONE);
         }
         if (dislikeButtonBounds != null && dislikeLabel != null) {
             positionRegularActionButtonCountLabel(
@@ -1718,8 +1742,6 @@ public class ReturnYouTubeDislikePatch {
                     dislikeAvailableWidth,
                     sharedTextSizeSp
             );
-        } else if (dislikeLabel != null) {
-            dislikeLabel.setVisibility(View.GONE);
         }
     }
 
@@ -1752,7 +1774,6 @@ public class ReturnYouTubeDislikePatch {
                                                               int availableWidth,
                                                               float textSizeSp) {
         if (text.length() == 0) {
-            textView.setVisibility(View.GONE);
             return;
         }
 
@@ -1928,14 +1949,6 @@ public class ReturnYouTubeDislikePatch {
         restoreRegularActionButtons();
     }
 
-    private static void removeRegularActionButtonCountOverlays(@NonNull ViewGroup root) {
-        removeRegularActionButtonCountSearchUpdates();
-        removeTrackedRegularActionButtonCountLabels();
-        removeRegularActionButtonCountPositionUpdates();
-        removeRegularActionButtonCountLabels(root);
-        restoreRegularActionButtons();
-    }
-
     private static void removeRegularActionButtonCountLabels(@NonNull ViewGroup root) {
         for (int i = root.getChildCount() - 1; i > -1; i--) {
             View child = root.getChildAt(i);
@@ -1985,23 +1998,11 @@ public class ReturnYouTubeDislikePatch {
         }
     }
 
-    private static void hideTrackedRegularActionButtonCountLabels() {
-        TextView likeLabel = regularLikeActionButtonCountLabel == null
-                ? null
-                : regularLikeActionButtonCountLabel.get();
-        TextView dislikeLabel = regularDislikeActionButtonCountLabel == null
-                ? null
-                : regularDislikeActionButtonCountLabel.get();
-
-        if (likeLabel != null) {
-            likeLabel.setVisibility(View.GONE);
+    private static boolean isRegularActionButtonCountOverlay(@Nullable View view) {
+        if (view == null) {
+            return false;
         }
-        if (dislikeLabel != null) {
-            dislikeLabel.setVisibility(View.GONE);
-        }
-    }
 
-    private static boolean isRegularActionButtonCountOverlay(@NonNull View view) {
         Object tag = view.getTag();
         return tag instanceof String && ((String) tag).startsWith(ACTION_BUTTON_COUNT_TAG_PREFIX);
     }
@@ -2011,8 +2012,8 @@ public class ReturnYouTubeDislikePatch {
         return ACTION_BUTTON_COUNT_TAG_PREFIX + (likeButton ? "like" : "dislike");
     }
 
-    private static boolean isVisibleOnScreen(@NonNull View view) {
-        if (!view.isShown() || view.getWidth() <= 0 || view.getHeight() <= 0) {
+    private static boolean isVisibleOnScreen(@Nullable View view) {
+        if (view == null || !view.isShown() || view.getWidth() <= 0 || view.getHeight() <= 0) {
             return false;
         }
 
@@ -2034,141 +2035,8 @@ public class ReturnYouTubeDislikePatch {
     }
 
     //
-    // Non-litho Shorts player.
-    //
-
-    /**
-     * Replacement text to use for "Dislikes" while RYD is fetching.
-     */
-    private static final Spannable SHORTS_LOADING_SPAN = new SpannableString("-");
-
-    /**
-     * Dislikes TextViews used by Shorts.
-     * <p>
-     * Multiple TextViews are loaded at once (for the prior and next videos to swipe to).
-     * Keep track of all of them, and later pick out the correct one based on their on-screen position.
-     */
-    private static final List<WeakReference<TextView>> shortsTextViewRefs = new ArrayList<>();
-
-    private static void clearRemovedShortsTextViews() {
-        shortsTextViewRefs.removeIf(ref -> ref.get() == null);
-    }
-
-    /**
-     * Injection point.  Called when a Shorts dislike is updated.  Always on main thread.
-     * Handles update asynchronously, otherwise Shorts video will be frozen while the UI thread is blocked.
-     *
-     * @return if RYD is enabled and the TextView was updated.
-     */
-    public static boolean setShortsDislikes(@NonNull View likeDislikeView) {
-        try {
-            if (!Settings.RYD_ENABLED.get()) {
-                return false;
-            }
-            if (!Settings.RYD_SHORTS.get() || Settings.HIDE_SHORTS_DISLIKE_BUTTON.get()) {
-                // Must clear the data here, in case a new video was loaded while PlayerType
-                // suggested the video was not a short (can happen when spoofing to an old app version).
-                clearData();
-                return false;
-            }
-            Logger.printDebug(() -> "setShortsDislikes");
-
-            TextView textView = (TextView) likeDislikeView;
-            textView.setText(SHORTS_LOADING_SPAN); // Change 'Dislike' text to the loading text.
-            shortsTextViewRefs.add(new WeakReference<>(textView));
-
-            if (likeDislikeView.isSelected() && isShortTextViewOnScreen(textView)) {
-                Logger.printDebug(() -> "Shorts dislike is already selected");
-                ReturnYouTubeDislike videoData = currentVideoData;
-                if (videoData != null) videoData.setUserVote(Vote.DISLIKE);
-            }
-
-            // For the first short played, the Shorts dislike hook is called after the video id hook.
-            // But for most other times this hook is called before the video id (which is not ideal).
-            // Must update the TextViews here, and also after the videoId changes.
-            updateOnScreenShortsTextViews(false);
-
-            return true;
-        } catch (Exception ex) {
-            Logger.printException(() -> "setShortsDislikes failure", ex);
-            return false;
-        }
-    }
-
-    /**
-     * @param forceUpdate if false, then only update the loading text views.
-     *                    If true, update all on-screen text views.
-     */
-    private static void updateOnScreenShortsTextViews(boolean forceUpdate) {
-        try {
-            clearRemovedShortsTextViews();
-            if (shortsTextViewRefs.isEmpty()) {
-                return;
-            }
-            ReturnYouTubeDislike videoData = currentVideoData;
-            if (videoData == null) {
-                return;
-            }
-
-            Logger.printDebug(() -> "updateShortsTextViews");
-
-            Runnable update = () -> {
-                Spanned shortsDislikesSpan = videoData.getDislikeSpanForShort(SHORTS_LOADING_SPAN);
-                Utils.runOnMainThreadNowOrLater(() -> {
-                    String videoId = videoData.getVideoId();
-                    if (!videoId.equals(VideoInformation.getVideoId())) {
-                        // User swiped to new video before fetch completed
-                        Logger.printDebug(() -> "Ignoring stale dislikes data for short: " + videoId);
-                        return;
-                    }
-
-                    // Update text views that appear to be visible on screen.
-                    // Only 1 will be the actual textview for the current Short,
-                    // but discarded and not yet garbage collected views can remain.
-                    // So must set the dislike span on all views that match.
-                    for (WeakReference<TextView> textViewRef : shortsTextViewRefs) {
-                        TextView textView = textViewRef.get();
-                        if (textView == null) {
-                            continue;
-                        }
-                        if (isShortTextViewOnScreen(textView)
-                                && (forceUpdate || textView.getText().toString().equals(SHORTS_LOADING_SPAN.toString()))) {
-                            Logger.printDebug(() -> "Setting Shorts TextView to: " + shortsDislikesSpan);
-                            textView.setText(shortsDislikesSpan);
-                        }
-                    }
-                });
-            };
-            if (videoData.fetchCompleted()) {
-                update.run(); // Network call is completed, no need to wait on background thread.
-            } else {
-                Utils.runOnBackgroundThread(update);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "updateOnScreenShortsTextViews failure", ex);
-        }
-    }
-
-    /**
-     * Check if a view is within the screen bounds.
-     */
-    private static boolean isShortTextViewOnScreen(@NonNull View view) {
-        final int[] location = new int[2];
-        view.getLocationInWindow(location);
-        if (location[0] <= 0 && location[1] <= 0) { // Lower bound
-            return false;
-        }
-        Rect windowRect = new Rect();
-        view.getWindowVisibleDisplayFrame(windowRect); // Upper bound
-        return location[0] < windowRect.width() && location[1] < windowRect.height();
-    }
-
-
-    //
     // Video ID and voting hooks (all players).
     //
-
-    private static volatile boolean lastPlayerResponseWasShort;
 
     /**
      * Video ads in the regular video player are not hooked to {@link #preloadVideoId(String, boolean)}.
@@ -2196,10 +2064,9 @@ public class ReturnYouTubeDislikePatch {
             if (videoId.equals(lastPrefetchedVideoId)) {
                 return;
             }
-            final boolean videoIdIsShort = VideoInformation.lastPlayerResponseIsShort();
             synchronized (playerResponseVideoIds) {
                 // Add all prefetched video ids to 'playerResponseVideoIds'.
-                playerResponseVideoIds.putIfAbsent(videoId, videoIdIsShort);
+                playerResponseVideoIds.putIfAbsent(videoId, VideoInformation.lastPlayerResponseIsShort());
             }
             if (!Utils.isNetworkConnected()) {
                 Logger.printDebug(() -> "Cannot pre-fetch RYD, network is not connected");
@@ -2207,32 +2074,18 @@ public class ReturnYouTubeDislikePatch {
                 return;
             }
 
-            // Shorts shelf in home and subscription feed causes player response hook to be called,
-            // and the 'is opening/playing' parameter will be false.
-            // This hook will be called again when the Short is actually opened.
-            if (videoIdIsShort && (!isShortAndOpeningOrPlaying || !Settings.RYD_SHORTS.get())) {
+            // Do not load RYD for Shorts, including Shorts viewed in the regular player.
+            // YouTube removed the Shorts dislike button in 2026, and RYD estimates for Shorts
+            // are unreliable because API submissions can still heavily bias the ratio toward likes.
+            if (VideoInformation.lastPlayerResponseIsShort()) {
+                Logger.printDebug(() -> "Ignoring short video id: " + videoId);
+                lastPrefetchedVideoId = videoId;
                 return;
             }
-            final boolean waitForFetchToComplete = !IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER
-                    && videoIdIsShort && !lastPlayerResponseWasShort;
 
             Logger.printDebug(() -> "Prefetching RYD for video: " + videoId);
-            ReturnYouTubeDislike fetch = ReturnYouTubeDislike.getFetchForVideoId(videoId);
-            if (waitForFetchToComplete && !fetch.fetchCompleted()) {
-                // This call is off the main thread, so wait until the RYD fetch completely finishes,
-                // otherwise if this returns before the fetch completes then the UI can
-                // become frozen when the main thread tries to modify the litho Shorts dislikes, and
-                // it must wait for the fetch.
-                // Only need to do this for the first Short opened, as the next Short to swipe to
-                // are preloaded in the background.
-                //
-                // If an asynchronous litho Shorts solution is found, then this blocking call should be removed.
-                Logger.printDebug(() -> "Waiting for prefetch to complete: " + videoId);
-                fetch.getFetchData(20000); // Any arbitrarily large max wait time.
-            }
+            ReturnYouTubeDislike.getFetchForVideoId(videoId);
 
-            // Set the fields after the fetch completes, so any concurrent calls will also wait.
-            lastPlayerResponseWasShort = videoIdIsShort;
             lastPrefetchedVideoId = videoId;
         } catch (Exception ex) {
             Logger.printException(() -> "preloadVideoId failure", ex);
@@ -2249,11 +2102,22 @@ public class ReturnYouTubeDislikePatch {
             }
             Objects.requireNonNull(videoId);
 
+            if (!videoIdIsSame(currentVideoData, videoId)) {
+                // Clear the visible state before the new video's action bar is rebound. Otherwise,
+                // cached labels from the previous video remain visible while the new RYD request
+                // is pending, and a late callback can race with the new video.
+                currentVideoData = null;
+                regularActionButtonCountVideoId = null;
+                regularLikeActionButtonCountText = null;
+                regularDislikeActionButtonCountText = null;
+                regularActionButtonCountFetchVideoId = null;
+                removeRegularActionButtonCountOverlays();
+            }
+
             final PlayerType currentPlayerType = PlayerType.getCurrent();
             final boolean isNoneHiddenOrSlidingMinimized = currentPlayerType.isNoneHiddenOrSlidingMinimized();
-            if (isNoneHiddenOrSlidingMinimized && !Settings.RYD_SHORTS.get()) {
-                // Must clear here, otherwise the wrong data can be used for a minimized regular video.
-                clearData();
+            if (isNoneHiddenOrSlidingMinimized) {
+                removeRegularActionButtonCountSearchUpdates();
                 return;
             }
 
@@ -2263,10 +2127,17 @@ public class ReturnYouTubeDislikePatch {
             synchronized (playerResponseVideoIds) {
                 // All video ids except those in the regular video player have been prefetched.
                 // Video ids not present in 'playerResponseVideoIds' are video ads from the regular video player.
-                if (playerResponseVideoIds.get(videoId) == null) {
+                Boolean playerResponseVideoIdIsShort = playerResponseVideoIds.get(videoId);
+                if (playerResponseVideoIdIsShort == null) {
                     // When a regular video player video ad is fetched,
                     // the dislike count of the video ad is used instead of the dislike count of the original video.
                     Logger.printDebug(() -> "Skip video ads: " + videoId);
+                    return;
+                }
+                if (playerResponseVideoIdIsShort) {
+                    Logger.printDebug(() -> "Ignoring short video id: " + videoId);
+                    currentVideoData = null;
+                    removeRegularActionButtonCountOverlays();
                     return;
                 }
             }
@@ -2274,55 +2145,23 @@ public class ReturnYouTubeDislikePatch {
             if (!Utils.isNetworkConnected()) {
                 Logger.printDebug(() -> "Cannot fetch RYD, network is not connected");
                 currentVideoData = null;
+                removeRegularActionButtonCountOverlays();
                 return;
             }
 
             Logger.printDebug(() -> "New video id: " + videoId + " playerType: " + currentPlayerType);
 
-            ReturnYouTubeDislike data = ReturnYouTubeDislike.getFetchForVideoId(videoId);
-            // Pre-emptively set the data to short status.
-            // Required to prevent Shorts data from being used on a minimized video in incognito mode.
-            if (isNoneHiddenOrSlidingMinimized) {
-                data.setVideoIdIsShort(true);
-            }
-            currentVideoData = data;
+            // Shorts are rejected above using the player response state. If preloading missed a
+            // regular video, create the fetch here so the action-button counts still appear.
+            currentVideoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
 
-            // Current video id hook can be called out of order with the non-litho Shorts text view hook.
-            // Must manually update again here.
-            if (isNoneHiddenOrSlidingMinimized) {
-                updateOnScreenShortsTextViews(true);
-            } else if (canShowRegularActionButtonCountOverlays(currentPlayerType)) {
+            if (canShowRegularActionButtonCountOverlays(currentPlayerType)) {
                 scheduleRegularActionButtonCountOverlayUpdates();
             } else {
-                removeRegularActionButtonCountOverlays();
+                removeRegularActionButtonCountSearchUpdates();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "newVideoLoaded failure", ex);
-        }
-    }
-
-    public static void setLastLithoShortsVideoId(@Nullable String videoId) {
-        if (videoIdIsSame(lastLithoShortsVideoData, videoId)) {
-            return;
-        }
-
-        if (videoId == null) {
-            // Litho filter did not detect the video id.  App is in incognito mode,
-            // or the proto buffer structure was changed and the video id is no longer present.
-            // Must clear both currently playing and last litho data otherwise the
-            // next regular video may use the wrong data.
-            Logger.printDebug(() -> "Litho filter did not find any video ids");
-            clearData();
-            return;
-        }
-
-        Logger.printDebug(() -> "New litho Shorts video id: " + videoId);
-        ReturnYouTubeDislike videoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
-        videoData.setVideoIdIsShort(true);
-        lastLithoShortsVideoData = videoData;
-        synchronized (ReturnYouTubeDislikePatch.class) {
-            // Use litho Shorts data for the next like and dislike spans.
-            useLithoShortsVideoDataCount = 2;
         }
     }
 
@@ -2349,8 +2188,7 @@ public class ReturnYouTubeDislikePatch {
                 return;
             }
 
-            final boolean isNoneHiddenOrMinimized = PlayerType.getCurrent().isNoneHiddenOrMinimized();
-            if (isNoneHiddenOrMinimized && !Settings.RYD_SHORTS.get()) {
+            if (PlayerType.getCurrent().isNoneHiddenOrMinimized()) {
                 return;
             }
 

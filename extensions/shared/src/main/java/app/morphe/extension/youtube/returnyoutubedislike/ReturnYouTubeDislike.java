@@ -189,12 +189,6 @@ public class ReturnYouTubeDislike {
     private final long timeFetched;
 
     /**
-     * If this instance was previously used for a Short.
-     */
-    @GuardedBy("this")
-    private boolean isShort;
-
-    /**
      * Optional current vote status of the UI.  Used to apply a user vote that was done on a previous video viewing.
      */
     @Nullable
@@ -476,7 +470,7 @@ public class ReturnYouTubeDislike {
     }
 
     @NonNull
-    public static ReturnYouTubeDislike getFetchForVideoId(@Nullable String videoId) {
+    public static ReturnYouTubeDislike getFetchForVideoId(@NonNull String videoId) {
         Objects.requireNonNull(videoId);
         synchronized (fetchCache) {
             // Remove any expired entries.
@@ -591,21 +585,13 @@ public class ReturnYouTubeDislike {
     }
 
     /**
-     * Pre-emptively set this as a Short.
-     */
-    public synchronized void setVideoIdIsShort(boolean isShort) {
-        this.isShort = isShort;
-    }
-
-    /**
      * @return the replacement span containing dislikes, or the original span if RYD is not available.
      */
     @NonNull
     public synchronized Spanned getDislikesSpanForRegularVideo(@NonNull Spanned original,
                                                                boolean isSegmentedButton,
                                                                boolean isRollingNumber) {
-        return waitForFetchAndUpdateReplacementSpan(original, isSegmentedButton,
-                isRollingNumber, false, false);
+        return waitForFetchAndUpdateReplacementSpan(original, isSegmentedButton, isRollingNumber);
     }
 
     /**
@@ -624,24 +610,6 @@ public class ReturnYouTubeDislike {
         return waitForFetchAndUpdateRegularActionButtonSpan(original, false);
     }
 
-    /**
-     * Called when a Shorts like Spannable is created.
-     */
-    @NonNull
-    public synchronized Spanned getLikeSpanForShort(@NonNull Spanned original) {
-        return waitForFetchAndUpdateReplacementSpan(original, false,
-                false, true, true);
-    }
-
-    /**
-     * Called when a Shorts dislike Spannable is created.
-     */
-    @NonNull
-    public synchronized Spanned getDislikeSpanForShort(@NonNull Spanned original) {
-        return waitForFetchAndUpdateReplacementSpan(original, false,
-                false, true, false);
-    }
-
     @NonNull
     private Spanned waitForFetchAndUpdateRegularActionButtonSpan(@NonNull Spanned original,
                                                                  boolean spanIsForLikes) {
@@ -656,12 +624,6 @@ public class ReturnYouTubeDislike {
             }
 
             synchronized (this) {
-                if (isShort) {
-                    Logger.printDebug(() -> "Ignoring regular video action button span,"
-                            + " as data loaded was previously used for a Short: " + videoId);
-                    return original;
-                }
-
                 if (PlayerType.getCurrent().isFullScreenOrSlidingFullScreen()) {
                     Logger.printDebug(() -> "Ignoring fullscreen action button span: " + videoId);
                     return original;
@@ -693,9 +655,7 @@ public class ReturnYouTubeDislike {
     @NonNull
     private Spanned waitForFetchAndUpdateReplacementSpan(@NonNull Spanned original,
                                                          boolean isSegmentedButton,
-                                                         boolean isRollingNumber,
-                                                         boolean spanIsForShort,
-                                                         boolean spanIsForLikes) {
+                                                         boolean isRollingNumber) {
         try {
             RYDVoteData votingData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);
             if (votingData == null) {
@@ -709,24 +669,6 @@ public class ReturnYouTubeDislike {
             }
 
             synchronized (this) {
-                if (spanIsForShort) {
-                    // Cannot set this to false if span is not for a Short.
-                    // When spoofing to an old version and a Short is opened while a regular video
-                    // is on screen, this instance can be loaded for the minimized regular video.
-                    // But this Shorts data won't be displayed for that call
-                    // and when it is un-minimized it will reload again and the load will be ignored.
-                    isShort = true;
-                } else if (isShort) {
-                    // user:
-                    // 1, opened a video
-                    // 2. opened a short (without closing the regular video)
-                    // 3. closed the short
-                    // 4. regular video is now present, but the videoId and RYD data is still for the short
-                    Logger.printDebug(() -> "Ignoring regular video dislike span,"
-                            + " as data loaded was previously used for a Short: " + videoId);
-                    return original;
-                }
-
                 // prevents reproducible bugs with the following steps:
                 // (user is using YouTube with RollingNumber applied)
                 // 1. opened a video
@@ -736,23 +678,6 @@ public class ReturnYouTubeDislike {
                 if (PlayerType.getCurrent().isFullScreenOrSlidingFullScreen()) {
                     Logger.printDebug(() -> "Ignoring fullscreen video description panel: " + videoId);
                     return original;
-                }
-
-                if (spanIsForLikes) {
-                    Long originalLikeCount = getOriginalLikeCount(userVote);
-                    if (originalLikeCount == null && !Utils.containsNumber(original)) {
-                        if (!Settings.RYD_ESTIMATED_LIKE.get()) {
-                            Logger.printDebug(() -> "Likes are hidden (original count missing)");
-                            return original;
-                        } else {
-                            Logger.printDebug(() -> "Using estimated likes (original count missing)");
-                        }
-                    }
-
-                    // Scrolling Shorts does not cause the Spans to be reloaded,
-                    // so there is no need to cache the likes for these situations.
-                    Logger.printDebug(() -> "Creating likes span for: " + votingData.videoId);
-                    return newSpannableWithLikes(original, votingData, originalLikeCount);
                 }
 
                 if (originalDislikeSpan != null && replacementLikeDislikeSpan != null
@@ -784,14 +709,6 @@ public class ReturnYouTubeDislike {
         Utils.verifyOnMainThread();
         Objects.requireNonNull(vote);
         try {
-            if (isShort != PlayerType.getCurrent().isNoneOrHidden()) {
-                // Shorts was loaded with regular video present, then Shorts was closed.
-                // and then user voted on the now visible original video.
-                // Cannot send a vote, because this instance is for the wrong video.
-                Utils.showToastLong(str("revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted"));
-                return;
-            }
-
             setUserVote(vote);
 
             voteSerialExecutor.execute(() -> {
