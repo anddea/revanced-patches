@@ -397,6 +397,23 @@ public class ExtendedUtils extends PackageUtils {
             touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         }
 
+        /**
+         * Dragging an action row takes over the touch stream from the row click handler.
+         * Clear transient row state so the pressed background does not remain visible.
+         */
+        private static void clearTransientTouchState(@NonNull View view) {
+            view.setPressed(false);
+            view.setSelected(false);
+            view.setActivated(false);
+            view.jumpDrawablesToCurrentState();
+
+            if (view instanceof ViewGroup viewGroup) {
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    clearTransientTouchState(viewGroup.getChildAt(i));
+                }
+            }
+        }
+
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             switch (event.getAction()) {
@@ -411,12 +428,16 @@ public class ExtendedUtils extends PackageUtils {
                         return false;
                     }
                     isDragging = true;
+                    clearTransientTouchState(v);
+                    clearTransientTouchState(mainLayout);
                     if (deltaY >= 0) {
                         mainLayout.setTranslationY(translationY + deltaY);
                     }
                     return true;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
+                    clearTransientTouchState(v);
+                    clearTransientTouchState(mainLayout);
                     if (!isDragging) {
                         return consumeActionDown;
                     }

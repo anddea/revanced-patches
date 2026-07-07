@@ -1,4 +1,45 @@
 /*
+ * Copyright (C) 2024-2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
+/*
  * Portions of this file are ported from Morphe:
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
@@ -26,7 +67,6 @@ import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.HOOK_DOWNLOAD_ACTIONS
 import app.morphe.patches.youtube.utils.pip.pipStateHookPatch
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
-import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.playlist.playlistPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -35,6 +75,7 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findFreeRegister
 import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.fingerprint.matchOrNull
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -71,172 +112,192 @@ val downloadActionsPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
-        pipStateHookPatch,
-        playlistPatch,
-        playerTypeHookPatch,
         sharedResourceIdPatch,
-        settingsPatch,
-        versionCheckPatch,
     )
 
     execute {
 
         // region patch Play next in queue flyout action
 
-        if (is_20_21_or_greater) {
-            InteractiveStickerRendererGetEditViewFingerprint.let {
-                val bufferField =
-                    it.instructionMatches.last().instruction.getReference<FieldReference>()!!
+        FlyoutBufferClassFingerprint.let {
+            val bufferField = it.classDef.fields.first { field -> field.type == "[B" }
 
-                mutableClassDefBy(bufferField.definingClass).apply {
-                    interfaces.add(EXTENSION_PROTOCOL_BUFFER_INTERFACE)
-                    methods.add(
-                        ImmutableMethod(
-                            type,
-                            "patch_getBuffer",
-                            emptyList(),
-                            "[B",
-                            AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
-                            null,
-                            null,
-                            MutableMethodImplementation(2),
-                        ).toMutable().apply {
-                            addInstructions(
-                                0,
-                                """
-                                    iget-object v0, p0, $bufferField
-                                    return-object v0
-                                """,
-                            )
-                        },
-                    )
-                }
-            }
-
-            fun addFlyoutVideoIdInterface(messageType: String) {
-                // The video ID is the only String field initialized to an empty value.
-                val videoIdStringField = Fingerprint(
-                    definingClass = messageType,
-                    name = "<init>",
-                    filters = listOf(
-                        string(""),
-                        fieldAccess(
-                            opcode = Opcode.IPUT_OBJECT,
-                            definingClass = "this",
-                            type = "Ljava/lang/String;",
-                            location = MatchAfterWithin(2),
-                        ),
-                    ),
-                ).instructionMatches.last().instruction.getReference<FieldReference>()!!
-
-                mutableClassDefBy(messageType).apply {
-                    interfaces.add(EXTENSION_FLYOUT_MENU_VIDEO_ID_INTERFACE)
-                    methods.add(
-                        ImmutableMethod(
-                            type,
-                            "patch_getVideoId",
-                            emptyList(),
-                            "Ljava/lang/String;",
-                            AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
-                            null,
-                            null,
-                            MutableMethodImplementation(2),
-                        ).toMutable().apply {
-                            addInstructions(
-                                0,
-                                """
-                                    iget-object v0, p0, $videoIdStringField
-                                    return-object v0
-                                """,
-                            )
-                        },
-                    )
-                }
-            }
-
-            // Full watch history does not use Litho.
-            addFlyoutVideoIdInterface(
-                FlyoutMenuItemMessageFingerprint.instructionMatches[1]
-                    .instruction.getReference<TypeReference>()!!.type,
-            )
-
-            // Playlists in the You tab use a separate generated message on 20.21+.
-            addFlyoutVideoIdInterface(
-                SingularGeneratedExtensionFingerprint.instructionMatches[1]
-                    .instruction.getReference<FieldReference>()!!.type,
-            )
-
-            FeedFlyoutBufferObjectFingerprint.method.addInstruction(
-                0,
-                "invoke-static/range {p2 .. p2}, $EXTENSION_CLASS_DESCRIPTOR->extractFlyoutVideoId(Ljava/util/Map;)V",
-            )
-
-            FullHistoryFlyoutBufferObjectFingerprint.let {
-                val index = it.instructionMatches[2].index
-                val register = it.method.getInstruction<OneRegisterInstruction>(index).registerA
-                it.method.addInstruction(
-                    index + 1,
-                    "invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->extractFlyoutVideoId(Ljava/lang/Object;)V",
+            mutableClassDefBy(it.classDef.type).apply {
+                interfaces.add(EXTENSION_PROTOCOL_BUFFER_INTERFACE)
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_getBuffer",
+                        emptyList(),
+                        "[B",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
+                                iget-object v0, p0, $bufferField
+                                return-object v0
+                            """,
+                        )
+                    },
                 )
             }
+        }
 
-            FeedFlyoutButtonsInitializerFingerprint.let {
-                it.method.apply {
-                    val runnableIndex = it.instructionMatches.last().index
-                    val runnableRegister =
-                        getInstruction<TwoRegisterInstruction>(runnableIndex).registerA
-                    addInstructions(
-                        runnableIndex,
-                        """
-                            invoke-static {v$runnableRegister}, $EXTENSION_CLASS_DESCRIPTOR->replaceQueueButtonRunnable(Ljava/lang/Runnable;)Ljava/lang/Runnable;
-                            move-result-object v$runnableRegister
-                        """,
-                    )
+        fun addFlyoutVideoIdInterface(messageType: String) {
+            // The video ID is the only String field initialized to an empty value.
+            val videoIdStringField = Fingerprint(
+                definingClass = messageType,
+                name = "<init>",
+                filters = listOf(
+                    string(""),
+                    fieldAccess(
+                        opcode = Opcode.IPUT_OBJECT,
+                        definingClass = "this",
+                        type = "Ljava/lang/String;",
+                        location = MatchAfterWithin(2),
+                    ),
+                ),
+            ).instructionMatches.last().instruction.getReference<FieldReference>()!!
 
-                    val textIndex = it.instructionMatches[5].index
-                    val enumRegister =
-                        it.instructionMatches[1].instruction.let { instruction ->
-                            (instruction as OneRegisterInstruction).registerA
-                        }
-                    val textRegister = getInstruction<OneRegisterInstruction>(textIndex).registerA
-                    val freeRegister = findFreeRegister(textIndex, textRegister, enumRegister)
-                    val enumIntField =
-                        it.instructionMatches[7].instruction.getReference<FieldReference>()!!
-                    val enumMethod =
-                        it.instructionMatches[8].instruction.getReference<MethodReference>()!!
-
-                    addInstructions(
-                        textIndex,
-                        """
-                            iget v$freeRegister, v$enumRegister, $enumIntField
-                            invoke-static {v$freeRegister}, $enumMethod
-                            move-result-object v$freeRegister
-                            invoke-static {v$freeRegister, v$textRegister}, $EXTENSION_CLASS_DESCRIPTOR->setCurrentFlyoutButton(Ljava/lang/Enum;Ljava/lang/CharSequence;)V
-                        """,
-                    )
-                }
+            mutableClassDefBy(messageType).apply {
+                interfaces.add(EXTENSION_FLYOUT_MENU_VIDEO_ID_INTERFACE)
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_getVideoId",
+                        emptyList(),
+                        "Ljava/lang/String;",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
+                                iget-object v0, p0, $videoIdStringField
+                                return-object v0
+                            """,
+                        )
+                    },
+                )
             }
+        }
 
-            FeedFlyoutButtonsInitializerOnItemClickFingerprint.method.addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static {p3}, $EXTENSION_CLASS_DESCRIPTOR->replaceQueueOnItemClick(I)Z
-                    move-result p2
-                    if-eqz p2, :original_click
-                    return-void
-                    :original_click
-                    nop
-                """,
+        // Full watch history does not use Litho.
+        FlyoutMenuItemMessageFingerprint.let { fingerprint ->
+            val match = fingerprint.matchOrNull()
+            if (match != null) {
+                val messageType = fingerprint.instructionMatches[1]
+                    .instruction.getReference<TypeReference>()!!.type
+                addFlyoutVideoIdInterface(messageType)
+            }
+        }
+
+        // Playlists in the You tab use a separate generated message on 20.21+.
+        SingularGeneratedExtensionFingerprint.let { fingerprint ->
+            val match = fingerprint.matchOrNull()
+            if (match != null) {
+                val messageType = fingerprint.instructionMatches[1]
+                    .instruction.getReference<FieldReference>()!!.type
+                addFlyoutVideoIdInterface(messageType)
+            }
+        }
+
+        FeedFlyoutBufferObjectFingerprint.method.addInstruction(
+            0,
+            "invoke-static/range {p2 .. p2}, $EXTENSION_CLASS_DESCRIPTOR->extractFlyoutVideoId(Ljava/util/Map;)V",
+        )
+
+        FullHistoryFlyoutBufferObjectFingerprint.let {
+            val index = it.instructionMatches[2].index
+            val register = it.method.getInstruction<OneRegisterInstruction>(index).registerA
+            it.method.addInstruction(
+                index + 1,
+                "invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->extractFlyoutVideoId(Ljava/lang/Object;)V",
             )
+        }
 
-            FeedBottomSheetFlyoutFingerprint.method.apply {
-                findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
-                    addInstruction(
-                        index,
-                        "invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->setQueueBottomSheetFlyout(Landroid/app/Dialog;)V",
-                    )
-                }
+        FeedFlyoutButtonsInitializerFingerprint.let {
+            it.method.apply {
+                val runnableIndex = it.instructionMatches.last().index
+                val runnableRegister =
+                    getInstruction<TwoRegisterInstruction>(runnableIndex).registerA
+                addInstructions(
+                    runnableIndex,
+                    """
+                        invoke-static {v$runnableRegister}, $EXTENSION_CLASS_DESCRIPTOR->replaceQueueButtonRunnable(Ljava/lang/Runnable;)Ljava/lang/Runnable;
+                        move-result-object v$runnableRegister
+                    """,
+                )
+
+                val textIndex = it.instructionMatches[5].index
+                val enumRegister =
+                    it.instructionMatches[1].instruction.let { instruction ->
+                        (instruction as OneRegisterInstruction).registerA
+                    }
+                val textRegister = getInstruction<OneRegisterInstruction>(textIndex).registerA
+                val freeRegister = findFreeRegister(textIndex, textRegister, enumRegister)
+                val enumIntField =
+                    it.instructionMatches[7].instruction.getReference<FieldReference>()!!
+                val enumMethod =
+                    it.instructionMatches[8].instruction.getReference<MethodReference>()!!
+
+                addInstructions(
+                    textIndex,
+                    """
+                        iget v$freeRegister, v$enumRegister, $enumIntField
+                        invoke-static {v$freeRegister}, $enumMethod
+                        move-result-object v$freeRegister
+                        invoke-static {v$freeRegister, v$textRegister}, $EXTENSION_CLASS_DESCRIPTOR->setCurrentFlyoutButton(Ljava/lang/Enum;Ljava/lang/CharSequence;)V
+                    """,
+                )
+
+                // Removes the right-side native queue badge
+                instructions.withIndex()
+                    .filter { (_, instruction) ->
+                        instruction.opcode == Opcode.INVOKE_DIRECT &&
+                                instruction.getReference<MethodReference>()?.returnType ==
+                                "Landroid/graphics/drawable/Drawable;"
+                    }
+                    .map { (index, _) -> index + 1 }
+                    .lastOrNull()
+                    ?.let { resultIndex ->
+                        val badgeRegister = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+                        addInstructions(
+                            resultIndex + 1,
+                            """
+                                invoke-static {v$badgeRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideQueueFlyoutBadge(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+                                move-result-object v$badgeRegister
+                            """,
+                        )
+                    }
+            }
+        }
+
+        FeedFlyoutButtonsInitializerOnItemClickFingerprint.method.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static {p3}, $EXTENSION_CLASS_DESCRIPTOR->replaceQueueOnItemClick(I)Z
+                move-result p2
+                if-eqz p2, :original_click
+                return-void
+                :original_click
+                nop
+            """,
+        )
+
+        FeedBottomSheetFlyoutFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+                addInstruction(
+                    index,
+                    "invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->setQueueBottomSheetFlyout(Landroid/app/Dialog;)V",
+                )
             }
         }
 
@@ -338,38 +399,39 @@ val downloadActionsPatch = bytecodePatch(
 
         // region patch for show the playlist download button
 
-        setPlaylistDownloadButtonVisibilityFingerprint
-            .matchOrThrow(accessibilityOfflineButtonSyncFingerprint).let {
-                it.method.apply {
-                    val insertIndex = it.instructionMatches.first().index + 2
-                    val insertRegister =
-                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        setPlaylistDownloadButtonVisibilityFingerprint.matchOrNull()?.let { match ->
+            match.method.apply {
+                val insertIndex = match.instructionMatches.first().index + 2
+                val insertRegister =
+                    getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                    addInstructions(
-                        insertIndex, """
-                            invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->overridePlaylistDownloadButtonVisibility(Z)Z
-                            move-result v$insertRegister
-                            """
-                    )
-                }
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->overridePlaylistDownloadButtonVisibility(Z)Z
+                        move-result v$insertRegister
+                        """
+                )
             }
+        }
 
         // endregion
 
         // region add settings
 
-        val settings = mutableListOf(
-            "PREFERENCE_SCREEN: GENERAL",
-            "SETTINGS: HOOK_BUTTONS",
-            "SETTINGS: HOOK_DOWNLOAD_ACTIONS",
-        )
-        if (is_20_21_or_greater) {
-            settings += "SETTINGS: OVERRIDE_PLAY_NEXT_IN_QUEUE"
+        try {
+            val settings = mutableListOf(
+                "PREFERENCE_SCREEN: GENERAL",
+                "SETTINGS: HOOK_BUTTONS",
+                "SETTINGS: HOOK_DOWNLOAD_ACTIONS",
+                "SETTINGS: OVERRIDE_PLAY_NEXT_IN_QUEUE",
+            )
+            addPreference(
+                settings.toTypedArray(),
+                HOOK_DOWNLOAD_ACTIONS
+            )
+        } catch (e: Throwable) {
+            // Settings not initialized (e.g. on v19.28)
         }
-        addPreference(
-            settings.toTypedArray(),
-            HOOK_DOWNLOAD_ACTIONS
-        )
 
         // endregion
 
