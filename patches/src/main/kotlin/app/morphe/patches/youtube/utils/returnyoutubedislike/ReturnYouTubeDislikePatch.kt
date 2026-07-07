@@ -47,19 +47,14 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.smali.ExternalLabel
-import app.morphe.patches.shared.litho.addLithoFilter
-import app.morphe.patches.shared.litho.lithoFilterPatch
-import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.hookTextComponent
 import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.componentlist.hookElementList
 import app.morphe.patches.youtube.utils.componentlist.lazilyConvertedElementHookPatch
-import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.RETURN_YOUTUBE_DISLIKE
-import app.morphe.patches.youtube.utils.playservice.is_18_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_18_49_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_07_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
@@ -67,7 +62,6 @@ import app.morphe.patches.youtube.utils.rollingNumberTextViewAnimationUpdateFing
 import app.morphe.patches.youtube.utils.rollingNumberTextViewFingerprint
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.patches.youtube.video.information.hookShortsVideoInformation
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.hookVideoId
@@ -210,27 +204,6 @@ private val returnYouTubeDislikeRollingNumberPatch = bytecodePatch(
     }
 }
 
-private val returnYouTubeDislikeShortsPatch = bytecodePatch(
-    description = "returnYouTubeDislikeShortsPatch"
-) {
-    dependsOn(
-        textComponentPatch,
-        versionCheckPatch
-    )
-
-    execute {
-        if (is_18_34_or_greater) {
-            hookSpannableString(
-                EXTENSION_RYD_CLASS_DESCRIPTOR,
-                "onCharSequenceLoaded"
-            )
-        }
-    }
-}
-
-private const val FILTER_CLASS_DESCRIPTOR =
-    "$COMPONENTS_PATH/ReturnYouTubeDislikeFilterPatch;"
-
 @Suppress("unused")
 val returnYouTubeDislikePatch = bytecodePatch(
     RETURN_YOUTUBE_DISLIKE.title,
@@ -241,8 +214,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         returnYouTubeDislikeRollingNumberPatch,
-        returnYouTubeDislikeShortsPatch,
-        lithoFilterPatch,
+        textComponentPatch,
         lithoLayoutPatch,
         restoreOldVideoActionBarPatch,
         videoInformationPatch,
@@ -291,15 +263,6 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Hook the player response video id, to start loading RYD sooner in the background.
         hookPlayerResponseVideoId("$EXTENSION_RYD_CLASS_DESCRIPTOR->preloadVideoId(Ljava/lang/String;Z)V")
-
-        // endregion
-
-        // Player response video id is needed to search for the video ids in Shorts litho components.
-        if (is_18_34_or_greater) {
-            addLithoFilter(FILTER_CLASS_DESCRIPTOR)
-            hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
-            hookShortsVideoInformation("$FILTER_CLASS_DESCRIPTOR->newShortsVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-        }
 
         // endregion
 

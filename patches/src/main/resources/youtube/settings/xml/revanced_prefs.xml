@@ -742,7 +742,6 @@
 
             <PreferenceCategory android:title="@string/revanced_preference_category_action_buttons" android:layout="@layout/revanced_settings_preferences_category"/>
             <SwitchPreference android:title="@string/revanced_hide_shorts_like_button_title" android:key="revanced_hide_shorts_like_button" android:summaryOn="@string/revanced_hide_shorts_like_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_like_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_dislike_button_title" android:key="revanced_hide_shorts_dislike_button" android:summaryOn="@string/revanced_hide_shorts_dislike_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_dislike_button_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_shorts_comments_button_title" android:key="revanced_hide_shorts_comments_button" android:summaryOn="@string/revanced_hide_shorts_comments_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_comments_button_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_shorts_share_button_title" android:key="revanced_hide_shorts_share_button" android:summaryOn="@string/revanced_hide_shorts_share_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_share_button_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_shorts_remix_button_title" android:key="revanced_hide_shorts_remix_button" android:summaryOn="@string/revanced_hide_shorts_remix_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_remix_button_summary_off" />
@@ -926,7 +925,6 @@
     <!-- PREFERENCE_SCREEN: RETURN_YOUTUBE_DISLIKE
     <PreferenceScreen android:title="@string/revanced_preference_screen_ryd_title" android:key="revanced_preference_screen_ryd" >
         <SwitchPreference android:title="@string/revanced_ryd_enable_title" android:key="ryd_enabled" android:summaryOn="@string/revanced_ryd_enable_summary_on" android:summaryOff="@string/revanced_ryd_enable_summary_off" />
-        <SwitchPreference android:title="@string/revanced_ryd_shorts_title" android:key="ryd_shorts" android:summaryOn="@string/revanced_ryd_shorts_summary_on" android:summaryOff="@string/revanced_ryd_shorts_summary_off" />
         <SwitchPreference android:title="@string/revanced_ryd_dislike_percentage_title" android:key="ryd_dislike_percentage" android:summaryOn="@string/revanced_ryd_dislike_percentage_summary_on" android:summaryOff="@string/revanced_ryd_dislike_percentage_summary_off" />
         <SwitchPreference android:title="@string/revanced_ryd_compact_layout_title" android:key="ryd_compact_layout" android:summaryOn="@string/revanced_ryd_compact_layout_summary_on" android:summaryOff="@string/revanced_ryd_compact_layout_summary_off" />
         <SwitchPreference android:title="@string/revanced_ryd_estimated_like_title" android:key="ryd_estimated_like" android:summaryOn="@string/revanced_ryd_estimated_like_summary_on" android:summaryOff="@string/revanced_ryd_estimated_like_summary_off" />
