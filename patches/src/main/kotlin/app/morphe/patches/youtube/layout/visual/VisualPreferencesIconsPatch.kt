@@ -653,6 +653,8 @@ private val emptyTitles = setOf(
     "revanced_hide_player_flyout_menu_quality_header",
     "revanced_hide_shorts_paused_overlay_buttons",
     "revanced_hide_shorts_preview_comment",
+    "revanced_miniplayer_disable_horizontal_drag_playback",
+    "revanced_miniplayer_disable_horizontal_reposition",
     "revanced_miniplayer_double_tap_action",
     "revanced_miniplayer_drag_and_drop",
     "revanced_miniplayer_hide_overlay_buttons",
