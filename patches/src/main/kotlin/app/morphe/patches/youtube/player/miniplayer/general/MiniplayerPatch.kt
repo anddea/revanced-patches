@@ -1,7 +1,17 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ */
+
 package app.morphe.patches.youtube.player.miniplayer.general
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
@@ -296,12 +306,52 @@ val miniplayerPatch = bytecodePatch(
                 "$EXTENSION_CLASS_DESCRIPTOR->getHorizontalDrag(Z)Z"
             )
 
+            val horizontalDragPlaybackCallbackClass = MiniplayerHorizontalDragPlaybackFingerprint
+                .instructionMatches[2].instruction.getReference<MethodReference>()!!.definingClass
+
+            Fingerprint(
+                definingClass = horizontalDragPlaybackCallbackClass,
+                name = "onAnimationEnd",
+            ).method.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->pausePlaybackWithHorizontalDrag()Z
+                    move-result v0
+                    if-eqz v0, :pause_playback_with_horizontal_drag
+                    return-void
+                    :pause_playback_with_horizontal_drag
+                    nop
+                """
+            )
+
+            MiniplayerHorizontalRepositionFingerprint.method.apply {
+                val previousRectParamFieldAccess = MiniplayerRectDragFieldsNameFingerprint
+                    .instructionMatches[1].instruction.getReference<FieldReference>()!!
+
+                addInstructions(
+                    0,
+                    """
+                    iget-object v0, p0, $previousRectParamFieldAccess
+                    invoke-static { p1, v0 }, $EXTENSION_CLASS_DESCRIPTOR->blockOffscreenMiniplayerHorizontalReposition(Landroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
+                    move-result-object p1
+                    """
+                )
+            }
+
+            NextGenWatchLayoutOnInterceptTouchEventFingerprint.method.addInstruction(
+                0,
+                "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "enableOffScreenMiniplayerButtonPressed(Landroid/view/MotionEvent;)V"
+            )
+
             miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
                 MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY,
                 "$EXTENSION_CLASS_DESCRIPTOR->getMaximizeAnimation(Z)Z"
             )
 
             settingArray += "SETTINGS: MINIPLAYER_HORIZONTAL_DRAG"
+            settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_DRAG_PLAYBACK"
+            settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_REPOSITION"
         }
 
         settingArray += if (is_20_03_or_greater) {
