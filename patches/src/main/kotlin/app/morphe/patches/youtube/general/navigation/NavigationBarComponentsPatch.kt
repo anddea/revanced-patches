@@ -153,19 +153,20 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for enable translucent navigation bar
 
         if (is_19_25_or_greater) {
-            TranslucentNavigationBarFingerprint.method.apply {
-                val literalIndex =
-                    indexOfFirstLiteralInstructionOrThrow(TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG)
-                val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-                val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+            TranslucentNavigationStatusBarFeatureFlagFingerprint.method.insertLiteralOverride(
+                TranslucentNavigationStatusBarFeatureFlagFingerprint.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
+            )
 
-                addInstructions(
-                    resultIndex + 1, """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z
-                        move-result v$register
-                        """
-                )
-            }
+            TranslucentNavigationButtonsFeatureFlagFingerprint.method.insertLiteralOverride(
+                TranslucentNavigationButtonsFeatureFlagFingerprint.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+            )
+
+            TranslucentNavigationButtonsSystemFeatureFlagFingerprint.method.insertLiteralOverride(
+                TranslucentNavigationButtonsSystemFeatureFlagFingerprint.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+            )
 
             settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
         }

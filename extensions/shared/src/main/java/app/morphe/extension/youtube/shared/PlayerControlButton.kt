@@ -67,8 +67,22 @@ class PlayerControlButton(
         // when switching between states like minimized, maximized, or fullscreen, preventing
         // "stuck" animations or incorrect visibility.  Without this fix the issue is most noticeable
         // when maximizing type 3 miniplayer.
-        PlayerType.onChange.addObserver { type: PlayerType ->
+        val observer = { type: PlayerType ->
             playerTypeChanged(type)
+        }
+
+        imageView.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
+            override fun onViewAttachedToWindow(v: View) {
+                PlayerType.onChange.addObserver(observer)
+            }
+
+            override fun onViewDetachedFromWindow(v: View) {
+                PlayerType.onChange.removeObserver(observer)
+            }
+        })
+
+        if (imageView.isAttachedToWindow) {
+            PlayerType.onChange.addObserver(observer)
         }
     }
 
@@ -192,23 +206,25 @@ class PlayerControlButton(
             return
         }
 
-        val button = buttonRef.get() ?: return
+        Utils.runOnMainThread {
+            val button = buttonRef.get() ?: return@runOnMainThread
 
-        button.animate().cancel()
-        val placeholder = placeHolderRef.get()
+            button.animate().cancel()
+            val placeholder = placeHolderRef.get()
 
-        if (visibilityCheck.shouldBeShown()) {
-            if (isVisible) {
-                button.visibility = View.VISIBLE
-                button.alpha = 1f
-                placeholder?.visibility = View.GONE
+            if (visibilityCheck.shouldBeShown()) {
+                if (isVisible) {
+                    button.visibility = View.VISIBLE
+                    button.alpha = 1f
+                    placeholder?.visibility = View.GONE
+                } else {
+                    button.visibility = View.GONE
+                    placeholder?.visibility = View.VISIBLE
+                }
             } else {
                 button.visibility = View.GONE
-                placeholder?.visibility = View.VISIBLE
+                placeholder?.visibility = View.GONE
             }
-        } else {
-            button.visibility = View.GONE
-            placeholder?.visibility = View.GONE
         }
     }
 

@@ -16,6 +16,7 @@ import static app.morphe.extension.youtube.shared.NavigationBar.NavigationButton
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.text.Spanned;
 import android.view.View;
 import android.view.ViewGroup;
@@ -138,7 +139,24 @@ public final class NavigationButtonsPatch {
     /**
      * Injection point.
      */
-    public static boolean enableTranslucentNavigationBar() {
+    public static boolean useTranslucentNavigationStatusBar(boolean original) {
+        // Must check Android version, as forcing this on Android 11 or lower causes app hang and crash.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            return original;
+        }
+
+        return ENABLE_TRANSLUCENT_NAVIGATION_BAR;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean useTranslucentNavigationButtons(boolean original) {
+        // Feature requires Android 13+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            return original;
+        }
+
         return ENABLE_TRANSLUCENT_NAVIGATION_BAR;
     }
 
