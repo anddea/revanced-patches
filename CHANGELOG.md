@@ -1,3 +1,10 @@
+# [4.2.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.3...v4.2.0-dev.4) (2026-07-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hook download actions:** Prevent crash on hooking playlist download button ([9da5fa4](https://github.com/anddea/revanced-patches/commit/9da5fa4b37bd25237a25f0a60884be1444acebeb))
+
 # [4.2.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.2...v4.2.0-dev.3) (2026-07-10)
 
 
