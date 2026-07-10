@@ -1,3 +1,16 @@
+# [4.2.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.2...v4.2.0-dev.3) (2026-07-10)
+
+
+### Bug Fixes
+
+* **YouTube Music - Player components:** Swipe to dismiss miniplayer not working ([2dfb34e](https://github.com/anddea/revanced-patches/commit/2dfb34e4d48e9bc4bf27d7e8423f9ae7adc62b1d))
+
+
+### Features
+
+* **YouTube - Hook download actions:** Add `Override Play next in queue` setting (for all supported versions), and remove right-side badge ([187c4b3](https://github.com/anddea/revanced-patches/commit/187c4b396d73683a4a30c4e8c4564a874d27b566))
+* **YouTube - Miniplayer:** Add `Disable playback with horizontal drag` and `Disable automatic reposition` settings ([7471cf9](https://github.com/anddea/revanced-patches/commit/7471cf9e77d76f2311265ed12a92d848157c6fe3))
+
 # [4.2.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.1...v4.2.0-dev.2) (2026-07-03)
 
 

@@ -1,5 +1,5 @@
 {
-  "version": "4.2.0-dev.2",
+  "version": "4.2.0-dev.3",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -1995,11 +1995,6 @@
       "description": "Adds support to download videos with an external downloader app using the in-app download button.",
       "use": true,
       "dependencies": [
-        "BytecodePatch",
-        "BytecodePatch",
-        "BytecodePatch",
-        "ResourcePatch",
-        "ResourcePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
@@ -2317,6 +2312,7 @@
       "description": "Removes restrictions on background playback, including for kids videos.",
       "use": true,
       "dependencies": [
+        "ResourcePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
@@ -2457,7 +2453,6 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
-        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
