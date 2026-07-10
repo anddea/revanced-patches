@@ -399,20 +399,21 @@ val downloadActionsPatch = bytecodePatch(
 
         // region patch for show the playlist download button
 
-        setPlaylistDownloadButtonVisibilityFingerprint.matchOrNull()?.let { match ->
-            match.method.apply {
-                val insertIndex = match.instructionMatches.first().index + 2
-                val insertRegister =
-                    getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        setPlaylistDownloadButtonVisibilityFingerprint
+            .matchOrThrow(accessibilityOfflineButtonSyncFingerprint).let {
+                it.method.apply {
+                    val insertIndex = it.instructionMatches.first().index + 2
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->overridePlaylistDownloadButtonVisibility(Z)Z
-                        move-result v$insertRegister
-                        """
-                )
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->overridePlaylistDownloadButtonVisibility(Z)Z
+                            move-result v$insertRegister
+                            """
+                    )
+                }
             }
-        }
 
         // endregion
 
