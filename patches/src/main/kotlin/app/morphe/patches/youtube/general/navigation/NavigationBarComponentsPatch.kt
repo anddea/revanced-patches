@@ -37,6 +37,7 @@ import app.morphe.patches.youtube.utils.playservice.is_20_06_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.newContentCount
 import app.morphe.patches.youtube.utils.resourceid.newContentDot
@@ -150,25 +151,43 @@ val navigationBarComponentsPatch = bytecodePatch(
             "SETTINGS: HIDE_NAVIGATION_COMPONENTS"
         )
 
-        // region patch for enable translucent navigation bar
+        // region patch for translucent navigation and status bars
 
         if (is_19_25_or_greater) {
-            TranslucentNavigationStatusBarFeatureFlagFingerprint.method.insertLiteralOverride(
-                TranslucentNavigationStatusBarFeatureFlagFingerprint.instructionMatches.first().index,
-                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
-            )
+            TranslucentNavigationStatusBarFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
+                )
+            }
 
-            TranslucentNavigationButtonsFeatureFlagFingerprint.method.insertLiteralOverride(
-                TranslucentNavigationButtonsFeatureFlagFingerprint.instructionMatches.first().index,
-                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
-            )
+            TranslucentNavigationButtonsFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+                )
+            }
 
-            TranslucentNavigationButtonsSystemFeatureFlagFingerprint.method.insertLiteralOverride(
-                TranslucentNavigationButtonsSystemFeatureFlagFingerprint.instructionMatches.first().index,
-                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
-            )
+            TranslucentNavigationButtonsSystemFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+                )
+            }
 
-            settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
+            if (is_20_46_or_greater) {
+                // Feature interferes with translucent status bar and must be forced off.
+                CollapsingToolbarLayoutFeatureFlagFingerprint.let {
+                    it.method.insertLiteralOverride(
+                        it.instructionMatches.first().index,
+                        "$EXTENSION_CLASS_DESCRIPTOR->allowCollapsingToolbarLayout(Z)Z"
+                    )
+                }
+            }
+
+            settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
+            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
+            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_NAVIGATION_BAR"
         }
 
         // endregion

@@ -44,6 +44,15 @@ internal object AnimatedNavigationTabsFeatureFlagFingerprint : Fingerprint(
     )
 )
 
+internal object CollapsingToolbarLayoutFeatureFlagFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = listOf(
+        literal(45736608L)
+    )
+)
+
 internal object ActionBarSearchResultsFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Landroid/view/View;",

@@ -241,7 +241,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_NAVIGATION_SHORTS_BUTTON = new BooleanSetting("revanced_hide_navigation_shorts_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_SUBSCRIPTIONS_BUTTON = new BooleanSetting("revanced_hide_navigation_subscriptions_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_LABEL = new BooleanSetting("revanced_hide_navigation_label", FALSE, true);
-    public static final BooleanSetting ENABLE_TRANSLUCENT_NAVIGATION_BAR = new BooleanSetting("revanced_enable_translucent_navigation_bar", TRUE, true);
+    public static final BooleanSetting DISABLE_TRANSLUCENT_NAVIGATION_BAR = new BooleanSetting("revanced_disable_translucent_navigation_bar", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_hide_navigation_bar", FALSE, true);
     public static final BooleanSetting DISABLE_AUTO_HIDE_NAVIGATION_BAR = new BooleanSetting("morphe_disable_auto_hide_navigation_bar", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
     public static final BooleanSetting NAVIGATION_BAR_ANIMATIONS = new BooleanSetting("revanced_navigation_bar_animations", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));

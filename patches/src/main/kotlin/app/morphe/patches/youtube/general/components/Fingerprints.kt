@@ -149,22 +149,3 @@ internal object SyncButtonFingerprint : Fingerprint(
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
     )
 )
-
-internal const val TRANSLUCENT_STATUS_BAR_PRIMARY_FEATURE_FLAG = 45400535L
-internal const val TRANSLUCENT_STATUS_BAR_SECONDARY_FEATURE_FLAG = 45632194L
-
-internal object TranslucentStatusBarPrimaryFeatureFlagFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Z",
-    filters = listOf(
-        literal(TRANSLUCENT_STATUS_BAR_PRIMARY_FEATURE_FLAG)
-    )
-)
-
-internal object TranslucentStatusBarSecondaryFeatureFlagFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Z",
-    filters = listOf(
-        literal(TRANSLUCENT_STATUS_BAR_SECONDARY_FEATURE_FLAG)
-    )
-)

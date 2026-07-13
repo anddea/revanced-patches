@@ -599,10 +599,6 @@ public class GeneralPatch {
 
     // region [Hide layout components] patch
 
-    public static boolean disableTranslucentStatusBar(boolean original) {
-        return !Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get() && original;
-    }
-
     private static String[] accountMenuBlockList;
 
     private static String[] getAccountMenuBlockList(Context mContext) {
