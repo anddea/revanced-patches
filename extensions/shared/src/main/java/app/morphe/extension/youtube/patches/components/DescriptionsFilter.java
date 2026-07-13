@@ -20,6 +20,7 @@ public final class DescriptionsFilter extends Filter {
     public DescriptionsFilter() {
         final StringFilterGroup askSection = new StringFilterGroup(
                 Settings.HIDE_ASK_SECTION,
+                "input_composer_button.",
                 "youchat_entrypoint."
         );
 
