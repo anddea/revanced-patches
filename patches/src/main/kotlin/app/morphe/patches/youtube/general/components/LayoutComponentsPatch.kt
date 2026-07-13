@@ -16,7 +16,6 @@ import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRI
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
-import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
@@ -33,7 +32,6 @@ import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.injectHideViewCall
-import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -97,25 +95,6 @@ val layoutComponentsPatch = bytecodePatch(
                     )
                 }
             }
-        }
-
-        // endregion
-
-        // region patch for disable translucent status bar
-
-        if (is_19_25_or_greater) {
-            arrayOf(
-                TranslucentStatusBarPrimaryFeatureFlagFingerprint,
-                TranslucentStatusBarSecondaryFeatureFlagFingerprint,
-            ).forEach { fingerprint ->
-                fingerprint.method.insertLiteralOverride(
-                    fingerprint.instructionMatches.first().index,
-                    "$GENERAL_CLASS_DESCRIPTOR->disableTranslucentStatusBar(Z)Z"
-                )
-            }
-
-            settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
-            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
         }
 
         // endregion

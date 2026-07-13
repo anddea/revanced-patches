@@ -57,8 +57,11 @@ public final class NavigationButtonsPatch {
     private static final boolean ENABLE_NARROW_NAVIGATION_BUTTONS
             = Settings.ENABLE_NARROW_NAVIGATION_BUTTONS.get();
 
-    private static final boolean ENABLE_TRANSLUCENT_NAVIGATION_BAR
-            = Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR.get();
+    private static final boolean DISABLE_TRANSLUCENT_STATUS_BAR
+            = Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get();
+
+    private static final boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR
+            = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR.get();
 
     private static final boolean HIDE_NAVIGATION_LABEL
             = Settings.HIDE_NAVIGATION_LABEL.get();
@@ -139,13 +142,25 @@ public final class NavigationButtonsPatch {
     /**
      * Injection point.
      */
+    public static boolean allowCollapsingToolbarLayout(boolean original) {
+        if (DISABLE_TRANSLUCENT_STATUS_BAR) return false;
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean useTranslucentNavigationStatusBar(boolean original) {
         // Must check Android version, as forcing this on Android 11 or lower causes app hang and crash.
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             return original;
         }
 
-        return ENABLE_TRANSLUCENT_NAVIGATION_BAR;
+        if (DISABLE_TRANSLUCENT_STATUS_BAR) {
+            return false;
+        }
+
+        return original;
     }
 
     /**
@@ -157,7 +172,7 @@ public final class NavigationButtonsPatch {
             return original;
         }
 
-        return ENABLE_TRANSLUCENT_NAVIGATION_BAR;
+        return !DISABLE_TRANSLUCENT_NAVIGATION_BAR;
     }
 
     /**
