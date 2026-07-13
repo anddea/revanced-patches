@@ -427,10 +427,11 @@ public class ReturnYouTubeDislikePatch {
         }
 
         if (playerType != PlayerType.WATCH_WHILE_MAXIMIZED) {
-            // Keep the current video's labels and button scale across player transitions. The
-            // labels are hidden only when the action-bar anchors disappear during scrolling.
+            // Keep the current video's labels and button scale across player transitions, but
+            // hide the labels while their maximized-player anchors are off-screen. Otherwise, the
+            // labels can briefly appear at their stale coordinates while minimizing after scroll.
             removeRegularActionButtonCountSearchUpdates();
-            showTrackedRegularActionButtonCountLabels();
+            hideTrackedRegularActionButtonCountLabels();
             return;
         }
 
@@ -537,7 +538,7 @@ public class ReturnYouTubeDislikePatch {
 
         if (PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MAXIMIZED) {
             removeRegularActionButtonCountSearchUpdates();
-            showTrackedRegularActionButtonCountLabels();
+            hideTrackedRegularActionButtonCountLabels();
             return;
         }
 
@@ -1413,22 +1414,6 @@ public class ReturnYouTubeDislikePatch {
         }
     }
 
-    private static void showTrackedRegularActionButtonCountLabels() {
-        TextView likeLabel = regularLikeActionButtonCountLabel == null
-                ? null
-                : regularLikeActionButtonCountLabel.get();
-        TextView dislikeLabel = regularDislikeActionButtonCountLabel == null
-                ? null
-                : regularDislikeActionButtonCountLabel.get();
-
-        if (likeLabel != null && !TextUtils.isEmpty(likeLabel.getText())) {
-            likeLabel.setVisibility(View.VISIBLE);
-        }
-        if (dislikeLabel != null && !TextUtils.isEmpty(dislikeLabel.getText())) {
-            dislikeLabel.setVisibility(View.VISIBLE);
-        }
-    }
-
     @NonNull
     private static TextView getOrCreateRegularActionButtonCountLabel(@NonNull ViewGroup root,
                                                                      boolean likeButton) {
@@ -1545,7 +1530,7 @@ public class ReturnYouTubeDislikePatch {
 
         if (PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MAXIMIZED) {
             removeRegularActionButtonCountSearchUpdates();
-            showTrackedRegularActionButtonCountLabels();
+            hideTrackedRegularActionButtonCountLabels();
             return;
         }
 
