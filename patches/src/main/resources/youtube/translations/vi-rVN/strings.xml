@@ -125,7 +125,7 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
     <string name="morphe_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Trình đơn chất lượng video nâng cao không được hiển thị</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Trình đơn chất lượng video nâng cao được hiển thị</string>
-    <string name="revanced_advanced_video_quality_menu_title">Mở menu chất lượng \'Nâng cao\'</string>
+    <string name="revanced_advanced_video_quality_menu_title">Mở menu chất lượng nâng cao</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Trình đơn tuỳ chọn kiểu cũ được sử dụng.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Hộp thoại tuỳ chỉnh được sử dụng.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Kiểu trình đơn chất lượng video nâng cao trong Shorts</string>
@@ -534,9 +534,6 @@ Hạn chế:
     <string name="revanced_enable_swipe_to_switch_video_summary_off">Vuốt lên hoặc xuống trong chế độ toàn màn hình sẽ không phát video tiếp theo/trước đó.</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Vuốt lên hoặc xuống trong chế độ toàn màn hình sẽ phát video tiếp theo/trước đó.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Vuốt để chuyển video</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">Thanh điều hướng như mặc định.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Thanh điều hướng đang trong suốt."</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Thanh điều hướng trong suốt</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Độ trễ xử lý phát video tiếp theo đã tắt.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Độ trễ xử lý phát video tiếp theo đã được bật.</string>
     <string name="revanced_enable_watch_next_processing_delay_title">Độ trễ xử lý phát video tiếp theo</string>
@@ -582,7 +579,7 @@ Hạn chế: Không hoạt động nếu trình phát đang thu nhỏ, trong ch�
 Lưu ý:
 • Cài đặt này có thể không hoạt động nếu iOS TV không khả dụng tại khu vực của bạn."</string>
     <string name="revanced_external_downloader_dialog_title">Trình tải xuống bên ngoài</string>
-    <string name="revanced_external_downloader_empty_warning">Tên gói không được để trống</string>
+    <string name="revanced_external_downloader_empty_warning">Không được để trống tên gói</string>
     <string name="revanced_external_downloader_not_found_title">Ứng dụng chưa được cài đặt</string>
     <string name="revanced_external_downloader_not_installed">Chưa được cài đặt</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"Có vẻ như %1$s chưa được cài đặt.
@@ -815,6 +812,8 @@ Hạn chế: Các bình luận chữ xanh không dùng kiểu chữ mặc địn
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Đã hiển thị trên thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Đã ẩn trên thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ẩn trên thẻ Kênh đăng ký</string>
+    <string name="revanced_hide_connect_button_summary_off">Nút Kết nối đang hiện.</string>
+    <string name="revanced_hide_connect_button_summary_on">Nút Kết nối đang ẩn.</string>
     <string name="revanced_hide_connect_button_title">Ẩn nút Kết nối</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Kệ cửa hàng của người sáng tạo bên dưới trình phát video đang hiển thị</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Kệ cửa hàng của nhà sáng tạo bên dưới trình phát video đã bị ẩn</string>
@@ -2439,11 +2438,11 @@ Hạn chế: Tiêu đề video sẽ biến mất khi nhấn vào."</string>
     <string name="revanced_spoof_app_version_target_summary">Nhập phiên bản giả mạo mà bạn muốn hướng tới.</string>
     <string name="revanced_spoof_app_version_target_title">Mục tiêu phiên bản giả mạo</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Phiên bản ứng dụng sẽ được giả mạo thành phiên bản YouTube cũ hơn.
+    <string name="revanced_spoof_app_version_user_dialog_message">"Phiên bản ứng dụng sẽ được giả mạo thành một phiên bản cũ hơn.
 
-Điều này sẽ làm thay đổi giao diện và tính năng của ứng dụng, nhưng cũng có thể xảy ra các sự cố không xác định.
+Điều này sẽ thay đổi giao diện và tính năng của ứng dụng, nhưng cũng có thể xảy ra các tác dụng phụ không mong muốn.
 
-Nếu tắt đi sau đó, bạn nên xóa dữ liệu ứng dụng để tránh phát sinh lỗi giao diện."</string>
+Nếu tắt sau đó, bạn nên xóa dữ liệu ứng dụng để tránh các lỗi giao diện."</string>
     <string name="revanced_spoof_device_dimensions_summary">Bật tính năng này có thể mở khóa chất lượng video cao hơn</string>
     <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Video dùng codec AVC (H.264), VP9.</string>
@@ -2696,7 +2695,7 @@ Tự động phát hiện</string>
     <string name="revanced_vot_original_audio_volume_summary">Âm lượng của âm thanh gốc trên YouTube khi bản dịch đang phát</string>
     <string name="revanced_vot_original_audio_volume_title">Âm lượng âm thanh gốc</string>
     <string name="revanced_vot_playback_error">Không thể phát âm thanh bản dịch</string>
-    <string name="revanced_vot_proxy_url_summary">Máy chủ proxy VOT. Mặc định: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_summary">Máy chủ proxy VOT. Mặc định: tự phát hiện</string>
     <string name="revanced_vot_proxy_url_title">Máy chủ Proxy</string>
     <string name="revanced_vot_source_language_summary">Chọn ngôn ngữ của âm thanh</string>
     <string name="revanced_vot_source_language_title">Nguồn ngôn ngữ</string>

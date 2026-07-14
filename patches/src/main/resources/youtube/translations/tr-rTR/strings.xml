@@ -125,7 +125,7 @@ YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak oynatma sorunlarına yol açabilir.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Gelişmiş video kalitesi menüsü gösterilmez</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Gelişmiş video kalitesi menüsü gösterilir</string>
-    <string name="revanced_advanced_video_quality_menu_title">\'Gelişmiş\' kalite menüsünü aç</string>
+    <string name="revanced_advanced_video_quality_menu_title">Gelişmiş kalite menüsünü aç</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Eski stil açılır menü kullanılıyor.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Özel iletişim kutusu kullanılıyor.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Shorts\'ta gelişmiş video kalitesi menü türü</string>
@@ -531,9 +531,6 @@ Sınırlamalar:
     <string name="revanced_enable_swipe_to_switch_video_summary_off">Tam ekran modunda yukarı / aşağı kaydırmak sonraki / önceki videoya geçmeyecektir.</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Tam ekran modunda yukarı / aşağı kaydırmak sonraki / önceki videoya geçecektir.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Kaydırarak video değiştirmeyi etkinleştirin</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">Gezinme çubuğu opaktır.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Gezinme çubuğu yarı saydam."</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Yarı saydam gezinme çubuğunu etkinleştir</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Sıradaki içerik işleme gecikmesi devre dışı.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Sıradaki içerik işleme gecikmesi etkin.</string>
     <string name="revanced_enable_watch_next_processing_delay_title">Sonraki izleme işleme gecikmesini etkinleştir</string>
@@ -576,7 +573,7 @@ Sınırlama: Oynatıcı küçültülmüşse, PiP modundaysa veya arka plandaysa 
     <string name="revanced_extended_audio_tracks_unavailable">"Bu ayar şu anda kullanılamıyor.
 Bu özelliği kullanmak için 'Varsayılan istemci (Akış verilerini taklit et)' ayarını TV veya TV Simply olarak değiştirin."</string>
     <string name="revanced_external_downloader_dialog_title">Harici indirici</string>
-    <string name="revanced_external_downloader_empty_warning">Paket adı boş olamaz</string>
+    <string name="revanced_external_downloader_empty_warning">Paket adı boş bırakılamaz</string>
     <string name="revanced_external_downloader_not_found_title">Uygulama yüklü değil</string>
     <string name="revanced_external_downloader_not_installed">Yüklü değil</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s yüklü değil.
@@ -584,7 +581,7 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Dikkat</string>
     <string name="revanced_external_downloader_not_installed_warning">%s yüklü değil. Lütfen yükleyin.</string>
     <string name="revanced_external_downloader_other_item">Diğer</string>
-    <string name="revanced_external_downloader_other_item_hint">Paket adını girin</string>
+    <string name="revanced_external_downloader_other_item_hint">Paket adı girin</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Yüklü harici indirici uygulamanızın paket adı.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Oynatma listesi indirici paket ismi</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Kullandığınız harici indirme uygulamasının paket adı, NewPipe yada YTDLnis, uzun basılı tutulduğunda</string>
@@ -800,6 +797,8 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Abonelikler sayfasında topluluk gönderileri gösteriliyor</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Abonelikler sayfasında topluluk gönderileri gizleniyor</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Abonelikler kısmında topluluk gönderilerini gizle</string>
+    <string name="revanced_hide_connect_button_summary_off">Bağlan düğmesi gösteriliyor.</string>
+    <string name="revanced_hide_connect_button_summary_on">Bağlan düğmesi gizlenmiştir.</string>
     <string name="revanced_hide_connect_button_title">Bağlan düğmesini gizle</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Video oynatıcısının altındaki içerik üreticisi mağazası rafı görünür</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Video oynatıcısının altındaki içerik üreticisi mağazası rafı gizli</string>
@@ -807,6 +806,9 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_crowdfunding_box_summary_off">Bağış etkinliği kutuları görünür</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Bağış etkinliği kutuları gizli</string>
     <string name="revanced_hide_crowdfunding_box_title">Bağış etkinliği kutularını gizle</string>
+    <string name="revanced_hide_dislike_button_summary_off">Beğenmeme butonu gösteriliyor.</string>
+    <string name="revanced_hide_dislike_button_summary_on">Beğenmeme butonu gizlenmiştir.</string>
+    <string name="revanced_hide_dislike_button_title">Beğenmeme düğmesini gizle</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">Çift tıklama arayüz filtresi gizlenmiyor.</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">Çift tıklama arayüz filtresi gizli.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Çift tıklama arayüz filtresini gizle</string>
@@ -949,6 +951,9 @@ Ortasında büyük harf bulunan kelimeler tam olarak eşleşmelidir (örneğin: 
     <string name="revanced_hide_latest_videos_button_summary_off">En yeni videolar düğmesi görünür</string>
     <string name="revanced_hide_latest_videos_button_summary_on">En yeni videolar düğmesi gizli</string>
     <string name="revanced_hide_latest_videos_button_title">Son videolar düğmesini gizle</string>
+    <string name="revanced_hide_like_button_summary_off">Beğen butonu gösteriliyor.</string>
+    <string name="revanced_hide_like_button_summary_on">Beğen butonu gizlenmiş.</string>
+    <string name="revanced_hide_like_button_title">Beğen düğmesini gizle</string>
     <string name="revanced_hide_like_dislike_button_summary_off">Beğenme ve Beğenmeme düğmeleri görünür</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Beğenme ve Beğenmeme düğmeleri gizli</string>
     <string name="revanced_hide_like_dislike_button_title">Beğenme ve Beğenmeme düğmelerini gizle</string>
@@ -973,6 +978,8 @@ Ortasında büyük harf bulunan kelimeler tam olarak eşleşmelidir (örneğin: 
     <string name="revanced_hide_mix_playlists_summary_off">Mix oynatma listeleri görünür</string>
     <string name="revanced_hide_mix_playlists_summary_on">Mix oynatma listeleri gizli</string>
     <string name="revanced_hide_mix_playlists_title">Mix oynatma listelerini gizle</string>
+    <string name="revanced_hide_more_button_summary_off">"Daha fazla" düğmesi gösteriliyor.</string>
+    <string name="revanced_hide_more_button_summary_on">"Daha fazla" düğmesi gizlenmiştir.</string>
     <string name="revanced_hide_more_button_title">Daha fazla düğmesini gizle</string>
     <string name="revanced_hide_movie_shelf_summary_off">Filmler rafı gizlenmiyor.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Filmler rafı gizleniyor.</string>
@@ -1161,6 +1168,9 @@ Oynatıcı ekranının düzeni sunucu tarafındaki değişiklikler nedeniyle de�
     <string name="revanced_hide_rewards_button_summary_off">\"Ödüller\" butonu gösteriliyor.</string>
     <string name="revanced_hide_rewards_button_summary_on">\"Ödüller\" butonu gizleniyor.</string>
     <string name="revanced_hide_rewards_button_title">Ödüller butonunu gizle</string>
+    <string name="revanced_hide_search_bar_back_button_summary_off">Arama çubuğunun geri düğmesi gösteriliyor.</string>
+    <string name="revanced_hide_search_bar_back_button_summary_on">Arama çubuğunun geri düğmesi gizlenmiştir.</string>
+    <string name="revanced_hide_search_bar_back_button_title">Arama çubuğunu gizle, geri düğmesi</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Arama geçmişindeki kapak fotoğrafları gösteriliyor.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Arama geçmişindeki kapak fotoğrafları gizleniyor.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Arama terimlerinde kapak fotoğraflarını gizle</string>
@@ -1606,7 +1616,11 @@ Bilinen sorun: Bu ayar etkinleştirildiğinde YouTube Doodle'larına tıklanamaz
     <string name="revanced_language_VI">Vietnam dili</string>
     <string name="revanced_language_ZH">Çince\n<small>中文</small></string>
     <string name="revanced_language_title">ReVanced dili</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">Mini oynatıcı ekran dışına sürüklendiğinde oynatma devam eder.</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">Mini oynatıcı ekran dışına sürüklendiğinde oynatma duraklatılacaktır.</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Yatay sürükleme ile oynatmayı duraklat</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_off">Mini oynatıcının ekran dışına sürüklenmesi, orijinal otomatik yeniden konumlandırma davranışını kullanır.</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_on">Mini oynatıcıyı ekran dışına sürüklemek, arayüz durumunu koruyacaktır.</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">Sürükleme durumunun konumunu hatırla</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Boyutlandırmak için çift dokunma ve sıkıştırma devre dışı</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Boyutlandırmak için çift dokunma ve sıkıştırma etkin
@@ -1688,6 +1702,14 @@ API anahtarı almak için buraya dokunun."</string>
 
 ​Uygulamayı kapatmadığınız veya Gemini'ı başka bir videoda kullanmadığınız sürece özetlenen ve deşifre edilen sonuçlar kaydedilir. Sonuçları görüntülemek için düğmeye tekrar dokunun."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Gemini düğmesini göster</string>
+    <string name="revanced_overlay_button_loop_segment_cleared_toast">Döngü bölümü temizlendi.</string>
+    <string name="revanced_overlay_button_loop_segment_copy_toast">Döngü segmentinin URL'si kopyalandı.</string>
+    <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Öncelikle döngünün başlangıç ve bitiş noktalarını seçin.</string>
+    <string name="revanced_overlay_button_loop_segment_enabled_toast">Döngü %1$s - %2$s.</string>
+    <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Mevcut oynatma süresi kullanılamıyor.</string>
+    <string name="revanced_overlay_button_loop_segment_start_toast">Döngü başlangıcı seçildi: %s.</string>
+    <string name="revanced_overlay_button_loop_segment_summary">"Başlangıcı seçmek için bir kez dokunun, bitişi seçmek ve o bölümü tekrar oynatmak için tekrar dokunun, temizlemek için üçüncü kez dokunun. Başlangıç ​​ve bitiş parametreleriyle bir video URL'sini kopyalamak için dokunup basılı tutun."</string>
+    <string name="revanced_overlay_button_loop_segment_title">Döngü segmentini göster düğmesi</string>
     <string name="revanced_overlay_button_mute_volume_summary">Geçerli videonun sesini kapatmak için dokunun. Sesi açmak için tekrar dokunun.</string>
     <string name="revanced_overlay_button_mute_volume_title">Sesi sustur butonunu göster</string>
     <string name="revanced_overlay_button_not_allowed_warning">Buton durumunu değiştirmek için buraya dokunup basılı tutun.</string>
@@ -1722,6 +1744,10 @@ Oynatma hızını 1,0x'e sıfırlamak için dokunun ve basılı tutun. Varsayıl
     <string name="revanced_overlay_button_whitelist_summary">\"Beyaz liste iletişim kutusunu açmak için dokunun.
 Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</string>
     <string name="revanced_overlay_button_whitelist_title">Beyaz liste düğmesini göster</string>
+    <string name="revanced_overlay_buttons_max_landscape_summary">Yatay modda gösterilecek maksimum yer paylaşımı düğmesi sayısı (Tam Ekran düğmesi hariç). Tümünü gizlemek için 0 girin. Bu sınırı aşan düğmeleri göstermek için yatay olarak kaydırın.</string>
+    <string name="revanced_overlay_buttons_max_landscape_title">Yatay modda Max düğmeleri</string>
+    <string name="revanced_overlay_buttons_max_portrait_summary">Dikey modda gösterilecek maksimum yer paylaşımı düğmesi sayısı (Tam Ekran düğmesi hariç). Tümünü gizlemek için 0 girin. Bu sınırı aşan düğmeleri göstermek için yatay olarak kaydırın.</string>
+    <string name="revanced_overlay_buttons_max_portrait_title">Dikey modda Max düğmeleri</string>
     <string name="revanced_override_playlist_download_button_summary_off">Yerel oynatma listesi indirme düğmesi, gösterilirse, yerel uygulama içi indiriciyi açar.</string>
     <string name="revanced_override_playlist_download_button_summary_on">Yerel oynatma listesi indirme düğmesi her zaman gösterilir ve herkese açık oynatma listelerinde harici indiricinizi açar.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Yerel oynatma listesi indirme düğmesi, eğer gösteriliyorsa, harici indiricinizi açar.
@@ -2410,9 +2436,9 @@ Sınırlama: Tıklandığında video başlığı kayboluyor."</string>
     <string name="revanced_spoof_app_version_target_entry_title">Taklit edilecek sürüm</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Geçersiz taklit uygulama sürümü: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini seçin.</string>
-    <string name="revanced_spoof_app_version_target_title">Uygulama sürümü taklidi hedefi</string>
+    <string name="revanced_spoof_app_version_target_title">Hedef uygulama sürümü taklidi</string>
     <string name="revanced_spoof_app_version_title">Uygulama sürümünü taklit et</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Uygulama sürümü, YouTube'un eski bir sürümü olarak taklit edilecektir.
+    <string name="revanced_spoof_app_version_user_dialog_message">"Uygulama sürümü, daha eski bir sürüme taklit edilecektir.
 
 Bu, uygulamanın görünümünü ve özelliklerini değiştirecektir, ancak bilinmeyen yan etkiler ortaya çıkabilir.
 
@@ -2673,7 +2699,7 @@ Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya 
     <string name="revanced_vot_original_audio_volume_summary">Çeviri konuşurken orijinal YouTube sesi seviyesi</string>
     <string name="revanced_vot_original_audio_volume_title">Orijinal ses seviyesi</string>
     <string name="revanced_vot_playback_error">Çevrili sesi oynatırken hata oldu</string>
-    <string name="revanced_vot_proxy_url_summary">VOT çalışan proxy sunucusu. Varsayılan: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_summary">Oy verme işlemi çalışan proxy sunucusu. Varsayılan: otomatik olarak algılanır.</string>
     <string name="revanced_vot_proxy_url_title">Proxy sunucusu</string>
     <string name="revanced_vot_source_language_summary">Video sesinin dilini seçin.</string>
     <string name="revanced_vot_source_language_title">Kaynak dili</string>

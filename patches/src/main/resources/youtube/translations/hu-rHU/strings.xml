@@ -125,7 +125,7 @@ Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szüks
     <string name="morphe_spoof_video_streams_user_dialog_message">Ennek a beállításnak a kikapcsolása lejátszási problémákat okozhat.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">A speciális videóminőség menü nem látható</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">A speciális videóminőség menü látható</string>
-    <string name="revanced_advanced_video_quality_menu_title">Nyissa meg a \"Speciális\" minőségi menüt</string>
+    <string name="revanced_advanced_video_quality_menu_title">Nyissa meg a fejlett minőség menüt</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">A régi stílusú előugró menüt használja.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Az egyéni menü van használatban.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Speciális videóminőség menü a shortok esetén</string>
@@ -533,9 +533,6 @@ Korlátozások:
     <string name="revanced_enable_swipe_to_switch_video_summary_off">A felfelé / lefelé lapozás teljes képernyőn nem játssza le a következő / előző videót.</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">A felfelé / lefelé lapozás teljes képernyőn lejátssza a következő / előző videót.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Videóváltás lapozással engedélyezése</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">A navigációs sáv nem átlátszó.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"A navigációs sáv átlátszó."</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Átlátszó navigációs sáv engedélyezése</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">A Következő a lejátszási sorban feldolgozási késleltetése tiltott.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">A Következő a lejátszási sorban feldolgozási késleltetése engedélyezett.</string>
     <string name="revanced_enable_watch_next_processing_delay_title">Következő a lejátszási sorban feldolgozási késleltetésének engedélyezése</string>
@@ -583,7 +580,7 @@ Megjegyzés:
 • Az iOS TV nem támogatja bizonyos videók, például zenei videók lejátszását.
 • Ezért, ha az alapértelmezett kliens az iOS TV-re van állítva, ez a beállítás egyes videók esetében nem biztos, hogy működik."</string>
     <string name="revanced_external_downloader_dialog_title">Külső letöltéskezelő</string>
-    <string name="revanced_external_downloader_empty_warning">A csomagnév nem lehet üres.</string>
+    <string name="revanced_external_downloader_empty_warning">A csomag név nem lehet üres</string>
     <string name="revanced_external_downloader_not_found_title">Az alkalmazás nincs telepítve</string>
     <string name="revanced_external_downloader_not_installed">Nincs telepítve</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"A(z) %1$s nincs telepítve.
@@ -591,7 +588,7 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Figyelmeztetés</string>
     <string name="revanced_external_downloader_not_installed_warning">A(z) %s nincs telepítve. Kérjük, telepítse.</string>
     <string name="revanced_external_downloader_other_item">Egyéb</string>
-    <string name="revanced_external_downloader_other_item_hint">Adjon meg egy csomagnevet</string>
+    <string name="revanced_external_downloader_other_item_hint">Csomag név beírása</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">A telepített külső letöltő alkalmazás csomagneve.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Lejátszási lista letöltő csomag neve</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">A telepített külső letöltőalkalmazás (pl. NewPipe vagy YTDLnis) csomagneve hosszú lenyomás esetén.</string>
@@ -2412,7 +2409,7 @@ Korlátozás: A videó címe eltűnik, ha rákattint."</string>
     <string name="revanced_speed_overlay_value_title">Gyorsított lejátszás értéke</string>
     <string name="revanced_spoof_app_version_other_item">Egyéb</string>
     <string name="revanced_spoof_app_version_other_item_hint">Alkalmazás verzió megadása</string>
-    <string name="revanced_spoof_app_version_summary">A szervert becsapja, hogy úgy gondolja, egy régebbi alkalmazásverziót használ a korábbi UI funkciók helyreállításához</string>
+    <string name="revanced_spoof_app_version_summary">A szervert tévedésbe vezeti, hogy egy régebbi alkalmazásverziót használ, ezzel helyreállítva a korábbi felhasználói felület funkcióit.</string>
     <string name="revanced_spoof_app_version_summary_off">A verzió nincs hamisítva</string>
     <string name="revanced_spoof_app_version_summary_on">A verzió hamisítva</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Átirat funkció visszaállítása</string>
@@ -2422,7 +2419,7 @@ Korlátozás: A videó címe eltűnik, ha rákattint."</string>
     <string name="revanced_spoof_app_version_target_summary">Írja be a hamis alkalmazásverziót.</string>
     <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
     <string name="revanced_spoof_app_version_title">Alkalmazásverzió hamisítása</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Az alkalmazás verziója egy régebbi YouTube-verzióra lesz hamisítva.
+    <string name="revanced_spoof_app_version_user_dialog_message">"Az alkalmazás verziója egy régebbi verzióvá lesz hamisítva.
 
 Ez megváltoztatja az alkalmazás megjelenését és funkcióit, de előfordulhatnak nem várt mellékhatások.
 

@@ -121,7 +121,7 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">Изключването на тази настройка може да причини проблеми при възпроизвеждане.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Менюто за разширено качество на видеото не се показва</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Показва се менюто за разширено качество на видеото</string>
-    <string name="revanced_advanced_video_quality_menu_title">Отворете меню за качеството \'Разширени\'</string>
+    <string name="revanced_advanced_video_quality_menu_title">Отвори меню за разширени настройки за качеството на видеото</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow осигурява crowdsourced превю за видеоклипове на YouTube. Тези превю са често по-релевантни от тези, предоставени от YouTube
 
 Ако е включено, URL-овете на видеоклиповете ще бъдат изпращани към сървъра на API и няма да се изпращат други данни. Ако видеоклип не има DeArrow превю, тогава ще се показват оригиналните или превю с кадри
@@ -459,9 +459,6 @@
 • Тази настройка позволява не само времеви показатели, но позволява скриване на елементи от потребителския интерфейс чрез докосване на фона на екрана за възпроизвеждане.
 • Тъй като това е функция на Google, която все още се разработва, оформлението може да се развали."</string>
     <string name="revanced_enable_shorts_time_stamp_title">Активиране на дата и час</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">Навигационната лента е непрозрачна.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Навигационната лента е полупрозрачна."</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачна лента за навигация</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Тази опция ще деактивира бутона \"Настройки\" в раздела \"Вие\"
 Използвайте следната последователност:
 раздел \"Вие\" -&gt; Страница на канала -&gt; Меню -&gt; Настройки"</string>
@@ -495,7 +492,7 @@
     <string name="revanced_expand_video_description_summary_on">Описанието на видеоклипа се отваря автоматично.</string>
     <string name="revanced_expand_video_description_title">Автоматично отваряне на видео описание</string>
     <string name="revanced_external_downloader_dialog_title">Външна програма за изтегляне</string>
-    <string name="revanced_external_downloader_empty_warning">Името на пакета не може да бъде празно</string>
+    <string name="revanced_external_downloader_empty_warning">Името на пакета не може да е празно</string>
     <string name="revanced_external_downloader_not_found_title">Приложението не е инсталирано</string>
     <string name="revanced_external_downloader_not_installed">Не е инсталирано</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не е инсталиран.
@@ -503,7 +500,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_title">Внимание</string>
     <string name="revanced_external_downloader_not_installed_warning">%s не е инсталиран. Моля, инсталирайте го.</string>
     <string name="revanced_external_downloader_other_item">Други</string>
-    <string name="revanced_external_downloader_other_item_hint">Въведете името на пакета</string>
+    <string name="revanced_external_downloader_other_item_hint">Въведете име на пакет</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Име на приложението за изтегляне</string>
     <string name="revanced_external_downloader_package_name_video_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis.</string>
@@ -1988,18 +1985,18 @@
     <string name="revanced_speed_overlay_value_invalid_toast">Скоростта трябва да е между 0-8.0, нулирайте.</string>
     <string name="revanced_speed_overlay_value_summary">Стойност на скоростта, приложена при продължително натискане, между 0 и 8,0.</string>
     <string name="revanced_speed_overlay_value_title">Стойност на скоростния интерфейс</string>
-    <string name="revanced_spoof_app_version_summary">Използва трикове, за да заблуди сървъра, че използвате по-стара версия на приложението, за да възстановите стари UI функции</string>
+    <string name="revanced_spoof_app_version_summary">Заблуждава сървъра, карайки го да мисли, че използвате по-стара версия на приложението, за да възстанови стари функции на потребителския интерфейс.</string>
     <string name="revanced_spoof_app_version_summary_off">Не подправена версия</string>
     <string name="revanced_spoof_app_version_summary_on">Подправена версия</string>
     <string name="revanced_spoof_app_version_target_entry_title">Версия за модификация на приложението</string>
     <string name="revanced_spoof_app_version_target_summary">Въведете версията на приложението, която да се приложи.</string>
-    <string name="revanced_spoof_app_version_target_title">Цел на фалшира версия на приложението</string>
-    <string name="revanced_spoof_app_version_title">Фалшира версия на приложението</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Версията на приложението ще бъде фалшира
+    <string name="revanced_spoof_app_version_target_title">Цел за подмяна на версията на приложението</string>
+    <string name="revanced_spoof_app_version_title">Подменя версия на приложението</string>
+    <string name="revanced_spoof_app_version_user_dialog_message">"Версията на приложението ще бъде подменена със стара версия.
 
-Това ще промени изgleда и функции на приложението, но неизвестни страни ефекти може да се появият.
+Това ще промени външния вид и функциите на приложението, но могат да възникнат непредвидени странични ефекти.
 
-Ако по-късно бъде изключено, препоръбването на данните на приложението е препоръба"</string>
+Ако по-късно бъде изключено, се препоръчва изчистване на данните на приложението, за да се предотвратят грешки в потребителския интерфейс."</string>
     <string name="revanced_spoof_device_dimensions_summary">Активирането на това може да отключи по-високо качество на видеото</string>
     <string name="revanced_spoof_device_dimensions_title">По подразбиране</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Липсва менюто за аудио запис.
