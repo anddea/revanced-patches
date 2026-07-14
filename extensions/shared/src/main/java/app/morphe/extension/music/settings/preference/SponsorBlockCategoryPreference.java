@@ -1,124 +1,159 @@
+/*
+ * Portions of this file are adapted from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.music.settings.preference;
 
-import static app.morphe.extension.music.utils.ExtendedUtils.getDialogBuilder;
 import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.shared.utils.Utils.dipToPixels;
 
-import android.app.Activity;
-import android.app.AlertDialog;
+import android.content.Context;
 import android.graphics.Color;
-import android.text.Editable;
-import android.text.InputType;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.preference.PreferenceManager;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
-import java.util.Arrays;
-import java.util.Objects;
+import androidx.annotation.Nullable;
 
 import app.morphe.extension.music.sponsorblock.objects.CategoryBehaviour;
 import app.morphe.extension.music.sponsorblock.objects.SegmentCategory;
+import app.morphe.extension.shared.settings.preference.ColorPickerPreference;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
-public class SponsorBlockCategoryPreference {
-    private static final String[] CategoryBehaviourEntries = {str("revanced_sb_skip_automatically"), str("revanced_sb_skip_ignore")};
-    private static final CategoryBehaviour[] CategoryBehaviourEntryValues = {CategoryBehaviour.SKIP_AUTOMATICALLY, CategoryBehaviour.IGNORE};
-    private static int mClickedDialogEntryIndex;
+/**
+ * XML-backed SponsorBlock category preference for YouTube Music.
+ *
+ * <p>Each preference persists the category color through the shared color picker and adds the
+ * category behavior controls used by SponsorBlock. The category is resolved from the color
+ * setting key after preference inflation so this class can be reused for every segment.</p>
+ */
+@SuppressWarnings({"deprecation", "unused"})
+public class SponsorBlockCategoryPreference extends ColorPickerPreference {
+    @Nullable
+    private SegmentCategory category;
 
+    private int selectedDialogEntryIndex;
 
-    public static void showDialog(Activity baseActivity, String categoryString) {
-        try {
-            SegmentCategory category = Objects.requireNonNull(SegmentCategory.byCategoryKey(categoryString));
-            final AlertDialog.Builder builder = getDialogBuilder(baseActivity);
-            TableLayout table = new TableLayout(baseActivity);
-            table.setOrientation(LinearLayout.HORIZONTAL);
-            table.setPadding(70, 0, 150, 0);
+    public SponsorBlockCategoryPreference(Context context) {
+        super(context);
+        initialize();
+    }
 
-            TableRow row = new TableRow(baseActivity);
+    public SponsorBlockCategoryPreference(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initialize();
+    }
 
-            TextView colorTextLabel = new TextView(baseActivity);
-            colorTextLabel.setText(str("revanced_sb_color_dot_label"));
-            row.addView(colorTextLabel);
+    public SponsorBlockCategoryPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initialize();
+    }
 
-            TextView colorDotView = new TextView(baseActivity);
-            colorDotView.setText(category.getCategoryColorDot());
-            colorDotView.setPadding(30, 0, 30, 0);
-            row.addView(colorDotView);
+    private void initialize() {
+        setOpacitySliderEnabled(true);
+    }
 
-            final EditText mEditText = new EditText(baseActivity);
-            mEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS);
-            mEditText.setText(category.colorString());
-            mEditText.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                }
+    @Override
+    protected void onAttachedToHierarchy(PreferenceManager preferenceManager) {
+        super.onAttachedToHierarchy(preferenceManager);
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    try {
-                        String colorString = s.toString();
-                        if (!colorString.startsWith("#")) {
-                            s.insert(0, "#"); // recursively calls back into this method
-                            return;
-                        }
-                        if (colorString.length() > 7) {
-                            s.delete(7, colorString.length());
-                            return;
-                        }
-                        final int color = Color.parseColor(colorString);
-                        colorDotView.setText(SegmentCategory.getCategoryColorDot(color));
-                    } catch (IllegalArgumentException ex) {
-                        // ignore
-                    }
-                }
-            });
-            mEditText.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
-            row.addView(mEditText);
-
-            table.addView(row);
-            builder.setView(table);
-            builder.setTitle(category.title.toString());
-
-            builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                category.behaviour = CategoryBehaviourEntryValues[mClickedDialogEntryIndex];
-                category.setBehaviour(category.behaviour);
-                SegmentCategory.updateEnabledCategories();
-
-                String colorString = mEditText.getText().toString();
-                try {
-                    if (!colorString.equals(category.colorString())) {
-                        category.setColor(colorString);
-                        Utils.showToastShort(str("revanced_sb_color_changed"));
-                    }
-                } catch (IllegalArgumentException ex) {
-                    Utils.showToastShort(str("revanced_sb_color_invalid"));
-                }
-            });
-            builder.setNeutralButton(str("revanced_sb_reset_color"), (dialog, which) -> {
-                try {
-                    category.resetColor();
-                    Utils.showToastShort(str("revanced_sb_color_reset"));
-                } catch (Exception ex) {
-                    Logger.printException(() -> "setNeutralButton failure", ex);
-                }
-            });
-            builder.setNegativeButton(android.R.string.cancel, null);
-
-            final int index = Arrays.asList(CategoryBehaviourEntryValues).indexOf(category.behaviour);
-            mClickedDialogEntryIndex = Math.max(index, 0);
-
-            builder.setSingleChoiceItems(CategoryBehaviourEntries, mClickedDialogEntryIndex,
-                    (dialog, id) -> mClickedDialogEntryIndex = id);
-            builder.show();
-        } catch (Exception ex) {
-            Logger.printException(() -> "dialogBuilder failure", ex);
+        if (category == null) {
+            category = categoryByColorSettingKey(getKey());
+            if (category == null) {
+                throw new IllegalStateException(
+                        "SponsorBlock category preference has no matching setting: " + getKey());
+            }
+            setTitle(category.title.toString());
+            setSummary(category.description.toString());
         }
+
+        setText(category.getColorStringWithOpacity());
+    }
+
+    @Override
+    public final void setText(String colorString) {
+        try {
+            colorString = getColorString(Color.parseColor(colorString), true);
+            super.setText(colorString);
+
+            if (category != null) {
+                category.setColorWithOpacity(colorString);
+            }
+        } catch (IllegalArgumentException ex) {
+            Utils.showToastShort(str("revanced_settings_color_invalid"));
+            if (category != null) {
+                setText(category.colorSetting.defaultValue);
+            }
+        } catch (Exception ex) {
+            String colorStringFinal = colorString;
+            Logger.printException(() -> "setText failure: " + colorStringFinal, ex);
+        }
+    }
+
+    @Nullable
+    @Override
+    protected View createExtraDialogContentView(Context context) {
+        if (category == null) return null;
+
+        CategoryBehaviour[] behaviours = CategoryBehaviour.values();
+        selectedDialogEntryIndex = 0;
+        for (int i = 0; i < behaviours.length; i++) {
+            if (behaviours[i] == category.behaviour) {
+                selectedDialogEntryIndex = i;
+                break;
+            }
+        }
+
+        RadioGroup radioGroup = new RadioGroup(context);
+        radioGroup.setOrientation(RadioGroup.VERTICAL);
+        for (int i = 0; i < behaviours.length; i++) {
+            RadioButton radioButton = new RadioButton(context);
+            radioButton.setText(behaviours[i].description.toString());
+            radioButton.setId(i);
+            radioButton.setChecked(i == selectedDialogEntryIndex);
+            radioGroup.addView(radioButton);
+        }
+
+        radioGroup.setOnCheckedChangeListener(
+                (group, checkedId) -> selectedDialogEntryIndex = checkedId);
+        radioGroup.setPadding(dipToPixels(10), 0, dipToPixels(10), dipToPixels(10));
+        return radioGroup;
+    }
+
+    @Override
+    protected void onDialogOkClicked() {
+        if (category == null
+                || selectedDialogEntryIndex < 0
+                || selectedDialogEntryIndex >= CategoryBehaviour.values().length) {
+            return;
+        }
+
+        category.setBehaviour(CategoryBehaviour.values()[selectedDialogEntryIndex]);
+        SegmentCategory.updateEnabledCategories();
+    }
+
+    @Override
+    protected void onDialogNeutralClicked() {
+        if (category == null) return;
+        dialogColorPickerView.setColor(category.getDefaultColorWithOpacity());
+    }
+
+    @Nullable
+    private static SegmentCategory categoryByColorSettingKey(@Nullable String colorSettingKey) {
+        if (colorSettingKey == null) return null;
+
+        for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
+            if (colorSettingKey.equals(category.colorSetting.key)) {
+                return category;
+            }
+        }
+        return null;
     }
 }

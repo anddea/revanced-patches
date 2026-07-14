@@ -1,3 +1,11 @@
+/*
+ * Portions of this file are adapted from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.music.sponsorblock;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
@@ -55,7 +63,9 @@ public class SegmentPlaybackController {
 
     private static int sponsorBarAbsoluteLeft;
     private static int sponsorAbsoluteBarRight;
-    private static int sponsorBarThickness = 7;
+    private static int sponsorBarAbsoluteTop;
+    private static int sponsorBarAbsoluteBottom;
+    private static int sponsorBarThickness;
     private static SponsorSegment lastSegmentSkipped;
     private static long lastSegmentSkippedTime;
     private static int toastNumberOfSegmentsSkipped;
@@ -420,6 +430,20 @@ public class SegmentPlaybackController {
         }
     }
 
+    /**
+     * Injection point for {@code MusicPlaybackControlsTimeBar}. The measured rectangle includes
+     * rounded end caps, so its horizontal bounds are inset before the segment markers are drawn.
+     */
+    public static void setSeekbarRectangle(@Nullable Rect seekbarRect) {
+        if (!Settings.SB_ENABLED.get() || seekbarRect == null) return;
+
+        final int inset = seekbarRect.height() / 2;
+        sponsorBarAbsoluteLeft = seekbarRect.left + inset;
+        sponsorAbsoluteBarRight = seekbarRect.right - inset;
+        sponsorBarAbsoluteTop = seekbarRect.top;
+        sponsorBarAbsoluteBottom = seekbarRect.bottom;
+    }
+
     private static void setSponsorBarAbsoluteLeft(Rect rect) {
         final int left = rect.left;
         if (sponsorBarAbsoluteLeft != left) {
@@ -465,6 +489,45 @@ public class SegmentPlaybackController {
             }
         } catch (Exception ex) {
             Logger.printException(() -> "drawSponsorTimeBars failure", ex);
+        }
+    }
+
+    /**
+     * Injection point for the compact-player timeline. This is the rect-centered variant of
+     * {@link #drawSponsorTimeBars(Canvas, float)}.
+     */
+    public static void drawSegmentTimeBars(@NonNull Canvas canvas) {
+        try {
+            if (!Settings.SB_ENABLED.get()) return;
+
+            SponsorSegment[] videoSegments = segments;
+            if (videoSegments == null || videoSegments.length == 0) return;
+
+            final long videoLength = VideoInformation.getVideoLength();
+            if (videoLength <= 0) return;
+
+            final float barWidth = sponsorAbsoluteBarRight - sponsorBarAbsoluteLeft;
+            if (barWidth <= 0) return;
+
+            final int rectHeight = sponsorBarAbsoluteBottom - sponsorBarAbsoluteTop;
+            final int thickness = Math.max(1, sponsorBarThickness > 0
+                    ? sponsorBarThickness : rectHeight);
+            final float centerY = (sponsorBarAbsoluteTop + sponsorBarAbsoluteBottom) / 2f;
+
+            for (SponsorSegment segment : videoSegments) {
+                if (segment.category.behaviour == CategoryBehaviour.IGNORE) continue;
+
+                final float left = sponsorBarAbsoluteLeft
+                        + (float) segment.start / videoLength * barWidth;
+                final float right = Math.max(left + 2,
+                        sponsorBarAbsoluteLeft + (float) segment.end / videoLength * barWidth);
+
+                segment.category.paint.setStrokeCap(android.graphics.Paint.Cap.ROUND);
+                segment.category.paint.setStrokeWidth(thickness);
+                canvas.drawLine(left, centerY, right, centerY, segment.category.paint);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "drawSegmentTimeBars failure", ex);
         }
     }
 

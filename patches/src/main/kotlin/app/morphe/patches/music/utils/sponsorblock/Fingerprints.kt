@@ -1,39 +1,45 @@
+/*
+ * Portions of this file are adapted from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.music.utils.sponsorblock
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.OpcodesFilter.Companion.opcodesToFilters
+import app.morphe.patcher.literal
 import app.morphe.patches.music.utils.resourceid.inlineTimeBarAdBreakMarkerColor
-import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val musicPlaybackControlsTimeBarDrawFingerprint = legacyFingerprint(
-    name = "musicPlaybackControlsTimeBarDrawFingerprint",
-    returnType = "V",
-    customFingerprint = { method, _ ->
-        method.definingClass.endsWith("/MusicPlaybackControlsTimeBar;") &&
-                method.name == "draw"
-    }
+/** Matches {@code MusicPlaybackControlsTimeBar.draw(Canvas)} for compact-player markers. */
+internal object MusicPlaybackControlsTimeBarDrawFingerprint : Fingerprint(
+    definingClass = "/MusicPlaybackControlsTimeBar;",
+    name = "draw",
+    returnType = "V"
 )
 
-internal val musicPlaybackControlsTimeBarOnMeasureFingerprint = legacyFingerprint(
-    name = "musicPlaybackControlsTimeBarOnMeasureFingerprint",
-    returnType = "V",
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
-    ),
-    customFingerprint = { method, _ ->
-        method.definingClass.endsWith("/MusicPlaybackControlsTimeBar;") &&
-                method.name == "onMeasure"
-    }
+/** Matches {@code MusicPlaybackControlsTimeBar.onMeasure(int, int)} to locate its track rect. */
+internal object MusicPlaybackControlsTimeBarOnMeasureFingerprint : Fingerprint(
+    definingClass = "/MusicPlaybackControlsTimeBar;",
+    name = "onMeasure",
+    returnType = "V"
 )
 
-internal val rectangleFieldInvalidatorFingerprint = legacyFingerprint(
-    name = "rectangleFieldInvalidatorFingerprint",
-    opcodes = listOf(
+internal object SeekBarConstructorFingerprint : Fingerprint(
+    returnType = "V",
+    filters = listOf(literal(inlineTimeBarAdBreakMarkerColor))
+)
+
+internal object RectangleFieldInvalidatorFingerprint : Fingerprint(
+    classFingerprint = SeekBarConstructorFingerprint,
+    filters = opcodesToFilters(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_WIDE,
         Opcode.INVOKE_VIRTUAL,
@@ -41,9 +47,7 @@ internal val rectangleFieldInvalidatorFingerprint = legacyFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_WIDE
     ),
-    customFingerprint = { method, _ ->
-        indexOfInvalidateInstruction(method) >= 0
-    }
+    custom = { method, _ -> indexOfInvalidateInstruction(method) >= 0 }
 )
 
 internal fun indexOfInvalidateInstruction(method: Method) =
@@ -51,13 +55,7 @@ internal fun indexOfInvalidateInstruction(method: Method) =
         getReference<MethodReference>()?.name == "invalidate"
     }
 
-internal val seekBarConstructorFingerprint = legacyFingerprint(
-    name = "seekBarConstructorFingerprint",
-    returnType = "V",
-    literals = listOf(inlineTimeBarAdBreakMarkerColor),
-)
-
-internal val seekbarOnDrawFingerprint = legacyFingerprint(
-    name = "seekbarOnDrawFingerprint",
-    customFingerprint = { method, _ -> method.name == "onDraw" }
+internal object SeekbarOnDrawFingerprint : Fingerprint(
+    classFingerprint = SeekBarConstructorFingerprint,
+    name = "onDraw"
 )
