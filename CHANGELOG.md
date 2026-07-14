@@ -1,3 +1,15 @@
+# [4.2.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.4...v4.2.0-dev.5) (2026-07-14)
+
+
+### Bug Fixes
+
+* **YouTube Music - SponsorBlock:** Action dialog attached to parent activity ([ff7fa97](https://github.com/anddea/revanced-patches/commit/ff7fa978ea136c16400409488738e74caef10ede))
+
+
+### Features
+
+* **YouTube Music - Hide action bar components:** Add `Hide Details button` and `Hide Live chat replay button` settings ([6a5873e](https://github.com/anddea/revanced-patches/commit/6a5873efcbf0db5cb69a5aaccca28cf5731ef03f))
+
 # [4.2.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.3...v4.2.0-dev.4) (2026-07-10)
 
 
