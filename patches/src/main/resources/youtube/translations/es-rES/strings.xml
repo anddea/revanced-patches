@@ -31,7 +31,7 @@ Toca el botón continuar y permite los cambios de optimización."</string>
     <string name="morphe_force_original_audio_not_available">Para usar esta función, cambia \"Falsificar transmisiones de vídeo\" a Android Reel o TV</string>
     <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
     <string name="morphe_force_original_audio_summary_on">Usar el idioma de audio original</string>
-    <string name="morphe_force_original_audio_title">Forzar idioma de audio original</string>
+    <string name="morphe_force_original_audio_title">Forzar idioma original del audio</string>
     <string name="morphe_hide_sync_button_title">Ocultar botón \"Sincronizar con video\"</string>
     <string name="morphe_oauth2_connection_failure_auth_error">No se puede iniciar sesión en VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">No se puede iniciar sesión en VR, la autenticación del sitio web no se ha aprobado</string>
@@ -80,8 +80,8 @@ La reproducción de vídeo con AV1 se puede atascar o perder fotogramas."</strin
 
 La reproducción fallará si el hash de JavaScript del reproductor está desactualizado."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Introduzca un hash JavaScript del reproductor válido</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript del reproductor</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Introduzca un hash de JavaScript del reproductor válido</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash de JavaScript del reproductor</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Variante de JavaScript del reproductor</string>
     <string name="morphe_spoof_video_streams_screen_summary">Falsifica las transmisiones de vídeo del cliente para evitar problemas de reproducción</string>
     <string name="morphe_spoof_video_streams_screen_title">Falsificar transmisiones de vídeo</string>
@@ -125,7 +125,7 @@ Si eres un usuario de YouTube Premium, esta configuración podría no ser necesa
     <string name="morphe_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">No se muestra el menú de calidad de vídeo avanzado</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Se muestra el menú de calidad de vídeo avanzado</string>
-    <string name="revanced_advanced_video_quality_menu_title">Abrir el menú de calidad \'Avanzada\'</string>
+    <string name="revanced_advanced_video_quality_menu_title">Abrir menú de calidad avanzada</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Se utiliza el menú desplegable de estilo antiguo.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Se utiliza un cuadro de diálogo personalizado.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Tipo de menú de calidad de vídeo avanzado en Shorts</string>
@@ -532,9 +532,6 @@ Limitaciones:
     <string name="revanced_enable_swipe_to_switch_video_summary_off">Deslizar hacia arriba/abajo en modo de pantalla completa no cambiará al vídeo siguiente/anterior.</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Deslizar hacia arriba/abajo en modo de pantalla completa cambiará al vídeo siguiente/anterior.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Activar deslizamiento para cambiar de vídeo</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra de navegación es opaca.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"La barra de navegación es translúcida."</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Activar barra de navegación translúcida</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">La demora de procesamiento de \"ver siguiente\" está desactivada.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">La demora de procesamiento de \"ver siguiente\" está activada.</string>
     <string name="revanced_enable_watch_next_processing_delay_title">Activar demora de procesamiento de \"ver siguiente\"</string>
@@ -585,7 +582,7 @@ Por favor, descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Advertencia</string>
     <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
     <string name="revanced_external_downloader_other_item">Otro</string>
-    <string name="revanced_external_downloader_other_item_hint">Ingresa el nombre del paquete</string>
+    <string name="revanced_external_downloader_other_item_hint">Ingrese el nombre del paquete</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nombre del paquete del descargador de listas de reproducción</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">El nombre de paquete de tu descargador externo, como NewPipe o YTDLnis, al mantener pulsado</string>
@@ -873,7 +870,7 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_floating_microphone_title">Ocultar botón flotante del micrófono</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Se muestran anuncios a pantalla completa</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Los anuncios a pantalla completa están ocultos</string>
-    <string name="revanced_hide_fullscreen_ads_title">Ocultar anuncios en pantalla completa</string>
+    <string name="revanced_hide_fullscreen_ads_title">Ocultar anuncios a pantalla completa</string>
     <string name="revanced_hide_general_ads_summary_off">Se muestran anuncios generales</string>
     <string name="revanced_hide_general_ads_summary_on">Los anuncios generales están ocultos</string>
     <string name="revanced_hide_general_ads_title">Ocultar anuncios generales</string>
@@ -2416,7 +2413,7 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
     <string name="revanced_speed_overlay_value_title">Valor de superposición de velocidad</string>
     <string name="revanced_spoof_app_version_other_item">Otra</string>
     <string name="revanced_spoof_app_version_other_item_hint">Introduzca la versión de la app</string>
-    <string name="revanced_spoof_app_version_summary">Engaña al servidor para que piense que estás usando una versión más antigua de la aplicación para restaurar funciones de la IU heredadas</string>
+    <string name="revanced_spoof_app_version_summary">Engaña al servidor para que crea que estás usando una versión anterior de la aplicación, restaurando así funciones de la interfaz antigua</string>
     <string name="revanced_spoof_app_version_summary_off">Versión no falseada</string>
     <string name="revanced_spoof_app_version_summary_on">Versión falseada</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaurar funcionalidad de transcripción</string>
@@ -2427,7 +2424,7 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
     <string name="revanced_spoof_app_version_target_summary">Escribe la versión a falsificar de la app.</string>
     <string name="revanced_spoof_app_version_target_title">Versión a falsificar de la app</string>
     <string name="revanced_spoof_app_version_title">Falsificar versión de la app</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"La versión de la aplicación se falsificará a una versión anterior de YouTube.
+    <string name="revanced_spoof_app_version_user_dialog_message">"La versión de la aplicación se falsificará a una versión anterior.
 
 Esto cambiará la apariencia y las características de la aplicación, pero pueden producirse efectos secundarios desconocidos.
 

@@ -124,7 +124,10 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
-    <string name="revanced_advanced_video_quality_menu_title">เปิดเมนูคุณภาพ \'ขั้นสูง\'</string>
+    <string name="revanced_advanced_video_quality_menu_title">เปิดเมนูคุณภาพขั้นสูง</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_off">revanced_advanced_video_quality_menu_type_summary_on
+
+</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow ให้ภาพขนาดย่อที่รวบรวมจากฝูงชนสำหรับวิดีโอ YouTube ภาพขนาดย่อเหล่านี้มักจะเกี่ยวข้องมากกว่าภาพขนาดย่อที่ให้โดย YouTube
 
 ถ้าเปิดใช้งาน URL ของวิดีโอจะถูกส่งไปยังเซิร์ฟเวอร์ API และไม่มีข้อมูลอื่นๆ ถูกส่งไป หากวิดีโอไม่มีภาพขนาดย่อ DeArrow ภาพขนาดย่อดั้งเดิมหรือภาพนิ่งจะถูกแสดง
@@ -308,11 +311,11 @@
     <string name="revanced_exit_fullscreen_entry_3">แนวนอนเท่านั้น</string>
     <string name="revanced_exit_fullscreen_entry_4">แนวตั้งและแนวนอน</string>
     <string name="revanced_exit_fullscreen_title">ออกจากโหมดเต็มหน้าจอเมื่อวิดีโอจบ</string>
-    <string name="revanced_external_downloader_empty_warning">ชื่อแพ็คเกจต้องไม่ว่างเปล่า</string>
+    <string name="revanced_external_downloader_empty_warning">ชื่อแพ็คเกจห้ามว่าง</string>
     <string name="revanced_external_downloader_not_found_title">ไม่พบแอป</string>
     <string name="revanced_external_downloader_not_installed_warning">ไม่ได้ติดตั้ง %s โปรดติดตั้ง</string>
     <string name="revanced_external_downloader_other_item">อื่น ๆ</string>
-    <string name="revanced_external_downloader_other_item_hint">ป้อนชื่อแพ็คเกจ</string>
+    <string name="revanced_external_downloader_other_item_hint">ใส่ชื่อแพ็คเกจ</string>
     <string name="revanced_external_downloader_package_not_found_warning">"ไม่พบแอปที่ติดตั้งด้วยชื่อแพ็คเกจ: %s
 
 ตรวจสอบว่าชื่อแพ็คเกจถูกต้องและแอปได้ถูกติดตั้งแล้ว"</string>
@@ -1064,16 +1067,16 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_show_toolbar_settings_button_index_title">ตำแหน่งปุ่มการตั้งค่า</string>
     <string name="revanced_show_toolbar_settings_button_title">แสดงปุ่มการตั้งค่า</string>
     <string name="revanced_show_toolbar_settings_button_type_title">การดำเนินการปุ่มการตั้งค่า</string>
-    <string name="revanced_spoof_app_version_summary">หลอกลวงเซิร์ฟเวอร์เพื่อให้คิดว่าคุณกำลังใช้แอปเวอร์ชันเก่าเพื่อคืนค่าคุณสมบัติ UI เดิม</string>
+    <string name="revanced_spoof_app_version_summary">หลอกให้เซิร์ฟเวอร์คิดว่าคุณกำลังใช้แอปเวอร์ชันเก่าเพื่อเรียกคืนคุณสมบัติ UI แบบเดิม</string>
     <string name="revanced_spoof_app_version_summary_off">เวอร์ชันไม่ได้ปลอมแปลง</string>
     <string name="revanced_spoof_app_version_summary_on">เวอร์ชันปลอมแปลง</string>
     <string name="revanced_spoof_app_version_target_title">เป้าหมายการปลอมแปลงเวอร์ชันแอป</string>
     <string name="revanced_spoof_app_version_title">ปลอมแปลงเวอร์ชันแอป</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"เวอร์ชันแอปจะถูกปลอมแปลงเป็นเวอร์ชันเก่าของ YouTube
+    <string name="revanced_spoof_app_version_user_dialog_message">"เวอร์ชันแอปจะถูกปลอมแปลงเป็นเวอร์ชันเก่า
 
 สิ่งนี้จะเปลี่ยนรูปลักษณ์และคุณสมบัติของแอป แต่ผลข้างเคียงที่ไม่คาดคิดอาจเกิดขึ้น
 
-ถ้าปิดในภายหลัง ขอแนะนําให้ล้างข้อมูลแอปเพื่อป้องกันข้อผิดพลาดของ UI"</string>
+ถ้าปิดในภายหลัง ขอแนะนำให้ล้างข้อมูลแอปเพื่อป้องกันข้อผิดพลาดของ UI"</string>
     <string name="revanced_spoof_device_dimensions_summary">การเปิดใช้งานสิ่งนี้สามารถปลดล็อกคุณภาพวิดีโอที่สูงขึ้น</string>
     <string name="revanced_spoof_device_dimensions_title">ปลอมแปลงมิติของอุปกรณ์</string>
     <string name="revanced_swipe_brightness_summary_off">ปิดใช้งานการเลื่อนความสว่างแบบเต็มหน้าจอ</string>

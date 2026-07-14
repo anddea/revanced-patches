@@ -124,7 +124,7 @@ Se você é um usuário do YouTube Premium, esta configuração pode não ser ne
     <string name="morphe_spoof_video_streams_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">O menu de qualidade de vídeo avançado não é exibido</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">O menu de qualidade de vídeo avançado é exibido</string>
-    <string name="revanced_advanced_video_quality_menu_title">Abrir menu de qualidade \'Avançado\'</string>
+    <string name="revanced_advanced_video_quality_menu_title">Abrir menu de qualidade avançada</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">O menu flutuante antigo é usado.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">O diálogo personalizado é usado.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Tipo de menu avançado de qualidade de vídeo nos Shorts</string>
@@ -355,7 +355,7 @@ Configurações → Reprodução automática → Reprodução automática do pr�
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Ativar este recurso irá desativar a mudança automática para o YouTube Mix quando a reprodução automática estiver ativada.</string>
     <string name="revanced_disable_chapter_skip_double_tap_summary_off">O toque duplo pode ocasionalmente acionar um pulo para o capítulo seguinte/anterior</string>
     <string name="revanced_disable_chapter_skip_double_tap_summary_on">O toque duplo nunca pode acionar um pulo para o capítulo seguinte/anterior</string>
-    <string name="revanced_disable_chapter_skip_double_tap_title">Desativa o modo de busca precisa que é ativado ao pressionar e segurar uma posição de busca</string>
+    <string name="revanced_disable_chapter_skip_double_tap_title">Desativar toque duplo para pular capítulos</string>
     <string name="revanced_disable_default_playback_speed_music_off">A velocidade de reprodução padrão está ativada para música.</string>
     <string name="revanced_disable_default_playback_speed_music_on">A velocidade de reprodução padrão está desativada para música.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Desativar a velocidade de reprodução para música</string>
@@ -532,9 +532,6 @@ Limitações:
     <string name="revanced_enable_swipe_to_switch_video_summary_off">Deslizar para cima / para baixo em modo de tela cheia não alterará para o vídeo seguinte / anterior.</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Deslizar para cima / para baixo em modo de tela cheia alterará para o vídeo seguinte / anterior.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Ativar deslizar para alterar o vídeo</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">A barra de navegação está opaca.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"A barra de navegação está transparente."</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Ativar barra de navegação transparente</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Atraso de processamento do assistir ao próximo está desativado.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Atraso de processamento do assistir ao próximo está ativado.</string>
     <string name="revanced_enable_watch_next_processing_delay_title">Ativar atraso de processamento do assistir ao próximo</string>
@@ -567,10 +564,10 @@ Aba Você → Ver canal → Menu → Configurações"</string>
 Limitação: não funciona se o reprodutor estiver minimizado, no modo PiP ou em segundo plano."</string>
     <string name="revanced_enter_fullscreen_title">Entrar no modo de tela cheia quando o vídeo iniciar</string>
     <string name="revanced_exit_fullscreen_entry_1">Desativado</string>
-    <string name="revanced_exit_fullscreen_entry_2">Paisagem apenas</string>
-    <string name="revanced_exit_fullscreen_entry_3">Ambos</string>
+    <string name="revanced_exit_fullscreen_entry_2">Apenas retrato</string>
+    <string name="revanced_exit_fullscreen_entry_3">Apenas paisagem</string>
     <string name="revanced_exit_fullscreen_entry_4">Retrato e paisagem</string>
-    <string name="revanced_exit_fullscreen_title">Retrato apenas</string>
+    <string name="revanced_exit_fullscreen_title">Sair do modo de tela cheia ao final do vídeo</string>
     <string name="revanced_expand_video_description_summary_off">A descrição do vídeo é expandida manualmente.</string>
     <string name="revanced_expand_video_description_summary_on">A descrição do vídeo é expandida automaticamente.</string>
     <string name="revanced_expand_video_description_title">Expandir descrição do vídeo</string>
@@ -691,7 +688,7 @@ Informação:
     <string name="revanced_hide_attributes_section_title">Ocultar seção \"Atributos\"</string>
     <string name="revanced_hide_autoplay_preview_summary_off">A prévia de reprodução automática é exibida</string>
     <string name="revanced_hide_autoplay_preview_summary_on">A prévia de reprodução automática está oculta</string>
-    <string name="revanced_hide_autoplay_preview_title">Ocultar visualização automática</string>
+    <string name="revanced_hide_autoplay_preview_title">Ocultar pré-visualização da reprodução automática</string>
     <string name="revanced_hide_carousel_shelf_about_summary">Exemplos de prateleiras rotativas:&lt;br&gt;&lt;br&gt;&lt;b&gt; Notícias de última hora&lt;/b&gt;, &lt;b&gt;Continuar assistindo&lt;/b&gt;, &lt;b&gt;Explorar mais canais&lt;/b&gt;, &lt;b&gt;Para você&lt;/b&gt;, &lt;b&gt;Ouça novamente&lt;/b&gt;, &lt;b&gt;Mais relevante&lt;/b&gt;, &lt;b&gt;Compras&lt;/b&gt;, &lt;b&gt;Assista novamente&lt;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">Sobre a prateleira rotativa</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">Exibido no feed de iníciol e em vídeos relacionados.</string>
@@ -1109,7 +1106,7 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_player_fullscreen_button_title">Ocultar botão de tela cheia</string>
     <string name="revanced_hide_player_popup_ads_summary_off">Os anúncios pop-up do player são exibidos</string>
     <string name="revanced_hide_player_popup_ads_summary_on">Os anúncios pop-up do player estão ocultos</string>
-    <string name="revanced_hide_player_popup_ads_title">Ocultar anúncios popup do jogador</string>
+    <string name="revanced_hide_player_popup_ads_title">Ocultar anúncios pop-up no reprodutor</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Os botões serão exibidos.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Os botões estão ocultos.</string>
     <string name="revanced_hide_player_previous_next_button_title">Ocultar o botão anterior &amp; próximo</string>
@@ -1460,7 +1457,7 @@ Limitação: Os cabeçalhos oficiais nos resultados da pesquisa serão ocultados
     <string name="revanced_hide_time_stamp_title">Ocultar marcação de tempo</string>
     <string name="revanced_hide_timed_reactions_summary_off">Reações cronometradas não estão ocultas</string>
     <string name="revanced_hide_timed_reactions_summary_on">Reações cronometradas estão ocultas</string>
-    <string name="revanced_hide_timed_reactions_title">Ocultar reações cronometradas</string>
+    <string name="revanced_hide_timed_reactions_title">Ocultar reações com emojis</string>
     <string name="revanced_hide_toolbar_cast_button_summary_off">O botão de transmissão será exibido.</string>
     <string name="revanced_hide_toolbar_cast_button_summary_on">O botão de transmissão está oculto.</string>
     <string name="revanced_hide_toolbar_cast_button_title">Ocultar botão Transmitir</string>
@@ -2428,10 +2425,10 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configura a porcentagem de altura do espaço vazio esquerdo quando a barra de navegação está oculta, entre 0 e 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Porcentagem de altura do espaço vazio</string>
     <string name="revanced_shorts_player_type_regular_player">Player regular</string>
-    <string name="revanced_shorts_player_type_regular_player_fullscreen">Tela cheia do player regular</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Tela cheia no player padrão</string>
     <string name="revanced_shorts_player_type_shorts">Reprodutor do Shorts</string>
     <string name="revanced_shorts_player_type_title">Abrir Shorts com</string>
-    <string name="revanced_show_settings_button_index_title">Ocultar rodapé do menu \'Legendas\'</string>
+    <string name="revanced_show_settings_button_index_title">Posição do botão de configurações</string>
     <string name="revanced_show_settings_button_summary_off">O botão de configurações não é exibido.</string>
     <string name="revanced_show_settings_button_summary_on">O botão de configurações é exibido.</string>
     <string name="revanced_show_settings_button_title">Ocultar menu \'Legendas\'</string>
@@ -2469,9 +2466,9 @@ Limitação: Título do vídeo desaparece quando clicado."</string>
     <string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
     <string name="revanced_spoof_app_version_target_title">Versão alvo da falsificação </string>
     <string name="revanced_spoof_app_version_title">Falsificar versão do aplicativo</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"A versão do aplicativo será falsificada para uma versão mais antiga do YouTube.
+    <string name="revanced_spoof_app_version_user_dialog_message">"A versão do aplicativo será falsificada para uma versão mais antiga.
 
-Isso mudará a aparência e os recursos do aplicativo, mas podem ocorrer efeitos colaterais desconhecidos. 
+Isso mudará a aparência e os recursos do aplicativo, mas podem ocorrer efeitos colaterais desconhecidos.
 
 Se posteriormente desativado, é recomendável limpar os dados do aplicativo para evitar bugs na IU."</string>
     <string name="revanced_spoof_device_dimensions_summary">"Falsifica as dimensões do dispositivo para o valor máximo.

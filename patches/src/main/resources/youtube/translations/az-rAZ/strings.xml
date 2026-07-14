@@ -122,26 +122,26 @@ Oynatma işləməyə bilər"</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Qabaqcıl video keyfiyyət siyahısı göstərilmir</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Qabaqcıl video keyfiyyət siyahısı göstərilir</string>
     <string name="revanced_advanced_video_quality_menu_title">Qabaqcıl video keyfiyyət siyahısın göstər</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube videoları üçün çox mənbəli miniatürlər təqdim edir. Bu miniatürlər YouTube tərəfindən təqdim edilənlərdən dəfələrlə daha uyğundur.
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları üçün kütləvi mənbəli miniatürlər təmin edir. Bu miniatürlər çox vaxt YouTube tərəfindən təmin edilənlərdən daha uyğundur
 
-Aktivləşdirilərsə, video URL-lər API alıcısına göndəriləcək və başqa məlumat göndərilməyəcək. Videonun DeArrow miniatürləri yoxdursa, orijinal və ya hələ də çəkilişlər göstərilir.
+Aktivləşdirildikdə, video URL-ləri API serverinə göndəriləcək və başqa heç bir məlumat göndərilməyəcək. Əgər videonun DeArrow miniatürləri yoxdursa, orijinal və ya kadr çəkilişləri görünür
 
-DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
+DeArrow.ajay.app 'i açmaq üçün buraya toxun"</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow miniatür keşinin son əlaqəsinin URL-si</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API\'nin sonuncu əlaqəsi</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow əlçatan deyilsə bildiriş göstərilmir</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow əlçatan deyilsə bildiriş göstərilir</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API əlçatan deyilsə ani bildiriş göstər</string>
+    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Bağlantı xətası xəbərdarlıqlarını göstər</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow müvəqqəti mövcud deyil (status kodu: %s) </string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow müvəqqəti olaraq mövcud deyil</string>
-    <string name="revanced_alt_thumbnail_home_title">Ev paneli</string>
-    <string name="revanced_alt_thumbnail_library_title">\"Siz\" paneli</string>
+    <string name="revanced_alt_thumbnail_home_title">Ev tabeli üçün</string>
+    <string name="revanced_alt_thumbnail_library_title">Siz tabeli üçün</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Orijinal miniatürlər</string>
     <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Orijinal miniatürlər</string>
     <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Kadr çəkilişlər</string>
     <string name="revanced_alt_thumbnail_options_entry_4">Kadr çəkilişləri</string>
-    <string name="revanced_alt_thumbnail_player_title">Oynadıcı pleylistləri &amp; tövsiyələri</string>
-    <string name="revanced_alt_thumbnail_search_title">Axtarış nəticələri</string>
+    <string name="revanced_alt_thumbnail_player_title">Oynadıcı pleylistləri &amp; tövsiyələri üçün</string>
+    <string name="revanced_alt_thumbnail_search_title">Axtarış nəticələri üçün</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Durğun kadrlar, hər videonun əvvəlindən/ortasından/sonundan götürülür. Bu təsvirlər YouTube-da qurulu gəlir və xarici API istifadə edilmir</string>
     <string name="revanced_alt_thumbnail_stills_about_title">Statik video kadrları</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Yüksək keyfiyyətli durğun kadrlar istifadə edilir</string>
@@ -150,7 +150,7 @@ DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Başlanğıc</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Orta</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Bitmə</string>
-    <string name="revanced_alt_thumbnail_stills_time_title">Durğun kadrın götürüləcəyi video müddəti</string>
+    <string name="revanced_alt_thumbnail_stills_time_title">Video kadrını buradan çıxar</string>
     <string name="revanced_auto_captions_style_entry_1">Həmişə göstər</string>
     <string name="revanced_auto_captions_style_entry_2">Heç vaxt göstərilmir</string>
     <string name="revanced_auto_captions_style_entry_3">Səsli olduqda göstər</string>
@@ -169,15 +169,21 @@ Bunu aktivləşdirmə, bəzi regionlarda əngəllənib silinən şəkilləri dü
     <string name="revanced_change_form_factor_entry_2">Telefon</string>
     <string name="revanced_change_form_factor_entry_3">Planşet</string>
     <string name="revanced_change_form_factor_entry_4">Avtomobil</string>
-    <string name="revanced_change_form_factor_title">Tərtibat forma göstəricisi</string>
+    <string name="revanced_change_form_factor_title">Cihaz tərtibatı</string>
     <string name="revanced_change_form_factor_user_dialog_message">"Dəyişikliklər ehtiva edir:
 
 Planşet tərtibatı
-• İcma elanları gizlədilib
+• İcma postları gizlədilir
+• Axınlarda oynatma seçimi mövcud deyil
+• Shorts-da Remiks düyməsi və Səs düyməsi mövcud deyil
+• Yığılmamış köhnə video fəaliyyət cizgisi göstərilir
 
 Avtomobil tərtibatı
+• Axın mövzular və kanallara görə qruplaşdırılır
+• Axınlarda oynatma seçimi mövcud deyil
+• Shorts-da Remiks düyməsi və Səs düyməsi mövcud deyil
 • Shorts müntəzəm oynadıcıda açılır
-• Axın mövzular və kanallardan ibarətdir"</string>
+• Yığılmamış köhnə video fəaliyyət cizgisi göstərilir"</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">Bütün abunəliklər</string>
     <string name="revanced_change_start_page_entry_browse">Kanallara nəzər yetir</string>
     <string name="revanced_change_start_page_entry_courses">Kurslar / Öyrənmə</string>
@@ -686,6 +692,8 @@ Ortada böyük hərflər olan sözlər tam uyğunlaşmalıdır (məsələn: iPho
     <string name="revanced_hide_youtube_doodles_user_dialog_message">YouTube Doodles-ların görünməsi fərdi sərlövhələrin görünməsinin qarşısını ala bilər.</string>
     <string name="revanced_language_DEFAULT">Tətbiq dili</string>
     <string name="revanced_language_title">ReVanced dili</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Üfüqi sürükləmə ilə oynatmanı dayandır</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Sürükləmə vəziyyəti mövqeyini xatırla</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə yoxdur</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Ölçüsün dəyişmək üçün cüt kliklə və çimdiklə
 
@@ -732,7 +740,7 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_miniplayer_type_entry_7">Müasir 4</string>
     <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Piksel ölçüsü, %1$s - %2$s arası olmalıdır</string>
-    <string name="revanced_miniplayer_width_dip_summary">Piksel olaraq ekranda ilkin ölçü</string>
+    <string name="revanced_miniplayer_width_dip_summary">​Ekrandakı başlanğıc ölçüsünü piksel olaraq təyin et</string>
     <string name="revanced_miniplayer_width_dip_title">İlkin ölçü</string>
     <string name="revanced_navigation_bar_animations_summary">Tabellər arasında keçərkən keçidləri canlandırır</string>
     <string name="revanced_navigation_bar_animations_title">Naviqasiya paneli animasiyalarını aktivləşdirin</string>
@@ -784,10 +792,16 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Axtarış cizgisi miniatürləri axtarış çubuğu üstündə görünəcək</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Köhnə irəliləmə cizgi miniatürün al</string>
     <string name="revanced_restore_old_settings_menus_title">Köhnə YouTube ayarları görünüşün bərpa et</string>
-    <string name="revanced_ryd_attribution_summary">Məlumat Return YouTube Dislike API vasitəsilə alınır. Ətraflı öyrənmək üçün bura toxun</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Bəyənməmələrin görünməməsini və video fəaliyyət düymələrinin gizlədilə bilməməsini düzəldir
+
+Məhdudiyyət: \"Daha çox video\" örtüyünü köhnə üsluba qaytarır"</string>
+    <string name="revanced_restore_old_video_action_bar_title">Köhnə video fəaliyyət cizgisin bərpa et</string>
+    <string name="revanced_ryd_attribution_summary">"Məlumat Return YouTube Dislike API tərəfindən təmin olunur
+
+ReturnYouTubeDislike.com 'u açmaq üçün buraya toxun"</string>
     <string name="revanced_ryd_compact_layout_summary_off">Ən yaxşı görünüş üçün tərtib edilmiş Bəyən düyməsi</string>
     <string name="revanced_ryd_compact_layout_summary_on">Daha kiçik en üçün hazırlanmış Bəyən düyməsi</string>
-    <string name="revanced_ryd_compact_layout_title">Yığcam Bəyən Düyməsi</string>
+    <string name="revanced_ryd_compact_layout_title">Yığcam Bəyənmə düyməsini istifadə et</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Bəyənməmələr nömrə kimi göstərilir</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Bəyənməmələr faiz kimi göstərilir</string>
     <string name="revanced_ryd_dislike_percentage_title">Bəyənməmələri faiz nisbəti olaraq göstər</string>
@@ -800,7 +814,7 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_ryd_failure_generic">Bəyənməmə əlçatmazdır (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstərmə</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstər</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">API əlçatan deyilsə ani bildiriş göstər</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Bağlantı xətası xəbərdarlıqlarını göstər</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sahib tərəfindən gizlədilib</string>
     <string name="revanced_sanitize_comments_category_bar_title">Kateqoriya tabelin təmizlə</string>
     <string name="revanced_sanitize_video_subtitle_title">Video titrin təmizlə</string>
@@ -1037,7 +1051,9 @@ Artıq mövcuddur"</string>
     <string name="revanced_settings_search_tips_title">Axtarış Tövsiyələri</string>
     <string name="revanced_share_copy_url_success">URL buferə köçürüldü</string>
     <string name="revanced_share_copy_url_timestamp_success">Vaxt möhürlü URL köçürüldü</string>
-    <string name="revanced_shorts_autoplay_background_title">Shorts-ları arxa planda avto-oynat</string>
+    <string name="revanced_shorts_autoplay_background_summary">Fonda səsləndirmə ərzində avtomatik olaraq növbəti Shorts-a keçir</string>
+    <string name="revanced_shorts_autoplay_background_title">Fonda avtomatik oynatma</string>
+    <string name="revanced_shorts_autoplay_summary">Hazırkın təkrarlamaq əvəzinə, avtomatik olaraq növbəti Shorts-a keçir</string>
     <string name="revanced_shorts_autoplay_title">Shorts-ları avto-oynatma</string>
     <string name="revanced_shorts_player_type_regular_player">Müntəzəm oynadıcı</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Müntəzəm oynadıcı tam ekran</string>
@@ -1049,15 +1065,17 @@ Artıq mövcuddur"</string>
     <string name="revanced_show_toolbar_settings_button_index_title">Ayarlar düyməsi mövqeyi</string>
     <string name="revanced_show_toolbar_settings_button_title">Ayarlar düyməsini göstər</string>
     <string name="revanced_show_toolbar_settings_button_type_title">Ayarlar düyməsi fəaliyyəti</string>
+    <string name="revanced_spoof_app_version_summary">Köhnə UI xüsusiyyətlərini qaytarmaq üçün serveri daha köhnə tətbiq versiyasını istifadə etdiyinizi düşünməyə inandırır</string>
     <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>
     <string name="revanced_spoof_app_version_summary_on">Versiya saxtalaşdırıldı</string>
     <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
     <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Tətbiq versiyası köhnə YouTube versiyasına saxtalaşdırılacaq.
+    <string name="revanced_spoof_app_version_user_dialog_message">"Tətbiq versiyası köhnə versiyaya saxtalaşdırılacaq.
 
 Bu tətbiqin görünüşün və xüsusiyyətlərin dəyişdirəcək, lakin bilinməyən yan təsirlər ola bilər.
 
 Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların silmək tövsiyə olunur."</string>
+    <string name="revanced_spoof_device_dimensions_summary">Bunun aktiv edilməsi daha yüksək video keyfiyyətlərinin kilidini aça bilər</string>
     <string name="revanced_spoof_device_dimensions_title">Cihaz ölçülərini saxtalaşdır</string>
     <string name="revanced_swipe_brightness_summary_off">Tam ekran parlaqlıq sürüşdürməsi qapalıdır</string>
     <string name="revanced_swipe_brightness_summary_on">"Tam ekran parlaqlıq sürüşdürməsi aktivdir
