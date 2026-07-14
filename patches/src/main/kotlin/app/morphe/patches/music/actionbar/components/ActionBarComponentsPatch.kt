@@ -61,6 +61,7 @@ import app.morphe.patches.music.utils.patch.PatchList.HIDE_ACTION_BAR_COMPONENTS
 import app.morphe.patches.music.utils.playservice.is_7_17_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_33_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_00_or_greater
 import app.morphe.patches.music.utils.playservice.is_9_15_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.elementsLottieAnimationViewTagId
@@ -78,10 +79,10 @@ import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
+import app.morphe.util.findFieldFromToString
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.findFieldFromToString
 import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -103,9 +104,9 @@ import kotlin.math.min
 private const val FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/ActionButtonsFilter;"
 private const val EXTENSION_BUTTON_PROTO_INTERFACE =
-    "Lapp/morphe/extension/music/patches/components/ActionButtonsFilter\$ButtonProtoBufferInterface;"
+    $$"Lapp/morphe/extension/music/patches/components/ActionButtonsFilter$ButtonProtoBufferInterface;"
 private const val EXTENSION_LITHO_CONTAINER_INTERFACE =
-    "Lapp/morphe/extension/music/patches/components/ActionButtonsFilter\$LithoGetBufferContainerInterface;"
+    $$"Lapp/morphe/extension/music/patches/components/ActionButtonsFilter$LithoGetBufferContainerInterface;"
 
 @Suppress("unused")
 val actionBarComponentsPatch = bytecodePatch(
@@ -164,7 +165,7 @@ val actionBarComponentsPatch = bytecodePatch(
                                 } == true
                     }.name
                 val conversionContextType = parameters[1].type
-                val elementType = parameters[2].type.toString()
+                val elementType = parameters[2].type
 
                 val listIndex = implementation!!.instructions.lastIndex
                 val listRegister = getInstruction<OneRegisterInstruction>(listIndex).registerA
@@ -485,6 +486,13 @@ val actionBarComponentsPatch = bytecodePatch(
             "revanced_hide_action_button_add_to_playlist",
             "false"
         )
+        if (is_9_00_or_greater) {
+            addSwitchPreference(
+                CategoryType.ACTION_BAR,
+                "revanced_hide_action_button_details",
+                "false"
+            )
+        }
         addSwitchPreference(
             CategoryType.ACTION_BAR,
             "revanced_hide_action_button_share",
@@ -500,6 +508,13 @@ val actionBarComponentsPatch = bytecodePatch(
             "revanced_hide_action_button_radio",
             "false"
         )
+        if (is_9_00_or_greater) {
+            addSwitchPreference(
+                CategoryType.ACTION_BAR,
+                "revanced_hide_action_button_live_chat_replay",
+                "false"
+            )
+        }
         if (is_7_33_or_greater) {
             addSwitchPreference(
                 CategoryType.ACTION_BAR,

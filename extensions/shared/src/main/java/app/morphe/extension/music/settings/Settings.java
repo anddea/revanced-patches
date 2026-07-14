@@ -46,6 +46,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting CHANGE_ACTION_BAR_POSITION = new BooleanSetting("revanced_change_action_bar_position", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_LIKE_DISLIKE = new BooleanSetting("revanced_hide_action_button_like_dislike", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_COMMENT = new BooleanSetting("revanced_hide_action_button_comment", FALSE, true);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_LIVE_CHAT_REPLAY = new BooleanSetting("revanced_hide_action_button_live_chat_replay", FALSE, true);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_DETAILS = new BooleanSetting("revanced_hide_action_button_details", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_ADD_TO_PLAYLIST = new BooleanSetting("revanced_hide_action_button_add_to_playlist", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_DOWNLOAD = new BooleanSetting("revanced_hide_action_button_download", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_LYRICS = new BooleanSetting("revanced_hide_action_button_lyrics", FALSE, true);

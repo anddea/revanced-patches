@@ -78,6 +78,8 @@ public final class ActionButtonsFilter extends Filter {
         LIKE_DISLIKE(Settings.HIDE_ACTION_BUTTON_LIKE_DISLIKE),
         DOWNLOAD(Settings.HIDE_ACTION_BUTTON_DOWNLOAD),
         COMMENTS(Settings.HIDE_ACTION_BUTTON_COMMENT),
+        LIVE_CHAT_REPLAY(Settings.HIDE_ACTION_BUTTON_LIVE_CHAT_REPLAY),
+        DETAILS(Settings.HIDE_ACTION_BUTTON_DETAILS),
         LYRICS(Settings.HIDE_ACTION_BUTTON_LYRICS),
         SHARE(Settings.HIDE_ACTION_BUTTON_SHARE),
         RADIO(Settings.HIDE_ACTION_BUTTON_RADIO),
@@ -100,6 +102,8 @@ public final class ActionButtonsFilter extends Filter {
     private static final String MUSIC_DOWNLOAD_MARKER = "music_download_button";
     private static final String DOWNLOAD_PROTO_MARKER = "offlinelist";
     private static final String COMMENTS_MARKER = "music-comment-panel";
+    private static final String LIVE_CHAT_REPLAY_MARKER = "live-chat-item-section";
+    private static final String DETAILS_MARKER = "video-description-ep-identifier";
     private static final String LYRICS_MARKER = "music_watch_lyrics_panel";
     private static final String SHARE_MARKER = "timestamp_share_switch_button_entity_key";
     private static final String RADIO_MARKER = "RDAMVM";
@@ -164,6 +168,16 @@ public final class ActionButtonsFilter extends Filter {
                         Settings.HIDE_ACTION_BUTTON_COMMENT,
                         "yt_outline_experimental_text_bubble_vd_theme_24",
                         "yt_outline_message_bubble"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_ACTION_BUTTON_LIVE_CHAT_REPLAY,
+                        "yt_outline_experimental_bubble_stack_vd_theme_24",
+                        LIVE_CHAT_REPLAY_MARKER
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_ACTION_BUTTON_DETAILS,
+                        "yt_outline_experimental_text_align_left_vd_theme_24",
+                        DETAILS_MARKER
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_ACTION_BUTTON_ADD_TO_PLAYLIST,
@@ -674,6 +688,8 @@ public final class ActionButtonsFilter extends Filter {
             return ActionButton.DOWNLOAD;
         }
         if (contents.contains(COMMENTS_MARKER)) return ActionButton.COMMENTS;
+        if (contents.contains(LIVE_CHAT_REPLAY_MARKER)) return ActionButton.LIVE_CHAT_REPLAY;
+        if (contents.contains(DETAILS_MARKER)) return ActionButton.DETAILS;
         if (contents.contains(LYRICS_MARKER)) return ActionButton.LYRICS;
         if (contents.contains(SHARE_MARKER)) return ActionButton.SHARE;
         if (contents.contains(RADIO_MARKER)) return ActionButton.RADIO;
@@ -715,7 +731,11 @@ public final class ActionButtonsFilter extends Filter {
                 return false;
             }
             String contents = new String(buffer, StandardCharsets.ISO_8859_1);
-            if (contents.contains(COMMENTS_MARKER)) {
+            if (contents.contains(LIVE_CHAT_REPLAY_MARKER)) {
+                return Settings.HIDE_ACTION_BUTTON_LIVE_CHAT_REPLAY.get();
+            } else if (contents.contains(DETAILS_MARKER)) {
+                return Settings.HIDE_ACTION_BUTTON_DETAILS.get();
+            } else if (contents.contains(COMMENTS_MARKER)) {
                 return Settings.HIDE_ACTION_BUTTON_COMMENT.get();
             } else if (contents.contains(LYRICS_MARKER)) {
                 return Settings.HIDE_ACTION_BUTTON_LYRICS.get();
