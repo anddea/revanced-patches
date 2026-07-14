@@ -49,6 +49,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.preference.Preference;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.text.InputType;
 import android.util.Pair;
@@ -139,11 +140,11 @@ public class YouTubeMusicPreferenceFragment extends ToolbarPreferenceFragment {
         return preferenceScreen;
     }
 
-    protected void installPreferenceIntentHandlers(PreferenceScreen parentScreen) {
-        for (int i = 0, count = parentScreen.getPreferenceCount(); i < count; i++) {
-            Preference childPreference = parentScreen.getPreference(i);
-            if (childPreference instanceof PreferenceScreen screen) {
-                installPreferenceIntentHandlers(screen);
+    protected void installPreferenceIntentHandlers(PreferenceGroup parentGroup) {
+        for (int i = 0, count = parentGroup.getPreferenceCount(); i < count; i++) {
+            Preference childPreference = parentGroup.getPreference(i);
+            if (childPreference instanceof PreferenceGroup group) {
+                installPreferenceIntentHandlers(group);
                 continue;
             }
 
