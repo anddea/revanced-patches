@@ -22,16 +22,16 @@ import static app.morphe.extension.shared.utils.StringRef.sf;
 
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.text.Html;
-import android.text.Spanned;
 import android.text.TextUtils;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -128,9 +128,9 @@ public enum SegmentCategory {
     @NonNull
     public final String keyValue;
     @NonNull
-    private final StringSetting behaviorSetting;
+    public final StringSetting behaviorSetting;
     @NonNull
-    private final StringSetting colorSetting;
+    public final StringSetting colorSetting;
 
     @NonNull
     public final StringRef title;
@@ -172,9 +172,11 @@ public enum SegmentCategory {
     public final Paint paint;
 
     /**
-     * Value must be changed using {@link #setColor(String)}.
+     * Category color with opacity applied. Value must be changed using
+     * {@link #setColorWithOpacity(String)}.
      */
-    public int color;
+    @ColorInt
+    private int color;
 
     /**
      * Value must be changed using {@link #setBehaviour(CategoryBehaviour)}.
@@ -225,7 +227,7 @@ public enum SegmentCategory {
 
         String colorString = colorSetting.get();
         try {
-            setColor(colorString);
+            setColorWithOpacity(colorString);
         } catch (Exception ex) {
             Logger.printException(() -> "Invalid color: " + colorString, ex);
             colorSetting.resetToDefault();
@@ -239,42 +241,30 @@ public enum SegmentCategory {
     }
 
     /**
-     * @return HTML color format string
+     * Sets the category color from a #AARRGGBB color string. Six-digit legacy values are
+     * accepted by {@link Color#parseColor(String)} and saved in the new eight-digit format.
      */
-    @NonNull
-    public String colorString() {
-        return String.format("#%06X", color);
-    }
-
-    public void setColor(@NonNull String colorString) throws IllegalArgumentException {
-        final int color = Color.parseColor(colorString) & 0xFFFFFF;
-        this.color = color;
+    public void setColorWithOpacity(@NonNull String colorString) throws IllegalArgumentException {
+        final int colorWithOpacity = Color.parseColor(colorString);
+        colorSetting.save(String.format(Locale.US, "#%08X", colorWithOpacity));
+        color = colorWithOpacity;
         paint.setColor(color);
-        paint.setAlpha(255);
-        colorSetting.save(colorString); // Save after parsing.
-    }
-
-    public void resetColor() {
-        setColor(colorSetting.defaultValue);
-    }
-
-    @NonNull
-    private static String getCategoryColorDotHTML(int color) {
-        color &= 0xFFFFFF;
-        return String.format("<font color=\"#%06X\">⬤</font>", color);
     }
 
     /**
-     * @noinspection deprecation
+     * @return The default category color with opacity applied.
      */
-    @NonNull
-    public static Spanned getCategoryColorDot(int color) {
-        return Html.fromHtml(getCategoryColorDotHTML(color));
+    @ColorInt
+    public int getDefaultColorWithOpacity() {
+        return Color.parseColor(colorSetting.defaultValue);
     }
 
+    /**
+     * @return The category color as a #AARRGGBB string for the color picker.
+     */
     @NonNull
-    public Spanned getCategoryColorDot() {
-        return getCategoryColorDot(color);
+    public String getColorStringWithOpacity() {
+        return String.format(Locale.US, "#%08X", color);
     }
 
     /**

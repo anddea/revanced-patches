@@ -14,7 +14,6 @@ import static app.morphe.extension.music.settings.Settings.ENABLE_CUSTOM_NAVIGAT
 import static app.morphe.extension.music.settings.Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME;
 import static app.morphe.extension.music.settings.Settings.HIDE_ACCOUNT_MENU_FILTER_STRINGS;
 import static app.morphe.extension.music.settings.Settings.OPEN_DEFAULT_APP_SETTINGS;
-import static app.morphe.extension.music.settings.Settings.OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX;
 import static app.morphe.extension.music.settings.Settings.REPLACE_NAVIGATION_BUTTON_ABOUT;
 import static app.morphe.extension.music.settings.Settings.RETURN_YOUTUBE_USERNAME_ABOUT;
 import static app.morphe.extension.music.settings.Settings.SB_API_URL;
@@ -150,10 +149,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             if (baseActivity == null || mActivity == null || dataString == null || dataString.isEmpty())
                 return false;
 
-            if (dataString.startsWith(OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX)) {
-                SponsorBlockCategoryPreference.showDialog(baseActivity, dataString.replaceAll(OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX, ""));
-                return true;
-            } else if (dataString.equals(OPEN_DEFAULT_APP_SETTINGS)) {
+            if (dataString.equals(OPEN_DEFAULT_APP_SETTINGS)) {
                 openDefaultAppSetting(baseActivity);
                 return true;
             }
