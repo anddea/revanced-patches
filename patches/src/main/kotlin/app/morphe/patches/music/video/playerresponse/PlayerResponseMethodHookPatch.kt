@@ -41,6 +41,7 @@
 
 package app.morphe.patches.music.video.playerresponse
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
@@ -49,7 +50,6 @@ import app.morphe.patches.music.utils.extension.sharedExtensionPatch
 import app.morphe.patches.music.utils.playservice.is_7_03_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
-import app.morphe.util.fingerprint.methodOrThrow
 
 private val hooks = mutableSetOf<Hook>()
 
@@ -74,18 +74,17 @@ val playerResponseMethodHookPatch = bytecodePatch(
     )
 
     execute {
-        if (is_8_51_or_greater) return@execute
-
-        playerResponseMethod = if (is_7_03_or_greater) {
-            playerParameterBuilderFingerprint
+        val fingerprint: Fingerprint = if (is_8_51_or_greater) {
+            ModernPlayerParameterBuilderFingerprint
+        } else if (is_7_03_or_greater) {
+            PlayerParameterBuilderFingerprint
         } else {
-            playerParameterBuilderLegacyFingerprint
-        }.methodOrThrow()
+            PlayerParameterBuilderLegacyFingerprint
+        }
+        playerResponseMethod = fingerprint.method
     }
 
     finalize {
-        if (is_8_51_or_greater) return@finalize
-
         fun hookVideoId(hook: Hook) {
             playerResponseMethod.addInstruction(
                 0,

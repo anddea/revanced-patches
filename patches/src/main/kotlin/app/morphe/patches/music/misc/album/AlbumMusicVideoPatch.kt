@@ -48,8 +48,6 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.MISC_PATH
 import app.morphe.patches.music.utils.patch.PatchList.DISABLE_MUSIC_VIDEO_IN_ALBUM
-import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
-import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -61,7 +59,6 @@ import app.morphe.patches.music.video.information.videoInformationPatch
 import app.morphe.patches.music.video.playerresponse.Hook
 import app.morphe.patches.music.video.playerresponse.addPlayerResponseMethodHook
 import app.morphe.patches.music.video.playerresponse.playerResponseMethodHookPatch
-import app.morphe.util.Utils.printWarn
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -85,18 +82,11 @@ val albumMusicVideoPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         sharedResourceIdPatch,
-        versionCheckPatch,
         videoInformationPatch,
         playerResponseMethodHookPatch,
     )
 
     execute {
-
-        if (is_8_51_or_greater) {
-            printWarn("\"${DISABLE_MUSIC_VIDEO_IN_ALBUM.title}\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
-            return@execute
-        }
-
         // region hook player response
 
         addPlayerResponseMethodHook(
