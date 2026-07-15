@@ -95,7 +95,7 @@ import app.morphe.patches.music.utils.resourceid.topEnd
 import app.morphe.patches.music.utils.resourceid.topStart
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
-import app.morphe.patches.music.utils.settings.addTextPreference
+import app.morphe.patches.music.utils.settings.addCustomPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.music.utils.videotype.videoTypeHookPatch
@@ -152,6 +152,20 @@ private const val NEXT_BUTTON_VIEW_ID =
     "mini_player_next_button"
 private const val PREVIOUS_BUTTON_VIEW_ID =
     "mini_player_previous_button"
+private const val COLOR_PICKER_PREFERENCE_TAG =
+    "app.morphe.extension.shared.settings.preference.ColorPickerPreference"
+
+private fun MutableMethod.hookPlayerBackgroundColor() {
+    val index = indexOfFirstInstructionOrThrow(Opcode.FILLED_NEW_ARRAY)
+    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+    addInstructions(
+        index + 2, """
+            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->changePlayerBackgroundColor([I)[I
+            move-result-object v$register
+            """
+    )
+}
 
 private val playerComponentsResourcePatch = resourcePatch(
     description = "playerComponentsResourcePatch"
@@ -521,17 +535,7 @@ val playerComponentsPatch = bytecodePatch(
                     // black player background
                     val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
 
-                    getWalkerMethod(invokeDirectIndex).apply {
-                        val index = indexOfFirstInstructionOrThrow(Opcode.FILLED_NEW_ARRAY)
-                        val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
-
-                        addInstructions(
-                            index + 2, """
-                                invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->changePlayerBackgroundColor([I)[I
-                                move-result-object v$register
-                                """
-                        )
-                    }
+                    getWalkerMethod(invokeDirectIndex).hookPlayerBackgroundColor()
 
                     Triple(
                         parameters,
@@ -621,6 +625,10 @@ val playerComponentsPatch = bytecodePatch(
                     removeInstruction(invokeDirectIndex)
                 }
             }
+
+            if (is_9_15_or_greater) {
+                ModernPlayerBackgroundFingerprint.method.hookPlayerBackgroundColor()
+            }
         }
 
         addSwitchPreference(
@@ -628,25 +636,23 @@ val playerComponentsPatch = bytecodePatch(
             "revanced_change_miniplayer_color",
             "true"
         )
-        if (!is_8_51_or_greater) {
-            addSwitchPreference(
-                CategoryType.PLAYER,
-                "revanced_change_player_background_color",
-                "false"
-            )
-            addTextPreference(
-                CategoryType.PLAYER,
-                "revanced_custom_player_background_color_primary",
-                "revanced_change_player_background_color"
-            )
-            addTextPreference(
-                CategoryType.PLAYER,
-                "revanced_custom_player_background_color_secondary",
-                "revanced_change_player_background_color"
-            )
-        } else {
-            printWarn("\"Change player background color\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
-        }
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_change_player_background_color",
+            "false"
+        )
+        addCustomPreference(
+            CategoryType.PLAYER,
+            "revanced_custom_player_background_color_primary",
+            COLOR_PICKER_PREFERENCE_TAG,
+            "revanced_change_player_background_color"
+        )
+        addCustomPreference(
+            CategoryType.PLAYER,
+            "revanced_custom_player_background_color_secondary",
+            COLOR_PICKER_PREFERENCE_TAG,
+            "revanced_change_player_background_color"
+        )
 
         // endregion
 

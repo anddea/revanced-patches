@@ -81,6 +81,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import app.morphe.patcher.methodCall as patcherMethodCall
 
 const val AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY =
     "/AudioVideoSwitcherToggleView;->setVisibility(I)V"
@@ -559,5 +560,27 @@ internal val zenModeFingerprint = legacyFingerprint(
         Opcode.GOTO,
         Opcode.NOP,
         Opcode.SGET_OBJECT
+    )
+)
+
+internal object ModernPlayerBackgroundFingerprint : Fingerprint(
+    classFingerprint = ModernMiniPlayerConstructorFingerprint,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("I", "I", "J"),
+    filters = listOf(
+        opcode(Opcode.FILLED_NEW_ARRAY),
+        patcherMethodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "setImageTintList",
+            parameters = listOf("Landroid/content/res/ColorStateList;"),
+            returnType = "V"
+        ),
+        patcherMethodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "setBackground",
+            parameters = listOf("Landroid/graphics/drawable/Drawable;"),
+            returnType = "V"
+        )
     )
 )
