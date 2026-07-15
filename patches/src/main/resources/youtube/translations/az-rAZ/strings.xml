@@ -121,7 +121,7 @@ Oynatma işləməyə bilər"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu tənzimləməni qapatmaq oynatma problemlərinə səbəb ola bilər.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Qabaqcıl video keyfiyyət siyahısı göstərilmir</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Qabaqcıl video keyfiyyət siyahısı göstərilir</string>
-    <string name="revanced_advanced_video_quality_menu_title">Qabaqcıl video keyfiyyət siyahısın göstər</string>
+    <string name="revanced_advanced_video_quality_menu_title">Təkmil keyfiyyət menyusunu aç</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları üçün kütləvi mənbəli miniatürlər təmin edir. Bu miniatürlər çox vaxt YouTube tərəfindən təmin edilənlərdən daha uyğundur
 
 Aktivləşdirildikdə, video URL-ləri API serverinə göndəriləcək və başqa heç bir məlumat göndərilməyəcək. Əgər videonun DeArrow miniatürləri yoxdursa, orijinal və ya kadr çəkilişləri görünür
@@ -201,7 +201,7 @@ Avtomobil tərtibatı
     <string name="revanced_change_start_page_entry_notifications">Bildirişlər</string>
     <string name="revanced_change_start_page_entry_playlists">Pleylistlər</string>
     <string name="revanced_change_start_page_entry_search">Axtarış</string>
-    <string name="revanced_change_start_page_entry_shopping">Mağaza</string>
+    <string name="revanced_change_start_page_entry_shopping">Alış-veriş</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">İdman</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abunəliklər</string>
@@ -216,9 +216,9 @@ Avtomobil tərtibatı
     <string name="revanced_custom_filter_summary_on">Fərdi filtr aktivdir</string>
     <string name="revanced_custom_filter_title">Fərdi filtri aktivləşdir</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Etibarsız fərdi filtr: %s</string>
-    <string name="revanced_custom_playback_speeds_invalid">Fərdi sürətlər %s dəyərindən az olmalıdır</string>
+    <string name="revanced_custom_playback_speeds_invalid">Fərdi oynatma sürətləri %s dəyərindən az olmalıdır</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Fərdi oynatma sürətləri etibarsızdır</string>
-    <string name="revanced_custom_playback_speeds_summary">Fərdi oynatma sürətlərini əlavə et və ya dəyiş</string>
+    <string name="revanced_custom_playback_speeds_summary">Üstünlük verdiyiniz oynatma sürəti seçimini qeyd edin</string>
     <string name="revanced_custom_playback_speeds_title">Fərdi oynatma sürəti</string>
     <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced sazlama qeydlərini buferə köçürür</string>
     <string name="revanced_debug_export_logs_to_clipboard_title">Sazlama qeydlərini ixrac edin</string>
@@ -253,13 +253,13 @@ Avtomobil tərtibatı
     <string name="revanced_disable_haptic_feedback_chapters_title">Fəsillər reaksiyasın qapat</string>
     <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Dəqiq axtarış reaksiyası aktivdir</string>
     <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Dəqiq axtarış reaksiyası qapalıdır</string>
-    <string name="revanced_disable_haptic_feedback_precise_seeking_title">Dəqiq irəli-geri çəkmə toxunuş hissin qapat</string>
+    <string name="revanced_disable_haptic_feedback_precise_seeking_title">Dəqiq axtarış toxunuş hissin qapat</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Axtarış geri reaksiyası aktivdir</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Axtarış geri reaksiyası qapalıdır</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_title">Geriyə çevirmə toxunuş hissini qapat</string>
     <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Basıb saxla toxunma reaksiyaları aktivdir</string>
     <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Basıb saxla toxunma reaksiyaları qapalıdır</string>
-    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Basıb saxla toxunma reaksiyalarını qapat</string>
+    <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Toxun və saxla reaksiyalarını qapat</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">Yaxınlaşdırma reaksiyası aktivdir</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">Yaxınlaşdırma reaksiyası qapalıdır</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Yaxınlaşdırma reaksiyasın qapat</string>
@@ -394,8 +394,8 @@ Paket adının düzgün olduğunu və tətbiqin quraşdırıldığını yoxla"</
     <string name="revanced_hide_end_screen_suggested_video_summary_off">Son ekranda bildirilən video göstərilir</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Son ekran bildirilən videonu gizlət</string>
     <string name="revanced_hide_expandable_card_entry_1">Hamısını göstər</string>
-    <string name="revanced_hide_expandable_card_entry_2">Yalnız məhsul kartını gizlət</string>
-    <string name="revanced_hide_expandable_card_entry_3">Yalnız xülasə kartını gizlət</string>
+    <string name="revanced_hide_expandable_card_entry_2">Yalnız xülasə kartını gizlət</string>
+    <string name="revanced_hide_expandable_card_entry_3">Hamısını gizlət</string>
     <string name="revanced_hide_expandable_card_entry_4">Məhsul və xülasə kartlarını gizlət</string>
     <string name="revanced_hide_expandable_card_entry_5">Hamısını gizlət</string>
     <string name="revanced_hide_expandable_card_title">Videoların aşağısında genişlənən kartlar</string>
@@ -506,7 +506,7 @@ Ortada böyük hərflər olan sözlər tam uyğunlaşmalıdır (məsələn: iPho
     <string name="revanced_hide_notify_me_button_title">\"Mənə bildir\" düyməsini gizlət</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi göstərilir</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib</string>
-    <string name="revanced_hide_paid_promotion_label_title">\"Ödənişli tanıtım daxildir\" etiketini gizlət</string>
+    <string name="revanced_hide_paid_promotion_label_title">\"Ödənişli tanıtım içərir\" etiketini gizlət</string>
     <string name="revanced_hide_playables_summary_off">Oynadılanlar göstərilir</string>
     <string name="revanced_hide_playables_summary_on">Oynadılanlar gizlidir</string>
     <string name="revanced_hide_playables_title">Oynadılan elementləri gizlət</string>
@@ -557,7 +557,7 @@ Ortada böyük hərflər olan sözlər tam uyğunlaşmalıdır (məsələn: iPho
     <string name="revanced_hide_share_button_title">Paylaş düyməsini gizlət</string>
     <string name="revanced_hide_shop_button_summary_off">Mağaza düyməsi görünür</string>
     <string name="revanced_hide_shop_button_summary_on">Mağaza düyməsi gizlidir</string>
-    <string name="revanced_hide_shop_button_title">Mağaza düyməsini gizlət</string>
+    <string name="revanced_hide_shop_button_title">Dükan düyməsini gizlət</string>
     <string name="revanced_hide_shopping_links_summary_off">Alış-veriş linkləri video təsvirdə görünür</string>
     <string name="revanced_hide_shopping_links_summary_on">Alış-veriş linkləri video təsvirdə gizlidir</string>
     <string name="revanced_hide_shopping_links_title">Alış-veriş linklərini gizlət</string>
@@ -608,7 +608,7 @@ Ortada böyük hərflər olan sözlər tam uyğunlaşmalıdır (məsələn: iPho
     <string name="revanced_hide_shorts_share_button_title">Paylaş düyməsini gizlət</string>
     <string name="revanced_hide_shorts_shop_button_summary_off">Mağaza düyməsi göstərilir</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Mağaza düyməsi gizlidir</string>
-    <string name="revanced_hide_shorts_shop_button_title">Mağaza düyməsini gizlət</string>
+    <string name="revanced_hide_shorts_shop_button_title">Dükan düyməsini gizlət</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">Səs düyməsi göstərilir</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">Səs düyməsi gizlidir</string>
     <string name="revanced_hide_shorts_sound_button_title">Səs düyməsini gizlət</string>
@@ -774,13 +774,13 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">İlkin oynatma sürəti dəyişdirildikdə bildiriş göstərilmir</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">İlkin oynatma sürəti dəyişdirildikdə bildiriş göstərilir</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_title">Sürət dəyişikliyi bildirişləri</string>
-    <string name="revanced_remember_playback_speed_toast">İlkin sürət %s kimi dəyişdirildi</string>
+    <string name="revanced_remember_playback_speed_toast">İlkin oynatma sürəti %s kimi dəyişdirildi</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Keyfiyyət dəyişiklikləri yalnız cari videoya tətbiq edilir</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Keyfiyyət dəyişiklikləri bütün videolara tətbiq edilir</string>
-    <string name="revanced_remember_video_quality_last_selected_title">Video keyfiyyəti dəyişikliklərini xatırla</string>
+    <string name="revanced_remember_video_quality_last_selected_title">Video keyfiyyətin xatırla</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">İlkin video keyfiyyəti dəyişdirildikdə bildiriş göstərilmir</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">İlkin video keyfiyyəti dəyişdirildikdə bildiriş göstərilir</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Video keyfiyyət dəyişikliklərində ani bildiriş göstər</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Keyfiyyət dəyişikliyi bildirişləri</string>
     <string name="revanced_remember_video_quality_mobile">mobil</string>
     <string name="revanced_remember_video_quality_toast">İlkin %1$s keyfiyyəti %2$s kimi dəyişdi</string>
     <string name="revanced_remember_video_quality_toast_shorts">Shorts-un %1$s keyfiyyəti %2$s olaraq dəyişdirildi</string>
