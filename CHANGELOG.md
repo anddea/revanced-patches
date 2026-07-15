@@ -1,3 +1,11 @@
+# [4.2.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.5...v4.2.0-dev.6) (2026-07-15)
+
+
+### Bug Fixes
+
+* **YouTube Music - Disable music video in album:** Did not apply to `v9.15` ([75462be](https://github.com/anddea/revanced-patches/commit/75462be72eb55c1e58b4772c08de6b23766ca824))
+* **YouTube Music - Player components:** `Change player background color` did not apply to `v9.15` ([bc526f4](https://github.com/anddea/revanced-patches/commit/bc526f4d774fadf5347ee44da02a0efb5abd93ed))
+
 # [4.2.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.4...v4.2.0-dev.5) (2026-07-14)
 
 

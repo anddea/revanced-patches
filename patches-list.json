@@ -1,5 +1,5 @@
 {
-  "version": "4.2.0-dev.5",
+  "version": "4.2.0-dev.6",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -1017,7 +1017,6 @@
       "description": "Adds option to redirect music videos from albums for non-premium users.",
       "use": false,
       "dependencies": [
-        "ResourcePatch",
         "ResourcePatch",
         "ResourcePatch",
         "BytecodePatch",
