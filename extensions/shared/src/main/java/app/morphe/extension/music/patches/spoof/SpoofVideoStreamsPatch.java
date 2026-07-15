@@ -17,7 +17,6 @@ public class SpoofVideoStreamsPatch {
      * Injection point.
      */
     public static void setClientOrderToUse() {
-        // For some users No SDK can fail at 1 minute. Only use it if the user has explicitly set it.
         List<ClientType> availableClients = List.of(
                 TV,
                 ANDROID_VR_1_64,
