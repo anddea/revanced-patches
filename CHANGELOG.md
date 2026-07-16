@@ -1,3 +1,10 @@
+# [4.2.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.6...v4.2.0-dev.7) (2026-07-16)
+
+
+### Bug Fixes
+
+* **YouTube Music - Navigation bar components:** `Replace Samples button` and `Replace Upgrade button` did not apply to `v9.15` ([f1920c8](https://github.com/anddea/revanced-patches/commit/f1920c8581de94f5845898eb830464f9d8c00462))
+
 # [4.2.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.5...v4.2.0-dev.6) (2026-07-15)
 
 
