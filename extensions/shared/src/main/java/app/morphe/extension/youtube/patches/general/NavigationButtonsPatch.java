@@ -172,7 +172,11 @@ public final class NavigationButtonsPatch {
             return original;
         }
 
-        return !DISABLE_TRANSLUCENT_NAVIGATION_BAR;
+        if (DISABLE_TRANSLUCENT_NAVIGATION_BAR) {
+            return false;
+        }
+
+        return original;
     }
 
     /**
