@@ -63,6 +63,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import app.morphe.patches.music.utils.resourceid.ytOutlineSamples
+import app.morphe.patches.music.utils.resourceid.ytOutlineYouTubeMusic
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 
 internal val tabLayoutFingerprint = legacyFingerprint(
     name = "tabLayoutFingerprint",
@@ -147,3 +150,24 @@ internal fun indexOfMapInstruction(method: Method) =
         opcode == Opcode.INVOKE_INTERFACE &&
                 getReference<MethodReference>()?.toString() == "Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
     }
+
+internal object ThemeMapConstructorFingerprint : Fingerprint(
+    returnType = "V",
+    custom = { method, _ ->
+        method.name == "<init>" && method.implementation?.instructions?.let { instructions ->
+            var hasOutlineSamples = false
+            var hasOutlineUpgrade = false
+            for (instruction in instructions) {
+                if (instruction.opcode == Opcode.CONST) {
+                    val literal = (instruction as? WideLiteralInstruction)?.wideLiteral
+                    if (literal == ytOutlineSamples) {
+                        hasOutlineSamples = true
+                    } else if (literal == ytOutlineYouTubeMusic) {
+                        hasOutlineUpgrade = true
+                    }
+                }
+            }
+            hasOutlineSamples && hasOutlineUpgrade
+        } == true
+    }
+)
