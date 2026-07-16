@@ -51,9 +51,8 @@ import app.morphe.patches.music.general.startpage.changeStartPagePatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.NAVIGATION_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
-import app.morphe.patches.music.utils.playservice.is_6_27_or_greater
-import app.morphe.patches.music.utils.playservice.is_8_29_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_15_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.colorGrey
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
@@ -65,11 +64,12 @@ import app.morphe.patches.music.utils.resourceid.ytOutlineYouTubeMusic
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addPreferenceWithIntent
-import app.morphe.patches.music.utils.settings.addTextPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
+import app.morphe.patches.music.utils.settings.addTextPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.morphe.util.Utils.printWarn
+import app.morphe.util.findMutableClassOrThrow
+import app.morphe.util.findMutableMethodOf
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -84,6 +84,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 private const val FLAG = "android:layout_weight"
 private const val RESOURCE_FILE_PATH = "res/layout/image_with_text_tab.xml"
@@ -121,6 +122,20 @@ val navigationBarComponentsPatch = bytecodePatch(
     )
 
     execute {
+        /**
+         * Hook theme class constructor to dynamically override mappings
+         */
+        val themeMethod = ThemeMapConstructorFingerprint.method
+        findMutableClassOrThrow(themeMethod.definingClass).findMutableMethodOf(themeMethod).apply {
+            val returnIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID)
+            addInstruction(
+                returnIndex,
+                "invoke-static/range {p0 .. p0}, $NAVIGATION_CLASS_DESCRIPTOR->onThemeClassInit(Ljava/lang/Object;)V"
+            )
+        }
+
+
+
         /**
          * Enable custom navigation bar color
          */
@@ -160,30 +175,123 @@ val navigationBarComponentsPatch = bytecodePatch(
                 )
             }
         } else {
+            /**
+             * YouTube Music 9.15 keeps the navigation entity model but moves tab
+             * rendering into a synthetic callback. Hook its resolved values so
+             * the existing runtime replacement behavior can be reused.
+             */
             TabLayoutTextFingerprint.let { fingerprint ->
                 fingerprint.method.apply {
                     // Apply in reverse order so the fingerprint match indices remain valid.
                     val pivotTabIndex = fingerprint.instructionMatches.last().index
                     val pivotTabRegister =
                         getInstruction<FiveRegisterInstruction>(pivotTabIndex).registerC
+                    val enumIndex = fingerprint.instructionMatches[7].index
+                    val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
+                    val labelIndex = fingerprint.instructionMatches[3].index
+                    val labelRegister = getInstruction<OneRegisterInstruction>(labelIndex).registerA
+
+                    val replacementEnabled = is_9_15_or_greater
+                    val spannedIndex = if (replacementEnabled) indexOfSetTextInstruction(this) else -1
+                    val spannedRegister = if (replacementEnabled) {
+                        getInstruction<FiveRegisterInstruction>(spannedIndex).registerD
+                    } else {
+                        -1
+                    }
+                    val iconIndex = if (replacementEnabled) {
+                        indexOfFirstInstructionOrThrow {
+                            opcode == Opcode.INVOKE_VIRTUAL &&
+                                    getReference<MethodReference>()?.name == "setImageResource"
+                        }
+                    } else {
+                        -1
+                    }
+                    val iconRegister = if (replacementEnabled) {
+                        getInstruction<FiveRegisterInstruction>(iconIndex).registerD
+                    } else {
+                        -1
+                    }
+                    val navigationItemIndex = if (replacementEnabled) {
+                        indexOfFirstInstructionReversedOrThrow(labelIndex) {
+                            opcode == Opcode.CHECK_CAST &&
+                                    getReference<TypeReference>()?.type == "Lbxjp;"
+                        }
+                    } else {
+                        -1
+                    }
+                    val navigationItemRegister = if (replacementEnabled) {
+                        getInstruction<OneRegisterInstruction>(navigationItemIndex).registerA
+                    } else {
+                        -1
+                    }
+                    val browseIdIndex = if (replacementEnabled) {
+                        indexOfFirstInstructionOrThrow(navigationItemIndex) {
+                            opcode == Opcode.IGET_OBJECT &&
+                                    getReference<FieldReference>()?.let { field ->
+                                        field.definingClass == "Lbxjp;" &&
+                                                field.type == "Ljava/lang/String;"
+                                    } == true
+                        }
+                    } else {
+                        -1
+                    }
+                    val browseIdInstruction = if (replacementEnabled) {
+                        getInstruction<TwoRegisterInstruction>(browseIdIndex)
+                    } else {
+                        null
+                    }
+                    val browseIdRegister = browseIdInstruction?.registerA ?: -1
+                    val browseIdField = if (replacementEnabled) {
+                        getInstruction<ReferenceInstruction>(browseIdIndex).reference as FieldReference
+                    } else {
+                        null
+                    }
+                    val fieldNameRegister = if (replacementEnabled) {
+                        implementation!!.registerCount - parameters.size - 2
+                    } else {
+                        -1
+                    }
+
                     addInstruction(
                         pivotTabIndex,
                         "invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
                     )
 
-                    val enumIndex = fingerprint.instructionMatches[7].index
-                    val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
+                    if (replacementEnabled) {
+                        addInstructions(
+                            spannedIndex, """
+                                invoke-static {v$spannedRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceNavigationLabel(Landroid/text/Spanned;)Landroid/text/Spanned;
+                                move-result-object v$spannedRegister
+                                """
+                        )
+                        addInstruction(
+                            iconIndex, """
+                                invoke-static {v$iconRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceNavigationIcon(I)I
+                                move-result v$iconRegister
+                                """
+                        )
+                    }
+
                     addInstruction(
                         enumIndex + 1,
                         "invoke-static {v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
                     )
-
-                    val labelIndex = fingerprint.instructionMatches[3].index
-                    val labelRegister = getInstruction<OneRegisterInstruction>(labelIndex).registerA
                     addInstruction(
                         labelIndex + 1,
                         "invoke-static {v$labelRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
                     )
+
+                    if (replacementEnabled) {
+                        val field = browseIdField!!
+                        addInstructions(
+                            navigationItemIndex + 1, """
+                                iget-object v$browseIdRegister, v$navigationItemRegister, $field
+                                const-string v$fieldNameRegister, "${field.name}"
+                                invoke-static {v$navigationItemRegister, v$browseIdRegister, v$fieldNameRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceBrowseId(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v$browseIdRegister
+                                """
+                        )
+                    }
                 }
             }
         }
@@ -296,24 +404,16 @@ val navigationBarComponentsPatch = bytecodePatch(
             "revanced_hide_navigation_upgrade_button",
             "true"
         )
-        if (is_6_27_or_greater && !is_8_29_or_greater) {
-            addSwitchPreference(
-                CategoryType.NAVIGATION,
-                "revanced_replace_navigation_samples_button",
-                "false"
-            )
-        } else {
-            printWarn("\"Replace Samples button\" is not supported in this version. Use YouTube Music 6.29.59 - 8.28.54.")
-        }
-        if (!is_8_51_or_greater) {
-            addSwitchPreference(
-                CategoryType.NAVIGATION,
-                "revanced_replace_navigation_upgrade_button",
-                "false"
-            )
-        } else {
-            printWarn("\"Replace Upgrade button\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
-        }
+        addSwitchPreference(
+            CategoryType.NAVIGATION,
+            "revanced_replace_navigation_samples_button",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.NAVIGATION,
+            "revanced_replace_navigation_upgrade_button",
+            "false"
+        )
         addSwitchPreference(
             CategoryType.NAVIGATION,
             "revanced_hide_navigation_bar",
