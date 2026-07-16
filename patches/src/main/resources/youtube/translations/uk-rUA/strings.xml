@@ -270,7 +270,7 @@
     <string name="revanced_confirm_user_dialog_title">Впевнені, що бажаєте продовжити?</string>
     <string name="revanced_copy">Скопіювати</string>
     <string name="revanced_copy_error">Не вдалось скопіювати текст</string>
-    <string name="revanced_credits_title">Кредити</string>
+    <string name="revanced_credits_title">Автори</string>
     <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляху компонента, які потрібно приховати, кожен з нового рядка</string>
     <string name="revanced_custom_filter_strings_title">Власний фільтр</string>
     <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено</string>
@@ -452,6 +452,9 @@
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Проведенням вниз виходитиметься з повноекранного режиму.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Проведенням вниз не виходитиметься з повноекранного режиму.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Вимкнути проведення для виходу з повноекранного режиму</string>
+    <string name="revanced_disable_translucent_navigation_bar_summary_off">Панель навігації напівпрозора.</string>
+    <string name="revanced_disable_translucent_navigation_bar_summary_on">Панель навігації непрозора.</string>
+    <string name="revanced_disable_translucent_navigation_bar_title">Вимкнути напівпрозору панель навігації</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">Рядок стану непрозорий або напівпрозорий</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Рядок стану непрозорий</string>
     <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорість рядка стану</string>
@@ -1186,9 +1189,9 @@
     <string name="revanced_hide_rewards_button_summary_off">Кнопку винагород показується.</string>
     <string name="revanced_hide_rewards_button_summary_on">Кнопку винагород приховано.</string>
     <string name="revanced_hide_rewards_button_title">Приховати кнопку винагород</string>
-    <string name="revanced_hide_search_bar_back_button_summary_off">Кнопка «назад» на рядку пошуку показана.</string>
-    <string name="revanced_hide_search_bar_back_button_summary_on">Кнопка «назад» у рядку пошуку прихована.</string>
-    <string name="revanced_hide_search_bar_back_button_title">Приховати кнопку пошуку назад</string>
+    <string name="revanced_hide_search_bar_back_button_summary_off">Відображається кнопка «Назад» у рядку пошуку.</string>
+    <string name="revanced_hide_search_bar_back_button_summary_on">Кнопка «Назад» у рядку пошуку прихована.</string>
+    <string name="revanced_hide_search_bar_back_button_title">Сховати кнопку «Назад» у рядку пошуку</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Мініатюри в історії пошукового запиту показується.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Мініатюри в історії пошукового запиту приховано.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Приховати мініатюру пошукового запиту</string>
@@ -1279,7 +1282,7 @@
     <string name="revanced_hide_settings_menu_subscription_product_summary_on">Меню Покупки й платні підписки приховано.</string>
     <string name="revanced_hide_settings_menu_subscription_product_title">Приховати меню Покупки й платні підписки</string>
     <string name="revanced_hide_settings_menu_summary">Приховати елементи в меню налаштувань YouTube.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_off">Показано меню тайм-менеджменту.</string>
+    <string name="revanced_hide_settings_menu_time_management_summary_off">Відображається меню керування часом.</string>
     <string name="revanced_hide_settings_menu_time_management_summary_on">Меню тайм-менеджменту приховане.</string>
     <string name="revanced_hide_settings_menu_time_management_title">Приховати меню управління часом</string>
     <string name="revanced_hide_settings_menu_title">Приховати меню налаштувань YouTube</string>
@@ -1643,7 +1646,11 @@
     <string name="revanced_language_VI">В'єтнамська\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Китайська\n<small>中文</small></string>
     <string name="revanced_language_title">Мова налаштувань ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">Відтворення продовжується, коли мініплеєр перетягується за межі екрана.</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">Відтворення призупиниться, якщо перетягнути мініплеєр за межі екрана.</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Призупиняти відтворення при горизонтальному перетягуванні</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_off">Перетягування мініплеєра за межі екрана використовує оригінальну поведінку автоматичного переміщення.</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_on">Якщо перетягнути мініплеєр за межі екрана, стан його інтерфейсу залишиться незмінним.</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">Запам\'ятовувати позицію при перетягуванні</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та зміну розміру щипком вимкнено</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Подвійне натискання та зміну розміру щипком увімкнено
@@ -1719,8 +1726,8 @@
 Натисніть тут, щоб отримати ключ API."</string>
     <string name="revanced_overlay_button_gemini_about_title">Про Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Підсумок</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Отримайте ключ API https://aistudio.google.com/apikey"</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Ключ API Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Введіть по одному ключу API Gemini в кожному рядку. Отримати ключі API можна за адресою  https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Ключі API Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize_summary">"Натисніть, щоб підсумувати відео. Натисніть і утримуйте, щоб транскрибувати.
 
 Результати підсумування і транскрибування зберігаються, якщо ви не закрили програму або не використовували Gemini на іншому відео. Натисніть кнопку ще раз для перегляду результатів."</string>
@@ -1768,6 +1775,13 @@
     <string name="revanced_overlay_button_whitelist_summary">Натисніть, щоб відкрити діалог білого списку.
 Натисніть і утримуйте, щоб відкрити діалог налаштування білого списку.</string>
     <string name="revanced_overlay_button_whitelist_title">Показувати кнопку Білого списку</string>
+    <string name="revanced_overlay_buttons_max_landscape_summary">Максимальна кількість кнопок накладки, що відображаються в альбомному режимі (крім кнопки «Повний екран»). Введіть 0, щоб приховати всі.\n\nПроведіть пальцем по горизонталі, щоб відобразити кнопки, кількість яких перевищує цей ліміт.</string>
+    <string name="revanced_overlay_buttons_max_landscape_title">Макс. кнопок у альбомному режимі</string>
+    <string name="revanced_overlay_buttons_max_portrait_summary">Максимальна кількість кнопок для відображення у портретному режимі (крім кнопки «Повний екран»). Введіть 0, щоб приховати всі.\n\nПроведіть пальцем по горизонталі, щоб відобразити кнопки, кількість яких перевищує цей ліміт.</string>
+    <string name="revanced_overlay_buttons_max_portrait_title">Макс. кнопок у портретному режимі </string>
+    <string name="revanced_override_play_next_in_queue_summary_off">Функція «Відтворити наступним у черзі» використовує вбудовану чергу YouTube.</string>
+    <string name="revanced_override_play_next_in_queue_summary_on">«Відтворити наступним у черзі» відкриває менеджер черги RVX.</string>
+    <string name="revanced_override_play_next_in_queue_title">Перевизначити відтворення наступного в черзі</string>
     <string name="revanced_override_playlist_download_button_summary_off">Кнопка вбудованого завантаження списку відтворення відкриває вбудований завантажувач, якщо показується.</string>
     <string name="revanced_override_playlist_download_button_summary_on">Кнопка вбудованого завантаження списку відтворення завжди показується, і в публічних списках відтворення відкриває зовнішній завантажувач.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Кнопка вбудованого завантаження списку відтворення відкриває зовнішній завантажувач, якщо показується.
@@ -1885,6 +1899,7 @@
     <string name="revanced_preference_screen_video_filter_summary">Приховати відео за ключовими словами або переглядами.</string>
     <string name="revanced_preference_screen_video_filter_title">Фільтр відео</string>
     <string name="revanced_preference_screen_video_title">Відео</string>
+    <string name="revanced_preference_screen_vot_title">Аудіопереклад</string>
     <string name="revanced_preference_screen_watch_history_summary">Змінити налаштування пов\'язані з історією перегляду.</string>
     <string name="revanced_preference_screen_watch_history_title">Історія перегляду</string>
     <string name="revanced_queue_manager_add_to_queue">Додати до черги</string>
@@ -2298,6 +2313,14 @@
     <string name="revanced_sb_vote_no_segments">Немає сегментів для голосування</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
     <string name="revanced_sb_vote_upvote">Проголосувати \"за\"</string>
+    <string name="revanced_search_in_channel_query_hint">Пошук у цьому каналі</string>
+    <string name="revanced_search_in_channel_search">Пошук</string>
+    <string name="revanced_search_in_channel_search_youtube">Пошук на YouTube</string>
+    <string name="revanced_search_in_channel_title">Пошук в каналі</string>
+    <string name="revanced_search_in_channel_use_webview_summary_off">Пошук в каналі використовує вбудований пошук YouTube. Це призведе до появи деяких нерелевантних результатів.</string>
+    <string name="revanced_search_in_channel_use_webview_summary_on">Функція пошуку в каналі відкриває сторінку пошуку у мобільному веб-інтерфейсі.</string>
+    <string name="revanced_search_in_channel_use_webview_title">Використовуйте WebView для пошуку в каналі</string>
+    <string name="revanced_search_in_channel_webview_unavailable">WebView недоступний. Використовується вбудований пошук в каналі.</string>
     <string name="revanced_search_settings_category_title">Налаштування пошуку</string>
     <string name="revanced_search_title">Шукати</string>
     <string name="revanced_send">Надіслати</string>
@@ -2368,6 +2391,7 @@
     <string name="revanced_shorts_autoplay_background_summary">Автоматично переходить до наступного Short під час фонового відтворення</string>
     <string name="revanced_shorts_autoplay_background_title">Автоматичне відтворення у фоновому режимі</string>
     <string name="revanced_shorts_autoplay_disabled_toast">Автовідтворення Shorts вимкнено</string>
+    <string name="revanced_shorts_autoplay_enabled_toast">Автоматичне відтворення Shorts ввімкнено</string>
     <string name="revanced_shorts_autoplay_summary">Автоматично переходить до наступного Short замість повторення поточного</string>
     <string name="revanced_shorts_autoplay_title">Автовідтворення Shorts</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"Ця функція все ще експериментальна, тому немає гарантії, що буде працювати.
@@ -2412,6 +2436,10 @@
     <string name="revanced_shorts_custom_actions_speed_summary_on">Меню швидкості відтворення показується.\n\nІнформація:\n• Повинна бути увімкнена типова швидкість відтворення Shorts.\n• Вибрана швидкість застосується до наступного відео.</string>
     <string name="revanced_shorts_custom_actions_speed_title">Показувати меню швидкості відтворення</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Спеціальні дії</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_label">Аудіопереклад</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_off">Меню аудіоперекладу приховано. У налаштуваннях Shorts слід увімкнути власні дії.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_on">Відображається меню аудіоперекладу. У налаштуваннях Shorts має бути ввімкнено користувацькі дії.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_title">Аудіопереклад у Shorts</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Оригінал</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Палець вгору</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Пальці вгору (Каїр)</string>
@@ -2427,9 +2455,15 @@
     <string name="revanced_shorts_player_type_shorts">Плеєр Shorts</string>
     <string name="revanced_shorts_player_type_title">Відкривати Shorts через</string>
     <string name="revanced_show_settings_button_index_title">Позиція кнопки налаштувань</string>
+    <string name="revanced_show_settings_button_summary_off">Кнопка налаштувань не відображається.</string>
+    <string name="revanced_show_settings_button_summary_on">Кнопка налаштувань відображається.</string>
     <string name="revanced_show_settings_button_title">Показати кнопку \"Налаштування\"</string>
+    <string name="revanced_show_settings_button_type_summary_off">Натисніть, щоб відкрити налаштування YouTube.</string>
+    <string name="revanced_show_settings_button_type_summary_on">Натисніть, щоб відкрити налаштування RVX.</string>
     <string name="revanced_show_settings_button_type_title">Дія кнопки \"Налаштування\"</string>
     <string name="revanced_show_toolbar_settings_button_index_title">Позиція кнопки налаштувань</string>
+    <string name="revanced_show_toolbar_settings_button_summary_off">Кнопка налаштувань не відображається на панелі інструментів.</string>
+    <string name="revanced_show_toolbar_settings_button_summary_on">Кнопка налаштувань відображається на панелі інструментів.</string>
     <string name="revanced_show_toolbar_settings_button_title">Показати кнопку \"Налаштування\"</string>
     <string name="revanced_show_toolbar_settings_button_type_title">Дія кнопки \"Налаштування\"</string>
     <string name="revanced_show_video_title_section_summary">"Показується секцію назви відео в повноекранному режимі.
@@ -2449,6 +2483,7 @@
     <string name="revanced_spoof_app_version_summary_on">Версію підмінено</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Відновлення функції Транскрипція</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Відновлення не згорнутої панелі дій відео</string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Відновлення старого фільтра компонентів</string>
     <string name="revanced_spoof_app_version_target_entry_title">Підробити цільову версію програми</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Недійсне підроблення версії програми: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Введіть цільову версію підробки програми</string>
@@ -2701,22 +2736,65 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_transcript_cookies_summary">Куки для використання в запитах API транскрипції.</string>
     <string name="revanced_transcript_cookies_title">Куки транскрипції</string>
     <string name="revanced_translations_title">Переклади</string>
+    <string name="revanced_vot_about_summary">"Аудіопереклад забезпечує переклад аудіодоріжок для відео YouTube за допомогою Yandex VoT.
+
+Якщо сервери Yandex недоступні у вашому регіоні, скористайтеся опцією «Проксі-аудіопотік».
+
+Для запиту перекладу з живим голосом для відео, для яких його ще немає, потрібна авторизація."</string>
+    <string name="revanced_vot_about_title">Про аудіопереклад</string>
+    <string name="revanced_vot_audio_proxy_summary_off">Аудіопотік використовує пряму URL-адресу</string>
     <string name="revanced_vot_audio_proxy_summary_on">Аудіопотік проксіюється через воркера</string>
     <string name="revanced_vot_audio_proxy_title">Проксі-аудіопотік</string>
+    <string name="revanced_vot_auth_required">Потрібна авторизація. Додайте токен Yandex OAuth у налаштуваннях.</string>
     <string name="revanced_vot_enabled_summary_off">Закадровий переклад Яндекса вимкнено</string>
     <string name="revanced_vot_enabled_summary_on">Яндекс автопереклад звукової доріжки ввімкнено</string>
     <string name="revanced_vot_enabled_title">Голосовий переклад</string>
     <string name="revanced_vot_lang_auto">Автоматичне розпізнавання </string>
+    <string name="revanced_vot_live_voices_unavailable">Живі голоси недоступні, використовується стандартний</string>
+    <string name="revanced_vot_oauth_account_management_title">Токен OAuth Yandex</string>
+    <string name="revanced_vot_oauth_auth_method_message">Виберіть метод авторизації</string>
+    <string name="revanced_vot_oauth_auth_method_title">Авторизація Yandex</string>
+    <string name="revanced_vot_oauth_enter_manually_button">Введіть токен вручну</string>
+    <string name="revanced_vot_oauth_enter_token_title">Введіть токен вручну</string>
+    <string name="revanced_vot_oauth_expired_summary">Термін дії токена закінчився. Увійдіть знову.</string>
+    <string name="revanced_vot_oauth_invalid_token">Недійсний токен</string>
+    <string name="revanced_vot_oauth_no_network">Немає мережевого з'єднання</string>
+    <string name="revanced_vot_oauth_not_signed_in_summary">Не авторизований</string>
+    <string name="revanced_vot_oauth_sign_in_button">Увійти через Яндекс</string>
+    <string name="revanced_vot_oauth_sign_out_button">Вийти</string>
+    <string name="revanced_vot_oauth_signed_in_expires">Увійшов як %1$s (термін дії закінчується через %2$d днів)</string>
+    <string name="revanced_vot_oauth_signed_in_summary">Увійшов як %s</string>
+    <string name="revanced_vot_oauth_switch_token_button">Введіть інший токен</string>
+    <string name="revanced_vot_oauth_token_summary">Обов'язково для живих голосів.</string>
+    <string name="revanced_vot_oauth_token_title">Токен OAuth Yandex</string>
     <string name="revanced_vot_original_audio_volume_summary">Гучність оригінального звуку YouTube під час озвучення перекладу</string>
     <string name="revanced_vot_original_audio_volume_title">Гучність оригінального звуку</string>
     <string name="revanced_vot_playback_error">Не вдалося програти аудіо доріжку з дубляжом </string>
+    <string name="revanced_vot_proxy_url_summary">Проксі-хост користувача VOT. За замовчуванням: визначається автоматично</string>
+    <string name="revanced_vot_proxy_url_title">Проксі-сервер</string>
+    <string name="revanced_vot_source_language_summary">Виберіть мову аудіовідео</string>
+    <string name="revanced_vot_source_language_title">Мова оригіналу</string>
+    <string name="revanced_vot_started">Переклад розпочато</string>
+    <string name="revanced_vot_stopped">Переклад зупинено</string>
+    <string name="revanced_vot_stream_not_ready">Переклад не готовий. Натисніть кнопку, щоб увімкнути, коли буде готовий.</string>
+    <string name="revanced_vot_stream_ready">Переклад готовий, відтворюється</string>
+    <string name="revanced_vot_stream_requesting">Запит на переклад для трансляції…</string>
     <string name="revanced_vot_stream_waiting">Зачекайте… ~%s</string>
+    <string name="revanced_vot_target_language_summary">Виберіть мову для перекладу</string>
+    <string name="revanced_vot_target_language_title">Мова перекладу</string>
+    <string name="revanced_vot_time_min">%d хв</string>
+    <string name="revanced_vot_time_sec">%d сек</string>
     <string name="revanced_vot_translation_volume_summary">Гучність озвученого перекладу</string>
     <string name="revanced_vot_translation_volume_title">Гучність перекладу</string>
     <string name="revanced_vot_unavailable_live">Переклад недоступний для прямих трансляцій</string>
     <string name="revanced_vot_unavailable_same_language">Аудіо відео вже перекладено обраною мовою перекладу</string>
     <string name="revanced_vot_unavailable_too_long">Відео занадто довге для перекладу (максимум 4 години)</string>
+    <string name="revanced_vot_voice_style_live">Живі голоси</string>
+    <string name="revanced_vot_voice_style_live_summary_off">Стандартні голоси TTS</string>
+    <string name="revanced_vot_voice_style_live_summary_on">Природні голоси від Яндекса</string>
+    <string name="revanced_vot_voice_style_live_title">Живі голоси</string>
     <string name="revanced_vot_voice_style_standard">Стандартні голоси</string>
+    <string name="revanced_vot_voice_style_title">Стиль озвучування</string>
     <string name="revanced_watch_history_about_status_blocked">• Історію перегляду заблоковано.</string>
     <string name="revanced_watch_history_about_status_original">"• Дотримується налаштувань історії перегляду облікового запису Google.
 • Історія перегляду може не працювати через DNS або VPN."</string>
