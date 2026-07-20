@@ -384,7 +384,7 @@ public class ReturnYouTubeDislike {
                 + ", voteData.getLikeCount()=" + voteData.getLikeCount());
 
         if (originalLikeCount != null && !Utils.containsNumber(sourceStyling)) {
-            Logger.printDebug(() -> "newSpannableWithLikes: Using original like count");
+            Logger.printDebug(() -> "newSpannableWithLikes: APPLIED ORIGINAL LIKE COUNT=" + originalLikeCount + " (ignoring RYD count=" + voteData.getLikeCount() + ")");
             return newSpanUsingStylingOfAnotherSpan(sourceStyling, formatDislikeCount(originalLikeCount));
         }
 
@@ -393,7 +393,7 @@ public class ReturnYouTubeDislike {
             return newSpanUsingStylingOfAnotherSpan(sourceStyling, "");
         }
 
-        Logger.printDebug(() -> "newSpannableWithLikes: Falling back to RYD estimated likes");
+        Logger.printDebug(() -> "newSpannableWithLikes: FALLING BACK TO RYD ESTIMATED LIKES=" + voteData.getLikeCount() + " (originalLikeCount=" + originalLikeCount + ")");
         return newSpanUsingStylingOfAnotherSpan(sourceStyling, formatDislikeCount(voteData.getLikeCount()));
     }
 
@@ -550,11 +550,12 @@ public class ReturnYouTubeDislike {
         return future.isDone();
     }
 
-    private synchronized void clearUICache() {
+    public synchronized void clearUICache() {
         if (replacementLikeDislikeSpan != null) {
             Logger.printDebug(() -> "Clearing replacement span for: " + videoId);
         }
         replacementLikeDislikeSpan = null;
+        originalDislikeSpan = null;
     }
 
     /**

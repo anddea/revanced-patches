@@ -43,10 +43,7 @@ package app.morphe.extension.youtube.patches.utils;
 
 import static app.morphe.extension.shared.returnyoutubedislike.ReturnYouTubeDislike.Vote;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Rect;
 import android.graphics.drawable.ShapeDrawable;
 import android.text.Spannable;
@@ -60,7 +57,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.GuardedBy;
@@ -74,17 +70,15 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
-import java.util.WeakHashMap;
 
 import app.morphe.extension.shared.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.components.ActionButtonsFilter;
 import app.morphe.extension.youtube.patches.components.ActionButtonsFilter.ActionButton;
 import app.morphe.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.morphe.extension.youtube.settings.Settings;
-import app.morphe.extension.youtube.shared.BottomSheetState;
-import app.morphe.extension.youtube.shared.EngagementPanel;
 import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ThemeUtils;
@@ -112,16 +106,12 @@ public class ReturnYouTubeDislikePatch {
     private static final String COMPACTIFY_VIDEO_ACTION_BAR_PREFIX = "compactify_video_action_bar.";
     private static final String ACTION_BUTTON_COUNT_TAG_PREFIX = "revanced_ryd_regular_action_button_count_";
     private static final Spannable ACTION_BUTTON_COUNT_PLACEHOLDER = new SpannableString("");
-    private static final int ACTION_BUTTON_COUNT_VERTICAL_SPACING_PIXELS = -Utils.dipToPixels(6);
+    private static final int ACTION_BUTTON_COUNT_VERTICAL_SPACING_PIXELS = -Utils.dipToPixels(11);
     private static final int ACTION_BUTTON_COUNT_HORIZONTAL_SPACING_PIXELS = Utils.dipToPixels(4);
     private static final int ACTION_BUTTON_COUNT_RESERVED_HEIGHT_PIXELS = Utils.dipToPixels(18);
-    private static final float ACTION_BUTTON_VISUAL_SCALE = 0.85f;
     private static final float ACTION_BUTTON_COUNT_DEFAULT_TEXT_SIZE_SP = 12;
     private static final float ACTION_BUTTON_COUNT_MINIMUM_TEXT_SIZE_SP = 9;
     private static final float ACTION_BUTTON_COUNT_TEXT_SIZE_STEP_SP = 0.5f;
-
-    private static final Map<View, RegularActionButtonViewState> regularActionButtonViewStates =
-            new WeakHashMap<>();
     @Nullable
     private static WeakReference<ViewGroup> regularActionButtonCountRoot;
     @Nullable
@@ -146,18 +136,12 @@ public class ReturnYouTubeDislikePatch {
     private static WeakReference<ViewGroup> regularActionButtonCountSearchRoot;
     @Nullable
     private static ViewTreeObserver.OnPreDrawListener regularActionButtonCountSearchListener;
+    private static int regularActionButtonCountSearchRetries;
+    private static boolean regularActionButtonCountSearchExhausted;
 
     static {
         PlayerType.getOnChange().addObserver((PlayerType type) -> {
-            Utils.runOnMainThreadNowOrLater(() -> onPlayerTypeChangedForRegularActionButtonCounts(type));
-            return Unit.INSTANCE;
-        });
-        BottomSheetState.getOnChange().addObserver((BottomSheetState state) -> {
-            Utils.runOnMainThreadNowOrLater(() -> onBottomSheetStateChangedForRegularActionButtonCounts(state));
-            return Unit.INSTANCE;
-        });
-        EngagementPanel.getOnChange().addObserver((String panelId) -> {
-            Utils.runOnMainThreadNowOrLater(() -> onEngagementPanelChangedForRegularActionButtonCounts(panelId));
+            Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::onPlayerTypeChangedForRegularActionButtonCounts);
             return Unit.INSTANCE;
         });
     }
@@ -234,10 +218,6 @@ public class ReturnYouTubeDislikePatch {
                 }
                 return videoData.getDislikesSpanForRegularVideo((Spanned) original,
                         true, isRollingNumber);
-            }
-
-            if (isRollingNumber) {
-                return original;
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onLithoTextLoaded failure", ex);
@@ -415,60 +395,14 @@ public class ReturnYouTubeDislikePatch {
                 || identifier.startsWith(COMPACTIFY_VIDEO_ACTION_BAR_PREFIX);
     }
 
-    private static void onPlayerTypeChangedForRegularActionButtonCounts(@NonNull PlayerType playerType) {
+    private static void onPlayerTypeChangedForRegularActionButtonCounts() {
         if (!Settings.RYD_ENABLED.get()) {
             removeRegularActionButtonCountOverlays();
             return;
         }
 
-        if (regularActionButtonCountOverlaysAreUnsupported()) {
-            removeRegularActionButtonCountOverlays();
-            return;
-        }
-
-        if (playerType != PlayerType.WATCH_WHILE_MAXIMIZED) {
-            // Keep the current video's labels and button scale across player transitions, but
-            // hide the labels while their maximized-player anchors are off-screen. Otherwise, the
-            // labels can briefly appear at their stale coordinates while minimizing after scroll.
-            removeRegularActionButtonCountSearchUpdates();
-            hideTrackedRegularActionButtonCountLabels();
-            return;
-        }
-
-        if (currentVideoData != null) {
-            scheduleRegularActionButtonCountOverlayUpdates();
-        }
-    }
-
-    private static void onBottomSheetStateChangedForRegularActionButtonCounts(@NonNull BottomSheetState state) {
-        if (!Settings.RYD_ENABLED.get()) {
-            removeRegularActionButtonCountOverlays();
-            return;
-        }
-
-        if (state.isOpen()) {
-            // Keep the labels anchored to the already identified video action buttons. Searching
-            // the decor tree while a sheet is open can resolve the sheet's own Like/Dislike
-            // controls instead.
-            removeRegularActionButtonCountSearchUpdates();
-            return;
-        }
-
-        if (currentVideoData != null) {
-            scheduleRegularActionButtonCountOverlayUpdates();
-        }
-    }
-
-    private static void onEngagementPanelChangedForRegularActionButtonCounts(@NonNull String panelId) {
-        if (!Settings.RYD_ENABLED.get()) {
-            removeRegularActionButtonCountOverlays();
-            return;
-        }
-
-        if (!panelId.isEmpty()) {
-            // Keep the labels anchored to the regular action bar while the engagement panel is
-            // open, never search the panel for replacement anchors.
-            removeRegularActionButtonCountSearchUpdates();
+        if (!canShowRegularActionButtonCountOverlays()) {
+            // removeRegularActionButtonCountOverlays();
             return;
         }
 
@@ -479,25 +413,8 @@ public class ReturnYouTubeDislikePatch {
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     private static boolean canShowRegularActionButtonCountOverlays() {
-        return canShowRegularActionButtonCountOverlays(PlayerType.getCurrent());
-    }
-
-    private static boolean canShowRegularActionButtonCountOverlays(@NonNull PlayerType playerType) {
-        if (regularActionButtonCountOverlaysAreUnsupported()) {
-            return false;
-        }
-
-        return playerType == PlayerType.WATCH_WHILE_MAXIMIZED
-                && !regularActionButtonCountOverlaysAreBlockedBySurface();
-    }
-
-    /**
-     * These player-adjacent surfaces can expose their own Like/Dislike controls in the same
-     * decor tree. While one is open, the regular-player overlay search is ambiguous and must
-     * stay detached until the main action bar is the only visible owner of those buttons.
-     */
-    private static boolean regularActionButtonCountOverlaysAreBlockedBySurface() {
-        return BottomSheetState.getCurrent().isOpen() || EngagementPanel.isOpen();
+        return !regularActionButtonCountOverlaysAreUnsupported()
+                && PlayerType.getCurrent().isMaximizedOrFullscreen();
     }
 
     /**
@@ -536,47 +453,24 @@ public class ReturnYouTubeDislikePatch {
             return;
         }
 
-        if (PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MAXIMIZED) {
-            removeRegularActionButtonCountSearchUpdates();
-            hideTrackedRegularActionButtonCountLabels();
-            return;
-        }
-
-        if (regularActionButtonCountOverlaysAreBlockedBySurface()) {
-            // Do not retarget existing labels to controls belonging to a bottom sheet or
-            // engagement panel. The position listener will resume after it closes.
-            removeRegularActionButtonCountSearchUpdates();
-            return;
-        }
-
         ViewGroup decorViewRoot = getDecorViewRoot();
+        RegularActionButtonAnchors anchors = null;
         if (decorViewRoot != null) {
-            RegularActionButtonAnchors anchors = findRegularActionButtonAnchors(decorViewRoot);
-            if (anchors != null && anchors.likeButton() != null) {
-                if (isLikeButtonLiked(anchors.likeButton())) {
-                    videoData.setUserVote(Vote.LIKE);
-                } else if (anchors.dislikeButton() != null && isDislikeButtonDisliked(anchors.dislikeButton())) {
-                    videoData.setUserVote(Vote.DISLIKE);
-                } else {
-                    if (videoData.getUserVote() == null) {
-                        videoData.setUserVote(Vote.LIKE_REMOVE);
-                    }
-                }
-                CharSequence contentDesc = anchors.likeButton().getContentDescription();
-                parseAndSetOriginalLikeCount(contentDesc);
-            }
+            anchors = findRegularActionButtonAnchors(decorViewRoot);
+            updateUserVoteAndParseLikes(videoData, anchors);
         }
 
         updateRegularActionButtonCountOverlaysFromCache(videoData);
-        if (!canShowRegularActionButtonCountOverlays()) {
-            removeRegularActionButtonCountSearchUpdates();
-        }
 
         String videoId = videoData.getVideoId();
         if (videoId.equals(regularActionButtonCountVideoId)
                 && regularLikeActionButtonCountText != null
                 && regularDislikeActionButtonCountText != null) {
             return;
+        }
+
+        if (anchors == null && decorViewRoot != null && VideoInformation.getOriginalLikeCount() == null && !regularActionButtonCountSearchExhausted) {
+            ensureRegularActionButtonCountSearchUpdates(decorViewRoot);
         }
 
         synchronized (ReturnYouTubeDislikePatch.class) {
@@ -655,14 +549,6 @@ public class ReturnYouTubeDislikePatch {
                 return;
             }
 
-            if (!canShowRegularActionButtonCountOverlays()) {
-                removeRegularActionButtonCountSearchUpdates();
-                if (regularActionButtonCountOverlaysAreUnsupported()) {
-                    removeRegularActionButtonCountOverlays();
-                }
-                return;
-            }
-
             RegularActionButtonAnchors anchors = findRegularActionButtonAnchors(decorViewRoot);
             if (anchors == null) {
                 hideTrackedRegularActionButtonCountLabels();
@@ -674,28 +560,16 @@ public class ReturnYouTubeDislikePatch {
                 return;
             }
 
-            if (anchors.likeButton() != null) {
-                if (isLikeButtonLiked(anchors.likeButton())) {
-                    currentData.setUserVote(Vote.LIKE);
-                } else if (anchors.dislikeButton() != null && isDislikeButtonDisliked(anchors.dislikeButton())) {
-                    currentData.setUserVote(Vote.DISLIKE);
-                } else {
-                    if (currentData.getUserVote() == null) {
-                        currentData.setUserVote(Vote.LIKE_REMOVE);
-                    }
+            Long oldLikes = VideoInformation.getOriginalLikeCount();
+            updateUserVoteAndParseLikes(currentData, anchors);
+            Long newLikes = VideoInformation.getOriginalLikeCount();
+            if (!Objects.equals(oldLikes, newLikes)) {
+                regularLikeActionButtonCountText = null;
+                regularDislikeActionButtonCountText = null;
+                synchronized (ReturnYouTubeDislikePatch.class) {
+                    regularActionButtonCountFetchVideoId = null;
                 }
-                CharSequence contentDesc = anchors.likeButton().getContentDescription();
-                Long oldLikes = VideoInformation.getOriginalLikeCount();
-                parseAndSetOriginalLikeCount(contentDesc);
-                Long newLikes = VideoInformation.getOriginalLikeCount();
-                if (!Objects.equals(oldLikes, newLikes)) {
-                    regularLikeActionButtonCountText = null;
-                    regularDislikeActionButtonCountText = null;
-                    synchronized (ReturnYouTubeDislikePatch.class) {
-                        regularActionButtonCountFetchVideoId = null;
-                    }
-                    Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::scheduleRegularActionButtonCountOverlayUpdates);
-                }
+                Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::scheduleRegularActionButtonCountOverlayUpdates);
             }
 
             ViewGroup overlayHost = findSuitableOverlayHost(anchors.getVisibleButton(), decorViewRoot);
@@ -744,148 +618,283 @@ public class ReturnYouTubeDislikePatch {
 
     @Nullable
     private static RegularActionButtonAnchors findRegularActionButtonAnchors(@NonNull ViewGroup root) {
-        int likeButtonId = Utils.getResourceIdentifier("like_button", "id");
-        int dislikeButtonId = Utils.getResourceIdentifier("dislike_button", "id");
-        List<View> likeButtons = new ArrayList<>();
-        List<View> dislikeButtons = new ArrayList<>();
+        if (!canShowRegularActionButtonCountOverlays() || !isViewVisibleOnScreen(root)) {
+            return null;
+        }
 
-        collectRegularActionButtonCandidates(root, likeButtonId, true, likeButtons);
-        collectRegularActionButtonCandidates(root, dislikeButtonId, false, dislikeButtons);
+        RegularActionButtonAnchors tagAnchors = findRegularActionButtonAnchorsByTag(root);
+        if (tagAnchors != null) {
+            View searchRoot = tagAnchors.getVisibleButton().getParent() instanceof View p ? p : root;
+            assert tagAnchors.likeButton() != null;
+            assert tagAnchors.dislikeButton() != null;
+            if (hasExistingSegmentedActionButtonCount(searchRoot, tagAnchors.likeButton(), tagAnchors.dislikeButton())) {
+                // Logger.printDebug(() -> "findRegularActionButtonAnchors: existing segmented count found (tag matched), skipping");
+                return null;
+            }
+            // Logger.printDebug(() -> "findRegularActionButtonAnchors: matched pair via tag: like=" + tagAnchors.likeButton() + ", dislike=" + tagAnchors.dislikeButton());
+            return tagAnchors;
+        }
 
-        View[] buttons = findBestRegularActionButtonPair(likeButtons, dislikeButtons);
+        View[] buttons = findRegularActionButtonPairByOrder(root);
         if (buttons != null) {
-            if (hasExistingSegmentedActionButtonCount(root, buttons[0], buttons[1])) {
-                return null;
-            }
-
             ViewGroup actionButtonHost = findNearestCommonParent(buttons[0], buttons[1]);
-            if (actionButtonHost == null || actionButtonHost == root) {
+            View searchRoot = actionButtonHost != null && actionButtonHost != root ? actionButtonHost : root;
+            if (hasExistingSegmentedActionButtonCount(searchRoot, buttons[0], buttons[1])) {
+                // Logger.printDebug(() -> "findRegularActionButtonAnchors: existing segmented count found (order matched), skipping");
                 return null;
             }
 
-            resizeRegularActionButtonRow(actionButtonHost, buttons[0], buttons[1]);
-            return new RegularActionButtonAnchors(buttons[0], buttons[1]);
+            if (actionButtonHost != null && actionButtonHost != root) {
+                final View[] matchedOrderButtons = buttons;
+                // Logger.printDebug(() -> "findRegularActionButtonAnchors: matched pair via order: like=" + matchedOrderButtons[0] + ", dislike=" + matchedOrderButtons[1]);
+                return new RegularActionButtonAnchors(buttons[0], buttons[1]);
+            } else {
+                Logger.printDebug(() -> "findRegularActionButtonAnchors: actionButtonHost invalid or equals root (host=" + actionButtonHost + ")");
+            }
         }
 
-        // Keep each overlay independent so hiding one button does not suppress the other count.
-        if (!likeButtons.isEmpty() && !dislikeButtons.isEmpty()) {
-            return null;
-        }
-
-        View likeButton = findBestRegularActionButtonCandidate(likeButtons, regularLikeActionButton);
-        View dislikeButton = findBestRegularActionButtonCandidate(dislikeButtons, regularDislikeActionButton);
-        // Separate EML buttons can omit a useful Like content description (for example, when
-        // YouTube reports the count as "N/A"). The watch-next model still has stable Like and
-        // Dislike positions, so resolve the missing native view relative to the known anchor.
-        if (likeButton == null && dislikeButton != null) {
-            likeButton = findRegularActionButtonByOrder(root, dislikeButton, ActionButton.DISLIKE, ActionButton.LIKE);
-        } else if (dislikeButton == null && likeButton != null) {
-            dislikeButton = findRegularActionButtonByOrder(root, likeButton, ActionButton.LIKE, ActionButton.DISLIKE);
-        }
-        View anchorButton = likeButton != null ? likeButton : dislikeButton;
-        if (anchorButton == null) {
-            return null;
-        }
-
-        ViewGroup actionButtonHost = findRegularActionButtonRowHost(root, anchorButton);
-        if (actionButtonHost != null) {
-            resizeRegularActionButtonRow(actionButtonHost, anchorButton);
-        } else {
-            resizeRegularActionButton(anchorButton);
-        }
-        return new RegularActionButtonAnchors(likeButton, dislikeButton);
+        // Logger.printDebug(() -> "findRegularActionButtonAnchors: no anchor pair found");
+        return null;
     }
 
-    /**
-     * Resolves an EML action button from the locale-independent order parsed by
-     * {@link ActionButtonsFilter}. The known native anchor provides the row and index offset,
-     * avoiding a decor-tree guess when the target button has no usable accessibility text.
-     */
     @Nullable
-    private static View findRegularActionButtonByOrder(@NonNull ViewGroup root,
-                                                       @NonNull View knownAnchor,
-                                                       @NonNull ActionButton knownAction,
-                                                       @NonNull ActionButton targetAction) {
-        int knownActionIndex = ActionButtonsFilter.getCurrentVideoActionButtonIndex(knownAction);
-        int targetActionIndex = ActionButtonsFilter.getCurrentVideoActionButtonIndex(targetAction);
-        if (knownActionIndex < 0 || targetActionIndex < 0) {
+    private static RegularActionButtonAnchors findRegularActionButtonAnchorsByTag(@NonNull ViewGroup root) {
+        int tagId = ResourceUtils.getIdIdentifier("elements_accessibility_view_tag_id");
+        if (tagId == 0) {
+            // Logger.printDebug(() -> "findRegularActionButtonAnchorsByTag: tagId 'elements_accessibility_view_tag_id' not found");
             return null;
         }
 
-        ViewGroup rowHost = findRegularActionButtonRowHost(root, knownAnchor);
-        if (rowHost == null) {
-            return null;
+        List<View> taggedButtons = new ArrayList<>();
+        collectTaggedVideoActionButtons(root, tagId, taggedButtons);
+
+        // Logger.printDebug(() -> "findRegularActionButtonAnchorsByTag: collected " + taggedButtons.size() + " total tagged button candidates");
+
+        View likeButton = null;
+        View dislikeButton = null;
+
+        for (View button : taggedButtons) {
+            String tag = getElementAccessibilityTag(button, tagId);
+            if (tag != null) {
+                if (tag.contains("id.video.like") && likeButton == null) {
+                    likeButton = button;
+                } else if (tag.contains("id.video.dislike") && dislikeButton == null) {
+                    dislikeButton = button;
+                }
+            }
         }
 
-        int rowCenterY = getViewWindowBounds(knownAnchor).centerY();
-        int rowTolerance = Utils.dipToPixels(18);
-        List<View> rowButtons = new ArrayList<>();
-        collectRegularActionButtonRowCandidates(rowHost, rowButtons);
-        rowButtons.removeIf(view -> Math.abs(getViewWindowBounds(view).centerY() - rowCenterY) > rowTolerance);
-        rowButtons.sort((first, second) -> {
-            int comparison = Integer.compare(
-                    getViewWindowBounds(first).centerX(),
-                    getViewWindowBounds(second).centerX()
-            );
-            return rowHost.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ? -comparison : comparison;
-        });
-
-        int knownViewIndex = rowButtons.indexOf(knownAnchor);
-        if (knownViewIndex < 0) {
-            return null;
+        if (likeButton != null && dislikeButton != null) {
+            final View finalLike = likeButton;
+            final View finalDislike = dislikeButton;
+            // Logger.printDebug(() -> "findRegularActionButtonAnchorsByTag: matched anchors by Litho tag! like=" + finalLike + ", dislike=" + finalDislike);
+            return new RegularActionButtonAnchors(likeButton, dislikeButton);
         }
 
-        int targetViewIndex = knownViewIndex + targetActionIndex - knownActionIndex;
-        if (targetViewIndex < 0 || targetViewIndex >= rowButtons.size()) {
-            return null;
+        final View finalLike = likeButton;
+        final View finalDislike = dislikeButton;
+        /* Uncomment for testing
+        if (taggedButtons.isEmpty()) {
+            Logger.printDebug(() -> "findRegularActionButtonAnchorsByTag: no views with like/dislike tags found");
+        } else {
+            Logger.printDebug(() -> "findRegularActionButtonAnchorsByTag: failed to resolve complete pair (likeFound=" + (finalLike != null) + ", dislikeFound=" + (finalDislike != null) + ")");
         }
+        */
 
-        View targetButton = rowButtons.get(targetViewIndex);
-        return canUseOrderResolvedRegularActionButton(targetButton, targetAction)
-                ? targetButton
-                : null;
+        return null;
     }
 
-    /**
-     * The order fallback is only for native buttons that omit the Like/Dislike label.
-     * If the resolved sibling exposes a different action label, reject it instead of
-     * placing a count under Share, Save, More, or another nearby action.
-     */
-    private static boolean canUseOrderResolvedRegularActionButton(@NonNull View view,
-                                                                  @NonNull ActionButton targetAction) {
-        CharSequence contentDescription = view.getContentDescription();
-        if (contentDescription == null) {
+    private static void collectTaggedVideoActionButtons(@Nullable View view, int tagId, @NonNull List<View> result) {
+        if (!isViewValid(view) || !isViewVisibleOnScreen(view) || isRegularActionButtonCountOverlay(view)) {
+            return;
+        }
+
+        String tag = getElementAccessibilityTag(view, tagId);
+        if (tag != null && (tag.contains("id.video.like") || tag.contains("id.video.dislike"))) {
+            result.add(view);
+        }
+
+        if (view instanceof ViewGroup viewGroup) {
+            for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
+                collectTaggedVideoActionButtons(viewGroup.getChildAt(i), tagId, result);
+            }
+        }
+    }
+
+    @Nullable
+    private static String getElementAccessibilityTag(@Nullable View view, int tagId) {
+        if (view == null || tagId == 0) {
+            return null;
+        }
+        Object tag = view.getTag(tagId);
+        return tag != null ? tag.toString() : null;
+    }
+
+    private static boolean isNonVideoTaggedHost(@NonNull ViewGroup host, @NonNull List<View> rowButtons, int tagId) {
+        if (tagId == 0) {
+            return false;
+        }
+        for (View button : rowButtons) {
+            if (hasNonVideoTag(button, tagId)) {
+                return true;
+            }
+        }
+        for (int i = 0, count = host.getChildCount(); i < count; i++) {
+            if (hasNonVideoTag(host.getChildAt(i), tagId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean hasNonVideoTag(@Nullable View view, int tagId) {
+        if (!isViewValid(view)) {
+            return false;
+        }
+        String tag = getElementAccessibilityTag(view, tagId);
+        if (tag != null && tag.startsWith("id.") && !tag.startsWith("id.video.")) {
             return true;
         }
+        if (view instanceof ViewGroup viewGroup) {
+            for (int i = 0, count = viewGroup.getChildCount(); i < count; i++) {
+                if (hasNonVideoTag(viewGroup.getChildAt(i), tagId)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
-        if (targetAction == ActionButton.LIKE) {
-            if (hasRegularActionButtonContentDescription(view, true)) {
-                return true;
-            }
-            if (hasRegularActionButtonContentDescription(view, false)) {
-                return false;
-            }
-        } else if (targetAction == ActionButton.DISLIKE) {
-            if (hasRegularActionButtonContentDescription(view, false)) {
-                return true;
-            }
-            if (hasRegularActionButtonContentDescription(view, true)) {
-                return false;
+    /**
+     * Finds the separate Like and Dislike buttons from the locale-independent action-bar model.
+     * This is needed when neither EML button has a usable Android resource ID or localized label.
+     * The candidate row is required to have at least enough visible buttons to contain both the
+     * Like and Dislike action indices (typically 2+ buttons such as 3-, 4-, or 5-button rows).
+     */
+    @Nullable
+    private static View[] findRegularActionButtonPairByOrder(@NonNull ViewGroup root) {
+        if (!canShowRegularActionButtonCountOverlays() || !isViewVisibleOnScreen(root)) {
+            return null;
+        }
+
+        int tagId = ResourceUtils.getIdIdentifier("elements_accessibility_view_tag_id");
+
+        int likeActionIndex = ActionButtonsFilter.getCurrentVideoActionButtonIndex(ActionButton.LIKE);
+        int dislikeActionIndex = ActionButtonsFilter.getCurrentVideoActionButtonIndex(ActionButton.DISLIKE);
+        int actionButtonCount = ActionButtonsFilter.getCurrentVideoActionButtonCount();
+
+        if (likeActionIndex < 0) {
+            likeActionIndex = 0;
+        }
+        if (dislikeActionIndex < 0) {
+            dislikeActionIndex = 1;
+        }
+
+        final int finalLikeIndex = likeActionIndex;
+        final int finalDislikeIndex = dislikeActionIndex;
+        // Logger.printDebug(() -> "findRegularActionButtonPairByOrder: model indices -> likeIndex=" + finalLikeIndex + ", dislikeIndex=" + finalDislikeIndex + ", count=" + actionButtonCount);
+
+        if (likeActionIndex == dislikeActionIndex) {
+            return null;
+        }
+
+        int requiredButtonCount = Math.max(
+                2,
+                Math.max(likeActionIndex, dislikeActionIndex) + 1
+        );
+
+        List<View> rowCandidates = new ArrayList<>();
+        collectRegularActionButtonRowCandidates(root, rowCandidates);
+
+        // Logger.printDebug(() -> "findRegularActionButtonPairByOrder: collected " + rowCandidates.size() + " total row candidates");
+
+        if (rowCandidates.size() < requiredButtonCount) {
+            return null;
+        }
+
+        Map<ViewGroup, List<View>> candidatesByHost = new LinkedHashMap<>();
+        for (View candidate : rowCandidates) {
+            ViewGroup host = findRegularActionButtonRowHost(root, candidate);
+            if (host != null && host != root) {
+                candidatesByHost.computeIfAbsent(host, k -> new ArrayList<>()).add(candidate);
             }
         }
 
-        String description = contentDescription.toString().toLowerCase(Locale.ROOT);
-        return !description.contains("action menu")
-                && !description.contains("more")
-                && !description.contains("overflow")
-                && !description.contains("share")
-                && !description.contains("save")
-                && !description.contains("playlist")
-                && !description.contains("download")
-                && !description.contains("clip")
-                && !description.contains("comment")
-                && !description.contains("remix")
-                && !description.contains("thanks");
+        View[] bestPair = null;
+        int bestScore = Integer.MAX_VALUE;
+
+        for (Map.Entry<ViewGroup, List<View>> entry : candidatesByHost.entrySet()) {
+            ViewGroup host = entry.getKey();
+            List<View> rowButtons = entry.getValue();
+
+            if (rowButtons.size() < requiredButtonCount) {
+                // Logger.printDebug(() -> "findRegularActionButtonPairByOrder: skipping host " + host.getClass().getName() + " (buttons=" + rowButtons.size() + " < required=" + requiredButtonCount + ")");
+                continue;
+            }
+
+            if (isNonVideoTaggedHost(host, rowButtons, tagId)) {
+                // Logger.printDebug(() -> "findRegularActionButtonPairByOrder: skipping host " + host.getClass().getName() + " with non-video tags");
+                continue;
+            }
+
+            final boolean sortRtl = isViewRtl(host);
+            rowButtons.sort((first, second) -> {
+                int comparison = Integer.compare(
+                        getViewWindowBounds(first).centerX(),
+                        getViewWindowBounds(second).centerX()
+                );
+                return sortRtl ? -comparison : comparison;
+            });
+
+            // Logger.printDebug(() -> "findRegularActionButtonPairByOrder: evaluating host " + host.getClass().getName() + " with " + rowButtons.size() + " buttons, sortRtl=" + sortRtl);
+
+            for (int i = 0; i < rowButtons.size(); i++) {
+                int index = i;
+                View btn = rowButtons.get(i);
+                String tag = getElementAccessibilityTag(btn, tagId);
+                CharSequence desc = btn.getContentDescription();
+                Logger.printDebug(() -> "  button[" + index + "]=" + btn + " bounds=" + getViewWindowBounds(btn)
+                        + (tag != null ? " tag=" + tag : "")
+                        + (desc != null ? " desc='" + desc + "'" : ""));
+            }
+
+            for (int offset = 0; offset + requiredButtonCount <= rowButtons.size(); offset++) {
+                View likeButton = rowButtons.get(offset + likeActionIndex);
+                View dislikeButton = rowButtons.get(offset + dislikeActionIndex);
+
+                if (likeButton == dislikeButton) {
+                    continue;
+                }
+
+                Rect likeBounds = getViewWindowBounds(likeButton);
+                Rect dislikeBounds = getViewWindowBounds(dislikeButton);
+                int verticalDistance = Math.abs(likeBounds.centerY() - dislikeBounds.centerY());
+                if (verticalDistance > Utils.dipToPixels(48)) {
+                    continue;
+                }
+
+                int targetCount = actionButtonCount > 0 ? actionButtonCount : 5;
+                boolean isValidCount = rowButtons.size() >= 3 && rowButtons.size() <= Math.max(5, targetCount);
+                int extraButtonPenalty = isValidCount ? 0 : Math.abs(rowButtons.size() - targetCount) * 1_000;
+                int score = verticalDistance + extraButtonPenalty;
+                if (bestPair == null || score < bestScore) {
+                    bestScore = score;
+                    bestPair = new View[]{likeButton, dislikeButton};
+                    final View finalLike = likeButton;
+                    final View finalDislike = dislikeButton;
+                    // Logger.printDebug(() -> "findRegularActionButtonPairByOrder: new bestPair matched! likeBounds=" + getViewWindowBounds(finalLike) + ", dislikeBounds=" + getViewWindowBounds(finalDislike) + ", host=" + host.getClass().getName());
+                }
+            }
+        }
+
+        if (bestPair != null) {
+            final View[] finalPair = bestPair;
+            Logger.printDebug(() -> "findRegularActionButtonPairByOrder: successfully resolved pair! like=" + finalPair[0] + ", dislike=" + finalPair[1]);
+        } else {
+            Logger.printDebug(() -> "findRegularActionButtonPairByOrder: failed to resolve pair");
+        }
+
+        return bestPair;
     }
 
     @NonNull
@@ -904,235 +913,48 @@ public class ReturnYouTubeDislikePatch {
         return fallbackRoot;
     }
 
-    @Nullable
-    private static View[] findRegularActionButtonPair(@NonNull ViewGroup root) {
-        int likeButtonId = Utils.getResourceIdentifier("like_button", "id");
-        int dislikeButtonId = Utils.getResourceIdentifier("dislike_button", "id");
-        List<View> likeButtons = new ArrayList<>();
-        List<View> dislikeButtons = new ArrayList<>();
-
-        collectRegularActionButtonCandidates(root, likeButtonId, true, likeButtons);
-        collectRegularActionButtonCandidates(root, dislikeButtonId, false, dislikeButtons);
-
-        return findBestRegularActionButtonPair(likeButtons, dislikeButtons);
-    }
-
-    @Nullable
-    private static View[] findBestRegularActionButtonPair(@NonNull List<View> likeButtons,
-                                                          @NonNull List<View> dislikeButtons) {
-        View bestLikeButton = null;
-        View bestDislikeButton = null;
-        int bestScore = Integer.MAX_VALUE;
-        int maximumVerticalDistance = Utils.dipToPixels(48);
-
-        for (View likeButton : likeButtons) {
-            Rect likeBounds = getViewWindowBounds(likeButton);
-            int likeCenterX = likeBounds.centerX();
-            int likeCenterY = likeBounds.centerY();
-
-            for (View dislikeButton : dislikeButtons) {
-                if (likeButton == dislikeButton) {
-                    continue;
-                }
-
-                Rect dislikeBounds = getViewWindowBounds(dislikeButton);
-                int dislikeCenterX = dislikeBounds.centerX();
-                int dislikeCenterY = dislikeBounds.centerY();
-                if (likeCenterX >= dislikeCenterX) {
-                    continue;
-                }
-
-                int verticalDistance = Math.abs(likeCenterY - dislikeCenterY);
-                if (verticalDistance > maximumVerticalDistance) {
-                    continue;
-                }
-
-                // Prefer the topmost visible like/dislike pair. This avoids matching lower feed/comment buttons.
-                int score = Math.min(likeBounds.top, dislikeBounds.top) + verticalDistance;
-                if (score < bestScore) {
-                    bestScore = score;
-                    bestLikeButton = likeButton;
-                    bestDislikeButton = dislikeButton;
-                }
-            }
-        }
-
-        return bestLikeButton == null ? null : new View[]{bestLikeButton, bestDislikeButton};
-    }
-
-    @Nullable
-    private static View findBestRegularActionButtonCandidate(@NonNull List<View> candidates,
-                                                             @Nullable WeakReference<View> trackedReference) {
-        View trackedButton = trackedReference == null ? null : trackedReference.get();
-        if (trackedButton != null && candidates.contains(trackedButton)) {
-            return trackedButton;
-        }
-        if (candidates.isEmpty()) {
-            return null;
-        }
-        if (candidates.size() == 1) {
-            return candidates.get(0);
-        }
-
-        View bestCandidate = null;
-        int bestScore = Integer.MIN_VALUE;
-        for (View candidate : candidates) {
-            Rect bounds = getViewWindowBounds(candidate);
-            int score = bounds.centerY();
-            if (candidate.getParent() instanceof ViewGroup parent) {
-                score += Math.min(parent.getChildCount(), 5) * 1_000;
-            }
-            if (bestCandidate == null || score > bestScore) {
-                bestCandidate = candidate;
-                bestScore = score;
-            }
-        }
-        return bestCandidate;
-    }
-
-    private static void collectRegularActionButtonCandidates(@Nullable View view,
-                                                             int resourceId,
-                                                             boolean likeButton,
-                                                             @NonNull List<View> candidates) {
-        if (!isVisibleOnScreen(view) || isRegularActionButtonCountOverlay(view)) {
-            return;
-        }
-
-        boolean idMatches = resourceId != 0 && view.getId() == resourceId;
-        boolean contentDescriptionMatches = hasRegularActionButtonContentDescription(view, likeButton);
-        if ((idMatches || contentDescriptionMatches) && !isCommentActionButtonCandidate(view)) {
-            candidates.add(view);
-        }
-
-        if (view instanceof ViewGroup viewGroup) {
-            for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
-                collectRegularActionButtonCandidates(viewGroup.getChildAt(i), resourceId, likeButton, candidates);
-            }
-        }
-    }
-
-    private static boolean hasVisibleSegmentedRegularActionButtonCount(@NonNull ViewGroup root) {
-        View[] buttons = findRegularActionButtonPair(root);
-        return buttons != null && hasExistingSegmentedActionButtonCount(root, buttons[0], buttons[1]);
-    }
-
-    private static boolean contentDescriptionStringsCached = false;
-    private static String cachedLikeStr = null;
-    private static String cachedUndoLikeStr = null;
-    private static String cachedDislikeStr = null;
-    private static String cachedUndoDislikeStr = null;
-
-    @SuppressLint("DiscouragedApi")
-    private static void cacheContentDescriptionStrings() {
-        if (contentDescriptionStringsCached) {
-            return;
-        }
-        contentDescriptionStringsCached = true;
-        Context context = Utils.getContext();
-        if (context != null) {
-            Resources resources = context.getResources();
-            String packageName = context.getPackageName();
-
-            int likeId = resources.getIdentifier("accessibility_like_video", "string", packageName);
-            if (likeId != 0) {
-                cachedLikeStr = resources.getString(likeId).toLowerCase(Locale.ROOT);
-            }
-
-            int undoLikeId = resources.getIdentifier("accessibility_undo_like_video", "string", packageName);
-            if (undoLikeId != 0) {
-                cachedUndoLikeStr = resources.getString(undoLikeId).toLowerCase(Locale.ROOT);
-            }
-
-            int dislikeId = resources.getIdentifier("accessibility_dislike_video", "string", packageName);
-            if (dislikeId != 0) {
-                cachedDislikeStr = resources.getString(dislikeId).toLowerCase(Locale.ROOT);
-            }
-
-            int undoDislikeId = resources.getIdentifier("accessibility_undo_dislike_video", "string", packageName);
-            if (undoDislikeId != 0) {
-                cachedUndoDislikeStr = resources.getString(undoDislikeId).toLowerCase(Locale.ROOT);
-            }
-        }
-    }
-
-    private static boolean hasRegularActionButtonContentDescription(@NonNull View view, boolean likeButton) {
-        CharSequence contentDescription = view.getContentDescription();
-        if (contentDescription == null) {
-            return false;
-        }
-
-        cacheContentDescriptionStrings();
-
-        String description = contentDescription.toString().toLowerCase(Locale.ROOT);
-
-        if (likeButton) {
-            boolean noDislike = (cachedDislikeStr == null || !description.contains(cachedDislikeStr)) 
-                                && !description.contains("dislike");
-
-            if (cachedLikeStr != null && (description.equals(cachedLikeStr) || (description.contains(cachedLikeStr) && noDislike))) {
-                return true;
-            }
-            if (cachedUndoLikeStr != null && (description.equals(cachedUndoLikeStr) || (description.contains(cachedUndoLikeStr) && noDislike))) {
-                return true;
-            }
-        } else {
-            if (cachedDislikeStr != null && (description.equals(cachedDislikeStr) || description.contains(cachedDislikeStr))) {
-                return true;
-            }
-            if (cachedUndoDislikeStr != null && (description.equals(cachedUndoDislikeStr) || description.contains(cachedUndoDislikeStr))) {
-                return true;
-            }
-        }
-
-        return likeButton
-                ? description.contains("like") && !description.contains("dislike")
-                : description.contains("dislike");
-    }
-
-    private static boolean isCommentActionButtonCandidate(@NonNull View view) {
-        CharSequence contentDescription = view.getContentDescription();
-        if (contentDescription != null
-                && contentDescription.toString().toLowerCase(Locale.ROOT).contains("comment")) {
+    private static boolean isViewRtl(@NonNull View view) {
+        if (view.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             return true;
         }
-
-        int actionToolbarId = Utils.getResourceIdentifier("action_toolbar", "id");
-        if (actionToolbarId == 0) {
-            return false;
-        }
-
-        ViewParent parent = view.getParent();
-        while (parent instanceof View parentView) {
-            if (parentView.getId() == actionToolbarId
-                    && parentView.getParent() instanceof ViewGroup commentRoot
-                    && hasCommentContent(commentRoot)) {
+        try {
+            if (view.getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
                 return true;
             }
-
+        } catch (Exception ignored) {
+        }
+        try {
+            if (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL) {
+                return true;
+            }
+        } catch (Exception ignored) {
+        }
+        ViewParent parent = view.getParent();
+        while (parent instanceof View parentView) {
+            if (parentView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+                return true;
+            }
             parent = parentView.getParent();
         }
-
         return false;
     }
 
-    private static boolean hasCommentContent(@NonNull ViewGroup viewGroup) {
-        int commentAuthorId = Utils.getResourceIdentifier("comment_author", "id");
-        int commentContentId = Utils.getResourceIdentifier("comment_content", "id");
-        return (commentAuthorId != 0 && viewGroup.findViewById(commentAuthorId) != null)
-                || (commentContentId != 0 && viewGroup.findViewById(commentContentId) != null);
+    private static boolean hasVisibleSegmentedRegularActionButtonCount(@NonNull ViewGroup root) {
+        View[] buttons = findRegularActionButtonPairByOrder(root);
+        return buttons != null && hasExistingSegmentedActionButtonCount(root, buttons[0], buttons[1]);
     }
 
-    private static boolean hasExistingSegmentedActionButtonCount(@NonNull ViewGroup root,
+    private static boolean hasExistingSegmentedActionButtonCount(@NonNull View searchRoot,
                                                                  @NonNull View likeButton,
                                                                  @NonNull View dislikeButton) {
         Rect likeBounds = getViewWindowBounds(likeButton);
         Rect dislikeBounds = getViewWindowBounds(dislikeButton);
         int minimumX = Math.min(likeBounds.centerX(), dislikeBounds.centerX());
         int maximumX = Math.max(likeBounds.centerX(), dislikeBounds.centerX());
-        int minimumY = Math.min(likeBounds.top, dislikeBounds.top) - Utils.dipToPixels(12);
-        int maximumY = Math.max(likeBounds.bottom, dislikeBounds.bottom) + Utils.dipToPixels(12);
+        int minimumY = Math.min(likeBounds.top, dislikeBounds.top);
+        int maximumY = Math.max(likeBounds.bottom, dislikeBounds.bottom);
 
-        return containsVisibleNumberTextView(root, minimumX, maximumX, minimumY, maximumY);
+        return containsVisibleNumberTextView(searchRoot, minimumX, maximumX, minimumY, maximumY);
     }
 
     private static boolean containsVisibleNumberTextView(@Nullable View view,
@@ -1140,7 +962,7 @@ public class ReturnYouTubeDislikePatch {
                                                          int maximumX,
                                                          int minimumY,
                                                          int maximumY) {
-        if (!isVisibleOnScreen(view) || isRegularActionButtonCountOverlay(view)) {
+        if (!isViewValid(view) || isRegularActionButtonCountOverlay(view)) {
             return false;
         }
 
@@ -1152,6 +974,8 @@ public class ReturnYouTubeDislikePatch {
                 int centerY = bounds.centerY();
                 if (centerX > minimumX && centerX < maximumX
                         && centerY > minimumY && centerY < maximumY) {
+                    Logger.printDebug(() -> "containsVisibleNumberTextView: matched number text '" + text
+                            + "' in view: " + textView + " at bounds " + bounds);
                     return true;
                 }
             }
@@ -1226,80 +1050,9 @@ public class ReturnYouTubeDislikePatch {
         return false;
     }
 
-    /**
-     * Reapplies the complete action-row scale after transient engagement-panel animations.
-     * {@link #resizeRegularActionButton(View)} ignores intermediate animation values, so calling
-     * this from pre-draw is safe and succeeds as soon as YouTube restores the native scale.
-     */
-    private static void resizeTrackedRegularActionButtonRow(@NonNull ViewGroup root,
-                                                            @Nullable View likeButton,
-                                                            @Nullable View dislikeButton) {
-        if (Settings.DISABLE_LAYOUT_UPDATES.get()) {
-            return;
-        }
-        View anchorButton = likeButton != null ? likeButton : dislikeButton;
-        if (anchorButton == null) {
-            return;
-        }
-
-        ViewGroup actionButtonHost = likeButton != null && dislikeButton != null
-                ? findNearestCommonParent(likeButton, dislikeButton)
-                : findRegularActionButtonRowHost(root, anchorButton);
-
-        if (actionButtonHost != null) {
-            if (likeButton != null && dislikeButton != null) {
-                resizeRegularActionButtonRow(actionButtonHost, likeButton, dislikeButton);
-            } else {
-                resizeRegularActionButtonRow(actionButtonHost, anchorButton);
-            }
-        } else {
-            resizeRegularActionButton(anchorButton);
-        }
-    }
-
-    private static void resizeRegularActionButtonRow(@NonNull ViewGroup actionButtonHost,
-                                                     @NonNull View... anchorButtons) {
-        if (Settings.DISABLE_LAYOUT_UPDATES.get()) {
-            return;
-        }
-        int rowCenterYTotal = 0;
-        int anchorCount = 0;
-        for (View anchorButton : anchorButtons) {
-            if (anchorButton != null) {
-                rowCenterYTotal += getViewWindowBounds(anchorButton).centerY();
-                anchorCount++;
-            }
-        }
-        if (anchorCount == 0) {
-            return;
-        }
-
-        int rowCenterY = rowCenterYTotal / anchorCount;
-        int rowTolerance = Utils.dipToPixels(18);
-        List<View> candidates = new ArrayList<>();
-        collectRegularActionButtonRowCandidates(actionButtonHost, candidates);
-
-        int resizedButtons = 0;
-        for (View candidate : candidates) {
-            Rect bounds = getViewWindowBounds(candidate);
-            if (Math.abs(bounds.centerY() - rowCenterY) <= rowTolerance) {
-                resizeRegularActionButton(candidate);
-                resizedButtons++;
-            }
-        }
-
-        if (resizedButtons < anchorCount) {
-            for (View anchorButton : anchorButtons) {
-                if (anchorButton != null) {
-                    resizeRegularActionButton(anchorButton);
-                }
-            }
-        }
-    }
-
     private static void collectRegularActionButtonRowCandidates(@Nullable View view,
                                                                 @NonNull List<View> candidates) {
-        if (!isVisibleOnScreen(view) || isRegularActionButtonCountOverlay(view)) {
+        if (!isViewValid(view) || !isViewVisibleOnScreen(view) || isRegularActionButtonCountOverlay(view)) {
             return;
         }
 
@@ -1324,74 +1077,18 @@ public class ReturnYouTubeDislikePatch {
             return false;
         }
 
+        // Fragile check: relies on server-side behavior and may break if server logic changes (similar to hiding Litho components).
+        // Example litho:
+        // Creating action button dislikes span for: VIDEO_ID
+        //     button[0]=com.facebook.litho.ComponentHost{RANDOM_ID VFED ...} bounds=Rect(COORDINATES)
+        //     button[1]=com.facebook.litho.ComponentHost{RANDOM_ID VFED ...} bounds=Rect(COORDINATES)
+        //     ...
+        //     button[N]=com.facebook.litho.ComponentHost{RANDOM_ID VFED ...} bounds=Rect(COORDINATES)
+        if (!view.getClass().getName().contains("ComponentHost")) {
+            return false;
+        }
+
         return view.isClickable() || view.getContentDescription() != null;
-    }
-
-    /**
-     * Applies the count layout scale after YouTube's transient button animation has settled.
-     * Reapplying the scale while that animation is running makes the button alternate between
-     * YouTube's animated scale and {@link #ACTION_BUTTON_VISUAL_SCALE} during delayed updates.
-     */
-    private static void resizeRegularActionButton(@NonNull View button) {
-        if (Settings.DISABLE_LAYOUT_UPDATES.get()) {
-            return;
-        }
-        if (button.getWidth() <= 0 || button.getHeight() <= 0) {
-            return;
-        }
-
-        RegularActionButtonViewState originalState = regularActionButtonViewStates.get(button);
-        if (originalState == null) {
-            // Action buttons use their default scale after YouTube's initial layout animation.
-            if (button.getScaleX() != 1.0f || button.getScaleY() != 1.0f) {
-                return;
-            }
-
-            originalState = new RegularActionButtonViewState(
-                    button.getScaleX(),
-                    button.getScaleY(),
-                    button.getPivotX(),
-                    button.getPivotY()
-            );
-            regularActionButtonViewStates.put(button, originalState);
-        } else if ((button.getScaleX() != ACTION_BUTTON_VISUAL_SCALE
-                && button.getScaleX() != originalState.scaleX)
-                || (button.getScaleY() != ACTION_BUTTON_VISUAL_SCALE
-                && button.getScaleY() != originalState.scaleY)) {
-            // Do not fight a selection or replacement animation. A later scheduled update
-            // reapplies the count layout after the view returns to its original scale.
-            return;
-        }
-
-        float pivotX = button.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ? button.getWidth() : 0;
-        if (button.getPivotX() != pivotX) {
-            button.setPivotX(pivotX);
-        }
-        if (button.getPivotY() != 0) {
-            button.setPivotY(0);
-        }
-        if (button.getScaleX() != ACTION_BUTTON_VISUAL_SCALE) {
-            button.setScaleX(ACTION_BUTTON_VISUAL_SCALE);
-        }
-        if (button.getScaleY() != ACTION_BUTTON_VISUAL_SCALE) {
-            button.setScaleY(ACTION_BUTTON_VISUAL_SCALE);
-        }
-    }
-
-    private static void restoreRegularActionButtons() {
-        regularActionButtonViewStates.entrySet().removeIf(entry -> {
-            View button = entry.getKey();
-            if (button == null) {
-                return true;
-            }
-
-            RegularActionButtonViewState state = entry.getValue();
-            button.setScaleX(state.scaleX);
-            button.setScaleY(state.scaleY);
-            button.setPivotX(state.pivotX);
-            button.setPivotY(state.pivotY);
-            return true;
-        });
     }
 
     /**
@@ -1418,8 +1115,15 @@ public class ReturnYouTubeDislikePatch {
     private static TextView getOrCreateRegularActionButtonCountLabel(@NonNull ViewGroup root,
                                                                      boolean likeButton) {
         TextView textView = getTrackedRegularActionButtonCountLabel(likeButton);
-        if (textView != null && textView.getParent() == root) {
+        ViewGroup trackedRoot = regularActionButtonCountRoot == null
+                ? null
+                : regularActionButtonCountRoot.get();
+        if (textView != null && trackedRoot == root) {
             return textView;
+        }
+
+        if (textView != null && trackedRoot != null) {
+            trackedRoot.getOverlay().remove(textView);
         }
 
         if (textView == null) {
@@ -1442,7 +1146,7 @@ public class ReturnYouTubeDislikePatch {
             previousParent.removeView(textView);
         }
 
-        root.addView(textView, createRegularActionButtonCountLayoutParams(root));
+        root.getOverlay().add(textView);
         return textView;
     }
 
@@ -1452,21 +1156,6 @@ public class ReturnYouTubeDislikePatch {
                 ? regularLikeActionButtonCountLabel
                 : regularDislikeActionButtonCountLabel;
         return textViewReference == null ? null : textViewReference.get();
-    }
-
-    @NonNull
-    private static ViewGroup.LayoutParams createRegularActionButtonCountLayoutParams(@NonNull ViewGroup root) {
-        if (root instanceof FrameLayout) {
-            return new FrameLayout.LayoutParams(
-                    FrameLayout.LayoutParams.WRAP_CONTENT,
-                    FrameLayout.LayoutParams.WRAP_CONTENT
-            );
-        }
-
-        return new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
     }
 
     private static void setRegularActionButtonCountAnchors(@NonNull ViewGroup root,
@@ -1528,33 +1217,20 @@ public class ReturnYouTubeDislikePatch {
             return;
         }
 
-        if (PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MAXIMIZED) {
-            removeRegularActionButtonCountSearchUpdates();
-            hideTrackedRegularActionButtonCountLabels();
-            return;
+        boolean likeAttached = likeButton != null && likeButton.isAttachedToWindow() && isDescendantOf(likeButton, root);
+        boolean dislikeAttached = dislikeButton != null && dislikeButton.isAttachedToWindow() && isDescendantOf(dislikeButton, root);
+
+        if ((likeButton != null && !likeAttached) || (dislikeButton != null && !dislikeAttached)) {
+            likeButton = null;
+            dislikeButton = null;
+            regularLikeActionButton = null;
+            regularDislikeActionButton = null;
         }
 
-        if (!canShowRegularActionButtonCountOverlays()) {
-            removeRegularActionButtonCountSearchUpdates();
-            return;
-        }
-
-        if (regularActionButtonCountOverlaysAreBlockedBySurface()) {
-            // The tracked anchors still belong to the regular action bar. Do not look for new
-            // anchors until the panel closes, otherwise panel controls can receive the counts.
-            removeRegularActionButtonCountSearchUpdates();
-            return;
-        }
-
-        if (!trackedRegularActionButtonCountAnchorsAreVisible(root, likeButton, dislikeButton)) {
+        if (likeButton == null && dislikeButton == null) {
             RegularActionButtonAnchors anchors = findRegularActionButtonAnchors(root);
             if (anchors == null) {
                 hideTrackedRegularActionButtonCountLabels();
-                if (hasVisibleSegmentedRegularActionButtonCount(root)) {
-                    removeRegularActionButtonCountSearchUpdates();
-                    return;
-                }
-                ensureRegularActionButtonCountSearchUpdates(root);
                 return;
             }
 
@@ -1564,10 +1240,10 @@ public class ReturnYouTubeDislikePatch {
             regularDislikeActionButton = dislikeButton == null ? null : new WeakReference<>(dislikeButton);
         }
 
-        // Closing an engagement panel with X can expose the action row before YouTube's scale
-        // animation finishes. Keep retrying from pre-draw so this path converges to the same
-        // resized row as a swipe dismissal without introducing an arbitrary delay.
-        resizeTrackedRegularActionButtonRow(root, likeButton, dislikeButton);
+        if (!trackedRegularActionButtonCountAnchorsAreValid(root, likeButton, dislikeButton)) {
+            hideTrackedRegularActionButtonCountLabels();
+            return;
+        }
 
         // Always fit from the full cached value. Reusing an ellipsized label would permanently
         // retain truncation after rotation or any other layout expansion.
@@ -1590,22 +1266,22 @@ public class ReturnYouTubeDislikePatch {
         );
     }
 
-    private static boolean trackedRegularActionButtonCountAnchorsAreVisible(@NonNull ViewGroup root,
-                                                                            @Nullable View likeButton,
-                                                                            @Nullable View dislikeButton) {
-        boolean likeVisible = likeButton == null || (
+    private static boolean trackedRegularActionButtonCountAnchorsAreValid(@NonNull ViewGroup root,
+                                                                           @Nullable View likeButton,
+                                                                           @Nullable View dislikeButton) {
+        boolean likeValid = likeButton == null || (
                 likeButton.getWidth() > 0
                         && likeButton.getHeight() > 0
                         && isDescendantOf(likeButton, root)
-                        && isVisibleOnScreen(likeButton)
+                        && isViewVisibleOnScreen(likeButton)
         );
-        boolean dislikeVisible = dislikeButton == null || (
+        boolean dislikeValid = dislikeButton == null || (
                 dislikeButton.getWidth() > 0
                         && dislikeButton.getHeight() > 0
                         && isDescendantOf(dislikeButton, root)
-                        && isVisibleOnScreen(dislikeButton)
+                        && isViewVisibleOnScreen(dislikeButton)
         );
-        return (likeButton != null || dislikeButton != null) && likeVisible && dislikeVisible;
+        return (likeButton != null || dislikeButton != null) && likeValid && dislikeValid;
     }
 
     private static void removeRegularActionButtonCountPositionUpdates() {
@@ -1638,16 +1314,34 @@ public class ReturnYouTubeDislikePatch {
         }
 
         regularActionButtonCountSearchRoot = new WeakReference<>(root);
+        regularActionButtonCountSearchRetries = 0;
         regularActionButtonCountSearchListener = () -> {
             ReturnYouTubeDislike videoData = currentVideoData;
-            CharSequence likeCount = regularLikeActionButtonCountText;
-            CharSequence dislikeCount = regularDislikeActionButtonCountText;
-            if (videoData == null || likeCount == null || dislikeCount == null) {
+            if (videoData == null) {
                 removeRegularActionButtonCountSearchUpdates();
                 return true;
             }
 
-            updateRegularActionButtonCountOverlays(videoData.getVideoId(), likeCount, dislikeCount);
+            ViewGroup decorRoot = regularActionButtonCountSearchRoot == null
+                    ? null
+                    : regularActionButtonCountSearchRoot.get();
+            if (decorRoot == null) {
+                removeRegularActionButtonCountSearchUpdates();
+                return true;
+            }
+
+            RegularActionButtonAnchors anchors = findRegularActionButtonAnchors(decorRoot);
+            if (anchors != null) {
+                removeRegularActionButtonCountSearchUpdates();
+                scheduleRegularActionButtonCountOverlayUpdates();
+                return true;
+            }
+
+            if (++regularActionButtonCountSearchRetries > 15) {
+                regularActionButtonCountSearchExhausted = true;
+                removeRegularActionButtonCountSearchUpdates();
+                scheduleRegularActionButtonCountOverlayUpdates();
+            }
             return true;
         };
         root.getViewTreeObserver().addOnPreDrawListener(regularActionButtonCountSearchListener);
@@ -1667,6 +1361,7 @@ public class ReturnYouTubeDislikePatch {
 
         regularActionButtonCountSearchRoot = null;
         regularActionButtonCountSearchListener = null;
+        regularActionButtonCountSearchRetries = 0;
     }
 
     private static void positionRegularActionButtonCountLabels(@NonNull ViewGroup root,
@@ -1775,51 +1470,34 @@ public class ReturnYouTubeDislikePatch {
         if (textView.getCurrentTextColor() != textColor) {
             textView.setTextColor(textColor);
         }
-        int rootHeight = Math.max(1, root.getHeight());
+
+        int targetHeight = ACTION_BUTTON_COUNT_RESERVED_HEIGHT_PIXELS;
         textView.measure(
                 View.MeasureSpec.makeMeasureSpec(availableWidth, View.MeasureSpec.AT_MOST),
-                View.MeasureSpec.makeMeasureSpec(
-                        rootHeight + ACTION_BUTTON_COUNT_RESERVED_HEIGHT_PIXELS,
-                        View.MeasureSpec.AT_MOST)
+                View.MeasureSpec.makeMeasureSpec(targetHeight, View.MeasureSpec.EXACTLY)
         );
 
         int labelWidth = Math.max(1, textView.getMeasuredWidth());
         textView.measure(
                 View.MeasureSpec.makeMeasureSpec(labelWidth, View.MeasureSpec.EXACTLY),
-                View.MeasureSpec.makeMeasureSpec(
-                        rootHeight + ACTION_BUTTON_COUNT_RESERVED_HEIGHT_PIXELS,
-                        View.MeasureSpec.AT_MOST)
+                View.MeasureSpec.makeMeasureSpec(targetHeight, View.MeasureSpec.EXACTLY)
         );
+
+        int baseline = textView.getBaseline();
+        int layoutTop = top;
+        if (baseline > 0) {
+            int targetBaselineOffset = Utils.dipToPixels(12);
+            layoutTop = top + targetBaselineOffset - baseline;
+        }
 
         int left = buttonVisualBounds.centerX() - labelWidth / 2;
 
-        if (root instanceof FrameLayout) {
-            if (textView.getLayoutParams() instanceof FrameLayout.LayoutParams params) {
-                if (params.width != labelWidth || params.leftMargin != left || params.topMargin != top) {
-                    params.width = labelWidth;
-                    params.leftMargin = left;
-                    params.topMargin = top;
-                    textView.setLayoutParams(params);
-                }
-            } else {
-                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-                        labelWidth,
-                        FrameLayout.LayoutParams.WRAP_CONTENT
-                );
-                params.leftMargin = left;
-                params.topMargin = top;
-                textView.setLayoutParams(params);
-            }
-        } else if (textView.getLeft() != left || textView.getTop() != top
-                || textView.getRight() != left + labelWidth
-                || textView.getBottom() != top + textView.getMeasuredHeight()) {
-            textView.layout(left, top, left + labelWidth, top + textView.getMeasuredHeight());
-        }
+        textView.layout(left, layoutTop, left + labelWidth, layoutTop + targetHeight);
 
         if (textView.getVisibility() != View.VISIBLE) {
             textView.setVisibility(View.VISIBLE);
-            textView.bringToFront();
         }
+        root.invalidate();
     }
 
     /**
@@ -1924,6 +1602,7 @@ public class ReturnYouTubeDislikePatch {
     }
 
     private static void removeRegularActionButtonCountOverlays() {
+        regularActionButtonCountSearchExhausted = false;
         ViewGroup decorViewRoot = getDecorViewRoot();
         removeRegularActionButtonCountSearchUpdates();
         removeTrackedRegularActionButtonCountLabels();
@@ -1931,7 +1610,6 @@ public class ReturnYouTubeDislikePatch {
         if (decorViewRoot != null) {
             removeRegularActionButtonCountLabels(decorViewRoot);
         }
-        restoreRegularActionButtons();
     }
 
     private static void removeRegularActionButtonCountLabels(@NonNull ViewGroup root) {
@@ -1955,6 +1633,12 @@ public class ReturnYouTubeDislikePatch {
                 ? regularLikeActionButtonCountLabel
                 : regularDislikeActionButtonCountLabel;
         TextView label = labelReference == null ? null : labelReference.get();
+        ViewGroup overlayRoot = regularActionButtonCountRoot == null
+                ? null
+                : regularActionButtonCountRoot.get();
+        if (overlayRoot != null && label != null) {
+            overlayRoot.getOverlay().remove(label);
+        }
         if (label != null && label.getParent() instanceof ViewGroup parent) {
             parent.removeView(label);
         }
@@ -1997,15 +1681,37 @@ public class ReturnYouTubeDislikePatch {
         return ACTION_BUTTON_COUNT_TAG_PREFIX + (likeButton ? "like" : "dislike");
     }
 
-    private static boolean isVisibleOnScreen(@Nullable View view) {
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    private static boolean isViewValid(@Nullable View view) {
         if (view == null || !view.isShown() || view.getWidth() <= 0 || view.getHeight() <= 0) {
             return false;
         }
 
-        Rect windowRect = new Rect();
-        view.getWindowVisibleDisplayFrame(windowRect);
+        View current = view;
+        while (current != null) {
+            if (current.getAlpha() < 0.1f) {
+                return false;
+            }
+            ViewParent parent = current.getParent();
+            current = parent instanceof View ? (View) parent : null;
+        }
+
+        return true;
+    }
+
+    private static boolean isViewVisibleOnScreen(@Nullable View view) {
+        if (!isViewValid(view)) {
+            return false;
+        }
         Rect bounds = getViewWindowBounds(view);
-        return Rect.intersects(windowRect, bounds);
+        if (bounds.isEmpty() || bounds.bottom <= 0 || bounds.right <= 0) {
+            return false;
+        }
+        View root = view.getRootView();
+        if (root != null && (bounds.top >= root.getHeight() || bounds.left >= root.getWidth())) {
+            return false;
+        }
+        return view.getLocalVisibleRect(new Rect());
     }
 
     @NonNull
@@ -2014,9 +1720,6 @@ public class ReturnYouTubeDislikePatch {
         view.getLocationInWindow(location);
         return new Rect(location[0], location[1],
                 location[0] + view.getWidth(), location[1] + view.getHeight());
-    }
-
-    private record RegularActionButtonViewState(float scaleX, float scaleY, float pivotX, float pivotY) {
     }
 
     //
@@ -2103,6 +1806,7 @@ public class ReturnYouTubeDislikePatch {
             final boolean isNoneHiddenOrSlidingMinimized = currentPlayerType.isNoneHiddenOrSlidingMinimized();
             if (isNoneHiddenOrSlidingMinimized) {
                 removeRegularActionButtonCountSearchUpdates();
+                removeRegularActionButtonCountOverlays();
                 return;
             }
 
@@ -2138,12 +1842,14 @@ public class ReturnYouTubeDislikePatch {
 
             // Shorts are rejected above using the player response state. If preloading missed a
             // regular video, create the fetch here so the action-button counts still appear.
+            regularActionButtonCountSearchExhausted = false;
             currentVideoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
 
-            if (canShowRegularActionButtonCountOverlays(currentPlayerType)) {
+            if (canShowRegularActionButtonCountOverlays()) {
                 scheduleRegularActionButtonCountOverlayUpdates();
             } else {
                 removeRegularActionButtonCountSearchUpdates();
+                removeRegularActionButtonCountOverlays();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "newVideoLoaded failure", ex);
@@ -2200,6 +1906,21 @@ public class ReturnYouTubeDislikePatch {
             Logger.printException(() -> "Unknown endpoint: " + endpoint);
         } catch (Exception ex) {
             Logger.printException(() -> "sendVote failure", ex);
+        }
+    }
+
+    private static void updateUserVoteAndParseLikes(@NonNull ReturnYouTubeDislike videoData,
+                                                    @Nullable RegularActionButtonAnchors anchors) {
+        if (anchors != null && anchors.likeButton() != null) {
+            if (isLikeButtonLiked(anchors.likeButton())) {
+                videoData.setUserVote(Vote.LIKE);
+            } else if (anchors.dislikeButton() != null && isDislikeButtonDisliked(anchors.dislikeButton())) {
+                videoData.setUserVote(Vote.DISLIKE);
+            } else if (videoData.getUserVote() == null) {
+                videoData.setUserVote(Vote.LIKE_REMOVE);
+            }
+            CharSequence contentDesc = anchors.likeButton().getContentDescription();
+            parseAndSetOriginalLikeCount(contentDesc);
         }
     }
 
@@ -2261,40 +1982,30 @@ public class ReturnYouTubeDislikePatch {
     private static void parseAndSetOriginalLikeCount(@Nullable CharSequence contentDesc) {
         Long parsedLikes = tryParseLikesFromContentDescription(contentDesc);
         if (parsedLikes != null) {
-            long baseCount = parsedLikes - 1;
-            VideoInformation.setOriginalLikeCount(Math.max(0L, baseCount), true);
+            long baseCount = Math.max(0L, parsedLikes - 1);
+            Long currentOriginal = VideoInformation.getOriginalLikeCount();
+            if (!Objects.equals(currentOriginal, baseCount)) {
+                Logger.printDebug(() -> "parseAndSetOriginalLikeCount: parsedLikes=" + parsedLikes + " -> setting original unliked baseCount=" + baseCount);
+                VideoInformation.setOriginalLikeCount(baseCount, true);
+                ReturnYouTubeDislike videoData = currentVideoData;
+                if (videoData != null) {
+                    videoData.clearUICache();
+                }
+                regularLikeActionButtonCountText = null;
+                regularDislikeActionButtonCountText = null;
+                synchronized (ReturnYouTubeDislikePatch.class) {
+                    regularActionButtonCountFetchVideoId = null;
+                }
+                Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::scheduleRegularActionButtonCountOverlayUpdates);
+            }
         }
     }
 
     private static boolean isLikeButtonLiked(@NonNull View likeButton) {
-        if (likeButton.isSelected()) {
-            return true;
-        }
-        CharSequence contentDescription = likeButton.getContentDescription();
-        if (contentDescription == null) {
-            return false;
-        }
-        cacheContentDescriptionStrings();
-        String description = contentDescription.toString().toLowerCase(Locale.ROOT);
-        if (cachedUndoLikeStr != null && description.contains(cachedUndoLikeStr)) {
-            return true;
-        }
-        return description.contains("undo like");
+        return likeButton.isSelected();
     }
 
     private static boolean isDislikeButtonDisliked(@NonNull View dislikeButton) {
-        if (dislikeButton.isSelected()) {
-            return true;
-        }
-        CharSequence contentDescription = dislikeButton.getContentDescription();
-        if (contentDescription == null) {
-            return false;
-        }
-        cacheContentDescriptionStrings();
-        String description = contentDescription.toString().toLowerCase(Locale.ROOT);
-        if (cachedUndoDislikeStr != null && description.contains(cachedUndoDislikeStr)) {
-            return true;
-        }
-        return description.contains("undo dislike");
+        return dislikeButton.isSelected();
     }
 }
