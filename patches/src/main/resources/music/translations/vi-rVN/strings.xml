@@ -17,6 +17,21 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và kích hoạt Cloud Messaging để nhận thông báo đẩy.</string>
     <string name="gms_core_settings_title">Cài đặt GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Hãy cài đặt nó đi nào.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 giây</string>
+    <string name="morphe_crossfade_duration_1000ms">1 giây</string>
+    <string name="morphe_crossfade_duration_11000ms">11 giây</string>
+    <string name="morphe_crossfade_duration_12000ms">12 giây</string>
+    <string name="morphe_crossfade_duration_2000ms">2 giây</string>
+    <string name="morphe_crossfade_duration_250ms">250 mili giây</string>
+    <string name="morphe_crossfade_duration_3000ms">3 giây</string>
+    <string name="morphe_crossfade_duration_4000ms">4 giây</string>
+    <string name="morphe_crossfade_duration_5000ms">5 giây</string>
+    <string name="morphe_crossfade_duration_500ms">500 mili giây</string>
+    <string name="morphe_crossfade_duration_6000ms">6 giây</string>
+    <string name="morphe_crossfade_duration_7000ms">7 giây</string>
+    <string name="morphe_crossfade_duration_750ms">750 mili giây</string>
+    <string name="morphe_crossfade_duration_8000ms">8 giây</string>
+    <string name="morphe_crossfade_duration_9000ms">9 giây</string>
     <string name="morphe_disable_drc_audio_summary_off">Tính năng nén dải động đã bật</string>
     <string name="morphe_disable_drc_audio_summary_on">Tính năng nén dải động đã tắt</string>
     <string name="morphe_disable_drc_audio_title">Tắt âm thanh DRC</string>
@@ -27,6 +42,53 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="morphe_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
     <string name="morphe_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
     <string name="morphe_force_original_audio_title">Buộc ngôn ngữ âm thanh gốc</string>
+    <string name="morphe_music_crossfade_about_best_summary">Nghe nhạc thông thường, khi tự động chuyển bài, hay đang lặp một bài hát (phát đi phát lại một bài) và nghe trực tiếp từ loa điện thoại, tai nghe có dây, Bluetooth hoặc USB.</string>
+    <string name="morphe_music_crossfade_about_best_title">Hiệu quả nhất khi</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Hiệu ứng chuyển bài do VazerOG phát triển</string>
+    <string name="morphe_music_crossfade_about_credit_title">Đóng góp</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Hiệu ứng chuyển bài sẽ giảm âm lượng đoạn cuối bài hát hiện tại, sau đó ghép với đoạn đầu bài hát tiếp theo được tăng âm lượng lên, tùy theo thời lượng và hiệu ứng chuyển mà bạn đã chọn.
+
+Tính năng này hoạt động khi tự động chuyển bài (lúc nghe hết bài hát) và khi bạn tự chuyển bài khác - mỗi chế độ đều có một cài đặt riêng phía trên. Khi tự động chuyển bài, hiệu ứng sẽ bắt đầu vài giây trước khi bài hát kết thúc.
+
+Yêu cầu YT Music 9.x hoặc mới hơn."</string>
+    <string name="morphe_music_crossfade_about_how_title">Cơ chế hoạt động</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Video nhạc ở đầu hàng chờ - hoặc không phát từ hàng chờ có thể xuất hiện dưới dạng video trong chốt lát trước khi chuyển sang chế độ âm thanh
+
+Tạm dừng hiệu ứng chuyển bài để xem video âm nhạc có thể khiến một số video hiển thị màn hình đen (đặc biệt là những video lấy âm thanh trực tiếp từ chính luồng video). Để tránh lỗi này, hãy dừng hiệu ứng chuyển bài trước khi phát bài hát"</string>
+    <string name="morphe_music_crossfade_about_known_title">Lỗi đã biết</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Video nhạc sẽ chỉ phát nhạc khi bật hiệu ứng chuyển bài (bấm giữ nút trộn bài để tạm dừng nếu bạn muốn xem video)
+
+Các bài hát ngắn hơn thời lượng chuyển bài có thể bỏ qua hiệu ứng chuyển bài
+
+Màn hình khóa hoặc thông báo có thể hiển thị trạng thái cũ trong quá trình chuyển bài"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Chưa thực sự tốt</string>
+    <string name="morphe_music_crossfade_about_summary">Bấm vào đây để biết khi nào hiệu ứng chuyển bài hoạt động và khi nào không</string>
+    <string name="morphe_music_crossfade_about_title">Giới thiệu</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Truyền hoặc chiếu âm thanh (Chromecast, chiếu màn hình hoặc âm thanh) – hiệu ứng chuyển tiếp sẽ tạm dừng vì nó không ổn định trong trường hợp này và có thể không bao giờ được khắc phục hoàn toàn.
+
+YouTube Music 8.x – hiệu ứng chuyển tiếp chỉ chạy trên 9.x trở lên"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Không hoạt động chút nào</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Hiệu ứng chuyển bài sẽ tạm dừng khi truyền hoặc chiếu âm thanh. Trong trường hợp này, tính năng có thể không bao giờ được khắc phục hoàn toàn</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Duy trì nhẹ</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Chuyển âm êm</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Âm lượng cân bằng</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Đường cong S mượt</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Bài tiếp theo</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Bài hiện tại</string>
+    <string name="morphe_music_crossfade_curve_title">Hiệu ứng làm mờ âm thanh</string>
+    <string name="morphe_music_crossfade_duration_title">Thời gian chuyển bài</string>
+    <string name="morphe_music_crossfade_enabled_title">Bật hiệu ứng chuyển bài</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Áp dụng hiệu ứng khi bài hát tự kết thúc</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Hiệu ứng khi tự động chuyển bài</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Áp dụng hiệu ứng khi bạn tự chuyển bài</string>
+    <string name="morphe_music_crossfade_on_skip_title">Hiệu ứng khi chuyển bài thủ công</string>
+    <string name="morphe_music_crossfade_paused_toast">Hiệu ứng chuyển bài đã tạm dừng cho phiên phát này</string>
+    <string name="morphe_music_crossfade_resumed_toast">Hiệu ứng chuyển bài đã được bật lại</string>
+    <string name="morphe_music_crossfade_screen_summary">Trộn các bài hát với nhau khi chuyển bài</string>
+    <string name="morphe_music_crossfade_screen_title">Chuyển bài</string>
+    <string name="morphe_music_crossfade_session_control_summary">Bấm giữ nút trộn bài để tạm dừng hoặc tiếp tục hiệu ứng chuyển bài</string>
+    <string name="morphe_music_crossfade_session_control_title">Điều khiển phiên phát</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Không thể dùng chế độ video khi đang bật hiệu ứng chuyển bài</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Không thể đăng nhập vào VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Không thể đăng nhập vào VR vì xác thực qua trang web không được chấp thuận</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 tạm thời không khả dụng</string>
@@ -136,11 +198,11 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
     <string name="revanced_change_start_page_entry_subscriptions">Kênh đăng ký</string>
     <string name="revanced_change_start_page_summary">Chọn trang sẽ hiển thị khi bạn khởi động ứng dụng.</string>
     <string name="revanced_change_start_page_title">Trang bắt đầu</string>
-    <string name="revanced_custom_filter_strings_summary">Nhập tên các mục mà bạn muốn lọc được phân cách bằng dòng.</string>
-    <string name="revanced_custom_filter_strings_title">Chỉnh sửa bộ lọc</string>
+    <string name="revanced_custom_filter_strings_summary">Danh sách các chuỗi tạo đường dẫn thành phần cần lọc, mỗi dòng một chuỗi</string>
+    <string name="revanced_custom_filter_strings_title">Bộ lọc tùy chỉnh</string>
     <string name="revanced_custom_filter_summary">Ẩn các thành phần không mong muốn bằng bộ lọc tuỳ chỉnh.</string>
-    <string name="revanced_custom_filter_title">Bộ lọc tuỳ chỉnh</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Tên mục đã nhập không hợp lệ: %s.</string>
+    <string name="revanced_custom_filter_title">Bật bộ lọc tùy chỉnh</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Bộ lọc tuỳ chỉnh không hợp lệ: %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Mã màu hex không hợp lệ.</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">Nhập mã màu hex của thanh điều hướng mà bạn muốn thay đổi.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Tuỳ chỉnh giá trị màu sắc</string>
@@ -157,8 +219,8 @@ Nếu có thể, hãy sử dụng màu tối vì ứng dụng không hỗ trợ 
 Nếu có thể, hãy sử dụng màu tối vì ứng dụng không hỗ trợ giao diện sáng."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Màu nền phụ cho trình phát</string>
     <string name="revanced_custom_player_background_invalid_toast">Màu nền của trình phát mà bạn đã nhập không hợp lệ.</string>
-    <string name="revanced_debug_protobuffer_summary">Bao gồm protobuf trong nhật ký gỡ lỗi.</string>
-    <string name="revanced_debug_protobuffer_title">Ghi nhật ký protocol buffer</string>
+    <string name="revanced_debug_protobuffer_summary">Bổ sung thông tin chi tiết hơn giúp nhà phát triển xác định các thành phần trong ứng dụng</string>
+    <string name="revanced_debug_protobuffer_title">Bộ đệm giao thức nhật ký gỡ lỗi</string>
     <string name="revanced_debug_spannable_summary">Bao gồm spannable trong nhật ký gỡ lỗi.</string>
     <string name="revanced_debug_spannable_title">Ghi nhật ký spannable</string>
     <string name="revanced_debug_summary">In nhật ký gỡ lỗi.</string>
@@ -249,7 +311,7 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_external_downloader_not_installed_dialog_message">"Có vẻ như %1$s chưa được cài đặt.
  Vui lòng tải xuống %2$s từ trang web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Cảnh báo</string>
-    <string name="revanced_external_downloader_not_installed_warning">Hiện %s chưa được cài đặt. Hãy cài đặt và thử lại.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Hãy cài đặt nó đi.</string>
     <string name="revanced_external_downloader_package_name_summary">Nhập tên gói ứng dụng trình tải xuống đã cài đặt trên thiết bị của bạn, chẳng hạn như NewPipe hoặc YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Tên gói ứng dụng trình tải xuống</string>
     <string name="revanced_fullscreen_ads_closed_toast">Quảng cáo toàn màn hình đã đóng.</string>
@@ -551,6 +613,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_sb_segments_sponsor">Nhà tài trợ</string>
     <string name="revanced_sb_segments_sponsor_sum">Dạng quảng cáo, giới thiệu được trả phí và quảng cáo trực tiếp. Không nhằm mục đích tự quảng bá hoặc giới thiệu với người xem về các hoạt động từ thiện, nhà sáng tạo khác, trang web hay các sản phẩm mà họ yêu thích.</string>
     <string name="revanced_sb_skip_automatically">Tự động bỏ qua</string>
+    <string name="revanced_sb_skip_automatically_once">Tự động bỏ qua một lần</string>
     <string name="revanced_sb_skip_ignore">Tắt</string>
     <string name="revanced_sb_skipped_filler">Đã bỏ qua đoạn lạc đề.</string>
     <string name="revanced_sb_skipped_hook">Đã bỏ qua đoạn gây chú ý.</string>
@@ -586,6 +649,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_settings_import_reset">Đã đặt lại cài đặt về mặc định.</string>
     <string name="revanced_settings_import_success">Đã nhập %d cài đặt.</string>
     <string name="revanced_settings_reset">Đặt lại</string>
+    <string name="revanced_settings_reset_color">Đặt lại màu</string>
     <string name="revanced_settings_search_clear_history">Xóa lịch sử tìm kiếm</string>
     <string name="revanced_settings_search_clear_history_message">Bạn chắc chắn muốn xóa toàn bộ lịch sử tìm kiếm không?</string>
     <string name="revanced_settings_search_empty_history_summary">Để lưu lịch sử tìm kiếm, hãy nhập từ khoá và ấn Enter.</string>
@@ -613,11 +677,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Chọn phiên bản ứng dụng mục tiêu để giả mạo cho lời bài hát.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Mục tiêu phiên bản ứng dụng giả mạo cho lời bài hát</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Giả mạo phiên bản ứng dụng cho lời bài hát</string>
-    <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube Music thành phiên bản cũ.
-
-• Tuỳ chọn này sẽ làm thay đổi giao diện của ứng dụng, nhưng cũng có thể phát sinh sự cố chưa xác định khác.
-• Nếu nó không hoạt động, hãy thử chuyển đổi giữa các tài khoản khác nhau.
-• Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn giữ nguyên cho đến khi bạn xoá dữ liệu ứng dụng."</string>
+    <string name="revanced_spoof_app_version_summary">Khiến server nghĩ rằng bạn đang sử dụng phiên bản cũ để khôi phục giao diện cũ</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Tắt chế độ Đài phát ở một số vùng của Canada</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Tắt lời bài hát theo thời gian thực</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Khôi phục bảng tuỳ chọn cũ</string>
@@ -626,7 +686,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Phần bình luận không xuất hiện trên thẻ Trang chủ</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Phiên bản ứng dụng đã chọn không hợp lệ: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Chọn phiên bản YouTube Music mà bạn muốn giả mạo.</string>
-    <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo</string>
+    <string name="revanced_spoof_app_version_target_title">Mục tiêu phiên bản giả mạo</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
     <string name="revanced_spoof_client_summary">Giả mạo client để tránh lỗi khi phát.</string>
     <string name="revanced_spoof_client_title">Giả mạo client</string>

@@ -2,6 +2,7 @@ package app.morphe.extension.youtube.patches.swipe;
 
 import java.util.List;
 
+import app.morphe.extension.shared.Logger;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.youtube.settings.Settings;
 
@@ -19,6 +20,15 @@ public class SwipeControlsPatch {
      */
     public static boolean disableSwipeToEnterFullscreenModeBelowThePlayer() {
         return !Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean disableSwipeToEnterFullscreenModeBelowThePlayer(String nextGestureType) {
+        Logger.printDebug(() -> "The next player gesture will be: " + nextGestureType);
+        return "MAXIMIZED_TO_FULLSCREEN_SLIDING".equals(nextGestureType) &&
+                Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER.get();
     }
 
     /**

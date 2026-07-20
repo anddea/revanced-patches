@@ -3,6 +3,8 @@ package app.morphe.extension.music.settings.preference;
 import static app.morphe.extension.music.settings.Settings.APP_INFO;
 import static app.morphe.extension.music.settings.Settings.BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN;
 import static app.morphe.extension.music.settings.Settings.CHANGE_START_PAGE;
+import static app.morphe.extension.music.settings.Settings.CROSSFADE_CURVE;
+import static app.morphe.extension.music.settings.Settings.CROSSFADE_DURATION;
 import static app.morphe.extension.music.settings.Settings.CUSTOM_FILTER_STRINGS;
 import static app.morphe.extension.music.settings.Settings.CUSTOM_PLAYBACK_SPEEDS;
 import static app.morphe.extension.music.settings.Settings.CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY;
@@ -12,7 +14,6 @@ import static app.morphe.extension.music.settings.Settings.ENABLE_CUSTOM_NAVIGAT
 import static app.morphe.extension.music.settings.Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME;
 import static app.morphe.extension.music.settings.Settings.HIDE_ACCOUNT_MENU_FILTER_STRINGS;
 import static app.morphe.extension.music.settings.Settings.OPEN_DEFAULT_APP_SETTINGS;
-import static app.morphe.extension.music.settings.Settings.OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX;
 import static app.morphe.extension.music.settings.Settings.REPLACE_NAVIGATION_BUTTON_ABOUT;
 import static app.morphe.extension.music.settings.Settings.RETURN_YOUTUBE_USERNAME_ABOUT;
 import static app.morphe.extension.music.settings.Settings.SB_API_URL;
@@ -148,10 +149,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             if (baseActivity == null || mActivity == null || dataString == null || dataString.isEmpty())
                 return false;
 
-            if (dataString.startsWith(OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX)) {
-                SponsorBlockCategoryPreference.showDialog(baseActivity, dataString.replaceAll(OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX, ""));
-                return true;
-            } else if (dataString.equals(OPEN_DEFAULT_APP_SETTINGS)) {
+            if (dataString.equals(OPEN_DEFAULT_APP_SETTINGS)) {
                 openDefaultAppSetting(baseActivity);
                 return true;
             }
@@ -205,6 +203,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 }
             } else if (settings instanceof EnumSetting<?> enumSetting) {
                 if (settings.equals(CHANGE_START_PAGE)
+                        || settings.equals(CROSSFADE_CURVE)
+                        || settings.equals(CROSSFADE_DURATION)
                         || settings.equals(DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
                         || settings.equals(SPOOF_VIDEO_STREAMS_CLIENT_TYPE)

@@ -125,13 +125,13 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות השמעה.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">תפריט איכות סרטון מתקדם אינו מוצג</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">תפריט איכות סרטון מתקדם מוצג</string>
-    <string name="revanced_advanced_video_quality_menu_title">הצג תפריט איכות סרטון מתקדם</string>
+    <string name="revanced_advanced_video_quality_menu_title">פתח תפריט איכות מתקדם</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">נעשה שימוש בתפריט נשלף בסגנון ישן.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית. </string>
     <string name="revanced_advanced_video_quality_menu_type_title">סוג תפריט איכות וידאו מתקדמת ב-Shorts </string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"השירות DeArrow מספק תמונות ממוזערות של מיקור המונים עבור סרטוני YouTube. תמונות ממוזערות אלה הן לעתים קרובות רלוונטיות יותר מאלה שסופקו על ידי YouTube
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow מספק תמונות ממוזערות שנאספו בהמונים לסרטוני YouTube. תמונות ממוזערות אלה רלוונטיות לרוב מאלו שסיפק YouTube
 
-אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, אז מוצגות התמונות המקוריות או לכידות דוממות
+אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, יוצגו התמונות המקוריות או הצילומים המצולמים
 
 הקש כאן כדי ללמוד עוד על DeArrow"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
@@ -172,6 +172,11 @@
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">נעשה שימוש בתפריט נשלף בסגנון ישן.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">סוג תפריט איכות וידיאו</string>
+    <string name="revanced_auto_captions_style_entry_1">הצג תמיד</string>
+    <string name="revanced_auto_captions_style_entry_2">אל תהצג</string>
+    <string name="revanced_auto_captions_style_entry_3">הצג כאשר הושתיק</string>
+    <string name="revanced_auto_captions_style_entry_4">הצג בעת שתק</string>
+    <string name="revanced_auto_captions_style_title">נראות של כתוביות אוטומטיות</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">הסרת הגבלות של תאורת אווירה לשמירה על כוח חשמלי אינה פעילה</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">הסרת הגבלות של תאורת אווירה לשמירה על כוח חשמלי</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">עקוף מגבלות מצב אטמוספירה</string>
@@ -196,16 +201,16 @@
 
 פריסת טאבלט
 • פוסטים קהילתיים מוסתרים
-• הגדרת השמעה במקורות אינה זמינה
-• כפתור 'מיזוג' וכפתור 'סאונד' אינם זמינים ב-Shorts
-• שורת הפעולות של הווידאו אינה מקופלת
+• הגדרת השמעה בפידים אינה זמינה
+• לחצן רמיקס ולחצן סאונד אינם זמינים ב-Shorts
+• סרגל הפעולות הישן שאינו מקופל מוצג
 
 פריסת רכב
-• המקורות מאורגנים לפי נושאים וערוצים
-• הגדרת השמעה במקורות אינה זמינה
-• כפתור 'מיזוג' וכפתור 'סאונד' אינם זמינים ב-Shorts
+• הפיד מאורגן לפי נושאים וערוצים
+• הגדרת השמעה בפידים אינה זמינה
+• לחצן רמיקס ולחצן סאונד אינם זמינים ב-Shorts
 • Shorts נפתחים בנגן הרגיל
-• שורת הפעולות של הווידאו אינה מקופלת"</string>
+• סרגל הפעולות הישן שאינו מקופל מוצג"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">נעשה שימוש במתגים.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">נעשה שימוש בלחצני טקסט.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">שנה את סוג החלפת המצב</string>
@@ -244,7 +249,7 @@
     <string name="revanced_confirm_user_dialog_title">האם אתה בטוח שאתה רוצה להמשיך?</string>
     <string name="revanced_copy">להעתיק</string>
     <string name="revanced_copy_error">העתקת הטקסט נכשלה</string>
-    <string name="revanced_custom_filter_strings_summary">רשימה של מחרוזות בונה נתיב רכיבים לסנן, מופרדות בשורות חדשות</string>
+    <string name="revanced_custom_filter_strings_summary">רשימה של מחרוזות בונה נתיב רכיבים לסינון מופרדות על ידי שורות חדשות</string>
     <string name="revanced_custom_filter_strings_title">מסנן מותאם אישית</string>
     <string name="revanced_custom_filter_summary_off">מסנן מותאם אישית מושבת</string>
     <string name="revanced_custom_filter_summary_on">מסנן מותאם אישית מופעל</string>
@@ -269,7 +274,7 @@
     <string name="revanced_debug_logs_none_found">לא נמצאו יומנים</string>
     <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include protocol buffers</string>
     <string name="revanced_debug_protobuffer_summary_on">Debug logs include protocol buffers</string>
-    <string name="revanced_debug_protobuffer_title">Debug log protocol buffer</string>
+    <string name="revanced_debug_protobuffer_title">רשום פרוטוקול חוצץ</string>
     <string name="revanced_debug_summary_off">יומני איתור באגים מושבתים</string>
     <string name="revanced_debug_summary_on">יומני איתור באגים מופעלים</string>
     <string name="revanced_debug_title">רישום איתור באגים</string>
@@ -343,14 +348,14 @@
     <string name="revanced_exit_fullscreen_entry_3">נוף בלבד</string>
     <string name="revanced_exit_fullscreen_entry_4">לאורך ולרוחב</string>
     <string name="revanced_exit_fullscreen_title">יציאה ממצב מסך מלא בסיום הסרטון</string>
-    <string name="revanced_external_downloader_empty_warning">שם החבילה אינו יכול להיות ריק</string>
-    <string name="revanced_external_downloader_not_found_title">היישום לא מותקן</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s אינו מותקן. נא להתקין אותו.</string>
+    <string name="revanced_external_downloader_empty_warning">שם החבילה לא יכול להיות ריק</string>
+    <string name="revanced_external_downloader_not_found_title">אפליקציה לא מותקנת</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s לא מותקן. נא להתקין אותו.</string>
     <string name="revanced_external_downloader_other_item">אחר</string>
-    <string name="revanced_external_downloader_other_item_hint">הזן את שם החבילה</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"לא ניתן למצוא יישום מותקן עם שם חבילה: %s
+    <string name="revanced_external_downloader_other_item_hint">הזן שם חבילה</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"לא נמצאה אפליקציה מותקנת עם שם החבילה: %s
 
-יש לוודא ששם החבילה נכון ושהיישום מותקן"</string>
+ודא ששם החבילה נכון והאפליקציה מותקנת"</string>
     <string name="revanced_fix_transcript_summary_off">תמליל עשוי לא להיות זמין עקב בדיקה מוקדמת של תנאים</string>
     <string name="revanced_fix_transcript_summary_on">תמליל זמין</string>
     <string name="revanced_fix_transcript_title">תיקון תמליל</string>
@@ -418,6 +423,7 @@
     <string name="revanced_hide_community_button_summary_off">הלחצן \'קהילה\' מוצג</string>
     <string name="revanced_hide_community_button_summary_on">הלחצן \'קהילה\' מוסתר</string>
     <string name="revanced_hide_community_button_title">הסתר לחצן תגובות</string>
+    <string name="revanced_hide_connect_button_title">הסתר לחצן חיבור</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">מדף חנות היוצר מתחת לנגן הוידאו מוצג</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">מדף חנות היוצר מתחת לנגן הוידאו מוסתר</string>
     <string name="revanced_hide_creator_store_shelf_title">הסתר מדף חנות היוצר</string>
@@ -437,8 +443,8 @@
     <string name="revanced_hide_end_screen_suggested_video_summary_on">סרטון מוצע של מסך סיום מוסתר</string>
     <string name="revanced_hide_end_screen_suggested_video_title">הסתר סרטון מוצע של מסך סיום</string>
     <string name="revanced_hide_expandable_card_entry_1">הצג הכל</string>
-    <string name="revanced_hide_expandable_card_entry_2">הסתר כרטיס מוצר בלבד</string>
-    <string name="revanced_hide_expandable_card_entry_3">הסתר כרטיס סיכום בלבד</string>
+    <string name="revanced_hide_expandable_card_entry_2">הסתר רק את כרטיס הסיכום</string>
+    <string name="revanced_hide_expandable_card_entry_3">הסתר הכל</string>
     <string name="revanced_hide_expandable_card_entry_4">הסתר כרטיסי מוצר וסיכום</string>
     <string name="revanced_hide_expandable_card_entry_5">הסתר הכל</string>
     <string name="revanced_hide_expandable_card_title">כרטיסים ניתנים להרחבה מתחת לסרטונים</string>
@@ -486,7 +492,7 @@
     <string name="revanced_hide_key_concepts_section_summary_off">מדור מושגי מפתח מוצג</string>
     <string name="revanced_hide_key_concepts_section_summary_on">מדור מושגי מפתח מוסתר</string>
     <string name="revanced_hide_key_concepts_section_title">הסתר את סעיף \'מושגי מפתח\'</string>
-    <string name="revanced_hide_keyword_content_about_summary">"דף הבית/מינויים/תוצאות החיפוש מסוננות כדי להסתיר תוכן שתואם ביטויי מילות מפתח
+    <string name="revanced_hide_keyword_content_about_summary">"דף הבית/מינויים/חיפוש/תגובות מסוננים כדי להסתיר תוכן שתואם ביטויי מילות מפתח
 
 מגבלות:
 • סרטוני Shorts אינם ניתנים להסתרה לפי שם ערוץ
@@ -495,6 +501,7 @@
     <string name="revanced_hide_keyword_content_about_title">אודות סינון מילות מפתח</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">הקפת מילת מפתח/ביטוי עם מרכאות כפולות תמנע התאמות חלקיות של כותרות סרטונים ושמות ערוצים&lt;br&gt;&lt;br&gt;לדוגמא,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; יסתיר את הסרטון: &lt;b&gt;כיצד פועלת AI?&lt;/b&gt;&lt;br&gt;אבל אינו יסתיר את: &lt;b&gt;איך נשמעות ה-AirPods החדשות?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">התאם מילים שלמות</string>
+    <string name="revanced_hide_keyword_content_comments_title">הסתר תגובות לפי מילות מפתח</string>
     <string name="revanced_hide_keyword_content_home_summary_off">סרטונים בכרטיסיית הבית אינם מסוננים לפי מילות מפתח</string>
     <string name="revanced_hide_keyword_content_home_summary_on">סרטונים בכרטיסיית הבית מסוננים לפי מילות מפתח</string>
     <string name="revanced_hide_keyword_content_home_title">הסתר סרטוני בית לפי מילות מפתח</string>
@@ -536,6 +543,7 @@
     <string name="revanced_hide_mix_playlists_summary_off">פלייליסטים של מיקס מוצגים</string>
     <string name="revanced_hide_mix_playlists_summary_on">פלייליסטים של מיקס מוסתרים</string>
     <string name="revanced_hide_mix_playlists_title">הסתר פלייליסטים של מיקס</string>
+    <string name="revanced_hide_more_button_title">הסתר לחצן נוסף</string>
     <string name="revanced_hide_navigation_bar_summary_off">סרגל ניווט מוצג</string>
     <string name="revanced_hide_navigation_bar_summary_on">סרגל ניווט מוסתר</string>
     <string name="revanced_hide_navigation_bar_title">הסתר סרגל ניווט</string>
@@ -602,9 +610,6 @@
     <string name="revanced_hide_shorts_comments_button_summary_off">לחצן תגובות מוצג</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">לחצן תגובות מוסתר</string>
     <string name="revanced_hide_shorts_comments_button_title">הסתר לחצן תגובות</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">לחצן דיסלייק מוצג</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">לחצן דיסלייק מוסתר</string>
-    <string name="revanced_hide_shorts_dislike_button_title">הסתר לחצן דיסלייק</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">לחצן מסך ירוק מוצג</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">לחצן מסך ירוק מוסתר</string>
     <string name="revanced_hide_shorts_green_screen_button_title">הסתר את הלחצן \'מסך ירוק\'</string>
@@ -726,6 +731,8 @@
     <string name="revanced_hide_youtube_doodles_user_dialog_message">הצגת סרטוני Doodle של YouTube עלולה למנוע את הצגת הכותרות המותאמות אישית.</string>
     <string name="revanced_language_DEFAULT">שפת היישום</string>
     <string name="revanced_language_title">שפת ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">השהה השמעה באמצעות גרירה אופקית</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">זכור את מצב הגרירה</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">פעולת הקשה כפולה וצביטה לשינוי גודל מושבתת</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"פעולת הקשה כפולה וצביטה לשינוי גודל מופעלת
 
@@ -774,6 +781,8 @@
     <string name="revanced_miniplayer_width_dip_invalid_toast">גודל פיקסל חייב להיות בין %1$s ו-%2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">הגדר את הגודל הראשוני על המסך, בפיקסלים</string>
     <string name="revanced_miniplayer_width_dip_title">גודל ברירת מחדל</string>
+    <string name="revanced_navigation_bar_animations_summary">מבצע אנימציות מעברים בעת מעבר בין כרטיסיות</string>
+    <string name="revanced_navigation_bar_animations_title">הפעלת אנימציות של שורת הניווט</string>
     <string name="revanced_override_youtube_music_button_summary_off">כפתור YouTube Music נפתח את האפליקציה המקורית</string>
     <string name="revanced_override_youtube_music_button_summary_on">כפתור יוטיוב מיוזיק יפתח את אפליקציית המוזיקה שלך</string>
     <string name="revanced_override_youtube_music_button_title">עקוף כפתור יוטיוב מיוזיק</string>
@@ -825,7 +834,13 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">תמונות ממוזערות של סרגל דילוג יופיעו מעל סרגל הדילוג</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">שחזר תמונות ממוזערות של סרגל דילוג ישנות</string>
     <string name="revanced_restore_old_settings_menus_title">שחזר את מסך הגדרות YouTube הישן</string>
-    <string name="revanced_ryd_attribution_summary">הנתונים מסופקים על ידי Return YouTube Dislike API. הקש כאן כדי ללמוד עוד</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"מתקן תצוגה לא נכונה של 'לא אהבתי' ומונע הסתרה של כפתורי הפעולה של הסרטון
+
+מגבלה: חוזר לסגנון ישן של 'עוד סרטונים'."</string>
+    <string name="revanced_restore_old_video_action_bar_title">שחזור סרגל פעולות וידאו ישן</string>
+    <string name="revanced_ryd_attribution_summary">"הנתונים מסופקים על ידי ה-API של Return YouTube Dislike
+
+הקישו כאן כדי לפתוח את ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_compact_layout_summary_off">לחצן אהבתי מעוצב למראה הטוב ביותר</string>
     <string name="revanced_ryd_compact_layout_summary_on">לחצן אהבתי מעוצב לרוחב מינימלי</string>
     <string name="revanced_ryd_compact_layout_title">השתמש בלחצן לייק קומפקטי</string>
@@ -839,12 +854,6 @@
     <string name="revanced_ryd_failure_connection_status_code">דיסלייקים אינם זמינים (מצב %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">דיסלייקים אינם זמינים באופן זמני (תם פסק הזמן של ה-API)</string>
     <string name="revanced_ryd_failure_generic">דיסלייקים אינם זמינים (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">רענן סרטון כדי להצביע באמצעות Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">דיסלייקים ב-Shorts אינם מוצגים</string>
-    <string name="revanced_ryd_shorts_summary_on">"דיסלייקים ב-Shorts מוצגים
-
-מגבלה: ייתכן שלא יופיעו דיסלייקים במצב פרטי"</string>
-    <string name="revanced_ryd_shorts_title">הצג דיסלייקים ב-Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">הודעה קופצת אינה מוצגת אם Return YouTube Dislike אינו זמין</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">הודעה קופצת מוצגת אם Return YouTube Dislike אינו זמין</string>
     <string name="revanced_ryd_toast_on_connection_error_title">הצג התראות שגיאת חיבור</string>
@@ -852,6 +861,7 @@
     <string name="revanced_sanitize_comments_category_bar_summary_off">לחצני קטגוריה מוצגים בסרגל קטגוריות התגובות</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">לחצני קטגוריה מלבד \'למעלה\' ו-\'חדש\' מוסתרים בסרגל קטגוריות התגובות</string>
     <string name="revanced_sanitize_comments_category_bar_title">ניקוי סרגל קטגוריות</string>
+    <string name="revanced_sanitize_video_subtitle_title">ניקוי כתובית וידאו</string>
     <string name="revanced_sb_api_url_changed">כתובת API שונתה</string>
     <string name="revanced_sb_api_url_invalid">כתובת ה-URL של ה-API אינה חוקית</string>
     <string name="revanced_sb_api_url_reset">כתובת API אופסה</string>
@@ -1099,16 +1109,22 @@
     <string name="revanced_shorts_player_type_regular_player_fullscreen">נגן רגיל במסך מלא</string>
     <string name="revanced_shorts_player_type_shorts">נגן Shorts</string>
     <string name="revanced_shorts_player_type_title">פתח Shorts עם</string>
+    <string name="revanced_show_settings_button_index_title">מיקום כפתור ההגדרות</string>
+    <string name="revanced_show_settings_button_title">הצג כפתור הגדרות</string>
+    <string name="revanced_show_settings_button_type_title">פעולה של כפתור הגדרות</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">מיקום כפתור ההגדרות</string>
+    <string name="revanced_show_toolbar_settings_button_title">הצג כפתור הגדרות</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">פעולה של כפתור הגדרות</string>
     <string name="revanced_spoof_app_version_summary">מרמה את השרת לחשוב שאתה משתמש בגרסת אפליקציה ישנה יותר כדי לשחזר תכונות ממשק משתמש מדור קודם</string>
     <string name="revanced_spoof_app_version_summary_off">גרסה לא מזויפת</string>
     <string name="revanced_spoof_app_version_summary_on">גרסה מזויפת</string>
     <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
-    <string name="revanced_spoof_app_version_title">זייף גרסת יישום</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"גרסת היישום תזויף לגרסה ישנה יותר של YouTube.
+    <string name="revanced_spoof_app_version_title">זייף גרסת אפליקציה</string>
+    <string name="revanced_spoof_app_version_user_dialog_message">"גרסת האפליקציה תזויף לגרסה ישנה יותר.
 
-זה ישנה את המראה והתכונות של היישום, אך תופעות לוואי לא ידועות עלולות להתרחש.
+זה ישנה את המראה והתכונות של האפליקציה, אך תופעות לוואי לא ידועות עלולות להתרחש.
 
-אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש."</string>
+אם נכבה מאוחר יותר, מומלץ לנקות את נתוני האפליקציה כדי למנוע באגים בממשק המשתמש."</string>
     <string name="revanced_spoof_device_dimensions_summary">הפעלת אפשרות זו עשויה לאפשר איכויות וידאו גבוהות יותר</string>
     <string name="revanced_spoof_device_dimensions_title">זייף ממדי מכשיר</string>
     <string name="revanced_swipe_brightness_summary_off">החלקת בהירות במסך מלא מושבתת</string>
@@ -1165,5 +1181,10 @@
     <string name="revanced_switch_create_with_notifications_button_summary_on">לחצן יצירה מוחלף עם לחצן עדכונים</string>
     <string name="revanced_switch_create_with_notifications_button_title">החלף יצירה עם עדכונים</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">אם שינוי הגדרה זו אינו נכנס לתוקף, נסה לעבור למצב פרטי.</string>
+    <string name="revanced_vot_enabled_title">תרגום דיבוב</string>
+    <string name="revanced_vot_original_audio_volume_summary">עוצמת השמע המקורית של YouTube בזמן שהתרגום מדבר</string>
+    <string name="revanced_vot_original_audio_volume_title">עוצמת שמע מקורית</string>
+    <string name="revanced_vot_translation_volume_summary">עוצמת הקול של התרגום המדובב</string>
+    <string name="revanced_vot_translation_volume_title">עוצמת תרגום</string>
     <string name="revanced_yandex_transcribe_subtitles_title">תמלול Yandex</string>
 </resources>

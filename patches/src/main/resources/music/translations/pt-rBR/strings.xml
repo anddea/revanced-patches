@@ -17,6 +17,21 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX Music, ative as mensagens na nuvem.</string>
     <string name="gms_core_settings_title">Abrir configurações do GmsCore</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 segundos</string>
+    <string name="morphe_crossfade_duration_1000ms">1 segundo</string>
+    <string name="morphe_crossfade_duration_11000ms">11 segundos</string>
+    <string name="morphe_crossfade_duration_12000ms">12 segundos</string>
+    <string name="morphe_crossfade_duration_2000ms">2 segundos</string>
+    <string name="morphe_crossfade_duration_250ms">250 milisegundos</string>
+    <string name="morphe_crossfade_duration_3000ms">3 segundos</string>
+    <string name="morphe_crossfade_duration_4000ms">4 segundos</string>
+    <string name="morphe_crossfade_duration_5000ms">5 segundos</string>
+    <string name="morphe_crossfade_duration_500ms">500 milisegundos</string>
+    <string name="morphe_crossfade_duration_6000ms">6 segundos</string>
+    <string name="morphe_crossfade_duration_7000ms">7 segundos</string>
+    <string name="morphe_crossfade_duration_750ms">750 milisegundos</string>
+    <string name="morphe_crossfade_duration_8000ms">8 segundos</string>
+    <string name="morphe_crossfade_duration_9000ms">9 segundos</string>
     <string name="morphe_disable_drc_audio_summary_off">Áudio DRC ativado</string>
     <string name="morphe_disable_drc_audio_summary_on">Áudio DRC desativado</string>
     <string name="morphe_disable_drc_audio_title">Desativar áudio DRC</string>
@@ -27,6 +42,53 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
     <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
     <string name="morphe_force_original_audio_title">Forçar idioma do áudio original</string>
+    <string name="morphe_music_crossfade_about_best_summary">Reprodução normal entre músicas com avanço automático, repetição de uma única música (a música faz uma transição suave para ela mesma) e reprodução de áudio local — alto-falante do celular, fones de ouvido com fio, Bluetooth ou USB.</string>
+    <string name="morphe_music_crossfade_about_best_title">Funciona melhor com</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Recurso de crossfade por VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Créditos</string>
+    <string name="morphe_music_crossfade_about_how_summary">"O Crossfade sobrepõe o final de uma música ao início da próxima, diminuindo gradualmente o volume de uma enquanto aumenta o da outra, durante a duração e a curva de transição que você escolher.
+
+Ele funciona tanto no avanço automático (quando a música termina naturalmente) e ao pular músicas manualmente — cada modo possui seu próprio botão de ativação acima. No avanço automático, a transição começa alguns segundos antes do fim da música.
+
+Requer o YouTube Music 9.x ou mais recente."</string>
+    <string name="morphe_music_crossfade_about_how_title">Como funciona</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Um videoclipe definido como a primeira música — ou iniciado fora da fila de reprodução atual — pode ser exibido brevemente como vídeo antes de alternar para o modo somente áudio.
+
+Pausar o Crossfade para assistir a um videoclipe pode fazer com que alguns vídeos fiquem com a tela preta (aqueles cujo áudio é reproduzido diretamente do próprio vídeo). Para evitar isso, pause o Crossfade antes de selecionar a música."</string>
+    <string name="morphe_music_crossfade_about_known_title">Problemas conhecidos</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Os videoclipes serão reproduzidos apenas como áudio enquanto o Crossfade estiver ativado (mantenha o botão de embaralhar pressionado para pausar se quiser assistir ao vídeo).
+
+Músicas com duração menor que o tempo de transição configurado podem não aplicar o Crossfade.
+
+A tela de bloqueio ou a notificação podem exibir temporariamente informações desatualizadas durante a transição entre músicas."</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Não funciona muito bem</string>
+    <string name="morphe_music_crossfade_about_summary">Como o crossfade funciona — e quando não funciona</string>
+    <string name="morphe_music_crossfade_about_title">Sobre</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Transmissão ou espelhamento de áudio (Chromecast, espelhamento de tela ou de áudio) — o Crossfade é pausado, pois é instável nesses modos e talvez nunca seja possível corrigir essa limitação.
+
+YouTube Music 8.x — o Crossfade funciona apenas no YouTube Music 9.x ou mais recente."</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Não funciona</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">O crossfade é pausado durante a transmissão ou espelhamento de áudio. O crossfade em transmissão/espelhamento é instável e pode nunca ser corrigido.</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Pausa sutil</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Facilidade suave</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Igual potência</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Curva S suave</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Entrada</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Saída</string>
+    <string name="morphe_music_crossfade_curve_title">Curva de desvanecimento</string>
+    <string name="morphe_music_crossfade_duration_title">Duração do desvanecimento</string>
+    <string name="morphe_music_crossfade_enabled_title">Ativar crossfade</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Aplica o efeito de crossfade quando uma faixa termina naturalmente</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Crossfade em avanço automático</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Aplica o efeito de crossfade quando você pula manualmente para a próxima faixa</string>
+    <string name="morphe_music_crossfade_on_skip_title">Crossfade em pulo manual</string>
+    <string name="morphe_music_crossfade_paused_toast">Crossfade pausado para esta sessão</string>
+    <string name="morphe_music_crossfade_resumed_toast">Crossfade retomado</string>
+    <string name="morphe_music_crossfade_screen_summary">Misture as faixas de forma suave</string>
+    <string name="morphe_music_crossfade_screen_title">Crossfade</string>
+    <string name="morphe_music_crossfade_session_control_summary">Pressione e segure o botão de aleatorizar para pausar ou retomar o crossfade</string>
+    <string name="morphe_music_crossfade_session_control_title">Controles de sessão</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">O modo de vídeo não está disponível enquanto o crossfade estiver habilitado</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Não é possível fazer login no VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
@@ -137,11 +199,11 @@ Se você é um usuário do YouTube Premium, esta configuração pode não ser ne
     <string name="revanced_change_start_page_summary">Selecione em qual página o aplicativo será aberto.</string>
     <string name="revanced_change_start_page_title">Página inicial</string>
     <string name="revanced_credits_title">Créditos</string>
-    <string name="revanced_custom_filter_strings_summary">Lista de componentes a serem filtradas separadas por uma nova linha.</string>
+    <string name="revanced_custom_filter_strings_summary">Lista de strings de componente de construção de caminhos para filtrar, separadas por novas linhas</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
     <string name="revanced_custom_filter_summary">Ativa o filtro personalizado para ocultar componentes do layout.</string>
     <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado inválido: %s.</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado inválido: %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Valor da cor da barra de navegação inválido.</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">Digite o código hexadecimal da cor da barra de navegação.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Valor da cor da barra de navegação personalizada</string>
@@ -158,8 +220,8 @@ Use cores escuras se possível, pois o aplicativo não suporta temas claros."</s
 Use cores escuras se possível, pois o aplicativo não suporta temas claros."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Cor secundária do fundo do reprodutor</string>
     <string name="revanced_custom_player_background_invalid_toast">Cor de fundo do reprodutor inválida.</string>
-    <string name="revanced_debug_protobuffer_summary">Inclui o buffer do protocolo no registro de depuração.</string>
-    <string name="revanced_debug_protobuffer_title">Registro do buffer do protocolo</string>
+    <string name="revanced_debug_protobuffer_summary">Adiciona informações de registro adicionais para que os desenvolvedores identifiquem os componentes do app</string>
+    <string name="revanced_debug_protobuffer_title">Registro de buffer de protocolo</string>
     <string name="revanced_debug_spannable_summary">Inclui expansíveis no registro de depuração.</string>
     <string name="revanced_debug_spannable_title">Registro expansível</string>
     <string name="revanced_debug_summary">Captura o registro de depuração.</string>
@@ -274,6 +336,8 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_action_button_label_title">Ocultar rótulo do botão de ação</string>
     <string name="revanced_hide_action_button_like_dislike_summary">Oculta os botões de Like e Deslike. Não funciona no antigo layout do reprodutor.</string>
     <string name="revanced_hide_action_button_like_dislike_title">Ocultar botões de Like e Deslike</string>
+    <string name="revanced_hide_action_button_lyrics_summary">Oculta o botão de Letras.</string>
+    <string name="revanced_hide_action_button_lyrics_title">Botão Ocultar Letras</string>
     <string name="revanced_hide_action_button_radio_summary">Oculta o botão de Rádio.</string>
     <string name="revanced_hide_action_button_radio_title">Ocultar botão Rádio</string>
     <string name="revanced_hide_action_button_share_summary">Oculta botão de Compartilhar.</string>
@@ -550,6 +614,7 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_sb_segments_sponsor">Patrocinador</string>
     <string name="revanced_sb_segments_sponsor_sum">Promoção paga, referências pagas e anúncios diretos. Não deve ser usado para auto-promoção ou mensagens grátis para causas / criadores/sites / produtos que eles gostam.</string>
     <string name="revanced_sb_skip_automatically">Pular automaticamente</string>
+    <string name="revanced_sb_skip_automatically_once">Pular automaticamente uma vez</string>
     <string name="revanced_sb_skip_ignore">Desativar</string>
     <string name="revanced_sb_skipped_filler">Enrolação pulada.</string>
     <string name="revanced_sb_skipped_hook">Gancho pulado.</string>
@@ -585,6 +650,7 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_settings_import_reset">Configurações redefinidas para o padrão.</string>
     <string name="revanced_settings_import_success">Configurações %d importadas.</string>
     <string name="revanced_settings_reset">Redefinir</string>
+    <string name="revanced_settings_reset_color">Redefinir cor</string>
     <string name="revanced_settings_search_clear_history">Limpar histórico de pesquisa</string>
     <string name="revanced_settings_search_clear_history_message">Tem certeza que deseja limpar todo o histórico de pesquisa?</string>
     <string name="revanced_settings_search_empty_history_summary">Para salvar o histórico de pesquisa, digite uma consulta de pesquisa e pressione Enter.</string>
@@ -612,11 +678,7 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Versão falsa do app para letras</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Versão falsa do app para letras</string>
-    <string name="revanced_spoof_app_version_summary">"Falsifica a versão do cliente para uma versão mais antiga.
-
-• Isto alterará a aparência do aplicativo, mas poderão ocorrer efeitos colaterais desconhecidos.
-• Se estiver ativado, mas não funcionar, tente alterar para uma conta diferente.
-• Se for desativada posteriormente, a interface do usuário antiga poderá permanecer até que os dados do aplicativo sejam apagados."</string>
+    <string name="revanced_spoof_app_version_summary">Engana o servidor para que ele pense que você está usando uma versão mais antiga do aplicativo para restaurar recursos de IU legados.</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desativar modo de Rádio em regiões Canadenses</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desativar letras em tempo real</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restaurar painel flutuante antigo</string>
@@ -625,8 +687,8 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - A seção de comentários não aparece no feed inicial</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versão da falsificação do app inválida: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação.</string>
-    <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
-    <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>
+    <string name="revanced_spoof_app_version_target_title">Versão de spoofing alvo</string>
+    <string name="revanced_spoof_app_version_title">Falsificação da versão do aplicativo</string>
     <string name="revanced_spoof_client_summary">Falsificar o cliente para evitar problemas de reprodução.</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
     <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar."</string>

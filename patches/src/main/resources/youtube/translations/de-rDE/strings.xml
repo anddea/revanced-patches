@@ -28,11 +28,11 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
     <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
     <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
-    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie \"Fälsche Video-Streams\" auf Android Reel oder TV</string>
+    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie \"Spoof Video-Streams\" auf Android Reel oder TV</string>
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
     <string name="morphe_force_original_audio_title">Original Audio erzwingen</string>
-    <string name="morphe_hide_sync_button_title">\"Synchronisieren mit Video\" Knopf ausblenden</string>
+    <string name="morphe_hide_sync_button_title">Button „Mit Video synchronisieren“ ausblenden</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Eine Anmeldung bei VR ist nicht möglich: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Eine Anmeldung bei VR ist nicht möglich, da die Website-Authentifizierung nicht genehmigt wurde</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ist vorübergehend nicht verfügbar</string>
@@ -51,7 +51,7 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
     <string name="morphe_replace_music_with_youtube_title">Freigabe-Links zu youtube.com ändern</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
-    <string name="morphe_sanitize_sharing_links_title">Freigabe-Links säubern</string>
+    <string name="morphe_sanitize_sharing_links_title">Freigabelinks bereinigen</string>
     <string name="morphe_spoof_video_streams_about_experimental">• Experimenteller Client und kann jederzeit aufhören zu funktionieren</string>
     <string name="morphe_spoof_video_streams_about_js">• Wenn die Deobfuskation fehlschlägt, kann die Wiedergabe fehlschlagen</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Audiotrack-Menü fehlt</string>
@@ -83,10 +83,10 @@ Die Wiedergabe schlägt fehl, wenn der Player JavaScript Hash veraltet ist."</st
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geben Sie einen gültigen Player-JavaScript-Hash ein</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player-JavaScript-Hash</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Player-JavaScript-Variante</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Fälsche die Client-Video-Streams, um Wiedergabeprobleme zu verhindern</string>
-    <string name="morphe_spoof_video_streams_screen_title">Fälsche Video-Streams</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Client-Streams spoofen, um Wiedergabeprobleme zu vermeiden</string>
+    <string name="morphe_spoof_video_streams_screen_title">Video-Streams spoofen</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Sie sind nicht bei Android VR angemeldet. Tippen Sie hier zum Anmelden</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie \"Standard-Client\" zu Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie ihren \"Standard-Client\" zu Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Derzeit bei Android VR angemeldet</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR Anmeldung</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivierungscode: %s
@@ -121,17 +121,17 @@ Die Wiedergabe funktioniert möglicherweise nicht"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Videostreams werden gefälscht
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
-    <string name="morphe_spoof_video_streams_title">Fälsche Video-Streams</string>
+    <string name="morphe_spoof_video_streams_title">Video-Streams spoofen</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen.</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Erweitertes Videoqualitätsmenü wird nicht angezeigt</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Erweitertes Videoqualitätsmenü wird angezeigt</string>
-    <string name="revanced_advanced_video_quality_menu_title">Erweitertes Videoqualitätsmenü anzeigen</string>
+    <string name="revanced_advanced_video_quality_menu_title">Erweiterte Qualitätseinstellungen öffnen</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Old style flyout menu is used.</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Custom dialog is used.</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Advanced video quality menu type in Shorts</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow bietet von der Community bereitgestellte Vorschaubilder für YouTube-Videos. Diese Vorschaubilder sind oft relevanter als die von YouTube bereitgestellten.
 
-Wenn diese Option aktiviert ist, werden Video-URLs an den API-Server gesendet und keine anderen Daten werden gesendet. Wenn ein Video keine DeArrow-Vorschaubilder hat, wird das originale Vorschaubild oder ein Standbild angezeigt.
+Wenn diese Option aktiviert ist, werden Video-URLs an den API-Server gesendet und keine anderen Daten werden gesendet. Wenn ein Video keine DeArrow-Vorschaubilder hat, wird das originale oder ein Standbild angezeigt.
 
 Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">Über DeArrow</string>
@@ -146,14 +146,14 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
     <string name="revanced_alt_thumbnail_home_title">Für den Home-Tab</string>
     <string name="revanced_alt_thumbnail_library_title">Für den \"Für dich\"-Tab</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Original-Vorschaubilder</string>
-    <string name="revanced_alt_thumbnail_options_entry_2">Pfeil &amp; Original-Vorschaubilder</string>
-    <string name="revanced_alt_thumbnail_options_entry_3">Pfeil &amp; Standbild</string>
+    <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original-Thumbnails</string>
+    <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Standbild</string>
     <string name="revanced_alt_thumbnail_options_entry_4">Standbild</string>
     <string name="revanced_alt_thumbnail_player_title">Für Player-Wiedergabelisten &amp; Empfehlungen</string>
     <string name="revanced_alt_thumbnail_search_title">Für Suchergebnisse</string>
     <string name="revanced_alt_thumbnail_stills">Zeige noch Videoaufnahmen</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Standbilder werden vom Anfang / Mitte / Ende jedes Videos erstellt. Diese Bilder stammen von YouTube und es wird keine externe API verwendet</string>
-    <string name="revanced_alt_thumbnail_stills_about_title">Standbilder</string>
+    <string name="revanced_alt_thumbnail_stills_about_title">Standbilder aus Videos</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">Standbilder in hoher Qualität verwenden</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">Standbilder in mittlerer Qualität verwenden. Die Vorschaubilder werden schneller geladen, aber Livestreams, unveröffentlichte oder sehr alte Videos können leere Vorschaubilder anzeigen.</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">Schnelle Standbilder verwenden</string>
@@ -174,6 +174,11 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">Old style flyout menu is used.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">Custom dialog is used.</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">Video quality menu type</string>
+    <string name="revanced_auto_captions_style_entry_1">Erforderlich, damit automatische Untertitel korrekt funktionieren</string>
+    <string name="revanced_auto_captions_style_entry_2">Nie anzeigen</string>
+    <string name="revanced_auto_captions_style_entry_3">Bei Stummschaltung anzeigen</string>
+    <string name="revanced_auto_captions_style_entry_4">Zeige bei stummgeschaltet</string>
+    <string name="revanced_auto_captions_style_title">Automatische Untertitel-Ansicht</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Einschränkungen des Modus \"Ambient\" für den Energiesparmodus werden nicht umgangen</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Einschränkungen des Modus \"Ambient\" für den Energiesparmodus werden umgangen</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Einschränkungen des Ambient-Modus umgehen</string>
@@ -198,17 +203,17 @@ Durch Aktivieren dieser Option können fehlende Bilder behoben werden, die in ei
     <string name="revanced_change_form_factor_user_dialog_message">"Änderungen umfassen:
 
 Tablet-Layout
-• Community-Beiträge sind ausgeblendet
-• Wiedergabe in Feeds-Einstellungen ist nicht verfügbar
-• Remix-Taste und Sound-Taste sind in Shorts nicht verfügbar
-• Video-Aktionenleiste ist nicht zusammengeklappt
+• Community-Beiträge werden ausgeblendet
+• Wiedergabe in Feeds-Einstellung ist nicht verfügbar
+• Remix-Schaltfläche und Sound-Schaltfläche sind in Shorts nicht verfügbar
+• Nicht zusammengeklappte alte Video-Aktionsleiste wird angezeigt
 
 Automobil-Layout
 • Feed ist nach Themen und Kanälen organisiert
-• Wiedergabe in Feeds-Einstellungen ist nicht verfügbar
-• Remix-Taste und Sound-Taste sind in Shorts nicht verfügbar
-• Shorts öffnen im regulären Player
-• Video-Aktionenleiste ist nicht zusammengeklappt"</string>
+• Wiedergabe in Feeds-Einstellung ist nicht verfügbar
+• Remix-Schaltfläche und Sound-Schaltfläche sind in Shorts nicht verfügbar
+• Shorts werden im regulären Player geöffnet
+• Nicht zusammengeklappte alte Video-Aktionsleiste wird angezeigt"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Schalter werden verwendet.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Textschalter werden verwendet.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Umschalttyp ändern</string>
@@ -262,7 +267,7 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_confirm_user_dialog_title">Möchten Sie wirklich fortfahren?</string>
     <string name="revanced_copy">Kopieren</string>
     <string name="revanced_copy_error">Text konnte nicht kopiert werden</string>
-    <string name="revanced_custom_filter_strings_summary">Liste der Komponentenpfad-Generatorzeichenfolgen zum Filtern, getrennt durch neue Zeilen</string>
+    <string name="revanced_custom_filter_strings_summary">Liste der Komponenten-Pfad-Generator-Zeichenketten zum Filtern, getrennt durch neue Zeilen</string>
     <string name="revanced_custom_filter_strings_title">Eigener Filter</string>
     <string name="revanced_custom_filter_summary_off">Eigener Filter ist deaktiviert</string>
     <string name="revanced_custom_filter_summary_on">Eigener Filter ist aktiviert</string>
@@ -386,17 +391,17 @@ Einstellungen → Autoplay / Wiedergabe → Nächstes Video Autoplay"</string>
     <string name="revanced_disable_layout_updates_summary_off">Der Server aktualisiert das Layout.</string>
     <string name="revanced_disable_layout_updates_summary_on">Der Server aktualisiert das Layout nicht.</string>
     <string name="revanced_disable_layout_updates_title">Layoutaktualisierungen deaktivieren</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Das Layout der App wird auf das Layout zurückgesetzt, das beim ersten Installieren verwendet wurde.
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Das App-Layout wird auf das bei der Erstinstallation verwendete Layout zurückgesetzt.
 
-Manche serverseitigen Layouts können nicht zurückgesetzt werden.
+Einige serverseitige Layouts werden möglicherweise nicht zurückgesetzt.
 
 Folgende Änderungen werden vorgenommen:
-• Komponenten im Abspielmenü-menü (oder related settings) können eventuell nicht funktionieren.
+• Komponenten im Aufklappmenü des Players (oder in verwandten Einstellungen) funktionieren eventuell nicht.
 • Rollende Zahlen werden nicht animiert.
-• Die Bibliothek Registerkarte wird angezeigt.
-• Der Musikteil der Video-Beschreibung könnte nicht funktionieren.
-• Abspielmenü-menü-Elemente können nicht ausgeblendet werden.
-• Der Kontoschaltknopf könnte auf der Bibliothek Registerkarte nicht erscheinen."</string>
+• Der Tab „Mediathek“ wird angezeigt
+• Der Abschnitt „Musik“ in der Videobeschreibung funktioniert möglicherweise nicht.
+• Elemente im Aufklappmenü des Players können nicht ausgeblendet werden.
+• Die Schaltfläche zum Kontowechsel wird auf dem Tab „Mediathek“ eventuell nicht angezeigt."</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchtet, wenn sie erwähnt werden.</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchten nicht, wenn sie erwähnt werden.</string>
     <string name="revanced_disable_like_dislike_glow_title">Leuchten der \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen deaktivieren</string>
@@ -523,9 +528,6 @@ Limitations:
     <string name="revanced_enable_swipe_to_switch_video_summary_off">Swiping up / down in fullscreen mode will not change to the next / previous video.</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Swiping up / down in fullscreen mode will change to the next / previous video.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Enable swipe to change video</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">Navigationsleiste ist nicht transparent.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"Navigationsleiste ist transparent."</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Transparente Navigationsleiste aktivieren</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Watch next processing delay is disabled.</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Watch next processing delay is enabled.</string>
     <string name="revanced_enable_watch_next_processing_delay_title">Enable watch next processing delay</string>
@@ -568,24 +570,24 @@ Einschränkung: Funktioniert nicht, wenn der Player minimiert ist, im PiP Modus 
     <string name="revanced_extended_audio_tracks_unavailable">"Diese Einstellung ist derzeit nicht verfügbar.
 Um diese Funktion zu nutzen, ändern Sie einfach 'Standard-Client (Spoof-Streaming-Daten)' in TV oder TV."</string>
     <string name="revanced_external_downloader_dialog_title">Externer Downloader</string>
-    <string name="revanced_external_downloader_empty_warning">Der Paketname darf nicht leer sein</string>
+    <string name="revanced_external_downloader_empty_warning">Paketname darf nicht leer sein</string>
     <string name="revanced_external_downloader_not_found_title">App nicht installiert</string>
     <string name="revanced_external_downloader_not_installed">Nicht installiert</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s ist nicht installiert.
 Bitte lade %2$s von der Webseite herunter."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warnung</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Installier es.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren Sie es zuerst.</string>
     <string name="revanced_external_downloader_other_item">Andere</string>
-    <string name="revanced_external_downloader_other_item_hint">Paketnamen eingeben</string>
+    <string name="revanced_external_downloader_other_item_hint">Paketname eingeben</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Paketname Ihrer installierten externen Downloader-App, wie z. B. YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Playlist Downloader Paketname</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Paketname Ihrer installierten externen Downloader-App, z. B. NewPipe oder YTDLnis, auf langem Druck.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long Press Video Downloader Paketname</string>
     <string name="revanced_external_downloader_package_name_video_summary">Paketname der installierten externen Video-Downloader-App wie NewPipe oder YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Paketname des Video-Downloaders</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"Installierte App mit Paketnamen nicht gefunden: %s
+    <string name="revanced_external_downloader_package_not_found_warning">"Es konnte keine installierte App mit dem Paketnamen %s gefunden werden.
 
-Stellen Sie sicher, dass der Paketname korrekt ist und die App installiert ist"</string>
+Überprüfen Sie, ob der Paketname korrekt ist und die App installiert ist"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">Hype Button Symbol ist ausgeblendet.</string>
     <string name="revanced_fix_hype_button_icon_summary_on">Hype Button Symbol wird angezeigt.</string>
     <string name="revanced_fix_hype_button_icon_title">Fix Hype Button Symbol</string>
@@ -637,14 +639,14 @@ Bekanntes Problem: Manchmal erscheint die Wisch-Überlagerung, bevor zum Vollbil
     <string name="revanced_gms_show_dialog_title">Optimierungsdialog für GMSCore anzeigen</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient Start- und Endpositionen von 0 bis 1 durch Komma getrennt.</string>
     <string name="revanced_gradient_seekbar_positions_title">Grenzen des Farbverlaufs in der Zeitleiste</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Geben Sie die unteren Menünamen des Bereichs Bibliothek / You ein, getrennt durch Zeilenumbrüche, um danach zu filtern</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Bibliothek- / You-Filter im unteren Menü</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Gib die Namen der Einträge im unteren Menü „Mediathek / You“, nach denen gefiltert werden soll, durch Zeilenumbrüche getrennt ein.</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Filter für das untere Menü „Mediathek / You</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Filtern wenn zutreffend.&lt;br&gt;&lt;br&gt;Um das &lt;b&gt;\'Premium-Mitglied werden\'-Menü zu verstecken&lt;/b&gt;, können Sie nur &lt;b&gt;\'Premium-Mitglied werden\'&lt;/b&gt; als Schlüsselwörter verwenden.</string>
     <string name="revanced_hide_account_menu_filter_type_summary_on">Filter, wenn vorhanden.&lt;br&gt;&lt;br&gt;Um die &lt;b&gt;\'Nächste in der Warteschlange abspielen\'&lt;/b&gt; Menü zu verbergen, Sie können &lt;b&gt;\'Wiedergabe weiter\'&lt;/b&gt; oder &lt;b&gt;\'in der Warteschlange\'&lt;/b&gt; als Schlüsselwörter verwenden.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Filtertyp für das Konto-Menü</string>
     <string name="revanced_hide_account_menu_summary">"Elemente des Account-Menüs und der "Mein YouTube"-Seite ausblenden.
 Manche Komponenten können nicht ausgeblendet werden."</string>
-    <string name="revanced_hide_account_menu_title">Aktiviere Bibliothek- / You-Filter im unteren Menü</string>
+    <string name="revanced_hide_account_menu_title">Filter für das untere Menü „Mediathek / You\" aktivieren</string>
     <string name="revanced_hide_action_bar_summary_off">Die Aktionsleiste wird angezeigt</string>
     <string name="revanced_hide_action_bar_summary_on">Die Aktionsleiste ist ausgeblendet</string>
     <string name="revanced_hide_action_bar_title">Aktionsleiste ausblenden</string>
@@ -673,7 +675,7 @@ Info:
     <string name="revanced_hide_album_card_title">Albumkarten ausblenden</string>
     <string name="revanced_hide_ask_button_summary_off">Ask-Button wird angezeigt</string>
     <string name="revanced_hide_ask_button_summary_on">Ask-Button ist ausgeblendet</string>
-    <string name="revanced_hide_ask_button_title">Frage-Button ausblenden</string>
+    <string name="revanced_hide_ask_button_title">Schaltfläche „Fragen“ ausblenden</string>
     <string name="revanced_hide_ask_section_summary_off">Ask Abschnitt wird angezeigt</string>
     <string name="revanced_hide_ask_section_summary_on">Ask Abschnitt ist ausgeblendet</string>
     <string name="revanced_hide_ask_section_title">Ask-Bereich ausblenden</string>
@@ -745,13 +747,13 @@ Store"</string>
     <string name="revanced_hide_chips_shelf_title">Chips ausblenden</string>
     <string name="revanced_hide_clip_button_summary_off">Clip-Taste wird angezeigt</string>
     <string name="revanced_hide_clip_button_summary_on">Clip-Button ist ausgeblendet</string>
-    <string name="revanced_hide_clip_button_title">Live-Chat-Schaltfläche ausblenden</string>
+    <string name="revanced_hide_clip_button_title">Schaltfläche „Clip erstellen“ ausblenden</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Emoji und Zeitstempeltasten werden angezeigt.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Emoji und Zeitstempeltasten sind ausgeblendet.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Emoji und Zeitstempel ausblenden</string>
     <string name="revanced_hide_comments_button_summary_off">Kommentare-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_comments_button_summary_on">Kommentare-Schaltfläche ist ausgeblendet</string>
-    <string name="revanced_hide_comments_button_title">Kommentar-Button ausblenden</string>
+    <string name="revanced_hide_comments_button_title">Schaltfläche „Kommentare“ ausblenden</string>
     <string name="revanced_hide_comments_by_members_summary_off">Kommentare nach Mitglieder-Banner werden angezeigt.</string>
     <string name="revanced_hide_comments_by_members_summary_on">Kommentare nach Mitglieder-Banner werden ausgeblendet.</string>
     <string name="revanced_hide_comments_by_members_title">Kommentare nach Mitglieder-Banner ausblenden</string>
@@ -764,7 +766,7 @@ Store"</string>
 • Wenn alle Karussellartikel ausgeblendet sind, wird auch der gesamte Kommentarbereich ausgeblendet."</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">Schaltfläche \" Short erstellen\" wird angezeigt</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Schaltfläche \" Short erstellen\" ist ausgeblendet</string>
-    <string name="revanced_hide_comments_create_a_short_button_title">Schaltfläche \'Short erstellen\' ausblenden</string>
+    <string name="revanced_hide_comments_create_a_short_button_title">Schaltfläche „Als Short erstellen“ ausblenden</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji- und Zeitstempel-Schaltflächen werden angezeigt</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji- und Zeitstempel-Schaltflächen sind ausgeblendet</string>
     <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji- und Zeitstempel-Schaltflächen ausblenden</string>
@@ -787,7 +789,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_comments_thanks_button_title">Schaltfläche \'Dankeschön\' ausblenden</string>
     <string name="revanced_hide_community_button_summary_off">Community-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_community_button_summary_on">Community-Schaltfläche ist ausgeblendet</string>
-    <string name="revanced_hide_community_button_title">Schaltfläche \'Community\' ausblenden</string>
+    <string name="revanced_hide_community_button_title">Button \'Community\' ausblenden</string>
     <string name="revanced_hide_community_posts_channel_summary_off">Auf Kanalseite angezeigt.</string>
     <string name="revanced_hide_community_posts_channel_summary_on">Auf Kanalseite ausgeblendet.</string>
     <string name="revanced_hide_community_posts_channel_title">Auf Kanalseite ausblenden</string>
@@ -797,6 +799,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Im \'Abonnement-Feed\' angezeigt.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Im \'Abonnement-Feed\' ausgeblendet.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Im \'Abonnement-Feed\' ausblenden</string>
+    <string name="revanced_hide_connect_button_title">Schaltfläche „Verbinden“ ausblenden</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Creator Store-Regal unter dem Videoplayer wird angezeigt</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Creator Store-Regal unter dem Videoplayer ist ausgeblendet</string>
     <string name="revanced_hide_creator_store_shelf_title">Creator-Shop-Regal ausblenden</string>
@@ -808,7 +811,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_double_tap_overlay_filter_title">Doppeltipp-Overlay-Filter ausblenden</string>
     <string name="revanced_hide_download_button_summary_off">Download-Button wird angezeigt</string>
     <string name="revanced_hide_download_button_summary_on">Download-Button ist ausgeblendet</string>
-    <string name="revanced_hide_download_button_title">Herunterladen-Schaltfläche ausblenden</string>
+    <string name="revanced_hide_download_button_title">Schaltfläche „Herunterladen“ ausblenden</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Endbildschirmkarten werden angezeigt</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Endbildschirmkarten sind ausgeblendet</string>
     <string name="revanced_hide_end_screen_cards_title">Endkarte ausblenden</string>
@@ -819,8 +822,8 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_end_screen_suggested_video_summary_on">Endbildschirm-Vorschauvideo ist ausgeblendet</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Vorgeschlagenes Video auf dem Endbildschirm ausblenden</string>
     <string name="revanced_hide_expandable_card_entry_1">Alle anzeigen</string>
-    <string name="revanced_hide_expandable_card_entry_2">Nur Produktkarte ausblenden</string>
-    <string name="revanced_hide_expandable_card_entry_3">Nur Zusammenfassungskarte ausblenden</string>
+    <string name="revanced_hide_expandable_card_entry_2">Nur Zusammenfassungskarte ausblenden</string>
+    <string name="revanced_hide_expandable_card_entry_3">Alle ausblenden</string>
     <string name="revanced_hide_expandable_card_entry_4">Produkt- und Zusammenfassungskarten ausblenden</string>
     <string name="revanced_hide_expandable_card_entry_5">Alle ausblenden</string>
     <string name="revanced_hide_expandable_card_title">Erweiterbare Karten unter Videos</string>
@@ -839,14 +842,14 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_feed_captions_button_off">Schaltfläche \"Untertitel\" wird angezeigt.</string>
     <string name="revanced_hide_feed_captions_button_on">Schaltfläche \"Untertitel\" ist versteckt.</string>
     <string name="revanced_hide_feed_captions_button_title">Verstecke \"Untertitel\" Schaltfläche</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Geben Sie die Namen des Flyout-Menüs ein, getrennt durch Zeilenumbrüche, um danach zu filtern</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtermenü Flyout</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Gib die Namen der Aufklappmenü-Einträge, nach denen gefiltert werden soll, durch Zeilenumbrüche getrennt ein.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Feed-Aufklappmenü Filter</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filtern wenn zutreffend.&lt;br&gt;&lt;br&gt;Um die &lt;b&gt;\'Nächste in der Warteschlange abspielen\' zu verstecken&lt;/b&gt; Menü, Sie können nur &lt;b&gt;\'Wiedergabe als nächstes in der Warteschlange\'&lt;/b&gt; als Schlüsselwörter verwenden.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filter, wenn vorhanden.&lt;br&gt;&lt;br&gt;Um die &lt;b&gt;\'Nächste in der Warteschlange abspielen\'&lt;/b&gt; Menü zu verbergen, Sie können &lt;b&gt;\'Wiedergabe weiter\'&lt;/b&gt; oder &lt;b&gt;\'in der Warteschlange\'&lt;/b&gt; als Schlüsselwörter verwenden.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Feed Flyout Menü Filtertyp</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Feed-Flyout-Menüfilter ist deaktiviert</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Feed-Flyout-Menüfilter ist aktiviert</string>
-    <string name="revanced_hide_feed_flyout_menu_title">Aktiviere Filtermenü Flyout</string>
+    <string name="revanced_hide_feed_flyout_menu_title">Filter für das Feed-Aufklappmenü aktivieren</string>
     <string name="revanced_hide_feed_search_bar_summary_off">Suchleiste wird angezeigt.</string>
     <string name="revanced_hide_feed_search_bar_summary_on">Suchleiste ist ausgeblendet.</string>
     <string name="revanced_hide_feed_search_bar_title">Suchleiste ausblenden</string>
@@ -873,7 +876,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_how_this_was_made_section_title">Wie dieser Inhalt erstellt wurde-Bereich ausblenden</string>
     <string name="revanced_hide_hype_button_summary_off">Hypen-Button wird angezeigt</string>
     <string name="revanced_hide_hype_button_summary_on">Hypen-Button ist ausgeblendet</string>
-    <string name="revanced_hide_hype_button_title">Clip-Schaltfläche ausblenden</string>
+    <string name="revanced_hide_hype_button_title">Schaltfläche „Hype“ ausblenden</string>
     <string name="revanced_hide_hype_points_section_summary_off">Hype Punkte Bereich wird angezeigt.</string>
     <string name="revanced_hide_hype_points_summary_off">Hype-Punkte werden angezeigt</string>
     <string name="revanced_hide_hype_points_summary_on">Hype-Punkte sind ausgeblendet</string>
@@ -883,7 +886,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_image_search_button_title">Bildsuche-Schaltfläche ausblenden</string>
     <string name="revanced_hide_image_shelf_summary_off">Bild-Regal in den Suchergebnissen ist angezeigt</string>
     <string name="revanced_hide_image_shelf_summary_on">Bild-Regal in den Suchergebnissen ist ausgeblendet</string>
-    <string name="revanced_hide_image_shelf_title">Bild-Reihe ausblenden</string>
+    <string name="revanced_hide_image_shelf_title">Bildbereich ausblenden</string>
     <string name="revanced_hide_info_cards_section_summary_off">Info-Kartenbereich wird angezeigt</string>
     <string name="revanced_hide_info_cards_section_summary_on">Info-Kartenbereich ist ausgeblendet</string>
     <string name="revanced_hide_info_cards_section_title">Infokarten-Bereich ausblenden</string>
@@ -898,16 +901,16 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_join_button_in_channel_page_title">Teilnehmen-Schaltfläche verstecken</string>
     <string name="revanced_hide_join_button_summary_off">Schaltfläche \"Mitglied werden\" wird angezeigt</string>
     <string name="revanced_hide_join_button_summary_on">Schaltfläche \"Mitglied werden\" ist ausgeblendet</string>
-    <string name="revanced_hide_join_button_title">Schaltfläche \'Beitreten\' ausblenden</string>
+    <string name="revanced_hide_join_button_title">Button \'Beitreten\' ausblenden</string>
     <string name="revanced_hide_key_concepts_section_summary_off">Abschnitt \"Schlüsselkonzepte\" wird angezeigt</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Abschnitt \"Schlüsselkonzepte\" ist ausgeblendet</string>
     <string name="revanced_hide_key_concepts_section_title">Schlüsselkonzepte-Bereich ausblenden</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Startseite / Abonnements / Suchergebnisse werden gefiltert, um Inhalte auszublenden, die mit Stichwortphrasen übereinstimmen
+    <string name="revanced_hide_keyword_content_about_summary">"Startseite / Abonnements / Suche / Kommentare werden gefiltert, um Inhalte auszublenden, die mit Schlüsselwortphrasen übereinstimmen
 
 Einschränkungen:
 • Shorts können nicht nach Kanalnamen ausgeblendet werden
 • Einige UI-Komponenten können nicht ausgeblendet werden
-• Die Suche nach einem Stichwort kann zu keinen Ergebnissen führen"</string>
+• Die Suche nach einem Schlüsselwort kann zu keinen Ergebnissen führen"</string>
     <string name="revanced_hide_keyword_content_about_title">Über Keyword-Filterung</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Durch das Umschließen mit doppelten Anführungszeichen wird verhindert, dass teilweise Videotitel und Kanalnamen&lt;br&gt;&lt;br&gt;Zum Beispiel&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; wird folgendes Video ausblenden: &lt;b&gt;Wie funktioniert AI?&lt;/b&gt;&lt;br&gt;aber folgendes nicht: &lt;b&gt;Was bedeutet Fair Use?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Ganze Wörter abgleichen</string>
@@ -942,7 +945,7 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_latest_posts_title">Neueste Beiträge ausblenden</string>
     <string name="revanced_hide_latest_videos_button_summary_off">Schaltfläche „Neueste Videos“ wird angezeigt</string>
     <string name="revanced_hide_latest_videos_button_summary_on">Schaltfläche „Neueste Videos“ ist ausgeblendet</string>
-    <string name="revanced_hide_latest_videos_button_title">Verbergen der Schaltfläche \'Letzte Videos\'</string>
+    <string name="revanced_hide_latest_videos_button_title">Schaltfläche „Neueste Videos“ ausblenden</string>
     <string name="revanced_hide_like_dislike_button_summary_off">\"Gefällt mir\"-Tasten werden angezeigt</string>
     <string name="revanced_hide_like_dislike_button_summary_on">\"Gefällt mir\"-Tasten sind ausgeblendet</string>
     <string name="revanced_hide_like_dislike_button_title">Like- und Dislike-Schaltfläche ausblenden</string>
@@ -954,7 +957,7 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_live_chat_messages_title">Live-Chat-Nachrichten ausblenden</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">Schaltfläche „Live-Chat-Wiedergabe“ im Player-Overlay wird angezeigt</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Schaltfläche „Live-Chat-Wiedergabe“ im Player-Overlay ist ausgeblendet</string>
-    <string name="revanced_hide_live_chat_replay_button_title">Verbergen der Schaltfläche \'Live-Chat-Wiedergabe\'</string>
+    <string name="revanced_hide_live_chat_replay_button_title">Schaltfläche „Live-Chat-Wiedergabe“ ausblenden</string>
     <string name="revanced_hide_medical_panel_summary_off">Medizinische Infokarten werden angezeigt</string>
     <string name="revanced_hide_medical_panel_summary_on">Medizinische Infokarten sind ausgeblendet.</string>
     <string name="revanced_hide_medical_panel_title">Medizinische Infokarten ausblenden</string>
@@ -967,6 +970,7 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_mix_playlists_summary_off">Mix-Wiedergabelisten werden angezeigt</string>
     <string name="revanced_hide_mix_playlists_summary_on">Mix-Wiedergabelisten werden ausgeblendet</string>
     <string name="revanced_hide_mix_playlists_title">Mix-Wiedergabelisten ausblenden</string>
+    <string name="revanced_hide_more_button_title">Schaltfläche „Mehr“ ausblenden</string>
     <string name="revanced_hide_movie_shelf_summary_off">Filmabschnitte werden angezeigt.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Filmabschnitte sind versteckt.</string>
     <string name="revanced_hide_movie_shelf_title">Verstecke Filmabschnitt</string>
@@ -996,7 +1000,7 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_navigation_subscriptions_button_title">Abonnement-Button ausblenden</string>
     <string name="revanced_hide_notify_me_button_summary_off">Schaltfläche \"Benachrichtige mich\" wird angezeigt</string>
     <string name="revanced_hide_notify_me_button_summary_on">Schaltfläche \"Benachrichtige mich\" wird ausgeblendet</string>
-    <string name="revanced_hide_notify_me_button_title">Schaltfläche \'Benachrichtige mich\' ausblenden</string>
+    <string name="revanced_hide_notify_me_button_title">Button „Benachrichtigen“ ausblenden</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">\"Enthält bezahlte Werbung\"-Hinweis wird angezeigt</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">\"Enthält bezahlte Werbung\"-Hinweis wird ausgeblendet</string>
     <string name="revanced_hide_paid_promotion_label_title">\"Enthält bezahlte Werbung\"-Hinweis ausblenden</string>
@@ -1102,7 +1106,7 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_preview_comment_type_title">Vorschaukommentyp ausblenden</string>
     <string name="revanced_hide_promote_button_summary_off">Schaltfläche \"Promoten\" ist sichtbar</string>
     <string name="revanced_hide_promote_button_summary_on">Schaltfläche \"Promoten\" ist ausgeblendet</string>
-    <string name="revanced_hide_promote_button_title">Speichern-Schaltfläche ausblenden</string>
+    <string name="revanced_hide_promote_button_title">Schaltfläche „Video bewerben“ ausblenden</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">Werbe-Warnbanner wird angezeigt.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">Werbe-Warnbanner ist ausgeblendet.</string>
     <string name="revanced_hide_promotion_alert_banner_title">Werbe-Warnbanner ausblenden</string>
@@ -1111,16 +1115,16 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_quick_actions_comment_button_title">Kommentar Button ausblenden</string>
     <string name="revanced_hide_quick_actions_dislike_button_summary_off">Dislike-Button wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_dislike_button_summary_on">Dislike-Button wird ausgeblendet.</string>
-    <string name="revanced_hide_quick_actions_dislike_button_title">\'Dislike\'-Button ausblenden</string>
+    <string name="revanced_hide_quick_actions_dislike_button_title">Schaltfläche „Dislike“ ausblenden</string>
     <string name="revanced_hide_quick_actions_like_button_summary_off">\'Gefällt mir\' Button wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_like_button_summary_on">\'Gefällt mir\' Button wird ausgeblendet.</string>
-    <string name="revanced_hide_quick_actions_like_button_title">\'Like\'-Button ausblenden</string>
+    <string name="revanced_hide_quick_actions_like_button_title">Schaltfläche „Like“ ausblenden</string>
     <string name="revanced_hide_quick_actions_live_chat_button_summary_off">Live-Chat-Schaltfläche wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_live_chat_button_summary_on">Live-Chat-Schaltfläche ist versteckt.</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_title">Mehr-Schaltfläche ausblenden</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_title">Schaltfläche „Live-Chat“ ausblenden</string>
     <string name="revanced_hide_quick_actions_more_button_summary_off">\"Mehr\" Schaltfläche wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_more_button_summary_on">\"Mehr\" Schaltfläche wird ausgeblendet.</string>
-    <string name="revanced_hide_quick_actions_more_button_title">Speichern-Schaltfläche ausblenden</string>
+    <string name="revanced_hide_quick_actions_more_button_title">Schaltfläche „Mehr“ ausblenden</string>
     <string name="revanced_hide_quick_actions_open_mix_playlist_button_summary_off">Die Schaltfläche „Mix-Wiedergabeliste öffnen“ wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_open_mix_playlist_button_summary_on">Mix-Playlist-Button ist ausgeblendet.</string>
     <string name="revanced_hide_quick_actions_open_mix_playlist_button_title">Schaltfläche „Mix-Wiedergabeliste öffnen“ ausblenden.</string>
@@ -1132,7 +1136,7 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_quick_actions_save_to_playlist_button_title">Schaltfläche „Speichern“ ausblenden</string>
     <string name="revanced_hide_quick_actions_share_button_summary_off">Teilen-Schaltfläche wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_share_button_summary_on">Teilen-Schaltfläche ist versteckt.</string>
-    <string name="revanced_hide_quick_actions_share_button_title">\'Teilen\'-Button ausblenden</string>
+    <string name="revanced_hide_quick_actions_share_button_title">Schaltfläche „Teilen“ ausblenden</string>
     <string name="revanced_hide_quick_actions_summary_off">Schnelle Aktionen im Vollbildmodus sind angezeigt</string>
     <string name="revanced_hide_quick_actions_summary_on">Schnelle Aktionen im Vollbildmodus sind ausgeblendet</string>
     <string name="revanced_hide_quick_actions_title">Aktionsleiste ausblenden</string>
@@ -1147,10 +1151,10 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
 Wenn sich das Layout des Wiedergabebildschirms aufgrund serverseitiger Änderungen ändert, können unbeabsichtigte Layouts auf dem Wiedergabebildschirm ausgeblendet werden."</string>
     <string name="revanced_hide_remix_button_summary_off">Remix-Taste wird angezeigt</string>
     <string name="revanced_hide_remix_button_summary_on">Remix Button ist ausgeblendet</string>
-    <string name="revanced_hide_remix_button_title">\'Remix\'-Button ausblenden</string>
+    <string name="revanced_hide_remix_button_title">Schaltfläche „Remix“ ausblenden</string>
     <string name="revanced_hide_report_button_summary_off">Bericht-Button wird angezeigt</string>
     <string name="revanced_hide_report_button_summary_on">Bericht-Button ist ausgeblendet</string>
-    <string name="revanced_hide_report_button_title">Melden-Schaltfläche ausblenden</string>
+    <string name="revanced_hide_report_button_title">Schaltfläche „Melden“ ausblenden</string>
     <string name="revanced_hide_rewards_button_summary_off">Prämien-Button wird angezeigt.</string>
     <string name="revanced_hide_rewards_button_summary_on">Prämien-Button wird ausgeblendet.</string>
     <string name="revanced_hide_rewards_button_title">Prämien-Button ausblenden</string>
@@ -1250,47 +1254,44 @@ Info:
     <string name="revanced_hide_settings_menu_your_data_title">Menü \'Meine Daten auf YouTube\' ausblenden</string>
     <string name="revanced_hide_share_button_summary_off">Teilen-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_share_button_summary_on">Teilen-Schaltfläche ist ausgeblendet</string>
-    <string name="revanced_hide_share_button_title">\'Teilen\'-Button ausblenden</string>
+    <string name="revanced_hide_share_button_title">Schaltfläche „Teilen“ ausblenden</string>
     <string name="revanced_hide_shop_button_summary_off">Shop-Button wird angezeigt</string>
     <string name="revanced_hide_shop_button_summary_on">Shop-Button ist ausgeblendet</string>
-    <string name="revanced_hide_shop_button_title">Shop-Button ausblenden</string>
+    <string name="revanced_hide_shop_button_title">Schaltfläche „Shop“ ausblenden</string>
     <string name="revanced_hide_shopping_links_summary_off">Shopping-Links in der Videobeschreibung werden angezeigt</string>
     <string name="revanced_hide_shopping_links_summary_on">Shopping-Links in der Videobeschreibung sind ausgeblendet</string>
     <string name="revanced_hide_shopping_links_title">Shopping-Links ausblenden</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Automatisch synchronisiertes Label wird angezeigt</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Automatisch synchronisiertes Label ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_title">Verbergen des \'Auto-dubbed\'-Labels</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">Kennzeichnung „automatisch synchronisiert“ ausblenden</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">Buy Super Thanks button is shown.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">Buy Super Thanks button is hidden.</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_title">Hide Buy Super Thanks button</string>
     <string name="revanced_hide_shorts_channel_bar_summary_off">Kanalleiste wird angezeigt</string>
     <string name="revanced_hide_shorts_channel_bar_summary_on">Kanalleiste ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_channel_bar_title">Senderleiste ausblenden</string>
+    <string name="revanced_hide_shorts_channel_bar_title">Kanal-Leiste ausblenden</string>
     <string name="revanced_hide_shorts_comments_button_summary_off">Kommentar-Button wird angezeigt</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Kommentar-Button ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_comments_button_title">Kommentar-Button ausblenden</string>
+    <string name="revanced_hide_shorts_comments_button_title">Schaltfläche „Kommentare“ ausblenden</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">Kommentare werden versteckt.</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">\"Gefällt mir nicht\" Button wird angezeigt</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">\"Gefällt mir nicht\" Button ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_dislike_button_title">\'Dislike\'-Button ausblenden</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Schwebende Schaltflächen wie \'Diesen Ton verwenden\' werden im Tab \'Kurzkanal\' angezeigt.</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Schwebende Schaltflächen wie \'Diesen Ton verwenden\' werden im Tab Kurzkanal ausgeblendet.</string>
     <string name="revanced_hide_shorts_floating_button_title">Schwebende Taste ausblenden</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">Grünbildschirm-Taste wird angezeigt</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">Grünbildschirm-Taste ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_green_screen_button_title">Green-Screen-Button ausblenden</string>
+    <string name="revanced_hide_shorts_green_screen_button_title">Schaltfläche „Greenscreen“ ausblenden</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag Button wird angezeigt</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag Button ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_hashtag_button_title">Hashtag Button ausblenden</string>
+    <string name="revanced_hide_shorts_hashtag_button_title">Schaltfläche „Hashtag“ ausblenden</string>
     <string name="revanced_hide_shorts_info_panel_summary_off">Info-Panel wird angezeigt</string>
     <string name="revanced_hide_shorts_info_panel_summary_on">Info-Panel ist ausgeblendet</string>
     <string name="revanced_hide_shorts_info_panel_title">Info-Panel ausblenden</string>
     <string name="revanced_hide_shorts_join_button_summary_off">Schaltfläche beitreten wird angezeigt</string>
     <string name="revanced_hide_shorts_join_button_summary_on">Join Button ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_join_button_title">\'Beitreten\'-Button ausblenden</string>
+    <string name="revanced_hide_shorts_join_button_title">Schaltfläche „Mitglied werden“ ausblenden</string>
     <string name="revanced_hide_shorts_like_button_summary_off">\"Gefällt mir\" Button wird angezeigt</string>
     <string name="revanced_hide_shorts_like_button_summary_on">\"Gefällt mir\" Button ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_like_button_title">\'Like\'-Button ausblenden</string>
+    <string name="revanced_hide_shorts_like_button_title">Schaltfläche „Like“ ausblenden</string>
     <string name="revanced_hide_shorts_live_header_summary_off">Live-Chat-Kopfzeile wird angezeigt.\n\nZurück Button wird nicht ausgeblendet.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">Live-Chat-Kopfzeile wird ausgeblendet.\n\nZurück Button wird nicht ausgeblendet.</string>
     <string name="revanced_hide_shorts_live_header_title">Live-Chat-Kopfzeile ausblenden</string>
@@ -1305,13 +1306,13 @@ Info:
     <string name="revanced_hide_shorts_navigation_bar_title">Navigationsleiste ausblenden</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_off">Schaltfläche \"Neue Beiträge\" wird angezeigt</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">Schaltfläche \"Neue Beiträge\" ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_new_posts_button_title">Schaltfläche \"Neue Beiträge ausblenden\"</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Schaltfläche „Neue Beiträge“ ausblenden</string>
     <string name="revanced_hide_shorts_paused_header_summary_off">Pausierter Header wird angezeigt.</string>
     <string name="revanced_hide_shorts_paused_header_summary_on">Pausierter Header ist ausgeblendet.</string>
     <string name="revanced_hide_shorts_paused_header_title">Pausierter Header ausblenden</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Angehaltene Overlay-Tasten werden angezeigt</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Pausierte Overlay-Tasten sind ausgeblendet</string>
-    <string name="revanced_hide_shorts_paused_overlay_buttons_title">Pausierte Overlay-Tasten ausblenden</string>
+    <string name="revanced_hide_shorts_paused_overlay_buttons_title">Overlay-Schaltflächen im Pausenmodus ausblenden</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Button-Hintergrund wird angezeigt.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Button-Hintergrund wird ausgeblendet.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Wiedergabe &amp; Pause Hintergrund ausblenden</string>
@@ -1320,7 +1321,7 @@ Info:
     <string name="revanced_hide_shorts_preview_comment_title">Kommentarvorschau ausblenden</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Remix-Taste wird angezeigt</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Remix Button ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_remix_button_title">\'Remix\'-Button ausblenden</string>
+    <string name="revanced_hide_shorts_remix_button_title">Schaltfläche „Remix“ ausblenden</string>
     <string name="revanced_hide_shorts_save_music_button_summary_off">Musikspeicher Button wird angezeigt.</string>
     <string name="revanced_hide_shorts_save_music_button_summary_on">Musik-Button speichern ist ausgeblendet.</string>
     <string name="revanced_hide_shorts_save_music_button_title">\'Musik speichern\'-Button ausblenden</string>
@@ -1329,7 +1330,7 @@ Info:
     <string name="revanced_hide_shorts_search_suggestions_button_title">Suchvorschläge ausblenden</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Teilen-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Teilen-Schaltfläche ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_share_button_title">\'Teilen\'-Button ausblenden</string>
+    <string name="revanced_hide_shorts_share_button_title">Schaltfläche „Teilen“ ausblenden</string>
     <string name="revanced_hide_shorts_shelf_channel_summary_off">Im Kanal anzeigen.</string>
     <string name="revanced_hide_shorts_shelf_channel_summary_on">"Versteckt im Kanal.
 
@@ -1357,13 +1358,13 @@ Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet.</stri
     <string name="revanced_hide_shorts_shelf_video_description_title">Hide in video description</string>
     <string name="revanced_hide_shorts_shop_button_summary_off">Shop-Button wird angezeigt</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Shop-Button ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_shop_button_title">Shop-Button ausblenden</string>
+    <string name="revanced_hide_shorts_shop_button_title">Schaltfläche „Shop“ ausblenden</string>
     <string name="revanced_hide_shorts_shopping_button_summary_off">Shop-Schaltfläche wird angezeigt.</string>
     <string name="revanced_hide_shorts_shopping_button_summary_on">Shop-Schaltfläche wird versteckt.</string>
     <string name="revanced_hide_shorts_shopping_button_title">Shop-Schaltfläche verstecken</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">Tonschaltfläche wird angezeigt</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">Sound-Taste ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_sound_button_title">Tonschaltfläche ausblenden</string>
+    <string name="revanced_hide_shorts_sound_button_title">Schaltfläche „Ton“ ausblenden</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Sound-Metadaten-Beschriftung wird angezeigt</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Sound-Metadaten-Beschriftung ist ausgeblendet</string>
     <string name="revanced_hide_shorts_sound_metadata_label_title">Sound-Metadaten-Label ausblenden</string>
@@ -1372,7 +1373,7 @@ Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet.</stri
     <string name="revanced_hide_shorts_stickers_title">Sticker ausblenden</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_off">Abonnieren Button wird angezeigt</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_on">Abonnieren Button ist ausgeblendet</string>
-    <string name="revanced_hide_shorts_subscribe_button_title">\'Abonnieren\'-Button ausblenden</string>
+    <string name="revanced_hide_shorts_subscribe_button_title">Schaltfläche „Abonnieren“ ausblenden</string>
     <string name="revanced_hide_shorts_tagged_products_summary_off">Markierte Produkte werden angezeigt</string>
     <string name="revanced_hide_shorts_tagged_products_summary_on">Markierte Produkte sind ausgeblendet</string>
     <string name="revanced_hide_shorts_tagged_products_title">Markierte Artikel ausblenden</string>
@@ -1396,7 +1397,7 @@ Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet.</stri
     <string name="revanced_hide_shorts_video_title_title">Videotitel ausblenden</string>
     <string name="revanced_hide_show_more_button_summary_off">Schaltfläche \"Mehr anzeigen\" in den Suchergebnissen wird angezeigt</string>
     <string name="revanced_hide_show_more_button_summary_on">Schaltfläche \"Mehr anzeigen\" in den Suchergebnissen ist ausgeblendet</string>
-    <string name="revanced_hide_show_more_button_title">Schaltfläche \'Mehr anzeigen\' ausblenden</string>
+    <string name="revanced_hide_show_more_button_title">Schaltfläche „Mehr anzeigen“ ausblenden.</string>
     <string name="revanced_hide_snack_bar_summary_off">Snackbar wird angezeigt.</string>
     <string name="revanced_hide_snack_bar_summary_on">Snackbar ist ausgeblendet.</string>
     <string name="revanced_hide_snack_bar_title">Snackbar ausblenden</string>
@@ -1405,19 +1406,19 @@ Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet.</stri
     <string name="revanced_hide_start_trial_button_title">Button für Probeabo ausblenden</string>
     <string name="revanced_hide_stop_ads_button_summary_off">Schaltfläche \"Werbung stoppen\" ist sichtbar</string>
     <string name="revanced_hide_stop_ads_button_summary_on">Schaltfläche \"Werbung stoppen\" ist ausgeblendet</string>
-    <string name="revanced_hide_stop_ads_button_title">Werbefreigabe-Schaltfläche ausblenden</string>
+    <string name="revanced_hide_stop_ads_button_title">Schaltfläche „Werbung stoppen“ ausblenden</string>
     <string name="revanced_hide_store_button_summary_off">Schaltfläche \"Shop\" wird angezeigt</string>
     <string name="revanced_hide_store_button_summary_on">Schaltfläche \"Shop\" ist ausgeblendet</string>
     <string name="revanced_hide_store_button_title">Schaltfläche \'Store\' ausblenden</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Schaltfläche \"Abonnieren\" wird angezeigt</string>
     <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Schaltfläche \"Abonnieren\" ist ausgeblendet</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_title">\'Schaltfläche Abonnieren\' ausblenden</string>
+    <string name="revanced_hide_subscribe_button_in_channel_page_title">Schaltfläche „Abonnieren“ auf der Kanalseite ausblenden</string>
     <string name="revanced_hide_subscribe_button_summary_off">Schaltfläche „Abonnieren“ wird angezeigt</string>
     <string name="revanced_hide_subscribe_button_summary_on">Schaltfläche „Abonnieren“ wird ausgeblendet</string>
-    <string name="revanced_hide_subscribe_button_title">Schaltfläche \'Abonnieren\' ausblenden</string>
+    <string name="revanced_hide_subscribe_button_title">Button \'Abonnieren\' ausblenden</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">Abonnementskanalleiste wird angezeigt</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">Abonnementskanalleiste ist versteckt</string>
-    <string name="revanced_hide_subscribed_channels_bar_title">Versteckte Abonnementskanalleiste</string>
+    <string name="revanced_hide_subscribed_channels_bar_title">Abonnement-Kanalleiste ausblenden</string>
     <string name="revanced_hide_suggested_actions_summary_off">Empfohlene Aktionen werden angezeigt</string>
     <string name="revanced_hide_suggested_actions_summary_on">Empfohlene Aktionen werden ausgeblendet.</string>
     <string name="revanced_hide_suggested_actions_title">Empfohlene Aktionen ausblenden</string>
@@ -1426,10 +1427,10 @@ Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet.</stri
     <string name="revanced_hide_surveys_title">Umfragen ausblenden</string>
     <string name="revanced_hide_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
     <string name="revanced_hide_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
-    <string name="revanced_hide_thanks_button_title">Schaltfläche \'Dankeschön\' ausblenden</string>
+    <string name="revanced_hide_thanks_button_title">Schaltfläche „Danke“ ausblenden</string>
     <string name="revanced_hide_ticket_shelf_summary_off">Ticket-Reihe wird angezeigt</string>
     <string name="revanced_hide_ticket_shelf_summary_on">Ticket-Reihe ist ausgeblendet</string>
-    <string name="revanced_hide_ticket_shelf_title">Ticket-Reihe ausblenden</string>
+    <string name="revanced_hide_ticket_shelf_title">Ticket-Bereich ausblenden</string>
     <string name="revanced_hide_time_stamp_summary_off">Der Zeitstempel wird angezeigt</string>
     <string name="revanced_hide_time_stamp_summary_on">Der Zeitstempel ist ausgeblendet</string>
     <string name="revanced_hide_time_stamp_title">Zeitstempel ausblenden</string>
@@ -1438,16 +1439,16 @@ Nebeneffekt: Offizielle Kopfzeilen in Suchergebnissen werden ausgeblendet.</stri
     <string name="revanced_hide_timed_reactions_title">Zeitliche Reaktionen ausblenden</string>
     <string name="revanced_hide_toolbar_cast_button_summary_off">Cast Button wird angezeigt.</string>
     <string name="revanced_hide_toolbar_cast_button_summary_on">Cast Button ist ausgeblendet.</string>
-    <string name="revanced_hide_toolbar_cast_button_title">Cast-Button ausblenden</string>
+    <string name="revanced_hide_toolbar_cast_button_title">Schaltfläche „Übertragen“ ausblenden</string>
     <string name="revanced_hide_toolbar_create_button_summary_off">„Erstellen“-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_toolbar_create_button_summary_on">„Erstellen“-Schaltfläche ist ausgeblendet</string>
-    <string name="revanced_hide_toolbar_create_button_title">Erstellen-Button ausblenden</string>
+    <string name="revanced_hide_toolbar_create_button_title">Schaltfläche „Erstellen“ ausblenden</string>
     <string name="revanced_hide_toolbar_notification_button_summary_off">„Benachrichtigungen“-Schaltfläche wird angezeigt</string>
     <string name="revanced_hide_toolbar_notification_button_summary_on">„Benachrichtigungen“-Schaltfläche ist ausgeblendet</string>
-    <string name="revanced_hide_toolbar_notification_button_title">Lock Screen-Menü ausblenden</string>
+    <string name="revanced_hide_toolbar_notification_button_title">Schaltfläche „Benachrichtigungen“ ausblenden</string>
     <string name="revanced_hide_toolbar_search_button_summary_off">Suchschaltfläche wird angezeigt.</string>
     <string name="revanced_hide_toolbar_search_button_summary_on">Suchschaltfläche ist ausgeblendet</string>
-    <string name="revanced_hide_toolbar_search_button_title">Mit YouTube Music hören-Menü ausblenden</string>
+    <string name="revanced_hide_toolbar_search_button_title">Schaltfläche „Suche“ ausblenden</string>
     <string name="revanced_hide_transcript_section_summary_off">Sektion Transkripte wird angezeigt</string>
     <string name="revanced_hide_transcript_section_summary_on">Transkript-Abschnitt ist ausgeblendet</string>
     <string name="revanced_hide_transcript_section_title">Transcript-Bereich ausblenden</string>
@@ -1495,11 +1496,11 @@ Beschränkungen:
     <string name="revanced_hide_web_search_results_title">Suchergebnisse ausblenden</string>
     <string name="revanced_hide_you_may_like_section_summary_off">Bereich „Das könnte dir gefallen“ wird angezeigt</string>
     <string name="revanced_hide_you_may_like_section_summary_on">Bereich „Das könnte dir gefallen“ ist ausgeblendet</string>
-    <string name="revanced_hide_you_may_like_section_title">Verbergen Sie den Abschnitt ‘Sie könnten auch gefallen’</string>
+    <string name="revanced_hide_you_may_like_section_title">Bereich „Das könnte dir gefallen“ ausblenden</string>
     <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles Animation auf dem Logo wird angezeigt</string>
     <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodles-Animation auf dem Logo ist ausgeblendet</string>
-    <string name="revanced_hide_youtube_doodles_title">YouTube Doodles ausblenden</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">Das Anzeigen von YouTube-Doodles kann verhindern, dass benutzerdefinierte Header angezeigt werden.</string>
+    <string name="revanced_hide_youtube_doodles_title">YouTube-Logo-Animationen ausblenden</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">Das Anzeigen von YouTube-Doodles kann verhindern, dass benutzerdefinierte Kopfzeilen angezeigt werden.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium Werbung wird angezeigt.</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube-Premium-Werbung versteckt.
 
@@ -1583,6 +1584,8 @@ Bekanntes Problem: Wenn diese Einstellung aktiviert ist, sind YouTube Doodles ni
     <string name="revanced_language_VI">Vietnamesisch\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chinesisch\n<small>中文</small></string>
     <string name="revanced_language_title">ReVanced-Sprache</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Pausiere die Wiedergabe mit horizontaler Geste</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Merke dir die Position der Geste</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Doppel-Tipp-Aktion und Pinch um die Größe zu verändern, ist deaktiviert</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Doppeltippen und mit zwei Fingern vergrößern/verkleinern ist aktiviert
 
@@ -1601,7 +1604,7 @@ Wischen, um zu erweitern oder zu schließen"</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Erweitern- und Schließen-Schaltflächen ausblenden</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay-Buttons werden angezeigt</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay-Buttons sind ausgeblendet</string>
-    <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlay-Buttons ausblenden</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlay-Schaltflächen ausblenden</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Vorwärts und zurück springen werden angezeigt</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Vorwärts skippen und zurück sind ausgeblendet</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Vorwärts- und Rückwärts-Buttons ausblenden</string>
@@ -1631,6 +1634,8 @@ Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts 
     <string name="revanced_miniplayer_width_dip_invalid_toast">Pixelgröße muss zwischen %1$s und %2$s liegen</string>
     <string name="revanced_miniplayer_width_dip_summary">Legen Sie die Anfangsgröße auf dem Bildschirm in Pixeln fest</string>
     <string name="revanced_miniplayer_width_dip_title">Standardgröße</string>
+    <string name="revanced_navigation_bar_animations_summary">Audio Track-Menü-Fußzeile ausblenden</string>
+    <string name="revanced_navigation_bar_animations_title">Navigation bar animations aktivieren</string>
     <string name="revanced_open_links_externally_summary_off">Öffnet Links im In-App-Browser.</string>
     <string name="revanced_open_links_externally_summary_on">Öffnet Links im externen Browser.</string>
     <string name="revanced_open_links_externally_title">Öffne Links extern</string>
@@ -1927,6 +1932,10 @@ Tippe und halte zum Öffnen der YouTube-Einstellungen."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Suchleisten-Thumbnails werden über der Suchleiste angezeigt</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Alte Suchleisten-Thumbnails wiederherstellen</string>
     <string name="revanced_restore_old_settings_menus_title">Alte YouTube-Einstellungen wiederherstellen</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"Behebt fehlende Dislikes und das Nichtausblenden der Video-Aktionsschaltfläche
+
+Einschränkung: Zurück zum alten „Mehr Videos“-Overlay"</string>
+    <string name="revanced_restore_old_video_action_bar_title">Alte Video-Aktionsleiste wiederherstellen</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Altes Player-Layout wird nicht verwendet.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Altes Spielerlayout wird verwendet.
 Keine Ränder oben und unten des Spielers."</string>
@@ -1949,11 +1958,13 @@ Klicken Sie hier, um zu sehen, wie Sie einen API-Schlüssel ausgeben."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Gehen Sie zu &lt;a href=%1$s&gt;Erstellen Sie ein neues Projekt&lt;/a&gt;.&lt;br&gt;. Klicken Sie auf die &lt;b&gt;Erstelle&lt;/b&gt; Schaltfläche.&lt;br&gt;3. Gehen Sie zu &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Klicken Sie auf &lt;b&gt;&lt;/b&gt; Knopf.&lt;br&gt;5. Klicken Sie auf &lt;b&gt;CREDENTIALS&lt;/b&gt; Schaltfläche.&lt;br&gt;6. Wählen Sie die Option &lt;b&gt;Öffentliche Daten&lt;/b&gt; aus.&lt;br&gt;7. Klicken Sie auf die &lt;b&gt;NEXT&lt;/b&gt; Schaltfläche.&lt;br&gt;8. API-Schlüssel kopieren.&lt;br&gt;&lt;br&gt; ※ API-Schlüssel sollte niemals mit anderen geteilt werden, daher ist er nicht in den Einstellungen Import / Export enthalten.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Entwicklerschlüssel ausgeben</string>
     <string name="revanced_ryd_about">Über</string>
-    <string name="revanced_ryd_attribution_summary">Daten werden von der YouTube Dislike API zurückgegeben. Tippe hier, um mehr zu erfahren</string>
+    <string name="revanced_ryd_attribution_summary">"Daten werden von der Return YouTube Dislike API bereitgestellt
+
+Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">\"Gefällt mir\" Button für das beste Aussehen</string>
     <string name="revanced_ryd_compact_layout_summary_on">\"Gefällt mir\" Button für minimale Breite</string>
-    <string name="revanced_ryd_compact_layout_title">Kompakten Like-Button verwenden</string>
+    <string name="revanced_ryd_compact_layout_title">Schaltfläche „Like“ in kompakter Darstellung verwenden</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes werden als Zahl angezeigt</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes werden als Prozentsatz angezeigt</string>
     <string name="revanced_ryd_dislike_percentage_title">Dislikes als Prozentsatz anzeigen</string>
@@ -1967,15 +1978,6 @@ Klicken Sie hier, um zu sehen, wie Sie einen API-Schlüssel ausgeben."</string>
     <string name="revanced_ryd_failure_connection_status_code">Dislikes nicht verfügbar (Status %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Dislikes vorläufig nicht verfügbar (API Timeout)</string>
     <string name="revanced_ryd_failure_generic">Dislikes nicht verfügbar (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Video neu laden, um mit Return YouTube Dislike abzustimmen</string>
-    <string name="revanced_ryd_shorts_summary_off">Dislikes für Shorts werden nicht angezeigt</string>
-    <string name="revanced_ryd_shorts_summary_on">"Dislikes für Shorts werden angezeigt
-
-Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezeigt"</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes bei Shorts angezeigt
-
-Einschränkung: Dislikes werden im Inkognito Modus nicht angezeigt."</string>
-    <string name="revanced_ryd_shorts_title">Dislikes auf Shorts anzeigen</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast wird nicht angezeigt, wenn YouTube-Dislike nicht verfügbar ist</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast wird angezeigt, wenn YouTube-Ablehnung nicht verfügbar ist</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Verbindungsfehler-Benachrichtigungen anzeigen</string>
@@ -1985,7 +1987,7 @@ Einschränkung: Dislikes werden im Inkognito Modus nicht angezeigt."</string>
     <string name="revanced_sanitize_comments_category_bar_title">Kategorieleiste bereinigen</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Ausdrücke wie '#', 'Spendenaktion', 'Shop' und 'Produkte' werden in den Videountertiteln angezeigt."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Ausdrücke wie '#', 'Spendenaktion', 'Shop' und 'Produkte' werden in den Videountertiteln ausgeblendet."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Video-Untertitel säubern</string>
+    <string name="revanced_sanitize_video_subtitle_title">Videountertitel bereinigen</string>
     <string name="revanced_sb_about">Über</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Die Daten werden von der SponsorBlock API bereitgestellt. Tippen Sie hier, um mehr zu erfahren und Downloads für andere Plattformen zu sehen</string>
@@ -2322,7 +2324,13 @@ Die meisten Fehler können aufgrund von Client-seitigen Einschränkungen nicht b
     <string name="revanced_shorts_player_type_regular_player">Normaler Spieler</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Normaler Spieler im Vollbildmodus</string>
     <string name="revanced_shorts_player_type_shorts">Shorts Spieler</string>
-    <string name="revanced_shorts_player_type_title">Shorts mit</string>
+    <string name="revanced_shorts_player_type_title">Shorts öffnen mit</string>
+    <string name="revanced_show_settings_button_index_title">Position der Schaltfläche „Einstellungen“</string>
+    <string name="revanced_show_settings_button_title">Schaltfläche „Einstellungen“ anzeigen</string>
+    <string name="revanced_show_settings_button_type_title">Aktion der Schaltfläche „Einstellungen“</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Position der Einstellungen-Schaltfläche</string>
+    <string name="revanced_show_toolbar_settings_button_title">Schaltfläche „Einstellungen“ anzeigen</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">Aktion der Schaltfläche „Einstellungen“</string>
     <string name="revanced_show_video_title_section_summary">"Zeigt den Video-Titelbereich im Vollbild.
 
 Einschränkung: Videotitel verschwindet beim Klicken auf den Bildschirm."</string>
@@ -2335,7 +2343,7 @@ Einschränkung: Videotitel verschwindet beim Klicken auf den Bildschirm."</strin
     <string name="revanced_speed_overlay_value_title">Geschwindigkeitsüberlagerung</string>
     <string name="revanced_spoof_app_version_other_item">Andere</string>
     <string name="revanced_spoof_app_version_other_item_hint">App-Version eingeben</string>
-    <string name="revanced_spoof_app_version_summary">Täuscht den Server dazu, dass Sie eine ältere App-Version verwenden, um Legacy-UI-Funktionen wiederherzustellen</string>
+    <string name="revanced_spoof_app_version_summary">Täuscht den Server, sodass er denkt, Sie verwenden eine ältere App-Version, um alte UI-Funktionen wiederherzustellen.</string>
     <string name="revanced_spoof_app_version_summary_off">Version nicht gefälscht</string>
     <string name="revanced_spoof_app_version_summary_on">Version gefälscht</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Transkript-Funktion wiederherstellen</string>
@@ -2345,7 +2353,7 @@ Einschränkung: Videotitel verschwindet beim Klicken auf den Bildschirm."</strin
     <string name="revanced_spoof_app_version_target_summary">Geben Sie das Spoof App Versionsziel ein.</string>
     <string name="revanced_spoof_app_version_target_title">Spoof-App-Versionsziel</string>
     <string name="revanced_spoof_app_version_title">Spoof-App-Version</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Die App-Version wird zu einer älteren Version von YouTube gefälscht.
+    <string name="revanced_spoof_app_version_user_dialog_message">"Die App-Version wird zu einer älteren Version gefälscht.
 
 Dadurch ändert sich das Erscheinungsbild und die Funktionen der App, es können jedoch unbekannte Nebeneffekte auftreten.
 
@@ -2520,6 +2528,11 @@ Haftungsausschluss: Cookies, die ohne Anmeldung ausgestellt werden, können ung�
     <string name="revanced_transcript_cookies_summary">Cookies zur Verwendung in Transkript-API-Anfragen.</string>
     <string name="revanced_transcript_cookies_title">Transkript-Cookies</string>
     <string name="revanced_translations_title">Übersetzungen</string>
+    <string name="revanced_vot_enabled_title">Sprachausgabe-Übersetzung</string>
+    <string name="revanced_vot_original_audio_volume_summary">Lautstärke des Original-YouTube-Audios, während die Übersetzung spricht</string>
+    <string name="revanced_vot_original_audio_volume_title">Lautstärke des Originaltons</string>
+    <string name="revanced_vot_translation_volume_summary">Lautstärke der synchronisierten Übersetzungsstimme</string>
+    <string name="revanced_vot_translation_volume_title">Übersetzungslautstärke</string>
     <string name="revanced_watch_history_about_status_blocked">• Überwachungsverlauf blockiert.</string>
     <string name="revanced_watch_history_about_status_original">"• Folgt den Einstellungen des Beobachtungsverlaufs von Google-Konto.
 • Überwachungsverlauf kann aufgrund von DNS oder VPN nicht funktionieren."</string>

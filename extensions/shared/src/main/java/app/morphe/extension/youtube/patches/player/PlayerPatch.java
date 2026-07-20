@@ -889,7 +889,7 @@ public class PlayerPatch {
     /**
      * Overriding this values is possible only after the litho component has been loaded.
      * Otherwise, crash will occur.
-     * See {@link InitializationPatch#onCreate}.
+     * See {@link InitializationPatch#onGlobalConfigUpdated()}.
      *
      * @param original original value.
      * @return whether to enable PiP Mode in the player flyout menu.
@@ -905,7 +905,7 @@ public class PlayerPatch {
     /**
      * Overriding this values is possible only after the litho component has been loaded.
      * Otherwise, crash will occur.
-     * See {@link InitializationPatch#onCreate}.
+     * See {@link InitializationPatch#onGlobalConfigUpdated()}.
      *
      * @param original original value.
      * @return whether to enable Sleep timer Mode in the player flyout menu.

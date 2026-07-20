@@ -29,7 +29,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     }
 
     public boolean shouldAutoSkip() {
-        return category.behaviour.skipAutomatically;
+        return category.behaviour.skipAutomatically && !(didAutoSkipped && category.behaviour == CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE);
     }
 
     /**

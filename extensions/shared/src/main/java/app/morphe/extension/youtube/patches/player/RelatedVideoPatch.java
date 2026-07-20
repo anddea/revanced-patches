@@ -1,4 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.player;
+
+import com.google.protobuf.MessageLite;
 
 import androidx.annotation.NonNull;
 
@@ -6,6 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.innertube.NextResponseOuterClass.SecondaryContents;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.BottomSheetState;
 import app.morphe.extension.youtube.shared.EngagementPanel;
@@ -18,10 +29,9 @@ public final class RelatedVideoPatch {
             "com.google.android.libraries.youtube.rendering.ui.ScrollToTopLinearLayoutManager";
     private static final boolean HIDE_RELATED_VIDEOS = Settings.HIDE_RELATED_VIDEOS.get();
     private static final int OFFSET = Settings.RELATED_VIDEOS_OFFSET.get();
-
-    // video title,channel bar, video action bar, comment
     private static final int MAX_ITEM_COUNT = 4 + OFFSET;
-
+    private static final String COMMENTS = "comments";
+    private static volatile boolean isFiltered;
     private static final Map<String, Integer> lastVideoIds = new LinkedHashMap<>() {
         private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 1;
 
@@ -30,12 +40,17 @@ public final class RelatedVideoPatch {
             return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
         }
     };
-
     private static String videoId = "";
 
-    public static void newVideoStarted(@NonNull String newlyLoadedChannelId, @NonNull String newlyLoadedChannelName,
-                                       @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
-                                       final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
+    /**
+     * Legacy injection point for YouTube versions before 20.21.
+     */
+    public static void newVideoStarted(@NonNull String newlyLoadedChannelId,
+                                       @NonNull String newlyLoadedChannelName,
+                                       @NonNull String newlyLoadedVideoId,
+                                       @NonNull String newlyLoadedVideoTitle,
+                                       final long newlyLoadedVideoLength,
+                                       boolean newlyLoadedLiveStreamValue) {
         if (!videoId.equals(newlyLoadedVideoId) &&
                 PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MINIMIZED) {
             videoId = newlyLoadedVideoId;
@@ -44,6 +59,9 @@ public final class RelatedVideoPatch {
         }
     }
 
+    /**
+     * Legacy player-dismiss observer for YouTube versions before 20.21.
+     */
     public static void onDismiss(int index) {
         if (HIDE_RELATED_VIDEOS && index == 0) {
             videoId = "";
@@ -51,25 +69,24 @@ public final class RelatedVideoPatch {
         }
     }
 
+    /**
+     * Legacy item-count override retained for YouTube versions before 20.21.
+     *
+     * @param itemCounts original recycler item count
+     * @return item count limited before related videos
+     */
     public static int overrideItemCounts(int itemCounts) {
-        if (!HIDE_RELATED_VIDEOS) {
+        if (!HIDE_RELATED_VIDEOS || itemCounts < MAX_ITEM_COUNT) {
             return itemCounts;
         }
-        if (itemCounts < MAX_ITEM_COUNT) {
-            return itemCounts;
-        }
-        var elements = Thread.currentThread().getStackTrace();
+        StackTraceElement[] elements = Thread.currentThread().getStackTrace();
         if (elements.length < 7) {
             return itemCounts;
         }
-        var sixthElement = elements[6];
-        if (sixthElement == null) {
-            return itemCounts;
-        }
-        if (!sixthElement.toString().startsWith(SCROLL_TO_TOP_LINEAR_LAYOUT_MANAGER_CLASS)) {
-            return itemCounts;
-        }
-        if (videoId.isEmpty()) {
+        StackTraceElement sixthElement = elements[6];
+        if (sixthElement == null ||
+                !sixthElement.toString().startsWith(SCROLL_TO_TOP_LINEAR_LAYOUT_MANAGER_CLASS) ||
+                videoId.isEmpty()) {
             return itemCounts;
         }
         Integer count = lastVideoIds.get(videoId);
@@ -77,23 +94,88 @@ public final class RelatedVideoPatch {
                 PlayerType.getCurrent().isMaximizedOrFullscreenOrSliding()) {
             return MAX_ITEM_COUNT;
         }
-        if (!RootView.isPlayerActive()) {
-            return itemCounts;
-        }
-        if (BottomSheetState.getCurrent().isOpen()) {
-            return itemCounts;
-        }
-        if (EngagementPanel.isOpen()) {
+        if (!RootView.isPlayerActive() ||
+                BottomSheetState.getCurrent().isOpen() ||
+                EngagementPanel.isOpen()) {
             return itemCounts;
         }
         if (count == null) {
             lastVideoIds.put(videoId, itemCounts);
             return MAX_ITEM_COUNT;
-        } else if (PlayerType.getCurrent().isMaximizedOrFullscreenOrSliding() &&
-                Math.abs(itemCounts - count) < 5) {
-            return MAX_ITEM_COUNT;
-        } else {
-            return itemCounts;
         }
+        return PlayerType.getCurrent().isMaximizedOrFullscreenOrSliding() &&
+                Math.abs(itemCounts - count) < 5
+                ? MAX_ITEM_COUNT
+                : itemCounts;
+    }
+
+    /**
+     * Injection point that resets filtering state for each watch-next response.
+     *
+     * @return whether related videos should be hidden
+     */
+    public static boolean hideRelatedVideos() {
+        if (HIDE_RELATED_VIDEOS) {
+            isFiltered = false;
+        }
+
+        return HIDE_RELATED_VIDEOS;
+    }
+
+    /**
+     * Identifies related-video item sections while preserving the comments section.
+     *
+     * @param messageLite watch-next secondary content
+     * @return whether the item section contains related videos
+     */
+    public static boolean isRelatedItems(MessageLite messageLite) {
+        try {
+            SecondaryContents secondaryContents = SecondaryContents.parseFrom(messageLite.toByteArray());
+            if (secondaryContents.hasItemSectionRenderer()) {
+                String sectionIdentifier = secondaryContents
+                        .getItemSectionRenderer()
+                        .getSectionIdentifier();
+
+                if (sectionIdentifier != null && sectionIdentifier.startsWith(COMMENTS)) {
+                    return false;
+                }
+
+                isFiltered = true;
+                return true;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to parse ItemSectionRenderer", ex);
+        }
+
+        return false;
+    }
+
+    /**
+     * Identifies tablet shelf renderers, which contain related videos.
+     *
+     * @param messageLite watch-next secondary content
+     * @return whether the content is a shelf renderer
+     */
+    public static boolean isShelfRenderer(MessageLite messageLite) {
+        try {
+            SecondaryContents secondaryContents = SecondaryContents.parseFrom(messageLite.toByteArray());
+            boolean hasShelfRenderer = secondaryContents.hasShelfRenderer();
+            if (hasShelfRenderer) {
+                isFiltered = true;
+            }
+
+            return hasShelfRenderer;
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to parse ShelfRenderer", ex);
+        }
+
+        return false;
+    }
+
+    /**
+     * @return whether the current response had related content removed
+     */
+    public static boolean isFiltered() {
+        return isFiltered;
     }
 }

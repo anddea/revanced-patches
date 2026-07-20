@@ -48,7 +48,9 @@ public class ExtendedUtils extends PackageUtils {
 
     public static void setSearchIntent(Activity mActivity, Intent intent) {
         intent.setAction(SHORTCUT_ACTION);
-        intent.setClassName(mActivity, SHORTCUT_CLASS_DESCRIPTOR);
+        intent.setClassName(mActivity, IS_6_27_OR_GREATER 
+            ? SHORTCUT_CLASS_DESCRIPTOR 
+            : "com.google.android.apps.youtube.music.activities.MusicActivity");
         intent.setPackage(mActivity.getPackageName());
         intent.putExtra(SHORTCUT_TYPE, SHORTCUT_TYPE_SEARCH);
         intent.putExtra(SHORTCUT_ACTION, SHORTCUT_ID_SEARCH);

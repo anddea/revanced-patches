@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+    <!-- Rounded A Arch -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M 2.5,14 L 2.5,9 C 2.5,7.3 3.6,6 5,6 C 6.4,6 7.5,7.3 7.5,9 L 7.5,14"
+        android:strokeColor="@android:color/white"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.6" />
+    <!-- Rounded A Crossbar -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M 2.5,11 L 7.5,11"
+        android:strokeColor="@android:color/white"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.6" />
+    <!-- Right Loop -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M 10,10 C 11.8,11.8 13.3,13.5 15.2,13.5 C 17.2,13.5 18.5,12 18.5,10 C 18.5,8 17.2,6.5 15.2,6.5 C 13.3,6.5 11.8,8.2 10,10 Z"
+        android:strokeColor="@android:color/white"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.6" />
+</vector>

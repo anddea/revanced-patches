@@ -16,6 +16,21 @@ Cliquez sur le bouton Continuer et autorisez les modifications d'optimisations."
     <string name="gms_core_settings_summary">Pour recevoir les notifications de RVX, activez la messagerie cloud.</string>
     <string name="gms_core_settings_title">Ouvrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore n\'est pas installé. Veuillez l\'installer.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 secondes</string>
+    <string name="morphe_crossfade_duration_1000ms">1 seconde</string>
+    <string name="morphe_crossfade_duration_11000ms">11 secondes</string>
+    <string name="morphe_crossfade_duration_12000ms">12 secondes</string>
+    <string name="morphe_crossfade_duration_2000ms">2 secondes</string>
+    <string name="morphe_crossfade_duration_250ms">250 millisecondes</string>
+    <string name="morphe_crossfade_duration_3000ms">3 secondes</string>
+    <string name="morphe_crossfade_duration_4000ms">4 secondes</string>
+    <string name="morphe_crossfade_duration_5000ms">5 secondes</string>
+    <string name="morphe_crossfade_duration_500ms">500 millisecondes</string>
+    <string name="morphe_crossfade_duration_6000ms">6 secondes</string>
+    <string name="morphe_crossfade_duration_7000ms">7 secondes</string>
+    <string name="morphe_crossfade_duration_750ms">750 millisecondes</string>
+    <string name="morphe_crossfade_duration_8000ms">8 secondes</string>
+    <string name="morphe_crossfade_duration_9000ms">9 secondes</string>
     <string name="morphe_disable_drc_audio_summary_off">L\'audio DRC est activé</string>
     <string name="morphe_disable_drc_audio_summary_on">L\'audio DRC est désactivé</string>
     <string name="morphe_disable_drc_audio_title">Désactiver l\'audio DRC</string>
@@ -26,6 +41,53 @@ Cliquez sur le bouton Continuer et autorisez les modifications d'optimisations."
     <string name="morphe_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
     <string name="morphe_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
     <string name="morphe_force_original_audio_title">Forcer la langue audio d\'origine</string>
+    <string name="morphe_music_crossfade_about_best_summary">Lecture normale d\'une chanson à l\'autre avec passage automatique à la suivante, répétition d\'un seul titre (la chanson effectue un fondu enchaîné vers elle-même) et audio local — haut-parleur du téléphone, écouteurs filaires, Bluetooth ou USB. </string>
+    <string name="morphe_music_crossfade_about_best_title">Fonctionne mieux avec</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Fonctionnalité de fondu enchaîné par VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Crédit</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Le fondu enchaîné superpose la fin d'une chanson au début de la suivante, en diminuant progressivement le volume de l'une tandis que celui de l'autre augmente, selon la durée et la courbe de transition que vous avez choisies.
+
+Il fonctionne aussi bien lors du passage automatique à la piste suivante (lorsqu'une chanson se termine d'elle-même) que lors des passages manuels — chacun dispose de son propre interrupteur ci-dessus. Lors du passage automatique, la transition commence quelques secondes avant la fin de la chanson.
+
+Nécessite YouTube Music 9.x ou une version ultérieure."</string>
+    <string name="morphe_music_crossfade_about_how_title">Comment ça marche</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Une vidéo musicale définie comme première chanson — ou lancée depuis l'extérieur de la file d'attente actuelle — peut brièvement s'afficher en mode vidéo avant que le mode audio uniquement ne s’active
+
+Mettre le fondu enchaîné en pause pour regarder une vidéo musicale peut laisser certaines vidéos avec un écran noir (celles dont l'audio provient directement de la vidéo elle-même). Mettre le fondu enchaîné en pause avant de sélectionner la chanson permet d'éviter ce problème"</string>
+    <string name="morphe_music_crossfade_about_known_title">Problèmes connus</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Les vidéos musicales sont lues en mode audio uniquement lorsque le fondu enchaîné est activé (appuyez longuement sur le bouton 'Lecture aléatoire' pour le mettre en pause si vous souhaitez voir la vidéo)
+
+Les chansons plus courtes que votre durée de fondu peuvent ne pas bénéficier du fondu
+
+L'écran de verrouillage ou la notification peut brièvement afficher un état obsolète pendant une transition"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Ne fonctionne pas tout à fait correctement</string>
+    <string name="morphe_music_crossfade_about_summary">Comment fonctionne le fondu enchaîné — et dans quels cas il ne fonctionne pas</string>
+    <string name="morphe_music_crossfade_about_title">À propos</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Diffusion ou duplication audio (Chromecast, duplication d'écran ou audio) — le fondu enchaîné est mis en pause, car il est instable dans ce contexte et il se peut que cela ne soit jamais corrigé.
+
+YouTube Music 8.x — le fondu enchaîné ne fonctionne que sur les versions 9.x et ultérieures"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Ne fonctionne pas du tout</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Le fondu enchaîné est mis en pause lors de la diffusion ou de la duplication audio. Le fondu enchaîné via le cast/la duplication est instable et il se peut que cela ne puisse jamais être corrigé</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Maintien subtil</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Atténuation douce</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Puissance égale</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Courbe en S douce</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Entrant</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Sortant</string>
+    <string name="morphe_music_crossfade_curve_title">Courbe de fondu</string>
+    <string name="morphe_music_crossfade_duration_title">Durée du fondu enchaîné</string>
+    <string name="morphe_music_crossfade_enabled_title">Activer le fondu enchaîné</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Applique l\'effet de fondu enchaîné lorsque le morceau se termine naturellement</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Fondu enchaîné lors des passages automatiques</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Applique l\'effet de fondu enchaîné lorsque vous passez manuellement au morceau suivant</string>
+    <string name="morphe_music_crossfade_on_skip_title">Fondu enchaîné lors des passages manuels</string>
+    <string name="morphe_music_crossfade_paused_toast">Fondu enchaîné mis en pause pour cette session</string>
+    <string name="morphe_music_crossfade_resumed_toast">Fondu enchaîné repris</string>
+    <string name="morphe_music_crossfade_screen_summary">Enchaîner harmonieusement les morceaux les uns avec les autres</string>
+    <string name="morphe_music_crossfade_screen_title">Fondu enchaîné</string>
+    <string name="morphe_music_crossfade_session_control_summary">Appuyez longuement sur le bouton \'Lecture aléatoire\' pour activer ou désactiver le fondu enchaîné</string>
+    <string name="morphe_music_crossfade_session_control_title">Contrôle de session</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Le mode vidéo n\'est pas disponible lorsque le fondu enchaîné est activé</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Impossible de se connecter à VR : %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Impossible de se connecter à la VR, l\'authentification sur le site web n\'a pas été approuvée</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 est temporairement indisponible</string>
@@ -135,11 +197,11 @@ Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas né
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
     <string name="revanced_change_start_page_summary">Sélectionnez la page de démarrage de l\'appli.</string>
     <string name="revanced_change_start_page_title">Page de démarrage</string>
-    <string name="revanced_custom_filter_strings_summary">Filtrer la liste des noms du composant séparés par un saut de ligne.</string>
+    <string name="revanced_custom_filter_strings_summary">Liste des chaînes du générateur de chemins de composants à filtrer, séparées par des sauts de ligne</string>
     <string name="revanced_custom_filter_strings_title">Filtre personnalisé</string>
     <string name="revanced_custom_filter_summary">Active les filtres personnalisés pour masquer des éléments de l’interface.</string>
     <string name="revanced_custom_filter_title">Activer le filtre personnalisé</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Filtre personnalisé invalide : %s.</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Filtre personnalisé invalide : %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Valeur de couleur de la barre de navigation non valide.</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">Tapez le code hex de la couleur de la barre de navigation.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Valeur de couleur de la barre de navigation personnalisée</string>
@@ -156,8 +218,8 @@ Utilisez des couleurs sombres si possible, car l'application ne prend pas en cha
 Utilisez des couleurs sombres si possible, car l'application ne prend pas en charge les thèmes clairs."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Couleur secondaire de l\'arrière-plan du lecteur</string>
     <string name="revanced_custom_player_background_invalid_toast">Couleur d\'arrière-plan du lecteur non valide.</string>
-    <string name="revanced_debug_protobuffer_summary">Les journaux de débogage incluent le protocole buffer.</string>
-    <string name="revanced_debug_protobuffer_title">Enregistrer le protocole buffer</string>
+    <string name="revanced_debug_protobuffer_summary">Ajoute des informations de journalisation supplémentaires pour permettre aux développeurs d’identifier les composants de l\'application</string>
+    <string name="revanced_debug_protobuffer_title">Journal de débogage du protocol buffer</string>
     <string name="revanced_debug_spannable_summary">Les journaux de débogage incluent le texte formaté (spannable).</string>
     <string name="revanced_debug_spannable_title">Enregistrer le texte formaté (spannable)</string>
     <string name="revanced_debug_summary">Enregistrer le journal de débogage.</string>
@@ -248,7 +310,7 @@ Limitations : Les segments SponsorBlock ne sont pas affichés dans la barre de 
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s n'est pas installé.
 Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Attention</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l’installer.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l\'installer.</string>
     <string name="revanced_external_downloader_package_name_summary">Nom de package du téléchargeur externe installé, telle que NewPipe ou YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nom du paquet du téléchargeur externe</string>
     <string name="revanced_fullscreen_ads_closed_toast">Les publicités plein écran sont fermées.</string>
@@ -548,6 +610,7 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_sb_segments_sponsor">Sponsor</string>
     <string name="revanced_sb_segments_sponsor_sum">Partenariat rémunéré, parrainage rémunérés et publicités directes. Ne concerne pas l\'autopromotion ou les mentions gratuites pour des causes / créateurs / sites web / produits qu\'ils apprécient.</string>
     <string name="revanced_sb_skip_automatically">Passer automatiquement</string>
+    <string name="revanced_sb_skip_automatically_once">Passer automatiquement une seule fois</string>
     <string name="revanced_sb_skip_ignore">Désactiver</string>
     <string name="revanced_sb_skipped_filler">Remplissages passés.</string>
     <string name="revanced_sb_skipped_hook">Accroche passée.</string>
@@ -583,6 +646,7 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_settings_import_reset">Les paramètres ont étés réinitialisés par défaut.</string>
     <string name="revanced_settings_import_success">Paramètres %d importés.</string>
     <string name="revanced_settings_reset">Réinitialiser</string>
+    <string name="revanced_settings_reset_color">Réinitialiser la couleur</string>
     <string name="revanced_settings_search_clear_history">Effacer l\'historique de recherche</string>
     <string name="revanced_settings_search_clear_history_message">Êtes-vous sûr de vouloir effacer tout l\'historique de recherche ?</string>
     <string name="revanced_settings_search_empty_history_summary">Pour enregistrer l\'historique de recherche, saisissez une requête et appuyez sur Entrée.</string>
@@ -610,11 +674,7 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Sélectionnez la version cible de l\'application à falsifier.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Falsifier la version cible de l\'application pour les paroles</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Falsifier la version de l\'application pour les paroles</string>
-    <string name="revanced_spoof_app_version_summary">"Falsifie la version du client par une ancienne version.
-
-• Cela modifiera l'apparence de l'application, mais des effets secondaires inconnus peuvent se produire.
-• Si cette option est activée mais ne fonctionne pas, essayez sur un autre compte.
-• Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut rester jusqu'à ce que les données de l'application soient effacées."</string>
+    <string name="revanced_spoof_app_version_summary">Fait croire au serveur que vous utilisez une ancienne version de l\'application afin de restaurer des fonctionnalités d\'interface héritées</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Désactive le mode radio dans les régions canadiennes</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Désactive les paroles en temps réel</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restauration de l\'ancien menu déroulant</string>
@@ -623,8 +683,8 @@ Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - La section commentaires n\'apparaît pas dans la page d\'accueil</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Version de falsification de l\'app invalide : %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Sélectionner la version de l\'application à falsifier.</string>
-    <string name="revanced_spoof_app_version_target_title">Choisir la version à falsifier</string>
-    <string name="revanced_spoof_app_version_title">Falsifier la version de l\'app</string>
+    <string name="revanced_spoof_app_version_target_title">Falsifier la version cible de l\'application</string>
+    <string name="revanced_spoof_app_version_title">Falsifier la version de l\'application</string>
     <string name="revanced_spoof_client_summary">"Falsifié le client pour éviter les problèmes de lecture."</string>
     <string name="revanced_spoof_client_title">Usurpation de client</string>
     <string name="revanced_spoof_client_type_summary">"Définit un client par défaut pour l'usurpation d'identité."</string>

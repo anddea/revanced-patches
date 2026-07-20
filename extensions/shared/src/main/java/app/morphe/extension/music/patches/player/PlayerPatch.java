@@ -1,3 +1,44 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.music.patches.player;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
@@ -6,7 +47,11 @@ import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.isSDKAbove;
 import static app.morphe.extension.shared.utils.Utils.runOnMainThreadDelayed;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.os.SystemClock;
+import android.view.KeyEvent;
 import android.view.View;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -17,6 +62,8 @@ import java.util.Arrays;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.music.shared.VideoType;
 import app.morphe.extension.music.utils.VideoUtils;
+import app.morphe.extension.shared.ResourceType;
+import app.morphe.extension.shared.ResourceUtils;
 import app.morphe.extension.shared.settings.StringSetting;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -69,6 +116,8 @@ public class PlayerPatch {
 
     private static WeakReference<View> previousButtonViewRef = new WeakReference<>(null);
     private static WeakReference<View> nextButtonViewRef = new WeakReference<>(null);
+    private static int previousButtonId;
+    private static int nextButtonId;
 
     static {
         if (CHANGE_PLAYER_BACKGROUND_COLOR)
@@ -178,6 +227,86 @@ public class PlayerPatch {
 
             previousButtonView.setOnClickListener(v -> previousButtonClicked(previousButtonView));
         }
+    }
+
+    /**
+     * Registers miniplayer button listeners on 8.51+, where the legacy pending-intent listener
+     * fingerprints no longer exist. Media key events match the mechanism used by headsets.
+     */
+    public static void setPreviousNextButtonOnClickListener(View view) {
+        int previousButtonViewId = getPreviousButtonId();
+        if (previousButtonViewId != 0) {
+            View previousButtonView = view.findViewById(previousButtonViewId);
+            hideViewUnderCondition(!ADD_MINIPLAYER_PREVIOUS_BUTTON, previousButtonView);
+            previousButtonView.setOnClickListener(v ->
+                    dispatchMediaKeyEvent(v.getContext(), KeyEvent.KEYCODE_MEDIA_PREVIOUS));
+        }
+
+        int nextButtonViewId = getNextButtonId();
+        if (nextButtonViewId != 0) {
+            View nextButtonView = view.findViewById(nextButtonViewId);
+            hideViewUnderCondition(!ADD_MINIPLAYER_NEXT_BUTTON, nextButtonView);
+            nextButtonView.setOnClickListener(v ->
+                    dispatchMediaKeyEvent(v.getContext(), KeyEvent.KEYCODE_MEDIA_NEXT));
+        }
+    }
+
+    /**
+     * Extends the miniplayer's managed view array with the injected buttons on 8.51+.
+     */
+    public static View[] setPreviousNextButton(View view, View[] original) {
+        View previousButtonView = null;
+        View nextButtonView = null;
+
+        int previousButtonViewId = getPreviousButtonId();
+        if (previousButtonViewId != 0) {
+            previousButtonView = view.findViewById(previousButtonViewId);
+        }
+        int nextButtonViewId = getNextButtonId();
+        if (nextButtonViewId != 0) {
+            nextButtonView = view.findViewById(nextButtonViewId);
+        }
+
+        int extraCount = (nextButtonView != null ? 1 : 0) + (previousButtonView != null ? 1 : 0);
+        if (extraCount == 0) return original;
+
+        View[] newArray = new View[original.length + extraCount];
+        System.arraycopy(original, 0, newArray, 0, original.length);
+
+        int i = original.length;
+        if (previousButtonView != null) newArray[i++] = previousButtonView;
+        if (nextButtonView != null) newArray[i] = nextButtonView;
+
+        return newArray;
+    }
+
+    private static void dispatchMediaKeyEvent(Context context, int keyCode) {
+        if (context.getSystemService(Context.AUDIO_SERVICE) instanceof AudioManager audioManager) {
+            try {
+                long now = SystemClock.uptimeMillis();
+                audioManager.dispatchMediaKeyEvent(
+                        new KeyEvent(now, now, KeyEvent.ACTION_DOWN, keyCode, 0));
+                audioManager.dispatchMediaKeyEvent(
+                        new KeyEvent(now, now, KeyEvent.ACTION_UP, keyCode, 0));
+            } catch (Exception ex) {
+                Logger.printException(() -> "dispatchMediaKeyEvent failure", ex);
+            }
+        }
+    }
+
+    private static int getPreviousButtonId() {
+        if (previousButtonId == 0) {
+            previousButtonId = ResourceUtils.getIdentifier(
+                    "mini_player_previous_button", ResourceType.ID);
+        }
+        return previousButtonId;
+    }
+
+    private static int getNextButtonId() {
+        if (nextButtonId == 0) {
+            nextButtonId = ResourceUtils.getIdentifier("mini_player_next_button", ResourceType.ID);
+        }
+        return nextButtonId;
     }
 
     // rest of the implementation added by patch.

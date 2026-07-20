@@ -17,6 +17,21 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX Music, włącz Cloud Messaging.</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 sekund</string>
+    <string name="morphe_crossfade_duration_1000ms">1 sekunda</string>
+    <string name="morphe_crossfade_duration_11000ms">11 sekund</string>
+    <string name="morphe_crossfade_duration_12000ms">12 sekund</string>
+    <string name="morphe_crossfade_duration_2000ms">2 sekundy</string>
+    <string name="morphe_crossfade_duration_250ms">250 milisekund</string>
+    <string name="morphe_crossfade_duration_3000ms">3 sekundy</string>
+    <string name="morphe_crossfade_duration_4000ms">4 sekundy</string>
+    <string name="morphe_crossfade_duration_5000ms">5 sekund</string>
+    <string name="morphe_crossfade_duration_500ms">500 milisekund</string>
+    <string name="morphe_crossfade_duration_6000ms">6 sekund</string>
+    <string name="morphe_crossfade_duration_7000ms">7 sekund</string>
+    <string name="morphe_crossfade_duration_750ms">750 milisekund</string>
+    <string name="morphe_crossfade_duration_8000ms">8 sekund</string>
+    <string name="morphe_crossfade_duration_9000ms">9 sekund</string>
     <string name="morphe_disable_drc_audio_summary_off">Włączona</string>
     <string name="morphe_disable_drc_audio_summary_on">Wyłączona</string>
     <string name="morphe_disable_drc_audio_title">Wyłącz kompresję dźwięku</string>
@@ -27,6 +42,53 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
     <string name="morphe_force_original_audio_title">Wymuś oryginalny język dźwięku</string>
+    <string name="morphe_music_crossfade_about_best_summary">Zwykłym odtwarzaniu utwór po utworze i automatycznym przełączaniu, zapętleniu jednego utworu (utwór przenika sam w siebie) oraz przy lokalnym dźwięku - z głośnika telefonu, słuchawek przewodowych, Bluetooth lub USB</string>
+    <string name="morphe_music_crossfade_about_best_title">Działa najlepiej przy</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Funkcja przenikania autorstwa VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Podziękowanie</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Przenikanie nakłada koniec jednego utworu na początek następnego, wyciszając pierwszy, podczas gdy drugi zgłaśnia się zgodnie z wybranym czasem trwania i krzywą
+
+​Działa to przy automatycznym przechodzeniu (gdy utwór sam się kończy) i przy ręcznym pomijaniu - obie opcje mają własne przełączniki powyżej. Przy automatycznym przełączaniu miksowanie zaczyna się kilka sekund przed końcem utworu
+
+​Wymaga YouTube Music w wersji 9.x lub nowszej"</string>
+    <string name="morphe_music_crossfade_about_how_title">Jak to działa</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Teledysk ustawiony jako pierwszy utwór, lub odpalony spoza obecnej kolejki - może przez chwilę wyświetlać obraz, zanim wskoczy tryb samego dźwięku
+
+​Wstrzymanie przenikania, żeby obejrzeć teledysk, może skutkować czarnym ekranem w niektórych filmach (tych, w których dźwięk pochodzi bezpośrednio z filmu). Wstrzymanie przenikania przed wybraniem utworu pozwala tego uniknąć"</string>
+    <string name="morphe_music_crossfade_about_known_title">Znane problemy</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Gdy włączone jest przenikanie, teledyski odtwarzają się tylko w formie dźwiękowej (przytrzymaj przycisk odtwarzania losowego, aby je wstrzymać, jeśli chcesz zobaczyć film)
+
+Utwory krótsze niż ustawiony czas przenikania mogą pominąć ten efekt
+
+Ekran blokady lub powiadomienie może przez chwilę pokazywać nieaktualny stan w trakcie przejścia"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Co nie działa idealnie</string>
+    <string name="morphe_music_crossfade_about_summary">Jak działa przenikanie - i kiedy nie działa</string>
+    <string name="morphe_music_crossfade_about_title">Informacje</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Przesyłanie lub klonowanie dźwięku (Chromecast, klonowanie ekranu lub dźwięku) - przenikanie jest wstrzymywane, ponieważ działa tam niestabilnie i być może nigdy nie uda się tego naprawić
+
+​YouTube Music 8.x - przenikanie działa tylko na wersjach 9.x i nowszych"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">W ogóle nie działa</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Przenikanie jest wstrzymane podczas przesyłania lub klonowaniu dźwięku. Przenikanie w tych trybach jest niestabilne i być może nigdy nie uda się tego naprawić</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Subtelne przytrzymanie</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Łagodne przejście</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Stała moc</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Płynna krzywa S</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Następny</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Obecny</string>
+    <string name="morphe_music_crossfade_curve_title">Krzywa przenikania</string>
+    <string name="morphe_music_crossfade_duration_title">Czas trwania przenikania</string>
+    <string name="morphe_music_crossfade_enabled_title">Włącz przenikanie</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Stosuje efekt przenikania, gdy utwór naturalnie dobiega końca</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Przenikanie przy automatycznym przełączaniu</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Stosuje efekt przenikania podczas ręcznego przejścia do następnego utworu</string>
+    <string name="morphe_music_crossfade_on_skip_title">Przenikanie przy ręcznym pominięciu</string>
+    <string name="morphe_music_crossfade_paused_toast">Przenikanie wstrzymane w tej sesji</string>
+    <string name="morphe_music_crossfade_resumed_toast">Przenikanie wznowione</string>
+    <string name="morphe_music_crossfade_screen_summary">Płynne miksowanie między utworami</string>
+    <string name="morphe_music_crossfade_screen_title">Przenikanie</string>
+    <string name="morphe_music_crossfade_session_control_summary">Przytrzymaj przycisk odtwarzania losowego, aby wstrzymać lub wznowić przenikanie</string>
+    <string name="morphe_music_crossfade_session_control_title">Kontrola sesji</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Tryb teledysku niedostępny podczas przenikania</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nie można zalogować się do VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nie można zalogować się do VR, autoryzacja na stronie nie została zatwierdzona</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 jest tymczasowo niedostępny</string>
@@ -137,11 +199,11 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="revanced_change_start_page_summary">Wybierz, na której stronie ma otwierać się aplikacja.</string>
     <string name="revanced_change_start_page_title">Strona startowa</string>
     <string name="revanced_credits_title">Kredyt</string>
-    <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżkę komponentów do filtrowania, które muszą być oddzielone nowymi liniami.</string>
-    <string name="revanced_custom_filter_strings_title">Edytuj własny filtr</string>
+    <string name="revanced_custom_filter_strings_summary">Lista ścieżek elementów do ukrycia, każda w nowej linii</string>
+    <string name="revanced_custom_filter_strings_title">Ścieżki do ukrycia</string>
     <string name="revanced_custom_filter_summary">Włącza własny filtr do ukrywania komponentów układu aplikacji.</string>
     <string name="revanced_custom_filter_title">Włącz własny filtr</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Nieprawidłowy własny filtr: %s.</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Nieprawidłowy własny filtr: %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Nieprawidłowa wartość koloru paska nawigacji.</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">Wpisz kod hex koloru paska nawigacji.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Niestandardowy kolor paska nawigacji</string>
@@ -158,8 +220,8 @@ Jeśli to możliwe, użyj ciemnych kolorów, gdyż aplikacja nie obsługuje jasn
 Jeśli to możliwe, użyj ciemnych kolorów, gdyż aplikacja nie obsługuje jasnych motywów."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Kolor drugorzędny</string>
     <string name="revanced_custom_player_background_invalid_toast">Nieprawidłowy kolor tła odtwarzacza.</string>
-    <string name="revanced_debug_protobuffer_summary">Zawiera protokół buforu w logach od debugowania.</string>
-    <string name="revanced_debug_protobuffer_title">Włącz logi od protokołu buforu</string>
+    <string name="revanced_debug_protobuffer_summary">Dodaje szczegółowe informacje do logów, aby ułatwić programistom identyfikację elementów aplikacji</string>
+    <string name="revanced_debug_protobuffer_title">Logi debugowania buforów protokołu</string>
     <string name="revanced_debug_spannable_summary">Zawiera obiekty spannable w logach od debugowania.</string>
     <string name="revanced_debug_spannable_title">Włącz logi od obiektów spannable</string>
     <string name="revanced_debug_summary">Wyświetla logi od debugowania.</string>
@@ -266,6 +328,8 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Ukryj przycisk dodawania do playlisty</string>
     <string name="revanced_hide_action_button_comment_summary">Ukrywa przycisk komentarzy.</string>
     <string name="revanced_hide_action_button_comment_title">Ukryj przycisk komentarzy</string>
+    <string name="revanced_hide_action_button_details_summary">Przycisk ukryj Szczegóły w Podcastach.</string>
+    <string name="revanced_hide_action_button_details_title">Przycisk Ukryj Szczegóły</string>
     <string name="revanced_hide_action_button_disabled_summary">Ukrywa wyłączone przyciski, jak wyłączony przycisk od komentarzy.</string>
     <string name="revanced_hide_action_button_disabled_title">Ukryj wyłączone przyciski</string>
     <string name="revanced_hide_action_button_download_summary">Ukrywa przycisk pobierania.</string>
@@ -274,6 +338,10 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_action_button_label_title">Ukryj nazwy przycisków akcji</string>
     <string name="revanced_hide_action_button_like_dislike_summary">Ukrywa przyciski łapki w górę i w dół. Nie będzie działać na starym układzie odtwarzacza.</string>
     <string name="revanced_hide_action_button_like_dislike_title">Ukryj przyciski łapki w górę i dół</string>
+    <string name="revanced_hide_action_button_live_chat_replay_summary">Przycisk ukrywa odtwarzania czatu na żywo w przypadku transmisji wideo na żywo.</string>
+    <string name="revanced_hide_action_button_live_chat_replay_title">Przycisk ukryj odtwarzania czatu na żywo</string>
+    <string name="revanced_hide_action_button_lyrics_summary">Przycisk ukrywa Tekst utworu.</string>
+    <string name="revanced_hide_action_button_lyrics_title">Ukryj przycisk tekstu</string>
     <string name="revanced_hide_action_button_radio_summary">Ukrywa przycisk radia.</string>
     <string name="revanced_hide_action_button_radio_title">Ukryj przycisk radia</string>
     <string name="revanced_hide_action_button_share_summary">Ukrywa przycisk udostępniania.</string>
@@ -550,6 +618,7 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_sb_segments_sponsor">Treści Sponsorowane</string>
     <string name="revanced_sb_segments_sponsor_sum">Płatna promocja, płatne rekomendacje oraz bezpośrednie reklamy. Nie do autopromocji ani darmowych wyrazów uznania dla kwestii / twórców / stron / produktów, które im się podobają.</string>
     <string name="revanced_sb_skip_automatically">Pomiń automatycznie</string>
+    <string name="revanced_sb_skip_automatically_once">Pomiń automatycznie raz</string>
     <string name="revanced_sb_skip_ignore">Wyłącz</string>
     <string name="revanced_sb_skipped_filler">Pominięto wypełniacz</string>
     <string name="revanced_sb_skipped_hook">Pominięto haczyk.</string>
@@ -585,6 +654,7 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_settings_import_reset">Ustawienia zostały zresetowane do domyślnych.</string>
     <string name="revanced_settings_import_success">Zaimportowano %d ustawień.</string>
     <string name="revanced_settings_reset">Zresetuj</string>
+    <string name="revanced_settings_reset_color">Zresetuj kolor</string>
     <string name="revanced_settings_search_clear_history">Usuń historię wyszukiwania</string>
     <string name="revanced_settings_search_clear_history_message">Czy na pewno chcesz usunąć całą historię wyszukiwania?</string>
     <string name="revanced_settings_search_empty_history_summary">By zapisać historię wyszukiwania, wpisz zapytanie i kliknij enter.</string>
@@ -612,11 +682,7 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Wybierz wersję, którą chcesz oszukiwać dla tekstów utworów.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Docelowa wersja aplikacji dla tekstów utworów</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Oszukuj wersję aplikacji dla tekstów utworów</string>
-    <string name="revanced_spoof_app_version_summary">"Oszukuje wersję klienta do starszej wersji.
-
-• zmieni to wygląd aplikacji, lecz mogą pojawić się nieznane efekty uboczne.
-• jeśli opcja jest włączona, lecz nie działa, spróbuj przełączyć się na inne konto.
-• jeśli potem opcja zostanie wyłączona, stary interfejs użytkownika może pozostać do momentu wyczyszczenia danych aplikacji."</string>
+    <string name="revanced_spoof_app_version_summary">Oszukuje serwer, że używasz starszej wersji aplikacji, aby przywrócić klasyczne elementy interfejsu</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Wyłącza tryb radia w regionach Kanady</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Wyłącza teksty w czasie rzeczywistym</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - przywraca stare menu ustawień odtwarzacza</string>
@@ -626,7 +692,7 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Nieprawidłowa oszukiwana wersja aplikacji: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Wybierz wersję, którą chcesz oszukiwać.</string>
     <string name="revanced_spoof_app_version_target_title">Docelowa wersja aplikacji</string>
-    <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
+    <string name="revanced_spoof_app_version_title">Fałszuj wersję aplikacji</string>
     <string name="revanced_spoof_client_summary">Oszukuje klienta, by zapobiec problemom z odtwarzaniem.</string>
     <string name="revanced_spoof_client_title">Oszukuj klienta</string>
     <string name="revanced_spoof_client_type_summary">"Efekt uboczny:

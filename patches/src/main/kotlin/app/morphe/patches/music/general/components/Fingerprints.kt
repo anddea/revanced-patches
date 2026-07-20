@@ -1,13 +1,58 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.patches.music.general.components
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
 import app.morphe.patches.music.utils.resourceid.chipCloud
-import app.morphe.patches.music.utils.resourceid.historyMenuItem
 import app.morphe.patches.music.utils.resourceid.musicTasteBuilderShelf
-import app.morphe.patches.music.utils.resourceid.offlineSettingsMenuItem
 import app.morphe.patches.music.utils.resourceid.playerOverlayChip
 import app.morphe.patches.music.utils.resourceid.searchButton
 import app.morphe.patches.music.utils.resourceid.toolTipContentView
 import app.morphe.patches.music.utils.resourceid.topBarMenuItemImageView
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
@@ -51,31 +96,31 @@ internal val floatingButtonParentFingerprint = legacyFingerprint(
     literals = listOf(259982244L),
 )
 
-internal val historyMenuItemFingerprint = legacyFingerprint(
-    name = "historyMenuItemFingerprint",
+/** Matches the history menu item before and after the 9.x menu-class split. */
+internal object HistoryMenuItemFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/view/Menu;"),
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "history_menu_item"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
+        opcode(Opcode.RETURN_VOID, MatchAfterImmediately())
     ),
-    literals = listOf(historyMenuItem),
-    customFingerprint = { _, classDef ->
-        classDef.methods.count() == 5
+    custom = { _, classDef ->
+        classDef.methods.count() == 4 || classDef.methods.count() == 5
     }
 )
 
-internal val historyMenuItemOfflineTabFingerprint = legacyFingerprint(
-    name = "historyMenuItemOfflineTabFingerprint",
+internal object HistoryMenuItemOfflineTabFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/view/Menu;"),
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
-    ),
-    literals = listOf(historyMenuItem, offlineSettingsMenuItem),
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "offline_settings_menu_item"),
+        resourceLiteral(ResourceType.ID, "history_menu_item"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
+        opcode(Opcode.RETURN_VOID, MatchAfterImmediately())
+    )
 )
 
 internal val mediaRouteButtonFingerprint = legacyFingerprint(
@@ -112,10 +157,10 @@ internal val playerOverlayChipFingerprint = legacyFingerprint(
 
 internal val preferenceScreenFingerprint = legacyFingerprint(
     name = "preferenceScreenFingerprint",
-    returnType = "V",
+    returnType = "Landroid/view/View;",
     customFingerprint = { method, _ ->
         method.definingClass == "Lcom/google/android/apps/youtube/music/settings/fragment/SettingsHeadersFragment;" &&
-                method.name == "onCreatePreferences"
+                method.name == "onCreateView"
     }
 )
 
@@ -218,4 +263,3 @@ internal val topBarMenuItemImageViewFingerprint = legacyFingerprint(
     parameters = emptyList(),
     literals = listOf(topBarMenuItemImageView),
 )
-

@@ -73,13 +73,16 @@ public final class FeedComponentsFilter extends Filter {
 
     private final StringTrieSearch carouselShelfExceptions = new StringTrieSearch();
 
-    private static final ByteArrayFilterGroup mixPlaylists = new ByteArrayFilterGroup(null, "&list=");
     private static final ByteArrayFilterGroup mixPlaylistsBufferExceptions = new ByteArrayFilterGroup(
             null,
             "cell_description_body",
             "channel_profile"
     );
-    private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch();
+    private static final ByteArrayFilterGroup mixPlaylistUrlBuffer = new ByteArrayFilterGroup(
+            null,
+            "?list=RD",
+            "&list=RD"
+    );
 
     public enum ExpandableCardStyle {
         SHOW_ALL,
@@ -92,11 +95,6 @@ public final class FeedComponentsFilter extends Filter {
     public FeedComponentsFilter() {
         carouselShelfExceptions.addPattern("library_recent_shelf.");
 
-        mixPlaylistsContextExceptions.addPatterns(
-                "V.ED", // playlist browse id
-                "java.lang.ref.WeakReference"
-        );
-
         // Identifiers.
 
         final StringFilterGroup chipsShelf = new StringFilterGroup(
@@ -106,15 +104,20 @@ public final class FeedComponentsFilter extends Filter {
 
         communityPosts = new StringFilterGroup(
                 null,
-                "post_base_wrapper",
                 "images_post_responsive",
                 "images_post_root",
                 "images_post_slim",
+                "options_post_root",
+                "poll_post_responsive_root",
                 "poll_post_root",
+                "post_base_wrapper",
                 "post_responsive_root",
                 "post_shelf_slim",
+                "shared_post_responsive_root",
                 "shared_post_root",
+                "text_post_responsive_root",
                 "text_post_root",
+                "videos_post_responsive_root",
                 "videos_post_root"
         );
 
@@ -349,15 +352,22 @@ public final class FeedComponentsFilter extends Filter {
      * <p>
      * Called from a different place then the other filters.
      */
-    public static boolean filterMixPlaylists(final Object conversionContext, @Nullable final byte[] bytes) {
+    public static boolean filterMixPlaylists(@Nullable final byte[] bytes) {
         try {
             if (!Settings.HIDE_MIX_PLAYLISTS.get()) {
                 return false;
             }
-            return bytes != null
-                    && mixPlaylists.check(bytes).isFiltered()
-                    && !mixPlaylistsBufferExceptions.check(bytes).isFiltered()
-                    && !mixPlaylistsContextExceptions.matches(conversionContext.toString());
+
+            if (bytes == null) {
+                Logger.printDebug(() -> "buffer is null");
+                return false;
+            }
+
+            if (!mixPlaylistsBufferExceptions.check(bytes).isFiltered()
+                    && mixPlaylistUrlBuffer.check(bytes).isFiltered()) {
+                Logger.printDebug(() -> "Filtered mix playlist");
+                return true;
+            }
         } catch (Exception ex) {
             Logger.printException(() -> "filterMixPlaylists failure", ex);
         }

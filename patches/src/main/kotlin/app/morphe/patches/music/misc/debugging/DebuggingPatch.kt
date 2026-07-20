@@ -12,9 +12,6 @@ import app.morphe.patches.music.utils.settings.settingsPatch
 val debuggingPatch = resourcePatch(
     ENABLE_DEBUG_LOGGING.title,
     ENABLE_DEBUG_LOGGING.summary,
-    // Unlike YouTube, YouTube Music's Litho components do not change very often.
-    // That's why it seems better to selectively include patches for only those users who need them.
-    false,
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 

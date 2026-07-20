@@ -166,6 +166,11 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_off">現在の設定: 昔のスタイルのフライアウトパネルが使用されます。</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_summary_on">現在の設定: カスタムダイアログが使用されます。</string>
     <string name="revanced_append_time_stamp_information_video_quality_menu_type_title">画質設定メニューの種類</string>
+    <string name="revanced_auto_captions_style_entry_1">常に表示</string>
+    <string name="revanced_auto_captions_style_entry_2">常に非表示</string>
+    <string name="revanced_auto_captions_style_entry_3">非ミュート時に表示</string>
+    <string name="revanced_auto_captions_style_entry_4">ミュート時に表示</string>
+    <string name="revanced_auto_captions_style_title">自動字幕表示</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでもアンビエントモードを有効にします。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーモードでもアンビエントモードを有効にします。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモードの制限を回避</string>
@@ -508,11 +513,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_enable_swipe_to_switch_video_summary_off">全画面表示時に、上/下にスワイプして次の動画/前の動画に切り替えられるようにします。</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">全画面表示時に、上/下にスワイプして次の動画/前の動画に切り替えられるようにします。</string>
     <string name="revanced_enable_swipe_to_switch_video_title">スワイプでの動画の切り替えを有効化</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を半透明にします。\n\n既知の問題: システムナビゲーションバーが半透明になる可能性があります。</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">"ナビゲーションバー ([ホーム]、[登録チャンネル] などのボタン) を半透明にします。
-
-既知の問題: システムナビゲーションバーが半透明になる可能性があります。"</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">半透明のナビゲーションバーを有効化</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_off">自動再生する際の事前読み込み処理に遅延を追加します。</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">自動再生する際の事前読み込み処理に遅延を追加します。</string>
     <string name="revanced_enable_watch_next_processing_delay_title">自動再生時の事前読み込み処理の遅延を有効化</string>
@@ -788,6 +788,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_community_posts_subscriptions_summary_off">登録チャンネルフィードから非表示にします。</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">登録チャンネルフィードから非表示にします。</string>
     <string name="revanced_hide_community_posts_subscriptions_title">登録チャンネルフィードから非表示</string>
+    <string name="revanced_hide_connect_button_title">接続ボタンを非表示</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">コメント欄の下に表示されるストア欄を非表示にします。</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">コメント欄の下に表示されるストア欄を非表示にします。</string>
     <string name="revanced_hide_creator_store_shelf_title">クリエイターのストア欄を非表示</string>
@@ -963,6 +964,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_mix_playlists_summary_off">ミックスリストを非表示にします。</string>
     <string name="revanced_hide_mix_playlists_summary_on">ミックスリストを非表示にします。</string>
     <string name="revanced_hide_mix_playlists_title">ミックスリストを非表示</string>
+    <string name="revanced_hide_more_button_title">3 点ボタンを非表示</string>
     <string name="revanced_hide_movie_shelf_summary_off">映画やテレビ番組を非表示にします。</string>
     <string name="revanced_hide_movie_shelf_summary_on">映画やテレビ番組を非表示にします。</string>
     <string name="revanced_hide_movie_shelf_title">映画欄を非表示</string>
@@ -1278,9 +1280,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_shorts_comments_panel_summary_off">コメント パネルが表示されます。</string>
     <string name="revanced_hide_shorts_comments_panel_summary_on">コメント パネルは非表示になっています。</string>
     <string name="revanced_hide_shorts_comments_panel_title">コメントパネルを非表示</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">[低評価] ボタンを非表示にします。</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">[低評価] ボタンを非表示にします。</string>
-    <string name="revanced_hide_shorts_dislike_button_title">[低評価] ボタンを非表示</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">[このサウンドを使用する] のようなフローティングボタンを、[ショート動画] タブから非表示にします。</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">[このサウンドを使用する] のようなフローティングボタンを、[ショート動画] タブから非表示にします。</string>
     <string name="revanced_hide_shorts_floating_button_title">フローティングボタンを非表示</string>
@@ -1612,6 +1611,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_language_VI">Vietnamese\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chinese\n<small>中文</small></string>
     <string name="revanced_language_title">Revanced Extended 設定の言語</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">最小化で再生を一時停止</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">最小化からの自動復帰を無効化</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップとピンチ(画面を 2 本指でつまむようにして拡大や縮小する操作)でサイズを変更できるようにします。\n\n・ダブルタップするとミニプレーヤーのサイズを拡大できます。\n・再度ダブルタップすると元のサイズに戻ります。</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチ(画面を 2 本指でつまむようにして拡大や縮小する操作)でサイズを変更できるようにします。
 
@@ -1660,6 +1661,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_miniplayer_width_dip_invalid_toast">ピクセルサイズは %1$s から %2$s の間でなければなりません。</string>
     <string name="revanced_miniplayer_width_dip_summary">ミニプレーヤーの初期の画面サイズを設定します。(単位: ピクセル)</string>
     <string name="revanced_miniplayer_width_dip_title">初期の画面サイズ</string>
+    <string name="revanced_navigation_bar_animations_summary">タブの切り替えをアニメーションで表現します</string>
+    <string name="revanced_navigation_bar_animations_title">ナビゲーション バーのアニメーションを有効化</string>
     <string name="revanced_open_links_externally_summary_off">外部ブラウザでリンクを開きます。</string>
     <string name="revanced_open_links_externally_summary_on">外部ブラウザでリンクを開きます。</string>
     <string name="revanced_open_links_externally_title">外部ブラウザでリンクを開く</string>
@@ -1971,6 +1974,10 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">現在の設定: シークバーの上にサムネイルを表示します。</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">昔のスタイルのシークバーサムネイルを復元</string>
     <string name="revanced_restore_old_settings_menus_title">旧式の YouTube 設定メニューを復元</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"低評価数が表示されない不具合とアクション ボタンを非表示にできない不具合を修正します
+
+制限事項:「その他の動画」オーバーレイも旧スタイルに戻ります"</string>
+    <string name="revanced_restore_old_video_action_bar_title">アクションバーを旧式に戻す</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">昔のスタイルのプレーヤーレイアウトを復元します。\nこれによりプレーヤーの上部と下部から余白が削除されます。</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"昔のスタイルのプレーヤーレイアウトを復元します。
 これによりプレーヤーの上部と下部から余白が削除されます。"</string>
@@ -2011,13 +2018,6 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_ryd_failure_connection_status_code">低評価数は一時的に利用できません (ステータス: %d)。</string>
     <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません (API がタイムアウトしました)。</string>
     <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません (%s)。</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">投票するために Return YouTube Dislike を使用するため、動画を再読み込みします</string>
-    <string name="revanced_ryd_shorts_summary_off">ショート動画で低評価数を表示します。\n\n注意: ログインしていない場合や、シークレットモードでは低評価数が表示されないことがあります。</string>
-    <string name="revanced_ryd_shorts_summary_on">ショート動画で低評価数を表示します。\n\n注意: ログインしていない場合やシークレットモードでは、低評価数が表示されないことがあります。</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"ショート動画で低評価数を表示します。
-
-注意: ログインしていない場合やシークレットモードでは、低評価数が表示されない可能性があります。"</string>
-    <string name="revanced_ryd_shorts_title">ショート動画で低評価数を表示</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>
@@ -2378,6 +2378,12 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_shorts_player_type_regular_player_fullscreen">通常のプレーヤー (全画面)</string>
     <string name="revanced_shorts_player_type_shorts">ショート動画プレーヤー</string>
     <string name="revanced_shorts_player_type_title">ショート動画を開くプレーヤーを選択</string>
+    <string name="revanced_show_settings_button_index_title">設定ボタンの表示位置</string>
+    <string name="revanced_show_settings_button_title">設定ボタンを表示</string>
+    <string name="revanced_show_settings_button_type_title">設定ボタンの動作</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">設定ボタンの表示位置</string>
+    <string name="revanced_show_toolbar_settings_button_title">設定ボタンを表示</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">設定ボタンの動作</string>
     <string name="revanced_show_video_title_section_summary">"全画面表示時にタイトルを表示します。
 
 注意: 動画のタイトルをタップすると消えます。"</string>

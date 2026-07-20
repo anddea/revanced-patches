@@ -17,16 +17,78 @@ Tippen Sie auf die Schaltfläche „Weiter“ und lassen Sie die Optimierungsän
     <string name="gms_core_settings_summary">Um Benachrichtigungen in RVX Music zu erhalten, aktivieren Sie Cloud Messaging.</string>
     <string name="gms_core_settings_title">GmsCore-Einstellungen öffnen</string>
     <string name="gms_core_toast_not_installed_message">GmsCore ist nicht installiert. Bitte installieren Sie es.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 Sekunden</string>
+    <string name="morphe_crossfade_duration_1000ms">1 Sekunde</string>
+    <string name="morphe_crossfade_duration_11000ms">11 Sekunden</string>
+    <string name="morphe_crossfade_duration_12000ms">12 Sekunden</string>
+    <string name="morphe_crossfade_duration_2000ms">2 Sekunden</string>
+    <string name="morphe_crossfade_duration_250ms">250 Millisekunden</string>
+    <string name="morphe_crossfade_duration_3000ms">3 Sekunden</string>
+    <string name="morphe_crossfade_duration_4000ms">4 Sekunden</string>
+    <string name="morphe_crossfade_duration_5000ms">5 Sekunden</string>
+    <string name="morphe_crossfade_duration_500ms">500 Millisekunden</string>
+    <string name="morphe_crossfade_duration_6000ms">6 Sekunden</string>
+    <string name="morphe_crossfade_duration_7000ms">7 Sekunden</string>
+    <string name="morphe_crossfade_duration_750ms">750 Millisekunden</string>
+    <string name="morphe_crossfade_duration_8000ms">8 Sekunden</string>
+    <string name="morphe_crossfade_duration_9000ms">9 Sekunden</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC-Audio ist aktiviert</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC-Audio ist deaktiviert</string>
     <string name="morphe_disable_drc_audio_title">DRC-Audio deaktivieren</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
     <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
-    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie \"Fälsche Video-Streams\" auf Android Reel oder TV</string>
+    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie \"Spoof Video-Streams\" auf Android Reel oder TV</string>
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
     <string name="morphe_force_original_audio_title">Original Audio erzwingen</string>
+    <string name="morphe_music_crossfade_about_best_summary">Normaler Song-zu-Song-Wiedergabe und Auto-Weiter, Wiederholung eines Songs (der Song blendet in sich selbst ein) und lokales Audio – Smartphone-Lautsprecher, kabelgebundene Kopfhörer, Bluetooth oder USB.</string>
+    <string name="morphe_music_crossfade_about_best_title">Funktioniert am besten mit</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Crossfade-Funktion von VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Credits</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Crossfade überlagert das Ende eines Songs mit dem Anfang des nächsten, wobei einer ausfadet, während der andere über Ihre gewählte Dauer und Kurve einblendet.
+
+Es läuft auf Auto-Weiter (wenn ein Song von selbst endet) und auf manuelle Übersprünge – jeder hat einen eigenen Umschalter oben. Bei Auto-Weiter beginnt das Blenden ein paar Sekunden bevor der Song endet.
+
+Benötigt YouTube Music 9.x oder neuer."</string>
+    <string name="morphe_music_crossfade_about_how_title">Wie es funktioniert</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Ein Musikvideo, das als erster Song festgelegt wurde – oder das von außerhalb der aktuellen Warteschlange gestartet wurde – kann kurz als Video angezeigt werden, bevor der Audio-only-Modus aktiviert wird.
+
+Das Anhalten des Crossfades zum Ansehen eines Musikvideos kann dazu führen, dass einige Videos schwarz bleiben (diejenigen, deren Audio aus dem Video selbst stammt). Vermeiden Sie dies, indem Sie den Crossfade pausieren, bevor Sie den Song auswählen."</string>
+    <string name="morphe_music_crossfade_about_known_title">Bekannte Probleme</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Musikvideos werden als Audio-only wiedergegeben, während der Crossfade aktiv ist (halten Sie die Shuffle-Taste gedrückt, um die Wiedergabe anzuhalten, falls Sie das Video sehen möchten).
+
+Songs, die kürzer sind als Ihre Fade-Dauer, überspringen möglicherweise den Fade.
+
+Der Sperrbildschirm oder die Benachrichtigung können kurz einen veralteten Zustand während des Übergangs anzeigen."</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Funktioniert nicht ganz richtig</string>
+    <string name="morphe_music_crossfade_about_summary">Wie Crossfade funktioniert – und wann es nicht funktioniert</string>
+    <string name="morphe_music_crossfade_about_title">Über</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Casting oder Spiegelung von Audio (Chromecast, Bildschirm- oder Audiospiegelung) – der Crossfade wird pausiert, da er dort instabil ist und möglicherweise nie behoben wird.
+
+YouTube Music 8.x – der Crossfade funktioniert nur ab Version 9.x."</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Funktioniert überhaupt nicht</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Crossfade ist während des Castings oder Mirrorings von Audio pausiert. Crossfade über Cast/Mirror ist instabil und kann möglicherweise nicht behoben werden.</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Sanftes Anhalten</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Sanfter Übergang</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Gleiche Lautstärke</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Glatte S-Kurve</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Eingehend</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Ausgehend</string>
+    <string name="morphe_music_crossfade_curve_title">Einblend-Niveau</string>
+    <string name="morphe_music_crossfade_duration_title">Nahtlose Wiedergabe-Dauer</string>
+    <string name="morphe_music_crossfade_enabled_title">Nahtlose Wiedergabe aktivieren</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Wendet den Crossfade-Effekt an, wenn ein Titel natürlich endet</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Nahtlose Wiedergabe bei automatischer Wiedergabe</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Wendet den Crossfade-Effekt an, wenn Sie manuell zum nächsten Titel springen</string>
+    <string name="morphe_music_crossfade_on_skip_title">Nahtlose Wiedergabe bei manuellem Überspringen</string>
+    <string name="morphe_music_crossfade_paused_toast">Übergang pausiert für diese Sitzung</string>
+    <string name="morphe_music_crossfade_resumed_toast">Nahtlose Wiedergabe fortgesetzt</string>
+    <string name="morphe_music_crossfade_screen_summary">Gib die Titel nahtlos wieder</string>
+    <string name="morphe_music_crossfade_screen_title">Nahtlose Wiedergabe</string>
+    <string name="morphe_music_crossfade_session_control_summary">Langes Drücken der Shuffle-Taste zum Anhalten oder Fortsetzen der nahtlosen Wiedergabe</string>
+    <string name="morphe_music_crossfade_session_control_title">Sitzungssteuerung</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Der Videomodus ist nicht verfügbar, während die nahtlose Wiedergabe aktiviert ist</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Eine Anmeldung bei VR ist nicht möglich: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Eine Anmeldung bei VR ist nicht möglich, da die Website-Authentifizierung nicht genehmigt wurde</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ist vorübergehend nicht verfügbar</string>
@@ -42,7 +104,7 @@ Tippen Sie auf die Schaltfläche „Weiter“ und lassen Sie die Optimierungsän
     <string name="morphe_sanitize_sharing_links_summary">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
-    <string name="morphe_sanitize_sharing_links_title">Freigabe-Links säubern</string>
+    <string name="morphe_sanitize_sharing_links_title">Freigabelinks bereinigen</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Sperrt das Player JavaScript auf eine bestimmte Version fest.
 
@@ -61,10 +123,10 @@ Die Wiedergabe schlägt fehl, wenn der Player JavaScript Hash veraltet ist."</st
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geben Sie einen gültigen Player-JavaScript-Hash ein</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player-JavaScript-Hash</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Fälsche die Client-Video-Streams, um Wiedergabeprobleme zu verhindern</string>
-    <string name="morphe_spoof_video_streams_screen_title">Fälsche Video-Streams</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Client-Streams spoofen, um Wiedergabeprobleme zu vermeiden</string>
+    <string name="morphe_spoof_video_streams_screen_title">Video-Streams spoofen</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Sie sind nicht bei Android VR angemeldet. Tippen Sie hier zum Anmelden</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie \"Standard-Client\" zu Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie ihren \"Standard-Client\" zu Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Derzeit bei Android VR angemeldet</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR Anmeldung</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Aktivierungscode: %s
@@ -99,7 +161,7 @@ Die Wiedergabe funktioniert möglicherweise nicht"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Videostreams werden gefälscht
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
-    <string name="morphe_spoof_video_streams_title">Fälsche Video-Streams</string>
+    <string name="morphe_spoof_video_streams_title">Video-Streams spoofen</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen.</string>
     <string name="revanced_add_miniplayer_next_button_summary">Fügt dem Miniplayer eine Schaltfläche für den nächsten Titel hinzu.</string>
     <string name="revanced_add_miniplayer_next_button_title">einen mini Player hinzufügen mit weiter Button </string>
@@ -113,18 +175,30 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_change_start_page_entry_search">Suchen</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
     <string name="revanced_change_start_page_title">Startseite</string>
+    <string name="revanced_custom_filter_strings_summary">Liste der Komponenten-Pfad-Generator-Zeichenketten zum Filtern, getrennt durch neue Zeilen</string>
+    <string name="revanced_custom_filter_strings_title">Eigener Filter</string>
+    <string name="revanced_custom_filter_title">Eigenen Filter aktivieren</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Ungültiger benutzerdefinierter Filter: %s</string>
+    <string name="revanced_debug_protobuffer_summary">Fügt zusätzliche Protokollierungsinformationen für Entwickler hinzu, um App-Komponenten zu identifizieren</string>
+    <string name="revanced_debug_protobuffer_title">Debug-Protokollpuffer</string>
     <string name="revanced_disable_drc_audio_title">DRC-Audio deaktivieren</string>
     <string name="revanced_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
+    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren Sie es zuerst.</string>
     <string name="revanced_hide_fullscreen_ads_title">Vollbild-Werbung ausblenden</string>
     <string name="revanced_preference_screen_general_title">Allgemein </string>
     <string name="revanced_restart_dialog_message">Starten Sie die App neu, damit die Änderungen wirksam werden.</string>
     <string name="revanced_restart_first_run">Neustart, um die Einrichtung abzuschließen</string>
     <string name="revanced_restart_title">Neustart erforderlich</string>
+    <string name="revanced_sb_skip_automatically_once">Automatisch einmal überspringen</string>
     <string name="revanced_settings_export_as_file">Exportiere Einstellungen zu dieser Datei </string>
+    <string name="revanced_settings_reset_color">Farbe zurücksetzen</string>
     <string name="revanced_settings_search_empty_history_title">Der Verlauf ist leer</string>
     <string name="revanced_settings_search_title">Suche %s</string>
+    <string name="revanced_spoof_app_version_summary">Täuscht den Server, sodass er denkt, Sie verwenden eine ältere App-Version, um alte UI-Funktionen wiederherzustellen.</string>
+    <string name="revanced_spoof_app_version_target_title">Spoof-App-Versionsziel</string>
+    <string name="revanced_spoof_app_version_title">Spoof-App-Version</string>
     <string name="revanced_spoof_video_streams_summary">"Behebt Wiedergabeprobleme für die meisten Nutzer, indem ein kompatibler Videostream angefordert wird
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
-    <string name="revanced_spoof_video_streams_title">Fälsche Video-Streams</string>
+    <string name="revanced_spoof_video_streams_title">Video-Streams spoofen</string>
 </resources>

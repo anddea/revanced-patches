@@ -2,6 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Продължи</string>
     <string name="gms_core_dialog_open_website_text">Отвори уебсайт</string>
+    <string name="morphe_crossfade_duration_10000ms">10 секунди</string>
+    <string name="morphe_crossfade_duration_1000ms">1 секунда</string>
+    <string name="morphe_crossfade_duration_11000ms">11 секунди</string>
+    <string name="morphe_crossfade_duration_12000ms">12 секунди</string>
+    <string name="morphe_crossfade_duration_2000ms">2 секунди</string>
+    <string name="morphe_crossfade_duration_250ms">250 милисекунди</string>
+    <string name="morphe_crossfade_duration_3000ms">3 секунди</string>
+    <string name="morphe_crossfade_duration_4000ms">4 секунди</string>
+    <string name="morphe_crossfade_duration_5000ms">5 секунди</string>
+    <string name="morphe_crossfade_duration_500ms">500 милисекунди</string>
+    <string name="morphe_crossfade_duration_6000ms">6 секунди</string>
+    <string name="morphe_crossfade_duration_7000ms">7 секунди</string>
+    <string name="morphe_crossfade_duration_750ms">750 милисекунди</string>
+    <string name="morphe_crossfade_duration_8000ms">8 секунди</string>
+    <string name="morphe_crossfade_duration_9000ms">9 секунди</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC аудио е включено</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC аудио е изключено</string>
     <string name="morphe_disable_drc_audio_title">Изключете DRC аудио</string>
@@ -12,6 +27,53 @@
     <string name="morphe_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
     <string name="morphe_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
     <string name="morphe_force_original_audio_title">Принудително оригинален аудио език</string>
+    <string name="morphe_music_crossfade_about_best_summary">Стандартно възпроизвеждане на песен след песен и автоматично преминаване към следващата, повторение на една песен (песента преминава в себе си) и локално аудио — вграден говорител на телефона, живи слушалки, Bluetooth или USB.</string>
+    <string name="morphe_music_crossfade_about_best_title">Най-добре работи с</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Функция за кросфейд от VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Заслуга</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Преливането наслагва края на една песен с началото на следващата, намалявайки силата на звука на едната, докато другата се увеличава в рамките на избраната от вас продължителност и крива.
+
+Работи с автоматично преминаване към следващата песен (когато една песен приключи от само себе си) и с ръчно прескачане — всяко от тях има собствен превключвател отгоре. При автоматично преминаване към следващата песен смесването започва няколко секунди преди края на песента.
+
+Изисква YouTube Music 9.x или по-нова версия."</string>
+    <string name="morphe_music_crossfade_about_how_title">Как работи</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Музикално видео, зададено като първа песен — или стартирано извън текущата опашка — може за кратко да се покаже като видео, преди да се включи режимът само с аудио
+
+Спирането на кросфейда, за да гледате музикално видео може да направи някои видеа черни (тези, чийто звук идва от самото видео). Спирането на кросфейда, преди да изберете песента, ще избегне това"</string>
+    <string name="morphe_music_crossfade_about_known_title">Известни проблеми</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Музикалните видеа се възпроизвеждат само с аудио, докато е включен кросфейд (натиснете дълго бутона за разбъркване, за да ги спрете, ако искате да видите видеото)
+
+Песните, които са по-кратки от продължителността на избледняването, може да пропуснат избледняването
+
+Заключеният екран или известието може за кратко да покаже остаряло състояние по време на прехода"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Не работи съвсем правилно</string>
+    <string name="morphe_music_crossfade_about_summary">Как работи преливането — и кога не работи</string>
+    <string name="morphe_music_crossfade_about_title">Относно</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Предаването или огледалното изображение на аудио (Chromecast, екранно или аудио огледално изображение) — кросфейдът спира, защото е нестабилен там и може никога да не бъде поправен.
+
+YouTube Music 8.x — кросфейдът работи само в 9.x и по-нови версии"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Не работи изобщо</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Възпроизвеждането с преливане се спира при излъчване или споделяне на аудио. Преливането при излъчване/споделяне е нестабилно и може никога да не бъде поправено.</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Нежно задържане</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Нежно улесняване</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Равно разпределение</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Плавно S-образно избледняване</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Входящ</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Изходящ</string>
+    <string name="morphe_music_crossfade_curve_title">Крива на избледняване</string>
+    <string name="morphe_music_crossfade_duration_title">Продължителност на избледняването</string>
+    <string name="morphe_music_crossfade_enabled_title">Разреши превключване</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Прилага ефекта на кръстосаното избледняване, когато песента завърши естествено.</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Избледняване при автоматично превъртане</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Прилага ефекта на кръстосаното избледняване, когато ръчно прескочите към следващата песен.</string>
+    <string name="morphe_music_crossfade_on_skip_title">Избледняване при ръчно прескачане</string>
+    <string name="morphe_music_crossfade_paused_toast">Прекъснато преливане за тази сесия</string>
+    <string name="morphe_music_crossfade_resumed_toast">Преливането е възобновено</string>
+    <string name="morphe_music_crossfade_screen_summary">Плавно преливане на песните една в друга</string>
+    <string name="morphe_music_crossfade_screen_title">Превключване</string>
+    <string name="morphe_music_crossfade_session_control_summary">Натиснете и задръжте бутона за разбъркване, за да паузирате или възобновите кръстосаното избледняване.</string>
+    <string name="morphe_music_crossfade_session_control_title">Управление на сесията</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Видео режимът не е достъпен, докато преливането е активирано</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не може да се впишете в VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не може да се впишете в VR, защото идентификацията на уебсайта не е одобрена</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 временно не е достъпен</string>
@@ -100,14 +162,16 @@
     <string name="revanced_change_start_page_entry_subscriptions">Абонаменти</string>
     <string name="revanced_change_start_page_summary">Изберете на коя страница да се отвори приложението.</string>
     <string name="revanced_change_start_page_title">Начална страница</string>
-    <string name="revanced_custom_filter_strings_summary">Филтриране на компонентите по имена.</string>
-    <string name="revanced_custom_filter_strings_title">Редактиране на потребителския филтъра</string>
+    <string name="revanced_custom_filter_strings_summary">Списък на низове на градителите на пътища на компоненти за филтриране, разделени с нови редове</string>
+    <string name="revanced_custom_filter_strings_title">Персонализиран филтър</string>
     <string name="revanced_custom_filter_summary">Активира персонализиран филтър за скриване на компонентите на оформлението.</string>
-    <string name="revanced_custom_filter_title">Вкл. на филтър по избор</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Невалиден потребителски филтър: %s.</string>
+    <string name="revanced_custom_filter_title">Активиране на персонализиран филтър</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Невалиден персонализиран филтър: %s</string>
     <string name="revanced_custom_playback_speeds_invalid">Невалидна скорост на видеото. Връщане на стойности по подразбиране.</string>
     <string name="revanced_custom_playback_speeds_summary">Добавяне или смяна на възможните скорости</string>
     <string name="revanced_custom_playback_speeds_title">Редактиране на скоростите по избор на видеото</string>
+    <string name="revanced_debug_protobuffer_summary">Добавя допълнителна информация за регистриране за разработчиците, за да идентифицират компонентите на приложението</string>
+    <string name="revanced_debug_protobuffer_title">Буфер на протокола за дневника</string>
     <string name="revanced_default_app_settings_title">Отвори заводските настройки на приложението</string>
     <string name="revanced_disable_auto_captions_summary">Изкл. принудителни автоматични субтититри.</string>
     <string name="revanced_disable_auto_captions_title">Изкл. принудителни автоматични субтититри</string>
@@ -135,7 +199,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не е инсталиран.
 Моля, изтеглете %2$s от уебсайта."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Внимание</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s не е инсталирано. Моля инсталирайте го.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s не е инсталиран. Моля, инсталирайте го.</string>
     <string name="revanced_external_downloader_package_name_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Име на пакета на външно приложение за изтегляне</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Скрива празните компоненти в менюто на акаунта.</string>
@@ -264,15 +328,14 @@
     <string name="revanced_ryd_compact_layout_title">Компактен бутон за харесване</string>
     <string name="revanced_ryd_dislike_percentage_title">Нехаресвания като процент</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (достигнат лимит на API).</string>
-    <string name="revanced_spoof_app_version_summary">"Заменя клиентската версия със старата.
-
-• Това ще промени външния вид на приложението, но може да възникнат неизвестни проблеми.
-• Ако деактивирате тази опция, след като я активирате, старият интерфейс може да остане, докато данните на приложението не бъдат изчистени."</string>
+    <string name="revanced_sb_skip_automatically_once">Автоматично пропуснете веднъж</string>
+    <string name="revanced_settings_reset_color">Нулиране на цвета</string>
+    <string name="revanced_spoof_app_version_summary">Заблуждава сървъра, карайки го да мисли, че използвате по-стара версия на приложението, за да възстанови стари функции на потребителския интерфейс.</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Деактивира радио режима в регионите на Канада</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 -Изключва речта в реално време</string>
     <string name="revanced_spoof_app_version_target_summary">Задайте желаната фалшива версия на приложението.</string>
-    <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на приложението</string>
-    <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
+    <string name="revanced_spoof_app_version_target_title">Цел за подмяна на версията на приложението</string>
+    <string name="revanced_spoof_app_version_title">Подменя версия на приложението</string>
     <string name="revanced_spoof_video_streams_summary">"Отстранява проблеми с възпроизвеждането за повечето потребители, като поиска съвместим видео поток.
 
 Ако сте потребител на YouTube Premium, тази настройка може да не е необходима."</string>

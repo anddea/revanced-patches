@@ -12,6 +12,9 @@ message Icon {
 enum YTIconType {
     UNKNOWN = 0;
     SEARCH = 60;
+    PIVOT_HOME = 406;
     SEARCH_BOLD = 1045;
+    TAB_HOME_CAIRO = 1154;
     SEARCH_CAIRO = 1160;
+    SETTINGS_CAIRO = 1162;
 }

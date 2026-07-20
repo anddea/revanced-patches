@@ -86,10 +86,6 @@ public class ShortsPatch {
         hideViewUnderCondition(Settings.HIDE_SHORTS_COMMENTS_BUTTON.get(), view);
     }
 
-    public static boolean hideShortsDislikeButton() {
-        return Settings.HIDE_SHORTS_DISLIKE_BUTTON.get();
-    }
-
     public static ViewGroup hideShortsInfoPanel(ViewGroup viewGroup) {
         return Settings.HIDE_SHORTS_INFO_PANEL.get() ? null : viewGroup;
     }

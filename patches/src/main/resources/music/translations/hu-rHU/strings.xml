@@ -17,6 +17,21 @@ Nyomj a folytatás gombra, és engedélyezd az optimalizálási módosításokat
     <string name="gms_core_settings_summary">Értesítések fogadásához engedélyezd a felhő alapú üzenetküldést.</string>
     <string name="gms_core_settings_title">GmsCore megnyitása</string>
     <string name="gms_core_toast_not_installed_message">A GmsCore nincs telepítve. Telepítsd.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 másodperc</string>
+    <string name="morphe_crossfade_duration_1000ms">1 másodperc</string>
+    <string name="morphe_crossfade_duration_11000ms">11 másodperc</string>
+    <string name="morphe_crossfade_duration_12000ms">12 másodperc</string>
+    <string name="morphe_crossfade_duration_2000ms">2 másodperc</string>
+    <string name="morphe_crossfade_duration_250ms">250 ezredmásodperc</string>
+    <string name="morphe_crossfade_duration_3000ms">3 másodperc</string>
+    <string name="morphe_crossfade_duration_4000ms">4 másodperc</string>
+    <string name="morphe_crossfade_duration_5000ms">5 másodperc</string>
+    <string name="morphe_crossfade_duration_500ms">500 ezredmásodperc</string>
+    <string name="morphe_crossfade_duration_6000ms">6 másodperc</string>
+    <string name="morphe_crossfade_duration_7000ms">7 másodperc</string>
+    <string name="morphe_crossfade_duration_750ms">750 ezredmásodperc</string>
+    <string name="morphe_crossfade_duration_8000ms">8 másodperc</string>
+    <string name="morphe_crossfade_duration_9000ms">9 másodperc</string>
     <string name="morphe_disable_drc_audio_summary_off">A DRC hang engedélyezve van</string>
     <string name="morphe_disable_drc_audio_summary_on">A DRC hang letiltva van</string>
     <string name="morphe_disable_drc_audio_title">DRC hang letiltása</string>
@@ -27,6 +42,53 @@ Nyomj a folytatás gombra, és engedélyezd az optimalizálási módosításokat
     <string name="morphe_force_original_audio_summary_off">Alapértelmezett hang használata</string>
     <string name="morphe_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
     <string name="morphe_force_original_audio_title">Eredeti hang kikényszerítése</string>
+    <string name="morphe_music_crossfade_about_best_summary">Normál számok közötti lejátszás és automatikus lejátszás, egy szám ismétlése (a szám önmagába hangol), és helyi hang – telefonhangszóró, vezetékes fülhallgató, Bluetooth vagy USB.</string>
+    <string name="morphe_music_crossfade_about_best_title">Legjobban illik hozzá</string>
+    <string name="morphe_music_crossfade_about_credit_summary">A keresztátmenet funkciót VazerOG készítette</string>
+    <string name="morphe_music_crossfade_about_credit_title">Közreműködők</string>
+    <string name="morphe_music_crossfade_about_how_summary">"A hangolás a következő szám elején átfedésben kezeli az egyik szám végét, enyhítve az egyiket, miközben a másik a kiválasztott időtartamon és görbén hangzik. 
+
+Automatikus lejátszás esetén (amikor egy szám magától befejez) és manuális átlépés esetén is működik – mindkettőnek van egy saját kapcsolója fent. Az automatikus lejátszásnál az átmenet néhány másodperccel a dal vége előtt kezdődik.
+
+Szükséges a YouTube Music 9.x vagy újabb verzió."</string>
+    <string name="morphe_music_crossfade_about_how_title">A működése</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Ha egy zenevideó van beállítva első számként – vagy egy másik forrásból indítva – előfordulhat, hogy rövid ideig videóként jelenik meg, mielőtt elindul a hangtörténeti mód.
+
+A keresztátmenet szüneteltetése zenevideó nézéséhez fekete képernyőt eredményezhet egyes videóknál (azoknál, amelyek hangja a videóból származik). A keresztátmenet szüneteltetése a szám kiválasztása előtt elkerüli ezt."</string>
+    <string name="morphe_music_crossfade_about_known_title">Ismert problémák</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"A zenevideók csak hangként játszódnak le, ha a keresztátmenet be van kapcsolva (nyomja meg hosszan a keverés gombot a szüneteltetéshez, ha szeretné a videót).
+
+A keresztátmenet időtartamánál rövidebb számok esetében kihagyhatja a keresztátmenetet.
+
+A zárlácon vagy az értesítésben pillanatnyilag régi állapot látható lehet átmenet közben."</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Nem igazán működik megfelelően</string>
+    <string name="morphe_music_crossfade_about_summary">A hangolás működése – és mikor nem működik</string>
+    <string name="morphe_music_crossfade_about_title">Névjegy</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"A hangvetítés vagy tükrözés (Chromecast, képernyő vagy hangtükrözés) esetén a keresztátmenet szünetel, mert ott instabil, és a probléma nem feltétlenül javítható.
+
+YouTube Music 8.x – a keresztátmenet csak a 9.x és újabb verziókon fut."</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Egyáltalán nem működik</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">A hangolás szünetel a hang vagy a képmegosztás közben. A hangolás közbeni vagy képmegosztás közbeni átmenet instabil, és előfordulhat, hogy soha nem javítható ki.</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Enyhe kitartás</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Lágy átmenet</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Egyenletes teljesítmény</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Lágy S-görbe</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Bemenñ</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Kimenñ</string>
+    <string name="morphe_music_crossfade_curve_title">Áttűnési görbe</string>
+    <string name="morphe_music_crossfade_duration_title">Áttűnés időtartama</string>
+    <string name="morphe_music_crossfade_enabled_title">Áttűnés engedélyezése</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Alkalmazza az áttűnés effektust, amikor egy szám magától véget ér</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Áttűnés automatikus léptetéskor</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Alkalmazza az áttűnés effektust, amikor kézzel léptetsz a következő számra</string>
+    <string name="morphe_music_crossfade_on_skip_title">Áttűnés kézi léptetéskor</string>
+    <string name="morphe_music_crossfade_paused_toast">Az áttűnés szünetel ebben a munkamenetben</string>
+    <string name="morphe_music_crossfade_resumed_toast">Áttűnés folytatva</string>
+    <string name="morphe_music_crossfade_screen_summary">Zökkenőmentesen keverd össze a számokat</string>
+    <string name="morphe_music_crossfade_screen_title">Áttűnés</string>
+    <string name="morphe_music_crossfade_session_control_summary">Az áttűnés megállításához vagy indításához tartsd nyomva a véletlenszerű lejátszás gombot</string>
+    <string name="morphe_music_crossfade_session_control_title">Lejátszás kezelése</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Bekapcsolt áttűnés mellett a videómód nem használható</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nem tud bejelentkezni a VR-ba: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nem lehetséges a VR-ba belépni, a webhely hitelesítése nem lett jóváhagyva</string>
     <string name="morphe_oauth2_connection_failure_generic">Az OAuth2 átmenetileg nem elérhető</string>
@@ -136,11 +198,11 @@ Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szüks
     <string name="revanced_change_start_page_entry_subscriptions">Feliratkozások</string>
     <string name="revanced_change_start_page_summary">Kiválaszthatod, hogy milyen oldalon nyíljon meg az alkalmazás.</string>
     <string name="revanced_change_start_page_title">Kezdőlap</string>
-    <string name="revanced_custom_filter_strings_summary">A szűrendő elemek útvonal-építő stringjeinek listája, új sorokkal elválasztva.</string>
-    <string name="revanced_custom_filter_strings_title">Egyéni szűrő</string>
+    <string name="revanced_custom_filter_strings_summary">Szűrendő elemek útvonal-karakterláncainak listája, új sorokkal elválasztva</string>
+    <string name="revanced_custom_filter_strings_title">Egyedi szűrő</string>
     <string name="revanced_custom_filter_summary">Engedélyezi, hogy saját menüket is elrejts.</string>
-    <string name="revanced_custom_filter_title">Egyéni szűrők engedélyezése</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Érvénytelen egyéni szűrő: %s.</string>
+    <string name="revanced_custom_filter_title">Egyéni szűrő engedélyezése</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Érvénytelen egyedi szűrő: %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Érvénytelen navigációs sáv színérték.</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">Írd be a navigációs sáv színének hexakódját.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Egyéni navigációs sáv szín értéke</string>
@@ -157,8 +219,8 @@ Lehetőség szerint használj sötét színeket, mivel az alkalmazás nem támog
 Lehetőség szerint használj sötét színeket, mivel az alkalmazás nem támogatja a világos témákat."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Lejátszó másodlagos háttérszíne</string>
     <string name="revanced_custom_player_background_invalid_toast">Érvénytelen lejátszó háttérszín.</string>
-    <string name="revanced_debug_protobuffer_summary">A protokoll puffert is beleveszi a hibakeresési naplóba.</string>
-    <string name="revanced_debug_protobuffer_title">Protokoll puffer naplózása</string>
+    <string name="revanced_debug_protobuffer_summary">További naplózási információkat ad a fejlesztőknek az alkalmazás komponenseinek azonosításához.</string>
+    <string name="revanced_debug_protobuffer_title">Naplózási protokoll puffer</string>
     <string name="revanced_debug_spannable_summary">A spannable-t is beleveszi a hibakeresési naplóba.</string>
     <string name="revanced_debug_spannable_title">Spannable naplózása</string>
     <string name="revanced_debug_summary">Kiírja a hibakeresési naplót.</string>
@@ -251,7 +313,7 @@ Korlátozások: A SponsorBlock szegmensek nem jelennek meg a keresősávon."</st
     <string name="revanced_external_downloader_not_installed_dialog_message">"A(z) %1$s nincs telepítve.
 Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Figyelmeztetés</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérlek, telepítsd.</string>
+    <string name="revanced_external_downloader_not_installed_warning">A(z) %s nincs telepítve. Kérjük, telepítse.</string>
     <string name="revanced_external_downloader_package_name_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Külső letöltő csomagneve</string>
     <string name="revanced_fullscreen_ads_closed_toast">Teljes képernyős hirdetések bezárva.</string>
@@ -550,6 +612,7 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_sb_segments_sponsor">Szponzor</string>
     <string name="revanced_sb_segments_sponsor_sum">Fizetett promóciók, fizetett hivatkozások és közvetlen reklámok. Nem önreklámozásra vagy ingyenes kiemelésre vonatkozik okok / alkotók / weboldalak / termékek esetében, amelyeket szeretnek.</string>
     <string name="revanced_sb_skip_automatically">Átugrás automatikusan</string>
+    <string name="revanced_sb_skip_automatically_once">Automatikus kihagyás egyszer</string>
     <string name="revanced_sb_skip_ignore">Letiltás</string>
     <string name="revanced_sb_skipped_filler">Töltelékrész kihagyva.</string>
     <string name="revanced_sb_skipped_hook">Átugrott felvezetés.</string>
@@ -585,6 +648,7 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_settings_import_reset">Beállítások visszaállítása alapértelmezettre.</string>
     <string name="revanced_settings_import_success">%d beállítás importálva.</string>
     <string name="revanced_settings_reset">Visszaállítás</string>
+    <string name="revanced_settings_reset_color">Szín alaphelyzetbe állítása</string>
     <string name="revanced_settings_search_clear_history">Keresési előzmények törlése</string>
     <string name="revanced_settings_search_clear_history_message">Biztosan ki akarja törölni a korábbi keresési előzményeket?</string>
     <string name="revanced_settings_search_empty_history_summary">A keresési előzmények mentéséhez írjon be egy keresési lekérdezést, és nyomja meg az Enter billentyűt.</string>
@@ -612,10 +676,7 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Válaszd ki a dalszövegekhez szimulált alkalmazásverziót.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Szimulált alkalmazásverzió célpontja dalszövegekhez</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Alkalmazásverzió szimulálása a dalszövegekhez</string>
-    <string name="revanced_spoof_app_version_summary">"Hamisítja a kliens verziót egy régi verzióra.
-
-• Ez megváltoztatja az alkalmazás megjelenését, de ismeretlen hibák előfordulhatnak.
-• Ha később kikapcsolod, a régi felhasználói felület megmaradhat, amíg az alkalmazás adatait nem törlöd."</string>
+    <string name="revanced_spoof_app_version_summary">A szervert tévedésbe vezeti, hogy egy régebbi alkalmazásverziót használ, ezzel helyreállítva a korábbi felhasználói felület funkcióit.</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Letiltja a rádió módot Kanada területén</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Letiltja a valós idejű dalszövegeket</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Régi felugró panel visszaállítása</string>
@@ -624,7 +685,7 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez."</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - A hozzászólások szekció nem jelenik meg a főoldalon</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Érvénytelen alkalmazásverzió-hamisítás: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Válaszd ki, hogy melyik alkalmazásverziót akarod használni.</string>
-    <string name="revanced_spoof_app_version_target_title">Cél alkalmazásverzió</string>
+    <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
     <string name="revanced_spoof_app_version_title">Alkalmazásverzió hamisítása</string>
     <string name="revanced_spoof_client_summary">Kliens hamisítása a lejátszási problémák elkerülése érdekében.</string>
     <string name="revanced_spoof_client_title">Kliens hamisítása</string>

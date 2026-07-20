@@ -103,7 +103,6 @@ import app.morphe.patches.youtube.utils.resourceid.reelFeedbackPlay
 import app.morphe.patches.youtube.utils.resourceid.reelForcedMuteButton
 import app.morphe.patches.youtube.utils.resourceid.reelPlayerFooter
 import app.morphe.patches.youtube.utils.resourceid.reelPlayerRightPivotV2Size
-import app.morphe.patches.youtube.utils.resourceid.reelRightDislikeIcon
 import app.morphe.patches.youtube.utils.resourceid.reelRightLikeIcon
 import app.morphe.patches.youtube.utils.resourceid.rightComment
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -1029,28 +1028,6 @@ val shortsComponentPatch = bytecodePatch(
         // region patch for hide comments button (non-litho)
 
         shortsButtonFingerprint.hideButton(rightComment, "hideShortsCommentsButton", false)
-
-        // endregion
-
-        // region patch for hide dislike button (non-litho)
-
-        shortsButtonFingerprint.methodOrThrow().apply {
-            if (is_20_18_or_greater) return@apply
-            val constIndex =
-                indexOfFirstLiteralInstructionOrThrow(reelRightDislikeIcon)
-            val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
-
-            val jumpIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CONST_CLASS) + 2
-
-            addInstructionsWithLabels(
-                constIndex + 1, """
-                    invoke-static {}, $SHORTS_CLASS_DESCRIPTOR->hideShortsDislikeButton()Z
-                    move-result v$constRegister
-                    if-nez v$constRegister, :hide
-                    const v$constRegister, $reelRightDislikeIcon
-                    """, ExternalLabel("hide", getInstruction(jumpIndex))
-            )
-        }
 
         // endregion
 

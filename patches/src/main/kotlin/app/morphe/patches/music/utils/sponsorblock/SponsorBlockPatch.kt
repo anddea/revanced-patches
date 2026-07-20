@@ -1,3 +1,11 @@
+/*
+ * Portions of this file are adapted from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.music.utils.sponsorblock
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -23,8 +31,7 @@ import app.morphe.patches.music.video.information.videoIdHook
 import app.morphe.patches.music.video.information.videoInformationPatch
 import app.morphe.patches.music.video.information.videoTimeHook
 import app.morphe.util.adoptChild
-import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.findFreeRegister
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -38,6 +45,8 @@ import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$EXTENSION_PATH/sponsorblock/SegmentPlaybackController;"
+private const val SEGMENT_CATEGORY_PREFERENCE_TAG =
+    "app.morphe.extension.music.settings.preference.SponsorBlockCategoryPreference"
 
 private val sponsorBlockBytecodePatch = bytecodePatch(
     description = "sponsorBlockBytecodePatch"
@@ -58,7 +67,7 @@ private val sponsorBlockBytecodePatch = bytecodePatch(
          * Responsible for seekbar in fullscreen
          */
         var rectangleFieldName =
-            with(rectangleFieldInvalidatorFingerprint.methodOrThrow(seekBarConstructorFingerprint)) {
+            with(RectangleFieldInvalidatorFingerprint.method) {
                 val invalidateIndex = indexOfInvalidateInstruction(this)
                 val rectangleIndex =
                     indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
@@ -70,7 +79,7 @@ private val sponsorBlockBytecodePatch = bytecodePatch(
                 (rectangleReference as FieldReference).name
             }
 
-        seekbarOnDrawFingerprint.methodOrThrow(seekBarConstructorFingerprint).apply {
+        SeekbarOnDrawFingerprint.method.apply {
             // Initialize seekbar method
             addInstructions(
                 0, """
@@ -107,40 +116,26 @@ private val sponsorBlockBytecodePatch = bytecodePatch(
         /**
          * Responsible for seekbar in player
          */
-        rectangleFieldName =
-            musicPlaybackControlsTimeBarOnMeasureFingerprint.matchOrThrow().let {
-                with(it.method) {
-                    val rectangleIndex =
-                        indexOfFirstInstructionReversedOrThrow(it.instructionMatches.last().index) {
-                            opcode == Opcode.IGET_OBJECT &&
-                                    getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
-                        }
-                    val rectangleReference =
-                        getInstruction<ReferenceInstruction>(rectangleIndex).reference
-                    (rectangleReference as FieldReference).name
-                }
+        val rectField = MusicPlaybackControlsTimeBarOnMeasureFingerprint.method.run {
+            val rectIndex = indexOfFirstInstructionReversedOrThrow(
+                implementation!!.instructions.size - 1
+            ) {
+                opcode == Opcode.IGET_OBJECT &&
+                        getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
             }
+            getInstruction<ReferenceInstruction>(rectIndex).reference as FieldReference
+        }
 
-        musicPlaybackControlsTimeBarDrawFingerprint.methodOrThrow().apply {
-            // Initialize seekbar method
+        MusicPlaybackControlsTimeBarDrawFingerprint.method.apply {
+            // Inject after super.draw() so the markers render on every compact-player frame.
+            val freeRegister = findFreeRegister(1)
             addInstructions(
-                1, """
-                    move-object/from16 v0, p0
-                    const-string v1, "$rectangleFieldName"
-                    invoke-static {v0, v1}, $EXTENSION_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;Ljava/lang/String;)V
-                    """
-            )
-
-            // Draw segment
-            val drawCircleIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.name == "drawCircle"
-            }
-            val drawCircleInstruction = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
-            addInstruction(
-                drawCircleIndex,
-                "invoke-static {v${drawCircleInstruction.registerC}, v${drawCircleInstruction.registerE}}, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->drawSponsorTimeBars(Landroid/graphics/Canvas;F)V"
+                1,
+                """
+                    iget-object v$freeRegister, p0, $rectField
+                    invoke-static {v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->setSeekbarRectangle(Landroid/graphics/Rect;)V
+                    invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->drawSegmentTimeBars(Landroid/graphics/Canvas;)V
+                """
             )
         }
 
@@ -252,6 +247,7 @@ val sponsorBlockPatch = resourcePatch(
 
         fun addSegmentsPreference(
             key: String,
+            categoryKey: String,
             dependencyKey: String
         ) {
             document(SETTINGS_HEADER_PATH).use { document ->
@@ -259,19 +255,12 @@ val sponsorBlockPatch = resourcePatch(
                 List(tags.length) { tags.item(it) as Element }
                     .filter { it.getAttribute("android:key") == SEGMENTS_CATEGORY_KEY }
                     .forEach {
-                        it.adoptChild("Preference") {
+                        it.adoptChild(SEGMENT_CATEGORY_PREFERENCE_TAG) {
                             setAttribute("android:title", "@string/revanced_$key")
                             setAttribute("android:summary", "@string/revanced_$key" + "_sum")
-                            setAttribute("android:key", key)
+                            setAttribute("android:key", "sb_${categoryKey}_color")
+                            setAttribute("android:selectable", "true")
                             setAttribute("android:dependency", dependencyKey)
-                            this.adoptChild("intent") {
-                                setAttribute("android:targetPackage", musicPackageName)
-                                setAttribute("android:data", key)
-                                setAttribute(
-                                    "android:targetClass",
-                                    ACTIVITY_HOOK_TARGET_CLASS
-                                )
-                            }
                         }
                     }
             }
@@ -331,38 +320,47 @@ val sponsorBlockPatch = resourcePatch(
 
         addSegmentsPreference(
             "sb_segments_sponsor",
+            "sponsor",
             "sb_enabled"
         )
         addSegmentsPreference(
             "sb_segments_selfpromo",
+            "selfpromo",
             "sb_enabled"
         )
         addSegmentsPreference(
             "sb_segments_interaction",
+            "interaction",
             "sb_enabled"
         )
         addSegmentsPreference(
             "sb_segments_intro",
+            "intro",
             "sb_enabled"
         )
         addSegmentsPreference(
             "sb_segments_outro",
+            "outro",
             "sb_enabled"
         )
         addSegmentsPreference(
             "sb_segments_preview",
+            "preview",
             "sb_enabled"
         )
         addSegmentsPreference(
             "sb_segments_hook",
+            "hook",
             "sb_enabled"
         )
         addSegmentsPreference(
             "sb_segments_filler",
+            "filler",
             "sb_enabled"
         )
         addSegmentsPreference(
             "sb_segments_nomusic",
+            "music_offtopic",
             "sb_enabled"
         )
 
@@ -376,18 +374,7 @@ val sponsorBlockPatch = resourcePatch(
             "https://sponsor.ajay.app"
         )
 
-        get(SETTINGS_HEADER_PATH).apply {
-            writeText(
-                readText()
-                    .replace(
-                        "\"sb_segments_nomusic",
-                        "\"sb_segments_music_offtopic"
-                    )
-            )
-        }
-
         updatePatchStatus(SPONSORBLOCK)
 
     }
 }
-

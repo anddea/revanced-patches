@@ -17,6 +17,7 @@
     <string name="gms_core_dialog_open_website_text">เปิดเว็บไซต์</string>
     <string name="gms_core_dialog_title">ต้องดำเนินการ</string>
     <string name="gms_core_offline_account_login_error">หากคุณเพิ่งเปลี่ยนรายละเอียดการเข้าสู่ระบบบัญชีของคุณ โปรดถอนการติดตั้งและติดตั้ง GmsCore ใหม่</string>
+    <string name="gms_core_settings_summary">หากต้องการรับการแจ้งเตือนใน RVX โปรดเปิดใช้งานการส่งข้อความบนคลาวด์</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore ไม่ได้ติดตั้ง ติดตั้ง</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">เลือกส่วนประกอบที่จะปรากฏในเมนู flyout</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">ปิดใช้งานการซ่อนแถบนำทางอัตโนมัติ</string>
@@ -123,8 +124,11 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
-    <string name="revanced_advanced_video_quality_menu_title">แสดงเมนูคุณภาพวิดีโอขั้นสูง</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow ให้ภาพขนาดย่อที่รวบรวมจากฝูงชนสําหรับวิดีโอ YouTube ภาพขนาดย่อเหล่านี้มักจะเกี่ยวข้องมากกว่าภาพขนาดย่อที่ให้โดย YouTube
+    <string name="revanced_advanced_video_quality_menu_title">เปิดเมนูคุณภาพขั้นสูง</string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_off">revanced_advanced_video_quality_menu_type_summary_on
+
+</string>
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow ให้ภาพขนาดย่อที่รวบรวมจากฝูงชนสำหรับวิดีโอ YouTube ภาพขนาดย่อเหล่านี้มักจะเกี่ยวข้องมากกว่าภาพขนาดย่อที่ให้โดย YouTube
 
 ถ้าเปิดใช้งาน URL ของวิดีโอจะถูกส่งไปยังเซิร์ฟเวอร์ API และไม่มีข้อมูลอื่นๆ ถูกส่งไป หากวิดีโอไม่มีภาพขนาดย่อ DeArrow ภาพขนาดย่อดั้งเดิมหรือภาพนิ่งจะถูกแสดง
 
@@ -154,6 +158,11 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_2">กลาง</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">สิ้นสุด</string>
     <string name="revanced_alt_thumbnail_stills_time_title">ดึงเฟรมวิดีโอจาก</string>
+    <string name="revanced_auto_captions_style_entry_1">แสดงเสมอ</string>
+    <string name="revanced_auto_captions_style_entry_2">ไม่แสดง</string>
+    <string name="revanced_auto_captions_style_entry_3">แสดงเมื่อไม่ได้ปิดเสียง</string>
+    <string name="revanced_auto_captions_style_entry_4">แสดงเมื่อเงียบเสียง</string>
+    <string name="revanced_auto_captions_style_title">คำบรรยายแบบอัตโนมัติ</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">การจำกัดโหมดพักผ่อนสำหรับการประหยัดพลังงานไม่ถูกบายพาส</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">การจำกัดโหมดพักผ่อนสำหรับการประหยัดพลังงานถูกบายพาส</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">เลี่ยงข้อจำกัดของโหมดแสงอาทิตย์</string>
@@ -170,20 +179,20 @@
     <string name="revanced_change_form_factor_entry_3">แท็บเล็ต</string>
     <string name="revanced_change_form_factor_entry_4">ยานยนต์</string>
     <string name="revanced_change_form_factor_title">รูปแบบอุปกรณ์</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"การเปลี่ยนแปลงประกอบด้วย:
+    <string name="revanced_change_form_factor_user_dialog_message">"มีการเปลี่ยนแปลงดังนี้:
 
-รูปแบบแท็บเล็ต
-• โพสต์ชุมชนถูกซ่อน
-• การตั้งค่าการเล่นในฟีดไม่สามารถใช้ได้
-• ปุ่ม Remix และปุ่ม Sound ไม่สามารถใช้ได้ใน Shorts
-• แถบการดำเนินการวิดีโอไม่ได้ถูกพับเก็บ
+เลย์เอาต์สำหรับแท็บเล็ต
+• โพสต์จากชุมชนจะถูกซ่อนไว้
+• จะไม่มีตัวเลือกการเล่นในฟีด
+• จะไม่มีปุ่มรีมิกซ์และปุ่มเสียงใน Shorts
+• แถบการทำงานของวิดีโอแบบเดิมที่ไม่ยุบจะแสดงขึ้น
 
-รูปแบบรถยนต์
-• ฟีดถูกจัดระเบียบตามหัวข้อและช่อง
-• การตั้งค่าการเล่นในฟีดไม่สามารถใช้ได้
-• ปุ่ม Remix และปุ่ม Sound ไม่สามารถใช้ได้ใน Shorts
-• Shorts เปิดในเครื่องเล่นปกติ
-• แถบการดำเนินการวิดีโอไม่ได้ถูกพับเก็บ"</string>
+เลย์เอาต์สำหรับรถยนต์
+• ฟีดจะถูกจัดระเบียบตามหัวข้อและช่อง
+• จะไม่มีตัวเลือกการเล่นในฟีด
+• จะไม่มีปุ่มรีมิกซ์และปุ่มเสียงใน Shorts
+• Shorts จะเปิดในโปรแกรมเล่นปกติ
+• แถบการทำงานของวิดีโอแบบเดิมที่ไม่ยุบจะแสดงขึ้น"</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">สยงสนดการตเปนี</string>
     <string name="revanced_change_start_page_entry_browse">เรียกดูช่อง</string>
     <string name="revanced_change_start_page_entry_courses">เก็บค์คสตตว์อก / คมีนคร</string>
@@ -210,7 +219,7 @@
     <string name="revanced_change_start_page_entry_watch_later">ดูต่อภายหลัง</string>
     <string name="revanced_change_start_page_entry_your_clips">คลิปของคุณ</string>
     <string name="revanced_change_start_page_title">หน้าเริ่มต้น</string>
-    <string name="revanced_custom_filter_strings_summary">รายการสตริงตัวสร้างเส้นทางส่วนประกอบที่จะกรอง โดยคั่นด้วยบรรทัดใหม่</string>
+    <string name="revanced_custom_filter_strings_summary">รายการสตริงตัวสร้างเส้นทางส่วนประกอบที่จะกรอง คั่นด้วยบรรทัดใหม่</string>
     <string name="revanced_custom_filter_strings_title">ตัวกรองแบบกำหนดเอง</string>
     <string name="revanced_custom_filter_summary_off">ตัวกรองแบบกำหนดเองปิดใช้งาน</string>
     <string name="revanced_custom_filter_summary_on">ตัวกรองแบบกำหนดเองเปิดใช้งาน</string>
@@ -231,7 +240,7 @@
     <string name="revanced_debug_logs_none_found">ไม่พบบันทึก</string>
     <string name="revanced_debug_protobuffer_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมโปรโตคอลบัฟเฟอร์</string>
     <string name="revanced_debug_protobuffer_summary_on">บันทึกการแก้ไขข้อบกพร่องรวมถึงโปรโตคอลบัฟเฟอร์</string>
-    <string name="revanced_debug_protobuffer_title">โปรโตคอลบัฟเฟอร์บันทึกข้อมูล</string>
+    <string name="revanced_debug_protobuffer_title">บันทึกโปรโตคอลบัฟเฟอร์</string>
     <string name="revanced_debug_summary_off">การบันทึกการแก้ไขข้อบกพร่องถูกปิดใช้งาน</string>
     <string name="revanced_debug_summary_on">การบันทึกการแก้ไขข้อบกพร่องถูกเปิดใช้งาน</string>
     <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
@@ -302,14 +311,14 @@
     <string name="revanced_exit_fullscreen_entry_3">แนวนอนเท่านั้น</string>
     <string name="revanced_exit_fullscreen_entry_4">แนวตั้งและแนวนอน</string>
     <string name="revanced_exit_fullscreen_title">ออกจากโหมดเต็มหน้าจอเมื่อวิดีโอจบ</string>
-    <string name="revanced_external_downloader_empty_warning">ชื่อแพ็กเกจต้องไม่ว่างเปล่า</string>
-    <string name="revanced_external_downloader_not_found_title">ไม่ได้ติดตั้งแอป</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
+    <string name="revanced_external_downloader_empty_warning">ชื่อแพ็คเกจห้ามว่าง</string>
+    <string name="revanced_external_downloader_not_found_title">ไม่พบแอป</string>
+    <string name="revanced_external_downloader_not_installed_warning">ไม่ได้ติดตั้ง %s โปรดติดตั้ง</string>
     <string name="revanced_external_downloader_other_item">อื่น ๆ</string>
-    <string name="revanced_external_downloader_other_item_hint">ป้อนชื่อแพ็กเกจ</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"ไม่พบแอปที่ติดตั้งด้วยชื่อแพ็กเกจ: %s
+    <string name="revanced_external_downloader_other_item_hint">ใส่ชื่อแพ็คเกจ</string>
+    <string name="revanced_external_downloader_package_not_found_warning">"ไม่พบแอปที่ติดตั้งด้วยชื่อแพ็คเกจ: %s
 
-ตรวจสอบว่าชื่อแพ็กเกจถูกต้องและติดตั้งแอปแล้ว"</string>
+ตรวจสอบว่าชื่อแพ็คเกจถูกต้องและแอปได้ถูกติดตั้งแล้ว"</string>
     <string name="revanced_fix_transcript_summary_off">บทความอาจไม่มีอยู่เนื่องจากการตรวจสอบเงื่อนไขล้มเหลว</string>
     <string name="revanced_fix_transcript_summary_on">บทความมีอยู่</string>
     <string name="revanced_fix_transcript_title">แก้ไขบทความ</string>
@@ -378,6 +387,7 @@
     <string name="revanced_hide_community_button_summary_off">ปุ่มชุมชนแสดงอยู่</string>
     <string name="revanced_hide_community_button_summary_on">ปุ่มชุมชนถูกซ่อน</string>
     <string name="revanced_hide_community_button_title">ซ่อนปุ่มแสดงความคิดเห็น</string>
+    <string name="revanced_hide_connect_button_title">ซ่อนปุ่มเชื่อมต่อ</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">แสดงชั้นวางร้านค้าของผู้สร้างใต้เครื่องเล่นวิดีโอ</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">ชั้นวางร้านค้าของครีเอเตอร์ใต้โปรแกรมเล่นวิดีโอถูกซ่อนไว้</string>
     <string name="revanced_hide_creator_store_shelf_title">ซ่อนชั้นวางร้านค้าของผู้สร้าง</string>
@@ -397,8 +407,8 @@
     <string name="revanced_hide_end_screen_suggested_video_summary_on">วิดีโอแนะนำในหน้าจอสิ้นสุดถูกซ่อน</string>
     <string name="revanced_hide_end_screen_suggested_video_title">ซ่อนวิดีโอแนะนำในหน้าจอสิ้นสุด</string>
     <string name="revanced_hide_expandable_card_entry_1">แสดงทั้งหมด</string>
-    <string name="revanced_hide_expandable_card_entry_2">ซ่อนการ์ดผลิตภัณฑ์เท่านั้น</string>
-    <string name="revanced_hide_expandable_card_entry_3">ซ่อนการ์ดสรุปเท่านั้น</string>
+    <string name="revanced_hide_expandable_card_entry_2">ซ่อนบทสรุป</string>
+    <string name="revanced_hide_expandable_card_entry_3">ซ่อนทั้งหมด</string>
     <string name="revanced_hide_expandable_card_entry_4">ซ่อนการ์ดผลิตภัณฑ์และสรุป</string>
     <string name="revanced_hide_expandable_card_entry_5">ซ่อนทั้งหมด</string>
     <string name="revanced_hide_expandable_card_title">การ์ดที่ขยายได้ใต้คลิปวิดีโอ</string>
@@ -446,15 +456,16 @@
     <string name="revanced_hide_key_concepts_section_summary_off">ส่วนแนวคิดหลักแสดงอยู่</string>
     <string name="revanced_hide_key_concepts_section_summary_on">ส่วนแนวคิดหลักถูกซ่อน</string>
     <string name="revanced_hide_key_concepts_section_title">ซ่อนส่วน \'แนวคิดหลัก\'</string>
-    <string name="revanced_hide_keyword_content_about_summary">"หน้าแรก/การสมัครสมาชิก/ผลลัพธ์การค้นหา จะถูกกรองเพื่อซ่อนเนื้อหาที่ตรงกับวลีคําหลัก
+    <string name="revanced_hide_keyword_content_about_summary">"หน้าแรก / การสมัครรับข้อมูล / การค้นหา / ความคิดเห็น จะถูกกรองเพื่อซ่อนเนื้อหาที่ตรงกับวลีคำสำคัญ
 
-ข้อจํากัด
+ข้อจำกัด:
 • Shorts ไม่สามารถซ่อนได้ตามชื่อช่อง
-• บางส่วนของ UI อาจไม่ถูกซ่อน
-• การค้นหาคําหลักอาจไม่แสดงผลลัพธ์"</string>
+• บางส่วนของส่วนประกอบ UI อาจไม่ถูกซ่อน
+• การค้นหาคำหลักอาจไม่แสดงผลลัพธ์"</string>
     <string name="revanced_hide_keyword_content_about_title">เกี่ยวกับการกรองคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">การล้อมรอบคีย์เวิร์ด/วลีด้วยเครื่องหมายคำพูดคู่จะป้องกันการจับคู่บางส่วนของชื่อวิดีโอและชื่อช่อง&lt;br&gt;&lt;br&gt;ตัวอย่างเช่น&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; จะซ่อนวิดีโอ: &lt;b&gt;AI ทำงานอย่างไร?&lt;/b&gt;&lt;br&gt;แต่จะไม่ซ่อน: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">จับคู่ทั้งคำ</string>
+    <string name="revanced_hide_keyword_content_comments_title">ซ่อนความคิดเห็นตามคำหลัก</string>
     <string name="revanced_hide_keyword_content_home_summary_off">วิดีโอในแท็บหน้าแรกไม่ได้ถูกกรองตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_home_summary_on">วิดีโอในแท็บหน้าแรกถูกกรองตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_home_title">ซ่อนวิดีโอหน้าแรกตามคำสำคัญ</string>
@@ -496,6 +507,7 @@
     <string name="revanced_hide_mix_playlists_summary_off">เพลย์ลิสต์แบบผสมแสดงอยู่</string>
     <string name="revanced_hide_mix_playlists_summary_on">เพลย์ลิสต์แบบผสมถูกซ่อนไว้</string>
     <string name="revanced_hide_mix_playlists_title">ซ่อนเพลย์ลิสต์แบบผสม</string>
+    <string name="revanced_hide_more_button_title">ซ่อนปุ่มเพิ่มเติม</string>
     <string name="revanced_hide_navigation_bar_summary_off">ไม่ซ่อนแถบนำทาง</string>
     <string name="revanced_hide_navigation_bar_summary_on">ซ่อนแถบนำทางแล้ว</string>
     <string name="revanced_hide_navigation_bar_title">ซ่อนแถบนำทาง</string>
@@ -562,9 +574,6 @@
     <string name="revanced_hide_shorts_comments_button_summary_off">ปุ่มความคิดเห็นถูกแสดงอยู่</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">ปุ่มความคิดเห็นถูกซ่อนอยู่</string>
     <string name="revanced_hide_shorts_comments_button_title">ซ่อนปุ่มแสดงความคิดเห็น</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_off">ปุ่ม \'ไม่ชอบ\' ถูกแสดงอยู่</string>
-    <string name="revanced_hide_shorts_dislike_button_summary_on">ปุ่ม \'ไม่ชอบ\' ถูกซ่อนอยู่</string>
-    <string name="revanced_hide_shorts_dislike_button_title">ซ่อนปุ่มไม่ถูกใจ</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">ปุ่ม Green Screen  แสดงขึ้น</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">ปุ่ม Green Screen ถูกซ่อน</string>
     <string name="revanced_hide_shorts_green_screen_button_title">ซ่อนปุ่ม \'กรีนสกรีน\'</string>
@@ -687,6 +696,8 @@
     <string name="revanced_language_DEFAULT">ภาษาของแอป</string>
     <string name="revanced_language_TH">Thai\n<small>ไทย</small></string>
     <string name="revanced_language_title">ภาษา ReVanced</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">หยุดการเล่นด้วยการลากในแนวนอน</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">จดจำตำแหน่งการลาก</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">การแตะสองครั้งและการบีบเพื่อปรับขนาดปิดใช้งานแล้ว</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"การกระทำแตะสองครั้ง และการบีบเพื่อปรับขนาด เปิดใช้งาน
 
@@ -722,6 +733,8 @@
     <string name="revanced_miniplayer_width_dip_invalid_toast">ขนาดพิกเซลต้องอยู่ระหว่าง %1$s ถึง %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">ตั้งค่าขนาดเริ่มต้นบนหน้าจอเป็นพิกเซล</string>
     <string name="revanced_miniplayer_width_dip_title">ขนาดเริ่มต้น</string>
+    <string name="revanced_navigation_bar_animations_summary">ทำให้แถบนำทางทึบแสงอย่างสมบูรณ์ในโหมดมืด</string>
+    <string name="revanced_navigation_bar_animations_title">เปิดใช้งานภาพเคลื่อนไหวแถบนำทาง</string>
     <string name="revanced_overlay_button_vot_title">Voice Over Translation Thailan</string>
     <string name="revanced_override_youtube_music_button_summary_off">ปุ่ม YouTube Music เปิดแอปพลิเคชันแบบพื้นฐาน</string>
     <string name="revanced_override_youtube_music_button_summary_on">ปุ่ม YouTube Music เปิดโปรแกรมเพลงของคุณ</string>
@@ -775,7 +788,13 @@
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">ภาพขนาดย่อสำหรับแถบเลื่อนจะปรากฏเหนือแถบเลื่อน</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">คืนค่าภาพขนาดย่อสำหรับแถบเลื่อนแบบเก่า</string>
     <string name="revanced_restore_old_settings_menus_title">กู้คืนเมนูการตั้งค่าแบบเก่า</string>
-    <string name="revanced_ryd_attribution_summary">ข้อมูลนี้ให้มาโดย Return YouTube Dislike API。 แตะที่นี่เพื่อเรียนรู้เพิ่มเติม</string>
+    <string name="revanced_restore_old_video_action_bar_summary">"แก้ไขปัญหาการไม่แสดงผลการไม่ชอบ และปุ่มการทำงานของวิดีโอไม่สามารถซ่อนได้
+
+ข้อจำกัด: กลับไปใช้การแสดงผล 'วิดีโอเพิ่มเติม' แบบเก่า"</string>
+    <string name="revanced_restore_old_video_action_bar_title">กู้คืนแถบการทำงานของวิดีโอแบบเดิม</string>
+    <string name="revanced_ryd_attribution_summary">"ข้อมูลนี้มาจาก Return YouTube Dislike API
+
+แตะที่นี่เพื่อเปิด ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">ปุ่ม \"ถูกใจ\" ปรับให้แสดงผลได้ดีที่สุด</string>
     <string name="revanced_ryd_compact_layout_summary_on">ปุ่ม \"ถูกใจ\" ปรับให้มีขนาดเล็กที่สุด</string>
@@ -790,12 +809,6 @@
     <string name="revanced_ryd_failure_connection_status_code">ไม่สามารถแสดงความไม่ชอบได้ (รหัสสถานะ %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">ไม่สามารถแสดงความไม่ชอบชั่วคราว (API หมดเวลา)</string>
     <string name="revanced_ryd_failure_generic">ไม่สามารถใช้งาน \"ไม่ชอบ\" ได้ (%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">รีโหลดวิดีโอเพื่อลงคะแนนโดยใช้ Return YouTube Dislike</string>
-    <string name="revanced_ryd_shorts_summary_off">การไม่ถูกใจใน Shorts ไม่ได้แสดงอยู่</string>
-    <string name="revanced_ryd_shorts_summary_on">"การไม่ถูกใจใน Shorts แสดงอยู่
-
-ข้อจำกัด: การไม่ถูกใจอาจไม่ปรากฏในโหมดไม่ระบุตัวตน"</string>
-    <string name="revanced_ryd_shorts_title">แสดง \"ไม่ชอบ\" ใน Shorts</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast ไม่ปรากฏขึ้นหาก ไม่สามารถใช้งาน Return YouTube Dislike</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ข้อความแจ้งเตือนแสดงขึ้น หาก Return YouTube Dislike ไม่พร้อมใช้งาน</string>
     <string name="revanced_ryd_toast_on_connection_error_title">แสดงการแจ้งเตือนข้อผิดพลาดการเชื่อมต่อ</string>
@@ -803,6 +816,7 @@
     <string name="revanced_sanitize_comments_category_bar_summary_off">ปุ่มหมวดหมู่จะแสดงอยู่ในแถบหมวดหมู่ความคิดเห็น</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">ปุ่มหมวดหมู่ยกเว้น \'ด้านบน\' และ \'ใหม่ล่าสุด\' จะซ่อนอยู่ในแถบหมวดหมู่ความคิดเห็น</string>
     <string name="revanced_sanitize_comments_category_bar_title">ลบความปลอดภัยแถบหมวดหมู่</string>
+    <string name="revanced_sanitize_video_subtitle_title">ล้างข้อความคำบรรยายวิดีโอ</string>
     <string name="revanced_sb_api_url_changed">API URL ถูกเปลื่ยนแล้ว</string>
     <string name="revanced_sb_api_url_invalid">API URL ไม่ถูกต้อง</string>
     <string name="revanced_sb_api_url_reset">API URL เปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
@@ -1047,16 +1061,22 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_shorts_player_type_regular_player_fullscreen">โปรแกรมเล่นปกติแบบเต็มหน้าจอ</string>
     <string name="revanced_shorts_player_type_shorts">Shorts Player</string>
     <string name="revanced_shorts_player_type_title">เปิด \"Shorts\" ด้วย</string>
-    <string name="revanced_spoof_app_version_summary">หลอกลวงเซิร์ฟเวอร์เพื่อให้คิดว่าคุณกำลังใช้แอปเวอร์ชันเก่าเพื่อคืนค่าคุณสมบัติ UI เดิม</string>
+    <string name="revanced_show_settings_button_index_title">ทำให้แถบนำทางมองเห็นได้เสมอขณะเลื่อน</string>
+    <string name="revanced_show_settings_button_title">ภาพเคลื่อนไหวการเปลี่ยนระหว่างแท็บ</string>
+    <string name="revanced_show_settings_button_type_title">การดำเนินการปุ่มการตั้งค่า</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">ตำแหน่งปุ่มการตั้งค่า</string>
+    <string name="revanced_show_toolbar_settings_button_title">แสดงปุ่มการตั้งค่า</string>
+    <string name="revanced_show_toolbar_settings_button_type_title">การดำเนินการปุ่มการตั้งค่า</string>
+    <string name="revanced_spoof_app_version_summary">หลอกให้เซิร์ฟเวอร์คิดว่าคุณกำลังใช้แอปเวอร์ชันเก่าเพื่อเรียกคืนคุณสมบัติ UI แบบเดิม</string>
     <string name="revanced_spoof_app_version_summary_off">เวอร์ชันไม่ได้ปลอมแปลง</string>
     <string name="revanced_spoof_app_version_summary_on">เวอร์ชันปลอมแปลง</string>
     <string name="revanced_spoof_app_version_target_title">เป้าหมายการปลอมแปลงเวอร์ชันแอป</string>
     <string name="revanced_spoof_app_version_title">ปลอมแปลงเวอร์ชันแอป</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"เวอร์ชันแอปจะถูกปลอมแปลงเป็นเวอร์ชันเก่าของ YouTube
+    <string name="revanced_spoof_app_version_user_dialog_message">"เวอร์ชันแอปจะถูกปลอมแปลงเป็นเวอร์ชันเก่า
 
 สิ่งนี้จะเปลี่ยนรูปลักษณ์และคุณสมบัติของแอป แต่ผลข้างเคียงที่ไม่คาดคิดอาจเกิดขึ้น
 
-ถ้าปิดในภายหลัง ขอแนะนําให้ล้างข้อมูลแอปเพื่อป้องกันข้อผิดพลาดของ UI"</string>
+ถ้าปิดในภายหลัง ขอแนะนำให้ล้างข้อมูลแอปเพื่อป้องกันข้อผิดพลาดของ UI"</string>
     <string name="revanced_spoof_device_dimensions_summary">การเปิดใช้งานสิ่งนี้สามารถปลดล็อกคุณภาพวิดีโอที่สูงขึ้น</string>
     <string name="revanced_spoof_device_dimensions_title">ปลอมแปลงมิติของอุปกรณ์</string>
     <string name="revanced_swipe_brightness_summary_off">ปิดใช้งานการเลื่อนความสว่างแบบเต็มหน้าจอ</string>
@@ -1111,4 +1131,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_switch_create_with_notifications_button_summary_on">ปุ่มสร้างถูกสลับกับปุ่มการแจ้งเตือน</string>
     <string name="revanced_switch_create_with_notifications_button_title">สลับสร้างด้วยการแจ้งเตือน</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">หากการเปลี่ยนการตั้งค่านี้ไม่มีผล ให้ลองเปลี่ยนไปใช้โหมดไม่ระบุตัวตน</string>
+    <string name="revanced_vot_enabled_title">การแปลเสียงบรรยาย</string>
+    <string name="revanced_vot_original_audio_volume_summary">ระดับเสียงของเสียง YouTube ต้นฉบับขณะที่การแปลกำลังพูดอยู่</string>
+    <string name="revanced_vot_original_audio_volume_title">ระดับเสียงเสียงต้นฉบับ</string>
+    <string name="revanced_vot_translation_volume_summary">ระดับเสียงของเสียงพากย์แปล</string>
+    <string name="revanced_vot_translation_volume_title">ระดับเสียงการแปล</string>
 </resources>

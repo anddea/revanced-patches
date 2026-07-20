@@ -17,6 +17,21 @@
     <string name="gms_core_settings_summary">Για να λαμβάνετε ειδοποιήσεις στο RVX Music, ενεργοποιήστε τις ρυθμίσεις Cloud Messaging.</string>
     <string name="gms_core_settings_title">Άνοιγμα ρυθμίσεων του MicroG GmsCore</string>
     <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν είναι εγκατεστημένο. Εγκαταστήστε το.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_1000ms">1 δευτερόλεπτο</string>
+    <string name="morphe_crossfade_duration_11000ms">11 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_12000ms">12 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_2000ms">2 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_250ms">250 χιλιοστά δευτερολέπτου</string>
+    <string name="morphe_crossfade_duration_3000ms">3 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_4000ms">4 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_5000ms">5 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_500ms">500 χιλιοστά δευτερολέπτου</string>
+    <string name="morphe_crossfade_duration_6000ms">6 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_7000ms">7 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_750ms">750 χιλιοστά δευτερολέπτου</string>
+    <string name="morphe_crossfade_duration_8000ms">8 δευτερόλεπτα</string>
+    <string name="morphe_crossfade_duration_9000ms">9 δευτερόλεπτα</string>
     <string name="morphe_disable_drc_audio_summary_off">Ο ήχος DRC είναι ενεργοποιημένος</string>
     <string name="morphe_disable_drc_audio_summary_on">Ο ήχος DRC είναι απενεργοποιημένος</string>
     <string name="morphe_disable_drc_audio_title">Απενεργοποίηση ήχου DRC</string>
@@ -27,6 +42,53 @@
     <string name="morphe_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
     <string name="morphe_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
     <string name="morphe_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
+    <string name="morphe_music_crossfade_about_best_summary">Κανονική αναπαραγωγή τραγουδιού, αυτόματη μετάβαση, επανάληψη ενός τραγουδιού (το τραγούδι διαβαθμίζεται στον εαυτό του) και τοπικό ήχο — ηχείο τηλεφώνου, ενσύρματα ακουστικά, Bluetooth ή USB.</string>
+    <string name="morphe_music_crossfade_about_best_title">Λειτουργεί καλύτερα με</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Λειτουργία Crossfade από τον VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Εύσημα</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Η διαβάθμιση επικαλύπτει το τέλος ενός τραγουδιού με την αρχή του επόμενου, μειώνοντας σταδιακά την ένταση του πρώτου καθώς αυξάνεται η ένταση του δεύτερου, ανάλογα με τη διάρκεια και την καμπύλη που έχετε επιλέξει.
+
+Λειτουργεί με αυτόματη μετάβαση (όταν ένα τραγούδι τελειώνει μόνο του) και με χειροκίνητη παράλειψη — κάθε λειτουργία έχει το δικό της διακόπτη παραπάνω. Στην αυτόματη μετάβαση, η ανάμειξη ξεκινά λίγα δευτερόλεπτα πριν το τέλος του τραγουδιού.
+
+Απαιτείται YouTube Music 9.x ή νεότερη έκδοση."</string>
+    <string name="morphe_music_crossfade_about_how_title">Πώς λειτουργεί</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Ένα μουσικό βίντεο που έχει οριστεί ως το πρώτο τραγούδι — ή ένα που ξεκίνησε από έξω από την τρέχουσα λίστα αναπαραγώγησης — ενδέχεται να εμφανιστεί στιγμιαία ως βίντεο πριν ενεργοποιηθεί η λειτουργία αναπαραγωγής μόνο ήχου.
+
+Η παύση του crossfade για να παρακολουθήσετε ένα μουσικό βίντεο μπορεί να αφήσει ορισμένα βίντεο μαύρα (αυτά των οποίων ο ήχος προέρχεται από το ίδιο το βίντεο). Η παύση του crossfade πριν επιλέξετε το τραγούδι το αποφεύγει."</string>
+    <string name="morphe_music_crossfade_about_known_title">Γνωστά προβλήματα</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Τα μουσικά βίντεο παίζουν μόνο ήχο κατά τη διάρκεια του crossfade (πατήστε παρατεταμένα το κουμπί ανακατέματος για να κάνετε παύση αν θέλετε να δείτε το βίντεο).
+
+Τραγούδια με διάρκεια μικρότερη από τη διάρκεια του crossfade ενδέχεται να παραλείψουν το crossfade.
+
+Η κλειδωμένη οθόνη ή η ειδοποίηση ενδέχεται να δείξουν στιγμιαία την προηγούμενη κατάσταση κατά τη μετάβαση."</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Δεν λειτουργεί απολύτως σωστά</string>
+    <string name="morphe_music_crossfade_about_summary">Πώς λειτουργεί η διαβάθμιση — και πότε δεν λειτουργεί</string>
+    <string name="morphe_music_crossfade_about_title">Πληροφορίες</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Μετάδοση ή κατοπτρισμός ήχου (Chromecast, κατοπτρισμός οθόνης ή ήχου) — το crossfade κάνει παύση επειδή είναι ασταθές εκεί και ενδέχεται να μην διορθωθεί ποτέ.
+
+YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκδόσεις 9.x και νεότερες"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Δεν λειτουργεί καθόλου</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Η διαβάθμιση παύεται κατά τη διάρκεια μετάδοσης ή αναπαραγωγής ήχου. Η διαβάθμιση κατά τη διάρκεια μετάδοσης/αναπαραγωγής είναι ασταθής και ενδέχεται να μην είναι ποτέ διορθώσιμη.</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Απαλή καθυστέρηση</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Ήπια ευκολία</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Ίση ισχύς</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Ομαλή S-καμπύλη</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Εισερχόμενη</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Εξερχόμενη</string>
+    <string name="morphe_music_crossfade_curve_title">Κάμπυλα εξασθένισης</string>
+    <string name="morphe_music_crossfade_duration_title">Διάρκεια εξασθένισης</string>
+    <string name="morphe_music_crossfade_enabled_title">Ενεργοποιήστε τη διασύνδεση</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Εφαρμόζει το εφέ crossfade όταν ένα κομμάτι τελειώνει φυσικά</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Εξασθένιση κατά την αυτόματη αναπαραγωγή</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Εφαρμόζει το εφέ crossfade όταν παραλείπετε χειροκίνητα το επόμενο κομμάτι</string>
+    <string name="morphe_music_crossfade_on_skip_title">Εξασθένιση κατά τη χειροκίνητη παράλειψη</string>
+    <string name="morphe_music_crossfade_paused_toast">Διακοπή της σταδιακής μετάβασης ήχου για αυτήν την περίοδο λειτουργίας</string>
+    <string name="morphe_music_crossfade_resumed_toast">Συνέχιση της σταδιακής μετάβασης ήχου</string>
+    <string name="morphe_music_crossfade_screen_summary">Εναρμόνιση κομματιών μεταξύ τους</string>
+    <string name="morphe_music_crossfade_screen_title">Διασύνδεση</string>
+    <string name="morphe_music_crossfade_session_control_summary">Πατήστε παρατεταμένα το κουμπί ανακατέματος για να παύσετε ή να συνεχίσετε το crossfade</string>
+    <string name="morphe_music_crossfade_session_control_title">Έλεγχος συνεδρίας</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Η λειτουργία βίντεο δεν είναι διαθέσιμη όταν είναι ενεργοποιημένη η σταδιακή μετάβαση ήχου</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Δεν είναι δυνατή η σύνδεση στο VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Δεν είναι δυνατή η είσοδος στο VR, η ταυτοποίηση δεν εγκρίθηκε</string>
     <string name="morphe_oauth2_connection_failure_generic">Το OAuth2 είναι προσωρινά μη διαθέσιμο</string>
@@ -136,11 +198,11 @@
     <string name="revanced_change_start_page_entry_subscriptions">Συνδρομές</string>
     <string name="revanced_change_start_page_summary">Ορισμός της αρχικής σελίδας ανοίγματος της εφαρμογής.</string>
     <string name="revanced_change_start_page_title">Αρχική σελίδα</string>
-    <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων που θα φιλτραριστούν, διαχωρισμένες με νέες γραμμές.</string>
-    <string name="revanced_custom_filter_strings_title">Επεξεργασία προσαρμοσμένου φίλτρου</string>
+    <string name="revanced_custom_filter_strings_summary">Λίστα συμβολοσειρών στοιχείων δημιουργού διαδρομής για φιλτράρισμα, διαχωρισμένες με νέες γραμμές</string>
+    <string name="revanced_custom_filter_strings_title">Προσαρμοσμένο φίλτρο</string>
     <string name="revanced_custom_filter_summary">Χρήση προσαρμοσμένου φίλτρου για απόκρυψη στοιχείων διεπαφής.</string>
-    <string name="revanced_custom_filter_title">Προσαρμοσμένο φίλτρο</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Μη έγκυρο φίλτρο: %s.</string>
+    <string name="revanced_custom_filter_title">Χρήση προσαρμοσμένου φίλτρου</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Μη έγκυρο προσαρμοσμένο φίλτρο: %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Μη έγκυρη τιμή χρώματος γραμμής πλοήγησης.</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">Πληκτρολογήστε τον κωδικό hex του χρώματος της γραμμής πλοήγησης.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Τιμή χρώματος γραμμής πλοήγησης</string>
@@ -157,8 +219,8 @@
 Χρησιμοποιείστε σκούρα χρώματα αν είναι δυνατόν, καθώς η εφαρμογή δεν υποστηρίζει φωτεινά θέματα."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Δευτερεύον χρώμα φόντου οθόνης αναπαραγωγής</string>
     <string name="revanced_custom_player_background_invalid_toast">Μη έγκυρο χρώμα φόντου οθόνης αναπαραγωγής.</string>
-    <string name="revanced_debug_protobuffer_summary">Συμπερίληψη του buffer πρωτοκόλλου στο αρχείο καταγραφής σφαλμάτων.</string>
-    <string name="revanced_debug_protobuffer_title">Καταγραφή του buffer πρωτοκόλλου</string>
+    <string name="revanced_debug_protobuffer_summary">Προσθέτει επιπλέον πληροφορίες καταγραφής για τους προγραμματιστές για να εντοπίσουν τα στοιχεία της εφαρμογής</string>
+    <string name="revanced_debug_protobuffer_title">Καταγραφή buffer πρωτοκόλλου</string>
     <string name="revanced_debug_spannable_summary">Συμπερίληψη μορφοποιημένου κειμένου στο αρχείο καταγραφής σφαλμάτων.</string>
     <string name="revanced_debug_spannable_title">Καταγραφή με μορφοποιήσεις κειμένου</string>
     <string name="revanced_debug_summary">Εκτύπωση του αρχείου καταγραφής σφαλμάτων.</string>
@@ -249,7 +311,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"Το %1$s δεν είναι εγκατεστημένο.
 Παρακαλούμε εγκαταστήστε το %2$s από την ιστοσελίδα."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Προειδοποίηση</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το.</string>
+    <string name="revanced_external_downloader_not_installed_warning">Το %s δεν είναι εγκατεστημένο. Παρακαλώ εγκαταστήστε το.</string>
     <string name="revanced_external_downloader_package_name_summary">Όνομα πακέτου της εγκατεστημένης εξωτερικής εφαρμογής λήψης (π.χ NewPipe, Seal).</string>
     <string name="revanced_external_downloader_package_name_title">Όνομα πακέτου εξωτερικής εφαρμογής λήψης</string>
     <string name="revanced_fullscreen_ads_closed_toast">Οι διαφημίσεις πλήρους οθόνης έκλεισαν.</string>
@@ -549,6 +611,7 @@
     <string name="revanced_sb_segments_sponsor">Χορηγός</string>
     <string name="revanced_sb_segments_sponsor_sum">Προώθηση επί πληρωμή, παραπομπές επί πληρωμή και άμεσες διαφημίσεις. Όχι για αυτοπροώθηση ή δωρεάν αναφορές σε σκοπούς / δημιουργούς / ιστοσελίδες / προϊόντα που τους αρέσουν.</string>
     <string name="revanced_sb_skip_automatically">Αυτόματη παράλειψη</string>
+    <string name="revanced_sb_skip_automatically_once">Αυτόματη παράλειψη μία φορά</string>
     <string name="revanced_sb_skip_ignore">Απενεργοποίηση</string>
     <string name="revanced_sb_skipped_filler">Παραλείφθηκε η σπατάλη χρόνου.</string>
     <string name="revanced_sb_skipped_hook">Παραλείφθηκε η έναρξη.</string>
@@ -584,6 +647,7 @@
     <string name="revanced_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
     <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων.</string>
     <string name="revanced_settings_reset">Επαναφορά</string>
+    <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
     <string name="revanced_settings_search_clear_history">Εκκαθάριση ιστορικού αναζήτησης</string>
     <string name="revanced_settings_search_clear_history_message">Είστε βέβαιοι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης;</string>
     <string name="revanced_settings_search_empty_history_summary">Για να αποθηκεύσετε το ιστορικό αναζήτησης, πληκτρολογήστε ένα ερώτημα αναζήτησης και πατήστε Enter.</string>
@@ -611,11 +675,7 @@
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Επιλέξτε την έκδοση εφαρμογής που θα χρησιμοποιηθεί για τους στίχους.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Έκδοση παραποίησης έκδοσης εφαρμογής για τους στίχους</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Παραποίηση έκδοσης εφαρμογής για τους στίχους</string>
-    <string name="revanced_spoof_app_version_summary">"Παραποίηση έκδοσης εφαρμογής σε παλιότερη έκδοση.
-
-• Αυτό θα αλλάξει την εμφάνιση της εφαρμογής, αλλά πιθανότατα να προκύψουν άγνωστες παρενέργειες.
-• Αν είναι ενεργοποιημένη αλλά δε λειτουργεί, δοκιμάστε να συνδεθείτε με διαφορετικό λογαριασμό.
-• Αν αργότερα γίνει απενεργοποίηση, η παλιά εμφάνιση μπορεί να παραμείνει μέχρι να διαγραφούν τα δεδομένα της εφαρμογής."</string>
+    <string name="revanced_spoof_app_version_summary">Εξαπατά τον διακομιστή ώστε να νομίζει ότι χρησιμοποιείτε μια παλαιότερη έκδοση εφαρμογής για να επαναφέρετε παλαιότερα στοιχεία διεπαφής χρήστη</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Απενεργοποίηση λειτουργίας ραδιοφώνου σε περιοχές του Καναδά</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Απενεργοποίηση στίχων σε πραγματικό χρόνο</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Επαναφορά παλιού αναδυόμενου πίνακα μενού</string>
@@ -624,7 +684,7 @@
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Η ενότητα σχολίων δεν εμφανίζεται στην αρχική ροή</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Μη έγκυρη έκδοση για παραποίηση: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Επιλέξτε την έκδοση εφαρμογής που θα χρησιμοποιηθεί.</string>
-    <string name="revanced_spoof_app_version_target_title">Έκδοση της εφαρμογής που θα χρησιμοποιηθεί</string>
+    <string name="revanced_spoof_app_version_target_title">Έκδοση παραποίησης της εφαρμογής</string>
     <string name="revanced_spoof_app_version_title">Παραποίηση έκδοσης εφαρμογής</string>
     <string name="revanced_spoof_client_summary">Παραποίηση του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής.</string>
     <string name="revanced_spoof_client_title">Παραποίηση προγράμματος πελάτη</string>

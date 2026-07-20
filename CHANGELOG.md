@@ -1,3 +1,76 @@
+# [4.2.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.6...v4.2.0-dev.7) (2026-07-16)
+
+
+### Bug Fixes
+
+* **YouTube Music - Navigation bar components:** `Replace Samples button` and `Replace Upgrade button` did not apply to `v9.15` ([f1920c8](https://github.com/anddea/revanced-patches/commit/f1920c8581de94f5845898eb830464f9d8c00462))
+
+# [4.2.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.5...v4.2.0-dev.6) (2026-07-15)
+
+
+### Bug Fixes
+
+* **YouTube Music - Disable music video in album:** Did not apply to `v9.15` ([75462be](https://github.com/anddea/revanced-patches/commit/75462be72eb55c1e58b4772c08de6b23766ca824))
+* **YouTube Music - Player components:** `Change player background color` did not apply to `v9.15` ([bc526f4](https://github.com/anddea/revanced-patches/commit/bc526f4d774fadf5347ee44da02a0efb5abd93ed))
+
+# [4.2.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.4...v4.2.0-dev.5) (2026-07-14)
+
+
+### Bug Fixes
+
+* **YouTube Music - SponsorBlock:** Action dialog attached to parent activity ([ff7fa97](https://github.com/anddea/revanced-patches/commit/ff7fa978ea136c16400409488738e74caef10ede))
+
+
+### Features
+
+* **YouTube Music - Hide action bar components:** Add `Hide Details button` and `Hide Live chat replay button` settings ([6a5873e](https://github.com/anddea/revanced-patches/commit/6a5873efcbf0db5cb69a5aaccca28cf5731ef03f))
+
+# [4.2.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.3...v4.2.0-dev.4) (2026-07-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hook download actions:** Prevent crash on hooking playlist download button ([9da5fa4](https://github.com/anddea/revanced-patches/commit/9da5fa4b37bd25237a25f0a60884be1444acebeb))
+
+# [4.2.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.2...v4.2.0-dev.3) (2026-07-10)
+
+
+### Bug Fixes
+
+* **YouTube Music - Player components:** Swipe to dismiss miniplayer not working ([2dfb34e](https://github.com/anddea/revanced-patches/commit/2dfb34e4d48e9bc4bf27d7e8423f9ae7adc62b1d))
+
+
+### Features
+
+* **YouTube - Hook download actions:** Add `Override Play next in queue` setting (for all supported versions), and remove right-side badge ([187c4b3](https://github.com/anddea/revanced-patches/commit/187c4b396d73683a4a30c4e8c4564a874d27b566))
+* **YouTube - Miniplayer:** Add `Disable playback with horizontal drag` and `Disable automatic reposition` settings ([7471cf9](https://github.com/anddea/revanced-patches/commit/7471cf9e77d76f2311265ed12a92d848157c6fe3))
+
+# [4.2.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.1...v4.2.0-dev.2) (2026-07-03)
+
+
+### Bug Fixes
+
+* **YouTube Music - Hide action bar components:** Action bar buttons disappeared with specific settings ([885aa9a](https://github.com/anddea/revanced-patches/commit/885aa9adb75ab97eef9ef8ffe3908662d3e7df02))
+
+
+### Features
+
+* **YouTube - Hook download actions:** Add `Override Play next in queue` setting (`v20.21+`) ([8f4674c](https://github.com/anddea/revanced-patches/commit/8f4674c705a773965d8ef06b6e0eaf03a2472e87))
+* **YouTube - Toolbar components:** Add `Show Settings in toolbar` setting ([fcf93bf](https://github.com/anddea/revanced-patches/commit/fcf93bf025ebfaa582206a1c5b9a3c6c1ca37854))
+* **YouTube Music:** Add `Track crossfade` patch (`v9.15`) ([3474ed5](https://github.com/anddea/revanced-patches/commit/3474ed554a9fa103d4dd030aacbb139efa501f84))
+
+# [4.2.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.1.0...v4.2.0-dev.1) (2026-06-26)
+
+
+### Features
+
+* **YouTube - Hide action buttons:** Hide new action buttons ([9fe72eb](https://github.com/anddea/revanced-patches/commit/9fe72eb235c2aa1a685c9b7f93fe5612542a6967))
+* **YouTube - Hide actions buttons:** Add `Restore old video action bar` setting (`v20.21+`) ([aff0856](https://github.com/anddea/revanced-patches/commit/aff085608c3f50686351d1fc2db1dbbd2da864e8))
+* **YouTube - Navigation bar components:** Add `Enable navigation bar animations`, and `Show Settings` settings (`v20.21+`) ([90cae4a](https://github.com/anddea/revanced-patches/commit/90cae4afdf7a006ce2ea1d549590cf0eb9f3bd51))
+* **YouTube - Overlay buttons:** Add loop segment button ([bef4820](https://github.com/anddea/revanced-patches/commit/bef4820e98ee6d275e29daa769c12a73e555051f))
+* **YouTube - Overlay buttons:** Make overlay buttons scrollable, add `Max buttons in landscape` and `Max buttons in portrait` settings ([5d46119](https://github.com/anddea/revanced-patches/commit/5d46119e2865e59c33e8f5f0937571bd7e694f3e))
+* **YouTube - Return YouTube Dislike:** Add like and dislike count to new layout action buttons ([e69522c](https://github.com/anddea/revanced-patches/commit/e69522c48fadfda51d870e01b3f91144de1fc809))
+
 # [4.1.0](https://github.com/anddea/revanced-patches/compare/v4.0.0...v4.1.0) (2026-06-16)
 
 

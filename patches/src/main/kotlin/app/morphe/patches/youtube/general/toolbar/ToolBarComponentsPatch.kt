@@ -39,6 +39,17 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.general.toolbar
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -52,10 +63,14 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patches.shared.misc.fix.proto.immutableMethodRef
+import app.morphe.patches.shared.misc.fix.proto.mutableCopyMethodRef
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethod
 import app.morphe.patches.youtube.utils.castbutton.castButtonPatch
 import app.morphe.patches.youtube.utils.castbutton.hookToolBarCastButton
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.TOOLBAR_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_16_or_greater
@@ -63,15 +78,37 @@ import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_15_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
-import app.morphe.patches.youtube.utils.resourceid.*
+import app.morphe.patches.youtube.utils.resourceid.actionBarRingoBackground
+import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.morphe.patches.youtube.utils.resourceid.ytOutlineExperimentalVideoCamera
+import app.morphe.patches.youtube.utils.resourceid.ytOutlineVideoCamera
+import app.morphe.patches.youtube.utils.resourceid.ytPremiumWordMarkHeader
+import app.morphe.patches.youtube.utils.resourceid.ytWordMarkHeader
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.getContext
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.toolbar.hookToolBar
 import app.morphe.patches.youtube.utils.toolbar.toolBarHookPatch
-import app.morphe.util.*
-import app.morphe.util.Utils.printWarn
-import app.morphe.util.fingerprint.*
+import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.morphe.util.containsLiteralInstruction
+import app.morphe.util.doRecursively
+import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.findMethodOrThrow
+import app.morphe.util.findMutableMethodOf
+import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
+import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.fingerprint.methodCall
+import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.fingerprint.mutableClassOrThrow
+import app.morphe.util.getFreeRegisterProvider
+import app.morphe.util.getReference
+import app.morphe.util.getWalkerMethod
+import app.morphe.util.indexOfFirstInstruction
+import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import app.morphe.util.indexOfFirstLiteralInstruction
+import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.replaceLiteralInstructionCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -85,6 +122,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
+
+private const val NAVIGATION_CLASS_DESCRIPTOR =
+    "$GENERAL_PATH/NavigationButtonsPatch;"
 
 @Suppress("unused")
 val toolBarComponentsPatch = bytecodePatch(
@@ -520,7 +560,85 @@ val toolBarComponentsPatch = bytecodePatch(
 
         // region patch for hide You may like section
 
-        if (is_19_46_or_greater && !is_20_15_or_greater) {
+        if (is_20_15_or_greater) {
+            val searchSuggestionEndpointField = SearchSuggestionEndpoint20_21Fingerprint
+                .instructionMatches.first().instruction.getReference<FieldReference>()!!
+            val searchSuggestionEndpointClass = searchSuggestionEndpointField.definingClass
+
+            SearchBoxTypingStringFingerprint.let {
+                it.method.apply {
+                    // Includes trending searches ("You may like") and search history.
+                    val searchSuggestionCollectionField =
+                        it.instructionMatches.first().instruction.getReference<FieldReference>()!!
+                    val typedStringField =
+                        it.instructionMatches[2].instruction.getReference<FieldReference>()!!
+
+                    val helperMethod = ImmutableMethod(
+                        definingClass,
+                        "patch_setSearchSuggestions",
+                        listOf(
+                            ImmutableMethodParameter(
+                                parameterTypes.first().toString(),
+                                null,
+                                null,
+                            ),
+                        ),
+                        "V",
+                        AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                        annotations,
+                        null,
+                        MutableMethodImplementation(7),
+                    ).toMutable().apply {
+                        addInstructionsWithLabels(
+                            0,
+                            """
+                                move-object/from16 v0, p1
+                                iget-object v1, v0, $typedStringField
+
+                                # Filter only while the setting is enabled and the query is empty.
+                                invoke-static {v1}, $GENERAL_CLASS_DESCRIPTOR->hideYouMayLikeSection(Ljava/lang/String;)Z
+                                move-result v1
+                                if-eqz v1, :ignore
+
+                                iget-object v1, v0, $searchSuggestionCollectionField
+                                invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+                                move-result-object v2
+
+                                :loop
+                                invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+                                move-result v3
+                                if-eqz v3, :exit
+                                invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+                                move-result-object v3
+                                instance-of v4, v3, $searchSuggestionEndpointClass
+                                if-eqz v4, :loop
+                                check-cast v3, $searchSuggestionEndpointClass
+                                iget-object v4, v3, $searchSuggestionEndpointField
+                                invoke-static {v3, v4}, $GENERAL_CLASS_DESCRIPTOR->isSearchHistory(Ljava/lang/Object;Ljava/lang/String;)Z
+                                move-result v3
+                                if-nez v3, :loop
+                                invoke-interface {v2}, Ljava/util/Iterator;->remove()V
+                                goto :loop
+
+                                :exit
+                                iput-object v1, v0, $searchSuggestionCollectionField
+
+                                :ignore
+                                return-void
+                            """,
+                        )
+                    }
+
+                    it.classDef.methods.add(helperMethod)
+                    addInstruction(
+                        0,
+                        "invoke-direct/range {p0 .. p1}, $helperMethod",
+                    )
+                }
+            }
+
+            settingArray += "SETTINGS: HIDE_YOU_MAY_LIKE_SECTION"
+        } else if (is_19_46_or_greater && !is_20_15_or_greater) {
             val (searchSuggestionEndpointClass, searchSuggestionEndpointField) = with(
                 searchSuggestionEndpointFingerprint.methodOrThrow(
                     searchSuggestionEndpointParentFingerprint
@@ -631,9 +749,58 @@ val toolBarComponentsPatch = bytecodePatch(
             )
 
             settingArray += "SETTINGS: HIDE_YOU_MAY_LIKE_SECTION"
-        } else if (is_20_15_or_greater) {
-            printWarn("\"Hide You may like section\" is not supported in this version. Use YouTube 20.14.43 or earlier.")
         }
+
+        hookToolBar("$NAVIGATION_CLASS_DESCRIPTOR->setToolbarSettingsOnClickListener")
+
+        TopBarRendererSecondaryFilterFingerprint.let {
+            it.method.apply {
+                var buttonsClass: String? = null
+                val protoListIndex = it.instructionMatches.first().index
+                for (index in protoListIndex until implementation!!.instructions.size) {
+                    val instruction = getInstruction(index)
+                    if (instruction.opcode == Opcode.CHECK_CAST) {
+                        buttonsClass =
+                            (instruction as ReferenceInstruction).reference.toString()
+                        break
+                    }
+                }
+
+                val protoListRegister =
+                    getInstruction<FiveRegisterInstruction>(protoListIndex).registerC
+                val freeRegisters = getFreeRegisterProvider(protoListIndex, 2)
+                val protoListFreeRegister = freeRegisters.getFreeRegister()
+                val byteRegister = freeRegisters.getFreeRegister()
+
+                addInstructionsWithLabels(
+                    protoListIndex,
+                    """
+                            invoke-interface {v$protoListRegister}, ${immutableMethodRef.get()}
+                            move-result v$protoListFreeRegister
+                            if-nez v$protoListFreeRegister, :immutable
+
+                            invoke-static {v$protoListRegister}, ${mutableCopyMethodRef.get()}
+                            move-result-object v$protoListRegister
+
+                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->createToolbarSettingsButton(Ljava/util/List;)[B
+                            move-result-object v$byteRegister
+                            if-eqz v$byteRegister, :immutable
+
+                            sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
+                            invoke-static {v$protoListFreeRegister, v$byteRegister}, $parseByteArrayMethod
+                            move-result-object v$protoListFreeRegister
+                            check-cast v$protoListFreeRegister, $buttonsClass
+                            invoke-interface {v$protoListRegister, v$protoListFreeRegister}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->applyToolbarSettingsButtonIndex(Ljava/util/List;)V
+
+                            :immutable
+                            nop
+                        """,
+                )
+            }
+        }
+
+        settingArray += "SETTINGS: SHOW_TOOLBAR_SETTINGS_BUTTON"
 
         // endregion
 

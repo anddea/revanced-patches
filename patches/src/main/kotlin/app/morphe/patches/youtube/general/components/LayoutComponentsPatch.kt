@@ -16,7 +16,6 @@ import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRI
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
-import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
@@ -26,7 +25,6 @@ import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.resourceid.ytCallToAction
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
@@ -97,25 +95,6 @@ val layoutComponentsPatch = bytecodePatch(
                     )
                 }
             }
-        }
-
-        // endregion
-
-        // region patch for disable translucent status bar
-
-        if (is_19_25_or_greater) {
-            mapOf(
-                translucentStatusBarPrimaryFeatureFlagFingerprint to TRANSLUCENT_STATUS_BAR_PRIMARY_FEATURE_FLAG,
-                translucentStatusBarSecondaryFeatureFlagFingerprint to TRANSLUCENT_STATUS_BAR_SECONDARY_FEATURE_FLAG,
-            ).forEach { (fingerprint, literal) ->
-                fingerprint.injectLiteralInstructionBooleanCall(
-                    literal,
-                    "$GENERAL_CLASS_DESCRIPTOR->disableTranslucentStatusBar(Z)Z"
-                )
-            }
-
-            settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
-            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
         }
 
         // endregion

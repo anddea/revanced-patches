@@ -15,6 +15,21 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="gms_core_settings_summary">Activa los ajustes de mensajería en la nube para recibir notificaciones.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore no está instalado. Instálalo.</string>
+    <string name="morphe_crossfade_duration_10000ms">10 segundos</string>
+    <string name="morphe_crossfade_duration_1000ms">1 segundo</string>
+    <string name="morphe_crossfade_duration_11000ms">11 segundos</string>
+    <string name="morphe_crossfade_duration_12000ms">12 segundos</string>
+    <string name="morphe_crossfade_duration_2000ms">2 segundos</string>
+    <string name="morphe_crossfade_duration_250ms">250 milisegundos</string>
+    <string name="morphe_crossfade_duration_3000ms">3 segundos</string>
+    <string name="morphe_crossfade_duration_4000ms">4 segundos</string>
+    <string name="morphe_crossfade_duration_5000ms">5 segundos</string>
+    <string name="morphe_crossfade_duration_500ms">500 milisegundos</string>
+    <string name="morphe_crossfade_duration_6000ms">6 segundos</string>
+    <string name="morphe_crossfade_duration_7000ms">7 segundos</string>
+    <string name="morphe_crossfade_duration_750ms">750 milisegundos</string>
+    <string name="morphe_crossfade_duration_8000ms">8 segundos</string>
+    <string name="morphe_crossfade_duration_9000ms">9 segundos</string>
     <string name="morphe_disable_drc_audio_summary_off">El audio DRC está activado</string>
     <string name="morphe_disable_drc_audio_summary_on">El audio DRC está desactivado</string>
     <string name="morphe_disable_drc_audio_title">Desactivar audio DRC</string>
@@ -24,7 +39,55 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="morphe_force_original_audio_not_available">Para usar esta función, cambia \'Falsificar transmisiones de vídeo\' a Android Reel o TV</string>
     <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
     <string name="morphe_force_original_audio_summary_on">Usar el idioma de audio original</string>
-    <string name="morphe_force_original_audio_title">Forzar idioma de audio original</string>
+    <string name="morphe_force_original_audio_title">Forzar idioma original del audio</string>
+    <string name="morphe_music_crossfade_about_best_summary">La reproducción normal de canción a canción y el avance automático, la repetición de una canción (la canción se funde consigo misma) y el audio local (altavoz del teléfono, auriculares con cable, Bluetooth o USB).</string>
+    <string name="morphe_music_crossfade_about_best_title">Funciona mejor con</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Función de fundido cruzado de VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Créditos</string>
+    <string name="morphe_music_crossfade_about_how_summary">"La transición cruzada superpone el final de una canción con el comienzo de la siguiente, reduciendo el volumen de una mientras aumenta el volumen de la otra durante la duración y la curva que hayas elegido.
+
+Funciona con el avance automático (cuando una canción termina por sí sola) y con los saltos manuales, cada uno tiene su propio botón de activación.
+Con el avance automático, la mezcla comienza unos segundos antes de que termine la canción.
+
+Requiere YouTube Music 9.x o posterior."</string>
+    <string name="morphe_music_crossfade_about_how_title">Cómo funciona</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Un video musical configurado como la primera canción, o uno que se haya iniciado desde fuera de la cola actual, puede mostrarse brevemente como video antes de entrar en modo de solo audio.
+
+Pausar el fundido cruzado para ver un video musical puede dejar algunos videos en negro (los que obtienen el audio directamente del video). Pausar el fundido cruzado antes de seleccionar la canción lo evita."</string>
+    <string name="morphe_music_crossfade_about_known_title">Problemas conocidos</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Los videos musicales se reproducen solo con audio cuando se activa el efecto de fundido cruzado (mantén presionado el botón de aleatorio para pausar si quieres ver el video).
+
+Las canciones más cortas que la duración del fundido pueden omitir el efecto.
+
+La pantalla de bloqueo o la notificación puede mostrar brevemente un estado antiguo durante la transición."</string>
+    <string name="morphe_music_crossfade_about_quirks_title">No funciona del todo bien</string>
+    <string name="morphe_music_crossfade_about_summary">Cómo funciona la transición cruzada, y cuándo no.</string>
+    <string name="morphe_music_crossfade_about_title">Información</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Emitir o duplicar audio (Chromecast, duplicación de pantalla o audio) hará que el fundido cruzado se pause porque es inestable y es posible que nunca se solucione.
+
+YouTube Music 8.x: el fundido cruzado solo funciona en la versión 9.x o posterior"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">No funciona en absoluto</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">La transición cruzada se pausa al reproducir o duplicar audio. La transición cruzada al reproducir/duplicar es inestable y es posible que nunca se pueda solucionar.</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Retención sutil</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Facilidad suave</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Potencia igual</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Curva S suave</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Entrante</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Saliente</string>
+    <string name="morphe_music_crossfade_curve_title">Curva de desvanecimiento</string>
+    <string name="morphe_music_crossfade_duration_title">Duración del desvanecimiento</string>
+    <string name="morphe_music_crossfade_enabled_title">Activar desvanecimiento cruzado</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Aplica el efecto de fundido cruzado cuando una pista termina naturalmente</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Desvanecimiento al avanzar automáticamente</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Aplica el efecto de fundido cruzado cuando saltas manualmente a la siguiente pista</string>
+    <string name="morphe_music_crossfade_on_skip_title">Desvanecimiento al saltar manualmente</string>
+    <string name="morphe_music_crossfade_paused_toast">Desvanecimiento cruzado pausado para esta sesión</string>
+    <string name="morphe_music_crossfade_resumed_toast">Desvanecimiento cruzado reanudado</string>
+    <string name="morphe_music_crossfade_screen_summary">Mezcla las pistas suavemente entre sí</string>
+    <string name="morphe_music_crossfade_screen_title">Desvanecimiento cruzado</string>
+    <string name="morphe_music_crossfade_session_control_summary">Mantén pulsado el botón de reproducción aleatoria para pausar o reanudar el fundido cruzado</string>
+    <string name="morphe_music_crossfade_session_control_title">Control de sesión</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">El modo de vídeo no está disponible mientras el desvanecimiento cruzado está activado</string>
     <string name="morphe_oauth2_connection_failure_auth_error">No se puede iniciar sesión en VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">No se puede iniciar sesión en VR, la autenticación del sitio web no se ha aprobado</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 no está disponible temporalmente</string>
@@ -33,11 +96,11 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 no está disponible temporalmente (la API no responde)</string>
     <string name="morphe_oauth2_toast_invalid">Token de inicio de sesión de VR no válido, intenta iniciar sesión en VR de nuevo</string>
     <string name="morphe_oauth2_toast_reset">Desconectado de Android VR</string>
-    <string name="morphe_replace_music_with_youtube_summary">Reemplaza music.youtube.com con youtube.com en los enlaces compartidos</string>
+    <string name="morphe_replace_music_with_youtube_summary">Reemplaza music.youtube.com por youtube.com en los enlaces compartidos</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Los enlaces compartidos usan music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Los enlaces compartidos usan youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Cambiar enlaces compartidos a youtube.com</string>
-    <string name="morphe_sanitize_sharing_links_summary">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
+    <string name="morphe_sanitize_sharing_links_summary">Elimina los parámetros de consulta de seguimiento de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_summary_off">El parámetro de consulta de seguimiento no se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_summary_on">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
@@ -57,8 +120,8 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
 
 La reproducción fallará si el hash de JavaScript del reproductor está desactualizado."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Introduzca un hash JavaScript del reproductor válido</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash JavaScript del reproductor</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Introduzca un hash de JavaScript del reproductor válido</string>
+    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash de JavaScript del reproductor</string>
     <string name="morphe_spoof_video_streams_screen_summary">Falsifica las transmisiones de vídeo del cliente para evitar problemas de reproducción</string>
     <string name="morphe_spoof_video_streams_screen_title">Falsificar transmisiones de vídeo</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">No has iniciado sesión en Android VR. Pulsa aquí para iniciar sesión</string>
@@ -135,11 +198,11 @@ Si eres un usuario de YouTube Premium, esta configuración podría no ser necesa
     <string name="revanced_change_start_page_summary">Seleccione en qué página se abre la aplicación.</string>
     <string name="revanced_change_start_page_title">Página de inicio</string>
     <string name="revanced_credits_title">Créditos</string>
-    <string name="revanced_custom_filter_strings_summary">Filtra los nombres de los componentes, separados por líneas.</string>
+    <string name="revanced_custom_filter_strings_summary">Lista de cadenas del constructor de rutas de componentes a filtrar, una por línea</string>
     <string name="revanced_custom_filter_strings_title">Hola</string>
     <string name="revanced_custom_filter_summary">Habilita el filtro personalizado para ocultar los componentes de diseño.</string>
     <string name="revanced_custom_filter_title">Activar filtro personalizado</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado no válido: %s.</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado no válido: %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Valor de color hexadecimal Inválido para la barra de navegación.</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">Escribe un valor hexadecimal para el color de la barra de navegación.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Valor de color personalizado para la barra de navegación</string>
@@ -156,8 +219,8 @@ Preferiblemente que sean colores oscuros, la aplicación no soporta temas claros
 Preferiblemente colores oscuros, la aplicación no soporta temas claros."</string>
     <string name="revanced_custom_player_background_color_secondary_title">Color secundario del fondo del reproductor</string>
     <string name="revanced_custom_player_background_invalid_toast">Color de fondo del reproductor inválido.</string>
-    <string name="revanced_debug_protobuffer_summary">Incluye el búfer proto en el registro de depuración.</string>
-    <string name="revanced_debug_protobuffer_title">Búfer en el registro de depuración</string>
+    <string name="revanced_debug_protobuffer_summary">Agrega información de registro adicional para que los desarrolladores identifiquen los componentes de la app</string>
+    <string name="revanced_debug_protobuffer_title">Registrar búfer de protocolo</string>
     <string name="revanced_debug_spannable_summary">Incluye spannable dentro del registro de depuración.</string>
     <string name="revanced_debug_spannable_title">Spannable en registro</string>
     <string name="revanced_debug_summary">Muestra el registro de depuración.</string>
@@ -246,7 +309,7 @@ Limitantes: Los segmentos de SponsorBlock no se mostrarán en la barra de acció
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s no está instalado.
 Descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Advertencia</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálelo.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
     <string name="revanced_external_downloader_package_name_summary">Nombre del paquete de su aplicación de descargas externas instalada, como NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nombre del paquete del descargador externo</string>
     <string name="revanced_fullscreen_ads_closed_toast">Los anuncios en pantalla completa son cerrados.</string>
@@ -270,6 +333,8 @@ Descarga %2$s desde el sitio web."</string>
     <string name="revanced_hide_action_button_label_title">Ocultar etiquetas de botón de acción</string>
     <string name="revanced_hide_action_button_like_dislike_summary">Oculta los botones \"Me gusta\" y \"no me gusta\". No funciona en el diseño del reproductor antiguo.</string>
     <string name="revanced_hide_action_button_like_dislike_title">Ocultar botones Me gusta y No me gusta</string>
+    <string name="revanced_hide_action_button_lyrics_summary">Esconde el botón de letras.</string>
+    <string name="revanced_hide_action_button_lyrics_title">Esconde el botón de letras.</string>
     <string name="revanced_hide_action_button_radio_summary">Oculta el botón Radio.</string>
     <string name="revanced_hide_action_button_radio_title">Ocultar botón de emisoras de radio</string>
     <string name="revanced_hide_action_button_share_summary">Oculta el botón Compartir.</string>
@@ -330,7 +395,7 @@ Descarga %2$s desde el sitio web."</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ocultar Desfijar del menú de marcación rápida</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ocultar menú de vista de créditos de canción</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Oculta los anuncios en pantalla completa."</string>
-    <string name="revanced_hide_fullscreen_ads_title">Ocultar anuncios en pantalla completa</string>
+    <string name="revanced_hide_fullscreen_ads_title">Ocultar anuncios a pantalla completa</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Oculta el botón Compartir en el reproductor de pantalla completa.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ocultar el botón Compartir en pantalla completa</string>
     <string name="revanced_hide_general_ads_summary">Oculta anuncios generales.</string>
@@ -541,6 +606,7 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_sb_segments_sponsor">Patrocinador</string>
     <string name="revanced_sb_segments_sponsor_sum">Promoción pagada, referencias pagadas y anuncios directos. No es para promoción propia ni para menciones gratuitas a causas, creadores, sitios web o productos que les gusten.</string>
     <string name="revanced_sb_skip_automatically">Omitir automáticamente</string>
+    <string name="revanced_sb_skip_automatically_once">Omitir automáticamente una vez</string>
     <string name="revanced_sb_skip_ignore">Deshabilitar</string>
     <string name="revanced_sb_skipped_filler">Relleno omitido.</string>
     <string name="revanced_sb_skipped_hook">Enganche omitido.</string>
@@ -576,6 +642,7 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_settings_import_reset">Configuración restablecida por defecto.</string>
     <string name="revanced_settings_import_success">Configuración importada de %d.</string>
     <string name="revanced_settings_reset">Restablecer</string>
+    <string name="revanced_settings_reset_color">Restablecer color</string>
     <string name="revanced_settings_search_clear_history">Eliminar el historial de búsqueda</string>
     <string name="revanced_settings_search_clear_history_message">¿Deseas borrar el historial de búsqueda?</string>
     <string name="revanced_settings_search_empty_history_summary">Para guardar el historial de búsqueda, escriba una consulta de búsqueda y pulse Intro.</string>
@@ -603,10 +670,7 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Selecciona la versión de la aplicación a simular para las letras.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Versión de la aplicación a simular para letras</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Simular versión de la aplicación para letras</string>
-    <string name="revanced_spoof_app_version_summary">"Modificación de la versión del cliente a la versión antigua.
-
-- Esto cambiará la apariencia de la aplicación, pero pueden producirse efectos secundarios desconocidos.
-- Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hasta que se borren los datos de la aplicación."</string>
+    <string name="revanced_spoof_app_version_summary">Engaña al servidor para que crea que estás usando una versión anterior de la aplicación, restaurando así funciones de la interfaz antigua</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desactivar el modo radio en las regiones canadienses</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desactivar letras en tiempo real</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restaura el antiguo panel de control flotante</string>
@@ -615,8 +679,8 @@ Toca para ver cómo crear una clave de API."</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - La sección de comentarios no aparece en el feed de inicio</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versión falseada de aplicación no válida: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Seleccione el objetivo de la versión de la app a modificar.</string>
-    <string name="revanced_spoof_app_version_target_title">Objetivo de la versión de la app a modificar</string>
-    <string name="revanced_spoof_app_version_title">Modificar versión de aplicación</string>
+    <string name="revanced_spoof_app_version_target_title">Versión a falsificar de la app</string>
+    <string name="revanced_spoof_app_version_title">Falsificar versión de la app</string>
     <string name="revanced_spoof_client_summary">Falsifica el cliente para prevenir problemas en la reproducción.</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
     <string name="revanced_spoof_client_type_summary">"Define un cliente de por defecto para el falsificado."</string>

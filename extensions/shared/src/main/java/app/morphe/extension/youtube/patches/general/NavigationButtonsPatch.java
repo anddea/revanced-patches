@@ -1,3 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.general;
 
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
@@ -5,8 +16,11 @@ import static app.morphe.extension.youtube.shared.NavigationBar.NavigationButton
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.text.Spanned;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -16,6 +30,7 @@ import com.google.protobuf.MessageLite;
 import org.apache.commons.lang3.BooleanUtils;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +38,14 @@ import java.util.Map;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.shared.settings.IntegerSetting;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Accessibility;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.AccessibilityData;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonRenderer;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Buttons;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarItemRenderer;
+import app.morphe.extension.youtube.innertube.IconOuterClass.Icon;
+import app.morphe.extension.youtube.innertube.IconOuterClass.YTIconType;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.RootView;
@@ -35,8 +57,11 @@ public final class NavigationButtonsPatch {
     private static final boolean ENABLE_NARROW_NAVIGATION_BUTTONS
             = Settings.ENABLE_NARROW_NAVIGATION_BUTTONS.get();
 
-    private static final boolean ENABLE_TRANSLUCENT_NAVIGATION_BAR
-            = Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR.get();
+    private static final boolean DISABLE_TRANSLUCENT_STATUS_BAR
+            = Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get();
+
+    private static final boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR
+            = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR.get();
 
     private static final boolean HIDE_NAVIGATION_LABEL
             = Settings.HIDE_NAVIGATION_LABEL.get();
@@ -65,6 +90,21 @@ public final class NavigationButtonsPatch {
     private static volatile WeakReference<TextView> searchQueryRef = new WeakReference<>(null);
 
     private static View.OnClickListener openSearchBar;
+
+    private static final boolean SHOW_SETTINGS_BUTTON = Settings.SHOW_SETTINGS_BUTTON.get();
+    private static final IntegerSetting SHOW_SETTINGS_BUTTON_INDEX = Settings.SHOW_SETTINGS_BUTTON_INDEX;
+    private static final boolean SHOW_SETTINGS_BUTTON_TYPE = Settings.SHOW_SETTINGS_BUTTON_TYPE.get();
+
+    private static final boolean SHOW_TOOLBAR_SETTINGS_BUTTON =
+            Settings.SHOW_TOOLBAR_SETTINGS_BUTTON.get();
+    private static final IntegerSetting SHOW_TOOLBAR_SETTINGS_BUTTON_INDEX =
+            Settings.SHOW_TOOLBAR_SETTINGS_BUTTON_INDEX;
+    private static final boolean SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE =
+            Settings.SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE.get();
+
+    private static final String SETTINGS_BUTTON_ENUM_NAME = "SETTINGS_CAIRO";
+
+    private static Object pivotBarSettingsRenderer;
 
     private static final View.OnClickListener openSearchBarOnClickListener = v -> {
         if (RootView.isSearchBarActive() && searchQueryRef.get() != null) {
@@ -95,8 +135,48 @@ public final class NavigationButtonsPatch {
     /**
      * Injection point.
      */
-    public static boolean enableTranslucentNavigationBar() {
-        return ENABLE_TRANSLUCENT_NAVIGATION_BAR;
+    public static boolean useAnimatedNavigationButtons(boolean original) {
+        return Settings.NAVIGATION_BAR_ANIMATIONS.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean allowCollapsingToolbarLayout(boolean original) {
+        if (DISABLE_TRANSLUCENT_STATUS_BAR) return false;
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean useTranslucentNavigationStatusBar(boolean original) {
+        // Must check Android version, as forcing this on Android 11 or lower causes app hang and crash.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            return original;
+        }
+
+        if (DISABLE_TRANSLUCENT_STATUS_BAR) {
+            return false;
+        }
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean useTranslucentNavigationButtons(boolean original) {
+        // Feature requires Android 13+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            return original;
+        }
+
+        if (DISABLE_TRANSLUCENT_NAVIGATION_BAR) {
+            return false;
+        }
+
+        return original;
     }
 
     /**
@@ -230,6 +310,146 @@ public final class NavigationButtonsPatch {
         }
     }
 
+    /**
+     * Clones the Home tab renderer as a Settings tab while preserving YouTube's unknown proto
+     * fields and layout metadata.
+     */
+    @Nullable
+    public static byte[] parseSettingsPivotBarItemRenderer(MessageLite messageLite) {
+        if (!SHOW_SETTINGS_BUTTON) {
+            return null;
+        }
+
+        try {
+            var builder = PivotBarItemRenderer.parseFrom(messageLite.toByteArray()).toBuilder();
+            String iconName = builder.getIcon().getYtIconType().name();
+            if (NavigationButton.HOME.ytEnumNames.contains(iconName)) {
+                var accessibilityData = AccessibilityData.newBuilder()
+                        .setLabel(ResourceUtils.getString("menu_settings"))
+                        .build();
+                var accessibility = Accessibility.newBuilder()
+                        .setAccessibilityData(accessibilityData)
+                        .build();
+                var icon = Icon.newBuilder().setYtIconType(YTIconType.SETTINGS_CAIRO).build();
+
+                builder.clearAccessibility();
+                builder.setAccessibility(accessibility);
+                builder.clearIcon();
+                builder.setIcon(icon);
+                return builder.build().toByteArray();
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to parse Settings PivotBarItemRenderer", ex);
+        }
+        return null;
+    }
+
+    /**
+     * Injection point. Stores the cloned renderer until YouTube builds the pivot-bar list.
+     */
+    public static void setPivotBarSettingsRenderer(Object renderer) {
+        if (SHOW_SETTINGS_BUTTON) {
+            pivotBarSettingsRenderer = renderer;
+        }
+    }
+
+    /**
+     * Injection point. Adds the Settings renderer without mutating YouTube's immutable proto list.
+     */
+    public static List<Object> getPivotBarRendererList(List<Object> list) {
+        if (!SHOW_SETTINGS_BUTTON || pivotBarSettingsRenderer == null || list == null || list.isEmpty()) {
+            return list;
+        }
+
+        List<Object> newList = new ArrayList<>(list);
+        int preferredIndex = Math.max(0, Math.min(SHOW_SETTINGS_BUTTON_INDEX.get(), newList.size()));
+        newList.add(preferredIndex, pivotBarSettingsRenderer);
+        return newList;
+    }
+
+    /**
+     * Clones a native toolbar button and changes only its icon and accessibility metadata.
+     * Unknown proto fields are retained so the button remains compatible across versions.
+     */
+    @Nullable
+    public static byte[] createToolbarSettingsButton(List<MessageLite> rawButtonList) {
+        if (!SHOW_TOOLBAR_SETTINGS_BUTTON || rawButtonList == null || rawButtonList.isEmpty()) {
+            return null;
+        }
+
+        try {
+            for (MessageLite message : rawButtonList) {
+                Buttons buttons = Buttons.parseFrom(message.toByteArray());
+                if (buttons.hasButtonRenderer() && buttons.getButtonRenderer().hasIcon()) {
+                    ButtonRenderer.Builder renderer = buttons.getButtonRenderer().toBuilder();
+                    renderer.clearButtonRendererAccessibilityData();
+                    renderer.clearRendererAccessibilityData();
+                    renderer.setIcon(
+                            Icon.newBuilder()
+                                    .setYtIconType(YTIconType.SETTINGS_CAIRO)
+                                    .build()
+                    );
+
+                    return buttons.toBuilder()
+                            .setButtonRenderer(renderer.build())
+                            .build()
+                            .toByteArray();
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to create toolbar Settings button", ex);
+        }
+
+        return null;
+    }
+
+    /**
+     * Moves the newly appended Settings button to the configured one-based toolbar index.
+     */
+    public static void applyToolbarSettingsButtonIndex(List<MessageLite> rawButtonList) {
+        if (!SHOW_TOOLBAR_SETTINGS_BUTTON || rawButtonList == null || rawButtonList.isEmpty()) {
+            return;
+        }
+
+        int targetIndex = SHOW_TOOLBAR_SETTINGS_BUTTON_INDEX.get() - 1;
+        targetIndex = Math.max(0, Math.min(targetIndex, rawButtonList.size() - 1));
+
+        MessageLite settingsButton = rawButtonList.remove(rawButtonList.size() - 1);
+        rawButtonList.add(targetIndex, settingsButton);
+    }
+
+    /**
+     * Replaces the cloned native listener after YouTube finishes binding the toolbar button.
+     */
+    public static void setToolbarSettingsOnClickListener(String enumName, View toolbarView) {
+        if (!SHOW_TOOLBAR_SETTINGS_BUTTON || !SETTINGS_BUTTON_ENUM_NAME.equals(enumName)
+                || !(toolbarView instanceof ViewGroup viewGroup)) {
+            return;
+        }
+
+        ImageView imageView = Utils.getChildView(viewGroup, view -> view instanceof ImageView);
+        if (imageView == null) {
+            return;
+        }
+
+        Utils.runOnMainThreadDelayed(() -> {
+            imageView.setClickable(true);
+            if (SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE) {
+                imageView.setOnClickListener(GeneralPatch::openRVXSettings);
+                imageView.setOnLongClickListener(button -> {
+                    GeneralPatch.openYouTubeSettings(button);
+                    return true;
+                });
+            } else {
+                imageView.setOnClickListener(GeneralPatch::openYouTubeSettings);
+                imageView.setOnLongClickListener(button -> {
+                    GeneralPatch.openRVXSettings(button);
+                    return true;
+                });
+            }
+        }, 100);
+    }
+
     private static boolean shouldReplace() {
         return shouldReplace(NavigationBar.getLastAppNavigationEnum());
     }
@@ -301,6 +521,17 @@ public final class NavigationButtonsPatch {
      * Injection point.
      */
     public static void navigationTabCreated(NavigationButton button, View tabView) {
+        if (SHOW_SETTINGS_BUTTON && button == NavigationButton.SETTINGS) {
+            Utils.runOnMainThread(() -> tabView.setOnClickListener(v -> {
+                if (SHOW_SETTINGS_BUTTON_TYPE) {
+                    GeneralPatch.openRVXSettings(v);
+                } else {
+                    GeneralPatch.openYouTubeSettings(v);
+                }
+            }));
+            return;
+        }
+
         if (REPLACE_NAVIGATION_BUTTON && button == REPLACE_NAVIGATION_BUTTON_TARGET) {
             tabView.setOnClickListener(openSearchBarOnClickListener);
             Utils.runOnMainThread(() -> tabView.setOnClickListener(openSearchBarOnClickListener));
