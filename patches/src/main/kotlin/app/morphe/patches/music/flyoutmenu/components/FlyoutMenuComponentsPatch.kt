@@ -44,7 +44,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private val resourceFileArray = arrayOf(
-    "yt_outline_play_arrow_half_circle_black_24"
+    "yt_outline_play_arrow_half_circle_black_24",
+    "yt_bold_play_arrow_half_circle_black_24",
 ).map { "$it.png" }.toTypedArray()
 
 private val flyoutMenuComponentsResourcePatch = resourcePatch(
