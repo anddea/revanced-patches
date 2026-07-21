@@ -89,9 +89,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private val resourceFileArray = arrayOf(
-    "yt_outline_play_arrow_half_circle_black_24",
-    "yt_bold_play_arrow_half_circle_black_24",
-).map { "$it.png" }.toTypedArray()
+    "yt_bold_play_arrow_half_circle_black_24.png",
+    "yt_outline_play_arrow_half_circle_black_24.png",
+)
 
 private val flyoutMenuComponentsResourcePatch = resourcePatch(
     description = "flyoutMenuComponentsResourcePatch"
@@ -104,10 +104,14 @@ private val flyoutMenuComponentsResourcePatch = resourcePatch(
                     directory, *resourceFileArray
                 )
             }
-            .let { resourceGroups ->
-                resourceGroups.forEach {
-                    copyResources("music/flyout", it)
-                }
+            .plus(
+                ResourceGroup(
+                    "drawable",
+                    "yt_bold_youtube_logo_icon_vd_theme_24.xml"
+                )
+            )
+            .forEach { resourceGroup ->
+                copyResources("music/flyout", resourceGroup)
             }
     }
 }
