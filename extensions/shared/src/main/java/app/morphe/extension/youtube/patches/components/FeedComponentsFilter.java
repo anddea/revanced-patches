@@ -107,6 +107,7 @@ public final class FeedComponentsFilter extends Filter {
                 "images_post_responsive",
                 "images_post_root",
                 "images_post_slim",
+                "options_post_responsive_root",
                 "options_post_root",
                 "poll_post_responsive_root",
                 "poll_post_root",
