@@ -30,8 +30,10 @@ import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_43_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_03_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_38_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_17_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerClose
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerExpand
@@ -72,7 +74,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "$PLAYER_PATH/MiniplayerPatch;"
 
 // YT uses "Miniplayer" without a space between 'mini' and 'player: https://support.google.com/youtube/answer/9162927.
-@Suppress("unused", "SpellCheckingInspection")
+@Suppress("unused")
 val miniplayerPatch = bytecodePatch(
     MINIPLAYER.title,
     MINIPLAYER.summary,
@@ -163,7 +165,7 @@ val miniplayerPatch = bytecodePatch(
 
         miniplayerOverrideFingerprint.matchOrThrow().let {
             it.method.apply {
-                val stringIndex = it.stringMatches!!.first().index
+                val stringIndex = it.stringMatches.first().index
                 val walkerIndex = indexOfFirstInstructionOrThrow(stringIndex) {
                     val reference = getReference<MethodReference>()
                     reference?.returnType == "Z" &&
@@ -499,6 +501,48 @@ val miniplayerPatch = bytecodePatch(
                             )
                         }
                     )
+                }
+            }
+        }
+
+        // endregion
+
+        // region Fix minimal miniplayer using the wrong pause/play bold icons
+
+        if (is_20_31_or_greater) {
+            if (is_21_17_or_greater) {
+                // 21.17+ removed the code to set the non-bold miniplayer pause/play icon,
+                // and removed the non bold yt_fill_pause_white_36 icons.
+                MiniplayerSetIconsFingerprint.let {
+                    it.method.apply {
+                        val setImageDrawableIndex = it.instructionMatches.first().index
+
+                        addInstruction(
+                            setImageDrawableIndex + 1,
+                            "invoke-static { p0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                                    "overrideMiniplayerActionButtonDrawable(Landroid/widget/ImageView;I)V",
+                        )
+                    }
+                }
+            } else {
+                // Fix bold icons always shown for 20.31 to 21.16
+                MiniplayerSetIconsLegacyFingerprint.method.apply {
+                    findInstructionIndicesReversedOrThrow {
+                        opcode == Opcode.INVOKE_INTERFACE &&
+                                getReference<MethodReference>()?.let { ref ->
+                                    ref.returnType == "Z" && ref.parameterTypes.isEmpty()
+                                } == true
+                    }.forEach { index ->
+                        val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                        addInstructions(
+                            index + 2,
+                            """
+                                invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->allowBoldIcons(Z)Z
+                                move-result v$register
+                            """
+                        )
+                    }
                 }
             }
         }
