@@ -54,7 +54,6 @@ import org.w3c.dom.Element
 
 private const val DEFAULT_ICON = "extension"
 private const val EMPTY_ICON = "empty_icon"
-private const val CAIRO_VISUAL_ICON_SCALE = 1.2f
 
 @Suppress("unused")
 val visualPreferencesIconsPatch = resourcePatch(
@@ -158,18 +157,17 @@ val visualPreferencesIconsPatch = resourcePatch(
             .copyTo(get("res/drawable/revanced_settings_cairo_key_icon.xml"), overwrite = true)
 
         document("res/drawable/revanced_settings_cairo_key_icon.xml").use { document ->
-            if (!isCustomBrandingSettingsIcon) {
-                document.doRecursively loop@{ node ->
-                    if (node !is Element || node.tagName != "group") return@loop
+            val targetScale = if (isCustomBrandingSettingsIcon) {
+                if (customBrandingIconType == "squid_game") "0.6" else "0.5"
+            } else {
+                "0.6"
+            }
 
-                    node.getAttribute("android:scaleX").toFloatOrNull()?.let { scale ->
-                        node.setAttribute("android:scaleX", (scale * CAIRO_VISUAL_ICON_SCALE).toString())
-                    }
+            document.doRecursively loop@{ node ->
+                if (node !is Element || node.tagName != "group") return@loop
 
-                    node.getAttribute("android:scaleY").toFloatOrNull()?.let { scale ->
-                        node.setAttribute("android:scaleY", (scale * CAIRO_VISUAL_ICON_SCALE).toString())
-                    }
-                }
+                node.setAttribute("android:scaleX", targetScale)
+                node.setAttribute("android:scaleY", targetScale)
             }
         }
 
@@ -355,6 +353,7 @@ private val rvxPreferenceKey = mapOf(
     "revanced_alt_thumbnail_player" to "revanced_preference_screen_player",
     "revanced_alt_thumbnail_search" to "revanced_hide_shorts_shelf_search",
     "revanced_alt_thumbnail_subscriptions" to "revanced_hide_navigation_subscriptions_button",
+    "revanced_auto_captions_style" to "captions_key",
     "revanced_bypass_url_redirects" to "M 589.23 392 L 589.23 510.62 Q 589.23 517.17 593.7 521.59 Q 598.17 526 604.82 526 Q 611.46 526 615.73 521.59 Q 620 517.17 620 510.62 L 620 367.69 Q 620 355.9 612.05 347.95 Q 604.1 340 592.31 340 L 449.38 340 Q 442.83 340 438.41 344.47 Q 434 348.94 434 355.59 Q 434 362.23 438.41 366.5 Q 442.83 370.77 449.38 370.77 L 567 370.77 L 340.38 597.38 Q 336 601.58 336 608.06 Q 336 614.55 339.99 618.77 Q 344.77 623.77 351.47 623.38 Q 358.16 623 362.62 618.62 L 589.23 392 Z M 480.4 840 Q 405.22 840 340.11 811.66 Q 274.99 783.32 225.86 734.24 Q 176.73 685.16 148.37 620.03 Q 120 554.89 120 479.63 Q 120 405.14 148.34 339.56 Q 176.68 273.99 225.76 225.36 Q 274.84 176.73 339.97 148.37 Q 405.11 120 480.37 120 Q 554.86 120 620.44 148.34 Q 686.01 176.68 734.64 225.26 Q 783.27 273.84 811.63 339.52 Q 840 405.19 840 479.6 Q 840 554.78 811.66 619.89 Q 783.32 685.01 734.74 733.96 Q 686.16 782.9 620.48 811.45 Q 554.81 840 480.4 840 Z M 480.5 809.23 Q 617.38 809.23 713.31 713.19 Q 809.23 617.15 809.23 479.5 Q 809.23 342.62 713.5 246.69 Q 617.76 150.77 480 150.77 Q 342.85 150.77 246.81 246.5 Q 150.77 342.24 150.77 480 Q 150.77 617.15 246.81 713.19 Q 342.85 809.23 480.5 809.23 Z M 480 480 Z",
     "revanced_change_player_flyout_menu_toggle" to "M 280 680 Q 196.667 680 138.333 621.72 Q 80 563.439 80 480.181 Q 80 396.923 138.333 338.461 Q 196.667 280 280 280 L 680 280 Q 763.333 280 821.667 338.28 Q 880 396.561 880 479.819 Q 880 563.077 821.667 621.539 Q 763.333 680 680 680 L 280 680 Z M 280 649.231 L 680 649.231 Q 750.558 649.231 799.894 599.93 Q 849.231 550.63 849.231 480.123 Q 849.231 409.615 799.894 360.192 Q 750.558 310.769 680 310.769 L 280 310.769 Q 209.442 310.769 160.106 360.07 Q 110.769 409.37 110.769 479.877 Q 110.769 550.385 160.106 599.808 Q 209.442 649.231 280 649.231 Z M 679.991 571 Q 718.204 571 745.102 544.726 Q 772 518.453 772 480.149 Q 772 441.846 745.251 415.423 Q 718.502 389 680.29 389 Q 642.077 389 615.654 415.274 Q 589.231 441.547 589.231 479.851 Q 589.231 518.154 615.505 544.577 Q 641.778 571 679.991 571 Z M 480 480 Z",
     "revanced_change_share_sheet" to "revanced_hide_shorts_share_button",
