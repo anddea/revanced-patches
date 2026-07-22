@@ -54,7 +54,6 @@ import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.music.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
-import app.morphe.patches.music.utils.playservice.is_6_39_or_greater
 import app.morphe.patches.music.utils.playservice.is_6_42_or_greater
 import app.morphe.patches.music.utils.playservice.is_6_48_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_05_or_greater
@@ -72,7 +71,6 @@ import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
-import app.morphe.patches.shared.settingmenu.settingsMenuPatch
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
@@ -86,8 +84,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-private const val EXTENSION_SETTINGS_MENU_DESCRIPTOR =
-    "$GENERAL_PATH/SettingsMenuPatch;"
 private const val CUSTOM_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/CustomFilter;"
 private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
@@ -104,7 +100,6 @@ val layoutComponentsPatch = bytecodePatch(
         settingsPatch,
         lithoFilterPatch,
         sharedResourceIdPatch,
-        settingsMenuPatch,
         versionCheckPatch,
     )
 
@@ -206,37 +201,6 @@ val layoutComponentsPatch = bytecodePatch(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $GENERAL_CLASS_DESCRIPTOR->hideNotificationButton(Landroid/view/View;)V"
                 )
-            }
-        }
-
-        // endregion
-
-        // region patch for hide setting menus
-
-        preferenceScreenFingerprint.methodOrThrow().apply {
-            addInstructions(
-                0, """
-                    invoke-virtual {p0}, Lcom/google/android/apps/youtube/music/settings/fragment/SettingsHeadersFragment;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
-                    move-result-object v0
-                    invoke-static {v0}, $EXTENSION_SETTINGS_MENU_DESCRIPTOR->hideSettingsMenu(Landroidx/preference/PreferenceScreen;)V
-                    """
-            )
-        }
-
-        // The lowest version supported by the patch does not have parent tool settings
-        if (is_6_39_or_greater) {
-            parentToolMenuFingerprint.matchOrThrow().let {
-                it.method.apply {
-                    val index = it.instructionMatches.first().index + 1
-                    val register = getInstruction<FiveRegisterInstruction>(index).registerD
-
-                    addInstructions(
-                        index, """
-                            invoke-static {v$register}, $EXTENSION_SETTINGS_MENU_DESCRIPTOR->hideParentToolsMenu(Z)Z
-                            move-result v$register
-                            """
-                    )
-                }
             }
         }
 
@@ -440,68 +404,6 @@ val layoutComponentsPatch = bytecodePatch(
             CategoryType.GENERAL,
             "revanced_hide_playlist_card_shelf",
             "false"
-        )
-        if (is_6_39_or_greater) {
-            addSwitchPreference(
-                CategoryType.SETTINGS,
-                "revanced_hide_settings_menu_parent_tools",
-                "false",
-                false
-            )
-        }
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_general",
-            "false",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_playback",
-            "false",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_data_saving",
-            "false",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_downloads_and_storage",
-            "false",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_notification",
-            "false",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_privacy_and_location",
-            "false",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_recommendations",
-            "false",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_paid_memberships",
-            "true",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_about",
-            "false",
-            false
         )
 
         updatePatchStatus(HIDE_LAYOUT_COMPONENTS)

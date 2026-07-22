@@ -130,38 +130,11 @@ internal val mediaRouteButtonFingerprint = legacyFingerprint(
     strings = listOf("MediaRouteButton")
 )
 
-/**
- * This fingerprint is compatible with YouTube Music 6.39.50+.
- */
-internal val parentToolMenuFingerprint = legacyFingerprint(
-    name = "parentToolMenuFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET,
-    ),
-    strings = listOf("pref_key_parent_tools"),
-    customFingerprint = { method, _ ->
-        method.name == "onSettingsLoaded"
-    }
-)
-
 internal val playerOverlayChipFingerprint = legacyFingerprint(
     name = "playerOverlayChipFingerprint",
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     literals = listOf(playerOverlayChip),
-)
-
-internal val preferenceScreenFingerprint = legacyFingerprint(
-    name = "preferenceScreenFingerprint",
-    returnType = "Landroid/view/View;",
-    customFingerprint = { method, _ ->
-        method.definingClass == "Lcom/google/android/apps/youtube/music/settings/fragment/SettingsHeadersFragment;" &&
-                method.name == "onCreateView"
-    }
 )
 
 internal val searchActionViewFingerprint = legacyFingerprint(
