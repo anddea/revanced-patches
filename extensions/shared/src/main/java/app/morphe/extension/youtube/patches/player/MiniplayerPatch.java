@@ -21,10 +21,13 @@ import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_21_OR_GREAT
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_29_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_21_17_OR_GREATER;
+import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MINIMAL;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,6 +38,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.utils.Logger;
@@ -126,15 +131,7 @@ public final class MiniplayerPatch {
             // YT seems to use a minimum height to calculate the minimum miniplayer width based on the video.
             // 170 seems to be the smallest that can be used and using less makes no difference.
             final int WIDTH_DIP_MIN = 170; // Seems to be the smallest that works.
-            final int HORIZONTAL_PADDING_DIP = 15; // Estimated padding.
-            // Round down to the nearest 5 pixels, to keep any error toasts easier to read.
-            final int estimatedWidthDipMax = 5 * ((deviceDipWidth - HORIZONTAL_PADDING_DIP) / 5);
-            // On some ultra low end devices the pixel width and density are the same number,
-            // which causes the estimate to always give a value of 1.
-            // Fix this by using a fixed size of double the min width.
-            final int WIDTH_DIP_MAX = estimatedWidthDipMax <= WIDTH_DIP_MIN
-                    ? 2 * WIDTH_DIP_MIN
-                    : estimatedWidthDipMax;
+            final int WIDTH_DIP_MAX = getWidthDipMax(deviceDipWidth);
             Logger.printDebug(() -> "Screen dip width: " + deviceDipWidth + " maxWidth: " + WIDTH_DIP_MAX);
 
             int dipWidth = Settings.MINIPLAYER_WIDTH_DIP.get();
@@ -153,6 +150,18 @@ public final class MiniplayerPatch {
         } catch (Exception ex) {
             Logger.printException(() -> "setMiniPlayerSize failure", ex);
         }
+    }
+
+    private static int getWidthDipMax(int deviceDipWidth) {
+        final int HORIZONTAL_PADDING_DIP = 15; // Estimated padding.
+        // Round down to the nearest 5 pixels, to keep any error toasts easier to read.
+        final int estimatedWidthDipMax = 5 * ((deviceDipWidth - HORIZONTAL_PADDING_DIP) / 5);
+        // On some ultra high-end devices the pixel width and density are the same number,
+        // which causes the estimate to always give a value of 1.
+        // Fix this by using a fixed size of double the min width.
+        return estimatedWidthDipMax <= 170
+                ? 2 * 170
+                : estimatedWidthDipMax;
     }
 
     /**
@@ -187,8 +196,8 @@ public final class MiniplayerPatch {
             (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3 || CURRENT_TYPE == MODERN_4)
                     && Settings.MINIPLAYER_HIDE_SUBTEXT.get();
 
-    // 19.25 is last version that has forward/back buttons for phones,
-    // but buttons still show for tablets/foldable devices and they don't work well so always hide.
+    // 19.25 is last version that has "forward"/"back" buttons for phones,
+    // but buttons still show for tablets/foldable devices, and they don't work well so always hide.
     private static final boolean HIDE_REWIND_FORWARD_ENABLED = CURRENT_TYPE == MODERN_1
             && (IS_19_34_OR_GREATER || Settings.MINIPLAYER_HIDE_REWIND_FORWARD.get());
 
@@ -197,6 +206,15 @@ public final class MiniplayerPatch {
 
     private static final boolean MINIPLAYER_HORIZONTAL_DRAG_ENABLED =
             DRAG_AND_DROP_ENABLED && Settings.MINIPLAYER_HORIZONTAL_DRAG.get();
+
+    private static final Map<Integer, String> MINIMAL_PLAYER_DRAWABLES = Map.of(
+            ResourceUtils.getStringIdentifier("accessibility_pause"),
+            "yt_fill_pause_vd_theme_24",
+            ResourceUtils.getStringIdentifier("accessibility_play"),
+            "yt_fill_play_arrow_vd_theme_24",
+            ResourceUtils.getStringIdentifier("accessibility_replay"),
+            "yt_outline_replay_arrow_vd_theme_24"
+    );
 
     /**
      * Remove a broken and always present subtitle text that is only
@@ -367,6 +385,12 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static int getModernMiniplayerOverrideType(int original) {
+        if (CURRENT_TYPE == MINIMAL) {
+            // In newer app targets the minimal player can show the wrong icon if modern 4 is allowed.
+            // Forcing to modern 1 seems to work.
+            return Objects.requireNonNull(MODERN_1.modernPlayerType);
+        }
+
         Integer modernValue = CURRENT_TYPE.modernPlayerType;
         return modernValue == null
                 ? original
@@ -618,6 +642,36 @@ public final class MiniplayerPatch {
             }
         } catch (Exception ex) {
             Logger.printException(() -> "playerOverlayGroupCreated failure", ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean allowBoldIcons(boolean original) {
+        if (CURRENT_TYPE == MINIMAL) {
+            // Minimal player does not have the correct pause/play icon (it's too large).
+            // Use the non-bold icons instead.
+            return false;
+        }
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void overrideMiniplayerActionButtonDrawable(ImageView view, int contentDescriptionId) {
+        if (!IS_21_17_OR_GREATER || CURRENT_TYPE != MINIMAL) {
+            return;
+        }
+
+        String drawableName = MINIMAL_PLAYER_DRAWABLES.get(contentDescriptionId);
+        if (drawableName != null) {
+            Drawable drawable = ResourceUtils.getDrawable(drawableName);
+            if (drawable != null) {
+                view.setImageDrawable(drawable);
+            }
         }
     }
 }

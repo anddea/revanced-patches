@@ -3,6 +3,7 @@ package app.morphe.extension.youtube.utils;
 import static app.morphe.extension.shared.utils.ResourceUtils.getAnimation;
 import static app.morphe.extension.shared.utils.ResourceUtils.getInteger;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -57,10 +58,10 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_19_28_OR_GREATER = isVersionOrGreater("19.28.00");
     public static final boolean IS_19_29_OR_GREATER = isVersionOrGreater("19.29.00");
     public static final boolean IS_19_34_OR_GREATER = isVersionOrGreater("19.34.00");
-    public static final boolean IS_20_09_OR_GREATER = isVersionOrGreater("20.09.00");
     public static final boolean IS_20_10_OR_GREATER = isVersionOrGreater("20.10.00");
     public static final boolean IS_20_22_OR_GREATER = isVersionOrGreater("20.22.00");
     public static final boolean IS_20_31_OR_GREATER = isVersionOrGreater("20.31.00");
+    public static final boolean IS_21_17_OR_GREATER = isVersionOrGreater("21.17.00");
 
     public static final boolean IS_ARC = hasSystemFeature("org.chromium.arc");
     public static final boolean IS_AUTOMOTIVE = hasSystemFeature("android.hardware.type.automotive");
@@ -414,6 +415,7 @@ public class ExtendedUtils extends PackageUtils {
             }
         }
 
+        @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             switch (event.getAction()) {
