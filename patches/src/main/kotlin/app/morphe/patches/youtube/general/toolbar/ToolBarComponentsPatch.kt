@@ -65,7 +65,7 @@ import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMuta
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.misc.fix.proto.immutableMethodRef
 import app.morphe.patches.shared.misc.fix.proto.mutableCopyMethodRef
-import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethod
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
 import app.morphe.patches.youtube.utils.castbutton.castButtonPatch
 import app.morphe.patches.youtube.utils.castbutton.hookToolBarCastButton
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -787,7 +787,7 @@ val toolBarComponentsPatch = bytecodePatch(
                             if-eqz v$byteRegister, :immutable
 
                             sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
-                            invoke-static {v$protoListFreeRegister, v$byteRegister}, $parseByteArrayMethod
+                            invoke-static {v$protoListFreeRegister, v$byteRegister}, ${parseByteArrayMethodRef.get()!!}
                             move-result-object v$protoListFreeRegister
                             check-cast v$protoListFreeRegister, $buttonsClass
                             invoke-interface {v$protoListRegister, v$protoListFreeRegister}, Ljava/util/List;->add(Ljava/lang/Object;)Z

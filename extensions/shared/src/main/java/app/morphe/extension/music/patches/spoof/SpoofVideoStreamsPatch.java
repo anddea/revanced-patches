@@ -1,8 +1,10 @@
 package app.morphe.extension.music.patches.spoof;
 
 import static app.morphe.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE;
+import static app.morphe.extension.shared.spoof.ClientType.ANDROID_MUSIC_NO_SDK;
+import static app.morphe.extension.shared.spoof.ClientType.ANDROID_MUSIC_REEL;
 import static app.morphe.extension.shared.spoof.ClientType.ANDROID_REEL_NO_AUTH;
-import static app.morphe.extension.shared.spoof.ClientType.ANDROID_VR_1_64;
+import static app.morphe.extension.shared.spoof.ClientType.ANDROID_VR_1_73;
 import static app.morphe.extension.shared.spoof.ClientType.TV;
 import static app.morphe.extension.shared.spoof.ClientType.VISIONOS;
 
@@ -19,9 +21,11 @@ public class SpoofVideoStreamsPatch {
     public static void setClientOrderToUse() {
         List<ClientType> availableClients = List.of(
                 TV,
-                ANDROID_VR_1_64,
+                ANDROID_VR_1_73,
                 VISIONOS,
-                ANDROID_REEL_NO_AUTH
+                ANDROID_REEL_NO_AUTH,
+                ANDROID_MUSIC_REEL,
+                ANDROID_MUSIC_NO_SDK
         );
 
         app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.setClientsToUse(

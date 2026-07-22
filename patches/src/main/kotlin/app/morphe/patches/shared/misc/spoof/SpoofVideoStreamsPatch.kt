@@ -5,7 +5,11 @@
  * Original hard forked code:
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
  */
 
 package app.morphe.patches.shared.misc.spoof
@@ -22,7 +26,8 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
-import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethod
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
+import app.morphe.patches.shared.misc.media.mediaFetchPlayerConfigPatch
 import app.morphe.util.ResourceGroup
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
@@ -41,6 +46,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -66,16 +73,17 @@ private val spoofVideoStreamsResourcePatch = resourcePatch {
 internal fun spoofVideoStreamsPatch(
     extensionClass: String,
     mainActivityOnCreateFingerprint: Fingerprint,
-    fixMediaFetchHotConfig: BytecodePatchBuilder.() -> Boolean,
+    fixMediaFetchHotConfig: BytecodePatchBuilder.() -> Boolean = { false },
     fixMediaFetchHotConfigAlternative: BytecodePatchBuilder.() -> Boolean,
     fixParsePlaybackResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean,
     fixMediaSessionFeatureFlag: BytecodePatchBuilder.() -> Boolean,
     fixReelItemWatchResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean,
-    hookAccountIdentity: BytecodePatchBuilder.() -> Boolean,
+    hookAccountIdentity: BytecodePatchBuilder.() -> Boolean = { false },
     useNewRequestBuilderFingerprint: BytecodePatchBuilder.() -> Boolean,
     block: BytecodePatchBuilder.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
+    name = "Spoof video streams",
     description = "Adds options to spoof the client video streams to fix playback."
 ) {
     block()
@@ -83,6 +91,12 @@ internal fun spoofVideoStreamsPatch(
     dependsOn(
         fixProtoLibraryPatch,
         spoofVideoStreamsResourcePatch,
+        mediaFetchPlayerConfigPatch(
+            extensionClass = EXTENSION_CLASS,
+            hasMediaFetchHotConfig = fixMediaFetchHotConfig,
+            hasMediaSessionFeatureFlag = fixMediaSessionFeatureFlag,
+            highPriority = true
+        )
     )
 
     execute {
@@ -157,42 +171,55 @@ internal fun spoofVideoStreamsPatch(
             )
         }
 
-        CreateStreamingDataFingerprint.method.apply {
-            val setStreamDataMethodName = "patch_setStreamingData"
-            val resultMethodType = CreateStreamingDataFingerprint.classDef.type
-            val videoDetailsIndex = CreateStreamingDataFingerprint.instructionMatches.last().index
-            val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
-            val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
+        CreateStreamingDataFingerprint.let {
+            it.method.apply {
+                val videoDetailsMatch = it.instructionMatches[5]
+                val videoDetailsIndex = videoDetailsMatch.index
+                val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
+                val videoDetailsClass = videoDetailsMatch.instruction.getReference<FieldReference>()!!.type
 
-            addInstruction(
-                videoDetailsIndex + 1,
-                "invoke-direct { p0, v$videoDetailsRegister }, " +
-                        "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
-            )
+                val playerProtoClass = parameterTypes.first().toString()
+                val getStreamingDataField = it.instructionMatches.first().instruction.getReference<FieldReference>()!!
+                val setStreamingDataField = it.instructionMatches[1].instruction.getReference<FieldReference>()!!
+                val setPlayerConfigField = it.instructionMatches.last().instruction.getReference<FieldReference>()!!
+                val playerConfigClass = setPlayerConfigField.type
+                val mediaCommonConfigField = abrStateDataFingerprint(playerConfigClass)
+                    .instructionMatches[1].instruction.getReference<FieldReference>()!!
 
-            val setStreamingDataIndex = CreateStreamingDataFingerprint.instructionMatches.first().index
+                val (createBuilderMethod, mergeFromMethod) =
+                    with(PlayerConfigBuilderFingerprint) {
+                        Pair(
+                            instructionMatches[2].instruction.getReference<MethodReference>()!!,
+                            instructionMatches[4].instruction.getReference<MethodReference>()!!,
+                        )
+                    }
 
-            val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
-                .getReference<FieldReference>()!!.definingClass
+                val (castReference, buildMethod) =
+                    with(PlayerConfigBuilderFingerprint) {
+                        Pair(
+                            instructionMatches[5].instruction.getReference<TypeReference>()!!,
+                            instructionMatches[6].instruction.getReference<MethodReference>()!!
+                        )
+                    }
 
-            val setStreamingDataField = getInstruction(setStreamingDataIndex).getReference<FieldReference>()
+                val castInstruction = if (castReference.type != buildMethod.definingClass) """
+                    check-cast v4, $castReference
+                """ else """
+                    nop
+                """
 
-            val getStreamingDataField = getInstruction(
-                indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.definingClass == playerProtoClass
-                },
-            ).getReference<FieldReference>()
-
-            CreateStreamingDataFingerprint.classDef.methods.add(
-                ImmutableMethod(
-                    resultMethodType,
-                    setStreamDataMethodName,
-                    listOf(ImmutableMethodParameter(videoDetailsClass, null, "videoDetails")),
+                val helperMethod = ImmutableMethod(
+                    it.classDef.type,
+                    "patch_setStreamingData",
+                    listOf(
+                        ImmutableMethodParameter(videoDetailsClass, null, null),
+                        ImmutableMethodParameter(playerProtoClass, null, null)
+                    ),
                     "V",
                     AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
                     null,
                     null,
-                    MutableMethodImplementation(9),
+                    MutableMethodImplementation(11),
                 ).toMutable().apply {
                     addInstructionsWithLabels(
                         0,
@@ -200,33 +227,64 @@ internal fun spoofVideoStreamsPatch(
                             invoke-static { }, $EXTENSION_CLASS->isSpoofingEnabled()Z
                             move-result v0
                             if-eqz v0, :disabled
-    
+
                             # Get video ID.
                             iget-object v2, p1, $videoDetailsClass->c:Ljava/lang/String;
                             if-eqz v2, :disabled
-    
+
                             # Get streaming data.
                             invoke-static { v2 }, $EXTENSION_CLASS->getStreamingData(Ljava/lang/String;)[B
                             move-result-object v3
                             if-eqz v3, :disabled
-    
+
                             # Parse streaming data.
                             sget-object v4, $playerProtoClass->a:$playerProtoClass
-                            invoke-static { v4, v3 }, $parseByteArrayMethod
+                            invoke-static { v4, v3 }, ${parseByteArrayMethodRef.get()!!}
                             move-result-object v5
                             check-cast v5, $playerProtoClass
-    
+
                             # Set streaming data.
                             iget-object v6, v5, $getStreamingDataField
                             if-eqz v6, :disabled
                             iput-object v6, p0, $setStreamingDataField
-                            
+
+                            # Get player config.
+                            invoke-static { v2 }, $EXTENSION_CLASS->getPlayerConfig(Ljava/lang/String;)[B
+                            move-result-object v3
+                            if-eqz v3, :disabled
+                            sget-object v4, $playerConfigClass->a:$playerConfigClass
+                            invoke-virtual { v4 }, $createBuilderMethod
+                            move-result-object v4
+                            $castInstruction
+                            invoke-static { }, Lcom/google/protobuf/ExtensionRegistryLite;->getGeneratedRegistry()Lcom/google/protobuf/ExtensionRegistryLite;
+                            move-result-object v5
+                            invoke-virtual { v4, v3, v5 }, $mergeFromMethod
+                            move-result-object v5
+                            check-cast v5, $castReference
+                            invoke-virtual { v5 }, $buildMethod
+                            move-result-object v5
+                            check-cast v5, $playerConfigClass
+                            iget-object v6, v5, $mediaCommonConfigField
+                            if-eqz v6, :disabled
+
+                            # Set media common config.
+                            iget-object v5, p2, $setPlayerConfigField
+                            iput-object v6, v5, $mediaCommonConfigField
+                            iput-object v5, p2, $setPlayerConfigField
+
                             :disabled
                             return-void
                         """
                     )
                 }
-            )
+
+                it.classDef.methods.add(helperMethod)
+
+                addInstruction(
+                    videoDetailsIndex + 1,
+                    "invoke-direct { p0, v$videoDetailsRegister, p1 }, $helperMethod"
+                )
+            }
         }
 
         BuildRequestFingerprint.let {
@@ -252,17 +310,17 @@ internal fun spoofVideoStreamsPatch(
             addInstructions(
                 targetIndex,
                 """
-                        # Field a: Stream uri.
-                        # Field c: Http method.
-                        # Field d: Post data.
-                        move-object v0, p0  
-                        iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
-                        iget v2, v0, $definingClass->c:I
-                        iget-object v3, v0, $definingClass->d:[B
-                        invoke-static { v1, v2, v3 }, $EXTENSION_CLASS->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
-                        move-result-object v1
-                        iput-object v1, v0, $definingClass->d:[B
-                    """,
+                    # Field a: Stream uri.
+                    # Field c: Http method.
+                    # Field d: Post data.
+                    move-object v0, p0
+                    iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
+                    iget v2, v0, $definingClass->c:I
+                    iget-object v3, v0, $definingClass->d:[B
+                    invoke-static { v1, v2, v3 }, $EXTENSION_CLASS->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
+                    move-result-object v1
+                    iput-object v1, v0, $definingClass->d:[B
+                """
             )
         }
 
@@ -297,7 +355,7 @@ internal fun spoofVideoStreamsPatch(
             val sabrFieldReference = getInstruction<ReferenceInstruction>(sabrFieldIndex).reference as FieldReference
 
             Fingerprint(
-                returnType = mediaFetchEnumClass,
+                returnType = definingClass,
                 filters = opcodesToFilters(
                     Opcode.SGET_OBJECT,
                     Opcode.RETURN_OBJECT,
@@ -326,15 +384,6 @@ internal fun spoofVideoStreamsPatch(
             )
         }
 
-        if (fixMediaFetchHotConfig()) {
-            MediaFetchHotConfigFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS->useMediaFetchHotConfigReplacement(Z)Z"
-                )
-            }
-        }
-
         if (fixMediaFetchHotConfigAlternative()) {
             MediaFetchHotConfigAlternativeFingerprint.let {
                 it.method.insertLiteralOverride(
@@ -349,15 +398,6 @@ internal fun spoofVideoStreamsPatch(
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS->usePlaybackStartFeatureFlag(Z)Z"
-                )
-            }
-        }
-
-        if (fixMediaSessionFeatureFlag()) {
-            MediaSessionFeatureFlagFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS->useMediaSessionFeatureFlag(Z)Z"
                 )
             }
         }

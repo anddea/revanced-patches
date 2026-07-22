@@ -28,7 +28,7 @@ Tap the continue button and allow optimization changes."</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
     <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
-    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to Android Reel or TV</string>
+    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
     <string name="morphe_force_original_audio_title">Force original audio language</string>
@@ -52,7 +52,16 @@ Tap the continue button and allow optimization changes."</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking query parameter is removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_title">Sanitize sharing links</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• Experimental client and may stop working anytime</string>
+    <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
+    <string name="morphe_livestream_dvr_summary">Allows seeking on all livestreams, even those that normally restrict it</string>
+    <string name="morphe_livestream_dvr_not_available">"\'Enable livestream DVR\' may not be available
+
+To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV\'"</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">Expand livestream DVR duration</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">Allows you to rewind live broadcasts up to 7 days into the past</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Expand livestream DVR duration\' may not be available
+
+To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV\'"</string>
     <string name="morphe_spoof_video_streams_about_js">• If deobfuscation fails, playback may fail</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Audio track menu is missing</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• No AV1 video codec</string>

@@ -20,7 +20,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
-import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethod
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
 import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -281,7 +281,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                         if-eqz v$constructorStartRegister, :ignore_settings
 
                         sget-object v$messageLiteRegister, $pivotBarItemRendererType->a:$pivotBarItemRendererType
-                        invoke-static { v$messageLiteRegister, v$constructorStartRegister }, $parseByteArrayMethod
+                        invoke-static { v$messageLiteRegister, v$constructorStartRegister }, ${parseByteArrayMethodRef.get()!!}
                         move-result-object v$messageLiteRegister
                         check-cast v$messageLiteRegister, $pivotBarItemRendererType
 

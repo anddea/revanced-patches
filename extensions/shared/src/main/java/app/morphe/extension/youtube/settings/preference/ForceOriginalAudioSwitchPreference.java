@@ -13,11 +13,10 @@ import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 @SuppressWarnings({"deprecation", "unused"})
 public class ForceOriginalAudioSwitchPreference extends SwitchPreference {
 
-    // Spoof stream patch is not included, or is spoofing to a client with multiple audio streams.
+    // Spoof stream patch is not included, or is not spoofing to a client with multiple audio streams.
     private static final boolean available = !SpoofVideoStreamsPatch.isPatchIncluded()
             || !SharedYouTubeSettings.SPOOF_VIDEO_STREAMS.get()
-            || SpoofVideoStreamsPatch.getPreferredClient() == ClientType.ANDROID_REEL_AUTH
-            || SpoofVideoStreamsPatch.getPreferredClient() == ClientType.TV;
+            || SpoofVideoStreamsPatch.getPreferredClient() != ClientType.ANDROID_CREATOR;
 
     {
         if (!available) {

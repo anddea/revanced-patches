@@ -6,10 +6,9 @@ option optimize_for = LITE_RUNTIME;
 option java_package = "app.morphe.extension.shared.innertube";
 
 message PlayerResponse {
-    oneof data {
-      PlayabilityStatus playability_status = 2;
-      StreamingData streaming_data = 4;
-    }
+  PlayabilityStatus playability_status = 2;
+  optional StreamingData streaming_data = 4;
+  optional PlayerConfig player_config = 15;
 }
 
 message PlayabilityStatus {
@@ -31,13 +30,19 @@ enum Status {
 }
 
 message StreamingData {
-    repeated Format formats = 2;
-    repeated Format adaptiveFormats = 3;
-    string serverAbrStreamingUrl = 15;
+  repeated Format formats = 2;
+  repeated Format adaptiveFormats = 3;
+  string serverAbrStreamingUrl = 15;
 }
 
 message Format {
-    string url = 2;
-    string signatureCipher = 48;
+  string url = 2;
+  string signatureCipher = 48;
 }
 
+message PlayerConfig {
+  optional MediaCommonConfig mediaCommonConfig = 215771584;
+}
+
+message MediaCommonConfig {
+}

@@ -98,21 +98,17 @@ public class SpoofVideoStreamsSideEffectsPreference extends Preference {
                             + '\n' + str("morphe_spoof_video_streams_about_no_force_original_audio");
             case ANDROID_REEL_AUTH, ANDROID_REEL_NO_AUTH ->
                     summary = str("morphe_spoof_video_streams_about_playback_failure");
-            // VR 1.65 is not exposed in the UI and should never be reached here.
-            case ANDROID_VR_1_64, ANDROID_VR_1_65 ->
-                    summary = str("morphe_spoof_video_streams_about_no_audio_tracks")
-                            + '\n' + str("morphe_spoof_video_streams_about_no_stable_volume");
+            // VR 1.74 is not exposed in the UI and should never be reached here.
+            case ANDROID_VR_1_73, ANDROID_VR_1_74 ->
+                    summary = str("morphe_spoof_video_streams_about_no_stable_volume");
             case TV ->
                     summary = str("morphe_spoof_video_streams_about_js");
             case VISIONOS ->
-                    summary = str("morphe_spoof_video_streams_about_experimental")
-                            + '\n' + str("morphe_spoof_video_streams_about_no_audio_tracks")
-                            + '\n' + str("morphe_spoof_video_streams_about_no_av1");
+                    summary = str("morphe_spoof_video_streams_about_no_stable_volume");
             default -> Logger.printException(() -> "Unknown client: " + clientType);
         }
 
-        // Only Android Reel and Android VR supports 360° VR immersive mode.
-        if (!clientType.name().startsWith("ANDROID_VR") && clientType != ClientType.ANDROID_REEL_AUTH) {
+        if (!clientType.supportsVRImmersiveMode) {
             summary += '\n' + str("morphe_spoof_video_streams_about_no_immersive_mode");
         }
 
