@@ -12,12 +12,9 @@ import app.morphe.patches.youtube.utils.resourceid.compactLink
 import app.morphe.patches.youtube.utils.resourceid.compactListItem
 import app.morphe.patches.youtube.utils.resourceid.editSettingsAction
 import app.morphe.patches.youtube.utils.resourceid.fab
-import app.morphe.patches.youtube.utils.resourceid.pairWithTVKey
 import app.morphe.patches.youtube.utils.resourceid.toolTipContentView
 import app.morphe.patches.youtube.utils.resourceid.ytCallToAction
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -90,37 +87,6 @@ internal val pipNotificationFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     literals = listOf(editSettingsAction),
-)
-
-internal val preferenceScreenFingerprint = legacyFingerprint(
-    name = "preferenceScreenFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
-    strings = listOf(":android:show_fragment_args"),
-    customFingerprint = { method, classDef ->
-        AccessFlags.SYNTHETIC.isSet(classDef.accessFlags) &&
-                indexOfPreferenceScreenInstruction(method) >= 0
-    }
-)
-
-internal fun indexOfPreferenceScreenInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        val reference = getReference<MethodReference>()
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                reference?.returnType == "Landroidx/preference/PreferenceScreen;" &&
-                reference.parameterTypes.isEmpty()
-    }
-
-internal val preferencePairWithTVFingerprint = legacyFingerprint(
-    name = "preferencePairWithTVFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("Ljava/lang/Object;"),
-    literals = listOf(pairWithTVKey),
-    customFingerprint = { method, classDef ->
-        AccessFlags.SYNTHETIC.isSet(classDef.accessFlags)
-    }
 )
 
 internal val tooltipContentFullscreenFingerprint = legacyFingerprint(

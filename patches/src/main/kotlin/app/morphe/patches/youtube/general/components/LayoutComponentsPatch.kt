@@ -8,7 +8,6 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
-import app.morphe.patches.shared.settingmenu.settingsMenuPatch
 import app.morphe.patches.shared.viewgroup.viewGroupMarginLayoutParamsHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
@@ -20,7 +19,6 @@ import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.fab
-import app.morphe.patches.youtube.utils.resourceid.pairWithTVKey
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.resourceid.ytCallToAction
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -41,8 +39,6 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-private const val EXTENSION_SETTINGS_MENU_DESCRIPTOR =
-    "$GENERAL_PATH/SettingsMenuPatch;"
 private const val CUSTOM_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/CustomFilter;"
 private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
@@ -60,7 +56,6 @@ val layoutComponentsPatch = bytecodePatch(
         lithoFilterPatch,
         lithoLayoutPatch,
         sharedResourceIdPatch,
-        settingsMenuPatch,
         viewGroupMarginLayoutParamsHookPatch,
         versionCheckPatch,
     )
@@ -179,52 +174,6 @@ val layoutComponentsPatch = bytecodePatch(
                 insertIndex, """
                     invoke-static {v$visibilityRegister}, $GENERAL_CLASS_DESCRIPTOR->hideHandle(I)I
                     move-result v$visibilityRegister
-                    """
-            )
-        }
-
-        // endregion
-
-        // region patch for hide setting menus
-
-        preferenceScreenFingerprint.methodOrThrow().apply {
-            val targetIndex = indexOfPreferenceScreenInstruction(this)
-            val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
-            val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
-
-            val insertIndex = implementation!!.instructions.lastIndex
-
-            addInstructions(
-                insertIndex + 1, """
-                    invoke-virtual {v$targetRegister}, $targetReference
-                    move-result-object v$targetRegister
-                    invoke-static {v$targetRegister}, $EXTENSION_SETTINGS_MENU_DESCRIPTOR->hideSettingsMenu(Landroidx/preference/PreferenceScreen;)V
-                    return-void
-                    """
-            )
-            removeInstruction(insertIndex)
-        }
-
-        preferencePairWithTVFingerprint.methodOrThrow().apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(pairWithTVKey)
-            val setPairWithTVPreferenceIndex = indexOfFirstInstructionOrThrow(literalIndex) {
-                opcode == Opcode.IPUT_OBJECT &&
-                        getReference<FieldReference>()?.type == "Landroidx/preference/Preference;"
-            }
-            val pairWithTVField =
-                getInstruction<ReferenceInstruction>(setPairWithTVPreferenceIndex).reference as FieldReference
-            val getPairWithTVPreferenceIndex =
-                indexOfFirstInstructionOrThrow(setPairWithTVPreferenceIndex) {
-                    opcode == Opcode.IGET_OBJECT &&
-                            getReference<FieldReference>() == pairWithTVField
-                }
-            val insertRegister =
-                getInstruction<TwoRegisterInstruction>(getPairWithTVPreferenceIndex).registerA
-
-            addInstructions(
-                getPairWithTVPreferenceIndex + 1, """
-                    invoke-static {v$insertRegister}, $EXTENSION_SETTINGS_MENU_DESCRIPTOR->hideWatchOnTVMenu(Landroidx/preference/Preference;)Landroidx/preference/Preference;
-                    move-result-object v$insertRegister
                     """
             )
         }

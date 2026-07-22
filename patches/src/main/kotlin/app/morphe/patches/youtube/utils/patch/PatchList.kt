@@ -225,6 +225,10 @@ internal enum class PatchList(
         "Settings for YouTube",
         "Applies mandatory patches to implement ReVanced Extended settings into the application."
     ),
+    SETTINGS_MENU_FILTER(
+        "Settings menu filter",
+        "Adds an option to hide items on the standard YouTube settings screen by their visible name."
+    ),
     SHORTS_COMPONENTS(
         "Shorts components",
         "Adds options to hide or change components related to YouTube Shorts."

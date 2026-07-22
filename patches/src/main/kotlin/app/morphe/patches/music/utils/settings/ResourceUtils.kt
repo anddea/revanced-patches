@@ -383,8 +383,9 @@ internal object ResourceUtils {
         category: String,
         key: String,
         tag: String,
-        dependencyKey: String,
-        setSummary: Boolean,
+        dependencyKey: String = "",
+        setSummary: Boolean = true,
+        insertBeforeKey: String = "",
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -392,8 +393,8 @@ internal object ResourceUtils {
                 .filter {
                     it.getAttribute("android:key").contains("revanced_preference_screen_$category")
                 }
-                .forEach {
-                    it.adoptChild(tag) {
+                .forEach { parent ->
+                    val block: Element.() -> Unit = {
                         setAttribute("android:title", "@string/${key}_title")
                         if (setSummary) {
                             setAttribute("android:summary", "@string/${key}_summary")
@@ -404,6 +405,20 @@ internal object ResourceUtils {
                             setAttribute("android:dependency", dependencyKey)
                         }
                     }
+
+                    if (insertBeforeKey.isNotEmpty()) {
+                        val childrenList = List(parent.childNodes.length) { parent.childNodes.item(it) }
+                        val targetNode = childrenList.firstOrNull { child ->
+                            child is Element && child.getAttribute("android:key") == insertBeforeKey
+                        } ?: childrenList.firstOrNull { it is Element }
+
+                        if (targetNode != null) {
+                            targetNode.insertNode(tag, targetNode, block)
+                            return@forEach
+                        }
+                    }
+
+                    parent.adoptChild(tag, block)
                 }
         }
     }

@@ -58,7 +58,6 @@ import app.morphe.patches.music.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.music.utils.patch.PatchList.GMSCORE_SUPPORT
 import app.morphe.patches.music.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.playservice.is_6_39_or_greater
-import app.morphe.patches.music.utils.playservice.is_6_42_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_40_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.ResourceUtils.addGmsCorePreference
@@ -445,14 +444,11 @@ val settingsPatch = resourcePatch(
 
         /**
          * add app info setting
-         * Html.fromHtml() requires Android 7.0+
          */
-        if (is_6_42_or_greater) {
-            addPreferenceWithIntent(
-                CategoryType.MISC,
-                "revanced_app_info"
-            )
-        }
+        addPreferenceWithIntent(
+            CategoryType.MISC,
+            "revanced_app_info"
+        )
 
         /**
          * sort preference
@@ -515,10 +511,11 @@ internal fun addCustomPreference(
     tag: String,
     dependencyKey: String = "",
     setSummary: Boolean = true,
+    insertBeforeKey: String = "",
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
-    ResourceUtils.addCustomPreference(categoryValue, key, tag, dependencyKey, setSummary)
+    ResourceUtils.addCustomPreference(categoryValue, key, tag, dependencyKey, setSummary, insertBeforeKey)
 }
 
 /** Adds a dialog list preference that is handled by the current settings fragment. */

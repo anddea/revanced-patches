@@ -230,6 +230,10 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting CUSTOM_FILTER = new BooleanSetting("revanced_custom_filter", FALSE);
     public static final StringSetting CUSTOM_FILTER_STRINGS = new StringSetting("revanced_custom_filter_strings", "", true, parent(CUSTOM_FILTER));
 
+    // Settings menu filter
+    public static final StringSetting SETTINGS_MENU_FILTER_STRINGS = new StringSetting("morphe_settings_menu_filter_strings", "", true);
+    public static final StringSetting SETTINGS_MENU_FILTER_DISCOVERED = new StringSetting("morphe_settings_menu_filter_discovered", "", true, false);
+
     // PreferenceScreen: General - Navigation bar
     public static final BooleanSetting ENABLE_NARROW_NAVIGATION_BUTTONS = new BooleanSetting("revanced_enable_narrow_navigation_buttons", FALSE, true);
     public static final BooleanSetting SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_switch_create_with_notifications_button", TRUE, true,
@@ -263,34 +267,6 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting OVERRIDE_YOUTUBE_MUSIC_BUTTON = new BooleanSetting("revanced_override_youtube_music_button", FALSE, true);
     public static final StringSetting THIRD_PARTY_YOUTUBE_MUSIC_PACKAGE_NAME = new StringSetting("revanced_third_party_youtube_music_package_name", PackageNameYouTubeMusic(), true
             , new YouTubeMusicActionsPatch.HookYouTubeMusicPackageNameAvailability());
-
-    // PreferenceScreen: General - Settings menu
-    public static final BooleanSetting HIDE_SETTINGS_MENU_PARENT_TOOLS = new BooleanSetting("revanced_hide_settings_menu_parent_tools", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_GENERAL = new BooleanSetting("revanced_hide_settings_menu_general", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_ACCOUNT = new BooleanSetting("revanced_hide_settings_menu_account", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_TIME_MANAGEMENT = new BooleanSetting("revanced_hide_settings_menu_time_management", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_DATA_SAVING = new BooleanSetting("revanced_hide_settings_menu_data_saving", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_AUTOPLAY_PLAYBACK = new BooleanSetting("revanced_hide_settings_menu_autoplay_playback", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_VIDEO_QUALITY_PREFERENCES = new BooleanSetting("revanced_hide_settings_menu_video_quality", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_OFFLINE = new BooleanSetting("revanced_hide_settings_menu_offline", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_WATCH_ON_TV = new BooleanSetting("revanced_hide_settings_menu_pair_with_tv", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_MANAGE_ALL_HISTORY = new BooleanSetting("revanced_hide_settings_menu_history", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_YOUR_DATA_IN_YOUTUBE = new BooleanSetting("revanced_hide_settings_menu_your_data", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_PRIVACY = new BooleanSetting("revanced_hide_settings_menu_privacy", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_TRY_EXPERIMENTAL_NEW_FEATURES = new BooleanSetting("revanced_hide_settings_menu_premium_early_access", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_PURCHASES_AND_MEMBERSHIPS = new BooleanSetting("revanced_hide_settings_menu_subscription_product", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_BILLING_AND_PAYMENTS = new BooleanSetting("revanced_hide_settings_menu_billing_and_payment", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_NOTIFICATIONS = new BooleanSetting("revanced_hide_settings_menu_notification", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_CONNECTED_APPS = new BooleanSetting("revanced_hide_settings_menu_connected_accounts", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_LIVE_CHAT = new BooleanSetting("revanced_hide_settings_menu_live_chat", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_CAPTIONS = new BooleanSetting("revanced_hide_settings_menu_captions", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_ACCESSIBILITY = new BooleanSetting("revanced_hide_settings_menu_accessibility", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_ABOUT = new BooleanSetting("revanced_hide_settings_menu_about", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    // dummy data
-    public static final BooleanSetting HIDE_SETTINGS_MENU_YOUTUBE_TV = new BooleanSetting("revanced_hide_settings_menu_youtube_tv", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_PRE_PURCHASE = new BooleanSetting("revanced_hide_settings_menu_pre_purchase", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_POST_PURCHASE = new BooleanSetting("revanced_hide_settings_menu_post_purchase", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
-    public static final BooleanSetting HIDE_SETTINGS_MENU_THIRD_PARTY = new BooleanSetting("revanced_hide_settings_menu_third_party", FALSE, parent(RESTORE_OLD_SETTINGS_MENUS));
 
     // PreferenceScreen: General - Snack bar
     public static final BooleanSetting HIDE_SNACK_BAR = new BooleanSetting("revanced_hide_snack_bar", FALSE, true);

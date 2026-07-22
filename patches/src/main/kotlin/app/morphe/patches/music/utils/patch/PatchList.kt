@@ -141,6 +141,10 @@ internal enum class PatchList(
         "Settings for YouTube Music",
         "Applies mandatory patches to implement ReVanced Extended settings into the application."
     ),
+    SETTINGS_MENU_FILTER(
+        "Settings menu filter",
+        "Adds an option to hide items on the standard YouTube Music settings screen by their visible name."
+    ),
     SPONSORBLOCK(
         "SponsorBlock",
         "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections."
