@@ -1,3 +1,11 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ */
+
 package app.morphe.patches.youtube.player.seekbar
 
 import app.morphe.patcher.Fingerprint
@@ -5,6 +13,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
@@ -621,6 +630,39 @@ val seekbarComponentsPatch = bytecodePatch(
         } else {
             printWarn("\"Restore old seekbar thumbnails\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
         }
+
+        // endregion
+
+        // region patch for livestream dvr
+
+        VideoStreamingDataAllowSeekingFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { returnIndex ->
+                val returnRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    """
+                        invoke-static { v$returnRegister }, Lapp/morphe/extension/youtube/patches/LivestreamDVRPatch;->enableLivestreamDVR(Z)Z
+                        move-result v$returnRegister
+                    """
+                )
+            }
+        }
+
+        FormatStreamModelMaxDVRDurationFingerprint.method.apply {
+            val index = FormatStreamModelMaxDVRDurationFingerprint.instructionMatches.last().index
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstructions(
+                index,
+                """
+                    invoke-static { v$register, v${register + 1} }, Lapp/morphe/extension/youtube/patches/LivestreamDVRPatch;->overrideMaxDVRDurationSeconds(D)D
+                    move-result-wide v$register
+                """
+            )
+        }
+
+        settingArray += "SETTINGS: LIVESTREAM_DVR"
 
         // endregion
 

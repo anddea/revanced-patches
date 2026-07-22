@@ -1,8 +1,8 @@
 package app.morphe.extension.youtube.patches.spoof;
 
 import static app.morphe.extension.shared.spoof.ClientType.ANDROID_CREATOR;
-import static app.morphe.extension.shared.spoof.ClientType.ANDROID_VR_1_64;
-import static app.morphe.extension.shared.spoof.ClientType.ANDROID_VR_1_65;
+import static app.morphe.extension.shared.spoof.ClientType.ANDROID_VR_1_73;
+import static app.morphe.extension.shared.spoof.ClientType.ANDROID_VR_1_74;
 import static app.morphe.extension.shared.spoof.ClientType.TV;
 import static app.morphe.extension.shared.spoof.ClientType.VISIONOS;
 
@@ -19,7 +19,7 @@ public class SpoofVideoStreamsPatch {
         @Override
         public boolean isAvailable() {
             return Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.isAvailable()
-                    && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ANDROID_VR_1_64;
+                    && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ANDROID_VR_1_73;
         }
 
         @Override
@@ -34,19 +34,19 @@ public class SpoofVideoStreamsPatch {
     public static void setClientOrderToUse() {
         ClientType client = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
 
-        // Use VR 1.65 client that has AV1 if user settings allow it.
-        // AVC cannot be forced with VR 1.65 because it uses VP9 and AV1.
-        // If both settings are on, then force AVC takes priority and VR 1.64 is used.
-        if (client == ANDROID_VR_1_64 && Settings.SPOOF_VIDEO_STREAMS_AV1.get()
+        // Use VR 1.74 client that has AV1 if user settings allow it.
+        // AVC cannot be forced with VR 1.74 because it uses VP9 and AV1.
+        // If both settings are on, then force AVC takes priority and VR 1.73 is used.
+        if (client == ANDROID_VR_1_73 && Settings.SPOOF_VIDEO_STREAMS_AV1.get()
                 && !Settings.FORCE_AVC_CODEC.get()) {
-            client = ANDROID_VR_1_65;
+            client = ANDROID_VR_1_74;
         }
 
         // For some users No SDK can fail at 1 minute. Only use it if the user has explicitly set it.
         List<ClientType> availableClients = List.of(
                 ANDROID_CREATOR,
                 TV,
-                ANDROID_VR_1_64,
+                ANDROID_VR_1_73,
                 VISIONOS
         );
 

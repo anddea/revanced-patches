@@ -54,9 +54,17 @@ import app.morphe.extension.shared.spoof.ClientType;
 
 public class StreamOrDetailsDataRequest {
 
+    public record StreamData(byte[] streamingData, @Nullable byte[] playerConfig) {
+    }
+
+    public static boolean getLastSpoofedClientUseSABR() {
+        ClientType client = lastSpoofedClientType;
+        return client != null && client.requireSABR;
+    }
+
     private static volatile ClientType[] clientStreamOrderToUse =
             Arrays.stream(ClientType.values())
-                    .filter(client -> client.endpoint == GET_PLAYER_STREAMING_DATA || client.endpoint == GET_REEL_STREAMING_DATA)
+                    .filter(client -> client.usePlayerEndpoint || client == ClientType.ANDROID_REEL_NO_AUTH || client == ClientType.ANDROID_REEL_AUTH)
                     .toArray(ClientType[]::new);
 
     public static void setClientOrderToUse(List<ClientType> availableClients, ClientType preferredClient) {
@@ -177,7 +185,7 @@ public class StreamOrDetailsDataRequest {
         Objects.requireNonNull(clientType);
         Objects.requireNonNull(videoId);
 
-        final boolean isStream = clientType.endpoint == GET_PLAYER_STREAMING_DATA || clientType.endpoint == GET_REEL_STREAMING_DATA;
+        final boolean isStream = clientType != ClientType.GET_CHANNEL_FROM_ID && clientType != ClientType.SAVE_TO_WATCH_LATER;
 
         try {
             HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(clientType);
@@ -247,8 +255,8 @@ public class StreamOrDetailsDataRequest {
     private static Object buildPlayerStreamOrDetailsResponse(@Nullable ClientType clientType,
                                                              HttpURLConnection connection) {
         Objects.requireNonNull(clientType);
-        final boolean returnStreamObject = clientType.endpoint == GET_PLAYER_STREAMING_DATA
-                || clientType.endpoint == GET_REEL_STREAMING_DATA;
+        final boolean returnStreamObject = clientType != ClientType.GET_CHANNEL_FROM_ID
+                && clientType != ClientType.SAVE_TO_WATCH_LATER;
 
         if (connection.getContentLength() == 0) {
             handleDebugToast(String.format("Debug: Ignoring empty %s client (%%s)", returnStreamObject ? "spoof stream" : "get details"), clientType);
@@ -257,7 +265,7 @@ public class StreamOrDetailsDataRequest {
 
         try (InputStream inputStream = connection.getInputStream()) {
             if (returnStreamObject) {
-                PlayerResponse playerResponse = clientType.endpoint == GET_PLAYER_STREAMING_DATA
+                PlayerResponse playerResponse = clientType.usePlayerEndpoint
                         ? PlayerResponse.parseFrom(inputStream)
                         : ReelItemWatchResponse.parseFrom(inputStream).getPlayerResponse();
                 var playabilityStatus = playerResponse.getPlayabilityStatus();
@@ -285,7 +293,14 @@ public class StreamOrDetailsDataRequest {
                     responseBuilder.setStreamingData(deobfuscatedStreamingData);
                 }
 
-                return responseBuilder.build().toByteArray();
+                byte[] streamingDataBuffer = responseBuilder.build().toByteArray();
+                byte[] playerConfig = null;
+
+                if (clientType.requireSABR && playerResponse.hasPlayerConfig()) {
+                    playerConfig = playerResponse.getPlayerConfig().toByteArray();
+                }
+
+                return new StreamData(streamingDataBuffer, playerConfig);
             } else {
                 String response = new BufferedReader(new InputStreamReader(inputStream))
                         .lines()
@@ -293,11 +308,11 @@ public class StreamOrDetailsDataRequest {
 
                 JSONObject jsonResponse = new JSONObject(response);
 
-                if (clientType.endpoint.equals(PlayerRoutes.GET_CHANNEL_FROM_ID)) {
+                if (clientType == ClientType.GET_CHANNEL_FROM_ID) {
                     return jsonResponse
                             .getJSONObject("videoDetails")
                             .getString("channelId");
-                } else if (clientType.endpoint.equals(PlayerRoutes.SEND_SAVE_VIDEO_TO_WATCH_LATER)) {
+                } else if (clientType == ClientType.SAVE_TO_WATCH_LATER) {
                     return response;
                 }
             }
@@ -336,12 +351,16 @@ public class StreamOrDetailsDataRequest {
             lastSpoofedClientType = null;
             handleConnectionError(str("morphe_spoof_video_streams_no_clients_toast"), null, true);
         } else {
-            for (ClientType clientTypeDetails : ClientType.values()) {
-                if (clientTypeDetails.endpoint == videoDetailsEndpoint) {
-                    HttpURLConnection connection = send(clientTypeDetails, videoId, playerHeaders, false);
-                    if (connection != null) {
-                        return buildPlayerStreamOrDetailsResponse(clientTypeDetails, connection);
-                    }
+            ClientType targetClient = null;
+            if (videoDetailsEndpoint.equals(PlayerRoutes.GET_CHANNEL_FROM_ID)) {
+                targetClient = ClientType.GET_CHANNEL_FROM_ID;
+            } else if (videoDetailsEndpoint.equals(PlayerRoutes.SEND_SAVE_VIDEO_TO_WATCH_LATER)) {
+                targetClient = ClientType.SAVE_TO_WATCH_LATER;
+            }
+            if (targetClient != null) {
+                HttpURLConnection connection = send(targetClient, videoId, playerHeaders, false);
+                if (connection != null) {
+                    return buildPlayerStreamOrDetailsResponse(targetClient, connection);
                 }
             }
         }

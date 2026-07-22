@@ -2,7 +2,8 @@ package app.morphe.patches.music.general.audiotracks
 
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.patch.PatchList.DISABLE_FORCED_AUTO_AUDIO_TRACKS
-import app.morphe.patches.music.utils.playservice.is_8_12_or_greater
+import app.morphe.patches.music.utils.playservice.is_8_05_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_26_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -29,5 +30,6 @@ val audioTracksPatch = audioTracksPatch(
 
         updatePatchStatus(DISABLE_FORCED_AUTO_AUDIO_TRACKS)
     },
-    fixUseLocalizedAudioTrackFlag = is_8_12_or_greater
+    fixUseLocalizedAudioTrackFlag = { is_8_05_or_greater && !is_9_26_or_greater },
+    forcedServerAdaptiveStreaming = { is_9_26_or_greater }
 )

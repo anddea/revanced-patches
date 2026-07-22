@@ -1,5 +1,19 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ */
+
 package app.morphe.patches.youtube.player.seekbar
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
+import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarLiveSeekAbleRange
 import app.morphe.patches.youtube.utils.resourceid.reelTimeBarPlayedColor
 import app.morphe.patches.youtube.utils.resourceid.ytStaticBrandRed
@@ -184,3 +198,46 @@ internal val timelineMarkerArrayFingerprint = legacyFingerprint(
     returnType = "[Lcom/google/android/libraries/youtube/player/features/overlay/timebar/TimelineMarker;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
 )
+
+// region Livestream DVR
+
+internal object VideoStreamingDataToStringFingerprint : Fingerprint(
+    name = "toString",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Ljava/lang/String;",
+    filters = listOf(
+        string("VideoStreamingData(itags=")
+    )
+)
+
+internal object VideoStreamingDataAllowSeekingFingerprint : Fingerprint(
+    classFingerprint = VideoStreamingDataToStringFingerprint,
+    returnType = "Z",
+    parameters = listOf(),
+    filters = listOf(
+        literal(8),
+        opcode(Opcode.IF_EQ, location = MatchAfterImmediately()),
+        literal(1, location = MatchAfterImmediately()),
+    )
+)
+
+private object FormatStreamModelClassFingerprint : Fingerprint(
+    returnType = "Ljava/lang/String;",
+    filters = listOf(
+        string("FormatStream(itag=")
+    )
+)
+
+internal object FormatStreamModelMaxDVRDurationFingerprint : Fingerprint(
+    classFingerprint = FormatStreamModelClassFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "D",
+    parameters = listOf(),
+    filters = listOf(
+        opcode(Opcode.IGET_OBJECT),
+        fieldAccess(opcode = Opcode.IGET_WIDE, type = "D", location = MatchAfterImmediately()),
+        opcode(Opcode.RETURN_WIDE, location = MatchAfterImmediately()),
+    )
+)
+
+// endregion

@@ -2,6 +2,7 @@ package app.morphe.patches.youtube.utils.fix.streamingdata
 
 import app.morphe.patches.shared.misc.spoof.spoofVideoStreamsPatch
 import app.morphe.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
+import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityFingerprint
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
@@ -14,6 +15,7 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
 
+@Suppress("unused")
 val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     // Updated parameter name: extensionClassDescriptor -> extensionClass
     extensionClass = "Lapp/morphe/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;",
@@ -43,6 +45,8 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
         false
     },
     block = {
+        compatibleWith(COMPATIBILITY_YOUTUBE)
+
         dependsOn(
             settingsPatch,
             versionCheckPatch,

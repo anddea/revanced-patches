@@ -35,14 +35,14 @@ public final class PlayerRoutes {
     public static final Route.CompiledRoute GET_PLAYER_STREAMING_DATA = new Route(
             Route.Method.POST,
             "player" +
-                    "?fields=playabilityStatus,streamingData" +
+                    "?fields=playabilityStatus,streamingData,playerConfig.mediaCommonConfig" +
                     "&alt=proto"
     ).compile();
 
     public static final Route.CompiledRoute GET_REEL_STREAMING_DATA = new Route(
             Route.Method.POST,
             "reel/reel_item_watch" +
-                    "?fields=playerResponse.playabilityStatus,playerResponse.streamingData" +
+                    "?fields=playerResponse.playabilityStatus,playerResponse.streamingData,playerResponse.playerConfig.mediaCommonConfig" +
                     "&alt=proto"
     ).compile();
 
@@ -91,15 +91,11 @@ public final class PlayerRoutes {
 
             JSONObject user = new JSONObject();
             user.put("lockedSafetyMode", false);
-            if (clientType.endpoint != GET_PLAYER_STREAMING_DATA && clientType.endpoint != GET_REEL_STREAMING_DATA) {
-                context.put("user", user);
-            } else {
-                client.put("hl", streamLocale.getLanguage());
-                client.put("gl", streamLocale.getCountry());
-            }
+            client.put("hl", streamLocale.getLanguage());
+            client.put("gl", streamLocale.getCountry());
             context.put("client", client);
 
-            if (clientType.endpoint == GET_REEL_STREAMING_DATA) {
+            if (!clientType.usePlayerEndpoint) {
                 JSONObject playerRequest = new JSONObject();
                 playerRequest.put("contentCheckOk", true);
                 playerRequest.put("racyCheckOk", true);
@@ -110,7 +106,7 @@ public final class PlayerRoutes {
                 innerTubeBody.put("contentCheckOk", true);
                 innerTubeBody.put("racyCheckOk", true);
                 innerTubeBody.put("videoId", videoId);
-                if (clientType.endpoint == SEND_SAVE_VIDEO_TO_WATCH_LATER) {
+                if (clientType == ClientType.SAVE_TO_WATCH_LATER) {
                     innerTubeBody.put("playlistId", "WL");
                     innerTubeBody.put("excludeWatchLater", false);
 
@@ -163,7 +159,10 @@ public final class PlayerRoutes {
     }
 
     static HttpURLConnection getPlayerResponseConnectionFromRoute(ClientType clientType) throws IOException {
-        var connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, clientType.endpoint);
+        Route.CompiledRoute route = clientType.usePlayerEndpoint
+                ? GET_PLAYER_STREAMING_DATA
+                : GET_REEL_STREAMING_DATA;
+        var connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, route);
 
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("User-Agent", clientType.userAgent);

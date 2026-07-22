@@ -67,7 +67,7 @@ import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProv
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
-            new EnumSetting<>("morphe_spoof_video_streams_client_type", ClientType.ANDROID_REEL_AUTH, true, parent(SPOOF_VIDEO_STREAMS));
+            new EnumSetting<>("morphe_spoof_video_streams_client_type", ClientType.ANDROID_VR_1_73, true, parent(SPOOF_VIDEO_STREAMS));
     public static final BooleanSetting FORCE_AVC_CODEC = new BooleanSetting(
             "morphe_force_avc_codec",
             FALSE,
@@ -870,8 +870,8 @@ public class Settings extends SharedYouTubeSettings {
             SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
 
-        // VR 1.65 is not selectable in the settings, and it's selected by spoof stream patch if needed.
-        if (SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_1_65) {
+        // VR 1.74 is not selectable in the settings, and it's selected by spoof stream patch if needed.
+        if (SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_1_74) {
             SPOOF_VIDEO_STREAMS_CLIENT_TYPE.resetToDefault();
         }
 
