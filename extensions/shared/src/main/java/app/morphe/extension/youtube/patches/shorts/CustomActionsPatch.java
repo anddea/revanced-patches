@@ -130,7 +130,7 @@ public final class CustomActionsPatch {
         Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(arrSize);
 
         for (CustomAction customAction : CustomAction.values()) {
-            if (customAction.settings.get()) {
+            if (customAction.isAvailable()) {
                 String title = customAction.getLabel();
                 int iconId = customAction.getDrawableId();
                 Runnable action = customAction.getOnClickAction();
@@ -180,7 +180,7 @@ public final class CustomActionsPatch {
             return;
         }
         for (CustomAction customAction : CustomAction.values()) {
-            if (customAction.settings.get()) {
+            if (customAction.isAvailable()) {
                 addFlyoutMenu(bottomSheetMenuClass, bottomSheetMenuList, customAction);
             }
         }
@@ -292,7 +292,7 @@ public final class CustomActionsPatch {
     private static int getEnabledCustomActionsCount() {
         int count = 0;
         for (CustomAction customAction : CustomAction.values()) {
-            if (customAction.settings.get()) {
+            if (customAction.isAvailable()) {
                 count++;
             }
         }
@@ -331,7 +331,11 @@ public final class CustomActionsPatch {
 
         // Dismiss View [R.id.touch_outside] is the 1st ChildView of the 4th ParentView.
         // This only shows in phone layout.
-        Utils.clickView(parentView4th.getChildAt(0));
+        View dismissView = parentView4th.getChildAt(0);
+        if (dismissView != null) {
+            Utils.clickView(dismissView);
+            return;
+        }
 
         // In tablet layout there is no Dismiss View, instead we just hide all two parent views.
         parentView3rd.setVisibility(View.GONE);
@@ -485,6 +489,13 @@ public final class CustomActionsPatch {
             this.settings = settings;
             this.onClickAction = onClickAction;
             this.onLongClickAction = onLongClickAction;
+        }
+
+        public boolean isAvailable() {
+            if (this == VOICE_OVER_TRANSLATION) {
+                return PatchStatus.VoiceOverTranslation() && settings.get();
+            }
+            return settings.get();
         }
 
         @NonNull
