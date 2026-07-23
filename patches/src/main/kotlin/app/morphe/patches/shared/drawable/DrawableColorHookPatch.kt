@@ -71,12 +71,14 @@ val drawableColorHookPatch = bytecodePatch(
 
 internal fun addDrawableColorHook(
     methodDescriptor: String,
-    highPriority: Boolean = false
+    highPriority: Boolean = false,
+    passDrawable: Boolean = false,
 ) {
+    val callRegister = if (passDrawable) "p0, v$insertRegister" else "v$insertRegister"
     insertMethod.addInstructions(
         if (highPriority) insertIndex else insertIndex + offset,
         """
-            invoke-static {v$insertRegister}, $methodDescriptor
+            invoke-static {$callRegister}, $methodDescriptor
             move-result v$insertRegister
             """
     )
