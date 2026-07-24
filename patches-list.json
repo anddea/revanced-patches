@@ -1,5 +1,5 @@
 {
-  "version": "4.2.0-dev.7",
+  "version": "4.2.0-dev.8",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -882,6 +882,7 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "ResourcePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
@@ -905,6 +906,7 @@
       "description": "Adds an option to disable audio tracks from being automatically enabled.",
       "use": true,
       "dependencies": [
+        "ResourcePatch",
         "ResourcePatch",
         "ResourcePatch"
       ],
@@ -1765,7 +1767,6 @@
         "ResourcePatch",
         "BytecodePatch",
         "ResourcePatch",
-        "BytecodePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
@@ -1793,7 +1794,6 @@
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
-        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch"
       ],
@@ -2712,6 +2712,52 @@
       ]
     },
     {
+      "name": "Settings menu filter",
+      "description": "Adds an option to hide items on the standard YouTube Music settings screen by their visible name.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.apps.youtube.music": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.12.54",
+          "8.28.54",
+          "8.30.54",
+          "9.15.51"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Settings menu filter",
+      "description": "Adds an option to hide items on the standard YouTube settings screen by their visible name.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "19.43.41",
+          "19.44.39",
+          "19.47.53",
+          "20.05.46",
+          "20.21.37",
+          "20.31.42",
+          "20.47.62",
+          "20.51.39"
+        ]
+      },
+      "options": []
+    },
+    {
       "name": "Shorts components",
       "description": "Adds options to hide or change components related to YouTube Shorts.",
       "use": true,
@@ -2986,6 +3032,64 @@
           "values": null
         }
       ]
+    },
+    {
+      "name": "Spoof video streams",
+      "description": "Adds options to spoof the client video streams to fix playback.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.apps.youtube.music": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.12.54",
+          "8.28.54",
+          "8.30.54",
+          "9.15.51"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Spoof video streams",
+      "description": "Adds options to spoof the client video streams to fix playback.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "19.43.41",
+          "19.44.39",
+          "19.47.53",
+          "20.05.46",
+          "20.21.37",
+          "20.31.42",
+          "20.47.62",
+          "20.51.39"
+        ]
+      },
+      "options": []
     },
     {
       "name": "Spoof watch history",

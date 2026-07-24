@@ -70,10 +70,12 @@
 | `Seekbar components` | Adds options to hide or change components related to the seekbar. | 19.43.41 ~ 20.51.39 |
 | `Set transcript cookies` | Adds an option to set Cookies in YouTube Transcript API requests. | 19.43.41 ~ 20.51.39 |
 | `Settings for YouTube` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 19.43.41 ~ 20.51.39 |
+| `Settings menu filter` | Adds an option to hide items on the standard YouTube settings screen by their visible name. | 19.43.41 ~ 20.51.39 |
 | `Shorts components` | Adds options to hide or change components related to YouTube Shorts. | 19.43.41 ~ 20.51.39 |
 | `Snack bar components` | Adds options to hide or change components related to the snack bar. | 19.43.41 ~ 20.51.39 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content. | 19.43.41 ~ 20.51.39 |
 | `Spoof app version` | Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features. | 19.43.41 ~ 20.51.39 |
+| `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 19.43.41 ~ 20.51.39 |
 | `Spoof watch history` | Adds an option to change the domain of the watch history or check its status. | 19.43.41 ~ 20.51.39 |
 | `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 19.43.41 ~ 20.51.39 |
 | `Theme` | Changes the app's themes to the values specified in patch options. | 19.43.41 ~ 20.51.39 |
@@ -123,8 +125,10 @@
 | `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 6.20.51 ~ 9.15.51 |
 | `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 6.20.51 ~ 9.15.51 |
 | `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 6.20.51 ~ 9.15.51 |
+| `Settings menu filter` | Adds an option to hide items on the standard YouTube Music settings screen by their visible name. | 6.20.51 ~ 9.15.51 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 6.20.51 ~ 9.15.51 |
 | `Spoof app version for lyrics` | Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI. | 6.51.53 ~ 9.15.51 |
+| `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 6.20.51 ~ 9.15.51 |
 | `Track crossfade` | Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op. | 6.20.51 ~ 9.15.51 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 6.20.51 ~ 9.15.51 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 6.20.51 ~ 9.15.51 |
