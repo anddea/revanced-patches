@@ -28,11 +28,21 @@ Tap the continue button and allow optimization changes."</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
     <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Expand livestream DVR duration\' may not be available
+
+To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV\'"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">Allows you to rewind live broadcasts up to 7 days into the past</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">Expand livestream DVR duration</string>
     <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
     <string name="morphe_force_original_audio_title">Force original audio language</string>
     <string name="morphe_hide_sync_button_title">Hide \'Sync to video\' button</string>
+    <string name="morphe_livestream_dvr_not_available">"\'Enable livestream DVR\' may not be available
+
+To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV\'"</string>
+    <string name="morphe_livestream_dvr_summary">Allows seeking on all livestreams, even those that normally restrict it</string>
+    <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Cannot sign in to VR, website authentication was not approved</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 is temporarily not available</string>
@@ -52,20 +62,10 @@ Tap the continue button and allow optimization changes."</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking query parameter is removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_title">Sanitize sharing links</string>
-    <string name="morphe_settings_menu_filter_screen_title">Settings menu filter</string>
-    <string name="morphe_settings_menu_filter_screen_summary">Hide items on the standard app settings screen by their visible name</string>
-    <string name="morphe_settings_menu_filter_picker_empty">Open the standard app settings screen once to populate the list</string>
     <string name="morphe_settings_menu_copy_path">Copied: %s</string>
-    <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
-    <string name="morphe_livestream_dvr_summary">Allows seeking on all livestreams, even those that normally restrict it</string>
-    <string name="morphe_livestream_dvr_not_available">"\'Enable livestream DVR\' may not be available
-
-To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV\'"</string>
-    <string name="morphe_expand_livestream_dvr_duration_title">Expand livestream DVR duration</string>
-    <string name="morphe_expand_livestream_dvr_duration_summary">Allows you to rewind live broadcasts up to 7 days into the past</string>
-    <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Expand livestream DVR duration\' may not be available
-
-To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV\'"</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Open the standard app settings screen once to populate the list</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Hide items on the standard app settings screen by their visible name</string>
+    <string name="morphe_settings_menu_filter_screen_title">Settings menu filter</string>
     <string name="morphe_spoof_video_streams_about_js">• If deobfuscation fails, playback may fail</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Audio track menu is missing</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
@@ -1232,71 +1232,6 @@ Info:
     <string name="revanced_hide_server_side_snack_bar_summary_off">Server-side snack bar is shown.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">Server-side snack bar is hidden.</string>
     <string name="revanced_hide_server_side_snack_bar_title">Hide server-side snack bar</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">About menu is shown.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">About menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_about_title">Hide About menu</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">Accessibility menu is shown.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">Accessibility menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">Hide Accessibility menu</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">Account menu is shown.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">Account menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_account_title">Hide Account menu</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">Autoplay or Playback menu is shown.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">Autoplay or Playback menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Hide Autoplay or Playback menu</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Billing and payments menu is shown.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Billing and payments menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">Hide Billing and payments menu</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">Captions menu is shown.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">Captions menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Hide Captions menu</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Connected apps menu is shown.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Connected apps menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">Hide Connected apps menu</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">Data saving menu is shown.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">Data saving menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Hide Data saving menu</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">General menu is shown.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">General menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_general_title">Hide General menu</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">Manage all history menu is shown.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">Manage all history menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_history_title">Hide Manage all history menu</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">Live chat menu is shown.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">Live chat menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">Hide Live chat menu</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">Notifications menu is shown.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">Notifications menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_notification_title">Hide Notifications menu</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">Background menu is shown.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">Background menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_offline_title">Hide Background menu</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Watch on TV menu is shown.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Watch on TV menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Hide Watch on TV menu</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Family Center menu is shown.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Family Center menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Hide Family Center menu</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Try experimental new features menu is shown.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Try experimental new features menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">Hide Try experimental new features menu</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">Privacy menu is shown.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">Privacy menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">Hide Privacy menu</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Purchases and memberships menu is shown.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Purchases and memberships menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">Hide Purchases and memberships menu</string>
-    <string name="revanced_hide_settings_menu_summary">Hide elements of the YouTube settings menu.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_off">Time management menu is shown.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_on">Time management menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_time_management_title">Hide Time management menu</string>
-    <string name="revanced_hide_settings_menu_title">Hide YouTube settings menu</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">Video quality preferences menu is shown.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">Video quality preferences menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">Hide Video quality preferences menu</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">Your data in YouTube menu is shown.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">Your data in YouTube menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">Hide Your data in YouTube menu</string>
     <string name="revanced_hide_share_button_summary_off">Share button is shown.</string>
     <string name="revanced_hide_share_button_summary_on">Share button is hidden.</string>
     <string name="revanced_hide_share_button_title">Hide Share button</string>

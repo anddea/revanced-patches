@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Lanjutkan</string>
     <string name="gms_core_dialog_dismiss_text">Jangan tampilkan lagi</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore tidak memiliki izin untuk berjalan di latar belakang.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG tidak memiliki izin untuk berjalan di latar belakang.
 
-Ikuti panduan 'Don't kill my app!' untuk perangkat Anda, dan terapkan petunjuk pada pemasangan GmsCore.
+Ikuti panduan \"Don't kill my app\" untuk ponsel Anda dan terapkan instruksi ke pemasangan MicroG Anda.
 
-Hal ini diperlukan agar aplikasi dapat berfungsi."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Pengoptimalan baterai GmsCore harus dinonaktifkan untuk mencegah masalah.
+Ini diperlukan agar aplikasi berfungsi."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Pengoptimalan baterai MicroG harus dinonaktifkan untuk mencegah masalah.
 
-Menonaktifkan pengoptimalan baterai untuk GmsCore tidak akan berdampak negatif pada penggunaan baterai.
+Menonaktifkan pengoptimalan MicroG tidak akan berdampak buruk pada penggunaan baterai.
 
 Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
-    <string name="gms_core_dialog_open_website_text">Buka website</string>
+    <string name="gms_core_dialog_open_website_text">Buka situs web</string>
     <string name="gms_core_dialog_title">Diperlukan tindakan</string>
     <string name="gms_core_settings_summary">Untuk menerima pemberitahuan di RVX Music, aktifkan Cloud Messaging.</string>
     <string name="gms_core_settings_title">Buka pengaturan GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore tidak terpasang. Pasang dulu.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG belum dipasang. Pasang dulu.</string>
     <string name="morphe_crossfade_duration_10000ms">10 detik</string>
     <string name="morphe_crossfade_duration_1000ms">1 detik</string>
     <string name="morphe_crossfade_duration_11000ms">11 detik</string>
@@ -38,7 +38,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
     <string name="morphe_disable_quic_protocol_summary_off">Protokol QUIC diaktifkan</string>
     <string name="morphe_disable_quic_protocol_summary_on">Protokol QUIC dinonaktifkan</string>
     <string name="morphe_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke Android Reel atau TV</string>
+    <string name="morphe_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke klien apa pun kecuali Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Menggunakan audio bawaan</string>
     <string name="morphe_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
     <string name="morphe_force_original_audio_title">Paksa bahasa audio asli</string>
@@ -105,11 +105,15 @@ YouTube Music 8.x — pudar silang hanya berfungsi pada versi 9.x dan yang lebih
     <string name="morphe_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
+    <string name="morphe_settings_menu_copy_path">Disalin: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Buka layar pengaturan aplikasi standar sekali untuk mengisi daftar</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Sembunyikan item di layar pengaturan aplikasi standar berdasarkan nama yang terlihat</string>
+    <string name="morphe_settings_menu_filter_screen_title">Filter menu Pengaturan</string>
     <string name="morphe_spoof_video_streams_client_type_title">Klien bawaan</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Mengunci JavaScript pemain ke versi tertentu
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Mengunci pemutar JavaScript ke versi tertentu
 
-• Hash JavaScript pemain yang valid diperlukan
-• Hash JavaScript pemain berlaku selama sekitar satu bulan, dan hash yang kedaluwarsa akan dicabut oleh GVS
+• Diperlukan hash pemutar JavaScript yang sah
+• Hash pemutar JavaScript berlaku selama sekitar satu bulan, dan hash yang kedaluwarsa akan dicabut oleh GVS
 • Pemutaran gagal jika hash dicabut"</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Pembaruan pemutar JavaScript diaktifkan</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Pembaruan pemutar JavaScript dinonaktifkan
@@ -225,7 +229,7 @@ Gunakan warna gelap jika memungkinkan, karena aplikasi ini tidak mendukung tema 
     <string name="revanced_debug_spannable_summary">Includes spannable in the debug log.</string>
     <string name="revanced_debug_spannable_title">Log spannable</string>
     <string name="revanced_debug_summary">Prints the debug log.</string>
-    <string name="revanced_debug_title">Enable debug logging</string>
+    <string name="revanced_debug_title">Aktifkan pencatatan debug</string>
     <string name="revanced_default_app_settings_summary">Untuk membuka tautan YouTube Music di RVX Music, aktifkan Buka tautan yang didukung dan aktifkan semua alamat web yang Didukung.</string>
     <string name="revanced_default_app_settings_title">Buka pengaturan aplikasi bawaan</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"Disables forced auto audio tracks for podcasts.
@@ -443,19 +447,6 @@ Keterbatasan:
     <string name="revanced_hide_samples_shelf_title">Sembunyikan rak Sampel</string>
     <string name="revanced_hide_search_button_summary">Menyembunyikan tombol pencarian di toolbar.</string>
     <string name="revanced_hide_search_button_title">Sembunyikan tombol pencarian</string>
-    <string name="revanced_hide_settings_menu_about_title">Sembunyikan menu Tentang</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Sembunyikan menu penghematan Data</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Sembunyikan menu Unduhan &amp; penyimpanan</string>
-    <string name="revanced_hide_settings_menu_general_title">Sembunyikan menu Umum</string>
-    <string name="revanced_hide_settings_menu_notification_title">Sembunyikan menu Pemberitahuan</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">Sembunyikan menu Dapatkan Music premium</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Sembunyikan menu Pusat Keluarga</string>
-    <string name="revanced_hide_settings_menu_playback_title">Sembunyikan menu Pemutaran</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">Sembunyikan menu Privasi &amp; data</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">Sembunyikan menu Rekomendasi</string>
-    <string name="revanced_hide_settings_menu_summary">"Sembunyikan elemen menu pengaturan.
-Ini tidak hanya menyembunyikan menu pengaturan YT Music, tetapi juga menu pengaturan ReVanced Extended."</string>
-    <string name="revanced_hide_settings_menu_title">Sembunyikan menu pengaturan</string>
     <string name="revanced_hide_song_video_toggle_summary">Menyembunyikan tombol Lagu / Video di pemutar.</string>
     <string name="revanced_hide_song_video_toggle_title">Sembunyikan tombol Lagu / Video</string>
     <string name="revanced_hide_sound_search_button_summary">Menyembunyikan tombol pencarian suara di bilah pencarian.</string>
@@ -564,23 +555,25 @@ Klik untuk melihat cara menerbitkan kunci API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Pergi ke &lt;a href=%1$s&gt;Buat proyek baru&lt;/a&gt;.&lt;br&gt;2. Klik &lt;b&gt;tombol;&lt;/b&gt; BUAT.&lt;br&gt;3. Pergi ke &lt;a href=%2$s&gt;API Data YouTube v3&lt;/a&gt;.&lt;br&gt;4. Klik &lt;b&gt;tombol&lt;/b&gt; NYALAKAN.&lt;br&gt;5. Klik &lt;b&gt;tombol&lt;/b&gt; BUAT KREDENSIAL.&lt;br&gt;6. Pilih &lt;b&gt;pilihan&lt;/b&gt; data Publik.&lt;br&gt;7. Klik &lt;b&gt;tombol&lt;/b&gt; SELANJUTNYA.&lt;br&gt;8. Salin kunci API.&lt;br&gt;&lt;br&gt;※ Kunci API tidak boleh dibagikan dengan orang lain, sehingga tidak disertakan dalam pengaturan Impor / Ekspor.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Terbitkan kunci pengembang API Data YouTube v3</string>
     <string name="revanced_ryd_about">Tentang</string>
-    <string name="revanced_ryd_attribution_summary">Data disediakan oleh API Return YouTube Dislike. Tekan di sini untuk mempelajari lebih lanjut.</string>
+    <string name="revanced_ryd_attribution_summary">"Data disediakan oleh API Return YouTube Dislike
+
+Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Menyembunyikan pemisah tombol suka.</string>
-    <string name="revanced_ryd_compact_layout_title">Tombol suka ringkas</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Menampilkan persentase dislike, bukan jumlah dislike.</string>
-    <string name="revanced_ryd_dislike_percentage_title">Dislike sebagai persentase</string>
+    <string name="revanced_ryd_compact_layout_summary">Mengurangi lebar tombol Suka untuk menghemat ruang</string>
+    <string name="revanced_ryd_compact_layout_title">Gunakan tombol Suka ringkas</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Menampilkan jumlah tidak suka sebagai persentase dari jumlah suka, bukan sebagai angka</string>
+    <string name="revanced_ryd_dislike_percentage_title">Tampilkan dislike sebagai persentase</string>
     <string name="revanced_ryd_enabled_summary">Menampilkan jumlah tidak suka pada video.</string>
     <string name="revanced_ryd_enabled_title">Aktifkan Return YouTube Dislike</string>
-    <string name="revanced_ryd_estimated_like_summary">Menampilkan perkiraan jumlah suka video.</string>
+    <string name="revanced_ryd_estimated_like_summary">Menampilkan perkiraan jumlah suka pada video di mana pembuatnya telah menonaktifkan fitur suka</string>
     <string name="revanced_ryd_estimated_like_title">Tampilkan perkiraan suka</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Dislike tidak tersedia (batas API client tercapai).</string>
-    <string name="revanced_ryd_failure_connection_status_code">Dislike tidak tersedia (status %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">Dislike untuk sementara tidak tersedia (API kehabisan waktu).</string>
-    <string name="revanced_ryd_failure_generic">Dislikes tidak tersedia (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Menampilkan toast jika API Return YouTube Dislike tidak tersedia.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan toast jika API tidak tersedia</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Disembunyikan</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Dislike tidak tersedia (pembatasan API klien)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Dislike tidak tersedia (status %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Dislike sementara tidak tersedia (waktu API habis)</string>
+    <string name="revanced_ryd_failure_generic">Dislike tidak tersedia (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Menampilkan pemberitahuan saat server Return YouTube Dislike tidak tersedia</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan peringatan kesalahan sambungan</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Disembunyikan oleh pemilik</string>
     <string name="revanced_sb_about">Tentang</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat unduhan untuk platform lain.</string>
@@ -649,21 +642,27 @@ Klik untuk melihat cara menerbitkan kunci API."</string>
     <string name="revanced_settings_import_export_summary">Impor / Export pengaturan RVX Music.</string>
     <string name="revanced_settings_import_export_title">Impor / Ekspor Pengaturan</string>
     <string name="revanced_settings_import_failed">Impor gagal: %s.</string>
-    <string name="revanced_settings_import_reset">Pengaturan reset ke default.</string>
-    <string name="revanced_settings_import_success">Mengimpor %d setelan.</string>
+    <string name="revanced_settings_import_reset">Pengaturan Morphe diatur ke bawaan</string>
+    <string name="revanced_settings_import_success">%d Pengaturan diimpor</string>
+    <string name="revanced_settings_reset">Setel ulang</string>
     <string name="revanced_settings_reset_color">Setel ulang warna</string>
-    <string name="revanced_settings_search_clear_history">Bersihkan history pencarian</string>
-    <string name="revanced_settings_search_clear_history_message">Apakah kamu yakin untuk membersihkan seluruh history pencarian? </string>
-    <string name="revanced_settings_search_empty_history_summary">Untuk menyimpan history pencarian, ketik kata kunci lalu tekan enter</string>
-    <string name="revanced_settings_search_empty_history_title">History pencarian kosong</string>
+    <string name="revanced_settings_search_clear_history">Hapus riwayat pencarian</string>
+    <string name="revanced_settings_search_clear_history_message">Apakah Anda yakin ingin menghapus semua riwayat pencarian?</string>
+    <string name="revanced_settings_search_empty_history_summary">Untuk menyimpan riwayat pencarian, ketik kueri pencarian dan tekan Enter</string>
+    <string name="revanced_settings_search_empty_history_title">Riwayat pencarian kosong</string>
     <string name="revanced_settings_search_history_summary_off">Pengaturan history pencarian tidak ditampilkan. </string>
     <string name="revanced_settings_search_history_summary_on">Pengaturan history pencarian ditampilkan. </string>
-    <string name="revanced_settings_search_history_title">Tampilkan pengaturan history pencarian</string>
-    <string name="revanced_settings_search_no_results_summary">Cobalah kata kunci lain</string>
-    <string name="revanced_settings_search_no_results_title">Tak ada hasil untuk \'%s\'.</string>
+    <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
+    <string name="revanced_settings_search_no_results_summary">Coba kata kunci lain</string>
+    <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">Pencarian terbaru</string>
-    <string name="revanced_settings_search_remove_message">Hapus history pencarian? </string>
-    <string name="revanced_settings_search_tips_title">Cari Tips</string>
+    <string name="revanced_settings_search_remove_message">Hapus dari riwayat pencarian?</string>
+    <string name="revanced_settings_search_tips_summary">"• Ketuk jalur untuk menelusuri ke jalur tersebut
+• Tekan lama pada pengaturan untuk menelusuri ke jalur tersebut
+• Tekan Enter untuk menyimpan kueri pencarian ke riwayat
+• Pencarian mengabaikan huruf besar/kecil dan tanda baca
+• Pengaturan utama muncul di atas pengaturan sampingan yang dinonaktifkan"</string>
+    <string name="revanced_settings_search_tips_title">Tips Pencarian</string>
     <string name="revanced_settings_search_title">Cari %s</string>
     <string name="revanced_share_copy_settings_success">Setelan disalin ke papan klip.</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Tidak ada lirik real-time</string>

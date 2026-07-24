@@ -2,15 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">続行</string>
     <string name="gms_core_dialog_dismiss_text">今後表示しない</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCoreはバックグラウンドで実行する権限がありません。\n\nあなたの端末の \"Don't kill my app \"のガイドに従って、MicroGのインストールに適用してください。\n\nこれはアプリが動作するために必要です。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"問題を防ぐためにGmsCoreのバッテリー最適化を無効にする必要があります。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG には、バックグラウンドで実行するための権限が与えられていません。
 
-「続行」をタップし、バッテリーの最適化を無効にします。"</string>
+下記ウェブサイト「Don't kill my app!」の携帯電話メーカー別のガイドに従い、MicroG に対するデバイスの設定を変更してください。
+
+この操作は、アプリが正常に動作するために必要です。"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG の電池の最適化は、問題を防ぐために無効にする必要があります。
+
+MicroG に対して電池の最適化を無効にしても、バッテリー消費に悪影響はありません。
+
+[続行] をタップして電池の最適化を無効にしてください"</string>
     <string name="gms_core_dialog_open_website_text">ウェブサイトを開く</string>
     <string name="gms_core_dialog_title">操作が必要です</string>
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging 設定を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCoreを開く</string>
-    <string name="gms_core_toast_not_installed_message">GmsCoreがインストールされていません。インストールしてください。</string>
+    <string name="gms_core_toast_not_installed_message">MicroG がインストールされていません。インストールしてください。</string>
     <string name="morphe_crossfade_duration_10000ms">10 秒</string>
     <string name="morphe_crossfade_duration_1000ms">1 秒</string>
     <string name="morphe_crossfade_duration_11000ms">11 秒</string>
@@ -32,7 +38,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">QUIC プロトコルは有効です</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC プロトコルは無効です</string>
     <string name="morphe_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
-    <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを Android Reel または TV に変更してください</string>
+    <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを「Android Studio」以外のクライアントに変更してください</string>
     <string name="morphe_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックが使用される場合があります</string>
     <string name="morphe_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用されません</string>
     <string name="morphe_force_original_audio_title">オリジナルの音声を強制的に使用</string>
@@ -63,7 +69,7 @@ YouTube Music 9.x 以降が必要です。"</string>
 YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されます。"</string>
     <string name="morphe_music_crossfade_about_unsupported_title">全く機能しない</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">キャストまたはミラーリング中は、動作が不安定なためクロスフェードを一時停止します。この問題は将来的にも解決できない可能があります</string>
-    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">ゆるやかなホールド（維持）</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">ゆるやかなホールド（持続）</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">おだやかなイーズ（緩急）</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">等電力（全体音量一定）</string>
     <string name="morphe_music_crossfade_curve_entry_smoothstep">なめらかな S 字カーブ</string>
@@ -99,6 +105,10 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
     <string name="morphe_sanitize_sharing_links_summary_off">共有リンクから追跡パラメータは削除されません</string>
     <string name="morphe_sanitize_sharing_links_summary_on">共有リンクから追跡パラメータが削除されます</string>
     <string name="morphe_sanitize_sharing_links_title">共有リンクを無害化</string>
+    <string name="morphe_settings_menu_copy_path">階層をコピーしました (%s)</string>
+    <string name="morphe_settings_menu_filter_picker_empty">項目の一覧を取得するため、アプリ側の設定メニューを一度開いてください</string>
+    <string name="morphe_settings_menu_filter_screen_summary">アプリ側の設定メニューの項目を、表示される項目名で指定して非表示にします</string>
+    <string name="morphe_settings_menu_filter_screen_title">設定メニューのフィルタ</string>
     <string name="morphe_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"JavaScript 版プレーヤーを特定のバージョンに固定します
 
@@ -192,6 +202,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
     <string name="revanced_change_start_page_summary">アプリのスタートページを変更します。</string>
     <string name="revanced_change_start_page_title">スタート画面</string>
+    <string name="revanced_credits_title">クレジット</string>
     <string name="revanced_custom_filter_strings_summary">非表示にするコンポーネントの path builder string のリスト (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタム フィルタ</string>
     <string name="revanced_custom_filter_summary">カスタムフィルターを有効にします。</string>
@@ -432,19 +443,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_hide_samples_shelf_title">サンプルシェルフを非表示</string>
     <string name="revanced_hide_search_button_summary">ツールバーの検索ボタンを非表示にします。</string>
     <string name="revanced_hide_search_button_title">検索ボタンを非表示</string>
-    <string name="revanced_hide_settings_menu_about_title">「YouTube Music について」を非表示</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">「データの節約」を非表示</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">「一時保存とストレージ」を非表示</string>
-    <string name="revanced_hide_settings_menu_general_title">「全般」を非表示</string>
-    <string name="revanced_hide_settings_menu_notification_title">「通知」を非表示</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">「Music Premium の購入」を非表示</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">「ファミリーセンター」を非表示</string>
-    <string name="revanced_hide_settings_menu_playback_title">「再生」を非表示</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">「プライバシーとデータ」を非表示</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">「おすすめ」を非表示</string>
-    <string name="revanced_hide_settings_menu_summary">"設定の要素を非表示にします。
-YT Music の設定だけでなく、ReVanced Extended の設定も非表示にします。"</string>
-    <string name="revanced_hide_settings_menu_title">設定メニューを非表示</string>
     <string name="revanced_hide_song_video_toggle_summary">プレイヤーから「曲 / 動画」ボタンを非表示にします。</string>
     <string name="revanced_hide_song_video_toggle_title">「曲 / 動画」ボタンを非表示</string>
     <string name="revanced_hide_sound_search_button_summary">検索バーのサウンドサーチボタンを非表示にします。</string>
@@ -544,23 +542,25 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 「&lt;a href=%1$s&gt;新しいプロジェクトの作成&lt;/a&gt;」に移動します。&lt;br&gt;2. 「&lt;b&gt;作成&lt;/b&gt;」をタップします。&lt;br&gt;3. 「&lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;」に移動します。&lt;br&gt;4. 「&lt;b&gt;有効にする&lt;/b&gt;」をタップします。&lt;br&gt;5. 「&lt;b&gt;認証情報を作成&lt;/b&gt;」をタップします。&lt;br&gt;6. 「&lt;b&gt;一般公開データ&lt;/b&gt;」オプションを選択します。&lt;br&gt;7. 「&lt;b&gt;次へ&lt;/b&gt;」をタップします。&lt;br&gt;8.  API キーをコピーします。&lt;br&gt;&lt;br&gt;※API キーは他人と共有してはならないため、インポート/エクスポート設定には含まれません。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 開発者キーの発行</string>
     <string name="revanced_ryd_about">Return YouTube Dislike について</string>
-    <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されています。詳細はここをタップしてください。</string>
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike API を使用してデータを取得しています
+
+ここをタップすると ReturnYouTubeDislike.com を開きます"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">高評価ボタンの区切りを非表示にします。</string>
-    <string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタン</string>
-    <string name="revanced_ryd_dislike_percentage_summary">低評価はパーセンテージで表示されます。</string>
-    <string name="revanced_ryd_dislike_percentage_title">低評価数の形式の切り替え</string>
+    <string name="revanced_ryd_compact_layout_summary">高評価ボタンを横幅が短いボタンで置き換えます</string>
+    <string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタンを使用</string>
+    <string name="revanced_ryd_dislike_percentage_summary">投票数ではなくパーセントで低評価を表示します</string>
+    <string name="revanced_ryd_dislike_percentage_title">低評価をパーセントで表示</string>
     <string name="revanced_ryd_enabled_summary">低評価は数字で表示されます。</string>
     <string name="revanced_ryd_enabled_title">Return YouTube Dislike を有効化</string>
-    <string name="revanced_ryd_estimated_like_summary">動画の推定高評価数を表示します。</string>
-    <string name="revanced_ryd_estimated_like_title">推定の高評価数を表示</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API 制限)</string>
-    <string name="revanced_ryd_failure_connection_status_code">低評価数は一時的に利用できません。(ステータス %d)</string>
-    <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません。(API タイムアウト)</string>
-    <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">RYDが利用できない場合、メッセージが表示されます。</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にメッセージを表示</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
+    <string name="revanced_ryd_estimated_like_summary">動画投稿者が高評価数を非公開に設定している動画で、高評価の推定値を表示します</string>
+    <string name="revanced_ryd_estimated_like_title">高評価の推定値を表示</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数表示は利用できません (API のレート制限)</string>
+    <string name="revanced_ryd_failure_connection_status_code">低評価数表示は利用できません (status %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">低評価数表示は一時的に利用できません (API タイムアウト)</string>
+    <string name="revanced_ryd_failure_generic">低評価数表示は利用できません (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike サーバーが利用できない場合に通知を表示します</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">接続エラーの通知を表示</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">非公開</string>
     <string name="revanced_sb_about">この機能について</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">データは SponsorBlock API によって提供されています。他のプラットフォームのダウンロードや詳細については、ここをタップしてください。</string>
@@ -624,25 +624,26 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_settings_import">インポート</string>
     <string name="revanced_settings_import_copy">コピー</string>
     <string name="revanced_settings_import_export_as_text">設定をテキストとしてインポートまたはエクスポートします。</string>
-    <string name="revanced_settings_import_reset">設定をデフォルトにリセットしました。</string>
+    <string name="revanced_settings_import_reset">Morphe の設定をデフォルトにリセットしました</string>
+    <string name="revanced_settings_import_success">%d 個の設定をインポートしました</string>
     <string name="revanced_settings_reset">リセット</string>
-    <string name="revanced_settings_reset_color">色をリセット</string>
+    <string name="revanced_settings_reset_color">色を初期化</string>
     <string name="revanced_settings_search_clear_history">検索履歴を消去</string>
-    <string name="revanced_settings_search_clear_history_message">すべての検索履歴を消去してもよろしいですか？</string>
-    <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力してエンターキーを押してください。</string>
+    <string name="revanced_settings_search_clear_history_message">本当にすべての検索履歴を消去しますか？</string>
+    <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力して Enter キーを押してください</string>
     <string name="revanced_settings_search_empty_history_title">検索履歴はありません</string>
     <string name="revanced_settings_search_history_summary_off">設定の検索履歴を表示します。</string>
     <string name="revanced_settings_search_history_summary_on">設定の検索履歴を表示します。</string>
     <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
-    <string name="revanced_settings_search_no_results_summary">別のキーワードを試してみてください。</string>
-    <string name="revanced_settings_search_no_results_title">「%s」に該当する結果は見つかりませんでした。</string>
-    <string name="revanced_settings_search_recent_searches">検索履歴</string>
+    <string name="revanced_settings_search_no_results_summary">別のキーワードを試してください</string>
+    <string name="revanced_settings_search_no_results_title">「%s」に対する検索結果は見つかりませんでした</string>
+    <string name="revanced_settings_search_recent_searches">最近の検索</string>
     <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
-    <string name="revanced_settings_search_tips_summary">"・カテゴリをタップするとそのカテゴリの設定メニューに移動します。
-・設定を長押しすると、その設定に移動できます。
-・エンターキーを押すと、検索クエリが履歴に保存されます。
-・検索では大文字と小文字および句読点は無視されます。
-・無効化されている下位設定の上には、その設定を無効化している上位設定が表示されます。"</string>
+    <string name="revanced_settings_search_tips_summary">"• カテゴリをタップするとそのカテゴリの設定メニューに移動する
+• 設定を長押しすると設定メニューに移動しその設定までスクロールする
+• Enter キーを押すと検索クエリが履歴に保存される
+• 検索では、大文字・小文字や句読点は無視される
+• 無効化されている下位設定の上には、その設定を無効化している上位設定が表示される"</string>
     <string name="revanced_settings_search_tips_title">検索のヒント</string>
     <string name="revanced_settings_search_title">設定を検索</string>
     <string name="revanced_share_copy_settings_success">設定をクリップボードにコピーしました。</string>

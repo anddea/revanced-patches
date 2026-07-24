@@ -4,22 +4,22 @@
     <string name="accessibility_settings_edu_opt_out_text">Ваши элементы управления изменены, поскольку включена служба специальных возможностей.</string>
     <string name="gms_core_dialog_continue_text">Продолжить</string>
     <string name="gms_core_dialog_dismiss_text">Больше не показывать</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore или MicroG не имеет разрешения на запуск в фоновом режиме.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG не имеет разрешения на работу в фоновом режиме.
 
-Следуйте инструкции \"Не закрывайте мое приложение!\" для вашего устройства и примените её к вашему GmsCore или MicroG.
+Следуйте инструкции \"Don't kill my app\" для Вашего телефона и примените её к вашей установке MicroG.
 
 Это необходимо для работы приложения."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Для предотвращения проблем необходимо отключить оптимизацию заряда батареи для GmsCore или MicroG.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизация батареи для MicroG должна быть отключена для предотвращения проблем.
 
-Отключение оптимизации заряда батареи для GmsCore или MicroG не окажет негативного влияния на использование батареи.
+Отключение оптимизации батареи для MicroG не повлияет негативно на использование батареи.
 
-Нажмите кнопку \"Продолжить\" и отключите оптимизацию заряда батареи."</string>
+Нажмите кнопку \"Продолжить\" и разрешите изменения оптимизации."</string>
     <string name="gms_core_dialog_open_website_text">Открыть веб-сайт</string>
     <string name="gms_core_dialog_title">Требуется действие</string>
     <string name="gms_core_offline_account_login_error">Если Вы недавно изменили данные для входа в свою учетную запись, то удалите и переустановите GmsCore или MicroG.</string>
     <string name="gms_core_settings_summary">Для получения уведомлений в RVX, включите \"Облачные уведомления\" сообщениями.</string>
     <string name="gms_core_settings_title">Открыть GmsCore или MicroG</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore или MicroG не установлен. Установите его.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG не установлен. Установите его.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Не скрывать панель навигации при прокрутке</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Выключить авто скрытие панели навигации</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудио DRC включено</string>
@@ -28,11 +28,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC отключен</string>
     <string name="morphe_disable_quic_protocol_title">Отключить протокол QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Чтобы использовать эту функцию, измените \"Подмена видео потоков\" на Android Reel или TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"«Расширить длительность DVR для прямой трансляции» может быть недоступно
+
+Чтобы это исправить, включите «Поддельные видеопотоки» и измените «Клиент по умолчанию» на «TV»"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">Позволяет перематывать прямые трансляции в прошлое до 7 дней</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">Расширить длительность прямой трансляции DVR</string>
+    <string name="morphe_force_original_audio_not_available">Для использования этой функции измените клиент в \"Подмене видеопотоков\" на любой, кроме Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
     <string name="morphe_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
     <string name="morphe_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
     <string name="morphe_hide_sync_button_title">Скрыть кнопку \"Синхронизировать с видео\"</string>
+    <string name="morphe_livestream_dvr_not_available">"«Включить DVR для прямой трансляции» может быть недоступно
+
+Чтобы это исправить, включите «Поддельные видеопотоки» и измените «Клиент по умолчанию» на «TV»"</string>
+    <string name="morphe_livestream_dvr_summary">Разрешает перемотку на всех прямых трансляциях, даже на тех, которые обычно это ограничивают</string>
+    <string name="morphe_livestream_dvr_title">Включить прямую трансляцию DVR</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не удается войти в VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Невозможно войти в VR, веб-авторизация не была одобрена</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 временно недоступна</string>
@@ -52,7 +62,10 @@
     <string name="morphe_sanitize_sharing_links_summary_off">Параметр отслеживания запросов не удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметр отслеживания запросов удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_title">Очищать ссылки для обмена</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• Клиент экспериментальный и может перестать работать в любое время</string>
+    <string name="morphe_settings_menu_copy_path">Скопировано: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Откройте экран стандартных настроек приложения один раз, чтобы заполнить список</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Скрыть элементы на экране настроек приложения, основываясь на их видимом имени</string>
+    <string name="morphe_settings_menu_filter_screen_title">Фильтр меню настроек</string>
     <string name="morphe_spoof_video_streams_about_js">• Если деобфускация провалится, воспроизведение может провалиться</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Пункт \"Звуковая дорожка\" отсутствует</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Отсутствует видеокодек AV1</string>
@@ -83,8 +96,7 @@
     <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Введите допустимый хеш JavaScript плеера</string>
     <string name="morphe_spoof_video_streams_player_js_hash_value_title">Хеш JavaScript плеера</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Вариант JavaScript плеера</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Подмена видеопотоков клиента для предотвращения проблем с воспроизведением
-</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Настройте подмену клиента, чтобы предотвратить проблемы с воспроизведением</string>
     <string name="morphe_spoof_video_streams_screen_title">Подмена видеопотоков</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Вы не вошли в Android VR. Нажмите здесь, чтобы войти</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Чтобы использовать эту функцию, изменить значение \'Default client\' на Android VR</string>
@@ -145,12 +157,12 @@
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow временно недоступен (код статуса: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow временно недоступен</string>
     <string name="revanced_alt_thumbnail_home_title">Для вкладки \"Главная\"</string>
-    <string name="revanced_alt_thumbnail_library_title">Вкладка "Вы"</string>
+    <string name="revanced_alt_thumbnail_library_title">Для вкладки \"Вы\"</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Оригинальные миниатюры</string>
-    <string name="revanced_alt_thumbnail_options_entry_2">Мини-альбомы DeArrow и оригинальные мини-альбомы</string>
-    <string name="revanced_alt_thumbnail_options_entry_3">Мини-альбомы DeArrow и кадры из видео</string>
+    <string name="revanced_alt_thumbnail_options_entry_2">Мини-альбомы DeArrow и&amp;оригинальные мини-альбомы</string>
+    <string name="revanced_alt_thumbnail_options_entry_3">Мини-альбомы DeArrow и&amp;кадры из видео</string>
     <string name="revanced_alt_thumbnail_options_entry_4">Захват кадра</string>
-    <string name="revanced_alt_thumbnail_player_title">Плейлисты и рекомендации плеера</string>
+    <string name="revanced_alt_thumbnail_player_title">Для плейлистов и рекомендаций плеера</string>
     <string name="revanced_alt_thumbnail_search_title">Для результатов поиска</string>
     <string name="revanced_alt_thumbnail_stills">Стоп-кадр видео</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Кадры взяты из начала/середины/конца каждого видео. Эти изображения уже есть в YouTube и внешний API не используется</string>
@@ -237,7 +249,7 @@
     <string name="revanced_change_start_page_entry_courses">Курсы / Обучение</string>
     <string name="revanced_change_start_page_entry_default">По умолчанию</string>
     <string name="revanced_change_start_page_entry_explore">Навигатор</string>
-    <string name="revanced_change_start_page_entry_fashion">Мода и Красота</string>
+    <string name="revanced_change_start_page_entry_fashion">Мода и&amp;Красота</string>
     <string name="revanced_change_start_page_entry_gaming">Игры</string>
     <string name="revanced_change_start_page_entry_history">История просмотров</string>
     <string name="revanced_change_start_page_entry_hype">Шумиха</string>
@@ -303,13 +315,13 @@
     <string name="revanced_debug_export_logs_to_file_title">Экспорт журналов отладки</string>
     <string name="revanced_debug_logs_clear_buffer_summary">Очищает все сохраненные журналы отладки ReVanced</string>
     <string name="revanced_debug_logs_clear_buffer_title">Очистить журналы отладки</string>
-    <string name="revanced_debug_logs_clear_toast">Журналы очищены</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">Журналы скопированы</string>
+    <string name="revanced_debug_logs_clear_toast">Журналы отладки очищены</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Журналы отладки скопированы</string>
     <string name="revanced_debug_logs_disabled">Журналы отладки отключены</string>
     <string name="revanced_debug_logs_export_success">Успех экспорта журналов.</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Логи слишком велики для копирования.</string>
-    <string name="revanced_debug_logs_failed_to_export">Не удалось экспортировать журналы: %s</string>
-    <string name="revanced_debug_logs_none_found">Журналы не найдены</string>
+    <string name="revanced_debug_logs_failed_to_export">Не удалось экспортировать журналы отладки: %s</string>
+    <string name="revanced_debug_logs_none_found">Журналы отладки не найдены</string>
     <string name="revanced_debug_protobuffer_summary_off">Журналы отладки не содержат буферов протокола</string>
     <string name="revanced_debug_protobuffer_summary_on">Журналы отладки содержат буферы протоколов</string>
     <string name="revanced_debug_protobuffer_title">Журнал буфера протоколов</string>
@@ -321,7 +333,7 @@
     <string name="revanced_debug_title">Включить журналы отладки</string>
     <string name="revanced_debug_toast_on_error_summary_off">Всплывающее уведомление при возникновении ошибки Revanced скрыто</string>
     <string name="revanced_debug_toast_on_error_summary_on">Всплывающее уведомление при возникновении ошибки Revanced показано</string>
-    <string name="revanced_debug_toast_on_error_title">Показать всплывающее уведомление при ошибке Revanced</string>
+    <string name="revanced_debug_toast_on_error_title">Показать всплывающее уведомление при ошибке Morphe</string>
     <string name="revanced_default_app_settings_summary">Чтобы открывать ссылки YouTube с помощью RVX, настройте \"Открытие поддерживаемых ссылок\" и включите нужные поддерживаемые веб-адреса.</string>
     <string name="revanced_default_app_settings_title">Открыть настройки</string>
     <string name="revanced_default_playback_speed_shorts_title">Скорость просмотра в Shorts по умолчанию</string>
@@ -1201,71 +1213,6 @@ Shorts
     <string name="revanced_hide_server_side_snack_bar_summary_off">Серверная панель взаимодействия показывается.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">Серверная панель взаимодействия скрыта.</string>
     <string name="revanced_hide_server_side_snack_bar_title">Скрыть серверную панель взаимодействия</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">О приложении отображено.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">О приложении скрыто.</string>
-    <string name="revanced_hide_settings_menu_about_title">О приложении</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">Специальные возможности отображены.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">Специальные возможности скрыты.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">Специальные возможности</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">Аккаунт отображен.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">Аккаунт скрыт.</string>
-    <string name="revanced_hide_settings_menu_account_title">Аккаунт</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">Отображено.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">Скрыто.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Меню Автопросмотра / Просмотра</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Счета и платежи отображены.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Счета и платежи скрыты.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">Счета и платежи</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">Субтитры отображены.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">Субтитры скрыты.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Субтитры</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Связанные приложения отображены.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Связанные приложения скрыты.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">Связанные приложения</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">Экономия трафика отображена.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">Экономия трафика скрыта.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Экономия трафика</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">Общее отображено.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">Общее скрыто.</string>
-    <string name="revanced_hide_settings_menu_general_title">Общее</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">Управлять историей просмотра отображено.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">Управлять историей просмотра скрыто.</string>
-    <string name="revanced_hide_settings_menu_history_title">Управлять историей просмотра</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">Чат трансляции отображен.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">Чат трансляции скрыт.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">Чат трансляции</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">Уведомления отображены.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">Уведомления скрыты.</string>
-    <string name="revanced_hide_settings_menu_notification_title">Уведомления</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">Фоновый и офлайн режим отображен.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">Фоновый и офлайн режим скрыт.</string>
-    <string name="revanced_hide_settings_menu_offline_title">Фоновый и офлайн режим</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Просмотр на телевизоре отображен.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Просмотр на телевизоре скрыт.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Просмотр на телевизоре</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Семейный центр отображен.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Семейный центр скрыт.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Семейный центр</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Экспериментальные функции отображены.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Экспериментальные функции скрыты.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">Экспериментальные функции</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">Конфиденциальность отображена.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">Конфиденциальность скрыта.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">Конфиденциальность</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Покупки и платные подписки отображены.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Покупки и платные подписки скрыты.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">Покупки и платные подписки</string>
-    <string name="revanced_hide_settings_menu_summary">Скрывает элементы меню настроек YouTube.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_off">Показать меню управления временем.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_on">Скрыть меню управления временем.</string>
-    <string name="revanced_hide_settings_menu_time_management_title">Скрыть раздел управления временем.</string>
-    <string name="revanced_hide_settings_menu_title">Скрыть меню настроек YouTube</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">Качество видео отображено.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">Качество видео скрыто.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">Качество видео</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">Ваши данные на YouTube отображено.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">Ваши данные на YouTube скрыто.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">Ваши данные на YouTube</string>
     <string name="revanced_hide_share_button_summary_off">Кнопка \"Поделиться\" под плеером показана</string>
     <string name="revanced_hide_share_button_summary_on">Кнопка \"Поделиться\" под плеером скрыта</string>
     <string name="revanced_hide_share_button_title">Скрыть кнопку \"Поделиться\"</string>
@@ -1632,7 +1579,7 @@ Shorts
     <string name="revanced_language_UR">Урдуский\n<small>اردو</small></string>
     <string name="revanced_language_VI">Вьетнамский\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Китайский\n<small>中文</small></string>
-    <string name="revanced_language_title">Язык настроек ReVanced</string>
+    <string name="revanced_language_title">Язык настроек Morphe</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">Воспроизведение продолжается, даже если мини-плеер перетаскивается за пределы экрана.</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">Воспроизведение приостановится, когда мини-плеер будет перетащен за пределы экрана.</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Приостановить воспроизведение горизонтальным жестом</string>
@@ -1754,9 +1701,9 @@ Shorts
     <string name="revanced_overlay_button_whitelist_summary">Нажать - Открыть \"Белый список\".
 Нажать и удерживать - Открыть настройки \"Белый список\".</string>
     <string name="revanced_overlay_button_whitelist_title">Кнопка \"Белый список\"</string>
-    <string name="revanced_overlay_buttons_max_landscape_summary">Максимальное количество кнопок наложения для отображения в ландшафтном режиме (за исключением кнопки полноэкранного режима). Введите 0, чтобы скрыть всё.</string>
+    <string name="revanced_overlay_buttons_max_landscape_summary">Максимальное количество кнопок наложения для отображения в ландшафтном режиме (за исключением кнопки полноэкранного режима). Введите 0, чтобы скрыть всё.\n\nПроведите по горизонтали, чтобы отобразить кнопки, превышающие этот лимит.</string>
     <string name="revanced_overlay_buttons_max_landscape_title">Максимальные кнопки в ландшафте</string>
-    <string name="revanced_overlay_buttons_max_portrait_summary">Максимальное количество кнопок наложения для отображения в портретном режиме (кроме кнопки полноэкранного режима). Введите 0, чтобы скрыть всё.</string>
+    <string name="revanced_overlay_buttons_max_portrait_summary">Максимальное количество кнопок наложения для отображения в портретном режиме (кроме кнопки полноэкранного режима). Введите 0, чтобы скрыть всё.\n\nПроведите по горизонтали, чтобы отобразить кнопки, превышающие этот лимит.</string>
     <string name="revanced_overlay_buttons_max_portrait_title">Максимальные кнопки в портрете</string>
     <string name="revanced_override_playlist_download_button_summary_off">Кнопка \"Скачать\" для плейлиста, использует внутренний загрузчик.</string>
     <string name="revanced_override_playlist_download_button_summary_on">Кнопка \"Скачать\" для плейлиста, использует внешний загрузчик.</string>
@@ -2030,16 +1977,16 @@ Shorts
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдите &lt;a href=\"%1$s\"&gt;Новый проект&lt;/a&gt;.&lt;br&gt;2. Нажмите &lt;b&gt;Создать&lt;/b&gt;.&lt;br&gt;3. Перейдите &lt;a href=\"%2$s\"&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Нажмите &lt;b&gt;Включить&lt;/b&gt;.&lt;br&gt;5. Нажмите &lt;b&gt;Создать учетные данные&lt;/b&gt;.&lt;br&gt;6. Выберите &lt;b&gt;Публичные данные&lt;/b&gt;.&lt;br&gt;7. Нажмите &lt;b&gt;Далее&lt;/b&gt;.&lt;br&gt;8. Скопируйте ключ API.&lt;br&gt;&lt;br&gt;※ Ключом API нельзя поделиться, поэтому он не доступен в настройках Импорт/Экспорт.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Проблема с ключом разработчика \"RYU\" Data API v3</string>
     <string name="revanced_ryd_about">О \"Вернуть YouTube Dislike\"</string>
-    <string name="revanced_ryd_attribution_summary">"Данные предоставлены API Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Данные предоставляются API Return YouTube Dislike
 
 Нажмите здесь, чтобы открыть ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Лайк\" стилизована для лучшего внешнего вида</string>
     <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Лайк\" стилизована для минимальной ширины</string>
-    <string name="revanced_ryd_compact_layout_title">Использовать компактную кнопку «Мне нравится»</string>
+    <string name="revanced_ryd_compact_layout_title">Использовать компактную кнопку «Нравится»</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Дизлайки показаны как число</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Дизлайки показаны в процентах</string>
-    <string name="revanced_ryd_dislike_percentage_title">Отображать дизлайки в процентах</string>
+    <string name="revanced_ryd_dislike_percentage_title">Показывать дизлайки в процентах</string>
     <string name="revanced_ryd_enable_summary_off">Кнопка \"Дизлайк\" скрыта.</string>
     <string name="revanced_ryd_enable_summary_on">Кнопка \"Дизлайк\" отображена.</string>
     <string name="revanced_ryd_enable_title">Включить Вернуть YouTube Dislike</string>
@@ -2052,7 +1999,7 @@ Shorts
     <string name="revanced_ryd_failure_generic">Дизлайки недоступны (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности Return YouTube Dislike скрыто</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности Return YouTube Dislike показано</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Показывать оповещения об ошибках подключения</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показывать уведомления об ошибках подключения</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто владельцем</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">Кнопки категорий показаны на панели категорий комментариев</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Кнопки категорий, кроме \'Самые популярные\' и \'Самые новые\', скрыты на панели категорий комментариев</string>
@@ -2333,7 +2280,7 @@ Shorts
     <string name="revanced_settings_import_export_as_text_summary">Импорт/Экспорт Настроек как текст.</string>
     <string name="revanced_settings_import_export_as_text_title">Импорт/Экспорт Настроек как текст</string>
     <string name="revanced_settings_import_failed">Ошибка импорта настроек.</string>
-    <string name="revanced_settings_import_reset">Настройки ReVanced восстановлены до значений по умолчанию</string>
+    <string name="revanced_settings_import_reset">Настройки Morphe восстановлены до значений по умолчанию</string>
     <string name="revanced_settings_import_success">Импортировано %d настроек</string>
     <string name="revanced_settings_import_summary">Импорт настроек из файла.</string>
     <string name="revanced_settings_import_title">Импорт настроек</string>
@@ -2726,10 +2673,10 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_vot_oauth_switch_token_button">Ввести другой токен</string>
     <string name="revanced_vot_oauth_token_summary">Необходим для живых голосов.</string>
     <string name="revanced_vot_oauth_token_title">Яндекс OAuth токен</string>
-    <string name="revanced_vot_original_audio_volume_summary">Громкость оригинальной дорожки при воспроизведении перевода (0-100). По умолчанию: 20</string>
+    <string name="revanced_vot_original_audio_volume_summary">Громкость оригинального звука YouTube во время воспроизведения перевода</string>
     <string name="revanced_vot_original_audio_volume_title">Громкость оригинального аудио</string>
     <string name="revanced_vot_playback_error">Не удалось воспроизвести аудио перевода</string>
-    <string name="revanced_vot_proxy_url_summary">Хост прокси-сервера VOT worker. По умолчанию: vot-new.toil-dump.workers.dev</string>
+    <string name="revanced_vot_proxy_url_summary">Хост прокси-сервера VOT worker. По умолчанию: определяется автоматически</string>
     <string name="revanced_vot_proxy_url_title">Прокси-сервер</string>
     <string name="revanced_vot_source_language_summary">Выберите язык аудио видео</string>
     <string name="revanced_vot_source_language_title">Язык оригинала</string>

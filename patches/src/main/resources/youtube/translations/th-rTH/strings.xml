@@ -4,12 +4,12 @@
     <string name="accessibility_settings_edu_opt_out_text">การควบคุมของคุณจะถูกปรับเปลี่ยนเนื่องจากมีการเปิดใช้งานบริการการเข้าถึง</string>
     <string name="gms_core_dialog_continue_text">ดำเนินการต่อ</string>
     <string name="gms_core_dialog_dismiss_text">กล่องโต้ตอบหลักของ GMS ปิดข้อความ</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore ไม่มีสิทธิ์รันในพื้นหลัง
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG ไม่มีสิทธิ์รันในพื้นหลัง
 
 ทำตามคําแนะนํา \"อย่าฆ่าแอปของฉัน\" สําหรับโทรศัพท์ของคุณ และใช้คําแนะนําเหล่านั้นกับการติดตั้ง MicroG ของคุณ
 
 สิ่งนี้จําเป็นสําหรับแอปในการทํางาน"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"การปรับแต่งแบตเตอรี่ของ MicroG GmsCore ต้องถูกปิดใช้งานเพื่อป้องกันปัญหา
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"การปรับแต่งแบตเตอรี่ของ MicroG ต้องถูกปิดใช้งาน
 
 การปิดใช้งานการปรับแต่งแบตเตอรี่สําหรับ MicroG จะไม่ส่งผลเสียต่อการใช้แบตเตอรี่
 
@@ -18,7 +18,7 @@
     <string name="gms_core_dialog_title">ต้องดำเนินการ</string>
     <string name="gms_core_offline_account_login_error">หากคุณเพิ่งเปลี่ยนรายละเอียดการเข้าสู่ระบบบัญชีของคุณ โปรดถอนการติดตั้งและติดตั้ง GmsCore ใหม่</string>
     <string name="gms_core_settings_summary">หากต้องการรับการแจ้งเตือนใน RVX โปรดเปิดใช้งานการส่งข้อความบนคลาวด์</string>
-    <string name="gms_core_toast_not_installed_message">MicroG GmsCore ไม่ได้ติดตั้ง ติดตั้ง</string>
+    <string name="gms_core_toast_not_installed_message">MicroG ไม่ได้ติดตั้ง ติดตั้ง</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">เลือกส่วนประกอบที่จะปรากฏในเมนู flyout</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">ปิดใช้งานการซ่อนแถบนำทางอัตโนมัติ</string>
     <string name="morphe_disable_drc_audio_summary_off">เสียง DRC ถูกเปิด</string>
@@ -27,11 +27,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">โพรโทคอล QUIC ถูกเปิดใช้งาน</string>
     <string name="morphe_disable_quic_protocol_summary_on">โพรโทคอล QUIC ถูกปิดใช้งาน</string>
     <string name="morphe_disable_quic_protocol_title">ปิดใช้งานโพรโทคอล QUIC</string>
-    <string name="morphe_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'Spoof video streams\' เป็น Android Reel หรือ TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'ขยายระยะเวลา DVR สำหรับถ่ายทอดสด' อาจไม่สามารถใช้งานได้
+
+หากต้องการแก้ไข โปรดเปิด 'Spoof video streams' และเปลี่ยน 'Default client' เป็น 'TV'"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">ช่วยให้คุณสามารถย้อนกลับการออกอากาศสดได้ถึง 7 วันย้อนหลัง</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">ขยายระยะเวลาบันทึกวิดีโอไลฟ์สตรีม</string>
+    <string name="morphe_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'Spoof video streams\' เป็นไคลเอ็นต์อื่น ๆ ยกเว้น Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
     <string name="morphe_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
     <string name="morphe_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
     <string name="morphe_hide_sync_button_title">ซ่อนปุ่ม \"ซิงค์กับวิดีโอ\"</string>
+    <string name="morphe_livestream_dvr_not_available">"'เปิดใช้งาน DVR สำหรับถ่ายทอดสด' อาจไม่สามารถใช้งานได้
+
+หากต้องการแก้ไข โปรดเปิด 'Spoof video streams' และเปลี่ยน 'Default client' เป็น 'TV'"</string>
+    <string name="morphe_livestream_dvr_summary">ช่วยให้สามารถข้ามไปยังส่วนต่างๆ ของการถ่ายทอดสดได้ทั้งหมด แม้แต่การถ่ายทอดสดที่ปกติแล้วจะจำกัดการทำงานนี้ไว้</string>
+    <string name="morphe_livestream_dvr_title">เปิดใช้งาน DVR สตรีมมิงสด</string>
     <string name="morphe_oauth2_connection_failure_auth_error">ไม่สามารถเข้าสู่ระบบ VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">ไม่สามารถลงชื่อเข้าใช้ VR ได้ เว็บไซต์ยังไม่ได้อนุมัติการรับรอง</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 นั้นล่าช้าชั่วคราว</string>
@@ -51,7 +61,9 @@
     <string name="morphe_sanitize_sharing_links_summary_off">พารามิเตอร์การติดตามไม่ได้ถูกลบออกจากลิงก์ที่แชร์</string>
     <string name="morphe_sanitize_sharing_links_summary_on">พารามิเตอร์การติดตามจะถูกลบออกจากลิงก์ที่แชร์</string>
     <string name="morphe_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• ไคลเอนต์ทดลองและอาจหยุดทำงานได้ตลอดเวลา</string>
+    <string name="morphe_settings_menu_filter_picker_empty">เปิดหน้าจอการตั้งค่าแอปมาตรฐานหนึ่งครั้งเพื่อสร้างรายการ</string>
+    <string name="morphe_settings_menu_filter_screen_summary">ซ่อนรายการบนหน้าจอการตั้งค่าแอปมาตรฐานตามชื่อที่แสดง</string>
+    <string name="morphe_settings_menu_filter_screen_title">ตัวกรองเมนูการตั้งค่า</string>
     <string name="morphe_spoof_video_streams_about_js">• ถ้า Deobfuscation ล้มเหลว การเล่นอาจล้มเหลว</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• เมนูแทร็กเสียงหายไป</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
@@ -158,6 +170,7 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_2">กลาง</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">สิ้นสุด</string>
     <string name="revanced_alt_thumbnail_stills_time_title">ดึงเฟรมวิดีโอจาก</string>
+    <string name="revanced_app_name_title">ยูทูป</string>
     <string name="revanced_auto_captions_style_entry_1">แสดงเสมอ</string>
     <string name="revanced_auto_captions_style_entry_2">ไม่แสดง</string>
     <string name="revanced_auto_captions_style_entry_3">แสดงเมื่อไม่ได้ปิดเสียง</string>
@@ -233,20 +246,20 @@
     <string name="revanced_debug_export_logs_to_clipboard_title">ส่งออกบันทึกการแก้ไขข้อบกพร่อง</string>
     <string name="revanced_debug_logs_clear_buffer_summary">ล้างบันทึกการแก้ไขข้อบกพร่องของ ReVanced ที่จัดเก็บไว้ทั้งหมด</string>
     <string name="revanced_debug_logs_clear_buffer_title">ล้างบันทึกการแก้ไขข้อบกพร่อง</string>
-    <string name="revanced_debug_logs_clear_toast">ล้างบันทึกแล้ว</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">คัดลอกบันทึกแล้ว</string>
+    <string name="revanced_debug_logs_clear_toast">Debug logs cleared</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Debug logs copied</string>
     <string name="revanced_debug_logs_disabled">ปิดใช้งานการบันทึกการแก้ไขข้อบกพร่อง</string>
-    <string name="revanced_debug_logs_failed_to_export">ส่งออกบันทึกไม่สำเร็จ: %s</string>
-    <string name="revanced_debug_logs_none_found">ไม่พบบันทึก</string>
+    <string name="revanced_debug_logs_failed_to_export">Failed to export debug logs: %s</string>
+    <string name="revanced_debug_logs_none_found">No debug logs found</string>
     <string name="revanced_debug_protobuffer_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมโปรโตคอลบัฟเฟอร์</string>
     <string name="revanced_debug_protobuffer_summary_on">บันทึกการแก้ไขข้อบกพร่องรวมถึงโปรโตคอลบัฟเฟอร์</string>
     <string name="revanced_debug_protobuffer_title">บันทึกโปรโตคอลบัฟเฟอร์</string>
     <string name="revanced_debug_summary_off">การบันทึกการแก้ไขข้อบกพร่องถูกปิดใช้งาน</string>
     <string name="revanced_debug_summary_on">การบันทึกการแก้ไขข้อบกพร่องถูกเปิดใช้งาน</string>
-    <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
+    <string name="revanced_debug_title">เปิดการบันทึกการแก้ไขข้อบกพร่อง</string>
     <string name="revanced_debug_toast_on_error_summary_off">Toast จะไม่ปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
     <string name="revanced_debug_toast_on_error_summary_on">Toast จะปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
-    <string name="revanced_debug_toast_on_error_title">แสดง  toast  เมื่อเกิดข้อผิดพลาดของ ReVanced</string>
+    <string name="revanced_debug_toast_on_error_title">แสดง  toast  เมื่อเกิดข้อผิดพลาดของ Morphe</string>
     <string name="revanced_disable_ambient_mode_summary_off">โหมดพักผ่อนเปิดใช้งาน</string>
     <string name="revanced_disable_ambient_mode_summary_on">โหมดพักผ่อนปิดใช้งาน</string>
     <string name="revanced_disable_ambient_mode_title">ปิดการใช้งานโหมดพักผ่อน</string>
@@ -695,7 +708,7 @@
     <string name="revanced_hide_youtube_doodles_user_dialog_message">การแสดง Doodles ของ YouTube อาจทำให้เฮดเดอร์ที่กำหนดเองไม่แสดงผล</string>
     <string name="revanced_language_DEFAULT">ภาษาของแอป</string>
     <string name="revanced_language_TH">Thai\n<small>ไทย</small></string>
-    <string name="revanced_language_title">ภาษา ReVanced</string>
+    <string name="revanced_language_title">ภาษา Morphe</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">หยุดการเล่นด้วยการลากในแนวนอน</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">จดจำตำแหน่งการลาก</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">การแตะสองครั้งและการบีบเพื่อปรับขนาดปิดใช้งานแล้ว</string>
@@ -792,16 +805,16 @@
 
 ข้อจำกัด: กลับไปใช้การแสดงผล 'วิดีโอเพิ่มเติม' แบบเก่า"</string>
     <string name="revanced_restore_old_video_action_bar_title">กู้คืนแถบการทำงานของวิดีโอแบบเดิม</string>
-    <string name="revanced_ryd_attribution_summary">"ข้อมูลนี้มาจาก Return YouTube Dislike API
+    <string name="revanced_ryd_attribution_summary">"ข้อมูลนี้จัดทำโดย Return YouTube Dislike API
 
 แตะที่นี่เพื่อเปิด ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">ปุ่ม \"ถูกใจ\" ปรับให้แสดงผลได้ดีที่สุด</string>
     <string name="revanced_ryd_compact_layout_summary_on">ปุ่ม \"ถูกใจ\" ปรับให้มีขนาดเล็กที่สุด</string>
-    <string name="revanced_ryd_compact_layout_title">ใช้ปุ่มถูกใจขนาดกะทัดรัด</string>
+    <string name="revanced_ryd_compact_layout_title">ใช้ปุ่มถูกใจแบบกะทัดรัด</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">แสดงการไม่ถูกใจเป็นตัวเลข</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">แสดงการไม่ถูกใจเป็นเปอร์เซ็นต์</string>
-    <string name="revanced_ryd_dislike_percentage_title">แสดงการไม่ถูกใจเป็นเปอร์เซ็นต์</string>
+    <string name="revanced_ryd_dislike_percentage_title">แสดงจำนวนไม่ชอบเป็นเปอร์เซ็นต์</string>
     <string name="revanced_ryd_estimated_like_summary_off">ไม่แสดงจำนวนการถูกใจโดยประมาณ</string>
     <string name="revanced_ryd_estimated_like_summary_on">วิดีโอที่ปิดการถูกใจจะแสดงจำนวนการถูกใจโดยประมาณ</string>
     <string name="revanced_ryd_estimated_like_title">แสดงจำนวนถูกใจโดยประมาณ</string>
@@ -811,7 +824,7 @@
     <string name="revanced_ryd_failure_generic">ไม่สามารถใช้งาน \"ไม่ชอบ\" ได้ (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast ไม่ปรากฏขึ้นหาก ไม่สามารถใช้งาน Return YouTube Dislike</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ข้อความแจ้งเตือนแสดงขึ้น หาก Return YouTube Dislike ไม่พร้อมใช้งาน</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">แสดงการแจ้งเตือนข้อผิดพลาดการเชื่อมต่อ</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">แสดงการแจ้งเตือนข้อผิดพลาดในการเชื่อมต่อ</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">ซ่อนโดยเจ้าของ</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">ปุ่มหมวดหมู่จะแสดงอยู่ในแถบหมวดหมู่ความคิดเห็น</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">ปุ่มหมวดหมู่ยกเว้น \'ด้านบน\' และ \'ใหม่ล่าสุด\' จะซ่อนอยู่ในแถบหมวดหมู่ความคิดเห็น</string>
@@ -1030,7 +1043,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_settings_disable_bold_icons_title">ปิดใช้งานไอคอนตัวหนา</string>
     <string name="revanced_settings_import">นำเข้า</string>
     <string name="revanced_settings_import_copy">คัดลอก</string>
-    <string name="revanced_settings_import_reset">การตั้งค่า ReVanced ถูกตั้งค่าเป็นค่าเริ่มต้น</string>
+    <string name="revanced_settings_import_reset">การตั้งค่า Morphe ถูกตั้งค่าเป็นค่าเริ่มต้น</string>
     <string name="revanced_settings_import_success">นำเข้าการตั้งค่า %d</string>
     <string name="revanced_settings_reset">รีเซ็ต</string>
     <string name="revanced_settings_reset_color">รีเซ็ตสี</string>

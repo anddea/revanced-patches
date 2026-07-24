@@ -4,22 +4,22 @@
     <string name="accessibility_settings_edu_opt_out_text">Τα στοιχεία ελέγχου έχουν τροποποιηθεί επειδή είναι ενεργή μια υπηρεσία προσβασιμότητας.</string>
     <string name="gms_core_dialog_continue_text">Συνέχεια</string>
     <string name="gms_core_dialog_dismiss_text">Να μην εμφανιστεί ξανά</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG GmsCore δεν έχει άδεια να εκτελείται στο παρασκήνιο.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG δεν έχει άδεια να εκτελείται στο παρασκήνιο.
 
 Ακολουθήστε τον οδηγό \"Don't kill my app\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.
 
-Αυτό είναι απαραίτητο για τη σωστή λειτουργία της εφαρμογής."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας πρέπει να απενεργοποιηθούν για το MicroG GmsCore ώστε να αποφευχθούν προβλήματα.
+Αυτό είναι απαραίτητο για τη λειτουργία της εφαρμογής."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG είναι απαραίτητη για να αποφευχθούν προβλήματα.
 
-Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δεν θα επηρεάσει αρνητικά την κατανάλωση ενέργειας.
+Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δε θα επηρεάσει αρνητικά την κατανάλωση ενέργειας.
 
-Πατήστε το κουμπί «Συνέχεια» και επιτρέψτε τις αλλαγές βελτιστοποίησης."</string>
+Πατήστε το κουμπί \"Συνέχεια\" και επιτρέψτε τις αλλαγές βελτιστοποίησης."</string>
     <string name="gms_core_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
     <string name="gms_core_dialog_title">Απαιτείται ενέργεια</string>
     <string name="gms_core_offline_account_login_error">Εάν αλλάξατε πρόσφατα τα στοιχεία σύνδεσης του λογαριασμού σας, απεγκαταστήστε και εγκαταστήστε ξανά το MicroG.</string>
     <string name="gms_core_settings_summary">Για να λαμβάνετε ειδοποιήσεις στο RVX, ενεργοποιήστε τις ρυθμίσεις Cloud Messaging.</string>
     <string name="gms_core_settings_title">Άνοιγμα ρυθμίσεων του MicroG GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν έχει εγκατασταθεί. Εγκαταστήστε το.</string>
+    <string name="gms_core_toast_not_installed_message">Το MicroG δεν είναι εγκατεστημένο. Εγκαταστήστε το.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Απόκρυψη του σκούρου shading γύρω από τα στοιχεία ελέγχου του video player</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Απενεργοποίηση αυτόματης απόκρυψης της γραμμής πλοήγησης</string>
     <string name="morphe_disable_drc_audio_summary_off">Ο ήχος DRC είναι ενεργοποιημένος</string>
@@ -28,11 +28,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">Το πρωτόκολλο QUIC είναι ενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_summary_on">Το πρωτόκολλο QUIC είναι απενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε τη \"Παραποίηση ροών βίντεο\" σε Android Reel ή TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'Επέκταση διάρκειας εγγραφής ζωντανής ροής (DVR)' ενδέχεται να μην είναι διαθέσιμη
+
+Για να το διορθώσετε, ενεργοποιήστε την επιλογή 'Παραποίηση ροών βίντεο' και αλλάξτε την 'Προεπιλεγμένη συσκευή' σε 'Τηλεόραση'"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">Σας επιτρέπει να επανατυλίγετε ζωντανές εκπομπές έως και 7 ημέρες στο παρελθόν</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">Επέκταση της διάρκειας του DVR της ζωντανής μετάδοσης</string>
+    <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε οποιονδήποτε πελάτη εκτός από το Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
     <string name="morphe_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
     <string name="morphe_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
     <string name="morphe_hide_sync_button_title">Απόκρυψη κουμπιού \"Συγχρονισμός με βίντεο\"</string>
+    <string name="morphe_livestream_dvr_not_available">"'Η ενεργοποίηση εγγραφής ζωντανής ροής (DVR) ενδέχεται να μην είναι διαθέσιμη
+
+Για να το διορθώσετε, ενεργοποιήστε την επιλογή 'Παραποίηση ροών βίντεο' και αλλάξτε την 'Προεπιλεγμένη συσκευή' σε 'Τηλεόραση'"</string>
+    <string name="morphe_livestream_dvr_summary">Επιτρέπει την αναζήτηση σε όλες τις ζωντανές μεταδόσεις, ακόμη και σε αυτές που συνήθως την περιορίζουν</string>
+    <string name="morphe_livestream_dvr_title">Ενεργοποίηση εγγραφής ζωντανής μετάδοσης DVR</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Δεν είναι δυνατή η σύνδεση στο VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Δεν είναι δυνατή η είσοδος στο VR, η ταυτοποίηση δεν εγκρίθηκε</string>
     <string name="morphe_oauth2_connection_failure_generic">Το OAuth2 είναι προσωρινά μη διαθέσιμο</string>
@@ -52,7 +62,10 @@
     <string name="morphe_sanitize_sharing_links_summary_off">Οι παράμετροι παρακολούθησης δεν αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Οι παράμετροι παρακολούθησης αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κατά την κοινοποίηση</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• Πειραματικός πελάτης και μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή</string>
+    <string name="morphe_settings_menu_copy_path">Αντιγράφηκε: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Ανοίξτε την τυπική οθόνη ρυθμίσεων της εφαρμογής μία φορά για να συμπληρώσετε τη λίστα</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Απόκρυψη στοιχείων στην οθόνη ρυθμίσεων της εφαρμογής βάσει του ορατού ονόματός τους</string>
+    <string name="morphe_settings_menu_filter_screen_title">Φίλτρο μενού ρυθμίσεων</string>
     <string name="morphe_spoof_video_streams_about_js">• Εάν η αποπερικοπή αποτύχει, η αναπαραγωγή μπορεί να αποτύχει</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Το μενού «Κομμάτι ήχου» λείπει</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
@@ -301,13 +314,13 @@
     <string name="revanced_debug_export_logs_to_file_title">Εξαγωγή αρχείων καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="revanced_debug_logs_clear_buffer_summary">Εκκαθάριση όλων των αποθηκευμένων αρχειών καταγραφής εντοπισμού σφαλμάτων ReVanced</string>
     <string name="revanced_debug_logs_clear_buffer_title">Εκκαθάριση αρχείων καταγραφής εντοπισμού σφαλμάτων</string>
-    <string name="revanced_debug_logs_clear_toast">Τα αρχεία καταγραφής εκκαθαρίστηκαν</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">Τα αρχεία καταγραφής αντιγράφηκαν</string>
+    <string name="revanced_debug_logs_clear_toast">Τα αρχεία καταγραφής εντοπισμού σφαλμάτων εκκαθαρίστηκαν</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Τα αρχεία καταγραφής εντοπισμού σφαλμάτων αντιγράφηκαν</string>
     <string name="revanced_debug_logs_disabled">Η καταγραφή εντοπισμού σφαλμάτων είναι απενεργοποιημένη</string>
     <string name="revanced_debug_logs_export_success">Τα αρχεία καταγραφής εξήχθησαν με επιτυχία.</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Τα αρχεία καταγραφής είναι πολύ μεγάλα για αντιγραφή.</string>
-    <string name="revanced_debug_logs_failed_to_export">Αποτυχία εξαγωγής αρχείων καταγραφής: %s</string>
-    <string name="revanced_debug_logs_none_found">Δεν βρέθηκαν αρχεία καταγραφής</string>
+    <string name="revanced_debug_logs_failed_to_export">Αποτυχία εξαγωγής αρχείων καταγραφής εντοπισμού σφαλμάτων: %s</string>
+    <string name="revanced_debug_logs_none_found">Δε βρέθηκαν αρχεία καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="revanced_debug_protobuffer_summary_off">Τα αρχεία καταγραφής σφαλμάτων δεν περιλαμβάνουν πρωτόκολλα buffer</string>
     <string name="revanced_debug_protobuffer_summary_on">Τα αρχεία καταγραφής σφαλμάτων περιλαμβάνουν πρωτόκολλα buffer</string>
     <string name="revanced_debug_protobuffer_title">Καταγραφή buffer πρωτοκόλλου</string>
@@ -316,10 +329,10 @@
     <string name="revanced_debug_spannable_title">Καταγραφή με μορφοποιήσεις κειμένου</string>
     <string name="revanced_debug_summary_off">Η καταγραφή εντοπισμού σφαλμάτων είναι απενεργοποιημένη</string>
     <string name="revanced_debug_summary_on">Η καταγραφή εντοπισμού σφαλμάτων είναι ενεργοποιημένη</string>
-    <string name="revanced_debug_title">Καταγραφή εντοπισμού σφαλμάτων</string>
+    <string name="revanced_debug_title">Ενεργοποίηση καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="revanced_debug_toast_on_error_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν προκύψει σφάλμα</string>
     <string name="revanced_debug_toast_on_error_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν προκύψει σφάλμα</string>
-    <string name="revanced_debug_toast_on_error_title">Εμφάνιση μηνυμάτων σφαλμάτων ReVanced</string>
+    <string name="revanced_debug_toast_on_error_title">Εμφάνιση μηνυμάτων σφαλμάτων του Morphe</string>
     <string name="revanced_default_app_settings_summary">Για να ανοίγουν οι συνδέσμοι YouTube στο RVX, ενεργοποιήστε το «Άνοιγμα υποστηριζόμενων συνδέσμων» και τις υποστηριζόμενες διευθύνσεις ιστού.</string>
     <string name="revanced_default_app_settings_title">Άνοιγμα ρυθμίσεων προεπιλεγμένων εφαρμογών</string>
     <string name="revanced_default_playback_speed_shorts_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής στα Shorts</string>
@@ -1210,68 +1223,6 @@ Playlists
     <string name="revanced_hide_server_side_snack_bar_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_server_side_snack_bar_title">Γραμμή μηνυμάτων αλληλεπίδρασης από πλευρά του διακομιστή</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_about_title">Μενού «Σχετικά με»</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">Μενού «Προσβασιμότητα»</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_account_title">Μενού «Λογαριασμός»</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Μενού «Αναπαραγωγή»</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Εμφανίζονται.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">Μενού «Χρέωση και πληρωμές»</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Μενού «Υπότιτλοι»</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">Μενού «Συνδεδεμένες εφαρμογές»</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Μενού «Εξοικονόμηση δεδομένων»</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_general_title">Μενού «Γενικά»</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_history_title">Μενού «Διαχείριση όλου του ιστορικού»</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">Μενού «Ζωντανή συζήτηση»</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_notification_title">Μενού «Ειδοποιήσεις»</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_offline_title">Μενού «Παρασκήνιο»</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Μενού «Παρακολουθήστε σε TV»</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Μενού «Κέντρο οικογένειας»</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">Μενού «Δοκιμάστε νέες πειραματικές λειτουργίες»</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">Μενού «Απόρρητο»</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">Μενού «Αγορές και συνδρομές»</string>
-    <string name="revanced_hide_settings_menu_summary">Απόκρυψη στοιχείων στο μενού ρυθμίσεων του YouTube.</string>
-    <string name="revanced_hide_settings_menu_title">Φιλτράρισμα του μενού ρυθμίσεων YouTube</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">Μενού «Προτιμήσεις ποιότητας βίντεο»</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">Εμφανίζεται.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">Μενού «Τα δεδομένα σας στο YouTube»</string>
     <string name="revanced_hide_share_button_summary_off">Εμφανίζεται</string>
     <string name="revanced_hide_share_button_summary_on">Κρυμμένο</string>
     <string name="revanced_hide_share_button_title">Κουμπί «Κοινοποίηση»</string>
@@ -1628,7 +1579,7 @@ Playlists
     <string name="revanced_language_UR">Ουρντού\n<small>اردو</small></string>
     <string name="revanced_language_VI">Βιετναμέζικα\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Κινέζικα\n<small>中文</small></string>
-    <string name="revanced_language_title">Γλώσσα ρυθμίσεων ReVanced</string>
+    <string name="revanced_language_title">Γλώσσα ρυθμίσεων του Morphe</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Παύση αναπαραγωγής με οριζόντια μεταφορά</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">Απομνημόνευση θέσης μεταφοράς</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι απενεργοποιημένη</string>
@@ -2022,10 +1973,10 @@ Playlists
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Το κουμπί «Μου αρέσει» είναι διαμορφωμένο για καλύτερη εμφάνιση</string>
     <string name="revanced_ryd_compact_layout_summary_on">Το κουμπί «Μου αρέσει» είναι διαμορφωμένο για ελάχιστο μέγεθος</string>
-    <string name="revanced_ryd_compact_layout_title">Χρησιμοποιήστε το κουμπί Like σε συμπαγή μορφή</string>
+    <string name="revanced_ryd_compact_layout_title">Χρήση συμπαγούς κουμπιού Like</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Τα «Δεν μου αρέσει» εμφανίζονται ως αριθμός</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Τα «Δεν μου αρέσει» εμφανίζονται ως ποσοστό</string>
-    <string name="revanced_ryd_dislike_percentage_title">Εμφάνιση των dislikes ως ποσοστό</string>
+    <string name="revanced_ryd_dislike_percentage_title">Εμφάνιση των Dislike ως ποσοστό</string>
     <string name="revanced_ryd_enable_summary_off">Τα «Δεν μου αρέσει» δεν εμφανίζονται.</string>
     <string name="revanced_ryd_enable_summary_on">Τα «Δεν μου αρέσει» εμφανίζονται.</string>
     <string name="revanced_ryd_enable_title">Επιστροφή του «Δεν μου αρέσει» στο YouTube</string>
@@ -2034,7 +1985,7 @@ Playlists
     <string name="revanced_ryd_estimated_like_title">Εμφάνιση των εκτιμώμενων «Μου αρέσει»</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Δεδομένα dislike μη διαθέσιμα (όριο API πελάτη)</string>
     <string name="revanced_ryd_failure_connection_status_code">Δεδομένα dislike μη διαθέσιμα (κατάσταση %d)</string>
-    <string name="revanced_ryd_failure_connection_timeout">Dislike προσωρινά μη διαθέσιμα (καθυστέρηση API)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Τα Dislike δεν είναι προσωρινά διαθέσιμα (υπερβολικός χρόνος αναμονής της API)</string>
     <string name="revanced_ryd_failure_generic">Δεδομένα dislike μη διαθέσιμα (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
@@ -2310,7 +2261,7 @@ Playlists
     <string name="revanced_settings_import_export_as_text_summary">Εισαγωγή / Εξαγωγή των ρυθμίσεων ως κείμενο.</string>
     <string name="revanced_settings_import_export_as_text_title">Εισαγωγή / Εξαγωγή ως κείμενο</string>
     <string name="revanced_settings_import_failed">Αποτυχία εισαγωγής ρυθμίσεων.</string>
-    <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις ReVanced</string>
+    <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις του Morphe</string>
     <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
     <string name="revanced_settings_import_summary">Εισαγωγή ρυθμίσεων από αποθηκευμένο αρχείο.</string>
     <string name="revanced_settings_import_title">Εισαγωγή ρυθμίσεων</string>
@@ -2325,7 +2276,7 @@ Playlists
     <string name="revanced_settings_search_history_summary_on">Το ιστορικό αναζήτησης ρυθμίσεων εμφανίζεται</string>
     <string name="revanced_settings_search_history_title">Εμφάνιση ιστορικού αναζήτησης ρυθμίσεων</string>
     <string name="revanced_settings_search_no_results_summary">Δοκιμάστε άλλη λέξη-κλειδί</string>
-    <string name="revanced_settings_search_no_results_title">Δεν βρέθηκαν αποτελέσματα για \'%s\'</string>
+    <string name="revanced_settings_search_no_results_title">Δε βρέθηκαν αποτελέσματα για \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">Πρόσφατες αναζητήσεις</string>
     <string name="revanced_settings_search_remove_message">Κατάργηση από το ιστορικό αναζήτησης;</string>
     <string name="revanced_settings_search_tips_summary">"• Πατήστε μια διαδρομή για να μεταβείτε σε αυτήν

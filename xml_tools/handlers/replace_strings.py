@@ -19,7 +19,7 @@ logger = logging.getLogger("xml_tools")
 
 
 def _find_source_translation_files(source_base_path: Path, lang_code: str, app: str) -> list[Path]:
-    """Find source translation files for the app and the shared-youtube directory.
+    """Find source translation files for the app, shared, and shared-youtube directories.
 
     Matches 'ar' to 'values-ar-rSA', 'in' to 'values-in', etc.
 
@@ -44,10 +44,15 @@ def _find_source_translation_files(source_base_path: Path, lang_code: str, app: 
         if app_file.exists():
             found_paths.append(app_file)
 
-        # Check for shared-youtube strings
-        shared_file = matching_dir / "shared-youtube/strings.xml"
+        # Check for shared strings
+        shared_file = matching_dir / "shared/strings.xml"
         if shared_file.exists():
             found_paths.append(shared_file)
+
+        # Check for shared-youtube strings
+        shared_yt_file = matching_dir / "shared-youtube/strings.xml"
+        if shared_yt_file.exists():
+            found_paths.append(shared_yt_file)
 
     return found_paths
 
@@ -168,6 +173,8 @@ def update_translations_with_keys(
 ) -> None:
     """Update translation strings with specific keys."""
     source_base_path = base_dir / "src/main/resources/addresources"
+    if not source_base_path.exists():
+        source_base_path = base_dir / "patches/src/main/resources/addresources"
 
     for lang_dir in translations_path.iterdir():
         if not lang_dir.is_dir():

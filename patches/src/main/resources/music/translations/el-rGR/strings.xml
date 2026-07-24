@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Συνέχεια</string>
     <string name="gms_core_dialog_dismiss_text">Να μην εμφανιστεί ξανά</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG GmsCore δεν έχει άδεια να τρέχει στο παρασκήνιο.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG δεν έχει άδεια να εκτελείται στο παρασκήνιο.
 
-Ακολουθήστε τον οδηγό \"Don't kill my app!\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.
+Ακολουθήστε τον οδηγό \"Don't kill my app\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.
 
-Αυτό απαιτείται για να λειτουργήσει η εφαρμογή."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας πρέπει να απενεργοποιηθούν για το MicroG GmsCore ώστε να αποφευχθούν προβλήματα.
+Αυτό είναι απαραίτητο για τη λειτουργία της εφαρμογής."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG είναι απαραίτητη για να αποφευχθούν προβλήματα.
 
-Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δεν θα επηρεάσει αρνητικά την κατανάλωση ενέργειας.
+Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δε θα επηρεάσει αρνητικά την κατανάλωση ενέργειας.
 
-Πατήστε το κουμπί «Συνέχεια» και επιτρέψτε τις αλλαγές βελτιστοποίησης."</string>
+Πατήστε το κουμπί \"Συνέχεια\" και επιτρέψτε τις αλλαγές βελτιστοποίησης."</string>
     <string name="gms_core_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
     <string name="gms_core_dialog_title">Απαιτείται ενέργεια</string>
     <string name="gms_core_settings_summary">Για να λαμβάνετε ειδοποιήσεις στο RVX Music, ενεργοποιήστε τις ρυθμίσεις Cloud Messaging.</string>
     <string name="gms_core_settings_title">Άνοιγμα ρυθμίσεων του MicroG GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν είναι εγκατεστημένο. Εγκαταστήστε το.</string>
+    <string name="gms_core_toast_not_installed_message">Το MicroG δεν είναι εγκατεστημένο. Εγκαταστήστε το.</string>
     <string name="morphe_crossfade_duration_10000ms">10 δευτερόλεπτα</string>
     <string name="morphe_crossfade_duration_1000ms">1 δευτερόλεπτο</string>
     <string name="morphe_crossfade_duration_11000ms">11 δευτερόλεπτα</string>
@@ -38,7 +38,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">Το πρωτόκολλο QUIC είναι ενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_summary_on">Το πρωτόκολλο QUIC είναι απενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε τη \"Παραποίηση ροών βίντεο\" σε Android Reel ή TV</string>
+    <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε οποιονδήποτε πελάτη εκτός από το Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
     <string name="morphe_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
     <string name="morphe_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
@@ -105,6 +105,10 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="morphe_sanitize_sharing_links_summary_off">Οι παράμετροι παρακολούθησης δεν αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Οι παράμετροι παρακολούθησης αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κατά την κοινοποίηση</string>
+    <string name="morphe_settings_menu_copy_path">Αντιγράφηκε: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Ανοίξτε την τυπική οθόνη ρυθμίσεων της εφαρμογής μία φορά για να συμπληρώσετε τη λίστα</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Απόκρυψη στοιχείων στην οθόνη ρυθμίσεων της εφαρμογής βάσει του ορατού ονόματός τους</string>
+    <string name="morphe_settings_menu_filter_screen_title">Φίλτρο μενού ρυθμίσεων</string>
     <string name="morphe_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα αναπαραγωγής</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Κλειδώνει το JavaScript του player σε μια συγκεκριμένη έκδοση
 
@@ -224,7 +228,7 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_debug_spannable_summary">Συμπερίληψη μορφοποιημένου κειμένου στο αρχείο καταγραφής σφαλμάτων.</string>
     <string name="revanced_debug_spannable_title">Καταγραφή με μορφοποιήσεις κειμένου</string>
     <string name="revanced_debug_summary">Εκτύπωση του αρχείου καταγραφής σφαλμάτων.</string>
-    <string name="revanced_debug_title">Καταγραφή εντοπισμού σφαλμάτων</string>
+    <string name="revanced_debug_title">Ενεργοποίηση καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="revanced_default_app_settings_summary">Για να ανοίγουν οι συνδέσμοι YouTube Music στο RVX Music, ενεργοποιήστε το «Άνοιγμα υποστηριζόμενων συνδέσμων» και τις υποστηριζόμενες διευθύνσεις ιστού.</string>
     <string name="revanced_default_app_settings_title">Άνοιγμα ρυθμίσεων προεπιλεγμένων εφαρμογών</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"Απενεργοποίηση των υποχρεωτικών κομματιών ήχου για τα podcasts.
@@ -439,19 +443,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_hide_samples_shelf_title">Απόκρυψη ενότητας «Δείγματα»</string>
     <string name="revanced_hide_search_button_summary">Απόκρυψη του κουμπιού αναζήτησης στη γραμμή εργαλείων.</string>
     <string name="revanced_hide_search_button_title">Απόκρυψη κουμπιού αναζήτησης</string>
-    <string name="revanced_hide_settings_menu_about_title">Απόκρυψη μενού «Πληροφορίες για το YouTube Music»</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Απόκρυψη μενού «Εξοικονόμηση δεδομένων»</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Απόκρυψη μενού «Λήψεις &amp; αποθηκευτικός χώρος»</string>
-    <string name="revanced_hide_settings_menu_general_title">Απόκρυψη μενού «Γενικά»</string>
-    <string name="revanced_hide_settings_menu_notification_title">Απόκρυψη μενού «Ειδοποιήσεις»</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">Απόκρυψη μενού «Αποκτήστε το Music Premium»</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Απόκρυψη μενού «Κέντρο οικογένειας»</string>
-    <string name="revanced_hide_settings_menu_playback_title">Απόκρυψη μενού «Αναπαραγωγή»</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">Απόκρυψη μενού «Απόρρητο &amp; δεδομένα»</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">Απόκρυψη μενού «Προτάσεις»</string>
-    <string name="revanced_hide_settings_menu_summary">"Απόκρυψη στοιχείων του μενού ρυθμίσεων YouTube.
-Αυτή η λειτουργία γίνεται να κρύψει και το μενού ρυθμίσεων ReVanced Extended."</string>
-    <string name="revanced_hide_settings_menu_title">Φιλτράρισμα του μενού ρυθμίσεων</string>
     <string name="revanced_hide_song_video_toggle_summary">Απόκρυψη της εναλλαγής Ήχου / Βίντεο στην οθόνη αναπαραγωγής.</string>
     <string name="revanced_hide_song_video_toggle_title">Απόκρυψη εναλλαγής Ήχου / Βίντεο</string>
     <string name="revanced_hide_sound_search_button_summary">Απόκρυψη του κουμπιού ηχητικής αναζήτησης στην γραμμή αναζήτησης.</string>
@@ -559,23 +550,25 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Μεταβείτε στη &lt;a href=%1$s&gt;δημιουργία νέου project&lt;/a&gt;.&lt;br&gt;2. Πατήστε το κουμπί &lt;b&gt;CREATE&lt;/b&gt;. &lt;br&gt;3. Μεταβείτε στην επιλογή &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Πατήστε το κουμπί &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Πατήστε το κουμπί &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Επιλέξτε την επιλογή &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Πατήστε το κουμπί &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Αντιγράψτε το κλειδί API.&lt;br&gt;&lt;br&gt;※ Το κλειδί API δεν πρέπει να το μοιράζεστε ποτέ με άλλους, οπότε δεν περιλαμβάνεται κατά την Εισαγωγή / Εξαγωγή ρυθμίσεων.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Έκδοση κλειδιού προγραμματιστή YouTube Data API v3</string>
     <string name="revanced_ryd_about">Σχετικά με</string>
-    <string name="revanced_ryd_attribution_summary">Τα δεδομένα Dislike παρέχονται από το Return YouTube Dislike API. Πατήστε για να μάθετε περισσότερα.</string>
+    <string name="revanced_ryd_attribution_summary">"Τα δεδομένα παρέχονται από το Return YouTube Dislike API
+
+Πατήστε εδώ για να ανοίξετε το ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Απόκρυψη του διαχωριστικού του κουμπιού «Μου αρέσει».</string>
-    <string name="revanced_ryd_compact_layout_title">Κουμπί «Μου αρέσει» μικρότερου στυλ</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Αντί για τον αριθμό των dislike, θα εμφανίζεται το ποσοστό τους.</string>
-    <string name="revanced_ryd_dislike_percentage_title">Εμφάνιση ως ποσοστό</string>
+    <string name="revanced_ryd_compact_layout_summary">Μειώνει το πλάτος του κουμπιού Like για εξοικονόμηση χώρου</string>
+    <string name="revanced_ryd_compact_layout_title">Χρήση συμπαγούς κουμπιού Like</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Εμφανίζει τα dislike ως ποσοστό των like αντί για αριθμό</string>
+    <string name="revanced_ryd_dislike_percentage_title">Εμφάνιση των Dislike ως ποσοστό</string>
     <string name="revanced_ryd_enabled_summary">Εμφάνιση της ποσότητας των «Δεν μου αρέσει» των βίντεο.</string>
-    <string name="revanced_ryd_enabled_title">Επιστρέψτε το «Δεν μου αρέσει» στο YouTube</string>
-    <string name="revanced_ryd_estimated_like_summary">Εμφάνιση της εκτιμώμενης ποσότητας των «Μου αρέσει» των βίντεο.</string>
-    <string name="revanced_ryd_estimated_like_title">Εμφάνιση εκτιμώμενων likes</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Δεδομένα dislike μη διαθέσιμα (το όριο API έχει επιτευχθεί).</string>
-    <string name="revanced_ryd_failure_connection_status_code">Δεδομένα dislike μη διαθέσιμα (κατάσταση %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">Δεδομένα dislike προσωρινά μη διαθέσιμα (καθυστέρηση API).</string>
-    <string name="revanced_ryd_failure_generic">Δεδομένα dislike μη διαθέσιμα (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike API δεν είναι διαθέσιμο.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Μήνυμα αν το API δεν είναι διαθέσιμο</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένο</string>
+    <string name="revanced_ryd_enabled_title">Ενεργοποίηση Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary">Εμφανίζει μια εκτιμώμενη μέτρηση like σε βίντεο όπου ο δημιουργός έχει απενεργοποιήσει τα like</string>
+    <string name="revanced_ryd_estimated_like_title">Εμφάνιση των εκτιμώμενων «Μου αρέσει»</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Δεδομένα dislike μη διαθέσιμα (όριο API πελάτη)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Δεδομένα dislike μη διαθέσιμα (κατάσταση %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Τα Dislike δεν είναι προσωρινά διαθέσιμα (υπερβολικός χρόνος αναμονής της API)</string>
+    <string name="revanced_ryd_failure_generic">Δεδομένα dislike μη διαθέσιμα (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Εμφανίζει μια ειδοποίηση όταν ο διακομιστής Return YouTube Dislike δεν είναι διαθέσιμος</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Εμφάνιση ειδοποιήσεων σφάλματος σύνδεσης</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένα από τον ιδιοκτήτη</string>
     <string name="revanced_sb_about">Σχετικά με</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες.</string>
@@ -644,26 +637,26 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_settings_import_export_summary">Εισαγωγή ή εξαγωγή των ρυθμίσεων RVX Music.</string>
     <string name="revanced_settings_import_export_title">Εισαγωγή / Εξαγωγή ρυθμίσεων</string>
     <string name="revanced_settings_import_failed">Η εισαγωγή απέτυχε: %s.</string>
-    <string name="revanced_settings_import_reset">Οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές.</string>
-    <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων.</string>
+    <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις του Morphe</string>
+    <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
     <string name="revanced_settings_reset">Επαναφορά</string>
     <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
     <string name="revanced_settings_search_clear_history">Εκκαθάριση ιστορικού αναζήτησης</string>
     <string name="revanced_settings_search_clear_history_message">Είστε βέβαιοι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης;</string>
-    <string name="revanced_settings_search_empty_history_summary">Για να αποθηκεύσετε το ιστορικό αναζήτησης, πληκτρολογήστε ένα ερώτημα αναζήτησης και πατήστε Enter.</string>
+    <string name="revanced_settings_search_empty_history_summary">Για να αποθηκεύσετε το ιστορικό αναζήτησης, πληκτρολογήστε ένα ερώτημα αναζήτησης και πατήστε Enter</string>
     <string name="revanced_settings_search_empty_history_title">Το ιστορικό αναζήτησης είναι κενό</string>
     <string name="revanced_settings_search_history_summary_off">Το ιστορικό αναζήτησης ρυθμίσεων δεν εμφανίζεται.</string>
     <string name="revanced_settings_search_history_summary_on">Το ιστορικό αναζήτησης ρυθμίσεων εμφανίζεται.</string>
     <string name="revanced_settings_search_history_title">Εμφάνιση ιστορικού αναζήτησης ρυθμίσεων</string>
-    <string name="revanced_settings_search_no_results_summary">Δοκιμάστε άλλη λέξη-κλειδί.</string>
-    <string name="revanced_settings_search_no_results_title">Δεν βρέθηκαν αποτελέσματα για \'%s\'.</string>
+    <string name="revanced_settings_search_no_results_summary">Δοκιμάστε άλλη λέξη-κλειδί</string>
+    <string name="revanced_settings_search_no_results_title">Δε βρέθηκαν αποτελέσματα για \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">Πρόσφατες αναζητήσεις</string>
     <string name="revanced_settings_search_remove_message">Κατάργηση από το ιστορικό αναζήτησης;</string>
-    <string name="revanced_settings_search_tips_summary">"• Πατήστε μια διαδρομή για να μεταβείτε σε αυτήν.
-• Πατήστε παρατεταμένα μια ρύθμιση για να μεταβείτε σε αυτήν.
-• Πατήστε Enter για να αποθηκεύσετε ένα ερώτημα αναζήτησης στο ιστορικό.
-• Η αναζήτηση αγνοεί πεζά/κεφαλαία και σημεία στίξης.
-• Οι γονικές ρυθμίσεις εμφανίζονται πάνω από τις απενεργοποιημένες θυγατρικές ρυθμίσεις."</string>
+    <string name="revanced_settings_search_tips_summary">"• Πατήστε μια διαδρομή για να μεταβείτε σε αυτήν
+• Πατήστε παρατεταμένα μια ρύθμιση για να μεταβείτε σε αυτήν
+• Πατήστε Enter για να αποθηκεύσετε ένα ερώτημα αναζήτησης στο ιστορικό
+• Η αναζήτηση αγνοεί πεζά/κεφαλαία και σημεία στίξης
+• Οι γονικές ρυθμίσεις εμφανίζονται πάνω από τις απενεργοποιημένες θυγατρικές ρυθμίσεις"</string>
     <string name="revanced_settings_search_tips_title">Συμβουλές Αναζήτησης</string>
     <string name="revanced_settings_search_title">Αναζήτηση %s</string>
     <string name="revanced_share_copy_settings_success">Οι ρυθμίσεις αντιγράφηκαν στο πρόχειρο.</string>

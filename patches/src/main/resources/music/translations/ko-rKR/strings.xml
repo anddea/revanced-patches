@@ -2,19 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">계속하기</string>
     <string name="gms_core_dialog_dismiss_text">다시 보지 않기</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore에 백그라운드에서 실행할 수 있는 권한이 없습니다.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG에는 백그라운드에서 실행할 수 있는 권한이 없습니다.
 
-이 기기에 대한 \"Don't kill my app\" 가이드를 읽어보고, GmsCore 설치 지침을 적용하세요.
+본 기기의 \"Don't kill my app\" 가이드를 참고하여 MicroG 설치에 관한 지침을 적용하세요.
 
-앱을 실행하려면 이 과정이 필요합니다."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"GmsCore를 배터리 최적화 목록에서 제외하여 앱 문제를 방지할 수 있습니다.
+이러한 조치 없이는 앱이 정상적으로 작동하지 않습니다."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG 앱 배터리 최적화를 비활성화(제한 없음)하여 앱 문제를 방지할 수 있습니다.
 
-배터리 최적화 목록에서 제외하려면 '계속하기' 버튼을 탭하세요."</string>
+MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배터리 사용량에 부정적인 영향을 미치지 않습니다.
+
+앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속하기' 버튼을 탭하세요."</string>
     <string name="gms_core_dialog_open_website_text">웹사이트 열기</string>
     <string name="gms_core_dialog_title">필수 조치</string>
     <string name="gms_core_settings_summary">RVX Music 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG가 설치되어 있지 않습니다. 설치하세요.</string>
     <string name="morphe_crossfade_duration_10000ms">10 초</string>
     <string name="morphe_crossfade_duration_1000ms">1 초</string>
     <string name="morphe_crossfade_duration_11000ms">11 초</string>
@@ -36,7 +38,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">QUIC 프로토콜을 활성화합니다</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC 프로토콜을 비활성화합니다</string>
     <string name="morphe_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
-    <string name="morphe_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android Reel\'이나 \'TV\'로 변경하세요</string>
+    <string name="morphe_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android Studio\'를 제외한 다른 클라이언트로 변경하세요</string>
     <string name="morphe_force_original_audio_summary_off">기본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_summary_on">원본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
@@ -103,8 +105,12 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거하지 않습니다</string>
     <string name="morphe_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거합니다</string>
     <string name="morphe_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
+    <string name="morphe_settings_menu_copy_path">복사됨: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">목록을 생성하려면 일반 앱 설정 화면을 한 번 실행해야 합니다</string>
+    <string name="morphe_settings_menu_filter_screen_summary">일반 앱 설정 화면에서 표시되는 이름을 기준으로 항목을 숨깁니다</string>
+    <string name="morphe_settings_menu_filter_screen_title">설정 메뉴 필터</string>
     <string name="morphe_spoof_video_streams_client_type_title">기본 클라이언트</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"플레이어 자바스크립트 버전을 특정 버전으로 고정합니다.
+    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"플레이어 자바스크립트 버전을 특정 버전으로 고정합니다
 
 • 유효한 플레이어 자바스크립트 해시가 필요합니다
 • 플레이어 자바스크립트 해시는 대략 한 달 동안 유효하며, 오래된 해시는 GVS에서 취소됩니다
@@ -124,16 +130,16 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다</string>
     <string name="morphe_spoof_video_streams_screen_title">동영상 스트림 속이기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR에 로그인되어 있지 않습니다 \n로그인하려면 여기를 탭하세요</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 Android VR로 변경하세요</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android VR\'로 변경하세요</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">현재 Android VR에 로그인되어 있습니다</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR에 로그인하기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"활성화 코드: %s
 
-1. 아래에 있는 '웹사이트 열기'를 탭하여 '기기 연결' 웹사이트를 엽니다.
-2. 위에 표시된 활성화 코드를 클립보드로부터 붙여넣거나 입력합니다.
-3. 로그인이 요청되면 Google에 로그인합니다. 계정이 여러 개인 경우에는 Morphe에서 사용하는 YouTube 계정을 선택합니다.
-4. YouTube VR 액세스를 허용합니다.
-5. '기기에 연결됨' 메시지가 표시되면 이 앱으로 돌아옵니다."</string>
+1. 아래에 있는 '웹사이트 열기'를 탭하여 '기기 연결' 웹사이트를 엽니다
+2. 위에 표시된 활성화 코드를 클립보드로부터 붙여넣거나 입력합니다
+3. 로그인이 요청되면 Google에 로그인합니다. 계정이 여러 개인 경우에는 Morphe에서 사용하는 YouTube 계정을 선택합니다
+4. YouTube VR 액세스를 허용합니다
+5. '기기에 연결됨' 메시지가 표시되면 이 앱으로 돌아옵니다"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">웹사이트 열기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">설명서</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">계속하기</string>
@@ -144,8 +150,8 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR에 로그인하기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"인증을 저장하였습니다
 
-• Morphe 설정에서 Android VR 인증을 가져오거나 내보낼 수 없습니다.
-• 이 앱을 6개월 동안 사용하지 않으면 Google에서 이 인증이 제거됩니다.
+• Morphe 설정에서 Android VR 인증을 가져오거나 내보낼 수 없습니다
+• 이 앱을 6개월 동안 사용하지 않으면 Google에서 이 인증이 제거됩니다
 • Google 암호를 변경하거나 Google 설정에서 이 기기 등록을 해제하면 다시 로그인해야 합니다"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">로그인 성공</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">활성화 코드를 발급할 수 없습니다</string>
@@ -223,7 +229,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_debug_spannable_summary">디버그 로그에 스패너블을 포함합니다.</string>
     <string name="revanced_debug_spannable_title">로그 스패너블</string>
     <string name="revanced_debug_summary">디버그 로그를 출력합니다.</string>
-    <string name="revanced_debug_title">디버그 로그 활성화</string>
+    <string name="revanced_debug_title">디버그 로그 활성화하기</string>
     <string name="revanced_default_app_settings_summary">YT Music 링크를 RVX Music으로 열려면 \'지원되는 링크 열기\'를 활성화하고 지원되는 링크를 추가하세요. 링크 추가가 잠겨있다면 순정 YT Music 앱 정보 → \'기본적으로 열기\'에서 \'지원되는 링크 열기\'를 비활성화한 후에 추가할 수 있습니다.</string>
     <string name="revanced_default_app_settings_title">기본 앱 설정 열기</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"팟캐스트를 위한 강제 사용이 설정된 자동 오디오 트랙을 비활성화합니다.
@@ -447,19 +453,6 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_hide_samples_shelf_title">샘플 선반 제거</string>
     <string name="revanced_hide_search_button_summary">툴바에서 검색 버튼을 숨깁니다.</string>
     <string name="revanced_hide_search_button_title">검색 버튼 제거</string>
-    <string name="revanced_hide_settings_menu_about_title">YouTube Music 정보 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">데이터 절약 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">오프라인 저장 및 저장용량 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_general_title">일반 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_notification_title">알림 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">Music Premium 가입\n&amp; 유료 멤버십 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">가족 센터 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_playback_title">재생 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">개인 정보 보호 및 데이터 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">맞춤 콘텐츠 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_summary">"설정 메뉴 구성요소를 숨깁니다.
-YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨집니다."</string>
-    <string name="revanced_hide_settings_menu_title">설정 메뉴 제거</string>
     <string name="revanced_hide_song_video_toggle_summary">플레이어에서 노래 / 동영상 토글을 숨깁니다.</string>
     <string name="revanced_hide_song_video_toggle_title">노래 / 동영상 토글 제거</string>
     <string name="revanced_hide_sound_search_button_summary">툴바에서 노래 검색 버튼을 숨깁니다.</string>
@@ -566,23 +559,25 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;새 프로젝트 만들기&lt;/a&gt; 로 이동합니다.&lt;br&gt;2. &lt;b&gt;만들기&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; 로 이동합니다.&lt;br&gt;4. &lt;b&gt;사용&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;5. &lt;b&gt;사용자 인증 정보 만들기&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;6. &lt;b&gt;공개 데이터&lt;/b&gt; 옵션을 선택합니다.&lt;br&gt;7. &lt;b&gt;다음&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;8. API Key를 복사합니다.&lt;br&gt;&lt;br&gt;※ API Key는 다른 사람과 공유해서는 안 되므로 가져오기 / 내보내기 설정에 포함되지 않습니다.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Developer Key 발급</string>
     <string name="revanced_ryd_about">정보</string>
-    <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 탭하세요.</string>
+    <string name="revanced_ryd_attribution_summary">"데이터는 Return YouTube Dislike API에 의해 제공됩니다
+
+자세한 정보를 보려면 여기를 탭하여 'ReturnYouTubeDislike.com'으로 이동하세요"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">좋아요 버튼에서 구분선을 숨깁니다.</string>
-    <string name="revanced_ryd_compact_layout_title">좋아요 버튼에서 구분선 제거</string>
+    <string name="revanced_ryd_compact_layout_summary">공간을 절약하기 위해 좋아요 버튼의 너비를 줄입니다</string>
+    <string name="revanced_ryd_compact_layout_title">최소화된 좋아요 버튼 사용하기</string>
     <string name="revanced_ryd_dislike_percentage_summary">싫어요 수를 숫자 대신 퍼센트로 표시합니다.</string>
-    <string name="revanced_ryd_dislike_percentage_title">싫어요 수를 퍼센트로 표시</string>
+    <string name="revanced_ryd_dislike_percentage_title">싫어요 수를 백분율로 표시하기</string>
     <string name="revanced_ryd_enabled_summary">싫어요 수를 표시합니다.</string>
-    <string name="revanced_ryd_enabled_title">Return YouTube Dislike 활성화</string>
-    <string name="revanced_ryd_estimated_like_summary">좋아요 수가 숨겨진 음악에서 추정되는 좋아요 수를 표시합니다.</string>
-    <string name="revanced_ryd_estimated_like_title">추정되는 좋아요 수 표시</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다 (클라이언트 API 제한 도달).</string>
-    <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
-    <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
+    <string name="revanced_ryd_enabled_title">Return YouTube Dislike 활성화하기</string>
+    <string name="revanced_ryd_estimated_like_summary">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시합니다</string>
+    <string name="revanced_ryd_estimated_like_title">추정되는 좋아요 수 표시하기</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다 (클라이언트 API 제한 도달)</string>
+    <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (API 시간 초과)</string>
+    <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike 서버를 사용할 수 없을 경우에 알림을 표시합니다</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">연결 오류 알림 표시하기</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">소유자에 의해 숨겨짐</string>
     <string name="revanced_sb_about">정보</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 탭하세요.</string>
@@ -646,31 +641,31 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
     <string name="revanced_settings_import">가져오기</string>
     <string name="revanced_settings_import_as_file">파일에서 설정 가져오기</string>
-    <string name="revanced_settings_import_copy">복사하기</string>
+    <string name="revanced_settings_import_copy">복사</string>
     <string name="revanced_settings_import_export_as_text">텍스트로 설정 가져오기 / 내보내기</string>
     <string name="revanced_settings_import_export_summary">RVX Music 설정을 가져오거나 내보낼 수 있습니다.</string>
     <string name="revanced_settings_import_export_title">설정 가져오기 / 내보내기</string>
     <string name="revanced_settings_import_failed">설정을 가져올 수 없습니다: %s.</string>
-    <string name="revanced_settings_import_reset">설정을 기본값으로 초기화합니다.</string>
-    <string name="revanced_settings_import_success">%d 설정을 가져왔습니다.</string>
+    <string name="revanced_settings_import_reset">Morphe 설정을 기본값으로 초기화합니다</string>
+    <string name="revanced_settings_import_success">%d 개의 설정을 가져왔습니다</string>
     <string name="revanced_settings_reset">초기화</string>
     <string name="revanced_settings_reset_color">색상 초기화</string>
     <string name="revanced_settings_search_clear_history">검색 기록 지우기</string>
     <string name="revanced_settings_search_clear_history_message">모든 검색 기록을 지우시겠습니까?</string>
-    <string name="revanced_settings_search_empty_history_summary">검색 기록을 저장하려면 검색어를 입력하고 엔터키를 탭하세요.</string>
+    <string name="revanced_settings_search_empty_history_summary">검색 기록을 저장하려면 검색어를 입력하고 엔터키를 탭하세요</string>
     <string name="revanced_settings_search_empty_history_title">검색 기록이 비어 있습니다</string>
     <string name="revanced_settings_search_history_summary_off">설정 검색 기록을 표시하지 않습니다.</string>
     <string name="revanced_settings_search_history_summary_on">설정 검색 기록을 표시합니다.</string>
-    <string name="revanced_settings_search_history_title">설정 검색 기록 표시</string>
-    <string name="revanced_settings_search_no_results_summary">다른 키워드를 검색해 보세요.</string>
-    <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다.</string>
+    <string name="revanced_settings_search_history_title">설정 검색 기록 표시하기</string>
+    <string name="revanced_settings_search_no_results_summary">다른 키워드를 검색해 보세요</string>
+    <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다</string>
     <string name="revanced_settings_search_recent_searches">최근 검색어</string>
     <string name="revanced_settings_search_remove_message">검색 기록에서 제거하시겠습니까?</string>
-    <string name="revanced_settings_search_tips_summary">"• 경로를 탭하여 설정 카테고리로 이동할 수 있습니다.
-• 설정을 길게 탭하여 설정 위치로 이동할 수 있습니다.
-• 엔터키를 탭하여 검색어를 기록에 저장할 수 있습니다.
-• 검색할 경우에 대소문자와 구두점이 무시됩니다.
-• 상위 설정이 비활성화된 하위 설정 위에 표시됩니다."</string>
+    <string name="revanced_settings_search_tips_summary">"• 경로를 탭하여 설정 카테고리로 이동할 수 있습니다
+• 설정을 길게 탭하여 설정 위치로 이동할 수 있습니다
+• 엔터키를 탭하여 검색어를 기록에 저장할 수 있습니다
+• 검색할 경우에 대소문자와 구두점이 무시됩니다
+• 상위 설정이 비활성화된 하위 설정 위에 표시됩니다"</string>
     <string name="revanced_settings_search_tips_title">검색 팁</string>
     <string name="revanced_settings_search_title">%s 검색</string>
     <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>

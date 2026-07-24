@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="gms_core_dialog_continue_text">Devam Et</string>
+    <string name="gms_core_dialog_continue_text">Devam et</string>
     <string name="gms_core_dialog_dismiss_text">Tekrar gösterme</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">GmsCore'un arka planda çalışmasına izin verilmiyor.
 
-Cihazınız için 'Uygulamamı kapatma!' kılavuzunu izleyin ve talimatları GmsCore kurulumunuza uygulayın.
+Cihazınız için 'Don't kill my app!' kılavuzunu izleyin ve talimatları GmsCore kurulumunuza uygulayın.
 
 Bu, uygulamanın çalışması için gereklidir.</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Sorunları önlemek için GmsCore pil optimizasyonları devre dışı bırakılmalıdır.
@@ -12,11 +12,11 @@ Bu, uygulamanın çalışması için gereklidir.</string>
 GmsCore için pil optimizasyonlarını devre dışı bırakmak pil kullanımını olumsuz etkilemez.
 
 Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</string>
-    <string name="gms_core_dialog_open_website_text">Web sitesini aç</string>
-    <string name="gms_core_dialog_title">Eylem gerekiyor</string>
+    <string name="gms_core_dialog_open_website_text">Websitesini aç</string>
+    <string name="gms_core_dialog_title">Eylem gerekli</string>
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
     <string name="gms_core_settings_title">GmsCore ayarlarını açın</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG yüklenmemiş. Yükleyin.</string>
     <string name="morphe_crossfade_duration_10000ms">10 saniye</string>
     <string name="morphe_crossfade_duration_1000ms">1 saniye</string>
     <string name="morphe_crossfade_duration_11000ms">11 saniye</string>
@@ -105,6 +105,10 @@ YouTube Music 8.x — geçiş yalnızca 9.x ve sonraki sürümlerde çalışır"
     <string name="morphe_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
+    <string name="morphe_settings_menu_copy_path">Kopyalandı: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Listeyi doldurmak için standart uygulama ayarları ekranını bir kez açın</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Görünür adlarına göre standart uygulama ayarları ekranındaki öğeleri gizle</string>
+    <string name="morphe_settings_menu_filter_screen_title">Ayarlar menüsü filtresi</string>
     <string name="morphe_spoof_video_streams_client_type_title">Varsayılan istemci</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Oynatıcı JavaScript'ini belirli bir sürüme kilitler
 
@@ -225,7 +229,7 @@ Uygulama açık temaları desteklemediğinden mümkünse koyu renkler kullanın.
     <string name="revanced_debug_spannable_summary">Hata ayıklama günlüğüne yayılabilir içerir.</string>
     <string name="revanced_debug_spannable_title">Günlük yayılabilir</string>
     <string name="revanced_debug_summary">Hata ayıklama günlüğünü yazdırır.</string>
-    <string name="revanced_debug_title">Hata ayıklama günlüğünü etkinleştirme</string>
+    <string name="revanced_debug_title">Hata ayıklama kayıtlarını etkinleştir</string>
     <string name="revanced_default_app_settings_summary">YouTube Müzik bağlantılarını RVX Music\'te açmak için \'Desteklenen bağlantıları aç\'ı etkinleştirin ve desteklenen web adreslerini etkinleştirin.</string>
     <string name="revanced_default_app_settings_title">Varsayılan uygulama ayarlarını aç</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"Podcast'ler için zorunlu otomatik ses parçalarını devre dışı bırakın.
@@ -440,19 +444,6 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_hide_samples_shelf_title">Örnek rafını gizle</string>
     <string name="revanced_hide_search_button_summary">Ara butonunu araç çubuğunda gizler.</string>
     <string name="revanced_hide_search_button_title">Arama butonunu gizle</string>
-    <string name="revanced_hide_settings_menu_about_title">Hakkında menüsünü gizle</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Veri tasarrufu menüsünü gizle</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">İndirmeleri gizle &amp; depolama menüsü</string>
-    <string name="revanced_hide_settings_menu_general_title">Genel menüyü gizle</string>
-    <string name="revanced_hide_settings_menu_notification_title">Bildirimler menüsünü gizle</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">YT Müzik Premium Edinin menüsünü gizle</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Aile Merkezi menüsünü gizle</string>
-    <string name="revanced_hide_settings_menu_playback_title">Oynatma menüsünü gizle</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">Gizliliği gizle &amp; veri menüsü</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">Öneriler menüsünü gizle</string>
-    <string name="revanced_hide_settings_menu_summary">"Ayarlar menüsünün öğelerini gizleyin.
-Bu, yalnızca YT Music ayarlar menüsünü değil aynı zamanda ReVanced Extended ayarlar menüsünü de gizler."</string>
-    <string name="revanced_hide_settings_menu_title">Ayarlar menüsünü gizle</string>
     <string name="revanced_hide_song_video_toggle_summary">Oynatıcıdaki Şarkı / Video geçişini gizler.</string>
     <string name="revanced_hide_song_video_toggle_title">Şarkıyı / Videoyu Gizle geçişi</string>
     <string name="revanced_hide_sound_search_button_summary">Arama çubuğundaki ses arama düğmesini gizler.</string>
@@ -567,23 +558,25 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
 8. API anahtarını kopyalayın.&lt;br&gt;&lt;br&gt;※ API anahtarı asla başkalarıyla paylaşılmamalıdır, bu nedenle İçe/Dışa Aktarma ayarlarına dahil değildir.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 geliştirici anahtarı sorunu</string>
     <string name="revanced_ryd_about">Hakkında</string>
-    <string name="revanced_ryd_attribution_summary">Veriler True RYD Worker API tarafından sağlanır. Daha fazlasını öğrenmek için buraya dokunun.</string>
+    <string name="revanced_ryd_attribution_summary">"Veriler Return YouTube Dislike API tarafından sağlanır
+
+ReturnYouTubeDislike.com'u açmak için buraya dokunun"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Beğen butonunun ayırıcısını gizler.</string>
-    <string name="revanced_ryd_compact_layout_title">Kompakt beğenme düğmesi</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Beğenmeme sayısı yerine beğenmeme yüzdesi gösterilir.</string>
-    <string name="revanced_ryd_dislike_percentage_title">Yüzde olarak beğenmemeler</string>
+    <string name="revanced_ryd_compact_layout_summary">Yer kazanmak için Beğen düğmesinin genişliğini azaltır</string>
+    <string name="revanced_ryd_compact_layout_title">Ufak Beğen düğmesi kullan</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Beğenmemeleri sayı yerine beğenilere kıyasla yüzde olarak gösterir</string>
+    <string name="revanced_ryd_dislike_percentage_title">Beğenmemeyi yüzde olarak göster</string>
     <string name="revanced_ryd_enabled_summary">Videoların beğenmeme sayısını gösterir.</string>
-    <string name="revanced_ryd_enabled_title">Return YouTube Dislike\'ı etkinleştir</string>
-    <string name="revanced_ryd_estimated_like_summary">Videoların tahmini beğeni sayısını gösterir.</string>
+    <string name="revanced_ryd_enabled_title">Return YouTube Dislike\'ı Etkinleştir</string>
+    <string name="revanced_ryd_estimated_like_summary">İçerik üreticisinin beğenmeleri kapattığı videolarda tahmini bir beğeni sayısı gösterir</string>
     <string name="revanced_ryd_estimated_like_title">Tahmini beğenileri göster</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayısı mevcut değil (istemci API sınırına ulaşıldı).</string>
-    <string name="revanced_ryd_failure_connection_status_code">Beğenmemeler mevcut değil (durum %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">Beğenmemeler geçici olarak kullanılamıyor (API zaman aşımına uğradı).</string>
-    <string name="revanced_ryd_failure_generic">Beğenmemeler mevcut değil (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike API mevcut değilse uyarı gösterir.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenilmemeler kullanılamıyor (istemci API sınırı)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Beğenilmemeler kullanılamıyor (durum %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Beğenmeme sayıları geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
+    <string name="revanced_ryd_failure_generic">Beğenilmemeler kullanılamıyor (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike sunucusu kullanılamadığında bir bildirim gösterir</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Bağlantı hatası uyarılarını göster</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sahibi tarafından gizlendi</string>
     <string name="revanced_sb_about">Hakkında</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Veriler, SponsorBlock API tarafından sağlanmaktadır. Daha fazla bilgi edinmek ve diğer platformlar için indirmeleri görmek için buraya dokunun.</string>
@@ -652,30 +645,26 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
     <string name="revanced_settings_import_export_summary">RVX Müzik ayarlarını içe / dışa aktarma.</string>
     <string name="revanced_settings_import_export_title">İçe aktarma / Dışa aktarma ayarları</string>
     <string name="revanced_settings_import_failed">İçe aktarma başarısız oldu: %s.</string>
-    <string name="revanced_settings_import_reset">Ayarlar varsayılan değerlere sıfırlandı.</string>
-    <string name="revanced_settings_import_success">%d ayarları içe aktarıldı.</string>
+    <string name="revanced_settings_import_reset">Morphe ayarları varsayılanlara sıfırlandı</string>
+    <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
     <string name="revanced_settings_reset">Sıfırla</string>
     <string name="revanced_settings_reset_color">Rengi sıfırla</string>
     <string name="revanced_settings_search_clear_history">Arama geçmişini temizle</string>
-    <string name="revanced_settings_search_clear_history_message">Tüm arama geçmişini silmek istediğinizden emin misiniz?</string>
-    <string name="revanced_settings_search_empty_history_summary">Arama geçmişini kaydetmek için bir arama sorgusu yazın ve Giriş tuşuna basın.</string>
+    <string name="revanced_settings_search_clear_history_message">Tüm arama geçmişini temizlemek istediğinizden emin misiniz?</string>
+    <string name="revanced_settings_search_empty_history_summary">Arama geçmişini kaydetmek için bir arama sorgusu yazın ve Enter\'a basın</string>
     <string name="revanced_settings_search_empty_history_title">Arama geçmişi boş</string>
     <string name="revanced_settings_search_history_summary_off">Ayarlar arama geçmişi gösterilmiyor.</string>
     <string name="revanced_settings_search_history_summary_on">Ayarlar arama geçmişi görüntüleniyor.</string>
     <string name="revanced_settings_search_history_title">Ayarlar arama geçmişini göster</string>
-    <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin.</string>
-    <string name="revanced_settings_search_no_results_title">\'%s\' için hiçbir sonuç bulunamadı.</string>
+    <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin</string>
+    <string name="revanced_settings_search_no_results_title">\'%s\' için sonuç bulunamadı</string>
     <string name="revanced_settings_search_recent_searches">Son aramalar</string>
     <string name="revanced_settings_search_remove_message">Arama geçmişinden kaldırılsın mı?</string>
-    <string name="revanced_settings_search_tips_summary">"• Bir yola gitmek için o yola dokunun.
-
-• Bir ayara gitmek için uzun süre basılı tutun.
-
-• Bir arama sorgusunu geçmişe kaydetmek için Giriş tuşuna basın.
-
-• Arama büyük/küçük harf ve noktalama işaretlerini dikkate almaz.
-
-• Üst ayarlar, devre dışı bırakılmış alt ayarların üzerinde görünür."</string>
+    <string name="revanced_settings_search_tips_summary">"• Bir yola gitmek için ona dokunun
+• Bir ayara gitmek için üzerine uzun basın
+• Bir arama sorgusunu geçmişe kaydetmek için Enter'a basın
+• Arama, büyük/küçük harf ve noktalama işaretlerini dikkate almaz
+• Ana ayarlar, devre dışı bırakılmış alt ayarların üzerinde görünür"</string>
     <string name="revanced_settings_search_tips_title">Arama İpuçları</string>
     <string name="revanced_settings_search_title">Ara %s</string>
     <string name="revanced_share_copy_settings_success">Ayarlar panoya kopyalandı</string>

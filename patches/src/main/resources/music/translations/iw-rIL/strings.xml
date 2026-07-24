@@ -2,10 +2,20 @@
 <resources>
     <string name="gms_core_dialog_continue_text">המשך</string>
     <string name="gms_core_dialog_dismiss_text">אל תראה שוב</string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ל-MicroG GmsCore אין הרשאה לרוץ ברקע.
+
+עקוב אחר המדריך \"Don't kill my app\" עבור הטלפון שלך, והפעיל את ההוראות על התקנת ה-MicroG שלך.
+
+היא נדרשת כדי שהיישום יעבוד."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"מיטובי הסוללה של MicroG GmsCore חייבים להיות מושבתים כדי למנוע בעיות.
+
+השבתת מיטובי הסוללה עבור MicroG לא תשפיע לרעה על השימוש בסוללה.
+
+תMouseEvent על הלחצן 'המשך' ואפשר שינויי מיטוב."</string>
     <string name="gms_core_dialog_open_website_text">פתח אתר</string>
-    <string name="gms_core_dialog_title">פעולה נדרשת</string>
+    <string name="gms_core_dialog_title">דרושה פעולה</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">אין GmsCore מותקן - לא להתקין</string>
+    <string name="gms_core_toast_not_installed_message">דו׮י טבמ עורמ מדמ. רוריתמ.</string>
     <string name="morphe_crossfade_duration_10000ms">10 שניות</string>
     <string name="morphe_crossfade_duration_1000ms">שנייה אחת</string>
     <string name="morphe_crossfade_duration_11000ms">11 שניות</string>
@@ -27,7 +37,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">פרוטוקול QUIC פעיל</string>
     <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
     <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
-    <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה \'זיוף זרמי וידאו\' ל-Android Reel או TV</string>
+    <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
     <string name="morphe_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
     <string name="morphe_force_original_audio_title">כפה שפת שמע מקורית</string>
@@ -94,6 +104,9 @@ YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומע�
     <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
+    <string name="morphe_settings_menu_filter_picker_empty">פתח את מסך ההגדרות הסטנדרטי של האפליקציה פעם אחת כדי לאכלס את הרשימה</string>
+    <string name="morphe_settings_menu_filter_screen_summary">הסתר פריטים ממסך ההגדרות הסטנדרטי של האפליקציה לפי השם הגלוי שלהם</string>
+    <string name="morphe_settings_menu_filter_screen_title">מסנן תפריט הגדרות</string>
     <string name="morphe_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"נעילת סקריפט JavaScript של הנגן לגרסה ספציפית
 
@@ -171,6 +184,7 @@ YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומע�
     <string name="revanced_custom_filter_toast_invalid_syntax">מסנן מותאם אישית לא חוקי: %s</string>
     <string name="revanced_debug_protobuffer_summary">מוסיף מידע נוסף של רישום עבור מפתחים כדי לזהות רכיבי אפליקציה</string>
     <string name="revanced_debug_protobuffer_title">רשום פרוטוקול חוצץ</string>
+    <string name="revanced_debug_title">אפשר הודעות דיבאג</string>
     <string name="revanced_default_app_settings_title">פתיחת הגדרות ברירת מחדל של האפליקציה</string>
     <string name="revanced_disable_auto_captions_summary">בטל את ההפעלה הכפויה של כתוביות אוטומטיות.</string>
     <string name="revanced_disable_drc_audio_title">השבת אודיו DRC</string>
@@ -178,8 +192,45 @@ YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומע�
     <string name="revanced_external_downloader_not_installed_warning">%s לא מותקן. נא להתקין אותו.</string>
     <string name="revanced_hide_fullscreen_ads_title">הסתר מודעות מסך מלא</string>
     <string name="revanced_restart_first_run">הפעל מחדש כדי לסיים את ההגדרות</string>
+    <string name="revanced_ryd_attribution_summary">"הנתונים מסופקים על ידי ה-Return YouTube Dislike API
+
+הקש כאן כדי לפתוח את ReturnYouTubeDislike.com"</string>
+    <string name="revanced_ryd_compact_layout_summary">מקטין את רוחב כפתור הלייק כדי לחסוך מקום</string>
+    <string name="revanced_ryd_compact_layout_title">השתמש בכפתור לייק קומפקטי</string>
+    <string name="revanced_ryd_dislike_percentage_summary">מציג דיסלייקים כאחוז מהלייקים ולא כמספר</string>
+    <string name="revanced_ryd_dislike_percentage_title">הצג דיסלייקים כאחוזים</string>
+    <string name="revanced_ryd_enabled_title">הפעל החזרת לייקים ל-YouTube</string>
+    <string name="revanced_ryd_estimated_like_summary">מציג ספירת לייקים משוערת בסרטונים שהיוצר השבית את הלייקים בהם</string>
+    <string name="revanced_ryd_estimated_like_title">הצג סימוני \'אהבתי\' משוערים</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">דיסלייקים אינם זמינים (מגבלה של לקוח API)</string>
+    <string name="revanced_ryd_failure_connection_status_code">דיסלייקים אינם זמינים (מצב %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">דיסלייקים אינם זמינים באופן זמני (תם פסק הזמן של ה-API)</string>
+    <string name="revanced_ryd_failure_generic">דיסלייקים אינם זמינים (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">מציג התראה כאשר שרת Return YouTube Dislike אינו זמין</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">הצג התראות שגיאת חיבור</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">מוסתר על ידי הבעלים</string>
     <string name="revanced_sb_skip_automatically_once">דלג באופן אוטומטי פעם אחת</string>
+    <string name="revanced_settings_import">ייבוא</string>
+    <string name="revanced_settings_import_copy">העתק</string>
+    <string name="revanced_settings_import_reset">הגדרות Morphe אופסו לברירת מחדל</string>
+    <string name="revanced_settings_import_success">%d הגדרות יובאו</string>
+    <string name="revanced_settings_reset">איפוס</string>
     <string name="revanced_settings_reset_color">אפס צבע</string>
+    <string name="revanced_settings_search_clear_history">נקה היסטוריית חיפושים</string>
+    <string name="revanced_settings_search_clear_history_message">האם אתה בטוח שברצונך למחוק את כל היסטוריית החיפושים?</string>
+    <string name="revanced_settings_search_empty_history_summary">כדי לשמור היסטוריית חיפוש, הקלד שאילתת חיפוש ולחץ על Enter</string>
+    <string name="revanced_settings_search_empty_history_title">היסטוריית החיפוש ריקה</string>
+    <string name="revanced_settings_search_history_title">הצג הגדרות היסטוריית חיפוש</string>
+    <string name="revanced_settings_search_no_results_summary">נסה מילת מפתח אחרת</string>
+    <string name="revanced_settings_search_no_results_title">לא נמצאו תוצאות עבור \'%s\'</string>
+    <string name="revanced_settings_search_recent_searches">חיפושים אחרונים</string>
+    <string name="revanced_settings_search_remove_message">להסיר מהיסטוריית חיפוש?</string>
+    <string name="revanced_settings_search_tips_summary">"• הקש על נתיב כדי לנווט אליו
+• לחיצה ארוכה על הגדרה כדי לנווט אליה
+• לחץ על Enter כדי לשמור שאילתת חיפוש להיסטוריה
+• החיפוש מתעלם מאותיות גדולות/קטנות וסימני פיסוק
+• הגדרות הורים מופיעות מעל הגדרות ילדים מושבתות"</string>
+    <string name="revanced_settings_search_tips_title">טיפים לחיפוש</string>
     <string name="revanced_spoof_app_version_summary">מרמה את השרת לחשוב שאתה משתמש בגרסת אפליקציה ישנה יותר כדי לשחזר תכונות ממשק משתמש מדור קודם</string>
     <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
     <string name="revanced_spoof_app_version_title">זייף גרסת אפליקציה</string>

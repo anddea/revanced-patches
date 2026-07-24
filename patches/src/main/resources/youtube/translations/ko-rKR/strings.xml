@@ -4,12 +4,12 @@
     <string name="accessibility_settings_edu_opt_out_text">접근성 서비스가 활성화되어 있기 때문에 플레이어 컨트롤을 변경합니다.</string>
     <string name="gms_core_dialog_continue_text">계속하기</string>
     <string name="gms_core_dialog_dismiss_text">다시 보지 않기</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG에 백그라운드에서 실행할 수 있는 권한이 없습니다.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG에는 백그라운드에서 실행할 수 있는 권한이 없습니다.
 
-이 기기에 대한 \"Don't kill my app\" 가이드를 읽어보고, MicroG 설치 지침을 적용하세요.
+본 기기의 \"Don't kill my app\" 가이드를 참고하여 MicroG 설치에 관한 지침을 적용하세요.
 
-앱이 실행하려면 이 과정이 필요합니다."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore 앱 배터리 최적화를 비활성화(제한 없음)하여 앱 문제를 방지할 수 있습니다.
+이러한 조치 없이는 앱이 정상적으로 작동하지 않습니다."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG 앱 배터리 최적화를 비활성화(제한 없음)하여 앱 문제를 방지할 수 있습니다.
 
 MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배터리 사용량에 부정적인 영향을 미치지 않습니다.
 
@@ -19,7 +19,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="gms_core_offline_account_login_error">최근에 계정 로그인 정보를 변경한 경우에는 GmsCore를 제거했다가 다시 설치하세요.</string>
     <string name="gms_core_settings_summary">RVX 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
-    <string name="gms_core_toast_not_installed_message">MicroG GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG가 설치되어 있지 않습니다. 설치하세요.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">피드에서 스크롤하는 경우에 하단바를 숨기지 않습니다</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">하단바 자동 숨기기 비활성화하기</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC 오디오를 활성화합니다</string>
@@ -28,11 +28,21 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_disable_quic_protocol_summary_off">QUIC 프로토콜을 활성화합니다</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC 프로토콜을 비활성화합니다</string>
     <string name="morphe_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'실시간 스트림 DVR 탐색 구간 확장하기'를 사용할 수 없을 수 있습니다
+
+이 문제를 해결하려면, '동영상 스트림 속이기'를 활성화하고 '기본 클라이언트'를 'TV'로 변경하세요"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">실시간 스트림을 최대 7일 전까지 되감아 볼 수 있습니다</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">실시간 스트림 DVR 탐색 구간 확장하기</string>
     <string name="morphe_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android Reel\' 또는 \'TV\'로 변경하세요</string>
     <string name="morphe_force_original_audio_summary_off">기본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_summary_on">원본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
     <string name="morphe_hide_sync_button_title">\'동영상에 동기화\' 버튼 숨기기</string>
+    <string name="morphe_livestream_dvr_not_available">"'실시간 스트림 DVR 활성화하기'를 사용할 수 없을 수 있습니다
+
+이 문제를 해결하려면, '동영상 스트림 속이기'를 활성화하고 '기본 클라이언트'를 'TV'로 변경하세요"</string>
+    <string name="morphe_livestream_dvr_summary">재생바 탐색이 제한된 실시간 스트림에서도 탐색할 수 있도록 허용합니다</string>
+    <string name="morphe_livestream_dvr_title">실시간 스트림 DVR 활성화하기</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR에 로그인할 수 없습니다: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR에 로그인할 수 없습니다. 웹사이트 인증이 승인되지 않았습니다</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2를 일시적으로 사용할 수 없습니다</string>
@@ -52,7 +62,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거하지 않습니다</string>
     <string name="morphe_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거합니다</string>
     <string name="morphe_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
+    <string name="morphe_settings_menu_copy_path">복사됨: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">목록을 생성하려면 일반 앱 설정 화면을 한 번 실행해야 합니다</string>
+    <string name="morphe_settings_menu_filter_screen_summary">일반 앱 설정 화면에서 표시되는 이름을 기준으로 항목을 숨깁니다</string>
+    <string name="morphe_settings_menu_filter_screen_title">설정 메뉴 필터</string>
     <string name="morphe_spoof_video_streams_about_js">• 복호화에 실패하면 재생이 실패할 수 있습니다</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• 오디오 트랙 메뉴가 표시되지 않습니다</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
@@ -86,16 +99,16 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
     <string name="morphe_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다</string>
     <string name="morphe_spoof_video_streams_screen_title">동영상 스트림 속이기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR에 로그인되어 있지 않습니다 \n로그인하려면 여기를 탭하세요</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 Android VR로 변경하세요</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android VR\'로 변경하세요</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">현재 Android VR에 로그인되어 있습니다</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Android VR에 로그인하기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"활성화 코드: %s
 
-1. 아래에 있는 '웹사이트 열기'를 탭하여 '기기 연결' 웹사이트를 엽니다.
-2. 위에 표시된 활성화 코드를 클립보드로부터 붙여넣거나 입력합니다.
-3. 로그인이 요청되면 Google에 로그인합니다. 계정이 여러 개인 경우에는 Morphe에서 사용하는 YouTube 계정을 선택합니다.
-4. YouTube VR 액세스를 허용합니다.
-5. '기기에 연결됨' 메시지가 표시되면 이 앱으로 돌아옵니다."</string>
+1. 아래에 있는 '웹사이트 열기'를 탭하여 '기기 연결' 웹사이트를 엽니다
+2. 위에 표시된 활성화 코드를 클립보드로부터 붙여넣거나 입력합니다
+3. 로그인이 요청되면 Google에 로그인합니다. 계정이 여러 개인 경우에는 Morphe에서 사용하는 YouTube 계정을 선택합니다
+4. YouTube VR 액세스를 허용합니다
+5. '기기에 연결됨' 메시지가 표시되면 이 앱으로 돌아옵니다"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">웹사이트 열기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">설명서</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">계속하기</string>
@@ -106,8 +119,8 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR에 로그인하기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"인증을 저장하였습니다
 
-• Morphe 설정에서 Android VR 인증을 가져오거나 내보낼 수 없습니다.
-• 이 앱을 6개월 동안 사용하지 않으면 Google에서 이 인증이 제거됩니다.
+• Morphe 설정에서 Android VR 인증을 가져오거나 내보낼 수 없습니다
+• 이 앱을 6개월 동안 사용하지 않으면 Google에서 이 인증이 제거됩니다
 • Google 암호를 변경하거나 Google 설정에서 이 기기 등록을 해제하면 다시 로그인해야 합니다"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">로그인 성공</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">활성화 코드를 발급할 수 없습니다</string>
@@ -303,7 +316,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_debug_export_logs_to_file_title">디버그 로그 내보내기</string>
     <string name="revanced_debug_logs_clear_buffer_summary">저장된 모든 ReVanced 디버그 로그를 지울 수 있습니다</string>
     <string name="revanced_debug_logs_clear_buffer_title">디버그 로그 지우기</string>
-    <string name="revanced_debug_logs_clear_toast">디버그 로그가 지워졌습니다</string>
+    <string name="revanced_debug_logs_clear_toast">디버그 로그를 삭제하였습니다</string>
     <string name="revanced_debug_logs_copied_to_clipboard">디버그 로그를 복사하였습니다</string>
     <string name="revanced_debug_logs_disabled">디버그 로그가 비활성화되어 있습니다</string>
     <string name="revanced_debug_logs_export_success">로그를 성공적으로 내보냈습니다.</string>
@@ -318,10 +331,10 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_debug_spannable_title">로그 스패너블</string>
     <string name="revanced_debug_summary_off">디버그 로그를 비활성화합니다</string>
     <string name="revanced_debug_summary_on">디버그 로그를 활성화합니다</string>
-    <string name="revanced_debug_title">디버그 로그</string>
+    <string name="revanced_debug_title">디버그 로그 활성화하기</string>
     <string name="revanced_debug_toast_on_error_summary_off">오류가 발생하면 팝업 메시지를 표시하지 않습니다</string>
     <string name="revanced_debug_toast_on_error_summary_on">오류가 발생하면 팝업 메시지를 표시합니다</string>
-    <string name="revanced_debug_toast_on_error_title">ReVanced 오류 메시지 표시하기</string>
+    <string name="revanced_debug_toast_on_error_title">Morphe 오류 메시지 표시하기</string>
     <string name="revanced_default_app_settings_summary">다른 앱에서 YouTube 링크를 RVX로 열려면 \'지원되는 링크 열기\'를 활성화하고 지원되는 링크를 추가하세요. 링크 추가가 잠겨있다면 순정 YouTube 앱 정보 → \'기본적으로 열기\'에서 \'지원되는 링크 열기\'를 비활성화한 후에 추가할 수 있습니다.</string>
     <string name="revanced_default_app_settings_title">기본 앱 설정 열기</string>
     <string name="revanced_default_playback_speed_shorts_title">기본 Shorts 재생 속도</string>
@@ -606,9 +619,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_external_downloader_package_name_video_long_press_title">길게 탭하여 동영상 외부 다운로더 앱 패키지명</string>
     <string name="revanced_external_downloader_package_name_video_summary">설치된 외부 다운로더 앱 패키지명을 설정하세요.</string>
     <string name="revanced_external_downloader_package_name_video_title">동영상 외부 다운로더 앱 패키지명</string>
-    <string name="revanced_external_downloader_package_not_found_warning">"패키지명이 '%s'로 설치된 앱을 찾을 수 없습니다.
+    <string name="revanced_external_downloader_package_not_found_warning">"패키지명이 '%s'로 설치된 앱을 찾을 수 없습니다
 
-패키지명이 올바른지 앱이 설치되어 있는지 확인하세요."</string>
+패키지명이 올바른지 앱이 설치되어 있는지 확인하세요"</string>
     <string name="revanced_fix_hype_button_icon_summary_off">하이프 버튼 아이콘이 숨겨집니다</string>
     <string name="revanced_fix_hype_button_icon_summary_on">하이프 버튼 아이콘이 표시됩니다</string>
     <string name="revanced_fix_hype_button_icon_title">하이프 버튼 아이콘 수정하기</string>
@@ -1244,71 +1257,6 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_hide_server_side_snack_bar_summary_off">서버 측 스낵바가 표시됩니다.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">서버 측 스낵바가 숨겨집니다.</string>
     <string name="revanced_hide_server_side_snack_bar_title">서버 측 스낵바 숨기기</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">정보 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">정보 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_about_title">정보 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">접근성 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">접근성 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">접근성 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">계정 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">계정 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_account_title">계정 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">자동재생 / 재생 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">자동재생 / 재생 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">자동재생 / 재생 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">청구 및 결제 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">청구 및 결제 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">청구 및 결제 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">자막 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">자막 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_captions_title">자막 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">연결된 앱 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">연결된 앱 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">연결된 앱 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">데이터 절약 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">데이터 절약 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">데이터 절약 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">일반 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">일반 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_general_title">일반 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">전체 기록 관리 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">전체 기록 관리 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_history_title">전체 기록 관리 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">실시간 채팅 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">실시간 채팅 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">실시간 채팅 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">알림 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">알림 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_notification_title">알림 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">백그라운드 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">백그라운드 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_offline_title">백그라운드 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">\'TV로 시청하기\' 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">\'TV로 시청하기\' 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">\'TV로 시청하기\' 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">가족 센터 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">가족 센터 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">가족 센터 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">\'새 실험 기능 사용해 보기\' 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">\'새 실험 기능 사용해 보기\' 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">\'새 실험 기능 사용해 보기\' 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">공개 설정 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">공개 설정 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">공개 설정 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">구매 항목 및 멤버십 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">구매 항목 및 멤버십 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">구매 항목 및 멤버십 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_summary">YouTube 설정 메뉴에서 구성요소를 숨깁니다.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_off">시간 관리 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_on">시간 관리 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_time_management_title">시간 관리 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_title">YouTube 설정 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">동영상 화질 환경설정 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">동영상 화질 환경설정 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">동영상 화질 환경설정 메뉴 숨기기</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">YouTube의 내 데이터 메뉴가 표시됩니다.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">YouTube의 내 데이터 메뉴가 숨겨집니다.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">YouTube의 내 데이터 메뉴 숨기기</string>
     <string name="revanced_hide_share_button_summary_off">공유 버튼이 표시됩니다</string>
     <string name="revanced_hide_share_button_summary_on">공유 버튼이 숨겨집니다</string>
     <string name="revanced_hide_share_button_title">공유 버튼 숨기기</string>
@@ -1665,7 +1613,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다.
     <string name="revanced_language_UR">우르두어\n<small>اردو</small></string>
     <string name="revanced_language_VI">베트남어\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">중국어\n<small>中文</small></string>
-    <string name="revanced_language_title">ReVanced 언어</string>
+    <string name="revanced_language_title">Morphe 언어</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">미니 플레이어를 화면 밖으로 드래그해도 재생이 계속됩니다</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">미니 플레이어를 화면 밖으로 드래그하면 재생이 일시 중지됩니다</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">수평 드래그로 동영상 재생 일시 중지</string>
@@ -2374,11 +2322,11 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_settings_export_summary">설정을 파일로 내보낼 수 있습니다.</string>
     <string name="revanced_settings_export_title">설정 내보내기</string>
     <string name="revanced_settings_import">가져오기</string>
-    <string name="revanced_settings_import_copy">복사하기</string>
+    <string name="revanced_settings_import_copy">복사</string>
     <string name="revanced_settings_import_export_as_text_summary">설정을 텍스트로 가져오거나 내보낼 수 있습니다.</string>
     <string name="revanced_settings_import_export_as_text_title">텍스트로 가져오기 / 내보내기</string>
     <string name="revanced_settings_import_failed">설정을 가져올 수 없습니다.</string>
-    <string name="revanced_settings_import_reset">ReVanced 설정을 기본값으로 초기화합니다</string>
+    <string name="revanced_settings_import_reset">Morphe 설정을 기본값으로 초기화합니다</string>
     <string name="revanced_settings_import_success">%d 개의 설정을 가져왔습니다</string>
     <string name="revanced_settings_import_summary">설정을 저장된 파일에서 가져올 수 있습니다.</string>
     <string name="revanced_settings_import_title">설정 가져오기</string>
@@ -2386,7 +2334,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_settings_reset_color">색상 초기화</string>
     <string name="revanced_settings_search_clear_history">검색 기록 지우기</string>
     <string name="revanced_settings_search_clear_history_message">모든 검색 기록을 지우시겠습니까?</string>
-    <string name="revanced_settings_search_empty_history_summary">검색 기록을 저장하려면 검색어를 입력하고 엔터키를 누르세요</string>
+    <string name="revanced_settings_search_empty_history_summary">검색 기록을 저장하려면 검색어를 입력하고 엔터키를 탭하세요</string>
     <string name="revanced_settings_search_empty_history_title">검색 기록이 비어 있습니다</string>
     <string name="revanced_settings_search_history_summary">검색창이 비어 있을 경우에 검색 기록이 표시될 수 있도록 최근 검색 쿼리를 저장합니다.</string>
     <string name="revanced_settings_search_history_summary_off">설정 검색 기록을 표시하지 않습니다</string>
@@ -2398,7 +2346,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_settings_search_remove_message">검색 기록에서 제거하시겠습니까?</string>
     <string name="revanced_settings_search_tips_summary">"• 경로를 탭하여 설정 카테고리로 이동할 수 있습니다
 • 설정을 길게 탭하여 설정 위치로 이동할 수 있습니다
-• 엔터키를 눌러서 검색어를 기록에 저장할 수 있습니다
+• 엔터키를 탭하여 검색어를 기록에 저장할 수 있습니다
 • 검색할 경우에 대소문자와 구두점이 무시됩니다
 • 상위 설정이 비활성화된 하위 설정 위에 표시됩니다"</string>
     <string name="revanced_settings_search_tips_title">검색 팁</string>
