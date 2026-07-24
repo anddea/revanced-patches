@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="gms_core_dialog_continue_text">تابع / اكمل
-</string>
+    <string name="gms_core_dialog_continue_text">متابعة</string>
     <string name="gms_core_dialog_dismiss_text">لا تظهر مرة اخرى</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ليس لدى GmsCore إذن للتشغيل في الخلفية.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"لا يملك MicroG صلاحية التشغيل في الخلفية.
 
-اتبع دليل 'لا تقتل تطبيقي!' الخاص بهاتفك، وقم بتطبيق التعليمات على تثبيت GmsCore الخاص بك.
+اتبَع دليل \"Don't kill my app\" الخاص بجوالك، وطبّق التعليمات على تثبيت MicroG.
 
-وهذا مطلوب لكي يعمل التطبيق."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"يجب تعطيل تحسينات بطارية GmsCore لمنع حدوث مشكلات.
+هذا ضروري لعمل التطبيق."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">" تحسينات البطارية يجب تعطيلها لمنع المشكلات MicroG.
 
-لن يؤثر تعطيل تحسينات البطارية لـ GmsCore سلبًا على استخدام البطارية.
+تعطيل تحسينات البطارية لـ MicroG لا يضغظ على استهلاك البطارية.
 
-انقر فوق زر الاستمرار واسمح بتغييرات التحسين."</string>
+ انقر على زر متابعة و اسمح بتغييرات التحسين."</string>
     <string name="gms_core_dialog_open_website_text">فتح الموقع</string>
-    <string name="gms_core_dialog_title">يجب اتخاذ إجراء</string>
+    <string name="gms_core_dialog_title">الإجراء مطلوب</string>
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX Music، قم بتمكين المراسلة السحابية.</string>
     <string name="gms_core_settings_title">GmsCore فتح اعدادات </string>
-    <string name="gms_core_toast_not_installed_message">لم يتم تثبيت GmsCore. قم بتثبيته.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG لم يتم تثبيته. قم بتثبيته.</string>
     <string name="morphe_crossfade_duration_10000ms">10 ثوانٍ</string>
     <string name="morphe_crossfade_duration_1000ms">ثانية واحدة</string>
     <string name="morphe_crossfade_duration_11000ms">11 ثوانٍ</string>
@@ -39,7 +38,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">تم تمكين بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_summary_on">تم تعطيل بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
-    <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى Android Reel أو TV</string>
+    <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
     <string name="morphe_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
     <string name="morphe_force_original_audio_title">فرض لغة الصوت الأصلية</string>
@@ -106,6 +105,10 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="morphe_sanitize_sharing_links_summary_off">لم تتم إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_summary_on">تمت إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_title">تنظيف روابط المشاركة</string>
+    <string name="morphe_settings_menu_copy_path">تم نسخ: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">افتح شاشة إعدادات التطبيق القياسية مرة واحدة لتعبئة القائمة</string>
+    <string name="morphe_settings_menu_filter_screen_summary">إخفاء العناصر في شاشة إعدادات التطبيق القياسية بالاسم المرئي</string>
+    <string name="morphe_settings_menu_filter_screen_title">تصفية قائمة الإعدادات</string>
     <string name="morphe_spoof_video_streams_client_type_title">العميل الافتراضي</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"يقوم بتقييد JavaScript الخاص بالمشغل إلى إصدار محدد
 
@@ -386,6 +389,8 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="revanced_hide_action_button_comment_summary">إخفاء زر التعليقات.
 </string>
     <string name="revanced_hide_action_button_comment_title">إخفاء زر التعليقات</string>
+    <string name="revanced_hide_action_button_details_summary">إخفاء زر التفاصيل في الپودكاست</string>
+    <string name="revanced_hide_action_button_details_title">إخفاء زر التفاصيل</string>
     <string name="revanced_hide_action_button_disabled_summary">إخفاء الأزرار المعطلة، مثل زر التعليقات المعطل.
 </string>
     <string name="revanced_hide_action_button_disabled_title">إخفاء الزر المعطل
@@ -400,6 +405,10 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="revanced_hide_action_button_like_dislike_summary">إخفاء زري الإعجاب وعدم الإعجاب. لا يعمل في تخطيط المشغل القديم.
 </string>
     <string name="revanced_hide_action_button_like_dislike_title">إخفاء أزرار أعجبني ولم يعجبني</string>
+    <string name="revanced_hide_action_button_live_chat_replay_summary">إخفاء زر إعادة الدردشة المباشرة للفيديوهات الحية</string>
+    <string name="revanced_hide_action_button_live_chat_replay_title">إخفاء زر إعادة الدردشة المباشرة</string>
+    <string name="revanced_hide_action_button_lyrics_summary">إخفاء زر كلمات الأغنية</string>
+    <string name="revanced_hide_action_button_lyrics_title">إخفاء زر كلمات الأغنية</string>
     <string name="revanced_hide_action_button_radio_summary">إخفاء زر الراديو.
 </string>
     <string name="revanced_hide_action_button_radio_title">إخفاء زر الراديو
@@ -582,24 +591,6 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="revanced_hide_search_button_summary">إخفاء زر البحث في شريط الأدوات
 </string>
     <string name="revanced_hide_search_button_title">إخفاء زر البحث</string>
-    <string name="revanced_hide_settings_menu_about_title">إخفاء قائمة لمحة</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">إخفاء قائمة توفير البيانات</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">إخفاء قائمة التنزيلات والتخزين
-</string>
-    <string name="revanced_hide_settings_menu_general_title">إخفاء قائمة عامة</string>
-    <string name="revanced_hide_settings_menu_notification_title">إخفاء قائمة الإشعارات</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">إخفاء قائمة الحصول على موسيقى بريميوم
-</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">إخفاء قائمة مركز العائلة</string>
-    <string name="revanced_hide_settings_menu_playback_title">إخفاء قائمة التشغيل
-</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">إخفاء قائمة الخصوصية والبيانات
-</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">إخفاء قائمة التوصيات
-</string>
-    <string name="revanced_hide_settings_menu_summary">إخفاء عناصر قائمة الإعدادات. يؤدي هذا إلى إخفاء قائمة إعدادات YT Music فحسب، بل وأيضاً قائمة إعدادات ReVanced Extended.
-</string>
-    <string name="revanced_hide_settings_menu_title">إخفاء قائمة إعدادات</string>
     <string name="revanced_hide_song_video_toggle_summary">إخفاء مفتاح التبديل بين الأغنية والفيديو في المشغل
 </string>
     <string name="revanced_hide_song_video_toggle_title">إخفاء مفتاح التبديل بين الأغنية والفيديو
@@ -749,28 +740,26 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
 </string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">إصدار مفتاح مطور YouTube Data API v3</string>
     <string name="revanced_ryd_about">لمحة</string>
-    <string name="revanced_ryd_attribution_summary">يتم توفير بيانات لم يعجبني بفيديوهات YouTube بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد.</string>
+    <string name="revanced_ryd_attribution_summary">"يتم توفير البيانات بواسطة Return YouTube Dislike API
+
+انقر هنا لفتح ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">إخفاء فاصل زر الإعجاب
-</string>
-    <string name="revanced_ryd_compact_layout_title">مقاس زر أعجبني</string>
-    <string name="revanced_ryd_dislike_percentage_summary">عرض نسبة عدم الإعجاب بدلاً من عدد عدم الإعجاب
-</string>
-    <string name="revanced_ryd_dislike_percentage_title">لم يعجبني كــ نسبة مئوية</string>
+    <string name="revanced_ryd_compact_layout_summary">يقلل من عرض زر الإعجاب لتوفير المساحة</string>
+    <string name="revanced_ryd_compact_layout_title">استخدام زر الإعجاب المصغّر</string>
+    <string name="revanced_ryd_dislike_percentage_summary">يعرض إحصائية لم يعجبني كنسبة مئوية من الإعجابات بدلًا من رقم</string>
+    <string name="revanced_ryd_dislike_percentage_title">عرض لم يعجبني كــ نسبة مئوية</string>
     <string name="revanced_ryd_enabled_summary">إظهار عدد عدم الإعجاب في الفيديوهات
 </string>
-    <string name="revanced_ryd_enabled_title">تمكين Return YouTube Dislike</string>
-    <string name="revanced_ryd_estimated_like_summary">إظهار عدد الإعجابات المقدر للفيديوهات
-</string>
+    <string name="revanced_ryd_enabled_title">تمكين استعادة عدد مرات لم يعجبني</string>
+    <string name="revanced_ryd_estimated_like_summary">يعرض عددًا تقديريًا للإعجابات في الفيديوهات التي قام المنشئ بتعطيل الإعجابات فيها</string>
     <string name="revanced_ryd_estimated_like_title">عرض الإعجابات المقدرة</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">لم يعجبني غير متوفر (تم الوصول إلى حد API العميل).</string>
-    <string name="revanced_ryd_failure_connection_status_code">لم يعجبني غير متوفر (الحالة %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">لم يعجبني غير متوفر مؤقتًا (انتهت مهلة API).</string>
-    <string name="revanced_ryd_failure_generic">لم يعجبني غير متوفر (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">إظهار إشعار (Toast) في حال عدم توفر واجهة Return YouTube Dislike API.
-</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متوفر</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">عدد مرات لم يعجبني غير متوفر (حد API للعميل)</string>
+    <string name="revanced_ryd_failure_connection_status_code">لم يعجبني غير متاح (الحالة %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">لم يعجبني غير متاح مؤقتًا (انتهت مهلة API)</string>
+    <string name="revanced_ryd_failure_generic">لم يعجبني غير متاح (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">يعرض إشعارًا عند تعذر توفر خادم Return YouTube Dislike</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">عرض تنبيهات خطأ الاتصال</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي بواسطة المالك</string>
     <string name="revanced_sb_about">لمحة</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. اضغط هنا لمعرفة المزيد والتنزيل لمنصات أخرى.</string>
@@ -847,27 +836,26 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="revanced_settings_import_export_title">إستيراد \ تصدير إعدادات</string>
     <string name="revanced_settings_import_failed">فشل الاستيراد: %s.
 </string>
-    <string name="revanced_settings_import_reset">إعادة تعيين الإعدادات إلى الافتراضي.</string>
-    <string name="revanced_settings_import_success">تم استيراد %d من الإعدادات.
-</string>
-    <string name="revanced_settings_reset">إعادة تعيين</string>
+    <string name="revanced_settings_import_reset">إعادة تعيين إعدادات Morphe إلى الوضع الافتراضي</string>
+    <string name="revanced_settings_import_success">تم استيراد %d إعدادات</string>
+    <string name="revanced_settings_reset">إعادة التعيين</string>
     <string name="revanced_settings_reset_color">إعادة تعيين اللون</string>
     <string name="revanced_settings_search_clear_history">مسح سجل البحث</string>
-    <string name="revanced_settings_search_clear_history_message">هل أنت متأكد من أنك تريد مسح سجل البحث بالكامل؟</string>
-    <string name="revanced_settings_search_empty_history_summary">لحفظ سجل البحث، اكتب استعلام بحث واضغط على Enter.</string>
+    <string name="revanced_settings_search_clear_history_message">هل أنت متأكد أنك تريد مسح كل سجل البحث؟</string>
+    <string name="revanced_settings_search_empty_history_summary">لحفظ سجل البحث، اكتب استعلام بحث واضغط على Enter</string>
     <string name="revanced_settings_search_empty_history_title">سجل البحث فارغ</string>
     <string name="revanced_settings_search_history_summary_off">لا يتم عرض سجل البحث في الإعدادات.</string>
     <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات.</string>
     <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
-    <string name="revanced_settings_search_no_results_summary">جرب كلمة مفتاحية أخرى.</string>
-    <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \'%s\'.</string>
+    <string name="revanced_settings_search_no_results_summary">جرّب كلمة مفتاحية أخرى</string>
+    <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \".%s\"</string>
     <string name="revanced_settings_search_recent_searches">عمليات البحث الأخيرة</string>
     <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
-    <string name="revanced_settings_search_tips_summary">"• انقر على مسار للانتقال إليه.
-• اضغط مطولًا على أحد الإعدادات للانتقال إليه.
-• اضغط على مفتاح الإدخال لحفظ استعلام البحث في السجل.
-• يتجاهل البحث حالة الأحرف وعلامات الترقيم.
-• تظهر إعدادات الوالدين أعلى إعدادات الطفل المعطلة."</string>
+    <string name="revanced_settings_search_tips_summary">"• انقر على مسار للانتقال إليه
+• اضغط مطولًا على إعداد للانتقال إليه
+• اضغط على Enter لحفظ استعلام البحث في السجل
+• يتجاهل البحث حالة الأحرف وعلامات الترقيم
+• تظهر الإعدادات الرئيسية فوق الإعدادات الفرعية المعطلة"</string>
     <string name="revanced_settings_search_tips_title">نصائح البحث</string>
     <string name="revanced_settings_search_title">بحث %s</string>
     <string name="revanced_share_copy_settings_success">تم نسخ الإعدادات إلى الحافظة.</string>

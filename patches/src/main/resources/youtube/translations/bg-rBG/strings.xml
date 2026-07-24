@@ -3,21 +3,21 @@
     <string name="accessibility_settings_edu_opt_in_text">Включване на контролите за достъпност на видеоплеaра?</string>
     <string name="accessibility_settings_edu_opt_out_text">Вашите контроли са променени, защото е активирана услуга за достъпност.</string>
     <string name="gms_core_dialog_continue_text">Продължи</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore няма разрешение да работи във фонов режим.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG няма разрешение да се изпълнява в фонов режим.
 
-Следвайте ръководството \"Не убивай моето приложение\" за вашия телефон и приложете инструкциите към вашата инсталация на MicroG.
+Следвайте увода \"Не убивайте моето приложение\" за вашия телефон и прилагодете инструкциите към вашето MicroG инсталиране.
 
-Това е необходимо, за да работи приложението."</string>
+Това е необходимо за работа на приложението."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизациите на батерията за MicroG GmsCore трябва да бъдат деактивирани, за да се избегнат проблеми.
 
 Деактивирането на оптимизациите на батерията за MicroG няма да повлияе отрицателно на използването на батерията.
 
 Докоснете бутона за продължаване и разрешете промени в оптимизацията."</string>
-    <string name="gms_core_dialog_open_website_text">Отвори сайта</string>
+    <string name="gms_core_dialog_open_website_text">Отвори уебсайта</string>
     <string name="gms_core_dialog_title">Нужно е действие</string>
     <string name="gms_core_settings_summary">Включете облачното известяване за да поучавате известия.</string>
     <string name="gms_core_settings_title">Отвори GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore не е инсталиран. Инсталирайте го.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG не е инсталиран. Инсталирайте го.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Поддържа навигационната лента видима при превъртане</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Забрани автоматичното скриване на навигационната лента</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC аудио е включено</string>
@@ -26,11 +26,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">Протокола QUIC е включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокола QUIC е изключен</string>
     <string name="morphe_disable_quic_protocol_title">Изключи протокола QUIC</string>
-    <string name="morphe_force_original_audio_not_available">За да използвате тази функция, променете \'Имитиране на видео потоци\' на Android Reel или TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'Разширяване на DVR за запис на живо' може да не е налично
+
+За да отстраните това, включете 'Подправяне на видео потоци' и променете 'Стандартен клиент' на 'ТВ'."</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">Позволява ви да превъртате предавания на живо до 7 дни назад</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">Разширете продължителността на livestream DVR</string>
+    <string name="morphe_force_original_audio_not_available">За да използвате тази функция, променете \'Ппомяна на видео поток\' на всеки клиент освен Android Studio.</string>
     <string name="morphe_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
     <string name="morphe_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
     <string name="morphe_force_original_audio_title">Принудително оригинален аудио език</string>
     <string name="morphe_hide_sync_button_title">Скриване на бутона \"Синхронизиране с видео\"</string>
+    <string name="morphe_livestream_dvr_not_available">"'Активиране на DVR за запис на живо' може да не е налично
+
+За да отстраните това, включете 'Подправяне на видео потоци' и променете 'Стандартен клиент' на 'ТВ'."</string>
+    <string name="morphe_livestream_dvr_summary">Позволява превъртане на всички потоци на живо, дори и тези, които обикновено го ограничават</string>
+    <string name="morphe_livestream_dvr_title">Активиране на livestream DVR</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не може да се впишете в VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не може да се впишете в VR, защото идентификацията на уебсайта не е одобрена</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 временно не е достъпен</string>
@@ -50,7 +60,10 @@
     <string name="morphe_sanitize_sharing_links_summary_off">Параметърът за отчитане не е премахнат от споделяни връзки</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметърът за следене е премахнат от споделяни връзки</string>
     <string name="morphe_sanitize_sharing_links_title">Почистване на споделените връзки</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• Експериментално клиент и може да престане да работи в произволно време</string>
+    <string name="morphe_settings_menu_copy_path">Копирано: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Отвори екрана с настройки на приложението веднъж, за да попълниш списъка</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Скрий елементи от екрана с настройки на приложението по тяхното видимо име</string>
+    <string name="morphe_settings_menu_filter_screen_title">Филтър на менюто с настройки</string>
     <string name="morphe_spoof_video_streams_about_js">• Ако деобфускацията провали, възпроизвеждането може да провали</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Меню за аудио трак не е налично</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Отсъства AV1 кодек на видео</string>
@@ -258,20 +271,20 @@
     <string name="revanced_debug_export_logs_to_clipboard_title">Експортиране на логове за отстраняване на грешки</string>
     <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
     <string name="revanced_debug_logs_clear_buffer_title">Изчистване на логовете за отстраняване на грешки</string>
-    <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">Логовете са копирани</string>
-    <string name="revanced_debug_logs_disabled">Отстраняването на грешки е деактивирано</string>
-    <string name="revanced_debug_logs_failed_to_export">Неуспешно експортиране на логове: %s</string>
-    <string name="revanced_debug_logs_none_found">Не са намерени логове</string>
+    <string name="revanced_debug_logs_clear_toast">Логовете за отстраняване на грешки бяха изчистени</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Логовете за отстраняване на грешки бяха копирани</string>
+    <string name="revanced_debug_logs_disabled">Отчетите за отстраняване на грешки са изключени</string>
+    <string name="revanced_debug_logs_failed_to_export">Неуспешно експортиране на логове за отстраняване на грешки: %s</string>
+    <string name="revanced_debug_logs_none_found">Не са намерени логове за отстраняване на грешки</string>
     <string name="revanced_debug_protobuffer_summary_off">Файлове с дневници за грешки не включват протоколни буфери</string>
     <string name="revanced_debug_protobuffer_summary_on">Файлове с дневници за грешки включват протоколни буфери</string>
     <string name="revanced_debug_protobuffer_title">Буфер на протокола за дневника</string>
     <string name="revanced_debug_summary_off">Дневникът за остраняване на грешки е деактивиран</string>
     <string name="revanced_debug_summary_on">Дневникът за остраняване на грешки е активиран</string>
-    <string name="revanced_debug_title">Дневник на отстраняването на грешки</string>
+    <string name="revanced_debug_title">Дневник за отчетените грешки</string>
     <string name="revanced_debug_toast_on_error_summary_off">Не се показва toast, ако възникне грешка</string>
     <string name="revanced_debug_toast_on_error_summary_on">Показва се toast, ако възникне грешка</string>
-    <string name="revanced_debug_toast_on_error_title">Покажи системно съобщение при ReVanced грешка</string>
+    <string name="revanced_debug_toast_on_error_title">Показване на уведомление при грешка в Morphe</string>
     <string name="revanced_default_app_settings_summary">За да отваряте връзки към YouTube с помощта на RVX, конфигурирайте „Отваряне на поддържани връзки“ и активирайте поддържаните уеб адреси, които искате.</string>
     <string name="revanced_default_app_settings_title">Отвори настройките по подразбиране</string>
     <string name="revanced_default_playback_speed_title">Скорост на възпроизвеждане по подразбиране</string>
@@ -998,68 +1011,6 @@
     <string name="revanced_hide_self_sponsor_cards_summary_off">Самоспонсорираните карти се показват.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Самоспонсорираните карти са скрити.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Скриване на самоспонсорирани карти</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">Менюто се пказва.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">Менюто е скрито.</string>
-    <string name="revanced_hide_settings_menu_about_title">Скрийте менюто „Относно“</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">Менюто за достъпност се показва.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">Менюто за достъпност е скрито.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">Скриване на менюто за достъпност</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">Менюто на акаунта се пказва.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">Менюто на акаунта е скрито.</string>
-    <string name="revanced_hide_settings_menu_account_title">Скриване на менюто на акаунта</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">Менюто се показва.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">Менюто е скрито.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Меню за автоматично пускане или възпроизвеждане</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Менюто за таксуване и плащане се показва.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Менюто за таксуване и плащане е скрито.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">Меню за таксуване и плащане</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">Менюто за субтитрие се показва.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">Менюто за субтитрие скрито.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Скриване на менюто за субтитри</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Показва се.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Скрито.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">Скриване на менюто за свързани приложения</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">Менюто за икономия на данни се показва.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">Менюто за икономия на данни е скрито.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Икономия на данни</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">Основни настройки се показват.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">Основни настройки са скрити.</string>
-    <string name="revanced_hide_settings_menu_general_title">Меню \"Основни настройки\"</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">Управление на историята се показва.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">Управление на историята е скрито.</string>
-    <string name="revanced_hide_settings_menu_history_title">Управление на менюто с история</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">Меню за Чат на живо се показва.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">Меню за Чат на живо е скрито.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">Меню Чат на живо</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">Менюто за известия се показва.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">Менюто за известия е скрито.</string>
-    <string name="revanced_hide_settings_menu_notification_title">Скриване на менюто за известия</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">Фон и офлайн режим се показва.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">Фон и офлайн режим е скрит.</string>
-    <string name="revanced_hide_settings_menu_offline_title">Фонов и офлайн режим</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Менюто за гледане на ТВ се показва.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Менюто за гледане на ТВ е скрито.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Меню за гледане на Телевизор</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Меню \"Семеен център\" се показва.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Меню \"Семеен център\" е скрито.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Меню \"Семеен център\"</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Менюто за експериментални нови функции се показва.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Менюто за експериментални нови функции е скрито.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">Изпробвайте експериментално меню с нови функции</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">Менюто за поверителност се показва.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">Менюто за поверителност е скрито.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">Меню за поверителност</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Менюто за покупки и членства се показва.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Менюто за покупки и членства е скрито.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">Скриване на менюто за покупки и членства</string>
-    <string name="revanced_hide_settings_menu_summary">Скриване на елементи в менюто с настройки на YouTube.</string>
-    <string name="revanced_hide_settings_menu_title">Филтриране на менюто с настройки на YouTube</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">Менюто се показва.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">Менюто ескрито.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">Меню „Предпочитания за качество на видеото“</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">Вашите данни в YouTube се показват.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">Вашите данни в YouTube са скрити.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">Вашите данни в YouTube</string>
     <string name="revanced_hide_share_button_summary_off">Бутона за споделяне се показва</string>
     <string name="revanced_hide_share_button_summary_on">Бутона за споделяне е скрит</string>
     <string name="revanced_hide_share_button_title">Скрий бутона „Изрязване“</string>
@@ -1359,7 +1310,7 @@
     <string name="revanced_language_UR">Урду</string>
     <string name="revanced_language_VI">Виетнамски</string>
     <string name="revanced_language_ZH">Китайски</string>
-    <string name="revanced_language_title">Език на ReVanced</string>
+    <string name="revanced_language_title">Език на Morphe</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Паузирайте възпроизвеждането с хоризонтален жест</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">Запомнете позицията на драг състоянието</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Двойно докосване и щипване за преоразмеряване е деактивирано</string>
@@ -1647,24 +1598,24 @@
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Най-добър изглед на бутона за харесване</string>
     <string name="revanced_ryd_compact_layout_summary_on">Включен компактен бутон \"Харесва ми\"</string>
-    <string name="revanced_ryd_compact_layout_title">Използвай компактен бутон „Харесва ми“</string>
+    <string name="revanced_ryd_compact_layout_title">Използване на компактен бутон „Харесва ми“</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Нехаресванията са показани като число</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Нехаресванията са показани като процент</string>
-    <string name="revanced_ryd_dislike_percentage_title">Показвай нехаресванията като процент</string>
+    <string name="revanced_ryd_dislike_percentage_title">Показване на нехаресванията като процент</string>
     <string name="revanced_ryd_enable_summary_off">Нехаресванията не се показват.</string>
     <string name="revanced_ryd_enable_summary_on">Нехаресванията се показват.</string>
     <string name="revanced_ryd_enable_title">Вкл. на Return YouTube Dislike</string>
     <string name="revanced_ryd_estimated_like_summary_off">Прогнозните харесвания не се показват</string>
     <string name="revanced_ryd_estimated_like_summary_on">Видеата с деактивирани харесвания показват прогнозен брой харесвания</string>
-    <string name="revanced_ryd_estimated_like_title">Скрий дублиране на видеа</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Дублирането на видеа се показва</string>
-    <string name="revanced_ryd_failure_connection_status_code">Дублирането на видеа е скрито</string>
-    <string name="revanced_ryd_failure_connection_timeout">Скрий дублиране на видеа</string>
-    <string name="revanced_ryd_failure_generic">Скрий дублиране на видеа</string>
+    <string name="revanced_ryd_estimated_like_title">Показване на приблизителни харесвания</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (лимит на клиентския API)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Нехаресванията не са достъпни (статус %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Временно недостъпни нехаресвания (изтече времето за отговор на API)</string>
+    <string name="revanced_ryd_failure_generic">Нехаресванията не са достъпни (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Не се показва известие, ако ReturnYouTube Dislike не е наличен</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Показва известие, ако Return YouTube Dislike не е наличен</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Показвай предупреждения за грешки в връзката</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Дублирането на видеа се показва</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показване на съобщения за грешка при връзката</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрито от собственика</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">Бутоните с категории са показани в лентата с категории на коментарите</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">Бутоните с категории, с изключение на \'Най-горе\' и \'Най-нови\', са скрити в лентата с категории на коментарите</string>
     <string name="revanced_sanitize_comments_category_bar_title">Почистване на лентата с категории</string>
@@ -1900,27 +1851,27 @@
     <string name="revanced_settings_disable_bold_icons_summary_on">Иконите не са удебелени</string>
     <string name="revanced_settings_disable_bold_icons_title">Деактивиране на удебелени икони</string>
     <string name="revanced_settings_import">Импортиране</string>
-    <string name="revanced_settings_import_copy">Копирай</string>
-    <string name="revanced_settings_import_reset">Настройките на ReVanced бяха нулирани</string>
-    <string name="revanced_settings_import_success">Следните настройки бяха импортирани успешно: %d</string>
-    <string name="revanced_settings_reset">Възстанови</string>
-    <string name="revanced_settings_reset_color">Нулиране на цвета</string>
-    <string name="revanced_settings_search_clear_history">Изчистване на историята на търсенията</string>
-    <string name="revanced_settings_search_clear_history_message">Сигурни ли сте, че искате да изчистите цялата история на търсенията?</string>
-    <string name="revanced_settings_search_empty_history_summary">За да запазите историята на търсене, въведете заявка за търсене и натиснете Enter</string>
-    <string name="revanced_settings_search_empty_history_title">Историята на търсене е празна</string>
+    <string name="revanced_settings_import_copy">Копиране</string>
+    <string name="revanced_settings_import_reset">Настройките на Morphe са възстановени по подразбиране.</string>
+    <string name="revanced_settings_import_success">Импортирани са %d настройки</string>
+    <string name="revanced_settings_reset">Изчисти</string>
+    <string name="revanced_settings_reset_color">Възстановяване на цвят</string>
+    <string name="revanced_settings_search_clear_history">Изтрий историята на търсенето</string>
+    <string name="revanced_settings_search_clear_history_message">Сигурни ли сте, че искате да изчистите цялата история на търсенето?</string>
+    <string name="revanced_settings_search_empty_history_summary">За да запазите история на търсенето, въведете заявка за търсене и натиснете Enter</string>
+    <string name="revanced_settings_search_empty_history_title">Няма историятя на търсене</string>
     <string name="revanced_settings_search_history_summary_off">Историята на търсенията в настройките не се показва</string>
     <string name="revanced_settings_search_history_summary_on">Историята на търсенията в настройките е показана</string>
     <string name="revanced_settings_search_history_title">Показване на историята на търсенията в настройките</string>
     <string name="revanced_settings_search_no_results_summary">Опитайте друга ключова дума</string>
-    <string name="revanced_settings_search_no_results_title">Няма намерени резултати за \",%s\"</string>
-    <string name="revanced_settings_search_recent_searches">Скорошни търсения</string>
-    <string name="revanced_settings_search_remove_message">Премахване от историята на търсенията?</string>
-    <string name="revanced_settings_search_tips_summary">"• Докоснете път, за да отидете до него
-• Натиснете продължително настройка, за да отидете до нея
-• Натиснете Enter, за да запазите заявка за търсене в историята
-• Търсенето не отчита главни/малки букви и препинателни знаци
-• Родителските настройки се появяват над деактивираните дъщерни настройки"</string>
+    <string name="revanced_settings_search_no_results_title">Не са открити резултати за \'%s\'</string>
+    <string name="revanced_settings_search_recent_searches">Последни търсения</string>
+    <string name="revanced_settings_search_remove_message">Изтрий от историята на търсенето?</string>
+    <string name="revanced_settings_search_tips_summary">"• Докоснете адреса, за да отидете до него 
+• Докоснете и задръжте настройка, за да отидете до нея 
+• Натиснете Enter, за да запазите заявката за търсене в историята 
+• Търсенето игнорира главни и малки букви и пунктуации
+ • Родителските настройки се показват над деактивираните детски настройки"</string>
     <string name="revanced_settings_search_tips_title">Съвети за търсене</string>
     <string name="revanced_share_copy_settings_success">Настройките са копирани в клипборда.</string>
     <string name="revanced_share_copy_timestamp_success">Времевата отметка е копирана в клипборда. (%s)</string>

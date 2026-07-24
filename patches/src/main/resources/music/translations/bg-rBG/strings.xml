@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Продължи</string>
-    <string name="gms_core_dialog_open_website_text">Отвори уебсайт</string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG няма разрешение да се изпълнява в фонов режим.
+
+Следвайте увода \"Не убивайте моето приложение\" за вашия телефон и прилагодете инструкциите към вашето MicroG инсталиране.
+
+Това е необходимо за работа на приложението."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизациите на батерията за MicroG GmsCore трябва да бъдат деактивирани, за да се избегнат проблеми.
+
+Деактивирането на оптимизациите на батерията за MicroG няма да повлияе отрицателно на използването на батерията.
+
+Докоснете бутона за продължаване и разрешете промени в оптимизацията."</string>
+    <string name="gms_core_dialog_open_website_text">Отвори уебсайта</string>
+    <string name="gms_core_dialog_title">Нужно е действие</string>
+    <string name="gms_core_toast_not_installed_message">MicroG не е инсталиран. Инсталирайте го.</string>
     <string name="morphe_crossfade_duration_10000ms">10 секунди</string>
     <string name="morphe_crossfade_duration_1000ms">1 секунда</string>
     <string name="morphe_crossfade_duration_11000ms">11 секунди</string>
@@ -23,7 +35,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">Протокола QUIC е включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокола QUIC е изключен</string>
     <string name="morphe_disable_quic_protocol_title">Изключи протокола QUIC</string>
-    <string name="morphe_force_original_audio_not_available">За да използвате тази функция, променете \'Имитиране на видео потоци\' на Android Reel или TV</string>
+    <string name="morphe_force_original_audio_not_available">За да използвате тази функция, променете \'Ппомяна на видео поток\' на всеки клиент освен Android Studio.</string>
     <string name="morphe_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
     <string name="morphe_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
     <string name="morphe_force_original_audio_title">Принудително оригинален аудио език</string>
@@ -90,6 +102,10 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="morphe_sanitize_sharing_links_summary_off">Параметърът за отчитане не е премахнат от споделяни връзки</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметърът за следене е премахнат от споделяни връзки</string>
     <string name="morphe_sanitize_sharing_links_title">Почистване на споделените връзки</string>
+    <string name="morphe_settings_menu_copy_path">Копирано: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Отвори екрана с настройки на приложението веднъж, за да попълниш списъка</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Скрий елементи от екрана с настройки на приложението по тяхното видимо име</string>
+    <string name="morphe_settings_menu_filter_screen_title">Филтър на менюто с настройки</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Заключва JavaScript на плейъра към конкретна версия
 
@@ -172,6 +188,7 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="revanced_custom_playback_speeds_title">Редактиране на скоростите по избор на видеото</string>
     <string name="revanced_debug_protobuffer_summary">Добавя допълнителна информация за регистриране за разработчиците, за да идентифицират компонентите на приложението</string>
     <string name="revanced_debug_protobuffer_title">Буфер на протокола за дневника</string>
+    <string name="revanced_debug_title">Дневник за отчетените грешки</string>
     <string name="revanced_default_app_settings_title">Отвори заводските настройки на приложението</string>
     <string name="revanced_disable_auto_captions_summary">Изкл. принудителни автоматични субтититри.</string>
     <string name="revanced_disable_auto_captions_title">Изкл. принудителни автоматични субтититри</string>
@@ -289,9 +306,6 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="revanced_hide_premium_renewal_title">Скриване на банера за подновяване на Premium</string>
     <string name="revanced_hide_samples_shelf_summary">Скриване на рафтовете с Семпли в емисиите.</string>
     <string name="revanced_hide_samples_shelf_title">Скрийте рафта „Семпли“</string>
-    <string name="revanced_hide_settings_menu_summary">"Скриване на елементи от менюто с настройки. 
-Това не само скрива менюто с настройки на YT Music, но и менюто с разширени настройки на ReVanced."</string>
-    <string name="revanced_hide_settings_menu_title">Скрийте менюто „Настройки“</string>
     <string name="revanced_hide_sound_search_button_summary">Скрива бутона „звуково търсене на музика“ от лентата за търсене.</string>
     <string name="revanced_hide_sound_search_button_title">Бутон за \"Звуково търсене\"</string>
     <string name="revanced_hide_tap_to_update_button_summary">Скриване на бутона „Докоснете за актуализиране“.</string>
@@ -324,12 +338,45 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="revanced_restore_old_style_library_shelf_summary">Възстановява стария стил на рафт \"Библиотека\". (Експериментално)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Възстановете стария стил на рафта „Библиотека“</string>
     <string name="revanced_ryd_about">Относно</string>
-    <string name="revanced_ryd_attribution_summary">Данните за нехаресване са от Return YouTube Dislike API. Докоснете за да научите повече.</string>
-    <string name="revanced_ryd_compact_layout_title">Компактен бутон за харесване</string>
-    <string name="revanced_ryd_dislike_percentage_title">Нехаресвания като процент</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (достигнат лимит на API).</string>
+    <string name="revanced_ryd_attribution_summary">"Данните са предоставени от Return YouTube Dislike API
+
+Натиснете тук, за да отворите ReturnYouTubeDislike.com"</string>
+    <string name="revanced_ryd_compact_layout_summary">Намалява ширината на бутона „Харесва ми“, за да се спести място</string>
+    <string name="revanced_ryd_compact_layout_title">Използване на компактен бутон „Харесва ми“</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Показва нехаресванията като процент от харесванията вместо като число</string>
+    <string name="revanced_ryd_dislike_percentage_title">Показване на нехаресванията като процент</string>
+    <string name="revanced_ryd_enabled_title">Активиране на Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary">Показва приблизителен брой харесвания на видеа, където създателят е деактивирал харесванията</string>
+    <string name="revanced_ryd_estimated_like_title">Показване на приблизителни харесвания</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (лимит на клиентския API)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Нехаресванията не са достъпни (статус %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Временно недостъпни нехаресвания (изтече времето за отговор на API)</string>
+    <string name="revanced_ryd_failure_generic">Нехаресванията не са достъпни (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Показва известие, когато сървърът на Return YouTube Dislike не е достъпен</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показване на съобщения за грешка при връзката</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрито от собственика</string>
     <string name="revanced_sb_skip_automatically_once">Автоматично пропуснете веднъж</string>
-    <string name="revanced_settings_reset_color">Нулиране на цвета</string>
+    <string name="revanced_settings_import">Импортиране</string>
+    <string name="revanced_settings_import_copy">Копиране</string>
+    <string name="revanced_settings_import_reset">Настройките на Morphe са възстановени по подразбиране.</string>
+    <string name="revanced_settings_import_success">Импортирани са %d настройки</string>
+    <string name="revanced_settings_reset">Изчисти</string>
+    <string name="revanced_settings_reset_color">Възстановяване на цвят</string>
+    <string name="revanced_settings_search_clear_history">Изтрий историята на търсенето</string>
+    <string name="revanced_settings_search_clear_history_message">Сигурни ли сте, че искате да изчистите цялата история на търсенето?</string>
+    <string name="revanced_settings_search_empty_history_summary">За да запазите история на търсенето, въведете заявка за търсене и натиснете Enter</string>
+    <string name="revanced_settings_search_empty_history_title">Няма историятя на търсене</string>
+    <string name="revanced_settings_search_history_title">Покажи история търсене на настройки</string>
+    <string name="revanced_settings_search_no_results_summary">Опитайте друга ключова дума</string>
+    <string name="revanced_settings_search_no_results_title">Не са открити резултати за \'%s\'</string>
+    <string name="revanced_settings_search_recent_searches">Последни търсения</string>
+    <string name="revanced_settings_search_remove_message">Изтрий от историята на търсенето?</string>
+    <string name="revanced_settings_search_tips_summary">"• Докоснете адреса, за да отидете до него 
+• Докоснете и задръжте настройка, за да отидете до нея 
+• Натиснете Enter, за да запазите заявката за търсене в историята 
+• Търсенето игнорира главни и малки букви и пунктуации
+ • Родителските настройки се показват над деактивираните детски настройки"</string>
+    <string name="revanced_settings_search_tips_title">Съвети за търсене</string>
     <string name="revanced_spoof_app_version_summary">Заблуждава сървъра, карайки го да мисли, че използвате по-стара версия на приложението, за да възстанови стари функции на потребителския интерфейс.</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Деактивира радио режима в регионите на Канада</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 -Изключва речта в реално време</string>

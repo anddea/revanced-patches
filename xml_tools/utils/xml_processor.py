@@ -90,3 +90,29 @@ class XMLProcessor:
                 f.write(b"\n")
         except OSError:
             logger.exception("Failed to write file: %s", path)
+
+    @staticmethod
+    def cleanup_if_empty(path: Path) -> bool:
+        """Remove the XML file if it exists and contains no string/resource elements or is invalid.
+
+        Args:
+            path: Path to the XML file.
+
+        Returns:
+            True if the file was deleted, False otherwise.
+
+        """
+        if not path.exists():
+            return False
+
+        _tree, root, strings = XMLProcessor.parse_file(path)
+        if root is None or len(root) == 0 or not strings:
+            try:
+                path.unlink()
+            except OSError:
+                logger.exception("Failed to remove empty XML file: %s", path)
+            else:
+                logger.info("Removed empty or invalid XML file: %s", path)
+                return True
+
+        return False

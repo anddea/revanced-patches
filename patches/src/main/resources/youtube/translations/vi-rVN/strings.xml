@@ -4,22 +4,14 @@
     <string name="accessibility_settings_edu_opt_out_text">Các điều khiển của bạn đã được sửa đổi vì dịch vụ trợ năng đang bật.</string>
     <string name="gms_core_dialog_continue_text">Tiếp tục</string>
     <string name="gms_core_dialog_dismiss_text">Không hiển thị lại nữa</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Hiện GmsCore không có quyền chạy nền.
-
-Hãy làm theo hướng dẫn của 'Don't kill my app!' và tiến hành theo các chỉ dẫn cho GmsCore đúng cách.
-
-Để ứng dụng hoạt động hiệu quả nhất."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Để microG GmsCore hoạt động ổn định, bạn cần phải tắt tối ưu hoá pin cho ứng dụng này.
-
-Đừng lo, tắt tối ưu hóa pin cho microG sẽ không làm hao pin hơn.
-
-Nhấn tiếp tục để thay đổi lựa chọn tối ưu hóa."</string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"microG không có quyền chạy nền.\n\nHãy làm theo hướng dẫn \"Don\"t kill my app\" dành cho điện thoại của bạn và áp dụng các bước đó cho cài đặt microG.\n\nĐiều này cần thiết cho ứng dụng hoạt động."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Bạn cần tắt tối ưu hóa pin để tránh phát sinh lỗi.\n\nĐừng lo, tắt tối ưu hóa pin cho microG sẽ không làm hao pin hơn.\n\nBấm tiếp tục để tắt tối ưu hóa."</string>
     <string name="gms_core_dialog_open_website_text">Mở trang web</string>
     <string name="gms_core_dialog_title">Yêu cầu thực hiện</string>
     <string name="gms_core_offline_account_login_error">Nếu gần đây bạn đã cập nhật thông tin tài khoản của mình, hãy gỡ và cài lại GmsCore.</string>
     <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và bật Cloud Messaging để nhận thông báo đẩy.</string>
     <string name="gms_core_settings_title">Cài đặt GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">MicroG GmsCore chưa được cài đặt. Hãy cài đặt ngay.</string>
+    <string name="gms_core_toast_not_installed_message">microG chưa được cài đặt. Hãy cài đặt nó đi.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Giữ thanh điều hướng hiển thị khi cuộn</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Tắt tự động ẩn thanh điều hướng</string>
     <string name="morphe_disable_drc_audio_summary_off">Tính năng nén dải động đã bật</string>
@@ -28,11 +20,21 @@ Nhấn tiếp tục để thay đổi lựa chọn tối ưu hóa."</string>
     <string name="morphe_disable_quic_protocol_summary_off">Giao thức QUIC đã bật</string>
     <string name="morphe_disable_quic_protocol_summary_on">Giao thức QUIC đã tắt</string>
     <string name="morphe_disable_quic_protocol_title">Tắt giao thức QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \"Giả mạo luồng phát video\" thành Android Reel hoặc TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'Mở rộng thời lượng DVR phát trực tiếp' có thể không khả dụng
+
+Để khắc phục điều này, hãy bật 'Giả mạo luồng phát video' và thay đổi 'Khách hàng mặc định' thành 'TV'"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">Cho phép tua lại các buổi phát trực tiếp tối đa 7 ngày trước</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">Tăng thời lượng DVR phát trực tiếp</string>
+    <string name="morphe_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng phát video\' thành bất kỳ client nào ngoại trừ Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
     <string name="morphe_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
     <string name="morphe_force_original_audio_title">Buộc ngôn ngữ âm thanh gốc</string>
     <string name="morphe_hide_sync_button_title">Ẩn nút \"Đồng bộ với video\"</string>
+    <string name="morphe_livestream_dvr_not_available">"'Bật DVR phát trực tiếp' có thể không khả dụng
+
+Để khắc phục điều này, hãy bật 'Giả mạo luồng phát video' và thay đổi 'Khách hàng mặc định' thành 'TV'"</string>
+    <string name="morphe_livestream_dvr_summary">Cho phép tua trên mọi các buổi phát trực tiếp, kể cả khi bình thường không được phép</string>
+    <string name="morphe_livestream_dvr_title">Bật DVR phát trực tiếp</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Không thể đăng nhập vào VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Không thể đăng nhập vào VR vì xác thực qua trang web không được chấp thuận</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 tạm thời không khả dụng</string>
@@ -52,7 +54,10 @@ Nhấn tiếp tục để thay đổi lựa chọn tối ưu hóa."</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tham số truy vấn theo dõi không bị loại bỏ khỏi các liên kết được chia sẻ</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi bị loại bỏ khỏi các liên kết được chia sẻ</string>
     <string name="morphe_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• Client đang trong giai đoạn thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
+    <string name="morphe_settings_menu_copy_path">Đã sao chép: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Mở màn hình cài đặt ứng dụng tiêu chuẩn một lần để điền vào danh sách</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Ẩn các mục trên màn hình cài đặt ứng dụng tiêu chuẩn theo tên hiển thị của chúng</string>
+    <string name="morphe_settings_menu_filter_screen_title">Bộ lọc menu Cài đặt</string>
     <string name="morphe_spoof_video_streams_about_js">• Nếu giải mã thất bại, video có thể không phát được</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Menu bản âm thanh bị thiếu</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
@@ -269,7 +274,7 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_copy">Sao chép</string>
     <string name="revanced_copy_error">Không thể sao chép văn bản</string>
     <string name="revanced_credits_title">Kai</string>
-    <string name="revanced_custom_filter_strings_summary">Danh sách các chuỗi tạo đường dẫn thành phần cần lọc, mỗi dòng một chuỗi</string>
+    <string name="revanced_custom_filter_strings_summary">Danh sách các string tạo đường dẫn thành phần mà bạn muốn lọc, mỗi dòng một string</string>
     <string name="revanced_custom_filter_strings_title">Bộ lọc tùy chỉnh</string>
     <string name="revanced_custom_filter_summary_off">Bộ lọc tuỳ chỉnh đã tắt</string>
     <string name="revanced_custom_filter_summary_on">Bộ lọc tùy chỉnh được bật</string>
@@ -300,25 +305,25 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_debug_export_logs_to_file_title">Xuất nhật ký gỡ lỗi</string>
     <string name="revanced_debug_logs_clear_buffer_summary">Xóa tất cả nhật ký gỡ lỗi ReVanced đã lưu trữ</string>
     <string name="revanced_debug_logs_clear_buffer_title">Xóa nhật ký gỡ lỗi</string>
-    <string name="revanced_debug_logs_clear_toast">Đã xóa nhật ký</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">Đã sao chép nhật ký</string>
-    <string name="revanced_debug_logs_disabled">Tính năng ghi nhật ký gỡ lỗi đã tắt</string>
+    <string name="revanced_debug_logs_clear_toast">Đã xóa nhật ký gỡ lỗi</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Đã sao chép nhật ký gỡ lỗi</string>
+    <string name="revanced_debug_logs_disabled">Tính năng ghi nhật ký gỡ lỗi đang tắt</string>
     <string name="revanced_debug_logs_export_success">Nhật ký đã được xuất thành công.</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Nhật ký quá dài, không thể sao chép.</string>
-    <string name="revanced_debug_logs_failed_to_export">Xuất nhật ký thất bại: %s</string>
-    <string name="revanced_debug_logs_none_found">Không tìm thấy nhật ký</string>
+    <string name="revanced_debug_logs_failed_to_export">Không thể xuất nhật ký gỡ lỗi: %s</string>
+    <string name="revanced_debug_logs_none_found">Không tìm thấy nhật ký gỡ lỗi</string>
     <string name="revanced_debug_protobuffer_summary_off">Nhật ký gỡ lỗi không chứa dữ liệu protobuf</string>
     <string name="revanced_debug_protobuffer_summary_on">Nhật ký gỡ lỗi chứa cả dữ liệu protobuf</string>
-    <string name="revanced_debug_protobuffer_title">Bộ đệm giao thức nhật ký gỡ lỗi</string>
+    <string name="revanced_debug_protobuffer_title">Ghi nhật ký gỡ lỗi protocol buffer</string>
     <string name="revanced_debug_spannable_summary_off">Nhật ký gỡ lỗi không bao gồm dữ liệu spannable.</string>
     <string name="revanced_debug_spannable_summary_on">Nhật ký gỡ lỗi bao gồm dữ liệu spannable.</string>
     <string name="revanced_debug_spannable_title">Ghi nhật ký spannable</string>
     <string name="revanced_debug_summary_off">Nhật ký gỡ lỗi đã tắt</string>
     <string name="revanced_debug_summary_on">Nhật ký gỡ lỗi đã bật</string>
-    <string name="revanced_debug_title">Nhật ký gỡ lỗi</string>
+    <string name="revanced_debug_title">Bật ghi nhật ký gỡ lỗi</string>
     <string name="revanced_debug_toast_on_error_summary_off">Thông báo ngắn không hiện nếu xảy ra lỗi</string>
     <string name="revanced_debug_toast_on_error_summary_on">Thông báo ngắn sẽ hiện nếu xảy ra lỗi</string>
-    <string name="revanced_debug_toast_on_error_title">Hiện thông báo ngắn về lỗi ReVanced</string>
+    <string name="revanced_debug_toast_on_error_title">Hiện thông báo ngắn về lỗi Morphe</string>
     <string name="revanced_default_app_settings_summary">Để mở liên kết YouTube trong RVX, hãy bật \"Mở các đường liên kết được hỗ trợ\" và thêm các đường liên kết được hỗ trợ.</string>
     <string name="revanced_default_app_settings_title">Mở theo mặc định</string>
     <string name="revanced_default_playback_speed_shorts_title">Tốc độ phát mặc định trên Shorts</string>
@@ -1212,68 +1217,6 @@ Chi tiết: Cài đặt này dường như đã bị máy chủ loại bỏ. Tha
     <string name="revanced_hide_server_side_snack_bar_summary_off">Thanh thông báo nhanh phía máy chủ được hiển thị.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">Thanh thông báo nhanh phía máy chủ đã ẩn.</string>
     <string name="revanced_hide_server_side_snack_bar_title">Ẩn thanh thông báo nhanh từ phía máy chủ</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">Mục Giới thiệu được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">Mục Giới thiệu đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_about_title">Ẩn mục Giới thiệu</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">Mục Hỗ trợ tiếp cận được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">Mục Hỗ trợ tiếp cận đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">Ẩn mục Hỗ trợ tiếp cận</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">Mục Tài khoản được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">Mục Tài khoản đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_account_title">Ẩn mục Tài khoản</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">Mục Tự động phát hoặc mục Phát được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">Mục Tự động phát hoặc mục Phát đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Ẩn mục Tự động phát hoặc mục Phát</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Mục Lập hoá đơn và thanh toán được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Mục Lập hoá đơn và thanh toán đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">Ẩn mục Lập hoá đơn và thanh toán</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">Mục Phụ đề được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">Mục Phụ đề đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Ẩn mục Phụ đề</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Mục Ứng dụng đã kết nối được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Mục Ứng dụng đã kết nối đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">Ẩn mục Ứng dụng đã kết nối</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">Mục Tiết kiệm dữ liệu được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">Mục Tiết kiệm dữ liệu đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Ẩn mục Tiết kiệm dữ liệu</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">Mục Chung được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">Mục Chung đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_general_title">Ẩn mục Chung</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">Mục Quản lý toàn bộ nhật ký hoạt động được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">Mục Quản lý toàn bộ nhật ký hoạt động đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_history_title">Ẩn mục Quản lý toàn bộ nhật ký hoạt động</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">Mục Trò chuyện trực tiếp được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">Mục Trò chuyện trực tiếp đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">Ẩn mục Trò chuyện trực tiếp</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">Mục Thông báo được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">Mục Thông báo đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_notification_title">Ẩn mục Thông báo</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">Mục Phát trong nền và nội dung tải xuống được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">Mục Phát trong nền và nội dung tải xuống đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_offline_title">Ẩn mục Phát trong nền và nội dung tải xuống</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Mục Xem trên TV được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Mục Xem trên TV đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Ẩn mục Xem trên TV</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Mục Trung tâm dành cho gia đình được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Mục Trung tâm dành cho gia đình đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Ẩn mục Trung tâm dành cho gia đình</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Mục Thử nghiệm các tính năng mới được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Mục Thử nghiệm các tính năng mới đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">Ẩn mục Thử nghiệm các tính năng mới</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">Mục Quyền riêng tư được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">Mục Quyền riêng tư đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">Ẩn mục Quyền riêng tư</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Mục Giao dịch mua và gói thành viên được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Mục Giao dịch mua và gói thành viên đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">Ẩn mục Giao dịch mua và gói thành viên</string>
-    <string name="revanced_hide_settings_menu_summary">Ẩn các thành phần trong trình đơn Cài đặt YouTube.</string>
-    <string name="revanced_hide_settings_menu_title">Ẩn trình đơn Cài đặt YouTube</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">Mục Lựa chọn ưu tiên về chất lượng video được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">Mục Lựa chọn ưu tiên về chất lượng video đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">Ẩn mục Lựa chọn ưu tiên về chất lượng video</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">Mục Dữ liệu của bạn trong YouTube được hiển thị.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">Mục Dữ liệu của bạn trong YouTube đã ẩn.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">Ẩn mục Dữ liệu của bạn trong YouTube</string>
     <string name="revanced_hide_share_button_summary_off">Nút chia sẻ được hiển thị</string>
     <string name="revanced_hide_share_button_summary_on">Nút chia sẻ đã bị ẩn</string>
     <string name="revanced_hide_share_button_title">Ẩn nút Chia sẻ</string>
@@ -1626,9 +1569,9 @@ Hạn chế: Không nhấn được vào YouTube Doodles."</string>
     <string name="revanced_language_UR">Tiếng Urdu\n<small>اردو</small></string>
     <string name="revanced_language_VI">Tiếng Việt\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Tiếng Trung\n<small>中文</small></string>
-    <string name="revanced_language_title">Ngôn ngữ ReVanced</string>
-    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Ngừng phát khi vuốt ngang</string>
-    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Ghi nhớ vị trí vuốt</string>
+    <string name="revanced_language_title">Ngôn ngữ thiết lập Morphe</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Dừng phát khi vuốt ngang</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_title">Nhớ trạng thái trình phát thu nhỏ</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Thao tác chạm hai lần và chụm để thay đổi kích thước đã tắt</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Thao tác chạm hai lần và chụm để thay đổi kích thước đã bật
 
@@ -2019,7 +1962,7 @@ Nhấn vào đây để xem các bước tạo khóa API."</string>
     <string name="revanced_ryd_about">Giới thiệu</string>
     <string name="revanced_ryd_attribution_summary">"Dữ liệu được cung cấp bởi API Return YouTube Dislike
 
-Bấm vào đây để mở ReturnYouTubeDislike.com"</string>
+Nhấn vào đây để mở ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Nút thích được thiết kế để tối ưu ngoại hình tốt nhất</string>
     <string name="revanced_ryd_compact_layout_summary_on">Nút thích được thiết kế để tối ưu độ rộng</string>
@@ -2046,7 +1989,7 @@ Bấm vào đây để mở ReturnYouTubeDislike.com"</string>
     <string name="revanced_sanitize_comments_category_bar_title">Thu gọn thanh danh mục</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"Các tag có các cụm từ như \"#\", \"Chiến dịch gây quỹ\", \"Cửa hàng\" và \"sản phẩm\" được hiển thị trong phụ đề video."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"Các tag có cụm từ như \"#\", \"Chiến dịch gây quỹ\", \"Cửa hàng\" và \"sản phẩm\" đã ẩn bên dưới tiêu đề video."</string>
-    <string name="revanced_sanitize_video_subtitle_title">Làm sạch phụ đề video</string>
+    <string name="revanced_sanitize_video_subtitle_title">Lọc nội dung phụ đề video</string>
     <string name="revanced_sb_about">Giới thiệu</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Dữ liệu này được cung cấp bởi API Chặn Nhà tài trợ. Nhấn vào đây để tìm hiểu thêm và xem các bản tải xuống cho các nền tảng khác.</string>
@@ -2313,7 +2256,7 @@ Lưu ý: Cookie không phải giải pháp tuyệt đối. Nó có thể không 
     <string name="revanced_settings_import_export_as_text_summary">Nhập hoặc xuất toàn bộ cài đặt của bạn dưới dạng văn bản.</string>
     <string name="revanced_settings_import_export_as_text_title">Nhập/Xuất dưới dạng văn bản</string>
     <string name="revanced_settings_import_failed">Không thể nhập cài đặt.</string>
-    <string name="revanced_settings_import_reset">Đặt lại cài đặt ReVanced về mặc định</string>
+    <string name="revanced_settings_import_reset">Đặt lại cài đặt Morphe về mặc định</string>
     <string name="revanced_settings_import_success">Đã nhập %d cài đặt</string>
     <string name="revanced_settings_import_summary">Nhập toàn bộ cài đặt của bạn từ tệp đã lưu trước đó.</string>
     <string name="revanced_settings_import_title">Nhập cài đặt</string>
@@ -2321,21 +2264,21 @@ Lưu ý: Cookie không phải giải pháp tuyệt đối. Nó có thể không 
     <string name="revanced_settings_reset_color">Đặt lại màu</string>
     <string name="revanced_settings_search_clear_history">Xóa lịch sử tìm kiếm</string>
     <string name="revanced_settings_search_clear_history_message">Bạn có chắc chắn muốn xóa toàn bộ lịch sử tìm kiếm không?</string>
-    <string name="revanced_settings_search_empty_history_summary">Để lưu lịch sử tìm kiếm, hãy nhập từ khóa tìm kiếm và nhấn Enter</string>
-    <string name="revanced_settings_search_empty_history_title">Không có lịch sử tìm kiếm</string>
+    <string name="revanced_settings_search_empty_history_summary">Để lưu lịch sử tìm kiếm, nhập từ khoá tìm kiếm và bấm Enter</string>
+    <string name="revanced_settings_search_empty_history_title">Lịch sử tìm kiếm đang trống</string>
     <string name="revanced_settings_search_history_summary">Lưu các từ khóa tìm kiếm gần đây để hiển thị khi thanh tìm kiếm trống.</string>
     <string name="revanced_settings_search_history_summary_off">Lịch sử tìm kiếm cài đặt không được hiển thị</string>
     <string name="revanced_settings_search_history_summary_on">Lịch sử tìm kiếm cài đặt đã được hiển thị</string>
     <string name="revanced_settings_search_history_title">Hiện lịch sử tìm kiếm cài đặt</string>
-    <string name="revanced_settings_search_no_results_summary">Thử từ khóa khác</string>
-    <string name="revanced_settings_search_no_results_title">Không có kết quả nào phù hợp cho \'%s\'</string>
-    <string name="revanced_settings_search_recent_searches">Các tìm kiếm gần đây</string>
+    <string name="revanced_settings_search_no_results_summary">Hãy thử từ khóa khác</string>
+    <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \"%s\"</string>
+    <string name="revanced_settings_search_recent_searches">Tìm kiếm gần đây</string>
     <string name="revanced_settings_search_remove_message">Xóa khỏi lịch sử tìm kiếm?</string>
-    <string name="revanced_settings_search_tips_summary">"• Nhấn vào một đường dẫn để đi đến đó
-• Nhấn giữ một cài đặt để đi đến đó
-• Nhấn Enter để lưu từ khoá tìm kiếm vào lịch sử
-• Tìm kiếm không phân biệt chữ hoa/thường và dấu câu
-• Cài đặt cha nằm phía trên cài đặt con bị vô hiệu hóa"</string>
+    <string name="revanced_settings_search_tips_summary">"• Bấm vào một đường dẫn để đi đến đó
+• Bấm giữ một cài đặt để đi đến đó
+• Bấm Enter để lưu từ khoá tìm kiếm vào lịch sử
+• Tìm kiếm bỏ qua chữ hoa/thường và dấu câu
+• Cài đặt lớn nằm phía trên cài đặt nhỏ bị vô hiệu hóa"</string>
     <string name="revanced_settings_search_tips_title">Mẹo tìm kiếm</string>
     <string name="revanced_settings_search_title">Tìm kiếm trong %s</string>
     <string name="revanced_share_copy_settings_success">Đã sao chép cài đặt sang bảng nhớ tạm.</string>
@@ -2440,9 +2383,9 @@ Hạn chế: Tiêu đề video sẽ biến mất khi nhấn vào."</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"Phiên bản ứng dụng sẽ được giả mạo thành một phiên bản cũ hơn.
 
-Điều này sẽ thay đổi giao diện và tính năng của ứng dụng, nhưng cũng có thể xảy ra các tác dụng phụ không mong muốn.
+Giúp thay đổi giao diện và tính năng của ứng dụng, nhưng đồng thời cũng có thể xảy ra một số lỗi không xác định.
 
-Nếu tắt sau đó, bạn nên xóa dữ liệu ứng dụng để tránh các lỗi giao diện."</string>
+Nếu muốn tắt tính năng này sau đó, bạn nên xóa dữ liệu ứng dụng để tránh vỡ giao diện."</string>
     <string name="revanced_spoof_device_dimensions_summary">Bật tính năng này có thể mở khóa chất lượng video cao hơn</string>
     <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
     <string name="revanced_spoof_streaming_data_android_vr_enable_av1_codec_summary_off">Video dùng codec AVC (H.264), VP9.</string>

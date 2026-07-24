@@ -4,22 +4,22 @@
     <string name="accessibility_settings_edu_opt_out_text">由于无障碍服务已启用，你的控件已被修改。</string>
     <string name="gms_core_dialog_continue_text">继续</string>
     <string name="gms_core_dialog_dismiss_text">不再提示</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore 无法在后台运行。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 无法在后台运行。
 
-请按照「Don't kill my app」网站上对应手机的指南，允许 MicroG 在后台运行。
+请按照 'Don't kill my app' 网站上对应手机的指南，允许 MicroG 在后台运行。
 
 这是应用程序正常运行的必要条件。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必须禁用 MicroG GmsCore 的电池优化，以防止出现问题。
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必须禁用 MicroG 的电池优化，以防止出现问题。
 
-禁用 MicroG 的电池优化不会对电池续航时间造成负面影响。
+禁用 MicroG 的电池优化不会对电池使用造成负面影响。
 
 点击继续按钮并允许优化更改。"</string>
     <string name="gms_core_dialog_open_website_text">打开网站</string>
-    <string name="gms_core_dialog_title">需要操作</string>
+    <string name="gms_core_dialog_title">需要采取措施</string>
     <string name="gms_core_offline_account_login_error">如果您最近更改了帐户登录信息，请卸载并重新安装GmsCore。</string>
     <string name="gms_core_settings_summary">启用云消息传递以接收通知</string>
     <string name="gms_core_settings_title">打开 GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">MicroG GmsCore 未安装。请先安装。</string>
+    <string name="gms_core_toast_not_installed_message">MicroG 未安装。请先安装。</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">隐藏“音轨”菜单页脚</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">禁用自动隐藏导航栏</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC 音频已启用</string>
@@ -28,11 +28,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">QUIC协议已启用</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC协议已禁用</string>
     <string name="morphe_disable_quic_protocol_title">禁用QUIC协议</string>
-    <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为 Android Reel 或 TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'扩展直播录制时长'可能不可用
+
+要解决此问题，请启用“模拟视频流”并将“默认客户端”更改为“电视”"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">允许您将直播回放最多回放 7 天</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">扩展直播 DVR 时长</string>
+    <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除 Android Studio 之外的任何客户端</string>
     <string name="morphe_force_original_audio_summary_off">正在使用默认音频</string>
     <string name="morphe_force_original_audio_summary_on">使用原始音频语言</string>
     <string name="morphe_force_original_audio_title">强制使用原始音频语言</string>
     <string name="morphe_hide_sync_button_title">隐藏“同步到视频”按钮</string>
+    <string name="morphe_livestream_dvr_not_available">"'启用直播录制'可能不可用
+
+要解决此问题，请启用“模拟视频流”并将“默认客户端”更改为“电视”"</string>
+    <string name="morphe_livestream_dvr_summary">允许在所有直播中寻求，即使那些通常限制它的直播</string>
+    <string name="morphe_livestream_dvr_title">启用直播 DVR 功能</string>
     <string name="morphe_oauth2_connection_failure_auth_error">无法登录 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">无法登录VR，网站认证未批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暂时不可用</string>
@@ -52,7 +62,9 @@
     <string name="morphe_sanitize_sharing_links_summary_off">跟踪查询参数未从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_summary_on">跟踪查询参数已从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_title">净化分享链接</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• 实验性客户端，可能随时停止工作</string>
+    <string name="morphe_settings_menu_filter_picker_empty">打开标准应用设置屏幕一次以填充列表</string>
+    <string name="morphe_settings_menu_filter_screen_summary">通过可见名称隐藏标准应用设置屏幕上的项目</string>
+    <string name="morphe_settings_menu_filter_screen_title">设置菜单筛选</string>
     <string name="morphe_spoof_video_streams_about_js">• 如果去混淆失败，播放可能会失败</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• 音轨菜单缺失</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• 不支持 AV1 视频编解码器</string>
@@ -299,13 +311,13 @@
     <string name="revanced_debug_export_logs_to_file_title">导出调试日志</string>
     <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
     <string name="revanced_debug_logs_clear_buffer_title">清除调试日志</string>
-    <string name="revanced_debug_logs_clear_toast">日志已清除</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">日志已复制</string>
+    <string name="revanced_debug_logs_clear_toast">调试日志已清除</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">调试日志已复制</string>
     <string name="revanced_debug_logs_disabled">调试日志记录已禁用</string>
     <string name="revanced_debug_logs_export_success">日志已成功导出。</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">日志太大，无法复制。</string>
-    <string name="revanced_debug_logs_failed_to_export">导出日志失败：%s</string>
-    <string name="revanced_debug_logs_none_found">未找到日志</string>
+    <string name="revanced_debug_logs_failed_to_export">导出调试日志失败：%s</string>
+    <string name="revanced_debug_logs_none_found">未找到调试日志</string>
     <string name="revanced_debug_protobuffer_summary_off">调试日志不包括协议缓冲区</string>
     <string name="revanced_debug_protobuffer_summary_on">调试日志包括协议缓冲区</string>
     <string name="revanced_debug_protobuffer_title">记录协议缓冲区</string>
@@ -314,10 +326,10 @@
     <string name="revanced_debug_spannable_title">记录可变文本</string>
     <string name="revanced_debug_summary_off">已禁用调试日志记录</string>
     <string name="revanced_debug_summary_on">已启用调试日志记录</string>
-    <string name="revanced_debug_title">调试日志</string>
+    <string name="revanced_debug_title">启用调试日志</string>
     <string name="revanced_debug_toast_on_error_summary_off">发生错误时不显示Toast</string>
     <string name="revanced_debug_toast_on_error_summary_on">发生错误时显示Toast</string>
-    <string name="revanced_debug_toast_on_error_title">在发生 ReVanced 错误时显示 Toast</string>
+    <string name="revanced_debug_toast_on_error_title">在发生 Morphe 错误时显示 Toast</string>
     <string name="revanced_default_app_settings_summary">要从外部浏览器中打开 Revanced Extended，请在“系统应用设置 - 默认打开 - 要在此应用中打开链接”中添加支持的网页链接</string>
     <string name="revanced_default_app_settings_title">打开默认应用设置</string>
     <string name="revanced_default_playback_speed_shorts_title">Shorts 的默认播放速度</string>
@@ -1200,68 +1212,6 @@
     <string name="revanced_hide_server_side_snack_bar_summary_off">服务器端提示栏已显示。</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">服务器端提示栏已隐藏。</string>
     <string name="revanced_hide_server_side_snack_bar_title">隐藏服务器端提示栏</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">关于菜单已显示</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">关于菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_about_title">隐藏关于菜单</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">辅助功能菜单已显示</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">辅助功能菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">隐藏辅助功能菜单</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">账户菜单已显示</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">账户菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_account_title">隐藏账户菜单</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">已显示自动播放或播放菜单。</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">已隐藏自动播放或播放菜单。</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">隐藏自动播放或播放菜单</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">账单和支付菜单已显示</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">账单和支付菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">隐藏账单和支付菜单</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">字幕菜单已显示</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">字幕菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_captions_title">隐藏字幕菜单</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">已连接的应用菜单已显示</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">已连接的应用菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">隐藏已连接应用菜单</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">数据保存菜单已显示</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">数据保存菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">隐藏数据保存菜单</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">常规菜单已显示</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">常规菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_general_title">隐藏常规菜单</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">管理全部历史记录菜单已显示</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">管理全部历史记录菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_history_title">隐藏管理全部历史记录菜单</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">实时聊天菜单已显示</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">实时聊天菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">隐藏实时聊天菜单</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">通知菜单已显示</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">通知菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_notification_title">隐藏通知菜单</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">背景菜单已显示</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">背景菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_offline_title">隐藏背景菜单</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">在 TV 中观看菜单已显示</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">在 TV 中观看菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">隐藏在 TV 中观看菜单</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">家庭中心菜单已显示</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">家庭中心菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">隐藏家庭中心菜单</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">新实验性功能菜单已显示</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">新实验性功能菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">隐藏新实验性功能菜单</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">隐私菜单已显示</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">隐私菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_privacy_title">隐藏隐私菜单</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">购买和会员菜单已显示</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">购买和会员菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">隐藏购买与会员菜单</string>
-    <string name="revanced_hide_settings_menu_summary">隐藏 YouTube 设置菜单中的元素</string>
-    <string name="revanced_hide_settings_menu_title">YouTube 设置菜单</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">视频质量首选项菜单已显示</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">视频质量偏好菜单已隐藏</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">隐藏视频质量偏好菜单</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">你在 YouTube 菜单中的数据已显示</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">你在 YouTube 菜单中的数据已隐藏</string>
-    <string name="revanced_hide_settings_menu_your_data_title">在 YouTube 菜单中隐藏你的数据</string>
     <string name="revanced_hide_share_button_summary_off">分享按钮已显示</string>
     <string name="revanced_hide_share_button_summary_on">分享按钮已隐藏</string>
     <string name="revanced_hide_share_button_title">隐藏分享按钮</string>
@@ -1613,7 +1563,7 @@
     <string name="revanced_language_UR">乌尔都语\n<small>اردو</small></string>
     <string name="revanced_language_VI">越南语\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">中文\n<small>中文</small></string>
-    <string name="revanced_language_title">ReVanced 语</string>
+    <string name="revanced_language_title">Morphe 语言</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">使用水平拖动暂停播放</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">记住拖动状态的位置</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">已禁用双击操作和捏合缩放</string>
@@ -2004,10 +1954,10 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">点赞按钮设置为最佳外观</string>
     <string name="revanced_ryd_compact_layout_summary_on">点赞按钮设置为最小宽度</string>
-    <string name="revanced_ryd_compact_layout_title">使用紧凑的点赞按钮</string>
+    <string name="revanced_ryd_compact_layout_title">使用紧凑的喜欢按钮</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">“不喜欢”显示为数字</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">“不喜欢”显示为百分比</string>
-    <string name="revanced_ryd_dislike_percentage_title">以百分比形式显示点赞数</string>
+    <string name="revanced_ryd_dislike_percentage_title">以百分比形式显示点踩数</string>
     <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
     <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
     <string name="revanced_ryd_enable_title">恢复 YouTube 点踩</string>
@@ -2020,7 +1970,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_ryd_failure_generic">点踩数不可用 (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 不可用，则不显示提示</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 不可用，则显示提示</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">显示连接错误提醒</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">显示连接错误提示</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">所有者已隐藏</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">分类按钮在评论分类栏中显示</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">除了“置顶”和“最新”之外的分类按钮在评论分类栏中被隐藏</string>
@@ -2297,7 +2247,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_settings_import_export_as_text_summary">将设置导入/导出为文本。</string>
     <string name="revanced_settings_import_export_as_text_title">导入/导出为文本</string>
     <string name="revanced_settings_import_failed">导入设置失败。</string>
-    <string name="revanced_settings_import_reset">ReVanced 设置重置为默认</string>
+    <string name="revanced_settings_import_reset">Morphe 设置重置为默认</string>
     <string name="revanced_settings_import_success">导入 %d 个设置</string>
     <string name="revanced_settings_import_summary">从保存的文件导入设置。</string>
     <string name="revanced_settings_import_title">导入设置</string>
@@ -2416,6 +2366,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_spoof_app_version_summary_on">客户端版本已伪装</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - 恢复转写文稿功能</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - 恢复未折叠的视频操作栏</string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - 恢复旧版组件过滤器</string>
     <string name="revanced_spoof_app_version_target_entry_title">伪装应用版本</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">无效的伪装应用版本：%s。</string>
     <string name="revanced_spoof_app_version_target_summary">选择伪装的应用版本</string>
@@ -2667,10 +2618,18 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_transcript_cookies_title">转写文稿 Cookie</string>
     <string name="revanced_translations_title">翻译</string>
     <string name="revanced_vot_enabled_title">语音旁白翻译</string>
+    <string name="revanced_vot_lang_auto">自动检测</string>
+    <string name="revanced_vot_oauth_expired_summary">令牌已过期，请重新登录。</string>
+    <string name="revanced_vot_oauth_invalid_token">无效令牌</string>
+    <string name="revanced_vot_oauth_no_network">无网络连接</string>
+    <string name="revanced_vot_oauth_sign_in_button">使用 Yandex 登录</string>
     <string name="revanced_vot_original_audio_volume_summary">翻译语音播放时原始 YouTube 音频的音量</string>
     <string name="revanced_vot_original_audio_volume_title">原始音频音量</string>
+    <string name="revanced_vot_source_language_title">源语言</string>
+    <string name="revanced_vot_target_language_title">目标语言</string>
     <string name="revanced_vot_translation_volume_summary">配音翻译语音的音量</string>
     <string name="revanced_vot_translation_volume_title">翻译音量</string>
+    <string name="revanced_vot_unavailable_live">直播内容暂不提供翻译服务。</string>
     <string name="revanced_watch_history_about_status_blocked">• 历史记录不可用</string>
     <string name="revanced_watch_history_about_status_original">"• 遵循谷歌帐户的观看历史设置
 • 由于 DNS 或 VPN 的原因，观看历史可能无法工作"</string>

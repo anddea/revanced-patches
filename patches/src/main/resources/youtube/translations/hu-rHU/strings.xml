@@ -4,12 +4,12 @@
     <string name="accessibility_settings_edu_opt_out_text">Az eszközök azért módosulnak, mert egy akadálymentesítési szolgáltatás be van kapcsolva.</string>
     <string name="gms_core_dialog_continue_text">Folytatás</string>
     <string name="gms_core_dialog_dismiss_text">Ne jelenjen meg többet</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"A MicroG GmsCore nem rendelkezik engedéllyel a háttérben történő futáshoz.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"A MicroG nem rendelkezik engedéllyel a háttérben történő futáshoz.
 
 Kövesse a \"Ne ölj meg az alkalmazásomat\" útmutatót a telefonján, és alkalmazza az utasításokat a MicroG telepítésére.
 
 Ez szükséges az alkalmazás működéséhez."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"A MicroG GmsCore akkumulátor-optimalizálását le kell tiltani a problémák elkerülése érdekében.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"A MicroG akkumulátor-optimalizálását le kell tiltani a problémák elkerülése érdekében.
 
 A MicroG akkumulátor-optimalizálásának letiltása nem befolyásolja negatívan az akkumulátor használatát.
 
@@ -19,7 +19,7 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="gms_core_offline_account_login_error">Ha nemrég módosította a fiókja bejelentkezési adatait, távolítsa el, majd telepítse újra a GmsCore-t.</string>
     <string name="gms_core_settings_summary">Engedélyezze a felhő alapú üzenetküldést az értesítések fogadásához.</string>
     <string name="gms_core_settings_title">GmsCore beállítások megnyitása</string>
-    <string name="gms_core_toast_not_installed_message">MicroG GmsCore nincs telepítve. Telepítse.</string>
+    <string name="gms_core_toast_not_installed_message">A MicroG nincs telepítve. Telepítse azt.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">A navigációs sáv látható marad a görgetés közben</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Kapcsold ki az automatikus elrejtést a navigációs sávra</string>
     <string name="morphe_disable_drc_audio_summary_off">A DRC hang engedélyezve van</string>
@@ -28,11 +28,15 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protokoll engedélyezve</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokoll letiltva</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokoll letiltása</string>
-    <string name="morphe_force_original_audio_not_available">A funkció használatához módosítsa a \"Videóstreamek hamisítása\" beállítást Android Reel vagy TV-re</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">Lehetővé teszi élő adások visszatekerését a múltba maximum 7 nappal</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">Bővítsd a közvetítés DVR idejét</string>
+    <string name="morphe_force_original_audio_not_available">A funkció használatához módosítsa a \"Videóstreamek hamisítása\" beállítást bármely kliensre, kivéve az Android Studiót\'</string>
     <string name="morphe_force_original_audio_summary_off">Alapértelmezett hang használata</string>
     <string name="morphe_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
     <string name="morphe_force_original_audio_title">Eredeti hang kikényszerítése</string>
     <string name="morphe_hide_sync_button_title">„Szinkronizálás videóval” gomb elrejtése</string>
+    <string name="morphe_livestream_dvr_summary">Lehetővé teszi a keresést minden élő streamen, még azoknál is, amelyek normál esetben korlátozzák azt.</string>
+    <string name="morphe_livestream_dvr_title">Engedélyezze az élsőségi DVR-t</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nem tud bejelentkezni a VR-ba: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nem lehetséges a VR-ba belépni, a webhely hitelesítése nem lett jóváhagyva</string>
     <string name="morphe_oauth2_connection_failure_generic">Az OAuth2 átmenetileg nem elérhető</string>
@@ -52,7 +56,10 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="morphe_sanitize_sharing_links_summary_off">A követési lekérdezési paraméter nem kerül eltávolításra a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• Kísérleti kliens, és bármikor leállhat</string>
+    <string name="morphe_settings_menu_copy_path">Másolva: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Nyissa meg a standard alkalmazásbeállítások képernyőjét egyszer a lista feltöltéséhez</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Rejtse el az elemeket a standard alkalmazásbeállítások képernyőn a látható nevük alapján</string>
+    <string name="morphe_settings_menu_filter_screen_title">Beállítások menü szűrője</string>
     <string name="morphe_spoof_video_streams_about_js">• Ha a deobfuszkálás sikertelen, a lejátszás is megbomolhat</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Hiányzik az hangsáv menü</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
@@ -301,13 +308,13 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
     <string name="revanced_debug_export_logs_to_file_title">Hibakeresési naplók exportálása</string>
     <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
     <string name="revanced_debug_logs_clear_buffer_title">Hibakeresési naplók törlése</string>
-    <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">Naplók másolva</string>
+    <string name="revanced_debug_logs_clear_toast">Hibakeresési naplók törölve</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Hibakeresési naplók a vágólapra másolva</string>
     <string name="revanced_debug_logs_disabled">A hibakeresési naplózás ki van kapcsolva</string>
     <string name="revanced_debug_logs_export_success">A naplók exportálása sikeres.</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">A napló fájlok túl nagyok a másoláshoz.</string>
-    <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a naplókat: %s</string>
-    <string name="revanced_debug_logs_none_found">Nem találhatók naplók</string>
+    <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a hibakeresési naplókat: %s</string>
+    <string name="revanced_debug_logs_none_found">Nincs hibakeresési napló</string>
     <string name="revanced_debug_protobuffer_summary_off">A hibakeresési naplók nem tartalmaznak protobuffert</string>
     <string name="revanced_debug_protobuffer_summary_on">A hibakeresési naplók protobuffert tartalmaznak</string>
     <string name="revanced_debug_protobuffer_title">Naplózási protokoll puffer</string>
@@ -316,10 +323,10 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
     <string name="revanced_debug_spannable_title">Napló kiterjesztése</string>
     <string name="revanced_debug_summary_off">A hibakeresési naplók le vannak tiltva</string>
     <string name="revanced_debug_summary_on">A hibakeresési naplók engedélyezve vannak</string>
-    <string name="revanced_debug_title">Hibakeresési naplózás</string>
+    <string name="revanced_debug_title">Hibakeresési naplózás engedélyezése</string>
     <string name="revanced_debug_toast_on_error_summary_off">Nem jelenik meg \"toast\" üzenet, ha hiba történik</string>
     <string name="revanced_debug_toast_on_error_summary_on">A \"toast\" üzenet jelenik meg, ha hiba történik</string>
-    <string name="revanced_debug_toast_on_error_title">Üzenet megjelenítése ReVanced hiba esetén</string>
+    <string name="revanced_debug_toast_on_error_title">Üzenet megjelenítése Morphe hiba esetén</string>
     <string name="revanced_default_app_settings_summary">YouTube linkek RVX-el való megnyitásához, engedélyezze a támogatott hivatkozások megnyitását és engedélyezze az összes támogatott webcímet.</string>
     <string name="revanced_default_app_settings_title">Alapértelmezett program beállítások megnyitása</string>
     <string name="revanced_default_playback_speed_shorts_title">Shortok alapértelmezett lejátszási sebessége</string>
@@ -451,6 +458,7 @@ Megjegyzés:
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">A teljes képernyőn való lefelé lapozás a teljes képernyős módból való kilépéshez vezet.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">A teljes képernyőn történő lefelé lapozás nem léptet ki a teljes képernyős módból.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Teljes képernyős üzemmódból lapozással való kilépés letiltása</string>
+    <string name="revanced_disable_translucent_navigation_bar_summary_off">A navigációs sáv átlátszó.</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">Az állapotsor nem áttetsző vagy áttetsző</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Az állapotsor nem áttetsző</string>
     <string name="revanced_disable_translucent_status_bar_title">Átlátszó állapotsor letiltása</string>
@@ -1206,68 +1214,6 @@ Információ:
     <string name="revanced_hide_server_side_snack_bar_summary_off">A szerveroldali üzenet sáv látható.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">A szerveroldali üzenet sáv el van rejtve.</string>
     <string name="revanced_hide_server_side_snack_bar_title">Szerveroldali üzenet sáv elrejtése</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">A névjegy menü látható.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">A névjegy menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_about_title">Névjegy menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">A kisegítő lehetőségek menü látható.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">A kisegítő lehetőségek menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">Kisegítő lehetőségek menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">A fiókmenü látható.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">A fiókmenü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_account_title">Fiókmenü elrejtése</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">A visszajátszás vagy az automatikus lejátszás menü látható.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">A visszajátszás vagy az automatikus lejátszás menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Az automatikus lejátszás vagy a lejátszás menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">A számlázás és fizetés menü látható.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">A számlázás és fizetés menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">Számlázás és fizetés menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">A feliratok menü látható.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">A feliratok menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Feliratok menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">A csatlakoztatott alkalmazások menü látható.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">A csatlakoztatott alkalmazások menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">Csatlakoztatott alkalmazások menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">Az adatmegtakarító menü látható.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">Az adatmegtakarító menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Adatmegtakarító menü elejtése</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">Az Általános menü látható.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">Az Általános menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_general_title">Általános menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">A minden előzmény kezelése menü látható.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">A minden előzmény kezelése menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_history_title">Minden előzmény kezelése menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">Az élő csevegés menü látható.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">Az élő csevegés menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">Élő csevegés menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">Az értesítések menü látható.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">Az értesítések menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_notification_title">Értesítések menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">A háttér menü látható.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">A háttér menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_offline_title">Háttér menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">A megtekintés a tévében menü látható.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">A megtekintés a tévében menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Megtekintés a tévében menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">A családi központ menü látható.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">A családi központ menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Családi központ menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">A próbálja ki a kísérleti új funkciókat menü látható.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">A próbálja ki a kísérleti új funkciókat menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">Próbálja ki a kísérleti új funkciókat menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">Az adatvédelem menü látható.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">Az adatvédelem menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">Adatvédelem menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">A vásárlások és tagságok menü látható.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">A vásárlások és tagságok menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">Vásárlások és tagságok menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_summary">Elrejti a YouTube beállítások menü elemeit.</string>
-    <string name="revanced_hide_settings_menu_title">YouTube beállítások menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">A videóminőség beállítás menü látható.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">A videóminőség beállítás menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">Videóminőség beállítás menü elrejtése</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">Az adataid a YouTube-on menü látható.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">Az adataid a YouTube-on menü el van rejtve.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">Adataid a YouTube-on menü elrejtése</string>
     <string name="revanced_hide_share_button_summary_off">A megosztás gomb látható</string>
     <string name="revanced_hide_share_button_summary_on">A megosztás gomb el van rejtve</string>
     <string name="revanced_hide_share_button_title">Megosztás gomb elrejtése</string>
@@ -1620,7 +1566,7 @@ Ismert probléma: Ha ez a beállítás engedélyezve van, a YouTube Doodle-ok ne
     <string name="revanced_language_UR">Urdu\n<small>اردو</small></string>
     <string name="revanced_language_VI">Vietnám\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Kínai\n<small>中文</small></string>
-    <string name="revanced_language_title">ReVanced nyelve</string>
+    <string name="revanced_language_title">Morphe nyelve</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Megállítás a vízszintes húzással</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">A húzás állapotának megjegyzése</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">A dupla koppintás művelet és az átméretezéshez csípés le van tiltva</string>
@@ -2007,7 +1953,7 @@ Kattintson az API-kulcs kiadás folyamatának megtekintéséhez."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Nyissa meg a(z) &lt;a href=%1$s&gt;Új projekt létrehozását&lt;/a&gt;.&lt;br&gt;2. Kattintson a &lt;b&gt;LÉTREHOZÁS&lt;/b&gt; gomb.&lt;br&gt;3. Lépj a &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; oldalára.&lt;br&gt;4. Kattintson az &lt;b&gt;Engedélyezés&lt;/b&gt; gombra.&lt;br&gt;5. Kattintson a &lt;b&gt;HITELESÍTÉSI ADATOK LÉTREHOZÁSA&lt;/b&gt; gombra.&lt;br&gt;6. Válassza ki a &lt;b&gt;Nyilvános adatok&lt;/b&gt; lehetőség.&lt;br&gt;7. Kattintson a &lt;b&gt;KÖVETKEZŐ&lt;/b&gt; gombra.&lt;br&gt;8. Másolja ki az API-kulcsot.&lt;br&gt;&lt;br&gt;※ Az API-kulcsot soha ne ossza meg másokkal, így az nem szerepel az importálási/exportálási beállításokban.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 fejlesztői kulcs kiadás</string>
     <string name="revanced_ryd_about">Névjegy</string>
-    <string name="revanced_ryd_attribution_summary">"Az adatokat a Return YouTube Dislike API szolgáltatja
+    <string name="revanced_ryd_attribution_summary">"Az adatokat a Return YouTube Dislike API biztosítja
 
 Érintse meg ide a ReturnYouTubeDislike.com megnyitásához"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -2016,7 +1962,7 @@ Kattintson az API-kulcs kiadás folyamatának megtekintéséhez."</string>
     <string name="revanced_ryd_compact_layout_title">Kompakt lájkgomb használata</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">A nem tetszések számként jelennek meg</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">A nem tetszések százalékban jelennek meg</string>
-    <string name="revanced_ryd_dislike_percentage_title">A lájkok százalékos arányban megjelenítése</string>
+    <string name="revanced_ryd_dislike_percentage_title">Mutassa a nem tetszéseket százalékban</string>
     <string name="revanced_ryd_enable_summary_off">A nem tetszések nem láthatóak.</string>
     <string name="revanced_ryd_enable_summary_on">A nem tetszések láthatóak.</string>
     <string name="revanced_ryd_enable_title">YouTube nem tetszések visszaállításának engedélyezése</string>
@@ -2025,11 +1971,11 @@ Kattintson az API-kulcs kiadás folyamatának megtekintéséhez."</string>
     <string name="revanced_ryd_estimated_like_title">Becsült kedvelések mutatása</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">A nem tetszések nem érhetők el (ügyfél API korlát)</string>
     <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %d)</string>
-    <string name="revanced_ryd_failure_connection_timeout">A nem kedvelések jelenleg nem elérhetők (API időtúllépés)</string>
+    <string name="revanced_ryd_failure_connection_timeout">A nem tetszések jelenleg nem elérhetők (az API időtúllépése miatt)</string>
     <string name="revanced_ryd_failure_generic">A nem tetszik funkció nem elérhető (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Nem jelenik meg üzenet, ha a Return YouTube Dislike nem elérhető</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Üzenet megjelenítése, ha a Return YouTube Dislike nem elérhető</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Kapcsolati hibaüzenetek megjelenítése</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Hálózati hibaértesítések megjelenítése</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">A tulajdonos elrejtette</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">A kategóriagombokat megjeleníti a kommentkategóriás sávban</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">A \'Legtöbb\' és \'Újabb\' kivételével a kategóriagombokat elrejti a kommentkategóriás sávban</string>
@@ -2301,7 +2247,7 @@ A következő esetekben esetleg nem működik:
     <string name="revanced_settings_import_export_as_text_summary">Beállítások importálása vagy exportálása szövegként.</string>
     <string name="revanced_settings_import_export_as_text_title">Importálás / Exportálás szövegként</string>
     <string name="revanced_settings_import_failed">A beállítások importálása sikertelen.</string>
-    <string name="revanced_settings_import_reset">A ReVanced beállítások visszaállnak az alapértelmezettre</string>
+    <string name="revanced_settings_import_reset">A Morphe beállítások visszaállnak az alapértelmezettre</string>
     <string name="revanced_settings_import_success">%d beállítás importálva</string>
     <string name="revanced_settings_import_summary">Beállítások importálása mentett fájlból.</string>
     <string name="revanced_settings_import_title">Beállítások importálása</string>

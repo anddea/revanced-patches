@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Kontynuuj</string>
     <string name="gms_core_dialog_dismiss_text">Nie pokazuj ponownie</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore nie ma uprawnień do działania w tle.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG nie posiada uprawnień, aby działać w tle.
 
-Postępuj zgodnie z przewodnikiem 'Don't kill my app!' dla twojego urządzenia i zastosuj instrukcje dla swojej instalacji GmsCore.
+Postępuj zgodnie z instrukcją \"Don't kill my app\" dla swojego telefonu i zastosuj te instrukcje dla aplikacji MicroG.
 
-Jest to wymagane do działania aplikacji."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Optymalizacja baterii GmsCore musi być wyłączona, aby zapobiec problemom.
+To jest wymagane, aby aplikacja mogła funkcjonować."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Optymalizacje baterii MicroG muszą zostać wyłączone, aby uniknąć problemów.
 
-Wyłączenie optymalizacji baterii dla GmsCore nie wpłynie negatywnie na zużycie baterii.
+Wyłączenie optymalizacji baterii MicroG nie będzie negatywnie wpływało na zużycie baterii.
 
-Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
+Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
     <string name="gms_core_dialog_open_website_text">Otwórz stronę</string>
     <string name="gms_core_dialog_title">Wymagane działanie</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX Music, włącz Cloud Messaging.</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG nie jest zainstalowany. Zainstaluj go.</string>
     <string name="morphe_crossfade_duration_10000ms">10 sekund</string>
     <string name="morphe_crossfade_duration_1000ms">1 sekunda</string>
     <string name="morphe_crossfade_duration_11000ms">11 sekund</string>
@@ -38,7 +38,7 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="morphe_disable_quic_protocol_summary_off">Włączony</string>
     <string name="morphe_disable_quic_protocol_summary_on">Wyłączony</string>
     <string name="morphe_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Aby użyć tej funkcji, zmień \"Fałszowanie strumieni filmów\" na Android Reel lub TV</string>
+    <string name="morphe_force_original_audio_not_available">Aby użyć tej funkcji, zmień opcję \"Fałszowanie strumieni filmów\" na dowolnego klienta z wyjątkiem \"Android Studio\"</string>
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
     <string name="morphe_force_original_audio_title">Wymuś oryginalny język dźwięku</string>
@@ -105,6 +105,10 @@ Ekran blokady lub powiadomienie może przez chwilę pokazywać nieaktualny stan 
     <string name="morphe_sanitize_sharing_links_summary_off">Pozostawia parametry śledzące w linkach</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Usuwa parametry śledzące z linków</string>
     <string name="morphe_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
+    <string name="morphe_settings_menu_copy_path">Skopiowano: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Otwórz standardowy ekran ustawień aplikacji raz, aby wypełnić listę</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Ukrywaj elementy na standardowym ekranie ustawień aplikacji na podstawie ich widocznej nazwy</string>
+    <string name="morphe_settings_menu_filter_screen_title">Filtr menu ustawień</string>
     <string name="morphe_spoof_video_streams_client_type_title">Domyślny klient</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Blokuje JS odtwarzacza na określonej wersji
 
@@ -225,7 +229,7 @@ Jeśli to możliwe, użyj ciemnych kolorów, gdyż aplikacja nie obsługuje jasn
     <string name="revanced_debug_spannable_summary">Zawiera obiekty spannable w logach od debugowania.</string>
     <string name="revanced_debug_spannable_title">Włącz logi od obiektów spannable</string>
     <string name="revanced_debug_summary">Wyświetla logi od debugowania.</string>
-    <string name="revanced_debug_title">Włącz logi od debugowania</string>
+    <string name="revanced_debug_title">Włącz logi debugowania</string>
     <string name="revanced_default_app_settings_summary">Aby otwierać linki YouTube Music w RVX Music, przejdź do opcji obsługiwanych linków w ustawieniach i włącz obsługiwane adresy internetowe dla RVX Music.</string>
     <string name="revanced_default_app_settings_title">Otwórz systemowe ustawienia aplikacji</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"Wyłącza automatyczne wymuszanie ścieżki dźwiękowej w podcastach.
@@ -446,19 +450,6 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_samples_shelf_title">Ukryj półkę z samplami</string>
     <string name="revanced_hide_search_button_summary">Ukrywa przycisk wyszukiwania z paska narzędzi.</string>
     <string name="revanced_hide_search_button_title">Ukryj przycisk wyszukiwania</string>
-    <string name="revanced_hide_settings_menu_about_title">Ukryj menu informacji o YouTube Music</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Ukryj menu oszczędzania danych</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Ukryj menu pobranych i miejsca na dane</string>
-    <string name="revanced_hide_settings_menu_general_title">Ukryj menu ustawień ogólnych</string>
-    <string name="revanced_hide_settings_menu_notification_title">Ukryj menu powiadomień</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">Ukryj menu płatnych subskrypcji</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Ukryj menu centrum rodziny</string>
-    <string name="revanced_hide_settings_menu_playback_title">Ukryj menu odtwarzania</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">Ukryj menu prywatności i danych</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">Ukryj menu rekomendacji</string>
-    <string name="revanced_hide_settings_menu_summary">"Ukrywa elementy menu ustawień.
-Działa nie tylko na elementy menu ustawień YT Music, lecz także ReVanced Extended."</string>
-    <string name="revanced_hide_settings_menu_title">Ukryj menu ustawień</string>
     <string name="revanced_hide_song_video_toggle_summary">Ukrywa przełącznik utwór/teledysk w odtwarzaczu.</string>
     <string name="revanced_hide_song_video_toggle_title">Ukryj przełącznik utwór/teledysk</string>
     <string name="revanced_hide_sound_search_button_summary">Ukrywa przycisk od rozpoznawania utworów z paska wyszukiwania.</string>
@@ -566,23 +557,25 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Przejdź do &lt;a href=%1$s&gt;Utwórz nowy projekt&lt;/a&gt;.&lt;br&gt;2. Kliknij przycisk &lt;b&gt;UTWÓRZ&lt;/b&gt;&lt;br&gt;3. Przejdź do &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Kliknij przycisk &lt;b&gt;WŁĄCZ&lt;/b&gt;&lt;br&gt;5. Kliknij przycisk &lt;b&gt;UTWÓRZ DANE LOGOWANIA&lt;/b&gt;&lt;br&gt;6. Wybierz opcję &lt;b&gt;Dane publiczne&lt;/b&gt;&lt;br&gt;7. Kliknij przycisk &lt;b&gt;DALEJ&lt;/b&gt;&lt;br&gt;8. Skopiuj klucz API&lt;br&gt;&lt;br&gt;※ Klucz API nie powinien być współdzielony z innymi, dlatego nie jest zawarty w ustawieniach importu/eksportu</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Zgłoś klucz deweloperski YouTube Data API</string>
     <string name="revanced_ryd_about">O integracji</string>
-    <string name="revanced_ryd_attribution_summary">Dane są dostarczane dzięki API Return YouTube Dislike. Kliknij tutaj, aby dowiedzieć się więcej.</string>
+    <string name="revanced_ryd_attribution_summary">"Dane są dostarczane przez API Return YouTube Dislike
+
+Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Ukrywa linię w przycisku od łapkowania.</string>
-    <string name="revanced_ryd_compact_layout_title">Kompaktowy przycisk od łapkowania</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Zamiast ilości łapek w dół, jest wyświetlany ich procent.</string>
-    <string name="revanced_ryd_dislike_percentage_title">Łapki w dół wyświetlane jako procent</string>
+    <string name="revanced_ryd_compact_layout_summary">Zmniejsza szerokość przycisku Lubię, aby zaoszczędzić miejsce</string>
+    <string name="revanced_ryd_compact_layout_title">Użyj kompaktowego przycisku Lubię</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Wyświetla łapki w dół jako procent polubień zamiast konkretnej liczby</string>
+    <string name="revanced_ryd_dislike_percentage_title">Pokaż łapki w dół jako procent</string>
     <string name="revanced_ryd_enabled_summary">Pokazuje ilość łapek w dół filmów.</string>
     <string name="revanced_ryd_enabled_title">Włącz Return YouTube Dislike</string>
-    <string name="revanced_ryd_estimated_like_summary">Pokazuje szacowaną ilość polubień filmów.</string>
-    <string name="revanced_ryd_estimated_like_title">Pokaż szacowaną ilość polubień</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Łapki w dół nie są dostępne (limit API użytkownika został osiągnięty).</string>
-    <string name="revanced_ryd_failure_connection_status_code">Liczba łapek w dół nie jest dostępna (status %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">Łapki w dół są tymczasowo niedostępne (API nie reaguje).</string>
-    <string name="revanced_ryd_failure_generic">Liczba łapek w dół nie jest dostępna (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Komunikat wyświetlany w momencie, gdy API ReturnYouTubeDislike jest niedostępne.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Pokaż komunikat o niedostępności API</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
+    <string name="revanced_ryd_estimated_like_summary">Wyświetla przybliżoną liczbę polubień w filmach, w których twórca ukrył statystyki</string>
+    <string name="revanced_ryd_estimated_like_title">Pokaż szacowaną liczbę polubień</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Łapki w dół są niedostępne (limit żądań API)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Łapki w dół są niedostępne (status %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Łapki w dół są niedostępne (API nie reaguje)</string>
+    <string name="revanced_ryd_failure_generic">Łapki w dół są niedostępne (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Wyświetla powiadomienie, gdy serwer Return YouTube Dislike jest niedostępny</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Pokaż powiadomienia o błędach połączenia</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte przez właściciela</string>
     <string name="revanced_sb_about">O integracji</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Dane są dostarczane przez API SponsorBlock. Stuknij tutaj, aby dowiedzieć się więcej i pobrać na inne platformy.</string>
@@ -644,33 +637,33 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_settings_export_as_file">Wyeksportuj ustawienia do pliku</string>
     <string name="revanced_settings_export_failed">Nie udało się wyeksportować ustawień.</string>
     <string name="revanced_settings_export_success">Ustawienia zostały pomyślnie wyeksportowane.</string>
-    <string name="revanced_settings_import">Zaimportuj</string>
+    <string name="revanced_settings_import">Importuj</string>
     <string name="revanced_settings_import_as_file">Zaimportuj ustawienia z pliku</string>
-    <string name="revanced_settings_import_copy">Kopiuj</string>
+    <string name="revanced_settings_import_copy">Skopiuj</string>
     <string name="revanced_settings_import_export_as_text">Zaimportuj/Wyeksportuj ustawienia jako tekst</string>
     <string name="revanced_settings_import_export_summary">Importuje/Eksportuje ustawienia RVX Music</string>
     <string name="revanced_settings_import_export_title">Importuj/eksportuj ustawienia</string>
     <string name="revanced_settings_import_failed">Nie udało się zaimportować: %s.</string>
-    <string name="revanced_settings_import_reset">Ustawienia zostały zresetowane do domyślnych.</string>
-    <string name="revanced_settings_import_success">Zaimportowano %d ustawień.</string>
+    <string name="revanced_settings_import_reset">Przywrócono domyślne ustawienia Morphe</string>
+    <string name="revanced_settings_import_success">Zaimportowano %d ustawień</string>
     <string name="revanced_settings_reset">Zresetuj</string>
     <string name="revanced_settings_reset_color">Zresetuj kolor</string>
-    <string name="revanced_settings_search_clear_history">Usuń historię wyszukiwania</string>
-    <string name="revanced_settings_search_clear_history_message">Czy na pewno chcesz usunąć całą historię wyszukiwania?</string>
-    <string name="revanced_settings_search_empty_history_summary">By zapisać historię wyszukiwania, wpisz zapytanie i kliknij enter.</string>
+    <string name="revanced_settings_search_clear_history">Wyczyść historię wyszukiwania</string>
+    <string name="revanced_settings_search_clear_history_message">Czy na pewno chcesz wyczyścić całą historię wyszukiwania?</string>
+    <string name="revanced_settings_search_empty_history_summary">Aby zapisać historię wyszukiwania, wpisz zapytanie i naciśnij Enter</string>
     <string name="revanced_settings_search_empty_history_title">Historia wyszukiwania jest pusta</string>
     <string name="revanced_settings_search_history_summary_off">Ukryta</string>
     <string name="revanced_settings_search_history_summary_on">Widoczna</string>
-    <string name="revanced_settings_search_history_title">Historia wyszukiwania w ustawieniach</string>
-    <string name="revanced_settings_search_no_results_summary">Spróbuj użyć innego słowa kluczowego.</string>
-    <string name="revanced_settings_search_no_results_title">Nie znaleziono wyników dla \'%s\'.</string>
-    <string name="revanced_settings_search_recent_searches">Ostatnio wyszukiwane</string>
+    <string name="revanced_settings_search_history_title">Pokaż historię wyszukiwania ustawień</string>
+    <string name="revanced_settings_search_no_results_summary">Spróbuj innego słowa</string>
+    <string name="revanced_settings_search_no_results_title">Brak wyników dla \"%s\"</string>
+    <string name="revanced_settings_search_recent_searches">Ostatnie wyszukiwania</string>
     <string name="revanced_settings_search_remove_message">Usunąć z historii wyszukiwania?</string>
-    <string name="revanced_settings_search_tips_summary">"• kliknij ścieżkę, aby do niej przejść
-• naciśnij i przytrzymaj ustawienie, aby do niego przejść
-• naciśnij Enter, aby zapisać zapytanie wyszukiwania w historii
-• wyszukiwanie ignoruje wielkość liter i znaki interpunkcyjne
-• ustawienia nadrzędne pojawiają się nad wyłączonymi ustawieniami podrzędnymi"</string>
+    <string name="revanced_settings_search_tips_summary">"• Dotknij ścieżkę, aby do niej przejść
+• Przytrzymaj ustawienie, aby do niego przejść
+• Naciśnij Enter, aby zapisać wyszukiwanie w historii
+• Wyszukiwanie ignoruje wielkość liter i interpunkcję
+• Główne ustawienia wyświetlają się powyżej wyłączonych opcji"</string>
     <string name="revanced_settings_search_tips_title">Wskazówki dotyczące wyszukiwania</string>
     <string name="revanced_settings_search_title">Wyszukaj w %s</string>
     <string name="revanced_share_copy_settings_success">Skopiowano ustawienia do schowka.</string>

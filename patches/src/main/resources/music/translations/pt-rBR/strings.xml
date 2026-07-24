@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Continuar</string>
     <string name="gms_core_dialog_dismiss_text">Não mostrar novamente</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"O GmsCore não tem permissão para executar em segundo plano.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG não tem permissão para rodar em segundo plano.
 
-Siga o guia Não mate o meu aplicativo para o seu telefone e aplique as instruções para a sua instalação do MicroG.
+Siga o guia \"Don't kill my app\" para seu telefone e aplique as instruções na sua instalação do MicroG.
 
-Isto é necessário para o aplicativo funcionar."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"As otimizações de bateria do GmsCore devem ser desativadas para evitar problemas.
+Isso é necessário para o aplicativo funcionar."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"As otimizações de bateria do MicroG devem ser desabilitadas para evitar problemas.
 
-Desativar as otimizações de bateria do GmsCore não afetará negativamente o uso da bateria.
+Desabilitar as otimizações de bateria para o MicroG não afetará negativamente o uso da bateria.
 
-Toque no botão continuar e permita as alterações de otimização."</string>
+Toque no botão continuar e permita as mudanças de otimização."</string>
     <string name="gms_core_dialog_open_website_text">Abrir site</string>
     <string name="gms_core_dialog_title">Ação necessária</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX Music, ative as mensagens na nuvem.</string>
     <string name="gms_core_settings_title">Abrir configurações do GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG não está instalado. Instale-o.</string>
     <string name="morphe_crossfade_duration_10000ms">10 segundos</string>
     <string name="morphe_crossfade_duration_1000ms">1 segundo</string>
     <string name="morphe_crossfade_duration_11000ms">11 segundos</string>
@@ -38,7 +38,7 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="morphe_disable_quic_protocol_summary_off">Protocolo QUIC ativado</string>
     <string name="morphe_disable_quic_protocol_summary_on">Protocolo QUIC desativado</string>
     <string name="morphe_disable_quic_protocol_title">Desativar protocolo QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Para usar este recurso, altere \'Falsificar fluxos de vídeo\' para Android Reel ou TV</string>
+    <string name="morphe_force_original_audio_not_available">Para usar este recurso, mude \'Falsificar fluxos de vídeo\' para qualquer cliente, exceto o Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
     <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
     <string name="morphe_force_original_audio_title">Forçar idioma do áudio original</string>
@@ -105,6 +105,10 @@ YouTube Music 8.x — o Crossfade funciona apenas no YouTube Music 9.x ou mais r
     <string name="morphe_sanitize_sharing_links_summary_off">Parâmetro de consulta de rastreamento não é removido dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parâmetro de consulta de rastreamento é removido dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_title">Higienizar links de compartilhamento</string>
+    <string name="morphe_settings_menu_copy_path">Copiado: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Abra a tela de configurações do aplicativo padrão uma vez para preencher a lista</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Ocultar itens na tela de configurações do aplicativo padrão pelo nome visível</string>
+    <string name="morphe_settings_menu_filter_screen_title">Filtro do menu de configurações</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente padrão</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Bloqueia o JavaScript do player em uma versão específica
 
@@ -225,7 +229,7 @@ Use cores escuras se possível, pois o aplicativo não suporta temas claros."</s
     <string name="revanced_debug_spannable_summary">Inclui expansíveis no registro de depuração.</string>
     <string name="revanced_debug_spannable_title">Registro expansível</string>
     <string name="revanced_debug_summary">Captura o registro de depuração.</string>
-    <string name="revanced_debug_title">Ativar o registro de depuração</string>
+    <string name="revanced_debug_title">Ativar registro de depuração</string>
     <string name="revanced_default_app_settings_summary">Para abrir links do YouTube Music no RVX Music, ative Abrir links suportados e ative todos os endereços da web suportados.</string>
     <string name="revanced_default_app_settings_title">Abrir configurações padrão do aplicativo</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"Desativa faixas de áudio automáticas para podcasts.
@@ -442,19 +446,6 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_samples_shelf_title">Ocultar painel Descobertas</string>
     <string name="revanced_hide_search_button_summary">Oculta o botão de pesquisa na barra de ferramentas.</string>
     <string name="revanced_hide_search_button_title">Ocultar botão de pesquisa</string>
-    <string name="revanced_hide_settings_menu_about_title">Ocultar menu Sobre o YouTube Music</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Ocultar menu Economia de dados</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Ocultar menu Downloads e armazenamento</string>
-    <string name="revanced_hide_settings_menu_general_title">Ocultar menu Geral</string>
-    <string name="revanced_hide_settings_menu_notification_title">Ocultar Menu Notificações</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">Ocultar menu Conheça o Music Premium</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Ocultar menu Central da família</string>
-    <string name="revanced_hide_settings_menu_playback_title">Ocultar menu Reprodução</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">Ocultar menu Privacidade e dados</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">Ocultar menu Recomendações</string>
-    <string name="revanced_hide_settings_menu_summary">"Oculte elementos do menu de configurações.
-Isso oculta não apenas o menu de configurações do YT Music, mas também o menu de configurações do ReVanced Extended."</string>
-    <string name="revanced_hide_settings_menu_title">Ocultar menu de configurações</string>
     <string name="revanced_hide_song_video_toggle_summary">Oculta o alternador de Música / Vídeo no reprodutor.</string>
     <string name="revanced_hide_song_video_toggle_title">Ocultar alternador de Música / Vídeo</string>
     <string name="revanced_hide_sound_search_button_summary">Oculta o botão de pesquisa de som na barra de pesquisa.</string>
@@ -562,23 +553,25 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Vá para &lt;a href=%1$s&gt;Criar um novo projeto&lt;/a&gt;.&lt;br&gt;2. Clique no botão &lt;b&gt;CRIAR&lt;/b&gt;.&lt;br&gt;3. Vá para &lt;a href=%2$s&gt;API de dados do YouTube v3&lt;/a&gt;.&lt;br&gt;4. Clique no botão &lt;b&gt;ATIVAR&lt;/b&gt;.&lt;br&gt;5. Clique no botão &lt;b&gt;CRIAR CREDENCIAIS&lt;/b&gt;.&lt;br&gt;6. Selecione a opção &lt;b&gt;Dados públicos&lt;/b&gt;.&lt;br&gt;7. Clique no botão &lt;b&gt;PRÓXIMO&lt;/b&gt;.&lt;br&gt;8. Copie a chave da API.&lt;br&gt;&lt;br&gt;※ A chave da API nunca deve ser compartilhada com outras pessoas, portanto, ela não é incluída nas configurações de Importação/Exportação.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Emitir chave de desenvolvedor da API de dados do YouTube v3</string>
     <string name="revanced_ryd_about">Sobre</string>
-    <string name="revanced_ryd_attribution_summary">Os dados são fornecidos pela API do Return YouTube Dislike. Toque aqui para saber mais.</string>
+    <string name="revanced_ryd_attribution_summary">"Dados fornecidos pela API Return YouTube Dislike
+
+Toque aqui para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Oculta o separador do botão curtir.</string>
-    <string name="revanced_ryd_compact_layout_title">Botão de curtir compacto</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Exibe a porcentagem de deslikes em vez da contagem de deslikes.</string>
-    <string name="revanced_ryd_dislike_percentage_title">Dislikes como porcentagem</string>
+    <string name="revanced_ryd_compact_layout_summary">Reduz a largura do botão Curtir para economizar espaço</string>
+    <string name="revanced_ryd_compact_layout_title">Usar botão Curtir compacto</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Exibe não gostei como porcentagem, substituindo o número convencional</string>
+    <string name="revanced_ryd_dislike_percentage_title">Mostrar não gostei como porcentagem</string>
     <string name="revanced_ryd_enabled_summary">Mostra a contagem de deslike dos vídeos.</string>
-    <string name="revanced_ryd_enabled_title">Ativar Return YouTube Dislike</string>
-    <string name="revanced_ryd_estimated_like_summary">Mostra a contagem estimada de curtidas dos vídeos.</string>
-    <string name="revanced_ryd_estimated_like_title">Exibir curtidas estimadas</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes indisponível (limite de API do cliente atingido).</string>
-    <string name="revanced_ryd_failure_connection_status_code">Deslikes indisponível (status %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">Dislikes temporariamente indisponível (API expirou).</string>
-    <string name="revanced_ryd_failure_generic">Deslikes indisponível (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Notificação flutuante exibida se o Return YouTube Dislike não está disponível.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
+    <string name="revanced_ryd_enabled_title">Ativar Contagem Regressiva do Deslike do YouTube</string>
+    <string name="revanced_ryd_estimated_like_summary">Exibe uma contagem de likes estimada em vídeos onde o criador desativou likes</string>
+    <string name="revanced_ryd_estimated_like_title">Mostrar estimativa de \"gostei\"</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">\"Não gostei\" não estão disponíveis (limite da API do cliente)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Dislikes indisponível (status %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Não gostei indisponível por um tempo (API expirou)</string>
+    <string name="revanced_ryd_failure_generic">Não gostei indisponível (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Mostra uma notificação quando o servidor Return YouTube Dislike estiver indisponível</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Mostrar alertas de erro de conexão</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto pelo proprietário</string>
     <string name="revanced_sb_about">Sobre</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver downloads para outras plataformas.</string>
@@ -647,27 +640,27 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_settings_import_export_summary">Importar / Exportar configurações do RVX Music.</string>
     <string name="revanced_settings_import_export_title">Importar / Exportar configurações</string>
     <string name="revanced_settings_import_failed">A importação falhou: %s.</string>
-    <string name="revanced_settings_import_reset">Configurações redefinidas para o padrão.</string>
-    <string name="revanced_settings_import_success">Configurações %d importadas.</string>
-    <string name="revanced_settings_reset">Redefinir</string>
+    <string name="revanced_settings_import_reset">Configurações do Morphe redefinidas para o padrão</string>
+    <string name="revanced_settings_import_success">Configurações %d importadas</string>
+    <string name="revanced_settings_reset">Resetar</string>
     <string name="revanced_settings_reset_color">Redefinir cor</string>
     <string name="revanced_settings_search_clear_history">Limpar histórico de pesquisa</string>
-    <string name="revanced_settings_search_clear_history_message">Tem certeza que deseja limpar todo o histórico de pesquisa?</string>
-    <string name="revanced_settings_search_empty_history_summary">Para salvar o histórico de pesquisa, digite uma consulta de pesquisa e pressione Enter.</string>
+    <string name="revanced_settings_search_clear_history_message">Tem certeza de que deseja limpar todo o histórico de pesquisa?</string>
+    <string name="revanced_settings_search_empty_history_summary">Para salvar o histórico de pesquisa, digite uma consulta de pesquisa e pressione Enter</string>
     <string name="revanced_settings_search_empty_history_title">O histórico de pesquisa está vazio</string>
     <string name="revanced_settings_search_history_summary_off">O histórico de pesquisa de configurações não será exibido.</string>
     <string name="revanced_settings_search_history_summary_on">O histórico de pesquisa de configurações será exibido.</string>
-    <string name="revanced_settings_search_history_title">Exibir histórico de pesquisa de configurações</string>
-    <string name="revanced_settings_search_no_results_summary">Tentar outra palavra-chave.</string>
-    <string name="revanced_settings_search_no_results_title">Nenhum resultado encontrado para \'%s\'.</string>
+    <string name="revanced_settings_search_history_title">Mostrar histórico de pesquisa das configurações</string>
+    <string name="revanced_settings_search_no_results_summary">Tente outra palavra-chave</string>
+    <string name="revanced_settings_search_no_results_title">Nenhum resultado encontrado para \",%s\"</string>
     <string name="revanced_settings_search_recent_searches">Pesquisas recentes</string>
     <string name="revanced_settings_search_remove_message">Remover do histórico de pesquisa?</string>
-    <string name="revanced_settings_search_tips_summary">"• Toque em um caminho para navegar até ele.
-• Pressione e segure uma configuração para navegar até ele.
-• Pressione Enter para salvar uma consulta de pesquisa no histórico.
-• Pesquisa ignora o caso e a pontuação.
-• Configurações dos pais aparecem acima das configurações dos filhos desativadas."</string>
-    <string name="revanced_settings_search_tips_title">Dicas para busca</string>
+    <string name="revanced_settings_search_tips_summary">"• Toque em um caminho para navegar até ele
+• Mantenha pressionada uma configuração para navegar até ela
+• Pressione Enter para salvar uma consulta de pesquisa no histórico
+• A pesquisa ignora maiúsculas/minúsculas e pontuação
+• As configurações pai aparecem acima das configurações filhas desabilitadas"</string>
+    <string name="revanced_settings_search_tips_title">Dicas de Pesquisa</string>
     <string name="revanced_settings_search_title">Pesquisar %s</string>
     <string name="revanced_share_copy_settings_success">Configurações copiadas para área de transferência.</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Spoofs a versão do cliente utilizada nas letras para uma versão mais antiga.</string>

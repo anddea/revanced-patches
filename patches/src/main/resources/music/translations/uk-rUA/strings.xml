@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Продовжити</string>
     <string name="gms_core_dialog_dismiss_text">Більше не показувати</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore не дозволено працювати у фоні.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG не має дозволу на роботу у фоновому режимі.
 
-Дотримуйтесь посібника \"Don't kill my app\" для вашого пристрою і застосуйте інструкції для встановлення GmsCore.
+Дотримуйтеся посібника \"Don't kill my app\" для вашого пристрою та застосуйте інструкції до вашого MicroG.
 
-Це необхідно для того, щоб застосунок працював."</string>
+Це необхідно для роботи застосунку."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Необхідно вимкнути оптимізацію енергії для MicroG GmsCore, щоб запобігти проблемам.
 
 Вимкнення оптимізації енергії для MicroG не вплине негативно на час автономної роботи.
 
 Натисніть кнопку \"Продовжити\" та вимкніть оптимізацію."</string>
-    <string name="gms_core_dialog_open_website_text">Відкрити сайт</string>
+    <string name="gms_core_dialog_open_website_text">Відкрити вебсайт</string>
     <string name="gms_core_dialog_title">Потрібна дія</string>
     <string name="gms_core_settings_summary">Щоб отримувати сповіщення у RVX Music, увімкніть \"Хмарні повідомлення\".</string>
     <string name="gms_core_settings_title">Відкрити налаштування GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore не встановлено. Встановіть.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG не встановлено. Встановіть його.</string>
     <string name="morphe_crossfade_duration_10000ms">10 секунд</string>
     <string name="morphe_crossfade_duration_1000ms">1 секунда</string>
     <string name="morphe_crossfade_duration_11000ms">11 секунд</string>
@@ -38,21 +38,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC увімкнено</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC вимкнено</string>
     <string name="morphe_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Щоб використати цю функцію, змініть \"Підміна відео потоків\" на Android Reel або TV</string>
+    <string name="morphe_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підміни відеопотоків\" на будь-який, окрім \"Android Studio\"</string>
     <string name="morphe_force_original_audio_summary_off">Використовується звукова доріжка за замовчуванням</string>
     <string name="morphe_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
     <string name="morphe_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
-    <string name="morphe_music_crossfade_about_best_summary">Звичайне відтворення треку за треком та автоперехід, повтор одного треку (трек плавно переходить сам у себе) і локальний звук — динамік телефону, дротові навушники, Bluetooth або USB.</string>
+    <string name="morphe_music_crossfade_about_best_summary">Звичайне відтворення треку за треком та автоперехід, повтор одного треку (трек плавно переходить сам у себе) і локальний звук - динамік телефону, дротові навушники, Bluetooth або USB.</string>
     <string name="morphe_music_crossfade_about_best_title">Найкраще працює з</string>
     <string name="morphe_music_crossfade_about_credit_summary">Функція плавного переходу від VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Подяки</string>
-    <string name="morphe_music_crossfade_about_how_summary">"Плавний перехід накладає кінець однієї пісні на початок наступної, поступово знижуючи звук однієї та підвищуючи звук іншої впродовж обраної тривалості та за обраною кривою.
+    <string name="morphe_music_crossfade_about_how_summary">"Плавний перехід накладає кінець однієї пісні на початок наступної, поступово знижуючи звук однієї та підвищуючи звук іншої впродовж вибраної тривалості та за вибраною кривою.
 
-Він працює як при автоматичному переході (коли пісня завершується сама), так і при ручному перемиканні — для кожного є власний перемикач вище. При автоматичному переході змішування починається за кілька секунд до завершення пісні.
+Він працює як при автоматичному переході (коли пісня завершується сама), так і при ручному перемиканні - для кожного є власний перемикач вище. При автоматичному переході змішування починається за кілька секунд до завершення пісні.
 
 Потребує YouTube Music 9.x або новішої версії."</string>
     <string name="morphe_music_crossfade_about_how_title">Як це працює</string>
-    <string name="morphe_music_crossfade_about_known_summary">"Музичне відео, встановлене першим треком — або запущене не з поточної черги — може на короткий час показуватися як відео, перш ніж увімкнеться режим лише аудіо
+    <string name="morphe_music_crossfade_about_known_summary">"Музичне відео, встановлене першим треком - або запущене не з поточної черги - може на короткий час показуватися як відео, перш ніж увімкнеться режим лише аудіо
 
 Призупинення плавного переходу для перегляду музичного відео може залишити деякі відео чорними (ті, чий звук надходить із самого відео). Призупинення плавного переходу перед вибором треку допомагає уникнути цього"</string>
     <string name="morphe_music_crossfade_about_known_title">Відомі проблеми</string>
@@ -62,11 +62,11 @@
 
 Екран блокування або сповіщення можуть короткочасно показувати застарілий стан під час переходу"</string>
     <string name="morphe_music_crossfade_about_quirks_title">Працює не зовсім правильно</string>
-    <string name="morphe_music_crossfade_about_summary">Як працює плавний перехід — і коли він не працює</string>
+    <string name="morphe_music_crossfade_about_summary">Як працює плавний перехід - і коли він не працює</string>
     <string name="morphe_music_crossfade_about_title">Інформація</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляція або дублювання звуку (Chromecast, дублювання екрана чи звуку) — плавний перехід призупиняється, оскільки він нестабільний у цьому випадку, і можливо, ніколи не бути виправленим
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляція або дублювання звуку (Chromecast, дублювання екрана чи звуку) - плавний перехід призупиняється, оскільки він нестабільний у цьому випадку, і можливо, ніколи не бути виправленим
 
-YouTube Music 8.x — плавний перехід працює лише на версії 9.x і новіших"</string>
+YouTube Music 8.x - плавний перехід працює лише на версії 9.x і новіших"</string>
     <string name="morphe_music_crossfade_about_unsupported_title">Не працює взагалі</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">Плавний перехід призупинено під час трансляції або дублювання звуку. Плавний перехід через трансляцію/дублювання нестабільний, і можливо, ніколи не бути виправленим</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Незначна затримка</string>
@@ -105,6 +105,10 @@ YouTube Music 8.x — плавний перехід працює лише на �
     <string name="morphe_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_title">Очищувати посилання для поширення</string>
+    <string name="morphe_settings_menu_copy_path">Скопійовано: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Відкрийте екран стандартних налаштувань застосунку один раз, щоб заповнити список</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Приховати елементи на екрані стандартних налаштувань застосунку за їхньою видимою назвою</string>
+    <string name="morphe_settings_menu_filter_screen_title">Фільтр меню налаштувань</string>
     <string name="morphe_spoof_video_streams_client_type_title">Типовий клієнт</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Фіксує JavaScript плеєра на певній версії
 
@@ -225,7 +229,7 @@ YouTube Music 8.x — плавний перехід працює лише на �
     <string name="revanced_debug_spannable_summary">Включає охоплення журналу налагодження.</string>
     <string name="revanced_debug_spannable_title">Охоплення журналу</string>
     <string name="revanced_debug_summary">Виводить журнал налагодження.</string>
-    <string name="revanced_debug_title">Ведення журналу налагодження</string>
+    <string name="revanced_debug_title">Увімкнути журнал налагодження</string>
     <string name="revanced_default_app_settings_summary">Щоб відкривати посилання на YouTube Music у RVX Music, увімкніть \"Відкривати підтримувані посилання\" та активуйте підтримувані веб-адреси.</string>
     <string name="revanced_default_app_settings_title">Відкрити налаштування за замовчуванням</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"Вимикає примусові автоматичні звукові доріжки для подкастів.
@@ -446,19 +450,6 @@ YouTube Music 8.x — плавний перехід працює лише на �
     <string name="revanced_hide_samples_shelf_title">Приховати полицю \"Семпли\"</string>
     <string name="revanced_hide_search_button_summary">Приховує кнопку пошуку на панелі інструментів.</string>
     <string name="revanced_hide_search_button_title">Приховати кнопку пошуку</string>
-    <string name="revanced_hide_settings_menu_about_title">Приховати \"Про YouTube Music\"</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Приховати \"Заощадження трафіку\"</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Приховати \"Завантаження й зберігання\"</string>
-    <string name="revanced_hide_settings_menu_general_title">Приховати \"Загальні\"</string>
-    <string name="revanced_hide_settings_menu_notification_title">Приховати \"Сповіщення\"</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">Приховати \"Підписатися на Music Premium\"</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Приховати \"Сімейний Центр\"</string>
-    <string name="revanced_hide_settings_menu_playback_title">Приховати \"Відтворення\"</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">Приховати \"Дані й конфіденційність\"</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">Приховати \"Рекомендації\"</string>
-    <string name="revanced_hide_settings_menu_summary">"Приховує елементи меню налаштувань.
-Це приховує не лише меню налаштувань YT Music, а й меню налаштувань ReVanced Extended."</string>
-    <string name="revanced_hide_settings_menu_title">Приховати меню налаштувань</string>
     <string name="revanced_hide_song_video_toggle_summary">Приховує перемикач \"пісня | відео\" у плеєрі.</string>
     <string name="revanced_hide_song_video_toggle_title">Приховати перемикач \"пісня | відео\"</string>
     <string name="revanced_hide_sound_search_button_summary">Приховує кнопку пошуку музики у панелі пошуку.</string>
@@ -565,23 +556,25 @@ YouTube Music 8.x — плавний перехід працює лише на �
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдіть до &lt;a href=%1$s&gt;Створити New Project&lt;/a&gt;.&lt;br&gt;2. Натисніть кнопку &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Перейдіть до &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Натисніть кнопку &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Натисніть кнопку &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Виберіть &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Натисніть кнопку &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Скопіюйте ключ API.&lt;br&gt;&lt;br&gt;※ Ключ API не можна надавати іншим, тому його не включено в Імпорт / Експорт налаштувань.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Створення ключа розробника YouTube Data API v3</string>
     <string name="revanced_ryd_about">Про інтеграцію</string>
-    <string name="revanced_ryd_attribution_summary">Дані дизлайків надаються за допомогою Return YouTube Dislike API. Натисніть тут, щоб дізнатися більше.</string>
+    <string name="revanced_ryd_attribution_summary">"Дані надаються API Return YouTube Dislike
+
+Торкніться тут, щоб відкрити ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Приховує лінію між кнопкою \"Подобається\" та кількістю лайків.</string>
-    <string name="revanced_ryd_compact_layout_title">Компактна кнопка \"Подобається\"</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Відобажає відсоток замість кількості дизлайків.</string>
-    <string name="revanced_ryd_dislike_percentage_title">Кількість дизлайків у відсотках</string>
+    <string name="revanced_ryd_compact_layout_summary">Зменшує ширину кнопки \"Лайк\", щоб заощадити місце</string>
+    <string name="revanced_ryd_compact_layout_title">Використовувати компактну кнопку \"Лайк\"</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Показує дизлайки у відсотках від лайків замість числа</string>
+    <string name="revanced_ryd_dislike_percentage_title">Показувати дизлайки у відсотках</string>
     <string name="revanced_ryd_enabled_summary">Показує кількість дизлайків у треках.</string>
     <string name="revanced_ryd_enabled_title">Увімкнути Return YouTube Dislike</string>
-    <string name="revanced_ryd_estimated_like_summary">Показує приблизну кількість лайків відео.</string>
-    <string name="revanced_ryd_estimated_like_title">Показати приблизну кількість лайків</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнуто ліміт клієнтів сервера API).</string>
-    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (закінчився час API).</string>
-    <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Показує тост, якщо API ReturnYouTubeDislike не доступний.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
+    <string name="revanced_ryd_estimated_like_summary">Показує приблизну кількість лайків на відео, де автор вимкнув лайки</string>
+    <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість лайків</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (ліміт клієнтів API)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (тайм-аут API)</string>
+    <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Показує сповіщення, коли сервер Return YouTube Dislike недоступний</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показувати сповіщення про помилки з’єднання</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано власником</string>
     <string name="revanced_sb_about">Про інтеграцію</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Дані надаються SponsorBlock API. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ.</string>
@@ -643,33 +636,33 @@ YouTube Music 8.x — плавний перехід працює лише на �
     <string name="revanced_settings_export_as_file">Експорт налаштувань у файл</string>
     <string name="revanced_settings_export_failed">Не вдалося експортувати налаштування.</string>
     <string name="revanced_settings_export_success">Налаштування було вдало експортовано.</string>
-    <string name="revanced_settings_import">Імпортувати</string>
+    <string name="revanced_settings_import">Імпорт</string>
     <string name="revanced_settings_import_as_file">Імпорт налаштувань із файлу</string>
     <string name="revanced_settings_import_copy">Копіювати</string>
     <string name="revanced_settings_import_export_as_text">Імпорт або експорт налаштувань у вигляді тексту</string>
     <string name="revanced_settings_import_export_summary">Імпортує або Експортує налаштування RVX Music.</string>
     <string name="revanced_settings_import_export_title">Імпорт / Експорт налаштувань</string>
     <string name="revanced_settings_import_failed">Не вдалося імпортувати налаштування: %s.</string>
-    <string name="revanced_settings_import_reset">Налаштування скинуто до стандартних.</string>
-    <string name="revanced_settings_import_success">Налаштування в кількості: %d успішно відновлено.</string>
+    <string name="revanced_settings_import_reset">Налаштування Morphe скинуто до типових</string>
+    <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
     <string name="revanced_settings_reset">Скинути</string>
     <string name="revanced_settings_reset_color">Скинути колір</string>
     <string name="revanced_settings_search_clear_history">Очистити історію пошуку</string>
-    <string name="revanced_settings_search_clear_history_message">Очистити всю історію пошуку?</string>
-    <string name="revanced_settings_search_empty_history_summary">Для збереження історії пошуку, введіть пошуковий запит і натисніть Ввести.</string>
+    <string name="revanced_settings_search_clear_history_message">Ви впевнені, що хочете очистити всю історію пошуку?</string>
+    <string name="revanced_settings_search_empty_history_summary">Щоб зберегти історію пошуку, введіть пошуковий запит і натисніть Enter</string>
     <string name="revanced_settings_search_empty_history_title">Історія пошуку порожня</string>
     <string name="revanced_settings_search_history_summary_off">Історію пошуку налаштувань не показується.</string>
     <string name="revanced_settings_search_history_summary_on">Історію пошуку налаштувань показується.</string>
-    <string name="revanced_settings_search_history_title">Показати історію пошуку налаштувань</string>
-    <string name="revanced_settings_search_no_results_summary">Спробуйте інше ключове слово.</string>
-    <string name="revanced_settings_search_no_results_title">\'%s\' Не знайдено.</string>
-    <string name="revanced_settings_search_recent_searches">Недавні пошуки</string>
+    <string name="revanced_settings_search_history_title">Показувати історію пошуку налаштувань</string>
+    <string name="revanced_settings_search_no_results_summary">Спробуйте інше ключове слово</string>
+    <string name="revanced_settings_search_no_results_title">За запитом \'%s\' нічого не знайдено</string>
+    <string name="revanced_settings_search_recent_searches">Нещодавні пошуки</string>
     <string name="revanced_settings_search_remove_message">Видалити з історії пошуку?</string>
-    <string name="revanced_settings_search_tips_summary">"• Натисніть на шлях, щоб перейти до нього.
-• Тривале натискання, щоб перейти до налаштувань.
-• Натисніть \"Ввести\", щоб зберегти запити пошуку.
-• Пошук ігнорує регістр та пунктуацію.
-• Батьківські налаштування пріоритетніші за налаштування дитини."</string>
+    <string name="revanced_settings_search_tips_summary">"• Натисніть на шлях, щоб відкрити його
+• Натисніть і утримуйте налаштування, щоб перейти до нього
+• Натисніть Enter, щоб зберегти пошуковий запит в історію
+• Пошук ігнорує регістр і розділові знаки
+• Батьківські налаштування показуються над вимкненими дочірніми налаштуваннями"</string>
     <string name="revanced_settings_search_tips_title">Поради щодо пошуку</string>
     <string name="revanced_settings_search_title">Пошук %s</string>
     <string name="revanced_share_copy_settings_success">Налаштування скопійовано до буфера обміну.</string>

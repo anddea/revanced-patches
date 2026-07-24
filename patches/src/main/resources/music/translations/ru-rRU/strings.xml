@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Продолжить</string>
     <string name="gms_core_dialog_dismiss_text">Больше не показывать</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Оптимизация батареи для GmsCore или MicroG должна быть отключена для предотвращения проблем.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG не имеет разрешения на работу в фоновом режиме.
 
-Отключение оптимизации батареи для  GmsCore или MicroG не окажет негативного влияния на использование батареи.
+Следуйте инструкции \"Don't kill my app\" для Вашего телефона и примените её к вашей установке MicroG.
 
-Нажмите кнопку \"Продолжить\" и разрешите внести изменения в оптимизацию."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Для избежание проблем необходимо отключить оптимизацию батареи в GmsCore или MicroG.
+Это необходимо для работы приложения."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизация батареи для MicroG должна быть отключена для предотвращения проблем.
 
-Отключение оптимизации батареи для GmsCore или MicroG не окажет негативного влияния на использование батареи.
+Отключение оптимизации батареи для MicroG не повлияет негативно на использование батареи.
 
 Нажмите кнопку \"Продолжить\" и разрешите изменения оптимизации."</string>
-    <string name="gms_core_dialog_open_website_text">Открыть сайт</string>
+    <string name="gms_core_dialog_open_website_text">Открыть веб-сайт</string>
     <string name="gms_core_dialog_title">Требуется действие</string>
     <string name="gms_core_settings_summary">Включите \"Облачные уведомления\" для получения уведомлений.</string>
     <string name="gms_core_settings_title">Откройте настройки GmsCore или MicroG</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore или MicroG не установлен. Установите его.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG не установлен. Установите его.</string>
     <string name="morphe_crossfade_duration_10000ms">10 секунд</string>
     <string name="morphe_crossfade_duration_1000ms">1 секунда</string>
     <string name="morphe_crossfade_duration_11000ms">11 секунды</string>
@@ -38,7 +38,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC отключен</string>
     <string name="morphe_disable_quic_protocol_title">Отключить протокол QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Чтобы использовать эту функцию, измените \"Подмена видео потоков\" на Android Reel или TV</string>
+    <string name="morphe_force_original_audio_not_available">Для использования этой функции измените клиент в \"Подмене видеопотоков\" на любой, кроме Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
     <string name="morphe_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
     <string name="morphe_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
@@ -105,6 +105,10 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="morphe_sanitize_sharing_links_summary_off">Параметр отслеживания запросов не удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметр отслеживания запросов удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_title">Очищать ссылки для обмена</string>
+    <string name="morphe_settings_menu_copy_path">Скопировано: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Откройте экран стандартных настроек приложения один раз, чтобы заполнить список</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Скрыть элементы на экране настроек приложения, основываясь на их видимом имени</string>
+    <string name="morphe_settings_menu_filter_screen_title">Фильтр меню настроек</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
     <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Блокирует JavaScript-код плеера до определенной версии
 
@@ -225,7 +229,7 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="revanced_debug_spannable_summary">Включает охват в журнал отладки.</string>
     <string name="revanced_debug_spannable_title">Охват журнала</string>
     <string name="revanced_debug_summary">Выводит журнал отладки.</string>
-    <string name="revanced_debug_title">Ведение журнала отладки</string>
+    <string name="revanced_debug_title">Включить журналы отладки</string>
     <string name="revanced_default_app_settings_summary">Чтобы открыть ссылку на YouTube Music в RVX Music, включите \"Открывать поддерживаемые ссылки\" и включите поддерживаемые веб-адреса.</string>
     <string name="revanced_default_app_settings_title">Открыть настройки по умолчанию</string>
     <string name="revanced_disable_auto_audio_tracks_summary">"Отключает автоматические звуковые дорожки для подкастов.
@@ -326,6 +330,8 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="revanced_hide_action_button_add_to_playlist_title">Скрыть кнопку \"Добавить в плейлист\"</string>
     <string name="revanced_hide_action_button_comment_summary">Скрывает кнопку \"Комментарии\".</string>
     <string name="revanced_hide_action_button_comment_title">Скрыть кнопку \"Комментарии\"</string>
+    <string name="revanced_hide_action_button_details_summary">Скрывает кнопку Детали в Подкастах.</string>
+    <string name="revanced_hide_action_button_details_title">Скрыть кнопку Детали</string>
     <string name="revanced_hide_action_button_disabled_summary">Скрывает отключенные кнопки, например отключенную кнопку \"Комментарии\".</string>
     <string name="revanced_hide_action_button_disabled_title">Скрыть кнопку отключения</string>
     <string name="revanced_hide_action_button_download_summary">Скрывает кнопку \"Скачать\".</string>
@@ -438,19 +444,6 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="revanced_hide_samples_shelf_title">Скрыть полку \"Семплы\"</string>
     <string name="revanced_hide_search_button_summary">Скрывает кнопку поиска на панели инструментов.</string>
     <string name="revanced_hide_search_button_title">Скрыть кнопку поиска</string>
-    <string name="revanced_hide_settings_menu_about_title">Скрыть \"О YouTube Music\"</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Скрыть \"Экономия трафика\"</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Скрыть \"Скачивание и хранение\"</string>
-    <string name="revanced_hide_settings_menu_general_title">Скрыть \"Общие\"</string>
-    <string name="revanced_hide_settings_menu_notification_title">Скрыть \"Уведомления\"</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">Скрыть \"Оформить подписку Music Premium\"</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Скрыть \"Семейный центр\"</string>
-    <string name="revanced_hide_settings_menu_playback_title">Скрыть \"Воспроизведение\"</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">Скрыть \"Конфиденциальность и данные\"</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">Скрыть \"Рекомендации\"</string>
-    <string name="revanced_hide_settings_menu_summary">"Скрывает элементы меню настроек.
-При этом скрывается не только меню настроек YT Music, но и меню настроек ReVanced Extended."</string>
-    <string name="revanced_hide_settings_menu_title">Скрыть меню настроек</string>
     <string name="revanced_hide_song_video_toggle_summary">Скрывает переключатель \"песня | видео\" в плеере.</string>
     <string name="revanced_hide_song_video_toggle_title">Скрыть переключатель \"песня | видео\"</string>
     <string name="revanced_hide_sound_search_button_summary">Скрывает кнопку поиска звука в строке поиска.</string>
@@ -558,23 +551,25 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдите в раздел &lt;a href=%1$s&gt;Создать New Project&lt;/a&gt;.&lt;br&gt;2. Нажмите кнопку &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Перейдите в &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Нажмите кнопку &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Нажмите кнопку &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Выберите &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Нажмите кнопку &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Скопируйте ключ API. &lt;br&gt;&lt;br&gt;※ Ключ API нельзя предоставлять другим, поэтому он не включен в Импорт/Экспорт настроек.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Создание ключа разработчика YouTube Data API v3</string>
     <string name="revanced_ryd_about">Об интеграции</string>
-    <string name="revanced_ryd_attribution_summary">Данные предоставлены Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше.</string>
+    <string name="revanced_ryd_attribution_summary">"Данные предоставляются API Return YouTube Dislike
+
+Нажмите здесь, чтобы открыть ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Скрывает линию после кнопки \"Нравится\".</string>
-    <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Нравится\"</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Вместо числа отметок \"Не нравится\", они отображаются как процент.</string>
-    <string name="revanced_ryd_dislike_percentage_title">Кол-во отметок \"Не нравится\" в процентах</string>
+    <string name="revanced_ryd_compact_layout_summary">Уменьшает ширину кнопки «Нравится», чтобы сэкономить место</string>
+    <string name="revanced_ryd_compact_layout_title">Использовать компактную кнопку «Нравится»</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Отображает дизлайки в процентах от лайков вместо количества</string>
+    <string name="revanced_ryd_dislike_percentage_title">Показывать дизлайки в процентах</string>
     <string name="revanced_ryd_enabled_summary">Отображает количество отметок \"Не нравится\" в видео.</string>
-    <string name="revanced_ryd_enabled_title">Включить Вернуть YouTube Dislike</string>
-    <string name="revanced_ryd_estimated_like_summary">Показывает примерное количество лайков видео.</string>
-    <string name="revanced_ryd_estimated_like_title">Показать приблизительное количество лайков</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
-    <string name="revanced_ryd_failure_connection_status_code">Отметки \"Не нравится\" недоступны (состояние %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">Отметки \"Не нравится\" недоступны (время API истекло).</string>
-    <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда API Return YouTube Dislike недоступен.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Уведомлять, когда API недоступен</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
+    <string name="revanced_ryd_enabled_title">Включить Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary">Показывает приблизительное количество лайков на видео, где автор отключил лайки</string>
+    <string name="revanced_ryd_estimated_like_title">Показать примерное количество лайков</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступны (лимит клиентов API)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступны (статус %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Дизлайки временно недоступны (таймаут API)</string>
+    <string name="revanced_ryd_failure_generic">Дизлайки недоступны (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Показывает уведомление, когда сервер Return YouTube Dislike недоступен</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показывать уведомления об ошибках подключения</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто владельцем</string>
     <string name="revanced_sb_about">Об интеграции</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Данные предоставлены SponsorBlock API. Нажмите здесь, чтобы узнать больше и увидеть опцию загрузки для других платформ.</string>
@@ -643,26 +638,26 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="revanced_settings_import_export_summary">Импорт / Экспорт настроек RVX Музыки.</string>
     <string name="revanced_settings_import_export_title">Импорт / Экспорт настроек</string>
     <string name="revanced_settings_import_failed">Не удалось импортировать: %s.</string>
-    <string name="revanced_settings_import_reset">Настройки сброшены до начальных.</string>
-    <string name="revanced_settings_import_success">Импортировано %d настроек.</string>
+    <string name="revanced_settings_import_reset">Настройки Morphe восстановлены до значений по умолчанию</string>
+    <string name="revanced_settings_import_success">Импортировано %d настроек</string>
     <string name="revanced_settings_reset">Сбросить</string>
     <string name="revanced_settings_reset_color">Сбросить цвет</string>
     <string name="revanced_settings_search_clear_history">Очистить историю поиска</string>
-    <string name="revanced_settings_search_clear_history_message">Очистить всю историю поиска?</string>
-    <string name="revanced_settings_search_empty_history_summary">Для сохранения истории поиска, введите поисковый запрос и нажмите Ввод.</string>
-    <string name="revanced_settings_search_empty_history_title">Нет истории поиска</string>
+    <string name="revanced_settings_search_clear_history_message">Вы уверены, что хотите очистить всю историю поиска?</string>
+    <string name="revanced_settings_search_empty_history_summary">Для сохранения истории поиска введите поисковый запрос и нажмите Enter</string>
+    <string name="revanced_settings_search_empty_history_title">История поиска пуста</string>
     <string name="revanced_settings_search_history_summary_off">История поиска настроек скрыта.</string>
     <string name="revanced_settings_search_history_summary_on">История поиска настроек отображена.</string>
     <string name="revanced_settings_search_history_title">Показать историю поиска настроек</string>
-    <string name="revanced_settings_search_no_results_summary">Попробуйте другое ключевое слово.</string>
-    <string name="revanced_settings_search_no_results_title">\'%s\' Не найдено.</string>
-    <string name="revanced_settings_search_recent_searches">Недавние запросы</string>
+    <string name="revanced_settings_search_no_results_summary">Попробуйте другое ключевое слово</string>
+    <string name="revanced_settings_search_no_results_title">По запросу \"%s\" ничего не найдено</string>
+    <string name="revanced_settings_search_recent_searches">Недавние поиски</string>
     <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
-    <string name="revanced_settings_search_tips_summary">"• Нажмите на путь, чтобы перейти к нему.
-• Длительное нажатие для перехода к настройкам.
-• Нажмите \"Ввод\", для сохранения запросов поиска.
-• Поиск игнорирует регистр и пунктуацию.
-• Родительские настройки приоритетнее настроек ребенка."</string>
+    <string name="revanced_settings_search_tips_summary">"• Нажмите на путь, чтобы перейти к нему
+• Длительно нажмите на настройку, чтобы перейти к ней
+• Нажмите Enter, чтобы сохранить поисковый запрос в историю
+• Поиск игнорирует регистр и знаки препинания
+• Родительские настройки отображаются над отключенными дочерними настройками"</string>
     <string name="revanced_settings_search_tips_title">Советы по поиску</string>
     <string name="revanced_settings_search_title">Поиск %s</string>
     <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер.</string>

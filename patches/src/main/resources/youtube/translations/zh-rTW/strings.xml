@@ -4,22 +4,22 @@
     <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，你的控制選項已被修改。</string>
     <string name="gms_core_dialog_continue_text">繼續</string>
     <string name="gms_core_dialog_dismiss_text">不再顯示</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore 沒有背景執行權限。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 未獲得在後台執行的許可權。
 
-請照著“不要殺死我的應用程式！”指南，並將說明應用於您的 GmsCore 安裝。
+請依照適用於您手機版本的「Do Not Kill My App」指南，並將其中指示應用於 MicroG 的安裝目錄。
 
-這是應用程式執行所必要的前置應用程式。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必須停用 GmsCore 電池最佳化才能避免問題。
+這項設定對於應用程式正常運作為必要條件。"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必須停用 MicroG 的電池最佳化設定，以避免後續的問題發生。
 
-停用 GmsCore 的電池最佳化不會對電池使用產生負面影響。
+停用 MicroG 的電池最佳化並不會增加電池使用量，對使用情況亦無負面影響。
 
-點擊繼續按鈕並允許優化更改。"</string>
+點擊繼續按鈕以允許調整相關最佳化設定。"</string>
     <string name="gms_core_dialog_open_website_text">開啟網站</string>
     <string name="gms_core_dialog_title">需要採取行動</string>
     <string name="gms_core_offline_account_login_error">如果您最近更改了您的帳戶登入詳細信息，請卸載並重新安裝 GmsCore。</string>
     <string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore 未安裝。請安裝。</string>
+    <string name="gms_core_toast_not_installed_message">MicroG 尚未安裝。請安裝它。</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">在捲動時，保持導覽列可見</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">停用自動隱藏導航欄</string>
     <string name="morphe_disable_drc_audio_summary_off">已啟用 DRC 音效</string>
@@ -28,11 +28,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">已啟用 QUIC 協定</string>
     <string name="morphe_disable_quic_protocol_summary_on">已停用 QUIC 協定</string>
     <string name="morphe_disable_quic_protocol_title">停用 QUIC 協定</string>
-    <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Reel 或 TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"「擴展直播錄製時長」可能無法使用
+
+如要修正此問題，請開啟「偽裝影片串流」並將「預設用戶端」變更為「電視」"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">可讓您將即時廣播倒退最多 7 天</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">擴展直播 DVR 錄製時長</string>
+    <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 以外的任何用戶端</string>
     <string name="morphe_force_original_audio_summary_off">使用預設音訊</string>
     <string name="morphe_force_original_audio_summary_on">正在使用原始音訊語言</string>
     <string name="morphe_force_original_audio_title">強制使用原始音訊語言</string>
     <string name="morphe_hide_sync_button_title">隱藏「同步到影片」按鈕</string>
+    <string name="morphe_livestream_dvr_not_available">"「啟用直播錄製」可能無法使用
+
+如要修正此問題，請開啟「偽裝影片串流」並將「預設用戶端」變更為「電視」"</string>
+    <string name="morphe_livestream_dvr_summary">允許在所有直播上尋找，即使那些通常限制此功能的直播也能尋找</string>
+    <string name="morphe_livestream_dvr_title">啟用直播 DVR</string>
     <string name="morphe_oauth2_connection_failure_auth_error">無法登入 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">無法登入 VR，網站驗證未獲批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暫時不可用</string>
@@ -52,7 +62,9 @@
     <string name="morphe_sanitize_sharing_links_summary_off">未從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_summary_on">已從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_title">清理分享連結</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• 實驗性用戶端，隨時可能停止運作</string>
+    <string name="morphe_settings_menu_filter_picker_empty">開啟標準應用程式設定畫面一次以填入清單</string>
+    <string name="morphe_settings_menu_filter_screen_summary">依可見名稱隱藏標準應用程式設定畫面上項目</string>
+    <string name="morphe_settings_menu_filter_screen_title">設定選單篩選器</string>
     <string name="morphe_spoof_video_streams_about_js">• 如果解密失敗，播放可能會失敗</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• 音軌選單遺失</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
@@ -304,13 +316,13 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_debug_export_logs_to_file_title">匯出偵錯紀錄</string>
     <string name="revanced_debug_logs_clear_buffer_summary">清除所有儲存的 ReVanced 偵錯記錄</string>
     <string name="revanced_debug_logs_clear_buffer_title">清除偵錯記錄</string>
-    <string name="revanced_debug_logs_clear_toast">記錄已清除</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">記錄已複製</string>
-    <string name="revanced_debug_logs_disabled">偵錯記錄已停用</string>
+    <string name="revanced_debug_logs_clear_toast">Debug 記錄已清除</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Debug 記錄已複製</string>
+    <string name="revanced_debug_logs_disabled">已停用偵錯記錄</string>
     <string name="revanced_debug_logs_export_success">紀錄已成功匯出。</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">日誌太大，無法複製。</string>
-    <string name="revanced_debug_logs_failed_to_export">匯出記錄失敗：%s</string>
-    <string name="revanced_debug_logs_none_found">找不到記錄</string>
+    <string name="revanced_debug_logs_failed_to_export">匯出 Debug 記錄失敗：%s</string>
+    <string name="revanced_debug_logs_none_found">未找到 Debug 記錄</string>
     <string name="revanced_debug_protobuffer_summary_off">除錯記錄檔不會包含協定緩衝資訊</string>
     <string name="revanced_debug_protobuffer_summary_on">除錯記錄檔會包含協定緩衝資訊</string>
     <string name="revanced_debug_protobuffer_title">偵錯日誌協定緩衝區</string>
@@ -319,10 +331,10 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_debug_spannable_title">紀錄可擴充文字</string>
     <string name="revanced_debug_summary_off">已停用偵錯記錄檔</string>
     <string name="revanced_debug_summary_on">已啟用偵錯記錄檔</string>
-    <string name="revanced_debug_title">偵錯記錄</string>
+    <string name="revanced_debug_title">啟用偵錯記錄</string>
     <string name="revanced_debug_toast_on_error_summary_off">如果發生錯誤，則不會顯示提示訊息</string>
     <string name="revanced_debug_toast_on_error_summary_on">如果發生錯誤，則顯示提示訊息</string>
-    <string name="revanced_debug_toast_on_error_title">在 ReVanced 發生錯誤時顯示提示訊息</string>
+    <string name="revanced_debug_toast_on_error_title">在 Morphe 發生錯誤時顯示浮動式訊息</string>
     <string name="revanced_default_app_settings_summary">若要以外部瀏覽器開啟 RVX，請在設定開啟「開啟支援連結」並啟用支援的網址。</string>
     <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
     <string name="revanced_default_playback_speed_shorts_title">短影音的預設播放速度</string>
@@ -1210,71 +1222,6 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_server_side_snack_bar_summary_off">伺服器端短暫通知已顯示。</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">伺服器端短暫通知已隱藏。</string>
     <string name="revanced_hide_server_side_snack_bar_title">隱藏伺服器端短暫通知</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">關於選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">關於選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_about_title">隱藏關於選單</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">輔助使用功能選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">輔助使用選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">隱藏輔助使用選單</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">帳戶選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">帳戶選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_account_title">隱藏帳戶選單</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">顯示自動播放或播放選單。</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">自動播放或播放選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">隱藏自動播放或播放選單</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">帳單和付款選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">帳單和付款選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">隱藏帳單和付款選單</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">字幕選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">字幕選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_captions_title">隱藏字幕選單</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">已連接的應用程式選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">已連接的應用程式選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">隱藏已連接的應用程式選單</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">資料保存選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">資料保存選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">隱藏資料保存選單</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">一般選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">一般選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_general_title">隱藏一般選單</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">管理所有歷史選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">管理所有歷史選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_history_title">隱藏管理所有歷史選單</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">即時聊天選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">即時聊天選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">隱藏即時聊天選單</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">通知選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">通知選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_notification_title">隱藏通知選單</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">背景選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">背景選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_offline_title">隱藏背景選單</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">在電視上觀看選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">在電視上觀看選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">隱藏在電視上觀看選單</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">家庭中心選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">家庭中心選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">隱藏家庭中心選單</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">嘗試實驗性新功能選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">嘗試實驗性新功能選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">隱藏嘗試實驗性新功能選單</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">隱私選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">隱私選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_privacy_title">隱藏隱私選單</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">購買和會員選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">購買和會員選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">隱藏購買和會員選單</string>
-    <string name="revanced_hide_settings_menu_summary">隱藏 YouTube 設定選單中的元素</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_off">已顯示時間管理選單</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_on">已隱藏時間管理選單</string>
-    <string name="revanced_hide_settings_menu_time_management_title">隱藏時間管理選單</string>
-    <string name="revanced_hide_settings_menu_title">YouTube 設定選單</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">影片畫質選項選單已顯示。</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">影片畫質選項選單已隱藏。</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">隱藏影片畫質選項選單</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">YouTube 選單中您的資料已顯示。</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">您在 YouTube 選單中的資料已隱藏。</string>
-    <string name="revanced_hide_settings_menu_your_data_title">在 YouTube 選單中隱藏您的資料</string>
     <string name="revanced_hide_share_button_summary_off">已顯示「分享」按鈕</string>
     <string name="revanced_hide_share_button_summary_on">已隱藏「分享」按鈕</string>
     <string name="revanced_hide_share_button_title">隱藏「分享」按鈕</string>
@@ -1627,7 +1574,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_language_UR">烏爾都語\n<small>اردو</small></string>
     <string name="revanced_language_VI">越南語\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">中文\n<small>中文</small></string>
-    <string name="revanced_language_title">ReVanced 語言</string>
+    <string name="revanced_language_title">Morphe 語言</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">使用水平拖曳暫停播放</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">記住拖曳狀態位置</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">已停用輕觸兩下動作和雙指撥動調整大小</string>
@@ -2026,7 +1973,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_ryd_compact_layout_title">使用精簡的「讚」按鈕</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">以數字顯示不喜歡人數</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">以百分比顯示不喜歡人數</string>
-    <string name="revanced_ryd_dislike_percentage_title">以百分比顯示不喜歡數</string>
+    <string name="revanced_ryd_dislike_percentage_title">以百分比顯示不喜歡人數</string>
     <string name="revanced_ryd_enable_summary_off">不喜歡數已隱藏。</string>
     <string name="revanced_ryd_enable_summary_on">不喜歡數已顯示。</string>
     <string name="revanced_ryd_enable_title">啟用恢復 YouTube 不喜歡功能</string>
@@ -2314,7 +2261,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_settings_import_export_as_text_summary">使用文字匯入 / 匯出設定</string>
     <string name="revanced_settings_import_export_as_text_title">以文字形式匯入/匯出</string>
     <string name="revanced_settings_import_failed">匯入設定失敗。</string>
-    <string name="revanced_settings_import_reset">將 ReVanced 設定重設為預設值</string>
+    <string name="revanced_settings_import_reset">將 Morphe 設定重設為預設值</string>
     <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
     <string name="revanced_settings_import_summary">從已儲存的檔案匯入設定。</string>
     <string name="revanced_settings_import_title">匯入設定</string>

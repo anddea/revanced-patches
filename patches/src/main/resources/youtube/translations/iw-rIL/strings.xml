@@ -6,20 +6,20 @@
     <string name="gms_core_dialog_dismiss_text">אל תראה שוב</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ל-MicroG GmsCore אין הרשאה לרוץ ברקע.
 
-עקוב אחר המדריך \"Don't kill my app\" עבור הטלפון שלך, והחל את ההוראות על התקנת ה-MicroG שלך.
+עקוב אחר המדריך \"Don't kill my app\" עבור הטלפון שלך, והפעיל את ההוראות על התקנת ה-MicroG שלך.
 
-זה נדרש כדי שהיישום יעבוד."</string>
+היא נדרשת כדי שהיישום יעבוד."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"מיטובי הסוללה של MicroG GmsCore חייבים להיות מושבתים כדי למנוע בעיות.
 
 השבתת מיטובי הסוללה עבור MicroG לא תשפיע לרעה על השימוש בסוללה.
 
-הקש על הלחצן 'המשך' ואפשר שינויי מיטוב."</string>
+תMouseEvent על הלחצן 'המשך' ואפשר שינויי מיטוב."</string>
     <string name="gms_core_dialog_open_website_text">פתח אתר</string>
     <string name="gms_core_dialog_title">דרושה פעולה</string>
     <string name="gms_core_offline_account_login_error">אם שינית לאחרונה את פרטי ההתחברות לחשבון שלך, הסר את התקנת GmsCore והתקן אותה מחדש.</string>
     <string name="gms_core_settings_summary">כדי לקבל התראות ב-RVX, הפעל את Cloud Messaging.</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">היישום MicroG GmsCore אינו מותקן. התקן אותו.</string>
+    <string name="gms_core_toast_not_installed_message">דו׮י טבמ עורמ מדמ. רוריתמ.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">שומר את סרגל הניווט גלוי בזמן גלילה</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">השבת הסתרת אוטומטית של סרגל הניווט</string>
     <string name="morphe_disable_drc_audio_summary_off">אודיו DRC מופעל</string>
@@ -28,11 +28,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">פרוטוקול QUIC פעיל</string>
     <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
     <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
-    <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה \'זיוף זרמי וידאו\' ל-Android Reel או TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'הרחבת משך הקלטת שידור חי' ייתכן ולא תהיה זמינה
+
+כדי לתקן זאת, הפעל את 'זיוף זרמי וידאו' ושנה את 'הלקוח המוגדר כברירת מחדל' ל'טלוויזיה'"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">מאפשר לך להריץ לאחור שידורים חיים עד 7 ימים אחורה</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">הרחב את משך ה-DVR בשידור חי</string>
+    <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
     <string name="morphe_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
     <string name="morphe_force_original_audio_title">כפה שפת שמע מקורית</string>
     <string name="morphe_hide_sync_button_title">הסתר כפתור \'סנכרן לסרטון\'</string>
+    <string name="morphe_livestream_dvr_not_available">"'הפעלת הקלטת שידור חי' ייתכן ולא תהיה זמינה
+
+כדי לתקן זאת, הפעל את 'זיוף זרמי וידאו' ושנה את 'הלקוח המוגדר כברירת מחדל' ל'טלוויזיה'"</string>
+    <string name="morphe_livestream_dvr_summary">מאפשר חיפוש בכל הזרמות החיות, גם באלו שמגבילות זאת בדרך כלל</string>
+    <string name="morphe_livestream_dvr_title">הפעל DVR לשידור חי</string>
     <string name="morphe_oauth2_connection_failure_auth_error">לא ניתן להתחבר ל-VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">לא ניתן להתחבר ל-VR, אישור אימות אתר לא אושר</string>
     <string name="morphe_oauth2_connection_failure_generic">Очнення временно недоступен</string>
@@ -52,7 +62,9 @@
     <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
+    <string name="morphe_settings_menu_filter_picker_empty">פתח את מסך ההגדרות הסטנדרטי של האפליקציה פעם אחת כדי לאכלס את הרשימה</string>
+    <string name="morphe_settings_menu_filter_screen_summary">הסתר פריטים ממסך ההגדרות הסטנדרטי של האפליקציה לפי השם הגלוי שלהם</string>
+    <string name="morphe_settings_menu_filter_screen_title">מסנן תפריט הגדרות</string>
     <string name="morphe_spoof_video_streams_about_js">• אם הדהוד נכשל, ייתכן שהפלייבק יהיה כושל</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• תפריט ערוץ השמע חסר</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
@@ -267,20 +279,20 @@
     <string name="revanced_debug_export_logs_to_clipboard_title">ייצוא יומני איתור באגים</string>
     <string name="revanced_debug_logs_clear_buffer_summary">מנקה את כל היומנים לאיתור באגים של Revanced המאוחסנים</string>
     <string name="revanced_debug_logs_clear_buffer_title">נקה יומני איתור באגים</string>
-    <string name="revanced_debug_logs_clear_toast">היומנים נוקו</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">היומנים הועתקו</string>
+    <string name="revanced_debug_logs_clear_toast">יומני איתור באגים נוקו</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">יומני איתור באגים הועתקו</string>
     <string name="revanced_debug_logs_disabled">תיעוד איתור באגים מושבת</string>
-    <string name="revanced_debug_logs_failed_to_export">נכשל לייצא יומנים: %s</string>
-    <string name="revanced_debug_logs_none_found">לא נמצאו יומנים</string>
+    <string name="revanced_debug_logs_failed_to_export">נכשל לייצא יומני איתור באגים: %s</string>
+    <string name="revanced_debug_logs_none_found">לא נמצאו יומני איתור באגים</string>
     <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include protocol buffers</string>
     <string name="revanced_debug_protobuffer_summary_on">Debug logs include protocol buffers</string>
     <string name="revanced_debug_protobuffer_title">רשום פרוטוקול חוצץ</string>
     <string name="revanced_debug_summary_off">יומני איתור באגים מושבתים</string>
     <string name="revanced_debug_summary_on">יומני איתור באגים מופעלים</string>
-    <string name="revanced_debug_title">רישום איתור באגים</string>
+    <string name="revanced_debug_title">אפשר הודעות דיבאג</string>
     <string name="revanced_debug_toast_on_error_summary_off">הודעה קופצת אינה מוצגת אם מתרחשת שגיאה</string>
     <string name="revanced_debug_toast_on_error_summary_on">הודעה קופצת מוצגת אם מתרחשת שגיאה</string>
-    <string name="revanced_debug_toast_on_error_title">הצג הודעה קופצת בעת שגיאת ReVanced</string>
+    <string name="revanced_debug_toast_on_error_title">הצג הודעה קופצת בעת שגיאת Morphe</string>
     <string name="revanced_disable_ambient_mode_summary_off">תאורת אווירה מופעלת</string>
     <string name="revanced_disable_ambient_mode_summary_on">תאורת אווירה מושבתת</string>
     <string name="revanced_disable_ambient_mode_title">הסתר תאורת אווירה</string>
@@ -730,7 +742,7 @@
     <string name="revanced_hide_youtube_doodles_title">הסתר YouTube Doodles</string>
     <string name="revanced_hide_youtube_doodles_user_dialog_message">הצגת סרטוני Doodle של YouTube עלולה למנוע את הצגת הכותרות המותאמות אישית.</string>
     <string name="revanced_language_DEFAULT">שפת היישום</string>
-    <string name="revanced_language_title">שפת ReVanced</string>
+    <string name="revanced_language_title">שפת Morphe</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">השהה השמעה באמצעות גרירה אופקית</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">זכור את מצב הגרירה</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">פעולת הקשה כפולה וצביטה לשינוי גודל מושבתת</string>
@@ -838,15 +850,15 @@
 
 מגבלה: חוזר לסגנון ישן של 'עוד סרטונים'."</string>
     <string name="revanced_restore_old_video_action_bar_title">שחזור סרגל פעולות וידאו ישן</string>
-    <string name="revanced_ryd_attribution_summary">"הנתונים מסופקים על ידי ה-API של Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"הנתונים מסופקים על ידי ה-Return YouTube Dislike API
 
-הקישו כאן כדי לפתוח את ReturnYouTubeDislike.com"</string>
+הקש כאן כדי לפתוח את ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_compact_layout_summary_off">לחצן אהבתי מעוצב למראה הטוב ביותר</string>
     <string name="revanced_ryd_compact_layout_summary_on">לחצן אהבתי מעוצב לרוחב מינימלי</string>
-    <string name="revanced_ryd_compact_layout_title">השתמש בלחצן לייק קומפקטי</string>
+    <string name="revanced_ryd_compact_layout_title">השתמש בכפתור לייק קומפקטי</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">דיסלייקים מוצגים כמספר</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">דיסלייקים מוצגים כאחוזים</string>
-    <string name="revanced_ryd_dislike_percentage_title">הצג דיסלייקים כאחוז</string>
+    <string name="revanced_ryd_dislike_percentage_title">הצג דיסלייקים כאחוזים</string>
     <string name="revanced_ryd_estimated_like_summary_off">סימוני \'אהבתי\' משוערים אינם מוצגים</string>
     <string name="revanced_ryd_estimated_like_summary_on">סרטונים עם סימני לייק מושבתים מציגים ספירת לייקים משוערת</string>
     <string name="revanced_ryd_estimated_like_title">הצג סימוני \'אהבתי\' משוערים</string>
@@ -1078,7 +1090,7 @@
     <string name="revanced_settings_disable_bold_icons_title">בטל סמלים מודגשים</string>
     <string name="revanced_settings_import">ייבוא</string>
     <string name="revanced_settings_import_copy">העתק</string>
-    <string name="revanced_settings_import_reset">הגדרות ReVanced אופסו לברירת מחדל</string>
+    <string name="revanced_settings_import_reset">הגדרות Morphe אופסו לברירת מחדל</string>
     <string name="revanced_settings_import_success">%d הגדרות יובאו</string>
     <string name="revanced_settings_reset">איפוס</string>
     <string name="revanced_settings_reset_color">אפס צבע</string>

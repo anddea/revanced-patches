@@ -4,11 +4,11 @@
     <string name="accessibility_settings_edu_opt_out_text">Керування змінено, оскільки служба спеціальних можливостей увімкнена.</string>
     <string name="gms_core_dialog_continue_text">Продовжити</string>
     <string name="gms_core_dialog_dismiss_text">Не показувати знову</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore не має дозволу на роботу в фоновому режимі.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG не має дозволу на роботу у фоновому режимі.
 
-Дотримуйтесь інструкцій з посібника \"Don't kill my app\" для Вашого телефону та застосуйте їх до своєї інсталяції MicroG.
+Дотримуйтеся посібника \"Don't kill my app\" для вашого пристрою та застосуйте інструкції до вашого MicroG.
 
-Це необхідно для роботи програми."</string>
+Це необхідно для роботи застосунку."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Необхідно вимкнути оптимізацію енергії для MicroG GmsCore, щоб запобігти проблемам.
 
 Вимкнення оптимізації енергії для MicroG не вплине негативно на час автономної роботи.
@@ -19,7 +19,7 @@
     <string name="gms_core_offline_account_login_error">Якщо нещодавно змінили дані входу в обліковий запис, тоді перевстановіть GmsCore.</string>
     <string name="gms_core_settings_summary">Щоб отримувати сповіщення у RVX, увімкніть Хмарні повідомлення.</string>
     <string name="gms_core_settings_title">Відкрити налаштування GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">MicroG GmsCore не встановлено. Встановіть його.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG не встановлено. Встановіть його.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Залишає панель навігації видимою під час прокручування</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Вимкнути автоприховування панелі навігації</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудіо DRC увімкнено</string>
@@ -28,11 +28,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC увімкнено</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC вимкнено</string>
     <string name="morphe_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
-    <string name="morphe_force_original_audio_not_available">Щоб використати цю функцію, змініть \"Підміна відео потоків\" на Android Reel або TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"\"Розширити тривалість DVR прямої трансляції\" може бути недоступним.
+
+Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV\""</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">Дозволяє перемотувати прямі трансляції до 7 днів у минуле</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">Розширити тривалість DVR прямої трансляції</string>
+    <string name="morphe_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підміни відеопотоків\" на будь-який, окрім \"Android Studio\"</string>
     <string name="morphe_force_original_audio_summary_off">Використовується звукова доріжка за замовчуванням</string>
     <string name="morphe_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
     <string name="morphe_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
     <string name="morphe_hide_sync_button_title">Приховати кнопку \"Синхронізувати з відео\"</string>
+    <string name="morphe_livestream_dvr_not_available">"\"Увімкнути DVR для прямої трансляції\" може бути недоступним.
+
+Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV\""</string>
+    <string name="morphe_livestream_dvr_summary">Дозволяє перемотування у всіх прямих трансляціях, навіть тих, що зазвичай його обмежують</string>
+    <string name="morphe_livestream_dvr_title">Увімкнути DVR для прямої трансляції</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не вдається ввійти до VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не вдається ввійти у VR, автентифікацію вебсайту не схвалено</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 тимчасово недоступний</string>
@@ -52,7 +62,10 @@
     <string name="morphe_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_title">Очищувати посилання для поширення</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити працювати будь-якої миті</string>
+    <string name="morphe_settings_menu_copy_path">Скопійовано: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Відкрийте екран стандартних налаштувань застосунку один раз, щоб заповнити список</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Приховати елементи на екрані стандартних налаштувань застосунку за їхньою видимою назвою</string>
+    <string name="morphe_settings_menu_filter_screen_title">Фільтр меню налаштувань</string>
     <string name="morphe_spoof_video_streams_about_js">• Якщо деобфускація не вдається, відтворення може завершитися невдачею</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Пункт меню \"Звукова доріжка\" відсутній</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Відеокодек AV1 відсутній</string>
@@ -302,13 +315,13 @@
     <string name="revanced_debug_export_logs_to_file_title">Експортувати журнали налагодження</string>
     <string name="revanced_debug_logs_clear_buffer_summary">Очищує всі збережені журнали налагодження ReVanced</string>
     <string name="revanced_debug_logs_clear_buffer_title">Очистити журнали налагодження</string>
-    <string name="revanced_debug_logs_clear_toast">Журнали очищено</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">Журнали скопійовано</string>
+    <string name="revanced_debug_logs_clear_toast">Журнали налагодження очищено</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Журнали налагодження скопійовано</string>
     <string name="revanced_debug_logs_disabled">Журнали налагодження вимкнено</string>
     <string name="revanced_debug_logs_export_success">Журнали успішно експортовано.</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Логи завеликі для копіювання.</string>
-    <string name="revanced_debug_logs_failed_to_export">Не вдалося експортувати журнали: %s</string>
-    <string name="revanced_debug_logs_none_found">Журнали не знайдено</string>
+    <string name="revanced_debug_logs_failed_to_export">Не вдалося експортувати журнали налагодження: %s</string>
+    <string name="revanced_debug_logs_none_found">Журнали налагодження не знайдено</string>
     <string name="revanced_debug_protobuffer_summary_off">Журнали налагодження не містять буферів протоколу</string>
     <string name="revanced_debug_protobuffer_summary_on">Журнали налагодження містять буфери протоколів</string>
     <string name="revanced_debug_protobuffer_title">Налагоджувальний журнал протоколу буфера</string>
@@ -317,10 +330,10 @@
     <string name="revanced_debug_spannable_title">Журнал проміжних</string>
     <string name="revanced_debug_summary_off">Журнали налагодження вимкнено</string>
     <string name="revanced_debug_summary_on">Журнали налагодження ввімкнено</string>
-    <string name="revanced_debug_title">Журнал налагодження</string>
+    <string name="revanced_debug_title">Увімкнути журнал налагодження</string>
     <string name="revanced_debug_toast_on_error_summary_off">Тост не показується, якщо сталася помилка</string>
     <string name="revanced_debug_toast_on_error_summary_on">Тост показується, якщо сталася помилка</string>
-    <string name="revanced_debug_toast_on_error_title">Показувати тост при помилці ReVanced</string>
+    <string name="revanced_debug_toast_on_error_title">Показати повідомлення про помилку Morphe</string>
     <string name="revanced_default_app_settings_summary">Щоб відкривати додаток у зовнішньому перегляді, увімкніть Відкривати всі підтримувані посилання та підтримувані вебадреси.</string>
     <string name="revanced_default_app_settings_title">Відкрити налаштування</string>
     <string name="revanced_default_playback_speed_shorts_title">Типова швидкість відтворення Shorts</string>
@@ -1227,71 +1240,6 @@
     <string name="revanced_hide_server_side_snack_bar_summary_off">Серверну панель взаємодії показується.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">Серверну панель взаємодії приховано.</string>
     <string name="revanced_hide_server_side_snack_bar_title">Приховати серверну панель взаємодії</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">Меню Про додаток показується.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">Меню Про додаток приховано.</string>
-    <string name="revanced_hide_settings_menu_about_title">Приховати меню Про додаток</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">Меню Доступність показується.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">Меню Доступність приховано.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">Приховати меню Доступність</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">Меню Акаунт показується.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">Меню Акаунт приховано.</string>
-    <string name="revanced_hide_settings_menu_account_title">Приховати меню Акаунт</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">Меню Автовідтворення чи Відтворення показується.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">Меню Автовідтворення чи Відтворення приховано.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Приховати меню Автовідтворення чи Відтворення</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Меню Платежі показується.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Меню Платежі приховано.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">Приховати меню Платежі</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">Меню Субтитри показується.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">Меню Субтитри приховано.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Приховати меню Субтитри</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Меню Підключені додатки показується.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Меню Підключені додатки приховано.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">Приховати меню Підключені додатки</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">Меню Заощадження трафіку показується.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">Меню Заощадження трафіку приховано.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Приховати меню Заощадження трафіку</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">Меню Загальні показується.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">Меню Загальні приховано.</string>
-    <string name="revanced_hide_settings_menu_general_title">Приховати меню Загальні</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">Меню Керувати всією історією пошуків показується.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">Меню Керувати всією історією пошуків приховано.</string>
-    <string name="revanced_hide_settings_menu_history_title">Приховати меню Керувати всією історією пошуків</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">Меню Чат показується.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">Меню Чат приховано.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">Приховати меню Чат</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">Меню Сповіщення показується.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">Меню Сповіщення приховано.</string>
-    <string name="revanced_hide_settings_menu_notification_title">Приховати меню Сповіщення</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">Меню Фоновий і офлайн-режим показується.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">Меню Фоновий і офлайн-режим приховано.</string>
-    <string name="revanced_hide_settings_menu_offline_title">Приховати меню Фоновий і офлайн-режим</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Меню Дивитись на телевізорі показується.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Меню Дивитись на телевізорі приховано.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Приховати меню Дивитись на телевізорі</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Меню Сімейний Центр показується.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Меню Сімейний Центр приховано.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Приховати меню Сімейний Центр</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Меню Спробуйте нові експериментальні функції показується.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Меню Спробуйте нові експериментальні функції приховано.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">Приховати меню Спробуйте нові експериментальні функції</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">Меню Конфіденційність показується.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">Меню Конфіденційність приховано.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">Приховати меню Конфіденційність</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Меню Покупки й платні підписки показується.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Меню Покупки й платні підписки приховано.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">Приховати меню Покупки й платні підписки</string>
-    <string name="revanced_hide_settings_menu_summary">Приховати елементи в меню налаштувань YouTube.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_off">Відображається меню керування часом.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_on">Меню тайм-менеджменту приховане.</string>
-    <string name="revanced_hide_settings_menu_time_management_title">Приховати меню управління часом</string>
-    <string name="revanced_hide_settings_menu_title">Приховати меню налаштувань YouTube</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">Меню Параметри якості відео показується.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">Меню Параметри якості відео приховано.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">Приховати меню Параметри якості відео</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">Меню Ваші дані на YouTube показується.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">Меню Ваші дані на YouTube приховано.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">Приховати меню Ваші дані на YouTube</string>
     <string name="revanced_hide_share_button_summary_off">Кнопка \"Поділитися\" показується</string>
     <string name="revanced_hide_share_button_summary_on">Кнопку \"Поділитися\" приховано</string>
     <string name="revanced_hide_share_button_title">Приховати кнопку \"Поділитися\"</string>
@@ -1645,7 +1593,7 @@
     <string name="revanced_language_UR">Урду\n<small>اردو</small></string>
     <string name="revanced_language_VI">В'єтнамська\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Китайська\n<small>中文</small></string>
-    <string name="revanced_language_title">Мова налаштувань ReVanced</string>
+    <string name="revanced_language_title">Мова налаштувань Morphe</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">Відтворення продовжується, коли мініплеєр перетягується за межі екрана.</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">Відтворення призупиниться, якщо перетягнути мініплеєр за межі екрана.</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Призупиняти відтворення при горизонтальному перетягуванні</string>
@@ -2358,7 +2306,7 @@
     <string name="revanced_settings_import_export_as_text_summary">Імпортувати / експортувати налаштування у вигляді тексту.</string>
     <string name="revanced_settings_import_export_as_text_title">Імпорт / Експорт як текст</string>
     <string name="revanced_settings_import_failed">Не вдалося імпортувати налаштування.</string>
-    <string name="revanced_settings_import_reset">Налаштування ReVanced скинуто до стандартних</string>
+    <string name="revanced_settings_import_reset">Налаштування Morphe скинуто до типових</string>
     <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
     <string name="revanced_settings_import_summary">Імпортувати налаштування зі збереженого файлу.</string>
     <string name="revanced_settings_import_title">Імпорт налаштувань</string>

@@ -4,22 +4,22 @@
     <string name="accessibility_settings_edu_opt_out_text">تم تعديل عناصر التحكم الخاصة بك لأن خدمة إمكانية الوصول قيد التشغيل.</string>
     <string name="gms_core_dialog_continue_text">متابعة</string>
     <string name="gms_core_dialog_dismiss_text">لا اريد مشاهدة هذا مجددا</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"لا يملك MicroG GmsCore صلاحية التشغيل في الخلفية.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"لا يملك MicroG صلاحية التشغيل في الخلفية.
 
-اتبع دليل \"لا تغلق تطبيقي\" لهاتفك، وطبّق التعليمات على تثبيت MicroG.
+اتبَع دليل \"Don't kill my app\" الخاص بجوالك، وطبّق التعليمات على تثبيت MicroG.
 
-هذا مطلوب لعمل التطبيق."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"يجب تعطيل تحسينات بطارية MicroG GmsCore لمنع حدوث مشكلات.
+هذا ضروري لعمل التطبيق."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">" تحسينات البطارية يجب تعطيلها لمنع المشكلات MicroG.
 
-لن يؤثر تعطيل تحسينات البطارية لـ MicroG سلبًا على استخدام البطارية.
+تعطيل تحسينات البطارية لـ MicroG لا يضغظ على استهلاك البطارية.
 
-انقر فوق زر الاستمرار واسمح بتغييرات التحسين."</string>
+ انقر على زر متابعة و اسمح بتغييرات التحسين."</string>
     <string name="gms_core_dialog_open_website_text">فتح الموقع</string>
     <string name="gms_core_dialog_title">الإجراء مطلوب</string>
     <string name="gms_core_offline_account_login_error">إذا قمت مؤخرًا بتغيير تفاصيل تسجيل الدخول إلى حسابك، فقم بإلغاء تثبيت GmsCore وإعادة تثبيته.</string>
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX، قم بتمكين المراسلة السحابية.</string>
     <string name="gms_core_settings_title">فتح إعدادات GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">لم يتم تثبيت MicroG GmsCore. قم بتثبيته.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG لم يتم تثبيته. قم بتثبيته.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">يبقي شريط التنقل ظاهرًا أثناء التمرير</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">تعطيل إخفاء شريط التنقل تلقائيًا</string>
     <string name="morphe_disable_drc_audio_summary_off">تم تمكين صوت DRC</string>
@@ -28,11 +28,21 @@
     <string name="morphe_disable_quic_protocol_summary_off">تم تمكين بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_summary_on">تم تعطيل بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
-    <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى Android Reel أو TV</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"قد لا يكون 'زيادة مدة رجوع البث المباشر' متاحًا
+
+لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV'"</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">يسمح لك بإعادة تشغيل البث المباشر لمدة تصل إلى 7 أيام مضت</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">زيادة مدة رجوع البث المباشر</string>
+    <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
     <string name="morphe_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
     <string name="morphe_force_original_audio_title">فرض لغة الصوت الأصلية</string>
     <string name="morphe_hide_sync_button_title">إخفاء زر \'مزامنة مع الفيديو\'</string>
+    <string name="morphe_livestream_dvr_not_available">"قد لا يكون 'تمكين التنقل في البث المباشر' متاحًا
+
+لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغير 'العميل الافتراضي' إلى 'TV'"</string>
+    <string name="morphe_livestream_dvr_summary">يسمح بالتنقل في كل البثوث المباشرة، حتى تلك التي تفرض قيودًا عليها عادةً</string>
+    <string name="morphe_livestream_dvr_title">تمكين التنقل في البث المباشر</string>
     <string name="morphe_oauth2_connection_failure_auth_error">فشل تسجيل الدخول إلى VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">لا يمكن تسجيل الدخول إلى VR، لم تتم الموافقة على مصادقة الموقع الإلكتروني</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 غير متاح مؤقتًا</string>
@@ -52,7 +62,10 @@
     <string name="morphe_sanitize_sharing_links_summary_off">لم تتم إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_summary_on">تمت إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_title">تنظيف روابط المشاركة</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• عميل تجريبي وقد يتوقف عن العمل في أي وقت</string>
+    <string name="morphe_settings_menu_copy_path">تم نسخ: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">افتح شاشة إعدادات التطبيق القياسية مرة واحدة لتعبئة القائمة</string>
+    <string name="morphe_settings_menu_filter_screen_summary">إخفاء العناصر في شاشة إعدادات التطبيق القياسية بالاسم المرئي</string>
+    <string name="morphe_settings_menu_filter_screen_title">تصفية قائمة الإعدادات</string>
     <string name="morphe_spoof_video_streams_about_js">• إذا فشل فك التشفير، قد يفشل التشغيل</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• قائمة المقطع الصوتي مفقودة</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
@@ -302,13 +315,13 @@
     <string name="revanced_debug_export_logs_to_file_title">تصدير سجلات تصحيح الأخطاء</string>
     <string name="revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
     <string name="revanced_debug_logs_clear_buffer_title">مسح سجلات تصحيح الأخطاء</string>
-    <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">تم نسخ السجلات</string>
+    <string name="revanced_debug_logs_clear_toast">تم مسح سجلات التصحيح</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">تم نسخ سجلات التصحيح إلى الحافظة</string>
     <string name="revanced_debug_logs_disabled">تم تعطيل تسجيلات تصحيح الأخطاء</string>
     <string name="revanced_debug_logs_export_success">تم تصدير السجلات بنجاح.</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">السجلات كبيرة جدًا بحيث لا يمكن نسخها.</string>
-    <string name="revanced_debug_logs_failed_to_export">فشل تصدير السجلات: %s</string>
-    <string name="revanced_debug_logs_none_found">لم يتم العثور على سجلات</string>
+    <string name="revanced_debug_logs_failed_to_export">فشل تصدير سجلات التصحيح: %s</string>
+    <string name="revanced_debug_logs_none_found">لم يتم العثور على سجلات تصحيح</string>
     <string name="revanced_debug_protobuffer_summary_off">لا تتضمن سجلات التصحيح التخزين المؤقت</string>
     <string name="revanced_debug_protobuffer_summary_on">تتضمن سجلات التصحيح التخزين المؤقت</string>
     <string name="revanced_debug_protobuffer_title">سجل تصحيح الأخطاء لـ Protocol Buffer</string>
@@ -317,10 +330,10 @@
     <string name="revanced_debug_spannable_title">سجل قابل للامتداد</string>
     <string name="revanced_debug_summary_off">تم تعطيل تسجيلات تصحيح الأخطاء</string>
     <string name="revanced_debug_summary_on">تم تمكين تسجيلات تصحيح الأخطاء</string>
-    <string name="revanced_debug_title">تسجيل تصحيح الأخطاء</string>
+    <string name="revanced_debug_title">تمكين سجلات التصحيح</string>
     <string name="revanced_debug_toast_on_error_summary_off">لا يتم عرض ملاحظة في حالة حدوث خطأ</string>
     <string name="revanced_debug_toast_on_error_summary_on">يتم عرض ملاحظة في حالة حدوث خطأ</string>
-    <string name="revanced_debug_toast_on_error_title">عرض ملاحظة عند وجود خطأ في ReVanced</string>
+    <string name="revanced_debug_toast_on_error_title">عرض ملاحظة عند وجود خطأ في Morphe</string>
     <string name="revanced_default_app_settings_summary">لفتح روابط YouTube في RVX، قم بتمكين خيار فتح الروابط المدعومة وتمكين جميع عناوين الويب المدعومة.</string>
     <string name="revanced_default_app_settings_title">فتح إعدادات التطبيق الافتراضية</string>
     <string name="revanced_default_playback_speed_shorts_title">سرعة التشغيل الافتراضية على فيديوهات Shorts</string>
@@ -1215,71 +1228,6 @@
     <string name="revanced_hide_server_side_snack_bar_summary_off">يتم عرض شريط Snack Bar على جانب الخادم.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">تم إخفاء شريط Snack Bar على جانب الخادم.</string>
     <string name="revanced_hide_server_side_snack_bar_title">إخفاء شريط Snack Bar على جانب الخادم</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">يتم عرض قائمة لمحة.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">تم إخفاء قائمة لمحة.</string>
-    <string name="revanced_hide_settings_menu_about_title">إخفاء قائمة لمحة</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">يتم عرض قائمة تمكين الوصول.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">تم إخفاء قائمة تمكين الوصول.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">إخفاء قائمة تمكين الوصول</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">يتم عرض قائمة الحساب.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">تم إخفاء قائمة الحساب.</string>
-    <string name="revanced_hide_settings_menu_account_title">إخفاء قائمة الحساب</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">يتم عرض قائمة التشغيل التلقائي أو التشغيل.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">تم إخفاء قائمة التشغيل التلقائي أو التشغيل.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">إخفاء قائمة التشغيل التلقائي أو التشغيل</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">يتم عرض قائمة الفوترة والدفعات.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">تم إخفاء قائمة الفوترة والدفعات.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">إخفاء قائمة الفوترة والدفعات</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">يتم عرض قائمة الترجمة.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">تم إخفاء قائمة الترجمة.</string>
-    <string name="revanced_hide_settings_menu_captions_title">إخفاء قائمة الترجمة</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">يتم عرض قائمة التطبيقات المرتبطة.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">تم إخفاء قائمة التطبيقات المرتبطة.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">إخفاء قائمة التطبيقات المرتبطة</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">يتم عرض قائمة توفير البيانات.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">تم إخفاء قائمة توفير البيانات.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">إخفاء قائمة توفير البيانات</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">يتم عرض قائمة عامة.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">تم إخفاء قائمة عامة.</string>
-    <string name="revanced_hide_settings_menu_general_title">إخفاء قائمة عامة</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">يتم عرض قائمة إدارة كل السجلّ.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">تم إخفاء قائمة إدارة كل السجلّ.</string>
-    <string name="revanced_hide_settings_menu_history_title">إخفاء قائمة إدارة كل السجلّ</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">يتم عرض قائمة المحادثات المباشرة.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">تم إخفاء قائمة المحادثات المباشرة.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">إخفاء قائمة المحادثات المباشرة</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">يتم عرض قائمة الإشعارات.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">تم إخفاء قائمة الإشعارات.</string>
-    <string name="revanced_hide_settings_menu_notification_title">إخفاء قائمة الإشعارات</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">يتم عرض قائمة الخلفية.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">تم إخفاء قائمة الخلفية.</string>
-    <string name="revanced_hide_settings_menu_offline_title">إخفاء قائمة الخلفية</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">يتم عرض قائمة المشاهدة على التلفزيون.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">تم إخفاء قائمة المشاهدة على التلفزيون.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">إخفاء قائمة المشاهدة على التلفزيون</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">يتم عرض قائمة مركز العائلة.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">تم إخفاء قائمة مركز العائلة.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">إخفاء قائمة مركز العائلة</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">يتم عرض قائمة اختبار ميزات تجريبية جديدة.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">تم إخفاء قائمة اختبار ميزات تجريبية جديدة.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">إخفاء قائمة اختبار ميزات تجريبية جديدة</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">يتم عرض قائمة الخصوصية.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">تم إخفاء قائمة الخصوصية.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">إخفاء قائمة الخصوصية</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">يتم عرض قائمة عمليات الشراء والاشتراكات.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">تم إخفاء قائمة عمليات الشراء والاشتراكات.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">إخفاء قائمة عمليات الشراء والاشتراكات</string>
-    <string name="revanced_hide_settings_menu_summary">إخفاء العناصر في قائمة إعدادات YouTube.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_off">إظهار قائمة إدارة الوقت</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_on">قائمة إدارة الوقت مخفيّة.</string>
-    <string name="revanced_hide_settings_menu_time_management_title">اخفاء قائمة إدارة الوقت.</string>
-    <string name="revanced_hide_settings_menu_title">إخفاء قائمة إعدادات YouTube</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">يتم عرض قائمة الجودة المفضلة للفيديو.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">تم إخفاء قائمة الجودة المفضلة للفيديو.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">إخفاء قائمة الجودة المفضلة للفيديو</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">يتم عرض قائمة بياناتك في YouTube.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">تم إخفاء قائمة بياناتك في YouTube.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">إخفاء قائمة بياناتك في YouTube</string>
     <string name="revanced_hide_share_button_summary_off">يتم عرض زر مشاركة</string>
     <string name="revanced_hide_share_button_summary_on">تم إخفاء زر مشاركة</string>
     <string name="revanced_hide_share_button_title">إخفاء زر مشاركة</string>
@@ -1312,7 +1260,7 @@
     <string name="revanced_hide_shorts_green_screen_button_title">إخفاء زر \'الشاشة الخضراء\'</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_off">يتم عرض زر الهاشتاج</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_on">تم إخفاء زر الهاشتاج</string>
-    <string name="revanced_hide_shorts_hashtag_button_title">إخفاء زر هاشتاج</string>
+    <string name="revanced_hide_shorts_hashtag_button_title">إخفاء زر هاشتاغ</string>
     <string name="revanced_hide_shorts_info_panel_summary_off">يتم عرض لوحة المعلومات</string>
     <string name="revanced_hide_shorts_info_panel_summary_on">تم إخفاء لوحة المعلومات</string>
     <string name="revanced_hide_shorts_info_panel_title">إخفاء لوحة المعلومات</string>
@@ -1632,7 +1580,7 @@
     <string name="revanced_language_UR">الأردية\n<small>اردو</small></string>
     <string name="revanced_language_VI">الفيتنامية\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">الصينية\n<small>中文</small></string>
-    <string name="revanced_language_title">لغة ReVanced</string>
+    <string name="revanced_language_title">لغة Morphe</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">إيقاف التشغيل بالسحب الأفقي</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">تذكر موضع حالة السحب</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">إجراء النقر المزدوج والضغط لتغيير الحجم معطل</string>
@@ -2306,7 +2254,7 @@
     <string name="revanced_settings_import_export_as_text_summary">استيراد \ تصدير الإعدادات كنص.</string>
     <string name="revanced_settings_import_export_as_text_title">استيراد / تصدير كنص</string>
     <string name="revanced_settings_import_failed">فشل استيراد الإعدادات.</string>
-    <string name="revanced_settings_import_reset">إعادة تعيين إعدادات ReVanced إلى الوضع الافتراضي</string>
+    <string name="revanced_settings_import_reset">إعادة تعيين إعدادات Morphe إلى الوضع الافتراضي</string>
     <string name="revanced_settings_import_success">تم استيراد %d إعدادات</string>
     <string name="revanced_settings_import_summary">استيراد الإعدادات من ملف محفوظ.</string>
     <string name="revanced_settings_import_title">استيراد الإعدادات</string>

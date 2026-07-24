@@ -4,14 +4,14 @@
     <string name="accessibility_settings_edu_opt_out_text">Tus controles se modifican porque un servicio de accesibilidad está activado.</string>
     <string name="gms_core_dialog_continue_text">Continuar</string>
     <string name="gms_core_dialog_dismiss_text">No volver a mostrar</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore no tiene permiso para ejecutarse en segundo plano.
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG no tiene permiso para ejecutarse en segundo plano.
 
-Sigue la guía \"Don't kill my app\" para tu teléfono, y aplica las instrucciones a tu instalación de MicroG
+Sigue la guía \"Don't kill my app\" para tu teléfono, y aplica las instrucciones a tu instalación de MicroG.
 
 Esto es requerido para el funcionamiento de la aplicación."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Las optimizaciones de batería para MicroG GmsCore deben estar desactivadas para evitar problemas.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Las optimizaciones de batería para MicroG deben desactivarse para prevenir problemas.
 
-Deshabilitar las optimizaciones de batería para MicroG no afectará negativamente el uso de la batería.
+Deshabilitar las optimizaciones de batería para MicroG no tendrá un efecto negativo en el uso de la batería.
 
 Toca el botón continuar y permite los cambios de optimización."</string>
     <string name="gms_core_dialog_open_website_text">Abrir sitio web</string>
@@ -19,7 +19,7 @@ Toca el botón continuar y permite los cambios de optimización."</string>
     <string name="gms_core_offline_account_login_error">Si recientemente cambió los detalles de inicio de sesión de su cuenta, desinstale y reinstale GMScore.</string>
     <string name="gms_core_settings_summary">Activa la mensajería en la nube para recibir notificaciones.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">MicroG GmsCore no está instalado. Instálalo.</string>
+    <string name="gms_core_toast_not_installed_message">MicroG no está instalado. Instálalo.</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Ocultar en la página de inicio y en los vídeos relacionados</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Desactivar ocultación automática de la barra de navegación</string>
     <string name="morphe_disable_drc_audio_summary_off">El audio DRC está activado</string>
@@ -28,11 +28,21 @@ Toca el botón continuar y permite los cambios de optimización."</string>
     <string name="morphe_disable_quic_protocol_summary_off">El protocolo QUIC está activado</string>
     <string name="morphe_disable_quic_protocol_summary_on">El protocolo QUIC está desactivado</string>
     <string name="morphe_disable_quic_protocol_title">Desactivar protocolo QUIC</string>
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"Es posible que \"Expandir duración del DVR para transmisión en directo\" no esté disponible
+
+Para solucionar este problema, active \"Falsificar transmisiones de vídeo\" y cambie el \"Cliente predeterminado\" a \"TV\""</string>
+    <string name="morphe_expand_livestream_dvr_duration_summary">Te permite rebobinar las transmisiones en directo hasta 7 días atrás</string>
+    <string name="morphe_expand_livestream_dvr_duration_title">Expandir duración del DVR de transmisión en directo</string>
     <string name="morphe_force_original_audio_not_available">Para usar esta función, cambia \"Falsificar transmisiones de vídeo\" a Android Reel o TV</string>
     <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
     <string name="morphe_force_original_audio_summary_on">Usar el idioma de audio original</string>
     <string name="morphe_force_original_audio_title">Forzar idioma original del audio</string>
     <string name="morphe_hide_sync_button_title">Ocultar botón \"Sincronizar con video\"</string>
+    <string name="morphe_livestream_dvr_not_available">"Es posible que \"Activar DVR para transmisiones en directo\" no esté disponible
+
+Para solucionar esto, active \"Falsificar transmisiones de vídeo\" y cambie \"Cliente predeterminado\" a \"TV\""</string>
+    <string name="morphe_livestream_dvr_summary">Permite buscar en todas las transmisiones en vivo, incluso en aquellas que normalmente restringen esta función</string>
+    <string name="morphe_livestream_dvr_title">Activar DVR de transmisión en vivo</string>
     <string name="morphe_oauth2_connection_failure_auth_error">No se puede iniciar sesión en VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">No se puede iniciar sesión en VR, la autenticación del sitio web no se ha aprobado</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 no está disponible temporalmente</string>
@@ -52,7 +62,10 @@ Toca el botón continuar y permite los cambios de optimización."</string>
     <string name="morphe_sanitize_sharing_links_summary_off">El parámetro de consulta de seguimiento no se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_summary_on">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
-    <string name="morphe_spoof_video_streams_about_experimental">• El cliente es experimental y puede dejar de funcionar en cualquier momento</string>
+    <string name="morphe_settings_menu_copy_path">Copiado: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Abrir la pantalla de configuración de la aplicación estándar una vez para completar la lista</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Ocultar elementos en la pantalla de configuración de la aplicación estándar por su nombre visible</string>
+    <string name="morphe_settings_menu_filter_screen_title">Filtro del menú de configuración</string>
     <string name="morphe_spoof_video_streams_about_js">• Si el descifrado falla, la reproducción puede fallar</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Falta el menú de la pista de audio</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Sin códec de vídeo AV1</string>
@@ -299,13 +312,13 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_debug_export_logs_to_file_title">Exportar registros de depuración</string>
     <string name="revanced_debug_logs_clear_buffer_summary">Borra todos los registros de depuración de ReVanced almacenados</string>
     <string name="revanced_debug_logs_clear_buffer_title">Borrar registros de depuración</string>
-    <string name="revanced_debug_logs_clear_toast">Registros borrados</string>
-    <string name="revanced_debug_logs_copied_to_clipboard">Registros copiados</string>
+    <string name="revanced_debug_logs_clear_toast">Registros de depuración borrados</string>
+    <string name="revanced_debug_logs_copied_to_clipboard">Registros de depuración copiados</string>
     <string name="revanced_debug_logs_disabled">El registro de depuración está desactivado</string>
     <string name="revanced_debug_logs_export_success">Los registros se han exportado correctamente.</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Los registros son demasiado grandes para copiarlos.</string>
-    <string name="revanced_debug_logs_failed_to_export">Error al exportar registros: %s</string>
-    <string name="revanced_debug_logs_none_found">No se encontraron registros</string>
+    <string name="revanced_debug_logs_failed_to_export">Error al exportar los registros de depuración: %s</string>
+    <string name="revanced_debug_logs_none_found">No se encontraron registros de depuración</string>
     <string name="revanced_debug_protobuffer_summary_off">Los registros de depuración no incluyen búferes de protocolo</string>
     <string name="revanced_debug_protobuffer_summary_on">Los registros de depuración incluyen búferes de protocolo</string>
     <string name="revanced_debug_protobuffer_title">Registrar búfer de protocolo</string>
@@ -449,6 +462,9 @@ Nota:
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Si deslizas el dedo hacia abajo en pantalla completa, saldrá del modo de pantalla completa.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Si deslizas el dedo hacia abajo en pantalla completa, no saldrá del modo de pantalla completa.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Desactivar deslizamiento para salir del modo de pantalla completa</string>
+    <string name="revanced_disable_translucent_navigation_bar_summary_off">La barra de navegación es translúcida.</string>
+    <string name="revanced_disable_translucent_navigation_bar_summary_on">La barra de navegación es opaca.</string>
+    <string name="revanced_disable_translucent_navigation_bar_title">Desactivar la barra de navegación translúcida</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">La barra de estado es opaca o translúcida</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">La barra de estado es opaca</string>
     <string name="revanced_disable_translucent_status_bar_title">Desactivar barra de estado translúcida</string>
@@ -574,7 +590,7 @@ Limitación: No funciona si el reproductor está minimizado, en modo PiP o en se
     <string name="revanced_extended_audio_tracks_unavailable">"Esta configuración no está disponible actualmente.
 Para usar esta función, cambia \"Cliente predeterminado (Falsear datos de transmisión)\" a TV o TV Simply."</string>
     <string name="revanced_external_downloader_dialog_title">Descargador externo</string>
-    <string name="revanced_external_downloader_empty_warning">El nombre del paquete no puede estar vacío</string>
+    <string name="revanced_external_downloader_empty_warning">El nombre de paquete no puede estar vacío</string>
     <string name="revanced_external_downloader_not_found_title">Aplicación no instalada</string>
     <string name="revanced_external_downloader_not_installed">No instalado</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s no está instalado.
@@ -644,13 +660,13 @@ Problema conocido: a veces, la superposición de deslizamiento aparece antes de 
     <string name="revanced_gradient_seekbar_positions_summary">Posiciones de inicio y fin del degradado de 0 a 1 separadas por coma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Límites del degradado de la barra de búsqueda</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Introduce los nombres del menú inferior Biblioteca / Tú para filtrar, separados por nuevas líneas</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Filtro del menú inferior Biblioteca / Tú</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Filtro del menú inferior de Biblioteca / Tú</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Filtrar si coincide.&lt;br&gt;&lt;br&gt;Para ocultar el menú &lt;b&gt;\"Obtener YouTube Premium\"&lt;/b&gt;, solo puedes utilizar &lt;b&gt;\"Obtener YouTube Premium\"&lt;/b&gt; como palabras claves.</string>
     <string name="revanced_hide_account_menu_filter_type_summary_on">Filtrar si contiene.&lt;br&gt;&lt;br&gt;Para ocultar el menú &lt;b&gt;\"Obtener YouTube Premium\"&lt;/b&gt;, puedes utilizar &lt;b&gt;\"YouTube Premium\"&lt;/b&gt; o &lt;b&gt;\"Premium\"&lt;/b&gt; como palabras clave.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Tipo de filtro de menú de cuenta</string>
     <string name="revanced_hide_account_menu_summary">"Oculta elementos del menú de la cuenta y de la pestaña \"Tú\".
 Algunos componentes pueden no estar ocultos."</string>
-    <string name="revanced_hide_account_menu_title">Activar filtro del menú inferior Biblioteca / Tú</string>
+    <string name="revanced_hide_account_menu_title">Activar filtro del menú inferior de Biblioteca / Tú</string>
     <string name="revanced_hide_action_bar_summary_off">La barra de acción está visible</string>
     <string name="revanced_hide_action_bar_summary_on">La barra de acción está oculta</string>
     <string name="revanced_hide_action_bar_title">Ocultar barra de acción</string>
@@ -805,6 +821,8 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Visible en el feed de suscripciones.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Oculto en el feed de suscripciones.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ocultar en feed de suscripciones</string>
+    <string name="revanced_hide_connect_button_summary_off">Se muestra el botón de conectar.</string>
+    <string name="revanced_hide_connect_button_summary_on">El botón de conexión está oculto.</string>
     <string name="revanced_hide_connect_button_title">Ocultar botón \"Conectar\"</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">La estantería de la tienda del creador debajo del reproductor de vídeo es visible</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">La estantería de la tienda del creador debajo del reproductor de vídeo está oculta</string>
@@ -812,6 +830,9 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_crowdfunding_box_summary_off">La caja de Crowdfunding es visible</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">La caja de Crowdfunding está oculta</string>
     <string name="revanced_hide_crowdfunding_box_title">Ocultar caja de Crowdfunding</string>
+    <string name="revanced_hide_dislike_button_summary_off">Se muestra el botón de no me gusta.</string>
+    <string name="revanced_hide_dislike_button_summary_on">El botón de no me gusta está oculto.</string>
+    <string name="revanced_hide_dislike_button_title">Botón de ocultar no me gusta</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">El filtro de superposición de doble toque está visible.</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">El filtro de superposición de doble toque está oculto.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Ocultar filtro de superposición de doble toque</string>
@@ -832,7 +853,7 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_expandable_card_entry_3">Ocultar todo</string>
     <string name="revanced_hide_expandable_card_entry_4">Ocultar tarjetas de producto y resumen</string>
     <string name="revanced_hide_expandable_card_entry_5">Ocultar todo</string>
-    <string name="revanced_hide_expandable_card_title">Tarjetas expandibles debajo de los vídeos</string>
+    <string name="revanced_hide_expandable_card_title">Tarjetas expandibles bajo los vídeos</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Los estantes ampliables están visibles.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Los estantes ampliables están ocultos.</string>
     <string name="revanced_hide_expandable_shelf_title">Ocultar estantes ampliables</string>
@@ -954,6 +975,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con la mayús
     <string name="revanced_hide_latest_videos_button_summary_off">El botón Últimos vídeos es visible</string>
     <string name="revanced_hide_latest_videos_button_summary_on">El botón Últimos vídeos está oculto</string>
     <string name="revanced_hide_latest_videos_button_title">Ocultar botón \"Vídeos recientes\"</string>
+    <string name="revanced_hide_like_button_summary_off">Se muestra el botón de like.</string>
+    <string name="revanced_hide_like_button_summary_on">Como si el botón estuviera oculto.</string>
+    <string name="revanced_hide_like_button_title">Botón de ocultar me gusta</string>
     <string name="revanced_hide_like_dislike_button_summary_off">Se muestran botones \"Me gusta\" y \"No me gusta\"</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Botones \"Me gusta\" y \"No me gusta\" están ocultos</string>
     <string name="revanced_hide_like_dislike_button_title">Ocultar botón \"Me gusta\" y \"No me gusta\"</string>
@@ -978,6 +1002,8 @@ Las palabras con letras mayúsculas en el medio deben introducirse con la mayús
     <string name="revanced_hide_mix_playlists_summary_off">La lista de reproducción Mix es visible</string>
     <string name="revanced_hide_mix_playlists_summary_on">Las listas de reproducción Mix están ocultas</string>
     <string name="revanced_hide_mix_playlists_title">Ocultar listas de reproducción Mix</string>
+    <string name="revanced_hide_more_button_summary_off">Se muestra más botón.</string>
+    <string name="revanced_hide_more_button_summary_on">Hay más botón oculto.</string>
     <string name="revanced_hide_more_button_title">Ocultar botón \"Más\"</string>
     <string name="revanced_hide_movie_shelf_summary_off">Los estantes de películas están visibles.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Los estantes de películas están ocultos.</string>
@@ -1166,6 +1192,9 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_rewards_button_summary_off">El botón de recompensas está visible.</string>
     <string name="revanced_hide_rewards_button_summary_on">El botón de recompensas está oculto.</string>
     <string name="revanced_hide_rewards_button_title">Ocultar botón \"Recompensas\"</string>
+    <string name="revanced_hide_search_bar_back_button_summary_off">Se muestra el botón de retroceso en la barra de búsqueda.</string>
+    <string name="revanced_hide_search_bar_back_button_summary_on">El botón de retroceso en la barra de búsqueda está oculto.</string>
+    <string name="revanced_hide_search_bar_back_button_title">Ocultar botón de retroceso en la barra de búsqueda</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Las miniaturas en el historial de términos de búsqueda están visibles.</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Las miniaturas en el historial de términos de búsqueda están ocultas.</string>
     <string name="revanced_hide_search_term_thumbnail_title">Ocultar miniaturas en términos de búsqueda</string>
@@ -1201,71 +1230,6 @@ Info:
     <string name="revanced_hide_server_side_snack_bar_summary_off">La barra de notificaciones del lado del servidor está visible.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">La barra de notificaciones del lado del servidor está oculta.</string>
     <string name="revanced_hide_server_side_snack_bar_title">Ocultar barra de notificaciones del lado del servidor</string>
-    <string name="revanced_hide_settings_menu_about_summary_off">El menú \"Información\" está visible.</string>
-    <string name="revanced_hide_settings_menu_about_summary_on">El menú \"Información\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_about_title">Ocultar menú \"Información\"</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_off">El menú \"Accesibilidad\" está visible.</string>
-    <string name="revanced_hide_settings_menu_accessibility_summary_on">El menú \"Accesibilidad\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_accessibility_title">Ocultar menú \"Accesibilidad\"</string>
-    <string name="revanced_hide_settings_menu_account_summary_off">El menú \"Cambiar de cuenta\" está visible.</string>
-    <string name="revanced_hide_settings_menu_account_summary_on">El menú \"Cambiar de cuenta\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_account_title">Ocultar menú \"Cambiar de cuenta\"</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">El menú \"Reproducción automática\" o \"Reproducción\" está visible.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">El menú \"Reproducción automática\" o \"Reproducción\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Ocultar menú \"Reproducción automática\" o \"Reproducción\"</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">El menú \"Facturación y pagos\" está visible.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">El menú \"Facturación y pagos\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_billing_and_payment_title">Ocultar menú \"Facturación y pagos\"</string>
-    <string name="revanced_hide_settings_menu_captions_summary_off">El menú \"Subtítulos\" está visible.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">El menú \"Subtítulos\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Ocultar menú \"Subtítulos\"</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">El menú \"Aplicaciones conectadas\" está visible.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">El menú \"Aplicaciones conectadas\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_connected_accounts_title">Ocultar menú \"Aplicaciones conectadas\"</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_off">El menú \"Ahorro de datos\" está visible.</string>
-    <string name="revanced_hide_settings_menu_data_saving_summary_on">El menú \"Ahorro de datos\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Ocultar menú \"Ahorro de datos\"</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">El menú \"General\" está visible.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">El menú \"General\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_general_title">Ocultar menú \"General\"</string>
-    <string name="revanced_hide_settings_menu_history_summary_off">El menú \"Gestionar todo el historial\" está visible.</string>
-    <string name="revanced_hide_settings_menu_history_summary_on">El menú \"Gestionar todo el historial\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_history_title">Ocultar menú \"Gestionar todo el historial\"</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_off">El menú \"Chat en directo\" está visible.</string>
-    <string name="revanced_hide_settings_menu_live_chat_summary_on">El menú \"Chat en directo\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_live_chat_title">Ocultar menú \"Chat en directo\"</string>
-    <string name="revanced_hide_settings_menu_notification_summary_off">El menú \"Notificaciones\" está visible.</string>
-    <string name="revanced_hide_settings_menu_notification_summary_on">El menú \"Notificaciones\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_notification_title">Ocultar menú \"Notificaciones\"</string>
-    <string name="revanced_hide_settings_menu_offline_summary_off">El menú \"Segundo plano\" está visible.</string>
-    <string name="revanced_hide_settings_menu_offline_summary_on">El menú \"Segundo plano\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_offline_title">Ocultar menú \"Segundo plano\"</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">El menú \"Ver en la televisión\" está visible.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">El menú \"Ver en la televisión\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Ocultar menú \"Ver en la televisión\"</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">El menú \"Centro Familiar\" está visible.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">El menú \"Centro Familiar\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Ocultar menú \"Centro Familiar\"</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">El menú \"Prueba las nuevas funciones experimentales\" está visible.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">El menú \"Prueba las nuevas funciones experimentales\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_premium_early_access_title">Ocultar menú \"Prueba las nuevas funciones experimentales\"</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_off">El menú \"Privacidad\" está visible.</string>
-    <string name="revanced_hide_settings_menu_privacy_summary_on">El menú \"Privacidad\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_privacy_title">Ocultar menú \"Privacidad\"</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_off">El menú \"Compras y suscripciones\" está visible.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_summary_on">El menú \"Compras y suscripciones\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_subscription_product_title">Ocultar menú \"Compras y suscripciones\"</string>
-    <string name="revanced_hide_settings_menu_summary">Ocultar elementos del menú de configuración de YouTube.</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_off">Se muestra el menú de gestión del tiempo</string>
-    <string name="revanced_hide_settings_menu_time_management_summary_on">Está oculto el menú de gestión del tiempo</string>
-    <string name="revanced_hide_settings_menu_time_management_title">Ocultar menú de gestión del tiempo</string>
-    <string name="revanced_hide_settings_menu_title">Ocultar menú de configuración de YouTube</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_off">El menú \"Preferencias de calidad de vídeo\" está visible.</string>
-    <string name="revanced_hide_settings_menu_video_quality_summary_on">El menú \"Preferencias de calidad de vídeo\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_video_quality_title">Ocultar menú \"Preferencias de calidad de vídeo\"</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_off">El menú \"Tus datos en YouTube\" está visible.</string>
-    <string name="revanced_hide_settings_menu_your_data_summary_on">El menú \"Tus datos en YouTube\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_your_data_title">Ocultar menú \"Tus datos en YouTube\"</string>
     <string name="revanced_hide_share_button_summary_off">Se muestra el botón Compartir</string>
     <string name="revanced_hide_share_button_summary_on">El botón Compartir está oculto</string>
     <string name="revanced_hide_share_button_title">Ocultar botón \"Compartir\"</string>
@@ -1617,8 +1581,12 @@ Problema conocido: Cuando este ajuste está activado, no se puede pulsar en los 
     <string name="revanced_language_UR">Urdu\n<small>اردو</small></string>
     <string name="revanced_language_VI">Vietnamita\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chino\n<small>中文</small></string>
-    <string name="revanced_language_title">Idioma de ReVanced</string>
+    <string name="revanced_language_title">Idioma de Morphe</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">La reproducción continúa cuando el minijugador se arrastra fuera de pantalla.</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">La reproducción se pausa cuando el minijugador se arrastra fuera de pantalla.</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Pausar la reproducción con un arrastre horizontal</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_off">Arrastrar el minijugador fuera de la pantalla utiliza el comportamiento original de reposicionamiento automático.</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_on">Arrastrar el minijugador fuera de la pantalla preservará el estado de la interfaz.</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">Recordar la posición del estado de arrastre</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Acción de doble toque y pellizco para redimensionar está desactivado</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"La acción de doble toque y el pellizco para cambiar el tamaño están activados
@@ -1700,6 +1668,15 @@ Toca aquí para obtener una clave de API."</string>
 
 Los resultados resumidos y transcritos se guardan a menos que cierres la aplicación o uses Gemini en otro video. Toca el botón nuevamente para ver los resultados."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Mostrar botón de Gemini</string>
+    <string name="revanced_overlay_button_loop_segment_cleared_toast">Segmento de bucle despejado.</string>
+    <string name="revanced_overlay_button_loop_segment_copy_toast">URL del segmento del bucle copiada.</string>
+    <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Selecciona primero el inicio y el fin del ciclo.</string>
+    <string name="revanced_overlay_button_loop_segment_enabled_toast">Bucle %1$s - %2$s.</string>
+    <string name="revanced_overlay_button_loop_segment_invalid_time_toast">No se puede usar el tiempo de reproducción actual.</string>
+    <string name="revanced_overlay_button_loop_segment_start_toast">Inicio de bucle seleccionado: %s.</string>
+    <string name="revanced_overlay_button_loop_segment_summary">"Toca una vez para seleccionar inicio, toca otra vez para seleccionar terminar y repite ese segmento, pulsa una tercera vez para limpiar.
+Pulsa y mantén pulsado para copiar una URL de vídeo con parámetros de inicio y fin."</string>
+    <string name="revanced_overlay_button_loop_segment_title">Botón de segmento de bucle para mostrar</string>
     <string name="revanced_overlay_button_mute_volume_summary">Pulsa para silenciar el volumen del vídeo actual. Pulsa de nuevo para reactivar el sonido.</string>
     <string name="revanced_overlay_button_mute_volume_title">Mostrar botón de silenciar volumen</string>
     <string name="revanced_overlay_button_not_allowed_warning">Mantén pulsado para cambiar el estado del botón.</string>
@@ -1735,6 +1712,13 @@ Mantén pulsado para establecer la velocidad de reproducción en 1.0x."</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Toque para abrir el diálogo de la lista blanca.
 Toque y mantenga presionado para abrir el diálogo de configuración de la lista blanca.</string>
     <string name="revanced_overlay_button_whitelist_title">Mostrar botón de lista blanca</string>
+    <string name="revanced_overlay_buttons_max_landscape_summary">Número máximo de botones superpuestos que se mostrarán en modo horizontal (sin contar el botón de pantalla completa). Ingresa 0 para ocultar todos.\n\nDesliza el dedo horizontalmente para mostrar los botones que excedan este límite.</string>
+    <string name="revanced_overlay_buttons_max_landscape_title">Botones de Max en modo horizontal</string>
+    <string name="revanced_overlay_buttons_max_portrait_summary">Número máximo de botones superpuestos que se mostrarán en modo vertical (sin contar el botón de pantalla completa). Ingresa 0 para ocultar todos.\n\n Desliza el dedo horizontalmente para mostrar los botones que excedan este límite.</string>
+    <string name="revanced_overlay_buttons_max_portrait_title">Botones de Max en modo vertical</string>
+    <string name="revanced_override_play_next_in_queue_summary_off">La opción «Reproducir el siguiente de la fila» utiliza la fila de reproducción nativa de YouTube.</string>
+    <string name="revanced_override_play_next_in_queue_summary_on">La opción «Reproducir siguiente en la fila» abre el administrador de filas de RVX.</string>
+    <string name="revanced_override_play_next_in_queue_title">Anular «Reproducir siguiente en la fila»</string>
     <string name="revanced_override_playlist_download_button_summary_off">El botón nativo de descarga de listas de reproducción abre el descargador nativo de la aplicación.</string>
     <string name="revanced_override_playlist_download_button_summary_on">El botón nativo de descarga de listas de reproducción abre tu descargador externo.</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"El botón de descarga nativo de la lista de reproducción, si se muestra, abre tu descargador externo.
@@ -2014,10 +1998,10 @@ Toca aquí para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Botón \"Me gusta\" para una mejor apariencia</string>
     <string name="revanced_ryd_compact_layout_summary_on">Botón \"Me gusta\" para el ancho mínimo</string>
-    <string name="revanced_ryd_compact_layout_title">Usar botón de Me gusta compacto</string>
+    <string name="revanced_ryd_compact_layout_title">Usar botón compacto de \"Me gusta\"</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Los Dislikes se muestran como un número</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Los Dislikes se muestran como un porcentaje</string>
-    <string name="revanced_ryd_dislike_percentage_title">Mostrar los \"No me gusta\" como porcentaje</string>
+    <string name="revanced_ryd_dislike_percentage_title">Mostrar \"No me gusta\" como porcentaje</string>
     <string name="revanced_ryd_enable_summary_off">Los “no me gusta” están ocultos.</string>
     <string name="revanced_ryd_enable_summary_on">Los “no me gusta” están visibles.</string>
     <string name="revanced_ryd_enable_title">Activar Return YouTube Dislike</string>
@@ -2266,6 +2250,14 @@ Ya existe"</string>
     <string name="revanced_sb_vote_no_segments">No hay segmentos por los cuales votar</string>
     <string name="revanced_sb_vote_segment_time_to_from">De %1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Votar positivamente</string>
+    <string name="revanced_search_in_channel_query_hint">Buscar en este canal</string>
+    <string name="revanced_search_in_channel_search">Buscar</string>
+    <string name="revanced_search_in_channel_search_youtube">Buscar en YouTube</string>
+    <string name="revanced_search_in_channel_title">Buscar canal</string>
+    <string name="revanced_search_in_channel_use_webview_summary_off">La búsqueda de canales utiliza la función de búsqueda nativa de YouTube. Esto mostrará algunos resultados irrelevantes.</string>
+    <string name="revanced_search_in_channel_use_webview_summary_on">La búsqueda de canales abre la página de búsqueda de canales de la web móvil.</string>
+    <string name="revanced_search_in_channel_use_webview_title">Usa WebView para buscar canales</string>
+    <string name="revanced_search_in_channel_webview_unavailable">WebView no está disponible. Se utilizará la búsqueda nativa de canales.</string>
     <string name="revanced_search_settings_category_title">Buscar ajustes</string>
     <string name="revanced_search_title">Búsqueda</string>
     <string name="revanced_send">Enviar</string>
@@ -2303,14 +2295,14 @@ Puede que no funcione si:
     <string name="revanced_settings_import_export_as_text_summary">Importar o exportar los ajustes como texto.</string>
     <string name="revanced_settings_import_export_as_text_title">Importar / Exportar como texto</string>
     <string name="revanced_settings_import_failed">Error al importar los ajustes.</string>
-    <string name="revanced_settings_import_reset">Ajustes de ReVanced restablecidos a los valores predeterminados</string>
+    <string name="revanced_settings_import_reset">Ajustes de Morphe restablecidos a los valores predeterminados</string>
     <string name="revanced_settings_import_success">Configuración importada de %d</string>
     <string name="revanced_settings_import_summary">Importa los ajustes desde un archivo guardado.</string>
     <string name="revanced_settings_import_title">Importar ajustes</string>
     <string name="revanced_settings_reset">Restablecer</string>
     <string name="revanced_settings_reset_color">Restablecer color</string>
     <string name="revanced_settings_search_clear_history">Borrar historial de búsqueda</string>
-    <string name="revanced_settings_search_clear_history_message">¿Estás seguro de que quieres borrar todo el historial de búsqueda?</string>
+    <string name="revanced_settings_search_clear_history_message">¿Realmente quieres borrar todo el historial de búsqueda?</string>
     <string name="revanced_settings_search_empty_history_summary">Para guardar el historial de búsqueda, escribe una consulta de búsqueda y pulsa Enter</string>
     <string name="revanced_settings_search_empty_history_title">El historial de búsqueda está vacío</string>
     <string name="revanced_settings_search_history_summary">Guardar consultas de búsqueda recientes para mostrarlas cuando la barra de búsqueda esté vacía.</string>
@@ -2381,6 +2373,10 @@ La mayoría de los errores no pueden solucionarse debido a las limitaciones del 
     <string name="revanced_shorts_custom_actions_speed_summary_on">El menú de velocidad de reproducción se muestra.\n\nInfo:\n• La velocidad de reproducción predeterminada de Shorts debe estar habilitada.\n• La velocidad seleccionada se aplicará al siguiente video.</string>
     <string name="revanced_shorts_custom_actions_speed_title">Mostrar menú de velocidad de reproducción</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Acciones personalizadas</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_label">Traducción de voz en off</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_off">El menú de traducción de la voz en off está oculto. Se deben habilitar las acciones personalizadas en la configuración de Shorts.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_summary_on">Se muestra el menú de traducción de la voz en off. Se deben habilitar las acciones personalizadas en la configuración de Shorts.</string>
+    <string name="revanced_shorts_custom_actions_voice_over_translation_title">Traducción de la voz en off en los videos cortos</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Pulgares arriba</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Cairo</string>
@@ -2396,9 +2392,15 @@ La mayoría de los errores no pueden solucionarse debido a las limitaciones del 
     <string name="revanced_shorts_player_type_shorts">Reproductor de Shorts</string>
     <string name="revanced_shorts_player_type_title">Abrir Shorts con</string>
     <string name="revanced_show_settings_button_index_title">Detiene la animación de conteo en los conteos de \'Me gusta\' y de visitas</string>
+    <string name="revanced_show_settings_button_summary_off">No se muestra el botón de configuración.</string>
+    <string name="revanced_show_settings_button_summary_on">Aparece el botón de configuración.</string>
     <string name="revanced_show_settings_button_title">Permite que el modo Ambiente permanezca activo en el modo de ahorro de batería</string>
+    <string name="revanced_show_settings_button_type_summary_off">Toca para abrir la configuración de YouTube.</string>
+    <string name="revanced_show_settings_button_type_summary_on">Toca para abrir la configuración de RVX.</string>
     <string name="revanced_show_settings_button_type_title">Acción del botón de ajustes</string>
     <string name="revanced_show_toolbar_settings_button_index_title">Establezca el color de la barra de progreso del superposición del reproductor</string>
+    <string name="revanced_show_toolbar_settings_button_summary_off">El botón de configuración no aparece en la barra de herramientas.</string>
+    <string name="revanced_show_toolbar_settings_button_summary_on">El botón de configuración aparece en la barra de herramientas.</string>
     <string name="revanced_show_toolbar_settings_button_title">Ajuste el nivel de transparencia (0 es transparente, 100 es opaco)</string>
     <string name="revanced_show_toolbar_settings_button_type_title">Acción del botón de ajustes</string>
     <string name="revanced_show_video_title_section_summary">"Muestra la sección de título de vídeo en pantalla completa.
@@ -2669,18 +2671,41 @@ Descargo de responsabilidad: las cookies emitidas sin iniciar sesión pueden no 
     <string name="revanced_transcript_cookies_summary">Cookies para usar en solicitudes de la API de transcripción.</string>
     <string name="revanced_transcript_cookies_title">Cookies de transcripción</string>
     <string name="revanced_translations_title">Traducciones</string>
+    <string name="revanced_vot_about_summary">"Voice-Over Translation ofrece pistas de audio traducidas para videos de YouTube mediante Yandex VoT.
+
+Si los servidores de Yandex no están disponibles en tu región, utiliza la opción «Transmisión de audio por proxy».
+
+Se requiere autorización para solicitar la traducción con voces en vivo para los videos que aún no la tengan."</string>
+    <string name="revanced_vot_about_title">Acerca de la traducción de locución</string>
     <string name="revanced_vot_audio_proxy_summary_off">La transmisión de audio utiliza URL directa</string>
     <string name="revanced_vot_audio_proxy_summary_on">La transmisión de audio se transmite a través del servidor </string>
     <string name="revanced_vot_audio_proxy_title">Proxy de transmisión de audio</string>
+    <string name="revanced_vot_auth_required">Se requiere autorización. Agrega el token OAuth de Yandex en la configuración.</string>
     <string name="revanced_vot_enabled_summary_off">La traducción de voz de Yandex está deshabilitada</string>
     <string name="revanced_vot_enabled_summary_on">La traducción de voz de Yandex está habilitada</string>
     <string name="revanced_vot_enabled_title">Traducción con voz</string>
     <string name="revanced_vot_lang_auto">Detección automática</string>
     <string name="revanced_vot_live_voices_unavailable">Voces en vivo no disponibles, usando estándar</string>
+    <string name="revanced_vot_oauth_account_management_title">Token de OAuth de Yandex</string>
+    <string name="revanced_vot_oauth_auth_method_message">Selecciona el método de autorización</string>
+    <string name="revanced_vot_oauth_auth_method_title">Autenticación de Yandex</string>
+    <string name="revanced_vot_oauth_enter_manually_button">Ingresa el token manualmente</string>
+    <string name="revanced_vot_oauth_enter_token_title">Ingresa el token manualmente</string>
+    <string name="revanced_vot_oauth_expired_summary">El token ha caducado. Inicia sesión de nuevo.</string>
+    <string name="revanced_vot_oauth_invalid_token">Token no válido</string>
+    <string name="revanced_vot_oauth_no_network">No hay conexión a la red</string>
+    <string name="revanced_vot_oauth_not_signed_in_summary">No autorizado</string>
+    <string name="revanced_vot_oauth_sign_in_button">Iniciar sesión con Yandex</string>
+    <string name="revanced_vot_oauth_sign_out_button">Cerrar sesión</string>
+    <string name="revanced_vot_oauth_signed_in_expires">Iniciado sesión como %1$s (caduca en %2$d días)</string>
+    <string name="revanced_vot_oauth_signed_in_summary">Inició sesión como %s</string>
+    <string name="revanced_vot_oauth_switch_token_button">Ingresa otro token</string>
+    <string name="revanced_vot_oauth_token_summary">Es necesario para las voces en vivo.</string>
+    <string name="revanced_vot_oauth_token_title">Token de OAuth de Yandex</string>
     <string name="revanced_vot_original_audio_volume_summary">Volumen del audio original de YouTube mientras se reproduce la traducción</string>
     <string name="revanced_vot_original_audio_volume_title">Volumen de audio original</string>
     <string name="revanced_vot_playback_error">No se pudo reproducir el audio de traducción</string>
-    <string name="revanced_vot_proxy_url_summary">Host del servidor proxy VOT. Valor predeterminado: vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_summary">Servidor proxy VOT. Valor predeterminado: vot-worker.toil.cc</string>
     <string name="revanced_vot_proxy_url_title">Servidor Proxy</string>
     <string name="revanced_vot_source_language_summary">Selecciona el idioma del audio del vídeo.</string>
     <string name="revanced_vot_source_language_title">Idioma de origen</string>

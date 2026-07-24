@@ -72,7 +72,10 @@ def process(app: str) -> None:
             if lang_dir.is_dir():
                 dest_path = lang_dir / "strings.xml"
                 missing_path = lang_dir / "missing_strings.xml"
+                updated_path = lang_dir / "updated_strings.xml"
                 compare_and_update(source_path, dest_path, missing_path)
+                XMLProcessor.cleanup_if_empty(missing_path)
+                XMLProcessor.cleanup_if_empty(updated_path)
 
     except Exception:
         logger.exception("Failed to process %s translations: ", app)
