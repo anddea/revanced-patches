@@ -21,6 +21,8 @@ import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.drawable.addDrawableColorHook
 import app.morphe.patches.shared.drawable.drawableColorHookPatch
 import app.morphe.patches.shared.mainactivity.onCreateMethod
+import app.morphe.patches.shared.mapping.resourceMappingPatch
+import app.morphe.patches.youtube.misc.chapters.chaptersHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
@@ -37,6 +39,7 @@ import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_49_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_12_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
@@ -65,6 +68,7 @@ import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.inputStreamFromBundledResource
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.*
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 import java.io.ByteArrayInputStream
@@ -123,6 +127,8 @@ val seekbarComponentsPatch = bytecodePatch(
         settingsPatch,
         videoInformationPatch,
         versionCheckPatch,
+        resourceMappingPatch,
+        chaptersHookPatch,
     )
 
     execute {
@@ -663,6 +669,72 @@ val seekbarComponentsPatch = bytecodePatch(
         }
 
         settingArray += "SETTINGS: LIVESTREAM_DVR"
+
+        // endregion
+
+        // region patch for seekbar thumbnail preview
+
+        val updatePointMethodRef = SeekbarUpdatePointFingerprint.instructionMatches[1]
+            .getInstruction<ReferenceInstruction>().getReference<MethodReference>()!!
+
+        // To show the thumbnail during the seeking straight on seekbar.
+        SeekbarHandlerOnTouchFingerprint.method.addInstructions(
+            0,
+            """
+                new-instance v0, Landroid/graphics/Point;
+                invoke-direct { v0 }, Landroid/graphics/Point;-><init>()V
+                invoke-interface { p0, v0 }, $updatePointMethodRef
+                invoke-static { p0, p1, v0 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->updateThumbnailPreview(Landroid/view/View;Landroid/view/MotionEvent;Landroid/graphics/Point;)V
+            """
+        )
+
+        // To show the thumbnail during the use of slide to seek feature.
+        SlideSeekbarHandlerOnTouchFingerprint.method.apply {
+            fun getSeekbarReference(index: Int) = SlideSeekbarGetViewControllerFingerprint
+                .instructionMatches[index].getInstruction<ReferenceInstruction>().getReference<FieldReference>()!!
+
+            addInstructions(
+                0,
+                """
+                    iget-object v0, p0, ${getSeekbarReference(0)}
+                    iget-object v0, v0, ${getSeekbarReference(1)}
+                    iget-object v0, v0, ${getSeekbarReference(3)}
+                    new-instance v1, Landroid/graphics/Point;
+                    invoke-direct { v1 }, Landroid/graphics/Point;-><init>()V
+                    invoke-interface { v0, v1 }, $updatePointMethodRef
+                    invoke-static { p1, p2, v1 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->updateThumbnailPreview(Landroid/view/View;Landroid/view/MotionEvent;Landroid/graphics/Point;)V
+                """
+            )
+        }
+
+        SeekbarFineScrubbingBitmapFingerprint.method.addInstruction(
+            1,
+            "invoke-static { p1 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->" +
+                    "setFineScrubbingPreviewBitmap(Landroid/graphics/Bitmap;)V"
+        )
+
+        seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint).addInstruction(
+            0,
+            "invoke-static/range { p0 .. p0 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->" +
+                    "setSeekbarRectangle(Landroid/view/View;)V"
+        )
+
+        if (is_21_12_or_greater) {
+            SeekbarBigBoardsUpdateFingerprint
+        } else {
+            SeekbarBigBoardsUpdateLegacyFingerprint
+        }.method.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->disableBigBoardUpdate()Z
+                move-result v0
+                if-eqz v0, :allow_big_board_update
+                const/4 v0, 0x0
+                return v0
+                :allow_big_board_update
+                nop
+            """
+        )
 
         // endregion
 
