@@ -120,19 +120,10 @@ final class VotAudioDownloader {
         if (cachedFormat != null) return cachedFormat;
 
         Map<String, String> requestHeaders = SpoofVideoStreamsPatch.currentVideoRequestHeader;
-        if (VideoInformation.lastVideoIdIsShort()) {
-            StreamOrDetailsDataRequest.fetchStreamRequest(
-                    videoId,
-                    requestHeaders != null ? requestHeaders : Collections.emptyMap(),
-                    ClientType.ANDROID_REEL_AUTH,
-                    ClientType.ANDROID_REEL_NO_AUTH
-            );
-        } else {
-            StreamOrDetailsDataRequest.fetchStreamRequest(
-                    videoId,
-                    requestHeaders != null ? requestHeaders : Collections.emptyMap()
-            );
-        }
+        StreamOrDetailsDataRequest.fetchStreamRequest(
+                videoId,
+                requestHeaders != null ? requestHeaders : Collections.emptyMap()
+        );
 
         return getAudioFormat(StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId));
     }

@@ -603,6 +603,7 @@ val intentIcon = intentKey.associateWith { "${it}_icon" }
 
 private val emptyTitles = setOf(
     "morphe_replace_links_with_shortener",
+    "morphe_video_quality_prioritize",
     "revanced_advanced_video_quality_menu",
     "revanced_advanced_video_quality_menu_type",
     "revanced_change_start_page_type",

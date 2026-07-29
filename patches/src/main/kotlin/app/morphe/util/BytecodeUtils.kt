@@ -920,17 +920,64 @@ fun updatePatchStatus(
  * Taken from BiliRoamingX:
  * https://github.com/BiliRoamingX/BiliRoamingX/blob/ae58109f3acdd53ec2d2b3fb439c2a2ef1886221/patches/src/main/kotlin/app/revanced/patches/bilibili/utils/Extenstions.kt#L51
  */
+val Method.numberOfParameterRegisters: Int
+    get() {
+        var count = if (AccessFlags.STATIC.isSet(accessFlags)) 0 else 1
+        for (param in parameters) {
+            count += when (param.type) {
+                "J", "D" -> 2
+                else -> 1
+            }
+        }
+        return count
+    }
+
+val Method.numberOfParameterRegistersLogical: Int
+    get() = parameters.count() + if (AccessFlags.STATIC.isSet(accessFlags)) {
+        0
+    } else {
+        1
+    }
+
+fun Method.cloneMutableAndPreserveParameters(
+    mutableClass: MutableClass,
+): MutableMethod {
+    check(!AccessFlags.STATIC.isSet(accessFlags)) {
+        "Static methods are not supported"
+    }
+
+    val clonedMethod = cloneMutable(
+        additionalRegisters = numberOfParameterRegisters
+    )
+
+    // Replace existing method with cloned with more registers.
+    mutableClass.methods.remove(this)
+    mutableClass.methods.add(clonedMethod)
+
+    return clonedMethod
+}
+
 fun Method.cloneMutable(
     registerCount: Int = implementation?.registerCount ?: 0,
     clearImplementation: Boolean = false,
     name: String = this.name,
     accessFlags: Int = this.accessFlags,
     parameters: List<MethodParameter> = this.parameters,
-    returnType: String = this.returnType
+    returnType: String = this.returnType,
+    additionalRegisters: Int = 0,
 ): MutableMethod {
+    check(additionalRegisters >= 0) {
+        "Additional registers cannot be negative"
+    }
+
+    val oldRegisterCount = implementation?.registerCount ?: 0
+    val newRegisterCount = if (additionalRegisters > 0) oldRegisterCount + additionalRegisters else registerCount
+    val implementationExists = implementation != null
+    val oldFirstParameterRegister = oldRegisterCount - numberOfParameterRegisters
+
     val clonedImplementation = implementation?.let {
         ImmutableMethodImplementation(
-            registerCount,
+            newRegisterCount,
             if (clearImplementation) emptyList() else it.instructions,
             if (clearImplementation) emptyList() else it.tryBlocks,
             if (clearImplementation) emptyList() else it.debugItems,
@@ -945,8 +992,55 @@ fun Method.cloneMutable(
         annotations,
         hiddenApiRestrictions,
         clonedImplementation
-    ).toMutable()
+    ).toMutable().apply {
+        var insertIndex = 0
+        var addedInstructions = 0
+        val isNotStatic = !AccessFlags.STATIC.isSet(accessFlags)
+
+        if (implementationExists && additionalRegisters > 0 && (parameters.isNotEmpty() || isNotStatic)) {
+            var destReg = oldFirstParameterRegister
+            var pReg = 0
+
+            // Handle `this`.
+            if (isNotStatic) {
+                addInstructions(insertIndex++, "move-object/from16 v$destReg, p$pReg")
+                addedInstructions++
+                destReg += 1
+                pReg += 1
+            }
+
+            // Handle method parameters.
+            for (parameter in parameters) {
+                val opcode = when (parameter.type) {
+                    "J", "D" -> "move-wide/from16"
+                    else -> {
+                        if (parameter.type.startsWith('L') || parameter.type.startsWith('[')) {
+                            "move-object/from16"
+                        } else {
+                            "move/from16"
+                        }
+                    }
+                }
+
+                addInstructions(insertIndex++, "$opcode v$destReg, p$pReg")
+                addedInstructions++
+
+                val width = if (opcode.startsWith("move-wide")) 2 else 1
+                destReg += width
+                pReg += width
+            }
+
+            if (addedInstructions != numberOfParameterRegistersLogical) {
+                throw IllegalStateException(
+                    "Added instructions do not match additional registers " +
+                            "addedInstructions: $addedInstructions " +
+                            "numberOfParameterRegistersLogical: $numberOfParameterRegistersLogical"
+                )
+            }
+        }
+    }
 }
+
 
 
 private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"

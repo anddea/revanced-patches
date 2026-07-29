@@ -358,7 +358,6 @@ val intentIcon = intentKey.associateWith { "${it}_icon" }
 private val emptyTitles = setOf(
     "morphe_replace_music_with_youtube",
     "morphe_spoof_video_streams_client_type",
-    "morphe_spoof_video_streams_disable_player_js_update",
     "morphe_spoof_video_streams_player_js_hash_value",
     "morphe_spoof_video_streams_sign_in_android_vr_about",
     "revanced_custom_filter_strings",

@@ -884,6 +884,7 @@
         <SwitchPreference android:title="@string/revanced_advanced_video_quality_menu_type_title" android:key="revanced_advanced_video_quality_menu_type" android:summaryOn="@string/revanced_advanced_video_quality_menu_type_summary_on" android:summaryOff="@string/revanced_advanced_video_quality_menu_type_summary_off" />
         <SwitchPreference android:title="@string/revanced_remember_video_quality_last_selected_toast_title" android:key="revanced_remember_video_quality_last_selected_toast" android:summaryOn="@string/revanced_remember_video_quality_last_selected_toast_summary_on" android:summaryOff="@string/revanced_remember_video_quality_last_selected_toast_summary_off" />
         <SwitchPreference android:title="@string/revanced_spoof_device_dimensions_title" android:key="revanced_spoof_device_dimensions" android:summary="@string/revanced_spoof_device_dimensions_summary" />
+        <SwitchPreference android:title="@string/morphe_video_quality_prioritize_title" android:key="morphe_video_quality_prioritize" android:summaryOn="@string/morphe_video_quality_prioritize_summary" android:summaryOff="@string/morphe_video_quality_prioritize_summary" />
 
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/revanced_default_video_quality_wifi_shorts_title" android:key="revanced_default_video_quality_wifi_shorts" android:entries="@array/revanced_default_video_quality_entries" android:entryValues="@array/revanced_default_video_quality_entry_values" />
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/revanced_default_video_quality_mobile_shorts_title" android:key="revanced_default_video_quality_mobile_shorts" android:entries="@array/revanced_default_video_quality_entries" android:entryValues="@array/revanced_default_video_quality_entry_values" />
@@ -1003,8 +1004,6 @@
 
             <PreferenceCategory android:title="@string/revanced_preference_category_js" android:layout="@layout/revanced_settings_preferences_category"/>
             <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/morphe_spoof_video_streams_player_js_variant_entries" android:title="@string/morphe_spoof_video_streams_player_js_variant_title" android:key="morphe_spoof_video_streams_player_js_variant" android:entryValues="@array/morphe_spoof_video_streams_player_js_variant_entry_values" />
-            <SwitchPreference android:title="@string/morphe_spoof_video_streams_disable_player_js_update_title" android:key="morphe_spoof_video_streams_disable_player_js_update" android:summaryOn="@string/morphe_spoof_video_streams_disable_player_js_update_summary_on" android:summaryOff="@string/morphe_spoof_video_streams_disable_player_js_update_summary_off" />
-            <EditTextPreference android:title="@string/morphe_spoof_video_streams_player_js_hash_value_title" android:key="morphe_spoof_video_streams_player_js_hash_value" android:summary="@string/morphe_spoof_video_streams_player_js_hash_value_summary" />
         </PreferenceScreen>SETTINGS: SPOOF_VIDEO_STREAMS -->
 
         <!-- SETTINGS: WATCH_HISTORY
