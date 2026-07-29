@@ -351,26 +351,6 @@ public final class ActionButtonsFilter extends Filter {
         }
     }
 
-    public static int getCurrentVideoActionButtonIndex(@NonNull ActionButton actionButton) {
-        synchronized (actionButtonLookup) {
-            List<ActionButton> actionButtons = actionButtonLookup.get(VideoInformation.getVideoId());
-            if (actionButtons == null || actionButton.shouldHide) {
-                return -1;
-            }
-
-            int visibleIndex = 0;
-            for (ActionButton currentButton : actionButtons) {
-                if (currentButton == actionButton) {
-                    return visibleIndex;
-                }
-                if (!currentButton.shouldHide) {
-                    visibleIndex++;
-                }
-            }
-            return -1;
-        }
-    }
-
     /**
      * Returns whether the unfiltered watch-next model contains an action button. Unlike the
      * visible index, this can identify the segmented layout even when that button is hidden.
@@ -379,23 +359,6 @@ public final class ActionButtonsFilter extends Filter {
         synchronized (actionButtonLookup) {
             List<ActionButton> actionButtons = actionButtonLookup.get(VideoInformation.getVideoId());
             return actionButtons != null && actionButtons.contains(actionButton);
-        }
-    }
-
-    public static int getCurrentVideoActionButtonCount() {
-        synchronized (actionButtonLookup) {
-            List<ActionButton> actionButtons = actionButtonLookup.get(VideoInformation.getVideoId());
-            if (actionButtons == null) {
-                return -1;
-            }
-
-            int visibleButtonCount = 0;
-            for (ActionButton actionButton : actionButtons) {
-                if (!actionButton.shouldHide) {
-                    visibleButtonCount++;
-                }
-            }
-            return visibleButtonCount;
         }
     }
 
