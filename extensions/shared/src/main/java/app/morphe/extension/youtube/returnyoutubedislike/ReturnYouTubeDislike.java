@@ -617,6 +617,24 @@ public class ReturnYouTubeDislike {
         try {
             RYDVoteData votingData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);
             if (votingData == null) {
+                synchronized (this) {
+                    if (PlayerType.getCurrent().isFullScreenOrSlidingFullScreen()) {
+                        Logger.printDebug(() -> "Ignoring fullscreen action button span: " + videoId);
+                        return original;
+                    }
+
+                    // YouTube's original like count is independent from RYD and remains usable
+                    // when the dislike request fails.
+                    Long originalLikeCount = spanIsForLikes ? getOriginalLikeCount(userVote) : null;
+                    if (originalLikeCount != null) {
+                        Logger.printDebug(() -> "Using original like count without RYD data: " + videoId);
+                        return newSpanUsingStylingOfAnotherSpan(
+                                original,
+                                formatDislikeCount(originalLikeCount)
+                        );
+                    }
+                }
+
                 ReturnYouTubeDislikeApi.handleConnectionError(
                         str("revanced_ryd_failure_connection_timeout"),
                         null, null, Toast.LENGTH_SHORT);
