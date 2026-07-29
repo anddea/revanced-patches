@@ -19,6 +19,13 @@ import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviou
 import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
 
+import android.content.Context;
+
+import androidx.annotation.Nullable;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -76,12 +83,43 @@ public class Settings extends SharedYouTubeSettings {
     );
 
     // Captions.
-    // Use the legacy switch as the initial default when upgrading from a pre-20.26 installation.
+    // Legacy switch values are migrated once in the static initialization block below.
     public static final EnumSetting<AutoCaptionsStyle> AUTO_CAPTIONS_STYLE = new EnumSetting<>(
             "revanced_auto_captions_style",
-            BaseSettings.DISABLE_AUTO_CAPTIONS.get() ? BOTH_DISABLED : BOTH_ENABLED,
+            BOTH_ENABLED,
             true
     );
+    /**
+     * Ensures the legacy disable-auto-captions switch is migrated only once without changing the
+     * permanent default or overriding an explicitly selected auto-captions style.
+     */
+    private static final BooleanSetting AUTO_CAPTIONS_STYLE_MIGRATED = new BooleanSetting(
+            "revanced_auto_captions_style_migrated",
+            FALSE,
+            false,
+            false
+    );
+    /**
+     * Converts legacy-only imports without overriding the new setting when both keys are present.
+     */
+    private static final Setting.ImportExportCallback AUTO_CAPTIONS_IMPORT_MIGRATION_CALLBACK =
+            new Setting.ImportExportCallback() {
+                @Override
+                public void settingsImporting(JSONObject json) throws JSONException {
+                    if (!json.has("auto_captions_style")
+                            && json.optBoolean("disable_auto_captions", false)) {
+                        json.put("auto_captions_style", "both_disabled");
+                    }
+                }
+
+                @Override
+                public void settingsImported(@Nullable Context context) {
+                }
+
+                @Override
+                public void settingsExported(@Nullable Context context) {
+                }
+            };
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_AV1 = new BooleanSetting(
             "morphe_spoof_video_streams_av1",
             FALSE,
@@ -891,6 +929,15 @@ public class Settings extends SharedYouTubeSettings {
             }
         }
 
+        // Migrate the pre-20.26 switch once, while preserving an explicitly selected style.
+        if (!AUTO_CAPTIONS_STYLE_MIGRATED.get()) {
+            if (!Setting.preferences.preferences.contains(AUTO_CAPTIONS_STYLE.key)
+                    && BaseSettings.DISABLE_AUTO_CAPTIONS.get()) {
+                AUTO_CAPTIONS_STYLE.save(BOTH_DISABLED);
+            }
+            AUTO_CAPTIONS_STYLE_MIGRATED.save(TRUE);
+        }
+
         // Migrate old open Shorts in regular player to new Shorts player type.
         final String oldOpenShortsInRegularPlayerKey = "revanced_open_shorts_in_regular_player";
         if (ytPrefs.preferences.contains(oldOpenShortsInRegularPlayerKey)) {
@@ -918,6 +965,7 @@ public class Settings extends SharedYouTubeSettings {
 
         // region SB import/export callbacks
 
+        Setting.addImportExportCallback(AUTO_CAPTIONS_IMPORT_MIGRATION_CALLBACK);
         Setting.addImportExportCallback(SponsorBlockSettings.SB_IMPORT_EXPORT_CALLBACK);
 
         // endregion

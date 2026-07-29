@@ -1,6 +1,7 @@
 package app.morphe.patches.youtube.layout.translations
 
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.filePathOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patches.shared.translations.APP_LANGUAGES
@@ -73,7 +74,7 @@ val translationsPatch = resourcePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
     dependsOn(translationsBytecodePatch, settingsPatch)
 
-    val customTranslations by stringOption(
+    val customTranslations by filePathOption(
         key = "customTranslations",
         default = "",
         title = "Custom translations",

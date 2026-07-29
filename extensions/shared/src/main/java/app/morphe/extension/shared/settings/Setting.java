@@ -3,6 +3,7 @@ package app.morphe.extension.shared.settings;
 import static app.morphe.extension.shared.utils.StringRef.str;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -141,6 +142,12 @@ public abstract class Setting<T> {
      */
     public interface ImportExportCallback {
         /**
+         * Called before settings are imported, allowing legacy JSON keys to be migrated.
+         */
+        default void settingsImporting(JSONObject json) throws JSONException {
+        }
+
+        /**
          * Called after all settings have been imported.
          */
         void settingsImported(@Nullable Context context);
@@ -189,12 +196,13 @@ public abstract class Setting<T> {
     }
 
     /**
-     * @return All settings that have been created, sorted by keys.
+     * @return All settings that have been created, sorted by their exported keys.
      * @noinspection Java8ListSort
      */
     private static List<Setting<?>> allLoadedSettingsSorted() {
         //noinspection ComparatorCombinators
-        Collections.sort(SETTINGS, (o1, o2) -> o1.key.compareTo(o2.key));
+        Collections.sort(SETTINGS, (o1, o2) ->
+                o1.getImportExportKey().compareTo(o2.getImportExportKey()));
         return allLoadedSettings();
     }
 
@@ -479,17 +487,24 @@ public abstract class Setting<T> {
 
     // region Import / export
 
-    /**
-     * If a setting path has this prefix, then remove it before importing/exporting.
-     */
+    /** Prefixes omitted from import/export keys to keep the JSON concise. */
     private static final String OPTIONAL_REVANCED_SETTINGS_PREFIX = "revanced_";
+    private static final String OPTIONAL_MORPHE_SETTINGS_PREFIX = "morphe_";
 
     /**
-     * The path, minus any 'revanced' prefix to keep json concise.
+     * The path minus an optional project prefix. A Morphe prefix is retained when stripping it
+     * would collide with an existing unprefixed or ReVanced setting.
      */
     private String getImportExportKey() {
         if (key.startsWith(OPTIONAL_REVANCED_SETTINGS_PREFIX)) {
             return key.substring(OPTIONAL_REVANCED_SETTINGS_PREFIX.length());
+        }
+        if (key.startsWith(OPTIONAL_MORPHE_SETTINGS_PREFIX)) {
+            String keyWithoutPrefix = key.substring(OPTIONAL_MORPHE_SETTINGS_PREFIX.length());
+            if (!PATH_TO_SETTINGS.containsKey(keyWithoutPrefix)
+                    && !PATH_TO_SETTINGS.containsKey(OPTIONAL_REVANCED_SETTINGS_PREFIX + keyWithoutPrefix)) {
+                return keyWithoutPrefix;
+            }
         }
         return key;
     }
@@ -558,13 +573,22 @@ public abstract class Setting<T> {
             }
             JSONObject json = new JSONObject(settingsJsonString);
 
+            removeUnknownPreferenceKeys();
+
+            for (ImportExportCallback callback : importExportCallbacks) {
+                callback.settingsImporting(json);
+            }
+
             boolean rebootSettingChanged = false;
             int numberOfSettingsImported = 0;
             //noinspection rawtypes
             for (Setting setting : SETTINGS) {
                 String key = setting.getImportExportKey();
-                if (json.has(key)) {
-                    Object value = setting.readFromJSON(json, key);
+                String importedKey = json.has(key)
+                        ? key
+                        : json.has(setting.key) ? setting.key : null;
+                if (importedKey != null) {
+                    Object value = setting.readFromJSON(json, importedKey);
                     if (!setting.get().equals(value)) {
                         rebootSettingChanged |= setting.rebootApp;
                         //noinspection unchecked
@@ -597,6 +621,25 @@ public abstract class Setting<T> {
             Logger.printException(() -> "Import failure: " + ex.getMessage(), ex); // should never happen
         }
         return false;
+    }
+
+    /**
+     * Removes stored values for settings that no longer exist in the current extension.
+     * This keeps removed settings from surviving an import and appearing in later exports.
+     */
+    private static void removeUnknownPreferenceKeys() {
+        SharedPreferences.Editor editor = preferences.preferences.edit();
+        boolean changed = false;
+        for (String key : preferences.preferences.getAll().keySet()) {
+            if (!PATH_TO_SETTINGS.containsKey(key)) {
+                Logger.printDebug(() -> "Removing unknown preference key: " + key);
+                editor.remove(key);
+                changed = true;
+            }
+        }
+        if (changed) {
+            editor.apply();
+        }
     }
 
     // End import / export

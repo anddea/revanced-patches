@@ -1,6 +1,7 @@
 package app.morphe.patches.music.layout.translations
 
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.filePathOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
@@ -38,7 +39,7 @@ val translationsPatch = resourcePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
     dependsOn(translationsBytecodePatch, settingsPatch)
 
-    val customTranslations by stringOption(
+    val customTranslations by filePathOption(
         key = "customTranslations",
         default = "",
         title = "Custom translations",
