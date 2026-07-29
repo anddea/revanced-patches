@@ -1,7 +1,7 @@
 package app.morphe.patches.youtube.layout.theme
 
+import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patcher.patch.stringOption
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.MATERIALYOU
 import app.morphe.patches.youtube.utils.patch.PatchList.THEME
@@ -28,6 +28,11 @@ val themePatch = resourcePatch(
 
     val availableDarkTheme = mapOf(
         "Amoled Black" to amoledBlackColor,
+        "Material You (Neutral)" to "@android:color/system_neutral1_900",
+        "Material You - Primary" to "@android:color/system_accent1_800",
+        "Material You - Secondary" to "@android:color/system_accent2_800",
+        "Material You - Tertiary" to "@android:color/system_accent3_800",
+        "Modern YouTube" to "#FF0F0F0F",
         "Classic (Old YouTube)" to "#FF212121",
         "Catppuccin (Mocha)" to "#FF181825",
         "Dark Pink" to "#FF290025",
@@ -40,6 +45,10 @@ val themePatch = resourcePatch(
 
     val availableLightTheme = mapOf(
         "White" to whiteColor,
+        "Material You (Neutral)" to "@android:color/system_neutral1_100",
+        "Material You - Primary" to "@android:color/system_accent1_200",
+        "Material You - Secondary" to "@android:color/system_accent2_200",
+        "Material You - Tertiary" to "@android:color/system_accent3_200",
         "Catppuccin (Latte)" to "#FFE6E9EF",
         "Light Pink" to "#FFFCCFF3",
         "Light Blue" to "#FFD1E0FF",
@@ -52,7 +61,7 @@ val themePatch = resourcePatch(
         "Pale Yellow" to "#FFFFE9AA",
     )
 
-    val darkThemeBackgroundColor = stringOption(
+    val darkThemeBackgroundColor = colorOption(
         key = "darkThemeBackgroundColor",
         default = amoledBlackColor,
         values = availableDarkTheme,
@@ -61,7 +70,7 @@ val themePatch = resourcePatch(
         required = true,
     )
 
-    val lightThemeBackgroundColor = stringOption(
+    val lightThemeBackgroundColor = colorOption(
         key = "lightThemeBackgroundColor",
         default = whiteColor,
         values = availableLightTheme,

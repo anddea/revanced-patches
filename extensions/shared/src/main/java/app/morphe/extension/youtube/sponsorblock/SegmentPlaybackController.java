@@ -873,7 +873,7 @@ public class SegmentPlaybackController {
 
         Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
         if (currentContext == null) {
-            Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast);
+            // The player overlay is not initialized for feed autoplay.
             return;
         }
 

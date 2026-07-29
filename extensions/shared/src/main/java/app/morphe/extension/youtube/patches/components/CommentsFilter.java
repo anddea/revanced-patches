@@ -3,6 +3,7 @@ package app.morphe.extension.youtube.patches.components;
 import java.util.regex.Pattern;
 
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
+import app.morphe.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.shared.utils.Logger;
@@ -10,6 +11,7 @@ import app.morphe.extension.shared.utils.StringTrieSearch;
 import app.morphe.extension.youtube.innertube.NextResponseOuterClass.NewElement;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
+import app.morphe.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings("unused")
 public final class CommentsFilter extends Filter {
@@ -22,11 +24,15 @@ public final class CommentsFilter extends Filter {
     private final StringFilterGroup chipBar;
     private final ByteArrayFilterGroup aiCommentsSummary;
     private final StringFilterGroup comments;
+    private final StringFilterGroup commentComposer;
+    private final StringFilterGroup commentComposerButtons;
+    private final ByteArrayFilterGroupList commentComposerButtonsGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup commentsPreviewDots;
     private final StringFilterGroup createAShort;
-    private final StringFilterGroup emojiPickerAndTimestamp;
+    private final StringFilterGroup emojiButton;
     private final StringFilterGroup previewCommentText;
     private final StringFilterGroup thanks;
+    private final StringFilterGroup timestampButton;
     private final StringTrieSearch exceptions = new StringTrieSearch();
 
     public CommentsFilter() {
@@ -66,14 +72,41 @@ public final class CommentsFilter extends Filter {
                 "sponsorships_comments_footer."
         );
 
+        commentComposer = new StringFilterGroup(
+                null,
+                COMMENT_COMPOSER_PATH
+        );
+
+        commentComposerButtons = new StringFilterGroup(
+                null,
+                "|ContainerType|ContainerType|ContainerType|ContainerType|",
+                "composer_main_action_button"
+        );
+
+        commentComposerButtonsGroupList.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_COMMENTS_CREATE_A_SHORT_BUTTON,
+                        "composer_short_creation_button"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_COMMENTS_THANKS_BUTTON,
+                        "super_thanks_button"
+                )
+        );
+
         createAShort = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_CREATE_A_SHORT_BUTTON,
                 "composer_short_creation_button"
         );
 
-        emojiPickerAndTimestamp = new StringFilterGroup(
+        emojiButton = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_EMOJI_AND_TIMESTAMP_BUTTONS,
-                "|CellType|ContainerType|ContainerType|ContainerType|ContainerType|ContainerType|"
+                "id.comment.quick_emoji.button"
+        );
+
+        timestampButton = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_EMOJI_AND_TIMESTAMP_BUTTONS,
+                "composer_timestamp_button"
         );
 
         final StringFilterGroup liveChatMessages = new StringFilterGroup(
@@ -113,13 +146,16 @@ public final class CommentsFilter extends Filter {
                 chipBar,
                 comments,
                 commentsByMembers,
+                commentComposer,
+                commentComposerButtons,
                 commentsPreviewDots,
                 createAShort,
-                emojiPickerAndTimestamp,
+                emojiButton,
                 liveChatMessages,
                 previewComment,
                 previewCommentText,
-                thanks
+                thanks,
+                timestampButton
         );
     }
 
@@ -129,7 +165,18 @@ public final class CommentsFilter extends Filter {
         if (exceptions.matches(path))
             return false;
 
-        if (matchedGroup == createAShort || matchedGroup == thanks || matchedGroup == emojiPickerAndTimestamp) {
+        if (matchedGroup == commentComposer) {
+            return emojiButton.check(allValue).isFiltered();
+        }
+
+        if (matchedGroup == commentComposerButtons) {
+            if (!ExtendedUtils.IS_20_31_OR_GREATER) {
+                return false;
+            }
+            return commentComposerButtonsGroupList.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == createAShort || matchedGroup == thanks || matchedGroup == timestampButton) {
             return path.startsWith(COMMENT_COMPOSER_PATH);
         } else if (matchedGroup == chipBar) {
             // Playlist sort button uses same components and must only filter if the player is opened.

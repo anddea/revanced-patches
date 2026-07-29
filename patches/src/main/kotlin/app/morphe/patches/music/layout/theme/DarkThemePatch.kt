@@ -5,8 +5,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patcher.patch.stringOption
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.extension.Constants.UTILS_PATH
@@ -81,11 +81,17 @@ val darkThemePatch = resourcePatch(
 
     val amoledBlackColor = "@android:color/black"
 
-    val darkThemeBackgroundColor = stringOption(
+    val darkThemeBackgroundColor = colorOption(
         key = "darkThemeBackgroundColor",
         default = amoledBlackColor,
         values = mapOf(
             "Amoled Black" to amoledBlackColor,
+            "Material You (Neutral)" to "@android:color/system_neutral1_900",
+            "Material You - Primary" to "@android:color/system_accent1_800",
+            "Material You - Secondary" to "@android:color/system_accent2_800",
+            "Material You - Tertiary" to "@android:color/system_accent3_800",
+            "Modern YouTube" to "#FF0F0F0F",
+            "Classic (Old YouTube)" to "#FF212121",
             "Catppuccin (Mocha)" to "#FF181825",
             "Dark Pink" to "#FF290025",
             "Dark Blue" to "#FF001029",

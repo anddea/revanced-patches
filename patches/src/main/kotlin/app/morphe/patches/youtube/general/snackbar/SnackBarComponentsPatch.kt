@@ -50,6 +50,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
@@ -262,6 +263,12 @@ val snackBarComponentsPatch = resourcePatch(
     val availableDarkTheme = mapOf(
         "YouTube Dark" to ytBackgroundColorDark,
         "Amoled Black" to "@android:color/black",
+        "Material You (Neutral)" to "@android:color/system_neutral1_900",
+        "Material You - Primary" to "@android:color/system_accent1_800",
+        "Material You - Secondary" to "@android:color/system_accent2_800",
+        "Material You - Tertiary" to "@android:color/system_accent3_800",
+        "Modern YouTube" to "#FF0F0F0F",
+        "Classic (Old YouTube)" to "#FF212121",
         "Catppuccin (Mocha)" to "#FF181825",
         "Dark Pink" to "#FF290025",
         "Dark Blue" to "#FF001029",
@@ -274,6 +281,10 @@ val snackBarComponentsPatch = resourcePatch(
     val availableLightTheme = mapOf(
         "YouTube Light" to ytBackgroundColorLight,
         "White" to "@android:color/white",
+        "Material You (Neutral)" to "@android:color/system_neutral1_100",
+        "Material You - Primary" to "@android:color/system_accent1_200",
+        "Material You - Secondary" to "@android:color/system_accent2_200",
+        "Material You - Tertiary" to "@android:color/system_accent3_200",
         "Catppuccin (Latte)" to "#FFE6E9EF",
         "Light Pink" to "#FFFCCFF3",
         "Light Blue" to "#FFD1E0FF",
@@ -299,7 +310,7 @@ val snackBarComponentsPatch = resourcePatch(
         required = true
     )
 
-    val darkThemeBackgroundColor = stringOption(
+    val darkThemeBackgroundColor = colorOption(
         key = "darkThemeBackgroundColor",
         default = ytBackgroundColorDark,
         values = availableDarkTheme,
@@ -308,7 +319,7 @@ val snackBarComponentsPatch = resourcePatch(
         required = true,
     )
 
-    val lightThemeBackgroundColor = stringOption(
+    val lightThemeBackgroundColor = colorOption(
         key = "lightThemeBackgroundColor",
         default = ytBackgroundColorLight,
         values = availableLightTheme,
@@ -317,7 +328,7 @@ val snackBarComponentsPatch = resourcePatch(
         required = true,
     )
 
-    val strokeColorOption = stringOption(
+    val strokeColorOption = colorOption(
         key = "strokeColor",
         default = "",
         values = mapOf(
