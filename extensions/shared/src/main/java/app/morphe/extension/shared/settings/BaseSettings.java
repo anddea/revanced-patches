@@ -6,7 +6,6 @@ import static app.morphe.extension.shared.settings.Setting.parent;
 
 import app.morphe.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayFormat;
 import app.morphe.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
-import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientAndroidVRAvailability;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.J2V8Availability;
 import app.morphe.extension.shared.utils.Logger;
 
@@ -27,9 +26,6 @@ public class BaseSettings {
     public static final EnumSetting<AppLanguage> REVANCED_LANGUAGE = new EnumSetting<>("revanced_language", AppLanguage.DEFAULT, true);
 
     public static final BooleanSetting SPOOF_STREAMING_DATA = new BooleanSetting("revanced_spoof_streaming_data", TRUE, true, "revanced_spoof_streaming_data_user_dialog_message");
-
-    public static final BooleanSetting SPOOF_STREAMING_DATA_ANDROID_VR_ENABLE_AV1_CODEC = new BooleanSetting("revanced_spoof_streaming_data_android_vr_enable_av1_codec", FALSE, true,
-            "revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message", new ClientAndroidVRAvailability());
 
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS = new BooleanSetting("revanced_spoof_streaming_data_use_js", TRUE, true,
             "revanced_spoof_streaming_data_use_js_user_dialog_message", new J2V8Availability());

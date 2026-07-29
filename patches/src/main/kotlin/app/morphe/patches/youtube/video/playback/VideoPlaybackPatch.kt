@@ -36,6 +36,7 @@ import app.morphe.patches.youtube.video.information.speedSelectionInsertMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
+import app.morphe.patches.youtube.video.quality.prioritizeVideoQualityPatch
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.updatePatchStatus
@@ -90,6 +91,7 @@ val videoPlaybackPatch = bytecodePatch(
         videoIdPatch,
         videoInformationPatch,
         sharedResourceIdPatch,
+        prioritizeVideoQualityPatch,
     )
 
     execute {

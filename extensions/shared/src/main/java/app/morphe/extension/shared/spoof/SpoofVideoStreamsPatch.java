@@ -36,22 +36,6 @@ public class SpoofVideoStreamsPatch {
         }
     }
 
-    public static final class JavaScriptHashAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return SharedYouTubeSettings.SPOOF_VIDEO_STREAMS.isAvailable() && preferredClient.requireJS &&
-                    SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_DISABLE_PLAYER_JS_UPDATE.get();
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return List.of(
-                    SharedYouTubeSettings.SPOOF_VIDEO_STREAMS,
-                    SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_DISABLE_PLAYER_JS_UPDATE
-            );
-        }
-    }
-
     private static final String INTERNET_CONNECTION_CHECK_URI_STRING = "https://www.google.com/gen_204";
     private static final Uri INTERNET_CONNECTION_CHECK_URI = Uri.parse(INTERNET_CONNECTION_CHECK_URI_STRING);
 
@@ -60,7 +44,7 @@ public class SpoofVideoStreamsPatch {
     @Nullable
     private static volatile AppLanguage languageOverride;
 
-    private static volatile ClientType preferredClient = ClientType.ANDROID_REEL_AUTH;
+    private static volatile ClientType preferredClient = ClientType.VISIONOS_1_02;
 
     private static WeakReference<Application> mainActivityRef = new WeakReference<>(null);
 
@@ -134,23 +118,6 @@ public class SpoofVideoStreamsPatch {
             }
         }
         return playerRequestBuilder;
-    }
-
-    public static String blockGetAttRequest(String originalUrlString) {
-        if (SPOOF_VIDEO_STREAMS) {
-            try {
-                var originalUri = Uri.parse(originalUrlString);
-                String path = originalUri.getPath();
-
-                if (path != null && path.contains("att/get")) {
-                    Logger.printDebug(() -> "Blocking 'att/get' by returning internet connection check URI");
-                    return INTERNET_CONNECTION_CHECK_URI_STRING;
-                }
-            } catch (Exception ex) {
-                Logger.printException(() -> "blockGetAttRequest failure", ex);
-            }
-        }
-        return originalUrlString;
     }
 
     public static String blockInitPlaybackRequest(String originalUrlString) {

@@ -11,7 +11,6 @@ import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.addCustomPreference
 import app.morphe.patches.music.utils.settings.addListPreference
-import app.morphe.patches.music.utils.settings.addTextPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.music.utils.webview.webViewPatch
@@ -75,17 +74,6 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
             "morphe_spoof_video_streams_sign_in_android_vr_about",
             "app.morphe.extension.music.settings.preference.SpoofVideoStreamsSignInPreference",
             "morphe_spoof_video_streams"
-        )
-        addSwitchPreference(
-            CategoryType.MISC,
-            "morphe_spoof_video_streams_disable_player_js_update",
-            "false",
-            "morphe_spoof_video_streams"
-        )
-        addTextPreference(
-            CategoryType.MISC,
-            "morphe_spoof_video_streams_player_js_hash_value",
-            "morphe_spoof_video_streams_disable_player_js_update"
         )
     },
 )

@@ -64,7 +64,7 @@ public class StreamOrDetailsDataRequest {
 
     private static volatile ClientType[] clientStreamOrderToUse =
             Arrays.stream(ClientType.values())
-                    .filter(client -> client.usePlayerEndpoint || client == ClientType.ANDROID_REEL_NO_AUTH || client == ClientType.ANDROID_REEL_AUTH)
+                    .filter(client -> client.usePlayerEndpoint)
                     .toArray(ClientType[]::new);
 
     public static void setClientOrderToUse(List<ClientType> availableClients, ClientType preferredClient) {

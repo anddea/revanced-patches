@@ -157,18 +157,20 @@ internal fun spoofVideoStreamsPatch(
             }
         }
 
-        BuildRequestFingerprint.method.apply {
-            val newRequestBuilderIndex = BuildRequestFingerprint.instructionMatches.first().index
-            val buildRequestMethodURLRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
-            val freeRegister = findFreeRegister(newRequestBuilderIndex, buildRequestMethodURLRegister)
+        BuildRequestFingerprint.let {
+            it.method.apply {
+                val newRequestBuilderIndex = it.instructionMatches.first().index
+                val buildRequestMethodURLRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
+                val freeRegister = findFreeRegister(newRequestBuilderIndex, buildRequestMethodURLRegister)
 
-            addInstructions(
-                newRequestBuilderIndex,
-                """
-                    move-object v$freeRegister, p1
-                    invoke-static { v$buildRequestMethodURLRegister, v$freeRegister }, $EXTENSION_CLASS->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
-                """
-            )
+                addInstructions(
+                    newRequestBuilderIndex,
+                    """
+                        move-object v$freeRegister, p1
+                        invoke-static { v$buildRequestMethodURLRegister, v$freeRegister }, $EXTENSION_CLASS->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
+                    """
+                )
+            }
         }
 
         CreateStreamingDataFingerprint.let {
@@ -283,22 +285,6 @@ internal fun spoofVideoStreamsPatch(
                 addInstruction(
                     videoDetailsIndex + 1,
                     "invoke-direct { p0, v$videoDetailsRegister, p1 }, $helperMethod"
-                )
-            }
-        }
-
-        BuildRequestFingerprint.let {
-            it.method.apply {
-                val insertIndex = indexOfNewUrlRequestBuilderInstruction(this)
-                val register = it.instructionMatches.first()
-                    .getInstruction<FiveRegisterInstruction>().registerD
-
-                addInstructions(
-                    insertIndex,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS->blockGetAttRequest(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$register
-                    """
                 )
             }
         }
