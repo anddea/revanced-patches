@@ -162,12 +162,11 @@ public class ExtendedUtils extends PackageUtils {
 
         // Preset size constants.
         final int dip4 = dipToPixels(4);   // Height for handle bar.
-        final int dip5 = dipToPixels(5);
-        final int dip8 = dipToPixels(8);   // Padding for mainLayout from left and right.
+        final int dip8 = dipToPixels(8);   // Vertical padding for mainLayout.
         final int dip20 = dipToPixels(20);
         final int dip40 = dipToPixels(40); // Width for handle bar.
 
-        mainLayout.setPadding(dip5, dip8, dip5, dip8);
+        mainLayout.setPadding(0, dip8, 0, dip8);
 
         // Set rounded rectangle background for the main layout.
         RoundRectShape roundRectShape = new RoundRectShape(

@@ -525,42 +525,50 @@ public class PlaylistPatch {
         ADD_TO_QUEUE(
                 "revanced_queue_manager_add_to_queue",
                 "yt_outline_list_add_black_24",
+                "yt_outline_experimental_playlist_add_vd_theme_24",
                 () -> fetchQueue(false, false, false, false)
         ),
         ADD_TO_QUEUE_AND_OPEN_QUEUE(
                 "revanced_queue_manager_add_to_queue_and_open_queue",
                 "yt_outline_list_add_black_24",
+                "yt_outline_experimental_playlist_add_vd_theme_24",
                 () -> fetchQueue(false, true, false, false)
         ),
         ADD_TO_QUEUE_AND_PLAY_VIDEO(
                 "revanced_queue_manager_add_to_queue_and_play_video",
                 "yt_outline_list_play_arrow_black_24",
+                "yt_outline_experimental_playlist_vd_theme_24",
                 () -> fetchQueue(false, true, true, false)
         ),
         // The circle reload icon is missing on 19.28, while this 24dp repeat icon exists on 19.28 and 20.51.
         ADD_TO_QUEUE_AND_RELOAD_VIDEO(
                 "revanced_queue_manager_add_to_queue_and_reload_video",
                 "yt_outline_arrow_repeat_black_24",
+                "yt_outline_experimental_replay_vd_theme_24",
                 () -> fetchQueue(false, true, true, true)
         ),
         REMOVE_FROM_QUEUE(
                 "revanced_queue_manager_remove_from_queue",
                 "yt_outline_trash_can_black_24",
+                "yt_outline_experimental_circle_slash_vd_theme_24",
                 () -> fetchQueue(true, false, false, false)
         ),
         REMOVE_FROM_QUEUE_AND_OPEN_QUEUE(
                 "revanced_queue_manager_remove_from_queue_and_open_queue",
                 "yt_outline_trash_can_black_24",
+                "yt_outline_experimental_circle_slash_vd_theme_24",
                 () -> fetchQueue(true, true, false, false)
         ),
         REMOVE_FROM_QUEUE_AND_RELOAD_VIDEO(
                 "revanced_queue_manager_remove_from_queue_and_reload_video",
                 "yt_outline_arrow_repeat_black_24",
+                "yt_outline_experimental_replay_vd_theme_24",
                 () -> fetchQueue(true, true, true, true)
         ),
         OPEN_QUEUE(
                 "revanced_queue_manager_open_queue",
                 "yt_outline_list_view_black_24",
+                "yt_outline_experimental_queue_vd_theme_24",
                 PlaylistPatch::openQueue
         ),
         // For some reason, the 'playlist/delete' endpoint is unavailable.
@@ -572,6 +580,7 @@ public class PlaylistPatch {
         SAVE_QUEUE(
                 "revanced_queue_manager_save_queue",
                 "yt_outline_bookmark_black_24",
+                "yt_outline_experimental_bookmark_vd_theme_24",
                 PlaylistPatch::saveToPlaylist
         ),
         SUMMARIZE_VIDEO(
@@ -582,11 +591,13 @@ public class PlaylistPatch {
         SHOW_ORIGINAL_VIDEO_INFORMATION(
                 "revanced_queue_manager_show_original_video_information",
                 "yt_outline_info_circle_black_24",
+                "yt_outline_experimental_info_circle_black_24",
                 PlaylistPatch::fetchVideoDetails
         ),
         EXTERNAL_DOWNLOADER(
                 "revanced_shorts_custom_actions_external_downloader_label",
                 "yt_outline_download_black_24",
+                "yt_outline_experimental_download_black_24",
                 PlaylistPatch::downloadVideo
         );
 
@@ -599,7 +610,16 @@ public class PlaylistPatch {
         public final Runnable onClickAction;
 
         QueueManager(@NonNull String label, @NonNull String icon, @NonNull Runnable onClickAction) {
-            this.drawableId = ResourceUtils.getDrawableIdentifier(icon);
+            this(label, icon, icon, onClickAction);
+        }
+
+        /**
+         * Uses the icon style selected by YouTube's bold-icons feature flag and user override.
+         */
+        QueueManager(@NonNull String label, @NonNull String icon, @NonNull String boldIcon,
+                     @NonNull Runnable onClickAction) {
+            this.drawableId = ResourceUtils.getDrawableIdentifier(
+                    Utils.appIsUsingBoldIcons() ? boldIcon : icon);
             this.label = ResourceUtils.getString(label);
             this.onClickAction = onClickAction;
         }

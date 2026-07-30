@@ -346,6 +346,7 @@ public final class CustomActionsPatch {
         COPY_URL(
                 Settings.SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL,
                 "yt_outline_link_black_24",
+                "yt_outline_experimental_link_vd_theme_24",
                 () -> VideoUtils.copyUrl(
                         VideoUtils.getVideoUrl(
                                 ShortsCustomActionsFilter.getShortsVideoId(),
@@ -363,7 +364,8 @@ public final class CustomActionsPatch {
         ),
         COPY_URL_WITH_TIMESTAMP(
                 Settings.SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP,
-                "yt_outline_arrow_time_black_24",
+                "yt_outline_stopwatch_black_24",
+                "yt_outline_experimental_stopwatch_black_24",
                 () -> VideoUtils.copyUrl(
                         VideoUtils.getVideoUrl(
                                 ShortsCustomActionsFilter.getShortsVideoId(),
@@ -382,6 +384,7 @@ public final class CustomActionsPatch {
         EXTERNAL_DOWNLOADER(
                 Settings.SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER,
                 "yt_outline_download_black_24",
+                "yt_outline_experimental_download_vd_theme_24",
                 () -> VideoUtils.launchVideoExternalDownloader(
                         ShortsCustomActionsFilter.getShortsVideoId()
                 )
@@ -389,6 +392,7 @@ public final class CustomActionsPatch {
         OPEN_VIDEO(
                 Settings.SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO,
                 "yt_outline_youtube_logo_icon_black_24",
+                "yt_outline_experimental_youtube_black_24",
                 () -> VideoUtils.openVideo(
                         ShortsCustomActionsFilter.getShortsVideoId(),
                         true
@@ -397,7 +401,20 @@ public final class CustomActionsPatch {
         SPEED_DIALOG(
                 Settings.SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG,
                 "yt_outline_play_arrow_half_circle_black_24",
+                "yt_outline_experimental_play_circle_half_dashed_black_24",
                 () -> VideoUtils.showPlaybackSpeedDialog(contextRef.get(), Settings.SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG_TYPE)
+        ),
+        REPEAT_STATE(
+                Settings.SHORTS_CUSTOM_ACTIONS_REPEAT_STATE,
+                "yt_outline_arrow_repeat_1_black_24",
+                "yt_outline_experimental_repeat1_vd_theme_24",
+                () -> {
+                    boolean enabled = !Settings.SHORTS_AUTOPLAY.get();
+                    Settings.SHORTS_AUTOPLAY.save(enabled);
+                    Utils.showToastShort(str(enabled
+                            ? "revanced_shorts_autoplay_enabled_toast"
+                            : "revanced_shorts_autoplay_disabled_toast"));
+                }
         ),
         GEMINI(
                 Settings.SHORTS_CUSTOM_ACTIONS_GEMINI,
@@ -426,6 +443,7 @@ public final class CustomActionsPatch {
         VOICE_OVER_TRANSLATION(
                 Settings.SHORTS_CUSTOM_ACTIONS_VOICE_OVER_TRANSLATION,
                 "revanced_vot_button_icon",
+                "revanced_vot_bold_button_icon",
                 () -> {
                     if (!PatchStatus.VoiceOverTranslation()) {
                         return;
@@ -440,17 +458,6 @@ public final class CustomActionsPatch {
                     if (context != null) {
                         VideoUtils.showVotBottomSheetDialog(context);
                     }
-                }
-        ),
-        REPEAT_STATE(
-                Settings.SHORTS_CUSTOM_ACTIONS_REPEAT_STATE,
-                "yt_outline_arrow_repeat_1_black_24",
-                () -> {
-                    boolean enabled = !Settings.SHORTS_AUTOPLAY.get();
-                    Settings.SHORTS_AUTOPLAY.save(enabled);
-                    Utils.showToastShort(str(enabled
-                            ? "revanced_shorts_autoplay_enabled_toast"
-                            : "revanced_shorts_autoplay_disabled_toast"));
                 }
         );
 
@@ -475,7 +482,7 @@ public final class CustomActionsPatch {
                      @NonNull String icon,
                      @NonNull Runnable onClickAction
         ) {
-            this(settings, icon, onClickAction, null);
+            this(settings, icon, icon, onClickAction, null);
         }
 
         CustomAction(@NonNull BooleanSetting settings,
@@ -483,8 +490,29 @@ public final class CustomActionsPatch {
                      @NonNull Runnable onClickAction,
                      @Nullable Runnable onLongClickAction
         ) {
-            this.drawable = Objects.requireNonNull(ResourceUtils.getDrawable(icon));
-            this.drawableId = ResourceUtils.getDrawableIdentifier(icon);
+            this(settings, icon, icon, onClickAction, onLongClickAction);
+        }
+
+        CustomAction(@NonNull BooleanSetting settings,
+                     @NonNull String icon,
+                     @NonNull String boldIcon,
+                     @NonNull Runnable onClickAction
+        ) {
+            this(settings, icon, boldIcon, onClickAction, null);
+        }
+
+        /**
+         * Uses the icon style selected by YouTube's bold-icons feature flag and user override.
+         */
+        CustomAction(@NonNull BooleanSetting settings,
+                     @NonNull String icon,
+                     @NonNull String boldIcon,
+                     @NonNull Runnable onClickAction,
+                     @Nullable Runnable onLongClickAction
+        ) {
+            String selectedIcon = Utils.appIsUsingBoldIcons() ? boldIcon : icon;
+            this.drawable = Objects.requireNonNull(ResourceUtils.getDrawable(selectedIcon));
+            this.drawableId = ResourceUtils.getDrawableIdentifier(selectedIcon);
             this.label = getString(settings.key + "_label");
             this.settings = settings;
             this.onClickAction = onClickAction;

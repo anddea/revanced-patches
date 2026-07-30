@@ -404,6 +404,59 @@ public final class NavigationButtonsPatch {
     }
 
     /**
+     * Replaces the Create button's semantic icon so YouTube resolves the active thin or bold
+     * Settings icon from the server-controlled toolbar style.
+     */
+    @Nullable
+    public static byte[] replaceToolbarCreateButton(List<MessageLite> rawButtonList) {
+        if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get()
+                || SHOW_TOOLBAR_SETTINGS_BUTTON
+                || rawButtonList == null || rawButtonList.isEmpty()) {
+            return null;
+        }
+
+        try {
+            for (int index = 0; index < rawButtonList.size(); index++) {
+                Buttons buttons = Buttons.parseFrom(rawButtonList.get(index).toByteArray());
+                if (!buttons.hasButtonRenderer() || !buttons.getButtonRenderer().hasIcon()) {
+                    continue;
+                }
+
+                YTIconType iconType = buttons.getButtonRenderer().getIcon().getYtIconType();
+                if (iconType != YTIconType.FAB_CAMERA
+                        && iconType != YTIconType.VIDEO_CAMERA
+                        && iconType != YTIconType.CREATION_ENTRY
+                        && iconType != YTIconType.CREATION_ENTRY_V2
+                        && iconType != YTIconType.CREATION_ENTRY_UPLOAD_ICON) {
+                    continue;
+                }
+
+                toolbarCreateButtonIndex = index;
+                ButtonRenderer renderer = buttons.getButtonRenderer().toBuilder()
+                        .setIcon(Icon.newBuilder().setYtIconType(YTIconType.SETTINGS_CAIRO).build())
+                        .build();
+                return buttons.toBuilder()
+                        .setButtonRenderer(renderer)
+                        .build()
+                        .toByteArray();
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to replace toolbar Create button icon", ex);
+        }
+
+        return null;
+    }
+
+    private static int toolbarCreateButtonIndex;
+
+    /**
+     * Returns the list index captured by {@link #replaceToolbarCreateButton(List)}.
+     */
+    public static int getToolbarCreateButtonIndex() {
+        return toolbarCreateButtonIndex;
+    }
+
+    /**
      * Moves the newly appended Settings button to the configured one-based toolbar index.
      */
     public static void applyToolbarSettingsButtonIndex(List<MessageLite> rawButtonList) {
