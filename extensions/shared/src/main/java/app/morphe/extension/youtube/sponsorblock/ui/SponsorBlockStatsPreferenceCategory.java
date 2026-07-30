@@ -70,7 +70,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
             addPreference(loadingPlaceholderPreference);
 
             if (enabled) {
-                loadingPlaceholderPreference.setTitle(str("revanced_sb_stats_loading"));
+                loadingPlaceholderPreference.setTitle(str("revanced_gemini_loading_default"));
                 Utils.runOnBackgroundThread(() -> {
                     UserStats stats = SBRequester.retrieveUserStats();
                     Utils.runOnMainThread(() -> { // get back on main thread to modify UI elements

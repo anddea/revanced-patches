@@ -486,11 +486,21 @@ internal fun addSwitchPreference(
     key: String,
     defaultValue: String,
     dependencyKey: String,
-    setSummary: Boolean
+    setSummary: Boolean,
+    titleKey: String = "${key}_title",
+    summaryKey: String = "${key}_summary",
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
-        ResourceUtils.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, setSummary)
+        ResourceUtils.addSwitchPreference(
+            categoryValue,
+            key,
+            defaultValue,
+            dependencyKey,
+            setSummary,
+            titleKey,
+            summaryKey,
+        )
 }
 
 internal fun addPreferenceWithIntent(

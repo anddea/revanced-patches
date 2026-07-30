@@ -34,10 +34,8 @@ Tap the continue button and allow optimization changes."</string>
     <string name="morphe_crossfade_duration_9000ms">9 seconds</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
-    <string name="morphe_disable_drc_audio_title">Disable DRC audio</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
-    <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
     <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to Android Reel or TV</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
@@ -114,7 +112,6 @@ YouTube Music 8.x - crossfade only runs on 9.x and newer"</string>
     <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
     <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
-    <string name="morphe_spoof_video_streams_screen_title">Spoof video streams</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Not signed in to Android VR. Tap here to sign in</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">To use this feature, change \'Default client\' to Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Currently signed into Android VR</string>
@@ -126,9 +123,7 @@ YouTube Music 8.x - crossfade only runs on 9.x and newer"</string>
 3. Sign in to Google if prompted. If you have multiple accounts then choose this YouTube account
 4. Tap 'Allow YouTube VR' access
 5. Return to this app after reaching the 'Device connected' message"</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Open website</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instructions</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Continue</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Signing in to Android VR can fix playback issues for some users
 
 To sign in, press continue below"</string>
@@ -136,7 +131,7 @@ To sign in, press continue below"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Sign in to Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentication saved
 
-• Your Morphe settings will not import/export Android VR authentication
+• Your RVX settings will not import/export Android VR authentication
 • If this app is unused for 6 months then Google will remove this authentication
 • You will need to sign in again if you change your Google password or deregister this device from your Google settings"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Successfully signed in</string>
@@ -156,7 +151,6 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adds a previous track button to the miniplayer.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Add miniplayer previous button</string>
     <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
-    <string name="revanced_app_info_dialog_title">App info</string>
     <string name="revanced_app_info_summary">Click to check the app name, app version, patch version, and patched date.</string>
     <string name="revanced_app_info_title">App info</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bypasses the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
@@ -171,7 +165,6 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_change_seekbar_position_title">Change seekbar position</string>
     <string name="revanced_change_share_sheet_summary">Changes the in-app share sheet to system share sheet.</string>
     <string name="revanced_change_share_sheet_title">Change share sheet</string>
-    <string name="revanced_change_start_page_entry_chart">Charts</string>
     <string name="revanced_change_start_page_entry_charts">Charts</string>
     <string name="revanced_change_start_page_entry_default">Default</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Episodes for Later</string>
@@ -182,7 +175,6 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_samples">Samples</string>
     <string name="revanced_change_start_page_entry_search">Search</string>
-    <string name="revanced_change_start_page_entry_subscription">Subscriptions</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_summary">Select which page the app opens in.</string>
     <string name="revanced_change_start_page_title">Change start page</string>
@@ -267,10 +259,6 @@ Limitations:
     <string name="revanced_enable_forced_miniplayer_title">Enable forced miniplayer</string>
     <string name="revanced_enable_landscape_mode_summary">Enables landscape mode when rotating the screen on phones.</string>
     <string name="revanced_enable_landscape_mode_title">Enable landscape mode</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Adds a next track button to the miniplayer.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Add miniplayer next button</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Adds a previous track button to the miniplayer.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Add miniplayer previous button</string>
     <string name="revanced_enable_opus_codec_summary">"Enables the OPUS codec if the player response includes it.
 
 Info:
@@ -279,8 +267,6 @@ Info:
     <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
     <string name="revanced_enable_smooth_transition_animation_summary">Enables smooth animation when miniplayer is maximized from minimized state.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Enable smooth transition animation</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Enables swipe down to dismiss miniplayer.</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Enable swipe to dismiss miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Enables swipe down to dismiss miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Enable swipe to dismiss miniplayer</string>
     <string name="revanced_enable_thick_seekbar_summary">"Enables the thick seekbar.
@@ -337,8 +323,6 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_action_button_song_video_summary">"Hides the Song / Video button.
 (This button is only available to some users)"</string>
     <string name="revanced_hide_action_button_song_video_title">Hide Song / Video button</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">Hides the Song / Video toggle in the player.</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">Hide Song / Video toggle</string>
     <string name="revanced_hide_button_shelf_summary">Hides the button shelf in the feed.</string>
     <string name="revanced_hide_button_shelf_title">Hide button shelf</string>
     <string name="revanced_hide_carousel_shelf_summary">Hides the carousel shelf in the feed.</string>
@@ -369,7 +353,6 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Hide Go to episode menu</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Hide Go to podcast menu</string>
     <string name="revanced_hide_flyout_menu_help_title">Hide Help &amp; feedback menu</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Hide Like and Dislike buttons</string>
     <string name="revanced_hide_flyout_menu_not_interested_title">Hide Not interested menu</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Hide Pin to Speed dial menu</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Hide Play next menu</string>
@@ -471,7 +454,6 @@ Please download %2$s from the website."</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Remembers the last video quality selected.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Shows a toast when changing the default video quality.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Show a toast</string>
     <string name="revanced_remember_video_quality_mobile">Changing default mobile data quality to %s.</string>
     <string name="revanced_remember_video_quality_none">Failed to set quality.</string>
     <string name="revanced_remember_video_quality_wifi">Changing default Wi-Fi quality to %s.</string>
@@ -540,7 +522,6 @@ Click to see how to issue an API key."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API key</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Go to &lt;a href=%1$s&gt;Create a new project&lt;/a&gt;.&lt;br&gt;2. Click the &lt;b&gt;CREATE&lt;/b&gt; button.&lt;br&gt;3. Go to &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Click the &lt;b&gt;ENABLE&lt;/b&gt; button.&lt;br&gt;5. Click the &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; button.&lt;br&gt;6. Select the &lt;b&gt;Public data&lt;/b&gt; option.&lt;br&gt;7. Click the &lt;b&gt;NEXT&lt;/b&gt; button.&lt;br&gt;8. Copy the API key.&lt;br&gt;&lt;br&gt;※ API key should never be shared with others, so it is not included in Import / Export settings.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Issue YouTube Data API v3 developer key</string>
-    <string name="revanced_ryd_about">About</string>
     <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Hides the separator of the like button.</string>
@@ -558,7 +539,6 @@ Click to see how to issue an API key."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Shows a toast if the Return YouTube Dislike API is unavailable.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is unavailable</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
-    <string name="revanced_sb_about">About</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms.</string>
     <string name="revanced_sb_api_url">Change API URL</string>
@@ -573,7 +553,6 @@ Click to see how to issue an API key."</string>
     <string name="revanced_sb_diff_segments">Change segment behavior</string>
     <string name="revanced_sb_enabled">Enable SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos.</string>
-    <string name="revanced_sb_reset_color">Reset color</string>
     <string name="revanced_sb_segments_filler">Tangent / Jokes</string>
     <string name="revanced_sb_segments_filler_sum">Tangential scenes or jokes that are not required to understand the main content of the video. Does not include sections providing context or background details.</string>
     <string name="revanced_sb_segments_hook">Hook / Greetings</string>
@@ -600,19 +579,16 @@ Click to see how to issue an API key."</string>
     <string name="revanced_sb_skipped_interaction">Skipped annoying reminder.</string>
     <string name="revanced_sb_skipped_intro_beginning">Skipped intro.</string>
     <string name="revanced_sb_skipped_intro_end">Skipped intermission.</string>
-    <string name="revanced_sb_skipped_intro_middle">Skipped intermission.</string>
     <string name="revanced_sb_skipped_multiple_segments">Skipped multiple segments.</string>
     <string name="revanced_sb_skipped_nomusic">Skipped a non-music section.</string>
     <string name="revanced_sb_skipped_outro">Skipped outro.</string>
     <string name="revanced_sb_skipped_preview_beginning">Skipped preview.</string>
     <string name="revanced_sb_skipped_preview_end">Skipped recap.</string>
-    <string name="revanced_sb_skipped_preview_middle">Skipped preview.</string>
     <string name="revanced_sb_skipped_selfpromo">Skipped self-promotion.</string>
     <string name="revanced_sb_skipped_sponsor">Skipped sponsor.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock is temporarily unavailable.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock is temporarily unavailable (status %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock is temporarily unavailable (API timed out).</string>
-    <string name="revanced_sb_toast_on_connection_error">Show a toast if API is unavailable</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Shows a toast if the SponsorBlock API is unavailable.</string>
     <string name="revanced_sb_toast_on_skip">Show a toast when skipping automatically</string>
     <string name="revanced_sb_toast_on_skip_sum">Shows a toast when a segment is automatically skipped.</string>
@@ -681,7 +657,6 @@ Click to see how to issue an API key."</string>
 
 Side effect (Block request):
 • App may be forced to close when using a VPN or DNS."</string>
-    <string name="revanced_spoof_client_type_title">Default client</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Click to see how to get an authentication token.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">About Android No SDK Auth</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Click here to see how to sign in to Android No SDK.</string>
@@ -694,8 +669,6 @@ Side effect (Block request):
 3. Login results will be shown within 5 seconds.
 
 ※ Click 'Reset' to remove an authentication token."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Reset</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Sign in to Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Authentication token saved.
 
 - Authentication token issued through this process can only be used in YouTube (In RVX, it is used to fetch streaming data from YouTube).
@@ -703,39 +676,14 @@ Side effect (Block request):
 - If you change your password, or deregister a device in your account settings, or uninstall the app, you will need to reissue the authentication token."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Signed in</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Authentication token reset.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Not signed in to Android VR. Tap here to sign in</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Android VR sign in</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Activation code:
-%s
-
-1. Tap 'Open website' below to open the 'Connect a device' website
-2. Paste from the clipboard (or type out) the activation code shown above
-3. Sign in to Google if prompted. If you have multiple accounts then choose this YouTube account
-4. Tap 'Allow YouTube VR' access
-5. Return to this app after reaching the 'Device connected' message"</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website">Open website</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Open website</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Instructions</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Activation code copied to clipboard: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Authentication saved
-
-• Your Morphe settings will not import/export Android VR authentication
-• If this app is unused for 6 months then Google will remove this authentication
-• You will need to sign in again if you change your Google password or deregister this device from your Google settings"</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Successfully signed in</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Failed to issue an authentication token.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Click Reset and try again.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Authentication token and activation code reset.</string>
-    <string name="revanced_spoof_streaming_data_summary">Spoof the client video streams to prevent playback issues</string>
-    <string name="revanced_spoof_streaming_data_title">Spoof video streams</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Click to see how to get an authentication token.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">About Android VR Auth</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Side effect:
 • App may be forced to close when using a VPN or DNS.
 • Audio may intermittently stutter during playback on adaptive bitrate streaming clients (All clients other than Android VR 1.43.32)."</string>
-    <string name="revanced_spoof_video_streams_default_client_title">Default client</string>
-    <string name="revanced_spoof_video_streams_summary">Spoof the client video streams to prevent playback issues.</string>
-    <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
     <string name="revanced_translations_title">Translations</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Replace domain</string>
@@ -745,7 +693,6 @@ Side effect (Block request):
 • Block watch history: Watch history is blocked."</string>
     <string name="revanced_watch_history_type_title">Watch history type</string>
     <string name="revanced_webview_cookies">Cookies</string>
-    <string name="revanced_webview_copy">Copy</string>
     <string name="revanced_webview_data_sync_id">Data Sync Id</string>
     <string name="revanced_webview_toast_copy_success">%s copied to clipboard.</string>
     <string name="revanced_webview_toast_empty">%s is empty.</string>

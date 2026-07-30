@@ -241,7 +241,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
                 str("revanced_vot_oauth_account_management_title"),
                 null,
                 null,
-                str("revanced_vot_oauth_sign_out_button"),
+                str("morphe_spoof_video_streams_sign_in_android_vr_dialog_reset"),
                 this::signOut,
                 () -> { /* Cancel — do nothing */ },
                 str("revanced_vot_oauth_switch_token_button"),
@@ -325,7 +325,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
 
         CustomDialog.create(
                 context,
-                str("revanced_vot_oauth_enter_token_title"),
+                str("revanced_vot_oauth_enter_manually_button"),
                 null,
                 editText,
                 null,

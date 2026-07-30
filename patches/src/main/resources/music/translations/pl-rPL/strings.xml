@@ -34,10 +34,8 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
     <string name="morphe_crossfade_duration_9000ms">9 sekund</string>
     <string name="morphe_disable_drc_audio_summary_off">Włączona</string>
     <string name="morphe_disable_drc_audio_summary_on">Wyłączona</string>
-    <string name="morphe_disable_drc_audio_title">Wyłącz kompresję dźwięku</string>
     <string name="morphe_disable_quic_protocol_summary_off">Włączony</string>
     <string name="morphe_disable_quic_protocol_summary_on">Wyłączony</string>
-    <string name="morphe_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="morphe_force_original_audio_not_available">Aby użyć tej funkcji, zmień opcję \"Fałszowanie strumieni filmów\" na dowolnego klienta z wyjątkiem \"Android Studio\"</string>
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
@@ -110,25 +108,8 @@ Ekran blokady lub powiadomienie może przez chwilę pokazywać nieaktualny stan 
     <string name="morphe_settings_menu_filter_screen_summary">Ukrywaj elementy na standardowym ekranie ustawień aplikacji na podstawie ich widocznej nazwy</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtr menu ustawień</string>
     <string name="morphe_spoof_video_streams_client_type_title">Domyślny klient</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Blokuje JS odtwarzacza na określonej wersji
-
-• Wymagany jest prawidłowy hash JS odtwarzacza
-• Hashe są ważne przez około miesiąc, a nieaktualne hashe mogą zostać unieważnione przez GVS
-• Jeśli hash zostanie unieważniony, odtwarzanie przestanie działać"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Włączone</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Wyłączone
-
-• Wymagany jest prawidłowy hash skryptu JS odtwarzacza
-• Odtwarzanie nie powiedzie się, jeśli hash skryptu zostanie unieważniony w GVS"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Wyłącz aktualizację JS odtwarzacza</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Musisz podać prawidłowy hash JS odtwarzacza.
-
-​Jeśli hash będzie nieaktualny, odtwarzanie przestanie działać."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nie można przechwycić żadnego ze strumieni klienta</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Wprowadź poprawny hash skryptu JS odtwarzacza</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash skryptu JS odtwarzacza</string>
     <string name="morphe_spoof_video_streams_screen_summary">Skonfiguruj fałszowanie klienta, aby zapobiec problemom z odtwarzaniem</string>
-    <string name="morphe_spoof_video_streams_screen_title">Fałszowanie strumieni filmów</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Nie zalogowano do Android VR. Dotknij tutaj, aby się zalogować</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">By używać tej funkcji, zmień \"Domyślny klient\" na Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Obecnie zalogowano do Android VR</string>
@@ -140,9 +121,7 @@ Ekran blokady lub powiadomienie może przez chwilę pokazywać nieaktualny stan 
 3. Zaloguj się na konto Google, jeśli pojawi się taki komunikat. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube
 4. Dotknij \"Zezwól\" na dostęp YouTube VR
 5. Wróć do aplikacji po zobaczeniu \"Urządzenie połączone\""</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Otwórz stronę</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instrukcja</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Kontynuuj</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Zalogowanie się do Android VR może rozwiązać problemy z odtwarzaniem u niektórych użytkowników
 
 Aby się zalogować, naciśnij \"Kontynuuj\" poniżej"</string>
@@ -150,7 +129,7 @@ Aby się zalogować, naciśnij \"Kontynuuj\" poniżej"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Zaloguj się do Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autoryzacja zapisana
 
-• Przy imporcie/eksporcie ustawień Morphe autoryzacja Android VR jest pomijana
+• Przy imporcie/eksporcie ustawień RVX autoryzacja Android VR jest pomijana
 • Jeśli aplikacja nie będzie używana przez 6 miesięcy, Google usunie autoryzację
 • W przypadku zmiany hasła lub wyrejestrowania urządzenia w ustawieniach konta Google konieczne będzie ponowne zalogowanie się"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Zalogowano pomyślnie</string>
@@ -172,7 +151,6 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="revanced_add_miniplayer_previous_button_summary">Dodaje przycisk do poprzedniego utworu w miniodtwarzaczu.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Dodaj przycisk do poprzedniego utworu w miniodtwarzaczu</string>
     <string name="revanced_app_info_dialog_message">&lt;b&gt;Nazwa aplikacji&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Wersja aplikacji&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Data załatania&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
-    <string name="revanced_app_info_dialog_title">Informacje o aplikacji</string>
     <string name="revanced_app_info_summary">Kliknij, by sprawdzić nazwę aplikacji, wersję aplikacji, wersję łatek oraz datę załatania.</string>
     <string name="revanced_app_info_title">Informacje o aplikacji</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Zastępuje domenę, która jest blokowana w niektórych regionach, aby można było otrzymywać miniaturki playlist, awatary kanałów itp.</string>
@@ -187,7 +165,6 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="revanced_change_seekbar_position_title">Zmień pozycję paska postępu utworu</string>
     <string name="revanced_change_share_sheet_summary">Zmienia wygląd panelu udostępniania z natywnego aplikacji na systemowy.</string>
     <string name="revanced_change_share_sheet_title">Zmień wygląd panelu udostępniania</string>
-    <string name="revanced_change_start_page_entry_chart">Listy przebojów</string>
     <string name="revanced_change_start_page_entry_charts">Listy przebojów</string>
     <string name="revanced_change_start_page_entry_default">Domyślna</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Odcinki na później</string>
@@ -198,7 +175,6 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="revanced_change_start_page_entry_podcasts">Podcasty</string>
     <string name="revanced_change_start_page_entry_samples">Sample</string>
     <string name="revanced_change_start_page_entry_search">Wyszukiwanie</string>
-    <string name="revanced_change_start_page_entry_subscription">Subskrypcje</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
     <string name="revanced_change_start_page_summary">Wybierz, na której stronie ma otwierać się aplikacja.</string>
     <string name="revanced_change_start_page_title">Strona startowa</string>
@@ -283,10 +259,6 @@ Ograniczenia:
     <string name="revanced_enable_forced_miniplayer_title">Włącz wymuszenie miniodtwarzacza</string>
     <string name="revanced_enable_landscape_mode_summary">Pozwala wejść w tryb pełnoekranowy poprzez obrót ekranu telefonu.</string>
     <string name="revanced_enable_landscape_mode_title">Włącz tryb pełnoekranowy</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Dodaje przycisk do następnego utworu w miniodtwarzaczu.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Dodaj przycisk do następnego utworu w miniodtwarzaczu</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Dodaje przycisk do poprzedniego utworu w miniodtwarzaczu.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Dodaj przycisk do poprzedniego utworu w miniodtwarzaczu</string>
     <string name="revanced_enable_opus_codec_summary">"Włącza kodek OPUS, jeśli odpowiedź odtwarzacza zawiera ten kodek.
 
 Informacje:
@@ -295,8 +267,6 @@ Informacje:
     <string name="revanced_enable_opus_codec_title">Włącz kodek OPUS</string>
     <string name="revanced_enable_smooth_transition_animation_summary">Włącza płynną animację, gdy miniodtwarzacz jest zmaksymalizowany ze zminimalizowanego stanu.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Włącz płynną animację przejścia</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Włącza przesuwanie w dół do zamykania miniodtwarzacza.</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Włącz przesuwanie do zamykania miniodtwarzacza</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Włącza przesunięcie, by zamknąć miniodtwarzacz.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Włącz przesunięcie, by zamknąć miniodtwarzacz</string>
     <string name="revanced_enable_thick_seekbar_summary">"Włącza pogrubiony pasek postępu utworu.
@@ -353,8 +323,6 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_action_button_song_video_summary">"Ukrywa przycisk utwór/teledysk.
 (Ten przycisk jest jedynie dostępny u niektórych użytkowników)"</string>
     <string name="revanced_hide_action_button_song_video_title">Ukryj przycisk utwór/teledysk</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">Ukrywa przełącznik utwór-teledysk w odtwarzaczu.</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">Ukryj przełącznik utwór-teledysk</string>
     <string name="revanced_hide_button_shelf_summary">Ukrywa półkę z przyciskami na stronie głównej.</string>
     <string name="revanced_hide_button_shelf_title">Ukryj półki z przyciskami</string>
     <string name="revanced_hide_carousel_shelf_summary">Ukrywa półkę z karuzelami na stronie głównej.</string>
@@ -385,7 +353,6 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Ukryj menu od przechodzenia do odcinka</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ukryj menu od przechodzenia do podcastu</string>
     <string name="revanced_hide_flyout_menu_help_title">Ukryj menu do pomocy i opinii</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Ukryj przyciski łapki w górę i w dół</string>
     <string name="revanced_hide_flyout_menu_not_interested_title">Ukryj menu od niezainteresowania</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Ukryj przypinanie do menu szybkiego wybierania</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Ukryj menu od odtwarzania jako następny</string>
@@ -487,7 +454,6 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Zapisuje ostatnią wybraną jakość teledysku.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Zapamiętuj zmiany jakości teledysku</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Komunikaty będą wyświetlane po zmianie domyślnej jakości teledysków.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Komunikaty o zmianie domyślnej jakości teledysków</string>
     <string name="revanced_remember_video_quality_mobile">Zmieniono domyślną jakość podczas używania sieci mobilnej na %s.</string>
     <string name="revanced_remember_video_quality_none">Jakość nie została ustawiona.</string>
     <string name="revanced_remember_video_quality_wifi">Zmieniono domyślną jakość podczas używania Wi-Fi na %s.</string>
@@ -556,7 +522,6 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Klucz YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Przejdź do &lt;a href=%1$s&gt;Utwórz nowy projekt&lt;/a&gt;.&lt;br&gt;2. Kliknij przycisk &lt;b&gt;UTWÓRZ&lt;/b&gt;&lt;br&gt;3. Przejdź do &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Kliknij przycisk &lt;b&gt;WŁĄCZ&lt;/b&gt;&lt;br&gt;5. Kliknij przycisk &lt;b&gt;UTWÓRZ DANE LOGOWANIA&lt;/b&gt;&lt;br&gt;6. Wybierz opcję &lt;b&gt;Dane publiczne&lt;/b&gt;&lt;br&gt;7. Kliknij przycisk &lt;b&gt;DALEJ&lt;/b&gt;&lt;br&gt;8. Skopiuj klucz API&lt;br&gt;&lt;br&gt;※ Klucz API nie powinien być współdzielony z innymi, dlatego nie jest zawarty w ustawieniach importu/eksportu</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Zgłoś klucz deweloperski YouTube Data API</string>
-    <string name="revanced_ryd_about">O integracji</string>
     <string name="revanced_ryd_attribution_summary">"Dane są dostarczane przez API Return YouTube Dislike
 
 Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
@@ -576,7 +541,6 @@ Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Wyświetla powiadomienie, gdy serwer Return YouTube Dislike jest niedostępny</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Pokaż powiadomienia o błędach połączenia</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte przez właściciela</string>
-    <string name="revanced_sb_about">O integracji</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Dane są dostarczane przez API SponsorBlock. Stuknij tutaj, aby dowiedzieć się więcej i pobrać na inne platformy.</string>
     <string name="revanced_sb_api_url">Zmień adres API</string>
@@ -591,7 +555,6 @@ Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
     <string name="revanced_sb_diff_segments">Zmień sposoby pomijania segmentów</string>
     <string name="revanced_sb_enabled">Włącz SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock to system pomijania denerwujących fragmentów w filmach na YouTube.</string>
-    <string name="revanced_sb_reset_color">Zresetuj kolor</string>
     <string name="revanced_sb_segments_filler">Wypełniacze / Żarty</string>
     <string name="revanced_sb_segments_filler_sum">Segmenty nietematyczne dodawane tylko dla wypełnienia lub humor, który nie jest wymagany do zrozumienia głównej treści filmu.  Nie dotyczy segmentów zawierających informacje kontekstowe lub szczegółowe.</string>
     <string name="revanced_sb_segments_hook">Haczyki / Pozdrowienia</string>
@@ -618,19 +581,16 @@ Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
     <string name="revanced_sb_skipped_interaction">Pominięto irytujące przypomnienie.</string>
     <string name="revanced_sb_skipped_intro_beginning">Pominięto wstęp.</string>
     <string name="revanced_sb_skipped_intro_end">Pominięto przerywnik.</string>
-    <string name="revanced_sb_skipped_intro_middle">Pominięto przerywnik.</string>
     <string name="revanced_sb_skipped_multiple_segments">Pominięto wiele segmentów.</string>
     <string name="revanced_sb_skipped_nomusic">Pominięto fragment bez muzyki.</string>
     <string name="revanced_sb_skipped_outro">Pominięto zakończenie.</string>
     <string name="revanced_sb_skipped_preview_beginning">Pominięto zapowiedź.</string>
     <string name="revanced_sb_skipped_preview_end">Pominięto podsumowanie.</string>
-    <string name="revanced_sb_skipped_preview_middle">Pominięto zapowiedź.</string>
     <string name="revanced_sb_skipped_selfpromo">Pominięto autoreklamę.</string>
     <string name="revanced_sb_skipped_sponsor">Pominięto treści sponsorowane.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock jest tymczasowo niedostępny.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock jest tymczasowo niedostępny (status %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock jest tymczasowo niedostępny (API nie reaguje).</string>
-    <string name="revanced_sb_toast_on_connection_error">Pokaż komunikat, jeśli API jest niedostępne</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Wyświetla komunikat w momencie, gdy API SponsorBlock jest niedostępne.</string>
     <string name="revanced_sb_toast_on_skip">Pokazuj komunikaty podczas automatycznego pomijania</string>
     <string name="revanced_sb_toast_on_skip_sum">Komunikaty są pokazywane, gdy segmenty są automatycznie pomijane.</string>
@@ -644,7 +604,7 @@ Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_import_export_summary">Importuje/Eksportuje ustawienia RVX Music</string>
     <string name="revanced_settings_import_export_title">Importuj/eksportuj ustawienia</string>
     <string name="revanced_settings_import_failed">Nie udało się zaimportować: %s.</string>
-    <string name="revanced_settings_import_reset">Przywrócono domyślne ustawienia Morphe</string>
+    <string name="revanced_settings_import_reset">Przywrócono domyślne ustawienia RVX</string>
     <string name="revanced_settings_import_success">Zaimportowano %d ustawień</string>
     <string name="revanced_settings_reset">Zresetuj</string>
     <string name="revanced_settings_reset_color">Zresetuj kolor</string>
@@ -694,7 +654,6 @@ Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
 
 Efekt uboczny (blokada żądania):
 • aplikacja może wymusić zamknięcie się podczas korzystania z VPN lub DNS"</string>
-    <string name="revanced_spoof_client_type_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Kliknij, by zobaczyć jak uzyskać token uwierzytelniający.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">O Androidzie bez autoryzacji SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Kliknij tutaj, by zobaczyć jak zalogować się do Android bez SDK.</string>
@@ -707,8 +666,6 @@ Efekt uboczny (blokada żądania):
 3. Rezultaty logowania zostaną pokazane w przeciągu 5 sekund
 
 ※ Kliknij 'Zresetuj', by usunąć token uwierzytelniający."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Zresetuj</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Zaloguj się do Android bez SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Zapisano token uwierzytelniający.
 
 - token uwierzytelniający wydany w ramach tego procesu może być używany wyłącznie w serwisie YouTube VR (w RVX służy do pobierania danych strumieniowych z serwisu YouTube VR)
@@ -716,43 +673,14 @@ Efekt uboczny (blokada żądania):
 - w przypadku zmiany hasła, wyrejestrowania urządzenia w ustawieniach konta lub odinstalowania aplikacji konieczne będzie ponowne wygenerowanie tokenu uwierzytelniającego"</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Zalogowano</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Zresetowano token uwierzytelniający.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Kliknij tutaj, by zobaczyć jak zalogować się do Android VR</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Zaloguj się do Android VR</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Kod aktywacyjny:
-%s
-
-1. Kliknij 'Otwórz stronę', aby przejść do 'https://yt.be/activate'
-2. Wprowadź kod aktywacyjny
-3. Zaloguj się, gdy pojawi się monit. Jeśli masz wiele kont Google, użyj tego, którego używasz w YouTube. Jeśli jesteś już zalogowany, przejdź do następnego kroku
-4. Po zalogowaniu się, wróć do RVX i kliknij ponownie 'Zaloguj się do Android VR'
-5. Kliknij 'Uzyskaj token uwierzytelniający', by go zdobyć"</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website">Otwarta strona internetowa </string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Otwórz stronę</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Kod aktywacyjny</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Skopiowano kod aktywacyjny do schowka: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Zapisano token uwierzytelniający.
-
-- token uwierzytelniający wydany w ramach tego procesu może być używany wyłącznie w serwisie YouTube VR (w RVX służy do pobierania danych strumieniowych z serwisu YouTube VR)
-- token uwierzytelniający, który nie był używany przez ponad 6 miesięcy, zostanie unieważniony przez serwery Google
-- w przypadku zmiany hasła, wyrejestrowania urządzenia w ustawieniach konta lub odinstalowania aplikacji konieczne będzie ponowne wygenerowanie tokenu uwierzytelniającego"</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Zalogowano</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Nie udało się wygenerować tokenu uwierzytelniającego.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Kliknij przycisk zresetuj i spróbuj ponownie</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Zresetowano token uwierzytelniający i kod aktywacyjny.</string>
-    <string name="revanced_spoof_streaming_data_summary">"Oszukuje strumień filmu klienta, by zapobiec problemom z odtwarzaniem.
-
-Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie te nie jest konieczne."</string>
-    <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kliknij, by zobaczyć jak uzyskać token uwierzytelniający.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">O Android VR z autoryzacją</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Efekty uboczne:
 • aplikacja może wymusić zamknięcie się podczas korzystania z VPN lub DNS
 • dźwięk może sporadycznie się zacinać podczas odtwarzania na strumieniach klienta z adaptacyjną przepływnością (każdy z wyjątkiem Android VR 1.43.32)"</string>
-    <string name="revanced_spoof_video_streams_default_client_title">Domyślny klient</string>
-    <string name="revanced_spoof_video_streams_summary">"Naprawia problemy z odtwarzaniem u większości użytkowników, wymuszając kompatybilny strumień filmów
-
-Jeśli masz YouTube Premium, to ustawienie może nie być wymagane"</string>
-    <string name="revanced_spoof_video_streams_title">Fałszuj strumienie filmów</string>
     <string name="revanced_translations_title">Tłumaczenia</string>
     <string name="revanced_watch_history_type_entry_1">Oryginalny</string>
     <string name="revanced_watch_history_type_entry_2">Zastąpienie domeny</string>
@@ -762,7 +690,6 @@ Jeśli masz YouTube Premium, to ustawienie może nie być wymagane"</string>
 • Zablokowanie historii oglądania: Historia oglądania jest zablokowana"</string>
     <string name="revanced_watch_history_type_title">Typ historii oglądania</string>
     <string name="revanced_webview_cookies">Pliki cookie</string>
-    <string name="revanced_webview_copy">Kopiuj</string>
     <string name="revanced_webview_data_sync_id">ID synchronizacji danych</string>
     <string name="revanced_webview_toast_copy_success">%s skopiowane do schowka.</string>
     <string name="revanced_webview_toast_empty">%s jest puste.</string>

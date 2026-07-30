@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Parse log files to extract function execution times and display performance statistics.
 
 This module reads a log file containing function execution times, calculates statistical metrics

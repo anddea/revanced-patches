@@ -26,10 +26,8 @@
     <string name="morphe_crossfade_duration_9000ms">9 giây</string>
     <string name="morphe_disable_drc_audio_summary_off">Tính năng nén dải động đã bật</string>
     <string name="morphe_disable_drc_audio_summary_on">Tính năng nén dải động đã tắt</string>
-    <string name="morphe_disable_drc_audio_title">Tắt âm thanh DRC</string>
     <string name="morphe_disable_quic_protocol_summary_off">Giao thức QUIC đã bật</string>
     <string name="morphe_disable_quic_protocol_summary_on">Giao thức QUIC đã tắt</string>
-    <string name="morphe_disable_quic_protocol_title">Tắt giao thức QUIC</string>
     <string name="morphe_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng phát video\' thành bất kỳ client nào ngoại trừ Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
     <string name="morphe_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
@@ -102,25 +100,8 @@ YouTube Music 8.x – hiệu ứng chuyển tiếp chỉ chạy trên 9.x trở 
     <string name="morphe_settings_menu_filter_screen_summary">Ẩn các mục trên màn hình cài đặt ứng dụng tiêu chuẩn theo tên hiển thị của chúng</string>
     <string name="morphe_settings_menu_filter_screen_title">Bộ lọc menu Cài đặt</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client mặc định</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Cố định phiên bản JavaScript của trình phát
-
-• Yêu cầu mã băm JavaScript hợp lệ
-• Mỗi mã băm thường chỉ có hiệu lực trong khoảng một tháng và bị GVS thu hồi khi hết hạn
-• Khi bị thu hồi, video sẽ không còn phát được nữa"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Cập nhật JavaScript của trình phát đã bật</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Cập nhật JavaScript của trình phát đã bị tắt
-
-• Cần có mã băm JavaScript hợp lệ
-• Video sẽ không phát được nếu mã băm này bị GVS thu hồi"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Tắt cập nhật JavaScript của trình phát</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Bạn cần cung cấp một mã băm JavaScript của trình phát còn hiệu lực.
-
-Bạn sẽ không còn xem được video nếu mã băm hết hạn."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Không thể lấy bất kỳ luồng phát nào</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Nhập mã băm JavaScript hợp lệ của trình phát</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Mã băm JavaScript của trình phát</string>
     <string name="morphe_spoof_video_streams_screen_summary">Cấu hình giả mạo client nhằm tránh lỗi khi phát</string>
-    <string name="morphe_spoof_video_streams_screen_title">Giả mạo luồng phát video</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Chưa đăng nhập Android VR. Bấm vào đây để đăng nhập</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Để dùng tính năng này, thay đổi \"Client mặc định\" thành Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Đã đăng nhập vào Android VR</string>
@@ -132,9 +113,7 @@ Bạn sẽ không còn xem được video nếu mã băm hết hạn."</string>
 3. Đăng nhập vào Google nếu được yêu cầu. Nếu bạn có nhiều tài khoản thì chọn tài khoản YouTube này
 4. Bấm \"Cho phép\" YouTube VR truy cập
 5. Quay lại ứng dụng sau khi nhận được thông báo \"Kết nối thiết bị thành công\""</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Mở trang web</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Hướng dẫn</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Tiếp tục</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Đăng nhập Android VR có thể sửa lỗi phát cho một số người dùng
 
 Bấm tiếp tục bên dưới để đăng nhập"</string>
@@ -142,7 +121,7 @@ Bấm tiếp tục bên dưới để đăng nhập"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Đăng nhập vào Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Đã lưu xác thực
 
-• Các cài đặt Morphe của bạn sẽ không nhập/xuất xác thực Android VR
+• Các cài đặt RVX của bạn sẽ không nhập/xuất xác thực Android VR
 • Nếu ứng dụng này không được sử dụng trong 6 tháng thì Google sẽ xóa xác thực này
 • Nếu bạn thay đổi mật khẩu Google hoặc xóa bỏ cài đặt thiết bị này khỏi cài đặt Google thì cần đăng nhập lại"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Đã đăng nhập thành công</string>
@@ -164,7 +143,6 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
     <string name="revanced_add_miniplayer_previous_button_summary">Thêm nút bài hát trước đó vào trình phát thu nhỏ.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Nút trước đó trong trình phát thu nhỏ</string>
     <string name="revanced_app_info_dialog_message">&lt;b&gt;Tên&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Phiên bản&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Bản vá&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Ngày vá&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
-    <string name="revanced_app_info_dialog_title">Thông tin</string>
     <string name="revanced_app_info_summary">Nhấn để xem thông tin ứng dụng và bản vá.</string>
     <string name="revanced_app_info_title">Thông tin ứng dụng</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bỏ qua miền bị chặn ở một số khu vực để có thể thu được được hình thu nhỏ video của danh sách phát, ảnh đại diện kênh, v. v.</string>
@@ -179,7 +157,6 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
     <string name="revanced_change_seekbar_position_title">Thay đổi vị trí thanh tiến trình</string>
     <string name="revanced_change_share_sheet_summary">Chuyển bảng chia sẻ trong ứng dụng YouTube sang của hệ thống Android.</string>
     <string name="revanced_change_share_sheet_title">Thay đổi bảng chia sẻ</string>
-    <string name="revanced_change_start_page_entry_chart">Bảng xếp hạng</string>
     <string name="revanced_change_start_page_entry_charts">Bảng xếp hạng</string>
     <string name="revanced_change_start_page_entry_default">Mặc định</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Tập podcast để thưởng thức sau</string>
@@ -190,7 +167,6 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_samples">Đoạn nhạc</string>
     <string name="revanced_change_start_page_entry_search">Tìm kiếm</string>
-    <string name="revanced_change_start_page_entry_subscription">Kênh đăng ký</string>
     <string name="revanced_change_start_page_entry_subscriptions">Kênh đăng ký</string>
     <string name="revanced_change_start_page_summary">Chọn trang sẽ hiển thị khi bạn khởi động ứng dụng.</string>
     <string name="revanced_change_start_page_title">Trang bắt đầu</string>
@@ -274,10 +250,6 @@ Hạn chế:
     <string name="revanced_enable_forced_miniplayer_title">Luôn phát trong trình phát thu nhỏ</string>
     <string name="revanced_enable_landscape_mode_summary">Cho phép ứng dụng tự động xoay theo hướng màn hình mà thiết bị được giữ.</string>
     <string name="revanced_enable_landscape_mode_title">Tự động xoay màn hình</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Thêm nút bài hát tiếp theo vào trình phát thu nhỏ.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Thêm nút tiếp theo vào trình phát thu nhỏ</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Thêm nút bài hát trước đó vào trình phát thu nhỏ.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Thêm nút trước đó vào trình phát thu nhỏ</string>
     <string name="revanced_enable_opus_codec_summary">"Áp dụng codec OPUS nếu phản hồi của trình phát bao gồm nó.
 
 Chi tiết:
@@ -286,8 +258,6 @@ Chi tiết:
     <string name="revanced_enable_opus_codec_title">Codec OPUS</string>
     <string name="revanced_enable_smooth_transition_animation_summary">Làm cho hiệu ứng mượt hơn khi phóng to trình phát thu nhỏ.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Hiệu ứng chuyển tiếp</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Vuốt xuống để đóng trình phát thu nhỏ.</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Vuốt để đóng trình phát thu nhỏ</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Vuốt xuống để đóng trình phát thu nhỏ.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Vuốt để đóng trình phát thu nhỏ</string>
     <string name="revanced_enable_thick_seekbar_summary">"Bật thanh tiến trình lớn trong trình phát.
@@ -338,8 +308,6 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_hide_action_button_song_video_summary">"Ẩn nút chuyển đổi giữa Bài hát và Video trên thanh tương tác.
 (Nút chỉ có sẵn với một số người dùng)"</string>
     <string name="revanced_hide_action_button_song_video_title">Ẩn nút chuyển đổi giữa Bài hát và Video</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">Ẩn nút chuyển đổi giữa Bài hát và Video trong trình phát.</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">Ẩn nút chuyển đổi giữa Bài hát và Video</string>
     <string name="revanced_hide_button_shelf_summary">Ẩn khối danh mục ở cuối thẻ Trang chủ và đầu thẻ Khám phá.</string>
     <string name="revanced_hide_button_shelf_title">Ẩn khối danh mục</string>
     <string name="revanced_hide_carousel_shelf_summary">Ẩn các kệ được cá nhân hoá dựa trên sở thích của bạn khỏi thẻ Trang chủ và thẻ Khám phá.</string>
@@ -370,7 +338,6 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Ẩn mục Chuyển đến tập podcast</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ẩn mục Chuyển đến podcast</string>
     <string name="revanced_hide_flyout_menu_help_title">Ẩn mục Trợ giúp &amp; phản hồi</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Ẩn các nút Thích và Không thích</string>
     <string name="revanced_hide_flyout_menu_not_interested_title">Ẩn mục Không quan tâm</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Ẩn mục Ghim vào kệ Phát nhanh</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Ẩn mục Phát video tiếp theo</string>
@@ -472,7 +439,6 @@ Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên 
     <string name="revanced_remember_video_quality_last_selected_summary">Ghi nhớ lựa chọn chất lượng video đã chọn gần nhất.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Lưu lựa chọn chất lượng video</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Hiển thị một thông báo ngắn khi thay đổi chất lượng video mặc định.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Thông báo ngắn</string>
     <string name="revanced_remember_video_quality_mobile">Đã lưu chất lượng video mặc định khi sử dụng dữ liệu di động thành %s.</string>
     <string name="revanced_remember_video_quality_none">Đặt chất lượng video thất bại.</string>
     <string name="revanced_remember_video_quality_wifi">Đã lưu chất lượng video mặc định khi sử dụng Wi-Fi thành %s.</string>
@@ -543,7 +509,6 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Khoá YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Tạo dự án mới&lt;/a&gt;.&lt;br&gt;2. Ấn vào &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Đi tới &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Ấn vào &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Ấn vào &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Chọn &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Ấn vào &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Sao chép mã khoá API.&lt;br&gt;&lt;br&gt;※ Không nên chia sẻ mã khoá API với người khác, vì vậy chúng cũng không có mặt trong mục Nhập/Xuất cài đặt.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Phát hành mã khoá</string>
-    <string name="revanced_ryd_about">Giới thiệu</string>
     <string name="revanced_ryd_attribution_summary">"Dữ liệu được cung cấp bởi API Return YouTube Dislike
 
 Nhấn vào đây để mở ReturnYouTubeDislike.com"</string>
@@ -563,7 +528,6 @@ Nhấn vào đây để mở ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Hiển thị thông báo khi máy chủ Return YouTube Dislike không khả dụng</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Hiện cảnh báo lỗi kết nối</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Đã ẩn bởi chủ sở hữu</string>
-    <string name="revanced_sb_about">Giới thiệu</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải xuống cho các nền tảng khác.</string>
     <string name="revanced_sb_api_url">Thay đổi địa chỉ URL của API</string>
@@ -578,7 +542,6 @@ Nhấn vào đây để mở ReturnYouTubeDislike.com"</string>
     <string name="revanced_sb_diff_segments">Cài đặt phân đoạn</string>
     <string name="revanced_sb_enabled">Kích hoạt SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video trên YouTube.</string>
-    <string name="revanced_sb_reset_color">Đặt lại màu</string>
     <string name="revanced_sb_segments_filler">Lạc đề/Hài hước</string>
     <string name="revanced_sb_segments_filler_sum">Phân cảnh được thêm vào chỉ để câu giờ hoặc gây cười nhưng không cần thiết cho nội dung chính của video. Không bao gồm phân đoạn cung cấp bối cảnh hoặc chi tiết nền.</string>
     <string name="revanced_sb_segments_hook">Gây chú ý/Lời chào</string>
@@ -605,19 +568,16 @@ Nhấn vào đây để mở ReturnYouTubeDislike.com"</string>
     <string name="revanced_sb_skipped_interaction">Đã bỏ qua nhắc nhở tương tác.</string>
     <string name="revanced_sb_skipped_intro_beginning">Đã bỏ qua phần intro.</string>
     <string name="revanced_sb_skipped_intro_end">Đã bỏ qua đoạn tạm dừng.</string>
-    <string name="revanced_sb_skipped_intro_middle">Đã bỏ qua đoạn tạm dừng.</string>
     <string name="revanced_sb_skipped_multiple_segments">Đã bỏ qua nhiều phân đoạn.</string>
     <string name="revanced_sb_skipped_nomusic">Đã bỏ qua phần không phải nhạc.</string>
     <string name="revanced_sb_skipped_outro">Đã bỏ qua phần outro.</string>
     <string name="revanced_sb_skipped_preview_beginning">Đã bỏ qua đoạn xem trước.</string>
     <string name="revanced_sb_skipped_preview_end">Đã bỏ qua phần tóm tắt.</string>
-    <string name="revanced_sb_skipped_preview_middle">Đã bỏ qua đoạn xem trước.</string>
     <string name="revanced_sb_skipped_selfpromo">Đã bỏ qua đoạn tự quảng cáo.</string>
     <string name="revanced_sb_skipped_sponsor">Đã bỏ qua nhà tài trợ.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock tạm thời không khả dụng.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tạm thời không khả dụng (trạng thái %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock tạm thời không khả dụng (API đã hết thời gian chờ).</string>
-    <string name="revanced_sb_toast_on_connection_error">Thông báo ngắn nếu API không khả dụng</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Hiển thị một thông báo ngắn nếu API của SponsorBlock không khả dụng.</string>
     <string name="revanced_sb_toast_on_skip">Thông báo ngắn khi tự động bỏ qua</string>
     <string name="revanced_sb_toast_on_skip_sum">Hiển thị một thông báo ngắn mỗi khi tự động bỏ qua phân đoạn.</string>
@@ -631,7 +591,7 @@ Nhấn vào đây để mở ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_import_export_summary">Nhập hoặc xuất các cài đặt RVX Music của bạn.</string>
     <string name="revanced_settings_import_export_title">Nhập hoặc Xuất cài đặt</string>
     <string name="revanced_settings_import_failed">Không thể nhập: %s.</string>
-    <string name="revanced_settings_import_reset">Đặt lại cài đặt Morphe về mặc định</string>
+    <string name="revanced_settings_import_reset">Đặt lại cài đặt RVX về mặc định</string>
     <string name="revanced_settings_import_success">Đã nhập %d cài đặt</string>
     <string name="revanced_settings_reset">Đặt lại</string>
     <string name="revanced_settings_reset_color">Đặt lại màu</string>
@@ -680,7 +640,6 @@ Nhấn vào đây để mở ReturnYouTubeDislike.com"</string>
 
 Hạn chế (Chặn truy vấn):
 • Ứng dụng có thể bị buộc đóng khi đang dùng VPN hoặc DNS."</string>
-    <string name="revanced_spoof_client_type_title">Loại client mặc định</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Nhấn để xem cách lấy token xác thực.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Về xác thực Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Nhấn vào đây để xem hướng dẫn đăng nhập vào Android No SDK.</string>
@@ -694,8 +653,6 @@ Hạn chế (Chặn truy vấn):
 3. Kết quả đăng nhập sẽ hiện sau 5 giây.
 
 ※ Nhấn \"Đặt lại\" để xoá mã xác thực."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Đặt lại</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Đăng nhập vào Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Đã lưu mã xác thực.
 
 Chi tiết:
@@ -704,43 +661,14 @@ Chi tiết:
 - Nếu bạn đổi mật khẩu, xóa thiết bị trong cài đặt, hoặc gỡ ứng dụng, bạn sẽ phải tạo lại mã."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Đã đăng nhập xong</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Đã đặt lại mã xác thực.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Nhấn vào đây để xem hướng dẫn đăng nhập vào Android VR.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Đăng nhập vào Android VR</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Mã kích hoạt:
-%s
-
-1. Nhấn \"Mở trang web\" để đi tới https://yt.be/activate.
-2. Nhập mã kích hoạt.
-3. Đăng nhập khi được yêu cầu. Nếu bạn có nhiều tài khoản Google, hãy chọn tài khoản mà bạn sử dụng để xem YouTube. Còn nếu bạn đã đăng nhập thì hãy bỏ qua bước này.
-4. Sau khi đã đăng nhập, quay lại RVX và nhấn \"Đăng nhập vào Android VR\" lần nữa.
-5. Nhấn \"Lấy mã xác thực\" để lấy mã."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Mở trang web</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Mã kích hoạt</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Đã sao chép mã kích hoạt vào bảng nhớ tạm: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Đã lưu mã xác thực.
-
-Chi tiết:
-- Mã này chỉ dùng cho YouTube (RVX dùng nó để truy xuất dữ liệu phát video từ Youtube).
-- Máy chủ Google sẽ thu hồi mã nếu không dùng quá 6 tháng.
-- Nếu bạn đổi mật khẩu, xóa thiết bị trong cài đặt, hoặc gỡ ứng dụng, bạn sẽ phải tạo lại mã."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Đã đăng nhập xong</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Không thể tạo mã xác thực.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Nhấn Đặt lại và thử lại.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Đặt lại mã xác thực và mã kích hoạt.</string>
-    <string name="revanced_spoof_streaming_data_summary">"Giả mạo client phát video để tránh lỗi khi phát.
-
-Nếu bạn đã đăng ký YouTube Premium, thì có thể không cần thiết phải bật cài đặt này."</string>
-    <string name="revanced_spoof_streaming_data_title">Giả mạo dữ liệu phát</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Nhấn để biết cách lấy mã xác thực.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Giới thiệu về Android VR Auth</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Hạn chế:
 • Ứng dụng có thể bị buộc đóng khi dùng VPN hoặc DNS.
 • Âm thanh có thể bị ngắt quãng khi phát trên client dùng truyền phát bit thích ứng (trừ Android VR 1.43.32)."</string>
-    <string name="revanced_spoof_video_streams_default_client_title">Client mặc định</string>
-    <string name="revanced_spoof_video_streams_summary">"Sửa lỗi phát cho hầu hết người dùng bằng cách đổi luồng video tương thích
-
-Nếu bạn đã mua gói Premium, có thể không cần thiết phải bật cài đặt này"</string>
-    <string name="revanced_spoof_video_streams_title">Giả mạo luồng phát video</string>
     <string name="revanced_translations_title">Bản dịch</string>
     <string name="revanced_watch_history_type_entry_1">Gốc</string>
     <string name="revanced_watch_history_type_entry_2">Thay thế miền</string>
@@ -750,7 +678,6 @@ Nếu bạn đã mua gói Premium, có thể không cần thiết phải bật c
 • Chặn nhật ký: Nhật ký xem bị chặn hoàn toàn."</string>
     <string name="revanced_watch_history_type_title">Kiểu nhật ký</string>
     <string name="revanced_webview_cookies">Cookie</string>
-    <string name="revanced_webview_copy">Sao chép</string>
     <string name="revanced_webview_data_sync_id">ID đồng bộ dữ liệu</string>
     <string name="revanced_webview_toast_copy_success">Đã sao chép %s vào bảng nhớ tạm.</string>
     <string name="revanced_webview_toast_empty">%s trống.</string>

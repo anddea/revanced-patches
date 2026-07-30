@@ -364,7 +364,7 @@ public class PlaylistPatch {
                                 // onCancelClick
                                 null,
                                 // neutralButtonText
-                                str("revanced_queue_manager_video_information_copy"),
+                                str("revanced_settings_import_copy"),
                                 // onNeutralClick
                                 () -> Utils.setClipboard(
                                         message,
@@ -585,7 +585,7 @@ public class PlaylistPatch {
                 PlaylistPatch::fetchVideoDetails
         ),
         EXTERNAL_DOWNLOADER(
-                "revanced_queue_manager_external_downloader",
+                "revanced_shorts_custom_actions_external_downloader_label",
                 "yt_outline_download_black_24",
                 PlaylistPatch::downloadVideo
         );

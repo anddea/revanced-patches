@@ -51,7 +51,7 @@
         <item>AUTOMOTIVE</item>
     </string-array>
     <string-array name="revanced_change_start_page_entries">
-        <item>@string/revanced_change_start_page_entry_default</item>
+        <item>@string/revanced_change_form_factor_entry_1</item>
         <item>@string/revanced_change_start_page_entry_all_subscriptions</item>
         <item>@string/revanced_change_start_page_entry_browse</item>
         <item>@string/revanced_change_start_page_entry_courses</item>
@@ -131,7 +131,7 @@
         <item>HIDE_ALL</item>
     </string-array>
     <string-array name="revanced_shorts_player_type_entries">
-        <item>@string/revanced_shorts_player_type_shorts</item>
+        <item>@string/revanced_preference_screen_shorts_player_title</item>
         <item>@string/revanced_shorts_player_type_regular_player</item>
         <item>@string/revanced_shorts_player_type_regular_player_fullscreen</item>
     </string-array>
@@ -382,10 +382,10 @@
         <item>ZH</item>
     </string-array>
     <string-array name="revanced_miniplayer_type_20_03_entries">
-        <item>@string/revanced_miniplayer_type_entry_0</item>
-        <item>@string/revanced_miniplayer_type_entry_1</item>
+        <item>@string/revanced_exit_fullscreen_entry_1</item>
+        <item>@string/revanced_change_form_factor_entry_1</item>
         <item>@string/revanced_miniplayer_type_entry_2</item>
-        <item>@string/revanced_miniplayer_type_entry_3</item>
+        <item>@string/revanced_change_form_factor_entry_4</item>
         <item>@string/revanced_miniplayer_type_entry_4</item>
         <item>@string/revanced_miniplayer_type_entry_5</item>
         <item>@string/revanced_miniplayer_type_entry_6</item>
@@ -402,10 +402,10 @@
         <item>MODERN_4</item>
     </string-array>
     <string-array name="revanced_miniplayer_type_19_43_entries">
-        <item>@string/revanced_miniplayer_type_entry_0</item>
-        <item>@string/revanced_miniplayer_type_entry_1</item>
+        <item>@string/revanced_exit_fullscreen_entry_1</item>
+        <item>@string/revanced_change_form_factor_entry_1</item>
         <item>@string/revanced_miniplayer_type_entry_2</item>
-        <item>@string/revanced_miniplayer_type_entry_3</item>
+        <item>@string/revanced_change_form_factor_entry_4</item>
         <item>@string/revanced_miniplayer_type_entry_4</item>
         <item>@string/revanced_miniplayer_type_entry_5</item>
         <item>@string/revanced_miniplayer_type_entry_6</item>
@@ -420,9 +420,9 @@
         <item>MODERN_3</item>
     </string-array>
     <string-array name="revanced_miniplayer_type_19_16_entries">
-        <item>@string/revanced_miniplayer_type_entry_1</item>
+        <item>@string/revanced_change_form_factor_entry_1</item>
         <item>@string/revanced_miniplayer_type_entry_2</item>
-        <item>@string/revanced_miniplayer_type_entry_3</item>
+        <item>@string/revanced_change_form_factor_entry_4</item>
         <item>@string/revanced_miniplayer_type_entry_4</item>
         <item>@string/revanced_miniplayer_type_entry_5</item>
         <item>@string/revanced_miniplayer_type_entry_6</item>
@@ -436,9 +436,9 @@
         <item>MODERN_3</item>
     </string-array>
     <string-array name="revanced_miniplayer_type_19_14_entries">
-        <item>@string/revanced_miniplayer_type_entry_1</item>
+        <item>@string/revanced_change_form_factor_entry_1</item>
         <item>@string/revanced_miniplayer_type_entry_2</item>
-        <item>@string/revanced_miniplayer_type_entry_3</item>
+        <item>@string/revanced_change_form_factor_entry_4</item>
     </string-array>
     <string-array name="revanced_miniplayer_type_19_14_entry_values">
         <item>DEFAULT</item>
@@ -447,9 +447,9 @@
     </string-array>
     <string-array name="revanced_replace_navigation_button_target_entries">
         <item>@string/revanced_replace_navigation_button_target_entry_home</item>
-        <item>@string/revanced_replace_navigation_button_target_entry_shorts</item>
-        <item>@string/revanced_replace_navigation_button_target_entry_subscriptions</item>
-        <item>@string/revanced_replace_navigation_button_target_entry_notifications</item>
+        <item>@string/revanced_change_start_page_entry_shorts</item>
+        <item>@string/revanced_change_start_page_entry_subscriptions</item>
+        <item>@string/revanced_change_start_page_entry_notifications</item>
     </string-array>
     <string-array name="revanced_replace_navigation_button_target_entry_values">
         <item>HOME</item>
@@ -547,7 +547,7 @@
         <item>@string/revanced_shorts_double_tap_to_like_animation_entry_3</item>
         <item>@string/revanced_shorts_double_tap_to_like_animation_entry_4</item>
         <item>@string/revanced_shorts_double_tap_to_like_animation_entry_5</item>
-        <item>@string/revanced_shorts_double_tap_to_like_animation_entry_6</item>
+        <item>@string/revanced_ryd_video_likes_hidden_by_video_owner</item>
     </string-array>
     <string-array name="revanced_shorts_double_tap_to_like_animation_entry_values">
         <item>ORIGINAL</item>
@@ -640,7 +640,7 @@
         <item>8</item>
     </string-array>
     <string-array name="revanced_watch_history_type_entries">
-        <item>@string/revanced_watch_history_type_entry_1</item>
+        <item>@string/revanced_shorts_double_tap_to_like_animation_entry_1</item>
         <item>@string/revanced_watch_history_type_entry_2</item>
         <item>@string/revanced_watch_history_type_entry_3</item>
     </string-array>

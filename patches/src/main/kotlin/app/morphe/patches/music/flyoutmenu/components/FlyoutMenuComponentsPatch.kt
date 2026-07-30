@@ -323,7 +323,9 @@ val flyoutMenuComponentsPatch = bytecodePatch(
             CategoryType.FLYOUT,
             "revanced_hide_flyout_menu_like_dislike",
             "false",
-            false
+            "",
+            false,
+            titleKey = "revanced_hide_action_button_like_dislike_title",
         )
         addSwitchPreference(
             CategoryType.FLYOUT,

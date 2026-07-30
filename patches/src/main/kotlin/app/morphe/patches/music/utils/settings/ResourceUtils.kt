@@ -172,9 +172,13 @@ internal object ResourceUtils {
         }
     }
 
+    /**
+     * Adds a nested category and optionally reuses another title resource for duplicate labels.
+     */
     fun addPreferenceCategoryUnderPreferenceScreen(
         preferenceScreenKey: String,
-        category: String
+        category: String,
+        titleKey: String = category,
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -182,7 +186,7 @@ internal object ResourceUtils {
                 .filter { it.getAttribute("android:key").contains(preferenceScreenKey) }
                 .forEach {
                     it.adoptChild(PREFERENCE_CATEGORY_TAG_NAME) {
-                        setAttribute("android:title", "@string/$category")
+                        setAttribute("android:title", "@string/$titleKey")
                         setAttribute("android:key", category)
                     }
                 }
@@ -311,12 +315,18 @@ internal object ResourceUtils {
         }
     }
 
+    /**
+     * Adds a switch preference. Optional title and summary resource names keep the storage key
+     * stable when two generated settings intentionally share the same visible text.
+     */
     fun addSwitchPreference(
         category: String,
         key: String,
         defaultValue: String,
         dependencyKey: String,
-        setSummary: Boolean
+        setSummary: Boolean,
+        titleKey: String = "${key}_title",
+        summaryKey: String = "${key}_summary",
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -326,9 +336,9 @@ internal object ResourceUtils {
                 }
                 .forEach {
                     it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
-                        setAttribute("android:title", "@string/$key" + "_title")
+                        setAttribute("android:title", "@string/$titleKey")
                         if (setSummary) {
-                            setAttribute("android:summary", "@string/$key" + "_summary")
+                            setAttribute("android:summary", "@string/$summaryKey")
                         }
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)

@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Check missing strings keys."""
 
 from __future__ import annotations

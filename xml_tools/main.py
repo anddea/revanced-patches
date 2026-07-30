@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """CLI tool to run xml commands."""
 
 from __future__ import annotations
@@ -13,6 +15,7 @@ import click
 from config import Settings
 from core import log_process, setup_logging
 from handlers import (
+    check_duplicates,
     check_icons,
     check_prefs,
     check_prefs_reverse,
@@ -64,6 +67,7 @@ class CLIConfig:
 @click.option("--remove-resources", is_flag=True, help="Remove unused resource files")
 @click.option("-s", "--sort", is_flag=True, help="Sort strings in XML files")
 @click.option("-c", "--check", is_flag=True, help="Run missing strings check")
+@click.option("-d", "--duplicates", is_flag=True, help="Run duplicate strings check")
 @click.option("-p", "--prefs", is_flag=True, help="Run missing preferences check")
 @click.option("-pr", "--reverse", is_flag=True, help="Run missing preferences check (reverse)")
 @click.option("--icons", is_flag=True, help="Check icon preference keys against XML.")
@@ -123,6 +127,7 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
         "remove_resources",
         "sort",
         "check",
+        "duplicates",
         "prefs",
         "reverse",
         "update_file",
@@ -172,6 +177,8 @@ def process_all(config: CLIConfig) -> None:
         ("Missing Prefs Check (Reverse)", check_prefs_reverse.process, ["youtube", base_dir]),
         ("Missing Strings Check (YouTube)", check_strings.process, ["youtube", base_dir]),
         ("Missing Strings Check (YouTube Music)", check_strings.process, ["music", base_dir]),
+        ("Duplicate Strings Check (YouTube)", check_duplicates.process, ["youtube"]),
+        ("Duplicate Strings Check (YouTube Music)", check_duplicates.process, ["music"]),
         ("Check Icon Preferences", check_icons.process, ["youtube"]),
         ("Update Strings from Git Diff (YouTube)", update_from_diff.process, ["youtube"]),
         ("Update Strings from Git Diff (YouTube Music)", update_from_diff.process, ["music"]),
@@ -301,6 +308,7 @@ def handle_individual_operations(
         ("sort", "Sort Strings", sort_strings.process, (app,)),
         ("replace", "Replace Strings", replace_strings.process, (app, base_dir)),
         ("check", "Check Strings", check_strings.process, (app, base_dir)),
+        ("duplicates", "Check Duplicate Strings", check_duplicates.process, (app,)),
         ("prefs", "Check Preferences", check_prefs.process, (app, base_dir)),
         ("reverse", "Check Preferences (Reverse)", check_prefs_reverse.process, (app, base_dir)),
         ("update_file", "Update Strings from File", update_strings.process, (app, options.get("update_file"))),

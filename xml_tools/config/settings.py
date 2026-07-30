@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Settings."""
 
 from dataclasses import dataclass

@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Handler to check icons in prefs."""
 
 from __future__ import annotations

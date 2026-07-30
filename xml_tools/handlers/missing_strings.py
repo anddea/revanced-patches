@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Find missing strings and create the file with them."""
 
 import logging

@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Core package for application logging."""
 
 from .xml_logging import log_process, setup_logging

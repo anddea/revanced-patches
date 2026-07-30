@@ -473,14 +473,13 @@ public class Whitelist {
     }
 
     public enum WhitelistType {
-        PLAYBACK_SPEED(),
-        SPONSOR_BLOCK();
+        PLAYBACK_SPEED("revanced_preference_category_playback_speed"),
+        SPONSOR_BLOCK("revanced_preference_group_sb_title");
 
         private final String friendlyName;
 
-        WhitelistType() {
-            String name = name().toLowerCase();
-            this.friendlyName = str("revanced_whitelist_" + name);
+        WhitelistType(String friendlyNameKey) {
+            this.friendlyName = str(friendlyNameKey);
         }
 
         public String getFriendlyName() {

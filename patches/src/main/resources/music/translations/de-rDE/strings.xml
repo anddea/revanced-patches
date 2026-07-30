@@ -7,11 +7,11 @@
 Folgen Sie der Anleitung “Don't kill my app” für Ihr Telefon und wenden Sie die Anleitungen auf Ihre MicroG-Installation an.
 
 Dies ist erforderlich, damit die App funktioniert."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Die Batterieoptimierungen für MicroG müssen deaktiviert werden, um Probleme zu vermeiden.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Die Akkuoptimierung muss für MicroG deaktiviert werden, um Probleme zu vermeiden.
 
-Die Deaktivierung der Batterieoptimierungen für MicroG beeinflusst nicht negativ den Akkuverbrauch.
+Die Deaktivierung der Akkuoptimierung von MicroG hat keinen negativen Einfluss auf den Akkuverbrauch.
 
-Tippen Sie auf die Schaltfläche „Weiter“ und erlauben Sie die Optimierungsänderungen."</string>
+Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen."</string>
     <string name="gms_core_dialog_open_website_text">Website öffnen</string>
     <string name="gms_core_dialog_title">Aktion notwendig</string>
     <string name="gms_core_settings_summary">Um Benachrichtigungen in RVX Music zu erhalten, aktivieren Sie Cloud Messaging.</string>
@@ -34,10 +34,8 @@ Tippen Sie auf die Schaltfläche „Weiter“ und erlauben Sie die Optimierungs�
     <string name="morphe_crossfade_duration_9000ms">9 Sekunden</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC-Audio ist aktiviert</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC-Audio ist deaktiviert</string>
-    <string name="morphe_disable_drc_audio_title">Audiokompression (DRC) deaktivieren</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
-    <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
     <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \"Video-Streams fälschen\" auf einen beliebigen Client außer Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
@@ -69,7 +67,7 @@ Sperrbildschirm und Wiedergabebenachrichtigung kann während der Überblendung k
 YouTube Music 8.x – Nahtlose Wiedergabe funktioniert erst ab Version 9.x."</string>
     <string name="morphe_music_crossfade_about_unsupported_title">Was überhaupt nicht funktioniert</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">Nahtlose Wiedergabe ist während der Audioausgabe auf anderen Geräten pausiert. Nahtlose Wiedergabe über Miracast/Audio-Broadcast ist instabil und möglicherweise nicht umsetzbar.</string>
-    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Sanftes Anhalten</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Sanftes Halten</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Sanfter Übergang</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Gleiche Lautstärke</string>
     <string name="morphe_music_crossfade_curve_entry_smoothstep">Glatte S-Kurve</string>
@@ -110,25 +108,8 @@ YouTube Music 8.x – Nahtlose Wiedergabe funktioniert erst ab Version 9.x."</st
     <string name="morphe_settings_menu_filter_screen_summary">Elemente auf dem Bildschirm der Standard-App-Einstellungen anhand ihres sichtbaren Namens ausblenden</string>
     <string name="morphe_settings_menu_filter_screen_title">Filter für das Einstellungsmenü</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Sperrt das Player JavaScript auf eine bestimmte Version fest.
-
-• Es ist ein gültiger Hash des Player JavaScript erforderlich.
-• Player JavaScript Hashes sind etwa einen Monat gültig. Veraltete Hashes werden von GVS widerrufen.
-• Die Wiedergabe schlägt fehl, wenn der Hash widerrufen wurde."</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">JavaScript-Update des Players ist aktiviert</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"JavaScript-Update des Players ist deaktiviert
-
-• Ein gültiger Player-JavaScript-Hash ist erforderlich
-• Die Wiedergabe schlägt fehl, wenn der Player-JavaScript-Hash in GVS widerrufen wird"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">JavaScript-Update des Players deaktivieren</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Sie müssen einen gültigen Player JavaScript Hash angeben.
-
-Die Wiedergabe schlägt fehl, wenn der Player JavaScript Hash veraltet ist."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Geben Sie einen gültigen Player-JavaScript-Hash ein</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Player-JavaScript-Hash</string>
     <string name="morphe_spoof_video_streams_screen_summary">Client-Streams spoofen, um Wiedergabeprobleme zu vermeiden</string>
-    <string name="morphe_spoof_video_streams_screen_title">Video-Streams spoofen</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Sie sind nicht bei Android VR angemeldet. Tippen Sie hier zum Anmelden</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Um diese Funktion zu nutzen, ändern Sie ihren \"Standard-Client\" zu Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Derzeit bei Android VR angemeldet</string>
@@ -140,9 +121,7 @@ Die Wiedergabe schlägt fehl, wenn der Player JavaScript Hash veraltet ist."</st
 3. Bei Aufforderung bei Google anmelden. Wenn Sie mehrere Konten haben, wählen Sie dieses YouTube-Konto aus
 4. Tippen Sie auf \"YouTube VR erlauben\" Zugriff
 5. Nach der \"Gerät verbunden\"-Nachricht, kehren Sie in diese App zurück"</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Website öffnen</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Anleitung</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Weiter</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Die Anmeldung bei Android VR kann Wiedergabeprobleme für einige Benutzer beheben
 
 Um sich anzumelden, drücken Sie unten auf \"Weiter\""</string>
@@ -150,7 +129,7 @@ Um sich anzumelden, drücken Sie unten auf \"Weiter\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Bei Android VR anmelden</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentifizierung gespeichert
 
-• Ihre Morphe-Einstellungen importieren/-exportieren keine Android VR-Authentifizierung
+• Ihre RVX-Einstellungen importieren/-exportieren keine Android VR-Authentifizierung
 • Wenn diese App 6 Monate lang nicht genutzt wird, entfernt Google diese Authentifizierung
 • Wenn Sie Ihr Google-Kennwort ändern oder dieses Gerät von Ihren Google-Einstellungen deregistrieren, müssen Sie sich erneut anmelden"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Erfolgreich angemeldet</string>
@@ -199,10 +178,10 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
 Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_ryd_compact_layout_summary">Verringert die Breite der „Like“-Schaltfläche, um Platz zu sparen</string>
     <string name="revanced_ryd_compact_layout_title">Schaltfläche „Like“ in kompakter Darstellung verwenden</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Zeigt Ablehnungen als Prozentsatz der Likes anstelle einer Zahl an</string>
-    <string name="revanced_ryd_dislike_percentage_title">Ablehnen als Prozentsatz anzeigen</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Zeigt anstelle eines Zahlenwerts die Dislikes prozentual zur Anzahl der Likes an</string>
+    <string name="revanced_ryd_dislike_percentage_title">Dislikes prozentual anzeigen</string>
     <string name="revanced_ryd_enabled_title">Return YouTube Dislike aktivieren</string>
-    <string name="revanced_ryd_estimated_like_summary">Zeigt bei Videos mit deaktivierten Likes eine geschätzte Like-Anzahl an.</string>
+    <string name="revanced_ryd_estimated_like_summary">Zeigt bei Videos mit deaktivierten Likes eine geschätzte Anzahl an</string>
     <string name="revanced_ryd_estimated_like_title">Geschätzte \"Gefällt mir\"-Angaben anzeigen</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes sind nicht verfügbar (Limit der Client-API)</string>
     <string name="revanced_ryd_failure_connection_status_code">Dislikes sind nicht verfügbar (Status %d)</string>
@@ -215,7 +194,7 @@ Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_settings_export_as_file">Exportiere Einstellungen zu dieser Datei </string>
     <string name="revanced_settings_import">Importieren</string>
     <string name="revanced_settings_import_copy">Kopieren</string>
-    <string name="revanced_settings_import_reset">Morphe-Einstellungen auf Standardwerte zurückgesetzt</string>
+    <string name="revanced_settings_import_reset">RVX-Einstellungen auf Standardwerte zurückgesetzt</string>
     <string name="revanced_settings_import_success">%d Einstellungen importiert</string>
     <string name="revanced_settings_reset">Zurücksetzen</string>
     <string name="revanced_settings_reset_color">Farbe zurücksetzen</string>
@@ -238,8 +217,4 @@ Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_spoof_app_version_summary">Täuscht dem Server eine ältere App-Version vor, um ältere UI-Funktionen wiederherzustellen</string>
     <string name="revanced_spoof_app_version_target_title">Angestrebte App-Version</string>
     <string name="revanced_spoof_app_version_title">App-Version spoofen</string>
-    <string name="revanced_spoof_video_streams_summary">"Behebt Wiedergabeprobleme für die meisten Nutzer, indem ein kompatibler Videostream angefordert wird.
-
-Als Nutzer von YouTube Premium ist diese Einstellung möglicherweise nicht erforderlich."</string>
-    <string name="revanced_spoof_video_streams_title">Video-Streams spoofen</string>
 </resources>

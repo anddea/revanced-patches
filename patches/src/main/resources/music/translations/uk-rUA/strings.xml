@@ -34,10 +34,8 @@
     <string name="morphe_crossfade_duration_9000ms">9 секунд</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудіо DRC увімкнено</string>
     <string name="morphe_disable_drc_audio_summary_on">Аудіо DRC вимкнено</string>
-    <string name="morphe_disable_drc_audio_title">Вимкнути аудіо DRC</string>
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC увімкнено</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC вимкнено</string>
-    <string name="morphe_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
     <string name="morphe_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підміни відеопотоків\" на будь-який, окрім \"Android Studio\"</string>
     <string name="morphe_force_original_audio_summary_off">Використовується звукова доріжка за замовчуванням</string>
     <string name="morphe_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
@@ -110,25 +108,8 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_settings_menu_filter_screen_summary">Приховати елементи на екрані стандартних налаштувань застосунку за їхньою видимою назвою</string>
     <string name="morphe_settings_menu_filter_screen_title">Фільтр меню налаштувань</string>
     <string name="morphe_spoof_video_streams_client_type_title">Типовий клієнт</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Фіксує JavaScript плеєра на певній версії
-
-• Потрібен дійсний хеш JavaScript плеєра
-• Хеші JavaScript плеєра дійсні приблизно один місяць, застарілі хеші буде відкликано GVS
-• Відтворення не вдасться, якщо хеш відкликано"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Оновлення JavaScript плеєра увімкнено</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Оновлення JavaScript плеєра вимкнено
-
-• Потрібен дійсний хеш JavaScript плеєра
-• Відтворення не вдається, якщо хеш JavaScript плеєра скасовано у GVS"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Вимкнути оновлення JavaScript плеєра</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Необхідно вказати дійсний хеш JavaScript плеєра.
-
-Відтворення не вдасться, якщо хеш JavaScript плеєра застарів."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Введіть дійсний хеш JavaScript плеєра</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Хеш JavaScript плеєра</string>
     <string name="morphe_spoof_video_streams_screen_summary">Налаштування підміни клієнта для запобігання проблемам з відтворенням</string>
-    <string name="morphe_spoof_video_streams_screen_title">Підміна відеопотоків</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Ви не ввійшли в Android VR. Натисніть тут, щоб увійти</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Щоб використовувати цю функцію, змініть \"Типовий клієнт\" на Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Наразі ви ввійшли в Android VR</string>
@@ -140,9 +121,7 @@ YouTube Music 8.x - плавний перехід працює лише на в�
 3. Увійдіть до Google, за потреби. Якщо у вас є кілька облікових записів, виберіть цей обліковий запис YouTube
 4. Натисніть \"Дозволити доступ до YouTube VR\"
 5. Поверніться до застосунку після того, як побачите повідомлення \"Пристрій підключено\""</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Відкрити вебсайт</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Інструкції</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Продовжити</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вхід в Android VR може виправити проблеми з відтворенням для деяких користувачів
 
 Щоб увійти, натисніть \"Продовжити\" нижче"</string>
@@ -150,7 +129,7 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Увійти в Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Автентифікацію збережено
 
-• Налаштування Morphe не імпортують/експортують автентифікацію Android VR
+• Налаштування RVX не імпортують/експортують автентифікацію Android VR
 • Якщо застосунок не використовується 6 місяців, Google видалить цю автентифікацію
 • Вам потрібно буде увійти знову, якщо ви зміните пароль Google або скасуєте реєстрацію цього пристрою в налаштуваннях Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Вхід виконано успішно</string>
@@ -172,7 +151,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_add_miniplayer_previous_button_summary">Додає кнопку попереднього треку у мініплеєр.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Додати кнопку попереднє у мініплеєр</string>
     <string name="revanced_app_info_dialog_message">&lt;b&gt;Назва&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Версія&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Патчі&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Пропатчено&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
-    <string name="revanced_app_info_dialog_title">Інформація про застосунок</string>
     <string name="revanced_app_info_summary">Натисніть , щоб перевірити назву, версію, патч і коли пропатчено.</string>
     <string name="revanced_app_info_title">Про застосунок</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Обходить домен для зображень, заблокований у деяких регіонах, що дозволить отримувати мініатюри списків відтворення, аватари каналів тощо.</string>
@@ -187,7 +165,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_change_seekbar_position_title">Змінити положення панелі прогресу</string>
     <string name="revanced_change_share_sheet_summary">Змінює тип вікна діалогу поширення з вбудованого на системний.</string>
     <string name="revanced_change_share_sheet_title">Змінити діалог поширення</string>
-    <string name="revanced_change_start_page_entry_chart">Хіт-паради</string>
     <string name="revanced_change_start_page_entry_charts">Хіт-паради</string>
     <string name="revanced_change_start_page_entry_default">За замовчуванням</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Послухати пізніше</string>
@@ -198,7 +175,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_change_start_page_entry_podcasts">Подкасти</string>
     <string name="revanced_change_start_page_entry_samples">Семпли</string>
     <string name="revanced_change_start_page_entry_search">Пошук</string>
-    <string name="revanced_change_start_page_entry_subscription">Підписка</string>
     <string name="revanced_change_start_page_entry_subscriptions">Підписки</string>
     <string name="revanced_change_start_page_summary">Виберіть сторінку з якої буде стартувати застосунок.</string>
     <string name="revanced_change_start_page_title">Початкова сторінка</string>
@@ -283,10 +259,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_enable_forced_miniplayer_title">Увімкнути мініплеєр на постійній основі</string>
     <string name="revanced_enable_landscape_mode_summary">Вмикає ландшафтний режим під час повороту екрана на телефонах.</string>
     <string name="revanced_enable_landscape_mode_title">Увімкнути ландшафтний режим</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Додає кнопку наступного треку у мініплеєр.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Додати кнопку наступне у мініплеєр</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Додає кнопку попереднього треку у мініплеєр.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Додати кнопку попереднє у мініплеєр</string>
     <string name="revanced_enable_opus_codec_summary">"Вмикає кодек OPUS, якщо відповідь від сервера містить його.
 
 Інформація:
@@ -295,8 +267,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_enable_opus_codec_title">Увімкнути кодек OPUS</string>
     <string name="revanced_enable_smooth_transition_animation_summary">Вмикає плавну анімацію при розгортанні мініплеєра зі згорнутого стану.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Включити плавну анімацію переходу</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Вмикає жест вниз для закриття мініплеєру.</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Увімкнути жест закриття мініплеєру</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Вмикає жест вниз для закриття мініплеєру.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Увімкнути жест закриття мініплеєру</string>
     <string name="revanced_enable_thick_seekbar_summary">"Вмикає товсту панель прогресу.
@@ -353,8 +323,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_hide_action_button_song_video_summary">"Приховує кнопку Пісня / Відео.
 (Ця кнопка доступна лише деяким користувачам)"</string>
     <string name="revanced_hide_action_button_song_video_title">Приховати кнопку Пісня / Відео</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">Приховує перемикач \"пісня | відео\" у плеєрі.</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">Приховати перемикач \"пісня | відео\"</string>
     <string name="revanced_hide_button_shelf_summary">Приховує кнопки \"Новинки\", \"Хіт-паради\", \"Настрій і жанри\" на вкладці \"Навігація\".</string>
     <string name="revanced_hide_button_shelf_title">Приховати категорії в Навігації</string>
     <string name="revanced_hide_carousel_shelf_summary">Приховує карусель треків на вкладках \"Головна\" та \"Навігація\".</string>
@@ -385,7 +353,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Приховати \"Перейти до випуску\"</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Приховати \"Перейти до подкасту\"</string>
     <string name="revanced_hide_flyout_menu_help_title">Приховати \"Довідка й відгуки\"</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Приховати \"Подобається\" і \"Не подобається\"</string>
     <string name="revanced_hide_flyout_menu_not_interested_title">Приховати меню \"Не цікавить\"</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Приховати \"Закріпити в розділі Швидкий набір\"</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Приховати \"Відтворити наступним\"</string>
@@ -487,7 +454,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_remember_video_quality_last_selected_summary">Запам\'ятовує останню вибрану якість відео.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Показує тост під час зміни стандартної якості відео.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Показувати тост</string>
     <string name="revanced_remember_video_quality_mobile">Зміна типової якості відео в мобільній мережі на %s.</string>
     <string name="revanced_remember_video_quality_none">Не вдалося встановити обрану якість.</string>
     <string name="revanced_remember_video_quality_wifi">Зміна типової якості відео для Wi-Fi мережі на %s.</string>
@@ -555,7 +521,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Ключ YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдіть до &lt;a href=%1$s&gt;Створити New Project&lt;/a&gt;.&lt;br&gt;2. Натисніть кнопку &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Перейдіть до &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Натисніть кнопку &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Натисніть кнопку &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Виберіть &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Натисніть кнопку &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Скопіюйте ключ API.&lt;br&gt;&lt;br&gt;※ Ключ API не можна надавати іншим, тому його не включено в Імпорт / Експорт налаштувань.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Створення ключа розробника YouTube Data API v3</string>
-    <string name="revanced_ryd_about">Про інтеграцію</string>
     <string name="revanced_ryd_attribution_summary">"Дані надаються API Return YouTube Dislike
 
 Торкніться тут, щоб відкрити ReturnYouTubeDislike.com"</string>
@@ -575,7 +540,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_ryd_toast_on_connection_error_summary">Показує сповіщення, коли сервер Return YouTube Dislike недоступний</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показувати сповіщення про помилки з’єднання</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано власником</string>
-    <string name="revanced_sb_about">Про інтеграцію</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Дані надаються SponsorBlock API. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ.</string>
     <string name="revanced_sb_api_url">Змінити URL-адресу API</string>
@@ -590,7 +554,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_sb_diff_segments">Змінити поведінку сегмента</string>
     <string name="revanced_sb_enabled">Увімкнути SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock - це краудсорсингова система для пропускання дратівливих частин відео на YouTube.</string>
-    <string name="revanced_sb_reset_color">Скинути колір</string>
     <string name="revanced_sb_segments_filler">Дотичне наповнення / Жарти</string>
     <string name="revanced_sb_segments_filler_sum">Дотичні сцени, додані лише для наповнення або гумору, які не є необхідними для розуміння основного змісту відео. Не включає сегменти, що надають контекст або фонові деталі.</string>
     <string name="revanced_sb_segments_hook">Хук / Привітання</string>
@@ -617,19 +580,16 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_sb_skipped_interaction">Пропущено дратівливе нагадування.</string>
     <string name="revanced_sb_skipped_intro_beginning">Пропущено вступ.</string>
     <string name="revanced_sb_skipped_intro_end">Пропущено паузу.</string>
-    <string name="revanced_sb_skipped_intro_middle">Пропущено паузу.</string>
     <string name="revanced_sb_skipped_multiple_segments">Пропущено декілька сегментів.</string>
     <string name="revanced_sb_skipped_nomusic">Пропущено секцію без музики.</string>
     <string name="revanced_sb_skipped_outro">Пропущено закінчення.</string>
     <string name="revanced_sb_skipped_preview_beginning">Пропущено попередній перегляд.</string>
     <string name="revanced_sb_skipped_preview_end">Пропущено підсумок.</string>
-    <string name="revanced_sb_skipped_preview_middle">Пропущено попередній перегляд.</string>
     <string name="revanced_sb_skipped_selfpromo">Пропущено саморекламу.</string>
     <string name="revanced_sb_skipped_sponsor">Пропущено спонсорську вставку.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock тимчасово недоступний.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock тимчасово недоступний (статус %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock тимчасово недоступний (закінчився час APІ).</string>
-    <string name="revanced_sb_toast_on_connection_error">Показувати тост, якщо API недоступний</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Показує тост, якщо API SponsorBlock не доступний.</string>
     <string name="revanced_sb_toast_on_skip">Показати тост, коли сегмент пропущено автоматично</string>
     <string name="revanced_sb_toast_on_skip_sum">Показує тост, коли сегмент автоматично пропущено.</string>
@@ -643,7 +603,7 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_settings_import_export_summary">Імпортує або Експортує налаштування RVX Music.</string>
     <string name="revanced_settings_import_export_title">Імпорт / Експорт налаштувань</string>
     <string name="revanced_settings_import_failed">Не вдалося імпортувати налаштування: %s.</string>
-    <string name="revanced_settings_import_reset">Налаштування Morphe скинуто до типових</string>
+    <string name="revanced_settings_import_reset">Налаштування RVX скинуто до типових</string>
     <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
     <string name="revanced_settings_reset">Скинути</string>
     <string name="revanced_settings_reset_color">Скинути колір</string>
@@ -693,7 +653,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
 • Ці побічні ефекти можна вирішити, очистивши дані програми та знову ввійшовши в систему.</string>
     <string name="revanced_spoof_client_title">Підмінити клієнт</string>
     <string name="revanced_spoof_client_type_summary">"Визначає клієнт за замовчуванням для підробки."</string>
-    <string name="revanced_spoof_client_type_title">Клієнт за замовчуванням</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Натисніть, щоб переглянути, як отримати токен авторизації.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Про авторизацію Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Натисніть тут, щоб побачити як увійти в Android VR.</string>
@@ -706,8 +665,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
 3. Результати входу відображатимуться протягом 5 секунд.
 
 ※ Натисніть 'Скинути', щоб видалити токен автентифікації."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Скинути</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Авторизація в Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Токен автентифікації збережено.
 
 - Токен автентифікації, виданий за допомогою цього процесу, можна використовувати тільки в YouTube (У RVX він використовується для отримання даних трансляції із YouTube).
@@ -715,41 +672,12 @@ YouTube Music 8.x - плавний перехід працює лише на в�
 - Якщо ви зміните пароль, скасуєте реєстрацію пристрою в налаштуваннях облікового запису чи видалите додаток, потрібно буде перевидати токен автентифікації."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Авторизовано</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Токен автентифікації скинутий.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Натисніть тут, щоб побачити як увійти в Android VR.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Авторизація в Android VR</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Код активації:
-%s
-
-1. Натисніть 'Відкрити сайт', щоб перейти до 'https://yt.be/activate'.
-2. Введіть код активації.
-3. Увійдіть, коли з'явиться запит. Якщо у вас кілька облікових записів Google, виберіть обліковий запис, який використовуєте для YouTube. Якщо вже увійшли, перейдіть до наступного кроку.
-4. Після входу поверніться до RVX і знову натисніть 'Авторизація в Android VR'.
-5. Натисніть 'Отримати токен авторизації', щоб отримати токен авторизації."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website">Відкрити вебсайт</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Відкрити сайт</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Код активації</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Код активації скопійовано в буфер обміну: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Токен автентифікації збережено.
-
-- Токен автентифікації, виданий за допомогою цього процесу, можна використовувати тільки в YouTube VR (У RVX він використовується для отримання даних трансляції із YouTube VR).
-- Токен автентифікації, який не використовувався протягом більше ніж 6 місяців, буде анульований серверами Google.
-- Якщо ви зміните пароль, скасуєте реєстрацію пристрою в налаштуваннях облікового запису чи видалите додаток, потрібно буде перевидати токен автентифікації."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Авторизовано</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Не вдалося видати токен автентифікації.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Натисніть Скинути та спробуйте ще раз.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Токен автентифікації та код активації скинуто.</string>
-    <string name="revanced_spoof_streaming_data_summary">"Підміняє клієнтські відеопотоки, щоб запобігти відтворенню проблем.
-
-Якщо ви користувач YouTube Premium, цей параметр може бути не потрібен."</string>
-    <string name="revanced_spoof_streaming_data_title">Підробка потокових даних</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Натисніть, щоб побачити, як отримати токен автентифікації.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Про авторизацію Android VR</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Визначає клієнт за замовчуванням для підробки."</string>
-    <string name="revanced_spoof_video_streams_default_client_title">Клієнт за замовчуванням</string>
-    <string name="revanced_spoof_video_streams_summary">"Виправляє проблеми з відтворенням для більшості користувачів, запитуючи сумісний відеопотік
-
-Якщо ви є користувачем YouTube Premium, це налаштування може не знадобитися"</string>
-    <string name="revanced_spoof_video_streams_title">Підміна відеопотоків</string>
     <string name="revanced_translations_title">Переклади</string>
     <string name="revanced_watch_history_type_entry_1">Оригінальний</string>
     <string name="revanced_watch_history_type_entry_2">Замінити домен</string>
@@ -759,7 +687,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
 • Блокувати історію переглядів: Історію переглядів заблоковано."</string>
     <string name="revanced_watch_history_type_title">Тип історії перегляду</string>
     <string name="revanced_webview_cookies">Куки</string>
-    <string name="revanced_webview_copy">Копія</string>
     <string name="revanced_webview_data_sync_id">ID синхр. даних</string>
     <string name="revanced_webview_toast_copy_success">%s у буфер обміну.</string>
     <string name="revanced_webview_toast_empty">%s порожній.</string>

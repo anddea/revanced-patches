@@ -1007,7 +1007,7 @@ public class GeneralPatch {
                 str("revanced_search_in_channel_title"),
                 null,
                 editText,
-                str("revanced_search_in_channel_search"),
+                str("revanced_change_start_page_entry_search"),
                 () -> {
                     String query = editText.getText().toString().trim();
                     if (!query.isEmpty()) {

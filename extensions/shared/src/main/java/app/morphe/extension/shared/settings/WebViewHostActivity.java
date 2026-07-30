@@ -299,7 +299,7 @@ public class WebViewHostActivity extends Activity {
                 // No EditText.
                 null,
                 // OK button text.
-                str("revanced_webview_copy"),
+                str("revanced_settings_import_copy"),
                 // OK button action.
                 () -> {
                     Utils.setClipboard(content);

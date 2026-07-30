@@ -34,10 +34,8 @@
     <string name="morphe_crossfade_duration_9000ms">9 δευτερόλεπτα</string>
     <string name="morphe_disable_drc_audio_summary_off">Ο ήχος DRC είναι ενεργοποιημένος</string>
     <string name="morphe_disable_drc_audio_summary_on">Ο ήχος DRC είναι απενεργοποιημένος</string>
-    <string name="morphe_disable_drc_audio_title">Απενεργοποίηση ήχου DRC</string>
     <string name="morphe_disable_quic_protocol_summary_off">Το πρωτόκολλο QUIC είναι ενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_summary_on">Το πρωτόκολλο QUIC είναι απενεργοποιημένο</string>
-    <string name="morphe_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
     <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε οποιονδήποτε πελάτη εκτός από το Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
     <string name="morphe_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
@@ -110,25 +108,8 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="morphe_settings_menu_filter_screen_summary">Απόκρυψη στοιχείων στην οθόνη ρυθμίσεων της εφαρμογής βάσει του ορατού ονόματός τους</string>
     <string name="morphe_settings_menu_filter_screen_title">Φίλτρο μενού ρυθμίσεων</string>
     <string name="morphe_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα αναπαραγωγής</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Κλειδώνει το JavaScript του player σε μια συγκεκριμένη έκδοση
-
-• Απαιτείται ένα έγκυρο hash JavaScript του player
-• Τα hash JavaScript του player είναι έγκυρα για περίπου ένα μήνα, και τα παρωχημένα hash θα ανακληθούν από το GVS
-• Η αναπαραγωγή αποτυγχάνει εάν το hash έχει ανακληθεί"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Η ενημέρωση JavaScript του προγράμματος αναπαραγωγής είναι ενεργοποιημένη</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Η ενημέρωση του προγράμματος αναπαραγωγής JavaScript είναι απενεργοποιημένη
-
-• Απαιτείται έγκυρο hash του προγράμματος αναπαραγωγής JavaScript
-• Η αναπαραγωγή αποτυγχάνει εάν το hash του προγράμματος αναπαραγωγής JavaScript ανακληθεί στο GVS"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Απενεργοποίηση ενημέρωσης του προγράμματος αναπαραγωγής JavaScript</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Πρέπει να παρέχετε ένα έγκυρο hash JavaScript του player.
-
-Η αναπαραγωγή θα αποτύχει εάν το hash JavaScript του player είναι παρωχημένο."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Αδυναμία λήψης προγράμματος ροής</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Εισάγετε ένα έγκυρο hash για το πρόγραμμα αναπαραγωγής JavaScript</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">Hash προγράμματος αναπαραγωγής JavaScript</string>
     <string name="morphe_spoof_video_streams_screen_summary">Παραποίηση του προγράμματος ροών βίντεο για την αποφυγή προβλημάτων αναπαραγωγής</string>
-    <string name="morphe_spoof_video_streams_screen_title">Παραποίηση ροών βίντεο</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Δεν είστε συνδεδεμένοι στο Android VR. Πατήστε εδώ για να συνδεθείτε</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Για να χρησιμοποιήσετε αυτή τη δυνατότητα, αλλάξτε \'Το προεπιλεγμένο πρόγραμμα αναπαραγωγής\' σε Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Τρέχουσα σύνδεση σε Android VR</string>
@@ -140,9 +121,7 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
 3. Εισέλθετε στο Google εάν σας ζητηθεί. Εάν έχετε πολλαπλούς λογαριασμούς τότε επιλέξτε \"YouTube account\"
 4. Πατήστε 'Allow YouTube VR' access
 5. Επιστρέψτε σε αυτήν την εφαρμογή αφού φτάσετε στο μήνυμα 'Συσκευή συνδεδεμένη'"</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Άνοιγμα ιστοσελίδας</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Οδηγίες</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Συνέχεια</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Η είσοδος στο Android VR μπορεί να επιλύσει τα προβλήματα αναπαραγωγής για ορισμένους χρήστες
 
 Για να εισέλθετε, πατήστε \"Συνέχεια\" παρακάτω"</string>
@@ -150,7 +129,7 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Είσοδος στο Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Η ταυτοποίηση αποθηκεύτηκε
 
-• Οι ρυθμίσεις του Morphe δεν θα εισάγουν/εξάγουν την ταυτοποίηση Android VR
+• Οι ρυθμίσεις του RVX δεν θα εισάγουν/εξάγουν την ταυτοποίηση Android VR
 • Εάν η εφαρμογή παραμείνει αχρησιμοποίητη για 6 μήνες, η Google θα αφαιρέσει αυτή την ταυτοποίηση
 • Θα χρειαστεί να συνδεθείτε ξανά, εάν αλλάξετε το κωδικό πρόσβασης της Google ή απεγράψετε αυτή την συσκευή από τις ρυθμίσεις της Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Η είσοδος ολοκληρώθηκε με επιτυχία</string>
@@ -172,7 +151,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_add_miniplayer_previous_button_summary">Προσθήκη ενός κουμπιού προηγούμενου κομματιού στην ελαχιστοποιημένη οθόνη αναπαραγωγής.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Προσθήκη κουμπιού προηγούμενου κομματιού στην ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
     <string name="revanced_app_info_dialog_message">&lt;b&gt;Όνομα εφαρμογής&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Έκδοση εφαρμογής&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Τροποποιήσεις ReVanced&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Ημερομηνία τροποποίησης&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
-    <string name="revanced_app_info_dialog_title">Πληροφορίες εφαρμογής</string>
     <string name="revanced_app_info_summary">Πατήστε για να ελέγξετε το όνομα εφαρμογής, την έκδοση εφαρμογής, την έκδοση και την ημερομηνία τροποποίησης.</string>
     <string name="revanced_app_info_title">Πληροφορίες εφαρμογής</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Αντικατάσταση του domain για την φόρτωση εικόνων όπου είναι μπλοκαρισμένες σε ορισμένες περιοχές ώστε να μπορούν να ληφθούν μικρογραφίες βίντεο, εικόνες δημοσιεύσεων, κλπ.</string>
@@ -187,7 +165,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_change_seekbar_position_title">Αλλαγή θέσης γραμμής προόδου</string>
     <string name="revanced_change_share_sheet_summary">Αλλαγή του μενού κοινοποίησης σε αυτό του συστήματος σας αντί αυτού της εφαρμογής.</string>
     <string name="revanced_change_share_sheet_title">Αλλαγή μενού κοινοποίησης</string>
-    <string name="revanced_change_start_page_entry_chart">Διαγράμματα</string>
     <string name="revanced_change_start_page_entry_charts">Τσαρτς</string>
     <string name="revanced_change_start_page_entry_default">Προεπιλεγμένη</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Επεισόδια για αργότερα</string>
@@ -198,7 +175,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_samples">Δείγματα</string>
     <string name="revanced_change_start_page_entry_search">Αναζήτηση</string>
-    <string name="revanced_change_start_page_entry_subscription">Εγγραφές</string>
     <string name="revanced_change_start_page_entry_subscriptions">Συνδρομές</string>
     <string name="revanced_change_start_page_summary">Ορισμός της αρχικής σελίδας ανοίγματος της εφαρμογής.</string>
     <string name="revanced_change_start_page_title">Αρχική σελίδα</string>
@@ -282,10 +258,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_enable_forced_miniplayer_title">Εξαναγκαστική ελαχιστοποίηση οθόνης αναπαραγωγής</string>
     <string name="revanced_enable_landscape_mode_summary">Ενεργοποίηση της οριζόντιας λειτουργίας με την περιστροφή της οθόνης.</string>
     <string name="revanced_enable_landscape_mode_title">Ενεργοποίηση οριζόντιας λειτουργίας</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Ενεργοποίηση του κουμπιού επόμενου βίντεο στην ελαχιστοποιημένη οθόνη αναπαραγωγής.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Κουμπί επόμενου βίντεο στον miniplayer</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Ενεργοποίηση του κουμπιού προηγούμενου βίντεο στην ελαχιστοποιημένη οθόνη αναπαραγωγής.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Κουμπί προηγούμενου βίντεο στον miniplayer</string>
     <string name="revanced_enable_opus_codec_summary">"Ενεργοποίηση του κωδικοποιητή OPUS αν η ανταπόκριση του προγράμματος αναπαραγωγής τον περιλαμβάνει.
 
 Πληροφορίες:
@@ -294,8 +266,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή opus</string>
     <string name="revanced_enable_smooth_transition_animation_summary">Ενεργοποίηση ομαλού εφέ μετάβασης όταν η ελαχιστοποιημένη οθόνη αναπαραγωγής μεγιστοποιείται από την ελαχιστοποιημένη κατάσταση.</string>
     <string name="revanced_enable_smooth_transition_animation_title">Ομαλή μετάβαση ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Ενεργοποίηση χειρονομίας σάρωσης προς τα κάτω για απόρριψη της ελαχιστοποιημένης οθόνης αναπαραγωγής.</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Χειρονομία απόρριψης ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Ενεργοποίηση χειρονομίας σάρωσης προς τα κάτω για απόρριψη της ελαχιστοποιημένης οθόνης αναπαραγωγής.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Χειρονομία απόρριψης ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
     <string name="revanced_enable_thick_seekbar_summary">"Ενεργοποίηση της γραμμής προόδου παχιού στυλ.
@@ -346,8 +316,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_hide_action_button_song_video_summary">"Απόκρυψη του κουμπιού «Ήχος / Βίντεο».
 (Αυτό το κουμπί είναι διαθέσιμο μόνο σε ορισμένους χρήστες)"</string>
     <string name="revanced_hide_action_button_song_video_title">Απόκρυψη κουμπιού «Ήχος / Βίντεο»</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">Απόκρυψη της εναλλαγής ήχου / βίντεο στην οθόνη αναπαραγωγής.</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">Απόκρυψη εναλλαγής ήχου / βίντεο</string>
     <string name="revanced_hide_button_shelf_summary">Απόκρυψη της ενότητας κουμπιών στη ροή.</string>
     <string name="revanced_hide_button_shelf_title">Απόκρυψη ενότητας κουμπιών</string>
     <string name="revanced_hide_carousel_shelf_summary">Απόκρυψη ενότητας καρουζέλ στη ροή.</string>
@@ -378,7 +346,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Απόκρυψη μενού «Μετάβαση στο επεισόδιο»</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Απόκρυψη μενού «Μετάβαση στο podcast»</string>
     <string name="revanced_hide_flyout_menu_help_title">Απόκρυψη μενού «Βοήθεια &amp; σχόλια»</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Απόκρυψη κουμπιών «Μου αρέσει» και «Δεν μου αρέσει»</string>
     <string name="revanced_hide_flyout_menu_not_interested_title">Απόκρυψη μενού «Δεν ενδιαφέρομαι»</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Απόκρυψη μενού «Καρφίτσωμα στην ταχεία κλήση»</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Απόκρυψη μενού «Αναπαραγωγή μετά»</string>
@@ -480,7 +447,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_remember_video_quality_last_selected_summary">Απομνημόνευση της τελευταίας ποιότητας βίντεο που επιλέχθηκε.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Εμφάνιση μηνύματος στο κάτω μέρος της οθόνης κατά την αλλαγή προεπιλεγμένης ποιότητας βίντεο.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Εμφάνιση μηνύματος</string>
     <string name="revanced_remember_video_quality_mobile">Η προεπιλεγμένη ποιότητα δεδομένων άλλαξε σε %s.</string>
     <string name="revanced_remember_video_quality_none">Αποτυχία ρύθμισης της ποιότητας.</string>
     <string name="revanced_remember_video_quality_wifi">Η προεπιλεγμένη ποιότητα με Wi-Fi άλλαξε σε %s.</string>
@@ -549,7 +515,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Κλειδί YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Μεταβείτε στη &lt;a href=%1$s&gt;δημιουργία νέου project&lt;/a&gt;.&lt;br&gt;2. Πατήστε το κουμπί &lt;b&gt;CREATE&lt;/b&gt;. &lt;br&gt;3. Μεταβείτε στην επιλογή &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Πατήστε το κουμπί &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Πατήστε το κουμπί &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Επιλέξτε την επιλογή &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Πατήστε το κουμπί &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Αντιγράψτε το κλειδί API.&lt;br&gt;&lt;br&gt;※ Το κλειδί API δεν πρέπει να το μοιράζεστε ποτέ με άλλους, οπότε δεν περιλαμβάνεται κατά την Εισαγωγή / Εξαγωγή ρυθμίσεων.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Έκδοση κλειδιού προγραμματιστή YouTube Data API v3</string>
-    <string name="revanced_ryd_about">Σχετικά με</string>
     <string name="revanced_ryd_attribution_summary">"Τα δεδομένα παρέχονται από το Return YouTube Dislike API
 
 Πατήστε εδώ για να ανοίξετε το ReturnYouTubeDislike.com"</string>
@@ -569,7 +534,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_ryd_toast_on_connection_error_summary">Εμφανίζει μια ειδοποίηση όταν ο διακομιστής Return YouTube Dislike δεν είναι διαθέσιμος</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Εμφάνιση ειδοποιήσεων σφάλματος σύνδεσης</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένα από τον ιδιοκτήτη</string>
-    <string name="revanced_sb_about">Σχετικά με</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες.</string>
     <string name="revanced_sb_api_url">Αλλαγή διεύθυνσης API</string>
@@ -584,7 +548,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_sb_diff_segments">Αλλαγή συμπεριφοράς τμημάτων</string>
     <string name="revanced_sb_enabled">Ενεργοποίηση του SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">Το SponsorBlock είναι ένα σύστημα που προέρχεται από το κοινό για παράβλεψη ενοχλητικών τμημάτων σε βίντεο YouTube.</string>
-    <string name="revanced_sb_reset_color">Επαναφορά χρώματος</string>
     <string name="revanced_sb_segments_filler">Εφαπτομενικές Σκηνές / Αστεία</string>
     <string name="revanced_sb_segments_filler_sum">Παρεμβατικές σκηνές ή αστεία που δεν είναι απαραίτητα για την κατανόηση του κύριου περιεχομένου του βίντεο. Δεν περιλαμβάνει τμήματα που παρέχουν πλαίσιο ή λεπτομέρειες υποβάθρου.</string>
     <string name="revanced_sb_segments_hook">Έναρξη / Χαιρετισμός</string>
@@ -611,19 +574,16 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_sb_skipped_interaction">Παραλείφθηκε η ενοχλητική υπενθύμιση.</string>
     <string name="revanced_sb_skipped_intro_beginning">Παραλείφθηκε η εισαγωγή.</string>
     <string name="revanced_sb_skipped_intro_end">Παραλείφθηκε η διακοπή.</string>
-    <string name="revanced_sb_skipped_intro_middle">Παραλείφθηκε η διακοπή.</string>
     <string name="revanced_sb_skipped_multiple_segments">Παραλείφθηκαν πολλαπλά τμήματα.</string>
     <string name="revanced_sb_skipped_nomusic">Παραλείφθηκε τμήμα χωρίς μουσική.</string>
     <string name="revanced_sb_skipped_outro">Παραλείφθηκε ο επίλογος.</string>
     <string name="revanced_sb_skipped_preview_beginning">Παραλείφθηκε η προεπισκόπηση.</string>
     <string name="revanced_sb_skipped_preview_end">Παραλείφθηκε η ανακεφαλαίωση.</string>
-    <string name="revanced_sb_skipped_preview_middle">Παραλείφθηκε η προεπισκόπηση.</string>
     <string name="revanced_sb_skipped_selfpromo">Παραλείφθηκε η αυτοπροώθηση.</string>
     <string name="revanced_sb_skipped_sponsor">Παραλείφθηκε ο χορηγός.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock προσωρινά μη διαθέσιμο.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock προσωρινά μη διαθέσιμο (κατάσταση %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock προσωρινά μη διαθέσιμο (καθυστέρηση API).</string>
-    <string name="revanced_sb_toast_on_connection_error">Μήνυμα αν το API δεν είναι διαθέσιμο</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock API δεν είναι διαθέσιμο.</string>
     <string name="revanced_sb_toast_on_skip">Εμφάνιση μηνύματος κατά την αυτόματη παράλειψη</string>
     <string name="revanced_sb_toast_on_skip_sum">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν ένα τμήμα παραλείπεται αυτόματα.</string>
@@ -637,7 +597,7 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
     <string name="revanced_settings_import_export_summary">Εισαγωγή ή εξαγωγή των ρυθμίσεων RVX Music.</string>
     <string name="revanced_settings_import_export_title">Εισαγωγή / Εξαγωγή ρυθμίσεων</string>
     <string name="revanced_settings_import_failed">Η εισαγωγή απέτυχε: %s.</string>
-    <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις του Morphe</string>
+    <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις του RVX</string>
     <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
     <string name="revanced_settings_reset">Επαναφορά</string>
     <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
@@ -688,7 +648,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
 
 Παρενέργεια αποκλεισμού αιτήματος:
 • Η εφαρμογή μπορεί να κλείνει απότομα όταν χρησιμοποιείτε VPN ή εναλλακτικό DNS."</string>
-    <string name="revanced_spoof_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης.</string>
     <string name="revanced_spoof_streaming_data_no_sdk_auth_token_about_title">Σχετικά με την εξουσιοδότηση Android No SDK </string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Πατήστε για να δείτε πώς να συνδεθείτε στο Android No SDK.</string>
@@ -701,8 +660,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
 3. Τα αποτελέσματα προσπάθειας σύνδεσης θα εμφανιστούν εντός 5 δευτερολέπτων.
 
 ※ Πατήστε «Επαναφορά» για να καταργήσετε το διακριτικό εξουσιοδότησης ή τον κωδικό ενεργοποίησης."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text">Επαναφορά</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title">Σύνδεση στο Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.
 
 - Το διακριτικό εξουσιοδότησης που εκδίδεται μέσω αυτής της διαδικασίας μπορεί να χρησιμοποιηθεί μόνο στο YouTube (Στο RVX, χρησιμοποιείται για τη λήψη δεδομένων ροής από το YouTube).
@@ -710,42 +667,14 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
 - Εάν αλλάξετε τον κωδικό πρόσβασής σας, ή καταργήσετε την εγγραφή μιας συσκευής στις ρυθμίσεις του λογαριασμού σας, ή απεγκαταστήστε την εφαρμογή, θα πρέπει να επανεκδώσετε το διακριτικό εξουσιοδότησης."</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Συνδεθήκατε!</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Το διακριτικό εξουσιοδότησης επαναφέρθηκε.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Πατήστε για να δείτε πως να συνδεθείτε στο Android VR.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Σύνδεση στο Android VR</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"Κωδικός ενεργοποίησης:
-%s
-
-1. Πατήστε «Άνοιγμα ιστοσελίδας» για να μεταβείτε στο 'https://yt.be/activate'.
-2. Εισάγετε τον κωδικό ενεργοποίησης.
-3. Συνδεθείτε όταν σας ζητηθεί. Αν έχετε πολλαπλούς λογαριασμούς Google, επιλέξτε τον λογαριασμό που χρησιμοποιείτε με το YouTube. Αν έχετε συνδεθεί ήδη, συνεχίστε στο επόμενο βήμα.
-4. Μόλις συνδεθείτε, επιστρέψτε στο RVX και πατήστε το «Σύνδεση στο Android VR» ξανά.
-5. Πατήστε «Λήψη διακριτικού εξουσιοδότησης» για να λάβετε διακριτικό εξουσιοδότησης."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">Κωδικός ενεργοποίησης</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Ο κωδικός αντιγράφηκε στο πρόχειρο: %s.</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"Το διακριτικό εξουσιοδότησης αποθηκεύτηκε.
-
-- Το διακριτικό εξουσιοδότησης που εκδίδεται μέσω αυτής της διαδικασίας μπορεί να χρησιμοποιηθεί μόνο στο YouTube VR (Στο RVX, χρησιμοποιείται για τη λήψη δεδομένων ροής από το YouTube VR).
-- Τα διακριτικά εξουσιοδότησης που δεν χρησιμοποιούνται για περισσότερο από 6 μήνες θα ανακληθούν από τους διακομιστές της Google.
-- Εάν αλλάξετε τον κωδικό πρόσβασής σας, ή καταργήσετε την εγγραφή μιας συσκευής στις ρυθμίσεις του λογαριασμού σας, ή απεγκαταστήστε την εφαρμογή, θα πρέπει να επανεκδώσετε το διακριτικό εξουσιοδότησης."</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">Συνδεθήκατε!</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Αποτυχία έκδοσης διακριτικού εξουσιοδότησης.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Πατήστε «Επαναφορά» και προσπαθήστε ξανά.</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Το διακριτικό και ο κωδικός επαναφέρθηκαν.</string>
-    <string name="revanced_spoof_streaming_data_summary">"Τα δεδομένα ροής παραποιούνται.
-
-Αν είστε χρήστης του YouTube Premium, αυτή η ρύθμιση μπορεί να μην είναι απαραίτητη."</string>
-    <string name="revanced_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης.</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Σχετικά με το Android VR (με σύνδεση χρήστη)</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"Παρενέργειες:
 • Η εφαρμογή μπορεί να κλείνει απότομα όταν χρησιμοποιείτε VPN ή εναλλακτικό DNS.
 • Ο ήχος μπορεί περιοδικά να σπάει κατά την αναπαραγωγή σε προγράμματα πελάτες προσαρμοστικού ρυθμού μετάδοσης (Όλα τα προγράμματα πελάτη εκτός από το Android VR 1.43.32)."</string>
-    <string name="revanced_spoof_video_streams_default_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
-    <string name="revanced_spoof_video_streams_summary">"Επιδιορθώνει προβλήματα αναπαραγωγής για τους περισσότερους χρήστες, ζητώντας μια συμβατή ροή βίντεο
-
-Εάν είστε συνδρομητής του YouTube Premium, αυτή η ρύθμιση ενδέχεται να μην απαιτείται."</string>
-    <string name="revanced_spoof_video_streams_title">Παραποίηση ροών βίντεο</string>
     <string name="revanced_translations_title">Μεταφράσεις</string>
     <string name="revanced_watch_history_type_entry_1">Αρχικός</string>
     <string name="revanced_watch_history_type_entry_2">Αντικατάσταση του domain</string>
@@ -755,7 +684,6 @@ YouTube Music 8.x — το crossfade λειτουργεί μόνο στις εκ
 • Αποκλεισμός ιστορικού παρακολούθησης: Το ιστορικό παρακολούθησης είναι αποκλεισμένο."</string>
     <string name="revanced_watch_history_type_title">Τύπος ιστορικού παρακολούθησης</string>
     <string name="revanced_webview_cookies">Cookies</string>
-    <string name="revanced_webview_copy">Αντιγραφή</string>
     <string name="revanced_webview_data_sync_id">Data Sync ID</string>
     <string name="revanced_webview_toast_copy_success">Το %s αντιγράφηκε στο πρόχειρο.</string>
     <string name="revanced_webview_toast_empty">Το %s είναι κενό.</string>
