@@ -5,6 +5,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
+import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.indexOfGetDrawableInstruction
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -24,11 +25,15 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/ToolBarPatch;"
 
 private lateinit var toolbarMethod: MutableMethod
+private lateinit var toolbarMethodWithImageView: MutableMethod
 
 val toolBarHookPatch = bytecodePatch(
     description = "toolBarHookPatch"
 ) {
-    dependsOn(sharedResourceIdPatch)
+    dependsOn(
+        sharedExtensionPatch,
+        sharedResourceIdPatch,
+    )
 
     execute {
         toolBarButtonFingerprint.methodOrThrow().apply {
@@ -62,7 +67,8 @@ val toolBarHookPatch = bytecodePatch(
             removeInstruction(enumOrdinalIndex)
         }
 
-        toolbarMethod = toolBarPatchFingerprint.methodOrThrow()
+        toolbarMethod = ToolBarPatchFingerprint.method
+        toolbarMethodWithImageView = ToolBarPatchWithImageViewFingerprint.method
     }
 }
 
@@ -70,4 +76,11 @@ internal fun hookToolBar(descriptor: String) =
     toolbarMethod.addInstructions(
         0,
         "invoke-static {p0, p1}, $descriptor(Ljava/lang/String;Landroid/view/View;)V"
+    )
+
+internal fun hookToolBarWithImageView(descriptor: String) =
+    toolbarMethodWithImageView.addInstructions(
+        0,
+        "invoke-static {p0, p1, p2}, " +
+                "$descriptor(Ljava/lang/String;Landroid/view/View;Landroid/widget/ImageView;)V"
     )
