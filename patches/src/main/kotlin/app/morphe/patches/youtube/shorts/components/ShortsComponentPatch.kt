@@ -314,6 +314,7 @@ private val shortsCustomActionsResourcesPatch = resourcePatch {
             "youtube/overlaybuttons/rounded",
             ResourceGroup(
                 "drawable",
+                "revanced_vot_bold_button_icon.xml",
                 "revanced_vot_button_icon.xml",
             )
         )

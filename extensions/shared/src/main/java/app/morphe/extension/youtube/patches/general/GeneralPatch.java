@@ -1630,9 +1630,8 @@ public class GeneralPatch {
             return original;
         }
 
-        // If the user has patched YouTube 19.26.42,
-        // Or spoofed the app version to 19.26.42 or earlier.
-        if (!ExtendedUtils.IS_19_28_OR_GREATER || ExtendedUtils.isSpoofingToLessThan("19.27.00")) {
+        // Match YouTube's server-controlled toolbar icon style.
+        if (!Utils.appIsUsingBoldIcons()) {
             return settingsDrawableId;
         }
 
@@ -1648,8 +1647,11 @@ public class GeneralPatch {
     public static void replaceCreateButton(String enumString, View toolbarView) {
         if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get())
             return;
-        // Check if the button is a create button.
-        if (!isCreateButton(enumString))
+        // The semantic replacement is safe to identify by its Settings enum only when the
+        // separately-added toolbar Settings button is disabled.
+        if (!isCreateButton(enumString)
+                && (Settings.SHOW_TOOLBAR_SETTINGS_BUTTON.get()
+                || !"SETTINGS_CAIRO".equals(enumString)))
             return;
         ImageView imageView = getChildView((ViewGroup) toolbarView, view -> view instanceof ImageView);
         if (imageView == null)
