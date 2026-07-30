@@ -78,20 +78,17 @@ import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_15_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
-import app.morphe.patches.youtube.utils.resourceid.actionBarRingoBackground
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.resourceid.ytOutlineExperimentalVideoCamera
 import app.morphe.patches.youtube.utils.resourceid.ytOutlineVideoCamera
 import app.morphe.patches.youtube.utils.resourceid.ytPremiumWordMarkHeader
 import app.morphe.patches.youtube.utils.resourceid.ytWordMarkHeader
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
-import app.morphe.patches.youtube.utils.settings.ResourceUtils.getContext
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.toolbar.hookToolBar
 import app.morphe.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.containsLiteralInstruction
-import app.morphe.util.doRecursively
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findMutableMethodOf
@@ -102,12 +99,10 @@ import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
-import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstruction
-import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.replaceLiteralInstructionCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -121,7 +116,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import org.w3c.dom.Element
 
 private const val NAVIGATION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/NavigationButtonsPatch;"
@@ -143,28 +137,6 @@ val toolBarComponentsPatch = bytecodePatch(
     )
 
     execute {
-        fun MutableMethod.injectSearchBarHook(
-            insertIndex: Int,
-            insertRegister: Int,
-            descriptor: String
-        ) =
-            addInstructions(
-                insertIndex, """
-                invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->$descriptor(Z)Z
-                move-result v$insertRegister
-                """
-            )
-
-        fun MutableMethod.injectSearchBarHook(
-            insertIndex: Int,
-            descriptor: String
-        ) =
-            injectSearchBarHook(
-                insertIndex,
-                getInstruction<OneRegisterInstruction>(insertIndex).registerA,
-                descriptor
-            )
-
         var settingArray = arrayOf(
             "PREFERENCE_SCREEN: GENERAL",
             "SETTINGS: TOOLBAR_COMPONENTS"
@@ -230,100 +202,6 @@ val toolBarComponentsPatch = bytecodePatch(
                     """
                 )
             }
-        }
-
-        // endregion
-
-        // region patch for enable wide search bar
-
-        if (!is_20_31_or_greater) {
-            // Limitation: Premium header will not be applied for YouTube Premium users if the user uses the 'Wide search bar with header' option.
-            // This is because it forces the deprecated search bar to be loaded.
-            // As a solution to this limitation, 'Change YouTube header' patch is required.
-            actionBarRingoBackgroundFingerprint.methodOrThrow().apply {
-                val viewIndex =
-                    indexOfFirstLiteralInstructionOrThrow(actionBarRingoBackground) + 2
-                val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
-
-                addInstructions(
-                    viewIndex + 1,
-                    "invoke-static {v$viewRegister}, $GENERAL_CLASS_DESCRIPTOR->setWideSearchBarLayout(Landroid/view/View;)V"
-                )
-
-                val targetIndex = indexOfActionBarRingoBackgroundTabletInstruction(this) + 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                injectSearchBarHook(
-                    targetIndex + 1,
-                    targetRegister,
-                    "enableWideSearchBarWithHeaderInverse"
-                )
-            }
-
-            actionBarRingoTextFingerprint.methodOrThrow(actionBarRingoBackgroundFingerprint).apply {
-                val targetIndex = indexOfActionBarRingoTextTabletInstructions(this) + 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                injectSearchBarHook(
-                    targetIndex + 1,
-                    targetRegister,
-                    "enableWideSearchBarWithHeader"
-                )
-            }
-
-            actionBarRingoConstructorFingerprint.methodOrThrow().apply {
-                val staticCalls = implementation!!.instructions
-                    .withIndex()
-                    .filter { (_, instruction) ->
-                        val methodReference = (instruction as? ReferenceInstruction)?.reference
-                        instruction.opcode == Opcode.INVOKE_STATIC &&
-                                methodReference is MethodReference &&
-                                methodReference.parameterTypes.size == 1 &&
-                                methodReference.returnType == "Z"
-                    }
-
-                if (staticCalls.size != 2)
-                    throw PatchException("Size of staticCalls does not match: ${staticCalls.size}")
-
-                mapOf(
-                    staticCalls.elementAt(0).index to "enableWideSearchBar",
-                    staticCalls.elementAt(1).index to "enableWideSearchBarWithHeader"
-                ).forEach { (index, descriptor) ->
-                    val walkerMethod = getWalkerMethod(index)
-
-                    walkerMethod.apply {
-                        injectSearchBarHook(
-                            implementation!!.instructions.lastIndex,
-                            descriptor
-                        )
-                    }
-                }
-            }
-
-            youActionBarFingerprint.matchOrThrow(setActionBarRingoFingerprint).let {
-                it.method.apply {
-                    injectSearchBarHook(
-                        it.instructionMatches.last().index,
-                        "enableWideSearchBarInYouTab"
-                    )
-                }
-            }
-
-            // This attribution cannot be changed in extension, so change it in the XML file.
-
-            getContext().document("res/layout/action_bar_ringo_background.xml").use { document ->
-                document.doRecursively { node ->
-                    arrayOf("layout_marginStart").forEach replacement@{ replacement ->
-                        if (node !is Element) return@replacement
-
-                        node.getAttributeNode("android:$replacement")?.let { attribute ->
-                            attribute.textContent = "0.0dip"
-                        }
-                    }
-                }
-            }
-
-            settingArray += "SETTINGS: ENABLE_WIDE_SEARCH_BAR"
         }
 
         // endregion
