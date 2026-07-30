@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Check missing prefs keys in XML files by comparing extracted keys and values."""
 
 from __future__ import annotations

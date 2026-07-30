@@ -25,7 +25,7 @@ public class BaseSettings {
 
     public static final EnumSetting<AppLanguage> REVANCED_LANGUAGE = new EnumSetting<>("revanced_language", AppLanguage.DEFAULT, true);
 
-    public static final BooleanSetting SPOOF_STREAMING_DATA = new BooleanSetting("revanced_spoof_streaming_data", TRUE, true, "revanced_spoof_streaming_data_user_dialog_message");
+    public static final BooleanSetting SPOOF_STREAMING_DATA = new BooleanSetting("revanced_spoof_streaming_data", TRUE, true, "morphe_spoof_video_streams_user_dialog_message");
 
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS = new BooleanSetting("revanced_spoof_streaming_data_use_js", TRUE, true,
             "revanced_spoof_streaming_data_use_js_user_dialog_message", new J2V8Availability());

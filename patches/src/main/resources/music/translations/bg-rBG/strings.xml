@@ -31,10 +31,8 @@
     <string name="morphe_crossfade_duration_9000ms">9 секунди</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC аудио е включено</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC аудио е изключено</string>
-    <string name="morphe_disable_drc_audio_title">Изключете DRC аудио</string>
     <string name="morphe_disable_quic_protocol_summary_off">Протокола QUIC е включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокола QUIC е изключен</string>
-    <string name="morphe_disable_quic_protocol_title">Изключи протокола QUIC</string>
     <string name="morphe_force_original_audio_not_available">За да използвате тази функция, променете \'Ппомяна на видео поток\' на всеки клиент освен Android Studio.</string>
     <string name="morphe_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
     <string name="morphe_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
@@ -107,25 +105,8 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="morphe_settings_menu_filter_screen_summary">Скрий елементи от екрана с настройки на приложението по тяхното видимо име</string>
     <string name="morphe_settings_menu_filter_screen_title">Филтър на менюто с настройки</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Заключва JavaScript на плейъра към конкретна версия
-
-• Необходим е валиден хеш на JavaScript на плейъра
-• Хешовете на JavaScript на плейъра са валидни приблизително един месец, а остарелите хешове ще бъдат отменени от GVS
-• Възпроизвеждането ще се провали, ако хешът бъде отменен."</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Актуализацията на JavaScript за плейъра е активирана</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Актуализацията на JavaScript за плейъра е деактивирана
-
-• Необходим е валиден JavaScript хеш на плейъра.
-• Възпроизвеждането се проваля, ако JavaScript хеш на плейъра е отменен в GVS"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Деактивиране на актуализацията на JavaScript за плейъра</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Трябва да предоставите валиден хеш на JavaScript на плейъра.
-
-Възпроизвеждането ще се провали, ако хешът на JavaScript на плейъра е остарял."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не може да се изтеглят клиентски потоци</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Въведете валиден JavaScript хеш на плейъра</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">JavaScript хеш на играча</string>
     <string name="morphe_spoof_video_streams_screen_summary">Подправете клиентските видео потоци, за да предотвратите проблеми с възпроизвеждането</string>
-    <string name="morphe_spoof_video_streams_screen_title">Подправяне на видео потоци</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Несте влезли в Android VR. Натиснете тук за да се влезете.</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">За да използвате тази функционалност, променете \'Стандартен клиент\' на Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Входът в Android VR е активен</string>
@@ -137,9 +118,7 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
 3. Влезте в Google, ако ви е нужно. Ако имате повече сметки, изберете тази сметка YouTube
 4. Натиснете 'Разрешете YouTube VR' достъп
 5. Върнете се в това приложение след като достигнете съобщението 'Уебсайт приклеен'"</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Отвори уебсайта</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Инструкции</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Продължи</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вход в Android VR може да реши проблеми с възпроизвеждане за някои потребители
 
 За да се влезете, натиснете \"Продължи\" отдолу"</string>
@@ -147,7 +126,7 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Вход за Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Автентификацията е запазена
 
-• Настройките за Morphe няма да бъдат импортирани/експортирани за Android VR автентификация
+• Настройките за RVX няма да бъдат импортирани/експортирани за Android VR автентификация
 • Ако приложението не се използва в продължение на 6 месеца, Google ще премахне тази автентификация
 • Ще трябва да се впишете отново, ако промените своя Google парола или изключите това устройство от Google настройки"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Успешно се влязохте</string>
@@ -165,7 +144,6 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="morphe_spoof_video_streams_title">Подправяне на видео потоци</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Изключването на тази настройка може да причини проблеми при възпроизвеждане.</string>
     <string name="revanced_change_player_background_color_title">Смени фоновия цвят на плейъра</string>
-    <string name="revanced_change_start_page_entry_chart">Хит-парад</string>
     <string name="revanced_change_start_page_entry_charts">Графики</string>
     <string name="revanced_change_start_page_entry_default">По подразбиране</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Епизоди за по-късно</string>
@@ -174,7 +152,6 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="revanced_change_start_page_entry_library">Библиотека</string>
     <string name="revanced_change_start_page_entry_liked_music">Предпочитания</string>
     <string name="revanced_change_start_page_entry_search">Търсене</string>
-    <string name="revanced_change_start_page_entry_subscription">Абонаменти</string>
     <string name="revanced_change_start_page_entry_subscriptions">Абонаменти</string>
     <string name="revanced_change_start_page_summary">Изберете на коя страница да се отвори приложението.</string>
     <string name="revanced_change_start_page_title">Начална страница</string>
@@ -261,7 +238,6 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Скрийте менюто „Отидете на епизод“</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Скрийте менюто „Отидете на подкаст“</string>
     <string name="revanced_hide_flyout_menu_help_title">Скриване на менюто &amp; за помощ</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Скриване на бутоните за харесване и нехаресване</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Скрийте менюто „Пусни следващия клип“</string>
     <string name="revanced_hide_flyout_menu_quality_title">Скрийте менюто „Качество“</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Скрийте менюто „Премахване от библиотеката“</string>
@@ -337,7 +313,6 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="revanced_restart_first_run">Рестартирайте, за да завършите настройката</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Възстановява стария стил на рафт \"Библиотека\". (Експериментално)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Възстановете стария стил на рафта „Библиотека“</string>
-    <string name="revanced_ryd_about">Относно</string>
     <string name="revanced_ryd_attribution_summary">"Данните са предоставени от Return YouTube Dislike API
 
 Натиснете тук, за да отворите ReturnYouTubeDislike.com"</string>
@@ -358,7 +333,7 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="revanced_sb_skip_automatically_once">Автоматично пропуснете веднъж</string>
     <string name="revanced_settings_import">Импортиране</string>
     <string name="revanced_settings_import_copy">Копиране</string>
-    <string name="revanced_settings_import_reset">Настройките на Morphe са възстановени по подразбиране.</string>
+    <string name="revanced_settings_import_reset">Настройките на RVX са възстановени по подразбиране.</string>
     <string name="revanced_settings_import_success">Импортирани са %d настройки</string>
     <string name="revanced_settings_reset">Изчисти</string>
     <string name="revanced_settings_reset_color">Възстановяване на цвят</string>
@@ -383,8 +358,4 @@ YouTube Music 8.x — кросфейдът работи само в 9.x и по-
     <string name="revanced_spoof_app_version_target_summary">Задайте желаната фалшива версия на приложението.</string>
     <string name="revanced_spoof_app_version_target_title">Цел за подмяна на версията на приложението</string>
     <string name="revanced_spoof_app_version_title">Подменя версия на приложението</string>
-    <string name="revanced_spoof_video_streams_summary">"Отстранява проблеми с възпроизвеждането за повечето потребители, като поиска съвместим видео поток.
-
-Ако сте потребител на YouTube Premium, тази настройка може да не е необходима."</string>
-    <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
 </resources>

@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Check missing prefs keys."""
 
 from __future__ import annotations

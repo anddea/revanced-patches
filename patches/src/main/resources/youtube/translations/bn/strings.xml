@@ -62,6 +62,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_sanitize_sharing_links_summary_off">শেয়ার করা লিঙ্ক থেকে ট্র্যাকিং ক্যোয়ারি প্যারামিটার সরানো হয়নি</string>
     <string name="morphe_sanitize_sharing_links_summary_on">শেয়ার করা লিঙ্ক থেকে ট্র্যাকিং ক্যোয়ারি প্যারামিটার সরানো হয়েছে</string>
     <string name="morphe_sanitize_sharing_links_title">শেয়ারিং লিঙ্ক স্যানিটাইজ করুন</string>
+    <string name="morphe_seekbar_thumbnail_preview_summary">সীকবಾರ್ টেনে আনার সময় একটি ভিডিও থাম্বনেইল দেখায়</string>
+    <string name="morphe_seekbar_thumbnail_preview_title">সিকবার থাম্বনেইল সক্ষম করুন</string>
     <string name="morphe_settings_menu_copy_path">কপি করা হয়েছে: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">তালিকাটি পপুলেট করার জন্য স্ট্যান্ডার্ড অ্যাপ সেটিংস স্ক্রিনটি একবার খুলুন</string>
     <string name="morphe_settings_menu_filter_screen_summary">видиমান নামের মাধ্যমে স্ট্যান্ডার্ড অ্যাপ সেটিংস স্ক্রিনে আইটেম লুকান</string>
@@ -72,29 +74,17 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• মূল অডিও জোরপূর্বক উপলব্ধ নেই</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• ৩৬০° ভিএআর ইমার্সিভ মোড উপলব্ধ নয়</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• স্থিতিশীল ভলিউম উপলব্ধ নেই</string>
-    <string name="morphe_spoof_video_streams_about_playback_failure">• ভিডিও ১:০০ মিনিটে বন্ধ হতে পারে, অথবা কিছু অঞ্চলে উপলব্ধ নাও হতে পারে</string>
     <string name="morphe_spoof_video_streams_about_title">স্পুফিংয়ের পার্শ্বপ্রতিক্রিয়া</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">ভিডিও কোডেক হল AVC (H.264) অথবা VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"ভিডিও কোডেক হল AVC (H.264), VP9, অথবা AV1
 
 প্লেব্যাক আটকে যেতে পারে বা ফ্রেম বাদ দিতে পারে"</string>
-    <string name="morphe_spoof_video_streams_av1_title">অ্যান্ড্রয়েড VR AV1 অনুমতি দিন</string>
+    <string name="morphe_spoof_video_streams_av1_title">অ্যান্ড্রয়েড VR / visionOS AV1 এর অনুমতি দিন</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"এই সেটিংটি চালু করলে সফটওয়্যার AV1 ডিকোডিং ব্যবহার হতে পারে।
 
 AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে পারে বা ফ্রেম বাদ দিতে পারে।"</string>
     <string name="morphe_spoof_video_streams_client_type_title">ডিফল্ট ক্লায়েন্ট</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">প্লেয়ার জাভাস্ক্রিপ্ট আপডেট সক্রিয় করা হয়েছে</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"প্লেয়ার জাভাস্ক্রিপ্ট আপডেট নিষ্ক্রিয় করা হয়েছে
-
-• একটি বৈধ প্লেয়ার জাভাস্ক্রিপ্ট হ্যাশ প্রয়োজন
-• প্লেয়ার জাভাস্ক্রিপ্ট হ্যাশ GVS-এ বাতিল হলে প্লেব্যাক ব্যর্থ হবে"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">প্লেয়ার জাভাস্ক্রিপ্ট আপডেট নিষ্ক্রিয় করুন</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"আপনাকে একটি বৈধ প্লেয়ার জাভাস্ক্রিপ্ট হ্যাশ প্রদান করতে হবে।
-
-প্লেয়ার জাভাস্ক্রিপ্ট হ্যাশ মেয়াদোত্তীর্ণ হলে প্লেব্যাক ব্যর্থ হবে।"</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">কোনো ক্লায়েন্ট স্ট্রিম আনতে পারেনি</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">একটি বৈধ প্লেয়ার জাভাস্ক্রিপ্ট হ্যাশ প্রবেশ করুন</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">প্লেয়ার জাভাস্ক্রিপ্ট হ্যাশ</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">প্লেয়ার জাভাস্ক্রিপ্ট ভেরিয়েন্ট</string>
     <string name="morphe_spoof_video_streams_screen_summary">প্লেব্যাক সংক্রান্ত সমস্যা রোধ করতে ক্লায়েন্টের ভিডিও স্ট্রিমগুলি স্পুফ করুন</string>
     <string name="morphe_spoof_video_streams_screen_title">ভিডিও স্ট্রিম স্পুফ করুন</string>
@@ -109,9 +99,7 @@ AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে
 3. গুগলে সাইন ইন করতে প্রম্প্ট হলে। যদি আপনার একাধিক অ্যাকাউন্ট থাকে তাহলে এই ইউটিউব অ্যাকাউন্ট বেছে নিন
 4. 'ইউটিউব ভিআর' অ্যাক্সেস অনুমতি দিন
 5. 'ডিভাইস কনেক্টেড' মেসেজ পাওয়ার পর এই অ্যাপে ফিরে আসুন"</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">ওয়েবসাইট খুলুন</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">নির্দেশনা</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">এগিয়ে যান</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"আন্ড্রয়েড ভিআরতে সাইন ইন করলে কিছু ব্যবহারকারীদের জন্য প্লে ব্যাকের সমস্যা সমাধান হতে পারে
 
 সাইন ইন করতে, নিচে কন্টিনিউ প্রেস করুন"</string>
@@ -134,8 +122,10 @@ AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে
     <string name="morphe_spoof_video_streams_summary_on">"ভিডিও স্ট্রিম স্পুফ করা হয়েছে
 
 আপনি যদি YouTube Premium ব্যবহারকারী হন, তাহলে এই সেটিংটির প্রয়োজন নাও হতে পারে"</string>
-    <string name="morphe_spoof_video_streams_title">ভিডিও স্ট্রিমিং স্পুফ করুন</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">এই সেটিং বন্ধ করলে প্লেব্যাক সমস্যা হতে পারে।</string>
+    <string name="morphe_video_quality_prioritize_dialog">যদি এই সেটিংস বন্ধ করা হয়, তাহলে পুরোনো ভিডিওতে ভিডিওর গুণমানের কোনো বিকল্প নাও দেখাতে পারে</string>
+    <string name="morphe_video_quality_prioritize_summary">কোডেক দক্ষতার চেয়ে সর্বোচ্চ উপলব্ধ ভিডিও গুণমানকে অগ্রাধিকার দেয়</string>
+    <string name="morphe_video_quality_prioritize_title">ভিডিওর গুণমানকে অগ্রাধিকার দিন</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">উন্নত ভিডিও গুণমান মেনু দেখানো হয়নি</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">উন্নত ভিডিও গুণমান মেনু দেখানো হয়েছে</string>
     <string name="revanced_advanced_video_quality_menu_title">অ্যাডভান্সড কোয়ালিটি মেনু খুলুন</string>
@@ -153,7 +143,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API এন্ডপয়েন্ট</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">যদি DeArrow অনুপস্থিত থাকে তবে টোস্ট বার্তা প্রদর্শিত হয় না</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">যদি DeArrow অনুপস্থিত থাকে তবে টোস্ট বার্তা প্রদর্শিত হয়</string>
-    <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">সংযোগ ত্রুটি সতর্কতা দেখান</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow সাময়িকভাবে উপলব্ধ নেই (স্ট্যাটাস কোড: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow সাময়িকভাবে উপলব্ধ নেই</string>
     <string name="revanced_alt_thumbnail_home_title">হোম ট্যাবের জন্য</string>
@@ -166,7 +155,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_alt_thumbnail_search_title">অনুসন্ধান ফলাফলের জন্য</string>
     <string name="revanced_alt_thumbnail_stills">স্থির ভিডিও ক্যাপচার।</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">স্টিল ক্যাপচার প্রতিটি ভিডিওর শুরু/মাঝামাঝি/শেষ থেকে নেওয়া হয়। এই ছবিগুলি YouTube-এ তৈরি করা হয়েছে এবং কোনও বাহ্যিক API ব্যবহার করা হয় না</string>
-    <string name="revanced_alt_thumbnail_stills_about_title">ভিডিওর স্থির ছবি</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">উচ্চ মানের স্থির চিত্র ব্যবহার করা হচ্ছে</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_on">মাঝামাঝি মানের স্থিরচিত্র ব্যবহার করা হচ্ছে। থাম্বনেইল তাড়াতাড়ি লোড হবে, কিন্তু লাইভ স্ট্রিম, অপ্রকাশিত বা অনেক পুরোনো ভিডিওর ক্ষেত্রে ফাঁকা থাম্বনেইল দেখাতে পারে</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">দ্রুততম স্থির চিত্র ব্যবহার করুন</string>
@@ -221,7 +209,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_change_start_page_entry_all_subscriptions">অন্য়াসব রভর্বাশার চিয়ুট</string>
     <string name="revanced_change_start_page_entry_browse">চ্যানেল ব্রাউজ করুন</string>
     <string name="revanced_change_start_page_entry_courses">কোর্সু চবুভায় চা চেরারুকে</string>
-    <string name="revanced_change_start_page_entry_default">পূর্ব-নির্ধারিত</string>
     <string name="revanced_change_start_page_entry_explore">ঘুরে দেখুন</string>
     <string name="revanced_change_start_page_entry_fashion">แฟชั่น &amp; ความงาม</string>
     <string name="revanced_change_start_page_entry_gaming">গেমিং</string>
@@ -272,7 +259,7 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_debug_title">ডিবাগ লগিং সক্ষম করুন</string>
     <string name="revanced_debug_toast_on_error_summary_off">যদি ত্রুটি ঘটে তবে toast দেখানো হবে না</string>
     <string name="revanced_debug_toast_on_error_summary_on">যদি ত্রুটি ঘটে তবে toast দেখানো হবে</string>
-    <string name="revanced_debug_toast_on_error_title">Morphe এর ত্রুটির ক্ষেত্রে টোস্ট দেখান</string>
+    <string name="revanced_debug_toast_on_error_title">RVX এর ত্রুটির ক্ষেত্রে টোস্ট দেখান</string>
     <string name="revanced_disable_ambient_mode_summary_off">অ্যাম্বিয়েন্ট মোড সক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_ambient_mode_summary_on">অ্যাম্বিয়েন্ট মোড বন্ধ করা হয়েছে</string>
     <string name="revanced_disable_ambient_mode_title">অ্যাম্বিয়েন্ট মোড বন্ধ করুন</string>
@@ -286,21 +273,16 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_disable_chapter_skip_double_tap_title">ডাবল ট্যাপ করে অধ্যায় পরিবর্তন করা বন্ধ করুন</string>
     <string name="revanced_disable_drc_audio_summary_off">ডিআরসি অডিও সক্রিয় হয়েছে</string>
     <string name="revanced_disable_drc_audio_summary_on">ডিআরসি অডিও নিষ্ক্রিয় করা হয়েছে</string>
-    <string name="revanced_disable_drc_audio_title">ডিআরসি অডিও নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">অধ্যায়গুলোর কম্পন সক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">অধ্যায়গুলোর কম্পন নিষ্ক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">অধ্যায়গুলোর কম্পন নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">নির্দিষ্ট স্থানে খোঁজার কম্পন সক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">সূক্ষ্ম সিকিং কম্পন নিষ্ক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_precise_seeking_title">নির্দিষ্ট স্থানে খোঁজার কম্পন নিষ্ক্রিয় করুন</string>
-    <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">সীক আনডু কম্পন সক্রিয় করা হয়েছে</string>
-    <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">সীক আনডু কম্পন নিষ্ক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_title">সীক আনডু কম্পন নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">ট্যাপ করে ধরে রাখার হ্যাপিটিক্স সক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">ট্যাপ করে ধরে রাখার হ্যাপিটিক্স নিষ্ক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_tap_and_hold_title">ট্যাপ এবং হোল্ড হ্যাপ্টিক্স নিষ্ক্রিয় করুন</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_off">জুম করার কম্পন সক্রিয় করা হয়েছে</string>
-    <string name="revanced_disable_haptic_feedback_zoom_summary_on">জুম করার কম্পন নিষ্ক্রিয় করা হয়েছে</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">জুম করার কম্পন নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_hdr_video_summary_off">HDR ভিডিও সক্রিয় হয়েছে</string>
     <string name="revanced_disable_hdr_video_summary_on">HDR ভিডিও নিষ্ক্রিয় করা হয়েছে</string>
@@ -319,7 +301,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
 • ভিডিও বর্ণনায় মিউজিক সেকশন কাজ করতে পারে না।
 • প্লেয়ার ফ্লাইআউট মেনু আইটেমগুলি লুকানো যায় না।
 • লাইব্রেরি ট্যাবে অ্যাকাউন্ট চেঞ্জ বাটন দেখা যায় না।"</string>
-    <string name="revanced_disable_quic_protocol_title">কিউআইসি প্রোটোকল বন্ধ করুন</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে না</string>
     <string name="revanced_disable_resuming_shorts_player_title">Shorts প্লেয়ার আবার চালানো নিষ্ক্রিয় করুন</string>
@@ -398,9 +379,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_hide_comments_create_a_short_button_summary_off">একটি Shorts বোতাম তৈরি করুন দেখানো হয়েছে</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">একটি Shorts বোতাম তৈরি করুন লুকানো আছে</string>
     <string name="revanced_hide_comments_create_a_short_button_title">\'Short তৈরি করুন\' বোতাম লুকান</string>
-    <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">ইমোজি এবং টাইমস্ট্যাম্প বোতামগুলি দেখানো আছে</string>
-    <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">ইমোজি এবং টাইমস্ট্যাম্প বোতামগুলি লুকানো আছে</string>
-    <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">ইমোজি এবং টাইমস্ট্যাম্প বোতামগুলি লুকান</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">হোম ফিডে ভিডিওর নিচে মন্তব্য বিভাগ দেখানো আছে</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">হোম ফিডে ভিডিওর নিচে মন্তব্য বিভাগ লুকানো আছে</string>
     <string name="revanced_hide_comments_section_in_home_feed_title">মন্তব্য বিভাগ লুকান</string>
@@ -476,9 +454,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_hide_info_cards_summary_off">তথ্য কার্ড প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_info_cards_summary_on">তথ্য কার্ড লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_info_cards_title">তথ্য কার্ড লুকান</string>
-    <string name="revanced_hide_join_button_summary_off">যোগদান বোতাম দেখানো আছে</string>
-    <string name="revanced_hide_join_button_summary_on">যোগদান বোতাম লুকানো আছে</string>
-    <string name="revanced_hide_join_button_title">সামিল হও বোতামটি লুকান</string>
     <string name="revanced_hide_key_concepts_section_summary_off">Key concepts বিভাগটি দেখানো হয়েছে</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Key concepts বিভাগটি লুকানো আছে</string>
     <string name="revanced_hide_key_concepts_section_title">\'Key concepts\' বিভাগটি লুকান</string>
@@ -556,10 +531,7 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_hide_promote_button_summary_off">প্রোমোশন বাটন দেখানো আছে</string>
     <string name="revanced_hide_promote_button_summary_on">প্রোমোশন বাটন লুকানো আছে</string>
     <string name="revanced_hide_promote_button_title">\"আরো দেখুন\" বাটনটি লুকিয়ে রাখুন</string>
-    <string name="revanced_hide_quick_actions_dislike_button_title">ডিসলাইক বোতামটি লুকান</string>
-    <string name="revanced_hide_quick_actions_like_button_title">লাইক বোতামটি লুকান</string>
     <string name="revanced_hide_quick_actions_live_chat_button_title">লাইভ চ্যাট বাটনটি লুকান</string>
-    <string name="revanced_hide_quick_actions_more_button_title">\'আরো দেখুন\' বাটনটি লুকিয়ে রাখুন</string>
     <string name="revanced_hide_quick_actions_share_button_title">শেয়ার বোতামটি লুকান</string>
     <string name="revanced_hide_quick_actions_summary_off">ফুলস্ক্রিনে দ্রুত অ্যাকশন দেখানো আছে</string>
     <string name="revanced_hide_quick_actions_summary_on">ফুলস্ক্রিনে দ্রুত অ্যাকশন লুকানো আছে</string>
@@ -582,9 +554,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_hide_seekbar_thumbnail_summary_on">ভিডিও থাম্বনেইল সিকবার লুকানো আছে</string>
     <string name="revanced_hide_seekbar_thumbnail_title">ভিডিও থাম্বনেইল সিকবার লুকান</string>
     <string name="revanced_hide_seekbar_title">ভিডিও প্লেয়ারের সিকবার লুকান</string>
-    <string name="revanced_hide_share_button_summary_off">শেয়ার বাটন প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_share_button_summary_on">শেয়ার করুন বোতাম লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_share_button_title">শেয়ার বোতামটি লুকান</string>
     <string name="revanced_hide_shop_button_summary_off">শপ বাটন দেখানো আছে</string>
     <string name="revanced_hide_shop_button_summary_on">শপ বাটন লুকানো আছে</string>
     <string name="revanced_hide_shop_button_title">শপ বোতামটি লুকান</string>
@@ -597,48 +566,21 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_hide_shorts_channel_bar_summary_off">চ্যানেল বার প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_shorts_channel_bar_summary_on">চ্যানেল বার লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_shorts_channel_bar_title">চ্যানেল বার লুকান</string>
-    <string name="revanced_hide_shorts_comments_button_summary_off">মন্তব্য বোতাম প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_shorts_comments_button_summary_on">মন্তব্য বোতাম লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_shorts_comments_button_title">কমেন্টস বোতামটি লুকান</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">সবুজ পর্দা বোতাম দেখানো হচ্ছে</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">সবুজ পর্দা বোতাম লুকানো আছে</string>
     <string name="revanced_hide_shorts_green_screen_button_title">লুকান \'গ্রিন স্ক্রিন\' বোতাম</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_off">হ্যাশট্যাগ বোতাম দেখানো হচ্ছে</string>
     <string name="revanced_hide_shorts_hashtag_button_summary_on">হ্যাশট্যাগ বোতাম লুকানো আছে</string>
     <string name="revanced_hide_shorts_hashtag_button_title">হ্যাশট্যাগ বোতাম লুকান</string>
-    <string name="revanced_hide_shorts_info_panel_summary_off">তথ্য প্যানেল প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_shorts_info_panel_summary_on">তথ্য প্যানেল লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_shorts_info_panel_title">তথ্য প্যানেল লুকান</string>
-    <string name="revanced_hide_shorts_join_button_summary_off">জয়েন করুন বোতাম প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_shorts_join_button_summary_on">জয়েন করুন বোতাম লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_shorts_join_button_title">সামিল হও বোতামটি লুকান</string>
-    <string name="revanced_hide_shorts_like_button_summary_off">পছন্দ বোতাম প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_shorts_like_button_summary_on">পছন্দ বোতাম লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_shorts_like_button_title">লাইক বোতামটি লুকান</string>
     <string name="revanced_hide_shorts_live_preview_summary_off">লাইভ প্রিভিউ দেখানো হয়েছে</string>
     <string name="revanced_hide_shorts_live_preview_summary_on">লাইভ প্রিভিউ লুকানো আছে</string>
     <string name="revanced_hide_shorts_live_preview_title">লিঙ্ক পূর্বরূপ লুকান</string>
-    <string name="revanced_hide_shorts_navigation_bar_summary_off">পনেভিগেশন বার প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_shorts_navigation_bar_summary_on">নেভিগেশন বার লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_shorts_navigation_bar_title">নেভিগেশন বার লুকান</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_off">নতুন পোস্ট বোতাম দেখানো হয়েছে</string>
     <string name="revanced_hide_shorts_new_posts_button_summary_on">নতুন পোস্ট বোতাম লুকানো হয়েছে</string>
     <string name="revanced_hide_shorts_new_posts_button_title">লুকান \'নতুন পোস্ট\' বোতাম</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">থেমে থাকা ওভারলে বোতাম প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">থেমে থাকা ওভারলে বোতাম লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">থেমে থাকা ওভারলে বোতাম লুকান</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_off">Preview comment দেখানো হয়েছে</string>
-    <string name="revanced_hide_shorts_preview_comment_summary_on">Preview comment লুকানো আছে</string>
-    <string name="revanced_hide_shorts_preview_comment_title">Preview comment লুকান</string>
-    <string name="revanced_hide_shorts_remix_button_summary_off">রিমিক্স করুন বোতাম প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_shorts_remix_button_summary_on">রিমিক্স করুন বোতাম লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_shorts_remix_button_title">রিমিক্স বোতামটি লুকান</string>
-    <string name="revanced_hide_shorts_share_button_summary_off">শেয়ার করুন বোতাম প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_shorts_share_button_summary_on">শেয়ার করুন বোতাম লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_shorts_share_button_title">শেয়ার বোতামটি লুকান</string>
-    <string name="revanced_hide_shorts_shop_button_summary_off">কেনাকাটা বোতাম প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_shorts_shop_button_summary_on">কেনাকাটা বোতাম লুকিয়ে রয়েছে</string>
-    <string name="revanced_hide_shorts_shop_button_title">শপ বোতামটি লুকান</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">সাউন্ড বোতাম লুকান প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">সাউন্ড বোতাম লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_shorts_sound_button_title">সাউন্ড বোতাম লুকান</string>
@@ -666,34 +608,18 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_hide_store_button_summary_off">স্টোর বোতাম দেখানো আছে</string>
     <string name="revanced_hide_store_button_summary_on">স্টোর বোতাম লুকানো আছে</string>
     <string name="revanced_hide_store_button_title">\'স্টোর\' বোতামটি লুকান</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">সাবস্ক্রাইব বোতাম দেখানো আছে</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">সাবস্ক্রাইব বোতাম লুকানো আছে</string>
-    <string name="revanced_hide_subscribe_button_in_channel_page_title">সাবস্ক্রাইব  বোতামটি লুকান</string>
-    <string name="revanced_hide_subscribe_button_summary_off">সাবস্ক্রাইব বোতাম দেখানো আছে</string>
-    <string name="revanced_hide_subscribe_button_summary_on">সাবস্ক্রাইব বোতাম লুকানো আছে</string>
-    <string name="revanced_hide_subscribe_button_title">সাবস্ক্রাইব  বোতামটি লুকান</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_off">সাবস্ক্রাইব চ্যানেল বার দেখানো হয়েছে</string>
     <string name="revanced_hide_subscribed_channels_bar_summary_on">সাবস্ক্রাইব চ্যানেল বার লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_subscribed_channels_bar_title">সাবস্ক্রাইব করা চ্যানেলগুলির তালিকা লুকান</string>
     <string name="revanced_hide_surveys_summary_off">জরিপগুলি দেখানো হয়েছে</string>
     <string name="revanced_hide_surveys_summary_on">জরিপগুলি লুকানো হয়েছে</string>
     <string name="revanced_hide_surveys_title">সার্ভে লুকান</string>
-    <string name="revanced_hide_thanks_button_summary_off">ধন্যবাদ বোতাম দেখানো হয়</string>
-    <string name="revanced_hide_thanks_button_summary_on">ধন্যবাদ বোতাম লুকানো আছে</string>
-    <string name="revanced_hide_thanks_button_title">ধন্যবাদ বাটন লুকান</string>
     <string name="revanced_hide_ticket_shelf_summary_off">টিকিট তাক দেখানো হয়েছে</string>
     <string name="revanced_hide_ticket_shelf_summary_on">টিকিট তাক লুকানো আছে</string>
     <string name="revanced_hide_ticket_shelf_title">টিকিট তাক লুকান</string>
     <string name="revanced_hide_timed_reactions_summary_off">সময় অনুযায়ী প্রতিক্রিয়া প্রদর্শিত হয়েছে</string>
     <string name="revanced_hide_timed_reactions_summary_on">সময় অনুযায়ী প্রতিক্রিয়া লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_timed_reactions_title">সময় অনুযায়ী প্রতিক্রিয়া লুকান</string>
-    <string name="revanced_hide_toolbar_cast_button_title">কাস্ট বোতামটি লুকান</string>
-    <string name="revanced_hide_toolbar_create_button_summary_off">ক্রিয়েট বাটন প্রদর্শিত হয়েছে</string>
-    <string name="revanced_hide_toolbar_create_button_summary_on">তৈরি বোতাম লুকানো আছে</string>
-    <string name="revanced_hide_toolbar_create_button_title">শেয়ার বোতামটি লুকান</string>
-    <string name="revanced_hide_toolbar_notification_button_summary_off">বিজ্ঞপ্তি বোতাম দেখানো হয়েছে</string>
-    <string name="revanced_hide_toolbar_notification_button_summary_on">বিজ্ঞপ্তি বোতাম লুকানো আছে</string>
-    <string name="revanced_hide_toolbar_notification_button_title">বিজ্ঞপ্তি বাটন লুকান</string>
     <string name="revanced_hide_toolbar_search_button_summary_off">অনুসন্ধান বোতাম দেখানো আছে।</string>
     <string name="revanced_hide_toolbar_search_button_summary_on">অনুসন্ধান বোতাম লুকানো আছে</string>
     <string name="revanced_hide_toolbar_search_button_title">অনুসন্ধান বাটন লুকান</string>
@@ -704,7 +630,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_hide_video_ads_summary_on">ভিডিও বিজ্ঞাপন লুকিয়ে রয়েছে</string>
     <string name="revanced_hide_video_ads_title">ভিডিও বিজ্ঞাপন লুকান</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">\"অন্যান্য দর্শক দেখেছেন\" এবং \"আপনার পছন্দ হতে পারে\" লেবেলগুলি অনুসন্ধান ফলাফলে দেখানো হয়েছে</string>
-    <string name="revanced_hide_video_recommendation_labels_summary_on">\"অন্যান্য দর্শক দেখেছেন\" এবং \"আপনার পছন্দ হতে পারে\" লেবেলগুলি অনুসন্ধান ফলাফলে লুকানো আছে</string>
     <string name="revanced_hide_video_recommendation_labels_title">ভিডিও সুপারিশ লেবেল লুকান</string>
     <string name="revanced_hide_visual_spacer_summary_off">ভিজ্যুয়াল স্পেসার দেখানো হয়েছে</string>
     <string name="revanced_hide_visual_spacer_summary_on">ভিজ্যুয়াল স্পেসার লুকানো হয়েছে</string>
@@ -720,7 +645,7 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodles छिपाएँ</string>
     <string name="revanced_hide_youtube_doodles_user_dialog_message">YouTube ডूडল দেখা কাস্টম হেডারগুলি দেখানো থেকে আটকাতে পারে।</string>
     <string name="revanced_language_DEFAULT">অ্যাপ্লিকেশনের ভাষা</string>
-    <string name="revanced_language_title">Morphe ভাষা</string>
+    <string name="revanced_language_title">RVX ভাষা</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">অনুভূমিকভাবে টেনে প্লেব্যাক থামান</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">ড্র্যাগ অবস্থার অবস্থান মনে রাখুন</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">ডাবল-ট্যাপ অ্যাকশন এবং পিঞ্চ টু রিসাইজ অক্ষম</string>
@@ -744,12 +669,8 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_miniplayer_hide_subtext_summary_on">উপপাঠ লুকিয়ে রয়েছে</string>
     <string name="revanced_miniplayer_hide_subtext_title">উপপাঠ লুকান</string>
     <string name="revanced_miniplayer_opacity_invalid_toast">মিনিপ্লেয়ার ওভারলে অস্বচ্ছতা অবশ্যই ০-১০০ এর মধ্যে হতে হবে</string>
-    <string name="revanced_miniplayer_opacity_summary">ওভারলে স্বচ্ছতার স্তর সামঞ্জস্য করুন (0 স্বচ্ছ, 100 অস্বচ্ছ)</string>
     <string name="revanced_miniplayer_opacity_title">ওভারলে অস্বচ্ছতা</string>
-    <string name="revanced_miniplayer_type_entry_0">নিষ্ক্রিয় হয়েছে</string>
-    <string name="revanced_miniplayer_type_entry_1">পূর্ব-নির্ধারিত</string>
     <string name="revanced_miniplayer_type_entry_2">ন্যূনতম</string>
-    <string name="revanced_miniplayer_type_entry_3">ট্যাবলেট</string>
     <string name="revanced_miniplayer_type_entry_4">মর্ডান ১</string>
     <string name="revanced_miniplayer_type_entry_5">মর্ডান ২</string>
     <string name="revanced_miniplayer_type_entry_6">মর্ডান ৩</string>
@@ -772,7 +693,7 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_queue_manager_check_failed_playlist_id">প্লেলিস্ট আইডি নেই</string>
     <string name="revanced_queue_manager_check_failed_queue">সারিবদ্ধ তালিকা খালি</string>
     <string name="revanced_queue_manager_check_failed_video_id">ভিডিও আইডি নেই</string>
-    <string name="revanced_queue_manager_fetch_failed_add">queue-এ যোগ করতে ব্যর্থ</string>
+    <string name="revanced_queue_manager_fetch_failed_add">ভিডিও তালিকা সংরক্ষণ করা যায়নি</string>
     <string name="revanced_queue_manager_fetch_failed_create">queue তৈরি করতে ব্যর্থ</string>
     <string name="revanced_queue_manager_fetch_failed_remove">queue থেকে অপসারণ করতে ব্যর্থ</string>
     <string name="revanced_queue_manager_fetch_failed_save">ভিডিও তালিকা সংরক্ষণ করা যায়নি</string>
@@ -799,7 +720,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_remember_video_quality_last_selected_title">ভিডিও গুণমান মনে রাখুন</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">ডিফল্ট ভিডিও গুণমান পরিবর্তন হলে একটি টোস্ট দেখানো হয় না</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">ডিফল্ট ভিডিও গুণমান পরিবর্তন হলে একটি টোস্ট দেখানো হয়</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">গুণমান পরিবর্তন বিজ্ঞপ্তি দেখান</string>
     <string name="revanced_remember_video_quality_mobile">মোবাইল</string>
     <string name="revanced_remember_video_quality_toast">ডিফল্ট %1$s গুণমান পরিবর্তন হচ্ছে: %2$s</string>
     <string name="revanced_remember_video_quality_toast_shorts">Shorts %1$s এর গুণমান পরিবর্তন করে: %2$s</string>
@@ -833,7 +753,6 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_ryd_failure_generic">অপছন্দ উপলভ্য নয় (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে না</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">সংযোগ ত্রুটির সতর্কতা দেখান</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">মালিক কর্তৃক লুকানো</string>
     <string name="revanced_sanitize_comments_category_bar_summary_off">মন্তব্য শ্রেণী বারে শ্রেণীর বোতামগুলো দেখানো হচ্ছে</string>
     <string name="revanced_sanitize_comments_category_bar_summary_on">\'শীর্ষ\' এবং \'নতুনতম\' ছাড়া অন্য সব শ্রেণীর বোতাম মন্তব্য শ্রেণী বারে লুকানো আছে</string>
@@ -872,7 +791,6 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_sb_enable_voting">ভোটিং বাটন দেখান</string>
     <string name="revanced_sb_enable_voting_sum_off">সেগমেন্ট ভোটিং বাটন প্রদর্শিত হয়নি</string>
     <string name="revanced_sb_enable_voting_sum_on">সেগমেন্ট ভোটিং বাটন প্রদর্শিত রয়েছে</string>
-    <string name="revanced_sb_general">সাধারণ</string>
     <string name="revanced_sb_general_adjusting">সময় সমন্বয় ধাপ।</string>
     <string name="revanced_sb_general_adjusting_invalid">মানটি অবশ্যই একটি ধনাত্মক সংখ্যা হতে হবে</string>
     <string name="revanced_sb_general_adjusting_sum">নতুন সেগমেন্ট তৈরি করার সময় সময় সমন্বয় বাটন কত মিলিসেকেন্ড পরিবর্তন করে</string>
@@ -921,7 +839,6 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
 
 যদি আপনি হাইলাইট জমা না দেন, তাহলে বাতিল করুন এবং দ্বিতীয় লোকেশনটি চিহ্নিত করুন।"</string>
     <string name="revanced_sb_new_segment_highlight_submit">হাইলাইট জমা দিন</string>
-    <string name="revanced_sb_new_segment_highlight_title">হাইলাইট জমা দিন</string>
     <string name="revanced_sb_new_segment_mark_end">শেষ</string>
     <string name="revanced_sb_new_segment_mark_locations_first">প্রথমে টাইমবারে একটি স্থান চিহ্নিত করুন</string>
     <string name="revanced_sb_new_segment_mark_start">শুরু</string>
@@ -951,9 +868,7 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_sb_segments_selfpromo_sum">অর্থপ্রদান না করা বা নিজের প্রচার ছাড়া স্পনসরের মতো। পণ্য, অনুদান বা তারা কার সাথে সহযোগিতা করেছে সে সম্পর্কিত বিভাগ অন্তর্ভুক্ত করে</string>
     <string name="revanced_sb_segments_sponsor">স্পন্সর</string>
     <string name="revanced_sb_segments_sponsor_sum">পেইড প্রমোশন, পেইড রেফারেল এবং সরাসরি বিজ্ঞাপন। নিজের পছন্দসই কারণ/স্রষ্টা/ওয়েবসাইট/পণ্যগুলিতে স্ব-প্রচার বা বিনামূল্যে প্রচারের জন্য নয়।</string>
-    <string name="revanced_sb_settings_copy">অনুলিপি করুন</string>
     <string name="revanced_sb_settings_export_failed">%s রপ্তানি করতে ব্যর্থ হয়েছে</string>
-    <string name="revanced_sb_settings_ie">সেটিং আমদানি/রপ্তানি</string>
     <string name="revanced_sb_settings_ie_sum">আপনার SponsorBlock JSON কনফিগারেশন যা ReVanced বা অন্য কোন SponsorBlock প্ল্যাটফর্মে আমদানি/রপ্তানি করা যাবে</string>
     <string name="revanced_sb_settings_ie_sum_warning">এটি আপনার একটি SponsorBlock JSON কনফিগারেশন যা ReVanced এবং অন্যান্য SponsorBlock প্ল্যাটফর্মে ইমপোর্ট / এক্সপোর্ট করা যেতে পারে। এটিতে আপনার ব্যক্তিগত ব্যবহারকারী আইডিও রয়েছে। এটি কোথাও শেয়ার করার সময় বিবেচনা করে করবেন</string>
     <string name="revanced_sb_settings_import_failed">%s আমদানি করতে ব্যর্থ হয়েছে</string>
@@ -965,19 +880,16 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_sb_skip_automatically">স্বয়ংক্রিয়ভাবে এড়িয়ে যান</string>
     <string name="revanced_sb_skip_automatically_once">একবার স্বয়ংক্রিয়ভাবে এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_compact">এড়িয়ে যান</string>
-    <string name="revanced_sb_skip_button_compact_highlight">লক্ষণীয় করা</string>
     <string name="revanced_sb_skip_button_filler">প্রাসঙ্গিকতা এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_highlight">গুরুত্বপূর্ণ অংশে এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_hook">হুক এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_interaction">ইন্টারঅ্যাক্ট এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_intro_beginning">সূচনা এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_intro_end">উপসংহার এড়িয়ে যান</string>
-    <string name="revanced_sb_skip_button_intro_middle">উপসংহার এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_nomusic">সঙ্গীত-বিহীন অংশ এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_outro">শেষ অংশ এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_preview_beginning">প্রিভিউ এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_preview_end">সংক্ষিপ্তবৃত্তি এড়িয়ে যান</string>
-    <string name="revanced_sb_skip_button_preview_middle">প্রিভিউ এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_selfpromo">প্রচারণা এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_sponsor">স্পন্সর এড়িয়ে যান</string>
     <string name="revanced_sb_skip_button_unsubmitted">সেগমেন্ট এড়িয়ে যান</string>
@@ -990,13 +902,11 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_sb_skipped_interaction">বিরক্তিকর অনুস্মারক এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_intro_beginning">সূচনা এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_intro_end">উপসংহার এড়িয়ে গেছে</string>
-    <string name="revanced_sb_skipped_intro_middle">উপসংহার এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_multiple_segments">একটানা একাধিক সেগমেন্ট এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_nomusic">একটি সঙ্গীতবিহীন অংশ এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_outro">শেষ অংশ এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_preview_beginning">প্রাকদর্শন এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_preview_end">সংক্ষিপ্তবৃত্তি এড়িয়ে গেছে</string>
-    <string name="revanced_sb_skipped_preview_middle">প্রাকদর্শন এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_selfpromo">স্ব-প্রচার এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_sponsor">স্পন্সর এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_unsubmitted">জমা না হওয়া সেগমেন্ট এড়িয়ে গেছে</string>
@@ -1007,7 +917,6 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_sb_square_layout_sum_off">বোতাম এবং নিয়ন্ত্রণগুলি গোলাকার</string>
     <string name="revanced_sb_square_layout_sum_on">বোতাম এবং নিয়ন্ত্রণগুলি বর্গক্ষেত্র</string>
     <string name="revanced_sb_stats_connection_failure">পরিসংখ্যান সাময়িকভাবে উপলব্ধ নেই (API ডাউন)</string>
-    <string name="revanced_sb_stats_loading">লোড হচ্ছে...</string>
     <string name="revanced_sb_stats_reputation">আপনার রিপুটেশন হল &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="revanced_sb_stats_saved">আপনি মানুষকে &lt;b&gt;%s&lt;/b&gt; সেগমেন্ট থেকে বাঁচিয়েছেন</string>
     <string name="revanced_sb_stats_saved_hour_format">%1$s ঘন্টা %2$s মিনিট</string>
@@ -1053,7 +962,7 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_settings_disable_bold_icons_title">বোল্ড আইকন নিষ্ক্রিয় করুন</string>
     <string name="revanced_settings_import">আমদানি করুন</string>
     <string name="revanced_settings_import_copy">অনুলিপি করুন</string>
-    <string name="revanced_settings_import_reset">Morphe সেটিং ডিফল্ট সেট করা হয়েছে</string>
+    <string name="revanced_settings_import_reset">RVX সেটিং ডিফল্ট সেট করা হয়েছে</string>
     <string name="revanced_settings_import_success">%d সেটিং আমদানি হয়েছে</string>
     <string name="revanced_settings_reset">আবার সেট করুন</string>
     <string name="revanced_settings_reset_color">রঙ রিসেট করুন</string>
@@ -1079,21 +988,16 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_shorts_autoplay_background_summary">ব্যাকগ্রাউন্ড প্লেব্যাকের সময় স্বয়ংক্রিয়ভাবে পরবর্তী Short-এ চলে যায়</string>
     <string name="revanced_shorts_autoplay_background_title">ব্যাকগ্রাউন্ডে স্বয়ংক্রিয়ভাবে প্লে করুন</string>
     <string name="revanced_shorts_autoplay_summary">স্বয়ংক্রিয়ভাবে পরবর্তী Short-এ চলে যায়</string>
-    <string name="revanced_shorts_autoplay_title">অটোপ্লে Shorts</string>
     <string name="revanced_shorts_player_type_regular_player">নিয়মিত প্লেয়ার</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">নিয়মিত প্লেয়ার পূর্ণ পর্দা</string>
-    <string name="revanced_shorts_player_type_shorts">Shorts প্লেয়ার</string>
     <string name="revanced_shorts_player_type_title">Shorts সঙ্গে খুলুন</string>
     <string name="revanced_show_settings_button_index_title">সেটিংস বোতামের অবস্থান</string>
     <string name="revanced_show_settings_button_title">সেটিংস দেখানোর বোতাম</string>
     <string name="revanced_show_settings_button_type_title">সেটিংস বোতাম অ্যাকশন</string>
-    <string name="revanced_show_toolbar_settings_button_index_title">সেটিংস বোতাম অবস্থান</string>
     <string name="revanced_show_toolbar_settings_button_title">সেটিংস বাটন দেখান</string>
-    <string name="revanced_show_toolbar_settings_button_type_title">সেটিংস বোতাম অ্যাকশন</string>
     <string name="revanced_spoof_app_version_summary">পুরোনো ইউজার ইন্টারফেস (UI) ফিচারগুলো ফিরিয়ে আনতে সার্ভারকে এমনভাবে বিভ্রান্ত করে যেন মনে হয় আপনি অ্যাপের একটি পুরোনো সংস্করণ ব্যবহার করছেন</string>
     <string name="revanced_spoof_app_version_summary_off">সংস্করণ স্পুফ করা হয়নি</string>
     <string name="revanced_spoof_app_version_summary_on">সংস্করণ স্পুফ করা হয়েছে</string>
-    <string name="revanced_spoof_app_version_target_title">যে অ্যাপ ভার্সনে স্পুফ করবেন</string>
     <string name="revanced_spoof_app_version_title">অ্যাপের সংস্করণ স্পুফ করুন</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"অ্যাপের ভার্সন বদলে একটি পুরোনো ভার্সন করে দেওয়া হবে।
 
@@ -1107,8 +1011,6 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
 
 স্ক্রিনের বাম দিকে উল্লম্বভাবে সোয়াইপ করে উজ্জ্বলতা সামঞ্জস্য করুন"</string>
     <string name="revanced_swipe_brightness_title">উজ্জ্বলতার সোয়াইপ অঙ্গভঙ্গি সক্রিয় করুন</string>
-    <string name="revanced_swipe_haptic_feedback_summary_off">কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করা হয়েছে</string>
-    <string name="revanced_swipe_haptic_feedback_summary_on">কম্পন প্রতিক্রিয়া সক্রিয় করা হয়েছে</string>
     <string name="revanced_swipe_haptic_feedback_title">কম্পন প্রতিক্রিয়া সক্রিয় করুন</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">স্বতস্ফূর্তভাবে</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">সর্বনিম্ন মানে সোয়াইপ ডাউন করলে অটো-উজ্জ্বলতা সক্ষম হয় না</string>

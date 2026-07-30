@@ -168,7 +168,9 @@ val sponsorBlockPatch = resourcePatch(
             category: String,
             key: String,
             defaultValue: String,
-            dependencyKey: String
+            dependencyKey: String,
+            titleKey: String = "revanced_$key",
+            summaryKey: String = "revanced_${key}_sum",
         ) {
             document(SETTINGS_HEADER_PATH).use { document ->
                 val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -179,8 +181,8 @@ val sponsorBlockPatch = resourcePatch(
                     }
                     .forEach {
                         it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
-                            setAttribute("android:title", "@string/revanced_$key")
-                            setAttribute("android:summary", "@string/revanced_$key" + "_sum")
+                            setAttribute("android:title", "@string/$titleKey")
+                            setAttribute("android:summary", "@string/$summaryKey")
                             setAttribute("android:key", key)
                             setAttribute("android:defaultValue", defaultValue)
                             if (dependencyKey != "") {
@@ -230,7 +232,8 @@ val sponsorBlockPatch = resourcePatch(
 
         fun addPreferenceCategoryUnderPreferenceScreen(
             preferenceScreenKey: String,
-            category: String
+            category: String,
+            titleKey: String = "revanced_$category",
         ) {
             document(SETTINGS_HEADER_PATH).use { document ->
                 val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -238,7 +241,7 @@ val sponsorBlockPatch = resourcePatch(
                     .filter { it.getAttribute("android:key").contains(preferenceScreenKey) }
                     .forEach {
                         it.adoptChild(PREFERENCE_CATEGORY_TAG_NAME) {
-                            setAttribute("android:title", "@string/revanced_$category")
+                            setAttribute("android:title", "@string/$titleKey")
                             setAttribute("android:key", category)
                         }
                     }
@@ -305,7 +308,8 @@ val sponsorBlockPatch = resourcePatch(
             SPONSOR_BLOCK_CATEGORY,
             "sb_toast_on_connection_error",
             "true",
-            "sb_enabled"
+            "sb_enabled",
+            titleKey = "revanced_ryd_toast_on_connection_error_title",
         )
         addPreferenceWithIntent(
             SPONSOR_BLOCK_CATEGORY,
@@ -366,7 +370,8 @@ val sponsorBlockPatch = resourcePatch(
 
         addPreferenceCategoryUnderPreferenceScreen(
             CategoryType.SPONSOR_BLOCK.value,
-            ABOUT_CATEGORY_KEY
+            ABOUT_CATEGORY_KEY,
+            titleKey = "morphe_music_crossfade_about_title",
         )
 
         addAboutPreference(

@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Remove unused resource files from the resources directory."""
 
 import logging

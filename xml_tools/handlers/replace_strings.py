@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Module for updating XML strings from source to target files."""
 
 from __future__ import annotations
@@ -14,8 +16,38 @@ from utils.xml_processor import XMLProcessor
 
 if TYPE_CHECKING:
     from pathlib import Path
+    from xml.etree import ElementTree as ET
 
 logger = logging.getLogger("xml_tools")
+
+
+def _replace_morphe_brand_text(element: ET.Element) -> bool:
+    """Replace Morphe branding only inside string text nodes."""
+    changed = False
+    for node in element.iter():
+        if node.text and "Morphe" in node.text:
+            node.text = node.text.replace("Morphe", "RVX")
+            changed = True
+        if node.tail and "Morphe" in node.tail:
+            node.tail = node.tail.replace("Morphe", "RVX")
+            changed = True
+
+    return changed
+
+
+def replace_morphe_brand_text_in_file(path: Path) -> None:
+    """Replace Morphe branding in an existing strings.xml file."""
+    _, root, _ = XMLProcessor.parse_file(path)
+    if root is None:
+        return
+
+    changed = False
+    for elem in root.findall(".//string"):
+        changed = _replace_morphe_brand_text(elem) or changed
+
+    if changed:
+        XMLProcessor.write_file(path, root)
+        logger.debug("Updated Morphe branding in %s", path)
 
 
 def _find_source_translation_files(source_base_path: Path, lang_code: str, app: str) -> list[Path]:
@@ -112,6 +144,7 @@ def update_strings(
             for name in names_to_process:
                 new_elem: Any = DefusedET.fromstring(data["text"])
                 new_elem.set("name", name)
+                _replace_morphe_brand_text(new_elem)
 
                 if name in existing_elements:
                     existing_elem: Any = existing_elements[name]
@@ -138,6 +171,7 @@ def update_base_strings(base_path: Path, rvx_base_path: Path) -> None:
     rvx_source_path = rvx_base_path / "settings/host/values/strings.xml"
     if rvx_source_path.exists():
         update_strings(source_path, rvx_source_path)
+    replace_morphe_brand_text_in_file(source_path)
 
 
 def sync_translations(translations_path: Path, rvx_base_path: Path) -> None:

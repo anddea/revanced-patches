@@ -78,7 +78,7 @@ public class AppInfoDialogBuilder {
                             "<style> body { background-color: %s; color: %s; line-height: 20px; } a { color: %s; text-decoration: underline; } </style>",
                             backgroundColorHex, foregroundColorHex, foregroundColorHex) +
                     "<h2>" +
-                    str("revanced_app_info_dialog_title") +
+                    str("revanced_app_info_title") +
                     "</h2>" +
                     String.format(
                             str("revanced_app_info_dialog_message"),

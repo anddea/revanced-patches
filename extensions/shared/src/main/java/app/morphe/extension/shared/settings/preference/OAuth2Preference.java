@@ -191,7 +191,7 @@ public abstract class OAuth2Preference extends Preference implements Preference.
         } else {
             titleKey = "morphe_spoof_video_streams_sign_in_android_vr_dialog_title";
             messageKey = "morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message";
-            okButtonTextKey = "morphe_spoof_video_streams_sign_in_android_vr_dialog_continue";
+            okButtonTextKey = "gms_core_dialog_continue_text";
             okButtonRunnable = this::showActivationCodeDialog;
         }
 
@@ -247,7 +247,7 @@ public abstract class OAuth2Preference extends Preference implements Preference.
                         // No EditText.
                         null,
                         // OK button text.
-                        str("morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website"),
+                        str("gms_core_dialog_open_website_text"),
                         // OK button action.
                         () -> {
                             // Automatically fetch the auth token after the user returns.

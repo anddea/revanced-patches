@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Remove unused strings."""
 
 from __future__ import annotations

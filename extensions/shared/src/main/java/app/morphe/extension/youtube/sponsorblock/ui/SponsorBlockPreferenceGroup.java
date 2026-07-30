@@ -353,7 +353,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             createSegmentCategory.addPreference(guidelinePreferences);
 
             PreferenceCategory generalCategory = new PreferenceCategory(context);
-            generalCategory.setTitle(str("revanced_sb_general"));
+            generalCategory.setTitle(str("revanced_preference_screen_general_title"));
             addPreference(generalCategory);
 
             SwitchPreference toastOnConnectionError = new SwitchPreference(context);
@@ -424,7 +424,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                 },
                                 () -> {
                                 }, // Cancel button action (dismiss only).
-                                str("revanced_sb_settings_copy"), // Neutral button text (Copy).
+                                str("revanced_settings_import_copy"), // Neutral button text (Copy).
                                 () -> {
                                     // Neutral button action (Copy).
                                     try {
@@ -517,7 +517,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         // Create a custom dialog.
                         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                                 context,
-                                str("revanced_sb_settings_ie"), // Title.
+                                str("revanced_preference_screen_import_export_title"), // Title.
                                 null,     // No message, EditText replaces it.
                                 editText, // Pass the EditText.
                                 str("revanced_settings_import"), // OK button text.
@@ -530,7 +530,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                 },
                                 () -> {
                                 }, // Cancel button action (dismiss only).
-                                str("revanced_sb_settings_copy"), // Neutral button text (Copy).
+                                str("revanced_settings_import_copy"), // Neutral button text (Copy).
                                 () -> {
                                     // Neutral button action (Copy).
                                     try {
@@ -549,7 +549,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     }
                 }
             };
-            importExport.setTitle(str("revanced_sb_settings_ie"));
+            importExport.setTitle(str("revanced_preference_screen_import_export_title"));
             // Summary is set in updateUI().
             EditText editText = importExport.getEditText();
             editText.setInputType(InputType.TYPE_CLASS_TEXT

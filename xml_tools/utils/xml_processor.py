@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """XML Processor."""
 
 from __future__ import annotations

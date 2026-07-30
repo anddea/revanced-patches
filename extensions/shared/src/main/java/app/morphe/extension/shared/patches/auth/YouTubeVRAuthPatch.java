@@ -62,9 +62,9 @@ public class YouTubeVRAuthPatch {
 
                 saveDeviceCode(deviceCode);
 
-                String dialogTitle = str("revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title");
-                String dialogMessage = str("revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message", activationCode);
-                String okButtonText = str("revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text");
+                String dialogTitle = str("morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title");
+                String dialogMessage = str("morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message", activationCode);
+                String okButtonText = str("gms_core_dialog_open_website_text");
                 Runnable onOkClick = () -> {
                     Utils.setClipboard(
                             activationCode,
@@ -152,9 +152,9 @@ public class YouTubeVRAuthPatch {
                 if (mContext != null) {
                     Utils.runOnMainThread(() -> {
                         String dialogTitle =
-                                str("revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title");
+                                str("morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title");
                         String dialogMessage =
-                                str("revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message");
+                                str("morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message");
 
                         if (BaseThemeUtils.isSupportModernDialog) {
                             Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(

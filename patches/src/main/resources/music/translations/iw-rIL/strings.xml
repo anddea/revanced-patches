@@ -33,10 +33,8 @@
     <string name="morphe_crossfade_duration_9000ms">9 שניות</string>
     <string name="morphe_disable_drc_audio_summary_off">אודיו DRC מופעל</string>
     <string name="morphe_disable_drc_audio_summary_on">אודיו DRC מושבת</string>
-    <string name="morphe_disable_drc_audio_title">השבת אודיו DRC</string>
     <string name="morphe_disable_quic_protocol_summary_off">פרוטוקול QUIC פעיל</string>
     <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
-    <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
     <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד Android Studio\'</string>
     <string name="morphe_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
     <string name="morphe_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
@@ -104,29 +102,13 @@ YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומע�
     <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
+    <string name="morphe_settings_menu_copy_path">הועתק: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">פתח את מסך ההגדרות הסטנדרטי של האפליקציה פעם אחת כדי לאכלס את הרשימה</string>
     <string name="morphe_settings_menu_filter_screen_summary">הסתר פריטים ממסך ההגדרות הסטנדרטי של האפליקציה לפי השם הגלוי שלהם</string>
     <string name="morphe_settings_menu_filter_screen_title">מסנן תפריט הגדרות</string>
     <string name="morphe_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"נעילת סקריפט JavaScript של הנגן לגרסה ספציפית
-
-• יש לספק hash תקין של סקריפט JavaScript של הנגן
-• ה-hash של סקריפט JavaScript של הנגן תקף בערך חודש אחד, ו-GVS תבטל hashים מיושנים
-• ההפעלה תיכשל אם ה-hash בוטל"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">עדכון JavaScript של הנגן מופעל</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"עדכון JavaScript של הנגן מושבת
-
-• נדרש hash JavaScript חוקי עבור הנגן
-• ההפעלה תיכשל אם ה-hash של JavaScript של הנגן בוטל ב-GVS"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">לשבט את עדכוני JavaScript של הנגן</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"עליך לספק hash תקין של סקריפט JavaScript של הנגן.
-
-ההפעלה תיכשל אם ה-hash של סקריפט JavaScript של הנגן מיושן."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить доступ к потокам клиента</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">\"הזן hash JavaScript תקף של השחקן</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">‌Ԓ԰՞ԑ JavaScript ԲՈԴ</string>
     <string name="morphe_spoof_video_streams_screen_summary">הגדר העלמת זהות לקוח כדי למנוע בעיות בהשמעה</string>
-    <string name="morphe_spoof_video_streams_screen_title">זיוף זרמי וידאו</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Вы не вошли в Android VR. Нажмите здесь, чтобы войти</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Чтобы использовать эту функцию, измените \'Default client\' на Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Вы вошли в Android VR</string>
@@ -138,9 +120,7 @@ YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומע�
 3. Войдите в Google при запросе. Если у вас несколько аккаунтов, выберите этот аккаунт YouTube
 4. Нажмите «Разрешить доступ YouTube VR»
 5. Вернитесь в это приложение после появления сообщения «Устройство подключено»"</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Открыть сайт</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Инструкции</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Продолжить</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"התחברות לאנדרואיד VR תוכל לתקן בעיות תצוגה עבור כמה משתמשים
 
 להתחברות, לחץ על המשך למטה"</string>
@@ -148,7 +128,7 @@ YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומע�
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Войти в Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Аутентификация сохранена
 
-• Настройки Morphe не будут импортироваться/экспортироваться для аутентификации Android VR
+• Настройки RVX не будут импортироваться/экспортироваться для аутентификации Android VR
 • Если это приложение не используется в течение 6 месяцев, Google удалит эту аутентификацию
 • Если вы измените пароль Google или снимете регистрацию этого устройства, вам придется войти снова"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Успешный вход</string>
@@ -165,7 +145,6 @@ YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומע�
 אם אתה משתמש YouTube Premium, ייתכן שהגדרה זו אינה נחוצה"</string>
     <string name="morphe_spoof_video_streams_title">זייף זרמי וידאו</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות השמעה.</string>
-    <string name="revanced_app_info_dialog_title">מידע היישום</string>
     <string name="revanced_app_info_title">מידע היישום</string>
     <string name="revanced_change_start_page_entry_charts">גרפים</string>
     <string name="revanced_change_start_page_entry_default">ברירת מחדל</string>
@@ -212,7 +191,7 @@ YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומע�
     <string name="revanced_sb_skip_automatically_once">דלג באופן אוטומטי פעם אחת</string>
     <string name="revanced_settings_import">ייבוא</string>
     <string name="revanced_settings_import_copy">העתק</string>
-    <string name="revanced_settings_import_reset">הגדרות Morphe אופסו לברירת מחדל</string>
+    <string name="revanced_settings_import_reset">הגדרות RVX אופסו לברירת מחדל</string>
     <string name="revanced_settings_import_success">%d הגדרות יובאו</string>
     <string name="revanced_settings_reset">איפוס</string>
     <string name="revanced_settings_reset_color">אפס צבע</string>
@@ -234,8 +213,4 @@ YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומע�
     <string name="revanced_spoof_app_version_summary">מרמה את השרת לחשוב שאתה משתמש בגרסת אפליקציה ישנה יותר כדי לשחזר תכונות ממשק משתמש מדור קודם</string>
     <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
     <string name="revanced_spoof_app_version_title">זייף גרסת אפליקציה</string>
-    <string name="revanced_spoof_video_streams_summary">"מתקן בעיות בהשמעה עבור רוב המשתמשים על ידי בקשת זרם וידאו תואם
-
-אם אתה משתמש YouTube Premium, ייתכן שהגדרת אפשרות זו לא תהיה נחוצה"</string>
-    <string name="revanced_spoof_video_streams_title">זייף זרמי וידאו</string>
 </resources>

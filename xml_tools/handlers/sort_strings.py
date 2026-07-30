@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Sort strings in destination."""
 
 import logging

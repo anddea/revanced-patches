@@ -297,7 +297,9 @@ val videoPlaybackPatch = bytecodePatch(
             CategoryType.VIDEO,
             "revanced_remember_video_quality_last_selected_toast",
             "true",
-            "revanced_remember_video_quality_last_selected"
+            "revanced_remember_video_quality_last_selected",
+            true,
+            titleKey = "revanced_remember_playback_speed_last_selected_toast_title",
         )
 
         updatePatchStatus(VIDEO_PLAYBACK)
