@@ -1,5 +1,5 @@
 {
-  "version": "4.2.0-dev.8",
+  "version": "4.2.0-dev.9",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -728,6 +728,12 @@
           "default": "@android:color/black",
           "values": {
             "Amoled Black": "@android:color/black",
+            "Material You (Neutral)": "@android:color/system_neutral1_900",
+            "Material You - Primary": "@android:color/system_accent1_800",
+            "Material You - Secondary": "@android:color/system_accent2_800",
+            "Material You - Tertiary": "@android:color/system_accent3_800",
+            "Modern YouTube": "#FF0F0F0F",
+            "Classic (Old YouTube)": "#FF212121",
             "Catppuccin (Mocha)": "#FF181825",
             "Dark Pink": "#FF290025",
             "Dark Blue": "#FF001029",
@@ -2576,7 +2582,9 @@
         "ResourcePatch",
         "ResourcePatch",
         "BytecodePatch",
-        "ResourcePatch"
+        "ResourcePatch",
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -2845,6 +2853,12 @@
           "values": {
             "YouTube Dark": "@color/yt_black3",
             "Amoled Black": "@android:color/black",
+            "Material You (Neutral)": "@android:color/system_neutral1_900",
+            "Material You - Primary": "@android:color/system_accent1_800",
+            "Material You - Secondary": "@android:color/system_accent2_800",
+            "Material You - Tertiary": "@android:color/system_accent3_800",
+            "Modern YouTube": "#FF0F0F0F",
+            "Classic (Old YouTube)": "#FF212121",
             "Catppuccin (Mocha)": "#FF181825",
             "Dark Pink": "#FF290025",
             "Dark Blue": "#FF001029",
@@ -2864,6 +2878,10 @@
           "values": {
             "YouTube Light": "@color/yt_white3",
             "White": "@android:color/white",
+            "Material You (Neutral)": "@android:color/system_neutral1_100",
+            "Material You - Primary": "@android:color/system_accent1_200",
+            "Material You - Secondary": "@android:color/system_accent2_200",
+            "Material You - Tertiary": "@android:color/system_accent3_200",
             "Catppuccin (Latte)": "#FFE6E9EF",
             "Light Pink": "#FFFCCFF3",
             "Light Blue": "#FFD1E0FF",
@@ -3169,6 +3187,11 @@
           "default": "@android:color/black",
           "values": {
             "Amoled Black": "@android:color/black",
+            "Material You (Neutral)": "@android:color/system_neutral1_900",
+            "Material You - Primary": "@android:color/system_accent1_800",
+            "Material You - Secondary": "@android:color/system_accent2_800",
+            "Material You - Tertiary": "@android:color/system_accent3_800",
+            "Modern YouTube": "#FF0F0F0F",
             "Classic (Old YouTube)": "#FF212121",
             "Catppuccin (Mocha)": "#FF181825",
             "Dark Pink": "#FF290025",
@@ -3188,6 +3211,10 @@
           "default": "@android:color/white",
           "values": {
             "White": "@android:color/white",
+            "Material You (Neutral)": "@android:color/system_neutral1_100",
+            "Material You - Primary": "@android:color/system_accent1_200",
+            "Material You - Secondary": "@android:color/system_accent2_200",
+            "Material You - Tertiary": "@android:color/system_accent3_200",
             "Catppuccin (Latte)": "#FFE6E9EF",
             "Light Pink": "#FFFCCFF3",
             "Light Blue": "#FFD1E0FF",
@@ -3405,7 +3432,8 @@
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
-        "ResourcePatch"
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -3565,6 +3593,32 @@
           "8.28.54",
           "8.30.54",
           "9.15.51"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Wide search bar",
+      "description": "Adds a wide search bar to the top of the home and subscription feed.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "ResourcePatch",
+        "ResourcePatch",
+        "ResourcePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "19.43.41",
+          "19.44.39",
+          "19.47.53",
+          "20.05.46",
+          "20.21.37",
+          "20.31.42",
+          "20.47.62",
+          "20.51.39"
         ]
       },
       "options": []
