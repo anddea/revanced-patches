@@ -84,6 +84,7 @@
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 19.43.41 ~ 20.51.39 |
 | `Visual preferences icons for YouTube` | Adds icons to specific preferences in the settings. | 19.43.41 ~ 20.51.39 |
 | `Voice Over Translation` | Adds an option to enable Yandex voice-over translation of video audio tracks. | 19.43.41 ~ 20.51.39 |
+| `Wide search bar` | Adds a wide search bar to the top of the home and subscription feed. | 19.43.41 ~ 20.51.39 |
 </details>
 
 ### [📦 YouTube Music](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
