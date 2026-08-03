@@ -15,7 +15,7 @@ import app.morphe.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings("unused")
 public final class CommentsFilter extends Filter {
-    private static final String COMMENT_COMPOSER_PATH = "comment_composer";
+    private static final String COMMENT_COMPOSER_PATH = "comment_composer.e";
     private static final String COMMENT_ENTRY_POINT_TEASER_PATH = "comments_entry_point_teaser";
     private static final Pattern COMMENT_PREVIEW_TEXT_PATTERN = Pattern.compile("comments_entry_point_teaser.+ContainerType");
     private static final String FEED_VIDEO_PATH = "video_lockup_with_attachment";
