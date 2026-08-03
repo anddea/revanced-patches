@@ -53,6 +53,10 @@ internal enum class PatchList(
         "Custom double tap length",
         "Adds Double-tap to seek values that are specified in patch options."
     ),
+    CUSTOM_DPI(
+        "Custom DPI",
+        "Forces a higher display density for this app only, so the whole UI scales up without changing system density."
+    ),
     CUSTOM_HEADER_FOR_YOUTUBE(
         "Custom header for YouTube",
         "Applies a custom header in the top left corner within the app."

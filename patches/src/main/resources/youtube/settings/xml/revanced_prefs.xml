@@ -199,6 +199,9 @@
         <!-- SETTINGS: CHANGE_FORM_FACTOR
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_change_form_factor_entries" android:title="@string/revanced_change_form_factor_title" android:key="revanced_change_form_factor" android:entryValues="@array/revanced_change_form_factor_entry_values" />SETTINGS: CHANGE_FORM_FACTOR -->
 
+        <!-- SETTINGS: CUSTOM_DPI
+        <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_custom_dpi_title" android:key="morphe_custom_dpi" android:summary="@string/revanced_custom_dpi_summary" android:numeric="integer" />SETTINGS: CUSTOM_DPI -->
+
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:summaryOn="@string/revanced_spoof_app_version_summary_on" android:summaryOff="@string/revanced_spoof_app_version_summary_off" />
         <app.morphe.extension.youtube.settings.preference.SpoofAppVersionPreference android:title="@string/revanced_spoof_app_version_target_entry_title" android:key="revanced_spoof_app_version_target" />SETTINGS: SPOOF_APP_VERSION -->
@@ -1079,6 +1082,7 @@
             <PreferenceCategory android:title="@string/revanced_preference_screen_general_title" android:layout="@layout/revanced_settings_preferences_category">
                 <Preference android:title="Change form factor" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Change start page" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Custom DPI" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable forced auto audio tracks" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable forced auto captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable layout updates" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
