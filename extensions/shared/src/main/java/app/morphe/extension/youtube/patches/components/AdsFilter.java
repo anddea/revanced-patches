@@ -32,8 +32,7 @@ public final class AdsFilter extends Filter {
                 "alert_banner_promo."
         );
 
-        // Keywords checked in 2025:
-        final StringFilterGroup generalAdsIdentifier = new StringFilterGroup(
+        final StringFilterGroup generalAds = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
                 "_ad_with",
                 "_buttoned_layout",
@@ -41,6 +40,7 @@ public final class AdsFilter extends Filter {
                 "banner_text_icon",
                 "brand_video_shelf",
                 "brand_video_singleton",
+                "carousel_ad",
                 "carousel_footered_layout",
                 "carousel_headered_layout",
                 "compact_landscape_image_layout", // Tablet layout search results.
@@ -53,6 +53,8 @@ public final class AdsFilter extends Filter {
                 "image_button_group_layout",
                 "landscape_image_carousel_layout",
                 "landscape_image_wide_button_layout",
+                "legal_disclosure",
+                "lumiere_promo_carousel",
                 "primetime_promo",
                 "product_details",
                 "shopping_timely_shelf.", // Injection point below hides the empty space.
@@ -103,7 +105,6 @@ public final class AdsFilter extends Filter {
 
         addIdentifierCallbacks(
                 alertBannerPromo,
-                generalAdsIdentifier,
                 merchandise,
                 promotionBanner,
                 selfSponsor,
@@ -133,6 +134,7 @@ public final class AdsFilter extends Filter {
 
         addPathCallbacks(
                 creatorStoreShelf,
+                generalAds,
                 paidContent,
                 viewProducts
         );
