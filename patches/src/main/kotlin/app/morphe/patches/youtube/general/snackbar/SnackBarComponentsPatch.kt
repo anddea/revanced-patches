@@ -338,7 +338,6 @@ val snackBarComponentsPatch = resourcePatch(
         ),
         title = "Stroke color",
         description = "Specify a stroke color for the snack bar. You can specify hex color.",
-        required = true,
     )
 
     execute {
