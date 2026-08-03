@@ -252,6 +252,8 @@
 
     <!-- PREFERENCE_SCREEN: FEED
     <PreferenceScreen android:title="@string/revanced_preference_screen_feed_title" android:key="revanced_preference_screen_feed">PREFERENCE_SCREEN: FEED -->
+        <!-- SETTINGS: PLAYBACK_IN_FEEDS
+        <app.morphe.extension.youtube.settings.preference.PlaybackInFeedsListPreference android:title="@string/morphe_playback_in_feeds_title" android:key="morphe_playback_in_feeds" android:entries="@array/morphe_playback_in_feeds_entries" android:entryValues="@array/morphe_playback_in_feeds_entry_values" />SETTINGS: PLAYBACK_IN_FEEDS -->
 
         <!-- SETTINGS: HIDE_FEED_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_carousel_shelf_title" android:key="revanced_preference_screen_carousel_shelf" android:summary="@string/revanced_preference_screen_carousel_shelf_summary">
