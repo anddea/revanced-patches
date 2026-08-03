@@ -352,7 +352,13 @@ object LoopSegmentButton {
         return true
     }
 
-    private fun isSegmentActive() = segmentStartMs in 0..<segmentEndMs
+    /**
+     * Injection point or helper.
+     * @return true if a loop segment is active or pending from a loop link intent.
+     */
+    @JvmStatic
+    fun isSegmentActive(): Boolean = pendingSegment != null || (segmentStartMs in 0..<segmentEndMs)
+
 
     private fun seekToSegmentStart(): Boolean {
         if (segmentStartMs < 0) return false
