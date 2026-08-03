@@ -130,7 +130,7 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"인증을 저장하였습니다
 
 • RVX 설정에서 Android VR 인증을 가져오거나 내보낼 수 없습니다
-• 이 앱을 6개월 동안 사용하지 않으면 Google에서 이 인증이 제거됩니다
+• 이 앱을 6개월 동안 사용하지 않으면 Google에서 이 인증을 취소합니다
 • Google 암호를 변경하거나 Google 설정에서 이 기기 등록을 해제하면 다시 로그인해야 합니다"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">로그인 성공</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">활성화 코드를 발급할 수 없습니다</string>
@@ -460,8 +460,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_remember_video_quality_mobile">모바일 네트워크에서의 기본 동영상 품질 값을 %s으로 변경합니다.</string>
     <string name="revanced_remember_video_quality_none">동영상 품질을 설정할 수 없습니다.</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi에서의 기본 동영상 품질 값을 %s으로 변경합니다.</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"일부 콘텐츠를 재생하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다.\n\n이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
     <string name="revanced_replace_action_button_like_summary">"좋아요 버튼에 다른 아이콘과 애니메이션을 사용합니다.
 
 • 서버 측에서 문제가 해결되면 이 설정은 더 이상 필요하지 않을 수 있습니다."</string>
@@ -577,7 +577,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요."</string>
     <string name="revanced_sb_segments_sponsor_sum">유료 광고, 협찬과 같은 직/간접적인 광고 구간입니다.</string>
     <string name="revanced_sb_skip_automatically">자동으로 건너뛰기</string>
     <string name="revanced_sb_skip_automatically_once">한 번만 자동으로 건너뛰기</string>
-    <string name="revanced_sb_skip_ignore">아무것도 하지 않기</string>
+    <string name="revanced_sb_skip_ignore">사용하지 않기</string>
     <string name="revanced_sb_skipped_filler">주제와 관련 없는 구간을 건너뛰었습니다.</string>
     <string name="revanced_sb_skipped_hook">흥미 유발 구간을 건너뛰었습니다.</string>
     <string name="revanced_sb_skipped_interaction">상호 작용 요청을 건너뛰었습니다.</string>
