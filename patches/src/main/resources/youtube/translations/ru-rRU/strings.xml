@@ -79,7 +79,7 @@
     <string name="morphe_spoof_video_streams_av1_summary_on">"Видеокодек: AVC (H.264), VP9 или AV1
 
 Воспроизведение может зависать или пропускать кадры"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Разрешить Android VR AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">Разрешить Android VR / visionOS AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Включение этой опции может использовать программное декодирование AV1.
 
 Воспроизведение видео с AV1 может прерываться или пропускать кадры."</string>
@@ -123,6 +123,9 @@
 
 Если Вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Выключение этой настройки может привести к возникновению проблем с воспроизведением.</string>
+    <string name="morphe_video_quality_prioritize_dialog">Если эта настройка отключена, в старых видео могут отсутствовать варианты выбора качества</string>
+    <string name="morphe_video_quality_prioritize_summary">Приоритет максимально доступного качества видео над эффективностью кодека</string>
+    <string name="morphe_video_quality_prioritize_title">Приоритет качества видео</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Расширенное меню качества видео скрыто</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Расширенное меню качества видео показано</string>
     <string name="revanced_advanced_video_quality_menu_title">Открыть меню расширенных настроек качества</string>
@@ -1775,8 +1778,8 @@ Shorts
     <string name="revanced_remember_video_quality_toast_shorts">Качество Shorts в %1$s изменено на: %2$s</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">Индекс кнопки \"Микс\"</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">Данная опция не обходит возрастное ограничение. Она только принимает возрастное ограничение автоматически</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">Скрыть диалог о нежелательном контенте</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">Это не обходит возрастное ограничение. Оно просто автоматически его принимает</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Удалить диалог о предупреждении для зрителей</string>
     <string name="revanced_replace_channel_handle_summary_off">Используется псевдоним канала.</string>
     <string name="revanced_replace_channel_handle_summary_on">Используется имя канала.</string>
     <string name="revanced_replace_channel_handle_title">Заменить псевдоним канала</string>
