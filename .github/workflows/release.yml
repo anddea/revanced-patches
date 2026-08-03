@@ -37,7 +37,7 @@ jobs:
         run: ./gradlew :patches:buildAndroid generatePatchesList clean
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "lts/*"
           cache: 'npm'
