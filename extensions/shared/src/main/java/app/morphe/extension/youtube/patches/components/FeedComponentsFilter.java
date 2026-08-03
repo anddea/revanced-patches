@@ -59,6 +59,8 @@ public final class FeedComponentsFilter extends Filter {
     private final StringFilterGroup chipBar;
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup expandableCard;
+    private final StringFilterGroup getPremiumButton;
+    private final ByteArrayFilterGroup getPremiumButtonBuffer;
     private final ByteArrayFilterGroup productCardBuffer;
     private final ByteArrayFilterGroup summaryCardBuffer;
     private final ByteArrayFilterGroup playablesBuffer;
@@ -256,6 +258,16 @@ public final class FeedComponentsFilter extends Filter {
                 "expandable_metadata."
         );
 
+        getPremiumButton = new StringFilterGroup(
+                Settings.HIDE_GET_PREMIUM_BUTTON,
+                "|button.e"
+        );
+
+        getPremiumButtonBuffer = new ByteArrayFilterGroup(
+                null,
+                "SPunlimited"
+        );
+
         productCardBuffer = new ByteArrayFilterGroup(
                 null,
                 "gstatic.com/shopping"
@@ -365,6 +377,7 @@ public final class FeedComponentsFilter extends Filter {
                 chipBar,
                 expandableCard,
                 forYouShelf,
+                getPremiumButton,
                 imageShelf,
                 latestPosts,
                 linksPreview,
@@ -498,10 +511,13 @@ public final class FeedComponentsFilter extends Filter {
                         || channelProfileStringFilterGroup.check(accessibility).isFiltered()
                         || channelProfileStringFilterGroup.check(path).isFiltered();
             }
-        } else if (matchedGroup == chipBar) {
-            return hideCategoryBar(contentIndex);
+        }
 
-        } else if (matchedGroup == communityPosts) {
+        if (matchedGroup == chipBar) {
+            return hideCategoryBar(contentIndex);
+        }
+
+        if (matchedGroup == communityPosts) {
             // Channel Pages (Deep navigation logic)
             // When back button is visible, we are likely on a channel page.
             // Exclude Player and Search to ensure we don't accidentally hide Related/Search items with this setting.
@@ -524,8 +540,9 @@ public final class FeedComponentsFilter extends Filter {
 
             // If we are not in Channel or Subscriptions, we assume Home or Related Videos.
             return Settings.HIDE_COMMUNITY_POSTS_HOME_RELATED_VIDEOS.get();
+        }
 
-        } else if (matchedGroup == expandableCard) {
+        if (matchedGroup == expandableCard) {
             if (!path.startsWith(FEED_VIDEO_PATH)) {
                 return false;
             }
@@ -539,8 +556,13 @@ public final class FeedComponentsFilter extends Filter {
                         productCardBuffer.check(buffer).isFiltered() || summaryCardBuffer.check(buffer).isFiltered();
                 default -> false;
             };
+        }
 
-        } else if (matchedGroup == carouselShelves) {
+        if (matchedGroup == getPremiumButton) {
+            return path.startsWith("page_header.e") && getPremiumButtonBuffer.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == carouselShelves) {
             if (contentIndex == 0) {
                 return playablesBuffer.check(buffer).isFiltered()
                         || ticketShelfBuffer.check(buffer).isFiltered()

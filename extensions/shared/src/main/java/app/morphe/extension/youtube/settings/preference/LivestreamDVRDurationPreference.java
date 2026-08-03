@@ -7,7 +7,7 @@
 
 package app.morphe.extension.youtube.settings.preference;
 
-import static app.morphe.extension.shared.StringRef.str;
+import static app.morphe.extension.shared.utils.StringRef.str;
 
 import android.content.Context;
 import android.preference.SwitchPreference;

@@ -370,23 +370,6 @@ val toolBarComponentsPatch = bytecodePatch(
 
         // endregion
 
-        /*
-        // region patch for hide voice search button
-
-        if (is_19_28_or_greater) {
-            imageSearchButtonConfigFingerprint.injectLiteralInstructionBooleanCall(
-                45617544L,
-                "$GENERAL_CLASS_DESCRIPTOR->hideImageSearchButton(Z)Z"
-            )
-
-            updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "ImageSearchButton")
-
-            settingArray += "SETTINGS: HIDE_IMAGE_SEARCH_BUTTON"
-        }
-
-        // endregion
-         */
-
         // region patch for hide voice search button
 
         searchBarFingerprint.matchOrThrow(searchBarParentFingerprint).let {
@@ -439,7 +422,7 @@ val toolBarComponentsPatch = bytecodePatch(
         // region patch for hide You may like section
 
         if (is_20_15_or_greater) {
-            val searchSuggestionEndpointField = SearchSuggestionEndpoint20_21Fingerprint
+            val searchSuggestionEndpointField = SearchSuggestionEndpoint2021Fingerprint
                 .instructionMatches.first().instruction.getReference<FieldReference>()!!
             val searchSuggestionEndpointClass = searchSuggestionEndpointField.definingClass
 

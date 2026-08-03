@@ -9,13 +9,13 @@
 
 package app.morphe.extension.youtube.patches.general;
 
-import app.morphe.extension.shared.utils.ResourceUtils;
-import app.morphe.extension.youtube.settings.Settings;
+import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
+import app.morphe.extension.shared.utils.ResourceUtils;
+import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class FixPreferenceIconPatch {

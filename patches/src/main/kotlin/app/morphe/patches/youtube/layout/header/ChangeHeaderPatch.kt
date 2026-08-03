@@ -4,6 +4,7 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.CUSTOM_HEADER_FOR_YOUTUBE
+import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.getIconType
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.ResourceGroup
@@ -171,5 +172,6 @@ val changeHeaderPatch = resourcePatch(
             }
         }
 
+        addPreference(CUSTOM_HEADER_FOR_YOUTUBE)
     }
 }

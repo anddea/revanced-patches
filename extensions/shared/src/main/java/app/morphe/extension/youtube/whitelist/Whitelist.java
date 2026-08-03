@@ -1,3 +1,45 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - Hoàng Gia Bảo (https://github.com/YT-Advanced)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.youtube.whitelist;
 
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getAppForegroundColor;
@@ -375,7 +417,7 @@ public class Whitelist {
 
     private static boolean isWhitelisted(WhitelistType whitelistType, String channelId) {
         for (VideoChannel channel : getWhitelistedChannels(whitelistType)) {
-            if (channel.getChannelId().equals(channelId)) {
+            if (channel.channelId().equals(channelId)) {
                 return true;
             }
         }
@@ -386,7 +428,7 @@ public class Whitelist {
         final VideoChannel channel = new VideoChannel(channelName, channelId);
         ArrayList<VideoChannel> whitelisted = getWhitelistedChannels(whitelistType);
         for (VideoChannel whitelistedChannel : whitelisted) {
-            if (whitelistedChannel.getChannelId().equals(channel.getChannelId()))
+            if (whitelistedChannel.channelId().equals(channel.channelId()))
                 return;
         }
         whitelisted.add(channel);
@@ -408,8 +450,8 @@ public class Whitelist {
         String channelName = "";
         while (iterator.hasNext()) {
             VideoChannel channel = iterator.next();
-            if (channel.getChannelId().equals(channelId)) {
-                channelName = channel.getChannelName();
+            if (channel.channelId().equals(channelId)) {
+                channelName = channel.channelName();
                 iterator.remove();
                 break;
             }
@@ -452,7 +494,7 @@ public class Whitelist {
             if (serialized.length() > 0) {
                 serialized.append("~");
             }
-            serialized.append(channel.getChannelName()).append("~").append(channel.getChannelId());
+            serialized.append(channel.channelName()).append("~").append(channel.channelId());
         }
         String serializedString = serialized.toString();
         try {

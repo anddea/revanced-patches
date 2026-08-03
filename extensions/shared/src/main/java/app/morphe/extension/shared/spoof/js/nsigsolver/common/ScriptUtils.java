@@ -4,8 +4,8 @@ import android.content.Context;
 
 import java.util.List;
 
-import app.morphe.extension.shared.ResourceUtils;
-import app.morphe.extension.shared.Utils;
+import app.morphe.extension.shared.utils.ResourceUtils;
+import app.morphe.extension.shared.utils.Utils;
 
 public class ScriptUtils {
     public static class ScriptLoaderError extends Exception {

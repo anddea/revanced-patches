@@ -298,7 +298,6 @@ public class SearchHistoryManager {
         dialog.show();
     }
 
-
     /**
      * Custom adapter for search history items.
      */

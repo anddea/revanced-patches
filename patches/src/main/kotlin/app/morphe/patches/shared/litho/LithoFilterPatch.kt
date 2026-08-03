@@ -248,7 +248,6 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
-
             // region Modify the create component method and
             // if the component is filtered then return an empty component.
 
@@ -305,7 +304,6 @@ val lithoFilterPatch = bytecodePatch(
 
             ComponentCreateFingerprint.method.apply {
                 val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
-
 
                 // We can directly access the class related with the buttonViewModel from this method.
                 // This is within 10 lines of insertIndex.
@@ -441,7 +439,6 @@ val lithoFilterPatch = bytecodePatch(
 
             // endregion
 
-
             // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube
 
             LithoThreadExecutorFingerprint.method.addInstructions(
@@ -455,7 +452,6 @@ val lithoFilterPatch = bytecodePatch(
             )
 
             // endregion
-
 
             // region A/B test of new Litho native code
 

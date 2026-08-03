@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-import app.morphe.extension.shared.Logger;
+import app.morphe.extension.shared.utils.Logger;
 
 /**
  * Strips away specific parameters from URLs.

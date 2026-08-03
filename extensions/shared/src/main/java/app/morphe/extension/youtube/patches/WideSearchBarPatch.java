@@ -33,8 +33,8 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
-import app.morphe.extension.shared.utils.ResourceUtils.ResourceType;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.NavigationBar;

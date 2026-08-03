@@ -11,8 +11,8 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.widget.LinearLayout;
 
-import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
+import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})

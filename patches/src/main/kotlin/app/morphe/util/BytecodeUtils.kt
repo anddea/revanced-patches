@@ -22,13 +22,190 @@ import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.getResourceId
 import app.morphe.patches.shared.mapping.resourceMappingPatch
-import app.morphe.util.InstructionUtils.Companion.branchOpcodes
-import app.morphe.util.InstructionUtils.Companion.returnOpcodes
-import app.morphe.util.InstructionUtils.Companion.writeOpcodes
 import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.Opcode.*
+import com.android.tools.smali.dexlib2.Opcode.ADD_DOUBLE
+import com.android.tools.smali.dexlib2.Opcode.ADD_DOUBLE_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.ADD_FLOAT
+import com.android.tools.smali.dexlib2.Opcode.ADD_FLOAT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.ADD_INT
+import com.android.tools.smali.dexlib2.Opcode.ADD_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.ADD_INT_LIT16
+import com.android.tools.smali.dexlib2.Opcode.ADD_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.ADD_LONG
+import com.android.tools.smali.dexlib2.Opcode.ADD_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.AGET
+import com.android.tools.smali.dexlib2.Opcode.AGET_BOOLEAN
+import com.android.tools.smali.dexlib2.Opcode.AGET_BYTE
+import com.android.tools.smali.dexlib2.Opcode.AGET_CHAR
+import com.android.tools.smali.dexlib2.Opcode.AGET_OBJECT
+import com.android.tools.smali.dexlib2.Opcode.AGET_SHORT
+import com.android.tools.smali.dexlib2.Opcode.AGET_WIDE
+import com.android.tools.smali.dexlib2.Opcode.AND_INT
+import com.android.tools.smali.dexlib2.Opcode.AND_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.AND_INT_LIT16
+import com.android.tools.smali.dexlib2.Opcode.AND_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.AND_LONG
+import com.android.tools.smali.dexlib2.Opcode.AND_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.ARRAY_LENGTH
+import com.android.tools.smali.dexlib2.Opcode.CONST
+import com.android.tools.smali.dexlib2.Opcode.CONST_16
+import com.android.tools.smali.dexlib2.Opcode.CONST_4
+import com.android.tools.smali.dexlib2.Opcode.CONST_HIGH16
+import com.android.tools.smali.dexlib2.Opcode.CONST_STRING
+import com.android.tools.smali.dexlib2.Opcode.CONST_STRING_JUMBO
+import com.android.tools.smali.dexlib2.Opcode.CONST_WIDE
+import com.android.tools.smali.dexlib2.Opcode.CONST_WIDE_16
+import com.android.tools.smali.dexlib2.Opcode.CONST_WIDE_32
+import com.android.tools.smali.dexlib2.Opcode.CONST_WIDE_HIGH16
+import com.android.tools.smali.dexlib2.Opcode.DIV_DOUBLE
+import com.android.tools.smali.dexlib2.Opcode.DIV_DOUBLE_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.DIV_FLOAT
+import com.android.tools.smali.dexlib2.Opcode.DIV_FLOAT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.DIV_INT
+import com.android.tools.smali.dexlib2.Opcode.DIV_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.DIV_INT_LIT16
+import com.android.tools.smali.dexlib2.Opcode.DIV_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.DIV_LONG
+import com.android.tools.smali.dexlib2.Opcode.DIV_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.DOUBLE_TO_FLOAT
+import com.android.tools.smali.dexlib2.Opcode.DOUBLE_TO_INT
+import com.android.tools.smali.dexlib2.Opcode.DOUBLE_TO_LONG
+import com.android.tools.smali.dexlib2.Opcode.FLOAT_TO_DOUBLE
+import com.android.tools.smali.dexlib2.Opcode.FLOAT_TO_INT
+import com.android.tools.smali.dexlib2.Opcode.FLOAT_TO_LONG
+import com.android.tools.smali.dexlib2.Opcode.GOTO
+import com.android.tools.smali.dexlib2.Opcode.GOTO_16
+import com.android.tools.smali.dexlib2.Opcode.GOTO_32
+import com.android.tools.smali.dexlib2.Opcode.IF_EQ
+import com.android.tools.smali.dexlib2.Opcode.IF_EQZ
+import com.android.tools.smali.dexlib2.Opcode.IF_GE
+import com.android.tools.smali.dexlib2.Opcode.IF_GEZ
+import com.android.tools.smali.dexlib2.Opcode.IF_GT
+import com.android.tools.smali.dexlib2.Opcode.IF_GTZ
+import com.android.tools.smali.dexlib2.Opcode.IF_LE
+import com.android.tools.smali.dexlib2.Opcode.IF_LEZ
+import com.android.tools.smali.dexlib2.Opcode.IF_LT
+import com.android.tools.smali.dexlib2.Opcode.IF_LTZ
+import com.android.tools.smali.dexlib2.Opcode.IF_NE
+import com.android.tools.smali.dexlib2.Opcode.IF_NEZ
+import com.android.tools.smali.dexlib2.Opcode.IGET
+import com.android.tools.smali.dexlib2.Opcode.IGET_BOOLEAN
+import com.android.tools.smali.dexlib2.Opcode.IGET_BYTE
+import com.android.tools.smali.dexlib2.Opcode.IGET_CHAR
+import com.android.tools.smali.dexlib2.Opcode.IGET_OBJECT
+import com.android.tools.smali.dexlib2.Opcode.IGET_OBJECT_VOLATILE
+import com.android.tools.smali.dexlib2.Opcode.IGET_SHORT
+import com.android.tools.smali.dexlib2.Opcode.IGET_VOLATILE
+import com.android.tools.smali.dexlib2.Opcode.IGET_WIDE
+import com.android.tools.smali.dexlib2.Opcode.IGET_WIDE_VOLATILE
+import com.android.tools.smali.dexlib2.Opcode.INSTANCE_OF
+import com.android.tools.smali.dexlib2.Opcode.INT_TO_BYTE
+import com.android.tools.smali.dexlib2.Opcode.INT_TO_CHAR
+import com.android.tools.smali.dexlib2.Opcode.INT_TO_DOUBLE
+import com.android.tools.smali.dexlib2.Opcode.INT_TO_FLOAT
+import com.android.tools.smali.dexlib2.Opcode.INT_TO_LONG
+import com.android.tools.smali.dexlib2.Opcode.INT_TO_SHORT
+import com.android.tools.smali.dexlib2.Opcode.LONG_TO_DOUBLE
+import com.android.tools.smali.dexlib2.Opcode.LONG_TO_FLOAT
+import com.android.tools.smali.dexlib2.Opcode.LONG_TO_INT
+import com.android.tools.smali.dexlib2.Opcode.MOVE
+import com.android.tools.smali.dexlib2.Opcode.MOVE_16
+import com.android.tools.smali.dexlib2.Opcode.MOVE_EXCEPTION
+import com.android.tools.smali.dexlib2.Opcode.MOVE_FROM16
+import com.android.tools.smali.dexlib2.Opcode.MOVE_OBJECT
+import com.android.tools.smali.dexlib2.Opcode.MOVE_OBJECT_16
+import com.android.tools.smali.dexlib2.Opcode.MOVE_OBJECT_FROM16
+import com.android.tools.smali.dexlib2.Opcode.MOVE_RESULT
+import com.android.tools.smali.dexlib2.Opcode.MOVE_RESULT_OBJECT
+import com.android.tools.smali.dexlib2.Opcode.MOVE_RESULT_WIDE
+import com.android.tools.smali.dexlib2.Opcode.MOVE_WIDE
+import com.android.tools.smali.dexlib2.Opcode.MOVE_WIDE_16
+import com.android.tools.smali.dexlib2.Opcode.MOVE_WIDE_FROM16
+import com.android.tools.smali.dexlib2.Opcode.MUL_DOUBLE
+import com.android.tools.smali.dexlib2.Opcode.MUL_DOUBLE_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.MUL_FLOAT
+import com.android.tools.smali.dexlib2.Opcode.MUL_FLOAT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.MUL_INT
+import com.android.tools.smali.dexlib2.Opcode.MUL_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.MUL_INT_LIT16
+import com.android.tools.smali.dexlib2.Opcode.MUL_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.MUL_LONG
+import com.android.tools.smali.dexlib2.Opcode.MUL_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.NEG_DOUBLE
+import com.android.tools.smali.dexlib2.Opcode.NEG_FLOAT
+import com.android.tools.smali.dexlib2.Opcode.NEG_INT
+import com.android.tools.smali.dexlib2.Opcode.NEG_LONG
+import com.android.tools.smali.dexlib2.Opcode.NEW_ARRAY
+import com.android.tools.smali.dexlib2.Opcode.NEW_INSTANCE
+import com.android.tools.smali.dexlib2.Opcode.NOT_INT
+import com.android.tools.smali.dexlib2.Opcode.NOT_LONG
+import com.android.tools.smali.dexlib2.Opcode.OR_INT
+import com.android.tools.smali.dexlib2.Opcode.OR_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.OR_INT_LIT16
+import com.android.tools.smali.dexlib2.Opcode.OR_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.OR_LONG
+import com.android.tools.smali.dexlib2.Opcode.OR_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.PACKED_SWITCH_PAYLOAD
+import com.android.tools.smali.dexlib2.Opcode.REM_DOUBLE
+import com.android.tools.smali.dexlib2.Opcode.REM_DOUBLE_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.REM_FLOAT
+import com.android.tools.smali.dexlib2.Opcode.REM_FLOAT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.REM_INT
+import com.android.tools.smali.dexlib2.Opcode.REM_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.REM_INT_LIT16
+import com.android.tools.smali.dexlib2.Opcode.REM_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.REM_LONG
+import com.android.tools.smali.dexlib2.Opcode.REM_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.RETURN
+import com.android.tools.smali.dexlib2.Opcode.RETURN_OBJECT
+import com.android.tools.smali.dexlib2.Opcode.RETURN_VOID
+import com.android.tools.smali.dexlib2.Opcode.RETURN_VOID_NO_BARRIER
+import com.android.tools.smali.dexlib2.Opcode.RETURN_WIDE
+import com.android.tools.smali.dexlib2.Opcode.RSUB_INT
+import com.android.tools.smali.dexlib2.Opcode.RSUB_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.SGET
+import com.android.tools.smali.dexlib2.Opcode.SGET_BOOLEAN
+import com.android.tools.smali.dexlib2.Opcode.SGET_BYTE
+import com.android.tools.smali.dexlib2.Opcode.SGET_CHAR
+import com.android.tools.smali.dexlib2.Opcode.SGET_OBJECT
+import com.android.tools.smali.dexlib2.Opcode.SGET_OBJECT_VOLATILE
+import com.android.tools.smali.dexlib2.Opcode.SGET_SHORT
+import com.android.tools.smali.dexlib2.Opcode.SGET_VOLATILE
+import com.android.tools.smali.dexlib2.Opcode.SGET_WIDE
+import com.android.tools.smali.dexlib2.Opcode.SGET_WIDE_VOLATILE
+import com.android.tools.smali.dexlib2.Opcode.SHL_INT
+import com.android.tools.smali.dexlib2.Opcode.SHL_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.SHL_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.SHL_LONG
+import com.android.tools.smali.dexlib2.Opcode.SHL_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.SHR_INT
+import com.android.tools.smali.dexlib2.Opcode.SHR_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.SHR_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.SHR_LONG
+import com.android.tools.smali.dexlib2.Opcode.SHR_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.SPARSE_SWITCH_PAYLOAD
+import com.android.tools.smali.dexlib2.Opcode.SUB_DOUBLE
+import com.android.tools.smali.dexlib2.Opcode.SUB_DOUBLE_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.SUB_FLOAT
+import com.android.tools.smali.dexlib2.Opcode.SUB_FLOAT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.SUB_INT
+import com.android.tools.smali.dexlib2.Opcode.SUB_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.SUB_LONG
+import com.android.tools.smali.dexlib2.Opcode.SUB_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.THROW
+import com.android.tools.smali.dexlib2.Opcode.USHR_INT
+import com.android.tools.smali.dexlib2.Opcode.USHR_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.USHR_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.USHR_LONG
+import com.android.tools.smali.dexlib2.Opcode.USHR_LONG_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.XOR_INT
+import com.android.tools.smali.dexlib2.Opcode.XOR_INT_2ADDR
+import com.android.tools.smali.dexlib2.Opcode.XOR_INT_LIT16
+import com.android.tools.smali.dexlib2.Opcode.XOR_INT_LIT8
+import com.android.tools.smali.dexlib2.Opcode.XOR_LONG
+import com.android.tools.smali.dexlib2.Opcode.XOR_LONG_2ADDR
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.MethodParameter
@@ -36,9 +213,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -149,7 +323,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String, isField: 
     return fieldSetIndex
 }
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal fun setExtensionIsPatchIncluded(patchExtensionClassType: String) {
     val methodName = "isPatchIncluded"
     val returnType = "Z"
@@ -178,10 +352,10 @@ internal fun setExtensionIsPatchIncluded(patchExtensionClassType: String) {
  *
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
-context(BytecodePatchContext)
+context(ctx: BytecodePatchContext)
 internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName, false)
-    return navigate(this).to(methodUsageIndex).stop()
+    return ctx.navigate(this).to(methodUsageIndex).stop()
 }
 
 /**
@@ -728,7 +902,6 @@ fun Method.referenceMatchesOrThrow(targetIndex: Int, reference: String) {
     if (reference != targetReference) throw PatchException("References do not match. Expected: '$reference', Found: '$targetReference'")
 }
 
-
 /**
  * Overrides the first move result with an extension call.
  * Suitable for calls to extension code to override boolean and integer values.
@@ -801,11 +974,11 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
     }
 }
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 fun Match.getWalkerMethod(offset: Int) =
     method.getWalkerMethod(offset)
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 fun MutableMethod.getWalkerMethod(offset: Int): MutableMethod {
     val newMethod = getInstruction<ReferenceInstruction>(offset).reference as MethodReference
     return findMethodOrThrow(newMethod.definingClass) {
@@ -823,7 +996,7 @@ fun MutableMethod.getFiveRegisters(index: Int) =
             .take(registerCount).joinToString(",") { "v$it" }
     }
 
-context(BytecodePatchContext)
+context(ctx: BytecodePatchContext)
 fun addStaticFieldToExtension(
     className: String,
     methodName: String,
@@ -832,7 +1005,7 @@ fun addStaticFieldToExtension(
     smaliInstructions: String,
     shouldAddConstructor: Boolean = true
 ): MutableMethod {
-    val mutableClass = mutableClassDefBy{ classDef -> classDef.type == className }
+    val mutableClass = ctx.mutableClassDefBy { classDef -> classDef.type == className }
 
     val objectCall = "$mutableClass->$fieldName:$objectClass"
     val method = with(mutableClass) {
@@ -890,23 +1063,23 @@ fun addStaticFieldToExtension(
     return method
 }
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 fun findMethodOrThrow(
     reference: String,
     methodPredicate: Method.() -> Boolean = { MethodUtil.isConstructor(this) }
 ) = findMethodsOrThrow(reference).first(methodPredicate)
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 fun findMethodsOrThrow(
     reference: String
 ) = findMutableClassOrThrow(reference).methods
 
-context(BytecodePatchContext)
+context(ctx: BytecodePatchContext)
 fun findMutableClassOrThrow(reference: String): MutableClass {
-    return mutableClassDefBy{ classDef -> classDef.type == reference }
+    return ctx.mutableClassDefBy { classDef -> classDef.type == reference }
 }
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 fun updatePatchStatus(
     className: String,
     methodName: String
@@ -1040,8 +1213,6 @@ fun Method.cloneMutable(
         }
     }
 }
-
-
 
 private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"
 

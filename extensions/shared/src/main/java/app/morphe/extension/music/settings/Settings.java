@@ -9,11 +9,11 @@ import static app.morphe.extension.shared.utils.StringRef.str;
 
 import androidx.annotation.NonNull;
 
+import app.morphe.extension.music.patches.CrossfadeManager.CrossFadeDuration;
+import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
 import app.morphe.extension.music.patches.general.ChangeStartPagePatch.StartPage;
 import app.morphe.extension.music.patches.lyrics.LyricsSource;
 import app.morphe.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
-import app.morphe.extension.music.patches.CrossfadeManager.CrossFadeDuration;
-import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
 import app.morphe.extension.music.patches.utils.PatchStatus;
 import app.morphe.extension.music.sponsorblock.SponsorBlockSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
@@ -29,7 +29,6 @@ import app.morphe.extension.shared.settings.preference.SeekBarPreference.SeekBar
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
-
 
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {

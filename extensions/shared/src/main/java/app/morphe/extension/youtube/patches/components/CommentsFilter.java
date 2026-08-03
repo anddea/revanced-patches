@@ -138,7 +138,6 @@ public final class CommentsFilter extends Filter {
                 "|super_thanks_button."
         );
 
-
         addIdentifierCallbacks(channelGuidelines);
 
         addPathCallbacks(

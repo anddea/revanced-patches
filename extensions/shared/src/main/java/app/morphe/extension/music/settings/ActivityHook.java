@@ -123,8 +123,7 @@ public class ActivityHook {
     public static boolean initialize(@NonNull Activity baseActivity) {
         try {
             final Intent baseActivityIntent = baseActivity.getIntent();
-            if (baseActivityIntent == null)
-                return false;
+            if (baseActivityIntent == null) return false;
 
             String dataString = baseActivityIntent.getDataString();
             if (isSearchableSettingsIntent(dataString)) {
@@ -135,13 +134,10 @@ public class ActivityHook {
             // If we do not finish the activity immediately, the YT Music logo will remain on the screen.
             baseActivity.finish();
 
-            if (dataString == null || dataString.isEmpty())
-                return false;
+            if (dataString == null || dataString.isEmpty()) return false;
 
             // Checks whether dataString contains settings that use Intent.
-            if (!Settings.includeWithIntent(dataString))
-                return false;
-
+            if (!Settings.includeWithIntent(dataString)) return false;
 
             // Save intent data in settings activity.
             Activity mActivity = activityRef.get();

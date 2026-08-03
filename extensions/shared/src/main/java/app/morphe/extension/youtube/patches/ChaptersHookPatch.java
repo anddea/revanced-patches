@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 
 import java.util.Arrays;
 
-import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.settings.BaseSettings;
+import app.morphe.extension.shared.utils.Logger;
 
 @SuppressWarnings("unused")
 public class ChaptersHookPatch {

@@ -9,13 +9,11 @@
 
 package app.morphe.extension.shared.spoof.requests;
 
-import static app.morphe.extension.shared.StringRef.str;
-import static app.morphe.extension.shared.Utils.submitOnBackgroundThread;
 import static app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.pageIDHeaderValue;
 import static app.morphe.extension.shared.spoof.js.JavaScriptEngineSupport.supportsJavaScriptEngine;
 import static app.morphe.extension.shared.spoof.js.JavaScriptManager.getDeobfuscatedStreamingData;
-import static app.morphe.extension.shared.spoof.requests.PlayerRoutes.GET_PLAYER_STREAMING_DATA;
-import static app.morphe.extension.shared.spoof.requests.PlayerRoutes.GET_REEL_STREAMING_DATA;
+import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.shared.utils.Utils.submitOnBackgroundThread;
 
 import androidx.annotation.Nullable;
 
@@ -42,8 +40,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerResponse;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.StreamingData;
 import app.morphe.extension.shared.innertube.ReelItemWatchResponseOuterClass.ReelItemWatchResponse;
@@ -51,6 +47,8 @@ import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.spoof.ClientType;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 public class StreamOrDetailsDataRequest {
 

@@ -4,6 +4,7 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_NAME_FOR_YOUTUBE
+import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.removeStringsElements
 import app.morphe.util.valueOrThrow
@@ -53,5 +54,6 @@ val customBrandingNamePatch = resourcePatch(
                 .appendChild(stringElement)
         }
 
+        addPreference(CUSTOM_BRANDING_NAME_FOR_YOUTUBE)
     }
 }

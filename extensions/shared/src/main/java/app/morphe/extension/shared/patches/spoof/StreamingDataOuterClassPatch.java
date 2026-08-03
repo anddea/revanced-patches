@@ -15,7 +15,6 @@ public class StreamingDataOuterClassPatch extends SpoofStreamingDataPatch {
         StreamingData parseFrom(ByteBuffer responseProto);
     }
 
-
     /**
      * Do not use {@link WeakReference}.
      * This class can be null, as hooking and invoking are performed in different methods.

@@ -40,32 +40,58 @@
 
 package app.morphe.extension.youtube.utils;
 
+import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.youtube.shared.VideoInformation.getVideoTitle;
+
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Pair;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.morphe.extension.shared.utils.Logger;
-import okhttp3.*;
+
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
-import java.util.*;
-import java.util.concurrent.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
-import static app.morphe.extension.shared.utils.StringRef.str;
-import static app.morphe.extension.youtube.shared.VideoInformation.getVideoTitle;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+import app.morphe.extension.shared.utils.Logger;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 /**
  * Utility class for interacting with Yandex API to fetch and process video subtitles.

@@ -14,9 +14,9 @@ import androidx.annotation.Nullable;
 
 import java.util.Arrays;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class ForceOriginalAudioPatch {

@@ -43,8 +43,6 @@
 
 package app.morphe.extension.youtube.patches.components;
 
-import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
-
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,16 +56,14 @@ import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.TrieSearch;
-import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.patches.shorts.CustomActionsPatch;
 
 @SuppressWarnings("unused")
 public final class ShortsCustomActionsFilter extends Filter {
-    private static final boolean IS_SPOOFING_TO_YOUTUBE_2023 =
-            isSpoofingToLessThan("19.00.00");
     private static final boolean SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED =
-            !IS_SPOOFING_TO_YOUTUBE_2023 && Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU.get();
+            CustomActionsPatch.isFlyoutMenuEnabled();
     private static final boolean SHORTS_CUSTOM_ACTIONS_TOOLBAR_ENABLED =
-            Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR.get();
+            CustomActionsPatch.isToolbarEnabled();
     private static final boolean SHORTS_CUSTOM_ACTIONS_ENABLED =
             SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED || SHORTS_CUSTOM_ACTIONS_TOOLBAR_ENABLED;
 
@@ -179,7 +175,6 @@ public final class ShortsCustomActionsFilter extends Filter {
             Logger.printException(() -> "newPlayerResponseVideoId failure", ex);
         }
     }
-
 
     /**
      * This could use {@link TrieSearch}, but since the patterns are constantly changing

@@ -1,6 +1,6 @@
 package app.morphe.extension.shared.spoof.js.nsigsolver.runtime;
 
-import static app.morphe.extension.shared.Utils.isNotEmpty;
+import static app.morphe.extension.shared.utils.Utils.isNotEmpty;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -15,10 +15,19 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import app.morphe.extension.shared.Logger;
 import app.morphe.extension.shared.spoof.js.JavaScriptManager;
-import app.morphe.extension.shared.spoof.js.nsigsolver.common.*;
-import app.morphe.extension.shared.spoof.js.nsigsolver.provider.*;
+import app.morphe.extension.shared.spoof.js.nsigsolver.common.CacheError;
+import app.morphe.extension.shared.spoof.js.nsigsolver.common.CachedData;
+import app.morphe.extension.shared.spoof.js.nsigsolver.common.ScriptUtils;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.ChallengeOutput;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeProvider;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeProviderError;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeProviderRejectedRequest;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeProviderResponse;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeRequest;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeResponse;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeType;
+import app.morphe.extension.shared.utils.Logger;
 
 public abstract class JsRuntimeChalBaseJCP extends JsChallengeProvider {
     public static final String CACHE_SECTION = "challenge-solver";

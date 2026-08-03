@@ -50,18 +50,18 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.HashSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import app.morphe.extension.music.settings.Settings;
-import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.FilterGroup.FilterGroupResult;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
+import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.utils.Logger;
 
 @SuppressWarnings("unused")

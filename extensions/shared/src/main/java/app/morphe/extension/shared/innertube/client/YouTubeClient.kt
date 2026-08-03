@@ -1,14 +1,14 @@
 package app.morphe.extension.shared.innertube.client
 
 import android.os.Build
-import app.morphe.extension.music.settings.Settings as MusicSettings
 import app.morphe.extension.shared.innertube.utils.J2V8Support.supportJ2V8
 import app.morphe.extension.shared.patches.AppCheckPatch.IS_YOUTUBE
 import app.morphe.extension.shared.settings.BaseSettings
 import app.morphe.extension.shared.utils.PackageUtils
-import app.morphe.extension.youtube.settings.Settings as YouTubeSettings
 import org.apache.commons.lang3.ArrayUtils
 import java.util.Locale
+import app.morphe.extension.music.settings.Settings as MusicSettings
+import app.morphe.extension.youtube.settings.Settings as YouTubeSettings
 
 /**
  * Used to fetch streaming data.

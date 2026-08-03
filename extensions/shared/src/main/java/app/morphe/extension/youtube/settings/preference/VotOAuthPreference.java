@@ -59,6 +59,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -67,12 +69,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-import org.json.JSONObject;
-
-import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.BaseThemeUtils;
-import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.shared.ui.CustomDialog;
+import app.morphe.extension.shared.utils.BaseThemeUtils;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotAuthWebViewDialog;
 import app.morphe.extension.youtube.settings.Settings;

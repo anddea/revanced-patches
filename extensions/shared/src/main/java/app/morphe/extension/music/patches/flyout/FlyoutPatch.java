@@ -67,7 +67,7 @@ import app.morphe.extension.music.utils.ExtendedUtils;
 import app.morphe.extension.music.utils.VideoUtils;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.ResourceUtils.ResourceType;
+import app.morphe.extension.shared.utils.ResourceType;
 
 @SuppressWarnings("unused")
 public class FlyoutPatch {

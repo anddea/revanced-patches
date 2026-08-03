@@ -5,7 +5,7 @@
 
 package app.morphe.extension.shared.spoof.js;
 
-import static app.morphe.extension.shared.Utils.isNotEmpty;
+import static app.morphe.extension.shared.utils.Utils.isNotEmpty;
 
 import android.os.Build;
 
@@ -13,11 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.URL;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,8 +32,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.Format;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.StreamingData;
 import app.morphe.extension.shared.requests.Requester;
@@ -38,13 +41,8 @@ import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.StringSetting;
 import app.morphe.extension.shared.settings.preference.AbstractPreferenceFragment;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-
-import java.net.URL;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 /**
  * The functions used in this class are referenced below:

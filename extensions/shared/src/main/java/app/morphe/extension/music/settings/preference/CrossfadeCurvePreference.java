@@ -6,7 +6,7 @@
  */
 package app.morphe.extension.music.settings.preference;
 
-import static app.morphe.extension.shared.StringRef.str;
+import static app.morphe.extension.shared.utils.StringRef.str;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

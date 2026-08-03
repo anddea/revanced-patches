@@ -10,8 +10,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.spoof.js.nsigsolver.provider.*;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.ChallengeInput;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeProviderResponse;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeRequest;
+import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeType;
+import app.morphe.extension.shared.utils.Logger;
 
 /**
  * The functions used in this class are referenced below:

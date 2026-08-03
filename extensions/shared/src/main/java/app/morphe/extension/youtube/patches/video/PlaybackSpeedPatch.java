@@ -41,6 +41,9 @@
 
 package app.morphe.extension.youtube.patches.video;
 
+import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.youtube.shared.RootView.isShortsActive;
+
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 
@@ -59,9 +62,6 @@ import app.morphe.extension.youtube.patches.video.requests.MusicRequest;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.whitelist.Whitelist;
-
-import static app.morphe.extension.shared.utils.StringRef.str;
-import static app.morphe.extension.youtube.shared.RootView.isShortsActive;
 
 @SuppressWarnings("unused")
 public class PlaybackSpeedPatch {
@@ -114,28 +114,28 @@ public class PlaybackSpeedPatch {
         if (isShortsActive()) {
             return;
         }
-        if (videoId.equals(newlyLoadedVideoId)) {
-            return;
-        }
         videoId = newlyLoadedVideoId;
         userChangedSpeedForCurrentVideo = false;
 
         boolean isMusic = isMusic(newlyLoadedVideoId);
-        boolean isWhitelisted = Whitelist.isChannelWhitelistedPlaybackSpeed(newlyLoadedChannelId);
+        boolean isWhitelisted = !newlyLoadedChannelId.isEmpty() && Whitelist.isChannelWhitelistedPlaybackSpeed(newlyLoadedChannelId);
 
-        if (newlyLoadedLiveStreamValue || isMusic || isWhitelisted) {
+        if (newlyLoadedLiveStreamValue || isMusic) {
             synchronized (ignoredPlaybackSpeedVideoIds) {
                 if (!ignoredPlaybackSpeedVideoIds.containsKey(newlyLoadedVideoId)) {
-                    lastSelectedPlaybackSpeed = 1.0f;
-                    ignoredPlaybackSpeedVideoIds.put(newlyLoadedVideoId, lastSelectedPlaybackSpeed);
+                    ignoredPlaybackSpeedVideoIds.put(newlyLoadedVideoId, 1.0f);
 
-                    VideoInformation.setPlaybackSpeed(lastSelectedPlaybackSpeed);
-                    VideoInformation.overridePlaybackSpeed(lastSelectedPlaybackSpeed);
+                    VideoInformation.setPlaybackSpeed(1.0f);
+                    VideoInformation.overridePlaybackSpeed(1.0f);
 
                     Logger.printDebug(() -> "changing playback speed to: 1.0, isLiveStream: " + newlyLoadedLiveStreamValue +
-                            ", isMusic: " + isMusic + ", isWhitelisted: " + isWhitelisted);
+                            ", isMusic: " + isMusic);
                 }
             }
+        } else if (isWhitelisted) {
+            VideoInformation.setPlaybackSpeed(1.0f);
+            VideoInformation.overridePlaybackSpeed(1.0f);
+            Logger.printDebug(() -> "changing playback speed to: 1.0, isWhitelisted: true");
         }
     }
 
@@ -170,6 +170,22 @@ public class PlaybackSpeedPatch {
      */
     public static float getPlaybackSpeed(float playbackSpeed) {
         boolean isShorts = isShortsActive();
+
+        if (!isShorts && !userChangedSpeedForCurrentVideo) {
+            String currentChannelId = VideoInformation.getChannelId();
+            boolean isWhitelisted = !currentChannelId.isEmpty() && Whitelist.isChannelWhitelistedPlaybackSpeed(currentChannelId);
+            boolean isIgnored;
+            synchronized (ignoredPlaybackSpeedVideoIds) {
+                isIgnored = ignoredPlaybackSpeedVideoIds.containsKey(videoId);
+            }
+            if (isWhitelisted || isIgnored) {
+                VideoInformation.setPlaybackSpeed(1.0f);
+                VideoInformation.overridePlaybackSpeed(1.0f);
+                Logger.printDebug(() -> "Whitelisted or ignored video, forcing playback speed to: 1.0");
+                return 1.0f;
+            }
+        }
+
         float defaultPlaybackSpeed = isShorts ? DEFAULT_PLAYBACK_SPEED_SHORTS.get() : DEFAULT_PLAYBACK_SPEED.get();
 
         if (defaultPlaybackSpeed < 0) { // If the default playback speed is 'Auto', it will be overridden to the last used playback speed.
@@ -182,14 +198,6 @@ public class PlaybackSpeedPatch {
             Logger.printDebug(() -> "changing playback speed to: " + finalPlaybackSpeed);
             return finalPlaybackSpeed;
         } else { // Otherwise the default playback speed is used.
-            synchronized (ignoredPlaybackSpeedVideoIds) {
-                if (!isShorts && ignoredPlaybackSpeedVideoIds.containsKey(videoId)) {
-                    // For general videos, check whether the default video playback speed should not be applied.
-                    Logger.printDebug(() -> "changing playback speed to: 1.0");
-                    return 1.0f;
-                }
-            }
-
             // Sometimes VideoInformation.overridePlaybackSpeed() method is not used, so manually save the playback speed in VideoInformation.
             VideoInformation.setPlaybackSpeed(defaultPlaybackSpeed);
             Logger.printDebug(() -> "changing playback speed to: " + defaultPlaybackSpeed);

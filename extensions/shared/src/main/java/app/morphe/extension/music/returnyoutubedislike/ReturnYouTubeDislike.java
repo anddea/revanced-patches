@@ -100,7 +100,6 @@ public class ReturnYouTubeDislike {
     public static Rect leftSeparatorBounds;
     private static Rect middleSeparatorBounds;
 
-
     static {
         ReturnYouTubeDislikeApi.toastOnConnectionError = Settings.RYD_TOAST_ON_CONNECTION_ERROR.get();
     }
@@ -139,7 +138,6 @@ public class ReturnYouTubeDislike {
     @Nullable
     @GuardedBy("this")
     private SpannableString replacementLikeDislikeSpan;
-
 
     /**
      * Color of the left and middle separator, based on the color of the right separator.

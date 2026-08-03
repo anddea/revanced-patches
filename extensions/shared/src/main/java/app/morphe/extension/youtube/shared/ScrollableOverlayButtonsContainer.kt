@@ -43,8 +43,8 @@ package app.morphe.extension.youtube.shared
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.HorizontalScrollView
-import app.morphe.extension.youtube.settings.Settings
 import androidx.core.view.isVisible
+import app.morphe.extension.youtube.settings.Settings
 
 class ScrollableOverlayButtonsContainer @JvmOverloads constructor(
     context: Context,

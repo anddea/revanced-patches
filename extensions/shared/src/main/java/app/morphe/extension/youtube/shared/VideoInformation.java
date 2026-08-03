@@ -396,7 +396,6 @@ public final class VideoInformation {
         return playerResponseVideoId;
     }
 
-
     /**
      * @return If the last player response video id was a Short.
      * Includes Shorts shelf items appearing in the feed that are not opened.

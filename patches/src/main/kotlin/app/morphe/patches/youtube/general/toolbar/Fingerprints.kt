@@ -62,12 +62,10 @@ import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.actionBarRingo
 import app.morphe.patches.youtube.utils.resourceid.actionBarRingoBackground
 import app.morphe.patches.youtube.utils.resourceid.drawerContentView
-import app.morphe.patches.youtube.utils.resourceid.menuSearch
 import app.morphe.patches.youtube.utils.resourceid.p13nHeader
 import app.morphe.patches.youtube.utils.resourceid.seeMoreProceedingHeader
 import app.morphe.patches.youtube.utils.resourceid.voiceSearch
 import app.morphe.patches.youtube.utils.resourceid.youTubeLogo
-import app.morphe.patches.youtube.utils.resourceid.ytOutlineVideoCamera
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
@@ -144,11 +142,6 @@ internal val attributeResolverFingerprint = legacyFingerprint(
     strings = listOf("Type of attribute is not a reference to a drawable (attr = %d, value = %s)")
 )
 
-internal val createButtonDrawableFingerprint = legacyFingerprint(
-    name = "createButtonDrawableFingerprint",
-    literals = listOf(ytOutlineVideoCamera),
-)
-
 /**
  * Matches using the class found in [searchSuggestionCollectionFingerprint].
  */
@@ -204,16 +197,6 @@ internal fun indexOfAddViewInstruction(method: Method) =
         opcode == Opcode.INVOKE_VIRTUAL &&
                 getReference<MethodReference>()?.name == "addView"
     }
-
-/**
- * This fingerprint is compatible with YouTube v19.07.40+
- */
-internal val imageSearchButtonConfigFingerprint = legacyFingerprint(
-    name = "imageSearchButtonConfigFingerprint",
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    literals = listOf(45617544L),
-)
 
 internal val searchSuggestionEndpointFingerprint = legacyFingerprint(
     name = "searchSuggestionEndpointFingerprint",
@@ -279,7 +262,7 @@ private object SearchSuggestionEndpointConstructorFingerprint : Fingerprint(
     strings = listOf("\u2026 "),
 )
 
-internal object SearchSuggestionEndpoint20_21Fingerprint : Fingerprint(
+internal object SearchSuggestionEndpoint2021Fingerprint : Fingerprint(
     classFingerprint = SearchSuggestionEndpointConstructorFingerprint,
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Z",
@@ -406,12 +389,6 @@ internal object SearchRequestLoaderFingerprint : Fingerprint(
                             "Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V"
                 } >= 0
     },
-)
-
-internal val toolbarSearchButtonLabelFingerprint = legacyFingerprint(
-    name = "toolbarSearchButtonLabelFingerprint",
-    returnType = "Ljava/lang/CharSequence;",
-    literals = listOf(menuSearch),
 )
 
 internal val voiceInputControllerParentFingerprint = legacyFingerprint(

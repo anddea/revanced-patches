@@ -1,7 +1,6 @@
-package app.morphe.extension.shared;
+package app.morphe.extension.shared.utils;
 
 import androidx.annotation.NonNull;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,5 +55,9 @@ public enum ResourceType {
 
     ResourceType(String type) {
         this.type = type;
+    }
+
+    public final String getType() {
+        return type;
     }
 }

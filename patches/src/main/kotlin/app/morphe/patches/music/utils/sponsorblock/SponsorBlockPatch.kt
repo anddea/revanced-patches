@@ -112,7 +112,6 @@ private val sponsorBlockBytecodePatch = bytecodePatch(
             )
         }
 
-
         /**
          * Responsible for seekbar in player
          */

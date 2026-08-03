@@ -1,9 +1,9 @@
 package app.morphe.extension.shared.spoof.js.nsigsolver.provider;
 
-import app.morphe.extension.shared.spoof.js.nsigsolver.common.CacheService;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import app.morphe.extension.shared.spoof.js.nsigsolver.common.CacheService;
 
 public abstract class JsChallengeProvider {
     protected final CacheService cacheService = CacheService.getInstance();

@@ -134,8 +134,6 @@ val navigationBarComponentsPatch = bytecodePatch(
             )
         }
 
-
-
         /**
          * Enable custom navigation bar color
          */

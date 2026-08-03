@@ -442,7 +442,8 @@ val settingsPatch = resourcePatch(
             generalExperimentalSettings += "SETTINGS: DISABLE_BOLD_ICONS"
         }
         ResourceUtils.addPreference(
-            generalExperimentalSettings.toTypedArray()
+            generalExperimentalSettings.toTypedArray(),
+            SETTINGS_FOR_YOUTUBE
         )
 
         document(ResourceUtils.YOUTUBE_SETTINGS_PATH).use { document ->

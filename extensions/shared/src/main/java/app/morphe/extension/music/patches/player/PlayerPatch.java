@@ -62,10 +62,10 @@ import java.util.Arrays;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.music.shared.VideoType;
 import app.morphe.extension.music.utils.VideoUtils;
-import app.morphe.extension.shared.ResourceType;
-import app.morphe.extension.shared.ResourceUtils;
 import app.morphe.extension.shared.settings.StringSetting;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceType;
+import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})

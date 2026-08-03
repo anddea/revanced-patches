@@ -237,36 +237,15 @@ public class ResourceUtils extends Utils {
         return getResources().openRawResource(identifier);
     }
 
-    private static void handleException(@NonNull String str, ResourceType resourceType) {
-        Logger.printException(() -> "R." + resourceType.getType() + "." + str + " is null");
+    public static int getIdentifierOrThrow(@NonNull String name, @NonNull ResourceType resourceType) {
+        int identifier = getIdentifier(name, resourceType);
+        if (identifier == 0) {
+            throw new IllegalArgumentException("Resource not found: " + resourceType + " " + name);
+        }
+        return identifier;
     }
 
-    public enum ResourceType {
-        ANIM("anim"),
-        ARRAY("array"),
-        ATTR("attr"),
-        COLOR("color"),
-        DIMEN("dimen"),
-        DRAWABLE("drawable"),
-        FONT("font"),
-        ID("id"),
-        INTEGER("integer"),
-        LAYOUT("layout"),
-        MENU("menu"),
-        MIPMAP("mipmap"),
-        RAW("raw"),
-        STRING("string"),
-        STYLE("style"),
-        XML("xml");
-
-        private final String type;
-
-        ResourceType(String type) {
-            this.type = type;
-        }
-
-        public final String getType() {
-            return type;
-        }
+    private static void handleException(@NonNull String str, ResourceType resourceType) {
+        Logger.printException(() -> "R." + resourceType.getType() + "." + str + " is null");
     }
 }

@@ -1,7 +1,7 @@
 package app.morphe.extension.shared.settings.preference;
 
-import static app.morphe.extension.shared.StringRef.str;
 import static app.morphe.extension.shared.oauth2.requests.OAuth2Requester.isActivationCodeDataAvailable;
+import static app.morphe.extension.shared.utils.StringRef.str;
 
 import android.app.Activity;
 import android.app.Application;
@@ -15,14 +15,14 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
 import app.morphe.extension.shared.oauth2.object.AccessTokenData;
 import app.morphe.extension.shared.oauth2.object.ActivationCodeData;
 import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.ui.CustomDialog;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("deprecation")
 public abstract class OAuth2Preference extends Preference implements Preference.OnPreferenceClickListener {

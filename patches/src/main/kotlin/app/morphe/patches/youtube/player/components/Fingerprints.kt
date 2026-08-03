@@ -12,7 +12,6 @@ package app.morphe.patches.youtube.player.components
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
-import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
@@ -314,20 +313,6 @@ internal val infoCardsIncognitoFingerprint = legacyFingerprint(
     parameters = listOf("L", "J"),
     opcodes = listOf(Opcode.IGET_BOOLEAN),
     strings = listOf("vibrator")
-)
-
-internal object LinearLayoutManagerItemCountsFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.FINAL),
-    returnType = "I",
-    parameters = listOf("L", "L", "L", "Z"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.IF_NEZ,
-        Opcode.IF_LEZ,
-        Opcode.INVOKE_VIRTUAL,
-    ),
-    custom = { method, _ ->
-        method.definingClass == "Landroid/support/v7/widget/LinearLayoutManager;"
-    },
 )
 
 internal object RelatedItemSectionFingerprint : Fingerprint(

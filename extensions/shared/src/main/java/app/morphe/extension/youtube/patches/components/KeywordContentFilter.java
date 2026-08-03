@@ -270,7 +270,6 @@ public final class KeywordContentFilter extends Filter {
         return false;
     }
 
-
     /**
      * @return If the phrase will hide all videos. Not an exhaustive check.
      */

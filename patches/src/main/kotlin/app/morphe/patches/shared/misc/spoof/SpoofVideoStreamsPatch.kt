@@ -28,6 +28,7 @@ import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMuta
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
 import app.morphe.patches.shared.misc.media.mediaFetchPlayerConfigPatch
+import app.morphe.patches.youtube.utils.patch.PatchList.SPOOF_VIDEO_STREAMS
 import app.morphe.util.ResourceGroup
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
@@ -83,8 +84,8 @@ internal fun spoofVideoStreamsPatch(
     block: BytecodePatchBuilder.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
-    name = "Spoof video streams",
-    description = "Adds options to spoof the client video streams to fix playback."
+    name = SPOOF_VIDEO_STREAMS.title,
+    description = SPOOF_VIDEO_STREAMS.summary,
 ) {
     block()
 
@@ -389,7 +390,7 @@ internal fun spoofVideoStreamsPatch(
         }
 
         if (fixReelItemWatchResponseFeatureFlag()) {
-            ReelItemWatchResponseFeatureFlagFingerprint.let {
+            ReelItemWatchResponseFeatureFlagFingerprint.matchAll().forEach {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS->useReelItemWatchResponseFeatureFlag(Z)Z"

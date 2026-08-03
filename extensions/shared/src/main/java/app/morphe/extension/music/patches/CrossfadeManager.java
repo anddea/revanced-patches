@@ -6,7 +6,7 @@
  */
 package app.morphe.extension.music.patches;
 
-import static app.morphe.extension.shared.StringRef.str;
+import static app.morphe.extension.shared.utils.StringRef.str;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -44,8 +44,8 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import app.morphe.extension.music.settings.Settings;
-import app.morphe.extension.shared.Utils;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 /**
  * Player-swap crossfade manager for YouTube Music.
@@ -3006,7 +3006,6 @@ public class CrossfadeManager {
         }
     }
 
-
     /**
      * Walks the delegate chain from the last known atad instance looking for a
      * {@link VideoToggleAccess} node (the nba class). Updates {@link #lastNbaRef} on success.
@@ -3044,7 +3043,6 @@ public class CrossfadeManager {
         logWarn(()-> "findNbaInChain: nba not found in delegate chain — audio/video mode unknown");
         return null;
     }
-
 
     private static void forceAudioModeIfNeeded() {
         Object nba = lastNbaRef.get();
