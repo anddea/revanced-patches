@@ -47,7 +47,6 @@ val translationsPatch = resourcePatch(
             The path to the 'strings.xml' file.
             Please note that applying the 'strings.xml' file will overwrite all existing translations.
             """.trimIndent(),
-        required = true,
     )
 
     val selectedTranslations by stringOption(
