@@ -575,7 +575,6 @@ public class ReturnYouTubeDislikePatch {
 
             RegularActionButtonAnchors anchors = findRegularActionButtonAnchors(decorViewRoot);
             if (anchors == null) {
-                hideTrackedRegularActionButtonCountLabels();
                 ensureRegularActionButtonCountSearchUpdates(decorViewRoot);
                 return;
             }
@@ -584,8 +583,8 @@ public class ReturnYouTubeDislikePatch {
             updateUserVoteAndParseLikes(currentData, anchors);
             Long newLikes = VideoInformation.getOriginalLikeCount();
             if (!Objects.equals(oldLikes, newLikes)) {
-                regularLikeActionButtonCountText = null;
-                regularDislikeActionButtonCountText = null;
+                regularLikeActionButtonCountText = currentData.getLikeSpanForRegularVideoActionButton(ACTION_BUTTON_COUNT_PLACEHOLDER);
+                regularDislikeActionButtonCountText = currentData.getDislikeSpanForRegularVideoActionButton(ACTION_BUTTON_COUNT_PLACEHOLDER);
                 synchronized (ReturnYouTubeDislikePatch.class) {
                     regularActionButtonCountFetchVideoId = null;
                 }
@@ -642,14 +641,7 @@ public class ReturnYouTubeDislikePatch {
             return null;
         }
 
-        RegularActionButtonAnchors tagAnchors = findRegularActionButtonAnchorsByTag(root);
-        if (tagAnchors != null) {
-            // Logger.printDebug(() -> "findRegularActionButtonAnchors: matched pair via tag: like=" + tagAnchors.likeButton() + ", dislike=" + tagAnchors.dislikeButton());
-            return tagAnchors;
-        }
-
-        // Logger.printDebug(() -> "findRegularActionButtonAnchors: no anchor pair found");
-        return null;
+        return findRegularActionButtonAnchorsByTag(root);
     }
 
     @Nullable
@@ -682,7 +674,7 @@ public class ReturnYouTubeDislikePatch {
         if (likeButton != null && dislikeButton != null) {
             final View finalLike = likeButton;
             final View finalDislike = dislikeButton;
-            // Logger.printDebug(() -> "findRegularActionButtonAnchorsByTag: matched anchors by Litho tag! like=" + finalLike + ", dislike=" + finalDislike);
+            // Logger.printDebug(() -> "findRegularActionButtonAnchorsByTag: matched anchors by Litho tag: like=" + finalLike + ", dislike=" + finalDislike);
             return new RegularActionButtonAnchors(likeButton, dislikeButton);
         }
 
@@ -699,13 +691,25 @@ public class ReturnYouTubeDislikePatch {
         return null;
     }
 
+    private static boolean isPlayerOverlayView(@Nullable View view) {
+        if (view == null) {
+            return false;
+        }
+
+        String className = view.getClass().getName();
+        return className.contains("YouTubePlayerOverlaysLayout");
+    }
+
     private static void collectTaggedVideoActionButtons(@Nullable View view, int tagId, @NonNull List<View> result) {
-        if (!isViewValid(view) || !isViewVisibleOnScreen(view) || isRegularActionButtonCountOverlay(view)) {
+        if (!isViewValid(view) || !isViewVisibleOnScreen(view) || isRegularActionButtonCountOverlay(view) || isPlayerOverlayView(view)) {
             return;
         }
 
         String tag = getElementAccessibilityTag(view, tagId);
         if (tag != null && (tag.contains("id.video.like") || tag.contains("id.video.dislike"))) {
+            final String finalTag = tag;
+            final View finalView = view;
+            // Logger.printDebug(() -> "collectTaggedVideoActionButtons: matched candidate button=" + finalView + ", tag=" + finalTag + ", parent=" + (finalView.getParent() != null ? finalView.getParent().getClass().getName() : "null"));
             result.add(view);
         }
 
