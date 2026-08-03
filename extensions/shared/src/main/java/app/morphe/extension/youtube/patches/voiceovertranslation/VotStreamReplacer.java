@@ -40,6 +40,8 @@
 
 package app.morphe.extension.youtube.patches.voiceovertranslation;
 
+import static app.morphe.extension.shared.utils.StringRef.str;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -55,11 +57,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import app.morphe.extension.shared.innertube.utils.StreamingDataOuterClassUtils;
-
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
-
-import static app.morphe.extension.shared.utils.StringRef.str;
 import app.morphe.extension.youtube.shared.VideoInformation;
 
 @SuppressWarnings("unused")

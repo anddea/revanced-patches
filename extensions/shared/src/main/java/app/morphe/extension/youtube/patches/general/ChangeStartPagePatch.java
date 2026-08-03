@@ -1,14 +1,18 @@
 package app.morphe.extension.youtube.patches.general;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 import android.content.Intent;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.util.List;
+
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.settings.Settings;
-import java.util.List;
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 @SuppressWarnings("unused")
 public final class ChangeStartPagePatch {

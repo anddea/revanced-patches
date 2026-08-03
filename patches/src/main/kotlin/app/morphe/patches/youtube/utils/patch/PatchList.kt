@@ -193,9 +193,17 @@ internal enum class PatchList(
         "Overlay buttons",
         "Adds options to display useful overlay buttons in the video player."
     ),
+    PLAYBACK_IN_FEEDS(
+        "Playback in feeds",
+        "Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it."
+    ),
     PLAYER_COMPONENTS(
         "Player components",
         "Adds options to hide or change components related to the video player."
+    ),
+    RELOAD_VIDEO(
+        "Reload video",
+        "Adds an option to display a button in the video player to reload the current video."
     ),
     REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS(
         "Remove background playback restrictions",
@@ -249,6 +257,10 @@ internal enum class PatchList(
         "Spoof app version",
         "Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features."
     ),
+    SPOOF_VIDEO_STREAMS(
+        "Spoof video streams",
+        "Adds options to spoof the client video streams to fix playback."
+    ),
     SWIPE_CONTROLS(
         "Swipe controls",
         "Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player."
@@ -280,5 +292,9 @@ internal enum class PatchList(
     WATCH_HISTORY(
         "Spoof watch history",
         "Adds an option to change the domain of the watch history or check its status."
+    ),
+    WIDE_SEARCH_BAR(
+        "Wide search bar",
+        "Adds a wide search bar to the top of the home and subscription feed."
     )
 }

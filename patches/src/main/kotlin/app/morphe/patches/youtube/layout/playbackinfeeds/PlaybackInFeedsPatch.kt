@@ -13,6 +13,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
+import app.morphe.patches.youtube.utils.patch.PatchList.PLAYBACK_IN_FEEDS
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -30,9 +31,8 @@ private const val EXTENSION_CONTROLLER_INTERFACE =
 
 @Suppress("unused")
 val playbackInFeedsPatch = bytecodePatch(
-    name = "Playback in feeds",
-    description = "Adds the 'Playback in feeds' setting of YouTube to the Morphe settings, " +
-            "where it is always available even if YouTube hides it."
+    name = PLAYBACK_IN_FEEDS.title,
+    description = PLAYBACK_IN_FEEDS.summary,
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -46,7 +46,8 @@ val playbackInFeedsPatch = bytecodePatch(
             arrayOf(
                 "PREFERENCE_SCREEN: FEED",
                 "SETTINGS: PLAYBACK_IN_FEEDS"
-            )
+            ),
+            PLAYBACK_IN_FEEDS
         )
 
         // The class is found using the setting of YouTube itself,

@@ -116,7 +116,6 @@ internal object ResourceUtils {
         )
     }
 
-
     private fun setPreferenceCategory(newCategory: String) {
         CategoryType.entries.forEach { preference ->
             if (newCategory == preference.value)

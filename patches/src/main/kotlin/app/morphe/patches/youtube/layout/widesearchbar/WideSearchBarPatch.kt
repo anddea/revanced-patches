@@ -7,11 +7,11 @@
 
 package app.morphe.patches.youtube.layout.widesearchbar
 
-import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
+import app.morphe.patches.youtube.utils.patch.PatchList.WIDE_SEARCH_BAR
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -26,8 +26,8 @@ private const val EXTENSION_CLASS = "Lapp/morphe/extension/youtube/patches/WideS
 
 @Suppress("unused")
 val wideSearchBarPatch = bytecodePatch(
-    name = "Wide search bar",
-    description = "Adds a wide search bar to the top of the home and subscription feed."
+    name = WIDE_SEARCH_BAR.title,
+    description = WIDE_SEARCH_BAR.summary,
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -45,7 +45,8 @@ val wideSearchBarPatch = bytecodePatch(
             arrayOf(
                 "PREFERENCE_SCREEN: GENERAL",
                 "SETTINGS: ENABLE_WIDE_SEARCH_BAR"
-            )
+            ),
+            WIDE_SEARCH_BAR
         )
 
         if (!is_20_31_or_greater) {

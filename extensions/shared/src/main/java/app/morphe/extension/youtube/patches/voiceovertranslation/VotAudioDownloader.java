@@ -54,11 +54,9 @@ import java.util.Map;
 
 import app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.Format;
 import app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse;
-import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.requests.StreamOrDetailsDataRequest;
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.youtube.shared.VideoInformation;
 
 final class VotAudioDownloader {
     private static final int CHUNK_SIZE_BYTES = 5_295_308;

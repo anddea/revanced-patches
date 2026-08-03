@@ -35,10 +35,10 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
+import app.morphe.extension.shared.settings.IntegerSetting;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
-import app.morphe.extension.shared.settings.IntegerSetting;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Accessibility;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.AccessibilityData;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonRenderer;
@@ -123,7 +123,6 @@ public final class NavigationButtonsPatch {
     private static int emptyContentCountId = -1;
     private static int emptyContentDotId = -1;
     private static int libraryCairoId = -1;
-
 
     /**
      * Injection point.

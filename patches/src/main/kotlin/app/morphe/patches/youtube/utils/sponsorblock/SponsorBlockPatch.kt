@@ -28,9 +28,14 @@ import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.information.videoTimeHook
 import app.morphe.util.ResourceGroup
 import app.morphe.util.copyResources
-import app.morphe.util.*
+import app.morphe.util.doRecursively
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -70,7 +75,6 @@ val sponsorBlockBytecodePatch = bytecodePatch(
             EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
             "initialize"
         )
-
 
         seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint).apply {
             // Get left and right of seekbar rectangle
@@ -261,7 +265,7 @@ val sponsorBlockPatch = resourcePatch(
         }
 
         /**
-         * merge xml nodes from the host to their real xml files
+         * merge XML nodes from the host to their real XML files
          */
         addTopControl(
             "youtube/sponsorblock/shared",

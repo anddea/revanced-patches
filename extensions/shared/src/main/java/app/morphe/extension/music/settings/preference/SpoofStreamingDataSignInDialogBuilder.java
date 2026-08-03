@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 
 import app.morphe.extension.shared.patches.auth.YouTubeAuthPatch;
-import app.morphe.extension.shared.patches.auth.YouTubeVRAuthPatch;
 import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Utils;
 

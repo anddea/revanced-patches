@@ -15,13 +15,13 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.Locale;
 
-import app.morphe.extension.shared.Logger;
 import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.js.JavaScriptManager;
+import app.morphe.extension.shared.utils.Logger;
 
 public final class PlayerRoutes {
 

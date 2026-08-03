@@ -61,7 +61,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.os.Build;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -69,6 +68,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.text.InputType;
 import android.util.Pair;
 import android.view.MenuItem;
@@ -98,9 +98,9 @@ import androidx.annotation.NonNull;
 import com.google.android.apps.youtube.app.application.Shell_SettingsActivity;
 import com.google.android.apps.youtube.app.settings.SettingsActivity;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -108,6 +108,7 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -120,7 +121,6 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.function.IntSupplier;
-import java.nio.charset.StandardCharsets;
 
 import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.requests.Route;
@@ -128,6 +128,7 @@ import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.PackageUtils;
+import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.innertube.ConfigResponseOuterClass.ConfigResponse;
@@ -602,7 +603,7 @@ public class GeneralPatch {
 
     private static String[] getAccountMenuBlockList(Context mContext) {
         if (accountMenuBlockList == null) {
-            int settingsIdentifier = ResourceUtils.getIdentifier("settings", ResourceUtils.ResourceType.STRING, mContext);
+            int settingsIdentifier = ResourceUtils.getIdentifier("settings", ResourceType.STRING, mContext);
             if (settingsIdentifier != 0) {
                 String settings = mContext.getResources().getString(settingsIdentifier);
                 accountMenuBlockList = Settings.HIDE_ACCOUNT_MENU_FILTER_STRINGS.get().split("\\n");
@@ -1708,7 +1709,6 @@ public class GeneralPatch {
         base.setTheme(ThemeUtils.getThemeId());
         Utils.runOnMainThreadDelayed(base::finish, 0);
     }
-
 
     private static boolean isCreateButton(String enumString) {
         return StringUtils.equalsAny(

@@ -2,9 +2,8 @@ package app.morphe.extension.music.settings.preference;
 
 import android.content.Context;
 import android.util.AttributeSet;
-
-import app.morphe.extension.shared.settings.preference.OAuth2Preference;
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.shared.settings.preference.OAuth2Preference;
 
 @SuppressWarnings("unused")
 public final class SpoofVideoStreamsSignInPreference extends OAuth2Preference {
@@ -20,7 +19,6 @@ public final class SpoofVideoStreamsSignInPreference extends OAuth2Preference {
     public SpoofVideoStreamsSignInPreference(Context context) {
         super(context);
     }
-
 
     public SpoofVideoStreamsSignInPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);

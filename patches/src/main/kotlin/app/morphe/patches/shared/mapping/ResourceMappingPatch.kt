@@ -79,7 +79,6 @@ fun resourceLiteral(
     location : InstructionLocation = InstructionLocation.MatchAfterAnywhere()
 ) = literal({ getResourceId(type, name) }, null, location)
 
-
 val resourceMappingPatch = resourcePatch {
     execute {
         // Use a stream of the file, since no modifications are done

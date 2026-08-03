@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
  *
  * @param extensionMethod Method descriptor to invoke, without the register list.
  */
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal fun Fingerprint.hookMediaSessionArgument(extensionMethod: String) {
     // Several patches hook the same call, and each insertion shifts the index of
     // the following ones, so the match is resolved again on every call.

@@ -40,6 +40,10 @@
 
 package app.morphe.extension.youtube.utils;
 
+import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.shared.utils.Utils.showToastLong;
+import static app.morphe.extension.shared.utils.Utils.showToastShort;
+
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -54,15 +58,11 @@ import android.text.style.ClickableSpan;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
+
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.morphe.extension.shared.settings.AppLanguage;
-import app.morphe.extension.shared.ui.SheetBottomDialog;
-import app.morphe.extension.shared.utils.IntentUtils;
-import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.youtube.settings.Settings;
-import app.morphe.extension.youtube.shared.VideoInformation;
+
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
@@ -72,7 +72,13 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -81,9 +87,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static app.morphe.extension.shared.utils.StringRef.str;
-import static app.morphe.extension.shared.utils.Utils.showToastLong;
-import static app.morphe.extension.shared.utils.Utils.showToastShort;
+import app.morphe.extension.shared.settings.AppLanguage;
+import app.morphe.extension.shared.ui.SheetBottomDialog;
+import app.morphe.extension.shared.utils.IntentUtils;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.shared.VideoInformation;
 
 /**
  * Manages Gemini API operations (Summarization, Transcription) and Yandex VOT Transcription.

@@ -3,7 +3,10 @@ package com.dragons.aurora.playstoreapiv2;
 import static com.dragons.aurora.playstoreapiv2.PackageNameUtil.getGmsCorePackageName;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * @author akdeniz, yeriomin, whyorean

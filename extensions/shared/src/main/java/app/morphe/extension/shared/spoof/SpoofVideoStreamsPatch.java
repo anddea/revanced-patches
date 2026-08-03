@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import app.morphe.extension.shared.Logger;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.spoof.requests.StreamOrDetailsDataRequest;
+import app.morphe.extension.shared.utils.Logger;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {

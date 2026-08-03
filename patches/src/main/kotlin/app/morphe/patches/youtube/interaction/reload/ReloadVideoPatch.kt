@@ -14,6 +14,7 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_RELOAD_VIDEO
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityFingerprint
+import app.morphe.patches.youtube.utils.patch.PatchList.RELOAD_VIDEO
 import app.morphe.patches.youtube.utils.playercontrols.addTopControl
 import app.morphe.patches.youtube.utils.playercontrols.injectControl
 import app.morphe.patches.youtube.utils.playercontrols.playerControlsPatch
@@ -48,7 +49,8 @@ private val reloadVideoResourcePatch = resourcePatch {
                     "PREFERENCE_SCREEN: PLAYER",
                     "PREFERENCE_SCREENS: PLAYER_BUTTONS",
                     "SETTINGS: RELOAD_VIDEO",
-                )
+                ),
+                RELOAD_VIDEO
             )
 
             copyResources(
@@ -73,8 +75,8 @@ private const val EXTENSION_PLAYER_INTERFACE =
 
 @Suppress("unused")
 val reloadVideoPatch = bytecodePatch(
-    name = "Reload video",
-    description = "Adds an option to display a button in the video player to reload the current video.",
+    name = RELOAD_VIDEO.title,
+    description = RELOAD_VIDEO.summary,
 ) {
     dependsOn(
         reloadVideoResourcePatch,

@@ -1,5 +1,7 @@
 package app.morphe.extension.shared.settings;
 
+import static app.morphe.extension.shared.utils.Utils.getResourceIdentifierOrThrow;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -16,8 +18,6 @@ import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.utils.ThemeUtils;
-
-import static app.morphe.extension.shared.utils.Utils.getResourceIdentifierOrThrow;
 
 /**
  * Base class for hooking activities to inject a custom PreferenceFragment with a toolbar.

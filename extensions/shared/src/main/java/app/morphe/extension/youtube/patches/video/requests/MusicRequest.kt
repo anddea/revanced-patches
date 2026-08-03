@@ -52,8 +52,8 @@ import app.morphe.extension.shared.innertube.requests.InnerTubeRoutes.GET_PLAYLI
 import app.morphe.extension.shared.requests.Requester
 import app.morphe.extension.shared.utils.Logger
 import app.morphe.extension.shared.utils.Utils
-import app.morphe.extension.youtube.shared.VideoInformation
 import app.morphe.extension.youtube.patches.video.PlaybackSpeedPatch
+import app.morphe.extension.youtube.shared.VideoInformation
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException

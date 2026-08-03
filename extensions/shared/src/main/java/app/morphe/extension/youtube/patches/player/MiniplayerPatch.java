@@ -12,6 +12,7 @@ import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.validateValue;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DEFAULT;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DISABLED;
+import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MINIMAL;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_1;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_2;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_3;
@@ -22,7 +23,6 @@ import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREAT
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_29_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_21_17_OR_GREATER;
-import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MINIMAL;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -442,7 +442,6 @@ public final class MiniplayerPatch {
 
         return DRAG_AND_DROP_ENABLED;
     }
-
 
     /**
      * Injection point.

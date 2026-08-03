@@ -10,8 +10,8 @@ import androidx.annotation.Nullable;
 
 import java.util.Objects;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 /**
  * Shared categories, and helper methods.

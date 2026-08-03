@@ -145,7 +145,6 @@ val changeTogglePatch = bytecodePatch(
             }
         }
 
-
         val additionalSettingsConfigMethod =
             additionalSettingsConfigFingerprint.methodOrThrow()
         val methodToCall =

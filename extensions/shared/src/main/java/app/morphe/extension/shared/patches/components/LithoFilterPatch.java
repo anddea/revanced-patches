@@ -48,9 +48,9 @@ import java.util.Map;
 
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.PackageUtils;
 import app.morphe.extension.shared.utils.StringTrieSearch;
 import app.morphe.extension.shared.utils.Utils;
-import app.morphe.extension.shared.utils.PackageUtils;
 
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {

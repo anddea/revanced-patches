@@ -29,8 +29,8 @@ import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.shared.mainactivity.getMainActivityMethod
 import app.morphe.util.ResourceGroup
 import app.morphe.util.adoptChild
-import app.morphe.util.getReference
 import app.morphe.util.copyResources
+import app.morphe.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -41,8 +41,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import java.util.logging.Logger
 import org.w3c.dom.Element
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS =
     "Lapp/morphe/extension/music/patches/CrossfadeManager;"
@@ -154,7 +154,6 @@ private fun MutableClass.addFieldSetter(
         }
     )
 }
-
 
 /**
  * Ships the crossfade About-screen header graphic: the banner WebP drawable and the
@@ -480,7 +479,6 @@ val crossfadePatch = bytecodePatch(
             return false
         }
 
-
         val loadControlType = factoryMethod.parameterTypes[1].toString()
         val loadControlField = coordinatorClass.fields.singleOrNull {
             it.type == loadControlType
@@ -757,7 +755,6 @@ val crossfadePatch = bytecodePatch(
                     } ?: false
             }
         ).method.name
-
 
         val getDurationName = Fingerprint(
             returnType = "J",

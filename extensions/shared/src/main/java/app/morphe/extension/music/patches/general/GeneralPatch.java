@@ -124,7 +124,6 @@ public class GeneralPatch {
         view.setVisibility(View.GONE);
     }
 
-
     // endregion
 
     // region [Hide overlay filter] patch

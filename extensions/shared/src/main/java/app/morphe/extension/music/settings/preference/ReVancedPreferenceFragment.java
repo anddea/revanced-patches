@@ -18,8 +18,8 @@ import static app.morphe.extension.music.settings.Settings.REPLACE_NAVIGATION_BU
 import static app.morphe.extension.music.settings.Settings.RETURN_YOUTUBE_USERNAME_ABOUT;
 import static app.morphe.extension.music.settings.Settings.SB_API_URL;
 import static app.morphe.extension.music.settings.Settings.SETTINGS_IMPORT_EXPORT;
-import static app.morphe.extension.music.settings.Settings.SPOOF_APP_VERSION_TARGET;
 import static app.morphe.extension.music.settings.Settings.SPOOF_APP_VERSION_FOR_LYRICS_TARGET;
+import static app.morphe.extension.music.settings.Settings.SPOOF_APP_VERSION_TARGET;
 import static app.morphe.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE;
 import static app.morphe.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT;
 import static app.morphe.extension.music.settings.Settings.WATCH_HISTORY_TYPE;
@@ -82,7 +82,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     private static final int WRITE_REQUEST_CODE = 43;
 
     private static String existingSettings;
-
 
     public ReVancedPreferenceFragment() {
     }

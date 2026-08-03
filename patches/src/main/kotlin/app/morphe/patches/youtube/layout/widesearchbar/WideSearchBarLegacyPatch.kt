@@ -52,7 +52,7 @@ private fun MutableMethod.injectSearchBarHook(
 /**
  * Applies the previous wide-search implementation required by YouTube versions below 20.31.
  */
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal fun applyLegacyWideSearchBar() {
     // Limitation: Premium header will not be applied for YouTube Premium users if the user uses the
     // 'Wide search bar with header' option. 'Change YouTube header' is required as a workaround.

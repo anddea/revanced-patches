@@ -7,7 +7,6 @@ import app.morphe.extension.shared.utils.ResourceUtils
 import app.morphe.extension.shared.utils.Utils
 import java.lang.ref.WeakReference
 
-
 class PlayerControlButton(
     controlsViewGroup: View,
     imageViewButtonId: String,
@@ -227,7 +226,6 @@ class PlayerControlButton(
             }
         }
     }
-
 
     fun hide() {
         if (!isVisible) return

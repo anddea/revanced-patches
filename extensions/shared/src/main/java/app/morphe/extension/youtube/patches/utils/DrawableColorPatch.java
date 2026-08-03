@@ -43,5 +43,3 @@ public class DrawableColorPatch {
         return whiteColor;
     }
 }
-
-

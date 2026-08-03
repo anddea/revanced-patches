@@ -8,7 +8,7 @@
 
 package app.morphe.extension.youtube.settings.preference;
 
-import static app.morphe.extension.shared.StringRef.str;
+import static app.morphe.extension.shared.utils.StringRef.str;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,12 +18,12 @@ import android.util.AttributeSet;
 
 import androidx.annotation.Nullable;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.preference.BulletPointPreference;
 import app.morphe.extension.shared.spoof.ClientType;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})

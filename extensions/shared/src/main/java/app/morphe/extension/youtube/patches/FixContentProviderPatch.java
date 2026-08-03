@@ -2,7 +2,7 @@ package app.morphe.extension.youtube.patches;
 
 import java.util.Map;
 
-import app.morphe.extension.shared.Logger;
+import app.morphe.extension.shared.utils.Logger;
 
 @SuppressWarnings("unused")
 public class FixContentProviderPatch {

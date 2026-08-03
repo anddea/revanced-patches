@@ -61,7 +61,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import app.morphe.extension.youtube.utils.GeminiManager;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.ref.WeakReference;
@@ -71,6 +70,7 @@ import java.util.Objects;
 
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.components.ShortsCustomActionsFilter;
@@ -78,6 +78,7 @@ import app.morphe.extension.youtube.patches.utils.PatchStatus;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
+import app.morphe.extension.youtube.utils.GeminiManager;
 import app.morphe.extension.youtube.utils.VideoUtils;
 
 @SuppressWarnings("unused")
@@ -85,9 +86,9 @@ public final class CustomActionsPatch {
     private static final boolean IS_SPOOFING_TO_YOUTUBE_2023 =
             isSpoofingToLessThan("19.00.00");
     private static final boolean SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED =
-            !IS_SPOOFING_TO_YOUTUBE_2023 && Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU.get();
+            isFlyoutMenuEnabled();
     private static final boolean SHORTS_CUSTOM_ACTIONS_TOOLBAR_ENABLED =
-            Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR.get();
+            isToolbarEnabled();
 
     private static final int arrSize = CustomAction.values().length;
     private static final Map<CustomAction, Object> flyoutMenuMap = new LinkedHashMap<>(arrSize);
@@ -299,6 +300,22 @@ public final class CustomActionsPatch {
         return count;
     }
 
+    /**
+     * Custom action hooks must remain inactive when no action can be used. In particular, the
+     * Shorts VOT action has its own setting but must also respect the global VOT setting.
+     */
+    public static boolean isFlyoutMenuEnabled() {
+        return !IS_SPOOFING_TO_YOUTUBE_2023
+                && Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU.get()
+                && getEnabledCustomActionsCount() > 0;
+    }
+
+    /** @see #isFlyoutMenuEnabled() */
+    public static boolean isToolbarEnabled() {
+        return Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR.get()
+                && getEnabledCustomActionsCount() > 0;
+    }
+
     private static void hideFlyoutMenu() {
         if (!SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED) {
             return;
@@ -310,7 +327,7 @@ public final class CustomActionsPatch {
 
         final int touchOutsideId = ResourceUtils.getIdentifier(
                 "touch_outside",
-                ResourceUtils.ResourceType.ID,
+                ResourceType.ID,
                 recyclerView.getContext()
         );
         if (touchOutsideId != 0) {

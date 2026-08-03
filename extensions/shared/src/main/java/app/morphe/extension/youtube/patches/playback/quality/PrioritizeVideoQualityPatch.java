@@ -1,6 +1,6 @@
 package app.morphe.extension.youtube.patches.playback.quality;
 
-import static app.morphe.extension.shared.Utils.isNotEmpty;
+import static app.morphe.extension.shared.utils.Utils.isNotEmpty;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
