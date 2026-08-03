@@ -1,3 +1,10 @@
+# [4.2.0-dev.10](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.9...v4.2.0-dev.10) (2026-08-03)
+
+
+### Bug Fixes
+
+* **YouTube & YT Music:** Remove required fields for some patch option types ([a54b9b6](https://github.com/anddea/revanced-patches/commit/a54b9b67f5c66148162896e7e0c8cdc2cc74b4ff))
+
 # [4.2.0-dev.9](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.8...v4.2.0-dev.9) (2026-07-31)
 
 
