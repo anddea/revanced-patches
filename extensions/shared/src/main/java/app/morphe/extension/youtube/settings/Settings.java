@@ -169,6 +169,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_EXPANDABLE_SHELF = new BooleanSetting("revanced_hide_expandable_shelf", TRUE);
     public static final BooleanSetting HIDE_FLOATING_BUTTON = new BooleanSetting("revanced_hide_floating_button", FALSE, true);
     public static final BooleanSetting HIDE_IMAGE_SHELF = new BooleanSetting("revanced_hide_image_shelf", TRUE);
+    public static final BooleanSetting HIDE_INVITE_TO_MESSAGE_CARD = new BooleanSetting("morphe_hide_invite_to_message_card", TRUE);
     public static final BooleanSetting HIDE_LATEST_POSTS = new BooleanSetting("revanced_hide_latest_posts", TRUE);
     public static final BooleanSetting HIDE_LATEST_VIDEOS_BUTTON = new BooleanSetting("revanced_hide_latest_videos_button", TRUE);
     public static final BooleanSetting HIDE_MIX_PLAYLISTS = new BooleanSetting("revanced_hide_mix_playlists", FALSE);
