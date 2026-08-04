@@ -1911,7 +1911,8 @@ public final class GeminiManager {
                 }
             }
         }
-        return map;
+        TreeMap<Long, Pair<Long, String>> splitMap = YandexVotUtils.splitLongSubtitleEntries(map);
+        return splitMap != null ? splitMap : map;
     }
 
     /**
