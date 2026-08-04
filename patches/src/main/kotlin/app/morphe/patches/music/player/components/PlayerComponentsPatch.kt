@@ -681,8 +681,12 @@ val playerComponentsPatch = bytecodePatch(
             thickSeekBarInflateFingerprint.methodOrThrow().apply {
                 val indexes = findInstructionIndicesReversed(filter)
 
-                thickSeekBarHook(indexes.first(), "changeSeekBarPosition")
-                thickSeekBarHook(indexes.last())
+                if (indexes.size > 1) {
+                    thickSeekBarHook(indexes.first(), "changeSeekBarPosition")
+                    thickSeekBarHook(indexes.last())
+                } else if (indexes.isNotEmpty()) {
+                    thickSeekBarHook(indexes.first())
+                }
             }
 
             if (is_7_29_or_greater) {
