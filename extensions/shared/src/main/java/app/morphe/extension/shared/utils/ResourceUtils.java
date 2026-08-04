@@ -136,6 +136,25 @@ public class ResourceUtils extends Utils {
         return getResources().getColor(identifier);
     }
 
+    public static int getColor(@NonNull String str, int defaultColor) {
+        if (str.startsWith("#")) {
+            try {
+                return Color.parseColor(str);
+            } catch (Exception e) {
+                return defaultColor;
+            }
+        }
+        final int identifier = getColorIdentifier(str);
+        if (identifier == 0) {
+            return defaultColor;
+        }
+        try {
+            return getResources().getColor(identifier);
+        } catch (Exception e) {
+            return defaultColor;
+        }
+    }
+
     public static int getDimension(@NonNull String str) {
         final int identifier = getDimenIdentifier(str);
         if (identifier == 0) {

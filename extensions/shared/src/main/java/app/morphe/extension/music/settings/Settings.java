@@ -10,6 +10,7 @@ import static app.morphe.extension.shared.utils.StringRef.str;
 import androidx.annotation.NonNull;
 
 import app.morphe.extension.music.patches.general.ChangeStartPagePatch.StartPage;
+import app.morphe.extension.music.patches.lyrics.LyricsSource;
 import app.morphe.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
 import app.morphe.extension.music.patches.CrossfadeManager.CrossFadeDuration;
 import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
@@ -23,6 +24,8 @@ import app.morphe.extension.shared.settings.LongSetting;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.StringSetting;
+import app.morphe.extension.shared.settings.preference.SeekBarPreference;
+import app.morphe.extension.shared.settings.preference.SeekBarPreference.SeekBarConfig;
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -194,6 +197,16 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting RESTORE_OLD_PLAYER_BACKGROUND = new BooleanSetting("revanced_restore_old_player_background", FALSE, true);
     public static final BooleanSetting RESTORE_OLD_PLAYER_LAYOUT = new BooleanSetting("revanced_restore_old_player_layout", FALSE, true);
 
+    // PreferenceScreen: Lyrics
+    public static final BooleanSetting LYRICS_ENABLED = new BooleanSetting("morphe_music_lyrics_enabled", FALSE, true);
+    public static final EnumSetting<LyricsSource> LYRICS_SOURCE = new EnumSetting<>("morphe_music_lyrics_source", LyricsSource.LRCLIB_THEN_KUGOU, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_TRANSLATE = new BooleanSetting("morphe_music_lyrics_translate", FALSE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_TAP_TO_SEEK = new BooleanSetting("morphe_music_lyrics_tap_to_seek", TRUE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_SHOW_COPY_BUTTON = new BooleanSetting("morphe_music_lyrics_show_copy_button", TRUE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_SHOW_TRANSLATE_BUTTON = new BooleanSetting("morphe_music_lyrics_show_translate_button", TRUE, true, parent(LYRICS_ENABLED));
+    public static final IntegerSetting LYRICS_TEXT_SIZE = new IntegerSetting("morphe_music_lyrics_text_size", 24, true, parent(LYRICS_ENABLED));
+    public static final IntegerSetting LYRICS_OFFSET_MS = new IntegerSetting("morphe_music_lyrics_offset_ms", 0, true, parent(LYRICS_ENABLED));
+
     // PreferenceScreen: Video
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds", "0.5\n0.8\n1.0\n1.2\n1.5\n1.8\n2.0", true);
     public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_LAST_SELECTED = new BooleanSetting("revanced_remember_playback_speed_last_selected", TRUE);
@@ -280,6 +293,15 @@ public class Settings extends SharedYouTubeSettings {
         // region SB import/export callbacks
 
         Setting.addImportExportCallback(SponsorBlockSettings.SB_IMPORT_EXPORT_CALLBACK);
+
+        // endregion
+
+        // region SeekBar preference registrations
+
+        SeekBarPreference.register(new SeekBarConfig(LYRICS_TEXT_SIZE,
+                14, 40, 2, "sp"));
+        SeekBarPreference.register(new SeekBarConfig(LYRICS_OFFSET_MS,
+                -2000, 2000, 100, "ms"));
 
         // endregion
     }
