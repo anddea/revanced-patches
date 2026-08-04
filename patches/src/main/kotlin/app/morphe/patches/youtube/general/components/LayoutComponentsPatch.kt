@@ -43,6 +43,8 @@ private const val CUSTOM_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/CustomFilter;"
 private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/LayoutComponentsFilter;"
+private const val EXPLORE_MENU_FILTER_CLASS_DESCRIPTOR =
+    "$COMPONENTS_PATH/ExploreMenuFilter;"
 
 @Suppress("unused")
 val layoutComponentsPatch = bytecodePatch(
@@ -220,6 +222,7 @@ val layoutComponentsPatch = bytecodePatch(
 
         addLithoFilter(CUSTOM_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
+        addLithoFilter(EXPLORE_MENU_FILTER_CLASS_DESCRIPTOR)
 
         // region add settings
 
