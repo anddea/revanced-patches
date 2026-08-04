@@ -6,6 +6,7 @@ internal enum class CategoryType(val value: String, var added: Boolean) {
     ACTION_BAR("action_bar", false),
     ADS("ads", false),
     FLYOUT("flyout", false),
+    LYRICS("lyrics", false),
     NAVIGATION("navigation", false),
     PLAYER("player", false),
     VIDEO("video", false),

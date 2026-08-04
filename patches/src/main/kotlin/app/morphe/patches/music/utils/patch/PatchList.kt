@@ -157,6 +157,10 @@ internal enum class PatchList(
         "Spoof app version for lyrics",
         "Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI."
     ),
+    THIRD_PARTY_LYRICS(
+        "Third-party lyrics",
+        "Adds an option to show synced lyrics from LRCLIB or KuGou in the lyrics panel."
+    ),
     TRANSLATIONS_FOR_YOUTUBE_MUSIC(
         "Translations for YouTube Music",
         "Add translations or remove string resources."

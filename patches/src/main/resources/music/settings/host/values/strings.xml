@@ -432,6 +432,7 @@ Please download %2$s from the website."</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>
     <string name="revanced_preference_screen_flyout_title">Flyout menu</string>
     <string name="revanced_preference_screen_general_title">General</string>
+    <string name="revanced_preference_screen_lyrics_title">Lyrics</string>
     <string name="revanced_preference_screen_misc_title">Miscellaneous</string>
     <string name="revanced_preference_screen_navigation_title">Navigation bar</string>
     <string name="revanced_preference_screen_player_title">Player</string>
@@ -699,4 +700,31 @@ Side effect (Block request):
     <string name="revanced_webview_toast_no_network">Please check your network connection.</string>
     <string name="revanced_webview_toast_unavailable">WebView is not available.</string>
     <string name="revanced_webview_visitor_data">Visitor Data</string>
+    <string name="morphe_music_lyrics_enabled_title">Use third-party lyrics</string>
+    <string name="morphe_music_lyrics_enabled_summary">Shows lyrics from a third-party service, falling back to the built-in lyrics when none are found</string>
+    <string name="morphe_music_lyrics_source_title">Lyrics service</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, then KuGou</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib" translatable="false">LRCLIB</string>
+    <string name="morphe_music_lyrics_source_entry_kugou" translatable="false">KuGou</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Tap a line to seek</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">Tapping a line jumps to that moment in the song</string>
+    <string name="morphe_music_lyrics_show_copy_button_title">Show Copy button</string>
+    <string name="morphe_music_lyrics_show_translate_button_title">Show Translate button</string>
+    <string name="morphe_music_lyrics_text_size_title">Text size</string>
+    <string name="morphe_music_lyrics_text_size_summary">Size of the lyrics text</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Timing offset</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">Shift synced lyrics forwards or backwards. Use a positive value if the lyrics run ahead of the song</string>
+    <string name="morphe_music_lyrics_source_label">Source: %s</string>
+    <string name="morphe_music_lyrics_translate_show">Translate</string>
+    <string name="morphe_music_lyrics_translate_hide">Show original</string>
+    <string name="morphe_music_lyrics_translating">Translating…</string>
+    <string name="morphe_music_lyrics_translate_failed">Could not translate the lyrics</string>
+    <string name="morphe_music_lyrics_copy">Copy</string>
+    <string name="morphe_music_lyrics_copied">Copied to clipboard</string>
+    <string name="morphe_music_lyrics_about_title">About third-party lyrics</string>
+    <string name="morphe_music_lyrics_about_summary">"Lyrics are looked up by track title and artist, so a track with unusual metadata may find nothing, or find the wrong version
+
+Synced lyrics follow playback. If they drift, adjust the timing offset
+
+When no third-party lyrics are found, the built-in lyrics are shown instead"</string>
 </resources>

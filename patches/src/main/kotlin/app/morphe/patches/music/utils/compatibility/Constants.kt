@@ -37,4 +37,17 @@ internal object Constants {
         COMPATIBILITY_YOUTUBE_MUSIC_SPOOF_APP_VERSION_FOR_LYRICS.excluding(
             "6.51.53",
         )
+
+    val COMPATIBILITY_YOUTUBE_MUSIC_THIRD_PARTY_LYRICS =
+        COMPATIBILITY_YOUTUBE_MUSIC.excluding(
+            "6.20.51",
+            "6.29.59",
+            "6.42.55",
+            "6.51.53",
+            "7.16.53",
+            "7.25.53",
+            "8.12.54",
+            "8.28.54",
+            "8.30.54",
+        )
 }

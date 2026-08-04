@@ -561,3 +561,14 @@ internal fun addLinkPreference(
     ResourceUtils.addPreferenceCategory(categoryValue)
     ResourceUtils.addLinkPreference(categoryValue, key, url)
 }
+
+internal fun addNonInteractivePreference(
+    category: CategoryType,
+    key: String,
+    dependencyKey: String = "",
+    setSummary: Boolean = true,
+) {
+    val categoryValue = category.value
+    ResourceUtils.addPreferenceCategory(categoryValue)
+    ResourceUtils.addNonInteractivePreference(categoryValue, key, dependencyKey, setSummary)
+}
