@@ -28,19 +28,46 @@
     <string name="morphe_disable_quic_protocol_summary_off">QUIC协议已启用</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC协议已禁用</string>
     <string name="morphe_disable_quic_protocol_title">禁用QUIC协议</string>
-    <string name="morphe_expand_livestream_dvr_duration_not_available">"'扩展直播录制时长'可能不可用
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"“扩展直播 DVR 时长”可能不可用
 
-要解决此问题，请启用“模拟视频流”并将“默认客户端”更改为“电视”"</string>
+要解决此问题，请打开“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">允许您将直播回放最多回放 7 天</string>
     <string name="morphe_expand_livestream_dvr_duration_title">扩展直播 DVR 时长</string>
+    <string name="morphe_explore_menu_screen_summary">选择在探索菜单中显示哪些组件</string>
+    <string name="morphe_explore_menu_screen_title">探索菜单</string>
     <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除 Android Studio 之外的任何客户端</string>
     <string name="morphe_force_original_audio_summary_off">正在使用默认音频</string>
     <string name="morphe_force_original_audio_summary_on">使用原始音频语言</string>
     <string name="morphe_force_original_audio_title">强制使用原始音频语言</string>
+    <string name="morphe_hide_courses_menu_title">隐藏课程菜单</string>
+    <string name="morphe_hide_explore_button_title">隐藏探索按钮</string>
+    <string name="morphe_hide_fashion_menu_title">隐藏“时尚与美妆”菜单</string>
+    <string name="morphe_hide_gaming_menu_title">隐藏游戏菜单</string>
+    <string name="morphe_hide_get_premium_button_title">隐藏“获取高级版”按钮</string>
+    <string name="morphe_hide_hype_menu_title">隐藏Hype菜单</string>
+    <string name="morphe_hide_invite_to_message_card_summary">隐藏在通知标签的消息部分显示的邀请卡片</string>
+    <string name="morphe_hide_invite_to_message_card_title">隐藏“邀请他人聊天”卡片</string>
+    <string name="morphe_hide_learning_menu_title">隐藏学习菜单</string>
+    <string name="morphe_hide_live_menu_title">隐藏直播菜单</string>
+    <string name="morphe_hide_memberships_menu_title">隐藏会员菜单</string>
+    <string name="morphe_hide_movies_menu_title">隐藏电影菜单</string>
+    <string name="morphe_hide_music_menu_title">隐藏“音乐与电视”菜单</string>
+    <string name="morphe_hide_news_menu_title">隐藏新闻菜单</string>
+    <string name="morphe_hide_playables_menu_title">隐藏Playables</string>
+    <string name="morphe_hide_podcasts_menu_title">隐藏播客菜单</string>
+    <string name="morphe_hide_privacy_tos_footer_title">隐藏法律和隐私页脚</string>
+    <string name="morphe_hide_shopping_menu_title">隐藏购物菜单</string>
+    <string name="morphe_hide_sports_menu_title">隐藏体育菜单</string>
     <string name="morphe_hide_sync_button_title">隐藏“同步到视频”按钮</string>
-    <string name="morphe_livestream_dvr_not_available">"'启用直播录制'可能不可用
+    <string name="morphe_hide_youtube_create_menu_title">隐藏YouTube Create菜单</string>
+    <string name="morphe_hide_youtube_kids_menu_title">隐藏YouTube Kids菜单</string>
+    <string name="morphe_hide_youtube_music_menu_title">隐藏YouTube Music菜单</string>
+    <string name="morphe_hide_youtube_premium_menu_title">隐藏YouTube Premium菜单</string>
+    <string name="morphe_hide_youtube_studio_menu_title">隐藏YouTube Studio菜单</string>
+    <string name="morphe_hide_youtube_works_menu_title">隐藏“YouTube 运作方式”菜单</string>
+    <string name="morphe_livestream_dvr_not_available">"“启用直播 DVR”可能不可用
 
-要解决此问题，请启用“模拟视频流”并将“默认客户端”更改为“电视”"</string>
+要修复此问题，请开启“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
     <string name="morphe_livestream_dvr_summary">允许在所有直播中寻求，即使那些通常限制它的直播</string>
     <string name="morphe_livestream_dvr_title">启用直播 DVR 功能</string>
     <string name="morphe_oauth2_connection_failure_auth_error">无法登录 VR：%s</string>
@@ -51,6 +78,14 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暂时不可用（API 超时）</string>
     <string name="morphe_oauth2_toast_invalid">无效的 VR 登录令牌，请重新登录 VR</string>
     <string name="morphe_oauth2_toast_reset">已从 Android VR 登出</string>
+    <string name="morphe_override_initial_video_quality_summary">"修复了视频开始后默认视频画质未立即应用的问题
+
+限制：如果\"伪装视频流\"设置为\"Android VR\"且\"强制AVC (H.264)编解码器\"已启用，则某些设备上可能无法播放"</string>
+    <string name="morphe_override_initial_video_quality_title">覆盖初始视频画质</string>
+    <string name="morphe_playback_in_feeds_entry_always_on">始终开启</string>
+    <string name="morphe_playback_in_feeds_entry_off">关闭</string>
+    <string name="morphe_playback_in_feeds_entry_wifi_only">仅限 Wi-Fi</string>
+    <string name="morphe_playback_in_feeds_title">在信息流中播放</string>
     <string name="morphe_reload_video_summary_off">不显示重新加载视频按钮</string>
     <string name="morphe_reload_video_summary_on">显示重新加载视频按钮</string>
     <string name="morphe_reload_video_title">显示重新加载视频按钮</string>
@@ -112,7 +147,6 @@
 • 更改 Google 密码或在 Google 设置中注销本设备后，需重新登录"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">登录成功</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">无法获取激活码</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">无法获取身份验证令牌</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">客户端隐藏在 Stats for nerds 中</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">客户端类型显示在 Stats for nerds 中</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">在“极客统计”中显示欺骗信息</string>
@@ -322,11 +356,11 @@
     <string name="revanced_default_video_quality_mobile_title">移动网络的默认视频画质</string>
     <string name="revanced_default_video_quality_wifi_shorts_title">WLAN 网络的默认 Shorts 画质</string>
     <string name="revanced_default_video_quality_wifi_title">WLAN 网络的默认视频画质</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Disables ambient mode for fullscreen only.</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Disables ambient mode for fullscreen only</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary_off">全屏下氛围模式已启用</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary_on">全屏下氛围模式已禁用</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_title">在全屏时禁用氛围模式</string>
-    <string name="revanced_disable_ambient_mode_summary">Disables ambient mode.</string>
+    <string name="revanced_disable_ambient_mode_summary">Disables ambient mode</string>
     <string name="revanced_disable_ambient_mode_summary_off">氛围模式已启用</string>
     <string name="revanced_disable_ambient_mode_summary_on">氛围模式已禁用</string>
     <string name="revanced_disable_ambient_mode_title">禁用氛围模式</string>
@@ -487,14 +521,6 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">进度条点击已禁用</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">进度条点击已启用</string>
     <string name="revanced_enable_seekbar_tapping_title">启用进度条点击</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"这将恢复没有进度条缩略图的直播的缩略图
-
-互联网数据使用量可能会增加，进度条缩略图会在轻微延迟后显示
-
-此功能在非常快速的互联网连接下效果最佳"</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">进度条缩略图将会以中质量显示</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">进度条缩略图将会以高质量显示</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">启用高质量缩略图</string>
     <string name="revanced_enable_shorts_clear_mode_summary_off">清晰模式已禁用。</string>
     <string name="revanced_enable_shorts_clear_mode_summary_on">"启用清晰模式。
 
@@ -1108,9 +1134,6 @@
     <string name="revanced_hide_related_videos_summary_off">快捷操作中的相关视频已显示</string>
     <string name="revanced_hide_related_videos_summary_on">快捷操作中的相关视频已隐藏</string>
     <string name="revanced_hide_related_videos_title">隐藏相关视频</string>
-    <string name="revanced_hide_related_videos_user_dialog_message">"该设置限制了播放器屏幕上可以加载的最大布局数量
-
-如果由于服务器端的更改导致播放器屏幕的布局发生变化，未预期的布局可能会被隐藏在播放器屏幕上"</string>
     <string name="revanced_hide_remix_button_summary_off">混剪按钮已显示</string>
     <string name="revanced_hide_remix_button_summary_on">混剪按钮已隐藏</string>
     <string name="revanced_hide_remix_button_title">隐藏混剪按钮</string>
@@ -1567,8 +1590,8 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_override_youtube_music_button_summary_on">YouTube Music按钮打开您的目标音乐应用</string>
     <string name="revanced_override_youtube_music_button_title">覆盖YouTube Music按钮</string>
     <string name="revanced_patched_date_title">补丁日期</string>
-    <string name="revanced_patches_excluded">已排除</string>
-    <string name="revanced_patches_included">已包含</string>
+    <string name="revanced_patches_excluded"><font color="#EA4335">已排除</font></string>
+    <string name="revanced_patches_included"><font color="#4CAF50">已包含</font></string>
     <string name="revanced_playback_speed_normal">正常</string>
     <string name="revanced_preference_category_action_buttons">操作按钮</string>
     <string name="revanced_preference_category_additional_settings">其他设置</string>
@@ -1714,7 +1737,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_quick_actions_top_margin_invalid_toast">快速操作顶部边距必须在 0-32 之间 重置为默认值</string>
     <string name="revanced_quick_actions_top_margin_summary">设置快速操作栏的顶部外边距（0-32 dp）</string>
     <string name="revanced_quick_actions_top_margin_title">快速操作顶部外边距</string>
-    <string name="revanced_related_videos_offset_title">偏移</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度更改仅适用于当前视频</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度更改适用于所有视频</string>
     <string name="revanced_remember_playback_speed_last_selected_title">记住播放速度</string>
@@ -1748,8 +1770,8 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_remember_video_quality_toast_shorts">已将 Shorts %1$s 的画质更改为：%2$s</string>
     <string name="revanced_remember_video_quality_wifi">无线网络</string>
     <string name="revanced_remix_button_index_title">混音按钮索引</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">这并不会绕过年龄限制，只是自动按下接受按钮。</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">移除“观看须知”对话框</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">这不会绕过年龄限制。它只是会自动接受该限制</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">移除观看限制对话框</string>
     <string name="revanced_replace_channel_handle_summary_off">频道标识已使用</string>
     <string name="revanced_replace_channel_handle_summary_on">频道名称已使用</string>
     <string name="revanced_replace_channel_handle_title">替换频道标识</string>
@@ -1769,9 +1791,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_restart_dialog_message">重启应用以使更改生效。</string>
     <string name="revanced_restart_first_run">重启以完成设置</string>
     <string name="revanced_restart_title">需要重启</string>
-    <string name="revanced_restore_old_seekbar_thumbnails_summary_off">进度条缩略图将显示在全屏</string>
-    <string name="revanced_restore_old_seekbar_thumbnails_summary_on">进度条缩略图将显示在进度条上方</string>
-    <string name="revanced_restore_old_seekbar_thumbnails_title">恢复旧的进度条缩略图</string>
     <string name="revanced_restore_old_settings_menus_title">恢复旧设置菜单</string>
     <string name="revanced_restore_old_video_action_bar_summary">"修复不喜欢数量未显示和视频操作按钮无法隐藏的问题
 

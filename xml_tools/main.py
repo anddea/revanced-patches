@@ -20,6 +20,7 @@ from handlers import (
     check_prefs,
     check_prefs_reverse,
     check_strings,
+    dot_games,
     missing_strings,
     remove_unused_resources,
     remove_unused_strings,
@@ -71,6 +72,7 @@ class CLIConfig:
 @click.option("-p", "--prefs", is_flag=True, help="Run missing preferences check")
 @click.option("-pr", "--reverse", is_flag=True, help="Run missing preferences check (reverse)")
 @click.option("--icons", is_flag=True, help="Check icon preference keys against XML.")
+@click.option("--dot", is_flag=True, help="Remove unwanted dots from YouTube and Music strings")
 @click.option(
     "--update-file",
     type=click.Path(exists=True, dir_okay=False, readable=True, path_type=Path),
@@ -133,6 +135,7 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
         "update_file",
         "update_from_diff",
         "icons",
+        "dot",
     ]
     if kwargs.get("run_all"):
         process_all(ctx.obj)
@@ -314,6 +317,7 @@ def handle_individual_operations(
         ("update_file", "Update Strings from File", update_strings.process, (app, options.get("update_file"))),
         ("update_from_diff", "Update Forced Strings from Git Diff", update_from_diff.process, (app,)),
         ("icons", "Check Icon Preferences", check_icons.process, (app,)),
+        ("dot", "Remove Unwanted Dots", dot_games.process, ()),
     ]
 
     something_processed = False

@@ -33,11 +33,38 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
 この問題を解決するには、[動画ストリームを偽装] をオンにし、 [偽装するクライアント] を「TV」に変更してください。"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">ライブ配信を最大 7 日前まで巻き戻し可能にします</string>
     <string name="morphe_expand_livestream_dvr_duration_title">ライブ配信の DVR の制限を拡張</string>
+    <string name="morphe_explore_menu_screen_summary">方位磁針アイコンボタンから呼び出されるメニューに表示するコンポーネントを設定します</string>
+    <string name="morphe_explore_menu_screen_title">探索メニュー</string>
     <string name="morphe_force_original_audio_not_available">この機能を利用するには、「動画ストリームを偽装」の設定で「偽装するクライアント」を「Android Studio」以外に変更してください。</string>
     <string name="morphe_force_original_audio_summary_off">オリジナルの音声トラック (言語) を使用します。\n\nオートダビングを含む吹き替えの音声トラックは使用されません。</string>
     <string name="morphe_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します。\n\nオートダビングを含む吹き替えの音声トラックは使用されません。</string>
     <string name="morphe_force_original_audio_title">オリジナルの音声を強制的に使用</string>
+    <string name="morphe_hide_courses_menu_title">「コース」を非表示</string>
+    <string name="morphe_hide_explore_button_title">探索ボタンを非表示</string>
+    <string name="morphe_hide_fashion_menu_title">「ファッションと美容」を非表示</string>
+    <string name="morphe_hide_gaming_menu_title">「ゲーム」を非表示</string>
+    <string name="morphe_hide_get_premium_button_title">「Premium を購入」ボタンを非表示</string>
+    <string name="morphe_hide_hype_menu_title">「ハイプ」を非表示</string>
+    <string name="morphe_hide_invite_to_message_card_summary">通知タブのメッセージ セクションに表示される招待カードを非表示にします</string>
+    <string name="morphe_hide_invite_to_message_card_title">「他のユーザーをメッセージに招待」カードを非表示</string>
+    <string name="morphe_hide_learning_menu_title">「学び」を非表示</string>
+    <string name="morphe_hide_live_menu_title">「ライブ」を非表示</string>
+    <string name="morphe_hide_memberships_menu_title">「メンバーシップ」を非表示</string>
+    <string name="morphe_hide_movies_menu_title">「映画とテレビ番組」を非表示</string>
+    <string name="morphe_hide_music_menu_title">「音楽」を非表示</string>
+    <string name="morphe_hide_news_menu_title">「ニュース」を非表示</string>
+    <string name="morphe_hide_playables_menu_title">「ゲームルーム」を非表示</string>
+    <string name="morphe_hide_podcasts_menu_title">「ポッドキャスト」を非表示</string>
+    <string name="morphe_hide_privacy_tos_footer_title">最下部の規約とプライバシーに関する項目を非表示</string>
+    <string name="morphe_hide_shopping_menu_title">「ショッピング」を非表示</string>
+    <string name="morphe_hide_sports_menu_title">「スポーツ」を非表示</string>
     <string name="morphe_hide_sync_button_title">Hide \'Sync to video\' button</string>
+    <string name="morphe_hide_youtube_create_menu_title">「YouTube Create」を非表示</string>
+    <string name="morphe_hide_youtube_kids_menu_title">「YouTube Kids」を非表示</string>
+    <string name="morphe_hide_youtube_music_menu_title">「YouTube Music」を非表示</string>
+    <string name="morphe_hide_youtube_premium_menu_title">「YouTube Premium」を非表示</string>
+    <string name="morphe_hide_youtube_studio_menu_title">「YouTube Studio」を非表示</string>
+    <string name="morphe_hide_youtube_works_menu_title">「YouTube の取り組み」を非表示</string>
     <string name="morphe_livestream_dvr_not_available">"[ライブ配信のDVRを有効化] をオンにしても、正常に動作しない場合があります。
 
 これを解決するには、[動画ストリームを偽装] を有効にし、[偽装するクライアント] を「TV」に変更してください。"</string>
@@ -51,6 +78,14 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 は一時的に利用できません (API がタイムアウトしました）。</string>
     <string name="morphe_oauth2_toast_invalid">VR ログイントークンが無効です。もう一度 VR にログインしてみてください。</string>
     <string name="morphe_oauth2_toast_reset">Android VR からログアウトしました</string>
+    <string name="morphe_override_initial_video_quality_summary">"動画の再生開始直後に [デフォルトの画質] が適用されない問題を修正します
+
+制限事項: [動画ストリームを偽装] のクライアントが「Android VR」で、かつ [AVC (H.264) を強制的に使用] を有効にしている場合、一部のデバイスで動画が再生できない場合があります"</string>
+    <string name="morphe_override_initial_video_quality_title">デフォルトの画質を強制的に適用</string>
+    <string name="morphe_playback_in_feeds_entry_always_on">常に有効</string>
+    <string name="morphe_playback_in_feeds_entry_off">オフ</string>
+    <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi のみ</string>
+    <string name="morphe_playback_in_feeds_title">フィードで再生</string>
     <string name="morphe_reload_video_summary_off">動画を再読み込みするボタンを表示します。</string>
     <string name="morphe_reload_video_summary_on">動画を再読み込みするボタンを表示します。</string>
     <string name="morphe_reload_video_title">リロードボタンを表示</string>
@@ -108,7 +143,6 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
 • Google アカウントのパスワードを変更した場合、または Google アカウントの設定からこのデバイスの登録を解除した場合は、再度ログインする必要があります"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">ログインに成功しました</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">アクティベーションコードを発行できませんでした</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">認証トークンを発行できませんでした</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">統計情報に偽装したクライアントを表示します。</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">統計情報に現在のクライアントを表示します。</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">統計情報に偽装したクライアントを表示</string>
@@ -475,14 +509,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_enable_seekbar_tapping_summary_off">シークバーのタップを有効にします。</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップを有効にします。</string>
     <string name="revanced_enable_seekbar_tapping_title">シークバーのタップを有効化</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"これを有効化すると、シークバーサムネイルがないライブ配信のアーカイブにサムネイルが復元されます。
-
-注意:
-・通信量が増える可能性があります。
-・通信速度が遅いネットワークに接続している場合、シークバーサムネイルが表示されるまでに時間がかかることがあります。"</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">シークバーサムネイルを高画質にします。</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">シークバーサムネイルを高画質にします。</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">高画質のサムネイルを有効化</string>
     <string name="revanced_enable_shorts_clear_mode_summary_off">クリアモード (プレーヤー内に表示されるボタンなどの UI を非表示にするモード) を有効にします。\n\nプレーヤーの背景をタップして UI を非表示にできます。</string>
     <string name="revanced_enable_shorts_clear_mode_summary_on">"クリアモード (プレーヤー内に表示されるボタンなどの UI を非表示にするモード) を有効にします。
 
@@ -769,8 +795,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_community_posts_channel_summary_off">チャンネルページから非表示にします。</string>
     <string name="revanced_hide_community_posts_channel_summary_on">チャンネルページから非表示にします。</string>
     <string name="revanced_hide_community_posts_channel_title">チャンネルページから非表示</string>
-    <string name="revanced_hide_connect_button_summary_off">Connect button is shown.</string>
-    <string name="revanced_hide_connect_button_summary_on">Connect button is hidden.</string>
+    <string name="revanced_hide_connect_button_summary_off">Connect button is shown</string>
+    <string name="revanced_hide_connect_button_summary_on">Connect button is hidden</string>
     <string name="revanced_hide_connect_button_title">Hide Connect button</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">コメント欄の下に表示されるストア欄を非表示にします。</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">コメント欄の下に表示されるストア欄を非表示にします。</string>
@@ -926,8 +952,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_like_button_summary_off">[高評価] ボタンを非表示にします。</string>
     <string name="revanced_hide_like_button_summary_on">[高評価] ボタンを非表示にします。</string>
     <string name="revanced_hide_like_button_title">[高評価] ボタンを非表示</string>
-    <string name="revanced_hide_like_dislike_button_summary_off">Segmented Like and Dislike button is shown.</string>
-    <string name="revanced_hide_like_dislike_button_summary_on">Segmented Like and Dislike button is hidden.</string>
+    <string name="revanced_hide_like_dislike_button_summary_off">Segmented Like and Dislike button is shown</string>
+    <string name="revanced_hide_like_dislike_button_summary_on">Segmented Like and Dislike button is hidden</string>
     <string name="revanced_hide_like_dislike_button_title">Hide segmented Like and Dislike button</string>
     <string name="revanced_hide_links_preview_summary_off">リンク集を非表示にします。</string>
     <string name="revanced_hide_links_preview_summary_on">リンク集を非表示にします。</string>
@@ -950,8 +976,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_mix_playlists_summary_off">ミックスリストを非表示にします。</string>
     <string name="revanced_hide_mix_playlists_summary_on">ミックスリストを非表示にします。</string>
     <string name="revanced_hide_mix_playlists_title">ミックスリストを非表示</string>
-    <string name="revanced_hide_more_button_summary_off">More button is shown.</string>
-    <string name="revanced_hide_more_button_summary_on">More button is hidden.</string>
+    <string name="revanced_hide_more_button_summary_off">More button is shown</string>
+    <string name="revanced_hide_more_button_summary_on">More button is hidden</string>
     <string name="revanced_hide_more_button_title">Hide More button</string>
     <string name="revanced_hide_movie_shelf_summary_off">映画やテレビ番組を非表示にします。</string>
     <string name="revanced_hide_movie_shelf_summary_on">映画やテレビ番組を非表示にします。</string>
@@ -1112,11 +1138,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_related_videos_summary_off">ホームフィードから関連動画を非表示にします。</string>
     <string name="revanced_hide_related_videos_summary_on">ホームフィードから関連動画を非表示にします。</string>
     <string name="revanced_hide_related_videos_title">関連動画を非表示</string>
-    <string name="revanced_hide_related_videos_user_dialog_message">"この設定は、プレーヤー画面に読み込むことができるレイアウトの最大数を制限します。
-
-一部の関連動画が非表示にならない場合や、アクションバーやコメントセクションなどの意図しないレイアウトが非表示になる場合は、オフセットを変更すると問題が解決する可能性があります。
-
-サーバー側の変更によりプレーヤー画面のレイアウトが変更された場合、意図しないレイアウトがプレーヤー画面上から非表示になる可能性があります。"</string>
     <string name="revanced_hide_remix_button_summary_off">[リミックス] ボタンを非表示にします。</string>
     <string name="revanced_hide_remix_button_summary_on">[リミックス] ボタンを非表示にします。</string>
     <string name="revanced_hide_remix_button_title">[リミックス] ボタンを非表示</string>
@@ -1126,8 +1147,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_rewards_button_summary_off">[特典] ボタンを非表示にします。</string>
     <string name="revanced_hide_rewards_button_summary_on">[特典] ボタンを非表示にします。</string>
     <string name="revanced_hide_rewards_button_title">[特典] ボタンを非表示</string>
-    <string name="revanced_hide_search_bar_back_button_summary_off">Search bar back button is shown.</string>
-    <string name="revanced_hide_search_bar_back_button_summary_on">Search bar back button is hidden.</string>
+    <string name="revanced_hide_search_bar_back_button_summary_off">Search bar back button is shown</string>
+    <string name="revanced_hide_search_bar_back_button_summary_on">Search bar back button is hidden</string>
     <string name="revanced_hide_search_bar_back_button_title">Hide search bar back button</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">検索履歴からサムネイルを非表示にします。</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">検索履歴からサムネイルを非表示にします。</string>
@@ -1579,8 +1600,8 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_overlay_buttons_max_landscape_title">全画面表示モードでのボタンの最大数</string>
     <string name="revanced_overlay_buttons_max_portrait_summary">縦画面表示で表示するオーバーレイボタンの最大数です (全画面表示ボタンを除く)。すべて非表示にするには「0」と入力してください。\n\nこの上限を超えるボタンを表示するには、横にスワイプしてください。</string>
     <string name="revanced_overlay_buttons_max_portrait_title">縦画面表示モードでのボタンの最大数</string>
-    <string name="revanced_override_play_next_in_queue_summary_off">Play next in queue uses YouTube\'s native queue.</string>
-    <string name="revanced_override_play_next_in_queue_summary_on">Play next in queue opens the RVX queue manager.</string>
+    <string name="revanced_override_play_next_in_queue_summary_off">Play next in queue uses YouTube\'s native queue</string>
+    <string name="revanced_override_play_next_in_queue_summary_on">Play next in queue opens the RVX queue manager</string>
     <string name="revanced_override_play_next_in_queue_title">Override Play next in queue</string>
     <string name="revanced_override_playlist_download_button_summary_off">再生リストの右上にあるダウンロードボタンを押すと外部ダウンローダーが開きます。</string>
     <string name="revanced_override_playlist_download_button_summary_on">再生リストの右上にあるダウンロードボタンを押すと外部ダウンローダーが開きます。</string>
@@ -1599,8 +1620,8 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_override_youtube_music_button_summary_on">[YouTube Music] ボタンで RVX Music を開けるようにします。</string>
     <string name="revanced_override_youtube_music_button_title">[YouTube Music] ボタンを置換</string>
     <string name="revanced_patched_date_title">パッチ適用日時</string>
-    <string name="revanced_patches_excluded">除外されています</string>
-    <string name="revanced_patches_included">適用されています</string>
+    <string name="revanced_patches_excluded"><font color="#EA4335">除外されています</font></string>
+    <string name="revanced_patches_included"><font color="#4CAF50">適用されています</font></string>
     <string name="revanced_playback_speed_normal">通常</string>
     <string name="revanced_preference_category_action_buttons">プレーヤー下部 ([共有]、[クリップ] など) のボタン</string>
     <string name="revanced_preference_category_additional_settings">その他の設定</string>
@@ -1746,7 +1767,6 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_quick_actions_top_margin_invalid_toast">クイックアクションの上部の余白は 0 ~ 32 の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_quick_actions_top_margin_summary">シークバーからクイックアクションコンテナまでの間隔を 0 ~ 32 の間で設定してください。</string>
     <string name="revanced_quick_actions_top_margin_title">クイックアクション上部の余白</string>
-    <string name="revanced_related_videos_offset_title">オフセット</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">現在の設定: 再生速度の変更は現在の動画にのみ適用されます。</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">現在の設定: 再生速度の変更はすべての動画に適用されます。</string>
     <string name="revanced_remember_playback_speed_last_selected_title">再生速度の変更を記憶 (通常の動画)</string>
@@ -1805,9 +1825,6 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_restart_dialog_message">この変更を反映させるためには、アプリを再起動する必要があります。</string>
     <string name="revanced_restart_first_run">レイアウトを正常に読み込むためにはアプリを再起動する必要があります。\n\n続行しますか？</string>
     <string name="revanced_restart_title">再起動が必要です</string>
-    <string name="revanced_restore_old_seekbar_thumbnails_summary_off">現在の設定: 全画面表示時にシークバーの上にサムネイルを表示します。</string>
-    <string name="revanced_restore_old_seekbar_thumbnails_summary_on">現在の設定: シークバーの上にサムネイルを表示します。</string>
-    <string name="revanced_restore_old_seekbar_thumbnails_title">昔のスタイルのシークバーサムネイルを復元</string>
     <string name="revanced_restore_old_settings_menus_title">旧式の YouTube 設定メニューを復元</string>
     <string name="revanced_restore_old_video_action_bar_summary">"低評価数が表示されない問題と、アクションボタンを非表示にできない問題を修正します。
 
@@ -2067,9 +2084,9 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_search_in_channel_search_youtube">YouTube で検索</string>
     <string name="revanced_search_in_channel_title">チャンネルを検索</string>
     <string name="revanced_search_in_channel_use_webview_summary_off">チャンネル検索には YouTube 標準の検索機能が使用されます。そのため、関連性のない結果が表示される可能性があります。</string>
-    <string name="revanced_search_in_channel_use_webview_summary_on">Channel search opens the mobile web channel search page.</string>
+    <string name="revanced_search_in_channel_use_webview_summary_on">Channel search opens the mobile web channel search page</string>
     <string name="revanced_search_in_channel_use_webview_title">Use WebView for channel search</string>
-    <string name="revanced_search_in_channel_webview_unavailable">WebView is not available. Using native channel search.</string>
+    <string name="revanced_search_in_channel_webview_unavailable">WebView is not available. Using native channel search</string>
     <string name="revanced_search_settings_category_title">検索の設定</string>
     <string name="revanced_send">送信</string>
     <string name="revanced_set_transcript_cookies_all_summary_off">すべての Transcript API リクエストに Cookie を設定します。</string>
@@ -2193,14 +2210,14 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_shorts_player_type_regular_player_fullscreen">通常のプレーヤー (全画面)</string>
     <string name="revanced_shorts_player_type_title">ショート動画を開くプレーヤーを選択</string>
     <string name="revanced_show_settings_button_index_title">Settings button index</string>
-    <string name="revanced_show_settings_button_summary_off">Settings button is not shown.</string>
-    <string name="revanced_show_settings_button_summary_on">Settings button is shown.</string>
+    <string name="revanced_show_settings_button_summary_off">Settings button is not shown</string>
+    <string name="revanced_show_settings_button_summary_on">Settings button is shown</string>
     <string name="revanced_show_settings_button_title">Show Settings</string>
     <string name="revanced_show_settings_button_type_summary_off">現在の設定: タップすると YouTube の設定画面を開きます。</string>
     <string name="revanced_show_settings_button_type_summary_on">現在の設定: タップすると RVX の設定画面を開きます。</string>
     <string name="revanced_show_settings_button_type_title">設定ボタンの挙動</string>
-    <string name="revanced_show_toolbar_settings_button_summary_off">Settings button is not shown in the toolbar.</string>
-    <string name="revanced_show_toolbar_settings_button_summary_on">Settings button is shown in the toolbar.</string>
+    <string name="revanced_show_toolbar_settings_button_summary_off">Settings button is not shown in the toolbar</string>
+    <string name="revanced_show_toolbar_settings_button_summary_on">Settings button is shown in the toolbar</string>
     <string name="revanced_show_toolbar_settings_button_title">Show Settings in toolbar</string>
     <string name="revanced_show_video_title_section_summary">"全画面表示時にタイトルを表示します。
 

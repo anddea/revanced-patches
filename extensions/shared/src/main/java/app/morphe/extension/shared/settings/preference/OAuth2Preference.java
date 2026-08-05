@@ -308,7 +308,7 @@ public abstract class OAuth2Preference extends Preference implements Preference.
                 if (accessTokenData == null) {
                     Logger.printDebug(() -> "No refresh token found");
                     if (reachedMaxGetTokenAttempts) {
-                        Utils.showToastLong(str("morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed"));
+                        Utils.showToastLong(str("revanced_spoof_streaming_data_sign_in_android_vr_toast_failed"));
                     }
                     return;
                 }
