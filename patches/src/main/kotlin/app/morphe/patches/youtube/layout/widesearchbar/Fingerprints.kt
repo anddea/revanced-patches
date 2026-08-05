@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
 
@@ -11,6 +15,7 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -55,5 +60,16 @@ internal object ActionbarRingoViewFingerprint : Fingerprint(
             opcode = Opcode.RETURN_OBJECT,
             location = MatchAfterImmediately()
         )
+    )
+)
+
+internal object YouActionBarViewFingerprint2031 : Fingerprint(
+    classFingerprint = ActionbarRingoViewFingerprint,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Lcom/google/android/apps/youtube/app/common/ui/navigation/PaneDescriptor;"),
+    filters = listOf(
+        string("FElibrary"),
+        opcode(Opcode.IF_NEZ)
     )
 )

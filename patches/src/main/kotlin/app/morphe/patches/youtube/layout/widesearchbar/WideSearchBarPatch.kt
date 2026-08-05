@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches/pull/2221
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
 
@@ -72,5 +76,7 @@ val wideSearchBarPatch = bytecodePatch(
                 )
             }
         }
+
+        applyYouTabWideSearchBar2031()
     }
 }
