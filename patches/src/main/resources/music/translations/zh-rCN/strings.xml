@@ -87,6 +87,30 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_music_crossfade_session_control_summary">长按播放列表按钮可暂停或恢复淡入淡出效果</string>
     <string name="morphe_music_crossfade_session_control_title">会话控制</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">启用交叉淡入时，视频模式不可用</string>
+    <string name="morphe_music_lyrics_about_summary">"歌词通过曲目标题和艺术家查找，因此元数据不寻常的曲目可能找不到任何内容，或者找到错误的版本
+
+同步歌词跟随播放。如果它们漂移，请调整时间偏移
+
+如果没有找到第三方歌词，则会显示内置歌词"</string>
+    <string name="morphe_music_lyrics_about_title">关于第三方歌词</string>
+    <string name="morphe_music_lyrics_copied">复制到剪贴板</string>
+    <string name="morphe_music_lyrics_enabled_summary">从第三方服务获取歌词，如果找不到则回退到内置歌词</string>
+    <string name="morphe_music_lyrics_enabled_title">使用第三方歌词</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">将同步歌词向前或向后移动。如果歌词超前于歌曲，请使用正值</string>
+    <string name="morphe_music_lyrics_offset_ms_title">时间偏移</string>
+    <string name="morphe_music_lyrics_show_copy_button_title">显示复制按钮</string>
+    <string name="morphe_music_lyrics_show_translate_button_title">显示翻译按钮</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB，然后是酷狗</string>
+    <string name="morphe_music_lyrics_source_label">来源：%s</string>
+    <string name="morphe_music_lyrics_source_title">歌词服务</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">点击一行将跳到歌曲的该时刻</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">点击歌词行以跳转</string>
+    <string name="morphe_music_lyrics_text_size_summary">歌词文本的大小</string>
+    <string name="morphe_music_lyrics_text_size_title">文本大小</string>
+    <string name="morphe_music_lyrics_translate_failed">无法翻译歌词</string>
+    <string name="morphe_music_lyrics_translate_hide">显示原始歌词</string>
+    <string name="morphe_music_lyrics_translate_show">翻译</string>
+    <string name="morphe_music_lyrics_translating">正在翻译…</string>
     <string name="morphe_oauth2_connection_failure_auth_error">无法登录 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">无法登录VR，网站认证未批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暂时不可用</string>
@@ -134,7 +158,6 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
 • 更改 Google 密码或在 Google 设置中注销本设备后，需重新登录"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">登录成功</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">无法获取激活码</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">无法获取身份验证令牌</string>
     <string name="morphe_spoof_video_streams_summary">"通过请求兼容的视频流来修复大多数用户播放问题。
 
 如果您是YouTube Premium用户，则可能不需要此设置。"</string>
@@ -397,6 +420,7 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_preference_screen_ads_title">广告</string>
     <string name="revanced_preference_screen_flyout_title">弹出菜单</string>
     <string name="revanced_preference_screen_general_title">常规设置</string>
+    <string name="revanced_preference_screen_lyrics_title">歌词</string>
     <string name="revanced_preference_screen_misc_title">杂项</string>
     <string name="revanced_preference_screen_navigation_title">导航栏</string>
     <string name="revanced_preference_screen_player_title">播放器</string>
@@ -420,9 +444,8 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_remember_video_quality_mobile">将默认移动数据质量更改为 %s。</string>
     <string name="revanced_remember_video_quality_none">无法设置质量。</string>
     <string name="revanced_remember_video_quality_wifi">将默认 Wi-Fi 质量更改为 %s。</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"移除查看器的自由裁量对话框。
-这不会绕过年龄限制。它只会自动同意。"</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">移除查看器的自由裁量对话框</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">这不会绕过年龄限制。它只是会自动接受该限制</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">移除观看限制对话框</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">切换到 YouTube 时从当前时间起继续视频</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">继续观看</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">替换清空队列菜单为在 YouTube上观看</string>

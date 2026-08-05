@@ -16,6 +16,8 @@ logger = logging.getLogger("xml_tools")
 BLACKLIST = {
     "morphe_music_crossfade_about_banner_title",
     "morphe_music_crossfade_curve_preview_title",
+    "morphe_music_lyrics_source_entry_kugou",
+    "morphe_music_lyrics_source_entry_lrclib",
     "revanced_settings_title",
     "revanced_vot_percent_value",
 }
