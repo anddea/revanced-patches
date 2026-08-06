@@ -60,6 +60,7 @@ import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -93,8 +94,7 @@ private fun MutableMethod.injectSearchBarHook(
 context(_: BytecodePatchContext)
 internal fun applyYouTabWideSearchBar2031() {
     YouActionBarViewFingerprint2031.apply {
-        val match = instructionMatches[1]
-        val index = match.index
+        val index = method.indexOfFirstInstructionReversedOrThrow(Opcode.IF_NEZ)
         val register = method.getInstruction<OneRegisterInstruction>(index).registerA
 
         method.injectSearchBarHook(
