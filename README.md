@@ -22,6 +22,7 @@
 | `Change player flyout menu toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 19.43.41 ~ 20.51.39 |
 | `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 19.43.41 ~ 20.51.39 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 19.43.41 ~ 20.51.39 |
+| `Custom DPI` | Forces a higher display density for this app only, so the whole UI scales up without changing system density. | 19.43.41 ~ 20.51.39 |
 | `Custom Shorts action buttons` | Changes, at compile time, the icon of the action buttons of the Shorts player. | 19.43.41 ~ 20.51.39 |
 | `Custom branding icon for YouTube` | Changes the YouTube app icon to the icon specified in patch options. | 19.43.41 ~ 20.51.39 |
 | `Custom branding name for YouTube` | Changes the YouTube app name to the name specified in patch options. | 19.43.41 ~ 20.51.39 |
@@ -60,6 +61,7 @@
 | `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 19.43.41 ~ 20.51.39 |
 | `Open links externally` | Adds an option to always open links in your browser instead of the in-app browser. | 19.43.41 ~ 20.51.39 |
 | `Overlay buttons` | Adds options to display useful overlay buttons in the video player. | 19.43.41 ~ 20.51.39 |
+| `Playback in feeds` | Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it. | 19.43.41 ~ 20.51.39 |
 | `Player components` | Adds options to hide or change components related to the video player. | 19.43.41 ~ 20.51.39 |
 | `Reload video` | Adds an option to display a button in the video player to reload the current video. | 20.05.46 ~ 20.51.39 |
 | `Remove background playback restrictions` | Removes restrictions on background playback, including for music and kids videos. | 19.43.41 ~ 20.51.39 |
@@ -130,6 +132,7 @@
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 6.20.51 ~ 9.15.51 |
 | `Spoof app version for lyrics` | Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI. | 6.51.53 ~ 9.15.51 |
 | `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 6.20.51 ~ 9.15.51 |
+| `Third-party lyrics` | Adds an option to show synced lyrics from LRCLIB or KuGou in the lyrics panel. | 9.15.51 |
 | `Track crossfade` | Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op. | 6.20.51 ~ 9.15.51 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 6.20.51 ~ 9.15.51 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 6.20.51 ~ 9.15.51 |
