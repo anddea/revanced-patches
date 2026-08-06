@@ -39,6 +39,7 @@ def remove_dots(text: str) -> str:
     text = re.sub(r"(?<!\.)\.\.(?=[^\S\r\n]*\r?\n)", "...", text)
     text = text.replace("\n</string>", "</string>")
     text = text.replace(". (", " (")
+    text = re.sub(r"(?<!\.)\.%s", "%s", text)
     return re.sub(r"(• [^\n]*)\.$", r"\1", text, flags=re.MULTILINE)
 
 

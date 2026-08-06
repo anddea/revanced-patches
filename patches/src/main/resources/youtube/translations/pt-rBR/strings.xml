@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">Ativar os controles de acessibilidade para o reprodutor de vídeo?</string>
+    <string name="accessibility_settings_edu_opt_in_text">Ativar os controles de acessibilidade para o player de vídeo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Seus controles foram modificados porque um serviço de acessibilidade está ativado</string>
     <string name="gms_core_dialog_continue_text">Continuar</string>
     <string name="gms_core_dialog_dismiss_text">Não mostrar novamente</string>
@@ -120,7 +120,7 @@ A reprodução pode engasgar ou perder quadros"</string>
 A reprodução de vídeos com AV1 pode apresentar travamentos ou perda de frames"</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente padrão</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Não foi possível obter nenhum stream de cliente</string>
-    <string name="morphe_spoof_video_streams_player_js_variant_title">Variante de JavaScript do reprodutor</string>
+    <string name="morphe_spoof_video_streams_player_js_variant_title">Variante de JavaScript do player</string>
     <string name="morphe_spoof_video_streams_screen_summary">Falsificar os dados de transmissão do cliente para evitar problemas de reprodução</string>
     <string name="morphe_spoof_video_streams_screen_title">Falsificar dados de transmissão</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Você não fez login no Android VR. Toque aqui para fazer login</string>
@@ -185,7 +185,7 @@ Toque aqui para abrir DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_options_entry_2">DeArrow e Thumbnails originais</string>
     <string name="revanced_alt_thumbnail_options_entry_3">DeArrow e Capturas estáticas</string>
     <string name="revanced_alt_thumbnail_options_entry_4">Captura estática</string>
-    <string name="revanced_alt_thumbnail_player_title">Para playlists internas no reprodutor e recomendações</string>
+    <string name="revanced_alt_thumbnail_player_title">Playlists e recomendações do player</string>
     <string name="revanced_alt_thumbnail_search_title">Para resultados de pesquisa</string>
     <string name="revanced_alt_thumbnail_stills">Capturas de vídeo estáticas</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Capturas estáticas são tiradas do começo/meio/fim de cada vídeo. Estas imagens são construídas no YouTube e nenhuma API externa é usada</string>
@@ -238,7 +238,7 @@ Habilitar isso pode corrigir imagens ausentes que estão bloqueadas em algumas r
     <string name="revanced_change_form_factor_title">Fator de forma do layout </string>
     <string name="revanced_change_form_factor_user_dialog_message">"As mudanças incluem:
 
-Layout para tablet
+Layout de tablet
 • Posts da comunidade estão ocultos
 • A configuração de reprodução em feeds não está disponível
 • O botão Remix e o botão Som não estão disponíveis nos Shorts
@@ -248,7 +248,7 @@ Layout automotivo
 • O feed é organizado por tópicos e canais
 • A configuração de reprodução em feeds não está disponível
 • O botão Remix e o botão Som não estão disponíveis nos Shorts
-• Os Shorts abrem no reprodutor normal
+• Os Shorts abrem no player padrão
 • A barra de ações antiga não recolhida é mostrada"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Alternadores serão usados</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Alternadores de texto são usados</string>
@@ -302,6 +302,8 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar"</strin
     <string name="revanced_confirm_user_dialog_title">Tem certeza que deseja prosseguir?</string>
     <string name="revanced_copy_error">Falha ao copiar texto</string>
     <string name="revanced_credits_title">créditos </string>
+    <string name="revanced_custom_dpi_summary">Densidade de exibição forçada em pontos por polegada apenas para este app (0 = padrão do sistema)</string>
+    <string name="revanced_custom_dpi_title">DPI personalizado</string>
     <string name="revanced_custom_filter_strings_summary">Lista de strings de componente de construção de caminhos para filtrar, separadas por novas linhas</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
     <string name="revanced_custom_filter_summary_off">Filtro personalizado está desativado</string>
@@ -318,9 +320,9 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar"</strin
     <string name="revanced_custom_playback_speeds_parse_exception">Velocidades de reprodução personalizadas inválidas</string>
     <string name="revanced_custom_playback_speeds_summary">Insira sua opção de velocidade de reprodução preferida</string>
     <string name="revanced_custom_playback_speeds_title">Velocidade de reprodução personalizada</string>
-    <string name="revanced_custom_player_overlay_opacity_invalid_toast">A opacidade do reprodutor deve ser entre 0-100. Redefinir aos valores padrão</string>
+    <string name="revanced_custom_player_overlay_opacity_invalid_toast">A opacidade do player deve ser entre 0-100. Redefinir aos valores padrão</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Valor de opacidade entre 0-100, onde 0 é transparente</string>
-    <string name="revanced_custom_player_overlay_opacity_title">Opacidade personalizada da sobreposição do reprodutor</string>
+    <string name="revanced_custom_player_overlay_opacity_title">Opacidade personalizada da sobreposição do player</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Digite o código hexadecimal da cor de destaque da barra de progresso</string>
     <string name="revanced_custom_seekbar_color_accent_title">Cor de destaque personalizada para a barra de progresso</string>
     <string name="revanced_custom_seekbar_color_invalid_toast">Valor da cor da barra de progresso inválido</string>
@@ -367,15 +369,12 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar"</strin
     <string name="revanced_disable_ambient_mode_summary_off">Modo ambiente ativado</string>
     <string name="revanced_disable_ambient_mode_summary_on">Modo ambiente desativado</string>
     <string name="revanced_disable_ambient_mode_title">Desativar Iluminação cinematográfica</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">"As faixas de áudio automáticas forçadas estão ativadas"</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">As faixas de áudio automáticas forçadas estão desativadas</string>
-    <string name="revanced_disable_auto_audio_tracks_title">Desativar faixas de áudio automáticas forçadas</string>
     <string name="revanced_disable_auto_captions_summary_off">Legendas automáticas estão ativadas</string>
     <string name="revanced_disable_auto_captions_summary_on">Legendas automáticas estão desativadas</string>
     <string name="revanced_disable_auto_captions_title">Desativar legendas automáticas</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_off">Os painéis popup do reprodutor automático estão desativados</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_on">Os painéis popup do reprodutor automático estão ativados</string>
-    <string name="revanced_disable_auto_player_popup_panels_title">Desativar painéis popup do reprodutor</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_off">Os painéis popup do player automático estão desativados</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_on">Os painéis popup do player automático estão ativados</string>
+    <string name="revanced_disable_auto_player_popup_panels_title">Desativar painéis popup do player</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"A troca automática de playlists de mix está ativada quando a reprodução automática está ativada
 
 A reprodução automática pode ser alterada nas configurações do YouTube:
@@ -425,20 +424,20 @@ Configurações → Reprodução automática → Reprodução automática do pr�
 Alguns layouts controlados pelo servidor podem não voltar
 
 As mudanças incluem:
-• Os componentes no menu suspenso do reprodutor (ou as configurações relacionadas) podem não funcionar
+• Os componentes no menu suspenso do player (ou as configurações relacionadas) podem não funcionar
 • Os números animados não terão animação
 • A guia da biblioteca é exibida
 • A seção de música da descrição do vídeo pode não funcionar
-• O botão de alternância de conta pode não aparecer na guia Biblioteca"</string>
+• O botão de alternar conta pode não aparecer na guia Biblioteca"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Os botões Like e Dislike brilharão quando pressionados</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Os botões Like e Dislike não brilharão quando pressionados</string>
     <string name="revanced_disable_like_dislike_glow_title">Desativar brilho do botão Like e Dislike</string>
     <string name="revanced_disable_quic_protocol_summary">"Desativar o protocolo QUIC do CronetEngine"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continuar assistindo&lt;/b&gt; continuará na inicialização do aplicativo.&lt;br&gt;&lt;br&gt;Informação:&lt;br&gt;• &lt;b&gt;Continuar assistindo&lt;/b&gt; é um recurso do YouTube Premium.&lt;br&gt;• Esta configuração não força &lt;b&gt;Continuar assistindo&lt;/b&gt; a estar ativado</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continuar assistindo&lt;/b&gt; não continuará na inicialização do aplicativo</string>
-    <string name="revanced_disable_resuming_miniplayer_title">Desativar retomada do mini reprodutor</string>
-    <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts irá continuar reproduzindo ao iniciar o aplicativo</string>
-    <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts não irá continuar reproduzindo ao iniciar o aplicativo</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Desativar retomada do Miniplayer</string>
+    <string name="revanced_disable_resuming_shorts_player_summary_off">O player de Shorts será retomado ao iniciar o aplicativo</string>
+    <string name="revanced_disable_resuming_shorts_player_summary_on">O player de Shorts não será retomado ao iniciar o aplicativo</string>
     <string name="revanced_disable_resuming_shorts_player_title">Desativar continuar a reproduzir Shorts</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">Os números rolantes são animados</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Os números rolantes não são animados</string>
@@ -464,15 +463,18 @@ Nota:
     <string name="revanced_disable_splash_animation_summary_off">A animação do inicial está ativada</string>
     <string name="revanced_disable_splash_animation_summary_on">A animação inicial está desativada</string>
     <string name="revanced_disable_splash_animation_title">Desativar animação inicial</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Deslizar para baixo no reprodutor entrará no modo de tela cheia</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Deslizar para baixo no reprodutor não entrará no modo de tela cheia</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Desativar deslizar para entrar no modo de tela cheia (abaixo do reprodutor)</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Deslizar para cima no reprodutor entrará no modo de tela cheia</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Deslizar para cima no reprodutor não entrará no modo de tela cheia</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Desativar deslizar para entrar no modo de tela cheia (no reprodutor)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Deslizar para baixo no player entrará no modo de tela cheia</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Deslizar para baixo no player não entrará no modo de tela cheia</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Desativar deslizar para entrar no modo de tela cheia (abaixo do player)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Deslizar para cima no player entrará no modo de tela cheia</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Deslizar para cima no player não entrará no modo de tela cheia</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Desativar deslizar para entrar no modo de tela cheia (no player)</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Deslizar para baixo na tela cheia sairá do modo de tela cheia</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Deslizar para baixo na tela cheia não sairá do modo de tela cheia</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Desativar deslizar para sair do modo tela cheia</string>
+    <string name="revanced_disable_translucent_navigation_bar_summary_off">Barra de navegação translúcida</string>
+    <string name="revanced_disable_translucent_navigation_bar_summary_on">Barra de navegação opaca</string>
+    <string name="revanced_disable_translucent_navigation_bar_title">Desativar barra de navegação translúcida</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">A barra de status é opaca ou translúcida</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">A barra de status é opaca</string>
     <string name="revanced_disable_translucent_status_bar_title">Desabilitar barra de status translúcida</string>
@@ -516,7 +518,7 @@ Limitações:
     <string name="revanced_enable_narrow_navigation_buttons_summary_off">O espaçamento entre os botões de navegação não se torna mais reduzido</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_on">O espaçamento entre os botões de navegação se torna reduzido</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">Ativar botões estreitos de navegação</string>
-    <string name="revanced_enable_opus_codec_summary">Ative o codec OPUS se a resposta do reprodutor incluir o codec OPUS</string>
+    <string name="revanced_enable_opus_codec_summary">Ative o codec OPUS se a resposta do player incluir o codec OPUS</string>
     <string name="revanced_enable_opus_codec_title">Ativar codec OPUS</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">O toque na barra de progresso desativado</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">O toque na barra de progresso está ativado</string>
@@ -551,7 +553,7 @@ Limitações:
     <string name="revanced_enable_watch_next_processing_delay_summary_off">Atraso de processamento do assistir ao próximo está desativado</string>
     <string name="revanced_enable_watch_next_processing_delay_summary_on">Atraso de processamento do assistir ao próximo está ativado</string>
     <string name="revanced_enable_watch_next_processing_delay_title">Ativar atraso de processamento do assistir ao próximo</string>
-    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Esta configuração força um atraso antes do carregamento da interface do reprodutor
+    <string name="revanced_enable_watch_next_processing_delay_user_dialog_message">"Esta configuração força um atraso antes do carregamento da interface do player
 
 Isso pode ser usado ao testar algo no MainThread"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Ativar essa configuração desativará o botão de configurações na aba Você
@@ -577,7 +579,7 @@ Aba Você → Ver canal → Menu → Configurações"</string>
     <string name="revanced_enter_fullscreen_summary_off">Não entre em modo de tela cheia quando o vídeo iniciar</string>
     <string name="revanced_enter_fullscreen_summary_on">"\"Entre no modo tela cheia quando o vídeo é iniciado
 
-Limitação: não funciona se o reprodutor estiver minimizado, no modo PiP ou em segundo plano"</string>
+Limitação: não funciona se o player estiver minimizado, no modo PiP ou em segundo plano"</string>
     <string name="revanced_enter_fullscreen_title">Entrar no modo de tela cheia quando o vídeo iniciar</string>
     <string name="revanced_exit_fullscreen_entry_1">Desativado</string>
     <string name="revanced_exit_fullscreen_entry_2">No modo retrato</string>
@@ -810,7 +812,7 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_connect_button_summary_off">O botão Conectar é exibido</string>
     <string name="revanced_hide_connect_button_summary_on">O botão Conectar está oculto.,</string>
     <string name="revanced_hide_connect_button_title">Ocultar botão Conectar</string>
-    <string name="revanced_hide_creator_store_shelf_summary_off">Prateleira da loja do criador sob o reprodutor de vídeo é exibida</string>
+    <string name="revanced_hide_creator_store_shelf_summary_off">Prateleira da loja do criador sob o player de vídeo é exibida</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">A prateleira da loja do criador sob o player de vídeo está oculta</string>
     <string name="revanced_hide_creator_store_shelf_title">Ocultar prateleira da loja do criador</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Caixa de financiamento coletivo é mostrada</string>
@@ -1034,7 +1036,7 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_player_collapse_button_summary_on">O botão minimizar está oculto</string>
     <string name="revanced_hide_player_collapse_button_title">Ocultar botão minimizar</string>
     <string name="revanced_hide_player_control_buttons_background_summary_off">O plano de fundo dos controles do player está visível</string>
-    <string name="revanced_hide_player_control_buttons_background_summary_on">O plano de fundo dos controles do reprodutor está oculto</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_on">O plano de fundo dos controles do player está oculto</string>
     <string name="revanced_hide_player_control_buttons_background_title">Ocultar plano de fundo dos controles do player</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">O menu modo ambiente será exibido</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">O menu modo ambiente está oculto</string>
@@ -1102,7 +1104,7 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_player_fullscreen_button_title">Ocultar botão de tela cheia</string>
     <string name="revanced_hide_player_popup_ads_summary_off">Os anúncios pop-up do player são exibidos</string>
     <string name="revanced_hide_player_popup_ads_summary_on">Os anúncios pop-up do player estão ocultos</string>
-    <string name="revanced_hide_player_popup_ads_title">Ocultar anúncios pop-up no reprodutor</string>
+    <string name="revanced_hide_player_popup_ads_title">Ocultar anúncios pop-up no player</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Os botões serão exibidos</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Os botões estão ocultos</string>
     <string name="revanced_hide_player_previous_next_button_title">Ocultar o botão anterior &amp; próximo</string>
@@ -1172,12 +1174,12 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_seekbar_chapter_label_summary_off">Os rótulos dos capítulos ao lado da marcação de tempo serão exibidos</string>
     <string name="revanced_hide_seekbar_chapter_label_summary_on">Os rótulos dos capítulos ao lado da marcação de tempo estão ocultos</string>
     <string name="revanced_hide_seekbar_chapter_label_title">Ocultar rótulos dos capítulos na barra de progresso</string>
-    <string name="revanced_hide_seekbar_summary_off">Barra de busca no reprodutor de vídeo é mostrada</string>
-    <string name="revanced_hide_seekbar_summary_on">Barra de busca no reprodutor de vídeo está oculto</string>
+    <string name="revanced_hide_seekbar_summary_off">Barra de busca no player de vídeo é mostrada</string>
+    <string name="revanced_hide_seekbar_summary_on">Barra de busca no player de vídeo está oculto</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">A barra de busca de miniaturas de vídeo é mostrada</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_on">A barra de busca de miniaturas de vídeo está oculta</string>
     <string name="revanced_hide_seekbar_thumbnail_title">Ocultar barra vermelha nas thumbnails dos vídeos</string>
-    <string name="revanced_hide_seekbar_title">Ocultar barra de busca do reprodutor de vídeo</string>
+    <string name="revanced_hide_seekbar_title">Ocultar barra de busca do player de vídeo</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Os cartões auto-patrocinados serão exibidos</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Os cartões auto-patrocinados estão ocultos</string>
     <string name="revanced_hide_self_sponsor_cards_title">Ocultar cartões auto-patrocinados</string>
@@ -1469,7 +1471,11 @@ Problema conhecido: Quando essa configuração está ativada, não é possível 
     <string name="revanced_language_VI">Vietnamita\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chinês\n<small>中文</small></string>
     <string name="revanced_language_title">Idioma do RVX</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">A reprodução continua quando o miniplayer é arrastado para fora da tela</string>
+    <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">A reprodução será pausada quando o miniplayer for arrastado para fora da tela</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Pausar a reprodução com arrasto horizontal</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_off">Arrastar o miniplayer para fora da tela usa o comportamento de reposicionamento automático original</string>
+    <string name="revanced_miniplayer_disable_horizontal_reposition_summary_on">Arrastar o miniplayer para fora da tela preservará o estado da sua interface</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">Lembrar a posição do arrasto</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Toque duplo e pinçar para redimensionar está desativado</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"A ação de toque duplo e beliscar para redimensionar está habilitada 
@@ -1480,7 +1486,7 @@ Problema conhecido: Quando essa configuração está ativada, não é possível 
     <string name="revanced_miniplayer_drag_and_drop_summary_off">Arrastar e soltar está desativado</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_on">"Arrastar e soltar está ativado
 
-O mini reprodutor pode ser arrastado para qualquer canto da tela"</string>
+O Miniplayer pode ser arrastado para qualquer canto da tela"</string>
     <string name="revanced_miniplayer_drag_and_drop_title">Ativar arrastar e soltar</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Os botões de expandir e fechar são exibidos</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Botões ocultos
@@ -1499,7 +1505,7 @@ Deslize para expandir ou fechar"</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastar horizontalmente desativado</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Gesto de arrastar horizontalmente ativado
 
-O mini reprodutor pode ser arrastado para fora da tela para a esquerda ou direita"</string>
+O Miniplayer pode ser arrastado para fora da tela para a esquerda ou direita"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Ativa o gesto de arrastar horizontalmente</string>
     <string name="revanced_miniplayer_opacity_invalid_toast">Opacidade da sobreposição de miniplayer deve estar entre 0-100</string>
     <string name="revanced_miniplayer_opacity_title">Opacidade de sobreposição</string>
@@ -1591,9 +1597,9 @@ Toque e segure novamente para redefinir para a velocidade padrão"</string>
     <string name="revanced_overlay_button_whitelist_summary">Toque para abrir a caixa de diálogo da lista branca
 Toque e segure para abrir a caixa de diálogo de configuração da lista branca</string>
     <string name="revanced_overlay_button_whitelist_title">Exibir botão de lista branca</string>
-    <string name="revanced_overlay_buttons_max_landscape_summary">Número máximo de botões sobrepostos a serem exibidos no modo paisagem (excluindo o botão Tela Cheia). Digite 0 para ocultar todos</string>
+    <string name="revanced_overlay_buttons_max_landscape_summary">Número máximo de botões de sobreposição a serem exibidos no modo paisagem (exceto o botão Tela Cheia). Digite 0 para ocultar todos\n\nDeslize horizontalmente para revelar os botões que excederem este limite</string>
     <string name="revanced_overlay_buttons_max_landscape_title">Botões máximos no modo paisagem</string>
-    <string name="revanced_overlay_buttons_max_portrait_summary">Número máximo de botões sobrepostos a serem exibidos no modo retrato (excluindo o botão Tela Cheia). Digite 0 para ocultar todos</string>
+    <string name="revanced_overlay_buttons_max_portrait_summary">Número máximo de botões de sobreposição a serem exibidos no modo retrato (exceto o botão Tela Cheia). Digite 0 para ocultar todos\n\nDeslize horizontalmente para revelar os botões que excederem este limite</string>
     <string name="revanced_overlay_buttons_max_portrait_title">Botões máximos no modo retrato</string>
     <string name="revanced_override_play_next_in_queue_summary_off">A opção "Reproduzir a seguir na fila" utiliza a fila nativa do YouTube</string>
     <string name="revanced_override_play_next_in_queue_summary_on">A opção "Reproduzir o próximo da fila" abre o gerenciador de filas do RVX</string>
@@ -1675,24 +1681,24 @@ Para exibir o botão nativo para baixar a lista de reprodução, ative \'Falsifi
     <string name="revanced_preference_screen_hook_buttons_title">Botões hook</string>
     <string name="revanced_preference_screen_import_export_summary">Importar ou exportar configurações</string>
     <string name="revanced_preference_screen_import_export_title">Importar / Exportar configurações</string>
-    <string name="revanced_preference_screen_miniplayer_summary">Alterar o estilo do reprodutor minimizado no aplicativo</string>
-    <string name="revanced_preference_screen_miniplayer_title">Mini reprodutor</string>
+    <string name="revanced_preference_screen_miniplayer_summary">Alterar o estilo do player minimizado no aplicativo</string>
+    <string name="revanced_preference_screen_miniplayer_title">Miniplayer</string>
     <string name="revanced_preference_screen_misc_title">Diversos</string>
     <string name="revanced_preference_screen_navigation_bar_summary">Ocultar ou mostrar componentes da seção de navegação</string>
     <string name="revanced_preference_screen_navigation_bar_title">Barra de Navegação</string>
     <string name="revanced_preference_screen_patch_information_summary">Informações sobre as modificações aplicadas</string>
     <string name="revanced_preference_screen_player_buttons_summary">Oculte ou mostre botões em vídeos</string>
-    <string name="revanced_preference_screen_player_buttons_title">Botões do reprodutor</string>
-    <string name="revanced_preference_screen_player_flyout_menu_summary">Ocultar ou alterar o menu flutuante no reprodutor de vídeo</string>
-    <string name="revanced_preference_screen_player_title">Reprodutor</string>
+    <string name="revanced_preference_screen_player_buttons_title">Botões do player</string>
+    <string name="revanced_preference_screen_player_flyout_menu_summary">Ocultar ou alterar o menu flutuante no playerde vídeo</string>
+    <string name="revanced_preference_screen_player_title">Player</string>
     <string name="revanced_preference_screen_return_youtube_username_title">Exibir Nome de Usuário do YouTube </string>
     <string name="revanced_preference_screen_ryd_title">Voltar a mostrar Dislikes do YouTube </string>
     <string name="revanced_preference_screen_seekbar_summary">Personalize os componentes da barra de progresso</string>
     <string name="revanced_preference_screen_seekbar_title">Barra de progresso</string>
     <string name="revanced_preference_screen_settings_menu_summary">Ocultar elementos no menu de configurações do YouTube</string>
     <string name="revanced_preference_screen_settings_menu_title">Menu de configurações</string>
-    <string name="revanced_preference_screen_shorts_player_summary">Ocultar ou mostrar componentes no reprodutor de shorts</string>
-    <string name="revanced_preference_screen_shorts_player_title">Reprodutor de shorts</string>
+    <string name="revanced_preference_screen_shorts_player_summary">Ocultar ou mostrar componentes no player de Shorts</string>
+    <string name="revanced_preference_screen_shorts_player_title">Player de Shorts</string>
     <string name="revanced_preference_screen_snack_bar_summary">Ocultar ou alterar componentes relacionados à barra de busca</string>
     <string name="revanced_preference_screen_snack_bar_title">Barra de busca</string>
     <string name="revanced_preference_screen_swipe_controls_title">Controles deslizantes</string>
@@ -1823,10 +1829,10 @@ Toque e segure para abrir as Configurações do YouTube"</string>
 
 Limitação: Retorna à sobreposição 'Mais vídeos' no estilo antigo"</string>
     <string name="revanced_restore_old_video_action_bar_title">Restaurar barra de ações de vídeo antiga</string>
-    <string name="revanced_restore_shorts_old_player_layout_summary_off">O layout antigo do reprodutor não é utilizado</string>
-    <string name="revanced_restore_shorts_old_player_layout_summary_on">"O layout antigo do reprodutor é utilizado
-Sem margens na parte superior e inferior do reprodutor"</string>
-    <string name="revanced_restore_shorts_old_player_layout_title">Restaurar layout antigo do reprodutor</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">O layout antigo do player não é utilizado</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"O layout antigo do player é utilizado
+Sem margens na parte superior e inferior do player"</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Restaurar layout antigo do player</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@identificador (Nome de usuário)</string>
     <string name="revanced_return_youtube_username_display_format_title">Formato de exibição</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Nome de usuário (@identificador)</string>
@@ -2211,7 +2217,7 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">A porcentagem de altura deve estar entre 0-100 (%)</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configura a porcentagem de altura do espaço vazio esquerdo quando a barra de navegação está oculta, entre 0 e 100 (%)</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Porcentagem de altura do espaço vazio</string>
-    <string name="revanced_shorts_player_type_regular_player">Player regular</string>
+    <string name="revanced_shorts_player_type_regular_player">Player padrão</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Tela cheia no player padrão</string>
     <string name="revanced_shorts_player_type_title">Abrir Shorts com</string>
     <string name="revanced_show_settings_button_index_title">Posição do botão Configurações</string>
@@ -2325,7 +2331,7 @@ Clique em 'Abrir' para ler o artigo"</string>
 
 Ocasionalmente, o padrão de n-sig não consegue ser decodificado, fazendo com que o vídeo comece atrasado ou que o vídeo seja travado
 
-Isto pode ser facilmente resolvido clicando no 'botão recarregar vídeo' no reprodutor para recarregar o vídeo
+Isto pode ser facilmente resolvido clicando no 'botão recarregar vídeo' no player para recarregar o vídeo
 
 (Pré-requisitos: Tanto 'Exibir botão de recarregar vídeo' quanto 'Sempre exibir botão de recarregar vídeo' devem ser ativados)
 

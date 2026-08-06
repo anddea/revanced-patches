@@ -37,6 +37,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">تم تمكين بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_summary_on">تم تعطيل بروتوكول QUIC</string>
     <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\'</string>
+    <string name="morphe_force_original_audio_summary">يقوم دائمًا بتشغيل المقطع الصوتي الأصلي للفيديو بدلًا عن النسخة المدبلجة</string>
     <string name="morphe_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
     <string name="morphe_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
     <string name="morphe_force_original_audio_title">فرض لغة الصوت الأصلية</string>
@@ -229,10 +230,6 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="revanced_debug_title">تمكين سجلات التصحيح</string>
     <string name="revanced_default_app_settings_summary">لفتح روابط YouTube Music في RVX Music، قم بتمكين خيار فتح الروابط المدعومة وتمكين جميع عناوين الويب المدعومة</string>
     <string name="revanced_default_app_settings_title">فتح إعدادات التطبيق الافتراضية</string>
-    <string name="revanced_disable_auto_audio_tracks_summary">تعطيل المسارات الصوتية التلقائية المفروضة للبودكاست
-
-قيد: في حال تفعيل "تزييف بيانات البث" (Spoof streaming data) وكان العميل الافتراضي هو "Android VR Auth"، فقد لا تعمل هذه الميزة</string>
-    <string name="revanced_disable_auto_audio_tracks_title">تعطيل المقطع الصوتي التلقائي المفروض</string>
     <string name="revanced_disable_auto_captions_summary">تعطيل الفرض التلقائي للترجمات والشروحات (Auto captions)</string>
     <string name="revanced_disable_auto_captions_title">تعطيل الترجمة التلقائية المفروضة</string>
     <string name="revanced_disable_cairo_splash_animation_summary">تعطيل الرسوم المتحركة لشاشة البدء (Cairo) عند تشغيل التطبيق</string>
@@ -624,7 +621,7 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات</string>
     <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
     <string name="revanced_settings_search_no_results_summary">جرّب كلمة مفتاحية أخرى</string>
-    <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \".%s\"</string>
+    <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \"%s\"</string>
     <string name="revanced_settings_search_recent_searches">عمليات البحث الأخيرة</string>
     <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
     <string name="revanced_settings_search_tips_summary">"• انقر على مسار للانتقال إليه
