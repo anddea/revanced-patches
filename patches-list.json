@@ -1,5 +1,5 @@
 {
-  "version": "4.2.0-dev.11",
+  "version": "4.2.0-dev.12",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -328,6 +328,27 @@
           }
         }
       ]
+    },
+    {
+      "name": "Custom DPI",
+      "description": "Forces a higher display density for this app only, so the whole UI scales up without changing system density.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "19.43.41",
+          "19.44.39",
+          "19.47.53",
+          "20.05.46",
+          "20.21.37",
+          "20.31.42",
+          "20.47.62",
+          "20.51.39"
+        ]
+      },
+      "options": []
     },
     {
       "name": "Custom Shorts action buttons",
@@ -2220,6 +2241,28 @@
       "options": []
     },
     {
+      "name": "Playback in feeds",
+      "description": "Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "19.43.41",
+          "19.44.39",
+          "19.47.53",
+          "20.05.46",
+          "20.21.37",
+          "20.31.42",
+          "20.47.62",
+          "20.51.39"
+        ]
+      },
+      "options": []
+    },
+    {
       "name": "Player components",
       "description": "Adds options to hide or change components related to the player.",
       "use": true,
@@ -3228,6 +3271,25 @@
           }
         }
       ]
+    },
+    {
+      "name": "Third-party lyrics",
+      "description": "Adds an option to show synced lyrics from LRCLIB or KuGou in the lyrics panel.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.apps.youtube.music": [
+          "9.15.51"
+        ]
+      },
+      "options": []
     },
     {
       "name": "Toolbar components",
