@@ -46,6 +46,10 @@ public class VideoQualityPatch {
      */
     private static final boolean HIDE_VIDEO_ADS = Settings.HIDE_VIDEO_ADS.get();
 
+    // Set the access modifier to final to override the flag only after the state snapshot is reloaded.
+    private static final boolean SETTINGS_INITIALIZED = Settings.SETTINGS_INITIALIZED.get();
+    private static final boolean OVERRIDE_INITIAL_VIDEO_QUALITY = Settings.OVERRIDE_INITIAL_VIDEO_QUALITY.get();
+
     private static final IntegerSetting shortsQualityMobile = Settings.DEFAULT_VIDEO_QUALITY_MOBILE_SHORTS;
     private static final IntegerSetting shortsQualityWifi = Settings.DEFAULT_VIDEO_QUALITY_WIFI_SHORTS;
     private static final IntegerSetting videoQualityMobile = Settings.DEFAULT_VIDEO_QUALITY_MOBILE;
@@ -191,6 +195,20 @@ public class VideoQualityPatch {
             }
         }
         return optional;
+    }
+
+    /**
+     * Injection point.
+     *
+     * @return If true, default video quality is applied without delay after the video starts.
+     * Turn this off if you experience playback issues with the Android VR AVC codec.
+     */
+    public static boolean overrideInitialVideoQualityFeatureFlag(boolean originalValue) {
+        if (SETTINGS_INITIALIZED) {
+            Logger.printDebug(() -> "Override initial video quality feature flag to " + OVERRIDE_INITIAL_VIDEO_QUALITY);
+            return OVERRIDE_INITIAL_VIDEO_QUALITY;
+        }
+        return originalValue;
     }
 
     /**

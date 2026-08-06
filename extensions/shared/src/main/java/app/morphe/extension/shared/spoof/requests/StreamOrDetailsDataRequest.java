@@ -41,11 +41,14 @@ import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerResponse;
+import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerConfig;
+import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayabilityStatus;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.StreamingData;
 import app.morphe.extension.shared.innertube.ReelItemWatchResponseOuterClass.ReelItemWatchResponse;
 import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.BaseSettings;
+import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -88,12 +91,8 @@ public class StreamOrDetailsDataRequest {
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String PAGE_ID_HEADER = "X-Goog-PageId";
-
-    private static final String[] REQUEST_HEADER_KEYS = {
-            AUTHORIZATION_HEADER,
-            "X-GOOG-API-FORMAT-VERSION",
-            "X-Goog-Visitor-Id"
-    };
+    private static final String API_FORMAT_VERSION_HEADER = "X-GOOG-API-FORMAT-VERSION";
+    private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
 
     private static final int HTTP_TIMEOUT_MILLISECONDS = 10 * 1000;
     private static final int MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000;
@@ -190,50 +189,74 @@ public class StreamOrDetailsDataRequest {
             connection.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 
-            boolean authHeadersIncludes = false;
             authHeadersOverrides = false;
 
-            if (playerHeaders != null) {
-                for (String key : REQUEST_HEADER_KEYS) {
-                    String value = playerHeaders.get(key);
+            String visitorId = "";
+            if (isStream) {
+                String authorization = playerHeaders.get(AUTHORIZATION_HEADER);
+                boolean authHeadersIncludes = Utils.isNotEmpty(authorization);
 
-                    if (value != null) {
-                        if (key.equals(AUTHORIZATION_HEADER)) {
-                            if (clientType.supportsOAuth2) {
-                                String authorization = OAuth2Requester.getAndUpdateAccessTokenIfNeeded();
-                                if (authorization.isEmpty()) {
-                                    continue;
-                                } else {
-                                    value = authorization;
-                                    authHeadersOverrides = true;
-                                }
-                            } else if (!clientType.canLogin) {
-                                continue;
-                            }
-                            authHeadersIncludes = true;
-                        }
-                        connection.setRequestProperty(key, value);
+                // Auth header is required, but the user is not logged in. These clients are skipped:
+                // ANDROID_CREATOR, TV_SIMPLY, ANDROID_MUSIC_REEL, ANDROID_MUSIC_NO_SDK.
+                if (clientType.canLogin && clientType.requireLogin && !authHeadersIncludes) {
+                    Logger.printDebug(() -> "Skipping client since user is not logged in: " + clientType
+                            + ", videoId: " + videoId);
+                    return null;
+                }
+                // If the Bearer token is compatible and the user is logged in, the header is set:
+                // ANDROID_CREATOR, ANDROID_MUSIC_REEL, ANDROID_MUSIC_NO_SDK, TV_SABR, TV_SIMPLY.
+                else if (clientType.canLogin && authHeadersIncludes) {
+                    connection.setRequestProperty(AUTHORIZATION_HEADER, authorization);
+                    Logger.printDebug(() -> "Set auth header: " + clientType + ", videoId: " + videoId);
+                }
+                // If oauth2 login is supported and the user is logged in via oauth2 flow, the header is set:
+                // ANDROID_VR (ANDROID_XR).
+                else if (clientType.supportsOAuth2 && authHeadersIncludes) {
+                    String oauth2Authorization = OAuth2Requester.getAndUpdateAccessTokenIfNeeded();
+                    if (Utils.isNotEmpty(oauth2Authorization)) {
+                        authHeadersOverrides = true;
+                        connection.setRequestProperty(AUTHORIZATION_HEADER, oauth2Authorization);
+                        Logger.printDebug(() -> "Set oauth2 auth header: " + clientType + ", videoId: " + videoId);
+                    }
+                }
+                // These clients can play videos without the auth header:
+                // ANDROID_VR (ANDROID_XR), TV_SABR, VISIONOS_1_02 (VISIONOS_1_03).
+                else {
+                    Logger.printDebug(() -> "Do not set auth header: " + clientType + ", videoId: " + videoId);
+                }
+
+                Logger.printDebug(() -> "Fetching video stream for: " + videoId + " using client: " + clientType);
+
+                // Using the same visitorId across multiple clients increases the bot score.
+                // To prevent this, each client uses a different visitorId.
+                // See: https://github.com/MorpheApp/morphe-patches/issues/2283.
+                visitorId = VisitorIdRequester.getVisitorId(clientType);
+                if (Utils.isNotEmpty(visitorId)) {
+                    connection.setRequestProperty(VISITOR_ID_HEADER, visitorId);
+                } else {
+                    // A few requests without visitorId are okay, but if repeated excessively, increase the bot score.
+                    Logger.printDebug(() -> "Do not set visitorId: " + clientType + ", videoId: " + videoId);
+                }
+
+                // Only 'X-GOOG-API-FORMAT-VERSION = 2' can have a proto response.
+                connection.setRequestProperty(API_FORMAT_VERSION_HEADER, "2");
+            } else if (playerHeaders != null) {
+                String authorization = playerHeaders.get(AUTHORIZATION_HEADER);
+                if (authorization != null) {
+                    connection.setRequestProperty(AUTHORIZATION_HEADER, authorization);
+                    if (!pageIDHeaderValue.isEmpty()) {
+                        connection.setRequestProperty(PAGE_ID_HEADER, pageIDHeaderValue);
                     }
                 }
             }
 
-            if (authHeadersIncludes) {
-                if (!pageIDHeaderValue.isEmpty()) {
-                    connection.setRequestProperty(PAGE_ID_HEADER, pageIDHeaderValue);
-                }
-            } else {
-                if (clientType.requireLogin) {
-                    return null;
-                }
-            }
-
-            String innerTubeBody = PlayerRoutes.createInnertubeBody(clientType, videoId);
+            String innerTubeBody = PlayerRoutes.createInnertubeBody(clientType, videoId, visitorId);
             byte[] requestBody = innerTubeBody.getBytes(StandardCharsets.UTF_8);
             connection.setFixedLengthStreamingMode(requestBody.length);
             connection.getOutputStream().write(requestBody);
 
             final int responseCode = connection.getResponseCode();
-            if (responseCode == 200) return connection;
+            if (responseCode == HttpURLConnection.HTTP_OK) return connection;
 
             if (isStream) {
                 handleConnectionError("Playback error " + clientType + ": " + responseCode + " " + connection.getResponseMessage(), null, showErrorToasts);
@@ -263,10 +286,16 @@ public class StreamOrDetailsDataRequest {
 
         try (InputStream inputStream = connection.getInputStream()) {
             if (returnStreamObject) {
-                PlayerResponse playerResponse = clientType.usePlayerEndpoint
-                        ? PlayerResponse.parseFrom(inputStream)
-                        : ReelItemWatchResponse.parseFrom(inputStream).getPlayerResponse();
-                var playabilityStatus = playerResponse.getPlayabilityStatus();
+                PlayerResponse playerResponse;
+                if (clientType.usePlayerEndpoint) {
+                    playerResponse = PlayerResponse.parseFrom(inputStream);
+                    VisitorIdRequester.updateVisitorIdIfNeed(clientType, playerResponse.getResponseContext().getVisitorData());
+                } else {
+                    ReelItemWatchResponse reelItemWatchResponse = ReelItemWatchResponse.parseFrom(inputStream);
+                    VisitorIdRequester.updateVisitorIdIfNeed(clientType, reelItemWatchResponse.getResponseContext().getVisitorData());
+                    playerResponse = reelItemWatchResponse.getPlayerResponse();
+                }
+                PlayabilityStatus playabilityStatus = playerResponse.getPlayabilityStatus();
                 String status = playabilityStatus.getStatus().name();
 
                 if (!"OK".equals(status)) {
@@ -284,7 +313,7 @@ public class StreamOrDetailsDataRequest {
                 }
 
                 if (clientType.requireJS) {
-                    var deobfuscatedStreamingData = getDeobfuscatedStreamingData(streamingData);
+                    var deobfuscatedStreamingData = getDeobfuscatedStreamingData(streamingData, clientType.requireSABR);
                     if (deobfuscatedStreamingData == null) {
                         return null;
                     }
@@ -292,13 +321,25 @@ public class StreamOrDetailsDataRequest {
                 }
 
                 byte[] streamingDataBuffer = responseBuilder.build().toByteArray();
-                byte[] playerConfig = null;
+                byte[] playerConfigBuffer = null;
 
                 if (clientType.requireSABR && playerResponse.hasPlayerConfig()) {
-                    playerConfig = playerResponse.getPlayerConfig().toByteArray();
+                    PlayerConfig playerConfig = playerResponse.getPlayerConfig();
+
+                    // It seems there is an issue when 'usePlatypus = true' when forcing the AVC codec.
+                    // Override the 'usePlatypus' to false.
+                    if (SharedYouTubeSettings.OVERRIDE_INITIAL_VIDEO_QUALITY.get()) {
+                        PlayerConfig.Builder playerConfigBuilder = playerConfig.toBuilder();
+                        var mediaCommonConfigBuilder = playerConfigBuilder
+                                .getMediaCommonConfig().toBuilder();
+                        mediaCommonConfigBuilder.setUsePlatypus(false);
+                        playerConfigBuilder.setMediaCommonConfig(mediaCommonConfigBuilder);
+                        playerConfig = playerConfigBuilder.build();
+                    }
+                    playerConfigBuffer = playerConfig.toByteArray();
                 }
 
-                return new StreamData(streamingDataBuffer, playerConfig);
+                return new StreamData(streamingDataBuffer, playerConfigBuffer);
             } else {
                 String response = new BufferedReader(new InputStreamReader(inputStream))
                         .lines()

@@ -624,6 +624,7 @@ private val intentKey = setOf(
 val intentIcon = intentKey.associateWith { "${it}_icon" }
 
 private val emptyTitles = setOf(
+    "morphe_override_initial_video_quality",
     "morphe_replace_links_with_shortener",
     "morphe_video_quality_prioritize",
     "revanced_advanced_video_quality_menu",
