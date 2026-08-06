@@ -37,6 +37,7 @@ Clicca \"Continua\" per consentire le modifiche"</string>
     <string name="morphe_disable_quic_protocol_summary_off">Il protocollo QUIC è abilitato</string>
     <string name="morphe_disable_quic_protocol_summary_on">Il protocollo QUIC è disabilitato</string>
     <string name="morphe_force_original_audio_not_available">Per usare questa funzionalità, cambia \"Falsifica i flussi video\" a qualsiasi client eccetto Android Studio\'</string>
+    <string name="morphe_force_original_audio_summary">Riproduce sempre la traccia audio originale del video invece di una versione doppiata</string>
     <string name="morphe_force_original_audio_summary_off">Utilizzo audio predefinito</string>
     <string name="morphe_force_original_audio_summary_on">Utilizza la lingua audio originale</string>
     <string name="morphe_force_original_audio_title">Forza la lingua audio originale</string>
@@ -231,10 +232,6 @@ Se possibile usa colori scuri, poiché l'app non supporta temi chiari"</string>
     <string name="revanced_debug_title">Abilita i registri di debug</string>
     <string name="revanced_default_app_settings_summary">Per aprire i link di YouTube Music in RVX Music, abilita Apri link supportati e abilita tutti gli indirizzi web supportati</string>
     <string name="revanced_default_app_settings_title">Apri le impostazioni predefinite dell\'app</string>
-    <string name="revanced_disable_auto_audio_tracks_summary">"Disabilita le tracce audio automatiche forzate per i podcast
-
-Limitazione: se 'Falsifica dati di streaming' è abilitato e il client predefinito è 'Android VR Auth', questa opzione potrebbe non funzionare"</string>
-    <string name="revanced_disable_auto_audio_tracks_title">Disattiva le tracce audio automatiche forzate</string>
     <string name="revanced_disable_auto_captions_summary">Sottotitoli automatici forzati disabilitati</string>
     <string name="revanced_disable_auto_captions_title">Disabilita i sottotitoli automatici forzati</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Disabilita l\'animazione di avvio Cairo all\'avvio dell\'applicazione</string>
@@ -640,7 +637,7 @@ Tocca qui per aprire ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_search_history_summary_on">La cronologia di ricerca delle impostazioni è visualizzata</string>
     <string name="revanced_settings_search_history_title">Mostra la cronologia di ricerca delle impostazioni</string>
     <string name="revanced_settings_search_no_results_summary">Prova con un\'altra parola chiave</string>
-    <string name="revanced_settings_search_no_results_title">Nessun risultato trovato per \".%s\"</string>
+    <string name="revanced_settings_search_no_results_title">Nessun risultato trovato per \"%s\"</string>
     <string name="revanced_settings_search_recent_searches">Ricerche recenti</string>
     <string name="revanced_settings_search_remove_message">Rimuovere dalla cronologia di ricerca?</string>
     <string name="revanced_settings_search_tips_summary">"• Tocca un percorso per accedervi

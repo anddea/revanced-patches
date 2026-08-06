@@ -37,6 +37,7 @@ MicroG に対して電池の最適化を無効にしても、バッテリー消�
     <string name="morphe_disable_quic_protocol_summary_off">QUIC プロトコルは有効です</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC プロトコルは無効です</string>
     <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを「Android Studio」以外に変更してください</string>
+    <string name="morphe_force_original_audio_summary">常にオリジナルの音声トラック (言語) を再生します。オートダビングを含む吹き替えの音声トラックは再生されなくなります</string>
     <string name="morphe_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックが使用される場合があります</string>
     <string name="morphe_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用されません</string>
     <string name="morphe_force_original_audio_title">オリジナルの音声を強制的に使用</string>
@@ -231,10 +232,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_debug_title">デバッグログを有効化</string>
     <string name="revanced_default_app_settings_summary">RVX Music でYouTube Music のURLを開くには、「対応リンクを開く」を有効にし、サポートされているURLを有効にします。</string>
     <string name="revanced_default_app_settings_title">「デフォルトで開く」の設定</string>
-    <string name="revanced_disable_auto_audio_tracks_summary">"ポッドキャストの強制自動オーディオトラックを無効にします。
-
-制限事項：「スプーフィングストリーミングデータ」が有効で、デフォルトのクライアントが「Android VR Auth」の場合、動作しない可能性があります。"</string>
-    <string name="revanced_disable_auto_audio_tracks_title">強制自動音声トラックを無効にする</string>
     <string name="revanced_disable_auto_captions_summary">動画側で設定されている、字幕の強制は無効です。</string>
     <string name="revanced_disable_auto_captions_title">字幕の強制を無効化</string>
     <string name="revanced_disable_cairo_splash_animation_summary">アプリ起動時のCairo のスプラッシュアニメーションを無効にします。</string>

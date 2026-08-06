@@ -185,6 +185,7 @@ def process_all(config: CLIConfig) -> None:
         ("Check Icon Preferences", check_icons.process, ["youtube"]),
         ("Update Strings from Git Diff (YouTube)", update_from_diff.process, ["youtube"]),
         ("Update Strings from Git Diff (YouTube Music)", update_from_diff.process, ["music"]),
+        ("Remove Unwanted Dots", dot_games.process, []),
     ]
 
     for name, handler, args in handlers:
