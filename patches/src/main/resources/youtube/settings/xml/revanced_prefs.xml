@@ -169,8 +169,8 @@
         <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/revanced_change_start_page_entries" android:title="@string/revanced_change_start_page_title" android:key="revanced_change_start_page" android:entryValues="@array/revanced_change_start_page_entry_values" />
         <SwitchPreference android:title="@string/revanced_change_start_page_type_title" android:key="revanced_change_start_page_type" android:summaryOn="@string/revanced_change_start_page_type_summary_on" android:summaryOff="@string/revanced_change_start_page_type_summary_off" />SETTINGS: CHANGE_START_PAGE -->
 
-        <!-- SETTINGS: DISABLE_AUTO_AUDIO_TRACKS
-        <app.morphe.extension.youtube.settings.preference.ForceOriginalAudioSwitchPreference android:title="@string/revanced_disable_auto_audio_tracks_title" android:key="revanced_disable_auto_audio_tracks" />SETTINGS: DISABLE_AUTO_AUDIO_TRACKS -->
+        <!-- SETTINGS: FORCE_ORIGINAL_AUDIO
+        <app.morphe.extension.youtube.settings.preference.ForceOriginalAudioSwitchPreference android:title="@string/morphe_force_original_audio_title" android:key="morphe_force_original_audio" android:summaryOn="@string/morphe_force_original_audio_summary_on" android:summaryOff="@string/morphe_force_original_audio_summary_off" />SETTINGS: FORCE_ORIGINAL_AUDIO -->
 
         <!-- SETTINGS: DISABLE_AUTO_CAPTIONS
         <SwitchPreference android:title="@string/revanced_disable_auto_captions_title" android:key="revanced_disable_auto_captions" android:summaryOn="@string/revanced_disable_auto_captions_summary_on" android:summaryOff="@string/revanced_disable_auto_captions_summary_off" />SETTINGS: DISABLE_AUTO_CAPTIONS -->
@@ -1103,12 +1103,12 @@
                 <Preference android:title="Change form factor" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Change start page" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Custom DPI" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Disable forced auto audio tracks" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable forced auto captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable layout updates" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable sign in to TV popup" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable splash animation" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Enable gradient loading screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Force original audio" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide layout components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hook download actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hook YouTube Music actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

@@ -93,7 +93,7 @@ internal fun audioTracksPatch(
     fixUseLocalizedAudioTrackFlag: BytecodePatchContext.() -> Boolean,
     forcedServerAdaptiveStreaming: BytecodePatchContext.() -> Boolean,
 ) = bytecodePatch(
-    name = "Disable forced auto audio tracks",
+    name = "Force original audio",
     description = "Adds an option to disable audio tracks from being automatically enabled.",
 ) {
 
