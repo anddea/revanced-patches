@@ -528,7 +528,14 @@ public final class CustomActionsPatch {
                      @Nullable Runnable onLongClickAction
         ) {
             String selectedIcon = Utils.appIsUsingBoldIcons() ? boldIcon : icon;
-            this.drawable = Objects.requireNonNull(ResourceUtils.getDrawable(selectedIcon));
+            Drawable drawable = ResourceUtils.getDrawable(selectedIcon);
+            if (drawable == null && !selectedIcon.equals(icon)) {
+                // Bold resource names differ between supported YouTube versions. Use the normal
+                // icon when a version does not provide the selected bold variant.
+                selectedIcon = icon;
+                drawable = ResourceUtils.getDrawable(selectedIcon);
+            }
+            this.drawable = Objects.requireNonNull(drawable);
             this.drawableId = ResourceUtils.getDrawableIdentifier(selectedIcon);
             this.label = getString(settings.key + "_label");
             this.settings = settings;

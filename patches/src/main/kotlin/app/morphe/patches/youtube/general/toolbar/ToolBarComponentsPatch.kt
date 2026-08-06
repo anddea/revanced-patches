@@ -629,10 +629,9 @@ val toolBarComponentsPatch = bytecodePatch(
 
                 val protoListRegister =
                     getInstruction<FiveRegisterInstruction>(protoListIndex).registerC
-                val freeRegisters = getFreeRegisterProvider(protoListIndex, 3)
+                val freeRegisters = getFreeRegisterProvider(protoListIndex, 2)
                 val protoListFreeRegister = freeRegisters.getFreeRegister()
-                val settingsButtonByteRegister = freeRegisters.getFreeRegister()
-                val createButtonByteRegister = freeRegisters.getFreeRegister()
+                val buttonByteRegister = freeRegisters.getFreeRegister()
 
                 addInstructionsWithLabels(
                     protoListIndex,
@@ -645,29 +644,28 @@ val toolBarComponentsPatch = bytecodePatch(
                             move-result-object v$protoListRegister
 
                             invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->createToolbarSettingsButton(Ljava/util/List;)[B
-                            move-result-object v$settingsButtonByteRegister
-
-                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceToolbarCreateButton(Ljava/util/List;)[B
-                            move-result-object v$createButtonByteRegister
-                            if-eqz v$createButtonByteRegister, :create_button_replaced
+                            move-result-object v$buttonByteRegister
+                            if-eqz v$buttonByteRegister, :settings_button_not_created
 
                             sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
-                            invoke-static {v$protoListFreeRegister, v$createButtonByteRegister}, ${parseByteArrayMethodRef.get()!!}
-                            move-result-object v$protoListFreeRegister
-                            check-cast v$protoListFreeRegister, $buttonsClass
-                            invoke-static {}, $NAVIGATION_CLASS_DESCRIPTOR->getToolbarCreateButtonIndex()I
-                            move-result v$createButtonByteRegister
-                            invoke-interface {v$protoListRegister, v$createButtonByteRegister, v$protoListFreeRegister}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
-
-                            :create_button_replaced
-                            if-eqz v$settingsButtonByteRegister, :immutable
-
-                            sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
-                            invoke-static {v$protoListFreeRegister, v$settingsButtonByteRegister}, ${parseByteArrayMethodRef.get()!!}
+                            invoke-static {v$protoListFreeRegister, v$buttonByteRegister}, ${parseByteArrayMethodRef.get()!!}
                             move-result-object v$protoListFreeRegister
                             check-cast v$protoListFreeRegister, $buttonsClass
                             invoke-interface {v$protoListRegister, v$protoListFreeRegister}, Ljava/util/List;->add(Ljava/lang/Object;)Z
                             invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->applyToolbarSettingsButtonIndex(Ljava/util/List;)V
+
+                            :settings_button_not_created
+                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceToolbarCreateButton(Ljava/util/List;)[B
+                            move-result-object v$buttonByteRegister
+                            if-eqz v$buttonByteRegister, :immutable
+
+                            sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
+                            invoke-static {v$protoListFreeRegister, v$buttonByteRegister}, ${parseByteArrayMethodRef.get()!!}
+                            move-result-object v$protoListFreeRegister
+                            check-cast v$protoListFreeRegister, $buttonsClass
+                            invoke-static {}, $NAVIGATION_CLASS_DESCRIPTOR->getToolbarCreateButtonIndex()I
+                            move-result v$buttonByteRegister
+                            invoke-interface {v$protoListRegister, v$buttonByteRegister, v$protoListFreeRegister}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
                             :immutable
                             nop
