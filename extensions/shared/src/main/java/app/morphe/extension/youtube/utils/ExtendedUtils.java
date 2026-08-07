@@ -3,6 +3,7 @@ package app.morphe.extension.youtube.utils;
 import static app.morphe.extension.shared.utils.ResourceUtils.getAnimation;
 import static app.morphe.extension.shared.utils.ResourceUtils.getInteger;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -57,10 +58,10 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_19_28_OR_GREATER = isVersionOrGreater("19.28.00");
     public static final boolean IS_19_29_OR_GREATER = isVersionOrGreater("19.29.00");
     public static final boolean IS_19_34_OR_GREATER = isVersionOrGreater("19.34.00");
-    public static final boolean IS_20_09_OR_GREATER = isVersionOrGreater("20.09.00");
     public static final boolean IS_20_10_OR_GREATER = isVersionOrGreater("20.10.00");
     public static final boolean IS_20_22_OR_GREATER = isVersionOrGreater("20.22.00");
     public static final boolean IS_20_31_OR_GREATER = isVersionOrGreater("20.31.00");
+    public static final boolean IS_21_17_OR_GREATER = isVersionOrGreater("21.17.00");
 
     public static final boolean IS_ARC = hasSystemFeature("org.chromium.arc");
     public static final boolean IS_AUTOMOTIVE = hasSystemFeature("android.hardware.type.automotive");
@@ -161,12 +162,11 @@ public class ExtendedUtils extends PackageUtils {
 
         // Preset size constants.
         final int dip4 = dipToPixels(4);   // Height for handle bar.
-        final int dip5 = dipToPixels(5);
-        final int dip8 = dipToPixels(8);   // Padding for mainLayout from left and right.
+        final int dip8 = dipToPixels(8);   // Vertical padding for mainLayout.
         final int dip20 = dipToPixels(20);
         final int dip40 = dipToPixels(40); // Width for handle bar.
 
-        mainLayout.setPadding(dip5, dip8, dip5, dip8);
+        mainLayout.setPadding(0, dip8, 0, dip8);
 
         // Set rounded rectangle background for the main layout.
         RoundRectShape roundRectShape = new RoundRectShape(
@@ -397,6 +397,24 @@ public class ExtendedUtils extends PackageUtils {
             touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         }
 
+        /**
+         * Dragging an action row takes over the touch stream from the row click handler.
+         * Clear transient row state so the pressed background does not remain visible.
+         */
+        private static void clearTransientTouchState(@NonNull View view) {
+            view.setPressed(false);
+            view.setSelected(false);
+            view.setActivated(false);
+            view.jumpDrawablesToCurrentState();
+
+            if (view instanceof ViewGroup viewGroup) {
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    clearTransientTouchState(viewGroup.getChildAt(i));
+                }
+            }
+        }
+
+        @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             switch (event.getAction()) {
@@ -411,12 +429,16 @@ public class ExtendedUtils extends PackageUtils {
                         return false;
                     }
                     isDragging = true;
+                    clearTransientTouchState(v);
+                    clearTransientTouchState(mainLayout);
                     if (deltaY >= 0) {
                         mainLayout.setTranslationY(translationY + deltaY);
                     }
                     return true;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
+                    clearTransientTouchState(v);
+                    clearTransientTouchState(mainLayout);
                     if (!isDragging) {
                         return consumeActionDown;
                     }

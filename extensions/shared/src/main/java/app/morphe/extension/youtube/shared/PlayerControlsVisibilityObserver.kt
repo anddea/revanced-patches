@@ -3,7 +3,7 @@ package app.morphe.extension.youtube.shared
 import android.app.Activity
 import android.view.View
 import android.view.ViewGroup
-import app.morphe.extension.shared.utils.ResourceUtils.ResourceType
+import app.morphe.extension.shared.utils.ResourceType
 import app.morphe.extension.shared.utils.ResourceUtils.getIdentifier
 import java.lang.ref.WeakReference
 

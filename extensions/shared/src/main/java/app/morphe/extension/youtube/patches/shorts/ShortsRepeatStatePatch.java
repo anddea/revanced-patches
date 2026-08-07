@@ -55,7 +55,6 @@ public class ShortsRepeatStatePatch {
 
     private static WeakReference<Activity> mainActivityRef = new WeakReference<>(null);
 
-
     public static void setMainActivity(Activity activity) {
         mainActivityRef = new WeakReference<>(activity);
     }

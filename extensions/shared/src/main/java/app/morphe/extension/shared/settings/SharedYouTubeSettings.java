@@ -6,7 +6,6 @@ import static app.morphe.extension.shared.settings.Setting.migrateOldSettingToNe
 import static app.morphe.extension.shared.settings.Setting.parent;
 
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.JavaScriptClientAvailability;
-import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.JavaScriptHashAvailability;
 import app.morphe.extension.shared.spoof.js.JavaScriptVariant;
 
 /**
@@ -23,17 +22,20 @@ public class SharedYouTubeSettings extends BaseSettings {
 
     public static final BooleanSetting DISABLE_QUIC_PROTOCOL = new BooleanSetting("morphe_disable_quic_protocol", FALSE, true);
 
+    public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("morphe_force_original_audio", TRUE, true);
+    public static final BooleanSetting OVERRIDE_INITIAL_VIDEO_QUALITY = new BooleanSetting("morphe_override_initial_video_quality", TRUE, true);
+
+    public static final BooleanSetting LIVESTREAM_DVR = new BooleanSetting("morphe_livestream_dvr", FALSE, true);
+    public static final BooleanSetting EXPAND_LIVESTREAM_DVR_DURATION = new BooleanSetting("morphe_expand_livestream_dvr_duration", FALSE, true);
+
     public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("morphe_spoof_video_streams", TRUE, true, "morphe_spoof_video_streams_user_dialog_message");
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_STATS_FOR_NERDS = new BooleanSetting("morphe_spoof_video_streams_stats_for_nerds", TRUE, parent(SPOOF_VIDEO_STREAMS));
     public static final EnumSetting<JavaScriptVariant> SPOOF_VIDEO_STREAMS_PLAYER_JS_VARIANT = new EnumSetting<>("morphe_spoof_video_streams_player_js_variant", JavaScriptVariant.HOUSE_BRAND, true,
             new JavaScriptClientAvailability());
-
-    public static final BooleanSetting SPOOF_VIDEO_STREAMS_DISABLE_PLAYER_JS_UPDATE = new BooleanSetting("morphe_spoof_video_streams_disable_player_js_update", FALSE, true,
-            "morphe_spoof_video_streams_disable_player_js_update_user_dialog_message", new JavaScriptClientAvailability());
-    public static final StringSetting SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH_VALUE = new StringSetting("morphe_spoof_video_streams_player_js_hash_value", "", true,
-            new JavaScriptHashAvailability());
+    public static final StringSetting SPOOF_VIDEO_STREAMS_PLAYER_JS_HASH_VALUE = new StringSetting("morphe_spoof_video_streams_player_js_hash_value", "", true, false);
     public static final LongSetting SPOOF_VIDEO_STREAMS_PLAYER_JS_SAVED_MILLISECONDS = new LongSetting("morphe_spoof_video_streams_player_js_saved_milliseconds", -1L, false, false);
     public static final StringSetting OAUTH2_REFRESH_TOKEN = new StringSetting("morphe_oauth2_refresh_token", "", false, false);
+    public static final StringSetting SPOOF_VIDEO_STREAMS_CLIENT_IDS = new StringSetting("morphe_spoof_video_streams_clent_id", "", false, false);
 
     public static final BooleanSetting SANITIZE_SHARING_LINKS = new BooleanSetting("morphe_sanitize_sharing_links", TRUE);
     public static final BooleanSetting REPLACE_MUSIC_LINKS_WITH_YOUTUBE = new BooleanSetting("morphe_replace_music_with_youtube", FALSE);

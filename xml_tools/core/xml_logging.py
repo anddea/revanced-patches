@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Core package for application logging."""
 
 from __future__ import annotations

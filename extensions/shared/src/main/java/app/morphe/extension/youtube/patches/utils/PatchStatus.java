@@ -10,10 +10,6 @@ public class PatchStatus {
         return false;
     }
 
-    // Modified by a patch. Do not touch.
-    public static boolean OldSeekbarThumbnailsDefaultBoolean() {
-        return false;
-    }
 
     public static boolean OldSplashAnimation() {
         // Replace this with true if the 'Restore old splash animation (Custom branding icon)' succeeds

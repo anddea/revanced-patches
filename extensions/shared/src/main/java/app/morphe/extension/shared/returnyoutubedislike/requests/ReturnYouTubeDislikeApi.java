@@ -539,7 +539,6 @@ public class ReturnYouTubeDislikeApi {
         connection.setReadTimeout(API_REGISTER_VOTE_TIMEOUT_MILLISECONDS); // timeout for server response
     }
 
-
     private static String solvePuzzle(String challenge, int difficulty) {
         byte[] decodedChallenge = Base64.decode(challenge, Base64.NO_WRAP);
 

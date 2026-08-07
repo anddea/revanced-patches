@@ -62,14 +62,14 @@ public enum SegmentCategory {
     HIGHLIGHT("poi_highlight", sf("revanced_sb_segments_highlight"), sf("revanced_sb_segments_highlight_sum"), sf("revanced_sb_skip_button_highlight"), sf("revanced_sb_skipped_highlight"),
             SB_CATEGORY_HIGHLIGHT, SB_CATEGORY_HIGHLIGHT_COLOR),
     INTRO("intro", sf("revanced_sb_segments_intro"), sf("revanced_sb_segments_intro_sum"),
-            sf("revanced_sb_skip_button_intro_beginning"), sf("revanced_sb_skip_button_intro_middle"), sf("revanced_sb_skip_button_intro_end"),
-            sf("revanced_sb_skipped_intro_beginning"), sf("revanced_sb_skipped_intro_middle"), sf("revanced_sb_skipped_intro_end"),
+            sf("revanced_sb_skip_button_intro_beginning"), sf("revanced_sb_skip_button_intro_end"), sf("revanced_sb_skip_button_intro_end"),
+            sf("revanced_sb_skipped_intro_beginning"), sf("revanced_sb_skipped_intro_end"), sf("revanced_sb_skipped_intro_end"),
             SB_CATEGORY_INTRO, SB_CATEGORY_INTRO_COLOR),
     OUTRO("outro", sf("revanced_sb_segments_outro"), sf("revanced_sb_segments_outro_sum"), sf("revanced_sb_skip_button_outro"), sf("revanced_sb_skipped_outro"),
             SB_CATEGORY_OUTRO, SB_CATEGORY_OUTRO_COLOR),
     PREVIEW("preview", sf("revanced_sb_segments_preview"), sf("revanced_sb_segments_preview_sum"),
-            sf("revanced_sb_skip_button_preview_beginning"), sf("revanced_sb_skip_button_preview_middle"), sf("revanced_sb_skip_button_preview_end"),
-            sf("revanced_sb_skipped_preview_beginning"), sf("revanced_sb_skipped_preview_middle"), sf("revanced_sb_skipped_preview_end"),
+            sf("revanced_sb_skip_button_preview_beginning"), sf("revanced_sb_skip_button_preview_beginning"), sf("revanced_sb_skip_button_preview_end"),
+            sf("revanced_sb_skipped_preview_beginning"), sf("revanced_sb_skipped_preview_beginning"), sf("revanced_sb_skipped_preview_end"),
             SB_CATEGORY_PREVIEW, SB_CATEGORY_PREVIEW_COLOR),
     HOOK("hook", sf("revanced_sb_segments_hook"), sf("revanced_sb_segments_hook_sum"), sf("revanced_sb_skip_button_hook"), sf("revanced_sb_skipped_hook"),
             SB_CATEGORY_HOOK, SB_CATEGORY_HOOK_COLOR),
@@ -81,7 +81,7 @@ public enum SegmentCategory {
             SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR);
 
     private final StringRef skipSponsorTextCompact = sf("revanced_sb_skip_button_compact");
-    private final StringRef skipSponsorTextCompactHighlight = sf("revanced_sb_skip_button_compact_highlight");
+    private final StringRef skipSponsorTextCompactHighlight = sf("revanced_sb_segments_highlight");
 
     private static final SegmentCategory[] categoriesWithoutHighlights = new SegmentCategory[]{
             SPONSOR,

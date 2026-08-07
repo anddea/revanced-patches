@@ -2,7 +2,6 @@ package app.morphe.extension.shared.innertube.client
 
 import android.os.Build
 import java.util.Locale
-import kotlin.Deprecated
 
 @Suppress("SpellCheckingInspection", "unused")
 object YouTubeVRClient {

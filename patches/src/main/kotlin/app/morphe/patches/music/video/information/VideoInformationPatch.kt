@@ -1,3 +1,44 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.patches.music.video.information
 
 import app.morphe.patcher.Fingerprint
@@ -12,6 +53,7 @@ import app.morphe.patcher.util.smali.toInstructions
 import app.morphe.patches.music.utils.extension.Constants.SHARED_PATH
 import app.morphe.patches.music.utils.playbackSpeedFingerprint
 import app.morphe.patches.music.utils.playbackSpeedParentFingerprint
+import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.video.playerresponse.Hook
 import app.morphe.patches.music.video.playerresponse.addPlayerResponseMethodHook
 import app.morphe.patches.music.video.playerresponse.playerResponseMethodHookPatch
@@ -67,6 +109,7 @@ private var mdxConstructorInsertIndex = -1
 
 private lateinit var videoTimeConstructorMethod: MutableMethod
 private var videoTimeConstructorInsertIndex = 2
+private var videoTimeRegisters = "p1 .. p2"
 
 val videoInformationPatch = bytecodePatch(
     description = "videoInformationPatch",
@@ -74,6 +117,127 @@ val videoInformationPatch = bytecodePatch(
     dependsOn(playerResponseMethodHookPatch)
 
     execute {
+        if (is_8_51_or_greater) {
+            val playerClass = ModernVideoEndFingerprint.classDef
+            val playerType = playerClass.type
+
+            seekSourceEnumType = ModernVideoEndFingerprint.method.parameterTypes[1].toString()
+            seekSourceMethodName = ModernVideoEndFingerprint.method.name
+
+            playerClass.methods.add(
+                ImmutableMethod(
+                    playerType,
+                    "seekTo",
+                    listOf(ImmutableMethodParameter("J", emptySet(), "time")),
+                    "Z",
+                    AccessFlags.PUBLIC or AccessFlags.FINAL,
+                    emptySet(),
+                    null,
+                    ImmutableMethodImplementation(
+                        4,
+                        """
+                            sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
+                            invoke-virtual {p0, p1, p2, v0}, $playerType->$seekSourceMethodName(J$seekSourceEnumType)Z
+                            move-result p1
+                            return p1
+                        """.toInstructions(),
+                        null,
+                        null
+                    )
+                ).toMutable()
+            )
+
+            addStaticFieldToExtension(
+                EXTENSION_CLASS_DESCRIPTOR,
+                "overrideVideoTime",
+                "videoInformationClass",
+                playerType,
+                """
+                    if-eqz v0, :ignore
+                    invoke-virtual {v0, p0, p1}, $playerType->seekTo(J)Z
+                    move-result p0
+                    return p0
+                    :ignore
+                    const/4 v0, 0x0
+                    return v0
+                """
+            )
+
+            playerConstructorMethod = playerClass.methods.first { it.name == "<init>" }
+            playerConstructorInsertIndex = playerConstructorMethod.indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_DIRECT &&
+                        getReference<MethodReference>()?.name == "<init>"
+            } + 1
+            playerConstructorMethod.addInstruction(
+                playerConstructorInsertIndex++,
+                "sput-object p0, $EXTENSION_CLASS_DESCRIPTOR->videoInformationClass:$playerType"
+            )
+            onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "initialize")
+
+            videoTimeConstructorMethod = ModernPlayerControllerSetTimeReferenceFingerprint.method
+            videoTimeConstructorInsertIndex = 0
+            var parameterRegister = 1
+            var longParameterCount = 0
+            for (type in videoTimeConstructorMethod.parameterTypes) {
+                val parameterType = type.toString()
+                if (parameterType == "J") {
+                    longParameterCount++
+                    if (longParameterCount == 2) {
+                        videoTimeRegisters = "p$parameterRegister .. p${parameterRegister + 1}"
+                        break
+                    }
+                }
+                parameterRegister += if (parameterType == "J" || parameterType == "D") 2 else 1
+            }
+            videoTimeHook(EXTENSION_CLASS_DESCRIPTOR, "setVideoTime")
+
+            ModernVideoIdFingerprint.let { fingerprint ->
+                fingerprint.method.apply {
+                    val playerResponseModelIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        (opcode == Opcode.INVOKE_INTERFACE_RANGE || opcode == Opcode.INVOKE_INTERFACE) &&
+                                reference?.returnType == "Ljava/lang/String;" &&
+                                reference.parameterTypes.isEmpty()
+                    }
+
+                    PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR =
+                        getInstruction<ReferenceInstruction>(playerResponseModelIndex)
+                            .getReference<MethodReference>()
+                            ?.definingClass
+                            ?: throw PatchException("Could not find Player Response Model class")
+                    videoIdMethodCall =
+                        "invoke-interface {v$REGISTER_PLAYER_RESPONSE_MODEL}, " +
+                                getInstruction<ReferenceInstruction>(playerResponseModelIndex).reference
+
+                    val videoLengthMethod = classDefBy(PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR).methods
+                        .first { it.returnType == "J" && it.parameterTypes.isEmpty() }
+                    videoLengthMethodCall =
+                        "invoke-interface {v$REGISTER_PLAYER_RESPONSE_MODEL}, " +
+                                "$PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR->${videoLengthMethod.name}()J"
+
+                    videoInformationMethod = getVideoInformationMethod()
+                    fingerprint.classDef.methods.add(videoInformationMethod)
+                    videoIdHook("$EXTENSION_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
+                    videoLengthHook("$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V")
+
+                    addInstruction(
+                        playerResponseModelIndex + 2,
+                        "invoke-direct/range {p0 .. p1}, $definingClass->setVideoInformation($PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR)V"
+                    )
+                }
+            }
+
+            playbackSpeedFingerprint.matchOrThrow(playbackSpeedParentFingerprint).let {
+                it.getWalkerMethod(it.instructionMatches.last().index).apply {
+                    addInstruction(
+                        implementation!!.instructions.lastIndex,
+                        "invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->setPlaybackSpeed(F)V"
+                    )
+                }
+            }
+            return@execute
+        }
+
         fun addSeekInterfaceMethods(
             targetClass: MutableClass,
             targetMethod: MutableMethod,
@@ -354,7 +518,14 @@ internal fun videoLengthHook(
  * @param targetMethodName The name of the static method to invoke when the player controller is created.
  */
 internal fun videoTimeHook(targetMethodClass: String, targetMethodName: String) =
-    videoTimeConstructorMethod.insertTimeHook(
-        videoTimeConstructorInsertIndex++,
-        "$targetMethodClass->$targetMethodName(J)V"
-    )
+    if (is_8_51_or_greater) {
+        videoTimeConstructorMethod.addInstruction(
+            videoTimeConstructorInsertIndex++,
+            "invoke-static/range { $videoTimeRegisters }, $targetMethodClass->$targetMethodName(J)V"
+        )
+    } else {
+        videoTimeConstructorMethod.insertTimeHook(
+            videoTimeConstructorInsertIndex++,
+            "$targetMethodClass->$targetMethodName(J)V"
+        )
+    }

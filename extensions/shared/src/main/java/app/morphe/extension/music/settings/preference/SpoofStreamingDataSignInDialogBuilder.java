@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 
 import app.morphe.extension.shared.patches.auth.YouTubeAuthPatch;
-import app.morphe.extension.shared.patches.auth.YouTubeVRAuthPatch;
 import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Utils;
 
@@ -16,11 +15,11 @@ public class SpoofStreamingDataSignInDialogBuilder {
         AlertDialog.Builder builder = Utils.getDialogBuilder(mActivity);
 
         String dialogTitle =
-                str("revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_title");
+                str("revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title");
         String dialogMessage =
                 str("revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message");
         String resetButtonText =
-                str("revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_reset_text");
+                str("revanced_settings_reset");
         String okButtonText =
                 str("revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text");
 

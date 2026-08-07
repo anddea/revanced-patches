@@ -1,4 +1,4 @@
-rootProject.name = "morphe-patches"
+rootProject.name = "rvx"
 
 pluginManagement {
     repositories {
@@ -18,7 +18,7 @@ pluginManagement {
 }
 
 plugins {
-    id("app.morphe.patches") version "1.3.2"
+    id("app.morphe.patches") version "1.3.3"
 }
 
 settings {

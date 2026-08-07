@@ -16,7 +16,6 @@ import app.morphe.patcher.util.smali.toInstructions
 import app.morphe.patches.shared.FIXED_RESOLUTION_STRING
 import app.morphe.patches.shared.formatStreamModelToStringFingerprint
 import app.morphe.patches.shared.mdxPlayerDirectorSetVideoStageFingerprint
-import app.morphe.patches.shared.playbackStartParametersConstructorFingerprint
 import app.morphe.patches.shared.playbackStartParametersToStringFingerprint
 import app.morphe.patches.shared.videoLengthFingerprint
 import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
@@ -32,6 +31,7 @@ import app.morphe.patches.youtube.utils.videoIdFingerprintShorts
 import app.morphe.patches.youtube.video.playerresponse.Hook
 import app.morphe.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.morphe.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
+import app.morphe.patches.youtube.video.quality.getPlaybackStartParametersConstructorFingerprint
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.hookVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
@@ -788,25 +788,27 @@ val videoInformationPatch = bytecodePatch(
                 )
             }
 
-        val initialResolutionField =
+        val playbackStartParametersToStringMethod =
             playbackStartParametersToStringFingerprint.originalMethodOrThrow()
-                .findFieldFromToString(FIXED_RESOLUTION_STRING)
+        val initialResolutionField = playbackStartParametersToStringMethod
+            .findFieldFromToString(FIXED_RESOLUTION_STRING)
+        val playbackStartParametersClass =
+            findMutableClassOrThrow(playbackStartParametersToStringMethod.definingClass)
 
-        playbackStartParametersConstructorFingerprint
-            .methodOrThrow(playbackStartParametersToStringFingerprint)
-            .apply {
-                val index = indexOfFirstInstructionReversedOrThrow {
-                    opcode == Opcode.IPUT_OBJECT &&
-                            getReference<FieldReference>() == initialResolutionField
+        getPlaybackStartParametersConstructorFingerprint(initialResolutionField)
+            .match(playbackStartParametersClass)
+            .let { match ->
+                match.method.apply {
+                    val index = match.instructionMatches.first().index
+                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index, $$"""
+                            invoke-static {v$$register}, $$EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getInitialVideoQuality(Lj$/util/Optional;)Lj$/util/Optional;
+                            move-result-object v$$register
+                            """
+                    )
                 }
-                val register = getInstruction<TwoRegisterInstruction>(index).registerA
-
-                addInstructions(
-                    index, $$"""
-                        invoke-static {v$$register}, $$EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getInitialVideoQuality(Lj$/util/Optional;)Lj$/util/Optional;
-                        move-result-object v$$register
-                        """
-                )
             }
 
         videoQualityArrayFingerprint.matchOrThrow(formatStreamModelBuilderFingerprint).let {

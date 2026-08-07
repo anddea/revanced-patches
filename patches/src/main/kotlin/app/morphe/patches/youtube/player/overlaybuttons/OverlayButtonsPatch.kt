@@ -1,5 +1,51 @@
+/*
+ * Copyright (C) 2022-2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - Francesco Marastoni (https://github.com/Francesco146)
+ * - Hoàng Gia Bảo (https://github.com/YT-Advanced)
+ * - inotia00 (https://github.com/inotia00)
+ * - MondayNitro (https://github.com/MondayNitro)
+ * - rufusin (https://github.com/rufusin)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.patches.youtube.player.overlaybuttons
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.booleanOption
@@ -7,8 +53,10 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.dismiss.dismissPlayerHookPatch
+import app.morphe.patches.youtube.utils.dismiss.hookDismissObserver
 import app.morphe.patches.youtube.utils.extension.Constants.OVERLAY_BUTTONS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.fix.bottomui.cfBottomUIPatch
@@ -20,23 +68,33 @@ import app.morphe.patches.youtube.utils.playlist.playlistPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.patches.youtube.general.startpage.IntentActionFingerprint
+import app.morphe.patches.youtube.general.startpage.IntentResolverFingerprint
 import app.morphe.patches.youtube.video.information.videoEndMethod
+import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.videoInformationPatch
+import app.morphe.patches.youtube.video.information.videoTimeHook
 import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
 import app.morphe.util.doRecursively
+import app.morphe.util.findFreeRegister
 import app.morphe.util.lowerCaseOrThrow
 import org.w3c.dom.Element
 
 private const val EXTENSION_ALWAYS_REPEAT_CLASS_DESCRIPTOR =
     "$UTILS_PATH/AlwaysRepeatPatch;"
+private const val EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR =
+    "$OVERLAY_BUTTONS_PATH/LoopSegmentButton;"
 
 private val overlayButtonsBytecodePatch = bytecodePatch(
     description = "overlayButtonsBytecodePatch"
 ) {
-    dependsOn(videoInformationPatch)
+    dependsOn(
+        dismissPlayerHookPatch,
+        videoInformationPatch,
+    )
 
     execute {
 
@@ -55,7 +113,39 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
 
         // endregion
 
+        // region patch for loop segment button
+
+        hookVideoInformation("$EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+        hookDismissObserver("$EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->onPlayerDismissed(I)V")
+        videoTimeHook(EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR, "videoTimeChanged")
+
+        videoEndMethod.apply {
+            addInstructionsWithLabels(
+                0, """
+                    invoke-static {}, $EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->videoEnded()Z
+                    move-result v0
+                    if-eqz v0, :end
+                    return-void
+                    """, ExternalLabel("end", getInstruction(0))
+            )
+        }
+
+        IntentActionFingerprint.method.addHandleIntentHook()
+        IntentResolverFingerprint.method.addHandleIntentHook()
+
+        // endregion
+
     }
+}
+
+private fun MutableMethod.addHandleIntentHook() {
+    val freeRegister = findFreeRegister(0)
+    addInstructions(
+        0, """
+            move-object/from16 v$freeRegister, p1
+            invoke-static { v$freeRegister }, $EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->handleIntent(Landroid/content/Intent;)V
+            """
+    )
 }
 
 private const val MARGIN_MINIMUM = "0.1dip"
@@ -154,6 +244,7 @@ val overlayButtonsPatch = resourcePatch(
             "CopyVideoUrlTimestampButton",
             "ExternalDownloadButton",
             "GeminiButton",
+            "LoopSegmentButton",
             "MuteVolumeButton",
             "PlayAllButton",
             "PlaybackSpeedDialogButton",
@@ -173,6 +264,7 @@ val overlayButtonsPatch = resourcePatch(
                 "revanced_gemini_copy.xml",
                 "revanced_gemini_send.xml",
                 "revanced_mute_volume_button.xml",
+                "revanced_loop_segment_button.xml",
                 "revanced_repeat_button.xml",
                 "revanced_vot_button.xml",
             )
@@ -216,6 +308,9 @@ val overlayButtonsPatch = resourcePatch(
                 ),
                 ResourceGroup(
                     "drawable",
+                    "revanced_loop_segment_button_icon.xml",
+                    "revanced_loop_segment_button_start_icon.xml",
+                    "revanced_loop_segment_button_active_icon.xml",
                     "revanced_vot_button_icon.xml",
                     "revanced_vot_button_activated_icon.xml",
                     "yt_outline_screen_vertical_vd_theme_24.xml",
@@ -247,7 +342,7 @@ val overlayButtonsPatch = resourcePatch(
                 node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
                     ?.let { attribute ->
                         if (attribute.textContent == "@id/fullscreen_button") {
-                            attribute.textContent = "@+id/revanced_gemini_button"
+                            attribute.textContent = "@+id/revanced_overlay_buttons_scroll_view"
                         }
                     }
             }
@@ -269,7 +364,7 @@ val overlayButtonsPatch = resourcePatch(
                             ?.let { attribute ->
                                 if (attribute.textContent == "@id/fullscreen_button") {
                                     attribute.textContent =
-                                        "@+id/revanced_gemini_button"
+                                        "@+id/revanced_overlay_buttons_scroll_view"
                                 }
                             }
 

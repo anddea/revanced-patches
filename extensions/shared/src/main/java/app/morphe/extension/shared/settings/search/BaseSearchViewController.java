@@ -31,6 +31,7 @@ import androidx.annotation.ColorInt;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -72,6 +73,8 @@ public abstract class BaseSearchViewController {
     protected boolean isShowingSearchHistory;
 
     protected static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
+    private static final String GENERAL_SETTINGS_KEY = "revanced_preference_screen_general";
+    private static final String MISC_SETTINGS_KEY = "revanced_preference_screen_misc";
 
     protected static final int ID_REVANCED_SEARCH_VIEW = getIdIdentifier("revanced_search_view");
     protected static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getIdIdentifier("revanced_search_view_container");
@@ -156,7 +159,7 @@ public abstract class BaseSearchViewController {
         AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get();
         if (Utils.isRightToLeftLocale(appLanguage.getLocale())) {
             searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
-            searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+            searchView.setTextAlignment(View.TEXT_ALIGNMENT_INHERIT);
         }
     }
 
@@ -508,10 +511,7 @@ public abstract class BaseSearchViewController {
         }
 
         if (!filteredSearchItems.isEmpty()) {
-            //noinspection ComparatorCombinators
-            Collections.sort(filteredSearchItems, (o1, o2) ->
-                    o1.navigationPath.compareTo(o2.navigationPath)
-            );
+            filteredSearchItems.sort(Comparator.comparingInt(BaseSearchViewController::getCategorySortOrder).thenComparing(o -> o.navigationPath));
             List<BaseSearchResultItem> displayItems = new ArrayList<>();
             String currentPath = null;
             for (BaseSearchResultItem item : filteredSearchItems) {
@@ -538,6 +538,15 @@ public abstract class BaseSearchViewController {
 
         searchResultsAdapter.notifyDataSetChanged();
         overlayContainer.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Keeps General first and Miscellaneous last without depending on their localized titles.
+     */
+    private static int getCategorySortOrder(BaseSearchResultItem item) {
+        if (item.navigationKeys.contains(GENERAL_SETTINGS_KEY)) return 0;
+        if (item.navigationKeys.contains(MISC_SETTINGS_KEY)) return 2;
+        return 1;
     }
 
     /**

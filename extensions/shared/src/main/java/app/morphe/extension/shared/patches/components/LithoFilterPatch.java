@@ -1,6 +1,41 @@
-package app.morphe.extension.shared.patches.components;
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
 
-import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_22_OR_GREATER;
+package app.morphe.extension.shared.patches.components;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,9 +48,9 @@ import java.util.Map;
 
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.PackageUtils;
 import app.morphe.extension.shared.utils.StringTrieSearch;
 import app.morphe.extension.shared.utils.Utils;
-import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
@@ -39,7 +74,7 @@ public final class LithoFilterPatch {
                 }
                 builder.append(" Path: ");
                 builder.append(path);
-                if (Settings.DEBUG_PROTOBUFFER.get()) {
+                if (BaseSettings.DEBUG_PROTOBUFFER.get()) {
                     builder.append(" BufferStrings: ");
                     findAsciiStrings(builder, buffer);
                 }
@@ -107,7 +142,10 @@ public final class LithoFilterPatch {
      * Instead, parse the identifier found near the start of the buffer and use that to
      * identify the correct buffer to use when filtering.
      */
-    private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = IS_20_22_OR_GREATER;
+    // This Litho runtime is shared by YouTube and YouTube Music. Referencing YouTube's
+    // ExtendedUtils here initializes YouTube's Settings in Music and registers duplicate keys.
+    private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER =
+            PackageUtils.isVersionOrGreater("20.22.00");
 
     /**
      * Turns on additional logging, used for development purposes only.
@@ -130,6 +168,12 @@ public final class LithoFilterPatch {
      */
     private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
     private static final ThreadLocal<byte[]> directBufferThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<DirectByteBufferCache> directByteBufferCacheThreadLocal = new ThreadLocal<>();
+
+    /**
+     * Retains a copied direct buffer while the same Elements FlatBuffer is used for subcomponents.
+     */
+    private record DirectByteBufferCache(ByteBuffer source, byte[] copy) { }
 
     /**
      * Identifier to protocol buffer mapping.  Only used for 20.22+.
@@ -334,6 +378,34 @@ public final class LithoFilterPatch {
      */
     public static void setDirectProtoBuffer(@Nullable byte[] buffer) {
         directBufferThreadLocal.set(buffer == null ? EMPTY_BYTE_ARRAY : buffer);
+    }
+
+    /**
+     * Injection point for Elements components backed by a FlatBuffer instead of UPB.
+     *
+     * <p>Direct buffers cannot expose an array. Copy them once per backing buffer and reuse the
+     * copy while its subcomponents are converted.</p>
+     */
+    public static void setDirectProtoBuffer(@Nullable ByteBuffer buffer) {
+        if (buffer == null) {
+            setDirectProtoBuffer(EMPTY_BYTE_ARRAY);
+            return;
+        }
+        if (buffer.hasArray()) {
+            setDirectProtoBuffer(buffer.array());
+            return;
+        }
+
+        DirectByteBufferCache cache = directByteBufferCacheThreadLocal.get();
+        if (cache == null || cache.source() != buffer) {
+            ByteBuffer duplicate = buffer.duplicate();
+            duplicate.clear();
+            byte[] copy = new byte[duplicate.remaining()];
+            duplicate.get(copy);
+            cache = new DirectByteBufferCache(buffer, copy);
+            directByteBufferCacheThreadLocal.set(cache);
+        }
+        setDirectProtoBuffer(cache.copy());
     }
 
     /**

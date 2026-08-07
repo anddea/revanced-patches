@@ -9,7 +9,7 @@ import app.morphe.extension.shared.utils.ResourceUtils;
 public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_6_27_OR_GREATER = isVersionOrGreater("6.27.00");
     public static final boolean IS_7_25_OR_GREATER = isVersionOrGreater("7.25.00");
-    public static final boolean IS_8_29_OR_GREATER = isVersionOrGreater("8.29.00");
+    public static final boolean IS_9_00_OR_GREATER = isVersionOrGreater("9.00.00");
 
     private static final String SETTINGS_CLASS_DESCRIPTOR = "com.google.android.apps.youtube.music.settings.SettingsCompatActivity";
     private static final String SETTINGS_ATTRIBUTION_FRAGMENT_KEY = ":android:show_fragment";
@@ -48,7 +48,9 @@ public class ExtendedUtils extends PackageUtils {
 
     public static void setSearchIntent(Activity mActivity, Intent intent) {
         intent.setAction(SHORTCUT_ACTION);
-        intent.setClassName(mActivity, SHORTCUT_CLASS_DESCRIPTOR);
+        intent.setClassName(mActivity, IS_6_27_OR_GREATER 
+            ? SHORTCUT_CLASS_DESCRIPTOR 
+            : "com.google.android.apps.youtube.music.activities.MusicActivity");
         intent.setPackage(mActivity.getPackageName());
         intent.putExtra(SHORTCUT_TYPE, SHORTCUT_TYPE_SEARCH);
         intent.putExtra(SHORTCUT_ACTION, SHORTCUT_ID_SEARCH);

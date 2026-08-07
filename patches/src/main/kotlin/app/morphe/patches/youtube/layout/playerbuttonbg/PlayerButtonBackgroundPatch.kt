@@ -1,7 +1,7 @@
 package app.morphe.patches.youtube.layout.playerbuttonbg
 
+import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
-import app.morphe.patcher.patch.stringOption
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.FORCE_HIDE_PLAYER_BUTTONS_BACKGROUND
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -20,7 +20,7 @@ val playerButtonBackgroundPatch = resourcePatch(
 
     dependsOn(settingsPatch)
 
-    val backgroundColor by stringOption(
+    val backgroundColor by colorOption(
         key = "BackgroundColor",
         default = BACKGROUND,
         values = mapOf(

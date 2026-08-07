@@ -1,10 +1,9 @@
 package app.morphe.extension.music.patches.navigation;
 
-import static app.morphe.extension.music.utils.ExtendedUtils.IS_6_27_OR_GREATER;
-import static app.morphe.extension.music.utils.ExtendedUtils.IS_8_29_OR_GREATER;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.text.Spanned;
 import android.view.View;
@@ -14,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.List;
 
 import app.morphe.extension.music.patches.utils.PatchStatus;
@@ -57,6 +56,7 @@ public class NavigationPatch {
         hideViewUnderCondition(Settings.HIDE_NAVIGATION_LABEL.get(), textview);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     public static void hideNavigationButton(@NonNull View view) {
         if (Settings.HIDE_NAVIGATION_BAR.get() && view.getParent() != null) {
             hideViewUnderCondition(true, (View) view.getParent());
@@ -68,8 +68,24 @@ public class NavigationPatch {
                 if (button.replace) {
                     Runnable onClickAction = button.onClickAction;
                     if (onClickAction != null) {
-                        view.setOnClickListener(v -> onClickAction.run());
-                        Utils.runOnMainThreadDelayed(() -> view.setOnClickListener(v -> onClickAction.run()), 500);
+                        View.OnTouchListener touchListener = (v, event) -> {
+                            int action = event.getAction();
+                            if (action == android.view.MotionEvent.ACTION_DOWN) {
+                                v.setPressed(true);
+                            } else if (action == android.view.MotionEvent.ACTION_UP) {
+                                v.setPressed(false);
+                                float x = event.getX();
+                                float y = event.getY();
+                                if (x >= 0 && x <= v.getWidth() && y >= 0 && y <= v.getHeight()) {
+                                    onClickAction.run();
+                                }
+                            } else if (action == android.view.MotionEvent.ACTION_CANCEL) {
+                                v.setPressed(false);
+                            }
+                            return true;
+                        };
+                        view.setOnTouchListener(touchListener);
+                        Utils.runOnMainThreadDelayed(() -> view.setOnTouchListener(touchListener), 500);
                     }
                 }
                 hideViewUnderCondition(button.hidden, view);
@@ -78,23 +94,6 @@ public class NavigationPatch {
     }
 
     public static String replaceBrowseId(Object component, String browseId, String fieldName) {
-        for (NavigationButton button : NavigationButton.values()) {
-            if (button.replace && button.browseId.equals(browseId)) {
-                String replaceBrowseId = Settings.CHANGE_START_PAGE.get().getBrowseId();
-                if (replaceBrowseId.isEmpty()) {
-                    replaceBrowseId = NavigationButton.HOME.browseId;
-                }
-                try {
-                    Field browseIdField = component.getClass().getField(fieldName);
-                    browseIdField.setAccessible(true);
-                    browseIdField.set(component, replaceBrowseId);
-                    return replaceBrowseId;
-                } catch (Exception ignored) {
-                    Logger.printException(() -> "replaceBrowseId failed");
-                }
-            }
-        }
-
         return browseId;
     }
 
@@ -125,17 +124,80 @@ public class NavigationPatch {
         return sourceStyle;
     }
 
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static void onThemeClassInit(Object themeClass) {
+        try {
+            Class<?> clazz = themeClass.getClass();
+            Field bField = clazz.getDeclaredField("b");
+            bField.setAccessible(true);
+            EnumMap bMap = (EnumMap) bField.get(themeClass);
+
+            Field cField = clazz.getDeclaredField("c");
+            cField.setAccessible(true);
+            EnumMap cMap = (EnumMap) cField.get(themeClass);
+
+            Field eField = clazz.getDeclaredField("e");
+            eField.setAccessible(true);
+            EnumMap eMap = (EnumMap) eField.get(themeClass);
+
+            Field fField = clazz.getDeclaredField("f");
+            fField.setAccessible(true);
+            EnumMap fMap = (EnumMap) fField.get(themeClass);
+
+            Enum<?> samplesEnum = null;
+            Enum<?> searchEnum = null;
+            Enum<?> upgradeEnum = null;
+            Enum<?> settingsEnum = null;
+
+            if (bMap != null) {
+                for (Object key : bMap.keySet()) {
+                    Enum<?> e = (Enum<?>) key;
+                    String name = e.name();
+                    switch (name) {
+                        case "TAB_SAMPLES":
+                            samplesEnum = e;
+                            break;
+                        case "SEARCH":
+                            searchEnum = e;
+                            break;
+                        case "TAB_MUSIC_PREMIUM":
+                            upgradeEnum = e;
+                            break;
+                        case "SETTINGS":
+                            settingsEnum = e;
+                            break;
+                    }
+                }
+            }
+
+            if (Settings.REPLACE_NAVIGATION_SAMPLES_BUTTON.get() && samplesEnum != null && searchEnum != null) {
+                if (bMap.containsKey(searchEnum)) bMap.put(samplesEnum, bMap.get(searchEnum));
+                if (cMap != null && cMap.containsKey(searchEnum)) cMap.put(samplesEnum, cMap.get(searchEnum));
+                if (eMap != null && eMap.containsKey(searchEnum)) eMap.put(samplesEnum, eMap.get(searchEnum));
+                if (fMap != null && fMap.containsKey(searchEnum)) fMap.put(samplesEnum, fMap.get(searchEnum));
+            }
+
+            if (Settings.REPLACE_NAVIGATION_UPGRADE_BUTTON.get() && upgradeEnum != null && settingsEnum != null) {
+                if (bMap.containsKey(settingsEnum)) bMap.put(upgradeEnum, bMap.get(settingsEnum));
+                if (cMap != null && cMap.containsKey(settingsEnum)) cMap.put(upgradeEnum, cMap.get(settingsEnum));
+                if (eMap != null && eMap.containsKey(settingsEnum)) eMap.put(upgradeEnum, eMap.get(settingsEnum));
+                if (fMap != null && fMap.containsKey(settingsEnum)) fMap.put(upgradeEnum, fMap.get(settingsEnum));
+            }
+        } catch (Exception e) {
+            Logger.printException(() -> "onThemeClassInit failed", e);
+        }
+    }
+
     private enum NavigationButton {
         HOME(
-                Arrays.asList("TAB_HOME"),
+                List.of("TAB_HOME"),
                 Settings.HIDE_NAVIGATION_HOME_BUTTON.get(),
                 "FEmusic_home"
         ),
         SAMPLES(
-                Arrays.asList("TAB_SAMPLES"),
+                List.of("TAB_SAMPLES"),
                 Settings.HIDE_NAVIGATION_SAMPLES_BUTTON.get(),
-                IS_6_27_OR_GREATER && !IS_8_29_OR_GREATER &&
-                        Settings.REPLACE_NAVIGATION_SAMPLES_BUTTON.get(),
+                Settings.REPLACE_NAVIGATION_SAMPLES_BUTTON.get(),
                 "FEmusic_immersive",
                 "search",
                 "yt_fill_samples_vd_theme_24",
@@ -144,12 +206,12 @@ public class NavigationPatch {
                 ExtendedUtils::openSearch
         ),
         EXPLORE(
-                Arrays.asList("TAB_EXPLORE"),
+                List.of("TAB_EXPLORE"),
                 Settings.HIDE_NAVIGATION_EXPLORE_BUTTON.get(),
                 "FEmusic_explore"
         ),
         LIBRARY(
-                Arrays.asList(
+                List.of(
                         "LIBRARY_MUSIC",
                         "TAB_BOOKMARK" // YouTube Music 8.24+
                 ),
@@ -157,7 +219,7 @@ public class NavigationPatch {
                 "FEmusic_library_landing"
         ),
         UPGRADE(
-                Arrays.asList("TAB_MUSIC_PREMIUM"),
+                List.of("TAB_MUSIC_PREMIUM"),
                 Settings.HIDE_NAVIGATION_UPGRADE_BUTTON.get(),
                 Settings.REPLACE_NAVIGATION_UPGRADE_BUTTON.get(),
                 "SPunlimited",

@@ -738,7 +738,7 @@ final class GeminiBottomSheetUi {
             ImageButton copyButton = createIconButton(
                     context,
                     "revanced_gemini_copy",
-                    str("revanced_copy")
+                    str("revanced_settings_import_copy")
             );
             copyButton.setOnClickListener(v -> onCopyListener.onCopyRequested(rawText));
             LinearLayout.LayoutParams copyParams = new LinearLayout.LayoutParams(dip36, dip36);
@@ -792,7 +792,7 @@ final class GeminiBottomSheetUi {
             ImageButton copyButton = createIconButton(
                     context,
                     "revanced_gemini_copy",
-                    str("revanced_copy")
+                    str("revanced_settings_import_copy")
             );
             copyButton.setVisibility(showCopyButton ? View.VISIBLE : View.GONE);
             copyButton.setEnabled(showCopyButton);
@@ -1240,7 +1240,7 @@ final class GeminiBottomSheetUi {
 
         LinearLayout buttonsRow = createButtonsRow(context);
         Button cancelButton = createActionButton(context, str("revanced_cancel"), false);
-        Button copyButton = createActionButton(context, str("revanced_copy"), false);
+        Button copyButton = createActionButton(context, str("revanced_settings_import_copy"), false);
         Button subtitlesButton = createActionButton(context, str("revanced_gemini_transcription_parse_button"), true);
 
         final SheetBottomDialog.SlideDialog dialog = SheetBottomDialog.createSlideDialog(context, mainLayout, 180);

@@ -59,6 +59,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -67,12 +69,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-import org.json.JSONObject;
-
-import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.BaseThemeUtils;
-import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.shared.ui.CustomDialog;
+import app.morphe.extension.shared.utils.BaseThemeUtils;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotAuthWebViewDialog;
 import app.morphe.extension.youtube.settings.Settings;
@@ -241,7 +241,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
                 str("revanced_vot_oauth_account_management_title"),
                 null,
                 null,
-                str("revanced_vot_oauth_sign_out_button"),
+                str("morphe_spoof_video_streams_sign_in_android_vr_dialog_reset"),
                 this::signOut,
                 () -> { /* Cancel — do nothing */ },
                 str("revanced_vot_oauth_switch_token_button"),
@@ -325,7 +325,7 @@ public class VotOAuthPreference extends Preference implements Preference.OnPrefe
 
         CustomDialog.create(
                 context,
-                str("revanced_vot_oauth_enter_token_title"),
+                str("revanced_vot_oauth_enter_manually_button"),
                 null,
                 editText,
                 null,

@@ -1,4 +1,48 @@
+/*
+ * Copyright (C) 2024-2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.youtube.patches.video;
+
+import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.youtube.shared.RootView.isShortsActive;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
@@ -18,9 +62,6 @@ import app.morphe.extension.youtube.patches.video.requests.MusicRequest;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.whitelist.Whitelist;
-
-import static app.morphe.extension.shared.utils.StringRef.str;
-import static app.morphe.extension.youtube.shared.RootView.isShortsActive;
 
 @SuppressWarnings("unused")
 public class PlaybackSpeedPatch {
@@ -48,6 +89,11 @@ public class PlaybackSpeedPatch {
      */
     private static String videoId = "";
 
+    /**
+     * Prevents a delayed music result from overriding a speed selected by the user.
+     */
+    private static boolean userChangedSpeedForCurrentVideo = false;
+
     @GuardedBy("itself")
     private static final Map<String, Float> ignoredPlaybackSpeedVideoIds = new LinkedHashMap<>() {
         private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 3;
@@ -68,27 +114,28 @@ public class PlaybackSpeedPatch {
         if (isShortsActive()) {
             return;
         }
-        if (videoId.equals(newlyLoadedVideoId)) {
-            return;
-        }
         videoId = newlyLoadedVideoId;
+        userChangedSpeedForCurrentVideo = false;
 
         boolean isMusic = isMusic(newlyLoadedVideoId);
-        boolean isWhitelisted = Whitelist.isChannelWhitelistedPlaybackSpeed(newlyLoadedChannelId);
+        boolean isWhitelisted = !newlyLoadedChannelId.isEmpty() && Whitelist.isChannelWhitelistedPlaybackSpeed(newlyLoadedChannelId);
 
-        if (newlyLoadedLiveStreamValue || isMusic || isWhitelisted) {
+        if (newlyLoadedLiveStreamValue || isMusic) {
             synchronized (ignoredPlaybackSpeedVideoIds) {
                 if (!ignoredPlaybackSpeedVideoIds.containsKey(newlyLoadedVideoId)) {
-                    lastSelectedPlaybackSpeed = 1.0f;
-                    ignoredPlaybackSpeedVideoIds.put(newlyLoadedVideoId, lastSelectedPlaybackSpeed);
+                    ignoredPlaybackSpeedVideoIds.put(newlyLoadedVideoId, 1.0f);
 
-                    VideoInformation.setPlaybackSpeed(lastSelectedPlaybackSpeed);
-                    VideoInformation.overridePlaybackSpeed(lastSelectedPlaybackSpeed);
+                    VideoInformation.setPlaybackSpeed(1.0f);
+                    VideoInformation.overridePlaybackSpeed(1.0f);
 
                     Logger.printDebug(() -> "changing playback speed to: 1.0, isLiveStream: " + newlyLoadedLiveStreamValue +
-                            ", isMusic: " + isMusic + ", isWhitelisted: " + isWhitelisted);
+                            ", isMusic: " + isMusic);
                 }
             }
+        } else if (isWhitelisted) {
+            VideoInformation.setPlaybackSpeed(1.0f);
+            VideoInformation.overridePlaybackSpeed(1.0f);
+            Logger.printDebug(() -> "changing playback speed to: 1.0, isWhitelisted: true");
         }
     }
 
@@ -123,6 +170,22 @@ public class PlaybackSpeedPatch {
      */
     public static float getPlaybackSpeed(float playbackSpeed) {
         boolean isShorts = isShortsActive();
+
+        if (!isShorts && !userChangedSpeedForCurrentVideo) {
+            String currentChannelId = VideoInformation.getChannelId();
+            boolean isWhitelisted = !currentChannelId.isEmpty() && Whitelist.isChannelWhitelistedPlaybackSpeed(currentChannelId);
+            boolean isIgnored;
+            synchronized (ignoredPlaybackSpeedVideoIds) {
+                isIgnored = ignoredPlaybackSpeedVideoIds.containsKey(videoId);
+            }
+            if (isWhitelisted || isIgnored) {
+                VideoInformation.setPlaybackSpeed(1.0f);
+                VideoInformation.overridePlaybackSpeed(1.0f);
+                Logger.printDebug(() -> "Whitelisted or ignored video, forcing playback speed to: 1.0");
+                return 1.0f;
+            }
+        }
+
         float defaultPlaybackSpeed = isShorts ? DEFAULT_PLAYBACK_SPEED_SHORTS.get() : DEFAULT_PLAYBACK_SPEED.get();
 
         if (defaultPlaybackSpeed < 0) { // If the default playback speed is 'Auto', it will be overridden to the last used playback speed.
@@ -135,14 +198,6 @@ public class PlaybackSpeedPatch {
             Logger.printDebug(() -> "changing playback speed to: " + finalPlaybackSpeed);
             return finalPlaybackSpeed;
         } else { // Otherwise the default playback speed is used.
-            synchronized (ignoredPlaybackSpeedVideoIds) {
-                if (!isShorts && ignoredPlaybackSpeedVideoIds.containsKey(videoId)) {
-                    // For general videos, check whether the default video playback speed should not be applied.
-                    Logger.printDebug(() -> "changing playback speed to: 1.0");
-                    return 1.0f;
-                }
-            }
-
             // Sometimes VideoInformation.overridePlaybackSpeed() method is not used, so manually save the playback speed in VideoInformation.
             VideoInformation.setPlaybackSpeed(defaultPlaybackSpeed);
             Logger.printDebug(() -> "changing playback speed to: " + defaultPlaybackSpeed);
@@ -165,6 +220,7 @@ public class PlaybackSpeedPatch {
                 lastSelectedShortsPlaybackSpeed = playbackSpeed;
             } else {
                 lastSelectedPlaybackSpeed = playbackSpeed;
+                userChangedSpeedForCurrentVideo = true;
                 // If the user has manually changed the playback speed, the whitelist has already been applied.
                 // If there is a videoId on the map, it will be removed.
                 synchronized (ignoredPlaybackSpeedVideoIds) {
@@ -216,6 +272,30 @@ public class PlaybackSpeedPatch {
         } catch (Exception ex) {
             Logger.printException(() -> "userSelectedPlaybackSpeed failure", ex);
         }
+    }
+
+    /**
+     * Applies a completed music request on the main thread.
+     * Results for stale videos and videos whose speed was changed by the user are ignored.
+     */
+    public static void musicRequestCompleted(String videoId) {
+        Utils.runOnMainThread(() -> {
+            if (!videoId.equals(PlaybackSpeedPatch.videoId) || userChangedSpeedForCurrentVideo) {
+                return;
+            }
+
+            synchronized (ignoredPlaybackSpeedVideoIds) {
+                if (!ignoredPlaybackSpeedVideoIds.containsKey(videoId)) {
+                    lastSelectedPlaybackSpeed = 1.0f;
+                    ignoredPlaybackSpeedVideoIds.put(videoId, lastSelectedPlaybackSpeed);
+
+                    VideoInformation.setPlaybackSpeed(lastSelectedPlaybackSpeed);
+                    VideoInformation.overridePlaybackSpeed(lastSelectedPlaybackSpeed);
+
+                    Logger.printDebug(() -> "Asynchronously changed playback speed to: 1.0, isMusic: true");
+                }
+            }
+        });
     }
 
     private static boolean isMusic(String videoId) {

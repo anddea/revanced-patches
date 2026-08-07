@@ -18,7 +18,6 @@ import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.StringTrieSearch;
 
-
 /**
  * Placeholder for actual filters.
  */
@@ -115,9 +114,8 @@ public final class InclusiveSpanPatch {
 
     private static final StringTrieSearch searchTree = new StringTrieSearch();
 
-
     /**
-     * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
+     * Because litho filtering is multithreaded and the buffer is passed in from a different injection point,
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
      */
     private static final ThreadLocal<String> conversionContextThreadLocal = new ThreadLocal<>();

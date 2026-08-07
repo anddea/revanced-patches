@@ -1,11 +1,10 @@
 package app.morphe.extension.youtube.patches.components;
 
+import android.view.View;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
-
-import android.view.View;
 
 @SuppressWarnings("unused")
 public final class LayoutComponentsFilter extends Filter {

@@ -1,3 +1,55 @@
+/*
+ * Copyright (C) 2022-2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
+/*
+ * Portions of this file are adapted from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.settings.preference;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getXmlIdentifier;
@@ -17,14 +69,21 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.text.TextUtils;
 import android.util.Pair;
+import android.view.HapticFeedbackConstants;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import app.morphe.extension.shared.settings.BaseSettings;
@@ -224,7 +283,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     private void updatePreferenceScreen(@NonNull PreferenceGroup group,
                                         boolean syncSettingValue,
                                         boolean applySettingToPreference) {
-        // Alternatively this could iterate thru all Settings and check for any matching Preferences,
+        // Alternatively this could iterate through all Settings and check for any matching Preferences,
         // but there are many more Settings than UI preferences so it's more efficient to only check
         // the Preferences.
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
@@ -301,7 +360,9 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 Setting.privateSetValueFromString(setting, listPref.getValue());
             }
             updateListPreferenceSummary(listPref, setting);
-        } else if (!pref.getClass().equals(Preference.class)) {
+        } else if (pref.getClass().equals(Preference.class)) {
+            updatePreferenceSummary(pref, setting);
+        } else {
             // Ignore root preference class because there is no data to sync.
             Logger.printException(() -> "Setting cannot be handled: " + pref.getClass() + ": " + pref);
         }
@@ -342,6 +403,25 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         }
     }
 
+    public static void updatePreferenceSummary(Preference preference, Setting<?> setting) {
+        try {
+            final String settingsKey = setting.key;
+            final String entryKey = settingsKey + "_entries";
+            final String entryValueKey = settingsKey + "_entry_values";
+            final String[] mEntries = app.morphe.extension.shared.utils.ResourceUtils.getStringArray(entryKey);
+            final String[] mEntryValues = app.morphe.extension.shared.utils.ResourceUtils.getStringArray(entryValueKey);
+
+            final String valueStr = setting.get().toString();
+            int index = org.apache.commons.lang3.ArrayUtils.indexOf(mEntryValues, valueStr);
+            if (index < 0) {
+                index = org.apache.commons.lang3.ArrayUtils.indexOf(mEntryValues, valueStr.toUpperCase(java.util.Locale.ENGLISH));
+            }
+            if (index >= 0 && index < mEntries.length) {
+                preference.setSummary(mEntries[index]);
+            }
+        } catch (Exception ignored) {}
+    }
+
     public static void showRestartDialog(@NonNull Context context) {
         showRestartDialog(context, null);
     }
@@ -351,6 +431,10 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     }
 
     public static void showRestartDialog(@NonNull Context context, String message, long delay) {
+        showRestartDialog(context, message, delay, true);
+    }
+
+    public static void showRestartDialog(@NonNull Context context, String message, long delay, boolean cancelable) {
         Utils.verifyOnMainThread();
         if (showingRestartDialog) {
             Logger.printDebug(() -> "Ignoring show restart dialog as restart dialog is already shown");
@@ -382,8 +466,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     // OK button action.
                     () -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay),
                     // Cancel button action.
-                    () -> {
-                    },
+                    cancelable ? () -> {
+                    } : null,
                     // Neutral button text.
                     null,
                     // Neutral button action.
@@ -393,17 +477,25 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             );
 
             dialogPair.first.setOnDismissListener(d -> showingRestartDialog = false);
+            if (!cancelable) {
+                dialogPair.first.setCancelable(false);
+                dialogPair.first.setCanceledOnTouchOutside(false);
+            }
 
             // Show the dialog.
             dialogPair.first.show();
         } else {
-            new AlertDialog.Builder(context)
+            AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setTitle(restartDialogTitle)
                     .setMessage(message == null ? restartDialogMessage : message)
                     .setPositiveButton(android.R.string.ok, (dialog, id)
-                            -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay))
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .setOnDismissListener(d -> showingRestartDialog = false)
+                            -> Utils.runOnMainThreadDelayed(() -> Utils.restartApp(context), delay));
+            if (cancelable) {
+                builder.setNegativeButton(android.R.string.cancel, null);
+            } else {
+                builder.setCancelable(false);
+            }
+            builder.setOnDismissListener(d -> showingRestartDialog = false)
                     .show();
         }
     }
@@ -429,6 +521,87 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     }
 
     @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preferenceScreen != null) {
+            attachPreferenceLongClickListener(preferenceScreen.getDialog());
+        }
+        boolean handled = super.onPreferenceTreeClick(preferenceScreen, preference);
+        if (preference instanceof PreferenceScreen subScreen) {
+            attachPreferenceLongClickListener(subScreen.getDialog());
+        }
+        return handled;
+    }
+
+    private void attachPreferenceLongClickListener(@Nullable Dialog dialog) {
+        if (dialog == null) return;
+        ListView listView = dialog.findViewById(android.R.id.list);
+        if (listView != null && listView.getOnItemLongClickListener() == null) {
+            listView.setOnItemLongClickListener(this::onPreferenceLongClick);
+        }
+    }
+
+    private boolean onPreferenceLongClick(AdapterView<?> parent, View view, int position, long id) {
+        try {
+            Object item = parent.getAdapter().getItem(position);
+            if (!(item instanceof Preference preference)) return false;
+
+            List<CharSequence> path = findPreferencePath(preference);
+            if (path == null || path.isEmpty()) return false;
+
+            String text = TextUtils.join(" > ", path);
+            Utils.setClipboard(text);
+            Utils.showToastShort(str("morphe_settings_menu_copy_path", text));
+            view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+            return true;
+        } catch (Exception ex) {
+            Logger.printException(() -> "onPreferenceLongClick failure", ex);
+            return false;
+        }
+    }
+
+    @Nullable
+    private List<CharSequence> findPreferencePath(Preference target) {
+        PreferenceScreen root = getPreferenceScreen();
+        if (root == null) return null;
+        List<CharSequence> path = new ArrayList<>();
+        path.add(str("revanced_settings_title"));
+        if (target == root) return path;
+        return searchPreferencePath(root, target, path) ? path : null;
+    }
+
+    private static boolean searchPreferencePath(PreferenceGroup group, Preference target, List<CharSequence> path) {
+        for (int i = 0, n = group.getPreferenceCount(); i < n; i++) {
+            Preference p = group.getPreference(i);
+            // NoTitlePreferenceCategory reports its first child title so it can be sorted,
+            // but that title is never shown to the user and must not appear in the path.
+            CharSequence title = (p instanceof NoTitlePreferenceCategory) ? null : p.getTitle();
+            if (p == target) {
+                if (!TextUtils.isEmpty(title)) path.add(title);
+                return true;
+            }
+            if (p instanceof PreferenceGroup subGroup) {
+                int sizeBefore = path.size();
+                if (!TextUtils.isEmpty(title)) path.add(title);
+                if (searchPreferencePath(subGroup, target, path)) return true;
+                while (path.size() > sizeBefore) path.remove(path.size() - 1);
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        if (view != null) {
+            ListView listView = view.findViewById(android.R.id.list);
+            if (listView != null && listView.getOnItemLongClickListener() == null) {
+                listView.setOnItemLongClickListener(this::onPreferenceLongClick);
+            }
+        }
+        return view;
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
 
@@ -438,6 +611,9 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         if (listView == null) return;
         listView.setDivider(null);
         listView.setDividerHeight(0);
+        if (listView.getOnItemLongClickListener() == null) {
+            listView.setOnItemLongClickListener(this::onPreferenceLongClick);
+        }
     }
 
     @Override

@@ -97,6 +97,8 @@ class ClassicSwipeController(
         super.onUp(motionEvent)
         cancelDelayedSwipe()
         isSwipeConfirmed = false
+        lastOnDownEvent?.recycle()
+        lastOnDownEvent = null
     }
 
     override fun onSingleTapUp(motionEvent: MotionEvent): Boolean {

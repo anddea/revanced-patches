@@ -280,7 +280,6 @@ internal val pivotBarButtonsCreateResourceIntViewFingerprint = legacyFingerprint
     }
 )
 
-
 internal val pivotBarButtonsCreateResourceViewFingerprint = legacyFingerprint(
     name = "pivotBarButtonsCreateResourceViewFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,

@@ -1,3 +1,44 @@
+/*
+ * Copyright (C) 2022-2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.youtube.returnyoutubedislike;
 
 import static app.morphe.extension.shared.returnyoutubedislike.ReturnYouTubeDislike.Vote;
@@ -48,6 +89,7 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
+import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ThemeUtils;
 
 /**
@@ -147,12 +189,6 @@ public class ReturnYouTubeDislike {
     private final long timeFetched;
 
     /**
-     * If this instance was previously used for a Short.
-     */
-    @GuardedBy("this")
-    private boolean isShort;
-
-    /**
      * Optional current vote status of the UI.  Used to apply a user vote that was done on a previous video viewing.
      */
     @Nullable
@@ -207,21 +243,27 @@ public class ReturnYouTubeDislike {
     private static SpannableString createDislikeSpan(@NonNull Spanned oldSpannable,
                                                      boolean isSegmentedButton,
                                                      boolean isRollingNumber,
-                                                     @NonNull RYDVoteData voteData) {
+                                                     @NonNull RYDVoteData voteData,
+                                                     @Nullable Vote userVote) {
         if (!isSegmentedButton) {
             // Simple replacement of 'dislike' with a number/percentage.
             return newSpannableWithDislikes(oldSpannable, voteData);
         }
 
-        // Note: Some locales use right to left layout (Arabic, Hebrew, etc).
-        // If making changes to this code, change device settings to a RTL language and verify layout is correct.
+        // Note: Some locales use right to left layout (Arabic, Hebrew, etc.).
+        // If making changes to this code, change device settings to an RTL language and verify layout is correct.
         CharSequence oldLikes = oldSpannable;
 
         // YouTube creators can hide the like count on a video,
         // and the like count appears as a device language specific string that says 'Like'.
         // Check if the string contains any numbers.
         if (!Utils.containsNumber(oldLikes)) {
-            if (Settings.RYD_ESTIMATED_LIKE.get()) {
+            Long originalLikeCount = getOriginalLikeCount(userVote);
+
+            if (originalLikeCount != null) {
+                Logger.printDebug(() -> "Using original like count");
+                oldLikes = formatDislikeCount(originalLikeCount);
+            } else if (Settings.RYD_ESTIMATED_LIKE.get()) {
                 // Likes are hidden by video creator
                 //
                 // RYD does not directly provide like data, but can use an estimated likes
@@ -314,7 +356,44 @@ public class ReturnYouTubeDislike {
         return true;
     }
 
-    private static SpannableString newSpannableWithLikes(@NonNull Spanned sourceStyling, @NonNull RYDVoteData voteData) {
+    /**
+     * Gets the original like count of the video, adjusted dynamically to match the public button count.
+     * <p>
+     * The cached count in {@link VideoInformation} represents the
+     * "base unliked count" (the like count when the user has not liked the video).
+     * If the user's current vote state is {@link Vote#LIKE}, we increment this base count by 1 to
+     * dynamically reflect the user's like in the displayed count overlay.
+     * Otherwise, we return the base unliked count directly.
+     *
+     * @param userVote Current user's vote state.
+     * @return Adjusted original like count or null if not available.
+     */
+    @Nullable
+    private static Long getOriginalLikeCount(@Nullable Vote userVote) {
+        Long baseUnlikedCount = VideoInformation.getOriginalLikeCount();
+        if (baseUnlikedCount == null) {
+            return null;
+        }
+        return (userVote == Vote.LIKE) ? baseUnlikedCount + 1 : baseUnlikedCount;
+    }
+
+    private static SpannableString newSpannableWithLikes(@NonNull Spanned sourceStyling, @NonNull RYDVoteData voteData, @Nullable Long originalLikeCount) {
+        Logger.printDebug(() -> "newSpannableWithLikes: sourceStyling='" + sourceStyling 
+                + "', containsNumber=" + Utils.containsNumber(sourceStyling)
+                + ", originalLikeCount=" + originalLikeCount 
+                + ", voteData.getLikeCount()=" + voteData.getLikeCount());
+
+        if (originalLikeCount != null && !Utils.containsNumber(sourceStyling)) {
+            Logger.printDebug(() -> "newSpannableWithLikes: APPLIED ORIGINAL LIKE COUNT=" + originalLikeCount + " (ignoring RYD count=" + voteData.getLikeCount() + ")");
+            return newSpanUsingStylingOfAnotherSpan(sourceStyling, formatDislikeCount(originalLikeCount));
+        }
+
+        if (originalLikeCount == null && !Settings.RYD_ESTIMATED_LIKE.get()) {
+            Logger.printDebug(() -> "newSpannableWithLikes: Likes are hidden or unavailable, and estimated likes are disabled");
+            return newSpanUsingStylingOfAnotherSpan(sourceStyling, "");
+        }
+
+        Logger.printDebug(() -> "newSpannableWithLikes: FALLING BACK TO RYD ESTIMATED LIKES=" + voteData.getLikeCount() + " (originalLikeCount=" + originalLikeCount + ")");
         return newSpanUsingStylingOfAnotherSpan(sourceStyling, formatDislikeCount(voteData.getLikeCount()));
     }
 
@@ -325,6 +404,15 @@ public class ReturnYouTubeDislike {
                         : formatDislikeCount(voteData.getDislikeCount()));
     }
 
+    /**
+     * Formats a raw number count to a localized short string (e.g. 5.5M or 5,5 млн.).
+     * <p>
+     * Sets the rounding mode of the formatter to {@link android.icu.math.BigDecimal#ROUND_HALF_UP}
+     * so that numbers like 5,497,264 correctly round to 5.5M instead of truncating.
+     *
+     * @param dislikeCount Raw count to format.
+     * @return Localized formatted count string.
+     */
     private static String formatDislikeCount(long dislikeCount) {
         if (isSDKAbove(24)) {
             synchronized (ReturnYouTubeDislike.class) { // Number formatter is not thread safe.
@@ -332,8 +420,9 @@ public class ReturnYouTubeDislike {
                     // Must use default locale and not Utils context locale,
                     // otherwise if using a different settings language then the
                     // formatting will use that of the different language.
-                    Locale locale = Locale.getDefault();
-                    dislikeCountFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
+                     Locale locale = Locale.getDefault();
+                     dislikeCountFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
+                     dislikeCountFormatter.setRoundingMode(android.icu.math.BigDecimal.ROUND_HALF_UP);
 
                     // YouTube disregards locale specific number characters
                     // and instead shows English number characters everywhere.
@@ -381,7 +470,7 @@ public class ReturnYouTubeDislike {
     }
 
     @NonNull
-    public static ReturnYouTubeDislike getFetchForVideoId(@Nullable String videoId) {
+    public static ReturnYouTubeDislike getFetchForVideoId(@NonNull String videoId) {
         Objects.requireNonNull(videoId);
         synchronized (fetchCache) {
             // Remove any expired entries.
@@ -461,11 +550,12 @@ public class ReturnYouTubeDislike {
         return future.isDone();
     }
 
-    private synchronized void clearUICache() {
+    public synchronized void clearUICache() {
         if (replacementLikeDislikeSpan != null) {
             Logger.printDebug(() -> "Clearing replacement span for: " + videoId);
         }
         replacementLikeDislikeSpan = null;
+        originalDislikeSpan = null;
     }
 
     /**
@@ -496,47 +586,95 @@ public class ReturnYouTubeDislike {
     }
 
     /**
-     * Pre-emptively set this as a Short.
-     */
-    public synchronized void setVideoIdIsShort(boolean isShort) {
-        this.isShort = isShort;
-    }
-
-    /**
      * @return the replacement span containing dislikes, or the original span if RYD is not available.
      */
     @NonNull
     public synchronized Spanned getDislikesSpanForRegularVideo(@NonNull Spanned original,
                                                                boolean isSegmentedButton,
                                                                boolean isRollingNumber) {
-        return waitForFetchAndUpdateReplacementSpan(original, isSegmentedButton,
-                isRollingNumber, false, false);
+        return waitForFetchAndUpdateReplacementSpan(original, isSegmentedButton, isRollingNumber);
     }
 
     /**
-     * Called when a Shorts like Spannable is created.
+     * Called when a regular video action bar like count label is created.
      */
     @NonNull
-    public synchronized Spanned getLikeSpanForShort(@NonNull Spanned original) {
-        return waitForFetchAndUpdateReplacementSpan(original, false,
-                false, true, true);
+    public Spanned getLikeSpanForRegularVideoActionButton(@NonNull Spanned original) {
+        return waitForFetchAndUpdateRegularActionButtonSpan(original, true);
     }
 
     /**
-     * Called when a Shorts dislike Spannable is created.
+     * Called when a regular video action bar dislike count label is created.
      */
     @NonNull
-    public synchronized Spanned getDislikeSpanForShort(@NonNull Spanned original) {
-        return waitForFetchAndUpdateReplacementSpan(original, false,
-                false, true, false);
+    public Spanned getDislikeSpanForRegularVideoActionButton(@NonNull Spanned original) {
+        return waitForFetchAndUpdateRegularActionButtonSpan(original, false);
+    }
+
+    @NonNull
+    private Spanned waitForFetchAndUpdateRegularActionButtonSpan(@NonNull Spanned original,
+                                                                 boolean spanIsForLikes) {
+        try {
+            RYDVoteData votingData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);
+            if (votingData == null) {
+                synchronized (this) {
+                    if (PlayerType.getCurrent().isFullScreenOrSlidingFullScreen()) {
+                        Logger.printDebug(() -> "Ignoring fullscreen action button span: " + videoId);
+                        return original;
+                    }
+
+                    // YouTube's original like count is independent from RYD and remains usable
+                    // when the dislike request fails.
+                    Long originalLikeCount = spanIsForLikes ? getOriginalLikeCount(userVote) : null;
+                    if (originalLikeCount != null) {
+                        Logger.printDebug(() -> "Using original like count without RYD data: " + videoId);
+                        return newSpanUsingStylingOfAnotherSpan(
+                                original,
+                                formatDislikeCount(originalLikeCount)
+                        );
+                    }
+                }
+
+                ReturnYouTubeDislikeApi.handleConnectionError(
+                        str("revanced_ryd_failure_connection_timeout"),
+                        null, null, Toast.LENGTH_SHORT);
+                Logger.printDebug(() -> "Cannot add action button count to UI (RYD data not available)");
+                return original;
+            }
+
+            synchronized (this) {
+                if (PlayerType.getCurrent().isFullScreenOrSlidingFullScreen()) {
+                    Logger.printDebug(() -> "Ignoring fullscreen action button span: " + videoId);
+                    return original;
+                }
+
+                if (userVote != null) {
+                    votingData.updateUsingVote(userVote);
+                }
+
+                Logger.printDebug(() -> "Creating action button "
+                        + (spanIsForLikes ? "likes" : "dislikes") + " span for: " + votingData.videoId);
+                
+                Long originalLikeCount = null;
+                if (spanIsForLikes) {
+                    originalLikeCount = getOriginalLikeCount(userVote);
+                }
+
+                return spanIsForLikes
+                        ? newSpannableWithLikes(original, votingData, originalLikeCount)
+                        : newSpannableWithDislikes(original, votingData);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "waitForFetchAndUpdateRegularActionButtonSpan failure", ex);
+        }
+
+        return original;
     }
 
     @NonNull
     private Spanned waitForFetchAndUpdateReplacementSpan(@NonNull Spanned original,
                                                          boolean isSegmentedButton,
-                                                         boolean isRollingNumber,
-                                                         boolean spanIsForShort,
-                                                         boolean spanIsForLikes) {
+                                                         boolean isRollingNumber) {
         try {
             RYDVoteData votingData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);
             if (votingData == null) {
@@ -550,24 +688,6 @@ public class ReturnYouTubeDislike {
             }
 
             synchronized (this) {
-                if (spanIsForShort) {
-                    // Cannot set this to false if span is not for a Short.
-                    // When spoofing to an old version and a Short is opened while a regular video
-                    // is on screen, this instance can be loaded for the minimized regular video.
-                    // But this Shorts data won't be displayed for that call
-                    // and when it is un-minimized it will reload again and the load will be ignored.
-                    isShort = true;
-                } else if (isShort) {
-                    // user:
-                    // 1, opened a video
-                    // 2. opened a short (without closing the regular video)
-                    // 3. closed the short
-                    // 4. regular video is now present, but the videoId and RYD data is still for the short
-                    Logger.printDebug(() -> "Ignoring regular video dislike span,"
-                            + " as data loaded was previously used for a Short: " + videoId);
-                    return original;
-                }
-
                 // prevents reproducible bugs with the following steps:
                 // (user is using YouTube with RollingNumber applied)
                 // 1. opened a video
@@ -577,22 +697,6 @@ public class ReturnYouTubeDislike {
                 if (PlayerType.getCurrent().isFullScreenOrSlidingFullScreen()) {
                     Logger.printDebug(() -> "Ignoring fullscreen video description panel: " + videoId);
                     return original;
-                }
-
-                if (spanIsForLikes) {
-                    if (!Utils.containsNumber(original)) {
-                        if (!Settings.RYD_ESTIMATED_LIKE.get()) {
-                            Logger.printDebug(() -> "Likes are hidden");
-                            return original;
-                        } else {
-                            Logger.printDebug(() -> "Using estimated likes");
-                        }
-                    }
-
-                    // Scrolling Shorts does not cause the Spans to be reloaded,
-                    // so there is no need to cache the likes for this situations.
-                    Logger.printDebug(() -> "Creating likes span for: " + votingData.videoId);
-                    return newSpannableWithLikes(original, votingData);
                 }
 
                 if (originalDislikeSpan != null && replacementLikeDislikeSpan != null
@@ -607,7 +711,7 @@ public class ReturnYouTubeDislike {
                     votingData.updateUsingVote(userVote);
                 }
                 originalDislikeSpan = original;
-                replacementLikeDislikeSpan = createDislikeSpan(original, isSegmentedButton, isRollingNumber, votingData);
+                replacementLikeDislikeSpan = createDislikeSpan(original, isSegmentedButton, isRollingNumber, votingData, userVote);
                 Logger.printDebug(() -> "Replaced: '" + originalDislikeSpan + "' with: '"
                         + replacementLikeDislikeSpan + "'" + " using video: " + videoId);
 
@@ -624,14 +728,6 @@ public class ReturnYouTubeDislike {
         Utils.verifyOnMainThread();
         Objects.requireNonNull(vote);
         try {
-            if (isShort != PlayerType.getCurrent().isNoneOrHidden()) {
-                // Shorts was loaded with regular video present, then Shorts was closed.
-                // and then user voted on the now visible original video.
-                // Cannot send a vote, because this instance is for the wrong video.
-                Utils.showToastLong(str("revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted"));
-                return;
-            }
-
             setUserVote(vote);
 
             voteSerialExecutor.execute(() -> {
@@ -676,6 +772,11 @@ public class ReturnYouTubeDislike {
             Logger.printException(() -> "setUserVote failure", ex);
         }
     }
+
+    @Nullable
+    public synchronized Vote getUserVote() {
+        return userVote;
+    }
 }
 
 /**
@@ -713,7 +814,7 @@ class VerticallyCenteredImageSpan extends ImageSpan {
 
     /**
      * @param useOriginalWidth Use the original layout width of the text this span is applied to,
-     *                         and not the bounds of the Drawable. Drawable is always displayed using it's own bounds,
+     *                         and not the bounds of the Drawable. Drawable is always displayed using its own bounds,
      *                         and this setting only affects the layout width of the entire span.
      */
     public VerticallyCenteredImageSpan(Drawable drawable, boolean useOriginalWidth) {

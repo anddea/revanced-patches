@@ -31,5 +31,3 @@ internal val nextGenWatchLayoutFullscreenModeFingerprint = legacyFingerprint(
                 method.containsLiteralInstruction(32)
     },
 )
-
-

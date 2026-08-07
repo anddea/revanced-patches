@@ -12,12 +12,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import app.morphe.extension.shared.Logger;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.spoof.requests.StreamOrDetailsDataRequest;
+import app.morphe.extension.shared.spoof.requests.VisitorIdRequester;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
@@ -36,22 +38,6 @@ public class SpoofVideoStreamsPatch {
         }
     }
 
-    public static final class JavaScriptHashAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return SharedYouTubeSettings.SPOOF_VIDEO_STREAMS.isAvailable() && preferredClient.requireJS &&
-                    SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_DISABLE_PLAYER_JS_UPDATE.get();
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return List.of(
-                    SharedYouTubeSettings.SPOOF_VIDEO_STREAMS,
-                    SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_DISABLE_PLAYER_JS_UPDATE
-            );
-        }
-    }
-
     private static final String INTERNET_CONNECTION_CHECK_URI_STRING = "https://www.google.com/gen_204";
     private static final Uri INTERNET_CONNECTION_CHECK_URI = Uri.parse(INTERNET_CONNECTION_CHECK_URI_STRING);
 
@@ -60,7 +46,7 @@ public class SpoofVideoStreamsPatch {
     @Nullable
     private static volatile AppLanguage languageOverride;
 
-    private static volatile ClientType preferredClient = ClientType.ANDROID_REEL_AUTH;
+    private static volatile ClientType preferredClient = ClientType.VISIONOS_1_02;
 
     private static WeakReference<Application> mainActivityRef = new WeakReference<>(null);
 
@@ -87,7 +73,13 @@ public class SpoofVideoStreamsPatch {
 
     public static void setClientsToUse(List<ClientType> availableClients, ClientType client) {
         preferredClient = Objects.requireNonNull(client);
-        StreamOrDetailsDataRequest.setClientOrderToUse(availableClients, client);
+
+        if (isPatchIncluded() && SPOOF_VIDEO_STREAMS) {
+            StreamOrDetailsDataRequest.setClientOrderToUse(availableClients, client);
+
+            // Prefetch visitorId for default client.
+            Utils.runOnBackgroundThread(() -> VisitorIdRequester.getVisitorId(client));
+        }
     }
 
     public static ClientType getPreferredClient() {
@@ -98,6 +90,10 @@ public class SpoofVideoStreamsPatch {
         return isPatchIncluded()
                 && SPOOF_VIDEO_STREAMS
                 && !preferredClient.supportsMultiAudioTracks;
+    }
+
+    public static boolean spoofingToClientWithSABROrSpoofingDisabled() {
+        return !isPatchIncluded() || !SPOOF_VIDEO_STREAMS || preferredClient.requireSABR;
     }
 
     public static Uri blockGetWatchRequest(Uri playerRequestUri) {
@@ -132,23 +128,6 @@ public class SpoofVideoStreamsPatch {
         return playerRequestBuilder;
     }
 
-    public static String blockGetAttRequest(String originalUrlString) {
-        if (SPOOF_VIDEO_STREAMS) {
-            try {
-                var originalUri = Uri.parse(originalUrlString);
-                String path = originalUri.getPath();
-
-                if (path != null && path.contains("att/get")) {
-                    Logger.printDebug(() -> "Blocking 'att/get' by returning internet connection check URI");
-                    return INTERNET_CONNECTION_CHECK_URI_STRING;
-                }
-            } catch (Exception ex) {
-                Logger.printException(() -> "blockGetAttRequest failure", ex);
-            }
-        }
-        return originalUrlString;
-    }
-
     public static String blockInitPlaybackRequest(String originalUrlString) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
@@ -178,7 +157,7 @@ public class SpoofVideoStreamsPatch {
     }
 
     public static boolean disableSABR() {
-        return SPOOF_VIDEO_STREAMS;
+        return SPOOF_VIDEO_STREAMS && !StreamOrDetailsDataRequest.getLastSpoofedClientUseSABR();
     }
 
     public static boolean useMediaFetchHotConfigReplacement(boolean original) {
@@ -254,8 +233,9 @@ public class SpoofVideoStreamsPatch {
             try {
                 StreamOrDetailsDataRequest request = StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId);
                 if (request != null) {
-                    var stream = (byte[]) request.getStreamDetails();
-                    if (stream != null) {
+                    var buffers = (StreamOrDetailsDataRequest.StreamData) request.getStreamDetails();
+                    if (buffers != null) {
+                        byte[] stream = buffers.streamingData();
                         Logger.printDebug(() -> "Overriding video stream: " + videoId);
                         return stream;
                     }
@@ -264,6 +244,36 @@ public class SpoofVideoStreamsPatch {
                 Logger.printException(() -> "getStreamingData failure", ex);
             }
         }
+        return null;
+    }
+
+    /**
+     * Injection point.
+     * Fix playback by replace the player config.
+     * Called after {@link #getStreamingData(String)}.
+     */
+    @Nullable
+    public static byte[] getPlayerConfig(String videoId) {
+        if (SPOOF_VIDEO_STREAMS) {
+            try {
+                StreamOrDetailsDataRequest request = StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId);
+                if (request != null) {
+                    var buffers = (StreamOrDetailsDataRequest.StreamData) request.getStreamDetails();
+                    if (buffers != null) {
+                        byte[] config = buffers.playerConfig();
+                        if (config != null) {
+                            Logger.printDebug(() -> "Overriding player config: " + videoId);
+                            return config;
+                        }
+                    }
+                }
+
+                Logger.printDebug(() -> "Not overriding player config: " + videoId);
+            } catch (Exception ex) {
+                Logger.printException(() -> "getPlayerConfig failure", ex);
+            }
+        }
+
         return null;
     }
 

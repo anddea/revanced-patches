@@ -5,6 +5,7 @@ import static java.lang.Boolean.TRUE;
 import static app.morphe.extension.shared.utils.Utils.newSpanUsingStylingOfAnotherSpan;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import app.morphe.extension.shared.returnyoutubeusername.requests.ChannelRequest;
 import app.morphe.extension.shared.settings.BaseSettings;
@@ -26,7 +27,7 @@ public class ReturnYouTubeUsernamePatch {
      *
      * @param original The original string before the SpannableString is built.
      */
-    public static CharSequence preFetchLithoText(@NonNull Object conversionContext,
+    public static CharSequence preFetchLithoText(@Nullable Object conversionContext,
                                                  @NonNull CharSequence original) {
         onLithoTextLoaded(conversionContext, original, true);
         return original;
@@ -38,17 +39,17 @@ public class ReturnYouTubeUsernamePatch {
      * @param original The original string after the SpannableString is built.
      */
     @NonNull
-    public static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,
+    public static CharSequence onLithoTextLoaded(@Nullable Object conversionContext,
                                                  @NonNull CharSequence original) {
         return onLithoTextLoaded(conversionContext, original, false);
     }
 
     @NonNull
-    private static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,
+    private static CharSequence onLithoTextLoaded(@Nullable Object conversionContext,
                                                   @NonNull CharSequence original,
                                                   boolean fetchNeeded) {
         try {
-            if (!RETURN_YOUTUBE_USERNAME_ENABLED) {
+            if (!RETURN_YOUTUBE_USERNAME_ENABLED || conversionContext == null) {
                 return original;
             }
             // In comments, the path to YouTube Handle(@youtube) always includes [AUTHOR_BADGE_PATH].

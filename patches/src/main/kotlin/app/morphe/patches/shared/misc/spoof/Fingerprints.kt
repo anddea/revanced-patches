@@ -1,7 +1,18 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.shared.misc.spoof
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.anyInstruction
+import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
@@ -12,6 +23,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+
+private const val STREAMING_DATA_OUTER_CLASS =
+    $$"Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass$StreamingData;"
 
 internal object BuildInitPlaybackRequestFingerprint : Fingerprint(
     returnType = $$"Lorg/chromium/net/UrlRequest$Builder;",
@@ -68,21 +82,104 @@ internal object BuildRequestFingerprint : Fingerprint(
     }
 )
 
+private object CreateStreamingDataParentFingerprint : Fingerprint(
+    strings = listOf("Invalid playback type; streaming data is not playable")
+)
+
 internal object CreateStreamingDataFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    classFingerprint = CreateStreamingDataParentFingerprint,
+    name = "<init>",
     parameters = listOf("L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.IPUT_OBJECT,
-    ),
-    custom = { _, classDef ->
-        classDef.fields.any { field ->
-            field.name == "a" && field.type.endsWith($$"/StreamingDataOuterClass$StreamingData;")
-        }
-    }
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            type = STREAMING_DATA_OUTER_CLASS
+        ),
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = "this",
+            type = STREAMING_DATA_OUTER_CLASS,
+            location = MatchAfterWithin(7)
+        ),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            location = MatchAfterImmediately()
+        ),
+        opcode(
+            opcode = Opcode.IF_NEZ,
+            location = MatchAfterImmediately()
+        ),
+        fieldAccess(
+            opcode = Opcode.SGET_OBJECT,
+            location = MatchAfterImmediately()
+        ),
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = "this",
+            location = MatchAfterImmediately()
+        ),
+        opcode(Opcode.AND_INT_LIT8),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            location = MatchAfterWithin(5)
+        )
+    )
+)
+
+internal fun abrStateDataFingerprint(playerConfigClass: String) = object : Fingerprint(
+    returnType = "J",
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            type = playerConfigClass
+        ),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = playerConfigClass,
+            location = MatchAfterImmediately()
+        ),
+        string("/videoplayback"),
+        string("AbrStateDataSpec: Unexpected http body.")
+    )
+) {}
+
+internal object PlayerConfigBuilderFingerprint : Fingerprint(
+    returnType = "Lcom/google/protobuf/MessageLite;",
+    filters = listOf(
+        string("com.google.android.libraries.youtube.innertube.pref.player_config_supplier"),
+        methodCall(
+            opcode = Opcode.INVOKE_STATIC,
+            name = "decode",
+            returnType = "[B"
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "createBuilder",
+            parameters = listOf(),
+            location = MatchAfterWithin(5)
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_STATIC,
+            smali = "Lcom/google/protobuf/ExtensionRegistryLite;->getGeneratedRegistry()Lcom/google/protobuf/ExtensionRegistryLite;",
+            location = MatchAfterWithin(5)
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "mergeFrom",
+            parameters = listOf("[B", "Lcom/google/protobuf/ExtensionRegistryLite;"),
+            location = MatchAfterWithin(5)
+        ),
+        opcode(
+            opcode = Opcode.CHECK_CAST,
+            location = MatchAfterWithin(3)
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "build",
+            parameters = listOf(),
+            location = MatchAfterWithin(3)
+        )
+    )
 )
 
 internal object BuildMediaDataSourceFingerprint : Fingerprint(
@@ -147,7 +244,23 @@ val accountIdentityFingerprint = Fingerprint(
 
 internal object MediaFetchHotConfigFingerprint : Fingerprint(
     filters = listOf(
-        literal(45645570L)
+        literal(45645570L),
+        opcode(
+            opcode = Opcode.MOVE_RESULT,
+            location = MatchAfterWithin(3)
+        ),
+        anyInstruction(
+            opcode(
+                opcode = Opcode.IF_EQZ,
+                location = MatchAfterWithin(5)
+            ),
+            // Only for YouTube Music 7.29.52
+            fieldAccess(
+                opcode = Opcode.IPUT_BOOLEAN,
+                definingClass = "this",
+                location = MatchAfterWithin(5)
+            )
+        )
     )
 )
 
@@ -167,14 +280,21 @@ internal object MediaSessionFeatureFlagFingerprint : Fingerprint(
     parameters = listOf(),
     returnType = "Z",
     filters = listOf(
-        literal(45640404L)
+        literal(45640404L),
+        opcode(
+            opcode = Opcode.MOVE_RESULT,
+            location = MatchAfterWithin(3)
+        ),
+        opcode(
+            opcode = Opcode.RETURN,
+            location = MatchAfterWithin(5)
+        )
     )
 )
 
+// Feature flag that causes Shorts content to freeze and fail to load when scrolling.
+// Flag does not seem to affect Shorts if spoofing is off.
 internal object ReelItemWatchResponseFeatureFlagFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Z",
-    parameters = listOf(),
     filters = listOf(
         literal(45638126L)
     )

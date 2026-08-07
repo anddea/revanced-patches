@@ -55,7 +55,6 @@ public class ChangeFormFactorPatch {
         @Nullable
         final Boolean setMinimumDp;
 
-
         FormFactor(@Nullable Integer formFactorType, @Nullable Integer widthDp, @Nullable Boolean setMinimumDp) {
             this.formFactorType = formFactorType;
             this.widthDp = widthDp;

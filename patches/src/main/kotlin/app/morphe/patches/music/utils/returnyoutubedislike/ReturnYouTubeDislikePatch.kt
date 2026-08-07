@@ -103,7 +103,7 @@ enum class Vote(val value: Int) {
     REMOVE_LIKE(0),
 }
 
-private const val ABOUT_CATEGORY_KEY = "revanced_ryd_about"
+private const val ABOUT_CATEGORY_KEY = "revanced_ryd_about_category"
 private const val RYD_ATTRIBUTION_KEY = "revanced_ryd_attribution"
 
 @Suppress("unused")
@@ -151,7 +151,8 @@ val returnYouTubeDislikePatch = resourcePatch(
 
         addPreferenceCategoryUnderPreferenceScreen(
             CategoryType.RETURN_YOUTUBE_DISLIKE.value,
-            ABOUT_CATEGORY_KEY
+            ABOUT_CATEGORY_KEY,
+            "morphe_music_crossfade_about_title",
         )
 
         document(SETTINGS_HEADER_PATH).use { document ->
@@ -175,4 +176,3 @@ val returnYouTubeDislikePatch = resourcePatch(
 
     }
 }
-

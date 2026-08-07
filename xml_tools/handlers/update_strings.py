@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Create updated_strings.xml files based on a list of keys from an input text file."""
 
 from __future__ import annotations

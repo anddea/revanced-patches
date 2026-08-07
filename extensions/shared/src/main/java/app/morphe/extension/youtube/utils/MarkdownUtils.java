@@ -40,11 +40,17 @@
 
 package app.morphe.extension.youtube.utils;
 
+import static app.morphe.extension.shared.utils.Utils.dipToPixels;
+
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.text.*;
+import android.text.Html;
+import android.text.Layout;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.style.BulletSpan;
 import android.text.style.LeadingMarginSpan;
 import android.text.style.ReplacementSpan;
@@ -52,13 +58,12 @@ import android.text.style.TypefaceSpan;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static app.morphe.extension.shared.utils.Utils.dipToPixels;
 
 /**
  * Utility class to convert Markdown-formatted strings into Android {@link Spanned} objects.

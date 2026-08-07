@@ -41,7 +41,6 @@ val resumingMiniplayerOnStartupPatch = bytecodePatch(
             }
         }
 
-
         addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: PLAYER",

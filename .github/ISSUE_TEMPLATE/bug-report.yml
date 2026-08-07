@@ -10,7 +10,7 @@ body:
 
         Before creating a new bug report, please keep the following in mind:
 
-        - If your bug is not related to [unique features](https://github.com/anddea/revanced-patches/wiki/Unique-features), open your bug report in [ReVanced](https://github.com/ReVanced/revanced-patches/issues) and [RVX](https://github.com/inotia00/ReVanced_Extended/issues) first.
+        - If your bug is not related to [unique features](https://github.com/anddea/revanced-patches/wiki/Unique-features), open your bug report in [Morphe](https://github.com/MorpheApp/morphe-patches/issues) first.
         - **Do not submit a duplicate bug report**: You can review existing bug reports [here](https://github.com/anddea/revanced-patches/labels/Bug%20report).
         - **Check if this issue reproduces in unpatched apps as well**: Most bugs can also be reproduced in unpatched apps.
   - type: dropdown
@@ -27,17 +27,17 @@ body:
     attributes:
       label: Tools used
       options:
-        - RVX Manager
-        - rvx-builder
-        - Revancify
-        - CLI
+        - Morphe Manager
+        - URV Manager
+        - Revancify/Enhancify
+        - Morphe CLI
     validations:
       required: true
   - type: textarea
     attributes:
       label: Application
       description: Write down the application and version where the issue occurs.
-      placeholder: e.g. YouTube v19.16.39
+      placeholder: e.g. YouTube v20.05.46
     validations:
       required: true
   - type: textarea
@@ -80,7 +80,7 @@ body:
           required: true
         - label: I did not use any settings marked as `Experimental Flags`.
           required: true
-        - label: I have patched the APK according to the [documentation](https://github.com/inotia00/revanced-documentation#readme).
+        - label: I have patched the APK myself.
           required: true
         - label: I have chosen an appropriate title.
           required: true

@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Find missing strings and create the file with them."""
 
 import logging
@@ -12,6 +14,10 @@ from utils.xml_processor import XMLProcessor
 logger = logging.getLogger("xml_tools")
 
 BLACKLIST = {
+    "morphe_music_crossfade_about_banner_title",
+    "morphe_music_crossfade_curve_preview_title",
+    "morphe_music_lyrics_source_entry_kugou",
+    "morphe_music_lyrics_source_entry_lrclib",
     "revanced_settings_title",
     "revanced_vot_percent_value",
 }
@@ -70,7 +76,10 @@ def process(app: str) -> None:
             if lang_dir.is_dir():
                 dest_path = lang_dir / "strings.xml"
                 missing_path = lang_dir / "missing_strings.xml"
+                updated_path = lang_dir / "updated_strings.xml"
                 compare_and_update(source_path, dest_path, missing_path)
+                XMLProcessor.cleanup_if_empty(missing_path)
+                XMLProcessor.cleanup_if_empty(updated_path)
 
     except Exception:
         logger.exception("Failed to process %s translations: ", app)

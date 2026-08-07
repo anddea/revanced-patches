@@ -1,25 +1,42 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.player.components
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.string
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
+import app.morphe.patches.shared.misc.fix.proto.immutableMethodRef
+import app.morphe.patches.shared.misc.fix.proto.mutableCopyMethodRef
 import app.morphe.patches.shared.spans.addSpanFilter
 import app.morphe.patches.shared.spans.inclusiveSpanPatch
 import app.morphe.patches.shared.startVideoInformerFingerprint
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.textComponentPatch
+import app.morphe.patches.youtube.shared.WatchNextResponseParserFingerprint
 import app.morphe.patches.youtube.utils.bottomsheet.bottomSheetHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.dismiss.dismissPlayerHookPatch
-import app.morphe.patches.youtube.utils.dismiss.hookDismissObserver
 import app.morphe.patches.youtube.utils.engagement.engagementPanelBuilderMethod
 import app.morphe.patches.youtube.utils.engagement.engagementPanelFreeRegister
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
@@ -34,12 +51,30 @@ import app.morphe.patches.youtube.utils.fix.endscreensuggestedvideo.endScreenSug
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.PLAYER_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
-import app.morphe.patches.youtube.utils.playservice.*
-import app.morphe.patches.youtube.utils.resourceid.*
+import app.morphe.patches.youtube.utils.playservice.is_18_39_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_19_18_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_19_43_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_02_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_03_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_05_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_09_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_12_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_14_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_15_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_16_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_18_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_19_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
+import app.morphe.patches.youtube.utils.resourceid.darkBackground
+import app.morphe.patches.youtube.utils.resourceid.eduOverlayStub
+import app.morphe.patches.youtube.utils.resourceid.fadeDurationFast
+import app.morphe.patches.youtube.utils.resourceid.scrimOverlay
+import app.morphe.patches.youtube.utils.resourceid.seekUndoEduOverlayStub
+import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.morphe.patches.youtube.utils.resourceid.tapBloomView
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.youtubeControlsOverlayFingerprint
-import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
@@ -60,6 +95,7 @@ import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
@@ -71,6 +107,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private val speedOverlayPatch = bytecodePatch(
     description = "speedOverlayPatch"
@@ -346,6 +384,7 @@ val playerComponentsPatch = bytecodePatch(
         bottomSheetHookPatch,
         endScreenSuggestedVideoPatch,
         engagementPanelHookPatch,
+        fixProtoLibraryPatch,
         dismissPlayerHookPatch,
         inclusiveSpanPatch,
         lithoFilterPatch,
@@ -735,26 +774,165 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for hide relative video
+        // region patch for hide related videos
 
-        linearLayoutManagerItemCountsFingerprint.matchOrThrow().let {
-            val methodWalker =
-                it.getWalkerMethod(it.instructionMatches.last().index)
-            methodWalker.apply {
-                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+        val continuationsField = with(WatchNextResponseParserFingerprint) {
+            clearMatch()
+            instructionMatches[2].instruction.getReference<FieldReference>()!!
+        }
+        val resultsClass = continuationsField.definingClass
+        val helperMethodParameter = listOf(
+            ImmutableMethodParameter(resultsClass, null, null),
+        )
 
-                addInstructions(
-                    index + 1, """
-                        invoke-static {v$register}, $RELATED_VIDEO_CLASS_DESCRIPTOR->overrideItemCounts(I)I
-                        move-result v$register
+        val emptyProtobufListMethod = Fingerprint(
+            definingClass = resultsClass,
+            name = "<init>",
+            returnType = "V",
+            parameters = emptyList(),
+            filters = listOf(
+                methodCall(
+                    opcode = Opcode.INVOKE_STATIC,
+                    name = "emptyProtobufList",
+                ),
+            ),
+        ).instructionMatches.last().instruction.getReference<MethodReference>()!!
+
+        val sectionIdentifierField = RelatedItemSectionFingerprint
+            .instructionMatches[1].instruction.getReference<FieldReference>()!!
+        val watchNextResponseModelClass = WatchNextResponseModelClassResolverFingerprint
+            .instructionMatches.last().instruction.getReference<TypeReference>()!!.type
+
+        Fingerprint(
+            definingClass = watchNextResponseModelClass,
+            accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+            returnType = "V",
+            parameters = listOf(resultsClass),
+            filters = listOf(
+                fieldAccess(
+                    opcode = Opcode.IGET_OBJECT,
+                    definingClass = resultsClass,
+                    type = emptyProtobufListMethod.returnType,
+                ),
+                methodCall(
+                    opcode = Opcode.INVOKE_INTERFACE,
+                    name = "iterator",
+                    location = MatchAfterImmediately(),
+                ),
+                fieldAccess(
+                    opcode = Opcode.IGET_OBJECT,
+                    type = sectionIdentifierField.definingClass,
+                ),
+            ),
+        ).let {
+            val contentsField =
+                it.instructionMatches.first().instruction.getReference<FieldReference>()!!
+            val itemSectionRendererField =
+                it.instructionMatches.last().instruction.getReference<FieldReference>()!!
+            val itemSectionRendererDefaultInstance =
+                "${itemSectionRendererField.type}->a:${itemSectionRendererField.type}"
+
+            val shelfRendererField = Fingerprint(
+                returnType = "Ljava/util/List;",
+                parameters = listOf("Ljava/lang/Object;"),
+                filters = listOf(
+                    string("hint=%s,(%s=%s,cheatsheet=%b,key1=%s,w=%d,h=%d)"),
+                    fieldAccess(
+                        opcode = Opcode.IGET_OBJECT,
+                        definingClass = itemSectionRendererField.definingClass,
+                    ),
+                    fieldAccess(
+                        opcode = Opcode.IGET_OBJECT,
+                        reference = itemSectionRendererField,
+                    ),
+                ),
+            ).instructionMatches[1].instruction.getReference<FieldReference>()!!
+            val shelfRendererDefaultInstance =
+                "${shelfRendererField.type}->a:${shelfRendererField.type}"
+
+            it.method.apply {
+                val helperMethod = ImmutableMethod(
+                    definingClass,
+                    "patch_hideRelatedVideos",
+                    helperMethodParameter,
+                    "V",
+                    AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                    annotations,
+                    null,
+                    MutableMethodImplementation(6),
+                ).toMutable().apply {
+                    addInstructionsWithLabels(
+                        0,
                         """
-                )
+                            invoke-static {}, $RELATED_VIDEO_CLASS_DESCRIPTOR->hideRelatedVideos()Z
+                            move-result v0
+
+                            if-eqz v0, :ignore
+                            iget-object v0, p1, $contentsField
+                            invoke-interface {v0}, ${immutableMethodRef.get()}
+                            move-result v1
+
+                            # Check if ProtoList is immutable or not.
+                            if-nez v1, :ignore
+
+                            # If mutable, copy the ProtoList.
+                            invoke-static {v0}, ${mutableCopyMethodRef.get()}
+                            move-result-object v0
+
+                            invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+                            move-result-object v1
+
+                            :loop
+                            invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+                            move-result v2
+
+                            if-eqz v2, :exit
+                            invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+                            move-result-object v2
+                            check-cast v2, ${itemSectionRendererField.definingClass}
+
+                            # Replace related ItemSectionRenderer content while preserving comments.
+                            invoke-static {v2}, $RELATED_VIDEO_CLASS_DESCRIPTOR->isRelatedItems(Lcom/google/protobuf/MessageLite;)Z
+                            move-result v3
+                            if-eqz v3, :is_not_related_item
+
+                            sget-object v3, $itemSectionRendererDefaultInstance
+                            iput-object v3, v2, $itemSectionRendererField
+                            goto :loop
+
+                            :is_not_related_item
+
+                            # ShelfRenderer is used for related videos on tablets.
+                            invoke-static {v2}, $RELATED_VIDEO_CLASS_DESCRIPTOR->isShelfRenderer(Lcom/google/protobuf/MessageLite;)Z
+                            move-result v3
+                            if-eqz v3, :loop
+
+                            sget-object v3, $shelfRendererDefaultInstance
+                            iput-object v3, v2, $shelfRendererField
+                            goto :loop
+
+                            :exit
+                            invoke-static {}, $RELATED_VIDEO_CLASS_DESCRIPTOR->isFiltered()Z
+                            move-result v2
+                            if-eqz v2, :ignore
+
+                            iput-object v0, p1, $contentsField
+
+                            # Empty continuations prevent redundant related-video requests.
+                            invoke-static {}, $emptyProtobufListMethod
+                            move-result-object v0
+                            iput-object v0, p1, $continuationsField
+
+                            :ignore
+                            return-void
+                        """,
+                    )
+                }
+
+                it.classDef.methods.add(helperMethod)
+                addInstruction(0, "invoke-direct {p0, p1}, $helperMethod")
             }
         }
-
-        hookBackgroundPlayVideoInformation("$RELATED_VIDEO_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-        hookDismissObserver("$RELATED_VIDEO_CLASS_DESCRIPTOR->onDismiss(I)V")
 
         // endregion
 
@@ -869,7 +1047,7 @@ val playerComponentsPatch = bytecodePatch(
         // This patch works fine when the [EndScreenSuggestedVideoPatch] patch is included.
         touchAreaOnClickListenerFingerprint.mutableClassOrThrow().let {
             it.methods.find { method ->
-                method.parameters == listOf("Landroid/view/View${'$'}OnClickListener;")
+                method.parameters == listOf($$"Landroid/view/View$OnClickListener;")
             }?.apply {
                 val setOnClickListenerIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_VIRTUAL &&
@@ -910,11 +1088,10 @@ val playerComponentsPatch = bytecodePatch(
         addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: PLAYER",
-                "SETTINGS: PLAYER_COMPONENTS"
+                "SETTINGS: PLAYER_COMPONENTS",
             ),
             PLAYER_COMPONENTS
         )
-
         // endregion
 
     }

@@ -53,6 +53,10 @@ internal enum class PatchList(
         "Custom double tap length",
         "Adds Double-tap to seek values that are specified in patch options."
     ),
+    CUSTOM_DPI(
+        "Custom DPI",
+        "Forces a higher display density for this app only, so the whole UI scales up without changing system density."
+    ),
     CUSTOM_HEADER_FOR_YOUTUBE(
         "Custom header for YouTube",
         "Applies a custom header in the top left corner within the app."
@@ -65,8 +69,8 @@ internal enum class PatchList(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."
     ),
-    DISABLE_FORCED_AUTO_AUDIO_TRACKS(
-        "Disable forced auto audio tracks",
+    FORCE_ORIGINAL_AUDIO(
+        "Force original audio",
         "Adds an option to disable audio tracks from being automatically enabled."
     ),
     DISABLE_FORCED_AUTO_CAPTIONS(
@@ -189,9 +193,17 @@ internal enum class PatchList(
         "Overlay buttons",
         "Adds options to display useful overlay buttons in the video player."
     ),
+    PLAYBACK_IN_FEEDS(
+        "Playback in feeds",
+        "Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it."
+    ),
     PLAYER_COMPONENTS(
         "Player components",
         "Adds options to hide or change components related to the video player."
+    ),
+    RELOAD_VIDEO(
+        "Reload video",
+        "Adds an option to display a button in the video player to reload the current video."
     ),
     REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS(
         "Remove background playback restrictions",
@@ -225,6 +237,10 @@ internal enum class PatchList(
         "Settings for YouTube",
         "Applies mandatory patches to implement ReVanced Extended settings into the application."
     ),
+    SETTINGS_MENU_FILTER(
+        "Settings menu filter",
+        "Adds an option to hide items on the standard YouTube settings screen by their visible name."
+    ),
     SHORTS_COMPONENTS(
         "Shorts components",
         "Adds options to hide or change components related to YouTube Shorts."
@@ -240,6 +256,10 @@ internal enum class PatchList(
     SPOOF_APP_VERSION(
         "Spoof app version",
         "Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features."
+    ),
+    SPOOF_VIDEO_STREAMS(
+        "Spoof video streams",
+        "Adds options to spoof the client video streams to fix playback."
     ),
     SWIPE_CONTROLS(
         "Swipe controls",
@@ -272,5 +292,9 @@ internal enum class PatchList(
     WATCH_HISTORY(
         "Spoof watch history",
         "Adds an option to change the domain of the watch history or check its status."
+    ),
+    WIDE_SEARCH_BAR(
+        "Wide search bar",
+        "Adds a wide search bar to the top of the home and subscription feed."
     )
 }

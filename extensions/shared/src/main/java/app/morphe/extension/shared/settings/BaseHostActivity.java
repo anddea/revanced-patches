@@ -36,7 +36,6 @@ public abstract class BaseHostActivity extends Activity {
     private static final int STRING_REVANCED_SETTINGS_TITLE =
             getStringIdentifier("revanced_settings_title");
 
-
     /**
      * Layout parameters for the toolbar, extracted from the dummy toolbar.
      */

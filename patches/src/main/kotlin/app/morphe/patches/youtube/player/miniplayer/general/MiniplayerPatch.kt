@@ -1,7 +1,17 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ */
+
 package app.morphe.patches.youtube.player.miniplayer.general
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
@@ -20,8 +30,10 @@ import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_43_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_03_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_38_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_17_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerClose
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerExpand
@@ -62,7 +74,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "$PLAYER_PATH/MiniplayerPatch;"
 
 // YT uses "Miniplayer" without a space between 'mini' and 'player: https://support.google.com/youtube/answer/9162927.
-@Suppress("unused", "SpellCheckingInspection")
+@Suppress("unused")
 val miniplayerPatch = bytecodePatch(
     MINIPLAYER.title,
     MINIPLAYER.summary,
@@ -153,7 +165,7 @@ val miniplayerPatch = bytecodePatch(
 
         miniplayerOverrideFingerprint.matchOrThrow().let {
             it.method.apply {
-                val stringIndex = it.stringMatches!!.first().index
+                val stringIndex = it.stringMatches.first().index
                 val walkerIndex = indexOfFirstInstructionOrThrow(stringIndex) {
                     val reference = getReference<MethodReference>()
                     reference?.returnType == "Z" &&
@@ -296,12 +308,52 @@ val miniplayerPatch = bytecodePatch(
                 "$EXTENSION_CLASS_DESCRIPTOR->getHorizontalDrag(Z)Z"
             )
 
+            val horizontalDragPlaybackCallbackClass = MiniplayerHorizontalDragPlaybackFingerprint
+                .instructionMatches[2].instruction.getReference<MethodReference>()!!.definingClass
+
+            Fingerprint(
+                definingClass = horizontalDragPlaybackCallbackClass,
+                name = "onAnimationEnd",
+            ).method.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->pausePlaybackWithHorizontalDrag()Z
+                    move-result v0
+                    if-eqz v0, :pause_playback_with_horizontal_drag
+                    return-void
+                    :pause_playback_with_horizontal_drag
+                    nop
+                """
+            )
+
+            MiniplayerHorizontalRepositionFingerprint.method.apply {
+                val previousRectParamFieldAccess = MiniplayerRectDragFieldsNameFingerprint
+                    .instructionMatches[1].instruction.getReference<FieldReference>()!!
+
+                addInstructions(
+                    0,
+                    """
+                    iget-object v0, p0, $previousRectParamFieldAccess
+                    invoke-static { p1, v0 }, $EXTENSION_CLASS_DESCRIPTOR->blockOffscreenMiniplayerHorizontalReposition(Landroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
+                    move-result-object p1
+                    """
+                )
+            }
+
+            NextGenWatchLayoutOnInterceptTouchEventFingerprint.method.addInstruction(
+                0,
+                "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "enableOffScreenMiniplayerButtonPressed(Landroid/view/MotionEvent;)V"
+            )
+
             miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
                 MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY,
                 "$EXTENSION_CLASS_DESCRIPTOR->getMaximizeAnimation(Z)Z"
             )
 
             settingArray += "SETTINGS: MINIPLAYER_HORIZONTAL_DRAG"
+            settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_DRAG_PLAYBACK"
+            settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_REPOSITION"
         }
 
         settingArray += if (is_20_03_or_greater) {
@@ -449,6 +501,48 @@ val miniplayerPatch = bytecodePatch(
                             )
                         }
                     )
+                }
+            }
+        }
+
+        // endregion
+
+        // region Fix minimal miniplayer using the wrong pause/play bold icons
+
+        if (is_20_31_or_greater) {
+            if (is_21_17_or_greater) {
+                // 21.17+ removed the code to set the non-bold miniplayer pause/play icon,
+                // and removed the non bold yt_fill_pause_white_36 icons.
+                MiniplayerSetIconsFingerprint.let {
+                    it.method.apply {
+                        val setImageDrawableIndex = it.instructionMatches.first().index
+
+                        addInstruction(
+                            setImageDrawableIndex + 1,
+                            "invoke-static { p0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                                    "overrideMiniplayerActionButtonDrawable(Landroid/widget/ImageView;I)V",
+                        )
+                    }
+                }
+            } else {
+                // Fix bold icons always shown for 20.31 to 21.16
+                MiniplayerSetIconsLegacyFingerprint.method.apply {
+                    findInstructionIndicesReversedOrThrow {
+                        opcode == Opcode.INVOKE_INTERFACE &&
+                                getReference<MethodReference>()?.let { ref ->
+                                    ref.returnType == "Z" && ref.parameterTypes.isEmpty()
+                                } == true
+                    }.forEach { index ->
+                        val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                        addInstructions(
+                            index + 2,
+                            """
+                                invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->allowBoldIcons(Z)Z
+                                move-result v$register
+                            """
+                        )
+                    }
                 }
             }
         }

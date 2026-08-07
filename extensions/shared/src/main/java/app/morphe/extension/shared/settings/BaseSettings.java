@@ -6,7 +6,6 @@ import static app.morphe.extension.shared.settings.Setting.parent;
 
 import app.morphe.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayFormat;
 import app.morphe.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
-import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.ClientAndroidVRAvailability;
 import app.morphe.extension.shared.patches.spoof.SpoofStreamingDataPatch.J2V8Availability;
 import app.morphe.extension.shared.utils.Logger;
 
@@ -26,16 +25,12 @@ public class BaseSettings {
 
     public static final EnumSetting<AppLanguage> REVANCED_LANGUAGE = new EnumSetting<>("revanced_language", AppLanguage.DEFAULT, true);
 
-    public static final BooleanSetting SPOOF_STREAMING_DATA = new BooleanSetting("revanced_spoof_streaming_data", TRUE, true, "revanced_spoof_streaming_data_user_dialog_message");
-
-    public static final BooleanSetting SPOOF_STREAMING_DATA_ANDROID_VR_ENABLE_AV1_CODEC = new BooleanSetting("revanced_spoof_streaming_data_android_vr_enable_av1_codec", FALSE, true,
-            "revanced_spoof_streaming_data_android_vr_enable_av1_codec_user_dialog_message", new ClientAndroidVRAvailability());
+    public static final BooleanSetting SPOOF_STREAMING_DATA = new BooleanSetting("revanced_spoof_streaming_data", TRUE, true, "morphe_spoof_video_streams_user_dialog_message");
 
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS = new BooleanSetting("revanced_spoof_streaming_data_use_js", TRUE, true,
             "revanced_spoof_streaming_data_use_js_user_dialog_message", new J2V8Availability());
 
     public static final BooleanSetting ENABLE_COMMENTS_SCROLL_TOP = new BooleanSetting("revanced_enable_comments_scroll_top", FALSE, true);
-    public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", TRUE);
     public static final BooleanSetting HIDE_COMMENTS_INFORMATION_BUTTON = new BooleanSetting("revanced_hide_comments_information_button", FALSE, true);
     public static final BooleanSetting HIDE_FULLSCREEN_ADS = new BooleanSetting("revanced_hide_fullscreen_ads", TRUE, true);
     public static final BooleanSetting HIDE_PROMOTION_ALERT_BANNER = new BooleanSetting("revanced_hide_promotion_alert_banner", TRUE);

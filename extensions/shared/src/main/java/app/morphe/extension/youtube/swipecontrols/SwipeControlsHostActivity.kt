@@ -66,6 +66,8 @@ class SwipeControlsHostActivity : Activity() {
      */
     private var isTouchingNewSegmentLayout = false
 
+    private var playerTypeObserver: ((PlayerType) -> Unit)? = null
+
     /**
      * current content view with id [android.R.id.content]
      */
@@ -75,6 +77,11 @@ class SwipeControlsHostActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initialize()
+    }
+
+    override fun onDestroy() {
+        playerTypeObserver?.let { PlayerType.onChange -= it }
+        super.onDestroy()
     }
 
     override fun onStart() {
@@ -177,7 +184,9 @@ class SwipeControlsHostActivity : Activity() {
         gesture = createGestureController()
 
         // listen for changes in the player type
-        PlayerType.onChange += this::onPlayerTypeChanged
+        val observer = { type: PlayerType -> onPlayerTypeChanged(type) }
+        playerTypeObserver = observer
+        PlayerType.onChange += observer
 
         // set current instance reference
         currentHost = WeakReference(this)

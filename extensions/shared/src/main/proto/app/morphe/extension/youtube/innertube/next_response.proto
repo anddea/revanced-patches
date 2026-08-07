@@ -165,13 +165,21 @@ message ActionButtons {
 
 message PrimaryButtonViewModel {
     oneof data {
+        AccountLinkButtonViewModel accountLinkButtonViewModel = 492031756;
         AddToPlaylistButtonViewModel addToPlaylistButtonViewModel = 484598023;
         SecondaryButtonViewModel secondaryButtonViewModel = 461054335;
         ClipButtonViewModel clipButtonViewModel = 490025863;
         CompactChannelBarViewModel compactChannelBarViewModel = 1107;
         DownloadButtonViewModel downloadButtonViewModel = 33561776;
+        LikeButtonViewModel likeButtonViewModel = 484585818;
+        DislikeButtonViewModel dislikeButtonViewModel = 484590786;
+        OverflowMenuButtonViewModel overflowMenuButtonViewModel = 37098;
         SegmentedLikeDislikeButtonViewModel segmentedLikeDislikeButtonViewModel = 484586709;
     }
+}
+
+message AccountLinkButtonViewModel {
+    string accountLinkStatusEntityKey = 2;
 }
 
 message AddToPlaylistButtonViewModel {
@@ -193,6 +201,18 @@ message CompactChannelBarViewModel {
 
 message DownloadButtonViewModel {
     string videoId = 1;
+}
+
+message LikeButtonViewModel {
+    string likeStatusEntityKey = 3;
+}
+
+message DislikeButtonViewModel {
+    string dislikeEntityKey = 2;
+}
+
+message OverflowMenuButtonViewModel {
+    bool forceEnablePushoverOverflowMenuItems = 4;
 }
 
 message SegmentedLikeDislikeButtonViewModel {

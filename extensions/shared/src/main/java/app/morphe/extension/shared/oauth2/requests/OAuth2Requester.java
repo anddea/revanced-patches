@@ -5,9 +5,9 @@
 
 package app.morphe.extension.shared.oauth2.requests;
 
-import static app.morphe.extension.shared.StringRef.str;
 import static app.morphe.extension.shared.oauth2.requests.OAuth2Routes.getJsonConnectionFromRoute;
 import static app.morphe.extension.shared.oauth2.requests.OAuth2Routes.getUrlConnectionFromRoute;
+import static app.morphe.extension.shared.utils.StringRef.str;
 
 import android.net.Uri;
 
@@ -23,13 +23,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.UUID;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
 import app.morphe.extension.shared.oauth2.object.AccessTokenData;
 import app.morphe.extension.shared.oauth2.object.ActivationCodeData;
 import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 public class OAuth2Requester {
     /**
@@ -61,7 +61,7 @@ public class OAuth2Requester {
      * Available values are [UNKNOWN], [QUEST1], [QUEST2], [QUEST_PRO],
      * [MOOHAN], [PICO4], [QUEST3], [QUEST3S], [PICO4_ULTRA], and [ANDROID_XR].
      */
-    private static final String DEVICE_MODEL = "QUEST1";
+    private static final String DEVICE_MODEL = "PICO4";
 
     /**
      * Access token scope.

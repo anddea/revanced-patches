@@ -1,5 +1,9 @@
 package app.morphe.extension.youtube.utils;
 
+import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.shared.utils.Utils.dipToPixels;
+import static app.morphe.extension.shared.utils.Utils.showToastLong;
+
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
@@ -13,20 +17,24 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.DisplayMetrics;
-import android.view.*;
+import android.view.GestureDetector;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowManager;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
+
 import androidx.annotation.Nullable;
+
+import java.util.Objects;
+
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
-
-import java.util.Objects;
-
-import static app.morphe.extension.shared.utils.StringRef.str;
-import static app.morphe.extension.shared.utils.Utils.dipToPixels;
-import static app.morphe.extension.shared.utils.Utils.showToastLong;
 
 /**
  * Manages a subtitle overlay that can be dragged vertically and snaps to screen edges.

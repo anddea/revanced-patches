@@ -144,7 +144,6 @@ public class SBRequester {
             // Button should appear only once
             segments.add(new SponsorSegment(SegmentCategory.OUTRO, "debug", 24000, 27000, false));
 
-
             // Test seekbar visibility:
             // All three segments should be viewable on the seekbar
             segments.add(new SponsorSegment(SegmentCategory.MUSIC_OFFTOPIC, "debug", 200000, 300000, false));
