@@ -656,14 +656,14 @@ val seekbarComponentsPatch = bytecodePatch(
         val updatePointMethodRef = SeekbarUpdatePointFingerprint.instructionMatches[1]
             .getInstruction<ReferenceInstruction>().getReference<MethodReference>()!!
 
-        // To show the thumbnail during the seeking straight on seekbar.
+        // Keep both native seek paths on the same callback so they share thumbnail state.
         SeekbarHandlerOnTouchFingerprint.method.addInstructions(
             0,
             """
                 new-instance v0, Landroid/graphics/Point;
                 invoke-direct { v0 }, Landroid/graphics/Point;-><init>()V
                 invoke-interface { p0, v0 }, $updatePointMethodRef
-                invoke-static { p0, p1, v0 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->updateHandlerThumbnailPreview(Landroid/view/View;Landroid/view/MotionEvent;Landroid/graphics/Point;)V
+                invoke-static { p0, p1, v0 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->updateThumbnailPreview(Landroid/view/View;Landroid/view/MotionEvent;Landroid/graphics/Point;)V
             """
         )
 
@@ -681,7 +681,7 @@ val seekbarComponentsPatch = bytecodePatch(
                     new-instance v1, Landroid/graphics/Point;
                     invoke-direct { v1 }, Landroid/graphics/Point;-><init>()V
                     invoke-interface { v0, v1 }, $updatePointMethodRef
-                    invoke-static { p1, p2, v1 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->updateSlideThumbnailPreview(Landroid/view/View;Landroid/view/MotionEvent;Landroid/graphics/Point;)V
+                    invoke-static { p1, p2, v1 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->updateThumbnailPreview(Landroid/view/View;Landroid/view/MotionEvent;Landroid/graphics/Point;)V
                 """
             )
         }
@@ -713,12 +713,6 @@ val seekbarComponentsPatch = bytecodePatch(
                 :allow_big_board_update
                 nop
             """
-        )
-
-        PreciseSeekingRecyclerViewFingerprint.method.addInstruction(
-            0,
-            "invoke-static { p1 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->" +
-                    "setPreciseSeekingVisible(Landroid/support/v7/widget/RecyclerView;)V"
         )
 
         if (is_21_21_or_greater) {
