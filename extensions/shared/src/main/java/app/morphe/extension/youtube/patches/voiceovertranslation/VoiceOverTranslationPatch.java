@@ -41,6 +41,9 @@
 
 package app.morphe.extension.youtube.patches.voiceovertranslation;
 
+import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.shared.utils.Utils.showToastShort;
+
 import android.content.Context;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
@@ -57,16 +60,12 @@ import java.net.URL;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.shared.VideoState;
-
-import static app.morphe.extension.shared.utils.StringRef.str;
-import static app.morphe.extension.shared.utils.Utils.showToastShort;
 
 @SuppressWarnings("unused")
 public class VoiceOverTranslationPatch {

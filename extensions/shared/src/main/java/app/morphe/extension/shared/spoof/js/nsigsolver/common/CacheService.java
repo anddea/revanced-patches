@@ -1,10 +1,10 @@
 package app.morphe.extension.shared.spoof.js.nsigsolver.common;
 
-import app.morphe.extension.shared.settings.preference.SharedPrefCategory;
 import java.lang.ref.WeakReference;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import app.morphe.extension.shared.settings.preference.SharedPrefCategory;
 
 public class CacheService {
     private static final String PREF_NAME = "yt_cache_service";

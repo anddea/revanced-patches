@@ -76,6 +76,11 @@ public final class QuickActionFilter extends Filter {
 
         bufferButtonsGroupList.addAll(
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_ASK_BUTTON,
+                        "yt_fill_experimental_spark",
+                        "yt_fill_spark"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_QUICK_ACTIONS_COMMENT_BUTTON,
                         "yt_outline_experimental_text_bubble",
                         "yt_outline_message_bubble"
@@ -122,6 +127,14 @@ public final class QuickActionFilter extends Filter {
             return bufferButtonsGroupList.check(buffer).isFiltered();
         }
 
+        return true;
+    }
+
+    /**
+     * v20.21 needs the direct component buffer to distinguish individual fullscreen quick actions.
+     */
+    @Override
+    public boolean useModernFilterDataInLegacyBridge() {
         return true;
     }
 }

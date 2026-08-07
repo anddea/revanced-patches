@@ -1,7 +1,6 @@
 package app.morphe.extension.shared.utils;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
-import static app.morphe.extension.shared.Utils.isNotEmpty;
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getCancelOrNeutralButtonBackgroundColor;
 import static app.morphe.extension.shared.utils.BaseThemeUtils.getOkButtonBackgroundColor;
 import static app.morphe.extension.shared.utils.BaseThemeUtils.isDarkModeEnabled;
@@ -23,7 +22,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -45,8 +43,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.view.WindowManager;
 import android.webkit.CookieManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -104,6 +100,14 @@ public class Utils {
 
     protected Utils() {
     } // utility class
+
+    public static boolean isNotEmpty(String value) {
+        return value != null && !value.isEmpty();
+    }
+
+    public static String getAppVersionName() {
+        return PackageUtils.getAppVersionName();
+    }
 
     public static void clickView(View view) {
         if (view == null) return;
@@ -163,6 +167,7 @@ public class Utils {
         viewGroup.removeView(view);
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean isWebViewSupported() {
         try {
             CookieManager.getInstance();
@@ -380,7 +385,6 @@ public class Utils {
                     Utils.contextLocale = contextLocale;
 
                     // If they are different, overrides the Locale of the Context and resource.
-                    Locale.setDefault(applicationLocale);
                     Configuration configuration = new Configuration(mContext.getResources().getConfiguration());
                     configuration.setLocale(applicationLocale);
                     return mContext.createConfigurationContext(configuration);
@@ -396,7 +400,6 @@ public class Utils {
     public static void resetLocalizedContext() {
         try {
             if (contextLocale != null) {
-                Locale.setDefault(contextLocale);
                 Context mContext = getContext();
                 if (mContext != null) {
                     Configuration configuration = new Configuration(getResources(false).getConfiguration());

@@ -22,12 +22,22 @@ public final class LegacyLithoFilterPatch {
         final String path;
         final String allValue;
         final byte[] buffer;
+        final String accessibility;
+        final byte[] directBuffer;
+        final Object contextSource;
+        final boolean useModernFilterData;
 
-        LithoFilterParameters(String lithoPath, @Nullable String lithoIdentifier, String allValues, byte[] buffer) {
+        LithoFilterParameters(String lithoPath, @Nullable String lithoIdentifier, Object contextSource,
+                              byte[] buffer, String accessibility, byte[] directBuffer,
+                              boolean useModernFilterData) {
             this.path = lithoPath;
             this.identifier = lithoIdentifier;
-            this.allValue = allValues;
+            this.allValue = contextSource.toString();
             this.buffer = buffer;
+            this.accessibility = accessibility;
+            this.directBuffer = directBuffer;
+            this.contextSource = contextSource;
+            this.useModernFilterData = useModernFilterData;
         }
 
         @NonNull
@@ -55,7 +65,7 @@ public final class LegacyLithoFilterPatch {
             final int minimumAscii = 32;  // 32 = space character
             final int maximumAscii = 126; // 127 = delete character
             final int minimumAsciiStringLength = 4; // Minimum length of an ASCII string to include.
-            String delimitingCharacter = "❙"; // Non ascii character, to allow easier log filtering.
+            String delimitingCharacter = "❙"; // Non-ASCII character, to allow easier log filtering.
 
             final int length = buffer.length;
             int start = 0;
@@ -86,7 +96,7 @@ public final class LegacyLithoFilterPatch {
      * 3 threads -> Device has over 6 cores and more than 6GB of memory
      * </pre>
      * <p>
-     * Using more than 1 thread causes layout issues such as the You tab watch/playlist shelf
+     * Using more than 1 thread causes layout issues such as the "You" tab watch/playlist shelf
      * that is sometimes incorrectly hidden (ReVanced is not hiding it), and seems to
      * fix a race issue if using the active navigation tab status with litho filtering.
      */
@@ -103,10 +113,15 @@ public final class LegacyLithoFilterPatch {
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
-     * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
+     * Because litho filtering is multithreaded and the buffer is passed in from a different injection point,
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
      */
     private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
+    /**
+     * v20.21 exposes the encoded buffer for the component currently being created. Keep it separate
+     * from {@link #bufferThreadLocal}, which existing legacy filters rely on.
+     */
+    private static final ThreadLocal<byte[]> directBufferThreadLocal = new ThreadLocal<>();
 
     static {
         for (Filter filter : filters) {
@@ -141,8 +156,30 @@ public final class LegacyLithoFilterPatch {
                             if (!group.isEnabled()) return false;
 
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
-                            final boolean isFiltered = filter.isFiltered(parameters.path, parameters.identifier, parameters.allValue, parameters.buffer,
-                                    group, type, matchedStartIndex);
+                            final boolean isFiltered;
+                            if (parameters.useModernFilterData
+                                    && filter.useModernFilterDataInLegacyBridge()) {
+                                isFiltered = filter.isFiltered(
+                                        parameters.contextSource,
+                                        parameters.identifier,
+                                        parameters.accessibility,
+                                        parameters.path,
+                                        parameters.directBuffer,
+                                        group,
+                                        type,
+                                        matchedStartIndex
+                                );
+                            } else {
+                                isFiltered = filter.isFiltered(
+                                        parameters.path,
+                                        parameters.identifier,
+                                        parameters.allValue,
+                                        parameters.buffer,
+                                        group,
+                                        type,
+                                        matchedStartIndex
+                                );
+                            }
 
                             if (isFiltered && BaseSettings.DEBUG.get()) {
                                 if (type == Filter.FilterContentType.IDENTIFIER) {
@@ -195,9 +232,49 @@ public final class LegacyLithoFilterPatch {
     }
 
     /**
+     * Injection point for YouTube v20.21. Supplies the buffer belonging to the component currently
+     * being created without replacing the legacy parent buffer used by existing filters.
+     */
+    public static void setDirectProtoBuffer(@Nullable byte[] buffer) {
+        directBufferThreadLocal.set(buffer == null ? EMPTY_BYTE_ARRAY : buffer);
+    }
+
+    /**
      * Injection point.  Called off the main thread, and commonly called by multiple threads at the same time.
      */
     public static boolean isFiltered(StringBuilder pathBuilder, String identifier, @NonNull Object object) {
+        return isFiltered(pathBuilder, identifier, object, "", EMPTY_BYTE_ARRAY, false);
+    }
+
+    /**
+     * Injection point for YouTube v20.21. Existing filters continue to receive legacy data, while
+     * filters that explicitly opt in receive the accessibility and direct component buffer data.
+     */
+    public static boolean isFiltered(String identifier, @Nullable String accessibilityId,
+                                     @Nullable String accessibilityText, StringBuilder pathBuilder,
+                                     @NonNull Object object) {
+        StringBuilder accessibility = new StringBuilder();
+        if (!StringUtils.isBlank(accessibilityId)) {
+            accessibility.append(accessibilityId);
+        }
+        if (!StringUtils.isBlank(accessibilityText)) {
+            if (accessibility.length() > 0) {
+                accessibility.append('|');
+            }
+            accessibility.append(accessibilityText);
+        }
+
+        byte[] directBuffer = directBufferThreadLocal.get();
+        if (directBuffer == null) {
+            directBuffer = EMPTY_BYTE_ARRAY;
+        }
+
+        return isFiltered(pathBuilder, identifier, object, accessibility.toString(), directBuffer, true);
+    }
+
+    private static boolean isFiltered(StringBuilder pathBuilder, String identifier,
+                                      @NonNull Object object, String accessibility,
+                                      byte[] directBuffer, boolean useModernFilterData) {
         try {
             if (StringUtils.isEmpty(identifier) && pathBuilder.length() == 0) {
                 return false;
@@ -210,8 +287,15 @@ public final class LegacyLithoFilterPatch {
                 buffer = EMPTY_BYTE_ARRAY;
             }
 
-            LithoFilterParameters parameter = new LithoFilterParameters(pathBuilder.toString(), identifier,
-                    object.toString(), buffer);
+            LithoFilterParameters parameter = new LithoFilterParameters(
+                    pathBuilder.toString(),
+                    identifier,
+                    object,
+                    buffer,
+                    accessibility,
+                    directBuffer,
+                    useModernFilterData
+            );
             Logger.printDebug(() -> "Searching " + parameter);
 
             if (identifierSearchTree.matches(parameter.identifier, parameter)) {

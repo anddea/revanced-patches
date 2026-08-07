@@ -4,7 +4,6 @@ import static app.morphe.extension.shared.utils.ResourceUtils.getDrawable;
 import static app.morphe.extension.shared.utils.Utils.clamp;
 import static app.morphe.extension.shared.utils.Utils.isSDKAbove;
 
-import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;

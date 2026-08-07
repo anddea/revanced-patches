@@ -1,23 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Продължи</string>
-    <string name="gms_core_dialog_open_website_text">Отвори уебсайт</string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG няма разрешение да се изпълнява в фонов режим
+
+Следвайте увода \"Не убивайте моето приложение\" за вашия телефон и прилагодете инструкциите към вашето MicroG инсталиране
+
+Това е необходимо за работа на приложението"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизациите на батерията за MicroG GmsCore трябва да бъдат деактивирани, за да се избегнат проблеми
+
+Деактивирането на оптимизациите на батерията за MicroG няма да повлияе отрицателно на използването на батерията
+
+Докоснете бутона за продължаване и разрешете промени в оптимизацията"</string>
+    <string name="gms_core_dialog_open_website_text">Отвори уебсайта</string>
+    <string name="gms_core_dialog_title">Нужно е действие</string>
+    <string name="gms_core_toast_not_installed_message">MicroG не е инсталиран. Инсталирайте го</string>
+    <string name="morphe_crossfade_duration_10000ms">10 секунди</string>
+    <string name="morphe_crossfade_duration_1000ms">1 секунда</string>
+    <string name="morphe_crossfade_duration_11000ms">11 секунди</string>
+    <string name="morphe_crossfade_duration_12000ms">12 секунди</string>
+    <string name="morphe_crossfade_duration_2000ms">2 секунди</string>
+    <string name="morphe_crossfade_duration_250ms">250 милисекунди</string>
+    <string name="morphe_crossfade_duration_3000ms">3 секунди</string>
+    <string name="morphe_crossfade_duration_4000ms">4 секунди</string>
+    <string name="morphe_crossfade_duration_5000ms">5 секунди</string>
+    <string name="morphe_crossfade_duration_500ms">500 милисекунди</string>
+    <string name="morphe_crossfade_duration_6000ms">6 секунди</string>
+    <string name="morphe_crossfade_duration_7000ms">7 секунди</string>
+    <string name="morphe_crossfade_duration_750ms">750 милисекунди</string>
+    <string name="morphe_crossfade_duration_8000ms">8 секунди</string>
+    <string name="morphe_crossfade_duration_9000ms">9 секунди</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC аудио е включено</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC аудио е изключено</string>
-    <string name="morphe_disable_drc_audio_title">Изключете DRC аудио</string>
     <string name="morphe_disable_quic_protocol_summary_off">Протокола QUIC е включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокола QUIC е изключен</string>
-    <string name="morphe_disable_quic_protocol_title">Изключи протокола QUIC</string>
-    <string name="morphe_force_original_audio_not_available">За да използвате тази функция, променете \'Имитиране на видео потоци\' на Android Reel или TV</string>
+    <string name="morphe_force_original_audio_not_available">За да използвате тази функция, променете \'Ппомяна на видео поток\' на всеки клиент освен Android Studio</string>
+    <string name="morphe_force_original_audio_summary">Винаги възпроизвежда оригиналната аудио пътека на видеото вместо дублирана версия</string>
     <string name="morphe_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
     <string name="morphe_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
     <string name="morphe_force_original_audio_title">Принудително оригинален аудио език</string>
+    <string name="morphe_music_crossfade_about_best_summary">Стандартно възпроизвеждане на песен след песен и автоматично преминаване към следващата, повторение на една песен (песента преминава в себе си) и локално аудио — вграден говорител на телефона, живи слушалки, Bluetooth или USB</string>
+    <string name="morphe_music_crossfade_about_best_title">Най-добре работи с</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Функция за кросфейд от VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Заслуга</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Преливането наслагва края на една песен с началото на следващата, намалявайки силата на звука на едната, докато другата се увеличава в рамките на избраната от вас продължителност и крива
+
+Работи с автоматично преминаване към следващата песен (когато една песен приключи от само себе си) и с ръчно прескачане — всяко от тях има собствен превключвател отгоре. При автоматично преминаване към следващата песен смесването започва няколко секунди преди края на песента
+
+Изисква YouTube Music 9.x или по-нова версия"</string>
+    <string name="morphe_music_crossfade_about_how_title">Как работи</string>
+    <string name="morphe_music_crossfade_about_known_summary">"Музикално видео, зададено като първа песен — или стартирано извън текущата опашка — може за кратко да се покаже като видео, преди да се включи режимът само с аудио
+
+Спирането на кросфейда, за да гледате музикално видео може да направи някои видеа черни (тези, чийто звук идва от самото видео). Спирането на кросфейда, преди да изберете песента, ще избегне това"</string>
+    <string name="morphe_music_crossfade_about_known_title">Известни проблеми</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"Музикалните видеа се възпроизвеждат само с аудио, докато е включен кросфейд (натиснете дълго бутона за разбъркване, за да ги спрете, ако искате да видите видеото)
+
+Песните, които са по-кратки от продължителността на избледняването, може да пропуснат избледняването
+
+Заключеният екран или известието може за кратко да покаже остаряло състояние по време на прехода"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Не работи съвсем правилно</string>
+    <string name="morphe_music_crossfade_about_summary">Как работи преливането — и кога не работи</string>
+    <string name="morphe_music_crossfade_about_title">Относно</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Предаването или огледалното изображение на аудио (Chromecast, екранно или аудио огледално изображение) — кросфейдът спира, защото е нестабилен там и може никога да не бъде поправен
+
+YouTube Music 8.x — кросфейдът работи само в 9.x и по-нови версии"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Не работи изобщо</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Възпроизвеждането с преливане се спира при излъчване или споделяне на аудио. Преливането при излъчване/споделяне е нестабилно и може никога да не бъде поправено</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Нежно задържане</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Нежно улесняване</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">Равно разпределение</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">Плавно S-образно избледняване</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">Входящ</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">Изходящ</string>
+    <string name="morphe_music_crossfade_curve_title">Крива на избледняване</string>
+    <string name="morphe_music_crossfade_duration_title">Продължителност на избледняването</string>
+    <string name="morphe_music_crossfade_enabled_title">Разреши превключване</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Прилага ефекта на кръстосаното избледняване, когато песента завърши естествено</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Избледняване при автоматично превъртане</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Прилага ефекта на кръстосаното избледняване, когато ръчно прескочите към следващата песен</string>
+    <string name="morphe_music_crossfade_on_skip_title">Избледняване при ръчно прескачане</string>
+    <string name="morphe_music_crossfade_paused_toast">Прекъснато преливане за тази сесия</string>
+    <string name="morphe_music_crossfade_resumed_toast">Преливането е възобновено</string>
+    <string name="morphe_music_crossfade_screen_summary">Плавно преливане на песните една в друга</string>
+    <string name="morphe_music_crossfade_screen_title">Превключване</string>
+    <string name="morphe_music_crossfade_session_control_summary">Натиснете и задръжте бутона за разбъркване, за да паузирате или възобновите кръстосаното избледняване</string>
+    <string name="morphe_music_crossfade_session_control_title">Управление на сесията</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Видео режимът не е достъпен, докато преливането е активирано</string>
+    <string name="morphe_music_lyrics_about_summary">"Текстовете се търсят по заглавие на песента и изпълнител, така че песен с необичайни метаданни може да не намери нищо или да намери грешната версия
+
+Синхронизираният текст следва възпроизвеждането. Ако се разминава, коригирайте времевото отместване
+
+Когато не бъдат намерени текстове от трети страни, вместо тях се показва вграденият текст"</string>
+    <string name="morphe_music_lyrics_about_title">Относно текста от трети страни</string>
+    <string name="morphe_music_lyrics_copied">Копирано в клипборда</string>
+    <string name="morphe_music_lyrics_enabled_summary">Показва текстове от външен източник, като се връща към вградените текстове, когато такива не бъдат намерени</string>
+    <string name="morphe_music_lyrics_enabled_title">Използване на текстове от трети страни</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">Преместване на синхронизирания текст напред или назад. Използвайте положителна стойност, ако текстът изпреварва песента</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Времево отместване</string>
+    <string name="morphe_music_lyrics_show_copy_button_title">Покажи бутон Копиране</string>
+    <string name="morphe_music_lyrics_show_translate_button_title">Покажи бутон Превод</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, след това KuGou</string>
+    <string name="morphe_music_lyrics_source_label">Източник: %s</string>
+    <string name="morphe_music_lyrics_source_title">Услуга за текстове</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">Докосването на ред преминава към този момент в песента</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Докоснете ред, за да преместите</string>
+    <string name="morphe_music_lyrics_text_size_summary">Размер на текста на текста на песните</string>
+    <string name="morphe_music_lyrics_text_size_title">Размер на текста</string>
+    <string name="morphe_music_lyrics_translate_failed">Не може да преведе текста</string>
+    <string name="morphe_music_lyrics_translate_hide">Покажи оригиналния текст</string>
+    <string name="morphe_music_lyrics_translate_show">Преведи</string>
+    <string name="morphe_music_lyrics_translating">Превежда се…</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не може да се впишете в VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не може да се впишете в VR, защото идентификацията на уебсайта не е одобрена</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 временно не е достъпен</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 временно не е достъпен (статус %d).</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 временно не е достъпен (статус %d)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Входът за Android VR е изтекъл, опитайте се да влезете в VR отново</string>
-    <string name="morphe_oauth2_connection_failure_timeout">Временно не е възможно OAuth2 (изтекло време на API).</string>
+    <string name="morphe_oauth2_connection_failure_timeout">Временно не е възможно OAuth2 (изтекло време на API)</string>
     <string name="morphe_oauth2_toast_invalid">Невалиден токен за VR, опитайте се да се влезете в VR отново</string>
     <string name="morphe_oauth2_toast_reset">Излезли сте от Android VR</string>
     <string name="morphe_replace_music_with_youtube_summary">Заменя music.youtube.com с youtube.com в споделени връзки</string>
@@ -28,27 +125,14 @@
     <string name="morphe_sanitize_sharing_links_summary_off">Параметърът за отчитане не е премахнат от споделяни връзки</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметърът за следене е премахнат от споделяни връзки</string>
     <string name="morphe_sanitize_sharing_links_title">Почистване на споделените връзки</string>
+    <string name="morphe_settings_menu_copy_path">Копирано: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Отвори екрана с настройки на приложението веднъж, за да попълниш списъка</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Скрий елементи от екрана с настройки на приложението по тяхното видимо име</string>
+    <string name="morphe_settings_menu_filter_screen_title">Филтър на менюто с настройки</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"Заключва JavaScript на плейъра към конкретна версия
-
-• Необходим е валиден хеш на JavaScript на плейъра
-• Хешовете на JavaScript на плейъра са валидни приблизително един месец, а остарелите хешове ще бъдат отменени от GVS
-• Възпроизвеждането ще се провали, ако хешът бъде отменен."</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">Актуализацията на JavaScript за плейъра е активирана</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"Актуализацията на JavaScript за плейъра е деактивирана
-
-• Необходим е валиден JavaScript хеш на плейъра.
-• Възпроизвеждането се проваля, ако JavaScript хеш на плейъра е отменен в GVS"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">Деактивиране на актуализацията на JavaScript за плейъра</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"Трябва да предоставите валиден хеш на JavaScript на плейъра.
-
-Възпроизвеждането ще се провали, ако хешът на JavaScript на плейъра е остарял."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не може да се изтеглят клиентски потоци</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">Въведете валиден JavaScript хеш на плейъра</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">JavaScript хеш на играча</string>
     <string name="morphe_spoof_video_streams_screen_summary">Подправете клиентските видео потоци, за да предотвратите проблеми с възпроизвеждането</string>
-    <string name="morphe_spoof_video_streams_screen_title">Подправяне на видео потоци</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Несте влезли в Android VR. Натиснете тук за да се влезете.</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Несте влезли в Android VR. Натиснете тук за да се влезете</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">За да използвате тази функционалност, променете \'Стандартен клиент\' на Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Входът в Android VR е активен</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Вход в Android VR</string>
@@ -59,9 +143,7 @@
 3. Влезте в Google, ако ви е нужно. Ако имате повече сметки, изберете тази сметка YouTube
 4. Натиснете 'Разрешете YouTube VR' достъп
 5. Върнете се в това приложение след като достигнете съобщението 'Уебсайт приклеен'"</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Отвори уебсайта</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Инструкции</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Продължи</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Вход в Android VR може да реши проблеми с възпроизвеждане за някои потребители
 
 За да се влезете, натиснете \"Продължи\" отдолу"</string>
@@ -69,15 +151,14 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Вход за Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Автентификацията е запазена
 
-• Настройките за Morphe няма да бъдат импортирани/експортирани за Android VR автентификация
+• Настройките за RVX няма да бъдат импортирани/експортирани за Android VR автентификация
 • Ако приложението не се използва в продължение на 6 месеца, Google ще премахне тази автентификация
 • Ще трябва да се впишете отново, ако промените своя Google парола или изключите това устройство от Google настройки"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Успешно се влязохте</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Неуспешно издаване на код за активация</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Неуспешно издаване на код за авторизация</string>
-    <string name="morphe_spoof_video_streams_summary">"Отстранява проблеми с възпроизвеждането за повечето потребители, като поиска съвместим видео поток.
+    <string name="morphe_spoof_video_streams_summary">"Отстранява проблеми с възпроизвеждането за повечето потребители, като поиска съвместим видео поток
 
-Ако сте потребител на YouTube Premium, тази настройка може да не е необходима."</string>
+Ако сте потребител на YouTube Premium, тази настройка може да не е необходима"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Видеопотоците не са подправени
 
 Възпроизвеждането може да не работи"</string>
@@ -85,9 +166,8 @@
 
 Ако сте потребител на YouTube Premium, това настройка може да не е нужна"</string>
     <string name="morphe_spoof_video_streams_title">Подправяне на видео потоци</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">Изключването на тази настройка може да причини проблеми при възпроизвеждане.</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Изключването на тази настройка може да причини проблеми при възпроизвеждане</string>
     <string name="revanced_change_player_background_color_title">Смени фоновия цвят на плейъра</string>
-    <string name="revanced_change_start_page_entry_chart">Хит-парад</string>
     <string name="revanced_change_start_page_entry_charts">Графики</string>
     <string name="revanced_change_start_page_entry_default">По подразбиране</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Епизоди за по-късно</string>
@@ -96,77 +176,79 @@
     <string name="revanced_change_start_page_entry_library">Библиотека</string>
     <string name="revanced_change_start_page_entry_liked_music">Предпочитания</string>
     <string name="revanced_change_start_page_entry_search">Търсене</string>
-    <string name="revanced_change_start_page_entry_subscription">Абонаменти</string>
     <string name="revanced_change_start_page_entry_subscriptions">Абонаменти</string>
-    <string name="revanced_change_start_page_summary">Изберете на коя страница да се отвори приложението.</string>
+    <string name="revanced_change_start_page_summary">Изберете на коя страница да се отвори приложението</string>
     <string name="revanced_change_start_page_title">Начална страница</string>
-    <string name="revanced_custom_filter_strings_summary">Филтриране на компонентите по имена.</string>
-    <string name="revanced_custom_filter_strings_title">Редактиране на потребителския филтъра</string>
-    <string name="revanced_custom_filter_summary">Активира персонализиран филтър за скриване на компонентите на оформлението.</string>
-    <string name="revanced_custom_filter_title">Вкл. на филтър по избор</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">Невалиден потребителски филтър: %s.</string>
-    <string name="revanced_custom_playback_speeds_invalid">Невалидна скорост на видеото. Връщане на стойности по подразбиране.</string>
+    <string name="revanced_custom_filter_strings_summary">Списък на низове на градителите на пътища на компоненти за филтриране, разделени с нови редове</string>
+    <string name="revanced_custom_filter_strings_title">Персонализиран филтър</string>
+    <string name="revanced_custom_filter_summary">Активира персонализиран филтър за скриване на компонентите на оформлението</string>
+    <string name="revanced_custom_filter_title">Активиране на персонализиран филтър</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Невалиден персонализиран филтър: %s</string>
+    <string name="revanced_custom_playback_speeds_invalid">Невалидна скорост на видеото. Връщане на стойности по подразбиране</string>
     <string name="revanced_custom_playback_speeds_summary">Добавяне или смяна на възможните скорости</string>
     <string name="revanced_custom_playback_speeds_title">Редактиране на скоростите по избор на видеото</string>
+    <string name="revanced_debug_protobuffer_summary">Добавя допълнителна информация за регистриране за разработчиците, за да идентифицират компонентите на приложението</string>
+    <string name="revanced_debug_protobuffer_title">Буфер на протокола за дневника</string>
+    <string name="revanced_debug_title">Дневник за отчетените грешки</string>
     <string name="revanced_default_app_settings_title">Отвори заводските настройки на приложението</string>
-    <string name="revanced_disable_auto_captions_summary">Изкл. принудителни автоматични субтититри.</string>
+    <string name="revanced_disable_auto_captions_summary">Изкл. принудителни автоматични субтититри</string>
     <string name="revanced_disable_auto_captions_title">Изкл. принудителни автоматични субтититри</string>
-    <string name="revanced_disable_dislike_redirection_summary">Деактивира пренасочването към следващата песен, когато щракнете върху бутона „Не харесвам“.</string>
+    <string name="revanced_disable_dislike_redirection_summary">Деактивира пренасочването към следващата песен, когато щракнете върху бутона „Не харесвам“</string>
     <string name="revanced_disable_dislike_redirection_title">Désactiver la redirection du bouton \"Je n\'aime pas\"</string>
     <string name="revanced_disable_drc_audio_title">Изключете DRC аудио</string>
     <string name="revanced_disable_quic_protocol_title">Изключи протокола QUIC</string>
-    <string name="revanced_enable_compact_dialog_summary">"Активира компактно изскачащо меню на телефони.
+    <string name="revanced_enable_compact_dialog_summary">"Активира компактно изскачащо меню на телефони
 
 Известни проблеми:
-• Скрийнсейвърите на албуми в раздела \"Библиотека\" стават по-малки в мрежа.
-• Интерфейсът за автоматично изключване може да изглежда необичайно."</string>
+• Скрийнсейвърите на албуми в раздела \"Библиотека\" стават по-малки в мрежа
+• Интерфейсът за автоматично изключване може да изглежда необичайно"</string>
     <string name="revanced_enable_compact_dialog_title">Компактен изглед на прозореца</string>
-    <string name="revanced_enable_landscape_mode_summary">Активира пейзажен режим при завъртане на телефона.</string>
+    <string name="revanced_enable_landscape_mode_summary">Активира пейзажен режим при завъртане на телефона</string>
     <string name="revanced_enable_landscape_mode_title">Позволи Пейзажен Режим</string>
     <string name="revanced_enable_opus_codec_title">Включване на OPUS аудио кодек</string>
-    <string name="revanced_enable_zen_mode_summary">Добавя сив оттенък към видеоплейъра, за да намали напрежението на очите.</string>
+    <string name="revanced_enable_zen_mode_summary">Добавя сив оттенък към видеоплейъра, за да намали напрежението на очите</string>
     <string name="revanced_enable_zen_mode_title">Включване на zen режим</string>
-    <string name="revanced_external_downloader_action_summary">"Бутонът \"Изтегляне\" отваря външната програма за изтегляне.
+    <string name="revanced_external_downloader_action_summary">"Бутонът \"Изтегляне\" отваря външната програма за изтегляне
 
-• Заменя само бутона за изтегляне в плейъра.
-• Не отменя бутона за изтегляне в изскачащото меню или библиотеката."</string>
+• Заменя само бутона за изтегляне в плейъра
+• Не отменя бутона за изтегляне в изскачащото меню или библиотеката"</string>
     <string name="revanced_external_downloader_action_title">Замяна на бутона за изтегляне</string>
     <string name="revanced_external_downloader_dialog_title">Външна програма за изтегляне</string>
-    <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не е инсталиран.
-Моля, изтеглете %2$s от уебсайта."</string>
+    <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не е инсталиран
+Моля, изтеглете %2$s от уебсайта"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Внимание</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s не е инсталирано. Моля инсталирайте го.</string>
-    <string name="revanced_external_downloader_package_name_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s не е инсталиран. Моля, инсталирайте го</string>
+    <string name="revanced_external_downloader_package_name_summary">Име на пакета на приложението за изтегляне като NewPipe или YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Име на пакета на външно приложение за изтегляне</string>
-    <string name="revanced_hide_account_menu_empty_component_summary">Скрива празните компоненти в менюто на акаунта.</string>
+    <string name="revanced_hide_account_menu_empty_component_summary">Скрива празните компоненти в менюто на акаунта</string>
     <string name="revanced_hide_account_menu_empty_component_title">Скриване на празни компоненти</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Списък с имена на менюта на акаунти за филтриране, разделени с нови редове.</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Списък с имена на менюта на акаунти за филтриране, разделени с нови редове</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Промяна на филтъра на менюто на акаунта</string>
-    <string name="revanced_hide_account_menu_summary">Скрива елементи от менюто на акаунта в персонализиран филтър.</string>
+    <string name="revanced_hide_account_menu_summary">Скрива елементи от менюто на акаунта в персонализиран филтър</string>
     <string name="revanced_hide_account_menu_title">Скриване на менюто на акаунта</string>
-    <string name="revanced_hide_action_button_add_to_playlist_summary">Скрива бутона \"Запазване\".</string>
+    <string name="revanced_hide_action_button_add_to_playlist_summary">Скрива бутона \"Запазване\"</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Бутон \"Запазване\"</string>
-    <string name="revanced_hide_action_button_comment_summary">Скрийте бутона „Коментари“.</string>
+    <string name="revanced_hide_action_button_comment_summary">Скрийте бутона „Коментари“</string>
     <string name="revanced_hide_action_button_comment_title">Скриване на бутона за коментари</string>
-    <string name="revanced_hide_action_button_download_summary">Скрива бутона „Изтегляне“.</string>
+    <string name="revanced_hide_action_button_download_summary">Скрива бутона „Изтегляне“</string>
     <string name="revanced_hide_action_button_download_title">Скриване на бутона за изтегляне</string>
-    <string name="revanced_hide_action_button_label_summary">Скрива. етикетите на бутоните за действие.</string>
+    <string name="revanced_hide_action_button_label_summary">Скрива. етикетите на бутоните за действие</string>
     <string name="revanced_hide_action_button_label_title">Скриване на етикетите на бутоните за действие</string>
-    <string name="revanced_hide_action_button_like_dislike_summary">Скрива бутоните „Харесвам“ и „Не харесвам“. Не работи в стария интерфейс на плейъра.</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Скрива бутоните „Харесвам“ и „Не харесвам“. Не работи в стария интерфейс на плейъра</string>
     <string name="revanced_hide_action_button_like_dislike_title">Скриване на бутоните за харесване и нехаресване</string>
-    <string name="revanced_hide_action_button_radio_summary">Скрива бутона \"Радио\".</string>
+    <string name="revanced_hide_action_button_radio_summary">Скрива бутона \"Радио\"</string>
     <string name="revanced_hide_action_button_radio_title">Скрийте бутона \"Радио\"</string>
-    <string name="revanced_hide_action_button_share_summary">Скрива бутона „Споделяне“.</string>
+    <string name="revanced_hide_action_button_share_summary">Скрива бутона „Споделяне“</string>
     <string name="revanced_hide_action_button_share_title">Скриване на бутона за споделяне</string>
-    <string name="revanced_hide_button_shelf_summary">Скриване на секцията с бутони в емисията.</string>
+    <string name="revanced_hide_button_shelf_summary">Скриване на секцията с бутони в емисията</string>
     <string name="revanced_hide_button_shelf_title">Скриване на секцията с бутони</string>
-    <string name="revanced_hide_carousel_shelf_summary">Скриване на рафтовете с предложения в емисиите.</string>
+    <string name="revanced_hide_carousel_shelf_summary">Скриване на рафтовете с предложения в емисиите</string>
     <string name="revanced_hide_carousel_shelf_title">Скриване на рафта с Препоръчани</string>
-    <string name="revanced_hide_cast_button_summary">Скрива бутона \"Излъчване\".</string>
+    <string name="revanced_hide_cast_button_summary">Скрива бутона \"Излъчване\"</string>
     <string name="revanced_hide_cast_button_title">Скриване на бутона за предаване на Тв</string>
-    <string name="revanced_hide_category_bar_summary">Скриване на панела с категории.</string>
+    <string name="revanced_hide_category_bar_summary">Скриване на панела с категории</string>
     <string name="revanced_hide_category_bar_title">Скриване на панела с Категории</string>
-    <string name="revanced_hide_floating_button_summary">Скрива плаващите бутони в библиотеката.</string>
+    <string name="revanced_hide_floating_button_summary">Скрива плаващите бутони в библиотеката</string>
     <string name="revanced_hide_floating_button_title">Скриване на изскачащ бутон</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">Скриване на компонента с 3 колони</string>
     <string name="revanced_hide_flyout_menu_add_to_queue_title">Скрийте бутона „Добавяне към опашката“</string>
@@ -180,7 +262,6 @@
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Скрийте менюто „Отидете на епизод“</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Скрийте менюто „Отидете на подкаст“</string>
     <string name="revanced_hide_flyout_menu_help_title">Скриване на менюто &amp; за помощ</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Скриване на бутоните за харесване и нехаресване</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Скрийте менюто „Пусни следващия клип“</string>
     <string name="revanced_hide_flyout_menu_quality_title">Скрийте менюто „Качество“</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Скрийте менюто „Премахване от библиотеката“</string>
@@ -195,86 +276,111 @@
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Меню \"Статистика за сис. администратори\"</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Скрийте менюто „Абониране“ / „Отписване“</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Скрийте менюто „Подробности за заглавие“</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Скриване на рекламите в режим на цял екран."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Скриване на рекламите в режим на цял екран"</string>
     <string name="revanced_hide_fullscreen_ads_title">Скриване на целите реклами</string>
-    <string name="revanced_hide_general_ads_summary">Скриване на общите реклами.</string>
+    <string name="revanced_hide_general_ads_summary">Скриване на общите реклами</string>
     <string name="revanced_hide_general_ads_title">Скриване на общите реклами</string>
-    <string name="revanced_hide_handle_summary">Скрива имейл/@ник в менюто за промяна на акаунта.</string>
+    <string name="revanced_hide_handle_summary">Скрива имейл/@ник в менюто за промяна на акаунта</string>
     <string name="revanced_hide_handle_title">Скриване на връзки</string>
-    <string name="revanced_hide_history_button_summary">Скрива бутона \"История\" от лентата с инструменти.</string>
+    <string name="revanced_hide_history_button_summary">Скрива бутона \"История\" от лентата с инструменти</string>
     <string name="revanced_hide_history_button_title">Скрийте бутона \"История\"</string>
-    <string name="revanced_hide_music_ads_summary">Скрива реклами преди възпроизвеждане на музика.</string>
+    <string name="revanced_hide_music_ads_summary">Скрива реклами преди възпроизвеждане на музика</string>
     <string name="revanced_hide_music_ads_title">Скриване на музикални реклами</string>
-    <string name="revanced_hide_navigation_bar_summary">Скриване лентата за навигация.</string>
+    <string name="revanced_hide_navigation_bar_summary">Скриване лентата за навигация</string>
     <string name="revanced_hide_navigation_bar_title">Скриване лентата за навигация</string>
-    <string name="revanced_hide_navigation_explore_button_summary">Скрива. бутона за Преглед.</string>
+    <string name="revanced_hide_navigation_explore_button_summary">Скрива. бутона за Преглед</string>
     <string name="revanced_hide_navigation_explore_button_title">Скриване на бутона \"навигация\"</string>
-    <string name="revanced_hide_navigation_home_button_summary">Скрива бутона \"Начало\".</string>
+    <string name="revanced_hide_navigation_home_button_summary">Скрива бутона \"Начало\"</string>
     <string name="revanced_hide_navigation_home_button_title">Скриване на бутон за Начало</string>
     <string name="revanced_hide_navigation_label_title">Скриване на навигационен панел</string>
     <string name="revanced_hide_navigation_library_button_title">Бутона за Библиотека</string>
-    <string name="revanced_hide_notification_button_summary">Скрива бутона „Известие“ от лентата с инструменти.</string>
+    <string name="revanced_hide_notification_button_summary">Скрива бутона „Известие“ от лентата с инструменти</string>
     <string name="revanced_hide_notification_button_title">Бутон за Известия</string>
-    <string name="revanced_hide_paid_promotion_label_summary">Скриване на платените промоции.</string>
+    <string name="revanced_hide_paid_promotion_label_summary">Скриване на платените промоции</string>
     <string name="revanced_hide_paid_promotion_label_title">Скриване на платените промоции</string>
-    <string name="revanced_hide_playlist_card_shelf_summary">Скрива рафтовете с карти „Списъци за изпълнение“ в емисии.</string>
+    <string name="revanced_hide_playlist_card_shelf_summary">Скрива рафтовете с карти „Списъци за изпълнение“ в емисии</string>
     <string name="revanced_hide_playlist_card_shelf_title">Скрийте рафтовете „Списъци за изпълнение“</string>
-    <string name="revanced_hide_premium_promotion_summary">Скрива изскачащи реклами Premium.</string>
+    <string name="revanced_hide_premium_promotion_summary">Скрива изскачащи реклами Premium</string>
     <string name="revanced_hide_premium_promotion_title">Скриване на изскачащи реклами Premium</string>
-    <string name="revanced_hide_premium_renewal_summary">Скриване на банера за подновяване на Premium.</string>
+    <string name="revanced_hide_premium_renewal_summary">Скриване на банера за подновяване на Premium</string>
     <string name="revanced_hide_premium_renewal_title">Скриване на банера за подновяване на Premium</string>
-    <string name="revanced_hide_samples_shelf_summary">Скриване на рафтовете с Семпли в емисиите.</string>
+    <string name="revanced_hide_samples_shelf_summary">Скриване на рафтовете с Семпли в емисиите</string>
     <string name="revanced_hide_samples_shelf_title">Скрийте рафта „Семпли“</string>
-    <string name="revanced_hide_settings_menu_summary">"Скриване на елементи от менюто с настройки. 
-Това не само скрива менюто с настройки на YT Music, но и менюто с разширени настройки на ReVanced."</string>
-    <string name="revanced_hide_settings_menu_title">Скрийте менюто „Настройки“</string>
-    <string name="revanced_hide_sound_search_button_summary">Скрива бутона „звуково търсене на музика“ от лентата за търсене.</string>
+    <string name="revanced_hide_sound_search_button_summary">Скрива бутона „звуково търсене на музика“ от лентата за търсене</string>
     <string name="revanced_hide_sound_search_button_title">Бутон за \"Звуково търсене\"</string>
-    <string name="revanced_hide_tap_to_update_button_summary">Скриване на бутона „Докоснете за актуализиране“.</string>
+    <string name="revanced_hide_tap_to_update_button_summary">Скриване на бутона „Докоснете за актуализиране“</string>
     <string name="revanced_hide_tap_to_update_button_title">Скрийте бутона „Докоснете за актуализиране“</string>
-    <string name="revanced_hide_terms_container_summary">Скриване на подробностите за поверителност / правила и условия.</string>
+    <string name="revanced_hide_terms_container_summary">Скриване на подробностите за поверителност / правила и условия</string>
     <string name="revanced_hide_terms_container_title">Скриване на информацията за поверителност</string>
-    <string name="revanced_hide_voice_search_button_summary">Скрива бутона „Гласово търсене“ от лентата за търсене.</string>
+    <string name="revanced_hide_voice_search_button_summary">Скрива бутона „Гласово търсене“ от лентата за търсене</string>
     <string name="revanced_hide_voice_search_button_title">Бутон за \"гласово търсене\"</string>
     <string name="revanced_preference_screen_account_title">Акаунт</string>
     <string name="revanced_preference_screen_action_bar_title">Лента с действия</string>
     <string name="revanced_preference_screen_ads_title">Реклами</string>
     <string name="revanced_preference_screen_flyout_title">Падащо меню</string>
     <string name="revanced_preference_screen_general_title">Главни</string>
+    <string name="revanced_preference_screen_lyrics_title">Текстове</string>
     <string name="revanced_preference_screen_navigation_title">Лента за навигация</string>
     <string name="revanced_preference_screen_player_title">Плеър</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Премахва диалоговите прозорци. Това не заобикаля възрастовите ограничения, но ги приема автоматично."</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">Скриване на прозореца за възрастово ограничение</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Видеото продължава от текущото време на гледане, когато отидете в YouTube.</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">Това не заобикаля ограничението за възраст. Просто го приема автоматично</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Премахване на диалога за предупреждение за съдържанието</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Видеото продължава от текущото време на гледане, когато отидете в YouTube</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Продължете да гледате</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Заменя менюто „Премахване от опашката“ с менюто „Гледайте в YouTube“.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Заменя менюто „Премахване от опашката“ с менюто „Гледайте в YouTube“</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Заменете менюто „Премахване от опашката“</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">Гледайте в YouTube</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Невалиден Url адрес на видеото.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Запазва менюто Доклад в раздела за коментари непокътнато.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Невалиден Url адрес на видеото</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Запазва менюто Доклад в раздела за коментари непокътнато</string>
     <string name="revanced_replace_flyout_menu_report_only_player_title">Запазете доклада в коментарите</string>
-    <string name="revanced_replace_flyout_menu_report_summary">Заменя менюто Доклад с менюто Скорост на възпроизвеждане.</string>
+    <string name="revanced_replace_flyout_menu_report_summary">Заменя менюто Доклад с менюто Скорост на възпроизвеждане</string>
     <string name="revanced_replace_flyout_menu_report_title">Заменете менюто „Докладвай“</string>
-    <string name="revanced_restart_dialog_message">Рестартирайте приложението, за да влязат в сила тези промени.</string>
+    <string name="revanced_restart_dialog_message">Рестартирайте приложението, за да влязат в сила тези промени</string>
     <string name="revanced_restart_first_run">Рестартирайте, за да завършите настройката</string>
-    <string name="revanced_restore_old_style_library_shelf_summary">Възстановява стария стил на рафт \"Библиотека\". (Експериментално)</string>
+    <string name="revanced_restore_old_style_library_shelf_summary">Възстановява стария стил на рафт \"Библиотека\" (Експериментално)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Възстановете стария стил на рафта „Библиотека“</string>
-    <string name="revanced_ryd_about">Относно</string>
-    <string name="revanced_ryd_attribution_summary">Данните за нехаресване са от Return YouTube Dislike API. Докоснете за да научите повече.</string>
-    <string name="revanced_ryd_compact_layout_title">Компактен бутон за харесване</string>
-    <string name="revanced_ryd_dislike_percentage_title">Нехаресвания като процент</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (достигнат лимит на API).</string>
-    <string name="revanced_spoof_app_version_summary">"Заменя клиентската версия със старата.
+    <string name="revanced_ryd_attribution_summary">"Данните са предоставени от Return YouTube Dislike API
 
-• Това ще промени външния вид на приложението, но може да възникнат неизвестни проблеми.
-• Ако деактивирате тази опция, след като я активирате, старият интерфейс може да остане, докато данните на приложението не бъдат изчистени."</string>
+Натиснете тук, за да отворите ReturnYouTubeDislike.com"</string>
+    <string name="revanced_ryd_compact_layout_summary">Намалява ширината на бутона „Харесва ми“, за да се спести място</string>
+    <string name="revanced_ryd_compact_layout_title">Използване на компактен бутон „Харесва ми“</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Показва нехаресванията като процент от харесванията вместо като число</string>
+    <string name="revanced_ryd_dislike_percentage_title">Показване на нехаресванията като процент</string>
+    <string name="revanced_ryd_enabled_title">Активиране на Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary">Показва приблизителен брой харесвания на видеа, където създателят е деактивирал харесванията</string>
+    <string name="revanced_ryd_estimated_like_title">Показване на приблизителни харесвания</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (лимит на клиентския API)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Нехаресванията не са достъпни (статус %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Временно недостъпни нехаресвания (изтече времето за отговор на API)</string>
+    <string name="revanced_ryd_failure_generic">Нехаресванията не са достъпни (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Показва известие, когато сървърът на Return YouTube Dislike не е достъпен</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показване на съобщения за грешка при връзката</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрито от собственика</string>
+    <string name="revanced_sb_skip_automatically_once">Автоматично пропуснете веднъж</string>
+    <string name="revanced_settings_import">Импортиране</string>
+    <string name="revanced_settings_import_copy">Копиране</string>
+    <string name="revanced_settings_import_reset">Настройките на RVX са възстановени по подразбиране</string>
+    <string name="revanced_settings_import_success">Импортирани са %d настройки</string>
+    <string name="revanced_settings_reset">Изчисти</string>
+    <string name="revanced_settings_reset_color">Възстановяване на цвят</string>
+    <string name="revanced_settings_search_clear_history">Изтрий историята на търсенето</string>
+    <string name="revanced_settings_search_clear_history_message">Сигурни ли сте, че искате да изчистите цялата история на търсенето?</string>
+    <string name="revanced_settings_search_empty_history_summary">За да запазите история на търсенето, въведете заявка за търсене и натиснете Enter</string>
+    <string name="revanced_settings_search_empty_history_title">Няма историятя на търсене</string>
+    <string name="revanced_settings_search_history_title">Покажи история търсене на настройки</string>
+    <string name="revanced_settings_search_no_results_summary">Опитайте друга ключова дума</string>
+    <string name="revanced_settings_search_no_results_title">Не са открити резултати за \'%s\'</string>
+    <string name="revanced_settings_search_recent_searches">Последни търсения</string>
+    <string name="revanced_settings_search_remove_message">Изтрий от историята на търсенето?</string>
+    <string name="revanced_settings_search_tips_summary">"• Докоснете адреса, за да отидете до него 
+• Докоснете и задръжте настройка, за да отидете до нея 
+• Натиснете Enter, за да запазите заявката за търсене в историята 
+• Търсенето игнорира главни и малки букви и пунктуации
+ • Родителските настройки се показват над деактивираните детски настройки"</string>
+    <string name="revanced_settings_search_tips_title">Съвети за търсене</string>
+    <string name="revanced_spoof_app_version_summary">Заблуждава сървъра, карайки го да мисли, че използвате по-стара версия на приложението, за да възстанови стари функции на потребителския интерфейс</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Деактивира радио режима в регионите на Канада</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 -Изключва речта в реално време</string>
-    <string name="revanced_spoof_app_version_target_summary">Задайте желаната фалшива версия на приложението.</string>
-    <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на приложението</string>
-    <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
-    <string name="revanced_spoof_video_streams_summary">"Отстранява проблеми с възпроизвеждането за повечето потребители, като поиска съвместим видео поток.
-
-Ако сте потребител на YouTube Premium, тази настройка може да не е необходима."</string>
-    <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
+    <string name="revanced_spoof_app_version_target_summary">Задайте желаната фалшива версия на приложението</string>
+    <string name="revanced_spoof_app_version_target_title">Цел за подмяна на версията на приложението</string>
+    <string name="revanced_spoof_app_version_title">Подменя версия на приложението</string>
 </resources>

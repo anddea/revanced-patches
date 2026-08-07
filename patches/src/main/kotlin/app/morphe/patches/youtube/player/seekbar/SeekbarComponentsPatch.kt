@@ -1,3 +1,11 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ */
+
 package app.morphe.patches.youtube.player.seekbar
 
 import app.morphe.patcher.Fingerprint
@@ -12,8 +20,9 @@ import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.drawable.addDrawableColorHook
 import app.morphe.patches.shared.drawable.drawableColorHookPatch
 import app.morphe.patches.shared.mainactivity.onCreateMethod
+import app.morphe.patches.shared.mapping.resourceMappingPatch
+import app.morphe.patches.youtube.misc.chapters.chaptersHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
-import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
@@ -28,6 +37,8 @@ import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_49_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_12_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
@@ -42,20 +53,27 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.restoreOldSplashA
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.totalTimeFingerprint
 import app.morphe.patches.youtube.video.information.videoInformationPatch
-import app.morphe.util.*
-import app.morphe.util.Utils.printWarn
+import app.morphe.util.addInstructionsAtControlFlowLabel
+import app.morphe.util.copyXmlNode
 import app.morphe.util.findElementByAttributeValueOrThrow
-import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
+import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.findMethodsOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.fingerprint.resolvable
 import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.inputStreamFromBundledResource
+import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.*
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 import java.io.ByteArrayInputStream
@@ -63,7 +81,7 @@ import java.io.ByteArrayInputStream
 internal const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
 
 /**
- * Generate a style xml with all combinations of 9-bit colors.
+ * Generate a style XML with all combinations of 9-bit colors.
  */
 private fun create9BitSeekbarColorStyles(): String = StringBuilder().apply {
     append("<?xml version=\"1.0\" encoding=\"utf-8\"?>")
@@ -114,6 +132,8 @@ val seekbarComponentsPatch = bytecodePatch(
         settingsPatch,
         videoInformationPatch,
         versionCheckPatch,
+        resourceMappingPatch,
+        chaptersHookPatch,
     )
 
     execute {
@@ -125,7 +145,7 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // region patch for enable seekbar tapping patch
 
-        seekbarTappingFingerprint.methodOrThrow().apply {
+        SeekbarTappingFingerprint.method.apply {
             val pointIndex = indexOfPointInstruction(this)
             val pointInstruction = getInstruction<FiveRegisterInstruction>(pointIndex)
             val freeRegister = pointInstruction.registerE
@@ -242,11 +262,11 @@ val seekbarComponentsPatch = bytecodePatch(
             addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColor)
         }
 
-        shortsSeekbarColorFingerprint.methodOrThrow().apply {
+        ShortsSeekbarColorFingerprint.method.apply {
             addColorChangeInstructions(reelTimeBarPlayedColor)
         }
 
-        controlsOverlayStyleFingerprint.matchOrThrow().let {
+        ControlsOverlayStyleFingerprint.match().let {
             val walkerMethod =
                 it.getWalkerMethod(it.instructionMatches.first().index + 1)
             walkerMethod.apply {
@@ -264,29 +284,29 @@ val seekbarComponentsPatch = bytecodePatch(
         addDrawableColorHook("$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLithoColor(I)I")
 
         if (is_19_25_or_greater) {
-            playerSeekbarGradientConfigFingerprint.injectLiteralInstructionBooleanCall(
+            PlayerSeekbarGradientConfigFingerprint.method.insertLiteralOverride(
                 PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
                 "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
             )
 
             (if (is_20_37_or_greater) {
-                arrayOf(playerSeekbarHandleColorSecondaryFingerprint)
+                arrayOf(PlayerSeekbarHandleColorSecondaryFingerprint)
             } else {
                 arrayOf(
-                    playerSeekbarHandleColorPrimaryFingerprint,
-                    playerSeekbarHandleColorSecondaryFingerprint
+                    PlayerSeekbarHandleColorPrimaryFingerprint,
+                    PlayerSeekbarHandleColorSecondaryFingerprint
                 )
             }).forEach {
-                it.methodOrThrow().addColorChangeInstructions(
+                it.method.addColorChangeInstructions(
                     ytStaticBrandRed,
                     "getVideoPlayerSeekbarColorAccent"
                 )
             }
-            // If hiding feed seekbar thumbnails, then turn off the cairo gradient
+            // If hiding feed seekbar thumbnails, then turn off the Cairo gradient
             // of the watch history menu items as they use the same gradient as the
             // player and there is no easy way to distinguish which to use a transparent color.
             if (is_19_34_or_greater) {
-                watchHistoryMenuUseProgressDrawableFingerprint.methodOrThrow().apply {
+                WatchHistoryMenuUseProgressDrawableFingerprint.method.apply {
                     val progressIndex = indexOfFirstInstructionOrThrow {
                         val reference = getReference<MethodReference>()
                         reference?.definingClass == "Landroid/widget/ProgressBar;" &&
@@ -304,7 +324,7 @@ val seekbarComponentsPatch = bytecodePatch(
                 }
             }
 
-            lithoLinearGradientFingerprint.methodOrThrow().addInstructions(
+            LithoLinearGradientFingerprint.method.addInstructions(
                 0,
                 """
                     invoke-static/range { p4 .. p5 },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLithoLinearGradient([I[F)[I
@@ -312,18 +332,17 @@ val seekbarComponentsPatch = bytecodePatch(
                     """
             )
 
-
-            val playerFingerprint: Pair<String, Fingerprint>
+            val playerFingerprint: Fingerprint
             val checkGradientCoordinates: Boolean
             if (is_19_49_or_greater) {
-                playerFingerprint = playerLinearGradientFingerprint
+                playerFingerprint = PlayerLinearGradientFingerprint
                 checkGradientCoordinates = true
             } else {
-                playerFingerprint = playerLinearGradientLegacyFingerprint
+                playerFingerprint = PlayerLinearGradientLegacyFingerprint
                 checkGradientCoordinates = false
             }
 
-            playerFingerprint.matchOrThrow().let {
+            playerFingerprint.match().let {
                 it.method.apply {
                     val index = it.instructionMatches.last().index
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -348,12 +367,12 @@ val seekbarComponentsPatch = bytecodePatch(
             // Adjust gradient seekbar bounds / positions
             val boundsFingerprint =
                 if (is_19_49_or_greater) {
-                    playerLinearGradientFingerprint
+                    PlayerLinearGradientFingerprint
                 } else {
-                    setBoundsFingerprint
+                    SetBoundsFingerprint
                 }
 
-            boundsFingerprint.methodOrThrow().apply {
+            boundsFingerprint.method.apply {
                 val fillArrayDataIndices = findInstructionIndicesReversedOrThrow(Opcode.FILL_ARRAY_DATA)
 
                 if (fillArrayDataIndices.isEmpty()) {
@@ -374,7 +393,7 @@ val seekbarComponentsPatch = bytecodePatch(
             }
 
             // Set seekbar thumb color
-            seekbarThumbFingerprint.methodOrThrow().apply {
+            SeekbarThumbFingerprint.method.apply {
                 val instructions = implementation!!.instructions.toList()
 
                 val lastMoveResultIndex = instructions.indexOfLast { it.opcode == Opcode.MOVE_RESULT }
@@ -397,9 +416,9 @@ val seekbarComponentsPatch = bytecodePatch(
             settingArray += "SETTINGS: CUSTOM_SEEKBAR_COLOR_ACCENT"
 
             if (!restoreOldSplashAnimationIncluded) {
-                // Don't use the lotte splash screen layout if using custom seekbar.
+                // Don't use the Lottie splash screen layout if using custom seekbar.
                 arrayOf(
-                    launchScreenLayoutTypeFingerprint.methodOrThrow(),
+                    LaunchScreenLayoutTypeFingerprint.method,
                     onCreateMethod
                 ).forEach { method ->
                     method.apply {
@@ -512,8 +531,8 @@ val seekbarComponentsPatch = bytecodePatch(
             try {
                 setSplashDrawablePathFillColor(
                     listOf(
-                        "res/drawable/\$startup_animation_light__0.xml",
-                        "res/drawable/\$startup_animation_dark__0.xml"
+                        $$"res/drawable/$startup_animation_light__0.xml",
+                        $$"res/drawable/$startup_animation_dark__0.xml"
                     ),
                     "_R_G_L_10_G_D_0_P_0"
                 )
@@ -525,8 +544,8 @@ val seekbarComponentsPatch = bytecodePatch(
                 // Resources removed in 19.46+
                 setSplashDrawablePathFillColor(
                     listOf(
-                        "res/drawable/\$buenos_aires_animation_light__0.xml",
-                        "res/drawable/\$buenos_aires_animation_dark__0.xml"
+                        $$"res/drawable/$buenos_aires_animation_light__0.xml",
+                        $$"res/drawable/$buenos_aires_animation_dark__0.xml"
                     ),
                     "_R_G_L_8_G_D_0_P_0"
                 )
@@ -535,19 +554,10 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for high quality thumbnails
-
-        // TODO: This will be added when support for newer YouTube versions is added.
-        // seekbarThumbnailsQualityFingerprint.injectLiteralInstructionBooleanCall(
-        //     45399684L,
-        //     "$PLAYER_CLASS_DESCRIPTOR->enableHighQualityFullscreenThumbnails()Z"
-        // )
-
-        // endregion
 
         // region patch for hide chapter
 
-        timelineMarkerArrayFingerprint.methodOrThrow().apply {
+        TimelineMarkerArrayFingerprint.method.apply {
             addInstructionsWithLabels(
                 0, """
                     invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableSeekbarChapters()Z
@@ -594,7 +604,7 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // region patch for hide time stamp
 
-        timeCounterFingerprint.methodOrThrow(playerSeekbarColorFingerprint).apply {
+        TimeCounterFingerprint.match(playerSeekbarColorFingerprint.matchOrThrow().classDef).method.apply {
             addInstructionsWithLabels(
                 0, """
                     invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideTimeStamp()Z
@@ -607,19 +617,111 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for restore old seekbar thumbnails
 
-        if (thumbnailPreviewConfigFingerprint.resolvable()) {
-            thumbnailPreviewConfigFingerprint.injectLiteralInstructionBooleanCall(
-                45398577L,
-                "$PLAYER_CLASS_DESCRIPTOR->restoreOldSeekbarThumbnails()Z"
+        // region patch for livestream dvr
+
+        VideoStreamingDataAllowSeekingFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { returnIndex ->
+                val returnRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    """
+                        invoke-static { v$returnRegister }, Lapp/morphe/extension/youtube/patches/LivestreamDVRPatch;->enableLivestreamDVR(Z)Z
+                        move-result v$returnRegister
+                    """
+                )
+            }
+        }
+
+        FormatStreamModelMaxDVRDurationFingerprint.method.apply {
+            val index = FormatStreamModelMaxDVRDurationFingerprint.instructionMatches.last().index
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstructions(
+                index,
+                """
+                    invoke-static { v$register, v${register + 1} }, Lapp/morphe/extension/youtube/patches/LivestreamDVRPatch;->overrideMaxDVRDurationSeconds(D)D
+                    move-result-wide v$register
+                """
             )
+        }
 
-            settingArray += "SETTINGS: RESTORE_OLD_SEEKBAR_THUMBNAILS"
+        settingArray += "SETTINGS: LIVESTREAM_DVR"
 
-            updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "OldSeekbarThumbnailsDefaultBoolean")
+        // endregion
+
+        // region patch for seekbar thumbnail preview
+
+        val updatePointMethodRef = SeekbarUpdatePointFingerprint.instructionMatches[1]
+            .getInstruction<ReferenceInstruction>().getReference<MethodReference>()!!
+
+        // Keep both native seek paths on the same callback so they share thumbnail state.
+        SeekbarHandlerOnTouchFingerprint.method.addInstructions(
+            0,
+            """
+                new-instance v0, Landroid/graphics/Point;
+                invoke-direct { v0 }, Landroid/graphics/Point;-><init>()V
+                invoke-interface { p0, v0 }, $updatePointMethodRef
+                invoke-static { p0, p1, v0 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->updateThumbnailPreview(Landroid/view/View;Landroid/view/MotionEvent;Landroid/graphics/Point;)V
+            """
+        )
+
+        // To show the thumbnail during the use of slide to seek feature.
+        SlideSeekbarHandlerOnTouchFingerprint.method.apply {
+            fun getSeekbarReference(index: Int) = SlideSeekbarGetViewControllerFingerprint
+                .instructionMatches[index].getInstruction<ReferenceInstruction>().getReference<FieldReference>()!!
+
+            addInstructions(
+                0,
+                """
+                    iget-object v0, p0, ${getSeekbarReference(0)}
+                    iget-object v0, v0, ${getSeekbarReference(1)}
+                    iget-object v0, v0, ${getSeekbarReference(3)}
+                    new-instance v1, Landroid/graphics/Point;
+                    invoke-direct { v1 }, Landroid/graphics/Point;-><init>()V
+                    invoke-interface { v0, v1 }, $updatePointMethodRef
+                    invoke-static { p1, p2, v1 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->updateThumbnailPreview(Landroid/view/View;Landroid/view/MotionEvent;Landroid/graphics/Point;)V
+                """
+            )
+        }
+
+        SeekbarFineScrubbingBitmapFingerprint.method.addInstruction(
+            1,
+            "invoke-static { p1 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->" +
+                    "setFineScrubbingPreviewBitmap(Landroid/graphics/Bitmap;)V"
+        )
+
+        seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint).addInstruction(
+            0,
+            "invoke-static/range { p0 .. p0 }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->" +
+                    "setSeekbarRectangle(Landroid/view/View;)V"
+        )
+
+        if (is_21_12_or_greater) {
+            SeekbarBigBoardsUpdateFingerprint
         } else {
-            printWarn("\"Restore old seekbar thumbnails\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
+            SeekbarBigBoardsUpdateLegacyFingerprint
+        }.method.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { }, Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->disableBigBoardUpdate()Z
+                move-result v0
+                if-eqz v0, :allow_big_board_update
+                const/4 v0, 0x0
+                return v0
+                :allow_big_board_update
+                nop
+            """
+        )
+
+        if (is_21_21_or_greater) {
+            ShortsDisableSeekbarThumbnailsFeatureFlagFingerprint.matchAll().forEach {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "Lapp/morphe/extension/youtube/patches/SeekbarThumbnailPreviewPatch;->disableShortsSeekbarThumbnails(Z)Z"
+                )
+            }
         }
 
         // endregion

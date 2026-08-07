@@ -118,9 +118,9 @@ import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
 import app.morphe.extension.youtube.patches.video.PlaybackSpeedPatch;
-import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch;
 import app.morphe.extension.youtube.patches.video.VideoQualityPatch;
 import app.morphe.extension.youtube.patches.video.VideoQualityPatch.VideoQualityMenuInterface;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.settings.preference.ExternalDownloaderPlaylistPreference;
 import app.morphe.extension.youtube.settings.preference.ExternalDownloaderVideoLongPressPreference;
@@ -176,7 +176,7 @@ public class VideoUtils extends IntentUtils {
         builder.append(videoId);
         final long currentVideoTimeInSeconds = VideoInformation.getVideoTimeInSeconds();
         if (withTimestamp && currentVideoTimeInSeconds > 0) {
-            builder.append("?t=");
+            builder.append(builder.indexOf("?") >= 0 ? "&t=" : "?t=");
             builder.append(currentVideoTimeInSeconds);
         }
         return builder.toString();
@@ -891,69 +891,71 @@ public class VideoUtils extends IntentUtils {
             gridParams.setMargins(dip4, dip12, dip4, dip12); // Speed buttons container.
             gridLayout.setLayoutParams(gridParams);
 
-            // For button use 1 digit minimum.
-            speedFormatter.setMinimumFractionDigits(1);
+            synchronized (speedFormatter) {
+                // For button use 1 digit minimum.
+                speedFormatter.setMinimumFractionDigits(1);
 
-            // Add buttons for each preset playback speed.
-            for (float speed : CustomPlaybackSpeedPatch.getPlaybackSpeeds()) {
-                // Container for button and optional label.
-                FrameLayout buttonContainer = new FrameLayout(context);
+                // Add buttons for each preset playback speed.
+                for (float speed : CustomPlaybackSpeedPatch.getPlaybackSpeeds()) {
+                    // Container for button and optional label.
+                    FrameLayout buttonContainer = new FrameLayout(context);
 
-                // Set layout parameters for each grid cell.
-                GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
-                containerParams.width = 0; // Equal width for columns.
-                containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
-                containerParams.setMargins(dip4, 0, dip4, 0); // Button margins.
-                containerParams.height = dip60; // Fixed height for button and label.
-                buttonContainer.setLayoutParams(containerParams);
+                    // Set layout parameters for each grid cell.
+                    GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
+                    containerParams.width = 0; // Equal width for columns.
+                    containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
+                    containerParams.setMargins(dip4, 0, dip4, 0); // Button margins.
+                    containerParams.height = dip60; // Fixed height for button and label.
+                    buttonContainer.setLayoutParams(containerParams);
 
-                // Create speed button.
-                Button speedButton = new Button(context, null, 0);
-                speedButton.setText(speedFormatter.format(speed));
-                speedButton.setTextColor(ThemeUtils.getAppForegroundColor());
-                speedButton.setTextSize(12);
-                speedButton.setAllCaps(false);
-                speedButton.setGravity(Gravity.CENTER);
+                    // Create speed button.
+                    Button speedButton = new Button(context, null, 0);
+                    speedButton.setText(speedFormatter.format(speed));
+                    speedButton.setTextColor(ThemeUtils.getAppForegroundColor());
+                    speedButton.setTextSize(12);
+                    speedButton.setAllCaps(false);
+                    speedButton.setGravity(Gravity.CENTER);
 
-                ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
-                        Utils.createCornerRadii(20), null, null));
-                buttonBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
-                speedButton.setBackground(buttonBackground);
-                speedButton.setPadding(dip4, dip4, dip4, dip4);
+                    ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
+                            Utils.createCornerRadii(20), null, null));
+                    buttonBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
+                    speedButton.setBackground(buttonBackground);
+                    speedButton.setPadding(dip4, dip4, dip4, dip4);
 
-                // Center button vertically and stretch horizontally in container.
-                FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
-                        FrameLayout.LayoutParams.MATCH_PARENT, dip32, Gravity.CENTER);
-                speedButton.setLayoutParams(buttonParams);
+                    // Center button vertically and stretch horizontally in container.
+                    FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
+                            FrameLayout.LayoutParams.MATCH_PARENT, dip32, Gravity.CENTER);
+                    speedButton.setLayoutParams(buttonParams);
 
-                // Add speed buttons view to buttons container layout.
-                buttonContainer.addView(speedButton);
+                    // Add speed buttons view to buttons container layout.
+                    buttonContainer.addView(speedButton);
 
-                // Add "Normal" label for 1.0x speed.
-                if (speed == 1.0f) {
-                    TextView normalLabel = new TextView(context);
-                    // Use same 'Normal' string as stock YouTube.
-                    normalLabel.setText(str("revanced_playback_speed_normal"));
-                    normalLabel.setTextColor(ThemeUtils.getAppForegroundColor());
-                    normalLabel.setTextSize(10);
-                    normalLabel.setGravity(Gravity.CENTER);
+                    // Add "Normal" label for 1.0x speed.
+                    if (speed == 1.0f) {
+                        TextView normalLabel = new TextView(context);
+                        // Use same 'Normal' string as stock YouTube.
+                        normalLabel.setText(str("revanced_playback_speed_normal"));
+                        normalLabel.setTextColor(ThemeUtils.getAppForegroundColor());
+                        normalLabel.setTextSize(10);
+                        normalLabel.setGravity(Gravity.CENTER);
 
-                    FrameLayout.LayoutParams labelParams = new FrameLayout.LayoutParams(
-                            FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT,
-                            Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-                    labelParams.bottomMargin = 0; // Position label below button.
-                    normalLabel.setLayoutParams(labelParams);
+                        FrameLayout.LayoutParams labelParams = new FrameLayout.LayoutParams(
+                                FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT,
+                                Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+                        labelParams.bottomMargin = 0; // Position label below button.
+                        normalLabel.setLayoutParams(labelParams);
 
-                    buttonContainer.addView(normalLabel);
+                        buttonContainer.addView(normalLabel);
+                    }
+
+                    speedButton.setOnClickListener(v -> userSelectedSpeed.apply(speed));
+
+                    gridLayout.addView(buttonContainer);
                 }
 
-                speedButton.setOnClickListener(v -> userSelectedSpeed.apply(speed));
-
-                gridLayout.addView(buttonContainer);
+                // Restore 2 digit minimum.
+                speedFormatter.setMinimumFractionDigits(2);
             }
-
-            // Restore 2 digit minimum.
-            speedFormatter.setMinimumFractionDigits(2);
 
             // Add in-rows speed buttons layout to main layout.
             mainLayout.addView(gridLayout);
@@ -1367,7 +1369,9 @@ public class VideoUtils extends IntentUtils {
      * @return A string representation of the speed with 'x' (e.g. "1.25x" or "1.00x").
      */
     private static String formatSpeedStringX(float speed) {
-        return speedFormatter.format(speed) + 'x';
+        synchronized (speedFormatter) {
+            return speedFormatter.format(speed) + 'x';
+        }
     }
 
     /**
@@ -1375,8 +1379,10 @@ public class VideoUtils extends IntentUtils {
      * @return A string representation of the speed with 'x' (e.g. "1.25x" or "1.00x").
      */
     public static String formatSpeedStringX(float speed, int minimumFractionDigits) {
-        speedFormatter.setMinimumFractionDigits(minimumFractionDigits);
-        return speedFormatter.format(speed) + 'x';
+        synchronized (speedFormatter) {
+            speedFormatter.setMinimumFractionDigits(minimumFractionDigits);
+            return speedFormatter.format(speed) + 'x';
+        }
     }
 
     /**

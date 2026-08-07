@@ -2,7 +2,7 @@ package app.morphe.extension.youtube.swipecontrols.controller
 
 import android.app.Activity
 import android.view.View
-import app.morphe.extension.shared.utils.ResourceUtils.ResourceType
+import app.morphe.extension.shared.utils.ResourceType
 import app.morphe.extension.shared.utils.ResourceUtils.getIdentifier
 import app.morphe.extension.shared.utils.Utils.dipToPixels
 import app.morphe.extension.youtube.settings.Settings

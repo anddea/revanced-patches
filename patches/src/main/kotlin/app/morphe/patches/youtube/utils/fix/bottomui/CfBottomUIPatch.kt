@@ -25,7 +25,5 @@ val cfBottomUIPatch = bytecodePatch(
                 )
             }
         }
-
-
     }
 }

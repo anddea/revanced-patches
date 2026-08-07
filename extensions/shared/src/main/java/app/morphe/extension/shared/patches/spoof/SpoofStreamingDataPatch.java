@@ -44,10 +44,6 @@ public class SpoofStreamingDataPatch {
         return app.morphe.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
     }
 
-    public static String blockGetAttRequest(String originalUrlString) {
-        return SpoofVideoStreamsPatch.blockGetAttRequest(originalUrlString);
-    }
-
     public static Uri blockGetWatchRequest(Uri playerRequestUri) {
         return SpoofVideoStreamsPatch.blockGetWatchRequest(playerRequestUri);
     }
@@ -136,19 +132,6 @@ public class SpoofStreamingDataPatch {
 
     public static boolean multiAudioTrackAvailable() {
         return !SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams();
-    }
-
-    public static final class ClientAndroidVRAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_STREAMING_DATA.get()
-                    && getSelectedClientType().name().startsWith("ANDROID_VR");
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return List.of(BaseSettings.SPOOF_STREAMING_DATA);
-        }
     }
 
     public static final class HideAudioFlyoutMenuAvailability implements Setting.Availability {

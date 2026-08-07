@@ -2,25 +2,116 @@
 <resources>
     <string name="gms_core_dialog_continue_text">続行</string>
     <string name="gms_core_dialog_dismiss_text">今後表示しない</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCoreはバックグラウンドで実行する権限がありません。\n\nあなたの端末の \"Don't kill my app \"のガイドに従って、MicroGのインストールに適用してください。\n\nこれはアプリが動作するために必要です。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"問題を防ぐためにGmsCoreのバッテリー最適化を無効にする必要があります。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG には、バックグラウンドで実行するための権限が与えられていません。
 
-「続行」をタップし、バッテリーの最適化を無効にします。"</string>
+下記ウェブサイト「Don't kill my app!」の携帯電話メーカー別のガイドに従い、MicroG に対するデバイスの設定を変更してください。
+
+この操作は、アプリが正常に動作するために必要です。"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG の電池の最適化は、問題を防ぐために無効にする必要があります。
+
+MicroG に対して電池の最適化を無効にしても、バッテリー消費に悪影響はありません。
+
+[続行] をタップして電池の最適化を無効にしてください"</string>
     <string name="gms_core_dialog_open_website_text">ウェブサイトを開く</string>
     <string name="gms_core_dialog_title">操作が必要です</string>
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging 設定を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCoreを開く</string>
-    <string name="gms_core_toast_not_installed_message">GmsCoreがインストールされていません。インストールしてください。</string>
+    <string name="gms_core_toast_not_installed_message">MicroG がインストールされていません。インストールしてください。</string>
+    <string name="morphe_crossfade_duration_10000ms">10 秒</string>
+    <string name="morphe_crossfade_duration_1000ms">1 秒</string>
+    <string name="morphe_crossfade_duration_11000ms">11 秒</string>
+    <string name="morphe_crossfade_duration_12000ms">12 秒</string>
+    <string name="morphe_crossfade_duration_2000ms">2 秒</string>
+    <string name="morphe_crossfade_duration_250ms">250 ミリ秒</string>
+    <string name="morphe_crossfade_duration_3000ms">3 秒</string>
+    <string name="morphe_crossfade_duration_4000ms">4 秒</string>
+    <string name="morphe_crossfade_duration_5000ms">5 秒</string>
+    <string name="morphe_crossfade_duration_500ms">500 ミリ秒</string>
+    <string name="morphe_crossfade_duration_6000ms">6 秒</string>
+    <string name="morphe_crossfade_duration_7000ms">7 秒</string>
+    <string name="morphe_crossfade_duration_750ms">750 ミリ秒</string>
+    <string name="morphe_crossfade_duration_8000ms">8 秒</string>
+    <string name="morphe_crossfade_duration_9000ms">9 秒</string>
     <string name="morphe_disable_drc_audio_summary_off">オーディオ DRC は有効です</string>
     <string name="morphe_disable_drc_audio_summary_on">オーディオ DRC は無効です</string>
-    <string name="morphe_disable_drc_audio_title">オーディオ DRC を無効化</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC プロトコルは有効です</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC プロトコルは無効です</string>
-    <string name="morphe_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
-    <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを Android Reel または TV に変更してください</string>
+    <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを「Android Studio」以外に変更してください</string>
+    <string name="morphe_force_original_audio_summary">常にオリジナルの音声トラック (言語) を再生します。オートダビングを含む吹き替えの音声トラックは再生されなくなります</string>
     <string name="morphe_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックが使用される場合があります</string>
     <string name="morphe_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用されません</string>
     <string name="morphe_force_original_audio_title">オリジナルの音声を強制的に使用</string>
+    <string name="morphe_music_crossfade_about_best_summary">通常の曲から曲への再生、自動スキップ、リピート再生（曲が自分自身にクロスフェード）、およびローカルオーディオ（電話スピーカー、有線ヘッドホン、Bluetooth、またはUSB）で最適に動作します。</string>
+    <string name="morphe_music_crossfade_about_best_title">最適な動作環境</string>
+    <string name="morphe_music_crossfade_about_credit_summary">Crossfade機能はVazerOGによるものです</string>
+    <string name="morphe_music_crossfade_about_credit_title">クレジット</string>
+    <string name="morphe_music_crossfade_about_how_summary">"クロスフェードは、ある曲の終わりと次の曲の始まりを重ね合わせ、選択した時間とカーブで一方の曲の音量を下げながら、もう一方の曲の音量を上げていきます。
+
+自動スキップ（曲が自動的に終了した場合）と手動スキップの両方で動作し、それぞれに上記で個別の切り替えがあります。自動スキップでは、ブレンドは曲の終了数秒前に開始されます。
+
+YouTube Music 9.x 以降が必要です。"</string>
+    <string name="morphe_music_crossfade_about_how_title">仕組み</string>
+    <string name="morphe_music_crossfade_about_known_summary">"最初の曲として設定された音楽ビデオ、または現在のキュー外から開始された音楽ビデオは、音声のみモードに切り替わる前に、一時的にビデオとして表示されることがあります。
+
+クロスフェードを一時停止して音楽ビデオを視聴すると、一部のビデオが黒く表示されることがあります（ビデオ自体から音声が出力されるもの）。曲を選択する前にクロスフェードを一時停止すると、これを回避できます。"</string>
+    <string name="morphe_music_crossfade_about_known_title">既知の問題</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"クロスフェードがオンのとき、音楽ビデオは音声のみで再生されます（ビデオを一時停止したい場合は、シャッフルを長押ししてください）。
+
+フェード時間より短い曲は、フェードをスキップする場合があります。
+
+ロック画面または通知に、移行中に古い状態が一時的に表示されることがあります。"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">完全には機能しません</string>
+    <string name="morphe_music_crossfade_about_summary">クロスフェードの仕組みと利用できない場合について</string>
+    <string name="morphe_music_crossfade_about_title">クロスフェードについて</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"オーディオのキャストまたはミラーリング（Chromecast、画面またはオーディオのミラーリング）—クロスフェードは不安定なため一時停止し、修正されない可能性があります。
+
+YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されます。"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">全く機能しない</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">キャストまたはミラーリング中は、動作が不安定なためクロスフェードを一時停止します。この問題は将来的にも解決できない可能があります</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">ゆるやかなホールド（持続）</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">おだやかなイーズ（緩急）</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">等電力（全体音量一定）</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">なめらかな S 字カーブ</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">始まる曲</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">終わる曲</string>
+    <string name="morphe_music_crossfade_curve_title">フェードカーブ</string>
+    <string name="morphe_music_crossfade_duration_title">クロスフェードする時間</string>
+    <string name="morphe_music_crossfade_enabled_title">クロスフェードを有効化</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">トラックが自動で切り替わるときにクロスフェードを適用します</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">自動再生時のクロスフェード</string>
+    <string name="morphe_music_crossfade_on_skip_summary">手動で次のトラックにスキップしたときにクロスフェードを適用します</string>
+    <string name="morphe_music_crossfade_on_skip_title">手動スキップ時のクロスフェード</string>
+    <string name="morphe_music_crossfade_paused_toast">このセッションでのクロスフェードを一時停止します</string>
+    <string name="morphe_music_crossfade_resumed_toast">クロスフェードを再開しました</string>
+    <string name="morphe_music_crossfade_screen_summary">前後のトラックを重ね合わせてなめらかにつなぎます</string>
+    <string name="morphe_music_crossfade_screen_title">クロスフェード</string>
+    <string name="morphe_music_crossfade_session_control_summary">シャッフル ボタンを長押しすると、再生中のセッション (プレイリストなど) 内でのクロスフェードを一時的に停止 / 再開します</string>
+    <string name="morphe_music_crossfade_session_control_title">クロスフェードのセッション制御</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">クロスフェードが有効になっている間は、動画モードは利用できません</string>
+    <string name="morphe_music_lyrics_about_summary">"曲名とアーティスト名で歌詞を検索するため、特殊な曲名やアーティスト名を持つ曲の場合、歌詞が見つからなかったり、違うバージョンの歌詞が表示されたりする場合があります
+
+同期歌詞では、歌詞が楽曲の再生に同期します。歌詞と楽曲がズレる場合は、[歌詞の遅延] を設定して調整してください
+
+外部サービスで歌詞が見つからない場合は、アプリの歌詞を表示します"</string>
+    <string name="morphe_music_lyrics_about_title">外部サービスの歌詞について</string>
+    <string name="morphe_music_lyrics_copied">クリップボードにコピーしました</string>
+    <string name="morphe_music_lyrics_enabled_summary">外部の歌詞配信サービスから歌詞を取得して表示します。見つからない場合は、アプリの歌詞を表示します</string>
+    <string name="morphe_music_lyrics_enabled_title">外部サービスの歌詞を使用</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">同期歌詞の歌詞と楽曲のズレを修正します。歌詞が楽曲よりも早い場合は正の値を、遅い場合は負の値を設定してください</string>
+    <string name="morphe_music_lyrics_offset_ms_title">歌詞の遅延</string>
+    <string name="morphe_music_lyrics_show_copy_button_title">コピーボタンを表示</string>
+    <string name="morphe_music_lyrics_show_translate_button_title">翻訳ボタンを表示</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB を優先的に使用し、見つからない場合に KuGou を使用します</string>
+    <string name="morphe_music_lyrics_source_label">提供: %s</string>
+    <string name="morphe_music_lyrics_source_title">歌詞配信サービス</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">タップした行の再生位置に移動します</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">タップした行の再生位置に移動</string>
+    <string name="morphe_music_lyrics_text_size_summary">歌詞の文字サイズ</string>
+    <string name="morphe_music_lyrics_text_size_title">文字サイズ</string>
+    <string name="morphe_music_lyrics_translate_failed">歌詞を翻訳できませんでした</string>
+    <string name="morphe_music_lyrics_translate_hide">原文を表示</string>
+    <string name="morphe_music_lyrics_translate_show">翻訳</string>
+    <string name="morphe_music_lyrics_translating">翻訳中…</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR にログインできません: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR にログインできません。ウェブサイトの認証が承認されませんでした</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 は一時的に利用できません</string>
@@ -37,26 +128,13 @@
     <string name="morphe_sanitize_sharing_links_summary_off">共有リンクから追跡パラメータは削除されません</string>
     <string name="morphe_sanitize_sharing_links_summary_on">共有リンクから追跡パラメータが削除されます</string>
     <string name="morphe_sanitize_sharing_links_title">共有リンクを無害化</string>
+    <string name="morphe_settings_menu_copy_path">階層をコピーしました (%s)</string>
+    <string name="morphe_settings_menu_filter_picker_empty">項目の一覧を取得するため、アプリ側の設定メニューを一度開いてください</string>
+    <string name="morphe_settings_menu_filter_screen_summary">アプリ側の設定メニューの項目を、表示される項目名で指定して非表示にします</string>
+    <string name="morphe_settings_menu_filter_screen_title">設定メニューのフィルタ</string>
     <string name="morphe_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"JavaScript 版プレーヤーを特定のバージョンに固定します
-
-• 有効な「JavaScript 版プレーヤーのハッシュ」を設定する必要がある
-• JavaScript 版プレーヤーのハッシュは約 1 ヶ月間有効であり、期限が切れたハッシュは GVS 側で無効にされる
-• 設定したハッシュが GVS 側で無効にされた場合、再生に失敗する"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">JavaScript 版プレーヤーの更新が有効になっています</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"JavaScript 版プレーヤーの更新が無効になっています
-
-• 有効な「JavaScript 版プレーヤーのハッシュ」を設定する必要がある
-• 設定した「JavaScript 版プレーヤーのハッシュ」が GVS 側で無効にされた場合、再生に失敗する"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">JavaScript 版プレーヤーの更新を無効化</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"有効な「JavaScript 版プレーヤーのハッシュ」を設定する必要があります。
-
-設定した「JavaScript 版プレーヤーのハッシュ」が期限切れの場合、動画の再生に失敗します。"</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">クライアントの動画ストリームを取得できませんでした</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">有効な「JavaScript 版プレーヤーのハッシュ」を入力してください</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">JavaScript 版プレーヤーのハッシュ</string>
     <string name="morphe_spoof_video_streams_screen_summary">動画再生の失敗を回避するために、偽装するクライアントを設定します</string>
-    <string name="morphe_spoof_video_streams_screen_title">動画ストリームを偽装</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR にログインしていません。ログインするには、ここをタップしてください</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">この機能を使用するには、[デフォルトのクライアント] を Android VR に変更してください</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">現在、Android VR にログインしています</string>
@@ -68,9 +146,7 @@
 3. Google にログイン (未ログインの場合)。複数のアカウントがある場合は、YouTube で使用するアカウントを選択する
 4. [許可] をタップして YouTube VR へのアクセスを許可する
 5. 「デバイスを接続しました」というメッセージが表示された後にこのアプリに戻る"</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">ウェブサイトを開く</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">操作手順</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">続行</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR にログインすると、一部のユーザーの再生に関する問題が解決する場合があります。
 
 ログインするには、[続行] をタップしてください"</string>
@@ -78,12 +154,11 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR にログイン</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"認証が保存されました
 
-• Morphe の設定のインポート / エクスポートには Android VR 認証は含まれません
+• RVX の設定のインポート / エクスポートには Android VR 認証は含まれません
 • このアプリが 6 ヶ月間使用されなかった場合、Google はこの認証を削除します
 • Google アカウントのパスワードを変更した場合、または Google アカウントの設定からこのデバイスの登録を解除した場合は、再度ログインする必要があります"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">ログインに成功しました</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">アクティベーション コードの発行に失敗しました</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">認証トークンの発行に失敗しました</string>
     <string name="morphe_spoof_video_streams_summary">"互換性のある動画ストリームを取得することにより、多くの環境で再生不能問題を解消します
 
 YouTube Premiumのユーザーの場合、この設定は必要ない場合があります。"</string>
@@ -100,7 +175,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_add_miniplayer_previous_button_summary">ミニプレイヤーに「前の曲に戻るボタン」を表示します。</string>
     <string name="revanced_add_miniplayer_previous_button_title">「前の曲に戻るボタン」を表示</string>
     <string name="revanced_app_info_dialog_message">&lt;b&gt;アプリ名&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;アプリのバージョン&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced パッチ&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;パッチの適用日&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
-    <string name="revanced_app_info_dialog_title">アプリ情報</string>
     <string name="revanced_app_info_summary">タップしてアプリ名、アプリのバージョン、パッチのバージョン、およびパッチの適用日を確認できます。</string>
     <string name="revanced_app_info_title">アプリ情報</string>
     <string name="revanced_bypass_image_region_restrictions_summary">プレイリストのサムネイルやチャンネルアバターなどを受信できるように、一部の地域でブロックされているドメインを置き換えます。</string>
@@ -115,7 +189,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_change_seekbar_position_title">シークバーの位置を変更</string>
     <string name="revanced_change_share_sheet_summary">アプリ内共有メニューからシステムの共有メニューに置き換えます。</string>
     <string name="revanced_change_share_sheet_title">共有メニューを変更</string>
-    <string name="revanced_change_start_page_entry_chart">チャート</string>
     <string name="revanced_change_start_page_entry_charts">チャート</string>
     <string name="revanced_change_start_page_entry_default">デフォルト</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">後で視聴するエピソード</string>
@@ -126,15 +199,15 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_change_start_page_entry_podcasts">ポッドキャスト</string>
     <string name="revanced_change_start_page_entry_samples">サンプル</string>
     <string name="revanced_change_start_page_entry_search">検索</string>
-    <string name="revanced_change_start_page_entry_subscription">定期購入</string>
     <string name="revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
     <string name="revanced_change_start_page_summary">アプリのスタートページを変更します。</string>
     <string name="revanced_change_start_page_title">スタート画面</string>
-    <string name="revanced_custom_filter_strings_summary">コンポーネント名でフィルター (改行区切り)</string>
-    <string name="revanced_custom_filter_strings_title">カスタムフィルターを編集</string>
+    <string name="revanced_credits_title">クレジット</string>
+    <string name="revanced_custom_filter_strings_summary">非表示にするコンポーネントの path builder string のリスト (改行区切り)</string>
+    <string name="revanced_custom_filter_strings_title">カスタム フィルタ</string>
     <string name="revanced_custom_filter_summary">カスタムフィルターを有効にします。</string>
-    <string name="revanced_custom_filter_title">カスタムフィルター</string>
-    <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタムフィルターです: %s。</string>
+    <string name="revanced_custom_filter_title">カスタム フィルタを有効化</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタム フィルタ: %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">ナビゲーションバーの色が無効です。</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">ナビゲーションバーの色の16進数コードを入力します。</string>
     <string name="revanced_custom_navigation_bar_color_value_title">ナビゲーションバーの色の値</string>
@@ -151,18 +224,14 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
 アプリがライトテーマをサポートしていないため、暗い色を使用してください。"</string>
     <string name="revanced_custom_player_background_color_secondary_title">プレイヤーの背景のセカンダリ色</string>
     <string name="revanced_custom_player_background_invalid_toast">無効なプレイヤーの背景色です。</string>
-    <string name="revanced_debug_protobuffer_summary">プロトコルバッファをデバッグログに含めます。</string>
-    <string name="revanced_debug_protobuffer_title">ログプロトコルバッファ</string>
+    <string name="revanced_debug_protobuffer_summary">開発者がアプリのコンポーネントを識別するための、より詳細なログ情報をデバッグログに追加します</string>
+    <string name="revanced_debug_protobuffer_title">デバッグログ (protocol buffer)</string>
     <string name="revanced_debug_spannable_summary">デバッグログにSpannableを含めます。</string>
     <string name="revanced_debug_spannable_title">Spannable をログに含む</string>
     <string name="revanced_debug_summary">デバッグログを出力します。</string>
     <string name="revanced_debug_title">デバッグログを有効化</string>
     <string name="revanced_default_app_settings_summary">RVX Music でYouTube Music のURLを開くには、「対応リンクを開く」を有効にし、サポートされているURLを有効にします。</string>
     <string name="revanced_default_app_settings_title">「デフォルトで開く」の設定</string>
-    <string name="revanced_disable_auto_audio_tracks_summary">"ポッドキャストの強制自動オーディオトラックを無効にします。
-
-制限事項：「スプーフィングストリーミングデータ」が有効で、デフォルトのクライアントが「Android VR Auth」の場合、動作しない可能性があります。"</string>
-    <string name="revanced_disable_auto_audio_tracks_title">強制自動音声トラックを無効にする</string>
     <string name="revanced_disable_auto_captions_summary">動画側で設定されている、字幕の強制は無効です。</string>
     <string name="revanced_disable_auto_captions_title">字幕の強制を無効化</string>
     <string name="revanced_disable_cairo_splash_animation_summary">アプリ起動時のCairo のスプラッシュアニメーションを無効にします。</string>
@@ -210,10 +279,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_enable_forced_miniplayer_title">ミニプレイヤーの強制</string>
     <string name="revanced_enable_landscape_mode_summary">画面回転で横画面モードに入るようにします。</string>
     <string name="revanced_enable_landscape_mode_title">横画面モードを有効化</string>
-    <string name="revanced_enable_mini_player_next_button_summary">ミニプレーヤーの「次の曲に進むボタン」を表示します。</string>
-    <string name="revanced_enable_mini_player_next_button_title">「次の曲に進むボタン」を表示</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">ミニプレーヤーで「前の曲に戻るボタン」を表示します。</string>
-    <string name="revanced_enable_mini_player_previous_button_title">「前の曲に戻るボタン」を表示</string>
     <string name="revanced_enable_opus_codec_summary">"プレーヤーの応答にOPUSコーデックが含まれている場合、それを有効にします。
 
 情報:
@@ -222,8 +287,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_enable_opus_codec_title">Opus コーデックを有効化</string>
     <string name="revanced_enable_smooth_transition_animation_summary">ミニプレイヤーを最大化したときのスムーズなアニメーションを有効にします。</string>
     <string name="revanced_enable_smooth_transition_animation_title">スムーズな遷移アニメーションを有効化</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">下にスワイプしてミニプレーヤーを閉じられるようにします。</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">スワイプしてミニプレーヤーを閉じる</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">下にスワイプしてミニプレーヤーを閉じられるようにします。</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">スワイプしてミニプレーヤーを閉じる</string>
     <string name="revanced_enable_thick_seekbar_summary">"太いシークバーを有効にします。
@@ -274,8 +337,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_hide_action_button_song_video_summary">"「曲 / 動画」ボタンを非表示
 （このボタンは一部のユーザーのみ利用可能です）"</string>
     <string name="revanced_hide_action_button_song_video_title">「曲 / 動画」ボタンを非表示</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">プレイヤーの曲と動画の切り替えスイッチを非表示にします。</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">曲と動画の切り替えスイッチを非表示</string>
     <string name="revanced_hide_button_shelf_summary">ホームタブや探索タブのボタン欄を非表示にします。</string>
     <string name="revanced_hide_button_shelf_title">ボタン欄を非表示</string>
     <string name="revanced_hide_carousel_shelf_summary">ホームタブや探索タブのカルーセル欄を非表示にします。</string>
@@ -306,7 +367,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_hide_flyout_menu_go_to_episode_title">「エピソードに移動」を非表示</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">「ポッドキャストに移動」を非表示</string>
     <string name="revanced_hide_flyout_menu_help_title">「ヘルプとフィードバック」を非表示</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">高評価/低評価ボタンを非表示</string>
     <string name="revanced_hide_flyout_menu_not_interested_title">「興味なし」を非表示</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">「[クイック アクセス] に固定」を非表示</string>
     <string name="revanced_hide_flyout_menu_play_next_title">「次に再生」を非表示</string>
@@ -370,19 +430,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_hide_samples_shelf_title">サンプルシェルフを非表示</string>
     <string name="revanced_hide_search_button_summary">ツールバーの検索ボタンを非表示にします。</string>
     <string name="revanced_hide_search_button_title">検索ボタンを非表示</string>
-    <string name="revanced_hide_settings_menu_about_title">「YouTube Music について」を非表示</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">「データの節約」を非表示</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">「一時保存とストレージ」を非表示</string>
-    <string name="revanced_hide_settings_menu_general_title">「全般」を非表示</string>
-    <string name="revanced_hide_settings_menu_notification_title">「通知」を非表示</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">「Music Premium の購入」を非表示</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">「ファミリーセンター」を非表示</string>
-    <string name="revanced_hide_settings_menu_playback_title">「再生」を非表示</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">「プライバシーとデータ」を非表示</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">「おすすめ」を非表示</string>
-    <string name="revanced_hide_settings_menu_summary">"設定の要素を非表示にします。
-YT Music の設定だけでなく、ReVanced Extended の設定も非表示にします。"</string>
-    <string name="revanced_hide_settings_menu_title">設定メニューを非表示</string>
     <string name="revanced_hide_song_video_toggle_summary">プレイヤーから「曲 / 動画」ボタンを非表示にします。</string>
     <string name="revanced_hide_song_video_toggle_title">「曲 / 動画」ボタンを非表示</string>
     <string name="revanced_hide_sound_search_button_summary">検索バーのサウンドサーチボタンを非表示にします。</string>
@@ -398,6 +445,7 @@ YT Music の設定だけでなく、ReVanced Extended の設定も非表示に�
     <string name="revanced_preference_screen_ads_title">広告</string>
     <string name="revanced_preference_screen_flyout_title">フライアウトメニュー</string>
     <string name="revanced_preference_screen_general_title">全般</string>
+    <string name="revanced_preference_screen_lyrics_title">歌詞</string>
     <string name="revanced_preference_screen_misc_title">その他</string>
     <string name="revanced_preference_screen_navigation_title">ナビゲーションバー</string>
     <string name="revanced_preference_screen_player_title">プレーヤー</string>
@@ -420,13 +468,11 @@ YT Music の設定だけでなく、ReVanced Extended の設定も非表示に�
     <string name="revanced_remember_video_quality_last_selected_summary">画質を変更するたびに、画質を保存します。</string>
     <string name="revanced_remember_video_quality_last_selected_title">ビデオ画質の変更を保存</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">デフォルトの画質を変更するときにトーストを表示します。</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">トーストを表示</string>
     <string name="revanced_remember_video_quality_mobile">モバイルネットワーク使用時のデフォルト画質を %s に変更しました。</string>
     <string name="revanced_remember_video_quality_none">画質の設定に失敗しました。</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi 使用時のデフォルト画質を %s に変更しました。</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"視聴者の裁量ダイアログを削除します。
-これは年齢制限を回避するものではなく、自動的に受け入れられるだけです。"</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">ビューアの裁量ダイアログを削除</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">この機能は、年齢制限を回避するものではありません。ダイアログによる確認に対して自動的に同意するだけです</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">「ご自身の責任」ダイアログを削除</string>
     <string name="revanced_replace_action_button_like_title">いいねボタンを置き換える</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">YouTubeに切り替えたときに、現在の時間から再生します。</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">視聴を続ける</string>
@@ -481,25 +527,25 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API キー</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 「&lt;a href=%1$s&gt;新しいプロジェクトの作成&lt;/a&gt;」に移動します。&lt;br&gt;2. 「&lt;b&gt;作成&lt;/b&gt;」をタップします。&lt;br&gt;3. 「&lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;」に移動します。&lt;br&gt;4. 「&lt;b&gt;有効にする&lt;/b&gt;」をタップします。&lt;br&gt;5. 「&lt;b&gt;認証情報を作成&lt;/b&gt;」をタップします。&lt;br&gt;6. 「&lt;b&gt;一般公開データ&lt;/b&gt;」オプションを選択します。&lt;br&gt;7. 「&lt;b&gt;次へ&lt;/b&gt;」をタップします。&lt;br&gt;8.  API キーをコピーします。&lt;br&gt;&lt;br&gt;※API キーは他人と共有してはならないため、インポート/エクスポート設定には含まれません。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 開発者キーの発行</string>
-    <string name="revanced_ryd_about">Return YouTube Dislike について</string>
-    <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されています。詳細はここをタップしてください。</string>
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike API を使用してデータを取得しています
+
+ここをタップすると ReturnYouTubeDislike.com を開きます"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">高評価ボタンの区切りを非表示にします。</string>
-    <string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタン</string>
-    <string name="revanced_ryd_dislike_percentage_summary">低評価はパーセンテージで表示されます。</string>
-    <string name="revanced_ryd_dislike_percentage_title">低評価数の形式の切り替え</string>
+    <string name="revanced_ryd_compact_layout_summary">高評価ボタンを横幅が短いボタンで置き換えます</string>
+    <string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタンを使用</string>
+    <string name="revanced_ryd_dislike_percentage_summary">投票数ではなくパーセントで低評価を表示します</string>
+    <string name="revanced_ryd_dislike_percentage_title">低評価をパーセントで表示</string>
     <string name="revanced_ryd_enabled_summary">低評価は数字で表示されます。</string>
     <string name="revanced_ryd_enabled_title">Return YouTube Dislike を有効化</string>
-    <string name="revanced_ryd_estimated_like_summary">動画の推定高評価数を表示します。</string>
-    <string name="revanced_ryd_estimated_like_title">推定の高評価数を表示</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は利用できません (クライアント API 制限)</string>
-    <string name="revanced_ryd_failure_connection_status_code">低評価数は一時的に利用できません。(ステータス %d)</string>
-    <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません。(API タイムアウト)</string>
-    <string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">RYDが利用できない場合、メッセージが表示されます。</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にメッセージを表示</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
-    <string name="revanced_sb_about">この機能について</string>
+    <string name="revanced_ryd_estimated_like_summary">動画投稿者が高評価数を非公開に設定している動画で、高評価の推定値を表示します</string>
+    <string name="revanced_ryd_estimated_like_title">高評価の推定値を表示</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数表示は利用できません (API のレート制限)</string>
+    <string name="revanced_ryd_failure_connection_status_code">低評価数表示は利用できません (status %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">低評価数表示は一時的に利用できません (API タイムアウト)</string>
+    <string name="revanced_ryd_failure_generic">低評価数表示は利用できません (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike サーバーが利用できない場合に通知を表示します</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">接続エラーの通知を表示</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">非公開</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">データは SponsorBlock API によって提供されています。他のプラットフォームのダウンロードや詳細については、ここをタップしてください。</string>
     <string name="revanced_sb_api_url">APIのURLを変更</string>
@@ -514,7 +560,6 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_diff_segments">セグメントの設定</string>
     <string name="revanced_sb_enabled">Sponsor Block を有効化</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock は、YouTube の動画の迷惑な部分をスキップするためのクラウドソーシングシステムです。</string>
-    <string name="revanced_sb_reset_color">色をリセット</string>
     <string name="revanced_sb_segments_filler">繋ぎの話 / 冗談</string>
     <string name="revanced_sb_segments_filler_sum">動画の本編を理解する上で必要のない、関係のないシーンや冗談が含まれます。文脈や背景の詳細​​を説明するセクションは含まれません。</string>
     <string name="revanced_sb_segments_hook">フック / 挨拶</string>
@@ -534,25 +579,23 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_segments_sponsor">スポンサー</string>
     <string name="revanced_sb_segments_sponsor_sum">有料プロモーション、有料紹介、直接広告が含まれます。セルフプロモーションや、個人の好きなクリエイター/ウェブサイト/商品に対する無償の活動は含まれません。</string>
     <string name="revanced_sb_skip_automatically">自動的にスキップ</string>
+    <string name="revanced_sb_skip_automatically_once">一度だけ自動的にスキップ</string>
     <string name="revanced_sb_skip_ignore">無効</string>
     <string name="revanced_sb_skipped_filler">繋ぎの話をスキップしました。</string>
     <string name="revanced_sb_skipped_hook">フックをスキップしました。</string>
     <string name="revanced_sb_skipped_interaction">リマインダーをスキップしました。</string>
     <string name="revanced_sb_skipped_intro_beginning">イントロをスキップしました。</string>
     <string name="revanced_sb_skipped_intro_end">休憩をスキップしました。</string>
-    <string name="revanced_sb_skipped_intro_middle">休憩をスキップしました。</string>
     <string name="revanced_sb_skipped_multiple_segments">複数のセグメントをスキップしました</string>
     <string name="revanced_sb_skipped_nomusic">音楽ではない区間をスキップしました。</string>
     <string name="revanced_sb_skipped_outro">アウトロをスキップしました。</string>
     <string name="revanced_sb_skipped_preview_beginning">予告をスキップしました。</string>
     <string name="revanced_sb_skipped_preview_end">要約をスキップしました。</string>
-    <string name="revanced_sb_skipped_preview_middle">予告をスキップしました。</string>
     <string name="revanced_sb_skipped_selfpromo">セルフプロモーションをスキップしました。</string>
     <string name="revanced_sb_skipped_sponsor">スポンサーをスキップしました。</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock は一時的に利用できません。</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock は一時的に利用できません。(ステータス %d)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock は一時的に利用できません。(API タイムアウト)</string>
-    <string name="revanced_sb_toast_on_connection_error">API が利用できない場合にメッセージを表示</string>
     <string name="revanced_sb_toast_on_connection_error_sum">SponsorBlock API が利用できない場合、メッセージが表示されます。</string>
     <string name="revanced_sb_toast_on_skip">自動的にスキップする時にトーストを表示する</string>
     <string name="revanced_sb_toast_on_skip_sum">セグメントが自動的にスキップされたときにトーストを表示します。</string>
@@ -561,31 +604,30 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_settings_import">インポート</string>
     <string name="revanced_settings_import_copy">コピー</string>
     <string name="revanced_settings_import_export_as_text">設定をテキストとしてインポートまたはエクスポートします。</string>
-    <string name="revanced_settings_import_reset">設定をデフォルトにリセットしました。</string>
+    <string name="revanced_settings_import_reset">RVX の設定をデフォルトにリセットしました</string>
+    <string name="revanced_settings_import_success">%d 個の設定をインポートしました</string>
     <string name="revanced_settings_reset">リセット</string>
+    <string name="revanced_settings_reset_color">色を初期化</string>
     <string name="revanced_settings_search_clear_history">検索履歴を消去</string>
-    <string name="revanced_settings_search_clear_history_message">すべての検索履歴を消去してもよろしいですか？</string>
-    <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力してエンターキーを押してください。</string>
+    <string name="revanced_settings_search_clear_history_message">本当にすべての検索履歴を消去しますか？</string>
+    <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力して Enter キーを押してください</string>
     <string name="revanced_settings_search_empty_history_title">検索履歴はありません</string>
     <string name="revanced_settings_search_history_summary_off">設定の検索履歴を表示します。</string>
     <string name="revanced_settings_search_history_summary_on">設定の検索履歴を表示します。</string>
     <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
-    <string name="revanced_settings_search_no_results_summary">別のキーワードを試してみてください。</string>
-    <string name="revanced_settings_search_no_results_title">「%s」に該当する結果は見つかりませんでした。</string>
-    <string name="revanced_settings_search_recent_searches">検索履歴</string>
+    <string name="revanced_settings_search_no_results_summary">別のキーワードを試してください</string>
+    <string name="revanced_settings_search_no_results_title">「%s」に対する検索結果は見つかりませんでした</string>
+    <string name="revanced_settings_search_recent_searches">最近の検索</string>
     <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
-    <string name="revanced_settings_search_tips_summary">"・カテゴリをタップするとそのカテゴリの設定メニューに移動します。
-・設定を長押しすると、その設定に移動できます。
-・エンターキーを押すと、検索クエリが履歴に保存されます。
-・検索では大文字と小文字および句読点は無視されます。
-・無効化されている下位設定の上には、その設定を無効化している上位設定が表示されます。"</string>
+    <string name="revanced_settings_search_tips_summary">"• カテゴリをタップするとそのカテゴリの設定メニューに移動する
+• 設定を長押しすると設定メニューに移動しその設定までスクロールする
+• Enter キーを押すと検索クエリが履歴に保存される
+• 検索では、大文字・小文字や句読点は無視される
+• 無効化されている下位設定の上には、その設定を無効化している上位設定が表示される"</string>
     <string name="revanced_settings_search_tips_title">検索のヒント</string>
     <string name="revanced_settings_search_title">設定を検索</string>
     <string name="revanced_share_copy_settings_success">設定をクリップボードにコピーしました。</string>
-    <string name="revanced_spoof_app_version_summary">"YT Music のバージョンを古いバージョンに偽装します。
-
-• これによりアプリの外観が変わりますが、未知の問題が発生する場合があります。
-• 後からこの機能を無効にしても、データを消去するまで古い UI のままになる場合があります。"</string>
+    <string name="revanced_spoof_app_version_summary">古いバージョンのアプリを使用しているとサーバーに認識させて、以前の UI デザインや機能を復元します</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - カナダの地域でラジオモードを無効化</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - リアルタイムの歌詞を無効化</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - 古いフライアウトパネルを復元</string>
@@ -594,12 +636,11 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - コメントセクションがホームフィードに表示されません</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">無効な偽装アプリバージョンです: %s</string>
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを選択してください。</string>
-    <string name="revanced_spoof_app_version_target_title">偽装するバージョン</string>
+    <string name="revanced_spoof_app_version_target_title">アプリバージョンの偽装先</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装</string>
     <string name="revanced_spoof_client_summary">再生の問題を防ぐためにクライアントを偽装します。</string>
     <string name="revanced_spoof_client_title">クライアントを偽装</string>
     <string name="revanced_spoof_client_type_summary">"偽装するデフォルトのクライアントを定義します。"</string>
-    <string name="revanced_spoof_client_type_title">既定のクライアント</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Android No SDK にログインする方法については、ここをタップしてください</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Android No SDK にログイン</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">認証トークンを取得</string>
@@ -610,39 +651,12 @@ API キーの発行方法については、ここをタップしてください�
 3. ログインの結果は約5秒以内に表示されます。
 
 ※ 認証トークンまたはアクティベーションコードを削除するには、[リセット] をタップします。</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_summary">Android VR にログインする方法については、ここをタップしてください。</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_about_title">Android VR にログイン</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_message">"アクティベーションコード: %s
-
-1.[ウェブサイトを開く] をタップして、「https://yt.be/activate」に移動します。
-2. アクティベーションコードを入力します。
-3. プロンプトが表示されたらログインします。複数の Google アカウントを持っている場合は、YouTube で使用しているアカウントを選択してください。すでにログインしている場合は、次の手順に進んでください。
-4. ログインしたら RVX に戻り、もう一度 [Android VR にログイン] をタップします。
-5. [認証トークンを取得] をタップして認証トークンを取得します。"</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_open_website_text">ウェブサイトを開く</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_dialog_title">アクティベーションコード</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">アクティベーションコードをクリップボードにコピーしました: %s</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_message">"認証トークンを保存しました。
-
-- このプロセスを通じて発行された認証トークンは、YouTube VR でのみ使用できます (RVX では、YouTube VR からストリーミングデータを取得するために使用されます)。
-- 6 か月以上使用されていない認証トークンは、Google サーバーによって取り消されます。
-- パスワードを変更した場合やアカウント設定でデバイスの登録を解除した場合、またはアプリをアンインストールした場合は認証トークンの再発行が必要になります。"</string>
-    <string name="revanced_spoof_streaming_data_sign_in_android_vr_success_dialog_title">ログインしました</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">認証トークンを発行できませんでした。</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">[リセット] をタップして再試行してください。</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">認証トークンとアクティベーションコードをリセットします。</string>
-    <string name="revanced_spoof_streaming_data_summary">"クライアントの動画ストリームを偽装し再生の問題を防止します。
-
-YouTube Premiumを利用の場合この設定は不要かもしれません。"</string>
-    <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
-    <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">認証トークンを取得する方法を確認するにはタップしてください。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR の認証について</string>
     <string name="revanced_spoof_video_streams_default_client_summary">"偽装するデフォルトのクライアントを定義します。"</string>
-    <string name="revanced_spoof_video_streams_default_client_title">デフォルトのクライアント</string>
-    <string name="revanced_spoof_video_streams_summary">"互換性のある動画ストリームを取得することにより、多くの環境で再生不能問題を解消します
-
-YouTube Premiumのユーザーの場合、この設定は必要ない場合があります。"</string>
-    <string name="revanced_spoof_video_streams_title">動画ストリームを偽装</string>
     <string name="revanced_translations_title">翻訳</string>
     <string name="revanced_watch_history_type_entry_1">オリジナル</string>
     <string name="revanced_watch_history_type_entry_2">ドメインを置換</string>
@@ -652,7 +666,6 @@ YouTube Premiumのユーザーの場合、この設定は必要ない場合が�
 ・視聴履歴をブロックします：　 視聴履歴をブロックします。"</string>
     <string name="revanced_watch_history_type_title">再生履歴の種類</string>
     <string name="revanced_webview_cookies">Cookie</string>
-    <string name="revanced_webview_copy">コピー</string>
     <string name="revanced_webview_data_sync_id">データ同期 ID</string>
     <string name="revanced_webview_toast_copy_success">「%s」をクリップボードにコピーしました。</string>
     <string name="revanced_webview_toast_empty">「%s」は空です。</string>

@@ -90,7 +90,7 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
                     str("revanced_settings_import_copy"), // Neutral button (Copy) text.
                     () -> {
                         // Neutral button (Copy) action. Show the user the settings in JSON format.
-                        Utils.setClipboard(editText.getText().toString(), str("revanced_share_copy_settings_success"));
+                        Utils.setClipboard(editText.getText().toString(), str("revanced_sb_share_copy_settings_success"));
                     },
                     true // Dismiss dialog when onNeutralClick.
             );

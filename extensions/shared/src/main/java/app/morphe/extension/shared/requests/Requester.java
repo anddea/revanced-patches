@@ -18,6 +18,14 @@ public class Requester {
     private Requester() {
     }
 
+    public static HttpURLConnection openConnection(String url) throws IOException {
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        String agentString = System.getProperty("http.agent")
+                + "; RVX/" + PackageUtils.getAppVersionName();
+        connection.setRequestProperty("User-Agent", agentString);
+        return connection;
+    }
+
     public static HttpURLConnection getConnectionFromRoute(String apiUrl, Route route, String... params) throws IOException {
         return getConnectionFromCompiledRoute(apiUrl, route.compile(params));
     }

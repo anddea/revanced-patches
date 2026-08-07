@@ -1,3 +1,46 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - Hoàng Gia Bảo (https://github.com/YT-Advanced)
+ * - ILoveOpenSourceApplications (https://github.com/ILoveOpenSourceApplications)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.patches.music.flyoutmenu.components
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -13,6 +56,7 @@ import app.morphe.patches.music.utils.extension.Constants.FLYOUT_CLASS_DESCRIPTO
 import app.morphe.patches.music.utils.flyoutmenu.flyoutMenuHookPatch
 import app.morphe.patches.music.utils.patch.PatchList.FLYOUT_MENU_COMPONENTS
 import app.morphe.patches.music.utils.playservice.is_6_36_or_greater
+import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.endButtonsContainer
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
@@ -21,6 +65,7 @@ import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.patches.music.utils.videotype.videoTypeHookPatch
 import app.morphe.patches.music.video.information.videoInformationPatch
 import app.morphe.patches.shared.litho.addLithoFilter
@@ -44,8 +89,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private val resourceFileArray = arrayOf(
-    "yt_outline_play_arrow_half_circle_black_24"
-).map { "$it.png" }.toTypedArray()
+    "yt_bold_play_arrow_half_circle_black_24.png",
+    "yt_outline_play_arrow_half_circle_black_24.png",
+)
 
 private val flyoutMenuComponentsResourcePatch = resourcePatch(
     description = "flyoutMenuComponentsResourcePatch"
@@ -58,10 +104,14 @@ private val flyoutMenuComponentsResourcePatch = resourcePatch(
                     directory, *resourceFileArray
                 )
             }
-            .let { resourceGroups ->
-                resourceGroups.forEach {
-                    copyResources("music/flyout", it)
-                }
+            .plus(
+                ResourceGroup(
+                    "drawable",
+                    "yt_bold_youtube_logo_icon_vd_theme_24.xml"
+                )
+            )
+            .forEach { resourceGroup ->
+                copyResources("music/flyout", resourceGroup)
             }
     }
 }
@@ -141,17 +191,19 @@ val flyoutMenuComponentsPatch = bytecodePatch(
 
         // region patch for enable compact dialog
 
-        screenWidthFingerprint.matchOrThrow(screenWidthParentFingerprint).let {
-            it.method.apply {
-                val index = it.instructionMatches.first().index
-                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+        if (!is_8_51_or_greater) {
+            screenWidthFingerprint.matchOrThrow(screenWidthParentFingerprint).let {
+                it.method.apply {
+                    val index = it.instructionMatches.first().index
+                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-                addInstructions(
-                    index, """
-                        invoke-static {v$register}, $FLYOUT_CLASS_DESCRIPTOR->enableCompactDialog(I)I
-                        move-result v$register
-                        """
-                )
+                    addInstructions(
+                        index, """
+                            invoke-static {v$register}, $FLYOUT_CLASS_DESCRIPTOR->enableCompactDialog(I)I
+                            move-result v$register
+                            """
+                    )
+                }
             }
         }
 
@@ -243,11 +295,15 @@ val flyoutMenuComponentsPatch = bytecodePatch(
 
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
-        addSwitchPreference(
-            CategoryType.FLYOUT,
-            "revanced_enable_compact_dialog",
-            "false"
-        )
+        if (!is_8_51_or_greater) {
+            addSwitchPreference(
+                CategoryType.FLYOUT,
+                "revanced_enable_compact_dialog",
+                "false"
+            )
+        } else {
+            printWarn("\"Enable compact dialog\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
+        }
         if (trimSilenceIncluded) {
             addSwitchPreference(
                 CategoryType.FLYOUT,
@@ -267,7 +323,9 @@ val flyoutMenuComponentsPatch = bytecodePatch(
             CategoryType.FLYOUT,
             "revanced_hide_flyout_menu_like_dislike",
             "false",
-            false
+            "",
+            false,
+            titleKey = "revanced_hide_action_button_like_dislike_title",
         )
         addSwitchPreference(
             CategoryType.FLYOUT,

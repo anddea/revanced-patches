@@ -11,6 +11,8 @@ import app.morphe.extension.shared.utils.StringRef;
 
 public enum CategoryBehaviour {
     SKIP_AUTOMATICALLY("skip", 2, true, sf("revanced_sb_skip_automatically")),
+    // desktop does not have skip-once behavior. Key is unique to ReVanced
+    SKIP_AUTOMATICALLY_ONCE("skip-once", 3, true, sf("revanced_sb_skip_automatically_once")),
     // ignored categories are not exported to json, and ignore is the default behavior when importing
     IGNORE("ignore", -1, false, sf("revanced_sb_skip_ignore"));
 

@@ -2,20 +2,115 @@
 <resources>
     <string name="gms_core_dialog_continue_text">המשך</string>
     <string name="gms_core_dialog_dismiss_text">אל תראה שוב</string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ל-MicroG GmsCore אין הרשאה לרוץ ברקע
+
+עקוב אחר המדריך \"Don't kill my app\" עבור הטלפון שלך, והפעיל את ההוראות על התקנת ה-MicroG שלך
+
+היא נדרשת כדי שהיישום יעבוד"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"מיטובי הסוללה של MicroG GmsCore חייבים להיות מושבתים כדי למנוע בעיות
+
+השבתת מיטובי הסוללה עבור MicroG לא תשפיע לרעה על השימוש בסוללה
+
+תMouseEvent על הלחצן 'המשך' ואפשר שינויי מיטוב"</string>
     <string name="gms_core_dialog_open_website_text">פתח אתר</string>
-    <string name="gms_core_dialog_title">פעולה נדרשת</string>
+    <string name="gms_core_dialog_title">דרושה פעולה</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">אין GmsCore מותקן - לא להתקין</string>
+    <string name="gms_core_toast_not_installed_message">דו׮י טבמ עורמ מדמ. רוריתמ</string>
+    <string name="morphe_crossfade_duration_10000ms">10 שניות</string>
+    <string name="morphe_crossfade_duration_1000ms">שנייה אחת</string>
+    <string name="morphe_crossfade_duration_11000ms">11 שניות</string>
+    <string name="morphe_crossfade_duration_12000ms">12 שניות</string>
+    <string name="morphe_crossfade_duration_2000ms">2 שניות</string>
+    <string name="morphe_crossfade_duration_250ms">250 אלפיות שנייה</string>
+    <string name="morphe_crossfade_duration_3000ms">3 שניות</string>
+    <string name="morphe_crossfade_duration_4000ms">4 שניות</string>
+    <string name="morphe_crossfade_duration_5000ms">5 שניות</string>
+    <string name="morphe_crossfade_duration_500ms">500 אלפיות שנייה</string>
+    <string name="morphe_crossfade_duration_6000ms">6 שניות</string>
+    <string name="morphe_crossfade_duration_7000ms">7 שניות</string>
+    <string name="morphe_crossfade_duration_750ms">750 אלפיות שנייה</string>
+    <string name="morphe_crossfade_duration_8000ms">8 שניות</string>
+    <string name="morphe_crossfade_duration_9000ms">9 שניות</string>
     <string name="morphe_disable_drc_audio_summary_off">אודיו DRC מופעל</string>
     <string name="morphe_disable_drc_audio_summary_on">אודיו DRC מושבת</string>
-    <string name="morphe_disable_drc_audio_title">השבת אודיו DRC</string>
     <string name="morphe_disable_quic_protocol_summary_off">פרוטוקול QUIC פעיל</string>
     <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
-    <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
-    <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה \'זיוף זרמי וידאו\' ל-Android Reel או TV</string>
+    <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד Android Studio\'</string>
+    <string name="morphe_force_original_audio_summary">תמיד מנגן את רצועת האודיו המקורית של הסרטון במקום גרסה מדובבת</string>
     <string name="morphe_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
     <string name="morphe_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
     <string name="morphe_force_original_audio_title">כפה שפת שמע מקורית</string>
+    <string name="morphe_music_crossfade_about_best_summary">השמעה רגילה של שיר לשיר ומעבר אוטומטי, חזרה על שיר אחד (השיר עובר מעבר הדרגתי לתוך עצמו), ושמע מקומי – רמקול הטלפון, אוזניות חוטיות, Bluetooth או USB</string>
+    <string name="morphe_music_crossfade_about_best_title">עובד הכי טוב עם</string>
+    <string name="morphe_music_crossfade_about_credit_summary">תכונת מעבר הצלילים על ידי VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">קרדיט</string>
+    <string name="morphe_music_crossfade_about_how_summary">"מעבר הדרגתי חופף את סוף השיר אחד לתחילת השיר הבא, דועך את אחד בעוד השני עולה במהלך משך הזמן והעקומה שבחרת
+
+הוא פועל במצב של מעבר אוטומטי (כאשר שיר מסתיים מעצמו) ובדילוגים ידניים – לכל אחד מהם יש מתג משלו למעלה. במצב של מעבר אוטומטי, הערבוב מתחיל כמה שניות לפני שהשיר מסתיים
+
+דורש YouTube Music 9.x ומעלה"</string>
+    <string name="morphe_music_crossfade_about_how_title">איך זה עובד</string>
+    <string name="morphe_music_crossfade_about_known_summary">"סרטון מוזיקה שהוגדר כשיר הראשון - או כזה שהתחיל מחוץ לתור הנוכחי - עשוי להופיע לרגע כסרטון לפני שמצב האודיו-בלבד נכנס לפעולה
+
+השהיית מעבר הצלילים כדי לצפות בסרטון מוזיקה עלולה לגרום לכך שחלק מהסרטונים יהיו שחורים (אלו שהאודיו שלהם מגיע מהסרטון עצמו). השהיית מעבר הצלילים לפני שאתה בוחר את השיר תמנע זאת"</string>
+    <string name="morphe_music_crossfade_about_known_title">בעיות ידועות</string>
+    <string name="morphe_music_crossfade_about_quirks_summary">"סרטוני מוזיקה מתנגנים רק עם אודיו כאשר מעבר צלילים פעיל (לחיצה ארוכה על כפתור הערבוב תעצור את הוידאו אם תרצו לראות אותו)
+
+שירים שקצרים יותר ממשך ההעמעום עשויים לדלג על ההעמעום
+
+מסך הנעילה או ההתראה עשויים להציג באופן זמני מצב מיושן באמצע המעבר"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">לא עובד בצורה חלקה</string>
+    <string name="morphe_music_crossfade_about_summary">איך מעבר הדרגתי עובד – ומתי הוא לא עובד</string>
+    <string name="morphe_music_crossfade_about_title">אודות</string>
+    <string name="morphe_music_crossfade_about_unsupported_summary">"שידור או מראה אודיו (Chromecast, מראה מסך או אודיו) - מעבר הצלילים נעצר מכיוון שהוא לא יציב שם וייתכן שלעולם לא יתוקן
+
+YouTube Music 8.x - מעבר הצלילים פועל רק בגרסה 9.x ומעלה"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">לא עובד בכלל</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">המעבר הדרגתי מושהה בזמן שידור או מראה שמע. מעבר הדרגתי בשידור/מראה אינו יציב וייתכן שלא ניתן יהיה לתקן אותו</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">השהייה עדינה</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_quad">התקלות עדינה</string>
+    <string name="morphe_music_crossfade_curve_entry_equal_power">עוצמה שווה</string>
+    <string name="morphe_music_crossfade_curve_entry_smoothstep">עקומה חלקה בצורת S</string>
+    <string name="morphe_music_crossfade_curve_preview_incoming">נכנס</string>
+    <string name="morphe_music_crossfade_curve_preview_outgoing">יוצא</string>
+    <string name="morphe_music_crossfade_curve_title">עקומת דעיכה</string>
+    <string name="morphe_music_crossfade_duration_title">משך דעיכה</string>
+    <string name="morphe_music_crossfade_enabled_title">הפעלת מעבר הדרגתי</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">מפעיל את אפקט ה-crossfade כאשר רצועה מסתיימת באופן טבעי</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">דעיכה בעת מעבר אוטומטי</string>
+    <string name="morphe_music_crossfade_on_skip_summary">מפעיל את אפקט ה-crossfade כשאתה מדלג באופן ידני לרצועה הבאה</string>
+    <string name="morphe_music_crossfade_on_skip_title">דעיכה בעת דילוג ידני</string>
+    <string name="morphe_music_crossfade_paused_toast">המעבר בין השירים הופסק עבור סשן זה</string>
+    <string name="morphe_music_crossfade_resumed_toast">המעבר בין השירים התחדש</string>
+    <string name="morphe_music_crossfade_screen_summary">ערבבו בצורה חלקה רצועות זו בזו</string>
+    <string name="morphe_music_crossfade_screen_title">מעבר הדרגתי</string>
+    <string name="morphe_music_crossfade_session_control_summary">לחץ לחיצה ארוכה על כפתור הערבוב כדי להשהות או לחדש את ה-crossfade</string>
+    <string name="morphe_music_crossfade_session_control_title">בקרת הפעלה</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">מצב וידאו אינו זמין כאשר מעבר בין השירים מופעל</string>
+    <string name="morphe_music_lyrics_about_summary">"מילים נבדקות לפי שם השיר והאמן, לכן שיר עם מטא-נתונים חריגים עלול לא למצוא כלום, או למצוא גרסה שגויה
+
+מילים מסונכרנות עוקבות אחר ההשמעה. אם הן סוטות, התאם את הזזת התזמון
+
+כאשר לא נמצאות מילות שירים של צד שלישי, יוצגו במקום זאת המילים המובנות"</string>
+    <string name="morphe_music_lyrics_about_title">אודות מילות שירים של צד שלישי</string>
+    <string name="morphe_music_lyrics_copied">הועתק ללוח הגזירים</string>
+    <string name="morphe_music_lyrics_enabled_summary">מציג מילים משירות צד שלישי, עם מעבר למילים המובנות כאשר לא נמצאו מילים</string>
+    <string name="morphe_music_lyrics_enabled_title">השתמש במילות שירים של צד שלישי</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">הזזת מילים מסונכרנות קדימה או אחורה. השתמש בערך חיובי אם המילים מקדימות את השיר</string>
+    <string name="morphe_music_lyrics_offset_ms_title">הזזת תזמון</string>
+    <string name="morphe_music_lyrics_show_copy_button_title">הצג לחצן העתקה</string>
+    <string name="morphe_music_lyrics_show_translate_button_title">הצג לחצן תרגום</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, ואז KuGou</string>
+    <string name="morphe_music_lyrics_source_label">מקור: %s</string>
+    <string name="morphe_music_lyrics_source_title">שירות מילים</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">הקשה על שורה מקפיצה לנקודה זו בשיר</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">הקש על שורה כדי לדלג</string>
+    <string name="morphe_music_lyrics_text_size_summary">גודל טקסט המילים</string>
+    <string name="morphe_music_lyrics_text_size_title">גודל טקסט</string>
+    <string name="morphe_music_lyrics_translate_failed">לא ניתן לתרגם את המילים</string>
+    <string name="morphe_music_lyrics_translate_hide">הצג מקורי</string>
+    <string name="morphe_music_lyrics_translate_show">תרגם</string>
+    <string name="morphe_music_lyrics_translating">מתרגם…</string>
     <string name="morphe_oauth2_connection_failure_auth_error">לא ניתן להתחבר ל-VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">לא ניתן להתחבר ל-VR, אישור אימות אתר לא אושר</string>
     <string name="morphe_oauth2_connection_failure_generic">Очнення временно недоступен</string>
@@ -32,26 +127,13 @@
     <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
+    <string name="morphe_settings_menu_copy_path">הועתק: %s</string>
+    <string name="morphe_settings_menu_filter_picker_empty">פתח את מסך ההגדרות הסטנדרטי של האפליקציה פעם אחת כדי לאכלס את הרשימה</string>
+    <string name="morphe_settings_menu_filter_screen_summary">הסתר פריטים ממסך ההגדרות הסטנדרטי של האפליקציה לפי השם הגלוי שלהם</string>
+    <string name="morphe_settings_menu_filter_screen_title">מסנן תפריט הגדרות</string>
     <string name="morphe_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary">"נעילת סקריפט JavaScript של הנגן לגרסה ספציפית
-
-• יש לספק hash תקין של סקריפט JavaScript של הנגן
-• ה-hash של סקריפט JavaScript של הנגן תקף בערך חודש אחד, ו-GVS תבטל hashים מיושנים
-• ההפעלה תיכשל אם ה-hash בוטל"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_off">עדכון JavaScript של הנגן מופעל</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_summary_on">"עדכון JavaScript של הנגן מושבת
-
-• נדרש hash JavaScript חוקי עבור הנגן
-• ההפעלה תיכשל אם ה-hash של JavaScript של הנגן בוטל ב-GVS"</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_title">לשבט את עדכוני JavaScript של הנגן</string>
-    <string name="morphe_spoof_video_streams_disable_player_js_update_user_dialog_message">"עליך לספק hash תקין של סקריפט JavaScript של הנגן.
-
-ההפעלה תיכשל אם ה-hash של סקריפט JavaScript של הנגן מיושן."</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить доступ к потокам клиента</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_summary">\"הזן hash JavaScript תקף של השחקן</string>
-    <string name="morphe_spoof_video_streams_player_js_hash_value_title">‌Ԓ԰՞ԑ JavaScript ԲՈԴ</string>
     <string name="morphe_spoof_video_streams_screen_summary">הגדר העלמת זהות לקוח כדי למנוע בעיות בהשמעה</string>
-    <string name="morphe_spoof_video_streams_screen_title">זיוף זרמי וידאו</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Вы не вошли в Android VR. Нажмите здесь, чтобы войти</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Чтобы использовать эту функцию, измените \'Default client\' на Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Вы вошли в Android VR</string>
@@ -63,9 +145,7 @@
 3. Войдите в Google при запросе. Если у вас несколько аккаунтов, выберите этот аккаунт YouTube
 4. Нажмите «Разрешить доступ YouTube VR»
 5. Вернитесь в это приложение после появления сообщения «Устройство подключено»"</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_open_website">Открыть сайт</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Инструкции</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_continue">Продолжить</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"התחברות לאנדרואיד VR תוכל לתקן בעיות תצוגה עבור כמה משתמשים
 
 להתחברות, לחץ על המשך למטה"</string>
@@ -73,12 +153,11 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Войти в Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Аутентификация сохранена
 
-• Настройки Morphe не будут импортироваться/экспортироваться для аутентификации Android VR
+• Настройки RVX не будут импортироваться/экспортироваться для аутентификации Android VR
 • Если это приложение не используется в течение 6 месяцев, Google удалит эту аутентификацию
 • Если вы измените пароль Google или снимете регистрацию этого устройства, вам придется войти снова"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Успешный вход</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Не удалось выдать код активации</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_authorization_code_failed">Не удалось получить токен аутентификации</string>
     <string name="morphe_spoof_video_streams_summary">"מתקן בעיות בהשמעה עבור רוב המשתמשים על ידי בקשת זרם וידאו תואם
 
 אם אתה משתמש YouTube Premium, ייתכן שהגדרת אפשרות זו לא תהיה נחוצה"</string>
@@ -89,8 +168,7 @@
 
 אם אתה משתמש YouTube Premium, ייתכן שהגדרה זו אינה נחוצה"</string>
     <string name="morphe_spoof_video_streams_title">זייף זרמי וידאו</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות השמעה.</string>
-    <string name="revanced_app_info_dialog_title">מידע היישום</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות השמעה</string>
     <string name="revanced_app_info_title">מידע היישום</string>
     <string name="revanced_change_start_page_entry_charts">גרפים</string>
     <string name="revanced_change_start_page_entry_default">ברירת מחדל</string>
@@ -103,14 +181,63 @@
     <string name="revanced_change_start_page_entry_search">חיפוש</string>
     <string name="revanced_change_start_page_entry_subscriptions">מינויים</string>
     <string name="revanced_change_start_page_title">דף התחלה</string>
+    <string name="revanced_custom_filter_strings_summary">רשימה של מחרוזות בונה נתיב רכיבים לסינון מופרדות על ידי שורות חדשות</string>
+    <string name="revanced_custom_filter_strings_title">מסנן מותאם אישית</string>
+    <string name="revanced_custom_filter_title">הפעל מסנן מותאם אישית</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">מסנן מותאם אישית לא חוקי: %s</string>
+    <string name="revanced_debug_protobuffer_summary">מוסיף מידע נוסף של רישום עבור מפתחים כדי לזהות רכיבי אפליקציה</string>
+    <string name="revanced_debug_protobuffer_title">רשום פרוטוקול חוצץ</string>
+    <string name="revanced_debug_title">אפשר הודעות דיבאג</string>
     <string name="revanced_default_app_settings_title">פתיחת הגדרות ברירת מחדל של האפליקציה</string>
-    <string name="revanced_disable_auto_captions_summary">בטל את ההפעלה הכפויה של כתוביות אוטומטיות.</string>
+    <string name="revanced_disable_auto_captions_summary">בטל את ההפעלה הכפויה של כתוביות אוטומטיות</string>
     <string name="revanced_disable_drc_audio_title">השבת אודיו DRC</string>
     <string name="revanced_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s לא מותקן. נא להתקין אותו</string>
     <string name="revanced_hide_fullscreen_ads_title">הסתר מודעות מסך מלא</string>
+    <string name="revanced_preference_screen_lyrics_title">מילים</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">פעולה זו אינה עוקפת את הגבלת הגיל. היא רק מאשרת אותה באופן אוטומטי</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">הסר את תיבת הדו\"ה לגבי התאמת התוכן לצופה</string>
     <string name="revanced_restart_first_run">הפעל מחדש כדי לסיים את ההגדרות</string>
-    <string name="revanced_spoof_video_streams_summary">"מתקן בעיות בהשמעה עבור רוב המשתמשים על ידי בקשת זרם וידאו תואם
+    <string name="revanced_ryd_attribution_summary">"הנתונים מסופקים על ידי ה-Return YouTube Dislike API
 
-אם אתה משתמש YouTube Premium, ייתכן שהגדרת אפשרות זו לא תהיה נחוצה"</string>
-    <string name="revanced_spoof_video_streams_title">זייף זרמי וידאו</string>
+הקש כאן כדי לפתוח את ReturnYouTubeDislike.com"</string>
+    <string name="revanced_ryd_compact_layout_summary">מקטין את רוחב כפתור הלייק כדי לחסוך מקום</string>
+    <string name="revanced_ryd_compact_layout_title">השתמש בכפתור לייק קומפקטי</string>
+    <string name="revanced_ryd_dislike_percentage_summary">מציג דיסלייקים כאחוז מהלייקים ולא כמספר</string>
+    <string name="revanced_ryd_dislike_percentage_title">הצג דיסלייקים כאחוזים</string>
+    <string name="revanced_ryd_enabled_title">הפעל החזרת לייקים ל-YouTube</string>
+    <string name="revanced_ryd_estimated_like_summary">מציג ספירת לייקים משוערת בסרטונים שהיוצר השבית את הלייקים בהם</string>
+    <string name="revanced_ryd_estimated_like_title">הצג סימוני \'אהבתי\' משוערים</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">דיסלייקים אינם זמינים (מגבלה של לקוח API)</string>
+    <string name="revanced_ryd_failure_connection_status_code">דיסלייקים אינם זמינים (מצב %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">דיסלייקים אינם זמינים באופן זמני (תם פסק הזמן של ה-API)</string>
+    <string name="revanced_ryd_failure_generic">דיסלייקים אינם זמינים (%s)</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">מציג התראה כאשר שרת Return YouTube Dislike אינו זמין</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">הצג התראות שגיאת חיבור</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">מוסתר על ידי הבעלים</string>
+    <string name="revanced_sb_skip_automatically_once">דלג באופן אוטומטי פעם אחת</string>
+    <string name="revanced_settings_import">ייבוא</string>
+    <string name="revanced_settings_import_copy">העתק</string>
+    <string name="revanced_settings_import_reset">הגדרות RVX אופסו לברירת מחדל</string>
+    <string name="revanced_settings_import_success">%d הגדרות יובאו</string>
+    <string name="revanced_settings_reset">איפוס</string>
+    <string name="revanced_settings_reset_color">אפס צבע</string>
+    <string name="revanced_settings_search_clear_history">נקה היסטוריית חיפושים</string>
+    <string name="revanced_settings_search_clear_history_message">האם אתה בטוח שברצונך למחוק את כל היסטוריית החיפושים?</string>
+    <string name="revanced_settings_search_empty_history_summary">כדי לשמור היסטוריית חיפוש, הקלד שאילתת חיפוש ולחץ על Enter</string>
+    <string name="revanced_settings_search_empty_history_title">היסטוריית החיפוש ריקה</string>
+    <string name="revanced_settings_search_history_title">הצג הגדרות היסטוריית חיפוש</string>
+    <string name="revanced_settings_search_no_results_summary">נסה מילת מפתח אחרת</string>
+    <string name="revanced_settings_search_no_results_title">לא נמצאו תוצאות עבור \'%s\'</string>
+    <string name="revanced_settings_search_recent_searches">חיפושים אחרונים</string>
+    <string name="revanced_settings_search_remove_message">להסיר מהיסטוריית חיפוש?</string>
+    <string name="revanced_settings_search_tips_summary">"• הקש על נתיב כדי לנווט אליו
+• לחיצה ארוכה על הגדרה כדי לנווט אליה
+• לחץ על Enter כדי לשמור שאילתת חיפוש להיסטוריה
+• החיפוש מתעלם מאותיות גדולות/קטנות וסימני פיסוק
+• הגדרות הורים מופיעות מעל הגדרות ילדים מושבתות"</string>
+    <string name="revanced_settings_search_tips_title">טיפים לחיפוש</string>
+    <string name="revanced_spoof_app_version_summary">מרמה את השרת לחשוב שאתה משתמש בגרסת אפליקציה ישנה יותר כדי לשחזר תכונות ממשק משתמש מדור קודם</string>
+    <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
+    <string name="revanced_spoof_app_version_title">זייף גרסת אפליקציה</string>
 </resources>

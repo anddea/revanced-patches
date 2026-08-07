@@ -1,3 +1,44 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.patches.shared.comments
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -61,12 +102,17 @@ val commentsPanelPatch = bytecodePatch(
             }
 
         // Method that finds the RecyclerView to which comments will be bound.
-        val recyclerViewOptionalMethodCall = recyclerViewOptionalFingerprint
-            .match(engagementPanelRecyclerViewFingerprint.classDef)
-            .method
+        // Resolve from the matched engagement-panel class. A second global fingerprint match can
+        // select a sibling class in YouTube Music 9.15.
+        val recyclerViewOptionalMethodCall = engagementPanelRecyclerViewFingerprint.classDef.methods
+            .first { method ->
+                method.returnType == "Lj$/util/Optional;" &&
+                        method.parameters.isEmpty() &&
+                        indexOfRecyclerViewInstruction(method) >= 0
+            }
             .methodCall()
 
-        engagementPanelRecyclerViewFingerprint.match().let { result ->
+        engagementPanelRecyclerViewFingerprint.let { result ->
             result.method.apply {
                 val setRecyclerViewMethodName = "patch_setRecyclerView"
                 val insertIndex = indexOfIfPresentInstruction(this) + 1
@@ -120,37 +166,37 @@ val commentsPanelPatch = bytecodePatch(
                     ).toMutable().apply {
                         addInstructionsWithLabels(
                             0,
-                            """
-                                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isCommentsScrollTopEnabled()Z
+                            $$"""
+                                    invoke-static { }, $$EXTENSION_CLASS_DESCRIPTOR->isCommentsScrollTopEnabled()Z
                                     move-result v0
                                     if-eqz v0, :ignore
-                                    
+
                                     # Get engagement panel id.
-                                    invoke-static { p1 }, $engagementPanelIdMethodCall
+                                    invoke-static { p1 }, $$engagementPanelIdMethodCall
                                     move-result-object v0
-                                    
+
                                     # Check if engagement panel id is not null.
                                     if-eqz v0, :ignore
 
                                     const-string v1, "comment"
                                     invoke-virtual { v0, v1 }, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
                                     move-result v0
-                                    
+
                                     # Check if engagement panel id is a comment.
                                     if-eqz v0, :ignore
-                                    
-                                    invoke-virtual { p0 }, $recyclerViewOptionalMethodCall
+
+                                    invoke-virtual { p0 }, $$recyclerViewOptionalMethodCall
                                     move-result-object v0
-                                    invoke-virtual { v0 }, Lj${'$'}/util/Optional;->isPresent()Z
+                                    invoke-virtual { v0 }, Lj$/util/Optional;->isPresent()Z
                                     move-result v1
-                                    
+
                                     # Check if recycler view is not null.
                                     if-eqz v1, :ignore
-                                    invoke-virtual { v0 }, Lj${'$'}/util/Optional;->get()Ljava/lang/Object;
+                                    invoke-virtual { v0 }, Lj$/util/Optional;->get()Ljava/lang/Object;
                                     move-result-object v0
                                     check-cast v0, Landroid/support/v7/widget/RecyclerView;
-                                    invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->onCommentsCreate(Landroid/support/v7/widget/RecyclerView;)V
-                                    
+                                    invoke-static { v0 }, $$EXTENSION_CLASS_DESCRIPTOR->onCommentsCreate(Landroid/support/v7/widget/RecyclerView;)V
+
                                     :ignore
                                     return-void
                                     """,
@@ -159,7 +205,6 @@ val commentsPanelPatch = bytecodePatch(
                 )
             }
         }
-
         mapOf(
             informationButton to "hideInformationButton",
             modernTitle to "setContentHeader",

@@ -34,6 +34,7 @@ import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInfor
 import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.speedSelectionInsertMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
+import app.morphe.patches.youtube.video.quality.prioritizeVideoQualityPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
 import app.morphe.util.findMethodOrThrow
@@ -90,6 +91,7 @@ val videoPlaybackPatch = bytecodePatch(
         videoIdPatch,
         videoInformationPatch,
         sharedResourceIdPatch,
+        prioritizeVideoQualityPatch,
     )
 
     execute {
@@ -246,7 +248,6 @@ val videoPlaybackPatch = bytecodePatch(
                 )
             }
         }
-
 
         recyclerViewTreeObserverHook("$EXTENSION_ADVANCED_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
         addLithoFilter(VIDEO_QUALITY_MENU_FILTER_CLASS_DESCRIPTOR)

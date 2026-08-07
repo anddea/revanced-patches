@@ -98,7 +98,6 @@ val inclusiveSpanPatch = bytecodePatch(
                 )
             }
 
-
             // Create a new method to get the filter array to avoid register conflicts.
             // This fixes an issue with extension compiled with Android Gradle Plugin 8.3.0+.
             // https://github.com/ReVanced/revanced-patches/issues/2818
@@ -164,5 +163,3 @@ val inclusiveSpanPatch = bytecodePatch(
         )
     }
 }
-
-

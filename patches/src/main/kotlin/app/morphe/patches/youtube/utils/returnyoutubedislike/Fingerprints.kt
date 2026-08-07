@@ -1,76 +1,139 @@
 package app.morphe.patches.youtube.utils.returnyoutubedislike
 
-import app.morphe.util.fingerprint.legacyFingerprint
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchFirst
+import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.string
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
+internal object DislikeFingerprint : Fingerprint(
+    returnType = "V",
+    filters = listOf(
+        string("like/dislike"),
+    ),
+)
+
+internal object EndpointServiceNameFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL),
+    parameters = listOf(),
+    returnType = "L",
+    filters = listOf(
+        string("serviceName"),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = "Ljava/lang/String;",
+        ),
+    ),
+)
+
+internal fun likeEndpointParserFingerprint(definingClass: String) = object : Fingerprint(
+    definingClass = definingClass,
+    returnType = "V",
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.SGET_OBJECT,
+            location = MatchFirst(),
+        ),
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = "this",
+        ),
+        string(""),
+    ),
+) {}
+
+internal fun requestParameterCheckFingerprint(definingClass: String) = object : Fingerprint(
+    definingClass = definingClass,
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL),
+    parameters = listOf(),
+    filters = listOf(
+        // playlistId
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            type = "Ljava/lang/String;",
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            smali = "Ljava/lang/String;->isEmpty()Z",
+        ),
+        // videoId
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            type = "Ljava/lang/String;",
+        ),
+    ),
+) {}
+
 /**
  * This fingerprint is compatible with YouTube v18.30.xx+
  */
-internal val rollingNumberMeasureAnimatedTextFingerprint = legacyFingerprint(
-    name = "rollingNumberMeasureAnimatedTextFingerprint",
-    opcodes = listOf(
+internal object RollingNumberMeasureAnimatedTextFingerprint : Fingerprint(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.ADD_FLOAT_2ADDR, // measuredTextWidth
         Opcode.ADD_INT_LIT8,
-        Opcode.GOTO
+        Opcode.GOTO,
     ),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.indexOfFirstInstruction {
             getReference<MethodReference>()?.toString() == "Landroid/text/TextPaint;->measureText([CII)F"
         } >= 0
-    }
+    },
 )
 
-internal val rollingNumberMeasureStaticLabelFingerprint = legacyFingerprint(
-    name = "rollingNumberMeasureStaticLabelFingerprint",
+internal object RollingNumberMeasureStaticLabelFingerprint : Fingerprint(
     returnType = "F",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Ljava/lang/String;"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.RETURN
-    )
+        Opcode.RETURN,
+    ),
 )
 
-internal val rollingNumberMeasureTextParentFingerprint = legacyFingerprint(
-    name = "rollingNumberMeasureTextParentFingerprint",
+internal object RollingNumberMeasureTextParentFingerprint : Fingerprint(
     returnType = "Ljava/lang/String;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf(),
-    strings = listOf("RollingNumberFontProperties{paint=")
+    filters = listOf(
+        string("RollingNumberFontProperties{paint="),
+    ),
 )
 
 /**
  * This fingerprint is compatible with YouTube v18.29.38+
  */
-internal val rollingNumberSetterFingerprint = legacyFingerprint(
-    name = "rollingNumberSetterFingerprint",
-    opcodes = listOf(Opcode.CHECK_CAST),
-    customFingerprint = { method, _ ->
+internal object RollingNumberSetterFingerprint : Fingerprint(
+    filters = OpcodesFilter.opcodesToFilters(Opcode.CHECK_CAST),
+    custom = { method, _ ->
         method.indexOfFirstInstruction {
             opcode == Opcode.CONST_STRING &&
                     getReference<StringReference>()
                         ?.string.toString()
                         .startsWith("RollingNumberType required properties missing! Need")
         } >= 0
-    }
+    },
 )
 
 internal const val LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG = 45675738L
 
-internal val textComponentFeatureFlagFingerprint = legacyFingerprint(
-    name = "textComponentFeatureFlagFingerprint",
-    accessFlags = AccessFlags.FINAL.value,
+internal object TextComponentFeatureFlagFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.FINAL),
     returnType = "Z",
     parameters = emptyList(),
-    literals = listOf(LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG)
+    filters = listOf(
+        literal(LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG),
+    ),
 )

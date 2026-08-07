@@ -1,5 +1,62 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ */
+
 package app.morphe.patches.music.player.components
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.OpcodesFilter.Companion.opcodesToFilters
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.music.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.playservice.is_7_18_or_greater
 import app.morphe.patches.music.utils.resourceid.colorGrey
@@ -12,6 +69,8 @@ import app.morphe.patches.music.utils.resourceid.miniPlayerViewPager
 import app.morphe.patches.music.utils.resourceid.playerViewPager
 import app.morphe.patches.music.utils.resourceid.remixGenericButtonSize
 import app.morphe.patches.music.utils.resourceid.tapBloomView
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
@@ -22,6 +81,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import app.morphe.patcher.methodCall as patcherMethodCall
 
 const val AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY =
     "/AudioVideoSwitcherToggleView;->setVisibility(I)V"
@@ -130,6 +190,63 @@ internal val minimizedPlayerFingerprint = legacyFingerprint(
     strings = listOf("w_st")
 )
 
+internal object ModernMinimizedPlayerFingerprint : Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("L", "L"),
+    filters = listOf(string("w_st"))
+)
+
+internal object ModernMiniPlayerConstructorFingerprint : Fingerprint(
+    name = "<init>",
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "mini_player_play_pause_replay_button"),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "findViewById",
+            location = MatchAfterWithin(5)
+        ),
+        string("sharedToggleMenuItemMutations")
+    )
+)
+
+internal object ModernSwitchToggleColorFingerprint : Fingerprint(
+    classFingerprint = ModernMiniPlayerConstructorFingerprint,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "J"),
+    filters = listOf(
+        methodCall(opcode = Opcode.INVOKE_VIRTUAL, parameters = emptyList(), returnType = "L"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        opcode(Opcode.CHECK_CAST, MatchAfterImmediately()),
+        opcode(Opcode.GOTO, MatchAfterWithin(5)),
+        fieldAccess(opcode = Opcode.IGET, type = "I"),
+        opcode(Opcode.INVOKE_VIRTUAL, MatchAfterImmediately())
+    )
+)
+
+internal object ModernMiniPlayerDefaultTextFingerprint : Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = emptyList(),
+    filters = listOf(resourceLiteral(ResourceType.STRING, "mini_player_default_text"))
+)
+
+/**
+ * Matches the player-page motion handler which must be bypassed for swipe dismissal on 9.00+.
+ */
+internal object PlayerPageBehaviorFingerprint : Fingerprint(
+    definingClass = "Lcom/google/android/apps/youtube/music/watchpage/ui/PlayerPageBehavior;",
+    accessFlags = listOf(AccessFlags.FINAL),
+    parameters = emptyList(),
+    returnType = "V",
+    filters = opcodesToFilters(
+        Opcode.CONST_4,
+        Opcode.IPUT_BOOLEAN,
+        Opcode.RETURN_VOID
+    )
+)
+
 internal val miniPlayerConstructorFingerprint = legacyFingerprint(
     name = "miniPlayerConstructorFingerprint",
     returnType = "V",
@@ -191,6 +308,20 @@ internal val mppWatchWhileLayoutFingerprint = legacyFingerprint(
 
         indexOfCallableInstruction(method) >= 0
     }
+)
+
+internal object ModernMppWatchWhileLayoutFingerprint : Fingerprint(
+    definingClass = "WatchWhileLayout;",
+    returnType = "V",
+    parameters = emptyList(),
+    filters = listOf(
+        opcode(Opcode.NEW_ARRAY),
+        methodCall(
+            opcode = Opcode.INVOKE_STATIC,
+            parameters = listOf("[Landroid/view/View;"),
+            returnType = "V"
+        )
+    )
 )
 
 internal fun indexOfCallableInstruction(method: Method) =
@@ -429,5 +560,27 @@ internal val zenModeFingerprint = legacyFingerprint(
         Opcode.GOTO,
         Opcode.NOP,
         Opcode.SGET_OBJECT
+    )
+)
+
+internal object ModernPlayerBackgroundFingerprint : Fingerprint(
+    classFingerprint = ModernMiniPlayerConstructorFingerprint,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("I", "I", "J"),
+    filters = listOf(
+        opcode(Opcode.FILLED_NEW_ARRAY),
+        patcherMethodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "setImageTintList",
+            parameters = listOf("Landroid/content/res/ColorStateList;"),
+            returnType = "V"
+        ),
+        patcherMethodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "setBackground",
+            parameters = listOf("Landroid/graphics/drawable/Drawable;"),
+            returnType = "V"
+        )
     )
 )

@@ -19,7 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.ResourceUtils;
+import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.sponsorblock.SponsorBlockUtils;
@@ -114,7 +114,7 @@ public final class NewSegmentLayout extends FrameLayout {
      */
     private void initializeButton(final Context context, final String resourceIdentifierName,
                                   final ButtonOnClickHandlerFunction handler, final String debugMessage) {
-        ImageButton button = findViewById(getIdentifier(resourceIdentifierName, ResourceUtils.ResourceType.ID, context));
+        ImageButton button = findViewById(getIdentifier(resourceIdentifierName, ResourceType.ID, context));
 
         // Add ripple effect
         RippleDrawable rippleDrawable = new RippleDrawable(

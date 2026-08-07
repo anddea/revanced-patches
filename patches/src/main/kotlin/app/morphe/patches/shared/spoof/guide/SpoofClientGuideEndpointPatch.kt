@@ -99,7 +99,7 @@ internal fun addClientInfoHook(
     }
 }
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal fun addClientOSVersionHook(
     helperMethodName: String,
     descriptor: String,

@@ -60,6 +60,16 @@ var is_8_30_or_greater : Boolean by Delegates.notNull()
     private set
 var is_8_33_or_greater : Boolean by Delegates.notNull()
     private set
+var is_8_40_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_8_51_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_9_00_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_9_15_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_9_26_or_greater : Boolean by Delegates.notNull()
+    private set
 
 val versionCheckPatch = resourcePatch(
     description = "versionCheckPatch",
@@ -100,5 +110,10 @@ val versionCheckPatch = resourcePatch(
         is_8_29_or_greater = isEqualsOrGreaterThan("8.29.00")
         is_8_30_or_greater = isEqualsOrGreaterThan("8.30.00")
         is_8_33_or_greater = isEqualsOrGreaterThan("8.33.00")
+        is_8_40_or_greater = isEqualsOrGreaterThan("8.40.00")
+        is_8_51_or_greater = isEqualsOrGreaterThan("8.51.00")
+        is_9_00_or_greater = isEqualsOrGreaterThan("9.00.00")
+        is_9_15_or_greater = isEqualsOrGreaterThan("9.15.00")
+        is_9_26_or_greater = isEqualsOrGreaterThan("9.26.00")
     }
 }

@@ -328,7 +328,7 @@ public class ExternalDownloaderVideoLongPressPreference extends CustomDialogList
                         // Show dialog if EditText is empty.
                         CustomDialog.create(
                                 context,
-                                str("revanced_external_downloader_dialog_title"),
+                                str("revanced_shorts_custom_actions_external_downloader_label"),
                                 str("revanced_external_downloader_empty_warning"),
                                 null,
                                 null,

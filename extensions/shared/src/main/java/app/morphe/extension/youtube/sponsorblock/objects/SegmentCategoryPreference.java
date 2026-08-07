@@ -31,7 +31,6 @@ public class SegmentCategoryPreference extends ColorPickerPreference {
     private int selectedDialogEntryIndex;
     private CharSequence[] entryValues;
 
-
     public SegmentCategoryPreference(Context context, SegmentCategory category) {
         super(context);
         this.category = Objects.requireNonNull(category);

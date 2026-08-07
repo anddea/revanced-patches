@@ -45,7 +45,7 @@ val castButtonPatch = bytecodePatch(
     }
 }
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal fun hookToolBarCastButton() {
     toolbarMenuItemInitializeMethod.apply {
         val index = indexOfFirstInstructionOrThrow {

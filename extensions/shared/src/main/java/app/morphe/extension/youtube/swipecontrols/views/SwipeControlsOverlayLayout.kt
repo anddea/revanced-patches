@@ -17,7 +17,7 @@ import android.view.HapticFeedbackConstants
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
-import app.morphe.extension.shared.utils.ResourceUtils.ResourceType
+import app.morphe.extension.shared.utils.ResourceType
 import app.morphe.extension.shared.utils.ResourceUtils.getIdentifier
 import app.morphe.extension.shared.utils.StringRef.str
 import app.morphe.extension.shared.utils.Utils.dipToPixels

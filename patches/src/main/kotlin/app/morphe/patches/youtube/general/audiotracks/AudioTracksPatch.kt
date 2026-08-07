@@ -2,8 +2,9 @@ package app.morphe.patches.youtube.general.audiotracks
 
 import app.morphe.patches.shared.audiotracks.audioTracksPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
-import app.morphe.patches.youtube.utils.patch.PatchList.DISABLE_FORCED_AUTO_AUDIO_TRACKS
+import app.morphe.patches.youtube.utils.patch.PatchList.FORCE_ORIGINAL_AUDIO
 import app.morphe.patches.youtube.utils.playservice.is_20_07_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_26_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -24,12 +25,13 @@ val audioTracksPatch = audioTracksPatch(
         addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: GENERAL",
-                "SETTINGS: DISABLE_AUTO_AUDIO_TRACKS"
+                "SETTINGS: FORCE_ORIGINAL_AUDIO"
             ),
-            DISABLE_FORCED_AUTO_AUDIO_TRACKS
+            FORCE_ORIGINAL_AUDIO
         )
 
         // endregion
     },
-    fixUseLocalizedAudioTrackFlag = is_20_07_or_greater
+    fixUseLocalizedAudioTrackFlag = { is_20_07_or_greater && !is_21_26_or_greater },
+    forcedServerAdaptiveStreaming = { is_21_26_or_greater }
 )

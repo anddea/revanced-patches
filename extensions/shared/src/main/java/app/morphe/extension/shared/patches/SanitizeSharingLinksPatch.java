@@ -5,9 +5,9 @@ import android.text.TextUtils;
 
 import java.util.List;
 
-import app.morphe.extension.shared.Logger;
 import app.morphe.extension.shared.privacy.LinkSanitizer;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
+import app.morphe.extension.shared.utils.Logger;
 
 /**
  * YouTube and YouTube Music.

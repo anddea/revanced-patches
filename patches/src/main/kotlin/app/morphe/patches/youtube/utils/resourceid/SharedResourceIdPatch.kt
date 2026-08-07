@@ -158,8 +158,6 @@ var offlineNoContentBodyTextNotOfflineEligible = -1L
     private set
 var p13nHeader = -1L
     private set
-var pairWithTVKey = -1L
-    private set
 var playerCollapseButton = -1L
     private set
 var playerControlPreviousButtonTouchArea = -1L
@@ -366,7 +364,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         offlineNoContentBodyTextNotOfflineEligible =
             getResourceId(STRING, "offline_no_content_body_text_not_offline_eligible")
         p13nHeader = getResourceId(STRING, "p13n_header")
-        pairWithTVKey = getResourceId(STRING, "pair_with_tv_key")
         playerCollapseButton = getResourceId(ID, "player_collapse_button")
         playerControlPreviousButtonTouchArea =
             getResourceId(ID, "player_control_previous_button_touch_area")

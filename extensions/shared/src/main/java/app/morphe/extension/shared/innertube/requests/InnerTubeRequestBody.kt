@@ -1,5 +1,47 @@
+/*
+ * Copyright (C) 2025-2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.shared.innertube.requests
 
+import android.os.Build
 import app.morphe.extension.shared.innertube.client.YouTubeClient
 import app.morphe.extension.shared.innertube.utils.ThrottlingParameterUtils
 import app.morphe.extension.shared.requests.Requester
@@ -21,6 +63,9 @@ import java.util.TimeZone
 @Suppress("deprecation")
 object InnerTubeRequestBody {
     private const val YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/"
+    private const val PLAYLIST_CLIENT_ID = "3"
+    private const val PLAYLIST_CLIENT_VERSION = "20.26.46"
+    private const val PLAYLIST_PACKAGE_NAME = "com.google.android.youtube"
 
     private const val AUTHORIZATION_HEADER = "Authorization"
     private const val PAGE_ID_HEADER = "X-Goog-PageId"
@@ -167,7 +212,8 @@ object InnerTubeRequestBody {
     }
 
     private fun androidInnerTubeBody(
-        clientType: YouTubeClient.ClientType = YouTubeClient.ClientType.ANDROID
+        clientType: YouTubeClient.ClientType = YouTubeClient.ClientType.ANDROID,
+        clientVersion: String = clientType.clientVersion,
     ): JSONObject {
         val innerTubeBody = JSONObject()
 
@@ -176,7 +222,7 @@ object InnerTubeRequestBody {
             client.put("deviceMake", clientType.deviceMake)
             client.put("deviceModel", clientType.deviceModel)
             client.put("clientName", clientType.clientName)
-            client.put("clientVersion", clientType.clientVersion)
+            client.put("clientVersion", clientVersion)
             client.put("osName", clientType.osName)
             client.put("osVersion", clientType.osVersion)
             client.put("androidSdkVersion", clientType.androidSdkVersion)
@@ -198,11 +244,18 @@ object InnerTubeRequestBody {
         return innerTubeBody
     }
 
+    /**
+     * Playlist mutation endpoints reject older Android clients, so queue manager requests
+     * use Morphe's known-good Android 20.26.46 client identity even on older target APKs.
+     */
+    private fun playlistInnerTubeBody(): JSONObject =
+        androidInnerTubeBody(clientVersion = PLAYLIST_CLIENT_VERSION)
+
     @JvmStatic
     fun createPlaylistRequestBody(
         videoId: String,
     ): ByteArray {
-        val innerTubeBody = androidInnerTubeBody()
+        val innerTubeBody = playlistInnerTubeBody()
 
         try {
             innerTubeBody.put("params", "CAQ%3D")
@@ -220,10 +273,27 @@ object InnerTubeRequestBody {
     }
 
     @JvmStatic
+    fun getSetVideoIdRequestBody(
+        videoId: String,
+        playlistId: String,
+    ): ByteArray {
+        val innerTubeBody = playlistInnerTubeBody()
+
+        try {
+            innerTubeBody.put("videoId", videoId)
+            innerTubeBody.put("playlistId", playlistId)
+        } catch (e: JSONException) {
+            Logger.printException({ "Failed to create get set video id innerTubeBody" }, e)
+        }
+
+        return innerTubeBody.toString().toByteArray(StandardCharsets.UTF_8)
+    }
+
+    @JvmStatic
     fun deletePlaylistRequestBody(
         playlistId: String,
     ): ByteArray {
-        val innerTubeBody = androidInnerTubeBody()
+        val innerTubeBody = playlistInnerTubeBody()
 
         try {
             innerTubeBody.put("playlistId", playlistId)
@@ -240,7 +310,7 @@ object InnerTubeRequestBody {
         playlistId: String,
         setVideoId: String?,
     ): ByteArray {
-        val innerTubeBody = androidInnerTubeBody()
+        val innerTubeBody = playlistInnerTubeBody()
 
         try {
             innerTubeBody.put("playlistId", playlistId)
@@ -268,7 +338,7 @@ object InnerTubeRequestBody {
     fun getPlaylistsRequestBody(
         playlistId: String,
     ): ByteArray {
-        val innerTubeBody = androidInnerTubeBody()
+        val innerTubeBody = playlistInnerTubeBody()
 
         try {
             innerTubeBody.put("playlistId", playlistId)
@@ -285,7 +355,7 @@ object InnerTubeRequestBody {
         playlistId: String,
         libraryId: String,
     ): ByteArray {
-        val innerTubeBody = androidInnerTubeBody()
+        val innerTubeBody = playlistInnerTubeBody()
 
         try {
             innerTubeBody.put("playlistId", playlistId)
@@ -302,6 +372,45 @@ object InnerTubeRequestBody {
         }
 
         return innerTubeBody.toString().toByteArray(StandardCharsets.UTF_8)
+    }
+
+    @JvmStatic
+    fun getPlaylistResponseConnectionFromRoute(
+        route: CompiledRoute,
+        requestHeader: Map<String, String>? = null,
+        connectTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
+        readTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
+    ): HttpURLConnection {
+        val userAgent = String.format(
+            Locale.US,
+            "%s/%s (Linux; U; Android %s; %s; %s Build/%s)",
+            PLAYLIST_PACKAGE_NAME,
+            PLAYLIST_CLIENT_VERSION,
+            Build.VERSION.RELEASE,
+            Locale.getDefault(),
+            Build.MODEL,
+            Build.ID,
+        )
+
+        val connection = getInnerTubeResponseConnectionFromRoute(
+            route = route,
+            userAgent = userAgent,
+            clientId = PLAYLIST_CLIENT_ID,
+            clientVersion = PLAYLIST_CLIENT_VERSION,
+            requestHeader = null,
+            connectTimeout = connectTimeout,
+            readTimeout = readTimeout,
+        )
+
+        if (requestHeader != null) {
+            for ((key, value) in requestHeader) {
+                if (!value.isNullOrEmpty()) {
+                    connection.setRequestProperty(key, value)
+                }
+            }
+        }
+
+        return connection
     }
 
     @JvmStatic

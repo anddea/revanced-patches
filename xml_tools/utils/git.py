@@ -1,9 +1,15 @@
+# Copyright (C) 2026 anddea
+
 """Git commands."""
 
 import logging
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import git
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 logger = logging.getLogger("xml_tools")
 
@@ -112,15 +118,15 @@ class GitClient:
             True if all operations succeeded, False otherwise.
 
         """
-        operations = [
-            (self.switch_branch, "dev"),
-            (self.fetch,),
-            (self.pull,),
-        ]
+        operations: tuple[tuple[str, Callable[[], tuple[int, str, str]]], ...] = (
+            ("switch_branch", lambda: self.switch_branch("dev")),
+            ("fetch", self.fetch),
+            ("pull", self.pull),
+        )
 
-        for operation, *args in operations:
-            code, _, _ = operation(*args)
+        for operation_name, operation in operations:
+            code, _output, _error = operation()
             if code != 0:
                 return False
-            logger.debug("Git %s successful", operation.__name__)
+            logger.debug("Git %s successful", operation_name)
         return True

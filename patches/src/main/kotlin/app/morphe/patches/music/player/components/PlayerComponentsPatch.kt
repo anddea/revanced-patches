@@ -1,3 +1,52 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ */
+
 package app.morphe.patches.music.player.components
 
 import app.morphe.patcher.Fingerprint
@@ -14,6 +63,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
@@ -30,6 +80,9 @@ import app.morphe.patches.music.utils.playservice.is_7_29_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_03_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_05_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_12_or_greater
+import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_00_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_15_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.colorGrey
 import app.morphe.patches.music.utils.resourceid.darkBackground
@@ -42,7 +95,7 @@ import app.morphe.patches.music.utils.resourceid.topEnd
 import app.morphe.patches.music.utils.resourceid.topStart
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
-import app.morphe.patches.music.utils.settings.addPreferenceWithIntent
+import app.morphe.patches.music.utils.settings.addCustomPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.music.utils.videotype.videoTypeHookPatch
@@ -51,11 +104,14 @@ import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.mainactivity.getMainActivityMethod
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.morphe.util.Utils.printWarn
+import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.addStaticFieldToExtension
 import app.morphe.util.adoptChild
 import app.morphe.util.cloneMutable
 import app.morphe.util.doRecursively
 import app.morphe.util.findInstructionIndicesReversed
+import app.morphe.util.findFreeRegister
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.injectLiteralInstructionViewCall
@@ -76,6 +132,7 @@ import app.morphe.util.insertNode
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -84,6 +141,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import org.w3c.dom.Element
@@ -94,6 +152,20 @@ private const val NEXT_BUTTON_VIEW_ID =
     "mini_player_next_button"
 private const val PREVIOUS_BUTTON_VIEW_ID =
     "mini_player_previous_button"
+private const val COLOR_PICKER_PREFERENCE_TAG =
+    "app.morphe.extension.shared.settings.preference.ColorPickerPreference"
+
+private fun MutableMethod.hookPlayerBackgroundColor() {
+    val index = indexOfFirstInstructionOrThrow(Opcode.FILLED_NEW_ARRAY)
+    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+    addInstructions(
+        index + 2, """
+            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->changePlayerBackgroundColor([I)[I
+            move-result-object v$register
+            """
+    )
+}
 
 private val playerComponentsResourcePatch = resourcePatch(
     description = "playerComponentsResourcePatch"
@@ -213,7 +285,7 @@ val playerComponentsPatch = bytecodePatch(
         title = "Swipe to dismiss miniplayer",
         description = """
             Adds an option to enable swipe to dismiss the miniplayer.
-            
+
             If this patch option is enabled, the empty miniplayer may not show when the miniplayer is dismissed.
             """.trimIndent(),
         required = true
@@ -351,55 +423,87 @@ val playerComponentsPatch = bytecodePatch(
             )
         }
 
-        val miniPlayerConstructorMutableMethod =
-            miniPlayerConstructorFingerprint.methodOrThrow()
+        if (!is_8_51_or_greater) {
+            val miniPlayerConstructorMutableMethod =
+                miniPlayerConstructorFingerprint.methodOrThrow()
 
-        val mppWatchWhileLayoutMutableMethod =
-            mppWatchWhileLayoutFingerprint.methodOrThrow()
+            val mppWatchWhileLayoutMutableMethod =
+                mppWatchWhileLayoutFingerprint.methodOrThrow()
 
-        val pendingIntentReceiverMutableMethod =
-            pendingIntentReceiverFingerprint.methodOrThrow()
+            val pendingIntentReceiverMutableMethod =
+                pendingIntentReceiverFingerprint.methodOrThrow()
 
-        if (!is_6_42_or_greater) {
-            nextButtonVisibilityFingerprint.matchOrThrow(miniPlayerParentFingerprint).let {
+            if (!is_6_42_or_greater) {
+                nextButtonVisibilityFingerprint.matchOrThrow(miniPlayerParentFingerprint).let {
+                    it.method.apply {
+                        val targetIndex = it.instructionMatches.first().index + 1
+                        val targetRegister =
+                            getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                        addInstructions(
+                            targetIndex + 1, """
+                                invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->addMiniPlayerNextButton(Z)Z
+                                move-result v$targetRegister
+                                """
+                        )
+                    }
+                }
+            } else {
+                miniPlayerConstructorMutableMethod.setOnclickListener(
+                    nextOnClickListenerMethodName,
+                    topStart
+                )
+                mppWatchWhileLayoutMutableMethod.setButtonView(nextButtonViewMethodName, topStart)
+                pendingIntentReceiverMutableMethod.setIntentOnClickListener(
+                    nextButtonIntentString,
+                    nextButtonClickedMethodName,
+                    nextButtonClassFieldName
+                )
+            }
+
+            miniPlayerConstructorMutableMethod.setOnclickListener(
+                previousOnClickListenerMethodName,
+                topEnd
+            )
+            mppWatchWhileLayoutMutableMethod.setButtonView(previousButtonViewMethodName, topEnd)
+            pendingIntentReceiverMutableMethod.setIntentOnClickListener(
+                previousButtonIntentString,
+                previousButtonClickedMethodName,
+                previousButtonClassFieldName
+            )
+
+            mppWatchWhileLayoutMutableMethod.setViewArray()
+        } else {
+            // 8.51+ uses renamed watch-while classes and dispatches media key events from the extension.
+            ModernMiniPlayerConstructorFingerprint.let {
                 it.method.apply {
-                    val targetIndex = it.instructionMatches.first().index + 1
-                    val targetRegister =
-                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                    val findViewByIdIndex = it.instructionMatches[1].index
+                    val parentViewRegister =
+                        getInstruction<FiveRegisterInstruction>(findViewByIdIndex).registerC
+
+                    addInstruction(
+                        it.instructionMatches.first().index,
+                        "invoke-static {v$parentViewRegister}, $PLAYER_CLASS_DESCRIPTOR->" +
+                                "setPreviousNextButtonOnClickListener(Landroid/view/View;)V"
+                    )
+                }
+            }
+
+            ModernMppWatchWhileLayoutFingerprint.let {
+                it.method.apply {
+                    val insertIndex = it.instructionMatches.last().index
+                    val viewArrayRegister =
+                        getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
                     addInstructions(
-                        targetIndex + 1, """
-                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->addMiniPlayerNextButton(Z)Z
-                            move-result v$targetRegister
+                        insertIndex, """
+                            invoke-static {p0, v$viewArrayRegister}, $PLAYER_CLASS_DESCRIPTOR->setPreviousNextButton(Landroid/view/View;[Landroid/view/View;)[Landroid/view/View;
+                            move-result-object v$viewArrayRegister
                             """
                     )
                 }
             }
-        } else {
-            miniPlayerConstructorMutableMethod.setOnclickListener(
-                nextOnClickListenerMethodName,
-                topStart
-            )
-            mppWatchWhileLayoutMutableMethod.setButtonView(nextButtonViewMethodName, topStart)
-            pendingIntentReceiverMutableMethod.setIntentOnClickListener(
-                nextButtonIntentString,
-                nextButtonClickedMethodName,
-                nextButtonClassFieldName
-            )
         }
-
-        miniPlayerConstructorMutableMethod.setOnclickListener(
-            previousOnClickListenerMethodName,
-            topEnd
-        )
-        mppWatchWhileLayoutMutableMethod.setButtonView(previousButtonViewMethodName, topEnd)
-        pendingIntentReceiverMutableMethod.setIntentOnClickListener(
-            previousButtonIntentString,
-            previousButtonClickedMethodName,
-            previousButtonClassFieldName
-        )
-
-        mppWatchWhileLayoutMutableMethod.setViewArray()
 
         addSwitchPreference(
             CategoryType.PLAYER,
@@ -416,73 +520,114 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for color match player, change player background and enable zen mode (635+)
 
-        val (
-            colorMathPlayerMethodParameter,
-            colorMathPlayerInvokeVirtualReference,
-            colorMathPlayerIGetReference
-        ) = switchToggleColorFingerprint.matchOrThrow(miniPlayerConstructorFingerprint).let {
-            with(it.method) {
-                val relativeIndex = it.instructionMatches.last().index + 1
-                val invokeVirtualIndex =
-                    indexOfFirstInstructionOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
-                val iGetIndex = indexOfFirstInstructionOrThrow(relativeIndex, Opcode.IGET)
+        if (!is_8_51_or_greater) {
+            val (
+                colorMathPlayerMethodParameter,
+                colorMathPlayerInvokeVirtualReference,
+                colorMathPlayerIGetReference
+            ) = switchToggleColorFingerprint.matchOrThrow(miniPlayerConstructorFingerprint).let {
+                with(it.method) {
+                    val relativeIndex = it.instructionMatches.last().index + 1
+                    val invokeVirtualIndex =
+                        indexOfFirstInstructionOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
+                    val iGetIndex = indexOfFirstInstructionOrThrow(relativeIndex, Opcode.IGET)
 
-                // black player background
-                val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
+                    // black player background
+                    val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
 
-                getWalkerMethod(invokeDirectIndex).apply {
-                    val index = indexOfFirstInstructionOrThrow(Opcode.FILLED_NEW_ARRAY)
-                    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                    getWalkerMethod(invokeDirectIndex).hookPlayerBackgroundColor()
 
-                    addInstructions(
-                        index + 2, """
-                            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->changePlayerBackgroundColor([I)[I
-                            move-result-object v$register
-                            """
+                    Triple(
+                        parameters,
+                        getInstruction<ReferenceInstruction>(invokeVirtualIndex).reference,
+                        getInstruction<ReferenceInstruction>(iGetIndex).reference
                     )
                 }
-
-                Triple(
-                    parameters,
-                    getInstruction<ReferenceInstruction>(invokeVirtualIndex).reference,
-                    getInstruction<ReferenceInstruction>(iGetIndex).reference
-                )
             }
-        }
 
-        val colorMathPlayerIPutReference = with(miniPlayerConstructorFingerprint.methodOrThrow()) {
-            val colorGreyIndex = indexOfFirstLiteralInstructionOrThrow(colorGrey)
-            val iPutIndex = indexOfFirstInstructionOrThrow(colorGreyIndex, Opcode.IPUT)
-            getInstruction<ReferenceInstruction>(iPutIndex).reference
-        }
+            val colorMathPlayerIPutReference = with(miniPlayerConstructorFingerprint.methodOrThrow()) {
+                val colorGreyIndex = indexOfFirstLiteralInstructionOrThrow(colorGrey)
+                val iPutIndex = indexOfFirstInstructionOrThrow(colorGreyIndex, Opcode.IPUT)
+                getInstruction<ReferenceInstruction>(iPutIndex).reference
+            }
 
-        miniPlayerConstructorFingerprint.mutableClassOrThrow().methods.filter {
-            it.accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
-                    it.parameters == colorMathPlayerMethodParameter &&
-                    it.returnType == "V"
-        }.forEach { method ->
-            method.apply {
-                val freeRegister = implementation!!.registerCount - parameters.size - 3
-                val invokeDirectIndex =
-                    indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
-                val invokeDirectReference =
-                    getInstruction<ReferenceInstruction>(invokeDirectIndex).reference
+            miniPlayerConstructorFingerprint.mutableClassOrThrow().methods.filter {
+                it.accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
+                        it.parameters == colorMathPlayerMethodParameter &&
+                        it.returnType == "V"
+            }.forEach { method ->
+                method.apply {
+                    val freeRegister = implementation!!.registerCount - parameters.size - 3
+                    val invokeDirectIndex =
+                        indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
+                    val invokeDirectReference =
+                        getInstruction<ReferenceInstruction>(invokeDirectIndex).reference
 
-                addInstructionsWithLabels(
-                    invokeDirectIndex + 1, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->changeMiniPlayerColor()Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :off
-                        invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
-                        move-result-object v$freeRegister
-                        check-cast v$freeRegister, ${(colorMathPlayerIGetReference as FieldReference).definingClass}
-                        iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
-                        iput v$freeRegister, p0, $colorMathPlayerIPutReference
-                        :off
-                        invoke-direct {p0}, $invokeDirectReference
+                    addInstructionsWithLabels(
+                        invokeDirectIndex + 1, """
+                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->changeMiniPlayerColor()Z
+                            move-result v$freeRegister
+                            if-eqz v$freeRegister, :off
+                            invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
+                            move-result-object v$freeRegister
+                            check-cast v$freeRegister, ${(colorMathPlayerIGetReference as FieldReference).definingClass}
+                            iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
+                            iput v$freeRegister, p0, $colorMathPlayerIPutReference
+                            :off
+                            invoke-direct {p0}, $invokeDirectReference
+                            """
+                    )
+                    removeInstruction(invokeDirectIndex)
+                }
+            }
+        } else {
+            ModernSwitchToggleColorFingerprint.let { fingerprint ->
+                val colorMathPlayerInvokeVirtualReference =
+                    fingerprint.instructionMatches.last()
+                        .getInstruction<ReferenceInstruction>().reference
+                val colorMathPlayerIGetReference =
+                    fingerprint.instructionMatches[4]
+                        .getInstruction<ReferenceInstruction>().reference as FieldReference
+
+                val constructor = ModernMiniPlayerConstructorFingerprint.method
+                val colorGreyIndex = constructor.indexOfFirstInstructionReversedOrThrow {
+                    getReference<MethodReference>()?.name == "getColor"
+                }
+                val iPutIndex = constructor.indexOfFirstInstructionOrThrow(colorGreyIndex, Opcode.IPUT)
+                val colorMathPlayerIPutReference =
+                    constructor.getInstruction<ReferenceInstruction>(iPutIndex).reference
+
+                ModernMiniPlayerConstructorFingerprint.classDef.methods.single { method ->
+                    method.accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
+                            method.returnType == "V" &&
+                            method.parameters == fingerprint.originalMethod.parameters
+                }.apply {
+                    val freeRegister = implementation!!.registerCount - parameters.size - 3
+                    val invokeDirectIndex = indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
+                    val invokeDirectReference =
+                        getInstruction<ReferenceInstruction>(invokeDirectIndex).reference
+
+                    addInstructionsWithLabels(
+                        invokeDirectIndex + 1,
                         """
-                )
-                removeInstruction(invokeDirectIndex)
+                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->changeMiniPlayerColor()Z
+                            move-result v$freeRegister
+                            if-eqz v$freeRegister, :off
+                            invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
+                            move-result-object v$freeRegister
+                            check-cast v$freeRegister, ${colorMathPlayerIGetReference.definingClass}
+                            iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
+                            iput v$freeRegister, p0, $colorMathPlayerIPutReference
+                            :off
+                            invoke-direct {p0}, $invokeDirectReference
+                        """
+                    )
+                    removeInstruction(invokeDirectIndex)
+                }
+            }
+
+            if (is_9_15_or_greater) {
+                ModernPlayerBackgroundFingerprint.method.hookPlayerBackgroundColor()
             }
         }
 
@@ -496,14 +641,16 @@ val playerComponentsPatch = bytecodePatch(
             "revanced_change_player_background_color",
             "false"
         )
-        addPreferenceWithIntent(
+        addCustomPreference(
             CategoryType.PLAYER,
             "revanced_custom_player_background_color_primary",
+            COLOR_PICKER_PREFERENCE_TAG,
             "revanced_change_player_background_color"
         )
-        addPreferenceWithIntent(
+        addCustomPreference(
             CategoryType.PLAYER,
             "revanced_custom_player_background_color_secondary",
+            COLOR_PICKER_PREFERENCE_TAG,
             "revanced_change_player_background_color"
         )
 
@@ -534,8 +681,12 @@ val playerComponentsPatch = bytecodePatch(
             thickSeekBarInflateFingerprint.methodOrThrow().apply {
                 val indexes = findInstructionIndicesReversed(filter)
 
-                thickSeekBarHook(indexes.first(), "changeSeekBarPosition")
-                thickSeekBarHook(indexes.last())
+                if (indexes.size > 1) {
+                    thickSeekBarHook(indexes.first(), "changeSeekBarPosition")
+                    thickSeekBarHook(indexes.last())
+                } else if (indexes.isNotEmpty()) {
+                    thickSeekBarHook(indexes.first())
+                }
             }
 
             if (is_7_29_or_greater) {
@@ -606,17 +757,37 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for forced minimized player
 
-        minimizedPlayerFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val insertIndex = it.instructionMatches.last().index
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        if (!is_8_51_or_greater) {
+            minimizedPlayerFingerprint.matchOrThrow().let {
+                it.method.apply {
+                    val insertIndex = it.instructionMatches.last().index
+                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->enableForcedMiniPlayer(Z)Z
-                        move-result v$insertRegister
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->enableForcedMiniPlayer(Z)Z
+                            move-result v$insertRegister
+                            """
+                    )
+                }
+            }
+        } else {
+            ModernMinimizedPlayerFingerprint.let { fingerprint ->
+                fingerprint.method.apply {
+                    val insertIndex = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.name == "booleanValue"
+                    } + 1
+                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                    addInstructions(
+                        insertIndex + 1,
                         """
-                )
+                            invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->enableForcedMiniPlayer(Z)Z
+                            move-result v$insertRegister
+                        """
+                    )
+                }
             }
         }
 
@@ -630,50 +801,54 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for enable smooth transition animation
 
-        if (is_8_12_or_greater) {
-            smoothTransitionAnimationFingerprint.injectLiteralInstructionBooleanCall(
-                SMOOTH_TRANSITION_ANIMATION_FEATURE_FLAG,
-                "$PLAYER_CLASS_DESCRIPTOR->enableSmoothTransitionAnimation(Z)Z"
-            )
-
-            val smoothTransitionAnimationMethod =
-                smoothTransitionAnimationFingerprint.methodCall()
-
-            fun indexOfSmoothTransitionAnimation(method: Method) =
-                method.indexOfFirstInstruction {
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            getReference<MethodReference>()?.toString() == smoothTransitionAnimationMethod
-                }
-
-            val smoothTransitionAnimationInvertedFingerprint =
-                "smoothTransitionAnimationInvertedFingerprint" to Fingerprint(
-                    returnType = "V",
-                    accessFlags = listOf(AccessFlags.PUBLIC),
-                    parameters = emptyList(),
-                    custom = { method, _ ->
-                        indexOfSmoothTransitionAnimation(method) >= 0
-                    }
+        if (!is_8_51_or_greater) {
+            if (is_8_12_or_greater) {
+                smoothTransitionAnimationFingerprint.injectLiteralInstructionBooleanCall(
+                    SMOOTH_TRANSITION_ANIMATION_FEATURE_FLAG,
+                    "$PLAYER_CLASS_DESCRIPTOR->enableSmoothTransitionAnimation(Z)Z"
                 )
 
-            smoothTransitionAnimationInvertedFingerprint
-                .methodOrThrow(smoothTransitionAnimationInvertedParentFingerprint)
-                .apply {
-                    val index = indexOfSmoothTransitionAnimation(this)
-                    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                val smoothTransitionAnimationMethod =
+                    smoothTransitionAnimationFingerprint.methodCall()
 
-                    addInstructions(
-                        index + 2, """
-                            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->enableSmoothTransitionAnimationInverted(Z)Z
-                            move-result v$register
-                            """
+                fun indexOfSmoothTransitionAnimation(method: Method) =
+                    method.indexOfFirstInstruction {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.toString() == smoothTransitionAnimationMethod
+                    }
+
+                val smoothTransitionAnimationInvertedFingerprint =
+                    "smoothTransitionAnimationInvertedFingerprint" to Fingerprint(
+                        returnType = "V",
+                        accessFlags = listOf(AccessFlags.PUBLIC),
+                        parameters = emptyList(),
+                        custom = { method, _ ->
+                            indexOfSmoothTransitionAnimation(method) >= 0
+                        }
                     )
-                }
 
-            addSwitchPreference(
-                CategoryType.PLAYER,
-                "revanced_enable_smooth_transition_animation",
-                "true"
-            )
+                smoothTransitionAnimationInvertedFingerprint
+                    .methodOrThrow(smoothTransitionAnimationInvertedParentFingerprint)
+                    .apply {
+                        val index = indexOfSmoothTransitionAnimation(this)
+                        val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                        addInstructions(
+                            index + 2, """
+                                invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->enableSmoothTransitionAnimationInverted(Z)Z
+                                move-result v$register
+                                """
+                        )
+                    }
+
+                addSwitchPreference(
+                    CategoryType.PLAYER,
+                    "revanced_enable_smooth_transition_animation",
+                    "true"
+                )
+            }
+        } else {
+            printWarn("\"Enable smooth transition animation\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
         }
 
         // endregion
@@ -745,36 +920,64 @@ val playerComponentsPatch = bytecodePatch(
                     val dismissBehaviorMethod =
                         it.getWalkerMethod(it.instructionMatches.first().index)
 
+                    // Synthetic callbacks can place p0 in the highest register. Keep the
+                    // multi-register dismissal body in a helper instead of deriving vN from p0.
+                    val musicActivityPeerClass =
+                        (swipeToDismissIGetObjectReference as FieldReference).definingClass
+                    val helperMethod = ImmutableMethod(
+                        dismissBehaviorMethod.definingClass,
+                        "patch_swipeToDismissMiniplayer",
+                        listOf(
+                            ImmutableMethodParameter(musicActivityPeerClass, null, null)
+                        ),
+                        "V",
+                        AccessFlags.PRIVATE or AccessFlags.STATIC,
+                        null,
+                        null,
+                        MutableMethodImplementation(5),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
+                                iget-object v0, p0, $swipeToDismissIGetObjectReference
+                                invoke-interface {v0}, $swipeToDismissInvokeInterfacePrimaryReference
+                                move-result-object v0
+                                check-cast v0, $swipeToDismissCheckCastReference
+                                sget-object v1, $swipeToDismissSGetObjectReference
+                                new-instance v2, $swipeToDismissNewInstanceReference
+                                const v3, 0x878b
+                                invoke-static {v3}, $swipeToDismissInvokeStaticReference
+                                move-result-object v3
+                                invoke-direct {v2, v3}, $swipeToDismissInvokeDirectReference
+                                const/4 v3, 0x0
+                                invoke-interface {v0, v1, v2, v3}, $swipeToDismissInvokeInterfaceSecondaryReference
+                                return-void
+                            """
+                        )
+                    }
+                    mutableClassDefBy { classDef ->
+                        classDef.type == dismissBehaviorMethod.definingClass
+                    }.methods.add(helperMethod)
+
                     dismissBehaviorMethod.apply {
                         val insertIndex = indexOfFirstInstructionOrThrow {
                             getReference<FieldReference>()?.type == "Ljava/util/concurrent/atomic/AtomicBoolean;"
                         }
-                        val primaryRegister =
+                        val peerRegister =
                             getInstruction<TwoRegisterInstruction>(insertIndex).registerB
-                        val secondaryRegister = primaryRegister + 1
-                        val tertiaryRegister = secondaryRegister + 1
+                        val freeRegister = findFreeRegister(insertIndex, peerRegister)
 
-                        val freeRegister = implementation!!.registerCount - parameters.size - 2
-
-                        addInstructionsWithLabels(
-                            insertIndex, """
+                        addInstructionsAtControlFlowLabel(
+                            insertIndex,
+                            """
                                 invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSwipeToDismissMiniPlayer()Z
                                 move-result v$freeRegister
                                 if-nez v$freeRegister, :dismiss
-                                iget-object v$primaryRegister, v$primaryRegister, $swipeToDismissIGetObjectReference
-                                invoke-interface {v$primaryRegister}, $swipeToDismissInvokeInterfacePrimaryReference
-                                move-result-object v$primaryRegister
-                                check-cast v$primaryRegister, $swipeToDismissCheckCastReference
-                                sget-object v$secondaryRegister, $swipeToDismissSGetObjectReference
-                                new-instance v$tertiaryRegister, $swipeToDismissNewInstanceReference
-                                const p0, 0x878b
-                                invoke-static {p0}, $swipeToDismissInvokeStaticReference
-                                move-result-object p0
-                                invoke-direct {v$tertiaryRegister, p0}, $swipeToDismissInvokeDirectReference
-                                const/4 p0, 0x0
-                                invoke-interface {v$primaryRegister, v$secondaryRegister, v$tertiaryRegister, p0}, $swipeToDismissInvokeInterfaceSecondaryReference
+                                invoke-static {v$peerRegister}, $helperMethod
                                 return-void
-                                """, ExternalLabel("dismiss", getInstruction(insertIndex))
+                                :dismiss
+                                nop
+                            """
                         )
                     }
                 }
@@ -783,17 +986,45 @@ val playerComponentsPatch = bytecodePatch(
 
                 // region hides default text display when the app is cold started
 
-                miniPlayerDefaultTextFingerprint.matchOrThrow().let {
-                    it.method.apply {
-                        val insertIndex = it.instructionMatches.last().index
+                if (!is_9_15_or_greater) {
+                    miniPlayerDefaultTextFingerprint.matchOrThrow().let {
+                        it.method.apply {
+                            val insertIndex = it.instructionMatches.last().index
+                            val insertRegister =
+                                getInstruction<TwoRegisterInstruction>(insertIndex).registerB
+
+                            addInstructions(
+                                insertIndex, """
+                                    invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->enableSwipeToDismissMiniPlayer(Ljava/lang/Object;)Ljava/lang/Object;
+                                    move-result-object v$insertRegister
+                                    """
+                            )
+                        }
+                    }
+                } else {
+                    val coldStartFingerprint = Fingerprint(
+                        returnType = "V",
+                        accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+                        parameters = listOf("Ljava/lang/Object;"),
+                        filters = listOf(
+                            app.morphe.patcher.opcode(Opcode.IF_NE),
+                            app.morphe.patcher.methodCall(
+                                opcode = Opcode.INVOKE_VIRTUAL,
+                                smali = ModernMiniPlayerDefaultTextFingerprint.method.toString()
+                            )
+                        )
+                    )
+                    coldStartFingerprint.method.apply {
+                        val insertIndex = coldStartFingerprint.instructionMatches.first().index
                         val insertRegister =
                             getInstruction<TwoRegisterInstruction>(insertIndex).registerB
 
                         addInstructions(
-                            insertIndex, """
+                            insertIndex,
+                            """
                                 invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->enableSwipeToDismissMiniPlayer(Ljava/lang/Object;)Ljava/lang/Object;
                                 move-result-object v$insertRegister
-                                """
+                            """
                         )
                     }
                 }
@@ -831,6 +1062,26 @@ val playerComponentsPatch = bytecodePatch(
                         )
                         removeInstruction(getFieldIndex)
                     } ?: throw PatchException("Could not find targetMethod")
+                }
+
+                // endregion
+
+                // region Disable player page motion event
+
+                // YT Music 9.00+ consumes the downward motion before the watch-page dismiss
+                // handler.
+                if (is_9_00_or_greater) {
+                    PlayerPageBehaviorFingerprint.method.addInstructionsWithLabels(
+                        0,
+                        """
+                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSwipeToDismissMiniPlayer()Z
+                            move-result v0
+                            if-eqz v0, :ignore
+                            return-void
+                            :ignore
+                            nop
+                        """
+                    )
                 }
 
                 // endregion
@@ -1133,25 +1384,30 @@ val playerComponentsPatch = bytecodePatch(
                 method.isShuffleMethod()
             } ?: throw PatchException("shuffle method not found")
             val shuffleMethodRegisterCount = shuffleMethod.implementation!!.registerCount
+            val isShuffleParameterNeeded = shuffleMethod.parameters.isEmpty() && is_8_03_or_greater
 
             shuffleMutableClass.methods.add(
                 shuffleMethod.cloneMutable(
                     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
                     name = "shuffleTracks",
-                    registerCount = if (is_8_03_or_greater) {
+                    registerCount = if (isShuffleParameterNeeded) {
                         shuffleMethodRegisterCount + 1
                     } else {
                         shuffleMethodRegisterCount
                     },
-                    parameters = listOf(
-                        ImmutableMethodParameter(
-                            enumClass,
-                            annotations,
-                            "enumClass"
+                    parameters = if (isShuffleParameterNeeded) {
+                        listOf(
+                            ImmutableMethodParameter(
+                                enumClass,
+                                annotations,
+                                "enumClass"
+                            )
                         )
-                    )
+                    } else {
+                        shuffleMethod.parameters
+                    }
                 ).apply {
-                    if (is_8_03_or_greater) {
+                    if (isShuffleParameterNeeded) {
                         val index = indexOfEnumOrdinalInstruction()
                         val register = getInstruction<FiveRegisterInstruction>(index).registerC
 
@@ -1197,7 +1453,7 @@ val playerComponentsPatch = bytecodePatch(
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
             )
             restoreOldCommentsPopupPanel = true
-        } else if (is_7_18_or_greater) {
+        } else if (is_7_18_or_greater && !is_9_15_or_greater) {
 
             // region disable player from being pushed to the top when opening a comment
 
@@ -1212,13 +1468,13 @@ val playerComponentsPatch = bytecodePatch(
                         invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels()Z
                         move-result v$insertRegister
                         if-eqz v$insertRegister, :restore
-                        """, ExternalLabel("restore", getInstruction(callableIndex + 1))
+                    """, ExternalLabel("restore", getInstruction(callableIndex + 1))
                 )
             }
 
             // endregion
 
-            // region region limit the height of the engagement panel
+            // region limit the height of the engagement panel
 
             engagementPanelHeightFingerprint.matchOrThrow(engagementPanelHeightParentFingerprint)
                 .let {
@@ -1261,6 +1517,8 @@ val playerComponentsPatch = bytecodePatch(
             // endregion
 
             restoreOldCommentsPopupPanel = true
+        } else if (is_9_15_or_greater) {
+            printWarn("\"Restore old comments popup panels\" is not supported in this version. Use YouTube Music 8.30.54 or earlier.")
         }
 
         if (restoreOldCommentsPopupPanel) {

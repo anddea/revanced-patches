@@ -11,7 +11,7 @@ import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object engagementPanelControllerFingerprint : Fingerprint(
+internal object EngagementPanelControllerFingerprint : Fingerprint(
     returnType = "L",
     parameters = listOf("L", "L", "Z", "Z"),
     filters = listOf(
@@ -31,7 +31,10 @@ internal object engagementPanelControllerFingerprint : Fingerprint(
     )
 )
 
-internal object engagementPanelUpdateFingerprint : Fingerprint(
+internal object EngagementPanelUpdateFingerprint : Fingerprint(
+    // Scope this common Activity-field pattern to the engagement-panel controller. Without the
+    // parent, the close hook can resolve an unrelated private method and leave panel state latched.
+    classFingerprint = EngagementPanelControllerFingerprint,
     accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     returnType = "V",
     parameters = listOf("L", "Z"),

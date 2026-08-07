@@ -48,7 +48,7 @@ public class SpoofAppVersionPreference extends CustomDialogListPreference {
         YT_20_20_42(),
         YT_20_13_41(),
         YT_20_05_46(),
-        OTHER(sf("revanced_spoof_app_version_other_item").toString());
+        OTHER(sf("revanced_external_downloader_other_item").toString());
 
         @NonNull
         public static AppVersion findAppVersion(String versionName) {

@@ -54,11 +54,9 @@ import java.util.Map;
 
 import app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.Format;
 import app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.PlayerResponse;
-import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.requests.StreamOrDetailsDataRequest;
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.youtube.shared.VideoInformation;
 
 final class VotAudioDownloader {
     private static final int CHUNK_SIZE_BYTES = 5_295_308;
@@ -120,19 +118,10 @@ final class VotAudioDownloader {
         if (cachedFormat != null) return cachedFormat;
 
         Map<String, String> requestHeaders = SpoofVideoStreamsPatch.currentVideoRequestHeader;
-        if (VideoInformation.lastVideoIdIsShort()) {
-            StreamOrDetailsDataRequest.fetchStreamRequest(
-                    videoId,
-                    requestHeaders != null ? requestHeaders : Collections.emptyMap(),
-                    ClientType.ANDROID_REEL_AUTH,
-                    ClientType.ANDROID_REEL_NO_AUTH
-            );
-        } else {
-            StreamOrDetailsDataRequest.fetchStreamRequest(
-                    videoId,
-                    requestHeaders != null ? requestHeaders : Collections.emptyMap()
-            );
-        }
+        StreamOrDetailsDataRequest.fetchStreamRequest(
+                videoId,
+                requestHeaders != null ? requestHeaders : Collections.emptyMap()
+        );
 
         return getAudioFormat(StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId));
     }

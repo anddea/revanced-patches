@@ -1,3 +1,5 @@
+# Copyright (C) 2026 anddea
+
 """Check Git diff and create updated_strings.xml for forced strings."""
 
 from __future__ import annotations

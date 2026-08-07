@@ -1,10 +1,8 @@
 package app.morphe.extension.shared.spoof.js;
 
 import android.webkit.CookieManager;
-
 import androidx.javascriptengine.JavaScriptSandbox;
-
-import app.morphe.extension.shared.Logger;
+import app.morphe.extension.shared.utils.Logger;
 
 /**
  * Checks whether the device supports the JavaScriptEngine (backed by the system WebView's V8).

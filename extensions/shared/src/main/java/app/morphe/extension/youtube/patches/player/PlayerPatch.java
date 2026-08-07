@@ -5,11 +5,10 @@ import static app.morphe.extension.shared.utils.Utils.hideViewByRemovingFromPare
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.validateValue;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -889,7 +888,7 @@ public class PlayerPatch {
     /**
      * Overriding this values is possible only after the litho component has been loaded.
      * Otherwise, crash will occur.
-     * See {@link InitializationPatch#onCreate}.
+     * See {@link InitializationPatch#onGlobalConfigUpdated()}.
      *
      * @param original original value.
      * @return whether to enable PiP Mode in the player flyout menu.
@@ -905,7 +904,7 @@ public class PlayerPatch {
     /**
      * Overriding this values is possible only after the litho component has been loaded.
      * Otherwise, crash will occur.
-     * See {@link InitializationPatch#onCreate}.
+     * See {@link InitializationPatch#onGlobalConfigUpdated()}.
      *
      * @param original original value.
      * @return whether to enable Sleep timer Mode in the player flyout menu.
@@ -985,10 +984,6 @@ public class PlayerPatch {
         return Settings.ENABLE_SEEKBAR_TAPPING.get();
     }
 
-    public static boolean enableHighQualityFullscreenThumbnails() {
-        return Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS.get();
-    }
-
     private static final int timeBarChapterViewId =
             ResourceUtils.getIdIdentifier("time_bar_chapter_title");
 
@@ -1006,10 +1001,6 @@ public class PlayerPatch {
 
     public static boolean hideTimeStamp() {
         return Settings.HIDE_TIME_STAMP.get();
-    }
-
-    public static boolean restoreOldSeekbarThumbnails() {
-        return !Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS.get();
     }
 
     // endregion

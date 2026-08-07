@@ -281,7 +281,7 @@ public class SponsorBlockUtils {
                 Utils.showToastShort(str("revanced_sb_new_segment_mark_locations_first"));
             } else if (hasStart && !hasEnd) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
-                        .setTitle(str("revanced_sb_new_segment_highlight_title"))
+                        .setTitle(str("revanced_sb_new_segment_highlight_submit"))
                         .setMessage(str("revanced_sb_new_segment_highlight_content",
                                 formatSegmentTime(newSponsorSegmentStartMillis)))
                         .setNegativeButton(android.R.string.cancel, null)

@@ -19,10 +19,13 @@ public class ToolBarPatch {
         Logger.printDebug(() -> "enumString: " + enumString);
 
         hookToolBar(enumString, view);
+        hookToolBarWithImageView(enumString, view, imageView);
     }
 
     private static void hookToolBar(String enumString, View parentView) {
     }
+
+    private static void hookToolBarWithImageView(
+            String enumString, View parentView, ImageView imageView) {
+    }
 }
-
-

@@ -18,8 +18,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import app.morphe.extension.shared.Logger;
-import app.morphe.extension.shared.Utils;
 import app.morphe.extension.shared.spoof.js.nsigsolver.common.CacheError;
 import app.morphe.extension.shared.spoof.js.nsigsolver.common.ScriptUtils;
 import app.morphe.extension.shared.spoof.js.nsigsolver.provider.JsChallengeProviderError;
@@ -28,6 +26,8 @@ import app.morphe.extension.shared.spoof.js.nsigsolver.runtime.Script;
 import app.morphe.extension.shared.spoof.js.nsigsolver.runtime.ScriptSource;
 import app.morphe.extension.shared.spoof.js.nsigsolver.runtime.ScriptType;
 import app.morphe.extension.shared.spoof.js.nsigsolver.runtime.ScriptVariant;
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.Utils;
 
 public class JsEngineChallengeProvider extends JsRuntimeChalBaseJCP {
     private static final JsEngineChallengeProvider INSTANCE = new JsEngineChallengeProvider();

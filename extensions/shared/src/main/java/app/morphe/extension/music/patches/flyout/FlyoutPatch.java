@@ -1,3 +1,45 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - Hoàng Gia Bảo (https://github.com/YT-Advanced)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.music.patches.flyout;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getIdentifier;
@@ -21,10 +63,11 @@ import java.lang.ref.WeakReference;
 
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.music.shared.VideoType;
+import app.morphe.extension.music.utils.ExtendedUtils;
 import app.morphe.extension.music.utils.VideoUtils;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.ResourceUtils.ResourceType;
+import app.morphe.extension.shared.utils.ResourceType;
 
 @SuppressWarnings("unused")
 public class FlyoutPatch {
@@ -61,11 +104,15 @@ public class FlyoutPatch {
     public static boolean hideComponents(@Nullable Enum<?> flyoutMenuEnum) {
         if (flyoutMenuEnum != null) {
             final String flyoutMenuName = flyoutMenuEnum.name();
-            Logger.printDebug(() -> "flyoutMenu loaded: " + flyoutMenuName);
-
-            for (FlyoutPanelComponent component : FlyoutPanelComponent.values())
-                if (component.name().equals(flyoutMenuName) && component.setting.get())
-                    return true;
+            for (FlyoutPanelComponent component : FlyoutPanelComponent.values()) {
+                if (component.name().equals(flyoutMenuName)) {
+                    final boolean hidden = component.shouldHide();
+                    Logger.printDebug(() -> "flyoutMenu loaded: " + flyoutMenuName +
+                            ", hidden: " + hidden);
+                    return hidden;
+                }
+            }
+            Logger.printDebug(() -> "flyoutMenu loaded: " + flyoutMenuName + ", unmapped");
         }
 
         return false;
@@ -103,7 +150,10 @@ public class FlyoutPatch {
                 textView.getParent() instanceof ViewGroup clickAbleArea) {
             runOnMainThreadDelayed(() -> {
                         textView.setText(str("revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label"));
-                        imageView.setImageResource(getIdentifier("yt_outline_youtube_logo_icon_vd_theme_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
+                        final String drawableName = ExtendedUtils.IS_9_00_OR_GREATER
+                                ? "yt_bold_youtube_logo_icon_vd_theme_24"
+                                : "yt_outline_youtube_logo_icon_vd_theme_24";
+                        imageView.setImageResource(getIdentifier(drawableName, ResourceType.DRAWABLE, clickAbleArea.getContext()));
                         clickAbleArea.setOnClickListener(view -> {
                             clickView(touchOutSideViewRef.get());
                             VideoUtils.openInYouTube();
@@ -121,7 +171,10 @@ public class FlyoutPatch {
         ) {
             runOnMainThreadDelayed(() -> {
                         textView.setText(str("playback_rate_title"));
-                        imageView.setImageResource(getIdentifier("yt_outline_play_arrow_half_circle_black_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
+                        final String drawableName = ExtendedUtils.IS_9_00_OR_GREATER
+                                ? "yt_bold_play_arrow_half_circle_black_24"
+                                : "yt_outline_play_arrow_half_circle_black_24";
+                        imageView.setImageResource(getIdentifier(drawableName, ResourceType.DRAWABLE, clickAbleArea.getContext()));
                         imageView.setColorFilter(cf);
                         clickAbleArea.setOnClickListener(view -> {
                             clickView(touchOutSideViewRef.get());
@@ -136,6 +189,7 @@ public class FlyoutPatch {
         ADD_TO_PLAYLIST(Settings.HIDE_FLYOUT_MENU_SAVE_TO_PLAYLIST),
         ALBUM(Settings.HIDE_FLYOUT_MENU_GO_TO_ALBUM),
         ARTIST(Settings.HIDE_FLYOUT_MENU_GO_TO_ARTIST),
+        BOOKMARK(Settings.HIDE_FLYOUT_MENU_REMOVE_FROM_LIBRARY),
         BOOKMARK_BORDER(Settings.HIDE_FLYOUT_MENU_SAVE_EPISODE_FOR_LATER_SAVE_TO_LIBRARY),
         BROADCAST(Settings.HIDE_FLYOUT_MENU_GO_TO_PODCAST),
         CAPTIONS(Settings.HIDE_FLYOUT_MENU_CAPTIONS),
@@ -154,6 +208,8 @@ public class FlyoutPatch {
         MOON_Z(Settings.HIDE_FLYOUT_MENU_SLEEP_TIMER),
         OFFLINE_DOWNLOAD(Settings.HIDE_FLYOUT_MENU_DOWNLOAD),
         PEOPLE_GROUP(Settings.HIDE_FLYOUT_MENU_VIEW_SONG_CREDIT),
+        PIN_OFF_OUTLINE(Settings.HIDE_FLYOUT_MENU_UNPIN_FROM_SPEED_DIAL),
+        PIN_OUTLINE(Settings.HIDE_FLYOUT_MENU_PIN_TO_SPEED_DIAL),
         PLANNER_REVIEW(Settings.HIDE_FLYOUT_MENU_STATS_FOR_NERDS),
         QUEUE_MUSIC(Settings.HIDE_FLYOUT_MENU_ADD_TO_QUEUE),
         QUEUE_PLAY_NEXT(Settings.HIDE_FLYOUT_MENU_PLAY_NEXT),
@@ -163,10 +219,19 @@ public class FlyoutPatch {
         SHUFFLE(Settings.HIDE_FLYOUT_MENU_SHUFFLE_PLAY),
         SUBSCRIBE(Settings.HIDE_FLYOUT_MENU_SUBSCRIBE);
 
-        private final BooleanSetting setting;
+        private final BooleanSetting[] settings;
 
-        FlyoutPanelComponent(BooleanSetting setting) {
-            this.setting = setting;
+        FlyoutPanelComponent(BooleanSetting... settings) {
+            this.settings = settings;
+        }
+
+        boolean shouldHide() {
+            for (BooleanSetting setting : settings) {
+                if (setting.get()) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

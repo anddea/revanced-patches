@@ -68,7 +68,7 @@ class ExtensionHook internal constructor(
     private val insertIndexResolver: ((Method) -> Int),
     private val contextRegisterResolver: (Method) -> String,
 ) {
-    context(BytecodePatchContext)
+    context(_: BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
         val insertIndex = insertIndexResolver(fingerprint.method)
         val contextRegister = contextRegisterResolver(fingerprint.method)

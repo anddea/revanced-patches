@@ -18,7 +18,7 @@ public class OverridePlaylistDownloadButtonPreference extends SwitchPreference {
             if (!PatchStatus.SpoofAppVersion()) {
                 summaryOn = "revanced_override_playlist_download_button_summary_on_disclaimer_1";
             } else if (!isSpoofingToLessThan("19.29.00")) {
-                summaryOn = "revanced_override_playlist_download_button_summary_on_disclaimer_2";
+                summaryOn = "revanced_override_playlist_download_button_summary_on_disclaimer";
             }
         }
 

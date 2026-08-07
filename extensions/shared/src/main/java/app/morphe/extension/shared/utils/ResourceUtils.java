@@ -136,6 +136,25 @@ public class ResourceUtils extends Utils {
         return getResources().getColor(identifier);
     }
 
+    public static int getColor(@NonNull String str, int defaultColor) {
+        if (str.startsWith("#")) {
+            try {
+                return Color.parseColor(str);
+            } catch (Exception e) {
+                return defaultColor;
+            }
+        }
+        final int identifier = getColorIdentifier(str);
+        if (identifier == 0) {
+            return defaultColor;
+        }
+        try {
+            return getResources().getColor(identifier);
+        } catch (Exception e) {
+            return defaultColor;
+        }
+    }
+
     public static int getDimension(@NonNull String str) {
         final int identifier = getDimenIdentifier(str);
         if (identifier == 0) {
@@ -218,36 +237,15 @@ public class ResourceUtils extends Utils {
         return getResources().openRawResource(identifier);
     }
 
-    private static void handleException(@NonNull String str, ResourceType resourceType) {
-        Logger.printException(() -> "R." + resourceType.getType() + "." + str + " is null");
+    public static int getIdentifierOrThrow(@NonNull String name, @NonNull ResourceType resourceType) {
+        int identifier = getIdentifier(name, resourceType);
+        if (identifier == 0) {
+            throw new IllegalArgumentException("Resource not found: " + resourceType + " " + name);
+        }
+        return identifier;
     }
 
-    public enum ResourceType {
-        ANIM("anim"),
-        ARRAY("array"),
-        ATTR("attr"),
-        COLOR("color"),
-        DIMEN("dimen"),
-        DRAWABLE("drawable"),
-        FONT("font"),
-        ID("id"),
-        INTEGER("integer"),
-        LAYOUT("layout"),
-        MENU("menu"),
-        MIPMAP("mipmap"),
-        RAW("raw"),
-        STRING("string"),
-        STYLE("style"),
-        XML("xml");
-
-        private final String type;
-
-        ResourceType(String type) {
-            this.type = type;
-        }
-
-        public final String getType() {
-            return type;
-        }
+    private static void handleException(@NonNull String str, ResourceType resourceType) {
+        Logger.printException(() -> "R." + resourceType.getType() + "." + str + " is null");
     }
 }

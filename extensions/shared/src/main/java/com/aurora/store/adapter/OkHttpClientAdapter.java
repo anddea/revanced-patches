@@ -121,7 +121,6 @@ public class OkHttpClientAdapter extends HttpClientAdapter {
         return request(requestBuilder, headers);
     }
 
-
     private byte[] request(Request.Builder requestBuilder, Map<String, String> headers) throws IOException {
         Request request = requestBuilder
                 .headers(Headers.of(headers))

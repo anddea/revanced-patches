@@ -32,44 +32,41 @@ public final class AdsFilter extends Filter {
                 "alert_banner_promo."
         );
 
-        // Keywords checked in 2025:
-        final StringFilterGroup generalAdsIdentifier = new StringFilterGroup(
+        final StringFilterGroup generalAds = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
-                // "brand_video_shelf."
-                // "brand_video_singleton."
-                "brand_video",
-
-                // "carousel_footered_layout."
-                // "composite_concurrent_carousel_layout"
-                "carousel_",
-
-                // "inline_injection_entrypoint_layout."
-                "inline_injection_entrypoint_layout",
-
-                // "video_display_button_group_layout"
-                // "video_display_carousel_button_group_layout"
-                // "video_display_carousel_buttoned_short_dr_layout"
-                // "video_display_full_buttoned_layout"
-                // "video_display_full_buttoned_short_dr_layout"
-                // "video_display_full_layout"
-                // "video_display_full_layout."
-                "video_display_",
-
-                // "text_image_button_group_layout."
-                "_button_group_layout",
-
-                // "landscape_image_wide_button_layout."
-                // "text_image_no_button_layout."
-                "_button_layout",
-
-                // "banner_text_icon_buttoned_layout."
+                "_ad_with",
                 "_buttoned_layout",
-
-                // "compact_landscape_image_layout."
-                // "full_width_portrait_image_layout."
-                // "full_width_square_image_layout."
-                // "square_image_layout."
-                "_image_layout"
+                "ads_video_with_context",
+                "banner_text_icon",
+                "brand_video_shelf",
+                "brand_video_singleton",
+                "carousel_ad",
+                "carousel_footered_layout",
+                "carousel_headered_layout",
+                "compact_landscape_image_layout", // Tablet layout search results.
+                "composite_concurrent_carousel_layout",
+                "full_width_portrait_image_layout",
+                // full_width_square_image_button_group_layout, landscape_image_button_group_layout, text_image_button_group_layout
+                "full_width_square_image_carousel_layout",
+                "full_width_square_image_layout",
+                "hero_promo_image",
+                "image_button_group_layout",
+                "landscape_image_carousel_layout",
+                "landscape_image_wide_button_layout",
+                "legal_disclosure",
+                "lumiere_promo_carousel",
+                "primetime_promo",
+                "product_details",
+                "shopping_timely_shelf.", // Injection point below hides the empty space.
+                "square_image_layout",
+                "text_image_button_layout",
+                "text_image_no_button_layout", // Tablet layout search results.
+                "video_display_button_group_layout",
+                "video_display_carousel_button_group_layout",
+                "video_display_carousel_buttoned_short_dr_layout",
+                "video_display_full_buttoned_short_dr_layout",
+                "video_display_full_layout",
+                "watch_metadata_app_promo"
         );
 
         final StringFilterGroup merchandise = new StringFilterGroup(
@@ -108,7 +105,6 @@ public final class AdsFilter extends Filter {
 
         addIdentifierCallbacks(
                 alertBannerPromo,
-                generalAdsIdentifier,
                 merchandise,
                 promotionBanner,
                 selfSponsor,
@@ -118,21 +114,6 @@ public final class AdsFilter extends Filter {
         );
 
         // Path.
-
-        final StringFilterGroup generalAdsPath = new StringFilterGroup(
-                Settings.HIDE_GENERAL_ADS,
-                "carousel_ad",
-                "carousel_headered_layout",
-                "hero_promo_image",
-                "legal_disclosure",
-                "lumiere_promo_carousel",
-                "primetime_promo",
-                "product_details",
-                "shopping_timely_shelf.", // Injection point in AdsPatch hides the empty space.
-                "text_image_button_layout",
-                "video_display_carousel_button",
-                "watch_metadata_app_promo"
-        );
 
         creatorStoreShelf = new StringFilterGroup(
                 null,
@@ -153,7 +134,7 @@ public final class AdsFilter extends Filter {
 
         addPathCallbacks(
                 creatorStoreShelf,
-                generalAdsPath,
+                generalAds,
                 paidContent,
                 viewProducts
         );
