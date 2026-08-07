@@ -65,6 +65,11 @@ val engagementPanelHookPatch = bytecodePatch(
             0,
             "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hide()V"
         )
+
+        EngagementPanelStackPopFingerprint.method.addInstruction(
+            0,
+            "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hide()V"
+        )
     }
 }
 

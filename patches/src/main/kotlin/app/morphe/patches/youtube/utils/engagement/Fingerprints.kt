@@ -45,3 +45,17 @@ internal object EngagementPanelUpdateFingerprint : Fingerprint(
         )
     )
 )
+
+internal object EngagementPanelStackPopFingerprint : Fingerprint(
+    classFingerprint = EngagementPanelControllerFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "Z"),
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_INTERFACE,
+            returnType = "Z",
+            parameters = listOf("Ljava/lang/Object;")
+        )
+    )
+)
