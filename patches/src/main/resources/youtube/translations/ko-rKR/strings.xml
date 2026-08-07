@@ -50,7 +50,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_hide_learning_menu_title">학습 메뉴 숨기기</string>
     <string name="morphe_hide_live_menu_title">라이브 메뉴 숨기기</string>
     <string name="morphe_hide_memberships_menu_title">멤버십 메뉴 숨기기</string>
-    <string name="morphe_hide_movies_menu_title">영화 / 영화 및 TV 메뉴 숨기기</string>
+    <string name="morphe_hide_movies_menu_title">'영화' / '영화 및 TV' 메뉴 숨기기</string>
     <string name="morphe_hide_music_menu_title">음악 메뉴 숨기기</string>
     <string name="morphe_hide_news_menu_title">뉴스 메뉴 숨기기</string>
     <string name="morphe_hide_playables_menu_title">게임 룸 메뉴 숨기기</string>
@@ -78,7 +78,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2를 일시적으로 사용할 수 없습니다 (API 시간 초과)</string>
     <string name="morphe_oauth2_toast_invalid">잘못된 VR 로그인 토큰입니다. 다시 VR에 로그인하세요</string>
     <string name="morphe_oauth2_toast_reset">Android VR에서 로그아웃되었습니다</string>
-    <string name="morphe_override_initial_video_quality_summary">"동영상이 시작된 직후 기본 화질이 즉시 적용되지 않는 문제를 수정하였습니다
+    <string name="morphe_override_initial_video_quality_summary">"동영상이 시작된 직후 기본 화질이 즉시 적용되지 않는 문제를 수정합니다
 
 제한 사항: '동영상 스트림 속이기'에서 '기본 클라이어언트'가 'Android VR'로 설정되어 있고, 'AVC (H.264) 강제로 활성화하기'가 활성화된 경우에는 일부 기기에서 동영상이 정상적으로 재생되지 않을 수 있습니다"</string>
     <string name="morphe_override_initial_video_quality_title">초기 동영상 화질 재정의하기</string>
@@ -104,7 +104,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_settings_menu_filter_screen_summary">일반 앱 설정 화면에서 표시되는 이름을 기준으로 항목을 숨깁니다</string>
     <string name="morphe_settings_menu_filter_screen_title">설정 메뉴 필터</string>
     <string name="morphe_spoof_video_streams_about_js">• 복호화에 실패하면 재생이 실패할 수 있습니다</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• 오디오 트랙 메뉴가 표시되지 않습니다</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'오디오 트랙\' 메뉴가 표시되지 않습니다</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• 원본 오디오를 강제로 활성화할 수 없습니다</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR 몰입 모드를 사용할 수 없습니다</string>
@@ -114,7 +114,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_spoof_video_streams_av1_summary_on">"동영상 코덱이 AVC (H.264), VP9 또는 AV1으로 결정됩니다
 
 재생이 끊기거나 프레임이 손실될 수 있습니다"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Android VR / visionOS AV1 허용하기</string>
+    <string name="morphe_spoof_video_streams_av1_title">'Android VR' / 'visionOS' AV1 허용하기</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"이 설정을 활성화하면, 소프트웨어 AV1 디코딩이 사용될 수 있습니다
 
 AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있습니다"</string>
@@ -266,7 +266,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_change_share_sheet_title">공유 시트 변경하기</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">모든 구독 채널</string>
     <string name="revanced_change_start_page_entry_browse">채널 둘러보기</string>
-    <string name="revanced_change_start_page_entry_courses">학습 프로그램</string>
+    <string name="revanced_change_start_page_entry_courses">'학습' / '학습 프로그램'</string>
     <string name="revanced_change_start_page_entry_explore">탐색</string>
     <string name="revanced_change_start_page_entry_fashion">패션 &amp; 뷰티</string>
     <string name="revanced_change_start_page_entry_gaming">게임</string>
@@ -275,7 +275,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_change_start_page_entry_library">내 페이지</string>
     <string name="revanced_change_start_page_entry_liked_videos">좋아요 표시한 동영상</string>
     <string name="revanced_change_start_page_entry_live">실시간</string>
-    <string name="revanced_change_start_page_entry_movies">영화</string>
+    <string name="revanced_change_start_page_entry_movies">'영화' / '영화 및 TV'</string>
     <string name="revanced_change_start_page_entry_music">음악</string>
     <string name="revanced_change_start_page_entry_news">뉴스</string>
     <string name="revanced_change_start_page_entry_notifications">알림</string>
@@ -672,13 +672,13 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_gradient_seekbar_positions_summary">Cairo 재생바의 시작 위치와 종료 위치를 0에서 1까지 쉼표로 구분하여 설정할 수 있습니다</string>
     <string name="revanced_gradient_seekbar_positions_title">Cairo 재생바 경계</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">필터링할 보관함 / 내 페이지 하단 메뉴 이름을 줄바꿈으로 구분하여 설정하세요</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">보관함 / 내 페이지 하단 메뉴 필터</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">'보관함' / '내 페이지' 하단 메뉴 필터</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">완전 일치하는 경우에만 필터링합니다.&lt;br&gt;&lt;br&gt;• &lt;b&gt;\'YouTube Premium 가입\'&lt;/b&gt; 메뉴를 숨기려면, &lt;b&gt;\'YouTube Premium 가입\'&lt;/b&gt;와 같은 완전 일치하는 키워드만 필터링 키워드로 사용할 수 있습니다</string>
     <string name="revanced_hide_account_menu_filter_type_summary_on">부분 일치하는 경우에도 필터링합니다.&lt;br&gt;&lt;br&gt;• &lt;b&gt;\'YouTube Premium 가입\'&lt;/b&gt; 메뉴를 숨기려면, &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; 또는 &lt;b&gt;\'Premium\'&lt;/b&gt;와 같은 부분 일치하는 키워드도 필터링 키워드로 사용할 수 있습니다</string>
     <string name="revanced_hide_account_menu_filter_type_title">계정 메뉴 필터 유형</string>
     <string name="revanced_hide_account_menu_summary">"계정 메뉴 및 내 페이지에서 구성요소가 숨겨집니다
 일부 구성요소는 숨겨지지 않을 수 있습니다"</string>
-    <string name="revanced_hide_account_menu_title">보관함 / 내 페이지 하단 메뉴 필터 활성화하기</string>
+    <string name="revanced_hide_account_menu_title">'보관함' / '내 페이지' 하단 메뉴 필터 활성화하기</string>
     <string name="revanced_hide_action_bar_summary_off">작업 버튼바가 표시됩니다</string>
     <string name="revanced_hide_action_bar_summary_on">작업 버튼바가 숨겨집니다</string>
     <string name="revanced_hide_action_bar_title">작업 버튼바 숨기기</string>
