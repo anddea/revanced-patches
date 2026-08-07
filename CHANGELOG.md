@@ -1,3 +1,15 @@
+# [4.2.0-dev.13](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.12...v4.2.0-dev.13) (2026-08-07)
+
+
+### Bug Fixes
+
+* **YouTube Music - Flyout menu:** Like button was visible in flyout menu for `v9.15` after hiding ([98e5500](https://github.com/anddea/revanced-patches/commit/98e5500b5d1f6137ea50788f299a97c17bf45a5c))
+
+
+### Features
+
+* **YouTube & YouTube Music:** Rename `Disable forced auto audio tracks` to `Force original audio` ([299bbaf](https://github.com/anddea/revanced-patches/commit/299bbaf90e4721241208f502164426242446f883))
+
 # [4.2.0-dev.12](https://github.com/anddea/revanced-patches/compare/v4.2.0-dev.11...v4.2.0-dev.12) (2026-08-06)
 
 
