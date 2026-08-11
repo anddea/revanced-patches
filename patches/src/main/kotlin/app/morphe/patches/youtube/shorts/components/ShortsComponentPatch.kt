@@ -934,12 +934,12 @@ val shortsComponentPatch = bytecodePatch(
 
         shortsCustomActionsResourcesPatch,
 
-        // shortsAnimationPatch,
-        // shortsCustomActionsPatch,
+        shortsAnimationPatch,
+        shortsCustomActionsPatch,
         // shortsNavigationBarPatch,
-        // shortsRepeatPatch,
-        // shortsTimeStampPatch,
-        // shortsToolBarPatch,
+        shortsRepeatPatch,
+        shortsTimeStampPatch,
+        shortsToolBarPatch,
 
         engagementPanelHookPatch,
         lithoFilterPatch,
