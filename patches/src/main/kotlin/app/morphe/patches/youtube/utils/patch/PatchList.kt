@@ -165,9 +165,9 @@ internal enum class PatchList(
         "Hide shortcuts",
         "Remove, at compile time, the app shortcuts that appears when the app icon is long pressed."
     ),
-    HOOK_YOUTUBE_MUSIC_ACTIONS(
-        "Hook YouTube Music actions",
-        "Adds support for opening music in RVX Music using the in-app YouTube Music button."
+    OVERRIDE_YOUTUBE_MUSIC_BUTTONS(
+        "Override YouTube Music buttons",
+        "Overrides YouTube Music buttons to open RVX Music or any compatible third-party client."
     ),
     HOOK_DOWNLOAD_ACTIONS(
         "Hook download actions",

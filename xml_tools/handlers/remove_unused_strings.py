@@ -28,7 +28,6 @@ BLACKLISTED_STRINGS: set[str] = {
     "revanced_sb_toast_on_skip",
     "revanced_sb_toast_on_skip_sum",
     "revanced_spoof_streaming_data_type_entry_android_creator",
-    "revanced_third_party_youtube_music_not_installed_dialog_title",
     "revanced_whitelist_playback_speed",
     "revanced_whitelist_sponsor_block",
 }

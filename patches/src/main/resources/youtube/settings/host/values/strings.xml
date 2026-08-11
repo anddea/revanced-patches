@@ -70,6 +70,8 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV\' or \'visionOS\'"</string>
     <string name="morphe_livestream_dvr_summary">Allows seeking on all livestreams, even those that normally restrict it</string>
     <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
+    <string name="morphe_music_package_name_summary">Package name of your installed music app</string>
+    <string name="morphe_music_package_name_title">Music app package name</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Cannot sign in to VR, website authentication was not approved</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 is temporarily not available</string>
@@ -82,6 +84,8 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
 
 Limitation: Playback may not work on some devices if 'Spoof video streams' is set to 'Android VR' and 'Force AVC (H.264) codec' is enabled"</string>
     <string name="morphe_override_initial_video_quality_title">Override initial video quality</string>
+    <string name="morphe_override_youtube_music_buttons_summary">Opens your preferred music app instead of the stock YouTube Music app</string>
+    <string name="morphe_override_youtube_music_buttons_title">Override YouTube Music buttons</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Always on</string>
     <string name="morphe_playback_in_feeds_entry_off">Off</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi only</string>
@@ -1627,11 +1631,6 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Native video download button opens the queue manager</string>
     <string name="revanced_override_video_download_button_summary_off">Native video download button opens the native in-app downloader</string>
     <string name="revanced_override_video_download_button_title">Override video download button</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">YouTube Music is required to override button action. Tap here to download YouTube Music</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_title">Prerequisite</string>
-    <string name="revanced_override_youtube_music_button_summary_off">YouTube Music button opens the native app</string>
-    <string name="revanced_override_youtube_music_button_summary_on">YouTube Music button opens the RVX Music</string>
-    <string name="revanced_override_youtube_music_button_title">Override YouTube Music button</string>
     <string name="revanced_patched_date_title">Patched date</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Excluded</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Included</font></string>
@@ -2430,9 +2429,6 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
     <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button</string>
     <string name="revanced_switch_create_with_notifications_button_title">Swap Create and Notifications buttons</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">If this setting do not take effect, try switching to Incognito mode</string>
-    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_summary">Package name of installed RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_title">RVX Music package name</string>
     <string name="revanced_transcript_cookies_about_summary">Click to see how to get Cookies</string>
     <string name="revanced_transcript_cookies_about_title">About Transcript Cookies</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">Auth</string>
