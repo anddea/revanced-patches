@@ -70,7 +70,11 @@ import org.apache.commons.lang3.BooleanUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import app.morphe.extension.shared.innertube.utils.AuthUtils;
 import app.morphe.extension.shared.ui.CustomDialog;
@@ -211,6 +215,66 @@ public class PlaylistPatch {
 
                 buildBottomSheetDialog(customActionsEntries);
             }
+        }
+    }
+
+    /**
+     * Creates a fresh temporary queue from the supplied videos and opens it.
+     *
+     * @param searchVideoIds video IDs in the order in which they should appear in the queue
+     */
+    public static void addVideosToQueueAndOpen(@NonNull String[] searchVideoIds) {
+        if (AuthUtils.isNotLoggedIn()) {
+            handleCheckError(checkFailedAuth);
+            return;
+        }
+        if (getContext() == null) {
+            handleCheckError(checkFailedQueue);
+            return;
+        }
+
+        Set<String> uniqueVideoIds = new LinkedHashSet<>();
+        for (String searchVideoId : searchVideoIds) {
+            if (!TextUtils.isEmpty(searchVideoId) && searchVideoId.length() == 11) {
+                uniqueVideoIds.add(searchVideoId);
+            }
+        }
+        if (uniqueVideoIds.isEmpty()) {
+            handleCheckError(checkFailedVideoId);
+            return;
+        }
+
+        List<String> videoIds = new ArrayList<>(uniqueVideoIds);
+        String firstVideoId = videoIds.get(0);
+        Map<String, String> requestHeader = AuthUtils.getRequestHeader();
+        try {
+            Logger.printDebug(() -> "Creating temporary queue from " + videoIds.size() + " videos");
+            CreatePlaylistRequest.fetchRequestIfNeeded(videoIds, requestHeader);
+            runOnMainThreadDelayed(() -> {
+                CreatePlaylistRequest request = CreatePlaylistRequest.getRequestForVideoIds(videoIds);
+                if (request != null) {
+                    Pair<String, String> playlistIds = request.getPlaylistId();
+                    if (playlistIds != null) {
+                        String createdPlaylistId = playlistIds.getFirst();
+                        String setVideoId = playlistIds.getSecond();
+                        if (!TextUtils.isEmpty(createdPlaylistId) && !TextUtils.isEmpty(setVideoId)) {
+                            playlistId = createdPlaylistId;
+                            synchronized (lastVideoIds) {
+                                lastVideoIds.clear();
+                                lastVideoIds.put(firstVideoId, setVideoId);
+                            }
+                            EditPlaylistRequest.clear();
+                            showToast(fetchSucceededCreate);
+                            openQueue();
+                            return;
+                        }
+                    }
+                }
+                showToast(fetchFailedCreate);
+            }, DELAY_MILLISECONDS);
+        } catch (Exception ex) {
+            Logger.printException(() -> "addVideosToQueueAndOpen failure", ex);
+            showToast(fetchFailedCreate);
         }
     }
 

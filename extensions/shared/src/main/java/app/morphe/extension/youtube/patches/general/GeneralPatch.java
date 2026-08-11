@@ -55,6 +55,8 @@ import static app.morphe.extension.shared.utils.Utils.getChildView;
 import static app.morphe.extension.shared.utils.Utils.hideViewByLayoutParams;
 import static app.morphe.extension.shared.utils.Utils.hideViewGroupByMarginLayoutParams;
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
+import static app.morphe.extension.shared.utils.BaseThemeUtils.getAppForegroundColor;
+import static app.morphe.extension.shared.utils.BaseThemeUtils.getDialogBackgroundColor;
 import static app.morphe.extension.youtube.patches.utils.PatchStatus.ImageSearchButton;
 
 import android.annotation.SuppressLint;
@@ -99,6 +101,7 @@ import com.google.android.apps.youtube.app.application.Shell_SettingsActivity;
 import com.google.android.apps.youtube.app.settings.SettingsActivity;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -112,6 +115,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
@@ -132,6 +136,7 @@ import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.innertube.ConfigResponseOuterClass.ConfigResponse;
+import app.morphe.extension.youtube.patches.utils.PlaylistPatch;
 import app.morphe.extension.youtube.patches.utils.ReturnYouTubeChannelNamePatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
@@ -279,6 +284,53 @@ public class GeneralPatch {
                 }
 
                 return result;
+            })();
+            """;
+
+    private static final String CHANNEL_SEARCH_WEBVIEW_VIDEO_IDS_JAVASCRIPT = """
+            (function() {
+                function getSearchResults() {
+                    var searchTab = document.querySelector('yt-tab-shape.ytTabShapeLastTab');
+                    var searchTitle = searchTab ? searchTab.getAttribute('tab-title') : null;
+                    if (!searchTitle) {
+                        var activeTab = document.querySelector('yt-tab-shape[aria-selected="true"]');
+                        searchTitle = activeTab ? activeTab.getAttribute('tab-title') : null;
+                    }
+                    if (searchTitle) {
+                        var tabs = document.querySelectorAll('.tab-content');
+                        for (var i = 0; i < tabs.length; i++) {
+                            if (tabs[i].getAttribute('tab-title') === searchTitle) {
+                                return tabs[i];
+                            }
+                        }
+                    }
+                    return document;
+                }
+
+                function getVideoId(href) {
+                    var watchMatch = href.match(/[?&]v=([^&#]+)/);
+                    if (watchMatch) {
+                        return watchMatch[1];
+                    }
+                    var shortsMatch = href.match(/\\/shorts\\/([^/?#]+)/);
+                    return shortsMatch ? shortsMatch[1] : null;
+                }
+
+                var videoIds = [];
+                var seen = {};
+                var results = getSearchResults();
+                var anchors = results.querySelectorAll(
+                        'ytm-compact-video-renderer a[href], '
+                        + 'ytm-video-renderer a[href], '
+                        + 'ytm-reel-item-renderer a[href]');
+                Array.prototype.forEach.call(anchors, function(anchor) {
+                    var videoId = getVideoId(anchor.getAttribute('href') || '');
+                    if (videoId && videoId.length === 11 && !seen[videoId]) {
+                        seen[videoId] = true;
+                        videoIds.push(videoId);
+                    }
+                });
+                return videoIds;
             })();
             """;
 
@@ -1111,8 +1163,14 @@ public class GeneralPatch {
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-            android.widget.FrameLayout layout = new android.widget.FrameLayout(context);
+            LinearLayout layout = new LinearLayout(context);
+            layout.setOrientation(LinearLayout.VERTICAL);
+            layout.setBackgroundColor(getDialogBackgroundColor());
             layout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+
+            android.widget.FrameLayout webViewContainer = new android.widget.FrameLayout(context);
+            webViewContainer.setLayoutParams(new LinearLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, 0, 1.0f));
 
             android.widget.ProgressBar progressBar = new android.widget.ProgressBar(context);
             android.widget.FrameLayout.LayoutParams progressParams = new android.widget.FrameLayout.LayoutParams(
@@ -1120,13 +1178,48 @@ public class GeneralPatch {
             progressParams.gravity = android.view.Gravity.CENTER;
             progressBar.setLayoutParams(progressParams);
 
+            LinearLayout actionPanel = new LinearLayout(context);
+            actionPanel.setOrientation(LinearLayout.VERTICAL);
+            actionPanel.setGravity(android.view.Gravity.CENTER_HORIZONTAL);
+            actionPanel.setPadding(
+                    Utils.dipToPixels(24),
+                    Utils.dipToPixels(8),
+                    Utils.dipToPixels(24),
+                    Utils.dipToPixels(8));
+            actionPanel.setBackgroundColor(getDialogBackgroundColor());
+
+            TextView addToQueueTip = new TextView(context);
+            addToQueueTip.setText(str("revanced_search_in_channel_scroll_tip"));
+            addToQueueTip.setTextColor(getAppForegroundColor());
+            addToQueueTip.setTextSize(14);
+            addToQueueTip.setGravity(android.view.Gravity.CENTER);
+            addToQueueTip.setPadding(0, 0, 0, Utils.dipToPixels(4));
+
+            Button addToQueueButton = Utils.addButton(
+                    context,
+                    str("revanced_queue_manager_add_to_queue_and_open_queue"),
+                    null,
+                    true,
+                    false,
+                    dialog);
+            addToQueueButton.setEnabled(false);
+
             String webViewUrl = getChannelSearchWebViewUrl(channelId, query);
             Logger.printDebug(() -> "Channel search WebView load URL: " + webViewUrl);
-            WebView webView = getWebView(context, dialog, progressBar);
+            WebView webView = getWebView(context, dialog, progressBar, addToQueueButton);
             webView.setVisibility(View.INVISIBLE);
+            addToQueueButton.setOnClickListener(view ->
+                    addChannelSearchResultsToQueue(webView, dialog, addToQueueButton));
 
-            layout.addView(webView);
-            layout.addView(progressBar);
+            webViewContainer.addView(webView);
+            webViewContainer.addView(progressBar);
+            layout.addView(webViewContainer);
+            actionPanel.addView(addToQueueTip, new LinearLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+            actionPanel.addView(addToQueueButton, new LinearLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, Utils.dipToPixels(36)));
+            layout.addView(actionPanel, new LinearLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 
             dialog.setContentView(layout);
             dialog.setOnDismissListener(dialogInterface -> {
@@ -1148,9 +1241,51 @@ public class GeneralPatch {
         }
     }
 
+    private static void addChannelSearchResultsToQueue(
+            WebView webView,
+            Dialog dialog,
+            Button addToQueueButton
+    ) {
+        addToQueueButton.setEnabled(false);
+        try {
+            webView.evaluateJavascript(CHANNEL_SEARCH_WEBVIEW_VIDEO_IDS_JAVASCRIPT, result -> {
+                String[] videoIds = parseChannelSearchVideoIds(result);
+                if (videoIds.length == 0) {
+                    addToQueueButton.setEnabled(true);
+                    Utils.showToastShort(str("revanced_search_in_channel_no_results"));
+                    return;
+                }
+
+                Logger.printDebug(() -> "Channel search WebView queue videos: " + videoIds.length);
+                dialog.dismiss();
+                PlaylistPatch.addVideosToQueueAndOpen(videoIds);
+            });
+        } catch (Exception ex) {
+            addToQueueButton.setEnabled(true);
+            Logger.printException(() -> "addChannelSearchResultsToQueue failed", ex);
+        }
+    }
+
+    private static String[] parseChannelSearchVideoIds(String result) {
+        try {
+            JSONArray videoIdsJson = new JSONArray(result);
+            LinkedHashSet<String> videoIds = new LinkedHashSet<>();
+            for (int i = 0; i < videoIdsJson.length(); i++) {
+                String videoId = videoIdsJson.optString(i, "");
+                if (videoId.length() == YOUTUBE_VIDEO_ID_LENGTH) {
+                    videoIds.add(videoId);
+                }
+            }
+            return videoIds.toArray(new String[0]);
+        } catch (JSONException ex) {
+            Logger.printException(() -> "parseChannelSearchVideoIds failed: " + result, ex);
+            return new String[0];
+        }
+    }
+
     @SuppressLint("SetJavaScriptEnabled") // Required by YouTube mobile search. WebView is restricted below.
     @NonNull
-    private static WebView getWebView(Context context, Dialog dialog, View progressBar) {
+    private static WebView getWebView(Context context, Dialog dialog, View progressBar, Button addToQueueButton) {
         WebView webView = new WebView(context);
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -1189,6 +1324,7 @@ public class GeneralPatch {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
+                addToQueueButton.setEnabled(false);
                 Logger.printDebug(() -> "Channel search WebView page started: " + url);
             }
 
@@ -1198,6 +1334,7 @@ public class GeneralPatch {
                 progressBar.setVisibility(View.GONE);
                 view.setVisibility(View.VISIBLE);
                 boolean searchUrl = isChannelSearchWebViewSearchUrl(url);
+                addToQueueButton.setEnabled(searchUrl);
                 Logger.printDebug(() -> "Channel search WebView page finished: "
                         + url + ", searchUrl: " + searchUrl);
                 if (searchUrl) {
