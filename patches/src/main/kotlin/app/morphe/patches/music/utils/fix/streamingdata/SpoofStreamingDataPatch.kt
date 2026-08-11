@@ -7,6 +7,8 @@ import app.morphe.patches.music.utils.playservice.is_7_16_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_33_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_12_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_15_or_greater
+import app.morphe.patches.music.utils.playservice.is_8_35_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_12_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.addCustomPreference
@@ -45,6 +47,9 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     },
     useNewRequestBuilderFingerprint = {
         false
+    },
+    restoreMissingCuepointMethod = {
+        is_8_35_or_greater && !is_9_12_or_greater
     },
     block = {
         compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)

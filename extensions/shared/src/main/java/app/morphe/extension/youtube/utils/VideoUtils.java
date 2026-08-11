@@ -70,6 +70,7 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.media.AudioManager;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
@@ -938,6 +939,8 @@ public class VideoUtils extends IntentUtils {
                         normalLabel.setTextColor(ThemeUtils.getAppForegroundColor());
                         normalLabel.setTextSize(10);
                         normalLabel.setGravity(Gravity.CENTER);
+                        normalLabel.setSingleLine(true);
+                        normalLabel.setEllipsize(TextUtils.TruncateAt.END);
 
                         FrameLayout.LayoutParams labelParams = new FrameLayout.LayoutParams(
                                 FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT,
