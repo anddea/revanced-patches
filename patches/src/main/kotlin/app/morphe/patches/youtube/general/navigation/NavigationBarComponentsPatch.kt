@@ -154,11 +154,13 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for translucent navigation and status bars
 
         if (is_19_25_or_greater) {
-            TranslucentNavigationStatusBarFeatureFlagFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
-                )
+            if (!is_20_31_or_greater) {
+                TranslucentNavigationStatusBarFeatureFlagFingerprint.let {
+                    it.method.insertLiteralOverride(
+                        it.instructionMatches.first().index,
+                        "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
+                    )
+                }
             }
 
             TranslucentNavigationButtonsFeatureFlagFingerprint.let {
@@ -175,7 +177,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                 )
             }
 
-            if (is_20_46_or_greater) {
+            if (is_20_46_or_greater && !is_20_31_or_greater) {
                 // Feature interferes with translucent status bar and must be forced off.
                 CollapsingToolbarLayoutFeatureFlagFingerprint.let {
                     it.method.insertLiteralOverride(
