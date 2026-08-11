@@ -30,7 +30,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan"</string>
     <string name="morphe_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Perluas durasi siaran langsung DVR' mungkin tidak tersedia
 
-Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' menjadi 'TV Simply' atau 'visionOS'"</string>
+Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' menjadi 'TV' atau 'visionOS'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Mengizinkan Anda untuk memutar ulang siaran langsung hingga 7 hari ke masa lalu</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Perluas durasi siaran langsung DVR</string>
     <string name="morphe_explore_menu_screen_summary">Pilih komponen mana yang akan ditampilkan di menu eksplorasi</string>
@@ -50,8 +50,8 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_hide_learning_menu_title">Sembunyikan menu Pembelajaran</string>
     <string name="morphe_hide_live_menu_title">Sembunyikan menu Live</string>
     <string name="morphe_hide_memberships_menu_title">Sembunyikan menu Pelanggan</string>
-    <string name="morphe_hide_movies_menu_title">Sembunyikan menu Film</string>
-    <string name="morphe_hide_music_menu_title">Sembunyikan menu \'Musik &amp; TV\'</string>
+    <string name="morphe_hide_movies_menu_title">Sembunyikan menu \'Film &amp; TV\'</string>
+    <string name="morphe_hide_music_menu_title">Sembunyikan menu Musik</string>
     <string name="morphe_hide_news_menu_title">Sembunyikan menu Berita</string>
     <string name="morphe_hide_playables_menu_title">Sembunyikan menu Dapat dimainkan</string>
     <string name="morphe_hide_podcasts_menu_title">Sembunyikan menu Podcast</string>
@@ -67,9 +67,11 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_hide_youtube_works_menu_title">Sembunyikan menu \'Cara YouTube bekerja\'</string>
     <string name="morphe_livestream_dvr_not_available">"'Aktifkan siaran langsung DVR' mungkin tidak tersedia
 
-Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' menjadi 'TV Simply' atau 'visionOS'"</string>
+Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' menjadi 'TV' atau 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">Mengizinkan pencarian di semua siaran langsung, bahkan yang biasanya membatasi fitur tersebut</string>
     <string name="morphe_livestream_dvr_title">Aktifkan siaran langsung DVR</string>
+    <string name="morphe_music_package_name_summary">Nama paket aplikasi musik yang terinstal</string>
+    <string name="morphe_music_package_name_title">Nama paket aplikasi musik</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Tidak dapat masuk ke VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Tidak dapat masuk ke VR, autentikasi situs web tidak disetujui</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 sementara tidak tersedia</string>
@@ -82,6 +84,8 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
 
 Keterbatasan: Pemutaran mungkin tidak berfungsi di beberapa perangkat jika 'Palsukan aliran video' diatur ke 'Android VR' dan 'Paksa codec AVC (H.264)' diaktifkan"</string>
     <string name="morphe_override_initial_video_quality_title">Timpa kualitas video awal</string>
+    <string name="morphe_override_youtube_music_buttons_summary">Membuka aplikasi musik pilihan Anda daripada aplikasi bawaan YouTube Music</string>
+    <string name="morphe_override_youtube_music_buttons_title">Ganti tombol YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Selalu aktif</string>
     <string name="morphe_playback_in_feeds_entry_off">Nonaktif</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi saja</string>
@@ -97,14 +101,18 @@ Keterbatasan: Pemutaran mungkin tidak berfungsi di beberapa perangkat jika 'Pals
     <string name="morphe_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Paling sering diputar ulang</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Menampilkan thumbnail video saat menggeser bilah geser</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Akifkan thumbnail pada bilah geser</string>
     <string name="morphe_settings_menu_copy_path">Disalin: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Buka layar pengaturan aplikasi standar sekali untuk mengisi daftar</string>
     <string name="morphe_settings_menu_filter_screen_summary">Sembunyikan item di layar pengaturan aplikasi standar berdasarkan nama yang terlihat</string>
     <string name="morphe_settings_menu_filter_screen_title">Filter menu Pengaturan</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">Berwarna</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Monokrom</string>
+    <string name="morphe_splash_screen_animation_style_title">Gaya layar pembuka</string>
     <string name="morphe_spoof_video_streams_about_js">• Jika proses pembukaan kode terenkripsi gagal, pemutaran mungkin gagal</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Menu trek audio hilang</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Menu \'Trek Audio\' hilang</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Paksa audio asli tidak tersedia</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Mode imersif 360° VR tidak tersedia</string>
@@ -114,7 +122,7 @@ Keterbatasan: Pemutaran mungkin tidak berfungsi di beberapa perangkat jika 'Pals
     <string name="morphe_spoof_video_streams_av1_summary_on">"Codec video adalah AVC (H.264), VP9, atau AV1
 
 Pemutaran mungkin tersendat atau kehilangan bingkai"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Izinkan Android VR / visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">Izinkan \'Android VR\' / visionOS AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Mengaktifkan opsi ini mungkin menggunakan perangkat lunak decoding AV1
 
 Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai"</string>
@@ -149,7 +157,7 @@ Untuk masuk, tekan lanjutkan di bawah ini"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Gagal dalam menghasilkan kode aktivasi</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Klien disembunyikan dalam Informasi statistik</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Jenis klien ditampilkan dalam Informasi statistik</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Tampilkan pemalsuan dalam Informasi statistik</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Tampilkan pemalsuan pada \'Informasi statistik\'</string>
     <string name="morphe_spoof_video_streams_summary_off">"Aliran video tidak dipalsukan
 
 Pemutaran mungkin tidak berfungsi"</string>
@@ -457,9 +465,6 @@ Catatan:
 
 • Menonaktifkan setelan ini tidak secara paksa mengaktifkan overlay kecepatan</string>
     <string name="revanced_disable_speed_overlay_title">Nonaktifkan overlay kecepatan</string>
-    <string name="revanced_disable_splash_animation_summary_off">Animasi splash diaktifkan</string>
-    <string name="revanced_disable_splash_animation_summary_on">Animasi splash dinonaktifkan</string>
-    <string name="revanced_disable_splash_animation_title">Nonaktifkan animasi splash</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Menggeser ke bawah di bagian bawah pemutar akan mengaktifkan mode layar penuh</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Menggeser ke bawah di bagian bawah pemutar tidak akan mengaktifkan mode layar penuh</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Nonaktifkan geser untuk masuk ke mode layar penuh (di bawah pemutar)</string>
@@ -747,6 +752,8 @@ Toko"</string>
     <string name="revanced_hide_community_posts_channel_summary_on">Disembunyikan di saluran</string>
     <string name="revanced_hide_community_posts_channel_title">Sembunyikan di saluran</string>
     <string name="revanced_hide_connect_button_title">Sembunyikan tombol Sambungkan</string>
+    <string name="revanced_hide_corrections_section_title">Sembunyikan bagian komentar</string>
+    <string name="revanced_hide_course_progress_section_title">Sembunyikan bagian \'Kemajuan kursus\'</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Rak toko kreator di bawah pemutar video ditampilkan</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Rak toko kreator di bawah pemutar video disembunyikan</string>
     <string name="revanced_hide_creator_store_shelf_title">Sembunyikan rak toko kreator</string>
@@ -777,12 +784,16 @@ Toko"</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Rak yang dapat diperluas ditampilkan</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Rak yang dapat diperluas disembunyikan</string>
     <string name="revanced_hide_expandable_shelf_title">Sembunyikan rak yang dapat diperluas</string>
+    <string name="revanced_hide_explore_course_section_title">Sembunyikan \'Jelajahi kursus ini\'</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">Bagian Jelajahi podcast ditampilkan</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Bagian Jelajahi podcast disembunyikan</string>
     <string name="revanced_hide_explore_podcast_section_title">Sembunyikan bagian \'Jelajahi podcast\'</string>
+    <string name="revanced_hide_explore_section_title">Sembunyikan bagian Jelajah</string>
+    <string name="revanced_hide_featured_channels_section_title">Sembunyikan bagian saluran Unggulan</string>
     <string name="revanced_hide_featured_links_section_summary_off">Bagian tautan unggulan ditampilkan</string>
     <string name="revanced_hide_featured_links_section_summary_on">Bagian tautan unggulan disembunyikan</string>
     <string name="revanced_hide_featured_links_section_title">Sembunyikan bagian tautan Unggulan</string>
+    <string name="revanced_hide_featured_playlists_section_title">Sembunyikan bagian Daftar putar unggulan</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Bagian video unggulan ditampilkan</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Bagian video unggulan disembunyikan</string>
     <string name="revanced_hide_featured_videos_section_title">Sembunyikan bagian video Unggulan</string>
@@ -812,6 +823,7 @@ Toko"</string>
     <string name="revanced_hide_general_ads_summary_off">Iklan umum ditampilkan</string>
     <string name="revanced_hide_general_ads_summary_on">Iklan umum disembunyikan</string>
     <string name="revanced_hide_general_ads_title">Sembunyikan iklan umum</string>
+    <string name="revanced_hide_hashtag_section_title">Sembunyikan bagian Hashtag</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Bagian Cara konten ini dibuat ditampilkan</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Bagian Cara konten ini dibuat disembunyikan</string>
     <string name="revanced_hide_how_this_was_made_section_title">Sembunyikan bagian \'Cara konten ini dibuat\'</string>
@@ -962,6 +974,7 @@ Batasan: Semua tombol hamparan mungkin akan disembunyikan setelah video berakhir
     <string name="revanced_hide_report_button_summary_off">Tombol laporkan ditampilkan</string>
     <string name="revanced_hide_report_button_summary_on">Tombol laporkan disembunyikan</string>
     <string name="revanced_hide_report_button_title">Sembunyikan tombol Laporkan</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">Sembunyikan bagian \'Cari di dalam video ini\'</string>
     <string name="revanced_hide_section_header_in_feed_summary_off">Header bagian Langganan ditampilkan.\n\nHeader bagian Langganan menampilkan tombol \‘Kunjungi Komunitas\’ dan \‘Kunjungi Saluran\’ saat mengklik ikon saluran yang dilanggani di bagian Langganan</string>
     <string name="revanced_hide_section_header_in_feed_summary_on">Header bagian Langganan disembunyikan.\n\nHeader bagian Langganan menampilkan tombol \‘Kunjungi Komunitas\’ dan \‘Kunjungi Saluran\’ saat mengklik ikon saluran yang dilanggani di bagian Langganan</string>
     <string name="revanced_hide_section_header_in_feed_title">Sembunyikan header bagian langganan</string>
@@ -1058,6 +1071,7 @@ Keterbatasan:
     <string name="revanced_hide_video_by_view_counts_home_title">Sembunyikan video beranda berdasarkan penayangan</string>
     <string name="revanced_hide_video_by_view_counts_search_title">Sembunyikan hasil pencarian berdasarkan penayangan</string>
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Sembunyikan video langganan berdasarkan penayangan</string>
+    <string name="revanced_hide_video_details_section_title">Sembunyikan bagian \'Detail video\'</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">Label \'Orang juga menonton\' dan \'Anda mungkin juga menyukai\' di hasil pencarian ditampilkan</string>
     <string name="revanced_hide_video_recommendation_labels_title">Sembunyikan label rekomendasi video</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Video dengan jumlah penayangan yang lebih besar dari angka ini akan disembunyikan</string>
@@ -1146,9 +1160,6 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Tombol unduh daftar putar bawaan, jika ditampilkan, akan membuka aplikasi pengunduh eksternal Anda
 
 Untuk menampilkan tombol unduh daftar putar bawaan, aktifkan opsi 'Palsukan versi aplikasi' dan ubah 'Target versi aplikasi yang dipalsukan' menjadi '19.28.42' atau versi sebelumnya"</string>
-    <string name="revanced_override_youtube_music_button_summary_off">Tombol YouTube Music membuka aplikasi asli</string>
-    <string name="revanced_override_youtube_music_button_summary_on">Tombol YouTube Music membuka aplikasi musik target Anda</string>
-    <string name="revanced_override_youtube_music_button_title">Gantikan tombol tindakan YouTube Music</string>
     <string name="revanced_playback_speed_normal">Biasa</string>
     <string name="revanced_preference_category_animation_feedback">Animasi / Umpan Balik</string>
     <string name="revanced_preference_category_experimental_flag">Fitur Experimental</string>
@@ -1513,9 +1524,10 @@ Sudah ada"</string>
     <string name="revanced_shorts_player_type_regular_player">Pemutar biasa</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Pemutar biasa layar penuh</string>
     <string name="revanced_shorts_player_type_title">Buka Shorts dengan</string>
-    <string name="revanced_show_settings_button_index_title">Posisi tombol Pengaturan</string>
+    <string name="revanced_show_search_button_title">Tampilkan tombol Pencarian</string>
     <string name="revanced_show_settings_button_title">Tampilkan tombol Pengaturan</string>
     <string name="revanced_show_settings_button_type_title">Tindakan tombol pengaturan</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Posisi tombol Pengaturan</string>
     <string name="revanced_show_toolbar_settings_button_title">Tampilkan tombol Pengaturan</string>
     <string name="revanced_spoof_app_version_other_item_hint">Masukkan versi aplikasi</string>
     <string name="revanced_spoof_app_version_summary">Mengelabui server agar mengira Anda menggunakan versi aplikasi yang lebih lama untuk mengembalikan fitur UI lama</string>
@@ -1624,6 +1636,9 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
 
 Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string>
     <string name="revanced_swipe_volume_title">Aktifkan gerakan volume</string>
+    <string name="revanced_swipe_zone_label_brightness">Kecerahan</string>
+    <string name="revanced_swipe_zone_label_speed">Kecepatan</string>
+    <string name="revanced_swipe_zone_label_volume">Volume</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Menukar posisi tombol "Buat" dengan tombol "Pemberitahuan" dengan memalsukan informasi perangkat
 
 • Perangkat mungkin perlu di-reboot agar perubahan pengaturan ini berlaku

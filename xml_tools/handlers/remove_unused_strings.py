@@ -33,6 +33,7 @@ BLACKLISTED_STRINGS: set[str] = {
 }
 
 PREFIX_TO_IGNORE: tuple[str, ...] = (
+    "revanced_change_start_page_entry_",
     "revanced_gemini_error_already_running_",
     "revanced_gemini_loading_",
     "revanced_icon_",

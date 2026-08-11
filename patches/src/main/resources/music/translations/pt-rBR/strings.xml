@@ -36,7 +36,7 @@ Toque no botão continuar e permita as mudanças de otimização"</string>
     <string name="morphe_disable_drc_audio_summary_on">Áudio DRC desativado</string>
     <string name="morphe_disable_quic_protocol_summary_off">Protocolo QUIC ativado</string>
     <string name="morphe_disable_quic_protocol_summary_on">Protocolo QUIC desativado</string>
-    <string name="morphe_force_original_audio_not_available">Para usar este recurso, mude \'Falsificar fluxos de vídeo\' para qualquer cliente, exceto o Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">Para usar este recurso, mude \'Simular streams de vídeo\' para qualquer cliente, exceto \'Android Studio\'</string>
     <string name="morphe_force_original_audio_summary">Sempre reproduz a faixa de áudio original do vídeo, em vez de uma versão dublada</string>
     <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
     <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
@@ -130,11 +130,11 @@ Quando nenhuma letra de terceiros é encontrada, as letras internas são exibida
     <string name="morphe_sanitize_sharing_links_title">Limpar links de compartilhamento</string>
     <string name="morphe_settings_menu_copy_path">Copiado: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Abra a tela de configurações do aplicativo padrão uma vez para preencher a lista</string>
-    <string name="morphe_settings_menu_filter_screen_summary">Ocultar itens na tela de configurações padrões do app pelo nome visível</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Ocultar itens na tela de configurações do aplicativo padrão pelo nome visível</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtro do menu de configurações</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente padrão</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Não foi possível obter nenhum stream de cliente</string>
-    <string name="morphe_spoof_video_streams_screen_summary">Simular os fluxos de vídeo do cliente para evitar problemas de reprodução</string>
+    <string name="morphe_spoof_video_streams_screen_summary">Configure a simulação de cliente para evitar problemas de reprodução</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Você não fez login no Android VR. Toque aqui para fazer login</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar essa função, altere \'Cliente padrão\' para Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Atualmente conectado ao Android VR</string>
@@ -224,7 +224,7 @@ Use cores escuras se possível, pois o aplicativo não suporta temas claros"</st
 Use cores escuras se possível, pois o aplicativo não suporta temas claros"</string>
     <string name="revanced_custom_player_background_color_secondary_title">Cor secundária do fundo do reprodutor</string>
     <string name="revanced_custom_player_background_invalid_toast">Cor de fundo do reprodutor inválida</string>
-    <string name="revanced_debug_protobuffer_summary">Adiciona informações de registro adicionais para que os desenvolvedores identifiquem os componentes do app</string>
+    <string name="revanced_debug_protobuffer_summary">Adiciona informações de registro adicionais para que os desenvolvedores identifiquem os componentes do aplicativo</string>
     <string name="revanced_debug_protobuffer_title">Registro de buffer de protocolo</string>
     <string name="revanced_debug_spannable_summary">Inclui expansíveis no registro de depuração</string>
     <string name="revanced_debug_spannable_title">Registro expansível</string>
@@ -322,6 +322,8 @@ Por favor, baixe %2$s do site"</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Ocultar botão Salvar</string>
     <string name="revanced_hide_action_button_comment_summary">Oculta o botão de Comentários</string>
     <string name="revanced_hide_action_button_comment_title">Ocultar botão Comentários</string>
+    <string name="revanced_hide_action_button_details_summary">Oculta o botão Detalhes nos Podcasts</string>
+    <string name="revanced_hide_action_button_details_title">Ocultar botão Detalhes</string>
     <string name="revanced_hide_action_button_disabled_summary">Oculta os botões desativados, como o botão de Comentários desativado</string>
     <string name="revanced_hide_action_button_disabled_title">Ocultar o botão desativado</string>
     <string name="revanced_hide_action_button_download_summary">Oculta o botão de Download</string>
@@ -330,6 +332,8 @@ Por favor, baixe %2$s do site"</string>
     <string name="revanced_hide_action_button_label_title">Ocultar rótulo do botão de ação</string>
     <string name="revanced_hide_action_button_like_dislike_summary">Oculta os botões de Like e Deslike. Não funciona no antigo layout do reprodutor</string>
     <string name="revanced_hide_action_button_like_dislike_title">Ocultar botões de Like e Deslike</string>
+    <string name="revanced_hide_action_button_live_chat_replay_summary">Oculta o botão de reprodução do chat ao Vivo para vídeos ao vivo</string>
+    <string name="revanced_hide_action_button_live_chat_replay_title">Ocultar botão de reprodução do chat ao Vivo</string>
     <string name="revanced_hide_action_button_lyrics_summary">Oculta o botão de Letras</string>
     <string name="revanced_hide_action_button_lyrics_title">Botão Ocultar Letras</string>
     <string name="revanced_hide_action_button_radio_summary">Oculta o botão de Rádio</string>
@@ -651,7 +655,7 @@ Toque aqui para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Selecione a versão do app para falsificação</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Versão falsa do app para letras</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Versão falsa do app para letras</string>
-    <string name="revanced_spoof_app_version_summary">Faz o servidor pensar que você está usando uma versão mais antiga do app para restaurar recursos da interface antiga</string>
+    <string name="revanced_spoof_app_version_summary">Simula para o servidor que você está usando uma versão mais antiga do aplicativo para restaurar recursos de interface antigos</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desativar modo de Rádio em regiões Canadenses</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desativar letras em tempo real</string>
     <string name="revanced_spoof_app_version_target_entry_6_35_52">6.35.52 - Restaurar painel flutuante antigo</string>
@@ -660,8 +664,8 @@ Toque aqui para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - A seção de comentários não aparece no feed inicial</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versão da falsificação do app inválida: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação</string>
-    <string name="revanced_spoof_app_version_target_title">Versão simulada</string>
-    <string name="revanced_spoof_app_version_title">Simular a versão do app</string>
+    <string name="revanced_spoof_app_version_target_title">Versão-alvo para simulação do aplicativo</string>
+    <string name="revanced_spoof_app_version_title">Simular versão do aplicativo</string>
     <string name="revanced_spoof_client_summary">Falsificar o cliente para evitar problemas de reprodução</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
     <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar"</string>

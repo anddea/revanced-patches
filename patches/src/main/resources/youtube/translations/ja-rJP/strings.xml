@@ -64,12 +64,14 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="morphe_hide_youtube_music_menu_title">「YouTube Music」を非表示</string>
     <string name="morphe_hide_youtube_premium_menu_title">「YouTube Premium」を非表示</string>
     <string name="morphe_hide_youtube_studio_menu_title">「YouTube Studio」を非表示</string>
-    <string name="morphe_hide_youtube_works_menu_title">「YouTube の取り組み」を非表示</string>
+    <string name="morphe_hide_youtube_works_menu_title">「YouTube の仕組み」を非表示</string>
     <string name="morphe_livestream_dvr_not_available">"[ライブ配信のDVRを有効化] をオンにしても、正常に動作しない場合があります。
 
 これを解決するには、[動画ストリームを偽装] を有効にし、[偽装するクライアント] を「TV」に変更してください。"</string>
     <string name="morphe_livestream_dvr_summary">本来はシーク機能が制限される場合も含め、すべてのライブ配信でシーク機能が利用可能になります</string>
     <string name="morphe_livestream_dvr_title">すべてのライブ配信で DVR を有効化</string>
+    <string name="morphe_music_package_name_summary">YouTube Music の代わりに呼び出すインストール済みの音楽アプリのパッケージ名</string>
+    <string name="morphe_music_package_name_title">音楽アプリのパッケージ名</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR にログインできません: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR にログインできません。ウェブサイトの認証が承認されませんでした。</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 は一時的に利用できません</string>
@@ -82,6 +84,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
 
 制限事項: [動画ストリームを偽装] のクライアントが「Android VR」で、かつ [AVC (H.264) を強制的に使用] を有効にしている場合、一部のデバイスで動画が再生できない場合があります"</string>
     <string name="morphe_override_initial_video_quality_title">デフォルトの画質を強制的に適用</string>
+    <string name="morphe_override_youtube_music_buttons_summary">YouTube Music ボタンの呼び出し先を、「純正 YouTube Music アプリ」から「設定した音楽アプリ」に変更します</string>
+    <string name="morphe_override_youtube_music_buttons_title">YouTube Music ボタンの動作を上書き</string>
     <string name="morphe_playback_in_feeds_entry_always_on">常に有効</string>
     <string name="morphe_playback_in_feeds_entry_off">オフ</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi のみ</string>
@@ -97,12 +101,16 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="morphe_sanitize_sharing_links_summary_off">共有リンクから追跡パラメータを削除します。</string>
     <string name="morphe_sanitize_sharing_links_summary_on">共有リンクから追跡パラメータを削除します。</string>
     <string name="morphe_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">リプレイ回数が最も多い部分</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">シークバーをドラッグしてシークしているときに、シーク位置の映像を縮小した画像をシークバーの上に表示します</string>
     <string name="morphe_seekbar_thumbnail_preview_title">シーク位置の映像を縮小表示</string>
     <string name="morphe_settings_menu_copy_path">%s をコピーしました</string>
     <string name="morphe_settings_menu_filter_picker_empty">リストに情報を反映させるため、標準のアプリ設定画面を一度開いてください</string>
     <string name="morphe_settings_menu_filter_screen_summary">標準のアプリ設定画面で、表示名に基づいて項目を非表示にします</string>
     <string name="morphe_settings_menu_filter_screen_title">設定メニューのフィルタリング</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">カラー</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">モノクロ</string>
+    <string name="morphe_splash_screen_animation_style_title">スプラッシュ画面のスタイル</string>
     <string name="morphe_spoof_video_streams_about_js">・難読化の解除に失敗した場合、再生に失敗する可能性があります。</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">・[音声トラック] メニューは表示されません。</string>
     <string name="morphe_spoof_video_streams_about_no_av1">・AV1 コーデックは利用できません。</string>
@@ -442,9 +450,6 @@ DeArrow について詳しく知るには、ここをタップしてください
 ・倍速再生オーバーレイを無効にすると、以前のレイアウトの「スライドしてシーク」動作が復元されます。
 ・この設定を無効にしても、倍速再生オーバーレイが強制的に有効になるわけではありません。"</string>
     <string name="revanced_disable_speed_overlay_title">倍速再生オーバーレイを無効化</string>
-    <string name="revanced_disable_splash_animation_summary_off">アプリ起動時のスプラッシュアニメーションを無効にします。</string>
-    <string name="revanced_disable_splash_animation_summary_on">アプリ起動時のスプラッシュアニメーションを無効にします。</string>
-    <string name="revanced_disable_splash_animation_title">スプラッシュアニメーションを無効化</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">動画のタイトルより下をスワイプしても全画面表示に切り替えないようにします。</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">動画のタイトルより下をスワイプしても全画面表示に切り替えないようにします。</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">スワイプして全画面表示に切り替えるのを無効化 (動画のタイトルより下を下にスワイプした時)</string>
@@ -795,6 +800,8 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_connect_button_summary_off">Connect button is shown</string>
     <string name="revanced_hide_connect_button_summary_on">Connect button is hidden</string>
     <string name="revanced_hide_connect_button_title">Hide Connect button</string>
+    <string name="revanced_hide_corrections_section_title">修正セクションを非表示</string>
+    <string name="revanced_hide_course_progress_section_title">「コースの進捗状況」セクションを非表示</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">コメント欄の下に表示されるストア欄を非表示にします。</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">コメント欄の下に表示されるストア欄を非表示にします。</string>
     <string name="revanced_hide_creator_store_shelf_title">クリエイターのストア欄を非表示</string>
@@ -831,12 +838,16 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_expandable_shelf_summary_off">検索結果にある、展開可能な棚を非表示にします。</string>
     <string name="revanced_hide_expandable_shelf_summary_on">検索結果にある、展開可能な棚を非表示にします。</string>
     <string name="revanced_hide_expandable_shelf_title">展開可能な棚を非表示</string>
+    <string name="revanced_hide_explore_course_section_title">「このコースを見る」セクションを非表示</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">概要欄から「ポッドキャストを検索」セクションを非表示にします。</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">概要欄から「ポッドキャストを検索」セクションを非表示にします。</string>
     <string name="revanced_hide_explore_podcast_section_title">「ポッドキャストを検索」セクションを非表示</string>
+    <string name="revanced_hide_explore_section_title">ポッドキャストとコースを非表示</string>
+    <string name="revanced_hide_featured_channels_section_title">チャンネル カード セクション内のおすすめチャンネルを非表示</string>
     <string name="revanced_hide_featured_links_section_summary_off">情報カード内から注目のリンクセクションを非表示にします。</string>
     <string name="revanced_hide_featured_links_section_summary_on">情報カード内から注目のリンクセクションを非表示にします。</string>
     <string name="revanced_hide_featured_links_section_title">注目のリンクセクションを非表示</string>
+    <string name="revanced_hide_featured_playlists_section_title">チャンネル カード セクション内のおすすめ再生リストを非表示</string>
     <string name="revanced_hide_featured_videos_section_summary_off">情報カード内から注目の動画セクションを非表示にします。</string>
     <string name="revanced_hide_featured_videos_section_summary_on">情報カード内から注目の動画セクションを非表示にします。</string>
     <string name="revanced_hide_featured_videos_section_title">注目の動画セクションを非表示</string>
@@ -872,6 +883,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_handle_summary_off">ハンドル (例: @youtubecreators) を非表示にします。</string>
     <string name="revanced_hide_handle_summary_on">ハンドル (例: @youtubecreators) を非表示にします。</string>
     <string name="revanced_hide_handle_title">ハンドルを非表示</string>
+    <string name="revanced_hide_hashtag_section_title">ハッシュタグ セクションを非表示</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">概要欄から「制作の裏側」セクションを非表示にします。</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">概要欄から「制作の裏側」セクションを非表示にします。</string>
     <string name="revanced_hide_how_this_was_made_section_title">「制作の裏側」セクションを非表示</string>
@@ -1147,6 +1159,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_search_bar_back_button_summary_off">Search bar back button is shown</string>
     <string name="revanced_hide_search_bar_back_button_summary_on">Search bar back button is hidden</string>
     <string name="revanced_hide_search_bar_back_button_title">Hide search bar back button</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">「動画内を検索 」セクションを非表示</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">検索履歴からサムネイルを非表示にします。</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">検索履歴からサムネイルを非表示にします。</string>
     <string name="revanced_hide_search_term_thumbnail_title">検索履歴のサムネイルを非表示</string>
@@ -1339,6 +1352,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">登録チャンネルをフィルタリング</string>
     <string name="revanced_hide_video_by_view_counts_summary">指定した再生回数未満のおすすめ動画を非表示にします。\n\n注意: 再生回数が 0 の動画はフィルタリングされません。</string>
     <string name="revanced_hide_video_by_view_counts_title">おすすめ動画を再生回数でフィルタリング</string>
+    <string name="revanced_hide_video_details_section_title">「動画の詳細」セクションを非表示</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">"「あなたへのおすすめ」「他の人はこの動画も視聴しています」のようなサムネイルのラベルを非表示にします。"</string>
     <string name="revanced_hide_video_recommendation_labels_title">サムネイルラベルを非表示</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">この数値より多い再生回数の動画を非表示にします。</string>
@@ -1611,11 +1625,6 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_override_video_download_button_queue_manager_summary_on">[オフライン] ボタンでキューマネージャーを開きます。</string>
     <string name="revanced_override_video_download_button_summary_off">[オフライン] ボタンで外部ダウンローダーを開きます。</string>
     <string name="revanced_override_video_download_button_title">[オフライン] ボタンを置換</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">ボタンを置換するには YouTube Music が必要です。ここをタップして YouTube Music をダウンロードします。</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_title">前提条件</string>
-    <string name="revanced_override_youtube_music_button_summary_off">[YouTube Music] ボタンで RVX Music を開けるようにします。</string>
-    <string name="revanced_override_youtube_music_button_summary_on">[YouTube Music] ボタンで RVX Music を開けるようにします。</string>
-    <string name="revanced_override_youtube_music_button_title">[YouTube Music] ボタンを置換</string>
     <string name="revanced_patched_date_title">パッチ適用日時</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">除外されています</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">適用されています</font></string>
@@ -1627,7 +1636,6 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_preference_category_app_info">アプリ情報</string>
     <string name="revanced_preference_category_codec">コー​​デック</string>
     <string name="revanced_preference_category_custom_actions">カスタムアクション</string>
-    <string name="revanced_preference_category_download_button">[オフライン] ボタン</string>
     <string name="revanced_preference_category_experimental_flag">実験的な機能</string>
     <string name="revanced_preference_category_image_region_restrictions">画像表示の地域制限</string>
     <string name="revanced_preference_category_import_export_as_file">ファイルとしてインポート/エクスポート</string>
@@ -1804,9 +1812,6 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_replace_channel_handle_summary_off">現在の設定: チャンネルのハンドル名が表示されます。</string>
     <string name="revanced_replace_channel_handle_summary_on">現在の設定: チャンネル名が表示されます。</string>
     <string name="revanced_replace_channel_handle_title">ショート動画のチャンネル名を復元</string>
-    <string name="revanced_replace_navigation_button_summary">ナビゲーションボタンを [検索] ボタンに置​​き換えます。</string>
-    <string name="revanced_replace_navigation_button_target_entry_home">ホーム</string>
-    <string name="revanced_replace_navigation_button_target_title">ナビゲーションボタンを置換</string>
     <string name="revanced_replace_time_stamp_action_summary_off">現在の設定: プレーヤー左下のタイムスタンプをタップすると、残り時間が表示されます。</string>
     <string name="revanced_replace_time_stamp_action_summary_on">現在の設定: プレーヤー左下のタイムスタンプをタップすると、再生速度または画質のフライアウトメニューが開きます。</string>
     <string name="revanced_replace_time_stamp_action_title">タイムスタンプを置換</string>
@@ -2206,13 +2211,14 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_shorts_player_type_regular_player">通常のプレーヤー</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">通常のプレーヤー (全画面)</string>
     <string name="revanced_shorts_player_type_title">ショート動画を開くプレーヤーを選択</string>
-    <string name="revanced_show_settings_button_index_title">Settings button index</string>
+    <string name="revanced_show_search_button_title">検索ボタンを表示</string>
     <string name="revanced_show_settings_button_summary_off">Settings button is not shown</string>
     <string name="revanced_show_settings_button_summary_on">Settings button is shown</string>
     <string name="revanced_show_settings_button_title">Show Settings</string>
     <string name="revanced_show_settings_button_type_summary_off">現在の設定: タップすると YouTube の設定画面を開きます。</string>
     <string name="revanced_show_settings_button_type_summary_on">現在の設定: タップすると RVX の設定画面を開きます。</string>
     <string name="revanced_show_settings_button_type_title">設定ボタンの挙動</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">設定ボタンの表示位置</string>
     <string name="revanced_show_toolbar_settings_button_summary_off">Settings button is not shown in the toolbar</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">Settings button is shown in the toolbar</string>
     <string name="revanced_show_toolbar_settings_button_title">Show Settings in toolbar</string>
@@ -2355,8 +2361,6 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_swipe_overlay_progress_volume_color_summary">スワイプ中の音量の現在値を視覚的に表示するグラフの色です。</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">音量グラフの色</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">スワイプ可能な領域は 50 を超えることはできません。デフォルト値にリセットします。</string>
-    <string name="revanced_swipe_overlay_rect_size_summary">スワイプ可能な画面領域の割合です。\n\n注意: ダブルタップでシークするジェスチャーの画面領域のサイズも変化します。</string>
-    <string name="revanced_swipe_overlay_rect_size_title">スワイプオーバーレイの画面サイズ</string>
     <string name="revanced_swipe_overlay_style_entry_0">レガシーオーバーレイ</string>
     <string name="revanced_swipe_overlay_style_entry_1">横長</string>
     <string name="revanced_swipe_overlay_style_entry_2">横長 (最小 - 画面上部)</string>
@@ -2406,6 +2410,9 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
 
 画面左側を上下にスワイプして音量を調整できます。"</string>
     <string name="revanced_swipe_volume_title">音量ジェスチャーを有効化</string>
+    <string name="revanced_swipe_zone_label_brightness">明るさ</string>
+    <string name="revanced_swipe_zone_label_speed">再生速度</string>
+    <string name="revanced_swipe_zone_label_volume">音量</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"デバイスの情報を偽装して、作成ボタンと通知ボタンの位置を入れ替えます。
 
 • この設定を変更しても、デバイスを再起動するまで有効にならない場合があります。
@@ -2415,9 +2422,6 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_switch_create_with_notifications_button_summary_on">[作成] ボタンと [通知] ボタンを入れ替えます。</string>
     <string name="revanced_switch_create_with_notifications_button_title">[作成] ボタンと [通知] ボタンを入れ替え</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">この設定が有効にならない場合は、シークレットモードに切り替えてみてください。</string>
-    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_summary">インストールされている RVX Music のパッケージ名です。</string>
-    <string name="revanced_third_party_youtube_music_package_name_title">RVX Music のパッケージ名</string>
     <string name="revanced_transcript_cookies_about_summary">Cookie を取得する方法を確認するにはここをタップしてください。</string>
     <string name="revanced_transcript_cookies_about_title">Transcript Cookie について</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">認証あり</string>
