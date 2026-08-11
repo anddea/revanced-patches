@@ -586,15 +586,24 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_ASK_SECTION = new BooleanSetting("revanced_hide_ask_section", FALSE);
     public static final BooleanSetting HIDE_ATTRIBUTES_SECTION = new BooleanSetting("revanced_hide_attributes_section", FALSE);
     public static final BooleanSetting HIDE_CHAPTERS_SECTION = new BooleanSetting("revanced_hide_chapters_section", FALSE);
+    public static final BooleanSetting HIDE_CORRECTIONS_SECTION = new BooleanSetting("revanced_hide_corrections_section", FALSE);
+    public static final BooleanSetting HIDE_COURSE_PROGRESS_SECTION = new BooleanSetting("revanced_hide_course_progress_section", FALSE);
+    public static final BooleanSetting HIDE_EXPLORE_SECTION = new BooleanSetting("revanced_hide_explore_section", FALSE);
+    public static final BooleanSetting HIDE_EXPLORE_COURSE_SECTION = new BooleanSetting("revanced_hide_explore_course_section", FALSE, parentInverted(HIDE_EXPLORE_SECTION));
     public static final BooleanSetting HIDE_EXPLORE_PODCAST_SECTION = new BooleanSetting("revanced_hide_explore_podcast_section", FALSE);
     public static final BooleanSetting HIDE_HOW_THIS_WAS_MADE_SECTION = new BooleanSetting("revanced_hide_how_this_was_made_section", FALSE);
     public static final BooleanSetting HIDE_HYPE_POINTS_SECTION = new BooleanSetting("revanced_hide_hype_points_section", FALSE);
     public static final BooleanSetting HIDE_INFO_CARDS_SECTION = new BooleanSetting("revanced_hide_info_cards_section", FALSE);
+    public static final BooleanSetting HIDE_FEATURED_CHANNELS_SECTION = new BooleanSetting("revanced_hide_featured_channels_section", FALSE, parentInverted(HIDE_INFO_CARDS_SECTION));
     public static final BooleanSetting HIDE_FEATURED_LINKS_SECTION = new BooleanSetting("revanced_hide_featured_links_section", FALSE, parentInverted(HIDE_INFO_CARDS_SECTION));
+    public static final BooleanSetting HIDE_FEATURED_PLAYLISTS_SECTION = new BooleanSetting("revanced_hide_featured_playlists_section", FALSE, parentInverted(HIDE_INFO_CARDS_SECTION));
     public static final BooleanSetting HIDE_FEATURED_VIDEOS_SECTION = new BooleanSetting("revanced_hide_featured_videos_section", FALSE, parentInverted(HIDE_INFO_CARDS_SECTION));
+    public static final BooleanSetting HIDE_HASHTAG_SECTION = new BooleanSetting("revanced_hide_hashtag_section", FALSE);
     public static final BooleanSetting HIDE_SUBSCRIBE_BUTTON = new BooleanSetting("revanced_hide_subscribe_button", FALSE, parentInverted(HIDE_INFO_CARDS_SECTION));
     public static final BooleanSetting HIDE_KEY_CONCEPTS_SECTION = new BooleanSetting("revanced_hide_key_concepts_section", FALSE);
+    public static final BooleanSetting HIDE_SEARCH_INSIDE_THIS_VIDEO_SECTION = new BooleanSetting("revanced_hide_search_inside_this_video_section", FALSE);
     public static final BooleanSetting HIDE_TRANSCRIPT_SECTION = new BooleanSetting("revanced_hide_transcript_section", FALSE);
+    public static final BooleanSetting HIDE_VIDEO_DETAILS_SECTION = new BooleanSetting("revanced_hide_video_details_section", FALSE);
     public static final BooleanSetting DISABLE_VIDEO_DESCRIPTION_INTERACTION = new BooleanSetting("revanced_disable_video_description_interaction", FALSE, true);
     public static final BooleanSetting EXPAND_VIDEO_DESCRIPTION = new BooleanSetting("revanced_expand_video_description", FALSE, true);
 
