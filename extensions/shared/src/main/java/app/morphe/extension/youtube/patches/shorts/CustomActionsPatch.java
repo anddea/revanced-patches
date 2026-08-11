@@ -153,16 +153,22 @@ public final class CustomActionsPatch {
     }
 
     /**
-     * Injection point.
+     * Injection point. Stores only a normal menu item as the template for custom actions.
+     *
+     * <p>The modern Shorts flyout renderer has a separate path for element-transformer items.
+     * Such an item may look like the native Captions row, but it cannot be rebuilt with a custom
+     * label and icon. A server-side menu change can make that item the first supported entry, so
+     * it must not become the template for cloned custom-action rows.</p>
      */
-    public static void setFlyoutMenuObject(Object bottomSheetMenuObject) {
+    public static void setFlyoutMenuObject(Object bottomSheetMenuObject,
+                                           boolean isElementTransformer) {
         if (!SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED) {
             return;
         }
         if (!isShortsActive()) {
             return;
         }
-        if (bottomSheetMenuObject == null) {
+        if (isElementTransformer || bottomSheetMenuObject == null) {
             return;
         }
         for (CustomAction customAction : CustomAction.values()) {
