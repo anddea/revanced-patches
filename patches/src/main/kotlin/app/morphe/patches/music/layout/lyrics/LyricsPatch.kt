@@ -103,13 +103,13 @@ val lyricsPatch = bytecodePatch(
         addCustomPreference(
             CategoryType.LYRICS,
             "morphe_music_lyrics_text_size",
-            "app.morphe.extension.shared.settings.preference.SeekBarPreference",
+            "app.morphe.extension.shared.settings.preference.SliderPreference",
             "morphe_music_lyrics_enabled"
         )
         addCustomPreference(
             CategoryType.LYRICS,
             "morphe_music_lyrics_offset_ms",
-            "app.morphe.extension.shared.settings.preference.SeekBarPreference",
+            "app.morphe.extension.shared.settings.preference.SliderPreference",
             "morphe_music_lyrics_enabled"
         )
         addNonInteractivePreference(

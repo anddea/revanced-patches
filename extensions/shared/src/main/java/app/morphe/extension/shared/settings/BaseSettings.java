@@ -50,6 +50,7 @@ public class BaseSettings {
             true, null, parent(RETURN_YOUTUBE_USERNAME_ENABLED));
 
     public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("revanced_settings_search_history", TRUE, true);
+    public static final BooleanSetting SHOW_SLIDER_SUMMARIES = new BooleanSetting("revanced_settings_show_slider_summaries", TRUE);
     public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("revanced_settings_search_entries", "", true);
     public static final BooleanSetting SETTINGS_DISABLE_BOLD_ICONS = new BooleanSetting("revanced_settings_disable_bold_icons", FALSE, true);
     public static final LongSetting FIRST_TIME_APP_LAUNCHED = new LongSetting("revanced_last_time_app_was_launched", -1L, false, false);

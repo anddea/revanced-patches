@@ -8,6 +8,8 @@ import org.json.JSONObject;
 
 import java.util.Objects;
 
+import app.morphe.extension.shared.settings.Setting.SliderConfig;
+
 @SuppressWarnings("unused")
 public class LongSetting extends Setting<Long> {
 
@@ -45,6 +47,22 @@ public class LongSetting extends Setting<Long> {
 
     public LongSetting(@NonNull String key, @NonNull Long defaultValue, boolean rebootApp, boolean includeWithImportExport, @Nullable String userDialogMessage, @Nullable Availability availability) {
         super(key, defaultValue, rebootApp, includeWithImportExport, userDialogMessage, availability);
+    }
+
+    public LongSetting(String key, Long defaultValue, SliderConfig sliderConfig) {
+        this(key, defaultValue, false, sliderConfig, null);
+    }
+
+    public LongSetting(String key, Long defaultValue, boolean rebootApp, SliderConfig sliderConfig) {
+        this(key, defaultValue, rebootApp, sliderConfig, null);
+    }
+
+    public LongSetting(String key, Long defaultValue, SliderConfig sliderConfig, @Nullable Availability availability) {
+        this(key, defaultValue, false, sliderConfig, availability);
+    }
+
+    public LongSetting(String key, Long defaultValue, boolean rebootApp, SliderConfig sliderConfig, @Nullable Availability availability) {
+        super(key, defaultValue, rebootApp, true, null, availability, sliderConfig);
     }
 
     @Override
