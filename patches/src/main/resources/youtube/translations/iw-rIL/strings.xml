@@ -28,9 +28,9 @@
     <string name="morphe_disable_quic_protocol_summary_off">פרוטוקול QUIC פעיל</string>
     <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
     <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
-    <string name="morphe_expand_livestream_dvr_duration_not_available">"ייתכן ש'הרחבת משך הקלטת שידור חי' אינה זמינה
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'הרחבת משך DVR בשידור חי' עשויה להיות לא זמינה
 
-כדי לתקן זאת, הפעל את 'התחזות לזרמי וידאו' ושנה את 'לקוח ברירת המחדל' ל-'TV Simply' או 'visionOS'"</string>
+כדי לתקן זאת, הפעל את 'זיוף הזרמות וידאו' ושנה את 'לקוח ברירת המחדל' ל-'TV' או ל-'visionOS'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">מאפשר לך להריץ לאחור שידורים חיים עד 7 ימים אחורה</string>
     <string name="morphe_expand_livestream_dvr_duration_title">הרחב את משך ה-DVR בשידור חי</string>
     <string name="morphe_explore_menu_screen_summary">בחר אילו רכיבים יופיעו בתפריט החקירה</string>
@@ -50,8 +50,8 @@
     <string name="morphe_hide_learning_menu_title">הסתר תפריט למידה</string>
     <string name="morphe_hide_live_menu_title">הסתר תפריט לייב</string>
     <string name="morphe_hide_memberships_menu_title">הסתר תפריט מנויים</string>
-    <string name="morphe_hide_movies_menu_title">הסתר תפריט סרטים</string>
-    <string name="morphe_hide_music_menu_title">הסתר תפריט \'מוזיקה וטלוויזיה\'</string>
+    <string name="morphe_hide_movies_menu_title">הסתר תפריט \'סרטים וטלוויזיה\'</string>
+    <string name="morphe_hide_music_menu_title">הסתר תפריט מוזיקה</string>
     <string name="morphe_hide_news_menu_title">הסתר תפריט חדשות</string>
     <string name="morphe_hide_playables_menu_title">הסתר תפריט משחקייה</string>
     <string name="morphe_hide_podcasts_menu_title">הסתר תפריט פודקאסטים</string>
@@ -65,11 +65,13 @@
     <string name="morphe_hide_youtube_premium_menu_title">הסתר תפריט YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">הסתר תפריט YouTube Studio</string>
     <string name="morphe_hide_youtube_works_menu_title">הסתר תפריט \'איך YouTube עובד\'</string>
-    <string name="morphe_livestream_dvr_not_available">"ייתכן ש'הפעלת הקלטת שידור חי' אינה זמינה
+    <string name="morphe_livestream_dvr_not_available">"'הפעלת DVR בשידור חי' עשויה להיות לא זמינה
 
-כדי לתקן זאת, הפעל את 'התחזות לזרמי וידאו' ושנה את 'לקוח ברירת המחדל' ל-'TV Simply' או 'visionOS'"</string>
+כדי לתקן זאת, הפעל את 'זיוף הזרמות וידאו' ושנה את 'לקוח ברירת המחדל' ל-'TV' או ל-'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">מאפשר חיפוש בכל הזרמות החיות, גם באלו שמגבילות זאת בדרך כלל</string>
     <string name="morphe_livestream_dvr_title">הפעל DVR לשידור חי</string>
+    <string name="morphe_music_package_name_summary">שם החבילה של אפליקציית המוזיקה המותקנת שלך</string>
+    <string name="morphe_music_package_name_title">שם החבילה של אפליקציית המוזיקה</string>
     <string name="morphe_oauth2_connection_failure_auth_error">לא ניתן להתחבר ל-VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">לא ניתן להתחבר ל-VR, אישור אימות אתר לא אושר</string>
     <string name="morphe_oauth2_connection_failure_generic">Очнення временно недоступен</string>
@@ -82,6 +84,8 @@
 
 מגבלה: הפעלה עלולה לא לעבוד בחלק מהמכשירים אם 'התחזות לזרמי וידאו' מוגדרת ל-'Android VR' ו-'כפיית קודק AVC (H.264)' מופעלת"</string>
     <string name="morphe_override_initial_video_quality_title">עקיפת איכות הווידאו הראשונית</string>
+    <string name="morphe_override_youtube_music_buttons_summary">פותח את אפליקציית המוזיקה המועדפת עליך במקום אפליקציית YouTube Music הרגילה</string>
+    <string name="morphe_override_youtube_music_buttons_title">גמַהת במְירַד הכולַה</string>
     <string name="morphe_playback_in_feeds_entry_always_on">תמיד מופעל</string>
     <string name="morphe_playback_in_feeds_entry_off">כבוי</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">רק Wi-Fi</string>
@@ -97,14 +101,18 @@
     <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">הכי הרבה השמעות חוזרות</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">מציג תמונה ממוזערת של הסרטון בזמן גרירת סרגל החיפוש</string>
     <string name="morphe_seekbar_thumbnail_preview_title">אפשר תמונות ממוזערות בסרגל החיפוש</string>
     <string name="morphe_settings_menu_copy_path">הועתק: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">פתח את מסך ההגדרות הסטנדרטי של האפליקציה פעם אחת כדי לאכלס את הרשימה</string>
     <string name="morphe_settings_menu_filter_screen_summary">הסתר פריטים ממסך ההגדרות הסטנדרטי של האפליקציה לפי השם הגלוי שלהם</string>
     <string name="morphe_settings_menu_filter_screen_title">מסנן תפריט הגדרות</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">צבע</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">חד גווני</string>
+    <string name="morphe_splash_screen_animation_style_title">סגנון מסך פתיחה</string>
     <string name="morphe_spoof_video_streams_about_js">• אם הדהוד נכשל, ייתכן שהפלייבק יהיה כושל</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• תפריט ערוץ השמע חסר</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• תפריט \'ערוץ השמע\' חסר</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• כפיית שמע מקורי אינה זמינה</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• מצב 360° VR אינו זמין</string>
@@ -114,7 +122,7 @@
     <string name="morphe_spoof_video_streams_av1_summary_on">"מקודד וידאו הוא AVC (H.264), VP9, או AV1
 
 ההפעלה עשויה לגמגם או לדלג על פריימים"</string>
-    <string name="morphe_spoof_video_streams_av1_title">אפשר Android VR / visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">אפשר \'Android VR\' / visionOS AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"הפעלת הגדרה זו עשויה להשתמש בפענוח תוכנה של AV1
 
 הפעלת וידאו עם AV1 עלולה לגרום לגמגום או לדלוג על פריימים"</string>
@@ -444,6 +452,8 @@
     <string name="revanced_hide_community_button_summary_on">הלחצן \'קהילה\' מוסתר</string>
     <string name="revanced_hide_community_button_title">הסתר לחצן תגובות</string>
     <string name="revanced_hide_connect_button_title">הסתר לחצן חיבור</string>
+    <string name="revanced_hide_corrections_section_title">הסתר את סעיף \'תיקונים\'</string>
+    <string name="revanced_hide_course_progress_section_title">הסתר את סעיף \'התקדמות הקורס\'</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">מדף חנות היוצר מתחת לנגן הוידאו מוצג</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">מדף חנות היוצר מתחת לנגן הוידאו מוסתר</string>
     <string name="revanced_hide_creator_store_shelf_title">הסתר מדף חנות היוצר</string>
@@ -468,12 +478,16 @@
     <string name="revanced_hide_expandable_card_entry_4">הסתר כרטיסי מוצר וסיכום</string>
     <string name="revanced_hide_expandable_card_entry_5">הסתר הכל</string>
     <string name="revanced_hide_expandable_card_title">כרטיסים ניתנים להרחבה מתחת לסרטונים</string>
+    <string name="revanced_hide_explore_course_section_title">הסתר את סעיף \'גלה את הקורס הזה\'</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">מדור \'גלה את הפודקאסט\' מוצג</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">מדור \'גלה את הפודקאסט\' מוסתר</string>
     <string name="revanced_hide_explore_podcast_section_title">הסתר את סעיף \'גלה את הפודקאסט\'</string>
+    <string name="revanced_hide_explore_section_title">הסתר סעיף \'גלה\'</string>
+    <string name="revanced_hide_featured_channels_section_title">הסתר סעיף הערוצים המומלצים</string>
     <string name="revanced_hide_featured_links_section_summary_off">קטע קישורים מוצגים מוצג</string>
     <string name="revanced_hide_featured_links_section_summary_on">קטע קישורים מוצגים מוסתר</string>
     <string name="revanced_hide_featured_links_section_title">הסתר סעיף \'קישורים מומלצים\'</string>
+    <string name="revanced_hide_featured_playlists_section_title">הסתר את סעיף פלייליסטים מומלצים</string>
     <string name="revanced_hide_featured_videos_section_summary_off">קטע סרטונים מוצגים מוצג</string>
     <string name="revanced_hide_featured_videos_section_summary_on">קטע סרטונים מוצגים מוסתר</string>
     <string name="revanced_hide_featured_videos_section_title">הסתר סעיף \'סרטונים מומלצים\'</string>
@@ -488,6 +502,7 @@
     <string name="revanced_hide_general_ads_summary_off">מודעות כלליות מוצגות</string>
     <string name="revanced_hide_general_ads_summary_on">מודעות כלליות מוסתרות</string>
     <string name="revanced_hide_general_ads_title">הסתר מודעות כלליות</string>
+    <string name="revanced_hide_hashtag_section_title">הסתר סעיף Hashtag</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">מדור \'איך התוכן הזה נוצר\' מוצג</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">מדור \'איך התוכן הזה נוצר\' מוסתר</string>
     <string name="revanced_hide_how_this_was_made_section_title">הסתר את סעיף \'איך התוכן הזה נוצר\'</string>
@@ -600,6 +615,7 @@
     <string name="revanced_hide_report_button_summary_off">לחצן דיווח מוצג</string>
     <string name="revanced_hide_report_button_summary_on">לחצן דיווח מוסתר</string>
     <string name="revanced_hide_report_button_title">הסתר כפתור \'עוד סרטונים\'</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">הסתר את סעיף \'חיפוש בתוך הסרטון הזה\'</string>
     <string name="revanced_hide_seekbar_summary_off">סרגל דילוג של נגן וידאו מוצג</string>
     <string name="revanced_hide_seekbar_summary_on">סרגל דילוג של נגן וידאו מוסתר</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">סרגל דילוג עם תמונות ממוזערות של סרטון מוצג</string>
@@ -681,6 +697,7 @@
     <string name="revanced_hide_video_ads_summary_off">מודעות סרטון מוצגות</string>
     <string name="revanced_hide_video_ads_summary_on">מודעות סרטון מוסתרות</string>
     <string name="revanced_hide_video_ads_title">הסתר מודעות סרטון</string>
+    <string name="revanced_hide_video_details_section_title">הסתר את סעיף \'פרטי הסרטון\'</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">התוויות \'אנשים גם צפו\' ו\'אולי תאהב גם\' בתוצאות חיפוש מוצגות</string>
     <string name="revanced_hide_video_recommendation_labels_title">הסתר תוויות המלצות סרטונים</string>
     <string name="revanced_hide_visual_spacer_summary_off">המפריד החזותי מוצג</string>
@@ -746,9 +763,6 @@
     <string name="revanced_miniplayer_width_dip_title">גודל ברירת מחדל</string>
     <string name="revanced_navigation_bar_animations_summary">מבצע אנימציות מעברים בעת מעבר בין כרטיסיות</string>
     <string name="revanced_navigation_bar_animations_title">הפעלת אנימציות של שורת הניווט</string>
-    <string name="revanced_override_youtube_music_button_summary_off">כפתור YouTube Music נפתח את האפליקציה המקורית</string>
-    <string name="revanced_override_youtube_music_button_summary_on">כפתור יוטיוב מיוזיק יפתח את אפליקציית המוזיקה שלך</string>
-    <string name="revanced_override_youtube_music_button_title">עקוף כפתור יוטיוב מיוזיק</string>
     <string name="revanced_queue_manager_add_to_queue">הוסף לתור</string>
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">הוסף לתור ופתח</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">הוסף לתור והפעל וידאו</string>
@@ -1052,9 +1066,10 @@
     <string name="revanced_shorts_player_type_regular_player">נגן רגיל</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">נגן רגיל במסך מלא</string>
     <string name="revanced_shorts_player_type_title">פתח Shorts עם</string>
-    <string name="revanced_show_settings_button_index_title">מיקום כפתור ההגדרות</string>
+    <string name="revanced_show_search_button_title">הצג כפתור חיפוש</string>
     <string name="revanced_show_settings_button_title">הצג כפתור הגדרות</string>
     <string name="revanced_show_settings_button_type_title">פעולה של כפתור הגדרות</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">מיקום כפתור ההגדרות</string>
     <string name="revanced_show_toolbar_settings_button_title">הצג כפתור הגדרות</string>
     <string name="revanced_spoof_app_version_summary">מרמה את השרת לחשוב שאתה משתמש בגרסת אפליקציה ישנה יותר כדי לשחזר תכונות ממשק משתמש מדור קודם</string>
     <string name="revanced_spoof_app_version_summary_off">גרסה לא מזויפת</string>
@@ -1115,6 +1130,9 @@
 
 כוונן את עוצמת הקול על ידי החלקה אנכית בצד הימני של המסך"</string>
     <string name="revanced_swipe_volume_title">הפעל מחוות עוצמת קול</string>
+    <string name="revanced_swipe_zone_label_brightness">בהירות</string>
+    <string name="revanced_swipe_zone_label_speed">מהירות</string>
+    <string name="revanced_swipe_zone_label_volume">עוצמת קול</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">לחצן יצירה לא יוחלף עם לחצן עדכונים</string>
     <string name="revanced_switch_create_with_notifications_button_summary_on">לחצן יצירה מוחלף עם לחצן עדכונים</string>
     <string name="revanced_switch_create_with_notifications_button_title">החלף יצירה עם עדכונים</string>

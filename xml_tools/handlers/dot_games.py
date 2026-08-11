@@ -55,7 +55,7 @@ def process_file(path: Path) -> None:
         return
 
     path.write_text(cleaned_text, encoding="utf-8")
-    logger.info("Removed unwanted dots from %s", path)
+    logger.debug("Removed unwanted dots from %s", path)
 
 
 def process() -> None:

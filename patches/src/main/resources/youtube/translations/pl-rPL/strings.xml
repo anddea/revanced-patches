@@ -30,7 +30,7 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="morphe_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Opcja \"Wydłuż czas przewijania transmisji na żywo\" może być niedostępna
 
-​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
+Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV\" lub \"visionOS\""</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Umożliwia przewijanie transmisji na żywo nawet do 7 dni wstecz</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Wydłuż czas przewijania transmisji na żywo</string>
     <string name="morphe_explore_menu_screen_summary">Zdecyduj, które elementy będą wyświetlane w menu odkrywania</string>
@@ -50,7 +50,7 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="morphe_hide_learning_menu_title">Ukryj menu Nauka</string>
     <string name="morphe_hide_live_menu_title">Ukryj menu Na żywo</string>
     <string name="morphe_hide_memberships_menu_title">Ukryj menu \"Wspieranie kanału\"</string>
-    <string name="morphe_hide_movies_menu_title">Ukryj menu Filmy</string>
+    <string name="morphe_hide_movies_menu_title">Ukryj menu \"Filmy i TV\"</string>
     <string name="morphe_hide_music_menu_title">Ukryj menu Muzyka</string>
     <string name="morphe_hide_news_menu_title">Ukryj menu Wiadomości</string>
     <string name="morphe_hide_playables_menu_title">Ukryj menu Pokój gier</string>
@@ -67,9 +67,11 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="morphe_hide_youtube_works_menu_title">Ukryj menu \"Jak działa YouTube\"</string>
     <string name="morphe_livestream_dvr_not_available">"Opcja \"Włącz przewijanie transmisji na żywo\" może być niedostępna
 
-​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
+Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV\" lub \"visionOS\""</string>
     <string name="morphe_livestream_dvr_summary">Umożliwia przewijanie wszystkich transmisji na żywo, nawet tych, które normalnie to blokują</string>
     <string name="morphe_livestream_dvr_title">Włącz przewijanie transmisji na żywo</string>
+    <string name="morphe_music_package_name_summary">Nazwa pakietu zainstalowanej aplikacji muzycznej</string>
+    <string name="morphe_music_package_name_title">Nazwa pakietu aplikacji muzycznej</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nie można zalogować się do VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nie można zalogować się do VR, autoryzacja na stronie nie została zatwierdzona</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 jest tymczasowo niedostępny</string>
@@ -81,7 +83,9 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="morphe_override_initial_video_quality_summary">"Naprawia problem, przez który domyślna jakość filmu nie jest stosowana natychmiast po rozpoczęciu odtwarzania
 
 Ograniczenie: Odtwarzanie może nie działać na niektórych urządzeniach, jeśli opcja \"Fałszowanie strumieni filmów\" jest ustawiona na \"Android VR\", a opcja \"Wymuś kodek AVC (H.264)\" jest włączona"</string>
-    <string name="morphe_override_initial_video_quality_title">Nadpisz początkową jakość filmu</string>
+    <string name="morphe_override_initial_video_quality_title">Zastąp początkową jakość filmu</string>
+    <string name="morphe_override_youtube_music_buttons_summary">Otwiera preferowaną aplikację muzyczną zamiast domyślnej aplikacji YouTube Music</string>
+    <string name="morphe_override_youtube_music_buttons_title">Zastąp przyciski YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Zawsze włączone</string>
     <string name="morphe_playback_in_feeds_entry_off">Wyłączone</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Tylko Wi-Fi</string>
@@ -97,14 +101,18 @@ Ograniczenie: Odtwarzanie może nie działać na niektórych urządzeniach, jeś
     <string name="morphe_sanitize_sharing_links_summary_off">Pozostawia parametry śledzące w linkach</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Usuwa parametry śledzące z linków</string>
     <string name="morphe_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Najczęściej odtwarzane</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Pokazuje podgląd filmu podczas przeciągania paska postępu</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Włącz podgląd na pasku postępu</string>
     <string name="morphe_settings_menu_copy_path">Skopiowano: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Otwórz standardowy ekran ustawień aplikacji raz, aby wypełnić listę</string>
     <string name="morphe_settings_menu_filter_screen_summary">Ukrywaj elementy na standardowym ekranie ustawień aplikacji na podstawie ich widocznej nazwy</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtr menu ustawień</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">Kolorowy</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Monochromatyczny</string>
+    <string name="morphe_splash_screen_animation_style_title">Styl ekranu powitalnego</string>
     <string name="morphe_spoof_video_streams_about_js">• Jeśli odszyfrowywanie zawiedzie, odtwarzanie może nie działać</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Brakuje menu ścieżki dźwiękowej</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Brakuje menu \"Ścieżka dźwiękowa\"</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Brak kodeka filmu AV1</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Wymuszanie oryginalnej ścieżki dźwiękowej nie działa</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Tryb immersyjny 360° VR nie jest dostępny</string>
@@ -149,7 +157,7 @@ Aby się zalogować, naciśnij \"Kontynuuj\" poniżej"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Nie udało się wygenerować kodu aktywacyjnego</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Ukryta</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Widoczna</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Pokaż fałszowanie w Statystykach dla nerdów</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Pokaż fałszowanie w \"Statystyki dla nerdów\"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Wyłączone
 
 Odtwarzanie może nie działać"</string>
@@ -463,9 +471,6 @@ Notki:
 • Wyłączenie nakładki prędkości odtwarzania przywraca zachowanie 'Przesuń, by przewinąć' ze starego układu
 • Wyłączenie tego ustawienia nie powoduje wymuszonego włączenia nakładki prędkości odtwarzania"</string>
     <string name="revanced_disable_speed_overlay_title">Wyłącz nakładkę prędkości odtwarzania</string>
-    <string name="revanced_disable_splash_animation_summary_off">Włączona</string>
-    <string name="revanced_disable_splash_animation_summary_on">Wyłączona</string>
-    <string name="revanced_disable_splash_animation_title">Animacja uruchamiania aplikacji</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Włączony</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Wyłączony</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Gest wejścia w tryb pełnoekranowy przesunięciem pod odtwarzaczem</string>
@@ -818,6 +823,8 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_connect_button_summary_off">Widoczny</string>
     <string name="revanced_hide_connect_button_summary_on">Ukryty</string>
     <string name="revanced_hide_connect_button_title">Ukryj przycisk Połącz</string>
+    <string name="revanced_hide_corrections_section_title">Ukryj sekcję Poprawki</string>
+    <string name="revanced_hide_course_progress_section_title">Ukryj sekcję \"Postępy w kursie\"</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Półka sklepu twórców pod odtwarzaczem wideo jest widoczna</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Półka sklepu twórcy pod odtwarzaczem wideo jest ukryta</string>
     <string name="revanced_hide_creator_store_shelf_title">Ukryj sekcję sklepu twórcy</string>
@@ -851,12 +858,16 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_expandable_shelf_summary_off">Widoczne</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Ukryte</string>
     <string name="revanced_hide_expandable_shelf_title">Rozszerzalne półki</string>
+    <string name="revanced_hide_explore_course_section_title">Ukryj sekcję \"Poznaj ten kurs\"</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">Sekcja „Odkryj podcast” jest widoczna</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Sekcja „Odkryj podcast” jest ukryta</string>
     <string name="revanced_hide_explore_podcast_section_title">Ukryj sekcję \"Poznaj podcast\"</string>
+    <string name="revanced_hide_explore_section_title">Ukryj sekcję Odkrywaj</string>
+    <string name="revanced_hide_featured_channels_section_title">Ukryj sekcję Polecane kanały</string>
     <string name="revanced_hide_featured_links_section_summary_off">Sekcja polecanych linków jest wyświetlona</string>
     <string name="revanced_hide_featured_links_section_summary_on">Sekcja polecanych linków jest ukryta</string>
     <string name="revanced_hide_featured_links_section_title">Ukryj sekcję Polecane linki</string>
+    <string name="revanced_hide_featured_playlists_section_title">Ukryj sekcję \"Polecane playlisty\"</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Sekcja polecanych filmów jest wyświetlona</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Sekcja polecanych filmów jest ukryta</string>
     <string name="revanced_hide_featured_videos_section_title">Ukryj sekcję Polecane filmy</string>
@@ -892,6 +903,7 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_handle_summary_off">Widoczne</string>
     <string name="revanced_hide_handle_summary_on">Ukryte</string>
     <string name="revanced_hide_handle_title">Nicki</string>
+    <string name="revanced_hide_hashtag_section_title">Ukryj sekcję Hashtag</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Sekcja „Jak powstała ta treść” jest widoczna</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Sekcja „Jak powstała ta treść” jest ukryta</string>
     <string name="revanced_hide_how_this_was_made_section_title">Ukryj sekcję \"Jak to powstało\"</string>
@@ -1167,6 +1179,7 @@ Ograniczenie: wszystkie przyciski w odtwarzaczu mogą zostać ukryte po zakończ
     <string name="revanced_hide_search_bar_back_button_summary_off">Widoczny</string>
     <string name="revanced_hide_search_bar_back_button_summary_on">Ukryty</string>
     <string name="revanced_hide_search_bar_back_button_title">Przycisk Wstecz paska wyszukiwania</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">Ukryj sekcję \"Szukaj w tym filmie\"</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Widoczne</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Ukryte</string>
     <string name="revanced_hide_search_term_thumbnail_title">Miniaturki sugestii wyszukiwań</string>
@@ -1358,6 +1371,7 @@ Ograniczenia:
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Na stronie subskrypcji</string>
     <string name="revanced_hide_video_by_view_counts_summary">Ukrywa rekomendowane filmy, które mają mniejszą ilość wyświetleń niż zadeklarowana.\n\nZnany problem: Filmy z zerem wyświetleń nie są filtrowane</string>
     <string name="revanced_hide_video_by_view_counts_title">Ukryj rekomendowane filmy według ilości wyświetleń</string>
+    <string name="revanced_hide_video_details_section_title">Ukryj sekcję \"Szczegóły filmu\"</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">Etykiety „Obejrzyj także” i „Może Ci się spodobać” w wynikach wyszukiwania są widoczne</string>
     <string name="revanced_hide_video_recommendation_labels_title">Ukryj etykiety rekomendacji filmów</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Filmy z wyświetleniami większymi niż ta liczba zostaną ukryte</string>
@@ -1631,12 +1645,6 @@ Aby wyświetlić ten przycisk, włącz 'Oszukuj wersję aplikacji` i ustaw docel
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Natywny przycisk od pobierania otworzy menedżer kolejki</string>
     <string name="revanced_override_video_download_button_summary_off">Natywne pobieranie</string>
     <string name="revanced_override_video_download_button_title">Metoda pobierania filmów</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">YouTube Music jest wymagane do zmiany tego ustawienia
-Stuknij tutaj, by pobrać YouTube Music</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_title">Wymaganie wstępne</string>
-    <string name="revanced_override_youtube_music_button_summary_off">Natywna</string>
-    <string name="revanced_override_youtube_music_button_summary_on">Docelowa</string>
-    <string name="revanced_override_youtube_music_button_title">Aplikacja otwierana przyciskiem YouTube Music</string>
     <string name="revanced_patched_date_title">Data załatania</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Wykluczone</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Zawarte</font></string>
@@ -1648,7 +1656,6 @@ Stuknij tutaj, by pobrać YouTube Music</string>
     <string name="revanced_preference_category_app_info">Informacje o aplikacji</string>
     <string name="revanced_preference_category_codec">Kodek</string>
     <string name="revanced_preference_category_custom_actions">Własne akcje</string>
-    <string name="revanced_preference_category_download_button">Przycisk od pobierania</string>
     <string name="revanced_preference_category_experimental_flag">Eksperymentalne flagi</string>
     <string name="revanced_preference_category_image_region_restrictions">Ograniczenia regionu dla obrazów</string>
     <string name="revanced_preference_category_import_export_as_file">Zaimportuj / Wyeksportuj jako plik</string>
@@ -1823,9 +1830,6 @@ Informacje:
     <string name="revanced_replace_channel_handle_summary_off">Po nicku</string>
     <string name="revanced_replace_channel_handle_summary_on">Po nazwie</string>
     <string name="revanced_replace_channel_handle_title">Wyświetlanie tytułu kanału</string>
-    <string name="revanced_replace_navigation_button_summary">Zastępuje przycisk nawigacyjny przyciskiem od wyszukiwania</string>
-    <string name="revanced_replace_navigation_button_target_entry_home">Strona główna</string>
-    <string name="revanced_replace_navigation_button_target_title">Wybierz przycisk do zastąpienia</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Stuknij, aby wyświetlić pozostały czas</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Stuknij, aby otworzyć menu od prędkości odtwarzania lub jakości</string>
     <string name="revanced_replace_time_stamp_action_title">Działanie informacji obok czasu</string>
@@ -2237,13 +2241,14 @@ Większość błędów nie może być naprawiona w skutek ograniczeń po stronie
     <string name="revanced_shorts_player_type_regular_player">Standardowym odtwarzaczu</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Standardowym odtwarzaczu (pełny ekran)</string>
     <string name="revanced_shorts_player_type_title">Otwieraj Shorts w</string>
-    <string name="revanced_show_settings_button_index_title">Pozycja przycisku Ustawienia</string>
+    <string name="revanced_show_search_button_title">Pokaż przycisk Szukaj</string>
     <string name="revanced_show_settings_button_summary_off">Ukryty</string>
     <string name="revanced_show_settings_button_summary_on">Widoczny</string>
     <string name="revanced_show_settings_button_title">Pokaż przycisk Ustawienia</string>
     <string name="revanced_show_settings_button_type_summary_off">Kliknij, aby otworzyć ustawienia YouTube</string>
     <string name="revanced_show_settings_button_type_summary_on">Kliknij, aby otworzyć ustawienia RVX</string>
     <string name="revanced_show_settings_button_type_title">Działanie przycisku Ustawienia</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Pozycja przycisku Ustawienia</string>
     <string name="revanced_show_toolbar_settings_button_summary_off">Przycisk Ustawienia nie jest wyświetlany na pasku narzędzi</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">Przycisk Ustawienia jest wyświetlany na pasku narzędzi</string>
     <string name="revanced_show_toolbar_settings_button_title">Pokaż przycisk Ustawienia</string>
@@ -2379,8 +2384,6 @@ Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu"</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Ustaw kolor paska postępu dla regulacji głośności</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Kolor wskaźnika głośności</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Rozmiar obszaru przesuwania nie może być większy niż 50</string>
-    <string name="revanced_swipe_overlay_rect_size_summary">Procentowa wartość obszaru ekranu, gdzie można przesuwać.\n\nNotka: Zmieni to także rozmiar obszaru ekranu dla gestu podwójnego kliknięcia, aby przewinąć film</string>
-    <string name="revanced_swipe_overlay_rect_size_title">Rozmiar obszaru przesuwania</string>
     <string name="revanced_swipe_overlay_style_entry_0">Stara</string>
     <string name="revanced_swipe_overlay_style_entry_1">Pozioma</string>
     <string name="revanced_swipe_overlay_style_entry_2">Pozioma (minimalna - góra)</string>
@@ -2430,6 +2433,9 @@ Dostosuj prędkość, przesuwając palcem w poziomie na dolnej połowie ekranu"<
 
 Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
     <string name="revanced_swipe_volume_title">Włącz gest regulacji głośności</string>
+    <string name="revanced_swipe_zone_label_brightness">Jasność</string>
+    <string name="revanced_swipe_zone_label_speed">Prędkość</string>
+    <string name="revanced_swipe_zone_label_volume">Głośność</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Zamienia pozycję przycisku od przesyłania z przyciskiem do powiadomień oszukując informacje o urządzeniu
 
 • Nawet jeśli zmienisz to ustawienie, może się nic nie zmienić dopóki nie zrestartujesz urządzenia
@@ -2439,9 +2445,6 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
     <string name="revanced_switch_create_with_notifications_button_summary_on">Przycisk Utwórz jest przełączony z przyciskiem Powiadomienia</string>
     <string name="revanced_switch_create_with_notifications_button_title">Przełącz Utwórz z Powiadomieniami</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Jeśli zmiana tego ustawienia nie zadziała, spróbuj przełączyć się na tryb incognito</string>
-    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_summary">Nazwa pakietu zainstalowanego RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_title">Nazwa pakietu RVX Music</string>
     <string name="revanced_transcript_cookies_about_summary">Kliknij, by zobaczyć jak pobrać pliki cookie</string>
     <string name="revanced_transcript_cookies_about_title">O transkrypcyjnych plikach cookie</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">Z autoryzacją</string>

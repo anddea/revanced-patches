@@ -29,7 +29,7 @@
     <string name="morphe_disable_quic_protocol_title">ปิดใช้งานโพรโทคอล QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'ขยายระยะเวลา DVR ไลฟ์สตรีม' อาจไม่สามารถใช้งานได้
 
-หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV Simply' หรือ 'visionOS'"</string>
+หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV' หรือ 'visionOS'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">ช่วยให้คุณสามารถย้อนกลับการออกอากาศสดได้ถึง 7 วันย้อนหลัง</string>
     <string name="morphe_expand_livestream_dvr_duration_title">ขยายระยะเวลา DVR ไลฟ์สตรีม</string>
     <string name="morphe_explore_menu_screen_summary">เลือกส่วนประกอบที่จะปรากฏในเมนูสำรวจ</string>
@@ -49,8 +49,8 @@
     <string name="morphe_hide_learning_menu_title">ซ่อนเมนูการเรียนรู้</string>
     <string name="morphe_hide_live_menu_title">ซ่อนเมนูไลฟ์สด</string>
     <string name="morphe_hide_memberships_menu_title">ซ่อนเมนูสมาชิก</string>
-    <string name="morphe_hide_movies_menu_title">ซ่อนเมนูภาพยนตร์</string>
-    <string name="morphe_hide_music_menu_title">ซ่อนเมนู \'เพลงและทีวี\'</string>
+    <string name="morphe_hide_movies_menu_title">ซ่อนเมนู \'ภาพยนตร์และทีวี\'</string>
+    <string name="morphe_hide_music_menu_title">ซ่อนเมนูเพลง</string>
     <string name="morphe_hide_news_menu_title">ซ่อนเมนูข่าว</string>
     <string name="morphe_hide_playables_menu_title">ซ่อนเมนู Playables</string>
     <string name="morphe_hide_podcasts_menu_title">ซ่อนเมนูพอดแคสต์</string>
@@ -66,9 +66,11 @@
     <string name="morphe_hide_youtube_works_menu_title">ซ่อนเมนู \'วิธีการทำงานของ YouTube\'</string>
     <string name="morphe_livestream_dvr_not_available">"'เปิดใช้งาน DVR ไลฟ์สตรีม' อาจไม่สามารถใช้งานได้
 
-หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV Simply' หรือ 'visionOS'"</string>
+หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV' หรือ 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">ช่วยให้สามารถข้ามไปยังส่วนต่างๆ ของการถ่ายทอดสดได้ทั้งหมด แม้แต่การถ่ายทอดสดที่ปกติแล้วจะจำกัดการทำงานนี้ไว้</string>
     <string name="morphe_livestream_dvr_title">เปิดใช้งาน DVR ไลฟ์สตรีม</string>
+    <string name="morphe_music_package_name_summary">ชื่อแพ็กเกจของแอปเพลงที่ติดตั้งไว้ของคุณ</string>
+    <string name="morphe_music_package_name_title">ชื่อแพ็กเกจแอปเพลง</string>
     <string name="morphe_oauth2_connection_failure_auth_error">ไม่สามารถเข้าสู่ระบบ VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">ไม่สามารถลงชื่อเข้าใช้ VR ได้ เว็บไซต์ยังไม่ได้อนุมัติการรับรอง</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ไม่สามารถใช้งานได้ชั่วคราว</string>
@@ -81,6 +83,8 @@
 
 ข้อจำกัด: การเล่นอาจไม่ทำงานบนอุปกรณ์บางชนิดหากตั้งค่า 'ปลอมแปลงสตรีมวิดีโอ' เป็น 'Android VR' และเปิดใช้งาน 'บังคับใช้ตัวแปลงสัญญาณ AVC (H.264)'"</string>
     <string name="morphe_override_initial_video_quality_title">แทนที่คุณภาพวิดีโอเริ่มต้น</string>
+    <string name="morphe_override_youtube_music_buttons_summary">เปิดแอปเพลงที่คุณต้องการแทนแอป YouTube Music เริ่มต้น</string>
+    <string name="morphe_override_youtube_music_buttons_title">แทนที่ปุ่ม YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">เปิดตลอดเวลา</string>
     <string name="morphe_playback_in_feeds_entry_off">ปิด</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi เท่านั้น</string>
@@ -96,14 +100,18 @@
     <string name="morphe_sanitize_sharing_links_summary_off">พารามิเตอร์การติดตามไม่ได้ถูกลบออกจากลิงก์ที่แชร์</string>
     <string name="morphe_sanitize_sharing_links_summary_on">พารามิเตอร์การติดตามจะถูกลบออกจากลิงก์ที่แชร์</string>
     <string name="morphe_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">เล่นซ้ำมากที่สุด</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">แสดงภาพขนาดย่อของวิดีโอขณะลากแถบเลื่อน</string>
     <string name="morphe_seekbar_thumbnail_preview_title">เปิดใช้งานภาพขนาดย่อของแถบเลื่อน</string>
     <string name="morphe_settings_menu_copy_path">คัดลอกแล้ว: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">เปิดหน้าจอการตั้งค่าแอปมาตรฐานหนึ่งครั้งเพื่อสร้างรายการ</string>
     <string name="morphe_settings_menu_filter_screen_summary">ซ่อนรายการบนหน้าจอการตั้งค่าแอปมาตรฐานตามชื่อที่แสดง</string>
     <string name="morphe_settings_menu_filter_screen_title">ตัวกรองเมนูการตั้งค่า</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">สี</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">ขาวดำ</string>
+    <string name="morphe_splash_screen_animation_style_title">รูปแบบหน้าจอ Splash</string>
     <string name="morphe_spoof_video_streams_about_js">• ถ้า Deobfuscation ล้มเหลว การเล่นอาจล้มเหลว</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• เมนูแทร็กเสียงหายไป</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• เมนู \'แทร็กเสียง\' หายไป</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• บังคับใช้เสียงต้นฉบับไม่พร้อมใช้งาน</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• รูปแบบ 360° VR Immersive ไม่พร้อมใช้งาน</string>
@@ -113,7 +121,7 @@
     <string name="morphe_spoof_video_streams_av1_summary_on">"ตัวแปลงสัญญาณวิดีโอคือ AVC (H.264), VP9 หรือ AV1
 
 การเล่นอาจกระตุกหรือเฟรมตก"</string>
-    <string name="morphe_spoof_video_streams_av1_title">อนุญาต Android VR / visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">อนุญาต \'Android VR\' / visionOS AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"การเปิดใช้งานการตั้งค่านี้อาจใช้ซอฟต์แวร์ถอดรหัส AV1
 
 การเล่นวิดีโอด้วย AV1 อาจกระตุกหรือเฟรมตก"</string>
@@ -148,7 +156,7 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">ไม่สามารถออกรหัสเปิดใช้งานได้</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">แสดงการปลอมแปลงในสถิติสำหรับพวกเนิร์ด</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">แสดงการปลอมแปลงใน \'สถิติสำหรับพวกเนิร์ด\'</string>
     <string name="morphe_spoof_video_streams_summary_off">"สตรีมวิดีโอไม่ได้ถูกปลอมแปลง
 
 การเล่นอาจไม่ทำงาน"</string>
@@ -412,6 +420,8 @@
     <string name="revanced_hide_community_button_summary_on">ปุ่มชุมชนถูกซ่อน</string>
     <string name="revanced_hide_community_button_title">ซ่อนปุ่มแสดงความคิดเห็น</string>
     <string name="revanced_hide_connect_button_title">ซ่อนปุ่มเชื่อมต่อ</string>
+    <string name="revanced_hide_corrections_section_title">ซ่อนส่วน Corrections</string>
+    <string name="revanced_hide_course_progress_section_title">ซ่อนส่วน \'ความคืบหน้าของหลักสูตร\'</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">แสดงชั้นวางร้านค้าของผู้สร้างใต้เครื่องเล่นวิดีโอ</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">ชั้นวางร้านค้าของครีเอเตอร์ใต้โปรแกรมเล่นวิดีโอถูกซ่อนไว้</string>
     <string name="revanced_hide_creator_store_shelf_title">ซ่อนชั้นวางร้านค้าของผู้สร้าง</string>
@@ -436,12 +446,16 @@
     <string name="revanced_hide_expandable_card_entry_4">ซ่อนการ์ดผลิตภัณฑ์และสรุป</string>
     <string name="revanced_hide_expandable_card_entry_5">ซ่อนทั้งหมด</string>
     <string name="revanced_hide_expandable_card_title">การ์ดที่ขยายได้ใต้คลิปวิดีโอ</string>
+    <string name="revanced_hide_explore_course_section_title">ซ่อนส่วน \'สำรวจหลักสูตรนี้\'</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">ส่วนสำรวจพอดแคสต์แสดงอยู่</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">ส่วนสำรวจพอดแคสต์ถูกซ่อน</string>
     <string name="revanced_hide_explore_podcast_section_title">ซ่อนส่วน \'สำรวจพอดแคสต์\'</string>
+    <string name="revanced_hide_explore_section_title">ซ่อนส่วน \'สำรวจ\'</string>
+    <string name="revanced_hide_featured_channels_section_title">ซ่อนส่วน \'ช่องที่แนะนำ\'</string>
     <string name="revanced_hide_featured_links_section_summary_off">ส่วนลิงก์เด่นถูกแสดง</string>
     <string name="revanced_hide_featured_links_section_summary_on">ส่วนลิงก์เด่นถูกซ่อน</string>
     <string name="revanced_hide_featured_links_section_title">ซ่อนส่วน \'ลิงก์ที่แนะนำ\'</string>
+    <string name="revanced_hide_featured_playlists_section_title">ซ่อนส่วน \'เพลย์ลิสต์ที่แนะนำ\'</string>
     <string name="revanced_hide_featured_videos_section_summary_off">ส่วนวิดีโอเด่นถูกแสดง</string>
     <string name="revanced_hide_featured_videos_section_summary_on">ส่วนวิดีโอเด่นถูกซ่อน</string>
     <string name="revanced_hide_featured_videos_section_title">ซ่อนส่วน \'วิดีโอที่แนะนำ\'</string>
@@ -456,6 +470,7 @@
     <string name="revanced_hide_general_ads_summary_off">โฆษณาโดยทั่วไปจะแสดง</string>
     <string name="revanced_hide_general_ads_summary_on">โฆษณาโดยทั่วไปถูกซ่อน</string>
     <string name="revanced_hide_general_ads_title">ซ่อนโฆษณาโดยทั่วไป</string>
+    <string name="revanced_hide_hashtag_section_title">ซ่อนส่วนแฮชแท็ก</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">ส่วนวิธีการสร้างเนื้อหานี้แสดงอยู่</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">ส่วนวิธีการสร้างเนื้อหานี้ถูกซ่อน</string>
     <string name="revanced_hide_how_this_was_made_section_title">ซ่อนส่วน \'วิธีการสร้างเนื้อหานี้\'</string>
@@ -490,11 +505,11 @@
     <string name="revanced_hide_keyword_content_home_summary_off">วิดีโอในแท็บหน้าแรกไม่ได้ถูกกรองตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_home_summary_on">วิดีโอในแท็บหน้าแรกถูกกรองตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_home_title">ซ่อนวิดีโอหน้าแรกตามคำสำคัญ</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"ป้อนคำหลักและวลีที่จะซ่อน โดยคั่นด้วยบรรทัดใหม่
+    <string name="revanced_hide_keyword_content_phrases_summary">"ป้อนคำหลักและวลีที่จะซ่อน โดยแยกด้วยบรรทัดใหม่
 
-คำหลักอาจเป็นข้อความใดก็ได้ที่แสดงในชื่อวิดีโอหรือชื่อช่อง
+คำหลักสามารถเป็นข้อความใดๆ ที่แสดงในชื่อวิดีโอหรือชื่อช่อง
 
-คำที่มีตัวอักษรตัวใหญ่ตรงกลางต้องป้อนพร้อมเคส (เช่น: iPhone, TikTok, LeBlanc)"</string>
+คำที่มีตัวพิมพ์ใหญ่อยู่ตรงกลางต้องตรงตามตัวพิมพ์ใหญ่เล็ก (เช่น iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">คำสำคัญที่จะซ่อน</string>
     <string name="revanced_hide_keyword_content_search_summary_off">ผลลัพธ์การค้นหาไม่ได้ถูกกรองตามคำสำคัญ</string>
     <string name="revanced_hide_keyword_content_search_summary_on">ผลลัพธ์การค้นหาถูกกรองตามคำสำคัญ</string>
@@ -568,6 +583,7 @@
     <string name="revanced_hide_report_button_summary_off">ปุ่มรายงานถูกแสดง</string>
     <string name="revanced_hide_report_button_summary_on">ปุ่มรายงานถูกซ่อน</string>
     <string name="revanced_hide_report_button_title">ซ่อนปุ่มรายงาน</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">ซ่อนส่วน \'ค้นหาภายในวิดีโอนี้\'</string>
     <string name="revanced_hide_seekbar_summary_off">แถบเลื่อนเครื่องเล่นวิดีโอแสดงอยู่</string>
     <string name="revanced_hide_seekbar_summary_on">แถบเลื่อนเครื่องเล่นวิดีโอซ่อนอยู่</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">แถบเลื่อนภาพขนาดย่อของวิดีโอแสดงอยู่</string>
@@ -649,6 +665,7 @@
     <string name="revanced_hide_video_ads_summary_off">โฆษณาวิดีโอจะแสดง</string>
     <string name="revanced_hide_video_ads_summary_on">โฆษณาวิดีโอถูกซ่อน</string>
     <string name="revanced_hide_video_ads_title">ซ่อนโฆษณาวิดีโอ</string>
+    <string name="revanced_hide_video_details_section_title">ซ่อนส่วน \'รายละเอียดวิดีโอ\'</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">ป้ายกำกับ \"ผู้คนยังรับชม\" และ \"คุณอาจชอบ\" ในผลการค้นหาแสดงอยู่</string>
     <string name="revanced_hide_video_recommendation_labels_title">ซ่อนป้ายกำกับการแนะนำวิดีโอ</string>
     <string name="revanced_hide_visual_spacer_summary_off">ตัวคั่นภาพถูกแสดงแล้ว</string>
@@ -703,9 +720,6 @@
     <string name="revanced_navigation_bar_animations_summary">เคลื่อนไหวการเปลี่ยนภาพเมื่อสลับระหว่างแท็บ</string>
     <string name="revanced_navigation_bar_animations_title">เปิดใช้งานภาพเคลื่อนไหวแถบนำทาง</string>
     <string name="revanced_overlay_button_vot_title">Voice Over Translation Thailan</string>
-    <string name="revanced_override_youtube_music_button_summary_off">ปุ่ม YouTube Music เปิดแอปพลิเคชันแบบพื้นฐาน</string>
-    <string name="revanced_override_youtube_music_button_summary_on">ปุ่ม YouTube Music เปิดโปรแกรมเพลงของคุณ</string>
-    <string name="revanced_override_youtube_music_button_title">แทนที่ปุ่ม YouTube Music</string>
     <string name="revanced_queue_manager_add_to_queue">เพิ่มไปยังคิว</string>
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">เพิ่มไปยังคิวและเปิด</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">เพิ่มไปยังคิวและเล่น</string>
@@ -1010,9 +1024,10 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_shorts_player_type_regular_player">เครื่องเล่นปกติ</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">เครื่องเล่นปกติแบบเต็มหน้าจอ</string>
     <string name="revanced_shorts_player_type_title">เปิด Shorts ด้วย</string>
-    <string name="revanced_show_settings_button_index_title">ตำแหน่งปุ่มการตั้งค่า</string>
+    <string name="revanced_show_search_button_title">แสดงปุ่มค้นหา</string>
     <string name="revanced_show_settings_button_title">แสดงปุ่มการตั้งค่า</string>
     <string name="revanced_show_settings_button_type_title">การดำเนินการปุ่มการตั้งค่า</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">ตำแหน่งปุ่มการตั้งค่า</string>
     <string name="revanced_show_toolbar_settings_button_title">แสดงปุ่มการตั้งค่า</string>
     <string name="revanced_spoof_app_version_summary">หลอกให้เซิร์ฟเวอร์คิดว่าคุณกำลังใช้แอปเวอร์ชันเก่าเพื่อเรียกคืนคุณสมบัติ UI แบบเดิม</string>
     <string name="revanced_spoof_app_version_summary_off">เวอร์ชันไม่ได้ปลอมแปลง</string>
@@ -1071,6 +1086,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_swipe_volume_summary_off">ปิดใช้งานการปัดระดับเสียงแบบเต็มหน้าจอ</string>
     <string name="revanced_swipe_volume_summary_on">"เปิดใช้งานการปัดระดับเสียงแบบเต็มหน้าจอ\n\nปรับระดับเสียงโดยปัดในแนวตั้งที่ด้านขวาของหน้าจอ"</string>
     <string name="revanced_swipe_volume_title">เปิดใช้งานท่าทางระดับเสียง</string>
+    <string name="revanced_swipe_zone_label_brightness">ความสว่าง</string>
+    <string name="revanced_swipe_zone_label_speed">ความเร็ว</string>
+    <string name="revanced_swipe_zone_label_volume">ระดับเสียง</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">ปุ่มสร้างไม่ได้ถูกสลับกับปุ่มการแจ้งเตือน</string>
     <string name="revanced_switch_create_with_notifications_button_summary_on">ปุ่มสร้างถูกสลับกับปุ่มการแจ้งเตือน</string>
     <string name="revanced_switch_create_with_notifications_button_title">สลับสร้างด้วยการแจ้งเตือน</string>
