@@ -3,6 +3,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * Original hard forked code:
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
@@ -17,7 +21,6 @@ import static app.morphe.extension.youtube.shared.NavigationBar.NavigationButton
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.text.Spanned;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -31,9 +34,13 @@ import org.apache.commons.lang3.BooleanUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.EnumMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import app.morphe.extension.shared.settings.IntegerSetting;
 import app.morphe.extension.shared.utils.Logger;
@@ -47,7 +54,6 @@ import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarIt
 import app.morphe.extension.youtube.innertube.IconOuterClass.Icon;
 import app.morphe.extension.youtube.innertube.IconOuterClass.YTIconType;
 import app.morphe.extension.youtube.settings.Settings;
-import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
 
@@ -75,16 +81,6 @@ public final class NavigationButtonsPatch {
     private static final boolean SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
 
-    private static final boolean REPLACE_NAVIGATION_BUTTON
-            = Settings.REPLACE_NAVIGATION_BUTTON.get();
-    private static final NavigationButton REPLACE_NAVIGATION_BUTTON_TARGET
-            = Settings.REPLACE_NAVIGATION_BUTTON_TARGET.get();
-    private static final List<String> REPLACE_NAVIGATION_BUTTON_TARGET_ENUM_NAMES
-            = REPLACE_NAVIGATION_BUTTON_TARGET.ytEnumNames;
-
-    private static final boolean SET_CAIRO_NOTIFICATION_FILLED_ICON
-            = !REPLACE_NAVIGATION_BUTTON || REPLACE_NAVIGATION_BUTTON_TARGET != NavigationButton.NOTIFICATIONS;
-
     private static Map<NavigationButton, Boolean> shouldHideMap;
 
     private static volatile WeakReference<TextView> searchQueryRef = new WeakReference<>(null);
@@ -92,8 +88,8 @@ public final class NavigationButtonsPatch {
     private static View.OnClickListener openSearchBar;
 
     private static final boolean SHOW_SETTINGS_BUTTON = Settings.SHOW_SETTINGS_BUTTON.get();
-    private static final IntegerSetting SHOW_SETTINGS_BUTTON_INDEX = Settings.SHOW_SETTINGS_BUTTON_INDEX;
     private static final boolean SHOW_SETTINGS_BUTTON_TYPE = Settings.SHOW_SETTINGS_BUTTON_TYPE.get();
+    private static final boolean SHOW_SEARCH_BUTTON = Settings.SHOW_SEARCH_BUTTON.get();
 
     private static final boolean SHOW_TOOLBAR_SETTINGS_BUTTON =
             Settings.SHOW_TOOLBAR_SETTINGS_BUTTON.get();
@@ -105,6 +101,7 @@ public final class NavigationButtonsPatch {
     private static final String SETTINGS_BUTTON_ENUM_NAME = "SETTINGS_CAIRO";
 
     private static Object pivotBarSettingsRenderer;
+    private static Object pivotBarSearchRenderer;
 
     private static final View.OnClickListener openSearchBarOnClickListener = v -> {
         if (RootView.isSearchBarActive() && searchQueryRef.get() != null) {
@@ -120,8 +117,6 @@ public final class NavigationButtonsPatch {
         }
     };
 
-    private static int emptyContentCountId = -1;
-    private static int emptyContentDotId = -1;
     private static int libraryCairoId = -1;
 
     /**
@@ -184,62 +179,26 @@ public final class NavigationButtonsPatch {
      * @noinspection ALL
      */
     public static void setCairoNotificationFilledIcon(EnumMap enumMap, Enum tabActivityCairo) {
-        if (SET_CAIRO_NOTIFICATION_FILLED_ICON) {
-            final int fillBellCairoBlack = ResourceUtils.getDrawableIdentifier("yt_fill_bell_cairo_black_24");
-            if (fillBellCairoBlack != 0) {
-                // It's very unlikely, but Google might fix this issue someday.
-                // If so, [fillBellCairoBlack] might already be in enumMap.
-                // That's why 'EnumMap.putIfAbsent()' is used instead of 'EnumMap.put()'.
-                enumMap.putIfAbsent(tabActivityCairo, Integer.valueOf(fillBellCairoBlack));
-            }
+        final int fillBellCairoBlack = ResourceUtils.getDrawableIdentifier("yt_fill_bell_cairo_black_24");
+        if (fillBellCairoBlack != 0) {
+            // It's very unlikely, but Google might fix this issue someday.
+            // If so, [fillBellCairoBlack] might already be in enumMap.
+            // That's why 'EnumMap.putIfAbsent()' is used instead of 'EnumMap.put()'.
+            enumMap.putIfAbsent(tabActivityCairo, Integer.valueOf(fillBellCairoBlack));
         }
-    }
-
-    private static int getEmptyContentCountId() {
-        if (emptyContentCountId == -1) {
-            emptyContentCountId = ResourceUtils.getIdIdentifier("empty_content_count");
-        }
-        return emptyContentCountId;
     }
 
     /**
      * Injection point.
      */
     public static View getContentCountId(View view, int original) {
-        if (REPLACE_NAVIGATION_BUTTON && shouldReplace()) {
-            int id = getEmptyContentCountId();
-            if (id != 0) {
-                View emptyView = view.findViewById(id);
-                if (emptyView != null) {
-                    return emptyView;
-                }
-            }
-        }
-
         return view.findViewById(original);
-    }
-
-    private static int getEmptyContentDotId() {
-        if (emptyContentDotId == -1) {
-            emptyContentDotId = ResourceUtils.getIdIdentifier("empty_content_dot");
-        }
-        return emptyContentDotId;
     }
 
     /**
      * Injection point.
      */
     public static View getContentDotId(View view, int original) {
-        if (REPLACE_NAVIGATION_BUTTON && shouldReplace()) {
-            int id = getEmptyContentDotId();
-            if (id != 0) {
-                View emptyView = view.findViewById(id);
-                if (emptyView != null) {
-                    return emptyView;
-                }
-            }
-        }
-
         return view.findViewById(original);
     }
 
@@ -283,17 +242,8 @@ public final class NavigationButtonsPatch {
     /**
      * Injection point.
      */
-    public static void setSearchBarOnClickListener(View.OnClickListener listener) {
-        if (REPLACE_NAVIGATION_BUTTON) {
-            openSearchBar = listener;
-        }
-    }
-
-    /**
-     * Injection point.
-     */
     public static void setSearchBarOnClickListener(MessageLite messageLite, View.OnClickListener listener) {
-        if (REPLACE_NAVIGATION_BUTTON) {
+        if (SHOW_SEARCH_BUTTON) {
             try {
                 var buttonRenderer = ButtonRenderer.parseFrom(messageLite.toByteArray());
                 if (buttonRenderer.hasIcon()) {
@@ -310,26 +260,28 @@ public final class NavigationButtonsPatch {
     }
 
     /**
-     * Clones the Home tab renderer as a Settings tab while preserving YouTube's unknown proto
-     * fields and layout metadata.
+     * Clones the Home tab renderer while preserving YouTube's unknown proto fields and layout
+     * metadata. The returned renderer is used for the requested additional navigation button.
      */
     @Nullable
-    public static byte[] parseSettingsPivotBarItemRenderer(MessageLite messageLite) {
-        if (!SHOW_SETTINGS_BUTTON) {
-            return null;
-        }
-
+    private static byte[] parseAdditionalPivotBarItemRenderer(
+            MessageLite messageLite, YTIconType iconType, String label) {
         try {
             var builder = PivotBarItemRenderer.parseFrom(messageLite.toByteArray()).toBuilder();
+            int originalIconType = builder.getIcon().getYtIconTypeValue();
             String iconName = builder.getIcon().getYtIconType().name();
-            if (NavigationButton.HOME.ytEnumNames.contains(iconName)) {
+            boolean isHome = NavigationButton.HOME.ytEnumNames.contains(iconName)
+                    || originalIconType == 65
+                    || originalIconType == 406
+                    || originalIconType == 1154;
+            if (isHome) {
                 var accessibilityData = AccessibilityData.newBuilder()
-                        .setLabel(ResourceUtils.getString("menu_settings"))
+                        .setLabel(ResourceUtils.getString(label))
                         .build();
                 var accessibility = Accessibility.newBuilder()
                         .setAccessibilityData(accessibilityData)
                         .build();
-                var icon = Icon.newBuilder().setYtIconType(YTIconType.SETTINGS_CAIRO).build();
+                var icon = Icon.newBuilder().setYtIconType(iconType).build();
 
                 builder.clearAccessibility();
                 builder.setAccessibility(accessibility);
@@ -338,13 +290,29 @@ public final class NavigationButtonsPatch {
                 return builder.build().toByteArray();
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to parse Settings PivotBarItemRenderer", ex);
+            Logger.printException(() -> "Failed to parse additional PivotBarItemRenderer", ex);
         }
         return null;
     }
 
+    /** Creates the additional Settings renderer from YouTube's Home renderer. */
+    @Nullable
+    public static byte[] parseSettingsPivotBarItemRenderer(MessageLite messageLite) {
+        return SHOW_SETTINGS_BUTTON
+                ? parseAdditionalPivotBarItemRenderer(messageLite, YTIconType.SETTINGS_CAIRO, "menu_settings")
+                : null;
+    }
+
+    /** Creates the additional Search renderer from YouTube's Home renderer. */
+    @Nullable
+    public static byte[] parseSearchPivotBarItemRenderer(MessageLite messageLite) {
+        return SHOW_SEARCH_BUTTON
+                ? parseAdditionalPivotBarItemRenderer(messageLite, YTIconType.SEARCH_CAIRO, "menu_search")
+                : null;
+    }
+
     /**
-     * Injection point. Stores the cloned renderer until YouTube builds the pivot-bar list.
+     * Injection point. Stores the cloned Settings renderer until YouTube builds the pivot-bar list.
      */
     public static void setPivotBarSettingsRenderer(Object renderer) {
         if (SHOW_SETTINGS_BUTTON) {
@@ -352,18 +320,190 @@ public final class NavigationButtonsPatch {
         }
     }
 
+    /** Injection point. Stores the cloned Search renderer until YouTube builds the pivot-bar list. */
+    public static void setPivotBarSearchRenderer(Object renderer) {
+        if (SHOW_SEARCH_BUTTON) {
+            pivotBarSearchRenderer = renderer;
+        }
+    }
+
     /**
-     * Injection point. Adds the Settings renderer without mutating YouTube's immutable proto list.
+     * Injection point. Adds optional renderers without mutating YouTube's immutable proto list.
      */
     public static List<Object> getPivotBarRendererList(List<Object> list) {
-        if (!SHOW_SETTINGS_BUTTON || pivotBarSettingsRenderer == null || list == null || list.isEmpty()) {
+        if (list == null || list.isEmpty()) {
             return list;
         }
 
         List<Object> newList = new ArrayList<>(list);
-        int preferredIndex = Math.max(0, Math.min(SHOW_SETTINGS_BUTTON_INDEX.get(), newList.size()));
-        newList.add(preferredIndex, pivotBarSettingsRenderer);
-        return newList;
+        if (SHOW_SETTINGS_BUTTON && pivotBarSettingsRenderer != null) {
+            newList.add(pivotBarSettingsRenderer);
+        }
+        if (SHOW_SEARCH_BUTTON && pivotBarSearchRenderer != null) {
+            newList.add(pivotBarSearchRenderer);
+        }
+
+        return reorderPivotBarRendererList(newList);
+    }
+
+    /**
+     * Reorders the renderers while leaving YouTube's original order untouched until the user
+     * saves an order. Unknown renderer types and optional buttons remain in their original slots.
+     */
+    private static List<Object> reorderPivotBarRendererList(List<Object> list) {
+        List<NavigationButton> configuredOrder = getConfiguredNavigationButtonOrder();
+        if (configuredOrder.isEmpty()) {
+            return list;
+        }
+
+        EnumMap<NavigationButton, Object> rendererByButton = new EnumMap<>(NavigationButton.class);
+        List<NavigationButton> originalButtons = new ArrayList<>();
+        for (Object renderer : list) {
+            NavigationButton button = getNavigationButton(renderer);
+            if (button != null) {
+                // A guide response should contain one renderer per navigation button. If that
+                // changes, leave the response alone rather than risk replacing the wrong slot.
+                if (rendererByButton.putIfAbsent(button, renderer) != null) {
+                    return list;
+                }
+                originalButtons.add(button);
+            }
+        }
+
+        if (rendererByButton.isEmpty()) {
+            return list;
+        }
+
+        List<Object> orderedRenderers = new ArrayList<>(rendererByButton.size());
+        Set<NavigationButton> placedButtons = new HashSet<>();
+        for (NavigationButton button : configuredOrder) {
+            Object renderer = rendererByButton.get(button);
+            if (renderer != null && placedButtons.add(button)) {
+                orderedRenderers.add(renderer);
+            }
+        }
+        for (NavigationButton button : originalButtons) {
+            if (placedButtons.add(button)) {
+                orderedRenderers.add(rendererByButton.get(button));
+            }
+        }
+
+        List<Object> reorderedList = new ArrayList<>(list);
+        int orderedIndex = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (getNavigationButton(list.get(i)) != null) {
+                reorderedList.set(i, orderedRenderers.get(orderedIndex++));
+            }
+        }
+        return reorderedList;
+    }
+
+    /**
+     * Reads the exported order format and ignores invalid or duplicate entries so a malformed
+     * imported setting cannot prevent the navigation bar from being built.
+     */
+    private static List<NavigationButton> getConfiguredNavigationButtonOrder() {
+        String serializedOrder = Settings.NAVIGATION_BAR_ORDER.get();
+        if (serializedOrder.trim().isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        List<NavigationButton> order = new ArrayList<>();
+        Set<NavigationButton> seenButtons = new HashSet<>();
+        for (String value : serializedOrder.split(",")) {
+            try {
+                NavigationButton button = NavigationButton.valueOf(value.trim().toUpperCase(Locale.ROOT));
+                if (seenButtons.add(button)) {
+                    order.add(button);
+                }
+            } catch (IllegalArgumentException ignored) {
+                // Ignore unknown values so future YouTube buttons remain usable.
+            }
+        }
+        return order;
+    }
+
+    /**
+     * Identifies a pivot-bar renderer by its raw icon enum value. The YouTube extension proto
+     * intentionally contains only a small icon subset, so raw values also support newer icons.
+     */
+    @Nullable
+    private static NavigationButton getNavigationButton(Object renderer) {
+        if (renderer == pivotBarSettingsRenderer) {
+            return NavigationButton.SETTINGS;
+        }
+        if (renderer == pivotBarSearchRenderer) {
+            return NavigationButton.SEARCH;
+        }
+
+        MessageLite messageLite = getRendererMessage(renderer);
+        if (messageLite == null) {
+            return null;
+        }
+
+        NavigationButton buttonById = getNavigationButtonByRendererId(messageLite);
+        if (buttonById != null) {
+            return buttonById;
+        }
+
+        try {
+            int iconType = PivotBarItemRenderer.parseFrom(messageLite.toByteArray())
+                    .getIcon()
+                    .getYtIconTypeValue();
+            return switch (iconType) {
+                case 60, 1045, 1160 -> NavigationButton.SEARCH;
+                case 65, 406, 1154 -> NavigationButton.HOME;
+                case 66, 408, 1155 -> NavigationButton.SUBSCRIPTIONS;
+                case 292, 777 -> NavigationButton.EXPLORE;
+                case 355, 1156 -> NavigationButton.NOTIFICATIONS;
+                case 405, 650, 670, 730, 734, 1161 -> NavigationButton.CREATE;
+                case 68, 239, 410, 483, 504 -> NavigationButton.LIBRARY;
+                case 44, 1162 -> NavigationButton.SETTINGS;
+                case 776, 785, 1157 -> NavigationButton.SHORTS;
+                default -> null;
+            };
+        } catch (Exception ignored) {
+            return null;
+        }
+    }
+
+    @Nullable
+    private static MessageLite getRendererMessage(Object renderer) {
+        if (renderer instanceof MessageLite directMessage) {
+            return directMessage;
+        }
+
+        try {
+            Object wrappedMessage = renderer.getClass().getField("a").get(renderer);
+            return wrappedMessage instanceof MessageLite messageLite ? messageLite : null;
+        } catch (Exception ignored) {
+            return null;
+        }
+    }
+
+    /** Identifies current guide renderers by their stable FE* navigation identifier. */
+    @Nullable
+    private static NavigationButton getNavigationButtonByRendererId(MessageLite renderer) {
+        try {
+            Object rendererId = renderer.getClass().getField("e").get(renderer);
+            if (!(rendererId instanceof String id)) {
+                return null;
+            }
+
+            return switch (id) {
+                case "FEwhat_to_watch" -> NavigationButton.HOME;
+                case "FEshorts" -> NavigationButton.SHORTS;
+                case "FEsubscriptions" -> NavigationButton.SUBSCRIPTIONS;
+                case "FElibrary" -> NavigationButton.LIBRARY;
+                case "FEactivity", "FEnotifications" -> NavigationButton.NOTIFICATIONS;
+                case "FEexplore" -> NavigationButton.EXPLORE;
+                case "FEsearch" -> NavigationButton.SEARCH;
+                case "FEsettings" -> NavigationButton.SETTINGS;
+                default -> null;
+            };
+        } catch (Exception ignored) {
+            return null;
+        }
     }
 
     /**
@@ -502,53 +642,11 @@ public final class NavigationButtonsPatch {
         }, 100);
     }
 
-    private static boolean shouldReplace() {
-        return shouldReplace(NavigationBar.getLastAppNavigationEnum());
-    }
-
-    private static boolean shouldReplace(@Nullable Enum<?> navigationEnum) {
-        return navigationEnum != null && shouldReplace(navigationEnum.name());
-    }
-
-    private static boolean shouldReplace(String lastEnumName) {
-        return lastEnumName != null && REPLACE_NAVIGATION_BUTTON_TARGET_ENUM_NAMES.contains(lastEnumName);
-    }
-
-    /**
-     * Injection point.
-     */
-    @Nullable
-    public static Enum<?> changeIconType(@Nullable Enum<?> original) {
-        if (REPLACE_NAVIGATION_BUTTON && shouldReplace(original)) {
-            String enumName = original.name();
-            return original.name().endsWith("CAIRO")
-                    ? YouTubeIcon.searchCairo
-                    : YouTubeIcon.search;
-        }
-
-        return original;
-    }
-
-    /**
-     * Injection point.
-     */
-    public static Spanned changeSpanned(Spanned original) {
-        if (REPLACE_NAVIGATION_BUTTON &&
-                // If the navigation bar label is hidden, there is no need to replace Spanned.
-                !HIDE_NAVIGATION_LABEL &&
-                shouldReplace()
-        ) {
-            String lastYTNavigationEnumName = NavigationBar.getLastAppNavigationEnum();
-            return Utils.newSpanUsingStylingOfAnotherSpan(original, ResourceUtils.getString("menu_search"));
-        }
-        return original;
-    }
-
     /**
      * Injection point.
      */
     public static void searchQueryViewLoaded(TextView searchQuery) {
-        if (REPLACE_NAVIGATION_BUTTON) {
+        if (SHOW_SEARCH_BUTTON) {
             searchQueryRef = new WeakReference<>(searchQuery);
         }
     }
@@ -584,7 +682,7 @@ public final class NavigationButtonsPatch {
             return;
         }
 
-        if (REPLACE_NAVIGATION_BUTTON && button == REPLACE_NAVIGATION_BUTTON_TARGET) {
+        if (SHOW_SEARCH_BUTTON && button == NavigationButton.SEARCH) {
             tabView.setOnClickListener(openSearchBarOnClickListener);
             Utils.runOnMainThread(() -> tabView.setOnClickListener(openSearchBarOnClickListener));
 
