@@ -240,11 +240,23 @@ class SwipeControlsConfigurationProvider {
     }
 
     /**
-     * Percentage of swipeable screen area.
+     * Percentage of the effective player width reserved at both sides for vertical swipes.
      */
-    val overlayRectSize: Int by lazy {
+    val verticalSwipeZoneSize: Int by lazy {
         validateValue(
-            Settings.SWIPE_OVERLAY_RECT_SIZE,
+            Settings.SWIPE_VERTICAL_ZONE,
+            0,
+            50,
+            "revanced_swipe_overlay_rect_size_invalid_toast"
+        )
+    }
+
+    /**
+     * Percentage of the effective player height reserved at the top and bottom for horizontal swipes.
+     */
+    val horizontalSwipeZoneSize: Int by lazy {
+        validateValue(
+            Settings.SWIPE_HORIZONTAL_ZONE,
             0,
             50,
             "revanced_swipe_overlay_rect_size_invalid_toast"

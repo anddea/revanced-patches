@@ -747,9 +747,12 @@ public class Settings extends SharedYouTubeSettings {
     public static final IntegerSetting SWIPE_OVERLAY_OPACITY = new IntegerSetting("revanced_swipe_overlay_background_opacity", 60,
             true, new SliderConfig(0, 100, 1, "%"),
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
-    public static final IntegerSetting SWIPE_OVERLAY_RECT_SIZE = new IntegerSetting("revanced_swipe_overlay_rect_size", 20,
+    public static final IntegerSetting SWIPE_VERTICAL_ZONE = new IntegerSetting("revanced_swipe_vertical_zone", 20,
             true, new SliderConfig(0, 50, 1, "%"),
-            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+    public static final IntegerSetting SWIPE_HORIZONTAL_ZONE = new IntegerSetting("revanced_swipe_horizontal_zone", 20,
+            true, new SliderConfig(0, 50, 1, "%"),
+            parentsAny(SWIPE_SPEED, SWIPE_SEEK));
     public static final IntegerSetting SWIPE_OVERLAY_TEXT_SIZE = new IntegerSetting("revanced_swipe_text_overlay_size", 14,
             true, new SliderConfig(1, 30, 1, "sp"),
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME, SWIPE_SPEED, SWIPE_SEEK));
@@ -918,6 +921,7 @@ public class Settings extends SharedYouTubeSettings {
     private static final BooleanSetting DEPRECATED_MORPHE_OVERRIDE_YOUTUBE_MUSIC_BUTTON = new BooleanSetting("morphe_override_youtube_music_button", FALSE, true);
     private static final BooleanSetting DEPRECATED_REVANCED_OVERRIDE_YOUTUBE_MUSIC_BUTTON = new BooleanSetting("revanced_override_youtube_music_button", FALSE, true);
     private static final StringSetting DEPRECATED_REVANCED_THIRD_PARTY_YOUTUBE_MUSIC_PACKAGE_NAME = new StringSetting("revanced_third_party_youtube_music_package_name", PackageNameYouTubeMusic(), true);
+    private static final IntegerSetting DEPRECATED_SWIPE_OVERLAY_RECT_SIZE = new IntegerSetting("revanced_swipe_overlay_rect_size", 20, false, false);
     private static final FloatSetting DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY = new FloatSetting("sb_sponsor_opacity", 0.8f, false, false);
     private static final FloatSetting DEPRECATED_SB_CATEGORY_SELF_PROMO_OPACITY = new FloatSetting("sb_selfpromo_opacity", 0.8f, false, false);
     private static final FloatSetting DEPRECATED_SB_CATEGORY_INTERACTION_OPACITY = new FloatSetting("sb_interaction_opacity", 0.8f, false, false);
@@ -935,6 +939,14 @@ public class Settings extends SharedYouTubeSettings {
         migrateOldSettingToNew(DEPRECATED_MORPHE_OVERRIDE_YOUTUBE_MUSIC_BUTTON, OVERRIDE_YOUTUBE_MUSIC_BUTTONS);
         migrateOldSettingToNew(DEPRECATED_REVANCED_OVERRIDE_YOUTUBE_MUSIC_BUTTON, OVERRIDE_YOUTUBE_MUSIC_BUTTONS);
         migrateOldSettingToNew(DEPRECATED_REVANCED_THIRD_PARTY_YOUTUBE_MUSIC_PACKAGE_NAME, MORPHE_MUSIC_PACKAGE_NAME);
+
+        // The old setting applied to vertical zones only. Preserve its value for both directions.
+        if (!DEPRECATED_SWIPE_OVERLAY_RECT_SIZE.isSetToDefault()) {
+            final int oldZoneSize = Math.max(0, Math.min(50, DEPRECATED_SWIPE_OVERLAY_RECT_SIZE.get()));
+            SWIPE_VERTICAL_ZONE.save(oldZoneSize);
+            SWIPE_HORIZONTAL_ZONE.save(oldZoneSize);
+            DEPRECATED_SWIPE_OVERLAY_RECT_SIZE.resetToDefault();
+        }
 
         // Old spoof versions that no longer work reliably.
         boolean spoofAppVersionIncluded = PatchStatus.SpoofAppVersion();

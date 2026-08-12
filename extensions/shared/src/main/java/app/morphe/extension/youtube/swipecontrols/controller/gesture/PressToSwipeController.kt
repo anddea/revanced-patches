@@ -49,7 +49,17 @@ class PressToSwipeController(
             false
         }
 
-        return inVolumeZone || inBrightnessZone || inSpeedZone || inSeekZone
+        val inVerticalSwipeZone = inVolumeZone || inBrightnessZone
+        val inHorizontalSwipeZone = inSpeedZone || inSeekZone
+
+        // Do not let a horizontal zone intercept a vertical player gesture. Before the direction
+        // is known, only vertical zones can claim the touch stream; horizontal zones are checked
+        // after the detector identifies a horizontal swipe.
+        return when (currentSwipe) {
+            SwipeDetector.SwipeDirection.HORIZONTAL -> inHorizontalSwipeZone
+            SwipeDetector.SwipeDirection.VERTICAL,
+            SwipeDetector.SwipeDirection.NONE -> inVerticalSwipeZone
+        }
     }
 
     override fun onUp(motionEvent: MotionEvent) {
