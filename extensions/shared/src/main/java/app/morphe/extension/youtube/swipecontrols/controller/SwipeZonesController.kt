@@ -35,6 +35,9 @@ import kotlin.math.min
  *  |   dead   | brightness |   dead   |   volume   |   dead   |
  *             | <--------------------------------> |
  *                              1/1
+ *
+ * Horizontal swipes use the top and bottom edges of the effective rectangle. The percentage
+ * setting controls the height of each edge zone, leaving the center as the default/stock area.
  */
 @Suppress("PrivatePropertyName")
 class SwipeZonesController(
@@ -93,7 +96,7 @@ class SwipeZonesController(
     val volume: Rectangle
         get() {
             val eRect = effectiveSwipeRect
-            val zoneWidth = eRect.width * config.overlayRectSize / 100
+            val zoneWidth = max(0, eRect.width * config.verticalSwipeZoneSize / 100)
             return Rectangle(
                 eRect.right - zoneWidth,
                 eRect.top,
@@ -108,7 +111,7 @@ class SwipeZonesController(
     val brightness: Rectangle
         get() {
             val eRect = effectiveSwipeRect
-            val zoneWidth = eRect.width * config.overlayRectSize / 100
+            val zoneWidth = max(0, eRect.width * config.verticalSwipeZoneSize / 100)
             return Rectangle(
                 eRect.left,
                 eRect.top,
@@ -129,10 +132,11 @@ class SwipeZonesController(
     /** The effective width available for horizontal swipe zones after applying inner dead zones. */
     private val horizontalZoneEffectiveWidth get() = max(0, effectiveSwipeRect.width - (horizontalInnerDeadZone * 2))
 
-    /** The height for each horizontal zone (top/bottom half). */
-    private val horizontalZoneHeight get() = max(0, effectiveSwipeRect.height / 2)
+    /** The height for each horizontal zone, measured as a percentage of the effective height. */
+    private val horizontalZoneHeight
+        get() = max(0, effectiveSwipeRect.height * config.horizontalSwipeZoneSize / 100)
     private val topHorizontalZoneTop get() = effectiveSwipeRect.top
-    private val bottomHorizontalZoneTop get() = effectiveSwipeRect.top + horizontalZoneHeight
+    private val bottomHorizontalZoneTop get() = effectiveSwipeRect.bottom - horizontalZoneHeight
 
     /**
      * the rectangle of the speed control zone (horizontal swipe).
