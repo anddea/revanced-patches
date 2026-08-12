@@ -664,27 +664,17 @@ private val shortsRepeatPatch = bytecodePatch(
             reelEnumStaticFingerprint.methodOrThrow(reelEnumConstructorFingerprint)
 
         reelEnumConstructorFingerprint.methodOrThrow().apply {
-            implementation!!.instructions
-                .withIndex()
-                .filter { (_, instruction) ->
-                    val reference = (instruction as? ReferenceInstruction)?.reference
-                    instruction.opcode == Opcode.SPUT_OBJECT &&
-                            reference is FieldReference &&
-                            reference.type == enumMethod.definingClass
-                }
-                .map { (index, instruction) ->
-                    index to (instruction as ReferenceInstruction).reference
-                }
-                .reversed()
-                .forEach { (index, reference) ->
-                    addInstructions(
-                        index + 1,
-                        """
-                            sget-object v0, $reference
-                            invoke-static {v0}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
-                            """
-                    )
-                }
+            val enumClass = enumMethod.definingClass
+
+            addInstructions(
+                implementation!!.instructions.lastIndex,
+                """
+                    # Pass the first enum value to extension.
+                    # Any enum value of this type will work.
+                    sget-object v0, $enumClass->a:$enumClass
+                    invoke-static {v0}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
+                """
+            )
         }
 
         insertMethod.apply {
@@ -937,7 +927,7 @@ val shortsComponentPatch = bytecodePatch(
         shortsAnimationPatch,
         shortsCustomActionsPatch,
         shortsNavigationBarPatch,
-        // shortsRepeatPatch,
+        shortsRepeatPatch,
         shortsTimeStampPatch,
         shortsToolBarPatch,
 
