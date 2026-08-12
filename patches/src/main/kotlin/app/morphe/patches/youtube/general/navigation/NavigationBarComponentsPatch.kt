@@ -3,6 +3,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * Original hard forked code:
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
@@ -25,14 +29,13 @@ import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
-import app.morphe.patches.youtube.utils.navigation.NavigationHook
 import app.morphe.patches.youtube.utils.navigation.addBottomBarContainerHook
 import app.morphe.patches.youtube.utils.navigation.hookNavigationButtonCreated
 import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
-import app.morphe.patches.youtube.utils.navigation.navigationButtonsMethod
 import app.morphe.patches.youtube.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_28_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_05_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_06_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
@@ -50,17 +53,15 @@ import app.morphe.util.ResourceGroup
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
-import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
-import app.morphe.util.indexOfFirstStringInstruction
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -123,9 +124,6 @@ private val navigationBarComponentsResourcePatch = resourcePatch(
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/NavigationButtonsPatch;"
-
-private const val EXTENSION_ICON_CLASS_DESCRIPTOR =
-    "$GENERAL_PATH/YouTubeIcon;"
 
 @Suppress("unused")
 val navigationBarComponentsPatch = bytecodePatch(
@@ -250,9 +248,9 @@ val navigationBarComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region add settings navigation button
+        // region add optional navigation buttons
 
-        if (is_20_21_or_greater) {
+        if (is_20_05_or_greater) {
             PivotBarRendererFingerprint.let {
                 it.method.apply {
                     val pivotBarItemRendererType =
@@ -276,7 +274,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                     addInstructionsAtControlFlowLabel(
                         insertIndex,
                         """
-                        # Preserve the original renderer while cloning Home into a Settings tab.
+                        # Preserve the original renderer while cloning Home into additional tabs.
                         move-object/16 v$backupRegister, v$messageLiteRegister
                         invoke-static { v$messageLiteRegister }, $EXTENSION_CLASS_DESCRIPTOR->parseSettingsPivotBarItemRenderer(Lcom/google/protobuf/MessageLite;)[B
                         move-result-object v$constructorStartRegister
@@ -291,6 +289,21 @@ val navigationBarComponentsPatch = bytecodePatch(
                         invoke-direct/range { v$constructorStartRegister .. v$constructorEndRegister }, $constructorReference
                         invoke-static { v$constructorStartRegister }, $EXTENSION_CLASS_DESCRIPTOR->setPivotBarSettingsRenderer(Ljava/lang/Object;)V
                         :ignore_settings
+
+                        move-object/16 v$messageLiteRegister, v$backupRegister
+                        invoke-static { v$messageLiteRegister }, $EXTENSION_CLASS_DESCRIPTOR->parseSearchPivotBarItemRenderer(Lcom/google/protobuf/MessageLite;)[B
+                        move-result-object v$constructorStartRegister
+                        if-eqz v$constructorStartRegister, :ignore_search
+
+                        sget-object v$messageLiteRegister, $pivotBarItemRendererType->a:$pivotBarItemRendererType
+                        invoke-static { v$messageLiteRegister, v$constructorStartRegister }, ${parseByteArrayMethodRef.get()!!}
+                        move-result-object v$messageLiteRegister
+                        check-cast v$messageLiteRegister, $pivotBarItemRendererType
+
+                        new-instance v$constructorStartRegister, ${constructorReference.definingClass}
+                        invoke-direct/range { v$constructorStartRegister .. v$constructorEndRegister }, $constructorReference
+                        invoke-static { v$constructorStartRegister }, $EXTENSION_CLASS_DESCRIPTOR->setPivotBarSearchRenderer(Ljava/lang/Object;)V
+                        :ignore_search
 
                         move-object/16 v$messageLiteRegister, v$backupRegister
                         nop
@@ -326,6 +339,8 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
 
             settingArray += "SETTINGS: ANIMATED_NAVIGATION_BAR"
+            settingArray += "SETTINGS: SHOW_SEARCH_BUTTON"
+            settingArray += "SETTINGS: REORDER_NAVIGATION_BAR"
         }
 
         // endregion
@@ -355,72 +370,6 @@ val navigationBarComponentsPatch = bytecodePatch(
                     "invoke-static { v$copiedButtonRendererRegister, v$onClickListenerRegister }, " +
                             "$EXTENSION_CLASS_DESCRIPTOR->setSearchBarOnClickListener" +
                             $$"(Lcom/google/protobuf/MessageLite;Landroid/view/View$OnClickListener;)V"
-                )
-            }
-        }
-
-        val enumClass = with(ImageEnumConstructorFingerprint.method) {
-            arrayOf(
-                SEARCH_STRING to "search",
-                SEARCH_CAIRO_STRING to "searchCairo",
-            ).forEach { (enumName, fieldName) ->
-                val stringIndex = indexOfFirstStringInstruction(enumName)
-
-                if (stringIndex > -1) {
-                    val insertIndex =
-                        indexOfFirstInstructionOrThrow(stringIndex, Opcode.SPUT_OBJECT)
-                    val insertRegister =
-                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                    addInstruction(
-                        insertIndex + 1,
-                        "sput-object v$insertRegister, $EXTENSION_ICON_CLASS_DESCRIPTOR->$fieldName:Ljava/lang/Enum;"
-                    )
-                }
-            }
-
-            definingClass
-        }
-
-        navigationButtonsMethod.apply {
-            findInstructionIndicesReversedOrThrow {
-                opcode == Opcode.INVOKE_STATIC &&
-                        getReference<MethodReference>()?.name == NavigationHook.SET_LAST_APP_NAVIGATION_ENUM.methodName
-            }.forEach { enumIndex ->
-                val spanIndex = implementation!!.instructions.let {
-                    val subListIndex =
-                        it.subList(enumIndex, enumIndex + 20).indexOfFirst { instruction ->
-                            instruction.opcode == Opcode.INVOKE_STATIC &&
-                                    instruction.getReference<MethodReference>()?.returnType == "Landroid/text/Spanned;"
-                        } + 1
-                    if (subListIndex > 0) {
-                        enumIndex + subListIndex
-                    } else {
-                        -1
-                    }
-                }
-
-                if (spanIndex > 0) {
-                    val spanRegister =
-                        getInstruction<OneRegisterInstruction>(spanIndex).registerA
-
-                    addInstructions(
-                        spanIndex + 1, """
-                            invoke-static {v$spanRegister}, $EXTENSION_CLASS_DESCRIPTOR->changeSpanned(Landroid/text/Spanned;)Landroid/text/Spanned;
-                            move-result-object v$spanRegister
-                            """
-                    )
-                }
-
-                val enumRegister =
-                    getInstruction<FiveRegisterInstruction>(enumIndex).registerC
-
-                addInstructions(
-                    enumIndex + 1, """
-                        invoke-static {v$enumRegister}, $EXTENSION_CLASS_DESCRIPTOR->changeIconType(Ljava/lang/Enum;)Ljava/lang/Enum;
-                        move-result-object v$enumRegister
-                        check-cast v$enumRegister, $enumClass
-                        """
                 )
             }
         }

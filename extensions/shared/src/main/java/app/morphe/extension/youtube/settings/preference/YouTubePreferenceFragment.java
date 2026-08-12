@@ -106,6 +106,14 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
             return;
         }
 
+        if (pref instanceof NavigationBarOrderPreference navigationBarOrderPreference
+                && setting == Settings.NAVIGATION_BAR_ORDER) {
+            if (applySettingToPreference) {
+                navigationBarOrderPreference.updateSummary();
+            }
+            return;
+        }
+
         super.syncSettingWithPreference(pref, setting, applySettingToPreference);
     }
 

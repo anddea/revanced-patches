@@ -67,7 +67,6 @@ import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverla
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlayVolumeColorAvailability;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
-import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.morphe.extension.youtube.shared.PlaylistIdPrefix;
 import app.morphe.extension.youtube.sponsorblock.SegmentPlaybackController.SponsorBlockDuration;
 import app.morphe.extension.youtube.sponsorblock.SponsorBlockSettings;
@@ -298,10 +297,14 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting DISABLE_AUTO_HIDE_NAVIGATION_BAR = new BooleanSetting("morphe_disable_auto_hide_navigation_bar", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
     public static final BooleanSetting NAVIGATION_BAR_ANIMATIONS = new BooleanSetting("revanced_navigation_bar_animations", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
     public static final BooleanSetting SHOW_SETTINGS_BUTTON = new BooleanSetting("revanced_show_settings_button", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
-    public static final IntegerSetting SHOW_SETTINGS_BUTTON_INDEX = new IntegerSetting("revanced_show_settings_button_index", 5, true, parent(SHOW_SETTINGS_BUTTON));
     public static final BooleanSetting SHOW_SETTINGS_BUTTON_TYPE = new BooleanSetting("revanced_show_settings_button_type", FALSE, true, parent(SHOW_SETTINGS_BUTTON));
-    public static final BooleanSetting REPLACE_NAVIGATION_BUTTON = new BooleanSetting("revanced_replace_navigation_button", FALSE, true);
-    public static final EnumSetting<NavigationButton> REPLACE_NAVIGATION_BUTTON_TARGET = new EnumSetting<>("revanced_replace_navigation_button_target", NavigationButton.SHORTS, true, parent(REPLACE_NAVIGATION_BUTTON));
+    public static final BooleanSetting SHOW_SEARCH_BUTTON = new BooleanSetting("revanced_show_search_button", FALSE, true, parentInverted(HIDE_NAVIGATION_BAR));
+    /**
+     * Comma-separated navigation item names in the order selected by the user. An empty value
+     * preserves YouTube's original order.
+     */
+    public static final StringSetting NAVIGATION_BAR_ORDER = new StringSetting(
+            "revanced_navigation_bar_order", "", true, parentInverted(HIDE_NAVIGATION_BAR));
 
     // PreferenceScreen: General - Override buttons
     public static final BooleanSetting OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON = new BooleanSetting("revanced_override_playlist_download_button", FALSE, true);
