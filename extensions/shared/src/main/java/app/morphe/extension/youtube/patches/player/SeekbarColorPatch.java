@@ -3,16 +3,21 @@ package app.morphe.extension.youtube.patches.player;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.clamp;
 
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.AnimatedVectorDrawable;
 
+import com.airbnb.lottie.LottieAnimationView;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.Locale;
+import java.util.Scanner;
 
+import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.utils.Logger;
-import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.theme.ThemePatch;
 import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -114,61 +119,60 @@ public class SeekbarColorPatch {
     }
 
     /**
-     * Injection point
+     * Injection point.
+     * Modern Lottie style animation.
      */
-    public static boolean useLotteLaunchSplashScreen(boolean original) {
-        Logger.printDebug(() -> "useLotteLaunchSplashScreen original: " + original);
-
-        if (CUSTOM_SEEKBAR_COLOR_ENABLED) return false;
-
-        return original;
-    }
-
-    private static int colorChannelTo3Bits(int channel8Bits) {
-        final float channel3Bits = channel8Bits * 7 / 255f;
-
-        // If a color channel is near zero, then allow rounding up so values between
-        // 0x12 and 0x23 will show as 0x24. But always round down when the channel is
-        // near full saturation, otherwise rounding to nearest will cause all values
-        // between 0xEC and 0xFE to always show as full saturation (0xFF).
-        return channel3Bits < 6
-                ? Math.round(channel3Bits)
-                : (int) channel3Bits;
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private static String get9BitStyleIdentifier(int color24Bit) {
-        final int r3 = colorChannelTo3Bits(Color.red(color24Bit));
-        final int g3 = colorChannelTo3Bits(Color.green(color24Bit));
-        final int b3 = colorChannelTo3Bits(Color.blue(color24Bit));
-
-        return String.format(Locale.US, "splash_seekbar_color_style_%d_%d_%d", r3, g3, b3);
-    }
-
-    /**
-     * Injection point
-     */
-    public static void setSplashAnimationDrawableTheme(AnimatedVectorDrawable vectorDrawable) {
-        // Alternatively a ColorMatrixColorFilter can be used to change the color of the drawable
-        // without using any styles, but a color filter cannot selectively change the seekbar
-        // while keeping the red YT logo untouched.
-        // Even if the seekbar color xml value is changed to a completely different color (such as green),
-        // a color filter still cannot be selectively applied when the drawable has more than 1 color.
+    public static void setSplashAnimationLottie(LottieAnimationView view, int resourceId) {
         try {
-            String seekbarStyle = get9BitStyleIdentifier(customSeekbarColor);
-            Logger.printDebug(() -> "Using splash seekbar style: " + seekbarStyle);
-
-            final int styleIdentifierDefault = ResourceUtils.getStyleIdentifier(seekbarStyle);
-            if (styleIdentifierDefault == 0) {
-                throw new RuntimeException("Seekbar style not found: " + seekbarStyle);
+            ThemePatch.SplashScreenAnimationStyle animationStyle = Settings.SPLASH_SCREEN_ANIMATION_STYLE.get();
+            if (!CUSTOM_SEEKBAR_COLOR_ENABLED
+                    // Black and white animations cannot use color replacements.
+                    || animationStyle == ThemePatch.SplashScreenAnimationStyle.FPS_30_BLACK_AND_WHITE
+                    || animationStyle == ThemePatch.SplashScreenAnimationStyle.FPS_60_BLACK_AND_WHITE) {
+                view.patch_setAnimation(resourceId);
+                return;
             }
 
-            Resources.Theme theme = Utils.getContext().getResources().newTheme();
-            theme.applyStyle(styleIdentifierDefault, true);
+            // Must specify primary key name otherwise the morphing YT logo color is also changed.
+            String originalKey = "\"k\":";
+            String originalPrimary = originalKey + "[1,0,0.2,1]";
+            String originalAccent = originalKey + "[1,0.152941176471,0.56862745098,1]";
 
-            vectorDrawable.applyTheme(theme);
+            String replacementPrimary = originalKey + getColorStringArray(customSeekbarColor);
+            String replacementAccent = originalKey + getColorStringArray(customSeekbarColorGradient[1]);
+
+            String json = loadRawResourceAsString(resourceId);
+            String replacement = json
+                    .replace(originalPrimary, replacementPrimary)
+                    .replace(originalAccent, replacementAccent);
+
+            if (BaseSettings.DEBUG.get() && (!json.contains(originalPrimary) || !json.contains(originalAccent))) {
+                Logger.printException(() -> "Could not replace splash animation colors: " + json);
+            }
+
+            // cacheKey is not needed since the animation will not be reused.
+            view.patch_setAnimation(new ByteArrayInputStream(replacement.getBytes()), null);
         } catch (Exception ex) {
-            Logger.printException(() -> "setSplashAnimationDrawableTheme failure", ex);
+            Logger.printException(() -> "setSplashAnimationLottie failure", ex);
+        }
+    }
+
+    private static String getColorStringArray(int color) {
+        return Arrays.toString(new double[]{
+                Color.red(color) / 255.0,
+                Color.green(color) / 255.0,
+                Color.blue(color) / 255.0,
+                Color.alpha(color) / 255.0
+        });
+    }
+
+    private static String loadRawResourceAsString(int resourceId) {
+        //noinspection CharsetObjectCanBeUsed
+        try (InputStream inputStream = Utils.getContext().getResources().openRawResource(resourceId);
+             Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8.name()).useDelimiter("\\A")) {
+            return scanner.next();
+        } catch (IOException e) {
+            throw new IllegalStateException("Could not load resource: " + resourceId);
         }
     }
 

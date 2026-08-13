@@ -12,6 +12,7 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.anyInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
@@ -107,8 +108,40 @@ internal object PlayerLinearGradientLegacyFingerprint : Fingerprint(
     custom = { method, _ -> method.containsLiteralInstruction(ytYoutubeMagenta) },
 )
 
-internal const val launchScreenLayoutTypeLotteFeatureLegacyFlag = 268507948L
-internal const val launchScreenLayoutTypeLotteFeatureFlag = 1073814316L
+internal const val LOTTIE_ANIMATION_VIEW_CLASS_TYPE = "Lcom/airbnb/lottie/LottieAnimationView;"
+
+internal object LottieAnimationViewSetAnimationIntFingerprint : Fingerprint(
+    definingClass = LOTTIE_ANIMATION_VIEW_CLASS_TYPE,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("I"),
+    returnType = "V",
+    filters = listOf(
+        methodCall(definingClass = "this", name = "isInEditMode")
+    )
+)
+
+private object LottieCompositionFactoryZipFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    parameters = listOf("Landroid/content/Context;", "Ljava/util/zip/ZipInputStream;", "Ljava/lang/String;"),
+    returnType = "L",
+    filters = listOf(
+        string("Unable to parse composition"),
+        string(" however it was not found in the animation.")
+    )
+)
+
+/**
+ * [Original method](https://github.com/airbnb/lottie-android/blob/26ad8bab274eac3f93dccccfa0cafc39f7408d13/lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java#L386)
+ */
+internal object LottieCompositionFactoryFromJsonInputStreamFingerprint : Fingerprint(
+    classFingerprint = LottieCompositionFactoryZipFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    parameters = listOf("Ljava/io/InputStream;", "Ljava/lang/String;"),
+    returnType = "L",
+    filters = listOf(
+        anyInstruction(literal(2), literal(3))
+    )
+)
 
 internal object SetBoundsFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
@@ -130,19 +163,6 @@ internal object SeekbarThumbFingerprint : Fingerprint(
         Opcode.MOVE_RESULT,
         Opcode.INVOKE_VIRTUAL
     )
-)
-
-internal object LaunchScreenLayoutTypeFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
-    returnType = "V",
-    custom = { method, _ ->
-        val firstParameter = method.parameterTypes.firstOrNull()
-        // 19.25 - 19.45
-        (firstParameter == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
-                || firstParameter == "Landroid/app/Activity;") // 19.46+
-                && (method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureLegacyFlag)
-                || method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureFlag))
-    }
 )
 
 internal object SeekbarTappingFingerprint : Fingerprint(

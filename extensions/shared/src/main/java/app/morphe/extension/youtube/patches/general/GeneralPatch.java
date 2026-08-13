@@ -626,21 +626,6 @@ public class GeneralPatch {
 
     // endregion
 
-    // region [Disable splash animation] patch
-
-    public static boolean disableSplashAnimation(boolean original) {
-        return !Settings.DISABLE_SPLASH_ANIMATION.get() && original;
-    }
-
-    public static int disableSplashAnimation(int i, int i2) {
-        if (!Settings.DISABLE_SPLASH_ANIMATION.get() || i != i2) {
-            return i;
-        }
-        return i - 1;
-    }
-
-    // endregion
-
     // region [Enable gradient loading screen] patch
 
     public static boolean enableGradientLoadingScreen() {
