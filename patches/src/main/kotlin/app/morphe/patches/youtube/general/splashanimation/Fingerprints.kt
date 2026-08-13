@@ -1,44 +1,72 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.general.splashanimation
 
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.anyInstruction
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
+import app.morphe.patches.youtube.utils.navigation.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val splashAnimationFingerprint = legacyFingerprint(
-    name = "splashAnimationFingerprint",
+internal object SplashScreenStyleFingerprint : Fingerprint(
+    definingClass = YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE,
+    name = "onCreate",
     returnType = "V",
     parameters = listOf("Landroid/os/Bundle;"),
-    strings = listOf("PostCreateCalledKey"),
-    customFingerprint = { method, _ ->
-        method.definingClass.endsWith("Activity;") &&
-                method.name == "onCreate" &&
-                indexOfStartAnimatedVectorDrawableInstruction(method) >= 0
-    }
+    filters = listOf(
+        anyInstruction(
+            literal(1074339245), // 20.30+
+            literal(269032877L) // 20.29 and lower.
+        )
+    )
 )
 
-fun indexOfStartAnimatedVectorDrawableInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.toString() == "Landroid/graphics/drawable/AnimatedVectorDrawable;->start()V"
-    }
-
-internal val startUpResourceIdFingerprint = legacyFingerprint(
-    name = "startUpResourceIdFingerprint",
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("I"),
-    literals = listOf(3L, 4L)
-)
-
-internal val startUpResourceIdParentFingerprint = legacyFingerprint(
-    name = "startUpResourceIdParentFingerprint",
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.DECLARED_SYNCHRONIZED,
-    parameters = listOf("I", "I"),
-    strings = listOf("early type", "final type")
+/**
+ * Matches the splash screen visibility checks in the same method as [SplashScreenStyleFingerprint].
+ */
+internal object ShowSplashScreenFingerprint : Fingerprint(
+    definingClass = YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE,
+    name = "onCreate",
+    returnType = "V",
+    parameters = listOf("Landroid/os/Bundle;"),
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_STATIC,
+            returnType = "Z",
+            parameters = listOf("I")
+        ),
+        opcode(
+            opcode = Opcode.MOVE_RESULT,
+            location = MatchAfterImmediately()
+        ),
+        opcode(
+            opcode = Opcode.IF_EQZ,
+            location = MatchAfterImmediately()
+        ),
+        opcode(
+            opcode = Opcode.GOTO,
+            location = MatchAfterWithin(2)
+        ),
+        anyInstruction(
+            opcode(Opcode.CONST_4),
+            opcode(Opcode.CONST_16),
+            location = MatchAfterImmediately()
+        ),
+        opcode(
+            opcode = Opcode.IF_NE,
+            location = MatchAfterImmediately()
+        )
+    )
 )

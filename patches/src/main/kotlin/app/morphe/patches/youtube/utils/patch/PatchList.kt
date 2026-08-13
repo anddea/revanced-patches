@@ -97,10 +97,6 @@ internal enum class PatchList(
         "Disable sign in to TV popup",
         "Adds an option to disable the popup asking to sign into a TV on the same local network."
     ),
-    DISABLE_SPLASH_ANIMATION(
-        "Disable splash animation",
-        "Adds an option to disable the splash animation on app startup."
-    ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
         "Adds an option for debugging and exporting RVX logs to the clipboard."
@@ -267,7 +263,7 @@ internal enum class PatchList(
     ),
     THEME(
         "Theme",
-        "Changes the app's themes to the values specified in patch options."
+        "Adds options to change the app's themes and splash screen style."
     ),
     TOOLBAR_COMPONENTS(
         "Toolbar components",

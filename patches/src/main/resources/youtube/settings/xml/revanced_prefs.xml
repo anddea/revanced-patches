@@ -181,8 +181,8 @@
         <!-- SETTINGS: DISABLE_SIGN_IN_TO_TV_POPUP
         <SwitchPreference android:title="@string/revanced_disable_signin_to_tv_popup_title" android:key="revanced_disable_signin_to_tv_popup" android:summaryOn="@string/revanced_disable_signin_to_tv_popup_summary_on" android:summaryOff="@string/revanced_disable_signin_to_tv_popup_summary_off" />SETTINGS: DISABLE_SIGN_IN_TO_TV_POPUP -->
 
-        <!-- SETTINGS: DISABLE_SPLASH_ANIMATION
-        <SwitchPreference android:title="@string/revanced_disable_splash_animation_title" android:key="revanced_disable_splash_animation" android:summaryOn="@string/revanced_disable_splash_animation_summary_on" android:summaryOff="@string/revanced_disable_splash_animation_summary_off" />SETTINGS: DISABLE_SPLASH_ANIMATION -->
+        <!-- SETTINGS: SPLASH_SCREEN_ANIMATION_STYLE
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/morphe_splash_screen_animation_style_entries" android:title="@string/morphe_splash_screen_animation_style_title" android:key="morphe_splash_screen_animation_style" android:entryValues="@array/morphe_splash_screen_animation_style_entry_values" />SETTINGS: SPLASH_SCREEN_ANIMATION_STYLE -->
 
         <!-- SETTINGS: ENABLE_GRADIENT_LOADING_SCREEN
         <SwitchPreference android:title="@string/revanced_enable_gradient_loading_screen_title" android:key="revanced_enable_gradient_loading_screen" android:summaryOn="@string/revanced_enable_gradient_loading_screen_summary_on" android:summaryOff="@string/revanced_enable_gradient_loading_screen_summary_off" />SETTINGS: ENABLE_GRADIENT_LOADING_SCREEN -->
@@ -1121,7 +1121,6 @@
                 <Preference android:title="Disable forced auto captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable layout updates" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable sign in to TV popup" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Disable splash animation" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Enable gradient loading screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Force original audio" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide layout components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
