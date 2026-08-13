@@ -186,7 +186,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
 
             settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
-            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
+            if (!is_20_31_or_greater) settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
             settingArray += "SETTINGS: DISABLE_TRANSLUCENT_NAVIGATION_BAR"
         }
 
