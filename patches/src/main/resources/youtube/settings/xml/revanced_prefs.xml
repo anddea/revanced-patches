@@ -997,6 +997,7 @@
         <SwitchPreference android:title="@string/revanced_vot_audio_proxy_title" android:key="vot_audio_proxy_enabled" android:summaryOn="@string/revanced_vot_audio_proxy_summary_on" android:summaryOff="@string/revanced_vot_audio_proxy_summary_off" android:dependency="vot_enabled" />
         <app.morphe.extension.youtube.settings.preference.VotOAuthPreference android:title="@string/revanced_vot_oauth_account_management_title" android:key="vot_oauth_token" android:summary="@string/revanced_vot_oauth_token_summary" android:dependency="vot_enabled" />
         <Preference android:title="@string/revanced_vot_about_title" android:selectable="false" android:summary="@string/revanced_vot_about_summary" />
+        <Preference android:title="@string/revanced_credits_title" android:selectable="false" android:summary="@string/revanced_vot_credits_summary" />
     </PreferenceScreen>PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION -->
 
 
