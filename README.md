@@ -36,7 +36,6 @@
 | `Disable resuming Miniplayer on startup` | Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup. | 19.43.41 ~ 20.51.39 |
 | `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 19.43.41 ~ 20.51.39 |
 | `Disable sign in to TV popup` | Adds an option to disable the popup asking to sign into a TV on the same local network. | 19.43.41 ~ 20.51.39 |
-| `Disable splash animation` | Adds an option to disable the splash animation on app startup. | 19.43.41 ~ 20.51.39 |
 | `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 19.43.41 ~ 20.51.39 |
 | `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 19.43.41 ~ 20.51.39 |
 | `Force original audio` | Adds an option to disable audio tracks from being automatically enabled. | 19.43.41 ~ 20.51.39 |
@@ -54,13 +53,13 @@
 | `Hide player buttons` | Adds options to hide buttons in the video player. | 19.43.41 ~ 20.51.39 |
 | `Hide player flyout menu` | Adds options to hide player flyout menu components. | 19.43.41 ~ 20.51.39 |
 | `Hide shortcuts` | Remove, at compile time, the app shortcuts that appears when the app icon is long pressed. | 19.43.41 ~ 20.51.39 |
-| `Hook YouTube Music actions` | Adds support for opening music in RVX Music using the in-app YouTube Music button. | 19.43.41 ~ 20.51.39 |
 | `Hook download actions` | Adds support to download videos with an external downloader app using the in-app download button. | 19.43.41 ~ 20.51.39 |
 | `MaterialYou` | Applies the MaterialYou theme for Android 12+ devices. | 19.43.41 ~ 20.51.39 |
 | `Miniplayer` | Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers. | 19.43.41 ~ 20.51.39 |
 | `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 19.43.41 ~ 20.51.39 |
 | `Open links externally` | Adds an option to always open links in your browser instead of the in-app browser. | 19.43.41 ~ 20.51.39 |
 | `Overlay buttons` | Adds options to display useful overlay buttons in the video player. | 19.43.41 ~ 20.51.39 |
+| `Override YouTube Music buttons` | Overrides YouTube Music buttons to open RVX Music or any compatible third-party client. | 19.43.41 ~ 20.51.39 |
 | `Playback in feeds` | Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it. | 19.43.41 ~ 20.51.39 |
 | `Player components` | Adds options to hide or change components related to the video player. | 19.43.41 ~ 20.51.39 |
 | `Reload video` | Adds an option to display a button in the video player to reload the current video. | 20.05.46 ~ 20.51.39 |
@@ -80,7 +79,7 @@
 | `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 19.43.41 ~ 20.51.39 |
 | `Spoof watch history` | Adds an option to change the domain of the watch history or check its status. | 19.43.41 ~ 20.51.39 |
 | `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 19.43.41 ~ 20.51.39 |
-| `Theme` | Changes the app's themes to the values specified in patch options. | 19.43.41 ~ 20.51.39 |
+| `Theme` | Adds options to change the app's themes and splash screen style. | 19.43.41 ~ 20.51.39 |
 | `Toolbar components` | Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons. | 19.43.41 ~ 20.51.39 |
 | `Translations for YouTube` | Add translations or remove string resources. | 19.43.41 ~ 20.51.39 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 19.43.41 ~ 20.51.39 |

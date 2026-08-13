@@ -1,3 +1,21 @@
+# [4.3.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.2.0...v4.3.0-dev.1) (2026-08-13)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts components:** Fix custom actions issues for server-side rendered flyout menu ([aa99f45](https://github.com/anddea/revanced-patches/commit/aa99f45fdd2de58cbf137e6debb7ab3a959f1974))
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Add `Navigation bar order` and `Show Search` settings ([61452b4](https://github.com/anddea/revanced-patches/commit/61452b4323382e9e5ccd4bc2e3542b191fe8b442))
+* **YouTube - Shorts components:** Add `Hide Save button` setting ([78470f2](https://github.com/anddea/revanced-patches/commit/78470f24aa5fdfaf6dc38722a1d6edc120aeb0c4))
+* **YouTube - Swipe controls:** Add separate `Horizontal swipe area` and `Vertical swipe area` settings ([b7215c7](https://github.com/anddea/revanced-patches/commit/b7215c7a9215b31e0259e4900ee8ea7b7f81d009))
+* **YouTube - Theme:** Replace `Disable splash animation` with `Splash screen style` ([40b184d](https://github.com/anddea/revanced-patches/commit/40b184de0a3326ac8cff252a80374944a6b82fba))
+* **YouTube - Toolbar components:** Add `Add to queue and open queue` button in WebView channel search results ([12a2ab4](https://github.com/anddea/revanced-patches/commit/12a2ab476cbde6c9fbaebad1e2fb5c4f710e1662))
+* **YouTube & YouTube Music:** Add sliders to settings, add `Show summaries for slider settings` setting ([58e6508](https://github.com/anddea/revanced-patches/commit/58e65084a0f5b100d9c5a116670d9a0423ebdbad))
+* **YouTube:** Replace `Hook YouTube Music actions` with `Override YouTube Music buttons` patch ([2dd90e2](https://github.com/anddea/revanced-patches/commit/2dd90e2dfeb14f50ea5ebb2b158fca29e225c1fa))
+
 # [4.2.0](https://github.com/anddea/revanced-patches/compare/v4.1.0...v4.2.0) (2026-08-07)
 
 
