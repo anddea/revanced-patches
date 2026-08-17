@@ -16,7 +16,6 @@ import org.w3c.dom.Element
 val themePatch = resourcePatch(
     THEME.title,
     THEME.summary,
-    false,
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
@@ -26,16 +25,16 @@ val themePatch = resourcePatch(
         splashScreenAnimationBytecodePatch,
     )
 
-    val amoledBlackColor = "@android:color/black"
+    val modernYouTube = "#FF0F0F0F"
     val whiteColor = "@android:color/white"
 
     val availableDarkTheme = mapOf(
-        "Amoled Black" to amoledBlackColor,
+        "Amoled Black" to "@android:color/black",
         "Material You (Neutral)" to "@android:color/system_neutral1_900",
         "Material You - Primary" to "@android:color/system_accent1_800",
         "Material You - Secondary" to "@android:color/system_accent2_800",
         "Material You - Tertiary" to "@android:color/system_accent3_800",
-        "Modern YouTube" to "#FF0F0F0F",
+        "Modern YouTube" to modernYouTube,
         "Classic (Old YouTube)" to "#FF212121",
         "Catppuccin (Mocha)" to "#FF181825",
         "Dark Pink" to "#FF290025",
@@ -66,7 +65,7 @@ val themePatch = resourcePatch(
 
     val darkThemeBackgroundColor = colorOption(
         key = "darkThemeBackgroundColor",
-        default = amoledBlackColor,
+        default = modernYouTube,
         values = availableDarkTheme,
         title = "Dark theme background color",
         description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
