@@ -205,8 +205,28 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         addPreferencesFromResource(identifier);
 
         PreferenceScreen screen = getPreferenceScreen();
+        removeInvisiblePreferences(screen);
         Utils.sortPreferenceGroups(screen);
         Utils.setPreferenceTitlesToMultiLineIfNeeded(screen);
+    }
+
+    /**
+     * Removes preferences whose setting has no meaningful UI on this device. This is separate
+     * from the normal enabled-state handling so dependent settings remain visible and disabled.
+     */
+    private void removeInvisiblePreferences(@NonNull PreferenceGroup group) {
+        for (int i = group.getPreferenceCount() - 1; i >= 0; i--) {
+            Preference preference = group.getPreference(i);
+            if (preference instanceof PreferenceGroup subgroup) {
+                removeInvisiblePreferences(subgroup);
+            }
+
+            if (!preference.hasKey()) continue;
+            Setting<?> setting = Setting.getSettingFromPath(preference.getKey());
+            if (setting != null && !setting.isVisible()) {
+                group.removePreference(preference);
+            }
+        }
     }
 
     private void showSettingUserDialogConfirmation(Preference pref, Setting<?> setting) {

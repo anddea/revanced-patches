@@ -30,7 +30,7 @@ internal enum class PatchList(
         "Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection."
     ),
     DARK_THEME(
-        "Dark theme",
+        "Theme",
         "Changes the app's dark theme to the values specified in patch options."
     ),
     DISABLE_CAIRO_SPLASH_ANIMATION(

@@ -111,6 +111,17 @@ public abstract class Setting<T> {
         boolean isAvailable();
 
         /**
+         * Indicates whether the setting should be included in the settings UI.
+         *
+         * <p>Unavailable settings remain visible and disabled by default so dependency-based
+         * settings can still explain how to enable them. Override this only when the setting has
+         * no meaningful UI on the current device or configuration.</p>
+         */
+        default boolean isVisible() {
+            return true;
+        }
+
+        /**
          * @return parent settings (dependencies) of this availability.
          */
         default List<Setting<?>> getParentSettings() {
@@ -570,6 +581,13 @@ public abstract class Setting<T> {
      */
     public boolean isAvailable() {
         return availability == null || availability.isAvailable();
+    }
+
+    /**
+     * @return if the setting should be included in the settings UI.
+     */
+    public boolean isVisible() {
+        return availability == null || availability.isVisible();
     }
 
     /**
