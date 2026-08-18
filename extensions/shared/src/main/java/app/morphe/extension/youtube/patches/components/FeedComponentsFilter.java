@@ -29,6 +29,7 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.StringTrieSearch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.EngagementPanel;
+import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.morphe.extension.youtube.shared.RootView;
 
@@ -57,6 +58,7 @@ public final class FeedComponentsFilter extends Filter {
     private final StringFilterGroupList channelProfileStringFilterGroup = new StringFilterGroupList();
     private final StringFilterGroup carouselShelves;
     private final StringFilterGroup chipBar;
+    private final StringFilterGroup chipsShelf;
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup expandableCard;
     private final StringFilterGroup getPremiumButton;
@@ -67,6 +69,7 @@ public final class FeedComponentsFilter extends Filter {
     private final ByteArrayFilterGroup ticketShelfBuffer;
     private final StringFilterGroup inviteToMessageCard;
     private final ByteArrayFilterGroup inviteToMessageCardBuffer;
+    private final StringFilterGroup videoRecommendationLabels;
 
     private final Supplier<Stream<String>> knownBrowseId = () -> Stream.of(
             BROWSE_ID_HOME,
@@ -112,7 +115,7 @@ public final class FeedComponentsFilter extends Filter {
 
         // Identifiers.
 
-        final StringFilterGroup chipsShelf = new StringFilterGroup(
+        chipsShelf = new StringFilterGroup(
                 Settings.HIDE_CHIPS_SHELF,
                 "chips_shelf"
         );
@@ -336,7 +339,7 @@ public final class FeedComponentsFilter extends Filter {
                 "subscriptions_section_header"
         );
 
-        final var videoRecommendationLabels = new StringFilterGroup(
+        videoRecommendationLabels = new StringFilterGroup(
                 Settings.HIDE_VIDEO_RECOMMENDATION_LABELS,
                 "endorsement_header_footer."
         );
@@ -517,6 +520,10 @@ public final class FeedComponentsFilter extends Filter {
             return hideCategoryBar(contentIndex);
         }
 
+        if (matchedGroup == chipsShelf) {
+            return NavigationButton.getSelectedNavigationButton() != NavigationButton.LIBRARY;
+        }
+
         if (matchedGroup == communityPosts) {
             // Channel Pages (Deep navigation logic)
             // When back button is visible, we are likely on a channel page.
@@ -583,6 +590,10 @@ public final class FeedComponentsFilter extends Filter {
 
             // Check the navigation button last and only after all buffer checks pass.
             return NavigationButton.getSelectedNavigationButton() == NavigationButton.NOTIFICATIONS;
+        }
+
+        if (matchedGroup == videoRecommendationLabels) {
+            return NavigationBar.isSearchBarActive();
         }
 
         return true;
