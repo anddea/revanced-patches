@@ -10,6 +10,7 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.StringTrieSearch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.EngagementPanel;
+import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.morphe.extension.youtube.shared.RootView;
 
@@ -126,7 +127,7 @@ public final class ShortsShelfFilter extends Filter {
                     return false;
                 }
                 if (!isHomeFeedOrRelatedVideo) {
-                    return channelProfileShelfHeader.check(buffer).isFiltered();
+                    return !NavigationBar.isSearchBarActive() && channelProfileShelfHeader.check(buffer).isFiltered();
                 }
                 return hideShelves;
             }
@@ -144,7 +145,7 @@ public final class ShortsShelfFilter extends Filter {
                     return false;
                 }
             } else if (matchedGroup == channelProfile) {
-                return true;
+                return !NavigationBar.isSearchBarActive();
             }
             return hideShelves;
         }
