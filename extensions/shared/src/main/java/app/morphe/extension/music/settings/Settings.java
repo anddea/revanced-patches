@@ -7,7 +7,12 @@ import static app.morphe.extension.music.sponsorblock.objects.CategoryBehaviour.
 import static app.morphe.extension.shared.settings.Setting.parent;
 import static app.morphe.extension.shared.utils.StringRef.str;
 
+import android.os.Build;
+
 import androidx.annotation.NonNull;
+
+import java.util.Collections;
+import java.util.List;
 
 import app.morphe.extension.music.patches.CrossfadeManager.CrossFadeDuration;
 import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
@@ -15,6 +20,7 @@ import app.morphe.extension.music.patches.general.ChangeStartPagePatch.StartPage
 import app.morphe.extension.music.patches.lyrics.LyricsSource;
 import app.morphe.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
 import app.morphe.extension.music.patches.utils.PatchStatus;
+import app.morphe.extension.music.patches.utils.DrawableColorPatch;
 import app.morphe.extension.music.sponsorblock.SponsorBlockSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.EnumSetting;
@@ -110,7 +116,33 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting REPLACE_FLYOUT_MENU_REPORT_ONLY_PLAYER = new BooleanSetting("revanced_replace_flyout_menu_report_only_player", TRUE);
 
 
-    // PreferenceScreen: General
+    /** Precompiled presets work on Android 8+, while arbitrary colors require Android 11+. */
+    public static final StringSetting DARK_THEME = new StringSetting(
+            "morphe_dark_theme", DrawableColorPatch.DEFAULT_DARK_THEME, true);
+    /** Arbitrary runtime color, enabled for the Custom selector on Android 11+. */
+    public static final StringSetting DARK_THEME_CUSTOM_COLOR = new StringSetting(
+            "morphe_dark_theme_custom_color",
+            DrawableColorPatch.DEFAULT_DARK_THEME_CUSTOM_COLOR,
+            true,
+            new Setting.Availability() {
+                @Override
+                public boolean isAvailable() {
+                    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                            && DARK_THEME.isAvailable()
+                            && "custom".equals(DARK_THEME.get());
+                }
+
+                @Override
+                public boolean isVisible() {
+                    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                            && DARK_THEME.isVisible();
+                }
+
+                @Override
+                public List<Setting<?>> getParentSettings() {
+                    return Collections.singletonList(DARK_THEME);
+                }
+            });
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.DEFAULT, true);
     public static final BooleanSetting DISABLE_CAIRO_SPLASH_ANIMATION = new BooleanSetting("revanced_disable_cairo_splash_animation", FALSE, true);
     public static final BooleanSetting DISABLE_DISLIKE_REDIRECTION = new BooleanSetting("revanced_disable_dislike_redirection", FALSE);
@@ -162,7 +194,7 @@ public class Settings extends SharedYouTubeSettings {
     // PreferenceScreen: Player
     public static final BooleanSetting ADD_MINIPLAYER_NEXT_BUTTON = new BooleanSetting("revanced_add_miniplayer_next_button", TRUE, true);
     public static final BooleanSetting ADD_MINIPLAYER_PREVIOUS_BUTTON = new BooleanSetting("revanced_add_miniplayer_previous_button", TRUE, true);
-    public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_change_miniplayer_color", TRUE);
+    public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_change_miniplayer_color", FALSE);
     public static final BooleanSetting CHANGE_PLAYER_BACKGROUND_COLOR = new BooleanSetting("revanced_change_player_background_color", FALSE, true);
     public static final BooleanSetting CROSSFADE_ENABLED = new BooleanSetting("morphe_music_crossfade_enabled", FALSE, true);
     public static final EnumSetting<FadeCurve> CROSSFADE_CURVE = new EnumSetting<>("morphe_music_crossfade_curve", FadeCurve.EQUAL_POWER);

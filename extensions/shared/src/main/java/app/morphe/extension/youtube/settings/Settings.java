@@ -21,6 +21,7 @@ import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviou
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
 
 import android.content.Context;
+import android.os.Build;
 
 import androidx.annotation.Nullable;
 
@@ -28,7 +29,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import app.morphe.extension.shared.patches.AutoCaptionsPatch.AutoCaptionsStyle;
@@ -65,6 +68,7 @@ import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverla
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlaySeekColorAvailability;
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlaySpeedColorAvailability;
 import app.morphe.extension.youtube.patches.swipe.SwipeControlsPatch.SwipeOverlayVolumeColorAvailability;
+import app.morphe.extension.youtube.patches.theme.ThemePatch;
 import app.morphe.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
@@ -75,6 +79,29 @@ import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProv
 
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {
+    /** Enables arbitrary runtime colors only when the API 30 resource overlay is available. */
+    private static Setting.Availability customThemeAvailability(StringSetting selector) {
+        return new Setting.Availability() {
+            @Override
+            public boolean isAvailable() {
+                return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                        && selector.isAvailable()
+                        && "custom".equals(selector.get());
+            }
+
+            @Override
+            public boolean isVisible() {
+                return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                        && selector.isVisible();
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.singletonList(selector);
+            }
+        };
+    }
+
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
             new EnumSetting<>("morphe_spoof_video_streams_client_type", ClientType.VISIONOS_1_02, true, parent(SPOOF_VIDEO_STREAMS));
     public static final BooleanSetting FORCE_AVC_CODEC = new BooleanSetting(
@@ -245,6 +272,18 @@ public class Settings extends SharedYouTubeSettings {
 
 
     // PreferenceScreen: General
+    /** Precompiled presets work on Android 8+, while arbitrary colors require Android 11+. */
+    public static final StringSetting DARK_THEME = new StringSetting(
+            "morphe_dark_theme", ThemePatch.DEFAULT_DARK_THEME, true);
+    public static final StringSetting DARK_THEME_CUSTOM_COLOR = new StringSetting(
+            "morphe_dark_theme_custom_color", ThemePatch.DEFAULT_DARK_THEME_CUSTOM_COLOR, true,
+            customThemeAvailability(DARK_THEME));
+    /** Precompiled presets work on Android 8+, while arbitrary colors require Android 11+. */
+    public static final StringSetting LIGHT_THEME = new StringSetting(
+            "morphe_light_theme", ThemePatch.DEFAULT_LIGHT_THEME, true);
+    public static final StringSetting LIGHT_THEME_CUSTOM_COLOR = new StringSetting(
+            "morphe_light_theme_custom_color", ThemePatch.DEFAULT_LIGHT_THEME_CUSTOM_COLOR, true,
+            customThemeAvailability(LIGHT_THEME));
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.DEFAULT, true);
     public static final BooleanSetting CHANGE_START_PAGE_TYPE = new BooleanSetting("revanced_change_start_page_type", FALSE, true,
             new ChangeStartPagePatch.ChangeStartPageTypeAvailability());

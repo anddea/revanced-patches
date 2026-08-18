@@ -1,7 +1,51 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Modification author(s):
+ * - anddea (https://github.com/anddea)
+ *
+ * Originally ported from:
+ * https://github.com/ReVanced/revanced-patches
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.shared.settings.preference;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.util.AttributeSet;
@@ -17,6 +61,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.util.Arrays;
 
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
@@ -171,8 +217,15 @@ public class CustomDialogListPreference extends ListPreference {
     protected void showDialog(Bundle state) {
         Context context = getContext();
 
-        CharSequence[] entriesToShow = getEntriesForDialog();
-        CharSequence[] entryValues = getEntryValues();
+        CharSequence[] allEntries = getEntriesForDialog();
+        CharSequence[] allEntryValues = getEntryValues();
+        boolean hideCustomTheme = shouldHideCustomThemeEntry(allEntryValues);
+        final CharSequence[] entriesToShow = hideCustomTheme
+                ? Arrays.copyOf(allEntries, allEntries.length - 1)
+                : allEntries;
+        final CharSequence[] entryValues = hideCustomTheme
+                ? Arrays.copyOf(allEntryValues, allEntryValues.length - 1)
+                : allEntryValues;
 
         // Create ListView.
         ListView listView = new ListView(context);
@@ -253,5 +306,21 @@ public class CustomDialogListPreference extends ListPreference {
 
         // Show the dialog.
         dialog.show();
+    }
+
+    /**
+     * Android 8–10 support only the precompiled theme presets. Keep the trailing Custom row out
+     * of both theme selectors because arbitrary runtime colors require ResourcesLoader (API 30).
+     */
+    private boolean shouldHideCustomThemeEntry(CharSequence[] entryValues) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R || entryValues.length == 0) {
+            return false;
+        }
+
+        String key = getKey();
+        boolean isThemeSelector = "morphe_dark_theme".equals(key)
+                || "morphe_light_theme".equals(key);
+        return isThemeSelector
+                && "custom".contentEquals(entryValues[entryValues.length - 1]);
     }
 }

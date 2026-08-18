@@ -63,6 +63,7 @@ import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.music.shared.VideoType;
 import app.morphe.extension.music.utils.VideoUtils;
 import app.morphe.extension.shared.settings.StringSetting;
+import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
@@ -145,6 +146,11 @@ public class PlayerPatch {
 
     public static boolean changeMiniPlayerColor() {
         return Settings.CHANGE_MINIPLAYER_COLOR.get();
+    }
+
+    /** Returns the selected app theme when dynamic miniplayer color matching is disabled. */
+    public static int getMiniPlayerThemeColor() {
+        return BaseThemeUtils.getThemeDarkColor();
     }
 
     public static int[] changePlayerBackgroundColor(int[] colors) {
