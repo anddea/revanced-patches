@@ -9,11 +9,6 @@ public class PatchStatus {
     }
 
 
-    public static boolean OldSplashAnimation() {
-        // Replace this with true if the 'Restore old splash animation (Custom branding icon)' succeeds
-        return false;
-    }
-
     public static boolean PlayerButtons() {
         // Replace this with true if the 'Hide player buttons' patch succeeds
         return false;

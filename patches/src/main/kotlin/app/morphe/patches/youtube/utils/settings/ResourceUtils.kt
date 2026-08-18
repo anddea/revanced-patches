@@ -25,11 +25,6 @@ internal object ResourceUtils {
 
     fun getContext() = context
 
-    var restoreOldSplashAnimationIncluded = false
-
-    private var iconType = "default"
-    fun getIconType() = iconType
-
     fun updatePackageName(newPackageName: String) {
         listOf(
             YOUTUBE_SETTINGS_PATH,
@@ -86,11 +81,6 @@ internal object ResourceUtils {
 
     fun updatePatchStatus(patchTitle: String) {
         updatePatchStatusSettings(patchTitle, "@string/revanced_patches_included")
-    }
-
-    fun updatePatchStatusIcon(iconName: String) {
-        iconType = iconName
-        updatePatchStatusSettings("Icon", "@string/revanced_icon_$iconName")
     }
 
     fun updatePatchStatusTheme(themeName: String) =

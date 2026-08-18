@@ -83,10 +83,10 @@ public class CustomDialogListPreference extends ListPreference {
     }
 
     /**
-     * Returns entries for display in the dialog.
-     * If highlighted entries exist, they are used; otherwise, the original entries are returned.
+     * Returns the entries rendered in the current dialog. Subclasses may reuse this when they
+     * add custom row content such as an icon preview.
      */
-    private CharSequence[] getEntriesForDialog() {
+    protected CharSequence[] getEntriesForDialog() {
         return highlightedEntriesForDialog != null ? highlightedEntriesForDialog : getEntries();
     }
 

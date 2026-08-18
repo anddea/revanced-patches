@@ -41,13 +41,9 @@ internal enum class PatchList(
         "Custom Shorts action buttons",
         "Changes, at compile time, the icon of the action buttons of the Shorts player."
     ),
-    CUSTOM_BRANDING_ICON_FOR_YOUTUBE(
-        "Custom branding icon for YouTube",
-        "Changes the YouTube app icon to the icon specified in patch options."
-    ),
-    CUSTOM_BRANDING_NAME_FOR_YOUTUBE(
-        "Custom branding name for YouTube",
-        "Changes the YouTube app name to the name specified in patch options."
+    CUSTOM_BRANDING_FOR_YOUTUBE(
+        "Custom branding for YouTube",
+        "Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection."
     ),
     CUSTOM_DOUBLE_TAP_LENGTH(
         "Custom double tap length",
@@ -56,10 +52,6 @@ internal enum class PatchList(
     CUSTOM_DPI(
         "Custom DPI",
         "Forces a higher display density for this app only, so the whole UI scales up without changing system density."
-    ),
-    CUSTOM_HEADER_FOR_YOUTUBE(
-        "Custom header for YouTube",
-        "Applies a custom header in the top left corner within the app."
     ),
     DESCRIPTION_COMPONENTS(
         "Description components",
