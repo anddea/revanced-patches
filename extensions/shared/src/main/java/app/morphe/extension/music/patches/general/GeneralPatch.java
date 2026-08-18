@@ -14,8 +14,8 @@ import android.widget.LinearLayout;
 import org.apache.commons.lang3.StringUtils;
 
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.shared.patches.CustomBrandingPatch;
 import app.morphe.extension.shared.utils.PackageUtils;
-import app.morphe.extension.shared.utils.ResourceUtils;
 
 @SuppressWarnings("unused")
 public class GeneralPatch {
@@ -38,11 +38,7 @@ public class GeneralPatch {
     // region [Change header] patch
 
     public static int getHeaderDrawableId(int original) {
-        final int headerId = ResourceUtils.getDrawableIdentifier("action_bar_logo");
-
-        return headerId == 0
-                ? original
-                : headerId;
+        return CustomBrandingPatch.getMusicHeaderDrawableId(original);
     }
 
     // endregion
@@ -161,7 +157,7 @@ public class GeneralPatch {
         }
 
         // This method is called after AlertDialog#show(),
-        // So we need to hide the AlertDialog before pressing the possitive button.
+        // So we need to hide the AlertDialog before pressing the positive button.
         final Window window = dialog.getWindow();
         final Button button = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
         if (window != null && button != null) {

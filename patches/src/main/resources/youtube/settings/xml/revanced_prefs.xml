@@ -4,6 +4,11 @@
     <!-- PREFERENCE_SCREEN: GENERAL
     <PreferenceScreen android:title="@string/revanced_preference_screen_general_title" android:key="revanced_preference_screen_general">PREFERENCE_SCREEN: GENERAL -->
 
+        <!-- SETTINGS: CUSTOM_BRANDING
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_custom_branding_name_title" android:key="morphe_custom_branding_name" android:summary="@string/morphe_custom_branding_name_summary" android:entries="@array/morphe_custom_branding_name_entries" android:entryValues="@array/morphe_custom_branding_name_entry_values" />
+        <app.morphe.extension.shared.settings.preference.IconListPreference android:title="@string/morphe_custom_branding_icon_title" android:key="morphe_custom_branding_icon" android:summary="@string/morphe_custom_branding_icon_summary" android:entries="@array/morphe_custom_branding_icon_entries" android:entryValues="@array/morphe_custom_branding_icon_entry_values" />
+        <SwitchPreference android:title="@string/morphe_custom_branding_apply_to_rvx_settings_title" android:key="morphe_custom_branding_apply_to_rvx_settings" android:summary="@string/morphe_custom_branding_apply_to_rvx_settings_summary" />SETTINGS: CUSTOM_BRANDING -->
+
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_account_menu_title" android:key="revanced_preference_screen_account_menu" android:summary="@string/revanced_preference_screen_account_menu_summary">
             <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:summary="@string/revanced_hide_account_menu_summary" />
@@ -1182,9 +1187,8 @@
             </PreferenceCategory>
 
             <PreferenceCategory android:title="@string/revanced_preference_category_others" android:layout="@layout/revanced_settings_preferences_category">
-                <Preference android:title="Custom branding name" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Custom branding" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Custom double tap length" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Custom header" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Custom Shorts action buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="GmsCore support" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide accessibility controls dialog" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

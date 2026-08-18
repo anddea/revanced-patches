@@ -7,6 +7,7 @@ import static app.morphe.extension.shared.settings.Setting.parent;
 
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.JavaScriptClientAvailability;
 import app.morphe.extension.shared.spoof.js.JavaScriptVariant;
+import app.morphe.extension.shared.patches.CustomBrandingPatch;
 
 /**
  * Settings shared by YouTube and YouTube Music.
@@ -15,12 +16,14 @@ import app.morphe.extension.shared.spoof.js.JavaScriptVariant;
  * or reference this class.
  */
 public class SharedYouTubeSettings extends BaseSettings {
-    public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("morphe_settings_search_history", TRUE, true);
-    public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("morphe_settings_search_entries", "");
+    public static final StringSetting CUSTOM_BRANDING_ICON = new StringSetting(
+            "morphe_custom_branding_icon", CustomBrandingPatch.getDefaultIconStyle(), true);
 
-    public static final BooleanSetting DISABLE_DRC_AUDIO = new BooleanSetting("morphe_disable_drc_audio", FALSE, true);
+    public static final IntegerSetting CUSTOM_BRANDING_NAME = new IntegerSetting(
+            "morphe_custom_branding_name", CustomBrandingPatch.getDefaultAppNameIndex(), true);
 
-    public static final BooleanSetting DISABLE_QUIC_PROTOCOL = new BooleanSetting("morphe_disable_quic_protocol", FALSE, true);
+    public static final BooleanSetting CUSTOM_BRANDING_APPLY_TO_RVX_SETTINGS = new BooleanSetting(
+            "morphe_custom_branding_apply_to_rvx_settings", FALSE, true);
 
     public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("morphe_force_original_audio", TRUE, true);
     public static final BooleanSetting OVERRIDE_INITIAL_VIDEO_QUALITY = new BooleanSetting("morphe_override_initial_video_quality", TRUE, true);
@@ -40,10 +43,6 @@ public class SharedYouTubeSettings extends BaseSettings {
     public static final BooleanSetting SANITIZE_SHARING_LINKS = new BooleanSetting("morphe_sanitize_sharing_links", TRUE);
     public static final BooleanSetting REPLACE_MUSIC_LINKS_WITH_YOUTUBE = new BooleanSetting("morphe_replace_music_with_youtube", FALSE);
     public static final BooleanSetting REPLACE_LINKS_WITH_SHORTENER = new BooleanSetting("morphe_replace_links_with_shortener", FALSE);
-
-    public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("morphe_check_watch_history_domain_name", TRUE, false, false);
-
-    public static final StringSetting DISABLED_FEATURE_FLAGS = new StringSetting("morphe_disabled_feature_flags", "", true, parent(DEBUG));
 
     // Renamed settings
     private static final BooleanSetting DEPRECATED_REVANCED_SANITIZE_SHARING_LINKS = BaseSettings.SANITIZE_SHARING_LINKS;
