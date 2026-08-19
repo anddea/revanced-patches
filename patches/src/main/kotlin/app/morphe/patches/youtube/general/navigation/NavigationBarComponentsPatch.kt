@@ -23,12 +23,15 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patches.shared.mapping.ResourceType.COLOR
+import app.morphe.patches.shared.mapping.getResourceId
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
 import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
+import app.morphe.patches.youtube.utils.extension.Constants.PATCHES_PATH
 import app.morphe.patches.youtube.utils.navigation.addBottomBarContainerHook
 import app.morphe.patches.youtube.utils.navigation.hookNavigationButtonCreated
 import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
@@ -124,6 +127,8 @@ private val navigationBarComponentsResourcePatch = resourcePatch(
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/NavigationButtonsPatch;"
+private const val THEME_EXTENSION_CLASS_DESCRIPTOR =
+    "$PATCHES_PATH/theme/ThemePatch;"
 
 @Suppress("unused")
 val navigationBarComponentsPatch = bytecodePatch(
@@ -152,13 +157,19 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for translucent navigation and status bars
 
         if (is_19_25_or_greater) {
-            if (!is_20_31_or_greater) {
-                TranslucentNavigationStatusBarFeatureFlagFingerprint.let {
-                    it.method.insertLiteralOverride(
-                        it.instructionMatches.first().index,
-                        "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
-                    )
-                }
+            // Keep the original translucent resources for player controls and only make the
+            // color result opaque when it is used for the status bar.
+            StatusBarColorFingerprint.method.apply {
+                val statusBarColorHook =
+                    "$THEME_EXTENSION_CLASS_DESCRIPTOR->getStatusBarColor(I)I"
+                insertLiteralOverride(
+                    getResourceId(COLOR, "yt_black_pure_opacity60"),
+                    statusBarColorHook,
+                )
+                insertLiteralOverride(
+                    getResourceId(COLOR, "yt_white1_opacity70"),
+                    statusBarColorHook,
+                )
             }
 
             TranslucentNavigationButtonsFeatureFlagFingerprint.let {
@@ -186,7 +197,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
 
             settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
-            if (!is_20_31_or_greater) settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
+            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
             settingArray += "SETTINGS: DISABLE_TRANSLUCENT_NAVIGATION_BAR"
         }
 

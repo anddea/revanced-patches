@@ -95,6 +95,7 @@ public final class ThemePatch {
             0xFF000000, 0xFF424242, 0xFF212121, 0x99282828, 0xCC000000,
             0x99000000,
     };
+    private static final int STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX = 7;
 
     /**
      * Applies both palettes before YouTube inflates its first layout. Android 8–10 select
@@ -136,13 +137,28 @@ public final class ThemePatch {
     }
 
     private static int[] getSelectedDarkColors(Context context) {
-        if (isStockDarkTheme()) return STOCK_DARK_THEME_COLORS.clone();
+        if (isStockDarkTheme()) {
+            int[] colors = STOCK_DARK_THEME_COLORS.clone();
+            if (isDisableTranslucentStatusBar()) {
+                int statusBarColor = colors[STOCK_DARK_THEME_MAIN_COLOR_INDEX];
+                colors[STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX] = Color.argb(
+                        0xFF,
+                        Color.red(statusBarColor),
+                        Color.green(statusBarColor),
+                        Color.blue(statusBarColor)
+                );
+            }
+            return colors;
+        }
 
         int[] colors = new int[STOCK_DARK_THEME_COLORS.length];
         int selectedColor = getSelectedDarkColor(context);
         for (int i = 0; i < colors.length; i++) {
             colors[i] = Color.argb(
-                    Color.alpha(STOCK_DARK_THEME_COLORS[i]),
+                    isDisableTranslucentStatusBar()
+                            && i == STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX
+                            ? 0xFF
+                            : Color.alpha(STOCK_DARK_THEME_COLORS[i]),
                     Color.red(selectedColor),
                     Color.green(selectedColor),
                     Color.blue(selectedColor)
@@ -196,10 +212,23 @@ public final class ThemePatch {
         };
     }
 
-    /** Keeps the translucent status-bar overlay while applying the selected light-theme color. */
+    /** Keeps the translucent light overlay while applying the selected light-theme color. */
     private static int getSelectedLightColorWithOpacity70(Context context) {
         int color = getSelectedLightColor(context);
         return Color.argb(0xB3, Color.red(color), Color.green(color), Color.blue(color));
+    }
+
+    /**
+     * Applies the translucent-status-bar setting only to YouTube's status-bar color result.
+     * Shared overlay resources retain their original alpha so player controls remain translucent.
+     */
+    public static int getStatusBarColor(int color) {
+        if (!isDisableTranslucentStatusBar()) return color;
+        return Color.argb(0xFF, Color.red(color), Color.green(color), Color.blue(color));
+    }
+
+    private static boolean isDisableTranslucentStatusBar() {
+        return Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get();
     }
 
     @SuppressLint("DiscouragedApi")

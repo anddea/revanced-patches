@@ -144,22 +144,6 @@ public final class NavigationButtonsPatch {
     /**
      * Injection point.
      */
-    public static boolean useTranslucentNavigationStatusBar(boolean original) {
-        // Must check Android version, as forcing this on Android 11 or lower causes app hang and crash.
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-            return original;
-        }
-
-        if (DISABLE_TRANSLUCENT_STATUS_BAR) {
-            return false;
-        }
-
-        return original;
-    }
-
-    /**
-     * Injection point.
-     */
     public static boolean useTranslucentNavigationButtons(boolean original) {
         // Feature requires Android 13+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
