@@ -35,7 +35,7 @@
     <string name="morphe_expand_livestream_dvr_duration_title">Επέκταση της διάρκειας του DVR της ζωντανής μετάδοσης</string>
     <string name="morphe_explore_menu_screen_summary">Επιλέξτε ποια στοιχεία θα εμφανίζονται στο μενού εξερεύνησης</string>
     <string name="morphe_explore_menu_screen_title">Εξερεύνηση μενού</string>
-    <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε οποιονδήποτε πελάτη εκτός από το Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε οποιονδήποτε πελάτη εκτός από το «Android Studio» και το «Android VR Downgraded»</string>
     <string name="morphe_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
     <string name="morphe_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
     <string name="morphe_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
@@ -80,8 +80,6 @@
     <string name="morphe_oauth2_connection_failure_timeout">Το OAuth2 είναι προσωρινά μη διαθέσιμο (λήξη API)</string>
     <string name="morphe_oauth2_toast_invalid">Άκυρο κλειδί εισόδου VR, συνδεθείτε ξανά στο VR</string>
     <string name="morphe_oauth2_toast_reset">Αποσυνδεθήκατε από το Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"Διορθώνει ένα πρόβλημα όπου η προεπιλεγμένη ποιότητα βίντεο δεν εφαρμόζεται αμέσως μετά την έναρξη του βίντεο\n\nΠεριορισμός: Η αναπαραγωγή ενδέχεται να μην λειτουργεί σε ορισμένες συσκευές εάν το \"Αντιμετώπιση ροών βίντεο\" έχει ρυθμιστεί σε \"Android VR\" και το \"Εξαναγκασμός κωδικοποιητή AVC (H.264)\" είναι ενεργοποιημένο"</string>
-    <string name="morphe_override_initial_video_quality_title">Υπερτροπή αρχικής ποιότητας βίντεο</string>
     <string name="morphe_override_youtube_music_buttons_summary">Ανοίγει την προτιμώμενη εφαρμογή μουσικής αντί για την προεπιλεγμένη εφαρμογή YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Υπέρβαση των κουμπιών YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Πάντα ενεργό</string>
@@ -115,6 +113,7 @@
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Ο εξαναγκασμός αρχικής γλώσσας ήχου δεν είναι διαθέσιμος</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Η 360° VR βιωματική λειτουργία δεν είναι διαθέσιμη</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Απαιτείται είσοδος στο Android VR</string>
     <string name="morphe_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Ο κωδικοποιητής βίντεο είναι ο AVC (H.264) ή ο VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Ο κωδικοποιητής βίντεο είναι ο AVC (H.264), ο VP9 ή ο AV1
@@ -163,6 +162,10 @@
 
 Αν είστε χρήστης YouTube Premium, αυτή η ρύθμιση μπορεί να μην απαιτείται"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Επαναφέρει την παλιά διάταξη του παίκτη
+
+Περιορισμός: Εάν η επιλογή 'Επαναφορά παλαιού γραμμής εργαλείων βίντεο' είναι απενεργοποιημένη, η επικάλυψη 'Περισσότερα βίντεο' ενδέχεται να μην είναι διαθέσιμη"</string>
+    <string name="morphe_tablet_layout_in_player_title">Ενεργοποίηση διάταξης για tablet στον παίκτη</string>
     <string name="morphe_video_quality_prioritize_dialog">Εάν αυτή η ρύθμιση είναι απενεργοποιημένη, τότε παλαιότερα βίντεο ενδέχεται να μην εμφανίζουν επιλογές ποιότητας βίντεο</string>
     <string name="morphe_video_quality_prioritize_summary">Δίνει προτεραιότητα στην υψηλότερη διαθέσιμη ποιότητα βίντεο έναντι της αποδοτικότητας του κωδικοποιητή</string>
     <string name="morphe_video_quality_prioritize_title">Προτεραιότητα στην ποιότητα βίντεο</string>
@@ -221,6 +224,7 @@
     <string name="revanced_auto_captions_style_entry_3">Απόκρυψη τμήματος Κουίζ</string>
     <string name="revanced_auto_captions_style_entry_4">Εμφάνιση όταν σιωπηλός</string>
     <string name="revanced_auto_captions_style_title">Ορατότητα αυτόματων υπότιτλων</string>
+    <string name="revanced_back_button_always_exits_feed_title">Το κουμπί πίσω βγαίνει από τη ροή</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Οι περιορισμοί λειτουργίας για οικονομία ενέργειας δεν παραβιάζονται</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Οι περιορισμοί λειτουργίας γιαкономиία ενέργειας παραβιάζονται</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Παράκαμψη περιορισμών λειτουργίας περιβάλλοντος</string>
@@ -522,6 +526,7 @@
     <string name="revanced_enable_narrow_navigation_buttons_title">Κουμπιά πλοήγησης στενού στυλ</string>
     <string name="revanced_enable_opus_codec_summary">Ενεργοποίηση του κωδικοποιητή OPUS αν η απόκριση του προγράμματος αναπαραγωγής τον περιλαμβάνει</string>
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή OPUS</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Ενεργοποίηση ελέγχων τόνου ήχου</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Το πάτημα γραμμής προόδου είναι απενεργοποιημένο</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Το πάτημα γραμμής προόδου είναι ενεργοποιημένο</string>
     <string name="revanced_enable_seekbar_tapping_title">Πάτημα γραμμής προόδου</string>
@@ -1610,6 +1615,8 @@ Playlists
     <string name="revanced_patched_date_title">Ημερομηνία τροποποίησης</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Εξαιρέθηκε</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Συμπεριλήφθηκε</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">Επιτρέπει τη ρύθμιση της ταχύτητας και του τόνου ανεξάρτητα, κάτι που μπορεί να προκαλέσει παραμορφώσεις στον ήχο</string>
+    <string name="revanced_playback_audio_time_stretching_title">Διάταση χρόνου ήχου</string>
     <string name="revanced_playback_speed_normal">Κανονική</string>
     <string name="revanced_preference_category_action_buttons">Κουμπιά ενεργειών</string>
     <string name="revanced_preference_category_additional_settings">Πρόσθετες ρυθμίσεις</string>
@@ -1754,6 +1761,7 @@ Playlists
     <string name="revanced_quick_actions_top_margin_invalid_toast">Το ύψος πρέπει να είναι μεταξύ 0-32</string>
     <string name="revanced_quick_actions_top_margin_summary">Ορίστε το άνω περιθώριο της γραμμής γρήγορων ενεργειών (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Επάνω περιθώριο γρήγορες ενέργειες</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Ο προεπιλεγμένος τόνος ήχου άλλαξε σε: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν μόνο για το τρέχον βίντεο</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν για όλα τα βίντεο</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Απομνημονεύει την ταχύτητα αναπαραγωγής</string>

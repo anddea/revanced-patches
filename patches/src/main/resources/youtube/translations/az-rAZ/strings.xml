@@ -31,7 +31,7 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_expand_livestream_dvr_duration_title">Canlı yayım DVR müddətini genişləndir</string>
     <string name="morphe_explore_menu_screen_summary">Kəşf et menyusunda hansı elementlər görünür seç</string>
     <string name="morphe_explore_menu_screen_title">Kəşf edin menyusu</string>
-    <string name="morphe_force_original_audio_not_available">Bu xüsusiyyəti istifadə etmək üçün \'Video yayımların saxtalaşdırı\' \'Android Studio\' istisna istənilən qəbulediciyə dəyiş</string>
+    <string name="morphe_force_original_audio_not_available">Bu xüsusiyyəti istifadə etmək üçün \'Video yayımların saxtalaşdırı\' \'Android Studio\' və \'Android VR Downgraded\' istisna istənilən qəbulediciyə dəyiş</string>
     <string name="morphe_force_original_audio_summary_off">İlkin səs istifadəsi</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal səs dilini faydalanmaq</string>
     <string name="morphe_force_original_audio_title">Orijinal səs dilini zorla</string>
@@ -76,10 +76,6 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 keçici olaraq əlçatan deyil (API vaxtı bitdi)</string>
     <string name="morphe_oauth2_toast_invalid">Token-dəki etibarsız VR girişi, VR-a təkrar daxil olmağa cəhd et</string>
     <string name="morphe_oauth2_toast_reset">Android VR-dan Çıxıldı</string>
-    <string name="morphe_override_initial_video_quality_summary">"Video başladıqdan dərhal sonra ilkin video keyfiyyətinin tətbiq olunmaması problemini düzəldir
-
-Məhdudiyyət: \"Video yayımların saxtalaşdır\" \"Android VR\" olaraq təyin edilərsə və \"AVC (H.264) kodlayıcıya zorla\" işlək olarsa oynatma bəzi cihazlarda işləməyə bilər"</string>
-    <string name="morphe_override_initial_video_quality_title">İlkin video keyfiyyətini əvəzlə</string>
     <string name="morphe_override_youtube_music_buttons_summary">Əsas YouTube Music tətbiqi əvəzinə üstünlük verdiyiniz musiqi tətbiqini açır</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music düymələrini nəzərə alma</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Həmişə aktiv</string>
@@ -113,6 +109,7 @@ Məhdudiyyət: \"Video yayımların saxtalaşdır\" \"Android VR\" olaraq təyin
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Orijinal səsi zorla əlçatan deyil</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR geniş rejimi əlçatan deyil</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Sabit səs səviyyəsi yoxdur</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Android VR-a daxil olmaq tələb olunur</string>
     <string name="morphe_spoof_video_streams_about_title">Saxtakarlıq yan təsirləri</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Video kodlayıcı AVC (H.264) və ya VP9-dur</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Video kodlayıcı AVC (H.264), VP9 və ya AV1-dir
@@ -161,6 +158,10 @@ Oynatma işləməyə bilər"</string>
 
 Əgər YouTube Premium istifadəçisisinizsə, bu tənzimlənmə tələb olunmaya bilər"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu tənzimləməni qapatmaq oynatma problemlərinə səbəb ola bilər</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Köhnə oynadıcı tərtibatını bərpa edir
+
+Məhdudiyyət: 'Köhnə video fəaliyyət cizgisini bərpa et' qapadılıbsa, 'Daha çox video' örtüyü mövcud olmaya bilər"</string>
+    <string name="morphe_tablet_layout_in_player_title">Oynadıcıda planşet tərtibatın aktivləşdir</string>
     <string name="morphe_video_quality_prioritize_dialog">Bu seçim qapalıdırsa, daha köhnə videolar video keyfiyyəti seçimlərini göstərməyə bilər</string>
     <string name="morphe_video_quality_prioritize_summary">Kodek səmərəliliyindən artıq mövcud ən yüksək video keyfiyyətinə üstünlük verir</string>
     <string name="morphe_video_quality_prioritize_title">Video keyfiyyətinə üstünlük ver</string>
@@ -201,6 +202,7 @@ DeArrow.ajay.app 'i açmaq üçün buraya toxun"</string>
     <string name="revanced_auto_captions_style_entry_3">Səsli olduqda göstər</string>
     <string name="revanced_auto_captions_style_entry_4">Səssiz olduqda göstər</string>
     <string name="revanced_auto_captions_style_title">Avtomatik titrlərin görünməsi</string>
+    <string name="revanced_back_button_always_exits_feed_title">Geri düyməsi axından çıxarır</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ambient rejimi məhdudiyyətlərini yan keç</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"Orijinal şəkil təminatçısın işlətmə
 
@@ -334,6 +336,7 @@ Dəyişikliklər ehtiva edir:
     <string name="revanced_dismiss_player_not_available_toast">Video ID-si əlçatmazdır. Xahiş olunur, videonu əl ilə təkrar yüklə</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Qradiyent yüklənmə ekranı aktivdir</string>
     <string name="revanced_enable_gradient_loading_screen_title">Qradiyent yüklənmə ekranını aktivləşdir</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Səs ucalığı nəzarətini aktivləşdir</string>
     <string name="revanced_exit_fullscreen_entry_1">Qapalı</string>
     <string name="revanced_exit_fullscreen_entry_2">Yalnız portret</string>
     <string name="revanced_exit_fullscreen_entry_3">Yalnız landşaft</string>
@@ -731,6 +734,8 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_miniplayer_width_dip_title">İlkin ölçü</string>
     <string name="revanced_navigation_bar_animations_summary">Tabellər arasında keçərkən keçidləri canlandırır</string>
     <string name="revanced_navigation_bar_animations_title">Fəaliyyət cərgəsi animasiyalarını aktivləşdir</string>
+    <string name="revanced_playback_audio_time_stretching_summary">Sürəti və ucalığı müstəqil şəkildə təyin etməyə imkan verir, səs təhriflərinə səbəb ola bilər</string>
+    <string name="revanced_playback_audio_time_stretching_title">Səs vaxtının uzadılması</string>
     <string name="revanced_queue_manager_add_to_queue">Növbəyə əlavə et</string>
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">Növbəyə əlavə et və aç</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">Növbəyə əlavə et və oynat</string>
@@ -755,6 +760,7 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_queue_manager_save_queue">Növbəni pleylistdə saxla</string>
     <string name="revanced_quick_actions_top_margin_summary">Sürətli fəaliyyətlər cərgəsinin yuxarı kənar boşluğunu təyin et (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Sürətli fəaliyyətlərin yuxarı kənar boşluğu</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">İlkin səs ucalığı %s kimi dəyişdirildi</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Oynatma sürəti dəyişiklikləri yalnız cari videoya aiddir</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Oynatma sürəti dəyişiklikləri bütün videolara aiddir</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Oynatma sürətin xatırla</string>

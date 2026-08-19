@@ -34,7 +34,7 @@
     <string name="morphe_expand_livestream_dvr_duration_title">ขยายระยะเวลา DVR ไลฟ์สตรีม</string>
     <string name="morphe_explore_menu_screen_summary">เลือกส่วนประกอบที่จะปรากฏในเมนูสำรวจ</string>
     <string name="morphe_explore_menu_screen_title">เมนูสำรวจ</string>
-    <string name="morphe_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'ปลอมแปลงสตรีมวิดีโอ\' เป็นไคลเอ็นต์อื่น ๆ ยกเว้น Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'ปลอมแปลงสตรีมวิดีโอ\' เป็นไคลเอ็นต์อื่น ๆ ยกเว้น \'Android Studio\' และ \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
     <string name="morphe_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
     <string name="morphe_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
@@ -79,10 +79,6 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ไม่สามารถใช้งานได้ชั่วคราว (API หมดเวลา)</string>
     <string name="morphe_oauth2_toast_invalid">โทเค็นเข้าสู่ระบบ VR ไม่ถูกต้อง กรุณาลองเข้าสู่ระบบ VR อีกครั้ง</string>
     <string name="morphe_oauth2_toast_reset">ออกจากระบบ VR แล้ว</string>
-    <string name="morphe_override_initial_video_quality_summary">"แก้ไขปัญหาคุณภาพวิดีโอเริ่มต้นไม่ถูกนำมาใช้ทันทีหลังจากที่วิดีโอเริ่มเล่น
-
-ข้อจำกัด: การเล่นอาจไม่ทำงานบนอุปกรณ์บางชนิดหากตั้งค่า 'ปลอมแปลงสตรีมวิดีโอ' เป็น 'Android VR' และเปิดใช้งาน 'บังคับใช้ตัวแปลงสัญญาณ AVC (H.264)'"</string>
-    <string name="morphe_override_initial_video_quality_title">แทนที่คุณภาพวิดีโอเริ่มต้น</string>
     <string name="morphe_override_youtube_music_buttons_summary">เปิดแอปเพลงที่คุณต้องการแทนแอป YouTube Music เริ่มต้น</string>
     <string name="morphe_override_youtube_music_buttons_title">แทนที่ปุ่ม YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">เปิดตลอดเวลา</string>
@@ -116,6 +112,7 @@
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• บังคับใช้เสียงต้นฉบับไม่พร้อมใช้งาน</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• รูปแบบ 360° VR Immersive ไม่พร้อมใช้งาน</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• ระดับเสียงคงที่ไม่พร้อมใช้งาน</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• ต้องลงชื่อเข้าใช้ Android VR</string>
     <string name="morphe_spoof_video_streams_about_title">ผลข้างเคียงของการปลอมแปลง</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">ตัวแปลงสัญญาณวิดีโอคือ AVC (H.264) หรือ VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"ตัวแปลงสัญญาณวิดีโอคือ AVC (H.264), VP9 หรือ AV1
@@ -164,6 +161,10 @@
 
 หากคุณเป็นผู้ใช้ YouTube Premium การตั้งค่านี้อาจไม่จำเป็น"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
+    <string name="morphe_tablet_layout_in_player_summary">"คืนรูปแบบผู้เล่นแบบเก่า
+
+ข้อจำกัด: หากปิด 'คืนแถบการทำงานของวิดีโอแบบเก่า' การแสดงผล 'วิดีโอเพิ่มเติม' อาจใช้งานไม่ได้"</string>
+    <string name="morphe_tablet_layout_in_player_title">เปิดใช้งานรูปแบบแท็บเล็ตในเครื่องเล่น</string>
     <string name="morphe_video_quality_prioritize_dialog">หากปิดการตั้งค่านี้ วิดีโอเก่าบางรายการอาจไม่แสดงตัวเลือกคุณภาพวิดีโอ</string>
     <string name="morphe_video_quality_prioritize_summary">จัดลำดับความสำคัญของคุณภาพวิดีโอสูงสุดเหนือประสิทธิภาพของ codec</string>
     <string name="morphe_video_quality_prioritize_title">จัดลำดับความสำคัญของคุณภาพวิดีโอ</string>
@@ -205,6 +206,7 @@
     <string name="revanced_auto_captions_style_entry_3">แสดงเมื่อไม่ได้ปิดเสียง</string>
     <string name="revanced_auto_captions_style_entry_4">แสดงเมื่อเงียบเสียง</string>
     <string name="revanced_auto_captions_style_title">คำบรรยายแบบอัตโนมัติ</string>
+    <string name="revanced_back_button_always_exits_feed_title">ปุ่มกลับออกจากฟีด</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">การจำกัดโหมดพักผ่อนสำหรับการประหยัดพลังงานไม่ถูกบายพาส</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">การจำกัดโหมดพักผ่อนสำหรับการประหยัดพลังงานถูกบายพาส</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">เลี่ยงข้อจำกัดของโหมดแสงอาทิตย์</string>
@@ -340,6 +342,7 @@
     <string name="revanced_disable_translucent_status_bar_summary_on">แถบสถานะไม่โปร่งแสง</string>
     <string name="revanced_disable_translucent_status_bar_title">ปิดใช้งานแถบสถานะแบบโปร่งแสง</string>
     <string name="revanced_dismiss_player_not_available_toast">ไม่สามารถใช้ Video ID ได้ โปรดรีโหลดวิดีโอด้วยตนเอง</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">เปิดใช้งานการควบคุมระดับเสียง</string>
     <string name="revanced_enable_shorts_time_stamp_title">gms_core_dialog_dismiss_text</string>
     <string name="revanced_exit_fullscreen_entry_1">ปิดใช้งาน</string>
     <string name="revanced_exit_fullscreen_entry_2">แนวตั้งเท่านั้น</string>
@@ -720,6 +723,8 @@
     <string name="revanced_navigation_bar_animations_summary">เคลื่อนไหวการเปลี่ยนภาพเมื่อสลับระหว่างแท็บ</string>
     <string name="revanced_navigation_bar_animations_title">เปิดใช้งานภาพเคลื่อนไหวแถบนำทาง</string>
     <string name="revanced_overlay_button_vot_title">Voice Over Translation Thailan</string>
+    <string name="revanced_playback_audio_time_stretching_summary">อนุญาตให้ตั้งค่าความเร็วและระดับเสียงโดยอิสระ อาจทำให้เกิดข้อผิดพลาดด้านเสียง</string>
+    <string name="revanced_playback_audio_time_stretching_title">การยืดเวลาของเสียง</string>
     <string name="revanced_queue_manager_add_to_queue">เพิ่มไปยังคิว</string>
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">เพิ่มไปยังคิวและเปิด</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">เพิ่มไปยังคิวและเล่น</string>
@@ -744,6 +749,7 @@
     <string name="revanced_queue_manager_save_queue">บันทึกคิวไปยังเพลย์ลิสต์</string>
     <string name="revanced_quick_actions_top_margin_summary">ตั้งค่าระยะขอบด้านบนของแถบการดำเนินการอย่างรวดเร็ว (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">ระยะขอบด้านบนของการดำเนินการอย่างรวดเร็ว</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">เปลี่ยนระดับเสียงเริ่มต้นเป็น: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอปัจจุบันเท่านั้น</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอทั้งหมด</string>
     <string name="revanced_remember_playback_speed_last_selected_title">จำความเร็วในการเล่น</string>

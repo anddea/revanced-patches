@@ -20,6 +20,9 @@ Tap the continue button and allow optimization changes"</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX, enable Cloud Messaging</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it</string>
+    <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
+    <string name="morphe_dark_theme_custom_color_title">Custom dark theme color</string>
+    <string name="morphe_dark_theme_title">Dark theme</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Keeps the navigation bar visible while scrolling</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Disable auto-hiding navigation bar</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
@@ -65,6 +68,8 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_hide_youtube_premium_menu_title">Hide YouTube Premium menu</string>
     <string name="morphe_hide_youtube_studio_menu_title">Hide YouTube Studio menu</string>
     <string name="morphe_hide_youtube_works_menu_title">Hide \'How YouTube works\' menu</string>
+    <string name="morphe_light_theme_custom_color_title">Custom light theme color</string>
+    <string name="morphe_light_theme_title">Light theme</string>
     <string name="morphe_livestream_dvr_not_available">"\'Enable livestream DVR\' may not be available
 
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV\' or \'visionOS\'"</string>
@@ -370,7 +375,7 @@ Limitation: Back button on the toolbar may not work"</string>
     <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
     <string name="revanced_debug_logs_export_success">Logs were successfully exported</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Logs are too large to copy</string>
-    <string name="revanced_debug_logs_failed_to_export">Failed to export logs: $s</string>
+    <string name="revanced_debug_logs_failed_to_export">Failed to export logs: %s</string>
     <string name="revanced_debug_logs_none_found">No logs found</string>
     <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
     <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
@@ -541,9 +546,6 @@ Limitations:
     <string name="revanced_enable_custom_playback_speed_summary_off">Custom playback speed is disabled</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">Custom playback speed is enabled</string>
     <string name="revanced_enable_custom_playback_speed_title">Enable custom playback speed</string>
-    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">Audio pitch controls disabled</string>
-    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">Audio pitch controls enabled</string>
-    <string name="revanced_enable_playback_audio_pitch_controls_title">Enable audio pitch controls</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">Custom seekbar color is disabled</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Custom seekbar color is enabled</string>
     <string name="revanced_enable_custom_seekbar_color_title">Enable custom seekbar color</string>
@@ -555,6 +557,9 @@ Limitations:
     <string name="revanced_enable_narrow_navigation_buttons_title">Enable narrow navigation buttons</string>
     <string name="revanced_enable_opus_codec_summary">Enables the OPUS codec if the player response includes it</string>
     <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">Audio pitch controls disabled</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">Audio pitch controls enabled</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Enable audio pitch controls</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Seekbar tapping is disabled</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Seekbar tapping is enabled</string>
     <string name="revanced_enable_seekbar_tapping_title">Enable seekbar tapping</string>
@@ -1849,6 +1854,7 @@ Description
     <string name="revanced_quick_actions_top_margin_invalid_toast">Quick actions top margin must be between 0-32</string>
     <string name="revanced_quick_actions_top_margin_summary">Configure the spacing from the seekbar to the quick action container, between 0-32</string>
     <string name="revanced_quick_actions_top_margin_title">Quick actions top margin</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Changed default audio pitch to: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply to the current video</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Playback speed changes apply to all videos</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
@@ -1864,7 +1870,6 @@ Info:
     <string name="revanced_remember_playback_speed_shorts_last_selected_title">Remember playback speed changes on Shorts</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">A toast will not be shown when changing the default playback speed on Shorts</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">A toast will be shown when changing the default playback speed on Shorts</string>
-    <string name="revanced_remember_playback_audio_pitch_toast">Changed default audio pitch to: %s</string>
     <string name="revanced_remember_playback_speed_toast">Changed default playback speed to: %s</string>
     <string name="revanced_remember_playback_speed_toast_shorts">Changed default Shorts playback speed to: %s</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video</string>
@@ -2661,12 +2666,4 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
-    <string name="morphe_dark_theme_title">Dark theme</string>
-    <string name="morphe_dark_theme_summary">Choose the dark in-app theme. Runtime changes require Android 11 or later; Android 8–10 use the color selected while patching.</string>
-    <string name="morphe_dark_theme_custom_color_title">Custom dark theme color</string>
-    <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected on Android 11 or later.</string>
-    <string name="morphe_light_theme_title">Light theme</string>
-    <string name="morphe_light_theme_summary">Choose the light in-app theme. Runtime changes require Android 11 or later; Android 8–10 use the color selected while patching.</string>
-    <string name="morphe_light_theme_custom_color_title">Custom light theme color</string>
-    <string name="morphe_light_theme_custom_color_summary">Used when Custom is selected on Android 11 or later.</string>
 </resources>

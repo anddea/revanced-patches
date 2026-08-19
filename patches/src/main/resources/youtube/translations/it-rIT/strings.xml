@@ -80,10 +80,6 @@ Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client pre
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 non è al momento disponibile (API scaduta)</string>
     <string name="morphe_oauth2_toast_invalid">Token di accesso Android VR non valido, prova ad accedere nuovamente</string>
     <string name="morphe_oauth2_toast_reset">Disconnesso da Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"Risolve un problema per cui la qualità video predefinita non viene applicata immediatamente all'avvio del video
-
-Limitazione: la riproduzione potrebbe non funzionare su alcuni dispositivi se 'Maschera flussi video' è impostato su 'Android VR' e 'Forza codec AVC (H.264)' è abilitato"</string>
-    <string name="morphe_override_initial_video_quality_title">Sostituisci qualità video iniziale</string>
     <string name="morphe_override_youtube_music_buttons_summary">Apre l\'app musicale preferita anziché l\'app ufficiale di YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Sovrascrivi i pulsanti di YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Sempre attivo</string>
@@ -117,6 +113,7 @@ Limitazione: la riproduzione potrebbe non funzionare su alcuni dispositivi se 'M
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• L\'audio originale forzato non è disponibile</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Modalità immersiva VR a 360° non disponibile</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Il volume stabile non è disponibile</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• È richiesto l\'accesso con Android VR</string>
     <string name="morphe_spoof_video_streams_about_title">Effetti collaterali della falsificazione</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Il codec video è AVC (H.264) o VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Il codec video è AVC (H.264), VP9 o AV1
@@ -165,6 +162,10 @@ La riproduzione potrebbe non funzionare"</string>
 
 Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necessaria"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Ripristina il layout precedente del player
+
+Limitazione: se \"Ripristina la vecchia barra delle azioni video\" è disattivato, la sovrapposizione \"Altri video\" potrebbe non essere disponibile"</string>
+    <string name="morphe_tablet_layout_in_player_title">Abilita layout per tablet nel lettore</string>
     <string name="morphe_video_quality_prioritize_dialog">Se questa impostazione è disattivata, i video più vecchi potrebbero non mostrare opzioni di qualità video</string>
     <string name="morphe_video_quality_prioritize_summary">Dà priorità alla qualità video più elevata anziché all\'efficienza del codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioritizza la qualità del video</string>
@@ -223,6 +224,7 @@ Tocca e tieni premuto per cambiare il tipo di informazione mostrata"</string>
     <string name="revanced_auto_captions_style_entry_3">Mostra con audio</string>
     <string name="revanced_auto_captions_style_entry_4">Mostra quando silenzioso</string>
     <string name="revanced_auto_captions_style_title">Visibilità dei sottotitoli automatici</string>
+    <string name="revanced_back_button_always_exits_feed_title">Il pulsante Indietro esce dal feed</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Le restrizioni della modalità ambientale per il risparmio energetico non sono bypassate</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Le restrizioni della modalità ambientale per il risparmio energetico sono bypassate</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ignora le restrizioni della modalità Ambient</string>
@@ -528,6 +530,7 @@ Note:
     <string name="revanced_enable_narrow_navigation_buttons_title">Attiva i pulsanti di navigazione compatti</string>
     <string name="revanced_enable_opus_codec_summary">Attiva il codec Opus se la risposta del riproduttore lo include</string>
     <string name="revanced_enable_opus_codec_title">Attiva il codec Opus</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Abilita controlli pitch audio</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Il tocco è disattivato</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Il tocco è attivato</string>
     <string name="revanced_enable_seekbar_tapping_title">Attiva il tocco</string>
@@ -1645,6 +1648,8 @@ Per mostrare il pulsante Scarica Playlist nativo, attiva il camuffamento della v
     <string name="revanced_patched_date_title">Data e ora della patch</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Escluso</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Incluso</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">Consente di impostare velocità e pitch indipendentemente, potrebbe causare artefatti audio</string>
+    <string name="revanced_playback_audio_time_stretching_title">Time stretching audio</string>
     <string name="revanced_playback_speed_normal">Normale</string>
     <string name="revanced_preference_category_action_buttons">Pulsanti di azione</string>
     <string name="revanced_preference_category_additional_settings">Impostazioni aggiuntive</string>
@@ -1789,6 +1794,7 @@ Descrizione
     <string name="revanced_quick_actions_top_margin_invalid_toast">Il margine superiore delle azioni rapide deve essere tra 0 e 32</string>
     <string name="revanced_quick_actions_top_margin_summary">Imposta il margine superiore della barra delle azioni rapide (da 0 a 32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Margine superiore delle azioni rapide</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Pitch audio predefinito modificato in: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Le modifiche della velocità di riproduzione si applicano solo al video corrente</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Le modifiche alla velocità di riproduzione si applicano a tutti i video</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Ricorda la velocità di riproduzione</string>

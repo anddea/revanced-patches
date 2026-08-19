@@ -35,7 +35,7 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_expand_livestream_dvr_duration_title">Étendre la durée du DVR des diffusions en direct</string>
     <string name="morphe_explore_menu_screen_summary">Choisissez les composants qui apparaissent dans le menu \'Explorer\'</string>
     <string name="morphe_explore_menu_screen_title">Menu \'Explorer\'</string>
-    <string name="morphe_force_original_audio_not_available">Pour utiliser cette fonctionnalité, définissez \'Falsifier les flux vidéo\' sur un client autre que \'Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">Pour utiliser cette fonctionnalité, changez \'Falsifier les flux vidéo\' et sélectionnez n\'importe quel client sauf \'Android Studio\' ou \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
     <string name="morphe_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
     <string name="morphe_force_original_audio_title">Forcer la langue audio d\'origine</string>
@@ -80,10 +80,6 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 est temporairement indisponible (délai d\'attente de l\'API dépassé)</string>
     <string name="morphe_oauth2_toast_invalid">Jeton de connexion à VR invalide, veuillez réessayer la connexion à VR</string>
     <string name="morphe_oauth2_toast_reset">Déconnexion de Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"Corrige un problème où la qualité vidéo par défaut n'est pas appliquée immédiatement après le démarrage de la vidéo
-
-Limitation : La lecture peut ne pas fonctionner sur certains appareils si 'Falsifier les flux vidéo' est défini sur 'Android VR' et que 'Forcer le codec AVC (H.264)' est activé"</string>
-    <string name="morphe_override_initial_video_quality_title">Remplacer la qualité vidéo initiale</string>
     <string name="morphe_override_youtube_music_buttons_summary">Ouvre votre application musicale préférée au lieu de l\'application YouTube Music par défaut</string>
     <string name="morphe_override_youtube_music_buttons_title">Remplacer les boutons \'YouTube Music\'</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Toujours activé</string>
@@ -117,6 +113,7 @@ Limitation : La lecture peut ne pas fonctionner sur certains appareils si 'Falsi
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Forcer la langue audio d\'origine n\'est pas disponible</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Le mode 360° VR immersif n\'est pas disponible</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Le volume stable n\'est pas disponible</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• La connexion à Android VR est nécessaire</string>
     <string name="morphe_spoof_video_streams_about_title">Effets secondaires de la falsification</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Le codec vidéo est AVC (H.264) ou VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Le codec vidéo est AVC (H.264), VP9 ou AV1
@@ -166,6 +163,10 @@ La lecture peut ne pas fonctionner"</string>
 
 Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas nécessaire"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">La désactivation de ce paramètre peut entraîner des problèmes de lecture</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Restaure l'ancienne disposition du lecteur
+
+Limitation : Si 'Restaurer l'ancienne barre d'actions vidéo' est désactivé, l'overlay 'Plus de vidéos' peut ne pas être disponible"</string>
+    <string name="morphe_tablet_layout_in_player_title">Activer la disposition tablette dans le lecteur</string>
     <string name="morphe_video_quality_prioritize_dialog">Si ce paramètre est désactivé, les vidéos plus anciennes peuvent ne proposer aucune option de qualité vidéo</string>
     <string name="morphe_video_quality_prioritize_summary">Privilégie la qualité vidéo la plus élevée disponible plutôt que l\'efficacité du codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioriser la qualité vidéo</string>
@@ -224,6 +225,7 @@ Appuyez longuement pour modifier le type d'information ajouté"</string>
     <string name="revanced_auto_captions_style_entry_3">Afficher quand non coupé</string>
     <string name="revanced_auto_captions_style_entry_4">Afficher quand coupé</string>
     <string name="revanced_auto_captions_style_title">Visibilité des sous-titres automatiques</string>
+    <string name="revanced_back_button_always_exits_feed_title">Le bouton \'Retour\' quitte le flux</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Les restrictions d’économie d’énergie du mode Ambiant ne sont pas contournées</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Les restrictions d’économie d’énergie du mode Ambiant sont contournées</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Contourner les restrictions du mode Ambiant</string>
@@ -525,6 +527,7 @@ Limitations :
     <string name="revanced_enable_narrow_navigation_buttons_title">Activer les boutons de navigation compacts</string>
     <string name="revanced_enable_opus_codec_summary">Active le codec OPUS si la réponse du lecteur inclut le codec OPUS</string>
     <string name="revanced_enable_opus_codec_title">Activer le Codec OPUS</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Activer les contrôles de hauteur tonale audio</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">L\'appui sur la barre de progression est désactivé</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">L\'appui sur la barre de progression est activé</string>
     <string name="revanced_enable_seekbar_tapping_title">Activer l\'appui sur la barre de progression</string>
@@ -1611,6 +1614,8 @@ Pour afficher le bouton de téléchargement de playlist natif, activez l\'option
     <string name="revanced_patched_date_title">Date du patch</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Exclus</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Appliqué</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">Permet de régler indépendamment la vitesse et la hauteur tonale, peut provoquer des artefacts audio</string>
+    <string name="revanced_playback_audio_time_stretching_title">Étirement temporel audio</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Boutons d\'action</string>
     <string name="revanced_preference_category_additional_settings">Paramètres supplémentaires</string>
@@ -1755,6 +1760,7 @@ Description
     <string name="revanced_quick_actions_top_margin_invalid_toast">La hauteur de l\'action rapide doit être comprise entre 0 et 32</string>
     <string name="revanced_quick_actions_top_margin_summary">Définir la marge supérieure de la barre d\'actions rapides (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Marge supérieure des actions rapides</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Hauteur tonale audio par défaut définie sur : %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Les changements de vitesse de lecture s\'appliquent uniquement à la vidéo actuelle</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Les changements de vitesse de lecture s\'appliquent à toutes les vidéos</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Mémoriser la vitesse de lecture</string>
@@ -1853,9 +1859,9 @@ Appuyez ici pour ouvrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_estimated_like_summary_on">Un nombre estimé de \"J\'aime\" est affiché sous les vidéos où les \"J\'aime\" sont désactivés</string>
     <string name="revanced_ryd_estimated_like_title">Afficher les \'J\'aime\' estimés</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les \'Je n\'aime pas\' ne sont pas disponibles (limite de l\'API client atteinte)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Les \'Je n\'aime pas\' indisponibles (statut %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Les \'Je n\'aime pas\' sont indisponibles (statut %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Les \'Je n\'aime pas\' sont temporairement indisponibles (délai d\'attente de l\'API dépassé)</string>
-    <string name="revanced_ryd_failure_generic">Les \'Je n\'aime pas\' indisponibles (%s)</string>
+    <string name="revanced_ryd_failure_generic">Les \'Je n\'aime pas\' sont indisponibles (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Aucun message toast affiché si Return YouTube Dislike n\'est pas disponible</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Un message toast est affiché si Return YouTube Dislike n\'est pas disponible</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué par le propriétaire</string>

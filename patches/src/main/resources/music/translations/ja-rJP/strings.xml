@@ -36,11 +36,11 @@ MicroG に対して電池の最適化を無効にしても、バッテリー消�
     <string name="morphe_disable_drc_audio_summary_on">オーディオ DRC は無効です</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC プロトコルは有効です</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC プロトコルは無効です</string>
-    <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを「Android Studio」以外に変更してください</string>
+    <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを「Android Studio」および「Android VR Downgraded」を除く任意のクライアントに設定してください</string>
     <string name="morphe_force_original_audio_summary">常にオリジナルの音声トラック (言語) を再生します。オートダビングを含む吹き替えの音声トラックは再生されなくなります</string>
     <string name="morphe_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックが使用される場合があります</string>
     <string name="morphe_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用されません</string>
-    <string name="morphe_force_original_audio_title">オリジナルの音声を強制的に使用</string>
+    <string name="morphe_force_original_audio_title">オリジナルの音声を常に使用</string>
     <string name="morphe_music_crossfade_about_best_summary">通常の曲から曲への再生、自動スキップ、リピート再生（曲が自分自身にクロスフェード）、およびローカルオーディオ（電話スピーカー、有線ヘッドホン、Bluetooth、またはUSB）で最適に動作します。</string>
     <string name="morphe_music_crossfade_about_best_title">最適な動作環境</string>
     <string name="morphe_music_crossfade_about_credit_summary">Crossfade機能はVazerOGによるものです</string>
@@ -440,6 +440,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_hide_terms_container_title">利用規約を非表示</string>
     <string name="revanced_hide_voice_search_button_summary">検索バーのボイスサーチボタンを非表示にします。</string>
     <string name="revanced_hide_voice_search_button_title">ボイスサーチボタンを非表示</string>
+    <string name="revanced_icon_custom">カスタム</string>
     <string name="revanced_preference_screen_account_title">アカウント</string>
     <string name="revanced_preference_screen_action_bar_title">アクションバー</string>
     <string name="revanced_preference_screen_ads_title">広告</string>

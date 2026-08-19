@@ -35,7 +35,7 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_expand_livestream_dvr_duration_title">Perluas durasi siaran langsung DVR</string>
     <string name="morphe_explore_menu_screen_summary">Pilih komponen mana yang akan ditampilkan di menu eksplorasi</string>
     <string name="morphe_explore_menu_screen_title">Menu eksplorasi</string>
-    <string name="morphe_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke klien apa pun kecuali Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke klien apa pun kecuali \'Android Studio\' dan \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Menggunakan audio bawaan</string>
     <string name="morphe_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
     <string name="morphe_force_original_audio_title">Paksa bahasa audio asli</string>
@@ -49,7 +49,7 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_hide_invite_to_message_card_title">Sembunyikan kartu \'Undang lainnya untuk mengirim pesan\'</string>
     <string name="morphe_hide_learning_menu_title">Sembunyikan menu Pembelajaran</string>
     <string name="morphe_hide_live_menu_title">Sembunyikan menu Live</string>
-    <string name="morphe_hide_memberships_menu_title">Sembunyikan menu Pelanggan</string>
+    <string name="morphe_hide_memberships_menu_title">Sembunyikan menu Langganan</string>
     <string name="morphe_hide_movies_menu_title">Sembunyikan menu \'Film &amp; TV\'</string>
     <string name="morphe_hide_music_menu_title">Sembunyikan menu Musik</string>
     <string name="morphe_hide_news_menu_title">Sembunyikan menu Berita</string>
@@ -80,10 +80,6 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 sementara tidak tersedia (API kehabisan waktu)</string>
     <string name="morphe_oauth2_toast_invalid">Token masuk VR tidak sah, coba masuk ke VR lagi</string>
     <string name="morphe_oauth2_toast_reset">Keluar dari Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"Memperbaiki masalah di mana kualitas video bawaan tidak diterapkan segera setelah video dimulai
-
-Keterbatasan: Pemutaran mungkin tidak berfungsi di beberapa perangkat jika 'Palsukan aliran video' diatur ke 'Android VR' dan 'Paksa codec AVC (H.264)' diaktifkan"</string>
-    <string name="morphe_override_initial_video_quality_title">Timpa kualitas video awal</string>
     <string name="morphe_override_youtube_music_buttons_summary">Membuka aplikasi musik pilihan Anda daripada aplikasi bawaan YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Ganti tombol YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Selalu aktif</string>
@@ -117,6 +113,7 @@ Keterbatasan: Pemutaran mungkin tidak berfungsi di beberapa perangkat jika 'Pals
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Paksa audio asli tidak tersedia</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Mode imersif 360° VR tidak tersedia</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Volume stabil tidak tersedia</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Masuk ke Android VR diperlukan</string>
     <string name="morphe_spoof_video_streams_about_title">Efek samping pemalsuan</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Codec video adalah AVC (H.264) atau VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Codec video adalah AVC (H.264), VP9, atau AV1
@@ -165,6 +162,10 @@ Pemutaran mungkin tidak berfungsi"</string>
 
 Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Mematikan setelan ini dapat menyebabkan masalah pemutaran</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Mengembalikan tata letak pemutar lama
+
+Batasan: Jika 'Kembalikan bilah tindakan video lama' dinonaktifkan, hamparan 'Video lainnya' mungkin tidak tersedia"</string>
+    <string name="morphe_tablet_layout_in_player_title">Aktifkan tata letak tablet di pemutar</string>
     <string name="morphe_video_quality_prioritize_dialog">Jika pengaturan ini dimatikan, maka video lama tidak dapat menampilkan pilihan kualitas video</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritaskan kualitas video tertinggi yang tersedia daripada efisiensi codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioritaskan kualitas video</string>
@@ -223,9 +224,10 @@ Ketuk dan tahan untuk beralih jenis informasi yang ditambahkan"</string>
     <string name="revanced_auto_captions_style_entry_3">Tampilkan saat dibisukan</string>
     <string name="revanced_auto_captions_style_entry_4">Tampilkan saat dibisukan</string>
     <string name="revanced_auto_captions_style_title">Ketentuan teks otomatis</string>
+    <string name="revanced_back_button_always_exits_feed_title">Tombol kembali keluar dari feed</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Batasan mode Sinematik untuk menghemat daya tidak diabaikan</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Batasan mode Sinematik untuk menghemat daya diabaikan</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">Abaikan batasan mode Sinematik</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">Abaikan batasan Mode pencahayaan sinematik </string>
     <string name="revanced_bypass_image_region_restrictions_domain_summary">Domain untuk mengambil gambar.\nCatatan: Hanya masukkan nama domain, yaitu tanpa awalan \"https\:\/\/\"</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">Domain alternatif</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"Menggunakan host gambar asli
@@ -274,6 +276,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Kecantikan</string>
     <string name="revanced_change_start_page_entry_gaming">Permainan</string>
     <string name="revanced_change_start_page_entry_history">Riwayat</string>
+    <string name="revanced_change_start_page_entry_home">Beranda</string>
     <string name="revanced_change_start_page_entry_hype">Hype</string>
     <string name="revanced_change_start_page_entry_library">Pustaka</string>
     <string name="revanced_change_start_page_entry_liked_videos">Video yang disukai</string>
@@ -285,6 +288,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_start_page_entry_playlists">Daftar Putar</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_search">Pencarian</string>
+    <string name="revanced_change_start_page_entry_settings">Pengaturan </string>
     <string name="revanced_change_start_page_entry_shopping">Belanja</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Olahraga</string>
@@ -370,7 +374,7 @@ Keterbatasan: Tombol Kembali pada bilah alat mungkin tidak berfungsi"</string>
     <string name="revanced_disable_ambient_mode_summary">Menonaktifkan mode ambien</string>
     <string name="revanced_disable_ambient_mode_summary_off">Mode Sinematik diaktifkan</string>
     <string name="revanced_disable_ambient_mode_summary_on">Mode Sinematik dinonaktifkan</string>
-    <string name="revanced_disable_ambient_mode_title">Nonaktifkan mode Sinematik</string>
+    <string name="revanced_disable_ambient_mode_title">Nonaktifkan Mode pencahayaan sinematik</string>
     <string name="revanced_disable_auto_captions_summary_off">Teks otomatis diaktifkan</string>
     <string name="revanced_disable_auto_captions_summary_on">Teks otomatis dinonaktifkan</string>
     <string name="revanced_disable_auto_captions_title">Matikan teks otomatis</string>
@@ -523,6 +527,7 @@ Keterbatasan:
     <string name="revanced_enable_narrow_navigation_buttons_title">Aktifkan tombol navigasi sempit</string>
     <string name="revanced_enable_opus_codec_summary">Mengaktifkan codec OPUS jika respons pemutar menyertakannya</string>
     <string name="revanced_enable_opus_codec_title">Aktifkan OPUS codec</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Aktifkan kontrol nada audio</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Ketukan pada seekbar dinonaktifkan</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Ketukan pada seekbar diaktifkan</string>
     <string name="revanced_enable_seekbar_tapping_title">Aktifkan ketukan seekbar</string>
@@ -1160,6 +1165,8 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Tombol unduh daftar putar bawaan, jika ditampilkan, akan membuka aplikasi pengunduh eksternal Anda
 
 Untuk menampilkan tombol unduh daftar putar bawaan, aktifkan opsi 'Palsukan versi aplikasi' dan ubah 'Target versi aplikasi yang dipalsukan' menjadi '19.28.42' atau versi sebelumnya"</string>
+    <string name="revanced_playback_audio_time_stretching_summary">Mengizinkan pengaturan kecepatan dan nada secara terpisah, namun dapat menyebabkan gangguan audio</string>
+    <string name="revanced_playback_audio_time_stretching_title">Perpanjangan waktu audio</string>
     <string name="revanced_playback_speed_normal">Biasa</string>
     <string name="revanced_preference_category_animation_feedback">Animasi / Umpan Balik</string>
     <string name="revanced_preference_category_experimental_flag">Fitur Experimental</string>
@@ -1237,6 +1244,7 @@ Deskripsi
 %3$s"</string>
     <string name="revanced_quick_actions_top_margin_summary">Tetapkan batas atas bilah tindakan cepat (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Batas atas tindakan cepat</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Nada audio bawaan telah diubah menjadi: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Perubahan kecepatan pemutaran berlaku untuk video saat ini</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Perubahan kecepatan pemutaran berlaku untuk semua video</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Ingat kecepatan pemutaran</string>

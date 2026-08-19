@@ -35,7 +35,7 @@
     <string name="morphe_expand_livestream_dvr_duration_title">扩展直播 DVR 时长</string>
     <string name="morphe_explore_menu_screen_summary">选择在探索菜单中显示哪些组件</string>
     <string name="morphe_explore_menu_screen_title">探索菜单</string>
-    <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除 Android Studio 之外的任何客户端</string>
+    <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除“Android Studio”和“Android VR 降级”之外的任何客户端</string>
     <string name="morphe_force_original_audio_summary_off">正在使用默认音频</string>
     <string name="morphe_force_original_audio_summary_on">使用原始音频语言</string>
     <string name="morphe_force_original_audio_title">强制使用原始音频语言</string>
@@ -80,10 +80,6 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暂时不可用（API 超时）</string>
     <string name="morphe_oauth2_toast_invalid">无效的 VR 登录令牌，请重新登录 VR</string>
     <string name="morphe_oauth2_toast_reset">已从 Android VR 登出</string>
-    <string name="morphe_override_initial_video_quality_summary">"修复了视频开始后默认视频画质未立即应用的问题
-
-限制：如果\"伪装视频流\"设置为\"Android VR\"且\"强制AVC (H.264)编解码器\"已启用，则某些设备上可能无法播放"</string>
-    <string name="morphe_override_initial_video_quality_title">覆盖初始视频画质</string>
     <string name="morphe_override_youtube_music_buttons_summary">打开您首选的音乐应用，而不是默认的YouTube Music应用</string>
     <string name="morphe_override_youtube_music_buttons_title">覆盖 YouTube Music 按钮</string>
     <string name="morphe_playback_in_feeds_entry_always_on">始终开启</string>
@@ -117,6 +113,7 @@
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• 强制原始音频不可用</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360°VR全景模式不可用</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• 稳定音量不可用</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• 需要登录 Android VR</string>
     <string name="morphe_spoof_video_streams_about_title">欺骗的副作用</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">视频编解码器为 AVC (H.264) 或 VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"视频编解码器为 AVC (H.264)、VP9 或 AV1
@@ -165,6 +162,10 @@
 
 如果您是 YouTube Premium 用户，此设置可能不需要"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">关闭此设置可能会导致播放问题。</string>
+    <string name="morphe_tablet_layout_in_player_summary">"恢复旧版播放器布局
+
+限制：如果关闭“恢复旧版视频操作栏”选项，则“更多视频”叠加层可能不可用"</string>
+    <string name="morphe_tablet_layout_in_player_title">在播放器中启用平板电脑布局</string>
     <string name="morphe_video_quality_prioritize_dialog">如果关闭此设置，旧视频可能不显示视频质量选项</string>
     <string name="morphe_video_quality_prioritize_summary">优先考虑最高视频画质而不是编解码器效率</string>
     <string name="morphe_video_quality_prioritize_title">优先视频画质</string>
@@ -220,6 +221,7 @@
     <string name="revanced_auto_captions_style_entry_3">显示设置按钮</string>
     <string name="revanced_auto_captions_style_entry_4">显示静音时的字幕</string>
     <string name="revanced_auto_captions_style_title">自动字幕可见性</string>
+    <string name="revanced_back_button_always_exits_feed_title">返回按钮退出信息流</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">未绕过电源节能的氛围模式限制</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">已绕过电源节能的氛围模式限制</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">绕过氛围模式限制</string>
@@ -520,6 +522,7 @@
     <string name="revanced_enable_narrow_navigation_buttons_title">启用窄间距导航按钮</string>
     <string name="revanced_enable_opus_codec_summary">如果播放器支持 OPUS 编解码器，则启用 OPUS 编解码器</string>
     <string name="revanced_enable_opus_codec_title">启用 OPUS 编解码器</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">启用音频音高控制</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">进度条点击已禁用</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">进度条点击已启用</string>
     <string name="revanced_enable_seekbar_tapping_title">启用进度条点击</string>
@@ -1598,6 +1601,8 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_patched_date_title">补丁日期</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">已排除</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">已包含</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">Allows setting speed and pitch independently, may cause audio artifacts</string>
+    <string name="revanced_playback_audio_time_stretching_title">Audio time stretching</string>
     <string name="revanced_playback_speed_normal">正常</string>
     <string name="revanced_preference_category_action_buttons">操作按钮</string>
     <string name="revanced_preference_category_additional_settings">其他设置</string>
@@ -1742,6 +1747,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_quick_actions_top_margin_invalid_toast">快速操作顶部边距必须在 0-32 之间 重置为默认值</string>
     <string name="revanced_quick_actions_top_margin_summary">设置快速操作栏的顶部外边距（0-32 dp）</string>
     <string name="revanced_quick_actions_top_margin_title">快速操作顶部外边距</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Changed default audio pitch to: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度更改仅适用于当前视频</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度更改适用于所有视频</string>
     <string name="revanced_remember_playback_speed_last_selected_title">记住播放速度</string>

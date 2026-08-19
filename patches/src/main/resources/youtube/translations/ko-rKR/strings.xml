@@ -20,6 +20,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="gms_core_settings_summary">RVX 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">MicroG가 설치되어 있지 않습니다. 설치하세요</string>
+    <string name="morphe_dark_theme_custom_color_summary">사용자 정의가 선택된 경우에 사용됩니다</string>
+    <string name="morphe_dark_theme_custom_color_title">사용자 정의 어두운 테마 색상</string>
+    <string name="morphe_dark_theme_title">어두운 테마</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">피드에서 스크롤하는 경우에 하단바를 숨기지 않습니다</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">하단바 자동 숨기기 비활성화하기</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC 오디오를 활성화합니다</string>
@@ -65,6 +68,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_hide_youtube_premium_menu_title">YouTube Premium 메뉴 숨기기</string>
     <string name="morphe_hide_youtube_studio_menu_title">YouTube 스튜디오 메뉴 숨기기</string>
     <string name="morphe_hide_youtube_works_menu_title">\'YouTube 작동의 원리\' 메뉴 숨기기</string>
+    <string name="morphe_light_theme_custom_color_title">사용자 정의 밝은 테마 색상</string>
+    <string name="morphe_light_theme_title">밝은 테마</string>
     <string name="morphe_livestream_dvr_not_available">"'실시간 스트림 DVR 활성화하기'를 사용할 수 없을 수 있습니다
 
 이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV' 또는 'visionOS'로 변경하세요"</string>
@@ -80,10 +85,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2를 일시적으로 사용할 수 없습니다 (API 시간 초과)</string>
     <string name="morphe_oauth2_toast_invalid">잘못된 VR 로그인 토큰입니다. 다시 VR에 로그인하세요</string>
     <string name="morphe_oauth2_toast_reset">Android VR에서 로그아웃되었습니다</string>
-    <string name="morphe_override_initial_video_quality_summary">"동영상이 시작된 직후 기본 화질이 즉시 적용되지 않는 문제를 수정합니다
-
-제한 사항: '동영상 스트림 속이기'에서 '기본 클라이어언트'가 'Android VR'로 설정되어 있고, 'AVC (H.264) 강제로 활성화하기'가 활성화된 경우에는 일부 기기에서 동영상이 정상적으로 재생되지 않을 수 있습니다"</string>
-    <string name="morphe_override_initial_video_quality_title">초기 동영상 화질 재정의하기</string>
     <string name="morphe_override_youtube_music_buttons_summary">기본 YouTube Music 앱 대신 사용자가 사용하고 싶은 Music 앱을 열 수 있도록 설정합니다</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music 버튼 재정의하기</string>
     <string name="morphe_playback_in_feeds_entry_always_on">항상 사용</string>
@@ -117,6 +118,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• 원본 오디오를 강제로 활성화할 수 없습니다</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR 몰입 모드를 사용할 수 없습니다</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• 안정적인 볼륨을 사용할 수 없습니다</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Android VR에 로그인해야 합니다</string>
     <string name="morphe_spoof_video_streams_about_title">속이기에 따른 부작용</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">동영상 코덱이 AVC (H.264) 또는 VP9으로 결정됩니다</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"동영상 코덱이 AVC (H.264), VP9 또는 AV1으로 결정됩니다
@@ -165,6 +167,33 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
 
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다</string>
+    <string name="morphe_tablet_layout_in_player_summary">"이전 플레이어 레이아웃을 복원합니다
+
+제한 사항: '이전 동영상 작업 버튼바 복원하기'를 비활성화하면, '동영상 더보기' 오버레이를 사용할 수 없을 수 있습니다"</string>
+    <string name="morphe_tablet_layout_in_player_title">플레이어에서 태블릿 레이아웃 활성화하기</string>
+    <string name="morphe_theme_entry_amoled_black">아몰레드 블랙</string>
+    <string name="morphe_theme_entry_classic_youtube">클래식 (이전 YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">어두운 파란색</string>
+    <string name="morphe_theme_entry_dark_green">어두운 녹색</string>
+    <string name="morphe_theme_entry_dark_orange">어두운 주황색</string>
+    <string name="morphe_theme_entry_dark_pink">어두운 분홍색</string>
+    <string name="morphe_theme_entry_dark_red">어두운 빨간색</string>
+    <string name="morphe_theme_entry_dark_yellow">어두운 노란색</string>
+    <string name="morphe_theme_entry_light_blue">밝은 파란색</string>
+    <string name="morphe_theme_entry_light_green">밝은 녹색</string>
+    <string name="morphe_theme_entry_light_orange">밝은 주황색</string>
+    <string name="morphe_theme_entry_light_pink">밝은 분홍색</string>
+    <string name="morphe_theme_entry_light_red">밝은 빨간색</string>
+    <string name="morphe_theme_entry_light_yellow">밝은 노란색</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (중립)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - 주요</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - 보조</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - 추가</string>
+    <string name="morphe_theme_entry_modern_youtube">모던 스타일 YouTube</string>
+    <string name="morphe_theme_entry_pale_blue">연한 파란색</string>
+    <string name="morphe_theme_entry_pale_green">연한 녹색</string>
+    <string name="morphe_theme_entry_pale_yellow">연한 노란색</string>
+    <string name="morphe_theme_entry_white">흰색</string>
     <string name="morphe_video_quality_prioritize_dialog">이 설정을 비활성화하면, 일부 오래된 동영상에서 화질 옵션이 표시되지 않을 수 있습니다</string>
     <string name="morphe_video_quality_prioritize_summary">코덱 효율성보다 사용 가능한 최고 동영상 화질을 우선합니다</string>
     <string name="morphe_video_quality_prioritize_title">동영상 우선순위를 화질로 지정하기</string>
@@ -223,6 +252,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_auto_captions_style_entry_3">음소거 해제 시 표시</string>
     <string name="revanced_auto_captions_style_entry_4">음소거 시 표시</string>
     <string name="revanced_auto_captions_style_title">자동 자막 표시 여부</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">뒤로가기 버튼을 탭하면 피드 맨 위로 스크롤됩니다</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">뒤로가기 버튼을 탭하면 항상 피드/앱이 종료됩니다</string>
+    <string name="revanced_back_button_always_exits_feed_title">뒤로가기 버튼으로 피드 나가기</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전을 위한 앰비언트 모드 제한을 우회하지 않습니다</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">배터리 절전을 위한 엠비언트 모드 제한을 우회합니다</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">앰비언트 모드 제한 우회하기</string>
@@ -275,10 +307,12 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_change_start_page_entry_all_subscriptions">모든 구독 채널</string>
     <string name="revanced_change_start_page_entry_browse">채널 둘러보기</string>
     <string name="revanced_change_start_page_entry_courses">'학습' / '학습 프로그램'</string>
+    <string name="revanced_change_start_page_entry_create">만들기</string>
     <string name="revanced_change_start_page_entry_explore">탐색</string>
     <string name="revanced_change_start_page_entry_fashion">패션 &amp; 뷰티</string>
     <string name="revanced_change_start_page_entry_gaming">게임</string>
     <string name="revanced_change_start_page_entry_history">기록</string>
+    <string name="revanced_change_start_page_entry_home">홈</string>
     <string name="revanced_change_start_page_entry_hype">하이프</string>
     <string name="revanced_change_start_page_entry_library">내 페이지</string>
     <string name="revanced_change_start_page_entry_liked_videos">좋아요 표시한 동영상</string>
@@ -290,6 +324,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_change_start_page_entry_playlists">재생목록</string>
     <string name="revanced_change_start_page_entry_podcasts">팟캐스트</string>
     <string name="revanced_change_start_page_entry_search">검색</string>
+    <string name="revanced_change_start_page_entry_settings">설정</string>
     <string name="revanced_change_start_page_entry_shopping">쇼핑</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">스포츠</string>
@@ -364,6 +399,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_debug_toast_on_error_title">RVX 오류 메시지 표시하기</string>
     <string name="revanced_default_app_settings_summary">다른 앱에서 YouTube 링크를 RVX로 열려면 \'지원되는 링크 열기\'를 활성화하고 지원되는 링크를 추가하세요. 링크 추가가 잠겨있다면 순정 YouTube 앱 정보 → \'기본적으로 열기\'에서 \'지원되는 링크 열기\'를 비활성화한 후에 추가할 수 있습니다</string>
     <string name="revanced_default_app_settings_title">기본 앱 설정 열기</string>
+    <string name="revanced_default_playback_audio_pitch_title">기본 재생 오디오 피치</string>
     <string name="revanced_default_playback_speed_shorts_title">기본 Shorts 재생 속도</string>
     <string name="revanced_default_playback_speed_title">기본 동영상 재생 속도</string>
     <string name="revanced_default_video_quality_mobile_shorts_title">모바일 네트워크 이용 시 기본 Shorts 화질</string>
@@ -533,6 +569,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_enable_narrow_navigation_buttons_title">좁은 하단바 버튼 활성화하기</string>
     <string name="revanced_enable_opus_codec_summary">플레이어 응답에 OPUS 코덱이 포함된 경우에 OPUS 코덱을 활성화합니다</string>
     <string name="revanced_enable_opus_codec_title">OPUS 코덱 활성화하기</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">오디오 피치 컨트롤을 비활성화합니다</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">오디오 피치 컨트롤을 활성화합니다</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">오디오 피치 컨트롤 활성화하기</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치 조작을 비활성화합니다</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치 조작을 활성화합니다</string>
     <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
@@ -1589,6 +1628,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_miniplayer_width_dip_title">기본 크기</string>
     <string name="revanced_navigation_bar_animations_summary">하단바에서 탭 전환 시 애니메이션을 표시합니다</string>
     <string name="revanced_navigation_bar_animations_title">하단바 애니메이션 활성화하기</string>
+    <string name="revanced_navigation_bar_order_drag_handle">드래그하여 순서 변경</string>
+    <string name="revanced_navigation_bar_order_summary">하단바 항목을 표시할 순서대로 드래그하세요</string>
+    <string name="revanced_navigation_bar_order_title">하단바 순서</string>
     <string name="revanced_open_links_externally_summary_off">앱 내에서 외부 링크를 열 경우에 내부 브라우저를 사용합니다</string>
     <string name="revanced_open_links_externally_summary_on">앱 내에서 외부 링크를 열 경우에 외부 브라우저를 사용합니다</string>
     <string name="revanced_open_links_externally_title">외부 브라우저 사용하기</string>
@@ -1684,6 +1726,12 @@ Gemini API Key를 발급받으려면 여기를 탭하세요"</string>
     <string name="revanced_patched_date_title">패치된 날짜</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">제외된 패치</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">포함된 패치</font></string>
+    <string name="revanced_playback_audio_pitch_sync">동기화</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_off">오디오 피치는 재생 속도와 무관합니다</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_on">오디오 피치는 재생 속도와 동기화됩니다</string>
+    <string name="revanced_playback_audio_pitch_title">오디오 피치</string>
+    <string name="revanced_playback_audio_time_stretching_summary">속도와 피치를 서로 독립적으로 설정할 수 있습니다. 오디오에 잡음이나 음질 저하 등의 왜곡이 발생할 수 있습니다</string>
+    <string name="revanced_playback_audio_time_stretching_title">오디오 시간 늘리기</string>
     <string name="revanced_playback_speed_normal">일반</string>
     <string name="revanced_preference_category_action_buttons">작업 버튼</string>
     <string name="revanced_preference_category_additional_settings">추가 설정</string>
@@ -1828,6 +1876,7 @@ Gemini API Key를 발급받으려면 여기를 탭하세요"</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">빠른 작업 상단 여백 값은 0-32 사이어야 합니다</string>
     <string name="revanced_quick_actions_top_margin_summary">재생바에서 빠른 작업 버튼바까지의 간격을 설정할 수 있습니다 (0~32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">빠른 작업 상단 여백</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">기본 오디오 피치를 %s 로 변경하였습니다</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장합니다</string>
     <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장하기</string>
@@ -2282,6 +2331,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_shorts_player_type_regular_player">일반 플레이어</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">일반 플레이어 전체 화면</string>
     <string name="revanced_shorts_player_type_title">Shorts 재생 플레이어 유형</string>
+    <string name="revanced_show_search_button_summary_off">검색 버튼을 표시하지 않습니다</string>
     <string name="revanced_show_search_button_title">검색 버튼 표시하기</string>
     <string name="revanced_show_settings_button_summary_off">설정 버튼이 표시되지 않습니다</string>
     <string name="revanced_show_settings_button_summary_on">설정 버튼이 표시됩니다</string>
@@ -2409,6 +2459,8 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_gestures_lock_mode_summary_on">잠금 화면에서 스와이프 제스처를 활성화합니다</string>
     <string name="revanced_swipe_gestures_lock_mode_title">잠금 화면에서 스와이프 제스처 활성화하기</string>
     <string name="revanced_swipe_haptic_feedback_title">진동 피드백 활성화하기</string>
+    <string name="revanced_swipe_horizontal_zone_summary">속도 및 탐색 스와이프를 위해 플레이어 화면의 상단과 하단 가장자리에 할당할 높이의 비율을 설정할 수 있습니다</string>
+    <string name="revanced_swipe_horizontal_zone_title">가로 스와이프 영역</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">자동</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">전체 화면에서 스와이프하여 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">전체 화면에서 스와이프하여 밝기가 0이 되면 자동 밝기를 활성화합니다</string>
@@ -2460,6 +2512,8 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
     <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 설정할 수 있습니다</string>
     <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
+    <string name="revanced_swipe_vertical_zone_summary">밝기 및 볼륨 스와이프를 위해 플레이어 화면의 왼쪽과 오른쪽 가장자리에 할당할 너비의 비율을 설정할 수 있습니다</string>
+    <string name="revanced_swipe_vertical_zone_title">세로 스와이프 영역</string>
     <string name="revanced_swipe_volume_distance_summary">스와이프하여 볼륨을 조정할 픽셀의 양을 지정할 수 있습니다. 값이 낮을수록 볼륨이 빠르게 변경되고, 값이 높을수록 볼륨이 느리게 변경됩니다 (1-1000)</string>
     <string name="revanced_swipe_volume_distance_title">볼륨 거리</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">볼륨 스와이프 민감도는 1-1000 사이어야 합니다</string>
@@ -2469,6 +2523,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_volume_summary_on">"전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절합니다"</string>
     <string name="revanced_swipe_volume_title">스와이프 제스처로 볼륨 조절하기</string>
     <string name="revanced_swipe_zone_label_brightness">밝기</string>
+    <string name="revanced_swipe_zone_label_seek">탐색</string>
     <string name="revanced_swipe_zone_label_speed">속도</string>
     <string name="revanced_swipe_zone_label_volume">볼륨</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"기기 정보를 속여서 만들기 버튼과 알림 버튼의 위치를 교환합니다
@@ -2521,6 +2576,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_vot_audio_proxy_summary_on">오디오 스트림을 Worker를 통해 프록시 처리합니다</string>
     <string name="revanced_vot_audio_proxy_title">프록시 오디오 스트림</string>
     <string name="revanced_vot_auth_required">인증이 필요합니다. 설정에서 Yandex 인증 토큰을 추가하세요</string>
+    <string name="revanced_vot_credits_summary">Jav1x와 anddea가 구현한 Yandex VOT입니다. ilyhalight/voice-over-translation을 기반으로 합니다</string>
     <string name="revanced_vot_enabled_summary_off">Yandex 음성 번역을 비활성화합니다</string>
     <string name="revanced_vot_enabled_summary_on">Yandex 음성 번역을 활성화합니다</string>
     <string name="revanced_vot_enabled_title">음성 번역</string>

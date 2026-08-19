@@ -35,7 +35,7 @@ Appuyez sur le bouton 'Continuer' et autorisez la modification des optimisations
     <string name="morphe_disable_drc_audio_summary_on">L\'audio DRC est désactivé</string>
     <string name="morphe_disable_quic_protocol_summary_off">Le protocole QUIC est activé</string>
     <string name="morphe_disable_quic_protocol_summary_on">Le protocole QUIC est désactivé</string>
-    <string name="morphe_force_original_audio_not_available">Pour utiliser cette fonctionnalité, définissez \'Falsifier les flux vidéo\' sur un client autre que \'Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">Pour utiliser cette fonctionnalité, changez \'Falsifier les flux vidéo\' et sélectionnez n\'importe quel client sauf \'Android Studio\' ou \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Lit toujours la piste audio originale de la vidéo au lieu d\'une version doublée</string>
     <string name="morphe_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
     <string name="morphe_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
@@ -444,6 +444,7 @@ Veuillez télécharger %2$s à partir du site web"</string>
     <string name="revanced_hide_terms_container_title">Masquer le conteneur de termes</string>
     <string name="revanced_hide_voice_search_button_summary">Masque le bouton \'Recherche vocale\' de la barre de recherche</string>
     <string name="revanced_hide_voice_search_button_title">Masquer le bouton \'Recherche vocale\'</string>
+    <string name="revanced_icon_custom">Personnalisé</string>
     <string name="revanced_preference_screen_account_title">Compte</string>
     <string name="revanced_preference_screen_action_bar_title">Barre d\'action</string>
     <string name="revanced_preference_screen_ads_title">Publicités</string>
@@ -552,9 +553,9 @@ Appuyez ici pour ouvrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_estimated_like_summary">Affiche un nombre estimé de \'J\'aime\' sur les vidéos où le créateur a désactivé les \'J\'aime\'</string>
     <string name="revanced_ryd_estimated_like_title">Afficher les \'J\'aime\' estimés</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les \'Je n\'aime pas\' ne sont pas disponibles (limite de l\'API client atteinte)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Les \'Je n\'aime pas\' indisponibles (statut %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Les \'Je n\'aime pas\' sont indisponibles (statut %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Les \'Je n\'aime pas\' sont temporairement indisponibles (délai d\'attente de l\'API dépassé)</string>
-    <string name="revanced_ryd_failure_generic">Les \'Je n\'aime pas\' indisponibles (%s)</string>
+    <string name="revanced_ryd_failure_generic">Les \'Je n\'aime pas\' sont indisponibles (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Affiche une notification lorsque le serveur Return YouTube Dislike est indisponible</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Afficher les alertes d\'erreur de connexion</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué par le propriétaire</string>

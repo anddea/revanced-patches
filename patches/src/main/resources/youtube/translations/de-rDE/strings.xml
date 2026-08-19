@@ -35,7 +35,7 @@ Um das zu beheben, aktiviere 'Video-Streams spoofen' und ändere den 'Standard-C
     <string name="morphe_expand_livestream_dvr_duration_title">Livestream DVR-Dauer erweitern</string>
     <string name="morphe_explore_menu_screen_summary">Wähle aus, welche Einträge im Entdecken-Menü angezeigt werden sollen</string>
     <string name="morphe_explore_menu_screen_title">Entdecken-Menü</string>
-    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \"Video-Streams fälschen\" auf einen beliebigen Client außer Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \"Video-Streams fälschen\" auf einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
     <string name="morphe_force_original_audio_title">Original-Audiotrack erzwingen</string>
@@ -80,10 +80,6 @@ Um das zu beheben, aktiviere 'Video-Streams spoofen' und ändere den 'Standard-C
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="morphe_oauth2_toast_invalid">Ungültiger VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
     <string name="morphe_oauth2_toast_reset">Von Android VR abgemeldet</string>
-    <string name="morphe_override_initial_video_quality_summary">"Behebt ein Problem, bei dem die Standardvideoqualität nicht sofort angewendet wird, nachdem das Video gestartet wurde
-
-Einschränkung: Die Wiedergabe funktioniert möglicherweise auf einigen Geräten nicht, wenn 'Videostreams fälschen' auf 'Android VR' gesetzt ist und 'AVC (H.264)-Codec erzwingen' aktiviert ist"</string>
-    <string name="morphe_override_initial_video_quality_title">Videoqualität überschreiben</string>
     <string name="morphe_override_youtube_music_buttons_summary">Öffnet deine bevorzugte Musik-App anstelle der Standard-YouTube-Music-App</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube-Music-Schaltfläche überschreiben</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Immer an</string>
@@ -117,6 +113,7 @@ Einschränkung: Die Wiedergabe funktioniert möglicherweise auf einigen Geräten
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Originalton erzwingen ist nicht verfügbar</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersiver Modus ist nicht verfügbar</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Stabile Lautstärke ist nicht verfügbar</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Die Anmeldung bei Android VR ist erforderlich</string>
     <string name="morphe_spoof_video_streams_about_title">Nebenwirkungen des Spoofings</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Video-Codec ist AVC (H.264) oder VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Video-Codec ist AVC (H.264), VP9 oder AV1
@@ -165,6 +162,10 @@ Die Wiedergabe funktioniert möglicherweise nicht"</string>
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Stellt das alte Player-Layout wieder her
+
+Einschränkung: Wenn \"Alte Video-Aktionsleiste wiederherstellen\" deaktiviert ist, ist das Overlay \"Mehr Videos\" möglicherweise nicht verfügbar"</string>
+    <string name="morphe_tablet_layout_in_player_title">Tablet-Layout im Player aktivieren</string>
     <string name="morphe_video_quality_prioritize_dialog">Ist diese Einstellung deaktiviert, werden bei älteren Videos möglicherweise keine Optionen zur Videoqualität angezeigt</string>
     <string name="morphe_video_quality_prioritize_summary">Priorisiert die höchstmögliche Videoqualität gegenüber der Codec-Effizienz</string>
     <string name="morphe_video_quality_prioritize_title">Videoqualität priorisieren</string>
@@ -220,6 +221,7 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
     <string name="revanced_auto_captions_style_entry_3">Bei Stummschaltung anzeigen</string>
     <string name="revanced_auto_captions_style_entry_4">Zeige bei stummgeschaltet</string>
     <string name="revanced_auto_captions_style_title">Automatische Untertitel-Ansicht</string>
+    <string name="revanced_back_button_always_exits_feed_title">Zurück-Taste verlässt den Feed</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Einschränkungen des Modus \"Ambient\" für den Energiesparmodus werden nicht umgangen</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Einschränkungen des Modus \"Ambient\" für den Energiesparmodus werden umgangen</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Einschränkungen des Ambient-Modus umgehen</string>
@@ -520,6 +522,7 @@ Einschränkungen:
     <string name="revanced_enable_narrow_navigation_buttons_title">Aktiviere schmale Navigationstasten</string>
     <string name="revanced_enable_opus_codec_summary">Aktiviere den OPUS-Codec, wenn die Antwort des Players den OPUS-Codec enthält</string>
     <string name="revanced_enable_opus_codec_title">OPUS Codec aktivieren</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Audio-Tonhöhensteuerung aktivieren</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Tippen der Suchleiste ist deaktiviert</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Tippen der Suchleiste ist aktiviert</string>
     <string name="revanced_enable_seekbar_tapping_title">Aktiviere Suchleisten-Tippen (Video Fortschrittsbalken)</string>
@@ -1565,6 +1568,8 @@ Tippen und halten Sie, um den Einstellungsdialog für die Whitelist anzuzeigen</
     <string name="revanced_patched_date_title">Patch Datum</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">ausgeschlossen</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Enthalten</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">Ermöglicht die unabhängige Einstellung von Geschwindigkeit und Tonhöhe, kann jedoch zu Audioartefakten führen</string>
+    <string name="revanced_playback_audio_time_stretching_title">Audio-Time-Stretching</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Aktionsschaltflächen</string>
     <string name="revanced_preference_category_additional_settings">Zusätzliche Einstellungen</string>
@@ -1709,6 +1714,7 @@ Beschreibung
     <string name="revanced_quick_actions_top_margin_invalid_toast">Der obere Rand der Schnellaktionen muss zwischen 0-32 liegen. Zurückgesetzt auf Standardwerte</string>
     <string name="revanced_quick_actions_top_margin_summary">Legen Sie den oberen Rand der Schnellaktionsleiste fest (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Oberer Rand für Schnellaktionen</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Standard-Tonhöhe geändert zu: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Änderungen der Wiedergabegeschwindigkeit gelten nur für das aktuelle Video</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Änderungen der Wiedergabegeschwindigkeit gelten für alle Videos</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Wiedergabegeschwindigkeit speichern</string>
