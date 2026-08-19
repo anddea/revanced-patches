@@ -1,4 +1,44 @@
 /*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
+/*
  * Portions of this file are ported from Morphe:
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
@@ -19,6 +59,8 @@ import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patches.shared.mapping.ResourceType.COLOR
+import app.morphe.patches.shared.mapping.getResourceId
 import app.morphe.patches.youtube.utils.YOUTUBE_PIVOT_BAR_CLASS_TYPE
 import app.morphe.patches.youtube.utils.resourceid.actionBarSearchResultsViewMic
 import app.morphe.patches.youtube.utils.resourceid.newContentCount
@@ -32,7 +74,6 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal const val UNKNOWN_STRING = "UNKNOWN"
 internal const val SEARCH_STRING = "SEARCH"
-internal const val SEARCH_CAIRO_STRING = "SEARCH_CAIRO"
 internal const val TAB_ACTIVITY_STRING = "TAB_ACTIVITY"
 internal const val TAB_ACTIVITY_CAIRO_STRING = "TAB_ACTIVITY_CAIRO"
 
@@ -200,12 +241,25 @@ internal object SetEnumMapSecondaryFingerprint : Fingerprint(
     }
 )
 
-internal object TranslucentNavigationStatusBarFeatureFlagFingerprint : Fingerprint(
+/**
+ * Identifies the top-bar method that supplies YouTube's status-bar fallback color.
+ *
+ * We can't simply change the color everywhere because it might affect other places
+ * (e.g., the player with active controls, which uses the same semi-transparent color).
+ * Technically, we could disable it when the player is maximized, but we don't know
+ * what other places might use the same color value.
+ *
+ * Therefore, we change the color based on this fingerprint.
+ */
+internal object StatusBarColorFingerprint : Fingerprint(
+    name = "a",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Z",
-    filters = listOf(
-        literal(45400535L) // Translucent status bar feature flag.
-    )
+    returnType = "V",
+    parameters = listOf(),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(getResourceId(COLOR, "yt_black_pure_opacity60")) &&
+                method.containsLiteralInstruction(getResourceId(COLOR, "yt_white1_opacity70"))
+    }
 )
 
 /**
