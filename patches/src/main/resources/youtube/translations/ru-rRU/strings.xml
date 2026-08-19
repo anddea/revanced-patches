@@ -35,7 +35,7 @@
     <string name="morphe_expand_livestream_dvr_duration_title">Расширить длительность прямой трансляции DVR</string>
     <string name="morphe_explore_menu_screen_summary">Выберите, какие компоненты отображать в меню «Изучить»</string>
     <string name="morphe_explore_menu_screen_title">Изучить меню</string>
-    <string name="morphe_force_original_audio_not_available">Для использования этой функции измените клиент в \"Подмене видеопотоков\" на любой, кроме Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">Чтобы использовать эту функцию, измените \'Подмена видеопотоков\' на любой клиент, кроме \'Android Studio\' и \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
     <string name="morphe_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
     <string name="morphe_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
@@ -80,8 +80,6 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 временно недоступен (время ожидания API истекло)</string>
     <string name="morphe_oauth2_toast_invalid">Недействительный токен входа в VR, попробуйте войти в VR еще раз</string>
     <string name="morphe_oauth2_toast_reset">Вышли из войти Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"Исправляет проблему, из-за которой качество видео по умолчанию не применяется сразу после начала видео\n\nОграничение: воспроизведение может не работать на некоторых устройствах, если для «Подмены видеопотоков» установлено значение «Android VR» и включен «Принудительный кодек AVC (H.264)»"</string>
-    <string name="morphe_override_initial_video_quality_title">Переопределить начальное качество видео</string>
     <string name="morphe_override_youtube_music_buttons_summary">Открывает предпочитаемое вами музыкальное приложение вместо стандартного приложения YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Переопределить кнопки YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Всегда</string>
@@ -115,6 +113,7 @@
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Принудительная оригинальная звуковая дорожка недоступна</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Режим погружения 360° VR недоступен</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Постоянный уровень громкости недоступен </string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Требуется вход в Android VR</string>
     <string name="morphe_spoof_video_streams_about_title">Побочные эффекты подмены</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Видеокодек AVC (H.264) или VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Видеокодек: AVC (H.264), VP9 или AV1
@@ -163,6 +162,10 @@
 
 Если Вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Выключение этой настройки может привести к возникновению проблем с воспроизведением</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Восстанавливает старый макет плеера
+
+Ограничение: Если «Восстановить старую панель управления видео» отключена, наложение «Ещё видео» может быть недоступно"</string>
+    <string name="morphe_tablet_layout_in_player_title">Включить макет для планшетов в плеере</string>
     <string name="morphe_video_quality_prioritize_dialog">Если эта настройка отключена, в старых видео могут отсутствовать варианты выбора качества</string>
     <string name="morphe_video_quality_prioritize_summary">Приоритет максимально доступного качества видео над эффективностью кодека</string>
     <string name="morphe_video_quality_prioritize_title">Приоритет качества видео</string>
@@ -221,6 +224,7 @@
     <string name="revanced_auto_captions_style_entry_3">Показывать, когда звук отключен</string>
     <string name="revanced_auto_captions_style_entry_4">Показать при заглушенном звуке</string>
     <string name="revanced_auto_captions_style_title">Видимость автоматических субтитров</string>
+    <string name="revanced_back_button_always_exits_feed_title">Кнопка «Назад» выходит из ленты</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ограничения режима \"Фоновая подсветка\" для экономии энергии не обойдены</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Ограничения режима \"Фоновая подсветка\" для экономии энергии обойдены</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Обойти ограничения режима подсветки</string>
@@ -273,10 +277,12 @@
     <string name="revanced_change_start_page_entry_all_subscriptions">Все подписки</string>
     <string name="revanced_change_start_page_entry_browse">Просмотр каналов</string>
     <string name="revanced_change_start_page_entry_courses">Курсы / Обучение</string>
+    <string name="revanced_change_start_page_entry_create">Создать</string>
     <string name="revanced_change_start_page_entry_explore">Навигатор</string>
     <string name="revanced_change_start_page_entry_fashion">Мода и&amp;Красота</string>
     <string name="revanced_change_start_page_entry_gaming">Игры</string>
     <string name="revanced_change_start_page_entry_history">История просмотров</string>
+    <string name="revanced_change_start_page_entry_home">Домашняя</string>
     <string name="revanced_change_start_page_entry_hype">Шумиха</string>
     <string name="revanced_change_start_page_entry_library">Библиотека</string>
     <string name="revanced_change_start_page_entry_liked_videos">Понравившиеся видео</string>
@@ -288,6 +294,7 @@
     <string name="revanced_change_start_page_entry_playlists">Плейлисты</string>
     <string name="revanced_change_start_page_entry_podcasts">Подкасты</string>
     <string name="revanced_change_start_page_entry_search">Поиск</string>
+    <string name="revanced_change_start_page_entry_settings">Настройки</string>
     <string name="revanced_change_start_page_entry_shopping">Покупки</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Спорт</string>
@@ -522,6 +529,7 @@
     <string name="revanced_enable_narrow_navigation_buttons_title">Узкие кнопки навигации</string>
     <string name="revanced_enable_opus_codec_summary">Включить кодек OPUS, если содержимое в плеере подходит для кодека</string>
     <string name="revanced_enable_opus_codec_title">OPUS</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Включить управление высотой звука</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Перемотка нажатием отключена</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Перемотка нажатием включена</string>
     <string name="revanced_enable_seekbar_tapping_title">Перемотка нажатием</string>
@@ -898,6 +906,8 @@ Shorts
     <string name="revanced_hide_handle_summary_off">Псевдоним отображен</string>
     <string name="revanced_hide_handle_summary_on">Псевдоним скрыт</string>
     <string name="revanced_hide_handle_title">Скрыть псевдоним</string>
+    <string name="revanced_hide_hashtag_section_summary_off">Раздел с хэш-тегами показан</string>
+    <string name="revanced_hide_hashtag_section_summary_on">Раздел с хэш-тегами скрыт</string>
     <string name="revanced_hide_hashtag_section_title">Скрыть раздел хэштегов</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Раздел \"Как был создан этот контент\" в описании видео показан</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Раздел \"Как был создан этот контент\" в описании видео скрыт</string>
@@ -1361,6 +1371,8 @@ Shorts
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Фильтр видео в подписках по просмотрам</string>
     <string name="revanced_hide_video_by_view_counts_summary">Скрывает видео с числом просмотров в пределах заданного</string>
     <string name="revanced_hide_video_by_view_counts_title">Скрыть видео по просмотрам</string>
+    <string name="revanced_hide_video_details_section_summary_off">Раздел информации о видео показан</string>
+    <string name="revanced_hide_video_details_section_summary_on">Раздел информации о видео скрыт</string>
     <string name="revanced_hide_video_details_section_title">Скрыть секцию \"Подробности видео\"</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">Метки \"Люди также смотрели\" и \"Вам также может понравиться\" в результатах поиска показаны</string>
     <string name="revanced_hide_video_recommendation_labels_title">Скрыть метки видеорекомендаций</string>
@@ -1580,7 +1592,7 @@ Shorts
     <string name="revanced_overlay_button_loop_segment_cleared_toast">Сегмент петли очищен</string>
     <string name="revanced_overlay_button_loop_segment_copy_toast">URL сегмента цикла скопирован</string>
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Сначала выберите цикл start и end</string>
-    <string name="revanced_overlay_button_loop_segment_enabled_toast">Цикл %1$ - %2$</string>
+    <string name="revanced_overlay_button_loop_segment_enabled_toast">Цикл %1$s - %2$s</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Не могу использовать текущее время воспроизведения</string>
     <string name="revanced_overlay_button_loop_segment_start_toast">Выбран старт цикла: %s</string>
     <string name="revanced_overlay_button_loop_segment_summary">«Нажмите один раз, чтобы выбрать старт, нажмите ещё раз, чтобы выбрать конец и зациклить этот сегмент, затем третий раз, чтобы очистить
@@ -1639,6 +1651,8 @@ Shorts
     <string name="revanced_patched_date_title">Дата применения патчей</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Не применён</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Применён</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">Позволяет независимо настраивать скорость и высоту звука, что может привести к появлению аудиоартефактов</string>
+    <string name="revanced_playback_audio_time_stretching_title">Растяжение времени аудио</string>
     <string name="revanced_playback_speed_normal">Обычная</string>
     <string name="revanced_preference_category_action_buttons">Кнопки действий</string>
     <string name="revanced_preference_category_additional_settings">Дополнительные настройки</string>
@@ -1783,6 +1797,7 @@ Shorts
     <string name="revanced_quick_actions_top_margin_invalid_toast">Значение должно быть в диапазоне от 0 до 32. Сброс по умолчанию</string>
     <string name="revanced_quick_actions_top_margin_summary">Установите верхний отступ панели быстрых действий (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Верхний отступ быстрых действий</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Высота звука по умолчанию изменена на: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Изменения скорости воспроизведения применяются только к текущему видео</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Изменения скорости воспроизведения применяются ко всем видео</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Запомнить скорость воспроизведения</string>

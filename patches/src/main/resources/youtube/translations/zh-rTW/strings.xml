@@ -35,7 +35,7 @@
     <string name="morphe_expand_livestream_dvr_duration_title">擴展直播 DVR 錄製時長</string>
     <string name="morphe_explore_menu_screen_summary">選擇要在探索選單中顯示哪些元件</string>
     <string name="morphe_explore_menu_screen_title">探索選單</string>
-    <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 以外的任何用戶端</string>
+    <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 和 Android VR Downgraded 以外的任何用戶端。</string>
     <string name="morphe_force_original_audio_summary_off">使用預設音訊</string>
     <string name="morphe_force_original_audio_summary_on">正在使用原始音訊語言</string>
     <string name="morphe_force_original_audio_title">強制使用原始音訊語言</string>
@@ -80,10 +80,6 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暫時不可用（API 已逾時）</string>
     <string name="morphe_oauth2_toast_invalid">VR 登入憑證無效，請再次登入 VR</string>
     <string name="morphe_oauth2_toast_reset">已登出 Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"結止者到事情或者的預務视颛變數可能不快按到要訪細的视颛哈如或者到載上
-
-限制：加載要訪細的疢子和或者到於能速常来到不可痟訪"</string>
-    <string name="morphe_override_initial_video_quality_title">要訪細初的视颛變數</string>
     <string name="morphe_override_youtube_music_buttons_summary">開啟您偏好的音樂應用程式，而非內建的 YouTube Music 應用程式</string>
     <string name="morphe_override_youtube_music_buttons_title">覆蓋 YouTube Music 按鈕</string>
     <string name="morphe_playback_in_feeds_entry_always_on">持續開啟</string>
@@ -117,6 +113,7 @@
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• 強制原始音訊不可用</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR 全景模式不可用</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• 無法使用平衡音量</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• 必須登入 Android VR</string>
     <string name="morphe_spoof_video_streams_about_title">偽裝副作用</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">視訊轉碼器為 AVC (H.264) 或 VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"視訊轉碼器為 AVC (H.264)、VP9 或 AV1
@@ -165,6 +162,10 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
 
 如果您是 YouTube Premium 使用者，則可能不需要此設定"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題。</string>
+    <string name="morphe_tablet_layout_in_player_summary">"還原舊版播放器版面
+
+限制：如果關閉「還原舊版影片動作列」，則「更多影片」疊加層可能無法使用。"</string>
+    <string name="morphe_tablet_layout_in_player_title">在播放器中啟用平板版面配置</string>
     <string name="morphe_video_quality_prioritize_dialog">如果關閉此設定，則舊影片可能不會顯示任何影片品質選項</string>
     <string name="morphe_video_quality_prioritize_summary">優先考慮可用的最高影片品質，而非編碼器效率</string>
     <string name="morphe_video_quality_prioritize_title">優先影片品質</string>
@@ -223,6 +224,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_auto_captions_style_entry_3">在取消靜音時顯示</string>
     <string name="revanced_auto_captions_style_entry_4">靜音時顯示</string>
     <string name="revanced_auto_captions_style_title">自動字幕可見度</string>
+    <string name="revanced_back_button_always_exits_feed_title">返回按鈕會結束動態消息</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">為了省電，已啟用微光效果限制</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">為了省電，已忽略微光效果限制</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">繞過微光模式限制</string>
@@ -528,6 +530,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">啟用窄間距導航按鈕</string>
     <string name="revanced_enable_opus_codec_summary">如果播放器回應包含 OPUS 編解碼器，則啟用 OPUS 編解碼器。</string>
     <string name="revanced_enable_opus_codec_title">啟用 OPUS 編解碼器</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">啟用音訊音調控制</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">進度條點擊已停用。</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">進度條點擊已啟用。</string>
     <string name="revanced_enable_seekbar_tapping_title">啟用進度條點擊</string>
@@ -1631,6 +1634,8 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_patched_date_title">修補日期</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">排除</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">包括</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">允許獨立設定速度和音調，可能會造成音訊失真</string>
+    <string name="revanced_playback_audio_time_stretching_title">音訊時間拉伸</string>
     <string name="revanced_playback_speed_normal">正常</string>
     <string name="revanced_preference_category_action_buttons">操作按鈕</string>
     <string name="revanced_preference_category_additional_settings">其他設定</string>
@@ -1775,6 +1780,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_quick_actions_top_margin_invalid_toast">快速操作上邊距必須介於 0-32 之間。 重設為預設值。</string>
     <string name="revanced_quick_actions_top_margin_summary">設定快速操作欄的頂端邊距 (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">快速操作頂端邊距</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">已將預設音訊音調變更為：%s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度變更僅適用於目前的影片</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度變更適用於所有影片</string>
     <string name="revanced_remember_playback_speed_last_selected_title">將您的手動速度選擇套用至所有未來的影片</string>

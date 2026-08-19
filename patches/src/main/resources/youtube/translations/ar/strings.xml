@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX، قم بتمكين المراسلة السحابية</string>
     <string name="gms_core_settings_title">فتح إعدادات GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG لم يتم تثبيته. قم بتثبيته</string>
+    <string name="morphe_dark_theme_title">مظهر مظلم</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">يبقي شريط التنقل ظاهرًا أثناء التمرير</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">تعطيل إخفاء شريط التنقل تلقائيًا</string>
     <string name="morphe_disable_drc_audio_summary_off">تم تمكين صوت DRC</string>
@@ -35,7 +36,7 @@
     <string name="morphe_expand_livestream_dvr_duration_title">زيادة مدة رجوع البث المباشر</string>
     <string name="morphe_explore_menu_screen_summary">اختر المكونات التي تظهر في قائمة استكشاف</string>
     <string name="morphe_explore_menu_screen_title">قائمة استكشاف</string>
-    <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\' و \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
     <string name="morphe_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
     <string name="morphe_force_original_audio_title">فرض لغة الصوت الأصلية</string>
@@ -65,6 +66,8 @@
     <string name="morphe_hide_youtube_premium_menu_title">إخفاء قائمة YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">إخفاء قائمة استديو YouTube</string>
     <string name="morphe_hide_youtube_works_menu_title">إخفاء قائمة \'كيف يعمل YouTube\'</string>
+    <string name="morphe_light_theme_custom_color_title">لون مظهر فاتح مخصص</string>
+    <string name="morphe_light_theme_title">لون مظهر فاتح</string>
     <string name="morphe_livestream_dvr_not_available">"قد لا يكون 'تمكين رجوع البث المباشر' متاحًا
 
 لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV' أو 'visionOS'"</string>
@@ -80,10 +83,6 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="morphe_oauth2_toast_invalid">رمز تسجيل الدخول إلى VR غير صالح، حاول تسجيل الدخول مرة أخرى إلى VR</string>
     <string name="morphe_oauth2_toast_reset">تم تسجيل خروج Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"يُصلح مشكلة عدم تطبيق جودة الفيديو الافتراضية فور بدء تشغيل الفيديو
-
-ملاحظة: قد لا يعمل التشغيل على بعض الأجهزة إذا تم ضبط 'Spoof Video Streams' على 'Android VR' مع تمكين 'فرض برنامج ترميز AVC (H264)'"</string>
-    <string name="morphe_override_initial_video_quality_title">تطبيق جودة الفيديو تلقائيًا عند التشغيل</string>
     <string name="morphe_override_youtube_music_buttons_summary">يفتح تطبيق الموسيقى المفضل لديك بدلًا من تطبيق YouTube Music الافتراضي</string>
     <string name="morphe_override_youtube_music_buttons_title">تغيير وظيفة أزرار YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">مفعّل دائمًا</string>
@@ -117,6 +116,7 @@
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• فرض الصوت الأصلي غير متاح</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• وضع 360° VR immersive غير متوفر</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• مستوى الصوت الثابت غير متاح</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• يلزم تسجيل الدخول إلى Android VR</string>
     <string name="morphe_spoof_video_streams_about_title">الآثار المترتبة على التمويه</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">برنامج ترميز الفيديو هو AVC (H.264) أو VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"برنامج ترميز الفيديو هو AVC (H.264)، VP9، أو AV1
@@ -165,6 +165,30 @@
 
 إذا كنت مستخدمًا لـ YouTube Premium، فقد لا يكون هذا الإعداد مطلوبًا"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">قد يؤدي إيقاف تشغيل هذا الإعداد إلى مشكلات في التشغيل</string>
+    <string name="morphe_tablet_layout_in_player_summary">"استعادة تخطيط المشغل القديم
+
+القيود: إذا تم إيقاف تشغيل 'استعادة شريط إجراءات الفيديو القديم'، فقد لا يتوفر عنصر 'المزيد من الفيديوهات'"</string>
+    <string name="morphe_tablet_layout_in_player_title">تمكين تخطيط الجهاز اللوحي في المشغل</string>
+    <string name="morphe_theme_entry_amoled_black">غامق لامع</string>
+    <string name="morphe_theme_entry_classic_youtube">غامق مطفي</string>
+    <string name="morphe_theme_entry_dark_blue">ازرق مظلم</string>
+    <string name="morphe_theme_entry_dark_green">اخضر مظلم</string>
+    <string name="morphe_theme_entry_dark_orange">برتقالي مظلم</string>
+    <string name="morphe_theme_entry_dark_pink">وردي مظلم</string>
+    <string name="morphe_theme_entry_dark_red">احمر مظلم</string>
+    <string name="morphe_theme_entry_dark_yellow">اصفر مظلم </string>
+    <string name="morphe_theme_entry_light_blue">ازرق فاتح</string>
+    <string name="morphe_theme_entry_light_green">اخضر فاتح </string>
+    <string name="morphe_theme_entry_light_orange">برتقالي فاتح </string>
+    <string name="morphe_theme_entry_light_pink">وردي فاتح </string>
+    <string name="morphe_theme_entry_light_red">احمر فاتح </string>
+    <string name="morphe_theme_entry_light_yellow">اصفر فاتح </string>
+    <string name="morphe_theme_entry_material_you_neutral">محايد مخصص</string>
+    <string name="morphe_theme_entry_material_you_primary">محايد رئسي</string>
+    <string name="morphe_theme_entry_material_you_secondary">مخصص ثانوي</string>
+    <string name="morphe_theme_entry_modern_youtube">الأحدث </string>
+    <string name="morphe_theme_entry_pale_blue">ازرق خفيف </string>
+    <string name="morphe_theme_entry_pale_green">اخضر خفيف </string>
     <string name="morphe_video_quality_prioritize_dialog">إذا تم إيقاف هذا الإعداد، فقد لا تعرض الفيديوهات القديمة خيارات جودة الفيديو</string>
     <string name="morphe_video_quality_prioritize_summary">يُعطي الأولوية لأعلى جودة فيديو متاحة على حساب كفاءة الترميز</string>
     <string name="morphe_video_quality_prioritize_title">إعطاء الأولوية لجودة فيديو</string>
@@ -223,6 +247,7 @@
     <string name="revanced_auto_captions_style_entry_3">عرضها عندما يكون الصوت غير مكتوم</string>
     <string name="revanced_auto_captions_style_entry_4">عرضها عند كتم الصوت</string>
     <string name="revanced_auto_captions_style_title">إمكانية رؤية الترجمة التلقائية</string>
+    <string name="revanced_back_button_always_exits_feed_title">زر الرجوع يخرج من الخلاصة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">لم يتم تجاوز قيود وضع الإضاءة السينمائية لتوفير الطاقة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">تم تجاوز قيود وضع الإضاءة السينمائية لتوفير الطاقة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">تجاوز قيود وضع الإضاءة السينمائية</string>
@@ -290,6 +315,7 @@
     <string name="revanced_change_start_page_entry_playlists">قوائم التشغيل</string>
     <string name="revanced_change_start_page_entry_podcasts">البودكاست</string>
     <string name="revanced_change_start_page_entry_search">البحث</string>
+    <string name="revanced_change_start_page_entry_settings">الإعدادات</string>
     <string name="revanced_change_start_page_entry_shopping">التسوّق</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">رياضة</string>
@@ -527,6 +553,7 @@
     <string name="revanced_enable_narrow_navigation_buttons_title">تمكين أزرار التنقل الضيقة</string>
     <string name="revanced_enable_opus_codec_summary">يقوم بتمكين ترميز OPUS إذا كانت استجابة المشغل تتضمن برنامج ترميز OPUS</string>
     <string name="revanced_enable_opus_codec_title">تمكين ترميز OPUS</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">تمكين التحكم في طبقة الصوت</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">تم تعطيل النقر على شريط الوقت (شريط تقدم الفيديو)</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">تم تمكين النقر على شريط الوقت (شريط تقدم الفيديو)</string>
     <string name="revanced_enable_seekbar_tapping_title">تمكين النقر على شريط التقدم</string>
@@ -823,6 +850,7 @@
     <string name="revanced_hide_connect_button_summary_on">Connect button is shown</string>
     <string name="revanced_hide_connect_button_title">إخفاء زر الاتصال</string>
     <string name="revanced_hide_corrections_section_title">إخفاء قسم التصحيحات</string>
+    <string name="revanced_hide_course_progress_section_summary_on">Kannada English </string>
     <string name="revanced_hide_course_progress_section_title">إخفاء قسم تقدّم الدورة التدريبية</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">يتم عرض رف متجر المنشئ أسفل مشغل الفيديو</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">تم إخفاء رف متجر المنشئ أسفل مشغل الفيديو</string>
@@ -1173,6 +1201,7 @@
     <string name="revanced_hide_rewards_button_summary_off">يتم عرض زر المكافآت</string>
     <string name="revanced_hide_rewards_button_summary_on">تم إخفاء زر المكافآت</string>
     <string name="revanced_hide_rewards_button_title">إخفاء زر المكافآت</string>
+    <string name="revanced_hide_search_bar_back_button_title">KANNADA English </string>
     <string name="revanced_hide_search_inside_this_video_section_title">إخفاء قسم \'البحث داخل هذا الفيديو\'</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">يتم عرض المصغرات في سجل مصطلحات البحث</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">تم إخفاء المصغرات في سجل مصطلحات البحث</string>
@@ -1574,6 +1603,7 @@
 
 يتم حفظ نتائج التلخيص والتفريغ ما لم تقم بإغلاق التطبيق أو استخدام Gemini على فيديو آخر. اضغط على الزر مرة أخرى لعرض النتائج"</string>
     <string name="revanced_overlay_button_gemini_summarize_title">إظهار زر Gemini</string>
+    <string name="revanced_overlay_button_loop_segment_copy_toast">Mrluffy2k1@gmail.com</string>
     <string name="revanced_overlay_button_loop_segment_title">إظهار زر تكرار المقطع</string>
     <string name="revanced_overlay_button_mute_volume_summary">انقر لكتم صوت الفيديو الحالي. انقر مرة أخرى لإلغاء الكتم</string>
     <string name="revanced_overlay_button_mute_volume_title">عرض زر كتم الصوت</string>
@@ -1623,6 +1653,8 @@
     <string name="revanced_patched_date_title">تاريخ التعديل</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">مستبعد</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">مضمن</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">يتيح ضبط السرعة وطبقة الصوت بشكل مستقل، وقد يسبب تشوهات في الصوت</string>
+    <string name="revanced_playback_audio_time_stretching_title">تمديد زمن الصوت</string>
     <string name="revanced_playback_speed_normal">عادي</string>
     <string name="revanced_preference_category_action_buttons">أزرار الإجراء</string>
     <string name="revanced_preference_category_additional_settings">إعدادات إضافية</string>
@@ -1751,6 +1783,7 @@
     <string name="revanced_quick_actions_top_margin_invalid_toast">يجب أن يكون الهامش العلوي للإجراءات السريعة بين 0-32</string>
     <string name="revanced_quick_actions_top_margin_summary">ضبط إزاحة شريط الإجراءات السريعة للأعلى (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">إزاحة الإجراءات السريعة للأعلى</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">تم تغيير طبقة الصوت الافتراضية إلى: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">تطبيق تغييرات سرعة التشغيل فقط على الفيديو الحالي</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">تطبيق تغييرات سرعة التشغيل على جميع الفيديوهات</string>
     <string name="revanced_remember_playback_speed_last_selected_title">تذكر سرعة التشغيل</string>

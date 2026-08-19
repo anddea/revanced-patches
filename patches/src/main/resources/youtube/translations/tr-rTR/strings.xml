@@ -35,7 +35,7 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini açın ve 'V
     <string name="morphe_expand_livestream_dvr_duration_title">Canlı yayın DVR süresini uzat</string>
     <string name="morphe_explore_menu_screen_summary">Keşfet menüsünde hangi bileşenlerin görüneceğini seçin</string>
     <string name="morphe_explore_menu_screen_title">Menüyü keşfet</string>
-    <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için \'Video akışlarını taklit et\' ayarını Android Studio dışındaki herhangi bir istemciye değiştirin\'</string>
+    <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için, \'Video akışlarını taklit et\' ayarını \'Android Studio\' ve \'Android VR Downgraded\' dışındaki herhangi bir istemciye değiştirin</string>
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
     <string name="morphe_force_original_audio_title">Orijinal ses dilini zorla</string>
@@ -80,10 +80,6 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini açın ve 'V
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="morphe_oauth2_toast_invalid">Geçersiz VR oturum açma belirteci, VR\'da tekrar oturum açmayı deneyin</string>
     <string name="morphe_oauth2_toast_reset">Android VR oturumu kapatıldı</string>
-    <string name="morphe_override_initial_video_quality_summary">"Video başladığında varsayılan video kalitesinin hemen uygulanmaması sorununu giderir
-
-Sınırlama: 'Video akışlarını taklit et' 'Android VR' olarak ayarlanmışsa ve 'AVC (H.264) kodekini zorla' etkinleştirilmişse bazı cihazlarda oynatma çalışmayabilir"</string>
-    <string name="morphe_override_initial_video_quality_title">İlk video kalitesini geçersiz kıl</string>
     <string name="morphe_override_youtube_music_buttons_summary">Tercih ettiğiniz müzik uygulamasını, yerleşik YouTube Music uygulaması yerine açar</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music düğmelerini değiştir</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Her zaman açık</string>
@@ -117,6 +113,7 @@ Sınırlama: 'Video akışlarını taklit et' 'Android VR' olarak ayarlanmışsa
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Orijinal sesi zorlama mevcut değil</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersif modu mevcut değil</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Sabit ses mevcut değil</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Android VR\'da oturum açılması gereklidir</string>
     <string name="morphe_spoof_video_streams_about_title">Taklit yan etkileri</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Video kodeği AVC (H.264) veya VP9\'dur</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Video kodeği AVC (H.264), VP9 veya AV1'dir
@@ -165,6 +162,10 @@ Oynatma çalışmayabilir"</string>
 
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak oynatma sorunlarına yol açabilir</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Eski oynatıcı düzenini geri yükler
+
+Sınırlamalar: 'Eski video eylem çubuğunu geri yükle' kapatılırsa, 'Daha fazla video' katmanı kullanılamayabilir"</string>
+    <string name="morphe_tablet_layout_in_player_title">Oynatıcıda tablet düzenini etkinleştir</string>
     <string name="morphe_video_quality_prioritize_dialog">Bu ayar devre dışı bırakılırsa, eski videolar için video kalitesi seçenekleri görüntülenmeyebilir</string>
     <string name="morphe_video_quality_prioritize_summary">Kodek verimliliğinden ziyade en yüksek video kalitesine öncelik verir</string>
     <string name="morphe_video_quality_prioritize_title">Video kalitesine öncelik ver</string>
@@ -220,6 +221,7 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun"</string>
     <string name="revanced_auto_captions_style_entry_3">Ses kapatılmadığında göster</string>
     <string name="revanced_auto_captions_style_entry_4">Ses kapatıldığında göster</string>
     <string name="revanced_auto_captions_style_title">Otomatik altyazı görünürlüğü</string>
+    <string name="revanced_back_button_always_exits_feed_title">Geri düğmesi akıştan çıkar</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Güç tasarrufu Ambiyans modu kısıtlamaları atlanmıyor</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Güç tasarrufu Ambiyans modu kısıtlamaları atlanıyor</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ambiyans modu kısıtlamalarını atla</string>
@@ -517,6 +519,7 @@ Kısıtlamalar:
     <string name="revanced_enable_narrow_navigation_buttons_title">Dar gezinme düğmelerini etkinleştir</string>
     <string name="revanced_enable_opus_codec_summary">Oynatıcı yanıtı OPUS codec bileşenini içeriyorsa OPUS codec bileşenini etkinleştirin</string>
     <string name="revanced_enable_opus_codec_title">OPUS kodek bileşenini etkinleştir</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Ses perdesi kontrollerini etkinleştir</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Zaman çubuğuna dokunma kapalı</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Zaman çubuğuna dokunma etkin</string>
     <string name="revanced_enable_seekbar_tapping_title">Zaman çubuğuna dokunmayı etkinleştir</string>
@@ -1612,6 +1615,8 @@ Yerel oynatma listesi indirme düğmesini göstermek için \'Uygulama sürümün
     <string name="revanced_patched_date_title">Yamalanma tarihi</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Hariç tutulan</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Dahil</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">Hızın ve perdenin birbirinden bağımsız olarak ayarlanmasına izin verir, ses bozulmalarına neden olabilir</string>
+    <string name="revanced_playback_audio_time_stretching_title">Ses zaman genişletme</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Eylem düğmeleri</string>
     <string name="revanced_preference_category_additional_settings">Ek ayarlar</string>
@@ -1756,6 +1761,7 @@ Açıklama
     <string name="revanced_quick_actions_top_margin_invalid_toast">Hızlı eylemler üst kenar boşluğu 0-32 arasında olmalıdır. Varsayılan değerlere sıfırlayın</string>
     <string name="revanced_quick_actions_top_margin_summary">Hızlı eylemler çubuğunun üst boşluğunu ayarlayın (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Hızlı eylemler üst boşluğu</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Varsayılan ses perdesi %s olarak ayarlandı</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Oynatma hızı değişiklikleri yalnızca mevcut videoya uygulanır</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Oynatma hızı değişiklikleri tüm videolara uygulanır</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Oynatma hızını hatırla</string>
