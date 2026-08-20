@@ -200,6 +200,12 @@ public class ExtendedUtils extends PackageUtils {
 
     public static void showBottomSheetDialog(Context mContext, LinearLayout mainLayout,
                                              @Nullable Map<LinearLayout, Runnable> actionsMap) {
+        showBottomSheetDialog(mContext, mainLayout, actionsMap, null);
+    }
+
+    public static void showBottomSheetDialog(Context mContext, LinearLayout mainLayout,
+                                             @Nullable Map<LinearLayout, Runnable> actionsMap,
+                                             @Nullable android.content.DialogInterface.OnDismissListener onDismissListener) {
         // Create a dialog without a theme for custom appearance.
         Dialog dialog = new Dialog(mContext);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
@@ -297,6 +303,9 @@ public class ExtendedUtils extends PackageUtils {
         dialog.setOnDismissListener(d -> {
             PlayerType.getOnChange().removeObserver(playerTypeObserver);
             Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
+            if (onDismissListener != null) {
+                onDismissListener.onDismiss(d);
+            }
         });
 
         dialog.show(); // Display the dialog.

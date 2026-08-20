@@ -6,6 +6,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.morphe.patches.shared.drc.drcAudioPatch
@@ -37,6 +38,8 @@ import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.quality.prioritizeVideoQualityPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
+import app.morphe.util.ResourceGroup
+import app.morphe.util.copyResources
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.updatePatchStatus
@@ -63,6 +66,21 @@ private const val EXTENSION_SPOOF_DEVICE_DIMENSIONS_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/SpoofDeviceDimensionsPatch;"
 private const val EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/VideoQualityPatch;"
+
+private val customPlaybackSpeedResourcePatch = resourcePatch {
+    execute {
+        copyResources(
+            "youtube/speed",
+            ResourceGroup(
+                "drawable",
+                "morphe_ic_music_note.xml",
+                "morphe_ic_slow_motion_video.xml",
+                "morphe_ic_sync.xml",
+                "morphe_ic_sync_off.xml",
+            )
+        )
+    }
+}
 
 @Suppress("unused")
 val videoPlaybackPatch = bytecodePatch(
@@ -92,6 +110,7 @@ val videoPlaybackPatch = bytecodePatch(
         videoInformationPatch,
         sharedResourceIdPatch,
         prioritizeVideoQualityPatch,
+        customPlaybackSpeedResourcePatch,
     )
 
     execute {

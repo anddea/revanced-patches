@@ -359,6 +359,7 @@ Limitation: Back button on the toolbar may not work"</string>
     <string name="revanced_debug_toast_on_error_title">Show toast on RVX error</string>
     <string name="revanced_default_app_settings_summary">To open YouTube links in RVX, enable Open supported links and enable all the Supported web addresses</string>
     <string name="revanced_default_app_settings_title">Open default app settings</string>
+    <string name="revanced_default_playback_audio_pitch_title">Default playback audio pitch</string>
     <string name="revanced_default_playback_speed_shorts_title">Default playback speed on Shorts</string>
     <string name="revanced_default_playback_speed_title">Default playback speed</string>
     <string name="revanced_default_video_quality_mobile_shorts_title">Default Shorts quality on mobile network</string>
@@ -513,6 +514,9 @@ Limitations:
     <string name="revanced_enable_custom_playback_speed_summary_off">Custom playback speed is disabled</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">Custom playback speed is enabled</string>
     <string name="revanced_enable_custom_playback_speed_title">Enable custom playback speed</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">Audio pitch controls disabled</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">Audio pitch controls enabled</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Enable audio pitch controls</string>
     <string name="revanced_enable_custom_seekbar_color_summary_off">Custom seekbar color is disabled</string>
     <string name="revanced_enable_custom_seekbar_color_summary_on">Custom seekbar color is enabled</string>
     <string name="revanced_enable_custom_seekbar_color_title">Enable custom seekbar color</string>
@@ -1668,6 +1672,12 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_patched_date_title">Patched date</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Excluded</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Included</font></string>
+    <string name="revanced_playback_audio_pitch_sync">Sync</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_off">Audio pitch is independent of playback speed</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_on">Audio pitch is synced with playback speed</string>
+    <string name="revanced_playback_audio_pitch_title">Audio pitch</string>
+    <string name="revanced_playback_audio_time_stretching_summary">Allows setting speed and pitch independently, may cause audio artifacts</string>
+    <string name="revanced_playback_audio_time_stretching_title">Audio time stretching</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Action buttons</string>
     <string name="revanced_preference_category_additional_settings">Additional settings</string>
@@ -1827,6 +1837,7 @@ Info:
     <string name="revanced_remember_playback_speed_shorts_last_selected_title">Remember playback speed changes on Shorts</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">A toast will not be shown when changing the default playback speed on Shorts</string>
     <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">A toast will be shown when changing the default playback speed on Shorts</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Changed default audio pitch to: %s</string>
     <string name="revanced_remember_playback_speed_toast">Changed default playback speed to: %s</string>
     <string name="revanced_remember_playback_speed_toast_shorts">Changed default Shorts playback speed to: %s</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video</string>

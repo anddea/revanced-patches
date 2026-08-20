@@ -1,3 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.video.information
 
 import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
@@ -522,4 +533,33 @@ internal val videoQualityArrayFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/util/List;", "L"),
     opcodes = listOf(Opcode.RETURN_OBJECT)
+)
+
+/**
+ * Matches method {androidx.media3.exoplayer.ExoPlayerImpl.setPlaybackParameters(PlaybackParameters p1)}
+ *
+ * @param playbackParametersType The PlaybackParameters type, obtained from [PlaybackParametersToStringFingerprint].
+ */
+internal fun getPlaybackParametersSetterFingerprint(playbackParametersType: String) = object : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf(playbackParametersType),
+    custom = { methodDef, classDef ->
+        methodDef.implementation != null
+            && classDef.interfaces.contains("Landroidx/media3/exoplayer/ExoPlayer;")
+    }
+) {}
+
+/**
+ * Matches method {androidx.media3.common.PlaybackParameters}.toString()
+ */
+internal object PlaybackParametersToStringFingerprint : Fingerprint(
+    name = "toString",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Ljava/lang/String;",
+    parameters = listOf(),
+    filters = listOf(
+        fieldAccess(definingClass = "this", opcode = Opcode.IGET, type = "F"),
+        string("PlaybackParameters(speed=%.2f, pitch=%.2f)")
+    )
 )

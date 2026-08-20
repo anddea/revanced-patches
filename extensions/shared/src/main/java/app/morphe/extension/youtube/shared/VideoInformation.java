@@ -1,5 +1,5 @@
 /*
- * Copyright (C) anddea
+ * Copyright (C) 2026 anddea
  *
  * This file is part of the revanced-patches project:
  * https://github.com/anddea/revanced-patches
@@ -12,7 +12,7 @@
  * Licensed under the GNU General Public License v3.0.
  *
  * ------------------------------------------------------------------------
- * GPLv3 Section 7(b) – Attribution Notice
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
  * ------------------------------------------------------------------------
  *
  * This file contains substantial original work by the author(s) listed above.
@@ -20,24 +20,35 @@
  * In accordance with Section 7 of the GNU General Public License v3.0,
  * the following additional terms apply to this file:
  *
- * 1. Attribution (Section 7(b)): This specific copyright notice and the
- *    list of original authors above must be preserved in any copy or
- *    derivative work. You may add your own copyright notice below it,
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
  *    but you may not remove the original one.
  *
- * 2. Origin (Section 7(c)): Modified versions must be clearly marked as
- *    such (e.g., by adding a "Modified by" line or a new copyright notice).
- *    They must not be misrepresented as the original work.
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
  *
- * ------------------------------------------------------------------------
- * Version Control Acknowledgement (Non-binding Request)
- * ------------------------------------------------------------------------
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
  *
- * While not a legal requirement of the GPLv3, the original author(s)
- * respectfully request that ports or substantial modifications retain
- * historical authorship credit in version control systems (e.g., Git),
- * listing original author(s) appropriately and modifiers as committers
- * or co-authors.
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
  */
 
 package app.morphe.extension.youtube.shared;
@@ -47,18 +58,29 @@ import static app.morphe.extension.shared.utils.Utils.getFormattedTimeStamp;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.Consumer;
 
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.utils.AlwaysRepeatPatch;
+import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
+import app.morphe.extension.youtube.patches.video.PlaybackSpeedPatch;
+import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.utils.VideoUtils;
 
 /**
  * Hooking class for the current playing video.
  */
 @SuppressWarnings("all")
 public final class VideoInformation {
+    public interface ExoPlayerImpl {
+        void patch_setPlaybackParameters(float speed, float pitch);
+    }
+
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
     /**
      * Prefix present in all Short player parameters signature.
@@ -145,7 +167,18 @@ public final class VideoInformation {
      */
     private static float playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
 
+    public static final float DEFAULT_PLAYBACK_AUDIO_PITCH = 1.0f;
+    public static final float PLAYBACK_AUDIO_PITCH_MAXIMUM = 8.0f;
+
+    private static float playbackAudioPitch = DEFAULT_PLAYBACK_AUDIO_PITCH;
+    private static String playbackAudioPitchFormattedString = "1.0x (0.0st)";
+
     private static final List<Runnable> playbackSpeedChangeListeners = new CopyOnWriteArrayList<>();
+    private static final List<Consumer<Float>> playbackAudioPitchChangeListeners = new CopyOnWriteArrayList<>();
+    private static WeakReference<ExoPlayerImpl> exoPlayerImplRef = new WeakReference<>(null);
+
+    private static final double LOG_2 = Math.log(2.0);
+    private static final double SEMITONES_PER_OCTAVE = 12.0;
 
     /**
      * Add a listener that is run when playback speed changes (setPlaybackSpeed or overridePlaybackSpeed).
@@ -155,6 +188,30 @@ public final class VideoInformation {
         if (listener != null) playbackSpeedChangeListeners.add(listener);
     }
 
+    public static void removeOnPlaybackSpeedChangeListener(Runnable listener) {
+        if (listener != null) playbackSpeedChangeListeners.remove(listener);
+    }
+
+    public static void addOnPlaybackAudioPitchChangeListener(Consumer<Float> listener) {
+        if (listener != null) playbackAudioPitchChangeListeners.add(listener);
+    }
+
+    public static void removeOnPlaybackAudioPitchChangeListener(Consumer<Float> listener) {
+        if (listener != null) playbackAudioPitchChangeListeners.remove(listener);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void initializeExoPlayerImpl(ExoPlayerImpl exoPlayerImpl) {
+        try {
+            Logger.printDebug(() -> "Initializing ExoPlayerImpl: " + exoPlayerImpl);
+            exoPlayerImplRef = new WeakReference<>(exoPlayerImpl);
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to initialize ExoPlayer", ex);
+        }
+    }
+
     /**
      * Injection point.
      */
@@ -162,6 +219,7 @@ public final class VideoInformation {
         videoTime = -1;
         videoLength = 0;
         playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
+        playbackAudioPitch = DEFAULT_PLAYBACK_AUDIO_PITCH;
         Logger.printDebug(() -> "Initialized Player");
     }
 
@@ -516,6 +574,105 @@ public final class VideoInformation {
     }
 
     /**
+     * Injection point & getter.
+     * @return The current playback audio pitch.
+     */
+    public static float getPlaybackAudioPitch() {
+        if (!Settings.ENABLE_PLAYBACK_AUDIO_PITCH.get()) {
+            return 1.0f;
+        }
+        float overridePitch = PlaybackSpeedPatch.getPlaybackAudioPitchOverride();
+        if (overridePitch > 0) {
+            playbackAudioPitch = overridePitch;
+            playbackAudioPitchFormattedString = formatAudioPitchStringX(playbackAudioPitch);
+        }
+        return playbackAudioPitch;
+    }
+
+    /**
+     * @param pitch The playback audio pitch value to format.
+     * @return pitch formatted as "X.XXx (Nst)" with signed one-decimal semitone offset.
+     */
+    public static String formatAudioPitchStringX(float pitch) {
+        if (!(pitch > 0f)) {
+            throw new IllegalArgumentException("pitch must be a positive non infinite value: " + pitch);
+        }
+
+        final double semitones = SEMITONES_PER_OCTAVE * (Math.log(pitch) / LOG_2);
+        String formattedSemitones = String.format(Locale.US, "%.1f", semitones);
+        if (formattedSemitones.equals("-0.0")) {
+            formattedSemitones = "0.0";
+        }
+        String signedSemitones = formattedSemitones.startsWith("-") || formattedSemitones.equals("0.0")
+                ? formattedSemitones
+                : "+" + formattedSemitones;
+
+        String speed = VideoUtils.formatSpeedStringX(pitch, 2);
+        return Utils.isRightToLeftLocale()
+                ? String.format(Locale.US, "(%sst) %s", signedSemitones, speed)
+                : String.format(Locale.US, "%s (%sst)", speed, signedSemitones);
+    }
+
+    /**
+     * Records a new playback audio pitch, updates the formatted string, and fires listeners.
+     *
+     * @return true if the pitch actually changed.
+     */
+    public static boolean updatePlaybackAudioPitchValue(float pitch) {
+        if (!Settings.ENABLE_PLAYBACK_AUDIO_PITCH.get()) {
+            pitch = 1.0f;
+        }
+        if (playbackAudioPitch == pitch) {
+            return false;
+        }
+
+        playbackAudioPitch = pitch;
+        Logger.printDebug(() -> "Audio pitch updated: " + playbackAudioPitch);
+        playbackAudioPitchFormattedString = formatAudioPitchStringX(pitch);
+        for (Consumer<Float> listener : playbackAudioPitchChangeListeners) {
+            try { listener.accept(pitch); } catch (Exception e) { Logger.printException(() -> "Playback audio pitch listener", e); }
+        }
+        PlaybackSpeedPatch.userSelectedPlaybackAudioPitch(pitch);
+        if (!Settings.PLAYBACK_AUDIO_TIME_STRETCHING.get()) {
+            if (playbackSpeed != pitch) {
+                setPlaybackSpeed(pitch);
+            }
+        }
+        setPlaybackParameters(playbackSpeed, playbackAudioPitch);
+        return true;
+    }
+
+    public static void setAudioPitch(float currentAudioPitch) {
+        Logger.printDebug(() -> "Audio pitch set to: " + currentAudioPitch);
+        updatePlaybackAudioPitchValue(currentAudioPitch);
+    }
+
+    /**
+     * Forcefully changes the playback parameters (speed and pitch) of the current ExoPlayerImpl instance.
+     * Avoid using this for just video speed changes, YT won't update in other places.
+     */
+    public static void setPlaybackParameters(float speed, float pitch) {
+        Utils.verifyOnMainThread();
+
+        if (speed <= 0 || speed > CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM) {
+            Logger.printException(() -> "Invalid playback speed: " + speed);
+            return;
+        }
+        if (pitch <= 0 || pitch > PLAYBACK_AUDIO_PITCH_MAXIMUM) {
+            Logger.printException(() -> "Invalid playback pitch: " + pitch);
+            return;
+        }
+
+        ExoPlayerImpl exoPlayerImpl = exoPlayerImplRef.get();
+        if (exoPlayerImpl != null) {
+            exoPlayerImpl.patch_setPlaybackParameters(speed, pitch);
+            Logger.printDebug(() -> "Video playbackParameters changed, speed: " + speed + " pitch: " + pitch);
+        } else {
+            Logger.printDebug(() -> "Cannot change playback parameters, exoPlayerImpl is null");
+        }
+    }
+
+    /**
      * Tries to read the current playback speed from the app's player (playbackSpeedClass / timeUpdateReceiver).
      * Used by VOT to sync translation speed when the user changes speed via any UI (not only the menu we hook).
      *
@@ -601,6 +758,11 @@ public final class VideoInformation {
         if (playbackSpeed != newlyLoadedPlaybackSpeed) {
             Logger.printDebug(() -> "Video speed changed: " + newlyLoadedPlaybackSpeed);
             playbackSpeed = newlyLoadedPlaybackSpeed;
+            if (!Settings.PLAYBACK_AUDIO_TIME_STRETCHING.get()) {
+                if (playbackAudioPitch != newlyLoadedPlaybackSpeed) {
+                    updatePlaybackAudioPitchValue(newlyLoadedPlaybackSpeed);
+                }
+            }
             for (Runnable r : playbackSpeedChangeListeners) {
                 try { r.run(); } catch (Exception e) { Logger.printException(() -> "Playback speed listener", e); }
             }
@@ -680,6 +842,11 @@ public final class VideoInformation {
         Logger.printDebug(() -> "Overriding playback speed to: " + speedOverride);
         if (playbackSpeed != speedOverride) {
             playbackSpeed = speedOverride;
+            if (!Settings.PLAYBACK_AUDIO_TIME_STRETCHING.get()) {
+                if (playbackAudioPitch != speedOverride) {
+                    updatePlaybackAudioPitchValue(speedOverride);
+                }
+            }
             for (Runnable r : playbackSpeedChangeListeners) {
                 try { r.run(); } catch (Exception e) { Logger.printException(() -> "Playback speed listener", e); }
             }
