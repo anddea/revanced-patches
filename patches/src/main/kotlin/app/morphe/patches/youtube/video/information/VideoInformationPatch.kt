@@ -1,3 +1,56 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ * - Jav1x (https://github.com/Jav1x)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.video.information
 
 import app.morphe.patcher.Fingerprint
@@ -6,6 +59,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
+import app.morphe.patcher.methodCall as patcherMethodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
@@ -69,6 +123,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SHARED_PATH/VideoInformation;"
+
+internal const val EXTENSION_EXOPLAYERIMPL_INTERFACE =
+    $$"$$SHARED_PATH/VideoInformation$ExoPlayerImpl;"
 
 private const val EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR =
     "$VIDEO_PATH/VideoQualityPatch;"
@@ -606,6 +663,94 @@ val videoInformationPatch = bytecodePatch(
 
             hookBackgroundPlayVideoInformation("$EXTENSION_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
         }
+
+        // region ExoPlayerImpl.
+
+        val playbackParametersType = PlaybackParametersToStringFingerprint.classDef.type
+        val setPlaybackParametersFingerprint = getPlaybackParametersSetterFingerprint(playbackParametersType)
+
+        // for patch_setPlaybackParameters helper method to call setPlaybackParameters(PlaybackParameters p1).
+        val setPlaybackParametersMethod = setPlaybackParametersFingerprint.method
+
+        // A reference to the setPlaybackParameters implementation, to call from the helper method.
+        val setPlaybackParametersReference = "${setPlaybackParametersMethod.definingClass}->${setPlaybackParametersMethod.name}($playbackParametersType)V"
+
+        // for {androidx.media3.common.PlaybackParameters.speed} field.
+        // The toString() method reads the speed field before the pitch field.
+        val playbackParametersSpeedField = PlaybackParametersToStringFingerprint
+            .instructionMatches.first().getInstruction<ReferenceInstruction>().getReference<FieldReference>()!!
+
+        // The PlaybackParameters type and primary constructor with 2 arguments (speed, pitch).
+        val playbackParametersConstructorReference = "$playbackParametersType-><init>(FF)V"
+
+        // Pitch is obtained from this Extension and force set.
+        // Need to construct new PlaybackParameters instance as it has final fields.
+        setPlaybackParametersMethod.addInstructions(
+            0,
+            """
+                iget v0, p1, $playbackParametersSpeedField
+                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->getPlaybackAudioPitch()F
+                move-result v1
+                new-instance p1, $playbackParametersType
+                invoke-direct {p1, v0, v1}, $playbackParametersConstructorReference
+            """
+        )
+
+        // Capture the ExoPlayerImpl reference at its init constructor (only 1 yet)
+        // Extension is initialized (Application.onCreate) before starting to play any video.
+        // This is required for patch_setPlaybackParameters function.
+        Fingerprint(
+            classFingerprint = setPlaybackParametersFingerprint,
+            name = "<init>",
+            filters = listOf(
+                patcherMethodCall(
+                    opcode = Opcode.INVOKE_DIRECT,
+                    name = "<init>"
+                )
+            )
+        ).matchAll().forEach {
+            val firstInstructionMatch = it.instructionMatches.first()
+            val register = firstInstructionMatch.getInstruction<FiveRegisterInstruction>().registerC
+            it.method.addInstruction(
+                firstInstructionMatch.index + 1,
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "initializeExoPlayerImpl($EXTENSION_EXOPLAYERIMPL_INTERFACE)V"
+            )
+        }
+
+        setPlaybackParametersFingerprint.classDef.apply {
+            // Add interface and helper method to allow extension code
+            // to directly set the ExoPlayer playback parameters.
+            interfaces.add(EXTENSION_EXOPLAYERIMPL_INTERFACE)
+
+            methods.add(
+                ImmutableMethod(
+                    type,
+                    "patch_setPlaybackParameters",
+                    listOf(
+                        ImmutableMethodParameter("F", null, null),
+                        ImmutableMethodParameter("F", null, null)
+                    ),
+                    "V",
+                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(4),
+                ).toMutable().apply {
+                    addInstructions(
+                        0,
+                        """
+                            new-instance v0, $playbackParametersType
+                            invoke-direct { v0, p1, p2 }, $playbackParametersConstructorReference
+                            invoke-virtual { p0, v0 }, $setPlaybackParametersReference
+                            return-void
+                        """
+                    )
+                }
+            )
+        }
+
+        // endregion.
 
         /**
          * Hook current video quality

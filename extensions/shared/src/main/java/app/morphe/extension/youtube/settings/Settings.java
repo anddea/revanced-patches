@@ -834,12 +834,15 @@ public class Settings extends SharedYouTubeSettings {
 
     // PreferenceScreen: Video - Playback speed
     public static final FloatSetting DEFAULT_PLAYBACK_SPEED = new FloatSetting("revanced_default_playback_speed", -2.0f);
+    public static final FloatSetting DEFAULT_PLAYBACK_AUDIO_PITCH = new FloatSetting("revanced_default_playback_audio_pitch", -2.0f);
     public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_LAST_SELECTED = new BooleanSetting("revanced_remember_playback_speed_last_selected", TRUE);
     public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST = new BooleanSetting("revanced_remember_playback_speed_last_selected_toast", TRUE, parent(REMEMBER_PLAYBACK_SPEED_LAST_SELECTED));
     public static final FloatSetting DEFAULT_PLAYBACK_SPEED_SHORTS = new FloatSetting("revanced_default_playback_speed_shorts", -2.0f);
     public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_SHORTS_LAST_SELECTED = new BooleanSetting("revanced_remember_playback_speed_shorts_last_selected", TRUE);
     public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_SHORTS_LAST_SELECTED_TOAST = new BooleanSetting("revanced_remember_playback_speed_shorts_last_selected_toast", TRUE, parent(REMEMBER_PLAYBACK_SPEED_SHORTS_LAST_SELECTED));
     public static final BooleanSetting ENABLE_CUSTOM_PLAYBACK_SPEED = new BooleanSetting("revanced_enable_custom_playback_speed", TRUE, true);
+    public static final BooleanSetting ENABLE_PLAYBACK_AUDIO_PITCH = new BooleanSetting("revanced_enable_playback_audio_pitch_controls", FALSE, parent(ENABLE_CUSTOM_PLAYBACK_SPEED));
+    public static final BooleanSetting PLAYBACK_AUDIO_TIME_STRETCHING = new BooleanSetting("revanced_playback_audio_time_stretching", TRUE, parentsAll(ENABLE_CUSTOM_PLAYBACK_SPEED, ENABLE_PLAYBACK_AUDIO_PITCH));
     public static final EnumSetting<PlaybackSpeedMenuType> CUSTOM_PLAYBACK_SPEED_MENU_TYPE = new EnumSetting<>("revanced_custom_playback_speed_menu_type", PlaybackSpeedMenuType.CUSTOM_MODERN, parent(ENABLE_CUSTOM_PLAYBACK_SPEED));
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds", "0.25\n0.5\n0.75\n1.0\n1.25\n1.5\n1.75\n2.0\n2.25\n2.5", true, parent(ENABLE_CUSTOM_PLAYBACK_SPEED));
 
