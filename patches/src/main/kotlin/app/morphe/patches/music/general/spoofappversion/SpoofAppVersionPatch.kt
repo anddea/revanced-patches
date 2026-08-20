@@ -41,6 +41,7 @@
 
 package app.morphe.patches.music.general.spoofappversion
 
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
@@ -48,91 +49,116 @@ import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPT
 import app.morphe.patches.music.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.extension.sharedExtensionPatch
 import app.morphe.patches.music.utils.patch.PatchList.SPOOF_APP_VERSION
-import app.morphe.patches.music.utils.playservice.is_6_36_or_greater
 import app.morphe.patches.music.utils.playservice.is_6_43_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
+import app.morphe.patches.music.utils.playservice.is_8_03_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addListPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
-import app.morphe.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
-import app.morphe.patches.shared.spoof.watchnext.spoofAppVersionWatchNextPatch
+import app.morphe.patches.shared.clientTypeFingerprint
+import app.morphe.patches.shared.spoof.browse.addClientInfoHook
+import app.morphe.patches.shared.spoof.browse.spoofClientBrowseEndpointPatch
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.appendAppVersion
 import app.morphe.util.findMethodOrThrow
+import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.returnEarly
-
-private val spoofAppVersionWatchNextPatch = spoofAppVersionWatchNextPatch(
-    block = {
-        dependsOn(
-            sharedExtensionPatch,
-            versionCheckPatch
-        )
-    },
-    patchRequired = {
-        is_7_25_or_greater
-    },
-    availabilityDescriptor = "$GENERAL_CLASS_DESCRIPTOR->spoofWatchNextEndpointAppVersionEnabled()Z",
-    appVersionDescriptor = "$GENERAL_CLASS_DESCRIPTOR->getWatchNextEndpointVersionOverride()Ljava/lang/String;"
-)
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private val spoofAppVersionBytecodePatch = bytecodePatch(
     description = "spoofAppVersionBytecodePatch"
 ) {
     dependsOn(
-        baseSpoofAppVersionPatch("$GENERAL_CLASS_DESCRIPTOR->getVersionOverride(Ljava/lang/String;)Ljava/lang/String;"),
+        sharedExtensionPatch,
+        spoofClientBrowseEndpointPatch,
         versionCheckPatch,
     )
 
     execute {
-        if (!is_6_36_or_greater) {
+        if (is_8_03_or_greater) {
             return@execute
         }
 
-        val defaultVersionString = if (is_7_25_or_greater)
-            "6.42.55" else "6.35.52"
+        val clientVersionFieldReference = clientTypeFingerprint.matchOrThrow().let {
+            with(it.method) {
+                val dummyClientVersionIndex = it.stringMatches.first().index
+                val dummyClientVersionRegister =
+                    getInstruction<OneRegisterInstruction>(dummyClientVersionIndex).registerA
+                val clientVersionIndex =
+                    indexOfFirstInstructionOrThrow(dummyClientVersionIndex) {
+                        opcode == Opcode.IPUT_OBJECT &&
+                                getReference<FieldReference>()?.type == "Ljava/lang/String;" &&
+                                (this as TwoRegisterInstruction).registerA == dummyClientVersionRegister
+                    }
+
+                getInstruction<ReferenceInstruction>(clientVersionIndex).reference as FieldReference
+            }
+        }
+
+        addClientInfoHook(
+            helperMethodName = "patch_setBrowseAppVersion",
+            smaliInstructions = """
+                invoke-static {v3}, $GENERAL_CLASS_DESCRIPTOR->getBrowseVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                move-result-object v2
+                if-eqz v2, :skip_browse_spoof
+                iput-object v2, v1, $clientVersionFieldReference
+                :skip_browse_spoof
+                """,
+            insertLast = false
+        )
+
+        val defaultVersionString = "8.05.50"
 
         findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
             name == "SpoofAppVersionDefaultString"
         }.returnEarly(defaultVersionString)
+
+        findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
+            name == "SpoofAppVersionDefaultBoolean"
+        }.returnEarly(true)
     }
 }
 
 @Suppress("unused")
 val spoofAppVersionPatch = resourcePatch(
-    // SPOOF_APP_VERSION.title,
-    // SPOOF_APP_VERSION.summary,
+    SPOOF_APP_VERSION.title,
+    SPOOF_APP_VERSION.summary,
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
         spoofAppVersionBytecodePatch,
-        spoofAppVersionWatchNextPatch,
         settingsPatch,
         versionCheckPatch,
     )
 
     execute {
-        if (!is_6_36_or_greater) {
-            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 6.36.54 or later.")
+        if (is_8_03_or_greater) {
+            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music versions up to 8.03.")
             return@execute
         }
+        appendAppVersion("8.05.50")
         if (is_7_25_or_greater) {
             appendAppVersion("7.17.52")
         }
         if (is_6_43_or_greater) {
             appendAppVersion("6.42.55")
         }
-        if (!is_7_25_or_greater) {
-            appendAppVersion("6.35.52")
-        }
+        appendAppVersion("6.35.52")
 
         addSwitchPreference(
             CategoryType.GENERAL,
             "revanced_spoof_app_version",
-            "false"
+            "true"
         )
         addListPreference(
             CategoryType.GENERAL,

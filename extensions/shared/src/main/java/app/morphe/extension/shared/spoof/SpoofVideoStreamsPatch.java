@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * Original hard forked code:
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
@@ -23,6 +27,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.AppLanguage;
@@ -59,6 +64,13 @@ public class SpoofVideoStreamsPatch {
     private static volatile Locale localeOverride = AppLanguage.DEFAULT.getLocale();
 
     private static volatile ClientType preferredClient = ClientType.VISIONOS_1_02;
+
+    /**
+     * Older YouTube Music versions use {@code get_watch} instead of a player URL
+     * containing the video id. The id is held until that request reaches the
+     * request builder, where its authentication headers are available.
+     */
+    private static final AtomicReference<String> pendingLegacyVideoId = new AtomicReference<>("");
 
     private static WeakReference<Application> mainActivityRef = new WeakReference<>(null);
 
@@ -111,12 +123,24 @@ public class SpoofVideoStreamsPatch {
         return !SPOOF_VIDEO_STREAMS || preferredClient.requireSABR;
     }
 
+    /**
+     * Injection point for legacy YouTube Music player responses.
+     */
+    public static void setPendingLegacyVideoId(@NonNull String videoId) {
+        if (SPOOF_VIDEO_STREAMS) {
+            pendingLegacyVideoId.set(videoId);
+        }
+    }
+
     public static Uri blockGetWatchRequest(Uri playerRequestUri) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
                 String path = playerRequestUri.getPath();
 
                 if (path != null && path.contains("get_watch")) {
+                    if (!TextUtils.isEmpty(pendingLegacyVideoId.get())) {
+                        return playerRequestUri;
+                    }
                     Logger.printDebug(() -> "Blocking 'get_watch' by returning internet connection check URI");
                     return INTERNET_CONNECTION_CHECK_URI;
                 }
@@ -130,9 +154,13 @@ public class SpoofVideoStreamsPatch {
     public static Uri.Builder blockGetWatchRequest(Uri.Builder playerRequestBuilder) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
-                String path = playerRequestBuilder.build().getPath();
+                Uri playerRequestUri = playerRequestBuilder.build();
+                String path = playerRequestUri.getPath();
 
                 if (path != null && path.contains("get_watch")) {
+                    if (!TextUtils.isEmpty(pendingLegacyVideoId.get())) {
+                        return playerRequestBuilder;
+                    }
                     Logger.printDebug(() -> "Blocking 'get_watch' by returning internet connection check URI");
                     return INTERNET_CONNECTION_CHECK_URI.buildUpon();
                 }
@@ -220,6 +248,15 @@ public class SpoofVideoStreamsPatch {
             try {
                 Uri uri = Uri.parse(url);
                 String path = uri.getPath();
+                if (path != null && path.contains("get_watch")) {
+                    String legacyVideoId = pendingLegacyVideoId.getAndSet("");
+                    if (!TextUtils.isEmpty(legacyVideoId)) {
+                        currentVideoRequestHeader = requestHeaders;
+                        StreamOrDetailsDataRequest.fetchStreamRequest(
+                                legacyVideoId, false, currentVideoRequestHeader);
+                    }
+                    return;
+                }
                 if (path == null || !path.contains("player")) {
                     return;
                 }
