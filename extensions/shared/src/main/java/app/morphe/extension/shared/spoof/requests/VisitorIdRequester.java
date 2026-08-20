@@ -10,7 +10,6 @@ package app.morphe.extension.shared.spoof.requests;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,7 +33,7 @@ import app.morphe.extension.shared.utils.Utils;
 public final class VisitorIdRequester {
 
     private record VisitorData(String visitorId, long fetchedTime) {
-        private static final long VISITOR_ID_EXPIRATION_MS = (long) 365 * 24 * 60 * 60 * 1000; // 1 year
+        private static final long VISITOR_ID_EXPIRATION_MS = 30L * 24 * 60 * 60 * 1000; // 30 days
 
         boolean isNotExpired() {
             return Utils.isNotEmpty(visitorId) && System.currentTimeMillis()
@@ -80,8 +79,8 @@ public final class VisitorIdRequester {
                         }
                         // Don't log visitor id and use UTC timezone to not leak device timezone.
                         Logger.printDebug(() -> (isNotExpired ? "Loaded visitorId" : "Ignoring expired")
-                                + " clientType: " + clientType
-                                + " fetchedTime: " + visitor.getFetchedTimeFormatted());
+                                .concat(" clientType: ").concat(clientType.name())
+                                .concat(" fetchedTime: ").concat(visitor.getFetchedTimeFormatted()));
                     }
                 }
             }
@@ -92,30 +91,17 @@ public final class VisitorIdRequester {
     }
 
     private static void saveVisitorId(ClientType clientType, String visitorId, boolean updatedByPlayer) {
-        Logger.printDebug(() -> "Updating visitorId for clientType: " + clientType + " updated by player: " + updatedByPlayer);
-        updateVisitorId(clientType, visitorId, true);
-    }
+        Logger.printDebug(() -> "Save visitorId for clientType: " + clientType + " updated by player: " + updatedByPlayer);
 
-    public static void removeVisitorId(ClientType clientType) {
-        Logger.printDebug(() -> "Removing visitorId for clientType: " + clientType);
-        updateVisitorId(clientType, "", false);
-    }
-
-    private static void updateVisitorId(ClientType clientType, String visitorId, boolean save) {
         synchronized (cache) {
-            if (save) {
-                cache.put(clientType, new VisitorData(visitorId, System.currentTimeMillis()));
-            } else {
-                cache.remove(clientType);
-            }
+            cache.put(clientType, new VisitorData(visitorId, System.currentTimeMillis()));
             JSONObject json = new JSONObject();
             try {
                 for (Map.Entry<ClientType, VisitorData> entry : cache.entrySet()) {
                     VisitorData visitor = entry.getValue();
-                    JSONObject data = new JSONObject()
-                            .put("visitorId", visitor.visitorId)
-                            .put("fetchedTime", visitor.fetchedTime);
-                    json.put(entry.getKey().name(), data);
+                    json.put(entry.getKey().name(), new JSONObject()
+                            .put("visitorId", visitor.visitorId())
+                            .put("fetchedTime", visitor.fetchedTime()));
                 }
                 SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_CLIENT_IDS.save(json.toString());
             } catch (JSONException ex) {
@@ -230,8 +216,7 @@ public final class VisitorIdRequester {
 
             final int responseCode = connection.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
-                // Parse but do not disconnect because connection may be reused in the near future.
-                JSONObject response = Requester.parseJSONObject(connection);
+                JSONObject response = Requester.parseJSONObjectAndDisconnect(connection);
                 return response.getJSONObject("responseContext").getString("visitorData");
             }
 
@@ -245,6 +230,8 @@ public final class VisitorIdRequester {
                     Logger.printDebug(logMessage);
                 }
             }
+
+            connection.disconnect();
         } catch (IOException ex) {
             Logger.printException(() -> "Failed to fetch visitor data", ex);
         } catch (JSONException ex) {

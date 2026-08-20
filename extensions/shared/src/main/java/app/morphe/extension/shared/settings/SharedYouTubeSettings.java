@@ -26,7 +26,6 @@ public class SharedYouTubeSettings extends BaseSettings {
             "morphe_custom_branding_apply_to_rvx_settings", FALSE, true);
 
     public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("morphe_force_original_audio", TRUE, true);
-    public static final BooleanSetting OVERRIDE_INITIAL_VIDEO_QUALITY = new BooleanSetting("morphe_override_initial_video_quality", TRUE, true);
 
     public static final BooleanSetting LIVESTREAM_DVR = new BooleanSetting("morphe_livestream_dvr", FALSE, true);
     public static final BooleanSetting EXPAND_LIVESTREAM_DVR_DURATION = new BooleanSetting("morphe_expand_livestream_dvr_duration", FALSE, true);

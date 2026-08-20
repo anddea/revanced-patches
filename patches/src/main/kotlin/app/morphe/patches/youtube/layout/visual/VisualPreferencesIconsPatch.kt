@@ -566,7 +566,6 @@ private val emptyTitles = setOf(
     "morphe_dark_theme_custom_color",
     "morphe_light_theme_custom_color",
     "morphe_music_package_name",
-    "morphe_override_initial_video_quality",
     "morphe_replace_links_with_shortener",
     "morphe_video_quality_prioritize",
     "revanced_advanced_video_quality_menu",
