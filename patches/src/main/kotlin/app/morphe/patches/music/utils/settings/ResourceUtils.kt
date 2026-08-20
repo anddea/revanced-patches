@@ -46,6 +46,7 @@ package app.morphe.patches.music.utils.settings
 import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
 import app.morphe.patches.music.utils.patch.PatchList
+import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.util.adoptChild
 import app.morphe.util.cloneNodes
 import app.morphe.util.doRecursively
@@ -437,6 +438,7 @@ internal object ResourceUtils {
         key: String,
         dependencyKey: String,
         setSummary: Boolean,
+        inputType: InputType = InputType.TEXT,
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -451,7 +453,7 @@ internal object ResourceUtils {
                             setAttribute("android:summary", "@string/${key}_summary")
                         }
                         setAttribute("android:key", key)
-                        setAttribute("android:inputType", "text")
+                        setAttribute("android:inputType", inputType.type)
                         if (dependencyKey.isNotEmpty()) {
                             setAttribute("android:dependency", dependencyKey)
                         }
