@@ -58,6 +58,7 @@ import app.morphe.patches.music.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.music.utils.patch.PatchList.GMSCORE_SUPPORT
 import app.morphe.patches.music.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.playservice.is_6_39_or_greater
+import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.patches.music.utils.playservice.is_8_40_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.ResourceUtils.addGmsCorePreference
@@ -558,10 +559,11 @@ internal fun addTextPreference(
     key: String,
     dependencyKey: String = "",
     setSummary: Boolean = true,
+    inputType: InputType = InputType.TEXT,
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
-    ResourceUtils.addTextPreference(categoryValue, key, dependencyKey, setSummary)
+    ResourceUtils.addTextPreference(categoryValue, key, dependencyKey, setSummary, inputType)
 }
 
 internal fun addLinkPreference(
