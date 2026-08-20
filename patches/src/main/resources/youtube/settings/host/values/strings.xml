@@ -35,7 +35,7 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_expand_livestream_dvr_duration_title">Expand livestream DVR duration</string>
     <string name="morphe_explore_menu_screen_summary">Choose which components appear in the explore menu</string>
     <string name="morphe_explore_menu_screen_title">Explore menu</string>
-    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\'</string>
+    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
     <string name="morphe_force_original_audio_title">Force original audio language</string>
@@ -80,10 +80,6 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
     <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"Fixes an issue where the default video quality is not applied immediately after the video starts
-
-Limitation: Playback may not work on some devices if 'Spoof video streams' is set to 'Android VR' and 'Force AVC (H.264) codec' is enabled"</string>
-    <string name="morphe_override_initial_video_quality_title">Override initial video quality</string>
     <string name="morphe_override_youtube_music_buttons_summary">Opens your preferred music app instead of the stock YouTube Music app</string>
     <string name="morphe_override_youtube_music_buttons_title">Override YouTube Music buttons</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Always on</string>
@@ -117,6 +113,7 @@ Limitation: Playback may not work on some devices if 'Spoof video streams' is se
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Force original audio is not available</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersive mode is not available</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Stable volume is not available</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Sign in to Android VR is required</string>
     <string name="morphe_spoof_video_streams_about_title">Spoofing side effects</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Video codec is AVC (H.264) or VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Video codec is AVC (H.264), VP9, or AV1

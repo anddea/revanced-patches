@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.spoof;
 
 import android.app.Activity;
@@ -5,10 +15,12 @@ import android.app.Application;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -43,8 +55,8 @@ public class SpoofVideoStreamsPatch {
 
     private static final boolean SPOOF_VIDEO_STREAMS = isPatchIncluded() && SharedYouTubeSettings.SPOOF_VIDEO_STREAMS.get();
 
-    @Nullable
-    private static volatile AppLanguage languageOverride;
+    @NonNull
+    private static volatile Locale localeOverride = AppLanguage.DEFAULT.getLocale();
 
     private static volatile ClientType preferredClient = ClientType.VISIONOS_1_02;
 
@@ -62,13 +74,18 @@ public class SpoofVideoStreamsPatch {
         return false;
     }
 
-    @Nullable
-    public static AppLanguage getLanguageOverride() {
-        return languageOverride;
+    @NonNull
+    public static Locale getLocaleOverride() {
+        return localeOverride;
     }
 
-    public static void setLanguageOverride(@Nullable AppLanguage language) {
-        languageOverride = language;
+    /**
+     * @param locale Locale override for non-authenticated requests.
+     */
+    public static void setLocaleOverride(@Nullable Locale locale) {
+        if (locale != null) {
+            localeOverride = locale;
+        }
     }
 
     public static void setClientsToUse(List<ClientType> availableClients, ClientType client) {
@@ -216,9 +233,10 @@ public class SpoofVideoStreamsPatch {
                 if (id == null) {
                     return;
                 }
+                boolean isInline = "1".equals(uri.getQueryParameter("inline"));
 
                 currentVideoRequestHeader = requestHeaders;
-                StreamOrDetailsDataRequest.fetchStreamRequest(id, currentVideoRequestHeader);
+                StreamOrDetailsDataRequest.fetchStreamRequest(id, isInline, currentVideoRequestHeader);
             } catch (Exception ex) {
                 Logger.printException(() -> "buildRequest failure", ex);
             }
@@ -273,6 +291,28 @@ public class SpoofVideoStreamsPatch {
         }
 
         return null;
+    }
+
+    /**
+     * Injection point.
+     * Called after {@link #getPlayerConfig(String)}.
+     */
+    public static boolean hasAndroidMedia(String videoId) {
+        if (SPOOF_VIDEO_STREAMS) {
+            try {
+                StreamOrDetailsDataRequest request = StreamOrDetailsDataRequest.getStreamRequestForVideoId(videoId);
+                if (request != null) {
+                    var buffers = (StreamOrDetailsDataRequest.StreamData) request.getStreamDetails();
+                    if (buffers != null) {
+                        return buffers.hasAndroidMedia();
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "hasAndroidMedia failure", ex);
+            }
+        }
+
+        return false;
     }
 
     public static StreamOrDetailsDataRequest fetchDetails(Route.CompiledRoute videoDetailsEndpoint, String videoId) {
