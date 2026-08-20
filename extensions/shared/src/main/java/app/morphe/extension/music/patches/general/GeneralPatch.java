@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import org.apache.commons.lang3.StringUtils;
 
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.music.utils.ExtendedUtils;
 import app.morphe.extension.shared.patches.CustomBrandingPatch;
 import app.morphe.extension.shared.utils.PackageUtils;
 
@@ -25,7 +26,8 @@ public class GeneralPatch {
             Settings.SPOOF_APP_VERSION_TARGET.get();
     private static final boolean SPOOF_APP_VERSION_WATCH_NEXT_ENDPOINT =
             SPOOF_APP_VERSION &&
-                    PackageUtils.isVersionToLessThan(SPOOF_APP_VERSION_TARGET, "7.17.00");
+                    (!ExtendedUtils.IS_8_00_OR_GREATER ||
+                            PackageUtils.isVersionToLessThan(SPOOF_APP_VERSION_TARGET, "7.17.00"));
     private static final boolean SPOOF_APP_VERSION_FOR_LYRICS =
             Settings.SPOOF_APP_VERSION_FOR_LYRICS.get();
     private static final String SPOOF_APP_VERSION_FOR_LYRICS_TARGET =
@@ -205,6 +207,16 @@ public class GeneralPatch {
                 : version;
     }
 
+    public static String getBrowseVersionOverride(String browseId) {
+        if (spoofLyricsAppVersionEnabled(browseId)) {
+            return SPOOF_APP_VERSION_FOR_LYRICS_TARGET;
+        }
+        if (SPOOF_APP_VERSION) {
+            return SPOOF_APP_VERSION_TARGET;
+        }
+        return null;
+    }
+
     private static boolean spoofLyricsAppVersionEnabled(String browseId) {
         return SPOOF_APP_VERSION_FOR_LYRICS &&
                 StringUtils.isNotEmpty(browseId) &&
@@ -214,7 +226,7 @@ public class GeneralPatch {
     public static String getLyricsVersionOverride(String browseId) {
         return spoofLyricsAppVersionEnabled(browseId)
                 ? SPOOF_APP_VERSION_FOR_LYRICS_TARGET
-                : PackageUtils.getAppVersionName();
+                : null;
     }
 
     // endregion
