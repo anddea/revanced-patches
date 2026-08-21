@@ -70,8 +70,8 @@ import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.textComponentPatch
-import app.morphe.patches.youtube.player.fullscreen.openVideosFullscreenHookPatch
 import app.morphe.patches.youtube.player.overlaybuttons.geminiButton
+import app.morphe.patches.youtube.player.fullscreen.openVideosFullscreenHookPatch
 import app.morphe.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
@@ -90,6 +90,7 @@ import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_FEED_FLYOUT_MENU
 import app.morphe.patches.youtube.utils.patch.PatchList.SHORTS_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.morphe.patches.youtube.utils.playservice.*
 import app.morphe.patches.youtube.utils.playservice.is_18_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_18_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_18_49_or_greater
@@ -99,12 +100,6 @@ import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_07_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_09_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_20_16_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_20_18_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_20_40_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_21_10_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_21_17_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_21_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
@@ -129,13 +124,10 @@ import app.morphe.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.morphe.patches.youtube.utils.videoIdFingerprintShorts
 import app.morphe.patches.youtube.video.information.hookShortsVideoInformation
 import app.morphe.patches.youtube.video.information.videoInformationPatch
-import app.morphe.patches.youtube.video.playbackstart.PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
-import app.morphe.patches.youtube.video.playbackstart.playbackStartDescriptorPatch
-import app.morphe.patches.youtube.video.playbackstart.playbackStartVideoIdReference
-import app.morphe.patches.youtube.video.playbackstart.shortsPlaybackStartIntentFingerprint
-import app.morphe.patches.youtube.video.playbackstart.shortsPlaybackStartIntentLegacyFingerprint
+import app.morphe.patches.youtube.video.playbackstart.*
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
+import app.morphe.util.*
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.ResourceGroup
 import app.morphe.util.cloneMutable
@@ -143,7 +135,6 @@ import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.containsStringInstruction
 import app.morphe.util.copyResources
 import app.morphe.util.doRecursively
-import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findMutableMethodOf
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
@@ -160,16 +151,11 @@ import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.or
 import app.morphe.util.replaceLiteralInstructionCall
-import app.morphe.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -624,155 +610,6 @@ private val shortsNavigationBarPatch = bytecodePatch(
 private const val EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR =
     "$SHORTS_PATH/ShortsRepeatStatePatch;"
 
-
-val shortsAutoplayPatch = bytecodePatch(
-    description = "shortsAutoplayPatch",
-) {
-    dependsOn(
-        settingsPatch,
-        versionCheckPatch,
-    )
-
-    compatibleWith(COMPATIBILITY_YOUTUBE)
-
-    execute {
-        if (!is_20_16_or_greater) return@execute
-
-        // Main activity is used to check if app is in pip mode.
-        YouTubeActivityOnCreateFingerprint.method.addInstruction(
-            0,
-            "invoke-static/range { p0 .. p0 }, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->" +
-                    "setMainActivity(Landroid/app/Activity;)V",
-        )
-
-        var reelEnumClass: String
-
-        ReelEnumConstructorFingerprint.let {
-            reelEnumClass = it.originalClassDef.type
-
-            it.method.addInstructions(
-                it.instructionMatches.last().index,
-                """
-                    # Pass the first enum value to extension.
-                    # Any enum value of this type will work.
-                    sget-object v0, $reelEnumClass->a:$reelEnumClass
-                    invoke-static { v0 }, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
-                """
-            )
-        }
-
-        ReelPlaybackRepeatFingerprint.method.apply {
-            // The behavior enums are looked up from an ordinal value to an enum type.
-            findInstructionIndicesReversedOrThrow(
-                if (is_21_25_or_greater) {
-                    methodCall(
-                        returnType = reelEnumClass,
-                        parameters = listOf("L", "L")
-                    )
-                } else if (is_21_10_or_greater) {
-                    methodCall(
-                        returnType = reelEnumClass,
-                        parameters = listOf("L")
-                    )
-                } else {
-                    methodCall(
-                        definingClass = reelEnumClass,
-                        returnType = reelEnumClass,
-                        parameters = listOf("I")
-                    )
-                }
-            ).forEach { index ->
-                val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
-
-                addInstructions(
-                    index + 2,
-                    """
-                        invoke-static {v$register}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->changeShortsRepeatBehavior(Ljava/lang/Enum;)Ljava/lang/Enum;
-                        move-result-object v$register
-                    """
-                )
-            }
-        }
-
-        if (is_21_17_or_greater) return@execute
-
-        // As of YouTube 20.09, Google has removed the code for 'Autoplay' and 'Pause' from this method.
-        // Manually restore the removed 'Autoplay' code.
-        // Variable names are only a rough guess of what these methods do.
-        val userActionMethodReference = ReelPlaybackFingerprint.instructionMatches[1]
-            .getInstruction<ReferenceInstruction>().reference as MethodReference
-        val reelSequenceControllerMethodReference = ReelPlaybackFingerprint.instructionMatches[2]
-            .getInstruction<ReferenceInstruction>().reference as MethodReference
-
-        ReelPlaybackRepeatFingerprint.method.apply {
-            // Find the first call modified by extension code above.
-            val extensionReturnResultIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_STATIC &&
-                        getReference<MethodReference>()?.definingClass == EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR
-            } + 1
-            val enumRegister = getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
-            val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<FieldReference>()
-                opcode == Opcode.IGET_OBJECT &&
-                        reference?.definingClass == definingClass &&
-                        reference.type == reelSequenceControllerMethodReference.definingClass
-            }
-            val getReelSequenceControllerReference = getInstruction<ReferenceInstruction>(
-                getReelSequenceControllerIndex
-            ).reference
-
-            // Add a helper method to avoid finding multiple free registers.
-            // If enum is autoplay then method performs autoplay and returns null,
-            // otherwise returns the same enum.
-            val helperClass = definingClass
-            val helperName = "patch_handleAutoPlay"
-            val helperReturnType = "Ljava/lang/Enum;"
-            val helperMethod = ImmutableMethod(
-                helperClass,
-                helperName,
-                listOf(ImmutableMethodParameter("Ljava/lang/Enum;", null, null)),
-                helperReturnType,
-                AccessFlags.PRIVATE.value,
-                null,
-                null,
-                MutableMethodImplementation(7),
-            ).toMutable().apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        invoke-static { p1 }, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->isAutoPlay(Ljava/lang/Enum;)Z
-                        move-result v0
-                        if-eqz v0, :ignore
-                        new-instance v0, ${userActionMethodReference.definingClass}
-                        const/4 v1, 0x3
-                        const/4 v2, 0x0
-                        invoke-direct { v0, v1, v2, v2 }, $userActionMethodReference
-                        iget-object v3, p0, $getReelSequenceControllerReference
-                        invoke-virtual { v3, v0 }, $reelSequenceControllerMethodReference
-                        const/4 v4, 0x0
-                        return-object v4
-                        :ignore
-                        return-object p1
-                    """
-                )
-            }
-            ReelPlaybackRepeatFingerprint.classDef.methods.add(helperMethod)
-
-            addInstructionsWithLabels(
-                extensionReturnResultIndex + 1,
-                """
-                    invoke-direct { p0, v$enumRegister }, $helperClass->$helperName(Ljava/lang/Enum;)$helperReturnType
-                    move-result-object v$enumRegister
-                    if-nez v$enumRegister, :ignore
-                    return-void     # Autoplay was performed.
-                    :ignore
-                    nop
-                """
-            )
-        }
-    }
-}
-
 private val shortsRepeatPatch = bytecodePatch(
     description = "shortsRepeatPatch"
 ) {
@@ -782,20 +619,54 @@ private val shortsRepeatPatch = bytecodePatch(
             versionCheckPatch,
         )
 
-        if (is_20_16_or_greater) return@execute
-
         injectOnCreateMethodCall(
             EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR,
             "setMainActivity"
         )
 
-        val endScreenReference = with(reelEnumConstructorFingerprint.methodOrThrow()) {
-            val endScreenStringIndex =
-                indexOfFirstStringInstructionOrThrow("REEL_LOOP_BEHAVIOR_END_SCREEN")
-            val endScreenReferenceIndex =
-                indexOfFirstInstructionOrThrow(endScreenStringIndex, Opcode.SPUT_OBJECT)
+        lateinit var reelEnumClass: String
+        lateinit var endScreenReference: String
+        lateinit var legacyEnumMethod: MutableMethod
 
-            getInstruction<ReferenceInstruction>(endScreenReferenceIndex).reference.toString()
+        if (is_20_16_or_greater) {
+            ReelEnumConstructorFingerprint.let {
+                reelEnumClass = it.originalClassDef.type
+
+                it.method.addInstructions(
+                    it.instructionMatches.last().index,
+                    """
+                        # Pass the first enum value to extension.
+                        # Any enum value of this type will work.
+                        sget-object v0, $reelEnumClass->a:$reelEnumClass
+                        invoke-static { v0 }, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
+                    """
+                )
+            }
+        } else {
+            val legacyEnumConstructorMethod = reelEnumConstructorFingerprint.methodOrThrow()
+            legacyEnumMethod = reelEnumStaticFingerprint.methodOrThrow(reelEnumConstructorFingerprint)
+            reelEnumClass = legacyEnumMethod.definingClass
+
+            endScreenReference = with(legacyEnumConstructorMethod) {
+                val endScreenStringIndex =
+                    indexOfFirstStringInstructionOrThrow("REEL_LOOP_BEHAVIOR_END_SCREEN")
+                val endScreenReferenceIndex =
+                    indexOfFirstInstructionOrThrow(endScreenStringIndex, Opcode.SPUT_OBJECT)
+
+                getInstruction<ReferenceInstruction>(endScreenReferenceIndex).reference.toString()
+            }
+
+            legacyEnumConstructorMethod.apply {
+                addInstructions(
+                    implementation!!.instructions.lastIndex,
+                    """
+                        # Pass the first enum value to extension.
+                        # Any enum value of this type will work.
+                        sget-object v0, $reelEnumClass->a:$reelEnumClass
+                        invoke-static {v0}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
+                    """
+                )
+            }
         }
 
         lateinit var insertMethod: MutableMethod
@@ -803,7 +674,7 @@ private val shortsRepeatPatch = bytecodePatch(
         var insertMethodFound = false
 
         if (is_20_16_or_greater) {
-            reelPlaybackRepeatFingerprint2016.matchOrThrow().let {
+            ReelPlaybackRepeatFingerprint.let {
                 insertMethod = it.method
                 insertClassDef = it.classDef
             }
@@ -835,50 +706,145 @@ private val shortsRepeatPatch = bytecodePatch(
             }
         }
 
-        val enumMethod =
-            reelEnumStaticFingerprint.methodOrThrow(reelEnumConstructorFingerprint)
+        if (is_20_16_or_greater) {
+            ReelPlaybackRepeatFingerprint.method.apply {
+                // The behavior enums are looked up from an ordinal value to an enum type.
+                val behaviorMethodFilter =
+                    if (is_21_25_or_greater) {
+                        methodCall(
+                            returnType = reelEnumClass,
+                            parameters = listOf("L", "L")
+                        )
+                    } else if (is_21_10_or_greater) {
+                        methodCall(
+                            returnType = reelEnumClass,
+                            parameters = listOf("L")
+                        )
+                    } else {
+                        methodCall(
+                            definingClass = reelEnumClass,
+                            returnType = reelEnumClass,
+                            parameters = listOf("I")
+                        )
+                    }
+                val repeatMethod = this
 
-        reelEnumConstructorFingerprint.methodOrThrow().apply {
-            val enumClass = enumMethod.definingClass
-
-            addInstructions(
-                implementation!!.instructions.lastIndex,
-                """
-                    # Pass the first enum value to extension.
-                    # Any enum value of this type will work.
-                    sget-object v0, $enumClass->a:$enumClass
-                    invoke-static {v0}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
-                """
-            )
-        }
-
-        insertMethod.apply {
-            implementation!!.instructions
-                .withIndex()
-                .filter { (_, instruction) ->
-                    val reference =
-                        (instruction as? ReferenceInstruction)?.reference
-                    reference is MethodReference &&
-                            MethodUtil.methodSignaturesMatch(enumMethod, reference)
-                }
-                .map { (index, _) -> index }
-                .reversed()
-                .forEach { index ->
-                    val register =
-                        getInstruction<OneRegisterInstruction>(index + 1).registerA
+                findInstructionIndicesReversedOrThrow {
+                    behaviorMethodFilter.matches(repeatMethod, this)
+                }.forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
                     addInstructions(
-                        index + 2, """
+                        index + 2,
+                        """
                             invoke-static {v$register}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->changeShortsRepeatBehavior(Ljava/lang/Enum;)Ljava/lang/Enum;
                             move-result-object v$register
-                            """
+                        """
                     )
                 }
+            }
+        } else {
+            insertMethod.apply {
+                implementation!!.instructions
+                    .withIndex()
+                    .filter { (_, instruction) ->
+                        val reference =
+                            (instruction as? ReferenceInstruction)?.reference
+                        reference is MethodReference &&
+                                MethodUtil.methodSignaturesMatch(legacyEnumMethod, reference)
+                    }
+                    .map { (index, _) -> index }
+                    .reversed()
+                    .forEach { index ->
+                        val register =
+                            getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                        addInstructions(
+                            index + 2, """
+                                invoke-static {v$register}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->changeShortsRepeatBehavior(Ljava/lang/Enum;)Ljava/lang/Enum;
+                                move-result-object v$register
+                                """
+                        )
+                    }
+            }
         }
 
         // As of YouTube 20.09, Google has removed the code for 'Autoplay' and 'Pause' from this method.
         // Manually restore the removed 'Autoplay' code.
-        if (is_20_09_or_greater) {
+        if (is_20_16_or_greater && !is_21_17_or_greater) {
+            // Variable names are only a rough guess of what these methods do.
+            val userActionMethodReference = ReelPlaybackFingerprint.instructionMatches[1]
+                .getInstruction<ReferenceInstruction>().reference as MethodReference
+            val reelSequenceControllerMethodReference = ReelPlaybackFingerprint.instructionMatches[2]
+                .getInstruction<ReferenceInstruction>().reference as MethodReference
+
+            ReelPlaybackRepeatFingerprint.method.apply {
+                // Find the first call modified by extension code above.
+                val extensionReturnResultIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_STATIC &&
+                            getReference<MethodReference>()?.definingClass == EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR
+                } + 1
+                val enumRegister = getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
+                val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<FieldReference>()
+                    opcode == Opcode.IGET_OBJECT &&
+                            reference?.definingClass == definingClass &&
+                            reference.type == reelSequenceControllerMethodReference.definingClass
+                }
+                val getReelSequenceControllerReference = getInstruction<ReferenceInstruction>(
+                    getReelSequenceControllerIndex
+                ).reference
+
+                // Add a helper method to avoid finding multiple free registers.
+                // If enum is autoplay then method performs autoplay and returns null,
+                // otherwise returns the same enum.
+                val helperClass = definingClass
+                val helperName = "patch_handleAutoPlay"
+                val helperReturnType = "Ljava/lang/Enum;"
+                val helperMethod = ImmutableMethod(
+                    helperClass,
+                    helperName,
+                    listOf(ImmutableMethodParameter("Ljava/lang/Enum;", null, null)),
+                    helperReturnType,
+                    AccessFlags.PRIVATE.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(7),
+                ).toMutable().apply {
+                    addInstructionsWithLabels(
+                        0,
+                        """
+                            invoke-static { p1 }, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->isAutoPlay(Ljava/lang/Enum;)Z
+                            move-result v0
+                            if-eqz v0, :ignore
+                            new-instance v0, ${userActionMethodReference.definingClass}
+                            const/4 v1, 0x3
+                            const/4 v2, 0x0
+                            invoke-direct { v0, v1, v2, v2 }, $userActionMethodReference
+                            iget-object v3, p0, $getReelSequenceControllerReference
+                            invoke-virtual { v3, v0 }, $reelSequenceControllerMethodReference
+                            const/4 v4, 0x0
+                            return-object v4
+                            :ignore
+                            return-object p1
+                        """
+                    )
+                }
+                ReelPlaybackRepeatFingerprint.classDef.methods.add(helperMethod)
+
+                addInstructionsWithLabels(
+                    extensionReturnResultIndex + 1,
+                    """
+                        invoke-direct { p0, v$enumRegister }, $helperClass->$helperName(Ljava/lang/Enum;)$helperReturnType
+                        move-result-object v$enumRegister
+                        if-nez v$enumRegister, :ignore
+                        return-void     # Autoplay was performed.
+                        :ignore
+                        nop
+                    """
+                )
+            }
+        } else if (!is_20_16_or_greater && is_20_09_or_greater) {
             val (directReference, virtualReference) = with(
                 reelPlaybackFingerprint.methodOrThrow(
                     videoIdFingerprintShorts
@@ -1100,7 +1066,6 @@ val shortsComponentPatch = bytecodePatch(
         shortsCustomActionsResourcesPatch,
 
         shortsAnimationPatch,
-        shortsAutoplayPatch,
         shortsCustomActionsPatch,
         shortsNavigationBarPatch,
         shortsRepeatPatch,
