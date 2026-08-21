@@ -39,6 +39,17 @@ class ClassicSwipeController(
         get() = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL
 
     override fun isInSwipeZone(motionEvent: MotionEvent): Boolean {
+        // A touch stream starts before its direction is known. Only vertical zones may intercept
+        // at that point, so a vertical player gesture starting inside a horizontal zone can still
+        // reach YouTube. Once the direction is detected, validate against that axis only.
+        return when (currentSwipe) {
+            SwipeDetector.SwipeDirection.HORIZONTAL -> isInHorizontalSwipeZone(motionEvent)
+            SwipeDetector.SwipeDirection.VERTICAL,
+            SwipeDetector.SwipeDirection.NONE -> isInVerticalSwipeZone(motionEvent)
+        }
+    }
+
+    private fun isInVerticalSwipeZone(motionEvent: MotionEvent): Boolean {
         val inVolumeZone = if (controller.config.enableVolumeControls) {
             (motionEvent.toPoint() in controller.zones.volume)
         } else {
@@ -141,7 +152,7 @@ class ClassicSwipeController(
         // Ensure the gesture starts in the valid zone.
         // If we swipe Vertically, but we are not in the Volume/Brightness zone (e.g. we are on the Description Panel,
         // Comments), we must return false immediately to allow the view hierarchy (ScrollView) to handle the touch.
-        val validVertical = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL && isInSwipeZone(from)
+        val validVertical = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL && isInVerticalSwipeZone(from)
         val validHorizontal = currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL && isInHorizontalSwipeZone(from)
 
         if (!validVertical && !validHorizontal) {

@@ -15,6 +15,7 @@ import static app.morphe.extension.shared.spoof.js.JavaScriptManager.getDeobfusc
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.submitOnBackgroundThread;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.json.JSONException;
@@ -40,22 +41,24 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
-import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerResponse;
-import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerConfig;
+import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.AudioConfig;
+import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.InlinePlaybackConfig;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayabilityStatus;
+import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerConfig;
+import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerGestureConfig;
+import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerResponse;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.StreamingData;
 import app.morphe.extension.shared.innertube.ReelItemWatchResponseOuterClass.ReelItemWatchResponse;
 import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.BaseSettings;
-import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
 public class StreamOrDetailsDataRequest {
 
-    public record StreamData(byte[] streamingData, @Nullable byte[] playerConfig) {
+    public record StreamData(byte[] streamingData, @Nullable byte[] playerConfig, boolean hasAndroidMedia) {
     }
 
     public static boolean getLastSpoofedClientUseSABR() {
@@ -104,6 +107,7 @@ public class StreamOrDetailsDataRequest {
             Utils.createSizeRestrictedMap(50));
 
     private static volatile ClientType lastSpoofedClientType;
+    private static volatile boolean fallbackWithTVDash;
     private static volatile boolean authHeadersOverrides;
 
     public static String getLastSpoofedClientName() {
@@ -119,33 +123,43 @@ public class StreamOrDetailsDataRequest {
         }
     }
 
+    private final String videoId;
+    private final boolean isInline;
+
     private final Future<Object> future;
 
     private StreamOrDetailsDataRequest(@Nullable Route.CompiledRoute endpoint,
-                                       String videoId, Map<String, String> playerHeaders) {
-        this(endpoint, videoId, playerHeaders, null);
+                                       String videoId, boolean isInline, Map<String, String> playerHeaders) {
+        this(endpoint, videoId, isInline, playerHeaders, null);
     }
 
     private StreamOrDetailsDataRequest(@Nullable Route.CompiledRoute endpoint,
-                                       String videoId, Map<String, String> playerHeaders,
+                                       String videoId, boolean isInline, Map<String, String> playerHeaders,
                                        @Nullable ClientType[] clientStreamOrderOverride) {
         if (endpoint == null) {
             Objects.requireNonNull(playerHeaders);
         }
+        this.videoId = videoId;
+        this.isInline = isInline;
 
         this.future = submitOnBackgroundThread(() ->
-                fetch(endpoint, videoId, playerHeaders, clientStreamOrderOverride));
+                fetch(endpoint, videoId, isInline, playerHeaders, clientStreamOrderOverride));
     }
 
     public static void fetchStreamRequest(String videoId, Map<String, String> fetchHeaders) {
-        streamCache.put(videoId, new StreamOrDetailsDataRequest(null, videoId, fetchHeaders));
+        fetchStreamRequest(videoId, false, fetchHeaders);
     }
 
-    public static void fetchStreamRequest(String videoId, Map<String, String> fetchHeaders,
+    public static void fetchStreamRequest(String videoId, boolean isInline, Map<String, String> fetchHeaders) {
+        streamCache.put(videoId, new StreamOrDetailsDataRequest(null, videoId, isInline, fetchHeaders));
+    }
+
+    public static void fetchStreamRequest(String videoId, boolean isInline, Map<String, String> fetchHeaders,
                                           ClientType... clientStreamOrderOverride) {
         streamCache.put(videoId, new StreamOrDetailsDataRequest(
                 null,
                 videoId,
+                isInline,
                 fetchHeaders,
                 clientStreamOrderOverride
         ));
@@ -158,7 +172,7 @@ public class StreamOrDetailsDataRequest {
 
     public static StreamOrDetailsDataRequest getDetailsRequest(Route.CompiledRoute videoDetailsEndpoint,
                                                                String videoId, Map<String, String> fetchHeaders) {
-        StreamOrDetailsDataRequest request = new StreamOrDetailsDataRequest(videoDetailsEndpoint, videoId, fetchHeaders);
+        StreamOrDetailsDataRequest request = new StreamOrDetailsDataRequest(videoDetailsEndpoint, videoId, false, fetchHeaders);
         detailsCache.put(videoId, request);
         return request;
     }
@@ -211,16 +225,23 @@ public class StreamOrDetailsDataRequest {
                 }
                 // If oauth2 login is supported and the user is logged in via oauth2 flow, the header is set:
                 // ANDROID_VR (ANDROID_XR).
-                else if (clientType.supportsOAuth2 && authHeadersIncludes) {
+                else if (clientType.supportsOAuth2 && clientType.requireLogin) {
                     String oauth2Authorization = OAuth2Requester.getAndUpdateAccessTokenIfNeeded();
                     if (Utils.isNotEmpty(oauth2Authorization)) {
                         authHeadersOverrides = true;
                         connection.setRequestProperty(AUTHORIZATION_HEADER, oauth2Authorization);
                         Logger.printDebug(() -> "Set oauth2 auth header: " + clientType + ", videoId: " + videoId);
                     }
+                    // Oauth2 login is required, but the user is not logged in.
+                    // ANDROID_VR (ANDROID_XR).
+                    else {
+                        Logger.printDebug(() -> "Skipping client since user is not signed in to " + clientType
+                                + ", videoId: " + videoId);
+                        return null;
+                    }
                 }
                 // These clients can play videos without the auth header:
-                // ANDROID_VR (ANDROID_XR), TV_SABR, VISIONOS_1_02 (VISIONOS_1_03).
+                // TV_SABR, VISIONOS_1_02 (VISIONOS_1_03).
                 else {
                     Logger.printDebug(() -> "Do not set auth header: " + clientType + ", videoId: " + videoId);
                 }
@@ -274,7 +295,11 @@ public class StreamOrDetailsDataRequest {
 
     @Nullable
     private static Object buildPlayerStreamOrDetailsResponse(@Nullable ClientType clientType,
-                                                             HttpURLConnection connection) {
+                                                             @Nullable HttpURLConnection connection,
+                                                             boolean isInline) {
+        if (connection == null) {
+            return null;
+        }
         Objects.requireNonNull(clientType);
         final boolean returnStreamObject = clientType != ClientType.GET_CHANNEL_FROM_ID
                 && clientType != ClientType.SAVE_TO_WATCH_LATER;
@@ -312,6 +337,18 @@ public class StreamOrDetailsDataRequest {
                     return null;
                 }
 
+                // In YouTube 20.21.37, manifestless livestreams cannot be played using the SABR protocol, or there are playback issues.
+                // Until code to assemble the manifestUrl is implemented or code to override the exoPlayerConfig is ready,
+                // TV SABR clients in livestreams will be temporarily fallbacked to TV DASH clients.
+                //
+                // TODO: Override other playerConfigs such as exoPlayerConfig.
+                if (clientType.requireSABR && clientType == ClientType.TV_SABR
+                        && Utils.containsAny(streamingData.getServerAbrStreamingUrl(), "yt_live_broadcast", "yt_premiere_broadcast")) {
+                    Logger.printDebug(() -> "Livestream detected, fallback to TV dash");
+                    fallbackWithTVDash = true;
+                    return null;
+                }
+
                 if (clientType.requireJS) {
                     var deobfuscatedStreamingData = getDeobfuscatedStreamingData(streamingData, clientType.requireSABR);
                     if (deobfuscatedStreamingData == null) {
@@ -322,24 +359,41 @@ public class StreamOrDetailsDataRequest {
 
                 byte[] streamingDataBuffer = responseBuilder.build().toByteArray();
                 byte[] playerConfigBuffer = null;
+                boolean hasAndroidMedia = false;
 
                 if (clientType.requireSABR && playerResponse.hasPlayerConfig()) {
-                    PlayerConfig playerConfig = playerResponse.getPlayerConfig();
+                    PlayerConfig.Builder playerConfigBuilder = playerResponse.getPlayerConfig().toBuilder();
 
-                    // It seems there is an issue when 'usePlatypus = true' when forcing the AVC codec.
-                    // Override the 'usePlatypus' to false.
-                    if (SharedYouTubeSettings.OVERRIDE_INITIAL_VIDEO_QUALITY.get()) {
-                        PlayerConfig.Builder playerConfigBuilder = playerConfig.toBuilder();
-                        var mediaCommonConfigBuilder = playerConfigBuilder
-                                .getMediaCommonConfig().toBuilder();
-                        mediaCommonConfigBuilder.setUsePlatypus(false);
-                        playerConfigBuilder.setMediaCommonConfig(mediaCommonConfigBuilder);
-                        playerConfig = playerConfigBuilder.build();
+                    // If 'androidMedialibConfig' exists in the response, all playerConfigs are compatible.
+                    // Override all playerConfigs.
+                    hasAndroidMedia = playerConfigBuilder.hasAndroidMedialibConfig();
+
+                    if (hasAndroidMedia) {
+                        // In some clients, 'playerGestureConfig' is missing from the response.
+                        // Add 'playerGestureConfig' using proto builder.
+                        PlayerGestureConfig.Builder playerGestureConfigBuilder = playerConfigBuilder.getPlayerGestureConfig().toBuilder();
+                        playerGestureConfigBuilder.setDownAndOutPortraitAllowed(true);
+                        playerGestureConfigBuilder.setDownAndOutLandscapeAllowed(true);
+                        playerConfigBuilder.setPlayerGestureConfig(playerGestureConfigBuilder);
+
+                        // In autoplay in feed, 'inline' query parameters and unique player parameters are used when sending requests.
+                        // To minimize code modifications, simply add 'inlinePlaybackConfig' using proto builder.
+                        if (isInline) {
+                            AudioConfig.Builder audioConfigBuilder = playerConfigBuilder.getAudioConfig().toBuilder();
+                            audioConfigBuilder.setMuteOnStart(true);
+                            playerConfigBuilder.setAudioConfig(audioConfigBuilder);
+
+                            InlinePlaybackConfig.Builder inlinePlaybackConfigBuilder = playerConfigBuilder.getInlinePlaybackConfig().toBuilder();
+                            inlinePlaybackConfigBuilder.setShowAudioControls(true);
+                            inlinePlaybackConfigBuilder.setShowScrubbingControls(true);
+                            playerConfigBuilder.setInlinePlaybackConfig(inlinePlaybackConfigBuilder);
+                        }
                     }
-                    playerConfigBuffer = playerConfig.toByteArray();
+
+                    playerConfigBuffer = playerConfigBuilder.build().toByteArray();
                 }
 
-                return new StreamData(streamingDataBuffer, playerConfigBuffer);
+                return new StreamData(streamingDataBuffer, playerConfigBuffer, hasAndroidMedia);
             } else {
                 String response = new BufferedReader(new InputStreamReader(inputStream))
                         .lines()
@@ -362,12 +416,12 @@ public class StreamOrDetailsDataRequest {
     }
 
     private static Object fetch(@Nullable Route.CompiledRoute videoDetailsEndpoint,
-                                String videoId, Map<String, String> playerHeaders) {
-        return fetch(videoDetailsEndpoint, videoId, playerHeaders, null);
+                                String videoId, boolean isInline, Map<String, String> playerHeaders) {
+        return fetch(videoDetailsEndpoint, videoId, isInline, playerHeaders, null);
     }
 
     private static Object fetch(@Nullable Route.CompiledRoute videoDetailsEndpoint,
-                                String videoId, Map<String, String> playerHeaders,
+                                String videoId, boolean isInline, Map<String, String> playerHeaders,
                                 @Nullable ClientType[] clientStreamOrderOverride) {
         if (videoDetailsEndpoint == null) {
             final boolean debugEnabled = BaseSettings.DEBUG.get();
@@ -378,12 +432,18 @@ public class StreamOrDetailsDataRequest {
             for (ClientType clientTypeStream : clientOrderToUse) {
                 final boolean showErrorToast = (++i == clientOrderToUse.length) || debugEnabled;
                 HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast);
-                if (connection != null) {
-                    Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection);
-                    if (playerResponseBuffer != null) {
-                        lastSpoofedClientType = clientTypeStream;
-                        return playerResponseBuffer;
-                    }
+                Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection, isInline);
+
+                if (clientTypeStream == ClientType.TV_SABR && fallbackWithTVDash) {
+                    fallbackWithTVDash = false;
+                    clientTypeStream = ClientType.TV_DASH;
+                    HttpURLConnection fallBackConnection = send(clientTypeStream, videoId, playerHeaders, showErrorToast);
+                    playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, fallBackConnection, isInline);
+                }
+
+                if (playerResponseBuffer != null) {
+                    lastSpoofedClientType = clientTypeStream;
+                    return playerResponseBuffer;
                 }
             }
 
@@ -399,7 +459,7 @@ public class StreamOrDetailsDataRequest {
             if (targetClient != null) {
                 HttpURLConnection connection = send(targetClient, videoId, playerHeaders, false);
                 if (connection != null) {
-                    return buildPlayerStreamOrDetailsResponse(targetClient, connection);
+                    return buildPlayerStreamOrDetailsResponse(targetClient, connection, isInline);
                 }
             }
         }
@@ -421,5 +481,11 @@ public class StreamOrDetailsDataRequest {
             future.cancel(true);
         }
         return null;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "StreamOrDetailsDataRequest{" + "videoId='" + videoId + "', isInline='" + isInline + '\'' + '}';
     }
 }

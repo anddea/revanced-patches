@@ -32,11 +32,14 @@ Tap the continue button and allow optimization changes"</string>
     <string name="morphe_crossfade_duration_750ms">750 milliseconds</string>
     <string name="morphe_crossfade_duration_8000ms">8 seconds</string>
     <string name="morphe_crossfade_duration_9000ms">9 seconds</string>
+    <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
+    <string name="morphe_dark_theme_custom_color_title">Custom theme color</string>
+    <string name="morphe_dark_theme_title">App theme</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
-    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to Android Reel or TV</string>
+    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Always plays the video\'s original audio track instead of a dubbed version</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
@@ -174,6 +177,19 @@ Playback may not work"</string>
 If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="morphe_spoof_video_streams_title">Spoof video streams</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues</string>
+    <string name="morphe_theme_entry_amoled_black">Amoled Black</string>
+    <string name="morphe_theme_entry_classic_youtube">Classic (Old YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Dark Blue</string>
+    <string name="morphe_theme_entry_dark_green">Dark Green</string>
+    <string name="morphe_theme_entry_dark_orange">Dark Orange</string>
+    <string name="morphe_theme_entry_dark_pink">Dark Pink</string>
+    <string name="morphe_theme_entry_dark_red">Dark Red</string>
+    <string name="morphe_theme_entry_dark_yellow">Dark Yellow</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Neutral)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - Primary</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - Secondary</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - Tertiary</string>
+    <string name="morphe_theme_entry_modern_youtube">Modern YouTube</string>
     <string name="revanced_add_miniplayer_next_button_summary">Adds a next track button to the miniplayer</string>
     <string name="revanced_add_miniplayer_next_button_title">Add miniplayer next button</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adds a previous track button to the miniplayer</string>
@@ -451,6 +467,7 @@ Please download %2$s from the website"</string>
     <string name="revanced_hide_terms_container_title">Hide terms container</string>
     <string name="revanced_hide_voice_search_button_summary">Hides the voice search button in the search bar</string>
     <string name="revanced_hide_voice_search_button_title">Hide voice search button</string>
+    <string name="revanced_icon_custom">Custom</string>
     <string name="revanced_preference_screen_account_title">Account</string>
     <string name="revanced_preference_screen_action_bar_title">Action bar</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>
@@ -649,6 +666,8 @@ Click to see how to issue an API key"</string>
 • Parent settings appear above disabled child settings"</string>
     <string name="revanced_settings_search_tips_title">Search Tips</string>
     <string name="revanced_settings_search_title">Search %s</string>
+    <string name="revanced_settings_show_slider_summaries_summary">Shows or hides summaries below slider settings</string>
+    <string name="revanced_settings_show_slider_summaries_title">Show summaries for slider settings</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Settings copied to clipboard</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Spoofs the client version used in the lyrics to an older version</string>
@@ -670,6 +689,7 @@ Click to see how to issue an API key"</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Disable real-time lyrics</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restore old action bar</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Comments section does not appear in home feed</string>
+    <string name="revanced_spoof_app_version_target_entry_8_05_50">8.05.50 - Fix update app screen</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Invalid spoof app version: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Select the spoof app version target</string>
     <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>

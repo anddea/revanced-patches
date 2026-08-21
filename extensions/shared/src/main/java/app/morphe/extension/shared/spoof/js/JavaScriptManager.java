@@ -303,7 +303,7 @@ public final class JavaScriptManager {
                 connection.setReadTimeout(connectionTimeoutMillis);
                 final int responseCode = connection.getResponseCode();
                 if (responseCode == HttpURLConnection.HTTP_OK) {
-                    return Requester.parseStringAndDisconnect(connection);
+                    return Requester.parseString(connection);
                 }
                 connection.disconnect();
                 return null;

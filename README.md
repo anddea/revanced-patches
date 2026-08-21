@@ -24,10 +24,8 @@
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 19.43.41 ~ 20.51.39 |
 | `Custom DPI` | Forces a higher display density for this app only, so the whole UI scales up without changing system density. | 19.43.41 ~ 20.51.39 |
 | `Custom Shorts action buttons` | Changes, at compile time, the icon of the action buttons of the Shorts player. | 19.43.41 ~ 20.51.39 |
-| `Custom branding icon for YouTube` | Changes the YouTube app icon to the icon specified in patch options. | 19.43.41 ~ 20.51.39 |
-| `Custom branding name for YouTube` | Changes the YouTube app name to the name specified in patch options. | 19.43.41 ~ 20.51.39 |
+| `Custom branding for YouTube` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 19.43.41 ~ 20.51.39 |
 | `Custom double tap length` | Adds Double-tap to seek values that are specified in patch options. | 19.43.41 ~ 20.51.39 |
-| `Custom header for YouTube` | Applies a custom header in the top left corner within the app. | 19.43.41 ~ 20.51.39 |
 | `Description components` | Adds options to hide and disable description components. | 19.43.41 ~ 20.51.39 |
 | `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 19.43.41 ~ 20.51.39 |
 | `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 19.43.41 ~ 20.51.39 |
@@ -36,7 +34,6 @@
 | `Disable resuming Miniplayer on startup` | Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup. | 19.43.41 ~ 20.51.39 |
 | `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 19.43.41 ~ 20.51.39 |
 | `Disable sign in to TV popup` | Adds an option to disable the popup asking to sign into a TV on the same local network. | 19.43.41 ~ 20.51.39 |
-| `Disable splash animation` | Adds an option to disable the splash animation on app startup. | 19.43.41 ~ 20.51.39 |
 | `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 19.43.41 ~ 20.51.39 |
 | `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 19.43.41 ~ 20.51.39 |
 | `Force original audio` | Adds an option to disable audio tracks from being automatically enabled. | 19.43.41 ~ 20.51.39 |
@@ -54,13 +51,13 @@
 | `Hide player buttons` | Adds options to hide buttons in the video player. | 19.43.41 ~ 20.51.39 |
 | `Hide player flyout menu` | Adds options to hide player flyout menu components. | 19.43.41 ~ 20.51.39 |
 | `Hide shortcuts` | Remove, at compile time, the app shortcuts that appears when the app icon is long pressed. | 19.43.41 ~ 20.51.39 |
-| `Hook YouTube Music actions` | Adds support for opening music in RVX Music using the in-app YouTube Music button. | 19.43.41 ~ 20.51.39 |
 | `Hook download actions` | Adds support to download videos with an external downloader app using the in-app download button. | 19.43.41 ~ 20.51.39 |
 | `MaterialYou` | Applies the MaterialYou theme for Android 12+ devices. | 19.43.41 ~ 20.51.39 |
 | `Miniplayer` | Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers. | 19.43.41 ~ 20.51.39 |
 | `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 19.43.41 ~ 20.51.39 |
 | `Open links externally` | Adds an option to always open links in your browser instead of the in-app browser. | 19.43.41 ~ 20.51.39 |
 | `Overlay buttons` | Adds options to display useful overlay buttons in the video player. | 19.43.41 ~ 20.51.39 |
+| `Override YouTube Music buttons` | Overrides YouTube Music buttons to open RVX Music or any compatible third-party client. | 19.43.41 ~ 20.51.39 |
 | `Playback in feeds` | Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it. | 19.43.41 ~ 20.51.39 |
 | `Player components` | Adds options to hide or change components related to the video player. | 19.43.41 ~ 20.51.39 |
 | `Reload video` | Adds an option to display a button in the video player to reload the current video. | 20.05.46 ~ 20.51.39 |
@@ -80,7 +77,7 @@
 | `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 19.43.41 ~ 20.51.39 |
 | `Spoof watch history` | Adds an option to change the domain of the watch history or check its status. | 19.43.41 ~ 20.51.39 |
 | `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 19.43.41 ~ 20.51.39 |
-| `Theme` | Changes the app's themes to the values specified in patch options. | 19.43.41 ~ 20.51.39 |
+| `Theme` | Adds options to change the app's themes and splash screen style. | 19.43.41 ~ 20.51.39 |
 | `Toolbar components` | Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons. | 19.43.41 ~ 20.51.39 |
 | `Translations for YouTube` | Add translations or remove string resources. | 19.43.41 ~ 20.51.39 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 19.43.41 ~ 20.51.39 |
@@ -99,10 +96,7 @@
 | `Certificate spoof` | Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate. | 8.12.54 ~ 9.15.51 |
 | `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 8.12.54 ~ 9.15.51 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 8.12.54 ~ 9.15.51 |
-| `Custom branding icon for YouTube Music` | Changes the YouTube Music app icon to the icon specified in patch options. | 8.12.54 ~ 9.15.51 |
-| `Custom branding name for YouTube Music` | Changes the YouTube Music app name to the name specified in patch options. | 8.12.54 ~ 9.15.51 |
-| `Custom header for YouTube Music` | Applies a custom header in the top left corner within the app. | 8.12.54 ~ 9.15.51 |
-| `Dark theme` | Changes the app's dark theme to the values specified in patch options. | 8.12.54 ~ 9.15.51 |
+| `Custom branding for YouTube Music` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 8.12.54 ~ 9.15.51 |
 | `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 8.12.54 ~ 9.15.51 |
 | `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 8.12.54 ~ 9.15.51 |
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 8.12.54 ~ 9.15.51 |
@@ -130,8 +124,10 @@
 | `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 8.12.54 ~ 9.15.51 |
 | `Settings menu filter` | Adds an option to hide items on the standard YouTube Music settings screen by their visible name. | 8.12.54 ~ 9.15.51 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 8.12.54 ~ 9.15.51 |
+| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features. | 8.12.54 ~ 9.15.51 |
 | `Spoof app version for lyrics` | Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI. | 8.12.54 ~ 9.15.51 |
 | `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 8.12.54 ~ 9.15.51 |
+| `Theme` | Changes the app's dark theme to the values specified in patch options. | 8.12.54 ~ 9.15.51 |
 | `Third-party lyrics` | Adds an option to show synced lyrics from LRCLIB or KuGou in the lyrics panel. | 9.15.51 |
 | `Track crossfade` | Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op. | 8.12.54 ~ 9.15.51 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 8.12.54 ~ 9.15.51 |

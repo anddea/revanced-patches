@@ -79,6 +79,8 @@ public class SpoofVideoStreamsSideEffectsPreference extends Preference {
     }
 
     private void updateUI() {
+        setEnabled(Settings.SPOOF_VIDEO_STREAMS.get());
+
         ClientType clientType = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
         if (currentClientType == clientType) {
             return;
@@ -96,10 +98,17 @@ public class SpoofVideoStreamsSideEffectsPreference extends Preference {
                             + '\n' + str("morphe_spoof_video_streams_about_no_stable_volume")
                             + '\n' + str("morphe_spoof_video_streams_about_no_av1")
                             + '\n' + str("morphe_spoof_video_streams_about_no_force_original_audio");
-            // Android XR and visonOS 1.03 are not exposed in the UI and should never be reached here.
-            case ANDROID_VR, ANDROID_XR, VISIONOS_1_02, VISIONOS_1_03 ->
+            // Android XR, Android XR Downgraded, and visionOS 1.03 are not exposed in the UI and should never be reached here.
+            case ANDROID_VR_DASH, ANDROID_XR_DASH ->
+                    summary = str("morphe_spoof_video_streams_about_no_audio_tracks")
+                            + '\n' + str("morphe_spoof_video_streams_about_no_stable_volume")
+                            + '\n' + str("morphe_spoof_video_streams_about_sign_in_to_vr_required");
+            case ANDROID_VR_SABR, ANDROID_XR_SABR ->
+                    summary = str("morphe_spoof_video_streams_about_no_stable_volume")
+                            + '\n' + str("morphe_spoof_video_streams_about_sign_in_to_vr_required");
+            case VISIONOS_1_02, VISIONOS_1_03 ->
                     summary = str("morphe_spoof_video_streams_about_no_stable_volume");
-            case TV_SABR, TV_SIMPLY ->
+            case TV_SABR, TV_DASH, TV_SIMPLY ->
                     summary = str("morphe_spoof_video_streams_about_js");
             default -> Logger.printException(() -> "Unknown client: " + clientType);
         }

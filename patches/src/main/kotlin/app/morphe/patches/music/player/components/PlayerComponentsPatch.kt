@@ -567,11 +567,16 @@ val playerComponentsPatch = bytecodePatch(
                         invokeDirectIndex + 1, """
                             invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->changeMiniPlayerColor()Z
                             move-result v$freeRegister
-                            if-eqz v$freeRegister, :off
+                            if-eqz v$freeRegister, :theme_color
                             invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
                             move-result-object v$freeRegister
                             check-cast v$freeRegister, ${(colorMathPlayerIGetReference as FieldReference).definingClass}
                             iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
+                            iput v$freeRegister, p0, $colorMathPlayerIPutReference
+                            goto :off
+                            :theme_color
+                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->getMiniPlayerThemeColor()I
+                            move-result v$freeRegister
                             iput v$freeRegister, p0, $colorMathPlayerIPutReference
                             :off
                             invoke-direct {p0}, $invokeDirectReference
@@ -612,11 +617,16 @@ val playerComponentsPatch = bytecodePatch(
                         """
                             invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->changeMiniPlayerColor()Z
                             move-result v$freeRegister
-                            if-eqz v$freeRegister, :off
+                            if-eqz v$freeRegister, :theme_color
                             invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
                             move-result-object v$freeRegister
                             check-cast v$freeRegister, ${colorMathPlayerIGetReference.definingClass}
                             iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
+                            iput v$freeRegister, p0, $colorMathPlayerIPutReference
+                            goto :off
+                            :theme_color
+                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->getMiniPlayerThemeColor()I
+                            move-result v$freeRegister
                             iput v$freeRegister, p0, $colorMathPlayerIPutReference
                             :off
                             invoke-direct {p0}, $invokeDirectReference
@@ -634,7 +644,7 @@ val playerComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.PLAYER,
             "revanced_change_miniplayer_color",
-            "true"
+            "false"
         )
         addSwitchPreference(
             CategoryType.PLAYER,

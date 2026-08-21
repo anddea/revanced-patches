@@ -13,6 +13,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
+import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.video.videoid.hookVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
 import app.morphe.util.findFieldFromToString
@@ -115,6 +116,23 @@ val chaptersHookPatch = bytecodePatch {
                         )
                     }
                 )
+            }
+        }
+
+        if (is_20_21_or_greater) {
+            HeatMapPeakPointFingerprint.apply {
+                method.apply {
+                    val instructionIndex = instructionMatches[1].index
+                    val instructionRegister = getInstruction<OneRegisterInstruction>(
+                        instructionIndex
+                    ).registerA
+
+                    addInstruction(
+                        instructionIndex + 1,
+                        "invoke-static { v$instructionRegister }, $EXTENSION_CLASS->" +
+                                "setHeatMapPeakPoint(Z)V"
+                    )
+                }
             }
         }
     }

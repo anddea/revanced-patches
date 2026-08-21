@@ -28,14 +28,14 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protokoll engedélyezve</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokoll letiltva</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokoll letiltása</string>
-    <string name="morphe_expand_livestream_dvr_duration_not_available">"A \"Livestream DVR időtartamának megnyújtása\" funkció esetleg nem elérhető
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'Élő közvetítés DVR időtartamának kiterjesztése' nem biztos, hogy elérhető
 
-Ennek megoldásához kapcsolja be a \"Videostreamek hamisítása\" opciót, és állítsa a \"Alapértelmezett kliens\" értéket \"TV Simply\" vagy \"visionOS\"-re"</string>
+A javításhoz kapcsolja be a 'Videóstreamek meghamisítása' opciót, és módosítsa az 'Alapértelmezett kliens' beállítást 'TV'-re vagy 'visionOS'-re"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Lehetővé teszi élő adások visszatekerését a múltba maximum 7 nappal</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Bővítsd a közvetítés DVR idejét</string>
     <string name="morphe_explore_menu_screen_summary">Válaszd ki, mely elemek jelenjenek meg a felfedezés menüben</string>
     <string name="morphe_explore_menu_screen_title">Felfedezés menü</string>
-    <string name="morphe_force_original_audio_not_available">A funkció használatához módosítsa a \"Videóstreamek hamisítása\" beállítást bármely kliensre, kivéve az Android Studiót\'</string>
+    <string name="morphe_force_original_audio_not_available">A funkció használatához állítsd át a „Spoof video streams” opciót bármelyik kliensre az „Android Studio” és „Android VR Downgraded” kivételével</string>
     <string name="morphe_force_original_audio_summary_off">Alapértelmezett hang használata</string>
     <string name="morphe_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
     <string name="morphe_force_original_audio_title">Eredeti hang kikényszerítése</string>
@@ -50,8 +50,8 @@ Ennek megoldásához kapcsolja be a \"Videostreamek hamisítása\" opciót, és 
     <string name="morphe_hide_learning_menu_title">Rejtse el a Tanulás menüt</string>
     <string name="morphe_hide_live_menu_title">Élő menü elrejtése</string>
     <string name="morphe_hide_memberships_menu_title">Tagságok menü elrejtése</string>
-    <string name="morphe_hide_movies_menu_title">Filmek menü elrejtése</string>
-    <string name="morphe_hide_music_menu_title">\"Zene és TV\" menü elrejtése</string>
+    <string name="morphe_hide_movies_menu_title">\'Filmek és TV\' menü elrejtése</string>
+    <string name="morphe_hide_music_menu_title">Zene menü elrejtése</string>
     <string name="morphe_hide_news_menu_title">Hírek menü elrejtése</string>
     <string name="morphe_hide_playables_menu_title">Lejátszható elemek menü elrejtése</string>
     <string name="morphe_hide_podcasts_menu_title">Podcastok menü elrejtése</string>
@@ -65,11 +65,13 @@ Ennek megoldásához kapcsolja be a \"Videostreamek hamisítása\" opciót, és 
     <string name="morphe_hide_youtube_premium_menu_title">YouTube Premium menü elrejtése</string>
     <string name="morphe_hide_youtube_studio_menu_title">YouTube Studio menü elrejtése</string>
     <string name="morphe_hide_youtube_works_menu_title">Rejtse el a \"A YouTube működése\" menüt</string>
-    <string name="morphe_livestream_dvr_not_available">"A \"Livestream DVR engedélyezése\" funkció nem állhat rendelkezésre
+    <string name="morphe_livestream_dvr_not_available">"'Élő közvetítés DVR engedélyezése' lehet, hogy nem áll rendelkezésre
 
-Ennek kijavításához kapcsolja be a \"Videostreamek hamisítása\" funkciót, és állítsa a \"Alapértelmezett kliens\" értéket \"TV Simply\" vagy \"visionOS\"-re"</string>
+Ennek javításához kapcsold be a 'Videostreamek meghamisítását' és módosítsd az 'Alapértelmezett kliens' értékét 'TV'-re vagy 'visionOS'-re"</string>
     <string name="morphe_livestream_dvr_summary">Lehetővé teszi a keresést minden élő streamen, még azoknál is, amelyek normál esetben korlátozzák azt</string>
     <string name="morphe_livestream_dvr_title">Engedélyezze az élsőségi DVR-t</string>
+    <string name="morphe_music_package_name_summary">A telepített zenelejátszó csomag neve</string>
+    <string name="morphe_music_package_name_title">A zenelejátszó csomag neve</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nem tud bejelentkezni a VR-ba: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nem lehetséges a VR-ba belépni, a webhely hitelesítése nem lett jóváhagyva</string>
     <string name="morphe_oauth2_connection_failure_generic">Az OAuth2 átmenetileg nem elérhető</string>
@@ -78,10 +80,8 @@ Ennek kijavításához kapcsolja be a \"Videostreamek hamisítása\" funkciót, 
     <string name="morphe_oauth2_connection_failure_timeout">Az OAuth2 átmenetileg nem elérhető (az API időtúllépés miatt)</string>
     <string name="morphe_oauth2_toast_invalid">Érvénytelen VR bejelentkezési token, próbálja meg újra a bejelentkezést a VR-ba</string>
     <string name="morphe_oauth2_toast_reset">Kijelentkezett az Android VR-ből</string>
-    <string name="morphe_override_initial_video_quality_summary">"Javít egy hibát, amely miatt az alapértelmezett videóminőség nem alkalmazódik azonnal a videó elindítása után
-
-Korlátozás: A lejátszás egyes eszközökön nem működhet, ha a \"Videostreamek hamisítása\" beállítás \"Android VR\" értékre van állítva, és az \"AVC (H.264) kodek erőltetése\" engedélyezve van"</string>
-    <string name="morphe_override_initial_video_quality_title">A kezdeti videóminőség felülbírálása</string>
+    <string name="morphe_override_youtube_music_buttons_summary">A kívánt zenealkalmazást nyitja meg az alapértelmezett YouTube Music alkalmazás helyett</string>
+    <string name="morphe_override_youtube_music_buttons_title">A YouTube Music gombok felülbírálása</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Mindig bekapcsolva</string>
     <string name="morphe_playback_in_feeds_entry_off">Ki</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Csak Wi-Fi esetén</string>
@@ -97,24 +97,29 @@ Korlátozás: A lejátszás egyes eszközökön nem működhet, ha a \"Videostre
     <string name="morphe_sanitize_sharing_links_summary_off">A követési lekérdezési paraméter nem kerül eltávolításra a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Legtöbbször újrajátszott</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Videó bélyegképet jelenít meg a keresősáv húzásakor</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Engedélyezze a keresősáv bélyegképeit</string>
     <string name="morphe_settings_menu_copy_path">Másolva: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Nyissa meg a standard alkalmazásbeállítások képernyőjét egyszer a lista feltöltéséhez</string>
     <string name="morphe_settings_menu_filter_screen_summary">Rejtse el az elemeket a standard alkalmazásbeállítások képernyőn a látható nevük alapján</string>
     <string name="morphe_settings_menu_filter_screen_title">Beállítások menü szűrője</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">Színes</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Monokróm</string>
+    <string name="morphe_splash_screen_animation_style_title">Üdvözlőképernyő stílusa</string>
     <string name="morphe_spoof_video_streams_about_js">• Ha a deobfuszkálás sikertelen, a lejátszás is megbomolhat</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Hiányzik az hangsáv menü</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Hiányzik a „Hangsáv” menü</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Eredeti hang kényszerítése nem érhető el</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR merőleges mód nem elérhető</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Stabil hangerő nem elérhető</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Az Android VR-be való bejelentkezés szükséges</string>
     <string name="morphe_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">A videokodek AVC (H.264) vagy VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"A videó kodek AVC (H.264), VP9 vagy AV1
 
 A lejátszás akadozhat vagy képkockákat ejthet"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Android VR / visionOS AV1 engedélyezése</string>
+    <string name="morphe_spoof_video_streams_av1_title">„Android VR” / visionOS AV1 engedélyezése</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Ennek a beállításnak az engedélyezése szoftveres AV1 dekódolást használhat
 
 Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet"</string>
@@ -149,7 +154,7 @@ Belépéshez nyomd meg a folytatást alul"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Sikertelen volt az engedélykód kiállítása</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Megmutatja a hamisítást a Statisztikákban</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Hamisítás megjelenítése a „Stats for nerds” részben</string>
     <string name="morphe_spoof_video_streams_summary_off">"A videó streamek nincsenek hamisítva
 
 A lejátszás nem működhet"</string>
@@ -157,6 +162,10 @@ A lejátszás nem működhet"</string>
 
 Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szükséges"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Ennek a beállításnak a kikapcsolása lejátszási problémákat okozhat</string>
+    <string name="morphe_tablet_layout_in_player_summary">"A régi lejátszó elrendezés visszaállítása
+
+Korlátozás: Ha a „Régi videós eszköztár visszaállítása” ki van kapcsolva, a „További videók” réteg nem jelenhet meg"</string>
+    <string name="morphe_tablet_layout_in_player_title">Tablet elrendezés engedélyezése a lejátszóban</string>
     <string name="morphe_video_quality_prioritize_dialog">Ha ez a beállítás ki van kapcsolva, akkor a régebbi videóknál nem jelenik meg videóminőségi opció</string>
     <string name="morphe_video_quality_prioritize_summary">A legmagasabb elérhető videóminőség részesít előnyben a kodek hatékonyságával szemben</string>
     <string name="morphe_video_quality_prioritize_title">Videóminőség prioritása</string>
@@ -215,6 +224,7 @@ Ha engedélyezve van, akkor a videók URL-jeit elküldjük az API kiszolgálóna
     <string name="revanced_auto_captions_style_entry_3">Megjelenítés, ha a hang ki van némítva</string>
     <string name="revanced_auto_captions_style_entry_4">Mutoltáskor mutat</string>
     <string name="revanced_auto_captions_style_title">Automatik feliratok láthatóság</string>
+    <string name="revanced_back_button_always_exits_feed_title">Kilépés a kezdőoldalról a vissza gombbal</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Az áramfogyasztáshoz kapcsolódó mozgáskorlátozások nem kerülnek elkerülésre</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Az áramfogyasztáshoz kapcsolódó mozgáskorlátozások a mozgáskorlátozások elkerülésére kerülnek mellőzésre</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Mozifilmes mód korlátozásainak elkerülése</string>
@@ -460,9 +470,6 @@ Megjegyzés:
 • A gyorsított lejátszás letiltásával visszaállítható a keresősáv korábbi 'Csúsztatás kereséshez' viselkedése
 • A beállítás letiltása nem erőlteti a gyorsított lejátszást"</string>
     <string name="revanced_disable_speed_overlay_title">Gyorsított lejátszás letiltása</string>
-    <string name="revanced_disable_splash_animation_summary_off">Az indító animáció engedélyezett</string>
-    <string name="revanced_disable_splash_animation_summary_on">Az indító animáció le van tiltva</string>
-    <string name="revanced_disable_splash_animation_title">Indító animáció letiltása</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">A lejátszó alatt lefelé lapozással teljes képernyős módba léptet</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">A lejátszó alatti lefelé lapozás nem léptet be teljes képernyős módba</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Teljes képernyős módba lapozással való belépés letiltása (a lejátszó alatt)</string>
@@ -518,6 +525,7 @@ Korlátozások:
     <string name="revanced_enable_narrow_navigation_buttons_title">Keskeny navigációs gombok engedélyezése</string>
     <string name="revanced_enable_opus_codec_summary">Engedélyezi az OPUS kodeket, ha a lejátszó válasza tartalmazza az OPUS kodeket</string>
     <string name="revanced_enable_opus_codec_title">OPUS kodek engedélyezése</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Hangmagasság-vezérlés engedélyezése</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">A keresősávon történő érintés le van tiltva</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">A keresősávon történő érintés engedélyezett</string>
     <string name="revanced_enable_seekbar_tapping_title">Érintés engedélyezése a kereső sávon</string>
@@ -809,6 +817,8 @@ Ha a sáv összes elemét elrejted, a teljes megjegyzések szakasz is rejtve mar
     <string name="revanced_hide_community_posts_channel_summary_on">Elrejtve a csatornában</string>
     <string name="revanced_hide_community_posts_channel_title">Elrejtés a csatorna oldalon</string>
     <string name="revanced_hide_connect_button_title">Rejtse el a Csatlakozás gombot</string>
+    <string name="revanced_hide_corrections_section_title">Javítások szekció elrejtése</string>
+    <string name="revanced_hide_course_progress_section_title">Kurzus előrehaladása szekció elrejtése</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Alkotói bolti polc látható a videólejátszó alatt</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Az alkotói bolt polc a videólejátszó alatt elrejtve</string>
     <string name="revanced_hide_creator_store_shelf_title">Alkotói termékpolc elrejtése</string>
@@ -839,12 +849,16 @@ Ha a sáv összes elemét elrejted, a teljes megjegyzések szakasz is rejtve mar
     <string name="revanced_hide_expandable_shelf_summary_off">A kinyitható polcok láthatóak</string>
     <string name="revanced_hide_expandable_shelf_summary_on">A kinyitható polcok el vannak rejtve</string>
     <string name="revanced_hide_expandable_shelf_title">Kinyitható polcok elrejtése</string>
+    <string name="revanced_hide_explore_course_section_title">Kurzus felfedezése szekció elrejtése</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">A Podcast felfedezése szakasz látható</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">A Podcast felfedezése szakasz rejtett</string>
     <string name="revanced_hide_explore_podcast_section_title">Podcast felfedezése szekció elrejtése</string>
+    <string name="revanced_hide_explore_section_title">Felfedezés szekció elrejtése</string>
+    <string name="revanced_hide_featured_channels_section_title">Kiemelt csatornák szekció elrejtése</string>
     <string name="revanced_hide_featured_links_section_summary_off">A kiemelt linkek szekció látható</string>
     <string name="revanced_hide_featured_links_section_summary_on">A kiemelt linkek szekció rejtett</string>
     <string name="revanced_hide_featured_links_section_title">Kiemelt hivatkozások szekció elrejtése</string>
+    <string name="revanced_hide_featured_playlists_section_title">Kiemelt lejálisták szakasz elrejtése</string>
     <string name="revanced_hide_featured_videos_section_summary_off">A kiemelt videók szekció látható</string>
     <string name="revanced_hide_featured_videos_section_summary_on">A kiemelt videók szekció rejtett</string>
     <string name="revanced_hide_featured_videos_section_title">Kiemelt videók szekció elrejtése</string>
@@ -880,6 +894,7 @@ Ha a sáv összes elemét elrejted, a teljes megjegyzések szakasz is rejtve mar
     <string name="revanced_hide_handle_summary_off">A kezelő látható</string>
     <string name="revanced_hide_handle_summary_on">A kezelő el van rejtve</string>
     <string name="revanced_hide_handle_title">Kezelő elrejtése</string>
+    <string name="revanced_hide_hashtag_section_title">Hashtag szekció elrejtése</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">A Hogyan készült ez a tartalom szakasz látható</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">A Hogyan készült ez a tartalom szakasz rejtett</string>
     <string name="revanced_hide_how_this_was_made_section_title">A „Hogyan készült ez a tartalom?” szekció elrejtése</string>
@@ -1147,6 +1162,7 @@ Korlátozás: A videó vége után az összes átfedő gomb rejtve maradhat"</st
     <string name="revanced_hide_rewards_button_summary_off">A jutalmak gomb látható</string>
     <string name="revanced_hide_rewards_button_summary_on">A jutalmak gomb el van rejtve</string>
     <string name="revanced_hide_rewards_button_title">Jutalmak gomb elrejtése</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">Rejtse el a \"Keresés a videón belül\" szakaszt</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">A bélyegképek a keresési kifejezések előzményeiben láthatóak</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">A bélyegképek a keresési kifejezések előzményeiben el vannak rejtve</string>
     <string name="revanced_hide_search_term_thumbnail_title">Keresési kifejezések bélyegképeinek elrejtése</string>
@@ -1339,6 +1355,7 @@ Korlátozások:
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Feliratkozott videók elrejtése nézettség alapján</string>
     <string name="revanced_hide_video_by_view_counts_summary">Az ajánlott videók elrejtése, ha a megtekintések száma kevesebb a megadott számnál.\n\nIsmert probléma: a 0 megtekintésű videókat a rendszer nem szűri</string>
     <string name="revanced_hide_video_by_view_counts_title">Ajánlott videók elrejtése megtekintések alapján</string>
+    <string name="revanced_hide_video_details_section_title">Videó részletei szekció elrejtése</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">A „Ezt is megnézték” és „Még érdekelhet” címkék a keresési eredményekben láthatók</string>
     <string name="revanced_hide_video_recommendation_labels_title">Videóajánlások címkéinek elrejtése</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Az ennél nagyobb nézettségű videók el lesznek rejtve</string>
@@ -1589,14 +1606,11 @@ A beépített lejátszási lista letöltése gomb megjelenítéséhez kapcsolja 
     <string name="revanced_override_video_download_button_queue_manager_summary_on">A beépített videó letöltés gomb megnyitja a várólista kezelőt</string>
     <string name="revanced_override_video_download_button_summary_off">Az eredeti letöltés gomb megnyitja az eredeti, beépített letöltőt</string>
     <string name="revanced_override_video_download_button_title">Videó letöltési gomb felülbírálása</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">A YouTube Music szükséges a gombművelet felülbírálásához. Koppints ide a YouTube Music letöltéséhez</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_title">Előfeltétel</string>
-    <string name="revanced_override_youtube_music_button_summary_off">A YouTube Music gomb a belső alkalmazást nyitja</string>
-    <string name="revanced_override_youtube_music_button_summary_on">A YouTube Music gomb nyitja meg a célzási zenei alkalmazódat</string>
-    <string name="revanced_override_youtube_music_button_title">YouTube Music gomb felülírása</string>
     <string name="revanced_patched_date_title">Patchelés dátuma</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Kizárva</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Beleértve</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">Lehetővé teszi a sebesség és a hangmagasság független beállítását, ami audio artefaktumokat okozhat</string>
+    <string name="revanced_playback_audio_time_stretching_title">Audió időnyújtás</string>
     <string name="revanced_playback_speed_normal">Normál</string>
     <string name="revanced_preference_category_action_buttons">Művelet gombok</string>
     <string name="revanced_preference_category_additional_settings">További beállítások</string>
@@ -1605,7 +1619,6 @@ A beépített lejátszási lista letöltése gomb megjelenítéséhez kapcsolja 
     <string name="revanced_preference_category_app_info">Alkalmazás információ</string>
     <string name="revanced_preference_category_codec">Kodek</string>
     <string name="revanced_preference_category_custom_actions">Egyéni műveletek</string>
-    <string name="revanced_preference_category_download_button">Letöltés gomb</string>
     <string name="revanced_preference_category_experimental_flag">Kísérleti funkciók</string>
     <string name="revanced_preference_category_image_region_restrictions">Régiós kép korlátozások</string>
     <string name="revanced_preference_category_import_export_as_file">Import / Export fájlként</string>
@@ -1742,6 +1755,7 @@ Leírás
     <string name="revanced_quick_actions_top_margin_invalid_toast">A gyors műveletek felső margójának 0 és 32 között kell lennie</string>
     <string name="revanced_quick_actions_top_margin_summary">Állítsa be a gyors műveletek sáv felső margóját (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Gyors műveletek felső margója</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Alapértelmezett hangmagasság módosítva: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">A lejátszási sebesség módosítása csak a jelenlegi videóra érvényes</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">A lejátszási sebesség módosítása minden videóra érvényes</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Az egyéni sebességválasztás alkalmazása minden jövőbeli videóra</string>
@@ -1780,9 +1794,6 @@ Infó:
     <string name="revanced_replace_channel_handle_summary_off">A csatorna kezelő van használatban</string>
     <string name="revanced_replace_channel_handle_summary_on">A csatorna név van használatban</string>
     <string name="revanced_replace_channel_handle_title">Cserélje ki a csatorna kezelőt</string>
-    <string name="revanced_replace_navigation_button_summary">A navigációs gombot a keresésre cseréli</string>
-    <string name="revanced_replace_navigation_button_target_entry_home">Kezdőlap</string>
-    <string name="revanced_replace_navigation_button_target_title">Navigációs gomb lecserélése</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Érintse meg a hátralévő időért</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Érintse meg a lejátszási sebesség vagy a videóminőség felugró menüjének megnyitásához</string>
     <string name="revanced_replace_time_stamp_action_title">Időbélyeg művelet megváltoztatása</string>
@@ -2180,9 +2191,10 @@ A legtöbb hiba nem javítható az ügyféloldali korlátozások miatt, ezért c
     <string name="revanced_shorts_player_type_regular_player">Normál lejátszó</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Teljes képernyős normál lejátszó</string>
     <string name="revanced_shorts_player_type_title">Shorts megnyitása ezzel:</string>
-    <string name="revanced_show_settings_button_index_title">Beállítások gomb pozíciója</string>
+    <string name="revanced_show_search_button_title">Keresés gomb megjelenítése</string>
     <string name="revanced_show_settings_button_title">Beállítások gomb megjelenítése</string>
     <string name="revanced_show_settings_button_type_title">Beállítások gomb művelete</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Beállítások gomb pozíciója</string>
     <string name="revanced_show_toolbar_settings_button_title">Beállítások gomb megjelenítése</string>
     <string name="revanced_show_video_title_section_summary">"Megjeleníti a videócím részt teljes képernyős módban
 
@@ -2313,9 +2325,6 @@ A fényerő beállítása a képernyő bal oldalán történő függőleges húz
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Állítsa be a hangerő szabályozó progresszív sáv színét</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">A húzással előhívható fedőréteg hangerejének színe</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">A csúsztatható terület mérete nem lehet nagyobb 50-nél. Visszaállítás az alapértelmezettre</string>
-    <string name="revanced_swipe_overlay_rect_size_summary">Az lehúzható képernyőterület százalékos aránya.\n\n
-Megjegyzés: Ezzel a képernyőterület méretét is megváltoztatja, ahol érzékeli az ugráshoz szükséges dupla koppintást</string>
-    <string name="revanced_swipe_overlay_rect_size_title">Gesztus vezérlés átfedésének képmérete</string>
     <string name="revanced_swipe_overlay_style_entry_0">Örökölt</string>
     <string name="revanced_swipe_overlay_style_entry_1">Vízszintes fedvény</string>
     <string name="revanced_swipe_overlay_style_entry_2">Vízszintes fedvény (minimalista – felül)</string>
@@ -2365,6 +2374,9 @@ Keress a videóban a képernyő felső felén történő vízszintes csúsztatá
 
 A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</string>
     <string name="revanced_swipe_volume_title">Hangerő kézmozdulat engedélyezése</string>
+    <string name="revanced_swipe_zone_label_brightness">Fényerő</string>
+    <string name="revanced_swipe_zone_label_speed">Sebesség</string>
+    <string name="revanced_swipe_zone_label_volume">Hangerő</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"A létrehozás gomb és az értesítés gomb helyzetét cseréli ki a készülék információinak meghamisításával
 
 • A készüléket esetleg újra kell indítani a beállítás változtatásának érvényesítéséhez
@@ -2374,9 +2386,6 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
     <string name="revanced_switch_create_with_notifications_button_summary_on">A létrehozás gomb fel van cserélve az értesítések gombbal</string>
     <string name="revanced_switch_create_with_notifications_button_title">Létrehozás felcserélése az értesítésekkel</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Ha a beállítás módosítása nem lép életbe, próbálja meg inkognitó módba váltani</string>
-    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_summary">A telepített RVX Music csomag neve</string>
-    <string name="revanced_third_party_youtube_music_package_name_title">RVX Music csomag név</string>
     <string name="revanced_transcript_cookies_about_summary">Kattintson ide a sütik fogadásának módjáról</string>
     <string name="revanced_transcript_cookies_about_title">Átirati sütikről</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">Hitelesítés</string>

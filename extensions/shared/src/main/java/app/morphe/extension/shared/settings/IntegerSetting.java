@@ -8,6 +8,8 @@ import org.json.JSONObject;
 
 import java.util.Objects;
 
+import app.morphe.extension.shared.settings.Setting.SliderConfig;
+
 @SuppressWarnings("unused")
 public class IntegerSetting extends Setting<Integer> {
 
@@ -45,6 +47,22 @@ public class IntegerSetting extends Setting<Integer> {
 
     public IntegerSetting(@NonNull String key, @NonNull Integer defaultValue, boolean rebootApp, boolean includeWithImportExport, @Nullable String userDialogMessage, @Nullable Availability availability) {
         super(key, defaultValue, rebootApp, includeWithImportExport, userDialogMessage, availability);
+    }
+
+    public IntegerSetting(String key, Integer defaultValue, SliderConfig sliderConfig) {
+        this(key, defaultValue, false, sliderConfig, null);
+    }
+
+    public IntegerSetting(String key, Integer defaultValue, boolean rebootApp, SliderConfig sliderConfig) {
+        this(key, defaultValue, rebootApp, sliderConfig, null);
+    }
+
+    public IntegerSetting(String key, Integer defaultValue, SliderConfig sliderConfig, @Nullable Availability availability) {
+        this(key, defaultValue, false, sliderConfig, availability);
+    }
+
+    public IntegerSetting(String key, Integer defaultValue, boolean rebootApp, SliderConfig sliderConfig, @Nullable Availability availability) {
+        super(key, defaultValue, rebootApp, true, null, availability, sliderConfig);
     }
 
     @Override

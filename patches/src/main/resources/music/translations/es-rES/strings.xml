@@ -11,7 +11,7 @@ Esto es requerido para el funcionamiento de la aplicación"</string>
 
 Deshabilitar las optimizaciones de batería para MicroG no tendrá un efecto negativo en el uso de la batería
 
-Toca el botón continuar y permite los cambios de optimización"</string>
+Pulsa el botón Continuar y permite los cambios de optimización"</string>
     <string name="gms_core_dialog_open_website_text">Abrir sitio web</string>
     <string name="gms_core_dialog_title">Acción necesaria</string>
     <string name="gms_core_settings_summary">Activa los ajustes de mensajería en la nube para recibir notificaciones</string>
@@ -36,7 +36,7 @@ Toca el botón continuar y permite los cambios de optimización"</string>
     <string name="morphe_disable_drc_audio_summary_on">El audio DRC está desactivado</string>
     <string name="morphe_disable_quic_protocol_summary_off">El protocolo QUIC está activado</string>
     <string name="morphe_disable_quic_protocol_summary_on">El protocolo QUIC está desactivado</string>
-    <string name="morphe_force_original_audio_not_available">Para usar esta función, cambia \"Falsificar transmisiones de vídeo\" a cualquier cliente excepto \"Android Studio\"</string>
+    <string name="morphe_force_original_audio_not_available">Para usar esta función, cambia \'Falsificar transmisiones de vídeo\' a cualquier cliente excepto \'Android Studio\' y \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Siempre reproduce la pista de audio original del vídeo en lugar de una versión doblada</string>
     <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
     <string name="morphe_force_original_audio_summary_on">Usar el idioma de audio original</string>
@@ -99,13 +99,13 @@ Cuando no se encuentran letras de terceros, se muestran las letras integradas en
     <string name="morphe_music_lyrics_enabled_title">Usar letras de terceros</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Desplaza las letras sincronizadas hacia adelante o hacia atrás. Usa un valor positivo si las letras van por delante de la canción</string>
     <string name="morphe_music_lyrics_offset_ms_title">Desfase de tiempo</string>
-    <string name="morphe_music_lyrics_show_copy_button_title">Mostrar botón \"Copiar\"</string>
-    <string name="morphe_music_lyrics_show_translate_button_title">Mostrar botón \"Traducir\"</string>
+    <string name="morphe_music_lyrics_show_copy_button_title">Mostrar botón Copiar</string>
+    <string name="morphe_music_lyrics_show_translate_button_title">Mostrar botón Traducir</string>
     <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, luego KuGou</string>
     <string name="morphe_music_lyrics_source_label">Fuente: %s</string>
     <string name="morphe_music_lyrics_source_title">Servicio de letras</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Tocar una línea salta a ese momento de la canción</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">Toca una línea para buscar</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Pulsa una línea para buscar</string>
     <string name="morphe_music_lyrics_text_size_summary">Tamaño del texto de las letras</string>
     <string name="morphe_music_lyrics_text_size_title">Tamaño del texto</string>
     <string name="morphe_music_lyrics_translate_failed">No se pudieron traducir las letras</string>
@@ -129,32 +129,32 @@ Cuando no se encuentran letras de terceros, se muestran las letras integradas en
     <string name="morphe_sanitize_sharing_links_summary_on">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
     <string name="morphe_settings_menu_copy_path">Copiado: %s</string>
-    <string name="morphe_settings_menu_filter_picker_empty">Abrir la pantalla de configuración de la aplicación estándar una vez para completar la lista</string>
-    <string name="morphe_settings_menu_filter_screen_summary">Ocultar elementos en la pantalla de configuración de la aplicación estándar por su nombre visible</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Abre la pantalla de configuración de la aplicación estándar una vez para completar la lista</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Oculta elementos en la pantalla de configuración de la aplicación estándar por su nombre visible</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtro del menú de configuración</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente predeterminado</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
     <string name="morphe_spoof_video_streams_screen_summary">Falsifica las transmisiones de vídeo del cliente para evitar problemas de reproducción</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">No has iniciado sesión en Android VR. Pulsa aquí para iniciar sesión</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar esta función, cambia \"Cliente predeterminado\" a Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar esta función, cambia \'Cliente predeterminado\' a \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Actualmente conectado a Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Inicio de sesión de Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Código de activación: %s
 
-1. Pulsa \"Abrir sitio web\" a continuación para abrir el sitio web \"Conectar un dispositivo\"
+1. Pulsa 'Abrir sitio web' a continuación para abrir el sitio web 'Conectar un dispositivo'
 2. Pega desde el portapapeles (o escribe) el código de activación que se muestra arriba
 3. Inicia sesión en Google si se te solicita. Si tienes varias cuentas, elige esta cuenta de YouTube
-4. Pulsa \"Permitir acceso a YouTube VR\"
-5. Vuelve a esta aplicación después de ver el mensaje \"Dispositivo conectado\""</string>
+4. Pulsa 'Permitir acceso a YouTube VR'
+5. Vuelve a esta aplicación después de ver el mensaje 'Dispositivo conectado'"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instrucciones</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Iniciar sesión en Android VR puede solucionar problemas de reproducción para algunos usuarios
 
-Para iniciar sesión, pulsa en \"Continuar\" a continuación"</string>
+Para iniciar sesión, pulsa en Continuar"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Cerrar sesión</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Iniciar sesión en Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autenticación guardada
 
-• Tus ajustes de RVX no importarán/exportarán la autenticación de Android VR
+• Tus ajustes de RVX no importarán ni exportarán la autenticación de Android VR
 • Si esta aplicación no se utiliza durante 6 meses, Google eliminará esta autenticación
 • Tendrás que iniciar sesión de nuevo si cambias tu contraseña de Google o cancelas el registro de este dispositivo en tus ajustes de Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sesión iniciada correctamente</string>
@@ -170,6 +170,14 @@ La reproducción podría no funcionar"</string>
 Si eres un usuario de YouTube Premium, esta configuración podría no ser necesaria"</string>
     <string name="morphe_spoof_video_streams_title">Falsificar transmisiones de vídeo</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción</string>
+    <string name="morphe_theme_entry_classic_youtube">Clásico (Youtube antiguo)</string>
+    <string name="morphe_theme_entry_dark_blue">Azul oscuro</string>
+    <string name="morphe_theme_entry_dark_green">Verde oscuro</string>
+    <string name="morphe_theme_entry_dark_orange">Naranja oscuro</string>
+    <string name="morphe_theme_entry_dark_pink">Rosado oscuro</string>
+    <string name="morphe_theme_entry_dark_red">Rojo oscuro </string>
+    <string name="morphe_theme_entry_dark_yellow">Amarillo oscuro</string>
+    <string name="morphe_theme_entry_modern_youtube">Youtube moderno</string>
     <string name="revanced_add_miniplayer_next_button_summary">Añade un botón de siguiente pista al minireproductor</string>
     <string name="revanced_add_miniplayer_next_button_title">Añade un botón de siguiente al minireproductor</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Añade un botón de pista anterior al minireproductor</string>
@@ -445,6 +453,7 @@ Descarga %2$s desde el sitio web"</string>
     <string name="revanced_hide_terms_container_title">Ocultar contenedor de términos</string>
     <string name="revanced_hide_voice_search_button_summary">Oculta el botón de búsqueda por voz en la barra de búsqueda</string>
     <string name="revanced_hide_voice_search_button_title">Ocultar botón de búsqueda por voz</string>
+    <string name="revanced_icon_custom">Personalizado</string>
     <string name="revanced_preference_screen_account_title">Cuenta</string>
     <string name="revanced_preference_screen_action_bar_title">Barra de Acción</string>
     <string name="revanced_preference_screen_ads_title">Anuncios</string>
@@ -537,20 +546,20 @@ Toca para ver cómo crear una clave de API"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Crear clave de desarrollador API v3 de datos de YouTube</string>
     <string name="revanced_ryd_attribution_summary">"Los datos son proporcionados por la API de Return YouTube Dislike
 
-Toca aquí para abrir ReturnYouTubeDislike.com"</string>
+Pulsa aquí para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Reduce el ancho del botón de \"Me gusta\" para ahorrar espacio</string>
-    <string name="revanced_ryd_compact_layout_title">Usar botón de \"Me gusta\" compacto</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Muestra los \"No me gusta\" como un porcentaje de las reacciones positivas en lugar de un número</string>
-    <string name="revanced_ryd_dislike_percentage_title">Mostrar \"No me gusta\" como porcentaje</string>
+    <string name="revanced_ryd_compact_layout_summary">Reduce el ancho del botón de \'Me gusta\' para ahorrar espacio</string>
+    <string name="revanced_ryd_compact_layout_title">Usar botón de \'Me gusta\' compacto</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Muestra los \'No me gusta\' como un porcentaje de las reacciones positivas en lugar de un número</string>
+    <string name="revanced_ryd_dislike_percentage_title">Mostrar \'No me gusta\' como porcentaje</string>
     <string name="revanced_ryd_enabled_summary">Muestra el número de vídeos que no te gustan</string>
     <string name="revanced_ryd_enabled_title">Activar Return YouTube Dislike</string>
-    <string name="revanced_ryd_estimated_like_summary">Muestra una estimación del número de \"Me gusta\" en los videos donde el creador ha desactivado las reacciones</string>
-    <string name="revanced_ryd_estimated_like_title">Mostrar estimación de \"Me gusta\"</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Los \"No me gusta\" no están disponibles (se alcanzó el límite de la API del cliente)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Los \"No me gusta\" no están disponibles (estado %d)</string>
-    <string name="revanced_ryd_failure_connection_timeout">Los “No me gusta” no están disponibles temporalmente (la API no responde)</string>
-    <string name="revanced_ryd_failure_generic">Los \"No me gusta\" no están disponibles (%s)</string>
+    <string name="revanced_ryd_estimated_like_summary">Muestra una estimación del número de \'Me gusta\' en los videos donde el creador ha desactivado las reacciones</string>
+    <string name="revanced_ryd_estimated_like_title">Mostrar estimación de \'Me gusta\'</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Los \'No me gusta\' no están disponibles (se alcanzó el límite de la API del cliente)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Los \'No me gusta\' no están disponibles (estado %d)</string>
+    <string name="revanced_ryd_failure_connection_timeout">Los \'No me gusta\' no están disponibles temporalmente (la API no responde)</string>
+    <string name="revanced_ryd_failure_generic">Los \'No me gusta\' no están disponibles (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Muestra una notificación cuando el servidor de Return YouTube Dislike no está disponible</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostrar alertas de error de conexión</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto por el propietario</string>
@@ -618,7 +627,7 @@ Toca aquí para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_import_export_title">Importar / Exportar configuración</string>
     <string name="revanced_settings_import_failed">Error de importación: %s</string>
     <string name="revanced_settings_import_reset">Ajustes de RVX restablecidos a los valores predeterminados</string>
-    <string name="revanced_settings_import_success">Configuración importada de %d</string>
+    <string name="revanced_settings_import_success">Ajustes importados: %d</string>
     <string name="revanced_settings_reset">Restablecer</string>
     <string name="revanced_settings_reset_color">Restablecer color</string>
     <string name="revanced_settings_search_clear_history">Borrar historial de búsqueda</string>
@@ -627,7 +636,7 @@ Toca aquí para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_search_empty_history_title">El historial de búsqueda está vacío</string>
     <string name="revanced_settings_search_history_summary_off">El historial de búsqueda de los ajustes está oculto</string>
     <string name="revanced_settings_search_history_summary_on">El historial de búsqueda de los ajustes está visible</string>
-    <string name="revanced_settings_search_history_title">Mostrar el historial de búsqueda de ajustes</string>
+    <string name="revanced_settings_search_history_title">Mostrar historial de búsqueda de ajustes</string>
     <string name="revanced_settings_search_no_results_summary">Prueba con otra palabra clave</string>
     <string name="revanced_settings_search_no_results_title">No se encontraron resultados para «%s»</string>
     <string name="revanced_settings_search_recent_searches">Búsquedas recientes</string>
@@ -639,6 +648,8 @@ Toca aquí para abrir ReturnYouTubeDislike.com"</string>
 • Los ajustes principales aparecen sobre los ajustes secundarios deshabilitados"</string>
     <string name="revanced_settings_search_tips_title">Consejos de búsqueda</string>
     <string name="revanced_settings_search_title">Buscar en %s</string>
+    <string name="revanced_settings_show_slider_summaries_summary">Muestra o oculta resúmenes debajo de los ajustes deslizantes</string>
+    <string name="revanced_settings_show_slider_summaries_title">Mostrar resúmenes para los ajustes de deslizadores</string>
     <string name="revanced_share_copy_settings_success">Ajustes copiados en el portapapeles</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Simula una versión anterior del cliente para las letras de las canciones</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Sin letras en tiempo real</string>

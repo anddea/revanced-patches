@@ -39,12 +39,6 @@ public class AuthUtils {
 
             if (StringUtils.isNotEmpty(newlyLoadedAuthorization) &&
                     StringUtils.isNotEmpty(newlyLoadedVisitorId)) {
-                // if (!authorization.equals(newlyLoadedAuthorization)) {
-                //     Logger.printDebug(() -> "new Authorization loaded: " + newlyLoadedAuthorization);
-                // }
-                // if (!visitorId.equals(newlyLoadedVisitorId)) {
-                //     Logger.printDebug(() -> "new VisitorId loaded: " + newlyLoadedVisitorId);
-                // }
                 authorization = newlyLoadedAuthorization;
                 visitorId = newlyLoadedVisitorId;
             }
@@ -71,6 +65,16 @@ public class AuthUtils {
             put(VISITOR_ID_HEADER, visitorId);
             put(PAGE_ID_HEADER, pageId);
         }};
+    }
+
+    @NonNull
+    public static String getAuthorization() {
+        return authorization;
+    }
+
+    @NonNull
+    public static String getVisitorId() {
+        return visitorId;
     }
 
     public static boolean isNotLoggedIn() {

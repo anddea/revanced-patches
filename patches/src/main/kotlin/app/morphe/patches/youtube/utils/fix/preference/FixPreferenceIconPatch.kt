@@ -2,9 +2,11 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
  *
- * Copyright (C) 2026 anddea (https://github.com/anddea)
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
  */
 
 package app.morphe.patches.youtube.utils.fix.preference
@@ -154,13 +156,25 @@ internal val fixPreferenceIconPatch = bytecodePatch {
                     addInstructionsWithLabels(
                         0,
                         """
+                            const-string v4, "$RVX_SETTINGS_KEY"
+                            invoke-virtual { p0, v4 }, $findPreferenceMethodCall
+                            move-result-object v4
+
+                            if-eqz v4, :check_legacy_icons
+                            invoke-static { }, $EXTENSION_CLASS->getRvxSettingsIconResourceIdentifier()I
+                            move-result v5
+
+                            if-eqz v5, :check_legacy_icons
+                            # Bind the selected icon in the legacy AndroidX settings screen.
+                            const/4 v3, 0x1
+                            invoke-virtual { v4, v3 }, $setPreferenceIconSpaceReservedMethodCall
+                            invoke-virtual { v4, v5 }, $setPreferenceIconResourceMethod
+
+                            :check_legacy_icons
                             invoke-static { }, $EXTENSION_CLASS->removePreferenceIcon()Z
                             move-result v0
 
                             if-eqz v0, :exit
-                            const-string v4, "$RVX_SETTINGS_KEY"
-                            invoke-virtual { p0, v4 }, $findPreferenceMethodCall
-                            move-result-object v4
 
                             iget-object v0, p0, $getAllPreferenceField
                             invoke-interface { v0 }, Ljava/util/List;->iterator()Ljava/util/Iterator;

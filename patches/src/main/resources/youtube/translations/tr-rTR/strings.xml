@@ -28,14 +28,14 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin"</string
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protokolü etkin</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokolü devre dışı</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokolünü devre dışı bırak</string>
-    <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayın DVR süresini uzat' kullanılamayabilir
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayın DVR süresini genişlet' seçeneği kullanılamayabilir
 
-Bunu düzeltmek için, 'Video akışlarını taklit et' özelliğini açın ve 'Varsayılan istemci'yi 'TV Simply' veya 'visionOS' olarak değiştirin"</string>
+Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini açın ve 'Varsayılan istemci'yi 'TV' veya 'visionOS' olarak değiştirin"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Canlı yayınları 7 güne kadar geriye sarmanıza olanak tanır</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Canlı yayın DVR süresini uzat</string>
     <string name="morphe_explore_menu_screen_summary">Keşfet menüsünde hangi bileşenlerin görüneceğini seçin</string>
     <string name="morphe_explore_menu_screen_title">Menüyü keşfet</string>
-    <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için \'Video akışlarını taklit et\' ayarını Android Studio dışındaki herhangi bir istemciye değiştirin\'</string>
+    <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için, \'Video akışlarını taklit et\' ayarını \'Android Studio\' ve \'Android VR Downgraded\' dışındaki herhangi bir istemciye değiştirin</string>
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
     <string name="morphe_force_original_audio_title">Orijinal ses dilini zorla</string>
@@ -50,8 +50,8 @@ Bunu düzeltmek için, 'Video akışlarını taklit et' özelliğini açın ve '
     <string name="morphe_hide_learning_menu_title">Öğrenme menüsünü gizle</string>
     <string name="morphe_hide_live_menu_title">Canlı menüsünü gizle</string>
     <string name="morphe_hide_memberships_menu_title">Üyelikler menüsünü gizle</string>
-    <string name="morphe_hide_movies_menu_title">Filmler menüsünü gizle</string>
-    <string name="morphe_hide_music_menu_title">\'Müzik &amp; TV\' menüsünü gizle</string>
+    <string name="morphe_hide_movies_menu_title">\'Filmler ve TV\' menüsünü gizle</string>
+    <string name="morphe_hide_music_menu_title">Müzik menüsünü gizle</string>
     <string name="morphe_hide_news_menu_title">Haberler menüsünü gizle</string>
     <string name="morphe_hide_playables_menu_title">Hazır Oyunlar menüsünü gizle</string>
     <string name="morphe_hide_podcasts_menu_title">Podcast\'ler menüsünü gizle</string>
@@ -65,11 +65,13 @@ Bunu düzeltmek için, 'Video akışlarını taklit et' özelliğini açın ve '
     <string name="morphe_hide_youtube_premium_menu_title">YouTube Premium menüsünü gizle</string>
     <string name="morphe_hide_youtube_studio_menu_title">YouTube Studio menüsünü gizle</string>
     <string name="morphe_hide_youtube_works_menu_title">\'YouTube\'un nasıl çalıştığı\' menüsünü gizle</string>
-    <string name="morphe_livestream_dvr_not_available">"'Canlı yayın DVR'ı etkinleştir' kullanılamayabilir
+    <string name="morphe_livestream_dvr_not_available">"'Canlı yayın DVR'ını etkinleştir' seçeneği kullanılamayabilir
 
-Bunu düzeltmek için, 'Video akışlarını taklit et' özelliğini açın ve 'Varsayılan istemci'yi 'TV Simply' veya 'visionOS' olarak değiştirin"</string>
+Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini açın ve 'Varsayılan istemci'yi 'TV' veya 'visionOS' olarak değiştirin"</string>
     <string name="morphe_livestream_dvr_summary">Normalde kısıtlama getiren canlı yayınlar da dahil olmak üzere tüm canlı yayınlarda gezinmeye izin verir</string>
     <string name="morphe_livestream_dvr_title">Canlı yayın DVR\'ı etkinleştir</string>
+    <string name="morphe_music_package_name_summary">Yüklü müzik uygulamanızın paket adı</string>
+    <string name="morphe_music_package_name_title">Müzik uygulaması paket adı</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR oturumu açılamadı: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR oturumu açılamadı, web sitesi kimlik doğrulaması onaylanmadı</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 geçici olarak kullanılamıyor</string>
@@ -78,10 +80,8 @@ Bunu düzeltmek için, 'Video akışlarını taklit et' özelliğini açın ve '
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="morphe_oauth2_toast_invalid">Geçersiz VR oturum açma belirteci, VR\'da tekrar oturum açmayı deneyin</string>
     <string name="morphe_oauth2_toast_reset">Android VR oturumu kapatıldı</string>
-    <string name="morphe_override_initial_video_quality_summary">"Video başladığında varsayılan video kalitesinin hemen uygulanmaması sorununu giderir
-
-Sınırlama: 'Video akışlarını taklit et' 'Android VR' olarak ayarlanmışsa ve 'AVC (H.264) kodekini zorla' etkinleştirilmişse bazı cihazlarda oynatma çalışmayabilir"</string>
-    <string name="morphe_override_initial_video_quality_title">İlk video kalitesini geçersiz kıl</string>
+    <string name="morphe_override_youtube_music_buttons_summary">Tercih ettiğiniz müzik uygulamasını, yerleşik YouTube Music uygulaması yerine açar</string>
+    <string name="morphe_override_youtube_music_buttons_title">YouTube Music düğmelerini değiştir</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Her zaman açık</string>
     <string name="morphe_playback_in_feeds_entry_off">Kapalı</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Yalnızca Wi-Fi üzerinde</string>
@@ -97,24 +97,29 @@ Sınırlama: 'Video akışlarını taklit et' 'Android VR' olarak ayarlanmışsa
     <string name="morphe_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">En çok tekrar oynatılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Arama çubuğunu sürüklerken video küçük resmini gösterir</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Zaman çubuğu küçük resimlerini etkinleştir</string>
     <string name="morphe_settings_menu_copy_path">Kopyalandı: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Listeyi doldurmak için standart uygulama ayarları ekranını bir kez açın</string>
     <string name="morphe_settings_menu_filter_screen_summary">Görünür adlarına göre standart uygulama ayarları ekranındaki öğeleri gizle</string>
     <string name="morphe_settings_menu_filter_screen_title">Ayarlar menüsü filtresi</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">Renkli</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Tek renk</string>
+    <string name="morphe_splash_screen_animation_style_title">Açılış ekranı stili</string>
     <string name="morphe_spoof_video_streams_about_js">• Eşleştirme başarısız olursa oynatma da başarısız olabilir</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Ses Parçası menüsü eksik</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'Ses Parçası menüsü eksik</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Orijinal sesi zorlama mevcut değil</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersif modu mevcut değil</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Sabit ses mevcut değil</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Android VR\'da oturum açılması gereklidir</string>
     <string name="morphe_spoof_video_streams_about_title">Taklit yan etkileri</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Video kodeği AVC (H.264) veya VP9\'dur</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Video kodeği AVC (H.264), VP9 veya AV1'dir
 
 Oynatma takılabilir veya kare atlayabilir"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Android VR / visionOS AV1\'e izin ver</string>
+    <string name="morphe_spoof_video_streams_av1_title">\'Android VR\' / visionOS AV1\'e izin ver</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Bu ayarı etkinleştirmek yazılım tabanlı AV1 kod çözmeyi kullanabilir
 
 AV1 ile video oynatma takılabilir veya kare atlayabilir"</string>
@@ -149,7 +154,7 @@ Oturum açmak için, devam et butonuna basın"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivasyon kodu oluşturulamadı</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">İstemci, Meraklısı için istatistikler\'de gizli</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">İstemci tipi Meraklısı için istatistikler\'de görünür</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">Meraklısı için istatistikler\'de takliti göster</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">\'Meraklısı için istatistikler\'de taklit göster</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video akışları taklit edilmez
 
 Oynatma çalışmayabilir"</string>
@@ -157,6 +162,10 @@ Oynatma çalışmayabilir"</string>
 
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak oynatma sorunlarına yol açabilir</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Eski oynatıcı düzenini geri yükler
+
+Sınırlamalar: 'Eski video eylem çubuğunu geri yükle' kapatılırsa, 'Daha fazla video' katmanı kullanılamayabilir"</string>
+    <string name="morphe_tablet_layout_in_player_title">Oynatıcıda tablet düzenini etkinleştir</string>
     <string name="morphe_video_quality_prioritize_dialog">Bu ayar devre dışı bırakılırsa, eski videolar için video kalitesi seçenekleri görüntülenmeyebilir</string>
     <string name="morphe_video_quality_prioritize_summary">Kodek verimliliğinden ziyade en yüksek video kalitesine öncelik verir</string>
     <string name="morphe_video_quality_prioritize_title">Video kalitesine öncelik ver</string>
@@ -212,6 +221,7 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun"</string>
     <string name="revanced_auto_captions_style_entry_3">Ses kapatılmadığında göster</string>
     <string name="revanced_auto_captions_style_entry_4">Ses kapatıldığında göster</string>
     <string name="revanced_auto_captions_style_title">Otomatik altyazı görünürlüğü</string>
+    <string name="revanced_back_button_always_exits_feed_title">Geri düğmesi akıştan çıkar</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Güç tasarrufu Ambiyans modu kısıtlamaları atlanmıyor</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Güç tasarrufu Ambiyans modu kısıtlamaları atlanıyor</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ambiyans modu kısıtlamalarını atla</string>
@@ -454,9 +464,6 @@ Değişiklikler şunları içerir:
 
 Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak için çubuğu sağa sola kaydırma\" özelliğini geri getirecektir"</string>
     <string name="revanced_disable_speed_overlay_title">Videoya basılı tutarak hızlandırmayı kapat</string>
-    <string name="revanced_disable_splash_animation_summary_off">Açılış animasyonu etkin</string>
-    <string name="revanced_disable_splash_animation_summary_on">Açılış animasyonu etkin değil</string>
-    <string name="revanced_disable_splash_animation_title">Açılış animasyonunu devre dışı bırak</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Oynatıcının altında aşağı kaydırmak tam ekran moduna girer</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Oynatıcının altında aşağı kaydırmak tam ekran moduna girmez</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Tam ekran moduna girmek için kaydırmayı devre dışı bırak (oynatıcının altında)</string>
@@ -512,6 +519,7 @@ Kısıtlamalar:
     <string name="revanced_enable_narrow_navigation_buttons_title">Dar gezinme düğmelerini etkinleştir</string>
     <string name="revanced_enable_opus_codec_summary">Oynatıcı yanıtı OPUS codec bileşenini içeriyorsa OPUS codec bileşenini etkinleştirin</string>
     <string name="revanced_enable_opus_codec_title">OPUS kodek bileşenini etkinleştir</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Ses perdesi kontrollerini etkinleştir</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Zaman çubuğuna dokunma kapalı</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Zaman çubuğuna dokunma etkin</string>
     <string name="revanced_enable_seekbar_tapping_title">Zaman çubuğuna dokunmayı etkinleştir</string>
@@ -796,6 +804,8 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_connect_button_summary_off">Bağlan düğmesi gösteriliyor</string>
     <string name="revanced_hide_connect_button_summary_on">Bağlan düğmesi gizlenmiştir</string>
     <string name="revanced_hide_connect_button_title">Bağlan düğmesini gizle</string>
+    <string name="revanced_hide_corrections_section_title">Düzeltmeler bölümünü gizle</string>
+    <string name="revanced_hide_course_progress_section_title">\'Kursun ilerleme durumu\' bölümünü gizle</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Video oynatıcısının altındaki içerik üreticisi mağazası rafı görünür</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Video oynatıcısının altındaki içerik üreticisi mağazası rafı gizli</string>
     <string name="revanced_hide_creator_store_shelf_title">İçerik üretici mağazası rafını gizle</string>
@@ -829,12 +839,16 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_expandable_shelf_summary_off">Ürün rafları gösteriliyor</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Genişletilebilir raflar gösterilmiyor</string>
     <string name="revanced_hide_expandable_shelf_title">Ürün raflarını gizle</string>
+    <string name="revanced_hide_explore_course_section_title">\'Bu kursu keşfedin\' bölümünü gizle</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">Podcast\'i keşfedin kısmı görünür</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Podcast\'i keşfedin kısmı gizli</string>
     <string name="revanced_hide_explore_podcast_section_title">\"Podcast\'i keşfedin\" bölümünü gizle</string>
+    <string name="revanced_hide_explore_section_title">Keşfet bölümünü gizle</string>
+    <string name="revanced_hide_featured_channels_section_title">Öne çıkan kanallar bölümünü gizle</string>
     <string name="revanced_hide_featured_links_section_summary_off">Öne çıkan bağlantılar kısmı görünür</string>
     <string name="revanced_hide_featured_links_section_summary_on">Öne çıkan bağlantılar kısmı gizli</string>
     <string name="revanced_hide_featured_links_section_title">Öne çıkan bağlantılar bölümünü gizle</string>
+    <string name="revanced_hide_featured_playlists_section_title">Öne Çıkan Oynatma Listeleri bölümünü gizle</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Öne çıkan videolar kısmı görünür</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Öne çıkan videolar kısmı gizli</string>
     <string name="revanced_hide_featured_videos_section_title">Öne çıkan videolar bölümünü gizle</string>
@@ -870,6 +884,7 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_handle_summary_off">Etiket gizlenmiyor</string>
     <string name="revanced_hide_handle_summary_on">Etiket gizleniyor</string>
     <string name="revanced_hide_handle_title">Etiketi gizle</string>
+    <string name="revanced_hide_hashtag_section_title">Hashtag bölümünü gizle</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Bu içerik nasıl yapıldı kısmı görünür</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Bu içerik nasıl yapıldı kısmı gizli</string>
     <string name="revanced_hide_how_this_was_made_section_title">\'Bu içerik nasıl oluşturuldu\' bölümünü gizle</string>
@@ -1143,6 +1158,7 @@ Ortasında büyük harf bulunan kelimeler tam olarak eşleşmelidir (örneğin: 
     <string name="revanced_hide_search_bar_back_button_summary_off">Arama çubuğunun geri düğmesi gösteriliyor</string>
     <string name="revanced_hide_search_bar_back_button_summary_on">Arama çubuğunun geri düğmesi gizlenmiştir</string>
     <string name="revanced_hide_search_bar_back_button_title">Arama çubuğunu gizle, geri düğmesi</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">\'Bu videodaki aramayı\' bölümünü gizle</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Arama geçmişindeki kapak fotoğrafları gösteriliyor</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Arama geçmişindeki kapak fotoğrafları gizleniyor</string>
     <string name="revanced_hide_search_term_thumbnail_title">Arama terimlerinde kapak fotoğraflarını gizle</string>
@@ -1326,6 +1342,7 @@ Sınırlamalar:
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Abonelikler videolarını görüntüleme sayısına göre gizle</string>
     <string name="revanced_hide_video_by_view_counts_summary">Belirtilen görüntüleme sayısından daha az olan önerilen videoları gizleyin.\n\nBilinen sorun: 0 izleme alan videolar filtrelenmez</string>
     <string name="revanced_hide_video_by_view_counts_title">Önerilen videoları izlenmeye göre gizle</string>
+    <string name="revanced_hide_video_details_section_title">Video ayrıntıları bölümünü gizle</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">Arama sonuçlarındaki \'İnsanların izlediği diğer videolar\' ve \'Şunlar da hoşunuza gidebilir\' etiketleri görünür</string>
     <string name="revanced_hide_video_recommendation_labels_title">Video öneri etiketlerini gizle</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Görüntüleme sayısı bu sayıdan fazla olan videolar gizlenecektir</string>
@@ -1595,14 +1612,11 @@ Yerel oynatma listesi indirme düğmesini göstermek için \'Uygulama sürümün
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Yerel video indirme düğmesi sıra yöneticisini açar</string>
     <string name="revanced_override_video_download_button_summary_off">Yerel video indirme düğmesi yerel uygulama içi indiriciyi açar</string>
     <string name="revanced_override_video_download_button_title">Video indirme butonunu geçersiz kıl</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">Düğme eylemini geçersiz kılmak için YouTube Music gereklidir. YouTube Music\'i indirmek için buraya dokunun</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_title">Ön koşul</string>
-    <string name="revanced_override_youtube_music_button_summary_off">YouTube Müzik butonu yerel uygulama açar</string>
-    <string name="revanced_override_youtube_music_button_summary_on">YouTube Müzik düğmesi hedef müzik uygulamanızı açar</string>
-    <string name="revanced_override_youtube_music_button_title">YouTube Müzik düğmesini geçersiz kıl</string>
     <string name="revanced_patched_date_title">Yamalanma tarihi</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Hariç tutulan</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Dahil</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">Hızın ve perdenin birbirinden bağımsız olarak ayarlanmasına izin verir, ses bozulmalarına neden olabilir</string>
+    <string name="revanced_playback_audio_time_stretching_title">Ses zaman genişletme</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Eylem düğmeleri</string>
     <string name="revanced_preference_category_additional_settings">Ek ayarlar</string>
@@ -1611,7 +1625,6 @@ Yerel oynatma listesi indirme düğmesini göstermek için \'Uygulama sürümün
     <string name="revanced_preference_category_app_info">Uygulama Bilgileri</string>
     <string name="revanced_preference_category_codec">Codec</string>
     <string name="revanced_preference_category_custom_actions">Özel eylemler</string>
-    <string name="revanced_preference_category_download_button">İndir düğmesi</string>
     <string name="revanced_preference_category_experimental_flag">Deneysel Parametreler</string>
     <string name="revanced_preference_category_image_region_restrictions">Resim bölgesi kısıtlamaları</string>
     <string name="revanced_preference_category_import_export_as_file">İçe / Dışa dosya olarak aktar</string>
@@ -1748,6 +1761,7 @@ Açıklama
     <string name="revanced_quick_actions_top_margin_invalid_toast">Hızlı eylemler üst kenar boşluğu 0-32 arasında olmalıdır. Varsayılan değerlere sıfırlayın</string>
     <string name="revanced_quick_actions_top_margin_summary">Hızlı eylemler çubuğunun üst boşluğunu ayarlayın (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Hızlı eylemler üst boşluğu</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Varsayılan ses perdesi %s olarak ayarlandı</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Oynatma hızı değişiklikleri yalnızca mevcut videoya uygulanır</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Oynatma hızı değişiklikleri tüm videolara uygulanır</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Oynatma hızını hatırla</string>
@@ -1786,9 +1800,6 @@ Bilgi:
     <string name="revanced_replace_channel_handle_summary_off">Kanal etiketi kullanılıyor</string>
     <string name="revanced_replace_channel_handle_summary_on">Kanal ismi kullanılıyor</string>
     <string name="revanced_replace_channel_handle_title">Kanal etiketini değiştirin</string>
-    <string name="revanced_replace_navigation_button_summary">Gezinme düğmesini Arama düğmesiyle değiştirir</string>
-    <string name="revanced_replace_navigation_button_target_entry_home">Anasayfa</string>
-    <string name="revanced_replace_navigation_button_target_title">Gezinme düğmesini değiştir</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Kalan süreyi görüntülemek için dokunun</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Oynatma hızı veya video kalitesi açılır menüsünü açmak için dokunun</string>
     <string name="revanced_replace_time_stamp_action_title">Zaman damgası eylemini değiştir</string>
@@ -2190,9 +2201,10 @@ Aynısı mevcut"</string>
     <string name="revanced_shorts_player_type_regular_player">Normal oynatıcı</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Normal oynatıcı tam ekran</string>
     <string name="revanced_shorts_player_type_title">Shorts\'u şununla aç</string>
-    <string name="revanced_show_settings_button_index_title">Ayarlar düğmesi konumu</string>
+    <string name="revanced_show_search_button_title">Arama düğmesini göster</string>
     <string name="revanced_show_settings_button_title">Ayarlar düğmesini göster</string>
     <string name="revanced_show_settings_button_type_title">Ayarlar düğmesi işlevi</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Ayarlar düğmesi konumu</string>
     <string name="revanced_show_toolbar_settings_button_title">Ayarlar düğmesini göster</string>
     <string name="revanced_show_video_title_section_summary">"Video başlığı bölümünü tam ekranda gösterir
 
@@ -2326,8 +2338,6 @@ Ekranın sol tarafında dikey olarak kaydırarak parlaklığı ayarlayın"</stri
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Ses kontrolleri ilerleme çubuğunun rengini ayarlayın</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Kaydırma katmanı ses rengi</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Kaydırılabilir alan boyutu 50\'den fazla olamaz. Varsayılan değere sıfırlayın</string>
-    <string name="revanced_swipe_overlay_rect_size_summary">Kaydırılabilir ekran alanının yüzdesi.\n\nNot: Bu aynı zamanda aramak için iki kez dokunma hareketi için ekran alanının boyutunu da değiştirecektir</string>
-    <string name="revanced_swipe_overlay_rect_size_title">Kaydırma arayüzü boyutu</string>
     <string name="revanced_swipe_overlay_style_entry_0">Klasik katman</string>
     <string name="revanced_swipe_overlay_style_entry_1">Yatay katman</string>
     <string name="revanced_swipe_overlay_style_entry_2">Yatay katman (minimal - üst)</string>
@@ -2377,6 +2387,9 @@ Ekranın sol tarafında dikey olarak kaydırarak parlaklığı ayarlayın"</stri
 
 Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
     <string name="revanced_swipe_volume_title">Ses hareketini etkinleştir</string>
+    <string name="revanced_swipe_zone_label_brightness">Parlaklık</string>
+    <string name="revanced_swipe_zone_label_speed">Hız</string>
+    <string name="revanced_swipe_zone_label_volume">Ses</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Cihazın bilgilerini taklit ederek oluştur düğmesinin ve bildirim düğmesinin konumlarını değiştirin
 
 • Bu ayarı değiştirseniz bile, cihaz yeniden başlatılıncaya kadar geçerli olmayabilir
@@ -2386,9 +2399,6 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
     <string name="revanced_switch_create_with_notifications_button_summary_on">Oluştur düğmesi ile Bildirimler düğmesinin yerleri değiştirilir</string>
     <string name="revanced_switch_create_with_notifications_button_title">Oluştur ve Bildirimleri yer değiştir</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin</string>
-    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_summary">Yüklü RVX Music\'in paket adı</string>
-    <string name="revanced_third_party_youtube_music_package_name_title">RVX Music paket adı</string>
     <string name="revanced_transcript_cookies_about_summary">Çerezleri nasıl edineceğinizi görmek için tıklayın</string>
     <string name="revanced_transcript_cookies_about_title">Transkript Çerezleri Hakkında</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">Yetkilendirme</string>

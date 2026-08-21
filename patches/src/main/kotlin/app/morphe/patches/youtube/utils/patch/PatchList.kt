@@ -41,13 +41,9 @@ internal enum class PatchList(
         "Custom Shorts action buttons",
         "Changes, at compile time, the icon of the action buttons of the Shorts player."
     ),
-    CUSTOM_BRANDING_ICON_FOR_YOUTUBE(
-        "Custom branding icon for YouTube",
-        "Changes the YouTube app icon to the icon specified in patch options."
-    ),
-    CUSTOM_BRANDING_NAME_FOR_YOUTUBE(
-        "Custom branding name for YouTube",
-        "Changes the YouTube app name to the name specified in patch options."
+    CUSTOM_BRANDING_FOR_YOUTUBE(
+        "Custom branding for YouTube",
+        "Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection."
     ),
     CUSTOM_DOUBLE_TAP_LENGTH(
         "Custom double tap length",
@@ -56,10 +52,6 @@ internal enum class PatchList(
     CUSTOM_DPI(
         "Custom DPI",
         "Forces a higher display density for this app only, so the whole UI scales up without changing system density."
-    ),
-    CUSTOM_HEADER_FOR_YOUTUBE(
-        "Custom header for YouTube",
-        "Applies a custom header in the top left corner within the app."
     ),
     DESCRIPTION_COMPONENTS(
         "Description components",
@@ -96,10 +88,6 @@ internal enum class PatchList(
     DISABLE_SIGN_IN_TO_TV_POPUP(
         "Disable sign in to TV popup",
         "Adds an option to disable the popup asking to sign into a TV on the same local network."
-    ),
-    DISABLE_SPLASH_ANIMATION(
-        "Disable splash animation",
-        "Adds an option to disable the splash animation on app startup."
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
@@ -165,9 +153,9 @@ internal enum class PatchList(
         "Hide shortcuts",
         "Remove, at compile time, the app shortcuts that appears when the app icon is long pressed."
     ),
-    HOOK_YOUTUBE_MUSIC_ACTIONS(
-        "Hook YouTube Music actions",
-        "Adds support for opening music in RVX Music using the in-app YouTube Music button."
+    OVERRIDE_YOUTUBE_MUSIC_BUTTONS(
+        "Override YouTube Music buttons",
+        "Overrides YouTube Music buttons to open RVX Music or any compatible third-party client."
     ),
     HOOK_DOWNLOAD_ACTIONS(
         "Hook download actions",
@@ -267,7 +255,7 @@ internal enum class PatchList(
     ),
     THEME(
         "Theme",
-        "Changes the app's themes to the values specified in patch options."
+        "Adds options to change the app's themes and splash screen style."
     ),
     TOOLBAR_COMPONENTS(
         "Toolbar components",

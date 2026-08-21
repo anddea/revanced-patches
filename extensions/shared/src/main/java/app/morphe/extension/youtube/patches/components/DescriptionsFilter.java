@@ -10,12 +10,25 @@ import app.morphe.extension.youtube.shared.RootView;
 
 @SuppressWarnings("unused")
 public final class DescriptionsFilter extends Filter {
-    private final ByteArrayFilterGroupList macroMarkerShelfGroupList = new ByteArrayFilterGroupList();
+    private static final String INFOCARDS_SECTION_PATH = "infocards_section.";
 
+    private final ByteArrayFilterGroupList featuredSectionGroupList = new ByteArrayFilterGroupList();
+    private final ByteArrayFilterGroupList macroMarkerShelfGroupList = new ByteArrayFilterGroupList();
+    private final ByteArrayFilterGroupList playlistSectionGroupList = new ByteArrayFilterGroupList();
+
+    private final StringFilterGroup featuredSection;
+    private final StringFilterGroup hashtagSection;
+    private final ByteArrayFilterGroup hashtagSectionBuffer;
+    private final ByteArrayFilterGroup hypePointsBuffer;
     private final StringFilterGroup howThisWasMadeSection;
     private final StringFilterGroup horizontalShelf;
     private final StringFilterGroup infoCardsSection;
     private final StringFilterGroup macroMarkerShelf;
+    private final StringFilterGroup playlistSection;
+    private final StringFilterGroup shortsHowThisWasMadeSection;
+    private final StringFilterGroup subscribeButton;
+    private final StringFilterGroup videoDetails;
+    private final ByteArrayFilterGroup videoDetailsBuffer;
 
     public DescriptionsFilter() {
         final StringFilterGroup askSection = new StringFilterGroup(
@@ -33,9 +46,22 @@ public final class DescriptionsFilter extends Filter {
                 "place_section."
         );
 
+        // Keep this identifier callback for older YouTube versions. Newer versions expose the
+        // same component through the path callback below, where the buffer can distinguish courses
+        // from podcasts.
         final StringFilterGroup podcastSection = new StringFilterGroup(
                 Settings.HIDE_EXPLORE_PODCAST_SECTION,
                 "playlist_section."
+        );
+
+        final StringFilterGroup correctionsSection = new StringFilterGroup(
+                Settings.HIDE_CORRECTIONS_SECTION,
+                "error_corrections_section"
+        );
+
+        final StringFilterGroup courseProgressSection = new StringFilterGroup(
+                Settings.HIDE_COURSE_PROGRESS_SECTION,
+                "course_progress"
         );
 
         final StringFilterGroup transcriptSection = new StringFilterGroup(
@@ -54,6 +80,47 @@ public final class DescriptionsFilter extends Filter {
                 podcastSection,
                 transcriptSection,
                 videoSummarySection
+        );
+
+        featuredSection = new StringFilterGroup(
+                null,
+                "compact_infocard."
+        );
+
+        featuredSectionGroupList.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_FEATURED_CHANNELS_SECTION,
+                        "structured_description_channel_lockup"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_FEATURED_LINKS_SECTION,
+                        "media_lockup"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_FEATURED_PLAYLISTS_SECTION,
+                        "structured_description_playlist_lockup"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_FEATURED_VIDEOS_SECTION,
+                        "structured_description_video_lockup"
+                )
+        );
+
+        hashtagSection = new StringFilterGroup(
+                null,
+                "|CellType|ScrollableContainerType|"
+        );
+
+        hashtagSectionBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_HASHTAG_SECTION,
+                "FEhashtag",
+                "/charts" // https://charts.youtube.com/charts/
+        );
+
+        hypePointsBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_HYPE_POINTS_SECTION,
+                "yt_outline_star_shooting",
+                "yt_fill_experimental_hype"
         );
 
         howThisWasMadeSection = new StringFilterGroup(
@@ -86,20 +153,76 @@ public final class DescriptionsFilter extends Filter {
         macroMarkerShelfGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_CHAPTERS_SECTION,
-                        "chapters_horizontal_shelf"
+                        "chapters_horizontal_shelf",
+                        "auto-chapters",
+                        "description-chapters"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_KEY_CONCEPTS_SECTION,
-                        "learning_concept_macro_markers_carousel_shelf"
+                        "learning_concept_macro_markers_carousel_shelf",
+                        "learning-concept"
                 )
+        );
+
+        final StringFilterGroup lensSection = new StringFilterGroup(
+                Settings.HIDE_SEARCH_INSIDE_THIS_VIDEO_SECTION,
+                "lens_section."
+        );
+
+        playlistSection = new StringFilterGroup(
+                null,
+                "playlist_section."
+        );
+
+        playlistSectionGroupList.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_EXPLORE_COURSE_SECTION,
+                        "yt_outline_creator_academy",
+                        "yt_outline_experimental_graduation_cap"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_EXPLORE_PODCAST_SECTION,
+                        "FEpodcasts_destination",
+                        "yt_outline_experimental_podcast"
+                )
+        );
+
+        shortsHowThisWasMadeSection = new StringFilterGroup(
+                Settings.HIDE_HOW_THIS_WAS_MADE_SECTION,
+                "shelf_header.",
+                "cell_video_attribute."
+        );
+
+        subscribeButton = new StringFilterGroup(
+                Settings.HIDE_SUBSCRIBE_BUTTON,
+                "subscribe_button."
+        );
+
+        videoDetails = new StringFilterGroup(
+                null,
+                "linear_layout."
+        );
+
+        videoDetailsBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_VIDEO_DETAILS_SECTION,
+                "section_header"
         );
 
         addPathCallbacks(
                 howThisWasMadeSection,
+                correctionsSection,
+                courseProgressSection,
+                featuredSection,
+                hashtagSection,
                 horizontalShelf,
                 hypePointsSection,
                 infoCardsSection,
-                macroMarkerShelf
+                lensSection,
+                macroMarkerShelf,
+                playlistSection,
+                shortsHowThisWasMadeSection,
+                subscribeButton,
+                videoDetails
         );
     }
 
@@ -109,11 +232,14 @@ public final class DescriptionsFilter extends Filter {
         }
 
         final boolean hideInfoCardsSection = Settings.HIDE_INFO_CARDS_SECTION.get();
+        final boolean hideFeaturedChannelsSection = Settings.HIDE_FEATURED_CHANNELS_SECTION.get();
         final boolean hideFeaturedLinksSection = Settings.HIDE_FEATURED_LINKS_SECTION.get();
+        final boolean hideFeaturedPlaylistsSection = Settings.HIDE_FEATURED_PLAYLISTS_SECTION.get();
         final boolean hideFeaturedVideosSection = Settings.HIDE_FEATURED_VIDEOS_SECTION.get();
         final boolean hideSubscribeButton = Settings.HIDE_SUBSCRIBE_BUTTON.get();
 
-        if (!hideInfoCardsSection && !hideFeaturedLinksSection && !hideFeaturedVideosSection && !hideSubscribeButton) {
+        if (!hideInfoCardsSection && !hideFeaturedChannelsSection && !hideFeaturedLinksSection
+                && !hideFeaturedPlaylistsSection && !hideFeaturedVideosSection && !hideSubscribeButton) {
             return false;
         }
 
@@ -121,8 +247,12 @@ public final class DescriptionsFilter extends Filter {
             return true;
         }
 
-        if (path.contains("media_lockup.")) {
+        if (path.contains("structured_description_channel_lockup")) {
+            return hideFeaturedChannelsSection;
+        } else if (path.contains("media_lockup.")) {
             return hideFeaturedLinksSection;
+        } else if (path.contains("structured_description_playlist_lockup")) {
+            return hideFeaturedPlaylistsSection;
         } else if (path.contains("structured_description_video_lockup.")) {
             return hideFeaturedVideosSection;
         } else if (path.contains("subscribe_button.")) {
@@ -135,9 +265,17 @@ public final class DescriptionsFilter extends Filter {
     @Override
     public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (!EngagementPanel.isDescription() && !RootView.isPlayerActive() && !RootView.isShortsActive()) {
+            return false;
+        }
+
         // Check for the index because of likelihood of false positives.
         if (matchedGroup == howThisWasMadeSection) {
             return contentIndex == 0;
+        } else if (matchedGroup == featuredSection) {
+            return featuredSectionGroupList.check(buffer).isFiltered();
+        } else if (matchedGroup == hashtagSection) {
+            return hashtagSectionBuffer.check(buffer).isFiltered() || hypePointsBuffer.check(buffer).isFiltered();
         } else if (matchedGroup == infoCardsSection) {
             return hideInfoCards(path, contentIndex);
         } else if (matchedGroup == macroMarkerShelf) {
@@ -153,6 +291,19 @@ public final class DescriptionsFilter extends Filter {
                 return false;
             }
             return EngagementPanel.isDescription();
+        } else if (matchedGroup == playlistSection) {
+            if (contentIndex != 0) {
+                return false;
+            }
+            // YouTube 20.14.43 does not always include a buffer for these sections, so the
+            // parent setting must also be checked independently of the subtype markers.
+            return Settings.HIDE_EXPLORE_SECTION.get() || playlistSectionGroupList.check(buffer).isFiltered();
+        } else if (matchedGroup == shortsHowThisWasMadeSection) {
+            return RootView.isShortsActive() && EngagementPanel.isDescription();
+        } else if (matchedGroup == subscribeButton) {
+            return path.contains(INFOCARDS_SECTION_PATH);
+        } else if (matchedGroup == videoDetails) {
+            return videoDetailsBuffer.check(buffer).isFiltered();
         }
 
         return true;
