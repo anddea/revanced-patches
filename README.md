@@ -24,10 +24,8 @@
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 19.43.41 ~ 20.51.39 |
 | `Custom DPI` | Forces a higher display density for this app only, so the whole UI scales up without changing system density. | 19.43.41 ~ 20.51.39 |
 | `Custom Shorts action buttons` | Changes, at compile time, the icon of the action buttons of the Shorts player. | 19.43.41 ~ 20.51.39 |
-| `Custom branding icon for YouTube` | Changes the YouTube app icon to the icon specified in patch options. | 19.43.41 ~ 20.51.39 |
-| `Custom branding name for YouTube` | Changes the YouTube app name to the name specified in patch options. | 19.43.41 ~ 20.51.39 |
+| `Custom branding for YouTube` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 19.43.41 ~ 20.51.39 |
 | `Custom double tap length` | Adds Double-tap to seek values that are specified in patch options. | 19.43.41 ~ 20.51.39 |
-| `Custom header for YouTube` | Applies a custom header in the top left corner within the app. | 19.43.41 ~ 20.51.39 |
 | `Description components` | Adds options to hide and disable description components. | 19.43.41 ~ 20.51.39 |
 | `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 19.43.41 ~ 20.51.39 |
 | `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 19.43.41 ~ 20.51.39 |
@@ -98,10 +96,7 @@
 | `Certificate spoof` | Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate. | 8.12.54 ~ 9.15.51 |
 | `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 8.12.54 ~ 9.15.51 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 8.12.54 ~ 9.15.51 |
-| `Custom branding icon for YouTube Music` | Changes the YouTube Music app icon to the icon specified in patch options. | 8.12.54 ~ 9.15.51 |
-| `Custom branding name for YouTube Music` | Changes the YouTube Music app name to the name specified in patch options. | 8.12.54 ~ 9.15.51 |
-| `Custom header for YouTube Music` | Applies a custom header in the top left corner within the app. | 8.12.54 ~ 9.15.51 |
-| `Dark theme` | Changes the app's dark theme to the values specified in patch options. | 8.12.54 ~ 9.15.51 |
+| `Custom branding for YouTube Music` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 8.12.54 ~ 9.15.51 |
 | `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 8.12.54 ~ 9.15.51 |
 | `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 8.12.54 ~ 9.15.51 |
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 8.12.54 ~ 9.15.51 |
@@ -129,8 +124,10 @@
 | `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 8.12.54 ~ 9.15.51 |
 | `Settings menu filter` | Adds an option to hide items on the standard YouTube Music settings screen by their visible name. | 8.12.54 ~ 9.15.51 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 8.12.54 ~ 9.15.51 |
+| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features. | 8.12.54 ~ 9.15.51 |
 | `Spoof app version for lyrics` | Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI. | 8.12.54 ~ 9.15.51 |
 | `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 8.12.54 ~ 9.15.51 |
+| `Theme` | Changes the app's dark theme to the values specified in patch options. | 8.12.54 ~ 9.15.51 |
 | `Third-party lyrics` | Adds an option to show synced lyrics from LRCLIB or KuGou in the lyrics panel. | 9.15.51 |
 | `Track crossfade` | Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op. | 8.12.54 ~ 9.15.51 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 8.12.54 ~ 9.15.51 |
