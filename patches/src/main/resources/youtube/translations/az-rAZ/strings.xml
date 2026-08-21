@@ -26,7 +26,7 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="morphe_disable_quic_protocol_title">QUIC protokolunu qeyri-aktiv et</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayım DVR müddətini genişləndir' əlçatan olmaya bilər
 
-Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir və 'İlkin qəbuledicini' 'TV Simply' və ya 'visionOS' olaraq dəyişdir"</string>
+Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir və 'İlkin qəbuledicini' 'TV' və ya 'visionOS' olaraq dəyişdir"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Canlı yayımları 7 günə kimi keçmişə geri çevirməyə imkan verir</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Canlı yayım DVR müddətini genişləndir</string>
     <string name="morphe_explore_menu_screen_summary">Kəşf et menyusunda hansı elementlər görünür seç</string>
@@ -46,8 +46,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_hide_learning_menu_title">Öyrədici menyusunu gizlət</string>
     <string name="morphe_hide_live_menu_title">Canlı menyusunu gizlət</string>
     <string name="morphe_hide_memberships_menu_title">Üzvlüklər menyusunu gizlət</string>
-    <string name="morphe_hide_movies_menu_title">Filmlər menyusunu gizlət</string>
-    <string name="morphe_hide_music_menu_title">\"Musiqi və TV\" menyusunu gizlət</string>
+    <string name="morphe_hide_movies_menu_title">\'Filmlər &amp; TV\' menyusunu gizlət</string>
+    <string name="morphe_hide_music_menu_title">Musiqi menyusunu gizlət</string>
     <string name="morphe_hide_news_menu_title">Xəbərlər menyusunu gizlət</string>
     <string name="morphe_hide_playables_menu_title">Oynanıla bilənlər menyusunu gizlət</string>
     <string name="morphe_hide_podcasts_menu_title">Podkastlar menyusunu gizlət</string>
@@ -63,9 +63,11 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_hide_youtube_works_menu_title">\"YouTube necə işləyir\" menyusunu gizlət</string>
     <string name="morphe_livestream_dvr_not_available">"'Canlı yayım DVR-ni aktivləşdir' əlçatan olmaya bilər
 
-Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir və 'İlkin qəbuledicini' 'TV Simply' və ya 'visionOS' olaraq dəyişdir"</string>
+Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir və 'İlkin qəbuledicini' 'TV' və ya 'visionOS' olaraq dəyişdir"</string>
     <string name="morphe_livestream_dvr_summary">Bütün canlı yayımlarda, hətta adətən məhdudiyyət qoyulanları belə irəli-geri çəkməyə icazə verir</string>
     <string name="morphe_livestream_dvr_title">Canlı yayım DVR-ni aktivləşdir</string>
+    <string name="morphe_music_package_name_summary">Quraşdırdığınız musiqi tətbiqinin paket adı</string>
+    <string name="morphe_music_package_name_title">Musiqi tətbiqi paketinin adı</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR-a daxil olmaq olmur: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR-a daxil olmaq olmur, veb sayt təsdiqlənməsi qəbul edilməyib</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 keçici olaraq əlçatan deyil</string>
@@ -78,6 +80,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
 
 Məhdudiyyət: \"Video yayımların saxtalaşdır\" \"Android VR\" olaraq təyin edilərsə və \"AVC (H.264) kodlayıcıya zorla\" işlək olarsa oynatma bəzi cihazlarda işləməyə bilər"</string>
     <string name="morphe_override_initial_video_quality_title">İlkin video keyfiyyətini əvəzlə</string>
+    <string name="morphe_override_youtube_music_buttons_summary">Əsas YouTube Music tətbiqi əvəzinə üstünlük verdiyiniz musiqi tətbiqini açır</string>
+    <string name="morphe_override_youtube_music_buttons_title">YouTube Music düymələrini nəzərə alma</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Həmişə aktiv</string>
     <string name="morphe_playback_in_feeds_entry_off">Qapalı</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Yalnız Wi-Fi</string>
@@ -93,14 +97,18 @@ Məhdudiyyət: \"Video yayımların saxtalaşdır\" \"Android VR\" olaraq təyin
     <string name="morphe_sanitize_sharing_links_summary_off">İzlənmə sorğusu faktoru paylaşılan linklərdən silinmir</string>
     <string name="morphe_sanitize_sharing_links_summary_on">İzlənmə sorğusu faktoru paylaşılan linklərdən silinir</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım keçidlərin təmizlə</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Ən çox təkrar oynadılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Çəkmə cizgisin sürükləyərkən video miniatürün göstərir</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Çəkmə cizgisinin miniatürlərini aktiv et</string>
     <string name="morphe_settings_menu_copy_path">Köçürüldü: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Siyahıya yerləşdirmək üçün standart tətbiq ayarları ekranını bir dəfə aç</string>
     <string name="morphe_settings_menu_filter_screen_summary">Standart tətbiq ayarları ekranındakı elementləri görünən adları ilə gizlət</string>
     <string name="morphe_settings_menu_filter_screen_title">Ayarlar menyusu filtri</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">Rəng</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Saya</string>
+    <string name="morphe_splash_screen_animation_style_title">Sıçrama ekranı üslubu</string>
     <string name="morphe_spoof_video_streams_about_js">• Deobfuscation pozularsa, oynatma uğursuz ola bilər</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Audio trek menyusu çatışmır</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'Audio Trek\' menyusu çatışmır</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Orijinal səsi zorla əlçatan deyil</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR geniş rejimi əlçatan deyil</string>
@@ -110,7 +118,7 @@ Məhdudiyyət: \"Video yayımların saxtalaşdır\" \"Android VR\" olaraq təyin
     <string name="morphe_spoof_video_streams_av1_summary_on">"Video kodlayıcı AVC (H.264), VP9 və ya AV1-dir
 
 Oynatma ilişə bilər və ya kadrlar buraxıla bilər"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Android VR / visionOS AV1-ə icazə ver</string>
+    <string name="morphe_spoof_video_streams_av1_title">\'Android VR\' / visionOS AV1-ə icazə ver</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Bu tənzimləməni aktivləşdirmək proqram təminatlı AV1 kodlayıcı istifadə edə bilər
 
 Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər"</string>
@@ -145,7 +153,7 @@ Daxil olmaq üçün aşağıda davam et-i vurun"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Aktivləşdirmə şifrəsi buraxılışı alınmadı</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Qəbuledici növü İstək üçün statistikada göstərilir</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">İstək üçün Statistikada saxtalaşdırmanı göstər</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">\'İstək üçün Statistikada\' saxtalaşdırmanı göstər</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video yayımları saxtalaşmayıb
 
 Oynatma işləməyə bilər"</string>
@@ -403,6 +411,8 @@ Paket adının düzgün olduğunu və tətbiqin quraşdırıldığını yoxla"</
     <string name="revanced_hide_community_button_summary_on">İcmaya düyməsi gizlidir</string>
     <string name="revanced_hide_community_button_title">İctimai düyməsini gizlət</string>
     <string name="revanced_hide_connect_button_title">Qoşul düyməsini gizlət</string>
+    <string name="revanced_hide_corrections_section_title">Düzəlişlər bölməsini gizlət</string>
+    <string name="revanced_hide_course_progress_section_title">\"Kurs irəliləyişi\" bölməsin gizlət</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Yaradıcı alış-veriş cərgəsi video oynadıcı altında görünür</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Yaradıcı alış-veriş cərgəsi video oynadıcı altında gizlidir</string>
     <string name="revanced_hide_creator_store_shelf_title">Yaradıcı mağaza cərgəsin gizlət</string>
@@ -426,12 +436,16 @@ Paket adının düzgün olduğunu və tətbiqin quraşdırıldığını yoxla"</
     <string name="revanced_hide_expandable_card_entry_4">Məhsul və xülasə kartlarını gizlət</string>
     <string name="revanced_hide_expandable_card_entry_5">Hamısını gizlət</string>
     <string name="revanced_hide_expandable_card_title">Videoların aşağısında genişlənən kartlar</string>
+    <string name="revanced_hide_explore_course_section_title">\"Bu kursu araşdırın\" bölməsini gizlət</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">Podkast bölməsin araşdırın görünür</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Podkast bölməsin araşdırın gizlidir</string>
     <string name="revanced_hide_explore_podcast_section_title">\"Podkasti araşdırın\" bölməsini gizlət</string>
+    <string name="revanced_hide_explore_section_title">Kəşf edin bölməsin gizlət</string>
+    <string name="revanced_hide_featured_channels_section_title">Seçilmiş kanallar bölməsini gizlət</string>
     <string name="revanced_hide_featured_links_section_summary_off">Seçilən keçidlər bölməsi göstərilir</string>
     <string name="revanced_hide_featured_links_section_summary_on">Seçilən keçidlər bölməsi gizlidir</string>
     <string name="revanced_hide_featured_links_section_title">Seçilən keçidlər bölməsini gizlət</string>
+    <string name="revanced_hide_featured_playlists_section_title">Seçilən pleylistlər bölməsini gizlət</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Seçilən videolar bölməsi göstərilir</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Seçilən videolar bölməsi gizlidir</string>
     <string name="revanced_hide_featured_videos_section_title">Seçilən videolar bölməsini gizlət</string>
@@ -446,6 +460,7 @@ Paket adının düzgün olduğunu və tətbiqin quraşdırıldığını yoxla"</
     <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar göstərilir</string>
     <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir</string>
     <string name="revanced_hide_general_ads_title">Ümumi reklamları gizlət</string>
+    <string name="revanced_hide_hashtag_section_title">Mövzu etiketi bölməsini gizlət</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Bu məzmunun necə hazırlandığı bölməsi görünür</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Bu məzmunun necə hazırlandığı bölməsi gizlidir</string>
     <string name="revanced_hide_how_this_was_made_section_title">\'Bu kontent necə hazırlanıb\' Bölməsini Gizlət</string>
@@ -484,7 +499,7 @@ Məhdudiyyətlər:
 
 Açar sözlər video başlıqlarında və ya kanal adlarında görünən hər hansı mətn ola bilər
 
-Ortada böyük hərflər olan sözlər tam uyğunlaşmalıdır (məsələn: iPhone, TikTok, LeBlanc)"</string>
+Ortada böyük hərflər olan sözlər tam uyğunlaşmalıdır (məsələn., iPhone, TikTok, LeBlanc)"</string>
     <string name="revanced_hide_keyword_content_phrases_title">Gizlədiləcək açar sözlər</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Axtarış nəticələri açar sözlərə görə çeşidlənmir</string>
     <string name="revanced_hide_keyword_content_search_summary_on">Axtarış nəticələri açar sözlərə görə çeşidlənir</string>
@@ -564,6 +579,7 @@ Ortada böyük hərflər olan sözlər tam uyğunlaşmalıdır (məsələn: iPho
     <string name="revanced_hide_report_button_summary_off">Xəbər ver/düyməsi göstərilir</string>
     <string name="revanced_hide_report_button_summary_on">Xəbər ver/düyməsi gizlidir</string>
     <string name="revanced_hide_report_button_title">Xəbər verin düyməsini gizlət</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">\'Bu videoda axtarın\' bölməsini gizlət</string>
     <string name="revanced_hide_seekbar_summary_off">Video oynadıcı irəliləyiş cizgisi göstərilir</string>
     <string name="revanced_hide_seekbar_summary_on">Video oynadıcı irəliləyiş cizgisi gizlidir</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Video miniatür irəliləyiş cizgisi görünür</string>
@@ -648,6 +664,7 @@ Ortada böyük hərflər olan sözlər tam uyğunlaşmalıdır (məsələn: iPho
     <string name="revanced_hide_video_ads_summary_off">Video reklamlar göstərilir</string>
     <string name="revanced_hide_video_ads_summary_on">Video reklamlar gizlədilir</string>
     <string name="revanced_hide_video_ads_title">Video reklamlarını gizlət</string>
+    <string name="revanced_hide_video_details_section_title">\"Video detalları\" bölməsini gizlət</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">\'İnsanlar həmçinin izləyiblər\' və \'Bunu da bəyənə bilərsiniz\' etiketləri axtarış nəticələrində görünür</string>
     <string name="revanced_hide_video_recommendation_labels_title">Video tövsiyə etiketlərini gizlət</string>
     <string name="revanced_hide_view_products_title">Məhsullara baxış afişasın gizlət</string>
@@ -1010,9 +1027,10 @@ Artıq mövcuddur"</string>
     <string name="revanced_shorts_player_type_regular_player">Müntəzəm oynadıcı</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Müntəzəm oynadıcı tam ekranı</string>
     <string name="revanced_shorts_player_type_title">Shorts-u bununla aç</string>
-    <string name="revanced_show_settings_button_index_title">Ayarlar düyməsi mövqeyi</string>
+    <string name="revanced_show_search_button_title">Axtarış düyməsini göstər</string>
     <string name="revanced_show_settings_button_title">Ayarlar düyməsini göstər</string>
     <string name="revanced_show_settings_button_type_title">Ayarlar düyməsi fəaliyyəti</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Ayarlar düyməsi mövqeyi</string>
     <string name="revanced_show_toolbar_settings_button_title">Ayarlar düyməsini göstər</string>
     <string name="revanced_spoof_app_version_summary">Köhnə UI xüsusiyyətlərini qaytarmaq üçün serveri daha köhnə tətbiq versiyasını istifadə etdiyinizi düşünməyə inandırır</string>
     <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>
@@ -1073,6 +1091,9 @@ Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin
 
 Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənzimlə"</string>
     <string name="revanced_swipe_volume_title">Səs səviyyəsi jestini aktivləşdir</string>
+    <string name="revanced_swipe_zone_label_brightness">Parlaqlıq</string>
+    <string name="revanced_swipe_zone_label_speed">Sürət</string>
+    <string name="revanced_swipe_zone_label_volume">Səs səviyyəsi</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">\"Yarat\" düyməsi, \"Bildirişlər\" düyməsi ilə əvəzlənmir</string>
     <string name="revanced_switch_create_with_notifications_button_summary_on">Yarat düyməsi Bildirişlər düyməsi ilə əvəz edilib</string>
     <string name="revanced_switch_create_with_notifications_button_title">\"Yarat\"ı \"Bildirişlər\" ilə dəyişdir</string>

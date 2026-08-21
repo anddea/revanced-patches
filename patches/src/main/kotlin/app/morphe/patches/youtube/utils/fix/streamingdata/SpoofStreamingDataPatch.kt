@@ -11,6 +11,8 @@ import app.morphe.patches.youtube.utils.playservice.is_19_50_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_10_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_35_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -45,6 +47,9 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     },
     useNewRequestBuilderFingerprint = {
         false
+    },
+    restoreMissingCuepointMethod = {
+        is_20_35_or_greater && !is_21_13_or_greater
     },
     block = {
         compatibleWith(COMPATIBILITY_YOUTUBE)

@@ -50,7 +50,7 @@ Il fonctionne aussi bien lors du passage automatique à la piste suivante (lorsq
 
 Nécessite YouTube Music 9.x ou une version ultérieure"</string>
     <string name="morphe_music_crossfade_about_how_title">Comment ça marche</string>
-    <string name="morphe_music_crossfade_about_known_summary">"Une vidéo musicale définie comme première chanson — ou lancée depuis l'extérieur de la file d'attente actuelle — peut brièvement s'afficher en mode vidéo avant que le mode audio uniquement ne s’active
+    <string name="morphe_music_crossfade_about_known_summary">"Une vidéo musicale définie comme première chanson — ou lancée depuis l'extérieur de la file d'attente actuelle — peut brièvement s'afficher en mode vidéo avant que le mode audio uniquement ne s'active
 
 Mettre le fondu enchaîné en pause pour regarder une vidéo musicale peut laisser certaines vidéos avec un écran noir (celles dont l'audio provient directement de la vidéo elle-même). Mettre le fondu enchaîné en pause avant de sélectionner la chanson permet d'éviter ce problème"</string>
     <string name="morphe_music_crossfade_about_known_title">Problèmes connus</string>
@@ -87,11 +87,11 @@ YouTube Music 8.x — le fondu enchaîné ne fonctionne que sur les versions 9.x
     <string name="morphe_music_crossfade_session_control_summary">Appuyez longuement sur le bouton \'Lecture aléatoire\' pour activer ou désactiver le fondu enchaîné</string>
     <string name="morphe_music_crossfade_session_control_title">Contrôle de session</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">Le mode vidéo n\'est pas disponible lorsque le fondu enchaîné est activé</string>
-    <string name="morphe_music_lyrics_about_summary">"Les paroles sont recherchées à partir du titre du morceau et de l’artiste, ainsi, un morceau avec des métadonnées inhabituelles peut ne rien trouver, ou trouver la mauvaise version
+    <string name="morphe_music_lyrics_about_summary">"Les paroles sont recherchées à partir du titre du morceau et de l'artiste, ainsi, un morceau avec des métadonnées inhabituelles peut ne rien trouver, ou trouver la mauvaise version
 
 Les paroles synchronisées suivent la lecture. Si elles dérivent, ajustez le décalage de synchronisation
 
-Lorsque aucune parole tierce n’est trouvée, les paroles intégrées sont affichées à la place"</string>
+Lorsque aucune parole tierce n'est trouvée, les paroles intégrées sont affichées à la place"</string>
     <string name="morphe_music_lyrics_about_title">À propos des paroles de tiers</string>
     <string name="morphe_music_lyrics_copied">Copié dans le presse-papiers</string>
     <string name="morphe_music_lyrics_enabled_summary">Affiche les paroles d\'un service tiers, en utilisant les paroles intégrées en cas d\'absence de celles-ci</string>
@@ -128,8 +128,8 @@ Lorsque aucune parole tierce n’est trouvée, les paroles intégrées sont affi
     <string name="morphe_sanitize_sharing_links_summary_on">Le paramètre de suivi est supprimé des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
     <string name="morphe_settings_menu_copy_path">Copié : %s</string>
-    <string name="morphe_settings_menu_filter_picker_empty">Ouvrez l’écran standard des paramètres de l’application une fois pour remplir la liste</string>
-    <string name="morphe_settings_menu_filter_screen_summary">Masquer les éléments sur l’écran standard des paramètres de l’application par leur nom visible</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Ouvrez une fois l\'écran des paramètres standard de l\'application pour remplir la liste</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Masquer les éléments de l\'écran des paramètres standard de l\'application en fonction de leur nom visible</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtre du menu des paramètres</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client par défaut</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Impossible de récupérer les flux du client</string>
@@ -138,7 +138,7 @@ Lorsque aucune parole tierce n’est trouvée, les paroles intégrées sont affi
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Pour utiliser cette fonctionnalité, définissez \'Client par défaut\' sur \'Android VR\'</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Actuellement connecté à Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Connexion à Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Code d’activation : %s
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Code d'activation : %s
 
 1. Appuyez sur 'Ouvrir le site web' ci-dessous pour ouvrir la page 'Connecter un appareil'
 2. Collez depuis le presse-papiers (ou saisissez manuellement) le code d'activation affiché ci-dessus
@@ -153,7 +153,7 @@ Pour vous connecter, appuyez sur 'Continuer' ci-dessous"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Se connecter à Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Authentification enregistrée
 
-• Vos paramètres RVX n’importeront/exportent pas l'authentification Android VR
+• Vos paramètres RVX n'importeront/exportent pas l'authentification Android VR
 • Si cette application reste inutilisée pendant 6 mois, Google supprimera cette authentification
 • Vous devrez vous reconnecter si vous changez votre mot de passe Google ou si vous dissociez cet appareil de vos paramètres Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Connecté avec succès</string>
@@ -476,7 +476,7 @@ Veuillez télécharger %2$s à partir du site web"</string>
     <string name="revanced_remember_video_quality_none">Impossible de définir la qualité</string>
     <string name="revanced_remember_video_quality_wifi">La résolution sur le Wi-Fi a été modifiée par %s</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">Cela ne contourne pas la restriction d\'âge. Elle est simplement acceptée automatiquement</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer la boîte de dialogue d’avertissement</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer la boîte de dialogue d\'avertissement</string>
     <string name="revanced_replace_action_button_like_summary">"Utilise une icône et une animation différentes pour le bouton 'J'aime'
 
 • Ce paramètre ne sera peut-être plus nécessaire une fois le problème résolu côté serveur"</string>
@@ -543,7 +543,7 @@ Cliquez ici pour découvrir comment créer une clé API"</string>
 
 Appuyez ici pour ouvrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Réduit la largeur du bouton \'J’aime\' pour gagner de la place</string>
+    <string name="revanced_ryd_compact_layout_summary">Réduit la largeur du bouton \'J\'aime\' pour gagner de la place</string>
     <string name="revanced_ryd_compact_layout_title">Utiliser un bouton \'J\'aime\' compact</string>
     <string name="revanced_ryd_dislike_percentage_summary">Affiche les \'Je n\'aime pas\' en pourcentage du nombre de \'J\'aime\' au lieu d\'un nombre</string>
     <string name="revanced_ryd_dislike_percentage_title">Afficher les \'Je n\'aime pas\' en pourcentage</string>

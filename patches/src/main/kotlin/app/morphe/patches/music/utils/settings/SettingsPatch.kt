@@ -321,6 +321,8 @@ val settingsPatch = resourcePatch(
                 "revanced_preference_search_result_group_header.xml",
                 "revanced_preference_search_result_list.xml",
                 "revanced_preference_search_result_regular.xml",
+                "revanced_preference_search_result_range_slider.xml",
+                "revanced_preference_search_result_slider.xml",
                 "revanced_preference_search_result_switch.xml",
                 "revanced_settings_preferences_category.xml",
                 "revanced_settings_with_toolbar.xml",
@@ -392,6 +394,16 @@ val settingsPatch = resourcePatch(
         addPreferenceWithIntent(
             CategoryType.MISC,
             "revanced_settings_import_export"
+        )
+
+        addSwitchPreference(
+            category = CategoryType.MISC,
+            key = "revanced_settings_show_slider_summaries",
+            defaultValue = "true",
+            dependencyKey = "",
+            setSummary = true,
+            titleKey = "revanced_settings_show_slider_summaries_title",
+            summaryKey = "revanced_settings_show_slider_summaries_summary",
         )
     }
 

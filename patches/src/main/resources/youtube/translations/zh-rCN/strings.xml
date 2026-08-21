@@ -30,7 +30,7 @@
     <string name="morphe_disable_quic_protocol_title">禁用QUIC协议</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"“扩展直播 DVR 时长”可能不可用
 
-要解决此问题，请打开“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
+要解决此问题，请开启“伪造视频流”并将“默认客户端”更改为“TV”或“visionOS”"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">允许您将直播回放最多回放 7 天</string>
     <string name="morphe_expand_livestream_dvr_duration_title">扩展直播 DVR 时长</string>
     <string name="morphe_explore_menu_screen_summary">选择在探索菜单中显示哪些组件</string>
@@ -50,8 +50,8 @@
     <string name="morphe_hide_learning_menu_title">隐藏学习菜单</string>
     <string name="morphe_hide_live_menu_title">隐藏直播菜单</string>
     <string name="morphe_hide_memberships_menu_title">隐藏会员菜单</string>
-    <string name="morphe_hide_movies_menu_title">隐藏电影菜单</string>
-    <string name="morphe_hide_music_menu_title">隐藏“音乐与电视”菜单</string>
+    <string name="morphe_hide_movies_menu_title">隐藏“电影和电视”菜单</string>
+    <string name="morphe_hide_music_menu_title">隐藏音乐菜单</string>
     <string name="morphe_hide_news_menu_title">隐藏新闻菜单</string>
     <string name="morphe_hide_playables_menu_title">隐藏Playables</string>
     <string name="morphe_hide_podcasts_menu_title">隐藏播客菜单</string>
@@ -67,9 +67,11 @@
     <string name="morphe_hide_youtube_works_menu_title">隐藏“YouTube 运作方式”菜单</string>
     <string name="morphe_livestream_dvr_not_available">"“启用直播 DVR”可能不可用
 
-要修复此问题，请开启“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
+要解决此问题，请开启“伪造视频流”并将“默认客户端”更改为“TV”或“visionOS”"</string>
     <string name="morphe_livestream_dvr_summary">允许在所有直播中寻求，即使那些通常限制它的直播</string>
     <string name="morphe_livestream_dvr_title">启用直播 DVR 功能</string>
+    <string name="morphe_music_package_name_summary">您已安装的音乐应用的包名</string>
+    <string name="morphe_music_package_name_title">音乐应用包名</string>
     <string name="morphe_oauth2_connection_failure_auth_error">无法登录 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">无法登录VR，网站认证未批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暂时不可用</string>
@@ -82,6 +84,8 @@
 
 限制：如果\"伪装视频流\"设置为\"Android VR\"且\"强制AVC (H.264)编解码器\"已启用，则某些设备上可能无法播放"</string>
     <string name="morphe_override_initial_video_quality_title">覆盖初始视频画质</string>
+    <string name="morphe_override_youtube_music_buttons_summary">打开您首选的音乐应用，而不是默认的YouTube Music应用</string>
+    <string name="morphe_override_youtube_music_buttons_title">覆盖 YouTube Music 按钮</string>
     <string name="morphe_playback_in_feeds_entry_always_on">始终开启</string>
     <string name="morphe_playback_in_feeds_entry_off">关闭</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">仅限 Wi-Fi</string>
@@ -97,14 +101,18 @@
     <string name="morphe_sanitize_sharing_links_summary_off">跟踪查询参数未从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_summary_on">跟踪查询参数已从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_title">净化分享链接</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">播放最多的片段</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">拖动进度条时显示视频缩略图</string>
     <string name="morphe_seekbar_thumbnail_preview_title">启用进度条缩略图</string>
     <string name="morphe_settings_menu_copy_path">已复制：%s</string>
     <string name="morphe_settings_menu_filter_picker_empty">打开标准应用设置屏幕一次以填充列表</string>
     <string name="morphe_settings_menu_filter_screen_summary">通过可见名称隐藏标准应用设置屏幕上的项目</string>
     <string name="morphe_settings_menu_filter_screen_title">设置菜单筛选</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">颜色</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">单色</string>
+    <string name="morphe_splash_screen_animation_style_title">启动画面的样式</string>
     <string name="morphe_spoof_video_streams_about_js">• 如果去混淆失败，播放可能会失败</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• 音轨菜单缺失</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• “音轨”菜单缺失</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• 不支持 AV1 视频编解码器</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• 强制原始音频不可用</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360°VR全景模式不可用</string>
@@ -114,7 +122,7 @@
     <string name="morphe_spoof_video_streams_av1_summary_on">"视频编解码器为 AVC (H.264)、VP9 或 AV1
 
 播放可能会卡顿或掉帧"</string>
-    <string name="morphe_spoof_video_streams_av1_title">允许 Android VR / visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">允许“Android VR”/ visionOS AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"启用此设置可能会使用软件 AV1 解码。
 
 使用 AV1 播放视频可能会卡顿或丢帧。"</string>
@@ -149,7 +157,7 @@
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">无法获取激活码</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">客户端隐藏在 Stats for nerds 中</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">客户端类型显示在 Stats for nerds 中</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">在“极客统计”中显示欺骗信息</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">在“高级统计信息”中显示伪造信息</string>
     <string name="morphe_spoof_video_streams_summary_off">"未欺骗视频流
 
 播放可能无法正常进行"</string>
@@ -458,9 +466,6 @@
 • 禁用速度叠加会恢复旧布局的“滑动查找”行为
 • 禁用此设置不会强制启用速度叠加显示"</string>
     <string name="revanced_disable_speed_overlay_title">禁用速度叠加</string>
-    <string name="revanced_disable_splash_animation_summary_off">开屏动画已启用</string>
-    <string name="revanced_disable_splash_animation_summary_on">开屏动画已禁用</string>
-    <string name="revanced_disable_splash_animation_title">禁用开屏动画</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">向下滑动播放器下方将进入全屏模式。</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">向下滑动播放器下方将不会进入全屏模式。</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">禁用在播放器下方滑动进入全屏模式</string>
@@ -804,6 +809,8 @@
     <string name="revanced_hide_community_posts_channel_summary_on">频道中的社区帖子隐藏</string>
     <string name="revanced_hide_community_posts_channel_title">隐藏频道中的社区帖子</string>
     <string name="revanced_hide_connect_button_title">隐藏关联按钮</string>
+    <string name="revanced_hide_corrections_section_title">隐藏“更正”部分</string>
+    <string name="revanced_hide_course_progress_section_title">隐藏“课程进度”部分</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">视频播放器下方的创作者商店货架已显示</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">视频播放器下方的创作者商店内容架已隐藏</string>
     <string name="revanced_hide_creator_store_shelf_title">隐藏创作者商店专区</string>
@@ -834,12 +841,16 @@
     <string name="revanced_hide_expandable_shelf_summary_off">扩展边框已显示</string>
     <string name="revanced_hide_expandable_shelf_summary_on">扩展边框已隐藏</string>
     <string name="revanced_hide_expandable_shelf_title">隐藏扩展边框</string>
+    <string name="revanced_hide_explore_course_section_title">隐藏“探索此课程”部分</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">“浏览播客”部分已显示</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">“浏览播客”部分已隐藏</string>
     <string name="revanced_hide_explore_podcast_section_title">隐藏“探索播客”部分</string>
+    <string name="revanced_hide_explore_section_title">隐藏“探索”部分</string>
+    <string name="revanced_hide_featured_channels_section_title">隐藏精选频道版块</string>
     <string name="revanced_hide_featured_links_section_summary_off">特色链接部分已显示</string>
     <string name="revanced_hide_featured_links_section_summary_on">特色链接部分已隐藏</string>
     <string name="revanced_hide_featured_links_section_title">隐藏“精选链接”部分</string>
+    <string name="revanced_hide_featured_playlists_section_title">隐藏精选播放列表部分</string>
     <string name="revanced_hide_featured_videos_section_summary_off">精选视频部分已显示</string>
     <string name="revanced_hide_featured_videos_section_summary_on">精选视频部分已隐藏</string>
     <string name="revanced_hide_featured_videos_section_title">隐藏“精选视频”部分</string>
@@ -875,6 +886,7 @@
     <string name="revanced_hide_handle_summary_off">控制列已显示</string>
     <string name="revanced_hide_handle_summary_on">控制列已隐藏</string>
     <string name="revanced_hide_handle_title">隐藏控制列</string>
+    <string name="revanced_hide_hashtag_section_title">隐藏话题标签部分</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">「内容制作说明」部分已显示</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">内容制作说明部分已隐藏</string>
     <string name="revanced_hide_how_this_was_made_section_title">隐藏“内容制作说明”部分</string>
@@ -923,11 +935,11 @@
     <string name="revanced_hide_keyword_content_home_summary_off">首页视频不会根据关键字进行过滤</string>
     <string name="revanced_hide_keyword_content_home_summary_on">首页视频将会根据关键字进行过滤</string>
     <string name="revanced_hide_keyword_content_home_title">过滤首页视频</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"输入要隐藏的关键词和短语，换行分隔
+    <string name="revanced_hide_keyword_content_phrases_summary">"输入要隐藏的关键词和短语，换行隔开
 
-关键词可以是视频标题或频道名称中的任何文本
+关键词可以是视频标题或频道名称中显示的任何文本
 
-中间带有大写字母的单词必须按照字母的大小写输入 (例如: iPhone、TikTok、LeBlanc)"</string>
+中间带有大写字母的单词必须完全匹配大小写（例如：iPhone、TikTok、LeBlanc）"</string>
     <string name="revanced_hide_keyword_content_phrases_title">要隐藏的关键字</string>
     <string name="revanced_hide_keyword_content_search_summary_off">搜索结果不会根据关键字过滤</string>
     <string name="revanced_hide_keyword_content_search_summary_on">搜索结果将会根据关键字过滤</string>
@@ -1140,6 +1152,7 @@
     <string name="revanced_hide_rewards_button_summary_off">奖励按钮已显示</string>
     <string name="revanced_hide_rewards_button_summary_on">奖励按钮已隐藏</string>
     <string name="revanced_hide_rewards_button_title">隐藏奖励按钮</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">隐藏“视频内搜索”部分</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">搜索词历史记录中的缩略图已显示</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">搜索词历史记录中的缩略图已隐藏</string>
     <string name="revanced_hide_search_term_thumbnail_title">隐藏搜索词缩略图</string>
@@ -1331,6 +1344,7 @@
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">启用订阅视频播放量过滤器</string>
     <string name="revanced_hide_video_by_view_counts_summary">隐藏播放量低于此数字的推荐视频</string>
     <string name="revanced_hide_video_by_view_counts_title">播放量</string>
+    <string name="revanced_hide_video_details_section_title">隐藏“视频详情”部分</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">搜索结果中“观看者还观看了”和“你可能也喜欢”标签已显示</string>
     <string name="revanced_hide_video_recommendation_labels_title">隐藏视频推荐标签</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">播放量大于此数字的视频将被隐藏。</string>
@@ -1581,11 +1595,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_override_video_download_button_queue_manager_summary_on">本机视频下载按钮打开队列管理器。</string>
     <string name="revanced_override_video_download_button_summary_off">视频下载按钮打开应用内下载器</string>
     <string name="revanced_override_video_download_button_title">覆盖视频下载按钮</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">需要 YouTube Music 来覆盖按钮操作，点击此处下载 YouTube Music</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_title">前提条件</string>
-    <string name="revanced_override_youtube_music_button_summary_off">YouTube 音乐按钮打开原生应用</string>
-    <string name="revanced_override_youtube_music_button_summary_on">YouTube Music按钮打开您的目标音乐应用</string>
-    <string name="revanced_override_youtube_music_button_title">覆盖YouTube Music按钮</string>
     <string name="revanced_patched_date_title">补丁日期</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">已排除</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">已包含</font></string>
@@ -1597,7 +1606,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_preference_category_app_info">应用信息</string>
     <string name="revanced_preference_category_codec">编解码器</string>
     <string name="revanced_preference_category_custom_actions">自定义操作</string>
-    <string name="revanced_preference_category_download_button">下载按钮</string>
     <string name="revanced_preference_category_experimental_flag">实验性功能</string>
     <string name="revanced_preference_category_image_region_restrictions">图像区域限制</string>
     <string name="revanced_preference_category_import_export_as_file">导入 / 导出为文件</string>
@@ -1772,9 +1780,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_replace_channel_handle_summary_off">频道标识已使用</string>
     <string name="revanced_replace_channel_handle_summary_on">频道名称已使用</string>
     <string name="revanced_replace_channel_handle_title">替换频道标识</string>
-    <string name="revanced_replace_navigation_button_summary">将导航按钮替换为搜索按钮。</string>
-    <string name="revanced_replace_navigation_button_target_entry_home">首页</string>
-    <string name="revanced_replace_navigation_button_target_title">替换导航按钮</string>
     <string name="revanced_replace_time_stamp_action_summary_off">点击显示剩余时间</string>
     <string name="revanced_replace_time_stamp_action_summary_on">点击打开播放速度或视频画质弹出菜单</string>
     <string name="revanced_replace_time_stamp_action_title">替换时间戳操作</string>
@@ -2181,9 +2186,10 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_shorts_player_type_regular_player">普通播放器</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">普通播放器全屏</string>
     <string name="revanced_shorts_player_type_title">使用 Shorts 播放器打开</string>
-    <string name="revanced_show_settings_button_index_title">设置按钮位置</string>
+    <string name="revanced_show_search_button_title">隐藏搜索按钮</string>
     <string name="revanced_show_settings_button_title">显示设置按钮</string>
     <string name="revanced_show_settings_button_type_title">设置按钮操作</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">设置按钮位置</string>
     <string name="revanced_show_toolbar_settings_button_title">显示设置按钮</string>
     <string name="revanced_show_video_title_section_summary">"在全屏模式下显示视频标题部分
 
@@ -2313,8 +2319,6 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_overlay_progress_volume_color_summary">设置音量控制进度条的颜色</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">滑动提示层音量颜色</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">可滑动区域大小不能超过50 重置为默认值</string>
-    <string name="revanced_swipe_overlay_rect_size_summary">可滑动屏幕区域的百分比\n\n注意：这也会改变双击搜索手势的屏幕区域大小</string>
-    <string name="revanced_swipe_overlay_rect_size_title">滑动叠加层大小</string>
     <string name="revanced_swipe_overlay_style_entry_0">传统叠加</string>
     <string name="revanced_swipe_overlay_style_entry_1">水平提示层</string>
     <string name="revanced_swipe_overlay_style_entry_2">水平提示层 (极简 - 顶部)</string>
@@ -2364,6 +2368,9 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
 
 通过在屏幕右侧垂直滑动来调节音量"</string>
     <string name="revanced_swipe_volume_title">启用音量手势</string>
+    <string name="revanced_swipe_zone_label_brightness">亮度</string>
+    <string name="revanced_swipe_zone_label_speed">速度</string>
+    <string name="revanced_swipe_zone_label_volume">音量</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"通过伪装设备信息，交换创建按钮和通知按钮的位置
 
 • 更改此设置，可能需要重新启动设备才能生效
@@ -2373,9 +2380,6 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_switch_create_with_notifications_button_summary_on">创作按钮已与通知按钮切换</string>
     <string name="revanced_switch_create_with_notifications_button_title">将创作与通知按钮切换</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">如果更改此设置未生效，请尝试切换到无痕模式。</string>
-    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_summary">已安装的 RVX Music 包名</string>
-    <string name="revanced_third_party_youtube_music_package_name_title">RVX Music 包名</string>
     <string name="revanced_transcript_cookies_about_summary">点击查看如何获取 Cookie。</string>
     <string name="revanced_transcript_cookies_about_title">关于转写文稿 Cookie</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">认证</string>

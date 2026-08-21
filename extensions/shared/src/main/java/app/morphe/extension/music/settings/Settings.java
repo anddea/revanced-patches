@@ -24,8 +24,6 @@ import app.morphe.extension.shared.settings.LongSetting;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.StringSetting;
-import app.morphe.extension.shared.settings.preference.SeekBarPreference;
-import app.morphe.extension.shared.settings.preference.SeekBarPreference.SeekBarConfig;
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -203,8 +201,12 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting LYRICS_TAP_TO_SEEK = new BooleanSetting("morphe_music_lyrics_tap_to_seek", TRUE, true, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_SHOW_COPY_BUTTON = new BooleanSetting("morphe_music_lyrics_show_copy_button", TRUE, true, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_SHOW_TRANSLATE_BUTTON = new BooleanSetting("morphe_music_lyrics_show_translate_button", TRUE, true, parent(LYRICS_ENABLED));
-    public static final IntegerSetting LYRICS_TEXT_SIZE = new IntegerSetting("morphe_music_lyrics_text_size", 24, true, parent(LYRICS_ENABLED));
-    public static final IntegerSetting LYRICS_OFFSET_MS = new IntegerSetting("morphe_music_lyrics_offset_ms", 0, true, parent(LYRICS_ENABLED));
+    public static final IntegerSetting LYRICS_TEXT_SIZE = new IntegerSetting(
+            "morphe_music_lyrics_text_size", 24, true,
+            new Setting.SliderConfig(14, 40, 1, "sp"), parent(LYRICS_ENABLED));
+    public static final IntegerSetting LYRICS_OFFSET_MS = new IntegerSetting(
+            "morphe_music_lyrics_offset_ms", 0, true,
+            new Setting.SliderConfig(-2_000, 2_000, 1, "ms"), parent(LYRICS_ENABLED));
 
     // PreferenceScreen: Video
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds", "0.5\n0.8\n1.0\n1.2\n1.5\n1.8\n2.0", true);
@@ -295,14 +297,6 @@ public class Settings extends SharedYouTubeSettings {
 
         // endregion
 
-        // region SeekBar preference registrations
-
-        SeekBarPreference.register(new SeekBarConfig(LYRICS_TEXT_SIZE,
-                14, 40, 2, "sp"));
-        SeekBarPreference.register(new SeekBarConfig(LYRICS_OFFSET_MS,
-                -2000, 2000, 100, "ms"));
-
-        // endregion
     }
 
     public static final String OPEN_DEFAULT_APP_SETTINGS = "revanced_default_app_settings";

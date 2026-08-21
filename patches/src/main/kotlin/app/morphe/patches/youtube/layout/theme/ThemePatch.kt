@@ -2,9 +2,11 @@ package app.morphe.patches.youtube.layout.theme
 
 import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patches.youtube.general.splashanimation.splashScreenAnimationBytecodePatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.patch.PatchList.MATERIALYOU
 import app.morphe.patches.youtube.utils.patch.PatchList.THEME
+import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusTheme
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.valueOrThrow
@@ -21,6 +23,7 @@ val themePatch = resourcePatch(
     dependsOn(
         sharedThemePatch,
         settingsPatch,
+        splashScreenAnimationBytecodePatch,
     )
 
     val amoledBlackColor = "@android:color/black"
@@ -141,6 +144,13 @@ val themePatch = resourcePatch(
             themeString
 
         updatePatchStatusTheme(currentTheme)
+
+        addPreference(
+            arrayOf(
+                "PREFERENCE_SCREEN: GENERAL",
+                "SETTINGS: SPLASH_SCREEN_ANIMATION_STYLE",
+            )
+        )
 
     }
 }

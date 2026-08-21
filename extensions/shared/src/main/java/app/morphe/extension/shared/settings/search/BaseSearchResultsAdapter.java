@@ -1,3 +1,45 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ *
+ * This file is the product of multiple backports between ReVanced and RVX.
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.shared.settings.search;
 
 import static app.morphe.extension.shared.settings.search.BaseSearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
@@ -23,6 +65,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -34,6 +77,8 @@ import java.util.List;
 
 import app.morphe.extension.shared.settings.preference.ColorPickerPreference;
 import app.morphe.extension.shared.settings.preference.CustomDialogListPreference;
+import app.morphe.extension.shared.settings.preference.RangeSliderPreference;
+import app.morphe.extension.shared.settings.preference.SliderPreference;
 import app.morphe.extension.shared.settings.preference.UrlLinkPreference;
 import app.morphe.extension.shared.ui.ColorDot;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
@@ -64,6 +109,16 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
             "preference_switch");
     protected static final int ID_PREFERENCE_COLOR_DOT = getIdIdentifier(
             "preference_color_dot");
+    protected static final int ID_PREFERENCE_SLIDER = getIdIdentifier(
+            "preference_slider");
+    protected static final int ID_PREFERENCE_SLIDER_MIN = getIdIdentifier(
+            "preference_slider_min");
+    protected static final int ID_PREFERENCE_SLIDER_MAX = getIdIdentifier(
+            "preference_slider_max");
+    protected static final int ID_PREFERENCE_SLIDER_VALUE = getIdIdentifier(
+            "preference_slider_value");
+    protected static final int ID_PREFERENCE_RANGE_SLIDER = getIdIdentifier(
+            "preference_range_slider");
 
     protected static class RegularViewHolder {
         TextView titleView;
@@ -74,6 +129,24 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
         TextView titleView;
         TextView summaryView;
         Switch switchWidget;
+    }
+
+    protected static class SliderViewHolder {
+        TextView titleView;
+        TextView summaryView;
+        TextView minLabel;
+        TextView maxLabel;
+        TextView valueLabel;
+        SeekBar slider;
+    }
+
+    protected static class RangeSliderViewHolder {
+        TextView titleView;
+        TextView summaryView;
+        TextView minLabel;
+        TextView maxLabel;
+        TextView valueLabel;
+        RangeSliderPreference.RangeSeekBar slider;
     }
 
     protected static class ColorViewHolder {
@@ -171,6 +244,26 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
                 switchHolder.switchWidget = view.findViewById(ID_PREFERENCE_SWITCH);
                 view.setTag(switchHolder);
             }
+            case SLIDER -> {
+                SliderViewHolder sliderHolder = new SliderViewHolder();
+                sliderHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                sliderHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
+                sliderHolder.minLabel = view.findViewById(ID_PREFERENCE_SLIDER_MIN);
+                sliderHolder.maxLabel = view.findViewById(ID_PREFERENCE_SLIDER_MAX);
+                sliderHolder.valueLabel = view.findViewById(ID_PREFERENCE_SLIDER_VALUE);
+                sliderHolder.slider = view.findViewById(ID_PREFERENCE_SLIDER);
+                view.setTag(sliderHolder);
+            }
+            case RANGE_SLIDER -> {
+                RangeSliderViewHolder sliderHolder = new RangeSliderViewHolder();
+                sliderHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                sliderHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
+                sliderHolder.minLabel = view.findViewById(ID_PREFERENCE_SLIDER_MIN);
+                sliderHolder.maxLabel = view.findViewById(ID_PREFERENCE_SLIDER_MAX);
+                sliderHolder.valueLabel = view.findViewById(ID_PREFERENCE_SLIDER_VALUE);
+                sliderHolder.slider = view.findViewById(ID_PREFERENCE_RANGE_SLIDER);
+                view.setTag(sliderHolder);
+            }
             case COLOR_PICKER -> {
                 ColorViewHolder colorHolder = new ColorViewHolder();
                 colorHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
@@ -200,6 +293,8 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
             case REGULAR, URL_LINK, LIST ->
                     bindRegularViewHolder(item, (RegularViewHolder) holder, view);
             case SWITCH -> bindSwitchViewHolder(item, (SwitchViewHolder) holder, view);
+            case SLIDER -> bindSliderViewHolder(item, (SliderViewHolder) holder, view);
+            case RANGE_SLIDER -> bindRangeSliderViewHolder(item, (RangeSliderViewHolder) holder, view);
             case COLOR_PICKER -> bindColorViewHolder(item, (ColorViewHolder) holder, view);
             case GROUP_HEADER ->
                     bindGroupHeaderViewHolder(item, (GroupHeaderViewHolder) holder, view);
@@ -256,6 +351,81 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
                 },
                 () -> navigateAndScrollToPreference(item));
         holder.switchWidget.setEnabled(switchPref.isEnabled());
+    }
+
+    protected void bindSliderViewHolder(BaseSearchResultItem item, SliderViewHolder holder, View view) {
+        BaseSearchResultItem.PreferenceSearchItem prefItem = (BaseSearchResultItem.PreferenceSearchItem) item;
+        SliderPreference sliderPreference = (SliderPreference) prefItem.preference;
+        prefItem.refreshHighlighting();
+
+        holder.titleView.setText(item.highlightedTitle);
+        holder.summaryView.setText(item.highlightedSummary);
+        holder.summaryView.setVisibility(
+                SliderPreference.areSummariesVisible() && !TextUtils.isEmpty(item.highlightedSummary)
+                        ? View.VISIBLE : View.GONE
+        );
+        sliderPreference.bindInlineSlider(
+                holder.slider,
+                holder.minLabel,
+                holder.maxLabel,
+                holder.valueLabel
+        );
+        setupPreferenceView(view, holder.titleView, holder.summaryView, sliderPreference,
+                () -> handlePreferenceClick(sliderPreference),
+                () -> navigateAndScrollToPreference(item));
+        boolean enabled = sliderPreference.isEnabled();
+        View.OnClickListener l = enabled
+                ? ignored -> handlePreferenceClick(sliderPreference) : null;
+        holder.titleView.setOnClickListener(l);
+        holder.summaryView.setOnClickListener(l);
+        View.OnLongClickListener navigateOnLongClick = ignored -> {
+            navigateAndScrollToPreference(item);
+            return true;
+        };
+        holder.titleView.setOnLongClickListener(navigateOnLongClick);
+        holder.summaryView.setOnLongClickListener(navigateOnLongClick);
+        holder.valueLabel.setOnLongClickListener(navigateOnLongClick);
+        holder.slider.setEnabled(sliderPreference.isEnabled());
+        holder.valueLabel.setEnabled(sliderPreference.isEnabled());
+    }
+
+    protected void bindRangeSliderViewHolder(BaseSearchResultItem item,
+                                             RangeSliderViewHolder holder,
+                                             View view) {
+        BaseSearchResultItem.PreferenceSearchItem prefItem =
+                (BaseSearchResultItem.PreferenceSearchItem) item;
+        RangeSliderPreference sliderPreference = (RangeSliderPreference) prefItem.preference;
+        prefItem.refreshHighlighting();
+
+        holder.titleView.setText(item.highlightedTitle);
+        holder.summaryView.setText(item.highlightedSummary);
+        holder.summaryView.setVisibility(
+                SliderPreference.areSummariesVisible() && !TextUtils.isEmpty(item.highlightedSummary)
+                        ? View.VISIBLE : View.GONE
+        );
+        sliderPreference.bindInlineSlider(
+                holder.slider,
+                holder.minLabel,
+                holder.maxLabel,
+                holder.valueLabel
+        );
+        setupPreferenceView(view, holder.titleView, holder.summaryView, sliderPreference,
+                () -> handlePreferenceClick(sliderPreference),
+                () -> navigateAndScrollToPreference(item));
+        boolean enabled = sliderPreference.isEnabled();
+        View.OnClickListener clickListener = enabled
+                ? ignored -> handlePreferenceClick(sliderPreference) : null;
+        holder.titleView.setOnClickListener(clickListener);
+        holder.summaryView.setOnClickListener(clickListener);
+        View.OnLongClickListener navigateOnLongClick = ignored -> {
+            navigateAndScrollToPreference(item);
+            return true;
+        };
+        holder.titleView.setOnLongClickListener(navigateOnLongClick);
+        holder.summaryView.setOnLongClickListener(navigateOnLongClick);
+        holder.valueLabel.setOnLongClickListener(navigateOnLongClick);
+        holder.slider.setEnabled(enabled);
+        holder.valueLabel.setEnabled(enabled);
     }
 
     protected void bindColorViewHolder(BaseSearchResultItem item, ColorViewHolder holder, View view) {
@@ -349,7 +519,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
                 // Highlight the preference once it is positioned.
                 highlightPreferenceAtPosition(listView, targetPosition);
             } else {
-                // The preference is outside of the current visible range, scroll to it from the top.
+                // The preference is outside the current visible range, scroll to it from the top.
                 listView.smoothScrollToPositionFromTop(targetPosition, 0);
 
                 Handler handler = new Handler(Looper.getMainLooper());
@@ -440,7 +610,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
     }
 
     /**
-     * Normalizes string for comparison (removes extra characters, spaces etc).
+     * Normalizes string for comparison (removes extra characters, spaces etc.)
      */
     protected String normalizeString(String input) {
         if (TextUtils.isEmpty(input)) return "";

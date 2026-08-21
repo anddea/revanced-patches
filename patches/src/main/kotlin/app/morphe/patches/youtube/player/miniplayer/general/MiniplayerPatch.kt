@@ -34,6 +34,7 @@ import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_38_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_17_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_32_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerClose
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerExpand
@@ -251,38 +252,41 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_26_or_greater) {
-            miniplayerModernConstructorFingerprint.methodOrThrow().apply {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(
-                    MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
-                )
-                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
-                val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            if (!is_21_32_or_greater) {
+                miniplayerModernConstructorFingerprint.methodOrThrow().apply {
+                    val literalIndex = indexOfFirstLiteralInstructionOrThrow(
+                        MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
+                    )
+                    val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
+                    val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                addInstructions(
-                    targetIndex + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
-                        move-result v$register
-                        """,
-                )
-            }
-
-            // Override a minimum size constant.
-            miniplayerMinimumSizeFingerprint.methodOrThrow().apply {
-                val index = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.CONST_16 &&
-                            (this as NarrowLiteralInstruction).narrowLiteral == 192
+                    addInstructions(
+                        targetIndex + 1,
+                        """
+                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
+                            move-result v$register
+                            """,
+                    )
                 }
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
-                // The 170 initial limit probably could be patched to allow even smaller initial sizes,
-                // but 170 is already half the horizontal space and smaller does not seem useful.
-                replaceInstruction(index, "const/16 v$register, 170")
+                // Override a minimum size constant.
+                miniplayerMinimumSizeFingerprint.methodOrThrow().apply {
+                    val index = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.CONST_16 &&
+                                (this as NarrowLiteralInstruction).narrowLiteral == 192
+                    }
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
+                    // The 170 initial limit probably could be patched to allow even smaller initial sizes,
+                    // but 170 is already half the horizontal space and smaller does not seem useful.
+                    replaceInstruction(index, "const/16 v$register, 170")
+                }
+
+                settingArray += "SETTINGS: MINIPLAYER_WIDTH_DIP"
             }
 
             settingArray += "SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_26"
-            settingArray += "SETTINGS: MINIPLAYER_WIDTH_DIP"
         } else {
             settingArray += "SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_25"
             settingArray += "SETTINGS: MINIPLAYER_REWIND_FORWARD"

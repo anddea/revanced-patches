@@ -445,34 +445,6 @@
         <item>MINIMAL</item>
         <item>TABLET</item>
     </string-array>
-    <string-array name="revanced_replace_navigation_button_target_entries">
-        <item>@string/revanced_replace_navigation_button_target_entry_home</item>
-        <item>@string/revanced_change_start_page_entry_shorts</item>
-        <item>@string/revanced_change_start_page_entry_subscriptions</item>
-        <item>@string/revanced_change_start_page_entry_notifications</item>
-    </string-array>
-    <string-array name="revanced_replace_navigation_button_target_entry_values">
-        <item>HOME</item>
-        <item>SHORTS</item>
-        <item>SUBSCRIPTIONS</item>
-        <item>NOTIFICATIONS</item>
-    </string-array>
-    <string-array name="revanced_show_settings_button_index_entries">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
-    <string-array name="revanced_show_settings_button_index_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
     <string-array name="revanced_show_toolbar_settings_button_index_entries">
         <item>1</item>
         <item>2</item>
@@ -676,5 +648,15 @@
         <item>2</item>
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="morphe_splash_screen_animation_style_entries">
+        <item>@string/revanced_exit_fullscreen_entry_1</item>
+        <item>@string/morphe_splash_screen_animation_style_entry_2</item>
+        <item>@string/morphe_splash_screen_animation_style_entry_3</item>
+    </string-array>
+    <string-array name="morphe_splash_screen_animation_style_entry_values">
+        <item>DISABLED</item>
+        <item>FPS_60_ONE_SECOND</item>
+        <item>FPS_60_BLACK_AND_WHITE</item>
     </string-array>
 </resources>

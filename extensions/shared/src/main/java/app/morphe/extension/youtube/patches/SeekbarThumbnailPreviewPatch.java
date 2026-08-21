@@ -16,13 +16,11 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
-import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,6 +30,7 @@ import android.widget.TextView;
 import java.util.Locale;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
@@ -45,6 +44,7 @@ public class SeekbarThumbnailPreviewPatch {
             FrameLayout previewFrame,
             ImageView thumbnailPreview,
             TextView timestampPreview,
+            TextView heatMapPeakPointPreview,
             TextView chapterPreview,
             PopupWindow thumbnailPreviewPopup
     ) {}
@@ -55,12 +55,16 @@ public class SeekbarThumbnailPreviewPatch {
     private static final int THUMBNAIL_PREVIEW_DISTANCE_FULLSCREEN_DP = Utils.dipToPixels(10);
     private static final int THUMBNAIL_PREVIEW_DISTANCE_PORTRAIT_DP = -1 * Utils.dipToPixels(20);
     private static final int THUMBNAIL_PREVIEW_TEXT_ONLY_HEIGHT_DP = Utils.dipToPixels(24);
-    private static final int THUMBNAIL_PREVIEW_TEXT_WITH_CHAPTER_HEIGHT_DP = Utils.dipToPixels(44);
+    private static final int THUMBNAIL_PREVIEW_TEXT_WITH_CHAPTER_HEIGHT_DP =
+            THUMBNAIL_PREVIEW_TEXT_ONLY_HEIGHT_DP * 2;
+    private static final int THUMBNAIL_PREVIEW_TEXT_WITH_PEAK_POINT_AND_CHAPTER_HEIGHT_DP =
+            THUMBNAIL_PREVIEW_TEXT_ONLY_HEIGHT_DP * 3;
     private static final int THUMBNAIL_PREVIEW_CORNER_RADIUS_DP = Utils.dipToPixels(8);
     private static final int THUMBNAIL_PREVIEW_BORDER_WIDTH_DP = Utils.dipToPixels(2);
     private static final int THUMBNAIL_PREVIEW_BORDER_COLOR = 0xB3FFFFFF;
     private static final ColorDrawable previewPopupBackgroundDrawable = new ColorDrawable(Color.TRANSPARENT);
-    private static boolean preciseSeekingVisible = false;
+    private static final String heatMapPeakPointDescription =
+            ResourceUtils.getString("morphe_seekbar_thumbnail_heatmap_peak_point");
 
     @SuppressLint("StaticFieldLeak")
     private static SeekbarViews seekbarViews;
@@ -70,6 +74,7 @@ public class SeekbarThumbnailPreviewPatch {
     private static Bitmap lastAppliedBitmap;
     private static int lastX = -1;
     private static float touchEventInitialX;
+    private static float touchEventInitialY = -1;
 
     /**
      * Injection point.
@@ -131,6 +136,10 @@ public class SeekbarThumbnailPreviewPatch {
         final TextView timestampPreview = createTimestampPreview(context);
         containerLayout.addView(timestampPreview);
 
+        final TextView heatMapPeakPoint = createHeatMapPeakPointPreview(context);
+        heatMapPeakPoint.setText(heatMapPeakPointDescription);
+        containerLayout.addView(heatMapPeakPoint);
+
         final TextView chapterPreview = createChapterPreview(context);
         containerLayout.addView(chapterPreview);
 
@@ -140,8 +149,14 @@ public class SeekbarThumbnailPreviewPatch {
         thumbnailPreviewPopup.setTouchable(false);
         thumbnailPreviewPopup.setBackgroundDrawable(previewPopupBackgroundDrawable);
 
-        return seekbarViews =
-                new SeekbarViews(previewFrame, thumbnailPreview, timestampPreview, chapterPreview, thumbnailPreviewPopup);
+        return seekbarViews = new SeekbarViews(
+                previewFrame,
+                thumbnailPreview,
+                timestampPreview,
+                heatMapPeakPoint,
+                chapterPreview,
+                thumbnailPreviewPopup
+        );
     }
 
     // Border is a filled rounded rect + padding (not a stroke) to keep outer/inner corners concentric.
@@ -179,13 +194,17 @@ public class SeekbarThumbnailPreviewPatch {
         return thumbnailPreview;
     }
 
+    private static TextView createHeatMapPeakPointPreview(Context context) {
+        return createChapterPreview(context);
+    }
+
     private static TextView createTimestampPreview(Context context) {
         final TextView timestampPreview = new TextView(context);
 
         timestampPreview.setTextColor(Color.WHITE);
         timestampPreview.setTextSize(12);
         timestampPreview.setPadding(0, Utils.dipToPixels(4), 0, 0);
-        timestampPreview.setShadowLayer(3, 1, 1, Color.BLACK);
+        timestampPreview.setShadowLayer(0.1f, 1.5f, 1.5f, Color.BLACK);
         timestampPreview.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -199,7 +218,7 @@ public class SeekbarThumbnailPreviewPatch {
         chapterPreview.setTextColor(Color.WHITE);
         chapterPreview.setTextSize(12);
         chapterPreview.setPadding(0, Utils.dipToPixels(2), 0, 0);
-        chapterPreview.setShadowLayer(3, 1, 1, Color.BLACK);
+        chapterPreview.setShadowLayer(0.1f, 1.5f, 1.5f, Color.BLACK);
         chapterPreview.setSingleLine(true);
         chapterPreview.setEllipsize(android.text.TextUtils.TruncateAt.END);
         chapterPreview.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -250,24 +269,8 @@ public class SeekbarThumbnailPreviewPatch {
     /**
      * Injection point.
      */
-    public static void updateHandlerThumbnailPreview(
-            View trackBall,
-            MotionEvent trackBallMotionEvent,
-            Point trackballPos) {
-        updateThumbnailPreview(trackBall, trackBallMotionEvent, trackballPos);
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void updateSlideThumbnailPreview(
-            View trackBall,
-            MotionEvent trackBallMotionEvent,
-            Point trackballPos) {
-        updateThumbnailPreview(trackBall, trackBallMotionEvent, trackballPos);
-    }
-
-    private static void updateThumbnailPreview(
+    @SuppressWarnings("ExtractMethodRecommender")
+    public static void updateThumbnailPreview(
             View trackBall,
             MotionEvent trackBallMotionEvent,
             Point trackballPos) {
@@ -285,21 +288,29 @@ public class SeekbarThumbnailPreviewPatch {
             if (actionMasked == MotionEvent.ACTION_DOWN) {
                 isFineScrubbingStarted = false;
                 touchEventInitialX = trackBallMotionEvent.getX();
+                touchEventInitialY = trackBallMotionEvent.getY();
                 return;
             }
 
             if (trackBallMotionEvent.getPointerCount() > 1
                     || actionMasked == MotionEvent.ACTION_UP
                     || actionMasked == MotionEvent.ACTION_CANCEL
-                    || actionMasked == MotionEvent.ACTION_POINTER_DOWN) {
+                    || actionMasked == MotionEvent.ACTION_POINTER_DOWN
+                    || (actionMasked == MotionEvent.ACTION_MOVE &&
+                    touchEventInitialY > -1 &&
+                    (touchEventInitialY - trackBallMotionEvent.getY()) > DIP15)) {
                 lastX = -1;
                 touchEventInitialX = -1;
+                touchEventInitialY = -1;
                 fineScrubbingPreviewBitmap = null;
                 isFineScrubbingStarted = false;
                 lastAppliedBitmap = null;
                 if (views != null) {
                     if (views.timestampPreview != null) {
                         views.timestampPreview.setVisibility(View.GONE);
+                    }
+                    if (views.heatMapPeakPointPreview != null) {
+                        views.heatMapPeakPointPreview.setVisibility(View.GONE);
                     }
                     if (views.chapterPreview != null) {
                         views.chapterPreview.setVisibility(View.GONE);
@@ -315,7 +326,8 @@ public class SeekbarThumbnailPreviewPatch {
 
             if (actionMasked == MotionEvent.ACTION_MOVE &&
                     views != null &&
-                    touchEventInitialX > -1) {
+                    touchEventInitialX > -1 &&
+                    touchEventInitialY > -1) {
                 if (!isFineScrubbingStarted) {
                     final float deltaTouchX = Math.abs(trackBallMotionEvent.getX() - touchEventInitialX);
 
@@ -329,7 +341,7 @@ public class SeekbarThumbnailPreviewPatch {
                 final int trackballPosX = trackballPos.x;
                 final int trackballPosY = trackballPos.y;
 
-                if (trackballPosX == lastX || (trackballPosX < 0 && trackballPosY < 0)) {
+                if (trackballPosX == lastX || (trackballPosX == 0 && trackballPosY == 0)) {
                     return;
                 }
                 lastX = trackballPosX;
@@ -341,22 +353,28 @@ public class SeekbarThumbnailPreviewPatch {
                     applyBitmapAspectRatio(views.previewFrame, currentScrubbedPreviewBitmap);
                 }
 
-                if (seekbarRectangle != null) {
+                if (trackballPosX >= 0 && seekbarRectangle != null) {
                     final int seekbarWidth = seekbarRectangle.width();
                     final long totalVideoMillis = VideoInformation.getVideoLength();
 
                     if (totalVideoMillis > 0 && seekbarWidth > 0) {
-                        final int relativeTrackballPosX = trackballPosX - seekbarRectangle.left;
+                        final int relativeTrackballPosX = Utils.clamp(
+                                trackballPosX - seekbarRectangle.left,
+                                0,
+                                seekbarWidth
+                        );
                         final long currentMillis = (((long) relativeTrackballPosX) * totalVideoMillis) / seekbarWidth;
                         final int totalSeconds = Math.round((float) currentMillis / 1000.0f);
 
                         views.timestampPreview.setText(formatSeekTime(totalSeconds));
-                        views.timestampPreview.setVisibility(
-                                !preciseSeekingVisible ? View.VISIBLE : View.GONE
+                        views.timestampPreview.setVisibility(View.VISIBLE);
+
+                        views.heatMapPeakPointPreview.setVisibility(
+                                ChaptersHookPatch.getHeatMapPeakPoint() ? View.VISIBLE : View.GONE
                         );
 
                         final CharSequence chapterTitle = ChaptersHookPatch.getChapterTitleAtTime(currentMillis);
-                        if (chapterTitle != null && !preciseSeekingVisible) {
+                        if (chapterTitle != null) {
                             views.chapterPreview.setText(chapterTitle);
                             views.chapterPreview.setVisibility(View.VISIBLE);
                         } else {
@@ -373,37 +391,50 @@ public class SeekbarThumbnailPreviewPatch {
                         ? THUMBNAIL_PREVIEW_DISTANCE_FULLSCREEN_DP
                         : THUMBNAIL_PREVIEW_DISTANCE_PORTRAIT_DP;
 
-                final int textHeight = views.chapterPreview.getVisibility() == View.VISIBLE
-                        ? THUMBNAIL_PREVIEW_TEXT_WITH_CHAPTER_HEIGHT_DP
-                        : THUMBNAIL_PREVIEW_TEXT_ONLY_HEIGHT_DP;
+                final int textHeight;
+                final boolean heatPeakPointPreviewVisible =
+                        views.heatMapPeakPointPreview.getVisibility() == View.VISIBLE;
+                final boolean chapterPreviewVisible =
+                        views.chapterPreview.getVisibility() == View.VISIBLE;
+
+                if (heatPeakPointPreviewVisible && chapterPreviewVisible) {
+                    textHeight = THUMBNAIL_PREVIEW_TEXT_WITH_PEAK_POINT_AND_CHAPTER_HEIGHT_DP;
+                } else if (heatPeakPointPreviewVisible || chapterPreviewVisible) {
+                    textHeight = THUMBNAIL_PREVIEW_TEXT_WITH_CHAPTER_HEIGHT_DP;
+                } else {
+                    textHeight = THUMBNAIL_PREVIEW_TEXT_ONLY_HEIGHT_DP;
+                }
 
                 // Wait until the first bitmap so the previewFrame shows immediately with the correct
                 // aspect ratio and Y offset, avoiding a jump from a default 16:9 position.
                 views.previewFrame.setVisibility(
-                        lastAppliedBitmap != null && !preciseSeekingVisible
+                        lastAppliedBitmap != null
                                 ? View.VISIBLE
                                 : View.INVISIBLE
                 );
 
                 final PopupWindow thumbnailPreviewPopup = views.thumbnailPreviewPopup;
                 final View rootView = trackBall.getRootView();
-                final int targetX = trackballPosX - (previewWidthPx / 2);
+                final int screenWidth = rootView.getContext().getResources().getDisplayMetrics().widthPixels;
+                final int targetX = Utils.clamp(
+                        trackballPosX - (previewWidthPx / 2),
+                        0,
+                        screenWidth - previewWidthPx
+                );
                 final int targetY = trackballPosY -
                         previewHeightPx -
                         previewDistance -
                         textHeight;
 
-                if (!thumbnailPreviewPopup.isShowing() && rootView.getWindowToken() != null) {
-                    thumbnailPreviewPopup.showAtLocation(rootView, Gravity.NO_GRAVITY, targetX, targetY);
-                }
-
-                if (thumbnailPreviewPopup.isShowing()) {
-                    thumbnailPreviewPopup.update(
-                            targetX,
-                            targetY,
-                            thumbnailPreviewPopup.getWidth(),
-                            thumbnailPreviewPopup.getHeight()
-                    );
+                if (!thumbnailPreviewPopup.isShowing()) {
+                    // Wait until the first bitmap so the popup shows immediately with the correct
+                    // aspect ratio and Y offset, avoiding a jump from a default 16:9 position.
+                    if (rootView.getWindowToken() != null && lastAppliedBitmap != null) {
+                        thumbnailPreviewPopup.showAtLocation(rootView, Gravity.NO_GRAVITY, targetX, targetY);
+                    }
+                } else {
+                    thumbnailPreviewPopup.update(targetX, targetY, thumbnailPreviewPopup.getWidth(),
+                            thumbnailPreviewPopup.getHeight());
                 }
             }
         } catch (Exception ex) {
@@ -428,26 +459,4 @@ public class SeekbarThumbnailPreviewPatch {
         return original;
     }
 
-    /**
-     * Injection point.
-     * The following method is called once, to initialize the precise seekbar container.
-     */
-    public static void setPreciseSeekingVisible(RecyclerView recyclerView) {
-        if (recyclerView != null) {
-            ViewParent recyclerViewParent = recyclerView.getParent();
-
-            while (recyclerViewParent instanceof View recyclerViewParentView) {
-                if (recyclerViewParentView.toString().contains("android.support.constraint.ConstraintLayout")) {
-                    recyclerViewParentView.getViewTreeObserver().addOnPreDrawListener(() -> {
-                        preciseSeekingVisible =
-                                recyclerView.getVisibility() == View.VISIBLE &&
-                                        recyclerViewParentView.getAlpha() > 0;
-                        return true;
-                    });
-                    break;
-                }
-                recyclerViewParent = recyclerViewParentView.getParent();
-            }
-        }
-    }
 }

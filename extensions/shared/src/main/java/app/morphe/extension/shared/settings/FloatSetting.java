@@ -8,6 +8,8 @@ import org.json.JSONObject;
 
 import java.util.Objects;
 
+import app.morphe.extension.shared.settings.Setting.SliderConfig;
+
 @SuppressWarnings("unused")
 public class FloatSetting extends Setting<Float> {
 
@@ -45,6 +47,22 @@ public class FloatSetting extends Setting<Float> {
 
     public FloatSetting(@NonNull String key, @NonNull Float defaultValue, boolean rebootApp, boolean includeWithImportExport, @Nullable String userDialogMessage, @Nullable Availability availability) {
         super(key, defaultValue, rebootApp, includeWithImportExport, userDialogMessage, availability);
+    }
+
+    public FloatSetting(String key, Float defaultValue, SliderConfig sliderConfig) {
+        this(key, defaultValue, false, sliderConfig, null);
+    }
+
+    public FloatSetting(String key, Float defaultValue, boolean rebootApp, SliderConfig sliderConfig) {
+        this(key, defaultValue, rebootApp, sliderConfig, null);
+    }
+
+    public FloatSetting(String key, Float defaultValue, SliderConfig sliderConfig, @Nullable Availability availability) {
+        this(key, defaultValue, false, sliderConfig, availability);
+    }
+
+    public FloatSetting(String key, Float defaultValue, boolean rebootApp, SliderConfig sliderConfig, @Nullable Availability availability) {
+        super(key, defaultValue, rebootApp, true, null, availability, sliderConfig);
     }
 
     @Override
