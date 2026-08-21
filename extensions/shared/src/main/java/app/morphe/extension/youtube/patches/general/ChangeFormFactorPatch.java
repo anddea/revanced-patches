@@ -1,3 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.general;
 
 import static java.lang.Boolean.FALSE;
@@ -10,8 +21,10 @@ import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.BooleanUtils;
 
+import java.util.List;
 import java.util.Objects;
 
+import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.PackageUtils;
 import app.morphe.extension.youtube.settings.Settings;
@@ -71,6 +84,23 @@ public class ChangeFormFactorPatch {
     private static final Integer FORM_FACTOR_TYPE = FORM_FACTOR.formFactorType;
     private static final boolean USING_AUTOMOTIVE_TYPE = Objects.requireNonNull(
             FormFactor.AUTOMOTIVE.formFactorType).equals(FORM_FACTOR_TYPE);
+    private static final boolean TABLET_LAYOUT_IN_PLAYER =
+            FORM_FACTOR != FormFactor.LARGE
+                    && FORM_FACTOR != FormFactor.LARGE_WIDTH_DP
+                    && Settings.TABLET_LAYOUT_IN_PLAYER.get();
+
+    public static final class TabletLayoutInPlayerAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.CHANGE_FORM_FACTOR.get() != FormFactor.LARGE
+                    && Settings.CHANGE_FORM_FACTOR.get() != FormFactor.LARGE_WIDTH_DP;
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.CHANGE_FORM_FACTOR);
+        }
+    }
 
     private static final int smallestScreenWidthDp = PackageUtils.getSmallestScreenWidthDp();
     private static int clientFormFactorOrdinal = -1;
@@ -117,6 +147,11 @@ public class ChangeFormFactorPatch {
      * Injection point.
      */
     public static int getFormFactor(int original) {
+        if (TABLET_LAYOUT_IN_PLAYER) {
+            // Keep the selected form factor for the guide endpoint so navigation remains unchanged.
+            return Objects.requireNonNull(FormFactor.LARGE.formFactorType);
+        }
+
         if (FORM_FACTOR_TYPE == null) return original;
 
         if (USING_AUTOMOTIVE_TYPE) {
@@ -171,5 +206,13 @@ public class ChangeFormFactorPatch {
 
     public static boolean tabletLayoutEnabled() {
         return Objects.equals(FORM_FACTOR.formFactorType, 2);
+    }
+
+    /**
+     * Prevents the player from continuing with an empty Litho element list after a layout change
+     * when YouTube resumes the player without recreating its activity.
+     */
+    public static boolean checkPlayerLithoElementsListSize(List<?> list) {
+        return list.isEmpty();
     }
 }
