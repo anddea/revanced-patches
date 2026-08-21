@@ -1,3 +1,23 @@
+# [4.3.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.1...v4.3.0-dev.2) (2026-08-21)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Multiline settings did not act like multiline ([e3f27fb](https://github.com/anddea/revanced-patches/commit/e3f27fb020b4039252100aeac4f78d2aa39da597))
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Use a different method to `Disable translucent status bar` ([e5566e0](https://github.com/anddea/revanced-patches/commit/e5566e0e1abfc409184b16229d7cb35255a197f2))
+* **YouTube - Remove background playback restrictions:** Prevent paused videos from auto-resuming after returning to app ([e5a5858](https://github.com/anddea/revanced-patches/commit/e5a5858f4c7c61a66f468601029d45d25f5df95f))
+* **YouTube - Video playback:** Add `Default playback audio pitch` setting ([8db1c08](https://github.com/anddea/revanced-patches/commit/8db1c081fcd680157ea81ca8e1e75558a159db44))
+* **YouTube & YouTube Music - Theme:** Add in-app settings for `Theme` patch ([20817e7](https://github.com/anddea/revanced-patches/commit/20817e7544e08dc0db1b2d3812bde7e9e11cb9cf))
+* **YouTube & YouTube Music:** Replace old `Custom branding name`, `Custom branding icon`, and `Custom header` patches with `Custom branding` with in-app settings ([289be0b](https://github.com/anddea/revanced-patches/commit/289be0b8bead600d4182c1e7132cf05f6daf7e9e))
+* **YouTube Music - Spoof app version:** Prolong the life of the `v6.20+` app versions for just a little while longer ([4459eb1](https://github.com/anddea/revanced-patches/commit/4459eb193e95e13d420b7be05670098d7d0f97b6))
+* **YouTube:** Add "Enable tablet layout in player" setting ([395dea3](https://github.com/anddea/revanced-patches/commit/395dea319d4bb82e29bd455dd671cac91bd129f6))
+* **YouTube:** Add `Back press in feed` setting ([f77c687](https://github.com/anddea/revanced-patches/commit/f77c6872ba9174f12e91b16f5d2a0dbc72bec1a6))
+* **YouTube:** Enable `Theme` patch by default ([3115dfd](https://github.com/anddea/revanced-patches/commit/3115dfdd029866399ba93f6c93fdd07cddb1150e))
+
 # [4.3.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.2.0...v4.3.0-dev.1) (2026-08-13)
 
 
