@@ -232,6 +232,9 @@
         <!-- SETTINGS: CHANGE_FORM_FACTOR
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_change_form_factor_entries" android:title="@string/revanced_change_form_factor_title" android:key="revanced_change_form_factor" android:entryValues="@array/revanced_change_form_factor_entry_values" />SETTINGS: CHANGE_FORM_FACTOR -->
 
+        <!-- SETTINGS: TABLET_LAYOUT_IN_PLAYER
+        <SwitchPreference android:title="@string/morphe_tablet_layout_in_player_title" android:key="morphe_tablet_layout_in_player" android:summary="@string/morphe_tablet_layout_in_player_summary" />SETTINGS: TABLET_LAYOUT_IN_PLAYER -->
+
         <!-- SETTINGS: CUSTOM_DPI
         <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_custom_dpi_title" android:key="morphe_custom_dpi" android:summary="@string/revanced_custom_dpi_summary" android:numeric="integer" />SETTINGS: CUSTOM_DPI -->
 
