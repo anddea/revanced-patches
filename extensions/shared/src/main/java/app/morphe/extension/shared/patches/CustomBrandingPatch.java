@@ -533,6 +533,10 @@ public final class CustomBrandingPatch {
 
             ImageView image = new ImageView(activity);
             image.setImageDrawable(drawable);
+            float splashScale = SharedYouTubeSettings.CUSTOM_BRANDING_SPLASH_ANIMATION_SIZE.get()
+                    / 100.0f;
+            image.setScaleX(splashScale);
+            image.setScaleY(splashScale);
             if (useYouTubeSplashStyle && isSplashAnimationMonochrome()) {
                 image.setColorFilter(MONOCHROME_SPLASH_FILTER);
             }

@@ -22,6 +22,11 @@ public class SharedYouTubeSettings extends BaseSettings {
     public static final IntegerSetting CUSTOM_BRANDING_NAME = new IntegerSetting(
             "morphe_custom_branding_name", CustomBrandingPatch.getDefaultAppNameIndex(), true);
 
+    /** Percentage applied to the selected custom splash drawable while its animation runs. */
+    public static final IntegerSetting CUSTOM_BRANDING_SPLASH_ANIMATION_SIZE = new IntegerSetting(
+            "morphe_custom_branding_splash_animation_size", 100, true,
+            new Setting.SliderConfig(25, 200, 5, "%"));
+
     public static final BooleanSetting CUSTOM_BRANDING_APPLY_TO_RVX_SETTINGS = new BooleanSetting(
             "morphe_custom_branding_apply_to_rvx_settings", FALSE, true);
 

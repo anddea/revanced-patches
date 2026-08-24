@@ -563,6 +563,7 @@ val intentIcon = intentKey.associateWith { "${it}_icon" }
 
 private val emptyTitles = setOf(
     "morphe_custom_branding_apply_to_rvx_settings",
+    "morphe_custom_branding_splash_animation_size",
     "morphe_dark_theme_custom_color",
     "morphe_light_theme_custom_color",
     "morphe_music_package_name",
