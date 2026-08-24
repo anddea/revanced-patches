@@ -92,10 +92,15 @@ private val customAdaptiveFileNames = arrayOf(
     "${ADAPTIVE_BACKGROUND_PREFIX}${CUSTOM_ICON_KEY}.png",
     "${ADAPTIVE_FOREGROUND_PREFIX}${CUSTOM_ICON_KEY}.png",
 )
+private const val CUSTOM_LAUNCHER_FILE_NAME = "${LAUNCHER_PREFIX}${CUSTOM_ICON_KEY}.png"
+private const val CUSTOM_MONOCHROME_RESOURCE_NAME =
+    "${ADAPTIVE_MONOCHROME_PREFIX}${CUSTOM_ICON_KEY}"
 private const val CUSTOM_MONOCHROME_FILE_NAME =
-    "${ADAPTIVE_MONOCHROME_PREFIX}${CUSTOM_ICON_KEY}.xml"
+    "$CUSTOM_MONOCHROME_RESOURCE_NAME.xml"
 private const val CUSTOM_NOTIFICATION_ICON_FILE_NAME =
     "${NOTIFICATION_ICON_PREFIX}${CUSTOM_ICON_KEY}.xml"
+private const val CUSTOM_RVX_SETTINGS_ICON_FILE_NAME =
+    "${RVX_SETTINGS_ICON_PREFIX}${CUSTOM_ICON_KEY}.xml"
 private val unsupportedAaptInterpolator = Regex(
     """<aapt:attr\s+name="android:interpolator"[^>]*>.*?</aapt:attr>""",
     setOf(RegexOption.DOT_MATCHES_ALL),
@@ -113,14 +118,19 @@ private val drawableDirectories = mipmapDirectories.map { "drawable-$it" }
 /**
  * A launcher icon that can be exposed by the in-app selector.
  *
- * Stock entries intentionally have no bundled layers. They point at the original launcher
- * resource, while themed entries are copied to stable resource names at patch time.
+ * Stock entries intentionally have no bundled launcher resource. They point at the original
+ * launcher, while themed entries are copied to stable resource names at patch time.
+ *
+ * [hasLauncherResource] is separate from [hasAdaptiveLayers] because a partial custom folder can
+ * provide only legacy density-specific launcher images. Those images remain usable even when the
+ * adaptive background or foreground is missing.
  */
 internal data class BrandingIcon(
     val key: String,
     val label: String,
     val hasAdaptiveLayers: Boolean,
     val hasMonochromeLayers: Boolean = hasAdaptiveLayers,
+    val hasLauncherResource: Boolean = hasAdaptiveLayers,
 )
 
 /** Application-specific details shared by the YouTube and Music branding wrappers. */
@@ -208,20 +218,13 @@ internal data class CustomBrandingConfig(
 }
 
 internal val customBrandingIconOptionDescription = """
-    Folder with images to use as a custom icon.
+    Folder containing custom branding resources. The folder is scanned recursively, so Android
+    resource folders can be placed at the root or grouped under folders such as 'launcher',
+    'header', 'splash', 'monochrome', and 'settings'.
 
-    The folder must contain one or more of the following folders, depending on the DPI of the device:
-    ${mipmapDirectories.joinToString("\n") { "- mipmap-$it" }}
-
-    Each provided mipmap folder must contain all of the following files:
-    ${customAdaptiveFileNames.joinToString("\n") { "- $it" }}
-
-    Optionally, the path can contain a 'drawable' folder with:
-    - $CUSTOM_MONOCHROME_FILE_NAME
-    - $CUSTOM_NOTIFICATION_ICON_FILE_NAME
-
-    A notification icon can instead be supplied as $CUSTOM_NOTIFICATION_ICON_FILE_NAME with a
-    .png extension in one or more matching drawable-<dpi> folders.
+    Every resource is optional. Original app resource names and generated '*_custom' names are
+    both accepted. Missing files keep the stock or bundled resource for that part of the branding.
+    A complete 'drawable/avd_anim.xml' splash takes priority over static splash images.
 """.trimIndent()
 
 /**
@@ -247,7 +250,7 @@ internal fun ResourcePatchContext.applyCustomBranding(
     config.icons.filter { it.hasAdaptiveLayers }.forEach { icon ->
         copyAdaptiveLayers(config, icon)
     }
-    val customIcon = copyCustomIcon(customIconPath)
+    val customIcon = copyCustomIcon(config, customIconPath)
     copyDynamicBrandingResources(config)
 
     var hasRvxSettingsPreference = false
@@ -271,7 +274,7 @@ internal fun ResourcePatchContext.applyCustomBranding(
     document("AndroidManifest.xml").use { document ->
         val application = document.getElementsByTagName("application").item(0) as Element
         application.setAttribute("android:label", "@string/$CUSTOM_APP_NAME_RESOURCE")
-        if (customIcon != null) {
+        if (customIcon?.hasLauncherResource == true) {
             // The application icon is not runtime-selectable and is used by Android settings,
             // installers, and some device-specific notification surfaces.
             application.setAttribute("android:icon", "@mipmap/$LAUNCHER_PREFIX$CUSTOM_ICON_KEY")
@@ -370,12 +373,17 @@ internal fun ResourcePatchContext.applyCustomBranding(
 }
 
 /**
- * Copies a user-provided custom icon.
+ * Copies every recognized resource from a user-provided custom branding folder.
  *
- * At least one density must provide both adaptive layers. Monochrome and notification icons are
- * optional because Android can safely fall back to the app's original notification treatment.
+ * Resource folders may appear anywhere below the selected path. Each file is independent: missing
+ * adaptive layers fall back to legacy custom launcher images or the stock launcher, while missing
+ * headers, splash images, notification icons, and settings icons use their runtime fallbacks.
+ * Returning null only hides the custom selector entry when the folder contains no recognized file.
  */
-private fun ResourcePatchContext.copyCustomIcon(customIconPath: String?): BrandingIcon? {
+private fun ResourcePatchContext.copyCustomIcon(
+    config: CustomBrandingConfig,
+    customIconPath: String?,
+): BrandingIcon? {
     val path = customIconPath?.trim()?.takeIf { it.isNotEmpty() } ?: return null
     val iconPath = File(path)
     if (!iconPath.exists()) {
@@ -386,72 +394,244 @@ private fun ResourcePatchContext.copyCustomIcon(customIconPath: String?): Brandi
     }
 
     val resourceDirectory = get("res")
-    var copiedAdaptiveLayers = false
-    mipmapDirectories.forEach { density ->
-        val sourceDirectory = iconPath.resolve("mipmap-$density")
-        if (!sourceDirectory.isDirectory) return@forEach
-
-        val customFiles = customAdaptiveFileNames.map(sourceDirectory::resolve)
-        val existingFiles = customFiles.filter(File::isFile)
-        if (existingFiles.isNotEmpty() && existingFiles.size != customFiles.size) {
-            throw PatchException(
-                "Each custom icon density must include all required files, but only found: " +
-                    existingFiles.map { it.name },
-            )
+    val filesByResourceDirectory = iconPath.walkTopDown()
+        .filter { file ->
+            file.isFile && file.parentFile?.name?.let(::isAndroidResourceDirectory) == true
         }
-        if (existingFiles.isEmpty()) return@forEach
+        .sortedBy(File::getAbsolutePath)
+        .groupBy { it.parentFile.name }
 
-        val targetDirectory = resourceDirectory.resolve("mipmap-$density")
-        targetDirectory.mkdirs()
-        existingFiles.forEach { source ->
-            FilesCompat.copy(source, targetDirectory.resolve(source.name))
+    fun findSource(directory: String, vararg names: String): File? {
+        val files = filesByResourceDirectory[directory] ?: return null
+        names.forEach { name ->
+            files.firstOrNull { it.name == name }?.let { return it }
         }
-        copiedAdaptiveLayers = true
+        return null
     }
 
-    if (!copiedAdaptiveLayers) {
-        throw PatchException(
-            "Expected to find ${customAdaptiveFileNames.contentToString()} in at least one " +
-                "mipmap density folder under: ${iconPath.absolutePath}",
+    fun copyResource(directory: String, targetName: String, vararg sourceNames: String): File? {
+        val source = findSource(directory, targetName, *sourceNames) ?: return null
+        val targetDirectory = resourceDirectory.resolve(directory).also(File::mkdirs)
+        FilesCompat.copy(source, targetDirectory.resolve(targetName))
+        return source
+    }
+
+    val customDrawableFiles = filesByResourceDirectory["drawable"].orEmpty()
+    val animatedSplash = customDrawableFiles.firstOrNull {
+        it.name == "${SPLASH_PREFIX}${CUSTOM_ICON_KEY}.xml"
+    } ?: customDrawableFiles.firstOrNull { it.name == "avd_anim.xml" }
+    val copiedAnimatedSplash = animatedSplash != null &&
+        copyCustomAnimatedVectorSplash(animatedSplash, customDrawableFiles)
+
+    var copiedAny = copiedAnimatedSplash
+    var copiedAdaptiveBackground = false
+    var copiedAdaptiveForeground = false
+    var copiedLegacyLauncher = false
+    val mipmapResourceDirectories = filesByResourceDirectory.keys.filter {
+        it == "mipmap" || it.startsWith("mipmap-")
+    }
+    mipmapResourceDirectories.forEach { directory ->
+        copiedAdaptiveBackground = copyResource(
+            directory,
+            customAdaptiveFileNames[0],
+            "${config.adaptiveBackgroundFileName}.png",
+        ) != null || copiedAdaptiveBackground
+        copiedAdaptiveForeground = copyResource(
+            directory,
+            customAdaptiveFileNames[1],
+            "${config.adaptiveForegroundFileName}.png",
+        ) != null || copiedAdaptiveForeground
+        if (!directory.startsWith("mipmap-anydpi")) {
+            copiedLegacyLauncher = copyResource(
+                directory,
+                CUSTOM_LAUNCHER_FILE_NAME,
+                "${config.originalLauncherIconName}.png",
+            ) != null || copiedLegacyLauncher
+        }
+    }
+    copiedAny = copiedAny || copiedAdaptiveBackground || copiedAdaptiveForeground ||
+        copiedLegacyLauncher
+
+    var hasMonochrome = false
+    var copiedNotification = false
+    val monochromeSources = mutableListOf<Pair<String, File>>()
+    val drawableResourceDirectories = filesByResourceDirectory.keys.filter {
+        it == "drawable" || it.startsWith("drawable-")
+    }
+    drawableResourceDirectories.forEach { directory ->
+        copyResource(
+            directory,
+            CUSTOM_MONOCHROME_FILE_NAME,
+            "${config.monochromeFileName}.xml",
+        )?.let { source ->
+            hasMonochrome = true
+            copiedAny = true
+            monochromeSources += directory to source
+        }
+        val copiedNotificationXml = copyResource(
+            directory,
+            CUSTOM_NOTIFICATION_ICON_FILE_NAME,
+        ) != null
+        copiedNotification = copiedNotificationXml || copiedNotification
+        if (!copiedNotificationXml) {
+            copiedNotification = copyResource(
+                directory,
+                CUSTOM_NOTIFICATION_ICON_FILE_NAME.replaceAfterLast('.', "png"),
+            ) != null || copiedNotification
+        }
+        copiedAny = copyResource(
+            directory,
+            CUSTOM_RVX_SETTINGS_ICON_FILE_NAME,
+            "${config.settingsIconFileName}.xml",
+        ) != null || copiedAny
+
+        config.dynamicHeaderResourceNames.forEach { resourceName ->
+            if (config.dynamicHeaderUsesThemes) {
+                arrayOf("light", "dark").forEach { theme ->
+                    val targetName =
+                        "${HEADER_PREFIX}${CUSTOM_ICON_KEY}_${resourceName}_$theme.png"
+                    copiedAny = copyResource(
+                        directory,
+                        targetName,
+                        "${resourceName}_$theme.png",
+                    ) != null || copiedAny
+                }
+            } else {
+                val targetName = "${HEADER_PREFIX}${CUSTOM_ICON_KEY}_$resourceName.png"
+                copiedAny = copyResource(
+                    directory,
+                    targetName,
+                    "$resourceName.png",
+                ) != null || copiedAny
+            }
+        }
+
+        if (!copiedAnimatedSplash) {
+            config.dynamicSplashResourceName?.let { resourceName ->
+                val targetName = "${SPLASH_PREFIX}${CUSTOM_ICON_KEY}.png"
+                copiedAny = copyResource(
+                    directory,
+                    targetName,
+                    "$resourceName.png",
+                ) != null || copiedAny
+            }
+        }
+    }
+
+    // A monochrome adaptive layer is also a valid notification icon. Use it only when the folder
+    // does not provide a notification-specific XML or density-specific PNG.
+    if (!copiedNotification) {
+        monochromeSources.forEach { (directory, source) ->
+            val targetDirectory = resourceDirectory.resolve(directory).also(File::mkdirs)
+            FilesCompat.copy(source, targetDirectory.resolve(CUSTOM_NOTIFICATION_ICON_FILE_NAME))
+            copiedNotification = true
+        }
+    }
+    copiedAny = copiedAny || copiedNotification
+
+    val hasAdaptiveLayers = copiedAdaptiveBackground && copiedAdaptiveForeground
+    if (hasAdaptiveLayers) {
+        val adaptiveIconDirectory = resourceDirectory.resolve("mipmap-anydpi").also(File::mkdirs)
+        val monochromeLayer = if (hasMonochrome) {
+            "                <monochrome android:drawable=\"@drawable/$CUSTOM_MONOCHROME_RESOURCE_NAME\" />\n"
+        } else {
+            ""
+        }
+        adaptiveIconDirectory.resolve("$LAUNCHER_PREFIX$CUSTOM_ICON_KEY.xml").writeText(
+            """<?xml version="1.0" encoding="utf-8"?>
+                <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+                    <background android:drawable="@mipmap/${ADAPTIVE_BACKGROUND_PREFIX}${CUSTOM_ICON_KEY}" />
+                    <foreground android:drawable="@mipmap/${ADAPTIVE_FOREGROUND_PREFIX}${CUSTOM_ICON_KEY}" />
+$monochromeLayer                </adaptive-icon>
+            """.trimIndent(),
         )
     }
 
-    val drawableDirectory = resourceDirectory.resolve("drawable").also(File::mkdirs)
-    val sourceDrawableDirectory = iconPath.resolve("drawable")
-    val monochrome = sourceDrawableDirectory.resolve(CUSTOM_MONOCHROME_FILE_NAME)
-    val hasMonochrome = monochrome.isFile
-    if (hasMonochrome) {
-        FilesCompat.copy(monochrome, drawableDirectory.resolve(monochrome.name))
-    }
-
-    val notificationXml = sourceDrawableDirectory.resolve(CUSTOM_NOTIFICATION_ICON_FILE_NAME)
-    if (notificationXml.isFile) {
-        FilesCompat.copy(notificationXml, drawableDirectory.resolve(notificationXml.name))
-    }
-    drawableDirectories.forEach { directory ->
-        val pngName = CUSTOM_NOTIFICATION_ICON_FILE_NAME.replaceAfterLast('.', "png")
-        val source = iconPath.resolve(directory).resolve(pngName)
-        if (!source.isFile) return@forEach
-        val targetDirectory = resourceDirectory.resolve(directory).also(File::mkdirs)
-        FilesCompat.copy(source, targetDirectory.resolve(pngName))
-    }
-
-    val adaptiveIconDirectory = resourceDirectory.resolve("mipmap-anydpi").also(File::mkdirs)
-    val monochromeLayer = if (hasMonochrome) {
-        "                <monochrome android:drawable=\"@drawable/$CUSTOM_MONOCHROME_FILE_NAME\" />\n"
-    } else {
-        ""
-    }
-    adaptiveIconDirectory.resolve("$LAUNCHER_PREFIX$CUSTOM_ICON_KEY.xml").writeText(
-        """<?xml version="1.0" encoding="utf-8"?>
-            <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-                <background android:drawable="@mipmap/${ADAPTIVE_BACKGROUND_PREFIX}${CUSTOM_ICON_KEY}" />
-                <foreground android:drawable="@mipmap/${ADAPTIVE_FOREGROUND_PREFIX}${CUSTOM_ICON_KEY}" />
-$monochromeLayer            </adaptive-icon>
-        """.trimIndent(),
+    if (!copiedAny) return null
+    return BrandingIcon(
+        CUSTOM_ICON_KEY,
+        CUSTOM_ICON_LABEL,
+        hasAdaptiveLayers,
+        hasMonochrome,
+        hasAdaptiveLayers || copiedLegacyLauncher,
     )
+}
 
-    return BrandingIcon(CUSTOM_ICON_KEY, CUSTOM_ICON_LABEL, true, hasMonochrome)
+private fun isAndroidResourceDirectory(name: String) =
+    name == "drawable" || name.startsWith("drawable-") ||
+        name == "mipmap" || name.startsWith("mipmap-")
+
+/**
+ * Copies a complete custom animated-vector graph to stable names.
+ *
+ * A missing local companion makes the animation unusable, so the method skips the animation and
+ * leaves the stock or static splash in place. External references already present in the decoded
+ * app remain unchanged.
+ */
+private fun ResourcePatchContext.copyCustomAnimatedVectorSplash(
+    source: File,
+    customDrawableFiles: List<File>,
+): Boolean {
+    val drawableReference = Regex("""@drawable/([A-Za-z0-9_$]+)""")
+    val customResources = customDrawableFiles.associateBy { it.nameWithoutExtension }
+    val companionSources = linkedMapOf<String, File>()
+    val visitedResources = mutableSetOf<String>()
+    val pendingResources = ArrayDeque<String>().apply {
+        drawableReference.findAll(source.readText()).forEach { addLast(it.groupValues[1]) }
+    }
+
+    fun hasDecodedDrawable(resourceName: String): Boolean =
+        get("res").listFiles().orEmpty().asSequence()
+            .filter { it.isDirectory && (it.name == "drawable" || it.name.startsWith("drawable-")) }
+            .flatMap { it.listFiles().orEmpty().asSequence() }
+            .any { it.isFile && it.nameWithoutExtension == resourceName }
+
+    while (pendingResources.isNotEmpty()) {
+        val sourceResourceName = pendingResources.removeFirst()
+        if (!visitedResources.add(sourceResourceName)) continue
+
+        val companionSource = customResources[sourceResourceName]
+        if (companionSource == null) {
+            if (!hasDecodedDrawable(sourceResourceName)) return false
+            continue
+        }
+
+        companionSources[sourceResourceName] = companionSource
+        if (companionSource.extension == "xml") {
+            drawableReference.findAll(companionSource.readText()).forEach {
+                pendingResources.addLast(it.groupValues[1])
+            }
+        }
+    }
+
+    val targetResourceNames = companionSources.keys.mapIndexed { index, sourceResourceName ->
+        sourceResourceName to "${SPLASH_PREFIX}${CUSTOM_ICON_KEY}_part_$index"
+    }.toMap()
+
+    fun rewriteDrawableReferences(sourceXml: String): String {
+        var rewritten = unsupportedAaptInterpolator.replace(sourceXml, "")
+        targetResourceNames.forEach { (sourceResourceName, targetResourceName) ->
+            rewritten = rewritten.replace(
+                "@drawable/$sourceResourceName",
+                "@drawable/$targetResourceName",
+            )
+        }
+        return rewritten
+    }
+
+    val targetDirectory = get("res/drawable").also(File::mkdirs)
+    targetDirectory.resolve("${SPLASH_PREFIX}${CUSTOM_ICON_KEY}.xml")
+        .writeText(rewriteDrawableReferences(source.readText()))
+    companionSources.forEach { (sourceResourceName, companionSource) ->
+        val targetName = targetResourceNames.getValue(sourceResourceName)
+        val target = targetDirectory.resolve("$targetName.${companionSource.extension}")
+        if (companionSource.extension == "xml") {
+            target.writeText(rewriteDrawableReferences(companionSource.readText()))
+        } else {
+            FilesCompat.copy(companionSource, target)
+        }
+    }
+    return true
 }
 
 private fun ResourcePatchContext.copyAdaptiveLayers(
@@ -934,7 +1114,7 @@ private fun removeResource(resources: Element, tagName: String, name: String) {
 private fun iconResourceName(
     config: CustomBrandingConfig,
     icon: BrandingIcon,
-) = if (icon.hasAdaptiveLayers) {
+) = if (icon.hasLauncherResource) {
     "$LAUNCHER_PREFIX${icon.key}"
 } else {
     config.originalLauncherIconName

@@ -63,6 +63,8 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Animatable2;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -549,32 +551,45 @@ public final class CustomBrandingPatch {
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT));
 
-            long duration = selectedIcon.startsWith("revancify") ? 1500L : 1000L;
-            if (drawable instanceof Animatable) {
-                ((Animatable) drawable).start();
-            } else {
-                AnimationSet animation = new AnimationSet(true);
-                animation.setDuration(duration);
-                animation.addAnimation(new AlphaAnimation(0.0f, 1.0f));
-                animation.addAnimation(new ScaleAnimation(
-                        0.8f,
-                        1.0f,
-                        0.8f,
-                        1.0f,
-                        Animation.RELATIVE_TO_SELF,
-                        0.5f,
-                        Animation.RELATIVE_TO_SELF,
-                        0.5f));
-                image.startAnimation(animation);
-            }
-
-            // Removal is time-based instead of network/content-based. This both holds back content
-            // that becomes ready early and releases offline startup after the animation completes.
-            overlay.postDelayed(() -> {
+            Runnable removeOverlay = () -> {
                 if (overlay.getParent() instanceof ViewGroup parent) {
                     parent.removeView(overlay);
                 }
-            }, duration);
+            };
+
+            if (drawable instanceof AnimatedVectorDrawable animatedVector) {
+                // Custom AVD durations are not known at compile time. Keep the overlay visible
+                // until Android reports completion, with a timeout for malformed animations.
+                animatedVector.registerAnimationCallback(new Animatable2.AnimationCallback() {
+                    @Override
+                    public void onAnimationEnd(Drawable ignored) {
+                        overlay.post(removeOverlay);
+                    }
+                });
+                animatedVector.start();
+                overlay.postDelayed(removeOverlay, 5000L);
+            } else {
+                long duration = selectedIcon.startsWith("revancify") ? 1500L : 1000L;
+                if (drawable instanceof Animatable) {
+                    ((Animatable) drawable).start();
+                } else {
+                    AnimationSet animation = new AnimationSet(true);
+                    animation.setDuration(duration);
+                    animation.addAnimation(new AlphaAnimation(0.0f, 1.0f));
+                    animation.addAnimation(new ScaleAnimation(
+                            0.8f,
+                            1.0f,
+                            0.8f,
+                            1.0f,
+                            Animation.RELATIVE_TO_SELF,
+                            0.5f,
+                            Animation.RELATIVE_TO_SELF,
+                            0.5f));
+                    image.startAnimation(animation);
+                }
+                // Resources without AVD callbacks release offline startup after a fixed duration.
+                overlay.postDelayed(removeOverlay, duration);
+            }
         } catch (Exception ignored) {
             // Keep the stock splash if the activity window cannot host the overlay.
         }
