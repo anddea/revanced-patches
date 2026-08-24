@@ -161,10 +161,6 @@ internal enum class PatchList(
         "Hook download actions",
         "Adds support to download videos with an external downloader app using the in-app download button."
     ),
-    MATERIALYOU(
-        "MaterialYou",
-        "Applies the MaterialYou theme for Android 12+ devices."
-    ),
     MINIPLAYER(
         "Miniplayer",
         "Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers."

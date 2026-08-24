@@ -38,6 +38,17 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/2524
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.music.layout.theme
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -62,10 +73,10 @@ import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.shared.drawable.addDrawableColorHook
 import app.morphe.patches.shared.drawable.drawableColorHookPatch
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
+import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.util.ResourceGroup
 import app.morphe.util.copyResources
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -172,6 +183,7 @@ private val darkThemeBytecodePatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         sharedResourceIdPatch,
+        resourceMappingPatch,
         drawableColorHookPatch,
         mainActivityResolvePatch,
     )
@@ -180,9 +192,36 @@ private val darkThemeBytecodePatch = bytecodePatch(
         injectOnCreateMethodCall(EXTENSION_CLASS_DESCRIPTOR, "setTheme")
         addDrawableColorHook("$EXTENSION_CLASS_DESCRIPTOR->getLithoColor(I)I")
 
+        // The top bar shows either a count stub or a standalone dot for new content.
+        TopBarNewContentCountFingerprint.let {
+            it.method.apply {
+                val checkCastIndex = it.instructionMatches[2].index
+                val stubRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+
+                addInstruction(
+                    checkCastIndex + 1,
+                    "invoke-static { v$stubRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
+                            "->onNewContentIndicator(Landroid/view/ViewStub;)V",
+                )
+            }
+        }
+
+        TopBarNewContentDotFingerprint.let {
+            it.method.apply {
+                val moveResultIndex = it.instructionMatches[2].index
+                val dotRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
+
+                addInstruction(
+                    moveResultIndex + 1,
+                    "invoke-static { v$dotRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
+                            "->onNewContentIndicator(Landroid/view/View;)V",
+                )
+            }
+        }
+
         // The images in the playlist and album headers have a black gradient (probably applied server-side).
         // Applies a new gradient to the images in the playlist and album headers.
-        elementsContainerFingerprint.methodOrThrow().apply {
+        ElementsContainerFingerprint.method.apply {
             val index = indexOfFirstInstructionReversedOrThrow(Opcode.CHECK_CAST)
             val register = getInstruction<OneRegisterInstruction>(index).registerA
 

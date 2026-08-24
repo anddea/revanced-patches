@@ -38,20 +38,39 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/2524
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.theme;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.loader.ResourcesLoader;
 import android.content.res.loader.ResourcesProvider;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.util.Base64;
+import android.view.View;
+import android.view.ViewStub;
+import android.view.ViewTreeObserver;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
@@ -286,6 +305,126 @@ public final class ThemePatch {
     public static int getStatusBarColor(int color) {
         if (!isDisableTranslucentStatusBar()) return color;
         return Color.argb(0xFF, Color.red(color), Color.green(color), Color.blue(color));
+    }
+
+    /**
+     * Injection point for a new-content indicator declared as a view stub. Material You uses the
+     * selected system palette instead of the app's red indicator.
+     */
+    public static void onNewContentIndicator(ViewStub stub) {
+        try {
+            stub.setOnInflateListener((inflatedStub, view) -> keepIndicatorColor(view));
+        } catch (Exception ex) {
+            Logger.printException(() -> "onNewContentIndicator failure", ex);
+        }
+    }
+
+    /**
+     * Injection point for a new-content indicator declared as a view of its own instead of a stub.
+     */
+    public static void onNewContentIndicator(View indicator) {
+        try {
+            keepIndicatorColor(indicator);
+        } catch (Exception ex) {
+            Logger.printException(() -> "onNewContentIndicator failure", ex);
+        }
+    }
+
+    private static void keepIndicatorColor(View view) {
+        keepIndicatorColor(view, getIndicatorColor(view.getContext()));
+    }
+
+    private static void keepIndicatorColor(View view, Integer color) {
+        if (color == null) {
+            return;
+        }
+
+        setIndicatorColor(view, color);
+
+        // YouTube applies its own background after the indicator is shown. Applying the selected
+        // color before every draw prevents an intermediate frame with the app's red color.
+        ViewTreeObserver.OnPreDrawListener listener = () -> {
+            setIndicatorColor(view, color);
+            return true;
+        };
+        view.getViewTreeObserver().addOnPreDrawListener(listener);
+
+        // The observer belongs to the window, so remove the listener when a discarded indicator
+        // is detached instead of keeping it alive for the lifetime of the window.
+        view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(@NonNull View attached) {
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(@NonNull View detached) {
+                detached.getViewTreeObserver().removeOnPreDrawListener(listener);
+            }
+        });
+    }
+
+    private static void setIndicatorColor(View view, int color) {
+        Drawable background = view.getBackground();
+
+        if (background instanceof GradientDrawable shape) {
+            ColorStateList fill = shape.getColor();
+            if (fill == null || fill.getDefaultColor() != color) {
+                ((GradientDrawable) shape.mutate()).setColor(color);
+            }
+        }
+
+        if (view instanceof TextView count) {
+            final int textColor = getIndicatorTextColor(view.getContext());
+            if (count.getCurrentTextColor() != textColor) {
+                count.setTextColor(textColor);
+            }
+        }
+    }
+
+    /**
+     * Returns the Material You indicator color, or {@code null} to preserve the stock app color.
+     */
+    @Nullable
+    public static Integer getIndicatorColor(Context context) {
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+                return null;
+            }
+
+            final boolean dark = BaseThemeUtils.isDarkModeEnabled();
+            final String selectedTheme = dark
+                    ? Settings.DARK_THEME.get()
+                    : Settings.LIGHT_THEME.get();
+            if (!selectedTheme.startsWith("material_you_")) {
+                return null;
+            }
+
+            return getMaterialYouIndicatorColor(context);
+        } catch (Exception ex) {
+            Logger.printException(() -> "getIndicatorColor failure", ex);
+            return null;
+        }
+    }
+
+    private static Integer getMaterialYouIndicatorColor(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            return null;
+        }
+
+        final boolean dark = BaseThemeUtils.isDarkModeEnabled();
+        return context.getColor(dark
+                ? android.R.color.system_accent1_100
+                : android.R.color.system_accent1_200);
+    }
+
+    /** Returns text that remains readable on the selected Material You indicator color. */
+    public static int getIndicatorTextColor(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            return context.getColor(android.R.color.system_neutral1_900);
+        }
+
+        // Never reached: an indicator color exists only on Android 12 and newer.
+        return Color.BLACK;
     }
 
     private static boolean isDisableTranslucentStatusBar() {
