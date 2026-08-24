@@ -20,6 +20,11 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX, włącz Cloud Messaging</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG nie jest zainstalowany. Zainstaluj go</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Jeśli jest dostępna, użyj ikony wybranej aplikacji do wprowadzenia ustawień RVX</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Użyj ikony w ustawieniach RVX</string>
+    <string name="morphe_custom_branding_icon_title">Ikona aplikacji</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Ustawia rozmiar niestandardowej animacji powitalnej</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Rozmiar animacji powitalnej</string>
     <string name="morphe_dark_theme_custom_color_summary">Używane, gdy wybrano opcję Niestandardowe</string>
     <string name="morphe_dark_theme_custom_color_title">Niestandardowy ciemny kolor motywu</string>
     <string name="morphe_dark_theme_title">Ciemny motyw</string>
@@ -33,7 +38,7 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="morphe_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Opcja \"Wydłuż czas przewijania transmisji na żywo\" może być niedostępna
 
-Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV\" lub \"visionOS\""</string>
+​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Umożliwia przewijanie transmisji na żywo nawet do 7 dni wstecz</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Wydłuż czas przewijania transmisji na żywo</string>
     <string name="morphe_explore_menu_screen_summary">Zdecyduj, które elementy będą wyświetlane w menu odkrywania</string>
@@ -42,6 +47,12 @@ Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyśln
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
     <string name="morphe_force_original_audio_title">Wymuś oryginalny język dźwięku</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Włącz duży pasek postępu w trybie pełnoekranowym</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Dotknij, aby przełączać między trybami: Domyślne, Rozciągnij i Powiększ</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Pokaż przycisk skalowania filmu</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Rozciągnij (wypełnij ekran)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Powiększ (przytnij, aby wypełnić)</string>
+    <string name="morphe_fullscreen_video_scale_title">Skalowanie filmu na pełnym ekranie</string>
     <string name="morphe_hide_courses_menu_title">Ukryj menu Kursy</string>
     <string name="morphe_hide_explore_button_title">Ukryj przycisk Odkrywaj</string>
     <string name="morphe_hide_fashion_menu_title">Ukryj menu \"Moda i uroda\"</string>
@@ -57,6 +68,9 @@ Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyśln
     <string name="morphe_hide_music_menu_title">Ukryj menu Muzyka</string>
     <string name="morphe_hide_news_menu_title">Ukryj menu Wiadomości</string>
     <string name="morphe_hide_playables_menu_title">Ukryj menu Pokój gier</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"Menu \"Ścieżka dźwiękowa\" jest ukryte
+
+​Aby wyświetlić menu \"Ścieżka dźwiękowa\", zmień opcję \"Fałszowanie strumieni filmów\" na dowolnego klienta z wyjątkiem \"Android Studio\" i \"Android VR Downgraded\""</string>
     <string name="morphe_hide_podcasts_menu_title">Ukryj menu Podcasty</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ukryj stopki z informacjami prawnymi i prywatnością</string>
     <string name="morphe_hide_shopping_menu_title">Ukryj menu Zakupy</string>
@@ -72,7 +86,7 @@ Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyśln
     <string name="morphe_light_theme_title">Jasny motyw</string>
     <string name="morphe_livestream_dvr_not_available">"Opcja \"Włącz przewijanie transmisji na żywo\" może być niedostępna
 
-Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV\" lub \"visionOS\""</string>
+​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
     <string name="morphe_livestream_dvr_summary">Umożliwia przewijanie wszystkich transmisji na żywo, nawet tych, które normalnie to blokują</string>
     <string name="morphe_livestream_dvr_title">Włącz przewijanie transmisji na żywo</string>
     <string name="morphe_music_package_name_summary">Nazwa pakietu zainstalowanej aplikacji muzycznej</string>
@@ -171,6 +185,8 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
 
 Ograniczenia: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączona, nakładka \"Więcej filmów\" może być niedostępna"</string>
     <string name="morphe_tablet_layout_in_player_title">Włącz układ tabletowy w odtwarzaczu</string>
+    <string name="morphe_theme_color_change_foreground_summary">Użyj koloru motywu dla tekstu i ikon</string>
+    <string name="morphe_theme_color_change_foreground_title">Zmień kolor pierwszego planu</string>
     <string name="morphe_theme_entry_amoled_black">Amoled Czarny</string>
     <string name="morphe_theme_entry_classic_youtube">Klasyka (Stary YouTube)</string>
     <string name="morphe_theme_entry_dark_blue">Ciemnoniebieski</string>
@@ -957,9 +973,9 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_hashtag_section_summary_off">Widoczne</string>
     <string name="revanced_hide_hashtag_section_summary_on">Ukryte</string>
     <string name="revanced_hide_hashtag_section_title">Ukryj sekcję Hashtag</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_off">Sekcja „Jak powstała ta treść” jest widoczna</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_on">Sekcja „Jak powstała ta treść” jest ukryta</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Ukryj sekcję \"Jak to powstało\"</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Ukryj sekcję \"Jak to zostało zrobione\"</string>
     <string name="revanced_hide_hype_button_summary_off">Przycisk Hype jest wyświetlony</string>
     <string name="revanced_hide_hype_button_summary_on">Przycisk Hype jest ukryty</string>
     <string name="revanced_hide_hype_button_title">Ukryj przycisk Podbij</string>
@@ -1649,6 +1665,10 @@ Podsumowania i transkrypcje są zapisywane, dopóki nie zamkniesz aplikacji lub 
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Wybierz początek i koniec pętli jako pierwszy</string>
     <string name="revanced_overlay_button_loop_segment_enabled_toast">Zapętlenie %1$s - %2$s</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Nie można użyć bieżącego czasu odtwarzania</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_summary">Dostosuj rozmiar znaczników paska wyszukiwania A i B</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_title">A &amp; B rozmiar</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_summary">Pokaż zakres pętli na pasku wyszukiwania za pomocą znaczników A i B</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_title">Odcinek pętli</string>
     <string name="revanced_overlay_button_loop_segment_start_toast">Wybrano początek pętli: %s</string>
     <string name="revanced_overlay_button_loop_segment_summary">"Kliknij raz, aby wybrać początek, kliknij ponownie, aby wybrać koniec i zapętlić ten segment, kliknij po raz trzeci, aby wyczyścić...
 Dotknij i przytrzymaj, aby skopiować adres URL filmu z parametrami początkowymi i końcowymi"</string>
@@ -1900,8 +1920,6 @@ Informacje:
     <string name="revanced_replace_time_stamp_action_summary_off">Stuknij, aby wyświetlić pozostały czas</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Stuknij, aby otworzyć menu od prędkości odtwarzania lub jakości</string>
     <string name="revanced_replace_time_stamp_action_title">Działanie informacji obok czasu</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Zamienia przycisk od przesyłania z przyciskiem do ustawień</string>
-    <string name="revanced_replace_toolbar_create_button_title">Zastąp przycisk od przesyłania</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Stuknij, by otworzyć ustawienia YouTube
 Stuknij i przytrzymaj, by otworzyć ustawienia RVX"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Stuknij, by otworzyć ustawienia RVX
@@ -2234,6 +2252,11 @@ Może to nie działać, jeśli:
     <string name="revanced_settings_search_clear_history_message">Czy na pewno chcesz wyczyścić całą historię wyszukiwania?</string>
     <string name="revanced_settings_search_empty_history_summary">Aby zapisać historię wyszukiwania, wpisz zapytanie i naciśnij Enter</string>
     <string name="revanced_settings_search_empty_history_title">Historia wyszukiwania jest pusta</string>
+    <string name="revanced_settings_search_gemini_results">Gemini wyniki</string>
+    <string name="revanced_settings_search_gemini_searching_title">Poszukiwania z Gemini…</string>
+    <string name="revanced_settings_search_gemini_summary_off">Wyłączone</string>
+    <string name="revanced_settings_search_gemini_summary_on">Włączone</string>
+    <string name="revanced_settings_search_gemini_title">Ustawienia wyszukiwania w Gemini</string>
     <string name="revanced_settings_search_history_summary">Zapisuje ostatnie zapytania, aby wyświetlać je, gdy pasek wyszukiwania jest pusty</string>
     <string name="revanced_settings_search_history_summary_off">Historia wyszukiwania w ustawieniach jest niewidoczna</string>
     <string name="revanced_settings_search_history_summary_on">Historia wyszukiwania ustawień jest wyświetlana</string>
@@ -2278,9 +2301,9 @@ Większość błędów nie może być naprawiona w skutek ograniczeń po stronie
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Widoczne</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Menu od zewnętrznej aplikacji do pobierania</string>
     <string name="revanced_shorts_custom_actions_gemini_label">Podsumowanie przez Gemini</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_off">Ukryte</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">Widoczne</string>
-    <string name="revanced_shorts_custom_actions_gemini_title">Menu podsumowania Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">Ukryte Gemini Shorts</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">Widoczne Gemini Shorts</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Pokaż Gemini w Shorts</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Otwórz film</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Ukryte</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Widoczne</string>

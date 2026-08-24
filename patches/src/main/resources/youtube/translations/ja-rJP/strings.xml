@@ -20,6 +20,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCore の設定を開く</string>
     <string name="gms_core_toast_not_installed_message">GmsCore がインストールされていません。インストールしてください。</string>
+    <string name="morphe_custom_branding_icon_title">アプリアイコン</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">スクロール中もナビゲーションバーを表示したままにします。</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">ナビゲーションバーの自動非表示を無効化</string>
     <string name="morphe_disable_drc_audio_summary_off">オーディオ DRC を無効にします。</string>
@@ -39,6 +40,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="morphe_force_original_audio_summary_off">オリジナルの音声トラック (言語) を使用します。\n\nオートダビングを含む吹き替えの音声トラックは使用されません。</string>
     <string name="morphe_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します。\n\nオートダビングを含む吹き替えの音声トラックは使用されません。</string>
     <string name="morphe_force_original_audio_title">オリジナルの音声を強制的に使用</string>
+    <string name="morphe_fullscreen_large_seekbar_title">全画面表示のシークバーを拡大</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">タップすると、デフォルト → 引き伸ばす → ズーム → デフォルトの順に切り替わります</string>
+    <string name="morphe_fullscreen_video_scale_button_title">ビデオスケールボタンを表示</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">ストレッチ（画面いっぱい）</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">ズーム（切り抜いて画面いっぱい）</string>
+    <string name="morphe_fullscreen_video_scale_title">全画面ビデオのスケール</string>
     <string name="morphe_hide_courses_menu_title">「コース」を非表示</string>
     <string name="morphe_hide_explore_button_title">探索ボタンを非表示</string>
     <string name="morphe_hide_fashion_menu_title">「ファッションと美容」を非表示</string>
@@ -54,6 +61,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="morphe_hide_music_menu_title">「音楽」を非表示</string>
     <string name="morphe_hide_news_menu_title">「ニュース」を非表示</string>
     <string name="morphe_hide_playables_menu_title">「ゲームルーム」を非表示</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"「音声トラック」は表示されません
+
+「音声トラック」を表示するには、[動画ストリームを偽装] のクライアントを「Android Studio」および「Android VR Downgraded」を除く任意のクライアントに変更してください"</string>
     <string name="morphe_hide_podcasts_menu_title">「ポッドキャスト」を非表示</string>
     <string name="morphe_hide_privacy_tos_footer_title">最下部の規約とプライバシーに関する項目を非表示</string>
     <string name="morphe_hide_shopping_menu_title">「ショッピング」を非表示</string>
@@ -158,6 +168,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
 
 制限事項: [アクションバーを旧式に戻す] がオフのとき、「その他の動画」オーバーレイが利用できない場合があります"</string>
     <string name="morphe_tablet_layout_in_player_title">プレーヤーにのみタブレット レイアウトを適用</string>
+    <string name="morphe_theme_color_change_foreground_summary">設定したテーマの色をテキストやアイコンなどにも適用します</string>
+    <string name="morphe_theme_color_change_foreground_title">テーマを背景以外にも適用</string>
     <string name="morphe_video_quality_prioritize_dialog">この設定をオフにすると、古い動画で画質を手動で選択できなくなる場合があります</string>
     <string name="morphe_video_quality_prioritize_summary">コーデックの圧縮効率よりも利用可能な最高画質を優先します</string>
     <string name="morphe_video_quality_prioritize_title">画質を優先</string>
@@ -1821,8 +1833,6 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_replace_time_stamp_action_summary_off">現在の設定: プレーヤー左下のタイムスタンプをタップすると、残り時間が表示されます。</string>
     <string name="revanced_replace_time_stamp_action_summary_on">現在の設定: プレーヤー左下のタイムスタンプをタップすると、再生速度または画質のフライアウトメニューが開きます。</string>
     <string name="revanced_replace_time_stamp_action_title">タイムスタンプを置換</string>
-    <string name="revanced_replace_toolbar_create_button_summary">[作成] ボタンを [設定] ボタンに置き換えます。</string>
-    <string name="revanced_replace_toolbar_create_button_title">[作成] ボタンを置換</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"タップすると YouTube の設定が開きます。
 長押しすると Revanced Extended の設定が開きます。"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"タップすると Revanced Extended の設定が開きます。

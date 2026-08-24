@@ -20,6 +20,14 @@ Toque no botão continuar e permita as mudanças de otimização"</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX, ative o Cloud Messaging</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG não está instalado. Instale-o</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Usar o ícone do aplicativo selecionado para a entrada de configurações do RVX quando disponível</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Usar ícone nas configurações do RVX</string>
+    <string name="morphe_custom_branding_icon_title">Ícone do aplicativo</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Define o tamanho da animação de abertura personalizada</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Tamanho da animação de abertura</string>
+    <string name="morphe_dark_theme_custom_color_summary">Usado quando Personalizado for selecionado</string>
+    <string name="morphe_dark_theme_custom_color_title">Cor do tema escuro personalizado</string>
+    <string name="morphe_dark_theme_title">Tema escuro</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Mantém a barra de navegação visível durante a rolagem</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Desativar ocultação automática da barra de navegação</string>
     <string name="morphe_disable_drc_audio_summary_off">Áudio DRC ativado</string>
@@ -30,7 +38,7 @@ Toque no botão continuar e permita as mudanças de otimização"</string>
     <string name="morphe_disable_quic_protocol_title">Desativar protocolo QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Expandir a duração do DVR em lives' pode não estar disponível
 
-Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrão' para 'TV' ou 'visionOS'"</string>
+Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrão' para 'TV Simply' ou 'visionOS'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Permite voltar as lives em até 7 dias no passado</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Expandir a duração do DVR em lives</string>
     <string name="morphe_explore_menu_screen_summary">Escolha quais componentes aparecem no menu Explorar</string>
@@ -39,6 +47,12 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
     <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
     <string name="morphe_force_original_audio_title">Forçar idioma do áudio original</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Ativar barra de progresso larga em tela cheia</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Toque para alternar entre Padrão, Esticar e Zoom</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Mostrar botão de escala de vídeo</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Esticar (preencher a tela)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Zoom (cortar para preencher)</string>
+    <string name="morphe_fullscreen_video_scale_title">Escala de vídeo em tela cheia</string>
     <string name="morphe_hide_courses_menu_title">Ocultar menu Cursos</string>
     <string name="morphe_hide_explore_button_title">Ocultar botão Mais</string>
     <string name="morphe_hide_fashion_menu_title">Ocultar menu \'Moda e Beleza\'</string>
@@ -54,6 +68,9 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_hide_music_menu_title">Ocultar menu Música</string>
     <string name="morphe_hide_news_menu_title">Ocultar menu Notícias</string>
     <string name="morphe_hide_playables_menu_title">Ocultar menu Jogos</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"O menu 'Faixa de áudio' está oculto
+
+Para mostrar o menu 'Faixa de áudio', altere 'Simular streams de vídeo' para qualquer cliente exceto 'Android Studio' e 'Android VR Downgraded'"</string>
     <string name="morphe_hide_podcasts_menu_title">Ocultar menu Podcasts</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ocultar rodapé \'Política de Privacidade\' e \'Termos de Serviço\'</string>
     <string name="morphe_hide_shopping_menu_title">Ocultar menu Compras</string>
@@ -67,7 +84,7 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_hide_youtube_works_menu_title">Ocultar menu \'Como o YouTube funciona\'</string>
     <string name="morphe_livestream_dvr_not_available">"'Ativar o DVR em lives' pode não estar disponível
 
-Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrão' para 'TV' ou 'visionOS'"</string>
+Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrão' para 'TV Simply' ou 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">Permite navegar na barra de progresso em todas as lives, mesmo nas que normalmente restringem esse recurso</string>
     <string name="morphe_livestream_dvr_title">Ativar o DVR em lives</string>
     <string name="morphe_music_package_name_summary">Nome do pacote do seu aplicativo de música instalado</string>
@@ -166,6 +183,8 @@ Se você é um usuário do YouTube Premium, esta configuração pode não ser ne
 
 Limitação: Se 'Restaurar barra de ações de vídeo antiga' estiver desativado, a sobreposição 'Mais vídeos' pode não estar disponível"</string>
     <string name="morphe_tablet_layout_in_player_title">Ativar layout de tablet no player</string>
+    <string name="morphe_theme_color_change_foreground_summary">Use a cor do tema para texto e ícones</string>
+    <string name="morphe_theme_color_change_foreground_title">Alterar a cor do primeiro plano</string>
     <string name="morphe_video_quality_prioritize_dialog">Se esta configuração estiver desativada, vídeos antigos podem não mostrar opções de qualidade de vídeo</string>
     <string name="morphe_video_quality_prioritize_summary">Prioriza a maior qualidade de vídeo disponível em vez da eficiência do codec</string>
     <string name="morphe_video_quality_prioritize_title">Priorizar a qualidade do vídeo</string>
@@ -918,9 +937,9 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_hashtag_section_summary_off">A seção de hashtags está visível</string>
     <string name="revanced_hide_hashtag_section_summary_on">A seção de hashtags está oculta</string>
     <string name="revanced_hide_hashtag_section_title">Ocultar seção de hashtag</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_off">A seção Como este conteúdo foi feito é mostrada</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_on">A seção Como este conteúdo foi feito está oculta</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Ocultar seção \'Como este conteúdo foi criado\'</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">A seção \'Como isso foi feito\' é exibida</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">A seção \'Como isso foi feito\' fica oculta</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Ocultar seção \'Como isso foi feito\'</string>
     <string name="revanced_hide_hype_button_summary_off">O botão Hype é exibido</string>
     <string name="revanced_hide_hype_button_summary_on">Botão Hype está oculto</string>
     <string name="revanced_hide_hype_button_title">Ocultar botão Hype</string>
@@ -1847,8 +1866,6 @@ Informação:
     <string name="revanced_replace_time_stamp_action_summary_off">Toque para mostrar o tempo restante</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Toque para abrir o menu flutuante de velocidade de reprodução ou de qualidade de vídeo</string>
     <string name="revanced_replace_time_stamp_action_title">Substituir ação da marcação de tempo</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Substitui o botão criar com o botão de configurações</string>
-    <string name="revanced_replace_toolbar_create_button_title">Substituir botão criar</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Toque para abrir as Configurações do YouTube
 Toque e segure para abrir as Configurações RVX"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Toque para abrir as Configurações RVX
@@ -2225,9 +2242,9 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">O menu Download externo será exibido</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Exibir menu de download externo</string>
     <string name="revanced_shorts_custom_actions_gemini_label">Resumo do Gemini</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_off">O menu de resumo do Gemini está oculto</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">O menu de resumo do Gemini é exibido</string>
-    <string name="revanced_shorts_custom_actions_gemini_title">Exibir menu de resumo do Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">A ação de resumo do Gemini fica oculta no menu de ações personalizadas do Shorts</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">A ação de resumo do Gemini é exibida no menu de ações personalizadas do Shorts</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Mostrar Gemini no Shorts</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Abrir vídeo</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">O menu abrir vídeo está oculto</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">O menu abrir vídeo será exibido</string>

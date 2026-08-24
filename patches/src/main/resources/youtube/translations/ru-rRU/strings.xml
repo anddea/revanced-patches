@@ -20,6 +20,13 @@
     <string name="gms_core_settings_summary">Для получения уведомлений в RVX, включите \"Облачные уведомления\" сообщениями</string>
     <string name="gms_core_settings_title">Открыть GmsCore или MicroG</string>
     <string name="gms_core_toast_not_installed_message">MicroG не установлен. Установите его</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Применить иконку в RVX настройках</string>
+    <string name="morphe_custom_branding_icon_title">Иконка приложения</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Установить размер анимации загрузки</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Размер анимации загрузки</string>
+    <string name="morphe_dark_theme_custom_color_summary">Используется, когда выбран параметр «Пользовательский»</string>
+    <string name="morphe_dark_theme_custom_color_title">Пользовательский темный цвет темы</string>
+    <string name="morphe_dark_theme_title">Темная тема</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Не скрывать панель навигации при прокрутке</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Выключить авто скрытие панели навигации</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудио DRC включено</string>
@@ -28,9 +35,9 @@
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC отключен</string>
     <string name="morphe_disable_quic_protocol_title">Отключить протокол QUIC</string>
-    <string name="morphe_expand_livestream_dvr_duration_not_available">"'Расширить продолжительность DVR прямой трансляции' может быть недоступно
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"«Расширить длительность DVR прямых трансляций» может быть недоступно
 
-Чтобы исправить это, включите 'Подмена видео потоков' и измените 'Клиент по умолчанию' на 'TV' или 'visionOS'"</string>
+Чтобы исправить это, включите «Подмена видеопотоков» и измените «Клиент по умолчанию» на «TV Simply» или «visionOS»"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Позволяет перематывать прямые трансляции в прошлое до 7 дней</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Расширить длительность прямой трансляции DVR</string>
     <string name="morphe_explore_menu_screen_summary">Выберите, какие компоненты отображать в меню «Изучить»</string>
@@ -39,6 +46,12 @@
     <string name="morphe_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
     <string name="morphe_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
     <string name="morphe_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Включить полноэкранную большую панель поиска</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Нажмите для переключения между режимами «По умолчанию», «Растянуть» и «Масштаб»</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Показать кнопку масштабирования видео</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Растянуть (заполнить экран)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Масштаб (обрезка для заполнения)</string>
+    <string name="morphe_fullscreen_video_scale_title">Масштаб полноэкранного видео</string>
     <string name="morphe_hide_courses_menu_title">Скрыть меню «Курсы»</string>
     <string name="morphe_hide_explore_button_title">Скрыть кнопку «Поделиться»</string>
     <string name="morphe_hide_fashion_menu_title">Скрыть меню «Мода и красота»</string>
@@ -54,6 +67,9 @@
     <string name="morphe_hide_music_menu_title">Скрыть меню «Музыка»</string>
     <string name="morphe_hide_news_menu_title">Скрыть меню «Новости»</string>
     <string name="morphe_hide_playables_menu_title">Скрыть встроенные игры</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"Меню аудио дорожек скрыто
+
+Чтобы отобразить меню аудио дорожек, измените «Поддельные видео потоки» на любой клиент, кроме «Android Studio» и «Android VR Downgraded»"</string>
     <string name="morphe_hide_podcasts_menu_title">Скрыть меню «Подкасты»</string>
     <string name="morphe_hide_privacy_tos_footer_title">Скрыть юридическую информацию и сведения о конфиденциальности внизу страницы</string>
     <string name="morphe_hide_shopping_menu_title">Скрыть ссылки на товары</string>
@@ -65,9 +81,11 @@
     <string name="morphe_hide_youtube_premium_menu_title">Скрыть рекламу YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">Скрыть YouTube Doodles</string>
     <string name="morphe_hide_youtube_works_menu_title">Скрыть меню \"Принцип работы YouTube\"</string>
-    <string name="morphe_livestream_dvr_not_available">"'Включить DVR прямой трансляции' может быть недоступно
+    <string name="morphe_light_theme_custom_color_title">Пользовательский цвет светлой темы</string>
+    <string name="morphe_light_theme_title">Светлая тема</string>
+    <string name="morphe_livestream_dvr_not_available">"«Включить DVR для прямых трансляций» может быть недоступно
 
-Чтобы исправить это, включите 'Подмена видео потоков' и измените 'Клиент по умолчанию' на 'TV' или 'visionOS'"</string>
+Чтобы исправить это, включите «Подмена видеопотоков» и измените «Клиент по умолчанию» на «TV Simply» или «visionOS»"</string>
     <string name="morphe_livestream_dvr_summary">Разрешает перемотку на всех прямых трансляциях, даже на тех, которые обычно это ограничивают</string>
     <string name="morphe_livestream_dvr_title">Включить прямую трансляцию DVR</string>
     <string name="morphe_music_package_name_summary">Имя пакета вашего установленного музыкального приложения</string>
@@ -166,6 +184,26 @@
 
 Ограничение: Если «Восстановить старую панель управления видео» отключена, наложение «Ещё видео» может быть недоступно"</string>
     <string name="morphe_tablet_layout_in_player_title">Включить макет для планшетов в плеере</string>
+    <string name="morphe_theme_color_change_foreground_summary">Используйте цвет темы для текста и значков</string>
+    <string name="morphe_theme_color_change_foreground_title">Изменить цвет переднего плана</string>
+    <string name="morphe_theme_entry_classic_youtube">Классика (старый YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Темно-синий</string>
+    <string name="morphe_theme_entry_dark_green">Темно-зеленый</string>
+    <string name="morphe_theme_entry_dark_orange">Темно-оранжевый</string>
+    <string name="morphe_theme_entry_dark_pink">Темно-розовый</string>
+    <string name="morphe_theme_entry_dark_red">Темно-красный</string>
+    <string name="morphe_theme_entry_dark_yellow">Темно-желтый</string>
+    <string name="morphe_theme_entry_light_blue">Светло-голубой</string>
+    <string name="morphe_theme_entry_light_green">Светло-зеленый</string>
+    <string name="morphe_theme_entry_light_orange">Светло-оранжевый</string>
+    <string name="morphe_theme_entry_light_pink">Светло-розовый</string>
+    <string name="morphe_theme_entry_light_red">Светло-красный</string>
+    <string name="morphe_theme_entry_light_yellow">Светло-желтый</string>
+    <string name="morphe_theme_entry_modern_youtube">Современный YouTube</string>
+    <string name="morphe_theme_entry_pale_blue">Бледно-голубой</string>
+    <string name="morphe_theme_entry_pale_green">Бледно-зеленый</string>
+    <string name="morphe_theme_entry_pale_yellow">Бледно-желтый</string>
+    <string name="morphe_theme_entry_white">Белый</string>
     <string name="morphe_video_quality_prioritize_dialog">Если эта настройка отключена, в старых видео могут отсутствовать варианты выбора качества</string>
     <string name="morphe_video_quality_prioritize_summary">Приоритет максимально доступного качества видео над эффективностью кодека</string>
     <string name="morphe_video_quality_prioritize_title">Приоритет качества видео</string>
@@ -224,6 +262,8 @@
     <string name="revanced_auto_captions_style_entry_3">Показывать, когда звук отключен</string>
     <string name="revanced_auto_captions_style_entry_4">Показать при заглушенном звуке</string>
     <string name="revanced_auto_captions_style_title">Видимость автоматических субтитров</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">Нажатие кнопки «Назад» прокручивает ленту вверх</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">Нажатие кнопки «Назад» всегда приводит к закрытию ленты/приложения</string>
     <string name="revanced_back_button_always_exits_feed_title">Кнопка «Назад» выходит из ленты</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ограничения режима \"Фоновая подсветка\" для экономии энергии не обойдены</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Ограничения режима \"Фоновая подсветка\" для экономии энергии обойдены</string>
@@ -911,7 +951,7 @@ Shorts
     <string name="revanced_hide_hashtag_section_title">Скрыть раздел хэштегов</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Раздел \"Как был создан этот контент\" в описании видео показан</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Раздел \"Как был создан этот контент\" в описании видео скрыт</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Скрыть секцию «Как был создан этот контент»</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Скрыть раздел «Как это было сделано»</string>
     <string name="revanced_hide_hype_button_summary_off">Кнопка \"Хайп\" показана</string>
     <string name="revanced_hide_hype_button_summary_on">Кнопка \"Хайп\" скрыта</string>
     <string name="revanced_hide_hype_button_title">Скрыть кнопку \"Hype\"</string>
@@ -1182,6 +1222,8 @@ Shorts
     <string name="revanced_hide_search_bar_back_button_summary_off">Кнопка «назад» в строке поиска видна</string>
     <string name="revanced_hide_search_bar_back_button_summary_on">Кнопка «назад» в строке поиска скрыта</string>
     <string name="revanced_hide_search_bar_back_button_title">Скрыть кнопку «назад» в строке поиска</string>
+    <string name="revanced_hide_search_inside_this_video_section_summary_off">Поиск в этом разделе видео отображается</string>
+    <string name="revanced_hide_search_inside_this_video_section_summary_on">Функция поиска внутри этого видеораздела скрыта</string>
     <string name="revanced_hide_search_inside_this_video_section_title">Скрыть раздел \"Поиск внутри этого видео\"</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Миниатюры поискового запроса отображены</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Миниатюры поискового запроса скрыты</string>
@@ -1565,6 +1607,9 @@ Shorts
     <string name="revanced_miniplayer_width_dip_title">Размер по умолчанию</string>
     <string name="revanced_navigation_bar_animations_summary">Анимирует переходы между вкладками</string>
     <string name="revanced_navigation_bar_animations_title">Включить анимацию панели навигации</string>
+    <string name="revanced_navigation_bar_order_drag_handle">Перетащите, чтобы изменить порядок</string>
+    <string name="revanced_navigation_bar_order_summary">Перетащите элементы навигации в том порядке, в котором они должны отображаться</string>
+    <string name="revanced_navigation_bar_order_title">Порядок панели навигации</string>
     <string name="revanced_open_links_externally_summary_off">Открывает ссылки в браузере приложения</string>
     <string name="revanced_open_links_externally_summary_on">Открывает ссылки во внешнем браузере</string>
     <string name="revanced_open_links_externally_title">Открывать внешние ссылки</string>
@@ -1651,6 +1696,10 @@ Shorts
     <string name="revanced_patched_date_title">Дата применения патчей</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Не применён</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Применён</font></string>
+    <string name="revanced_playback_audio_pitch_sync">Синхронизировать</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_off">Высота тона звука не зависит от скорости воспроизведения</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_on">Высота тона звука синхронизирована со скоростью воспроизведения</string>
+    <string name="revanced_playback_audio_pitch_title">Звуковой шаг</string>
     <string name="revanced_playback_audio_time_stretching_summary">Позволяет независимо настраивать скорость и высоту звука, что может привести к появлению аудиоартефактов</string>
     <string name="revanced_playback_audio_time_stretching_title">Растяжение времени аудио</string>
     <string name="revanced_playback_speed_normal">Обычная</string>
@@ -1839,8 +1888,6 @@ Shorts
     <string name="revanced_replace_time_stamp_action_summary_off">Нажмите, чтобы показать оставшееся время</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Открыть меню скорости просмотра или качества видео</string>
     <string name="revanced_replace_time_stamp_action_title">Заменить действие метки времени</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Заменить \"Создать\" кнопкой настройки</string>
-    <string name="revanced_replace_toolbar_create_button_title">Заменить кнопку \"Создать\"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Нажать - Настройки YouTube
 Нажать и удерживать - Настройки RVX"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Нажать - Настройки RVX
@@ -2120,7 +2167,9 @@ Shorts
     <string name="revanced_sb_vote_no_segments">Нет сегментов для голосования</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
     <string name="revanced_sb_vote_upvote">Голос \"за\"</string>
+    <string name="revanced_search_in_channel_no_results">Видео не найдено в результатах поиска</string>
     <string name="revanced_search_in_channel_query_hint">Найти на этом канале</string>
+    <string name="revanced_search_in_channel_scroll_tip">Прокрутите вниз, чтобы загрузить больше видео перед созданием очереди</string>
     <string name="revanced_search_in_channel_search_youtube">Искать на YouTube</string>
     <string name="revanced_search_in_channel_title">Найти на канале</string>
     <string name="revanced_search_in_channel_use_webview_summary_off">При поиске по каналу используется встроенный поиск YouTube. В некоторых случаях могут отображаться неуместные результаты</string>
@@ -2186,6 +2235,9 @@ Shorts
 • Родительские настройки отображаются над отключенными дочерними настройками"</string>
     <string name="revanced_settings_search_tips_title">Советы по поиску</string>
     <string name="revanced_settings_search_title">Искать %s</string>
+    <string name="revanced_settings_show_slider_summaries_summary_off">Сводные данные под настройками ползунка скрыты</string>
+    <string name="revanced_settings_show_slider_summaries_summary_on">Сводные данные отображаются ниже настроек ползунка</string>
+    <string name="revanced_settings_show_slider_summaries_title">Показать сводные данные для настроек ползунка</string>
     <string name="revanced_share_copy_timestamp_success">Метка времени скопирована в буфер (%s)</string>
     <string name="revanced_share_copy_url_success">URL-адрес скопирован</string>
     <string name="revanced_share_copy_url_timestamp_success">URL-адрес с меткой времени скопирован</string>
@@ -2245,6 +2297,7 @@ Shorts
     <string name="revanced_shorts_player_type_regular_player">Стандартный плеер</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Стандартный полноэкранный плеер</string>
     <string name="revanced_shorts_player_type_title">Плеер для открытия Shorts</string>
+    <string name="revanced_show_search_button_summary_off">Кнопка поиска не отображается</string>
     <string name="revanced_show_search_button_title">Показать кнопку \"Поиск\"</string>
     <string name="revanced_show_settings_button_summary_off">Кнопка «Настройки» не отображается</string>
     <string name="revanced_show_settings_button_summary_on">Отображается кнопка «Настройки»</string>
@@ -2362,6 +2415,7 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Жесты в режиме \"Блокировка экрана\" включены</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Жесты в режиме \"Блокировка экрана\"</string>
     <string name="revanced_swipe_haptic_feedback_title">Включить виброотклик при жестах</string>
+    <string name="revanced_swipe_horizontal_zone_title">Горизонтальная область смахивания</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Авто</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Активация автояркости жестом до самого низкого значения яркости отключена</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Активация автояркости жестом до самого низкого значения яркости включена</string>
@@ -2413,6 +2467,8 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_swipe_text_overlay_size_title">Размер текста панели жестов</string>
     <string name="revanced_swipe_threshold_summary">Установите необходимое расстояние смахивания перед срабатыванием регулировки</string>
     <string name="revanced_swipe_threshold_title">Порог величины жеста</string>
+    <string name="revanced_swipe_vertical_zone_summary">Процент ширины плеера, зарезервированный по левому и правому краям для управления яркостью и громкостью</string>
+    <string name="revanced_swipe_vertical_zone_title">Область вертикального пролистывания</string>
     <string name="revanced_swipe_volume_distance_summary">Количество пикселей, которое нужно сдвинуть для регулировки громкости. Чем ниже значение, тем быстрее меняется громкость, чем выше — тем медленнее (1 – 1000)</string>
     <string name="revanced_swipe_volume_distance_title">Чувствительность жеста громкости</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Значение должно быть от 1 до 1000</string>
@@ -2424,6 +2480,7 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
 Изменяйте громкость вертикальным жестом по правой стороне экрана"</string>
     <string name="revanced_swipe_volume_title">Включить регулировку громкости жестом</string>
     <string name="revanced_swipe_zone_label_brightness">Яркость</string>
+    <string name="revanced_swipe_zone_label_seek">Искать</string>
     <string name="revanced_swipe_zone_label_speed">Скорость</string>
     <string name="revanced_swipe_zone_label_volume">Громкость</string>
     <string name="revanced_switch_create_with_notifications_button_summary">Примечание:\n• Если подмена кнопки не происходит, перезагрузите устройство.\n• Отключение этого параметра загружает больше рекламы со стороны сервера.\n• Чтобы видеореклама была видна, следует отключить этот параметр</string>

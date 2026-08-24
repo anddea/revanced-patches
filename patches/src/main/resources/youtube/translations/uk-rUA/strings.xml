@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">Щоб отримувати сповіщення у RVX, увімкніть Хмарні повідомлення</string>
     <string name="gms_core_settings_title">Відкрити налаштування GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG не встановлено. Встановіть його</string>
+    <string name="morphe_custom_branding_icon_title">Іконка застосунку</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Залишає панель навігації видимою під час прокручування</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Вимкнути автоприховування панелі навігації</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудіо DRC увімкнено</string>
@@ -30,7 +31,7 @@
     <string name="morphe_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\"Розширити тривалість DVR прямої трансляції\" може бути недоступним
 
-Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV\" або \"visionOS\""</string>
+Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV Simply\" або \"visionOS\""</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Дозволяє перемотувати прямі трансляції до 7 днів у минуле</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Розширити тривалість DVR прямої трансляції</string>
     <string name="morphe_explore_menu_screen_summary">Виберіть, які компоненти будуть показуватися у меню \"Навігація\"</string>
@@ -39,6 +40,12 @@
     <string name="morphe_force_original_audio_summary_off">Використовується звукова доріжка за замовчуванням</string>
     <string name="morphe_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
     <string name="morphe_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Увімкнути товсту смугу відтворення у повноекранному режимі</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Натисніть, щоб перемикати між \"Типовим\", \"Розтягнутим\" та \"Масштабованим\"</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Показувати кнопку масштабу відео</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Розтягнутий (заповнити екран)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Масштабований (обрізати для заповнення)</string>
+    <string name="morphe_fullscreen_video_scale_title">Масштаб повноекранного відео</string>
     <string name="morphe_hide_courses_menu_title">Приховати меню \"Навчання\"</string>
     <string name="morphe_hide_explore_button_title">Приховати кнопку \"Навігація\"</string>
     <string name="morphe_hide_fashion_menu_title">Приховати меню \"Мода та Краса\"</string>
@@ -54,6 +61,9 @@
     <string name="morphe_hide_music_menu_title">Приховати меню \"Музика\"</string>
     <string name="morphe_hide_news_menu_title">Приховати меню \"Новини\"</string>
     <string name="morphe_hide_playables_menu_title">Приховати меню \"Ігрова кімната\"</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"Пункт меню \"Звукова доріжка\" приховано
+
+Для того, щоб пункт меню \"Звукова доріжка\" показувався, змініть клієнт \"Підміни відеопотоків\" на будь-який, окрім \"Android Studio\" або \"Android VR Downgraded\""</string>
     <string name="morphe_hide_podcasts_menu_title">Приховати меню \"Подкасти\"</string>
     <string name="morphe_hide_privacy_tos_footer_title">Приховати нижні колонтитули з юридичною інформацією та конфіденційністю</string>
     <string name="morphe_hide_shopping_menu_title">Приховати меню \"Покупки\"</string>
@@ -67,7 +77,7 @@
     <string name="morphe_hide_youtube_works_menu_title">Приховати меню \"Як працює YouTube\"</string>
     <string name="morphe_livestream_dvr_not_available">"\"Увімкнути DVR для прямої трансляції\" може бути недоступним
 
-Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV\" або \"visionOS\""</string>
+Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV Simply\" або \"visionOS\""</string>
     <string name="morphe_livestream_dvr_summary">Дозволяє перемотування у всіх прямих трансляціях, навіть тих, що зазвичай його обмежують</string>
     <string name="morphe_livestream_dvr_title">Увімкнути DVR для прямої трансляції</string>
     <string name="morphe_music_package_name_summary">Назва пакету встановленого музичного застосунку</string>
@@ -166,6 +176,8 @@
 
 Обмеження: якщо \"Відновити стару панель дій відео\" вимкнено, накладка \"Інші відео\" може бути недоступна"</string>
     <string name="morphe_tablet_layout_in_player_title">Увімкнути планшетний макет у плеєрі</string>
+    <string name="morphe_theme_color_change_foreground_summary">Використовувати колір теми для тексту та іконок</string>
+    <string name="morphe_theme_color_change_foreground_title">Змінити колір тексту</string>
     <string name="morphe_video_quality_prioritize_dialog">Якщо це налаштування вимкнено, старіші відео можуть не показувати параметри якості відео</string>
     <string name="morphe_video_quality_prioritize_summary">Надає пріоритет найвищій доступній якості відео над ефективністю кодека</string>
     <string name="morphe_video_quality_prioritize_title">Пріоритет якості відео</string>
@@ -909,7 +921,7 @@
     <string name="revanced_hide_hashtag_section_title">Приховати секцію хештегів</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Секція \"Як створювався цей контент\" показується</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Секцію \"Як створювався цей контент\" приховано</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Приховати секцію \"Як створювався цей контент\"</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Приховати розділ \"Як створювався цей контент\"</string>
     <string name="revanced_hide_hype_button_summary_off">Кнопка \"Голосувати\" показується</string>
     <string name="revanced_hide_hype_button_summary_on">Кнопку \"Голосувати\" приховано</string>
     <string name="revanced_hide_hype_button_title">Приховати кнопку \"Hype\"</string>
@@ -1840,8 +1852,6 @@
     <string name="revanced_replace_time_stamp_action_summary_off">Натисніть, щоб показувався залишок часу</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Натисніть, щоб відкрити висувне меню швидкості відтворення або якості відео</string>
     <string name="revanced_replace_time_stamp_action_title">Замінити дію мітки часу</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Замінює кнопку створення кнопкою налаштувань</string>
-    <string name="revanced_replace_toolbar_create_button_title">Замінити кнопку створення</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Натисніть, щоб відкрити налаштування YouTube
 Натисніть і отримуйте, щоб відкрити Розширені налаштування"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Натисніть, щоб відкрити Розширені налаштування

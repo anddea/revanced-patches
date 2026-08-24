@@ -12,6 +12,7 @@
     <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và bật Cloud Messaging để nhận thông báo đẩy</string>
     <string name="gms_core_settings_title">Cài đặt GmsCore</string>
     <string name="gms_core_toast_not_installed_message">microG chưa được cài đặt. Hãy cài đặt nó đi</string>
+    <string name="morphe_custom_branding_icon_title">Biểu tượng ứng dụng</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Giữ thanh điều hướng hiển thị khi cuộn</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Tắt tự động ẩn thanh điều hướng</string>
     <string name="morphe_disable_drc_audio_summary_off">Tính năng nén dải động đã bật</string>
@@ -22,7 +23,7 @@
     <string name="morphe_disable_quic_protocol_title">Tắt giao thức QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Mở rộng thời lượng DVR phát trực tiếp' có thể không khả dụng
 
-Để khắc phục, hãy bật 'Giả mạo luồng phát video' và thay đổi 'Client mặc định' thành 'TV' hoặc 'visionOS'"</string>
+Để khắc phục, hãy bật 'Giả mạo luồng video' và thay đổi 'Máy khách mặc định' thành 'TV Simply' hoặc 'visionOS'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Cho phép tua lại các buổi phát trực tiếp tối đa 7 ngày trước</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Tăng thời lượng DVR phát trực tiếp</string>
     <string name="morphe_explore_menu_screen_summary">Chọn những thành phần sẽ xuất hiện trong menu khám phá</string>
@@ -31,6 +32,12 @@
     <string name="morphe_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
     <string name="morphe_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
     <string name="morphe_force_original_audio_title">Buộc ngôn ngữ âm thanh gốc</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Phóng to thanh tiến trình khi bật toàn màn hình</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Chạm để chuyển đổi giữa Mặc định, Kéo giãn và Thu phóng</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Hiển thị nút tỷ lệ video</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Kéo giãn (lấp đầy màn hình)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Thu phóng (cắt để lấp đầy)</string>
+    <string name="morphe_fullscreen_video_scale_title">Tỷ lệ video toàn màn hình</string>
     <string name="morphe_hide_courses_menu_title">Ẩn menu Khóa học</string>
     <string name="morphe_hide_explore_button_title">Ẩn nút Khám phá</string>
     <string name="morphe_hide_fashion_menu_title">Ẩn menu \'Thời trang &amp; Làm đẹp\'</string>
@@ -46,6 +53,9 @@
     <string name="morphe_hide_music_menu_title">Ẩn menu Music</string>
     <string name="morphe_hide_news_menu_title">Ẩn menu Tin tức</string>
     <string name="morphe_hide_playables_menu_title">Ẩn menu Playables</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"Menu 'Bản âm thanh' đã bị ẩn
+
+Để hiển thị menu 'Bản âm thanh', hãy thay đổi 'Giả mạo luồng phát video' sang bất kỳ máy khách nào trừ 'Android Studio' và 'Android VR Downgraded'"</string>
     <string name="morphe_hide_podcasts_menu_title">Ẩn menu Podcast</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ẩn chân trang pháp lý và quyền riêng tư</string>
     <string name="morphe_hide_shopping_menu_title">Ẩn menu Mua sắm</string>
@@ -57,9 +67,9 @@
     <string name="morphe_hide_youtube_premium_menu_title">Ẩn menu YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">Ẩn menu YouTube Studio</string>
     <string name="morphe_hide_youtube_works_menu_title">Ẩn menu \'Cách YouTube hoạt động\'</string>
-    <string name="morphe_livestream_dvr_not_available">"'Bật DVR phát trực tiếp' có thể không khả dụng
+    <string name="morphe_livestream_dvr_not_available">"Việc bật 'DVR phát trực tiếp' có thể không khả dụng
 
-Để khắc phục, hãy bật 'Giả mạo luồng phát video' và thay đổi 'Client mặc định' thành 'TV' hoặc 'visionOS'"</string>
+Để khắc phục, hãy bật 'Giả mạo luồng video' và thay đổi 'Máy khách mặc định' thành 'TV Simply' hoặc 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">Cho phép tua trên mọi các buổi phát trực tiếp, kể cả khi bình thường không được phép</string>
     <string name="morphe_livestream_dvr_title">Bật DVR phát trực tiếp</string>
     <string name="morphe_music_package_name_summary">Tên gói của ứng dụng nhạc đã cài đặt của bạn</string>
@@ -158,6 +168,8 @@ Nếu bạn đã mua gói Premium thì cài đặt này có thể không cần t
 
 Hạn chế: Nếu tùy chọn \"Khôi phục thanh thao tác video cũ\" bị tắt, lớp phủ \"Thêm video\" có thể không xuất hiện"</string>
     <string name="morphe_tablet_layout_in_player_title">Bật bố cục máy tính bảng trong trình phát</string>
+    <string name="morphe_theme_color_change_foreground_summary">Sử dụng màu chủ đề cho văn bản và biểu tượng</string>
+    <string name="morphe_theme_color_change_foreground_title">Thay đổi màu tiền cảnh</string>
     <string name="morphe_video_quality_prioritize_dialog">Nếu tắt tính năng này, các video cũ có thể không hiển thị tùy chọn chất lượng video</string>
     <string name="morphe_video_quality_prioritize_summary">Ưu tiên chất lượng video cao nhất hơn là tối ưu codec</string>
     <string name="morphe_video_quality_prioritize_title">Ưu tiên chất lượng video</string>
@@ -917,7 +929,7 @@ Hạn chế: Các bình luận chữ xanh không dùng kiểu chữ mặc địn
     <string name="revanced_hide_hashtag_section_title">Ẩn phần Hashtag</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Phần cách nội dung được tạo ra được hiển thị</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Phần cách nội dung được tạo ra đã bị ẩn</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Ẩn phần \"Cách nội dung này được tạo ra\"</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Ẩn phần \'Cách mà điều này được tạo ra\'</string>
     <string name="revanced_hide_hype_button_summary_off">Nút khuấy động được hiển thị</string>
     <string name="revanced_hide_hype_button_summary_on">Nút khuấy động đã bị ẩn</string>
     <string name="revanced_hide_hype_button_title">Ẩn nút Khuấy động</string>
@@ -1853,8 +1865,6 @@ Chi tiết:
     <string name="revanced_replace_time_stamp_action_summary_off">Nhấn để hiển thị thời gian còn lại</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Nhấn để mở mục Tốc độ phát hoặc Chất lượng video</string>
     <string name="revanced_replace_time_stamp_action_title">Thay thế chức năng của dấu thời gian</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Thay thế nút Tạo bằng nút Cài đặt</string>
-    <string name="revanced_replace_toolbar_create_button_title">Thay thế nút Tạo</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Nhấn để mở cài đặt YouTube
 Nhấn và giữ để mở cài đặt RVX"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Nhấn để mở cài đặt RVX

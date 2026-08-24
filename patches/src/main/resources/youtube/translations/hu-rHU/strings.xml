@@ -20,6 +20,7 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="gms_core_settings_summary">Engedélyezze a felhő alapú üzenetküldést az értesítések fogadásához</string>
     <string name="gms_core_settings_title">GmsCore beállítások megnyitása</string>
     <string name="gms_core_toast_not_installed_message">A MicroG nincs telepítve. Telepítse azt</string>
+    <string name="morphe_custom_branding_icon_title">Alkalmazás ikonja</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">A navigációs sáv látható marad a görgetés közben</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Kapcsold ki az automatikus elrejtést a navigációs sávra</string>
     <string name="morphe_disable_drc_audio_summary_off">A DRC hang engedélyezve van</string>
@@ -28,9 +29,9 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protokoll engedélyezve</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokoll letiltva</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokoll letiltása</string>
-    <string name="morphe_expand_livestream_dvr_duration_not_available">"'Élő közvetítés DVR időtartamának kiterjesztése' nem biztos, hogy elérhető
+    <string name="morphe_expand_livestream_dvr_duration_not_available">"Előfordulhat, hogy az 'Élő közvetítés DVR-időtartamának bővítése' nem érhető el
 
-A javításhoz kapcsolja be a 'Videóstreamek meghamisítása' opciót, és módosítsa az 'Alapértelmezett kliens' beállítást 'TV'-re vagy 'visionOS'-re"</string>
+A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módosítsd az 'Alapértelmezett kliens' értékét a következőre: 'TV Simply' vagy 'visionOS'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Lehetővé teszi élő adások visszatekerését a múltba maximum 7 nappal</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Bővítsd a közvetítés DVR idejét</string>
     <string name="morphe_explore_menu_screen_summary">Válaszd ki, mely elemek jelenjenek meg a felfedezés menüben</string>
@@ -39,6 +40,7 @@ A javításhoz kapcsolja be a 'Videóstreamek meghamisítása' opciót, és mód
     <string name="morphe_force_original_audio_summary_off">Alapértelmezett hang használata</string>
     <string name="morphe_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
     <string name="morphe_force_original_audio_title">Eredeti hang kikényszerítése</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Teljes képernyős, nagy méretű keresősáv engedélyezése</string>
     <string name="morphe_hide_courses_menu_title">Kurzusok menü elrejtése</string>
     <string name="morphe_hide_explore_button_title">Felfedezés gomb elrejtése</string>
     <string name="morphe_hide_fashion_menu_title">\"Divat és szépség\" menü elrejtése</string>
@@ -54,6 +56,9 @@ A javításhoz kapcsolja be a 'Videóstreamek meghamisítása' opciót, és mód
     <string name="morphe_hide_music_menu_title">Zene menü elrejtése</string>
     <string name="morphe_hide_news_menu_title">Hírek menü elrejtése</string>
     <string name="morphe_hide_playables_menu_title">Lejátszható elemek menü elrejtése</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"'Audio Track' menü el van rejtve
+
+Az 'Audio Track' menü megjelenítéséhez állítsa a 'Videóstream-ek megtévesztése' beállítást bármely olyan kliensre, amely nem az 'Android Studio' és nem az 'Android VR Downgraded'"</string>
     <string name="morphe_hide_podcasts_menu_title">Podcastok menü elrejtése</string>
     <string name="morphe_hide_privacy_tos_footer_title">Rejtse el a jogi és adatvédelmi láblécet</string>
     <string name="morphe_hide_shopping_menu_title">Vásárlás menü elrejtése</string>
@@ -65,9 +70,9 @@ A javításhoz kapcsolja be a 'Videóstreamek meghamisítása' opciót, és mód
     <string name="morphe_hide_youtube_premium_menu_title">YouTube Premium menü elrejtése</string>
     <string name="morphe_hide_youtube_studio_menu_title">YouTube Studio menü elrejtése</string>
     <string name="morphe_hide_youtube_works_menu_title">Rejtse el a \"A YouTube működése\" menüt</string>
-    <string name="morphe_livestream_dvr_not_available">"'Élő közvetítés DVR engedélyezése' lehet, hogy nem áll rendelkezésre
+    <string name="morphe_livestream_dvr_not_available">"Előfordulhat, hogy az 'Élő közvetítés DVR engedélyezése' nem érhető el
 
-Ennek javításához kapcsold be a 'Videostreamek meghamisítását' és módosítsd az 'Alapértelmezett kliens' értékét 'TV'-re vagy 'visionOS'-re"</string>
+A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módosítsd az 'Alapértelmezett kliens' értékét a következőre: 'TV Simply' vagy 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">Lehetővé teszi a keresést minden élő streamen, még azoknál is, amelyek normál esetben korlátozzák azt</string>
     <string name="morphe_livestream_dvr_title">Engedélyezze az élsőségi DVR-t</string>
     <string name="morphe_music_package_name_summary">A telepített zenelejátszó csomag neve</string>
@@ -166,6 +171,8 @@ Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szüks
 
 Korlátozás: Ha a „Régi videós eszköztár visszaállítása” ki van kapcsolva, a „További videók” réteg nem jelenhet meg"</string>
     <string name="morphe_tablet_layout_in_player_title">Tablet elrendezés engedélyezése a lejátszóban</string>
+    <string name="morphe_theme_color_change_foreground_summary">Használja a téma színét a szöveghez és az ikonokhoz</string>
+    <string name="morphe_theme_color_change_foreground_title">Előtérszín megváltoztatása</string>
     <string name="morphe_video_quality_prioritize_dialog">Ha ez a beállítás ki van kapcsolva, akkor a régebbi videóknál nem jelenik meg videóminőségi opció</string>
     <string name="morphe_video_quality_prioritize_summary">A legmagasabb elérhető videóminőség részesít előnyben a kodek hatékonyságával szemben</string>
     <string name="morphe_video_quality_prioritize_title">Videóminőség prioritása</string>
@@ -897,7 +904,7 @@ Ha a sáv összes elemét elrejted, a teljes megjegyzések szakasz is rejtve mar
     <string name="revanced_hide_hashtag_section_title">Hashtag szekció elrejtése</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">A Hogyan készült ez a tartalom szakasz látható</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">A Hogyan készült ez a tartalom szakasz rejtett</string>
-    <string name="revanced_hide_how_this_was_made_section_title">A „Hogyan készült ez a tartalom?” szekció elrejtése</string>
+    <string name="revanced_hide_how_this_was_made_section_title">A \'Hogyan készült\' szakasz elrejtése</string>
     <string name="revanced_hide_hype_button_summary_off">A hype gomb látható</string>
     <string name="revanced_hide_hype_button_summary_on">A Hype gomb rejtett</string>
     <string name="revanced_hide_hype_button_title">Hype gomb elrejtése</string>
@@ -1797,8 +1804,6 @@ Infó:
     <string name="revanced_replace_time_stamp_action_summary_off">Érintse meg a hátralévő időért</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Érintse meg a lejátszási sebesség vagy a videóminőség felugró menüjének megnyitásához</string>
     <string name="revanced_replace_time_stamp_action_title">Időbélyeg művelet megváltoztatása</string>
-    <string name="revanced_replace_toolbar_create_button_summary">A létrehozás gombot beállítások gombra cseréli</string>
-    <string name="revanced_replace_toolbar_create_button_title">Létrehozás gomb cseréje</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Érintse meg a YouTube-beállítások megnyitásához
 Érintse meg és tartsa lenyomva az RVX beállítások megnyitásához"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Érintse meg az RVX beállítások megnyitásához

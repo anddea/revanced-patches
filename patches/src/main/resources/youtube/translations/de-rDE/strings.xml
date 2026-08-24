@@ -20,6 +20,7 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="gms_core_settings_summary">Cloud-Nachrichteneinstellungen aktivieren, um Benachrichtigungen zu erhalten</string>
     <string name="gms_core_settings_title">GmsCore öffnen</string>
     <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installieren Sie es</string>
+    <string name="morphe_custom_branding_icon_title">App-Icon</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Audio Track-Menü-Header ausblenden</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Auto-Ausblenden der Navigationsleiste deaktivieren</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC-Audio ist aktiviert</string>
@@ -30,7 +31,7 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Livestream-DVR-Dauer erweitern' ist möglicherweise nicht verfügbar
 
-Um das zu beheben, aktiviere 'Video-Streams spoofen' und ändere den 'Standard-Client' auf 'TV' oder 'visionOS'"</string>
+Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standard-Client' auf 'TV Simply' oder 'visionOS' um"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Ermöglicht das Zurückspulen von Live-Sendungen um bis zu 7 Tage in der Vergangenheit</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Livestream DVR-Dauer erweitern</string>
     <string name="morphe_explore_menu_screen_summary">Wähle aus, welche Einträge im Entdecken-Menü angezeigt werden sollen</string>
@@ -39,6 +40,12 @@ Um das zu beheben, aktiviere 'Video-Streams spoofen' und ändere den 'Standard-C
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
     <string name="morphe_force_original_audio_title">Original-Audiotrack erzwingen</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Große Suchleiste im Vollbildmodus aktivieren</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Tippen, um zwischen Standard, Strecken und Zoomen zu wechseln</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Schaltfläche für Video-Skalierung anzeigen</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Strecken (Bildschirm ausfüllen)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Zoomen (Zuschneiden zum Ausfüllen)</string>
+    <string name="morphe_fullscreen_video_scale_title">Vollbild-Videoskalierung</string>
     <string name="morphe_hide_courses_menu_title">Eintrag „Kurse“ ausblenden</string>
     <string name="morphe_hide_explore_button_title">Schaltfläche „Entdecken“ ausblenden</string>
     <string name="morphe_hide_fashion_menu_title">Eintrag „Mode &amp; Beauty“ ausblenden</string>
@@ -54,6 +61,9 @@ Um das zu beheben, aktiviere 'Video-Streams spoofen' und ändere den 'Standard-C
     <string name="morphe_hide_music_menu_title">Eintrag „Musik“ ausblenden</string>
     <string name="morphe_hide_news_menu_title">Eintrag „Nachrichten“ ausblenden</string>
     <string name="morphe_hide_playables_menu_title">Eintrag „Playables“ ausblenden</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"Das Menü \"Audio-Track\" ist ausgeblendet
+
+Um das Menü anzuzeigen, ändern Sie \"Video-Streams fälschen\" in einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\""</string>
     <string name="morphe_hide_podcasts_menu_title">Eintrag „Podcasts“ ausblenden</string>
     <string name="morphe_hide_privacy_tos_footer_title">Rechtliche Hinweise und Datenschutz-Footer ausblenden</string>
     <string name="morphe_hide_shopping_menu_title">Eintrag „Shopping“ ausblenden</string>
@@ -67,7 +77,7 @@ Um das zu beheben, aktiviere 'Video-Streams spoofen' und ändere den 'Standard-C
     <string name="morphe_hide_youtube_works_menu_title">Menü „Wie YouTube funktioniert“ ausblenden</string>
     <string name="morphe_livestream_dvr_not_available">"'Livestream-DVR aktivieren' ist möglicherweise nicht verfügbar
 
-Um das zu beheben, aktiviere 'Video-Streams spoofen' und ändere den 'Standard-Client' auf 'TV' oder 'visionOS'"</string>
+Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standard-Client' auf 'TV Simply' oder 'visionOS' um"</string>
     <string name="morphe_livestream_dvr_summary">Ermöglicht das Vorspulen bei allen Livestreams, auch bei solchen, die dies normalerweise nicht zulassen</string>
     <string name="morphe_livestream_dvr_title">Livestream-DVR aktivieren</string>
     <string name="morphe_music_package_name_summary">Paketname Ihrer installierten Musik-App</string>
@@ -166,6 +176,8 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
 
 Einschränkung: Wenn \"Alte Video-Aktionsleiste wiederherstellen\" deaktiviert ist, ist das Overlay \"Mehr Videos\" möglicherweise nicht verfügbar"</string>
     <string name="morphe_tablet_layout_in_player_title">Tablet-Layout im Player aktivieren</string>
+    <string name="morphe_theme_color_change_foreground_summary">Verwende die Themenfarbe für Text und Symbole</string>
+    <string name="morphe_theme_color_change_foreground_title">Vordergrundfarbe ändern</string>
     <string name="morphe_video_quality_prioritize_dialog">Ist diese Einstellung deaktiviert, werden bei älteren Videos möglicherweise keine Optionen zur Videoqualität angezeigt</string>
     <string name="morphe_video_quality_prioritize_summary">Priorisiert die höchstmögliche Videoqualität gegenüber der Codec-Effizienz</string>
     <string name="morphe_video_quality_prioritize_title">Videoqualität priorisieren</string>
@@ -893,7 +905,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_hashtag_section_title">Hashtag-Bereich ausblenden</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Der Abschnitt \"Wie dieser Inhalt erstellt wurde\" wird angezeigt</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Der Abschnitt \"Wie dieser Inhalt erstellt wurde\" ist ausgeblendet</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Wie dieser Inhalt erstellt wurde-Bereich ausblenden</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Abschnitt \'Wie das gemacht wurde\' ausblenden</string>
     <string name="revanced_hide_hype_button_summary_off">Hypen-Button wird angezeigt</string>
     <string name="revanced_hide_hype_button_summary_on">Hypen-Button ist ausgeblendet</string>
     <string name="revanced_hide_hype_button_title">Schaltfläche „Hype“ ausblenden</string>
@@ -1756,8 +1768,6 @@ Information:
     <string name="revanced_replace_time_stamp_action_summary_off">Tap to show the remaining time</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Tap to open playback speed or video quality flyout menu</string>
     <string name="revanced_replace_time_stamp_action_title">Replace time stamp action</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Ersetzt die Erstellen-Schaltfläche durch Einstellungen-Schaltfläche</string>
-    <string name="revanced_replace_toolbar_create_button_title">Ersetze Erstellen-Schaltfläche</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Tippen, um die YouTube-Einstellungen zu öffnen
 Tippe und halte zum Öffnen der RVX-Einstellungen"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Tippen, um die RVX-Einstellungen zu öffnen
