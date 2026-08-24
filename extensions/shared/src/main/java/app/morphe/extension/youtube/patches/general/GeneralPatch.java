@@ -49,14 +49,14 @@
 
 package app.morphe.extension.youtube.patches.general;
 
+import static app.morphe.extension.shared.utils.BaseThemeUtils.getAppForegroundColor;
+import static app.morphe.extension.shared.utils.BaseThemeUtils.getDialogBackgroundColor;
 import static app.morphe.extension.shared.utils.ResourceUtils.getXmlIdentifier;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.getChildView;
 import static app.morphe.extension.shared.utils.Utils.hideViewByLayoutParams;
 import static app.morphe.extension.shared.utils.Utils.hideViewGroupByMarginLayoutParams;
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
-import static app.morphe.extension.shared.utils.BaseThemeUtils.getAppForegroundColor;
-import static app.morphe.extension.shared.utils.BaseThemeUtils.getDialogBackgroundColor;
 import static app.morphe.extension.youtube.patches.utils.PatchStatus.ImageSearchButton;
 
 import android.annotation.SuppressLint;
@@ -98,7 +98,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.google.android.apps.youtube.app.application.Shell_SettingsActivity;
-import com.google.android.apps.youtube.app.settings.SettingsActivity;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
@@ -142,7 +141,6 @@ import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
-import app.morphe.extension.youtube.utils.ThemeUtils;
 
 @SuppressWarnings({"deprecation", "unused"})
 public class GeneralPatch {
@@ -1737,67 +1735,6 @@ public class GeneralPatch {
         imageView.setImageDrawable(drawable);
     }
 
-    private static int settingsDrawableId = 0;
-    private static int settingsCairoDrawableId = 0;
-
-    public static int getCreateButtonDrawableId(int original) {
-        if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get()) {
-            return original;
-        }
-
-        if (settingsDrawableId == 0) {
-            settingsDrawableId = ResourceUtils.getDrawableIdentifier("yt_outline_gear_black_24");
-        }
-
-        if (settingsDrawableId == 0) {
-            return original;
-        }
-
-        // Match YouTube's server-controlled toolbar icon style.
-        if (!Utils.appIsUsingBoldIcons()) {
-            return settingsDrawableId;
-        }
-
-        if (settingsCairoDrawableId == 0) {
-            settingsCairoDrawableId = ResourceUtils.getDrawableIdentifier("yt_outline_gear_cairo_black_24");
-        }
-
-        return settingsCairoDrawableId == 0
-                ? settingsDrawableId
-                : settingsCairoDrawableId;
-    }
-
-    public static void replaceCreateButton(String enumString, View toolbarView) {
-        if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get())
-            return;
-        // The semantic replacement is safe to identify by its Settings enum only when the
-        // separately-added toolbar Settings button is disabled.
-        if (!isCreateButton(enumString)
-                && (Settings.SHOW_TOOLBAR_SETTINGS_BUTTON.get()
-                || !"SETTINGS_CAIRO".equals(enumString)))
-            return;
-        ImageView imageView = getChildView((ViewGroup) toolbarView, view -> view instanceof ImageView);
-        if (imageView == null)
-            return;
-
-        // Overriding is possible only after OnClickListener is assigned to the create button.
-        Utils.runOnMainThreadDelayed(() -> {
-            if (Settings.REPLACE_TOOLBAR_CREATE_BUTTON_TYPE.get()) {
-                imageView.setOnClickListener(GeneralPatch::openRVXSettings);
-                imageView.setOnLongClickListener(button -> {
-                    openYouTubeSettings(button);
-                    return true;
-                });
-            } else {
-                imageView.setOnClickListener(GeneralPatch::openYouTubeSettings);
-                imageView.setOnLongClickListener(button -> {
-                    openRVXSettings(button);
-                    return true;
-                });
-            }
-        }, 0);
-    }
-
     public static void openYouTubeSettings(View view) {
         Context context = view.getContext();
         Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -1814,22 +1751,6 @@ public class GeneralPatch {
         intent.setData(Uri.parse("revanced_settings_intent"));
         intent.setClassName(context.getPackageName(), "com.google.android.libraries.social.licenses.LicenseActivity");
         context.startActivity(intent);
-    }
-
-    /**
-     * The theme of {@link Shell_SettingsActivity} is dark theme.
-     * Since this theme is hardcoded, we should manually specify the theme for the activity.
-     * <p>
-     * Since {@link Shell_SettingsActivity} only invokes {@link SettingsActivity}, finish activity after specifying a theme.
-     *
-     * @param base {@link Shell_SettingsActivity}
-     */
-    public static void setShellActivityTheme(Activity base) {
-        if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get())
-            return;
-
-        base.setTheme(ThemeUtils.getThemeId());
-        Utils.runOnMainThreadDelayed(base::finish, 0);
     }
 
     private static boolean isCreateButton(String enumString) {

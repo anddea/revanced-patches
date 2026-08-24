@@ -645,7 +645,7 @@ val toolBarComponentsPatch = bytecodePatch(
 
                             invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->createToolbarSettingsButton(Ljava/util/List;)[B
                             move-result-object v$buttonByteRegister
-                            if-eqz v$buttonByteRegister, :settings_button_not_created
+                            if-eqz v$buttonByteRegister, :immutable
 
                             sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
                             invoke-static {v$protoListFreeRegister, v$buttonByteRegister}, ${parseByteArrayMethodRef.get()!!}
@@ -653,19 +653,6 @@ val toolBarComponentsPatch = bytecodePatch(
                             check-cast v$protoListFreeRegister, $buttonsClass
                             invoke-interface {v$protoListRegister, v$protoListFreeRegister}, Ljava/util/List;->add(Ljava/lang/Object;)Z
                             invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->applyToolbarSettingsButtonIndex(Ljava/util/List;)V
-
-                            :settings_button_not_created
-                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceToolbarCreateButton(Ljava/util/List;)[B
-                            move-result-object v$buttonByteRegister
-                            if-eqz v$buttonByteRegister, :immutable
-
-                            sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
-                            invoke-static {v$protoListFreeRegister, v$buttonByteRegister}, ${parseByteArrayMethodRef.get()!!}
-                            move-result-object v$protoListFreeRegister
-                            check-cast v$protoListFreeRegister, $buttonsClass
-                            invoke-static {}, $NAVIGATION_CLASS_DESCRIPTOR->getToolbarCreateButtonIndex()I
-                            move-result v$buttonByteRegister
-                            invoke-interface {v$protoListRegister, v$buttonByteRegister, v$protoListFreeRegister}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
                             :immutable
                             nop
@@ -697,64 +684,6 @@ val toolBarComponentsPatch = bytecodePatch(
                 )
             }
         }
-
-        // endregion
-
-        // region patch for replace create button
-
-        val matchedMethods = mutableListOf<MutableMethod>()
-        classDefForEach { classDef ->
-            classDef.methods.forEach { method ->
-                if (method.containsLiteralInstruction(ytOutlineVideoCamera)) {
-                    val mutableMethod = mutableClassDefBy(classDef).findMutableMethodOf(method)
-                    matchedMethods.add(mutableMethod)
-                }
-            }
-        }
-
-        if (matchedMethods.isEmpty()) {
-            throw PatchException("No methods matched createButtonDrawableFingerprint")
-        }
-
-        // println("Found ${matchedMethods.size} methods matching createButtonDrawableFingerprint")
-        // matchedMethods.forEach { method ->
-        //     println("Patching method: ${method.methodCall()} in class ${method.definingClass}")
-        // }
-
-        matchedMethods.forEach { method ->
-            method.apply {
-                val indices = mutableListOf<Int>()
-
-                val idx1 = indexOfFirstLiteralInstruction(ytOutlineVideoCamera)
-                if (idx1 != -1) indices.add(idx1)
-
-                val idx2 = indexOfFirstLiteralInstruction(ytOutlineExperimentalVideoCamera)
-                if (idx2 != -1) indices.add(idx2)
-
-                // Sort descending so we modify the end of the method first,
-                // preventing index shifting from affecting subsequent inserts
-                indices.sortedDescending().forEach { index ->
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
-                    addInstructions(
-                        index + 1, """
-                        invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->getCreateButtonDrawableId(I)I
-                        move-result v$register
-                        """
-                    )
-                }
-            }
-        }
-
-        hookToolBar("$GENERAL_CLASS_DESCRIPTOR->replaceCreateButton")
-
-        findMethodOrThrow(
-            "Lcom/google/android/apps/youtube/app/application/Shell_SettingsActivity;"
-        ) {
-            name == "onCreate"
-        }.addInstruction(
-            0,
-            "invoke-static {p0}, $GENERAL_CLASS_DESCRIPTOR->setShellActivityTheme(Landroid/app/Activity;)V"
-        )
 
         // endregion
 
