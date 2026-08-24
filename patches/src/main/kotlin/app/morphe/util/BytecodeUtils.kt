@@ -4,6 +4,7 @@ package app.morphe.util
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.FingerprintBuilder
+import app.morphe.patcher.InstructionFilter
 import app.morphe.patcher.Match
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -872,6 +873,28 @@ fun Method.findInstructionIndicesReversed(filter: Instruction.() -> Boolean): Li
  * @throws PatchException if no matching indices are found.
  */
 fun Method.findInstructionIndicesReversedOrThrow(filter: Instruction.() -> Boolean): List<Int> {
+    val indexes = findInstructionIndicesReversed(filter)
+    if (indexes.isEmpty()) throw PatchException("No matching instructions found in: $this")
+
+    return indexes
+}
+
+/**
+ * @return A list of indices of the instructions in reverse order.
+ * _Returns an empty list if no indices are found_
+ */
+fun Method.findInstructionIndicesReversed(filter: InstructionFilter): List<Int> {
+    val method = this
+    return findInstructionIndicesReversed {
+        filter.matches(method, this)
+    }
+}
+
+/**
+ * @return A list of indices of the instructions in reverse order.
+ * @throws PatchException if no matching indices are found.
+ */
+fun Method.findInstructionIndicesReversedOrThrow(filter: InstructionFilter): List<Int> {
     val indexes = findInstructionIndicesReversed(filter)
     if (indexes.isEmpty()) throw PatchException("No matching instructions found in: $this")
 
