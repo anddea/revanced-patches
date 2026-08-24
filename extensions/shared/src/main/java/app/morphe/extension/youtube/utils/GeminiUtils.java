@@ -514,7 +514,7 @@ public class GeminiUtils {
         JSONObject thinkingConfig;
         if (model.startsWith("gemini-3")) {
             thinkingConfig = new JSONObject()
-                    .put("thinkingLevel", "minimal")
+                    .put("thinkingLevel", getThinkingLevel(model))
                     .put("includeThoughts", false);
         } else {
             thinkingConfig = new JSONObject().put("thinkingBudget", 0);
@@ -522,6 +522,18 @@ public class GeminiUtils {
         generationConfig.put("thinkingConfig", thinkingConfig);
         requestBody.put("generationConfig", generationConfig);
         return requestBody;
+    }
+
+    /**
+     * Returns the lowest supported thinking level for the given Gemini 3 model.
+     * Gemini 3.7 Flash and Gemini 3.1 Pro do not support {@code minimal}.
+     */
+    @NonNull
+    private static String getThinkingLevel(@NonNull String model) {
+        if ("gemini-3.7-flash".equals(model) || "gemini-3.1-pro-preview".equals(model)) {
+            return "low";
+        }
+        return "minimal";
     }
 
     @NonNull
