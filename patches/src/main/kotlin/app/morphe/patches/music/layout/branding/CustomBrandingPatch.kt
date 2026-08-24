@@ -255,12 +255,13 @@ val customBrandingPatch = resourcePatch(
             category = CategoryType.GENERAL.value,
             key = "morphe_custom_branding_name",
             dependencyKey = "",
-            setSummary = true,
+            setSummary = false,
         )
         addCustomPreference(
             category = CategoryType.GENERAL.value,
             key = "morphe_custom_branding_icon",
             tag = "app.morphe.extension.shared.settings.preference.IconListPreference",
+            setSummary = false,
             entriesArrayKey = "morphe_custom_branding_icon_entries",
             entryValuesArrayKey = "morphe_custom_branding_icon_entry_values",
         )

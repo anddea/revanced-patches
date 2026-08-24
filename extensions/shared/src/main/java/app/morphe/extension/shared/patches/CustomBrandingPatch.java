@@ -59,6 +59,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
@@ -80,6 +82,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.preference.IconListPreference;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
@@ -97,6 +100,7 @@ import app.morphe.extension.shared.utils.Utils;
 @SuppressWarnings({"deprecation", "unused"})
 public final class CustomBrandingPatch {
     private static final String ICON_VALUES_RESOURCE = "morphe_custom_branding_icon_entry_values";
+    private static final String NAME_ENTRIES_RESOURCE = "morphe_custom_branding_name_entries";
     private static final String NAME_VALUES_RESOURCE = "morphe_custom_branding_name_entry_values";
     private static final String DEFAULT_ICON_RESOURCE = "morphe_custom_branding_default_icon";
     private static final String DEFAULT_NAME_INDEX_RESOURCE = "morphe_custom_branding_default_name_index";
@@ -106,8 +110,22 @@ public final class CustomBrandingPatch {
     private static final String HEADER_RESOURCE_PREFIX = "morphe_custom_branding_header_";
     private static final String SPLASH_RESOURCE_PREFIX = "morphe_custom_branding_splash_";
     private static final String SPLASH_OVERLAY_TAG = "morphe_custom_branding_splash_overlay";
+    private static final String SPLASH_ANIMATION_STYLE_KEY = "morphe_splash_screen_animation_style";
+    private static final String SPLASH_ANIMATION_STYLE_DEFAULT = "FPS_60_ONE_SECOND";
+    private static final String SPLASH_ANIMATION_STYLE_DISABLED = "DISABLED";
+    private static final String DISABLE_CAIRO_SPLASH_ANIMATION_KEY =
+            "revanced_disable_cairo_splash_animation";
+    private static final String SPLASH_ANIMATION_STYLE_60_BLACK_AND_WHITE = "FPS_60_BLACK_AND_WHITE";
+    private static final String SPLASH_ANIMATION_STYLE_30_BLACK_AND_WHITE = "FPS_30_BLACK_AND_WHITE";
     private static final String CUSTOM_ICON_ALIAS = "custom";
     private static final int NAME_ALIAS_COUNT = 5;
+    private static final ColorFilter MONOCHROME_SPLASH_FILTER = new ColorMatrixColorFilter(
+            new ColorMatrix(new float[]{
+                    0.299f, 0.587f, 0.114f, 0, 0,
+                    0.299f, 0.587f, 0.114f, 0, 0,
+                    0.299f, 0.587f, 0.114f, 0, 0,
+                    0, 0, 0, 1, 0,
+            }));
 
     private CustomBrandingPatch() {
     }
@@ -262,18 +280,17 @@ public final class CustomBrandingPatch {
             Context context = Utils.getContext();
             if (context == null) return fallback;
 
-            String[] nameValues = getStringArray(context, NAME_VALUES_RESOURCE);
-            if (nameValues.length == 0) return fallback;
+            String[] nameEntries = getStringArray(context, NAME_ENTRIES_RESOURCE);
+            if (nameEntries.length == 0) return fallback;
 
             int selectedNameIndex = SharedYouTubeSettings.CUSTOM_BRANDING_NAME.get();
-            if (selectedNameIndex < 1 || selectedNameIndex > nameValues.length) {
+            if (selectedNameIndex < 1 || selectedNameIndex > nameEntries.length) {
                 selectedNameIndex = getDefaultAppNameIndex();
             }
 
-            String label = getString(
-                    context,
-                    "morphe_custom_branding_name_entry_" + selectedNameIndex,
-                    fallback);
+            String label = selectedNameIndex >= 1 && selectedNameIndex <= nameEntries.length
+                    ? nameEntries[selectedNameIndex - 1]
+                    : fallback;
             return label.isEmpty() ? fallback : label;
         } catch (Exception ignored) {
             return fallback;
@@ -281,10 +298,12 @@ public final class CustomBrandingPatch {
     }
 
     private static void applyApplicationLabel(Context context, int selectedNameIndex) {
-        String label = getString(
-                context,
-                "morphe_custom_branding_name_entry_" + selectedNameIndex,
-                getString(context, "morphe_custom_branding_original_app_name", "YouTube"));
+        String fallback = getString(
+                context, "morphe_custom_branding_original_app_name", "YouTube");
+        String[] nameEntries = getStringArray(context, NAME_ENTRIES_RESOURCE);
+        String label = selectedNameIndex >= 1 && selectedNameIndex <= nameEntries.length
+                ? nameEntries[selectedNameIndex - 1]
+                : fallback;
 
         if (!label.isEmpty()) {
             context.getApplicationInfo().nonLocalizedLabel = label;
@@ -461,7 +480,25 @@ public final class CustomBrandingPatch {
      * callbacks and offline startup behavior remain unchanged.</p>
      */
     public static void applySplashAnimation(Activity activity) {
-        if (activity == null) return;
+        applySplashAnimation(activity, false);
+    }
+
+    /**
+     * Applies the YouTube splash animation style to the custom branding overlay.
+     *
+     * <p>The style preference belongs to YouTube's splash patch and is intentionally not used by
+     * YouTube Music. Music keeps its custom branding animation regardless of that preference.</p>
+     */
+    public static void applyYouTubeSplashAnimation(Activity activity) {
+        applySplashAnimation(activity, true);
+    }
+
+    private static void applySplashAnimation(Activity activity, boolean useYouTubeSplashStyle) {
+        if (activity == null
+                || (useYouTubeSplashStyle && isSplashAnimationDisabled())
+                || (!useYouTubeSplashStyle && isMusicSplashAnimationDisabled())) {
+            return;
+        }
 
         try {
             String selectedIcon = SharedYouTubeSettings.CUSTOM_BRANDING_ICON.get();
@@ -474,14 +511,17 @@ public final class CustomBrandingPatch {
             if (identifier == 0) return;
 
             Drawable drawable = activity.getResources().getDrawable(identifier);
-            showSplashOverlay(activity, drawable, selectedIcon);
+            showSplashOverlay(activity, drawable, selectedIcon, useYouTubeSplashStyle);
         } catch (Exception ignored) {
             // Keep the stock host splash if a generated resource is unavailable.
         }
     }
 
     private static void showSplashOverlay(
-            Activity activity, Drawable drawable, String selectedIcon) {
+            Activity activity,
+            Drawable drawable,
+            String selectedIcon,
+            boolean useYouTubeSplashStyle) {
         try {
             ViewGroup decor = (ViewGroup) activity.getWindow().getDecorView();
             if (decor.findViewWithTag(SPLASH_OVERLAY_TAG) != null) return;
@@ -493,6 +533,9 @@ public final class CustomBrandingPatch {
 
             ImageView image = new ImageView(activity);
             image.setImageDrawable(drawable);
+            if (useYouTubeSplashStyle && isSplashAnimationMonochrome()) {
+                image.setColorFilter(MONOCHROME_SPLASH_FILTER);
+            }
             image.setScaleType(ImageView.ScaleType.CENTER);
             overlay.addView(image, new FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
@@ -581,6 +624,38 @@ public final class CustomBrandingPatch {
             return Integer.parseInt(value);
         } catch (NumberFormatException ignored) {
             return 1;
+        }
+    }
+
+    /**
+     * Reads the existing YouTube splash-style preference without loading YouTube-only settings.
+     * The branding runtime is shared with YouTube Music, where that settings class is absent.
+     */
+    private static String getSplashAnimationStyle() {
+        try {
+            return Setting.preferences.getString(
+                    SPLASH_ANIMATION_STYLE_KEY, SPLASH_ANIMATION_STYLE_DEFAULT);
+        } catch (Exception ignored) {
+            return SPLASH_ANIMATION_STYLE_DEFAULT;
+        }
+    }
+
+    private static boolean isSplashAnimationDisabled() {
+        return SPLASH_ANIMATION_STYLE_DISABLED.equalsIgnoreCase(getSplashAnimationStyle());
+    }
+
+    private static boolean isSplashAnimationMonochrome() {
+        String style = getSplashAnimationStyle();
+        return SPLASH_ANIMATION_STYLE_60_BLACK_AND_WHITE.equalsIgnoreCase(style)
+                || SPLASH_ANIMATION_STYLE_30_BLACK_AND_WHITE.equalsIgnoreCase(style);
+    }
+
+    /** Returns whether Music's existing Cairo animation toggle also disables the custom overlay. */
+    private static boolean isMusicSplashAnimationDisabled() {
+        try {
+            return Setting.preferences.getBoolean(DISABLE_CAIRO_SPLASH_ANIMATION_KEY, false);
+        } catch (Exception ignored) {
+            return false;
         }
     }
 }

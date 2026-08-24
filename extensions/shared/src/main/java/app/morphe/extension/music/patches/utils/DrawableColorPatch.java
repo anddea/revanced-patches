@@ -82,6 +82,7 @@ public class DrawableColorPatch {
     public static final String DEFAULT_DARK_THEME_CUSTOM_COLOR = "#FF000000";
 
     private static final String SPLASH_THEME_PREFIX = "morphe_theme_splash_";
+    private static final String SPLASH_THEME_NO_ICON_SUFFIX = "_no_icon";
     private static final int PRECOMPILED_THEME_QUALIFIER_BASE = 801;
     private static final String[] PRECOMPILED_DARK_THEME_KEYS = {
             "stock", "amoled_black", "material_you_neutral", "material_you_primary",
@@ -152,11 +153,17 @@ public class DrawableColorPatch {
         }
 
         try {
-            String themeName = SPLASH_THEME_PREFIX + Settings.DARK_THEME.get();
+            boolean useCustomSplashAnimation =
+                    !"original".equals(Settings.CUSTOM_BRANDING_ICON.get())
+                            && !Settings.DISABLE_CAIRO_SPLASH_ANIMATION.get();
+            String splashIconSuffix = useCustomSplashAnimation
+                    ? SPLASH_THEME_NO_ICON_SUFFIX
+                    : "";
+            String themeName = SPLASH_THEME_PREFIX + Settings.DARK_THEME.get() + splashIconSuffix;
             int themeId = ResourceUtils.getIdentifier(themeName, ResourceType.STYLE, activity);
             if (themeId == 0) {
                 themeId = ResourceUtils.getIdentifier(
-                        SPLASH_THEME_PREFIX + DEFAULT_DARK_THEME,
+                        SPLASH_THEME_PREFIX + DEFAULT_DARK_THEME + splashIconSuffix,
                         ResourceType.STYLE,
                         activity);
             }

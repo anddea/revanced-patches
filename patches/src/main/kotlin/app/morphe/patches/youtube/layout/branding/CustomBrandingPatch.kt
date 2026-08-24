@@ -153,7 +153,10 @@ private val customBrandingBytecodePatch = bytecodePatch {
 
     execute {
         injectOnCreateMethodCall(CUSTOM_BRANDING_EXTENSION_CLASS_DESCRIPTOR, "setBranding")
-        injectOnCreateMethodCall(CUSTOM_BRANDING_EXTENSION_CLASS_DESCRIPTOR, "applySplashAnimation")
+        injectOnCreateMethodCall(
+            CUSTOM_BRANDING_EXTENSION_CLASS_DESCRIPTOR,
+            "applyYouTubeSplashAnimation",
+        )
 
         // application_name is used by YouTube for client metadata and several in-app labels. The
         // manifest aliases still provide the launcher fallback, while this hook makes the chosen

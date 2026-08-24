@@ -252,6 +252,7 @@ internal fun ResourcePatchContext.applyCustomBranding(
     val originalName = findOriginalAppName(config)
     removeStringsElements(config.applicationNameKeys)
     addBrandingResources(config, originalName, customName, customIcon != null)
+    val aliasNameLabels = config.namePresetLabels + (customName ?: CUSTOM_ICON_LABEL)
 
     config.settingsPreferencePaths.forEach { path ->
         if (!get(path).exists()) return@forEach
@@ -302,7 +303,7 @@ internal fun ResourcePatchContext.applyCustomBranding(
         val customAliasIcon = customIcon ?: BrandingIcon(CUSTOM_ICON_KEY, CUSTOM_ICON_LABEL, false)
         val runtimeIcons =
             listOf(BrandingIcon("original", "Stock", false)) + config.icons + customAliasIcon
-        val nameCount = config.namePresetLabels.size + 1
+        val nameCount = aliasNameLabels.size
         val defaultIcon = if (customIcon != null) CUSTOM_ICON_KEY else "original"
         val defaultNameIndex = if (customName != null) nameCount else 1
 
@@ -316,7 +317,10 @@ internal fun ResourcePatchContext.applyCustomBranding(
                 )
                 alias.setAttribute("android:exported", "true")
                 alias.setAttribute("android:icon", "@mipmap/${iconResourceName(config, icon)}")
-                alias.setAttribute("android:label", nameResourceName(nameIndex))
+                alias.setAttribute(
+                    "android:label",
+                    nameResourceName(nameIndex, originalName, aliasNameLabels),
+                )
                 alias.setAttribute(
                     "android:targetActivity",
                     if (icon.key == "original") {
@@ -845,37 +849,6 @@ private fun ResourcePatchContext.addBrandingResources(
             addString(resources, key, originalName)
         }
 
-        val aliasNameLabels = config.namePresetLabels + (customName ?: CUSTOM_ICON_LABEL)
-        aliasNameLabels.forEachIndexed { index, label ->
-            addString(
-                resources,
-                "morphe_custom_branding_name_entry_${index + 1}",
-                label,
-            )
-        }
-
-        iconEntries.forEachIndexed { index, icon ->
-            addString(resources, "morphe_custom_branding_icon_entry_${index + 1}", icon.label)
-        }
-
-        addString(resources, "morphe_custom_branding_name_title", "App name")
-        addString(
-            resources,
-            "morphe_custom_branding_name_summary",
-            "Select a preset app name.",
-        )
-        addString(resources, "morphe_custom_branding_icon_title", "App icon")
-        addString(resources, "morphe_custom_branding_icon_summary", "Select the launcher icon.")
-        addString(
-            resources,
-            "morphe_custom_branding_apply_to_rvx_settings_title",
-            "Use icon in RVX settings",
-        )
-        addString(
-            resources,
-            "morphe_custom_branding_apply_to_rvx_settings_summary",
-            "Use the selected app icon for the RVX settings entry when available.",
-        )
     }
 
     document("res/values/arrays.xml").use { document ->
@@ -883,7 +856,7 @@ private fun ResourcePatchContext.addBrandingResources(
         addStringArray(
             resources,
             "morphe_custom_branding_name_entries",
-            nameLabels.indices.map { "@string/morphe_custom_branding_name_entry_${it + 1}" },
+            nameLabels,
         )
         addStringArray(
             resources,
@@ -893,7 +866,7 @@ private fun ResourcePatchContext.addBrandingResources(
         addStringArray(
             resources,
             "morphe_custom_branding_icon_entries",
-            iconEntries.indices.map { "@string/morphe_custom_branding_icon_entry_${it + 1}" },
+            iconEntries.map { it.label },
         )
         addStringArray(
             resources,
@@ -965,7 +938,5 @@ private fun iconResourceName(
     config.originalLauncherIconName
 }
 
-private fun nameResourceName(index: Int) = when (index) {
-    1 -> "@string/$ORIGINAL_APP_NAME_RESOURCE"
-    else -> "@string/morphe_custom_branding_name_entry_$index"
-}
+private fun nameResourceName(index: Int, originalName: String, labels: List<String>) =
+    if (index == 1) originalName else labels[index - 1]
