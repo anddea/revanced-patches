@@ -496,7 +496,23 @@ public final class CustomBrandingPatch {
     }
 
     private static void applySplashAnimation(Activity activity, boolean useYouTubeSplashStyle) {
-        if (activity == null
+        if (activity == null) return;
+
+        try {
+            // The hook runs before the host Activity's onCreate implementation. Deferring one UI
+            // turn lets YouTube publish its forced light or dark appearance before the overlay
+            // resolves BaseThemeUtils.getAppBackgroundColor().
+            activity.getWindow().getDecorView().post(
+                    () -> applySplashAnimationAfterCreate(activity, useYouTubeSplashStyle));
+        } catch (Exception ignored) {
+            // Keep the stock host splash if the activity window is unavailable.
+        }
+    }
+
+    private static void applySplashAnimationAfterCreate(
+            Activity activity, boolean useYouTubeSplashStyle) {
+        if (activity.isFinishing()
+                || activity.isDestroyed()
                 || (useYouTubeSplashStyle && isSplashAnimationDisabled())
                 || (!useYouTubeSplashStyle && isMusicSplashAnimationDisabled())) {
             return;
@@ -531,7 +547,8 @@ public final class CustomBrandingPatch {
             FrameLayout overlay = new FrameLayout(activity);
             overlay.setTag(SPLASH_OVERLAY_TAG);
             overlay.setClickable(true);
-            overlay.setBackgroundColor(BaseThemeUtils.getAppBackgroundColor());
+            int[] backgroundColor = {BaseThemeUtils.getAppBackgroundColor()};
+            overlay.setBackgroundColor(backgroundColor[0]);
 
             ImageView image = new ImageView(activity);
             image.setImageDrawable(drawable);
@@ -551,7 +568,25 @@ public final class CustomBrandingPatch {
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT));
 
+            // YouTube can publish its forced appearance after the first Activity callback. Keep
+            // the splash aligned with that state instead of falling back to the device dark mode.
+            Runnable syncBackground = new Runnable() {
+                @Override
+                public void run() {
+                    if (overlay.getParent() == null) return;
+
+                    int resolvedColor = BaseThemeUtils.getAppBackgroundColor();
+                    if (backgroundColor[0] != resolvedColor) {
+                        backgroundColor[0] = resolvedColor;
+                        overlay.setBackgroundColor(resolvedColor);
+                    }
+                    overlay.postOnAnimation(this);
+                }
+            };
+            overlay.postOnAnimation(syncBackground);
+
             Runnable removeOverlay = () -> {
+                overlay.removeCallbacks(syncBackground);
                 if (overlay.getParent() instanceof ViewGroup parent) {
                     parent.removeView(overlay);
                 }
