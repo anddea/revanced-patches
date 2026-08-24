@@ -141,6 +141,7 @@ internal data class CustomBrandingConfig(
     val mainActivityName: String,
     val activityAliasNameWithIntents: String,
     val copyAliasIntentFilters: Boolean,
+    val useSplashlessLauncherActivity: Boolean = true,
     /** Source drawable base names used for runtime header replacement. */
     val dynamicHeaderResourceNames: List<String> = emptyList(),
     /** Whether each dynamic header has separate light and dark source files. */
@@ -157,6 +158,7 @@ internal data class CustomBrandingConfig(
         other as CustomBrandingConfig
 
         if (copyAliasIntentFilters != other.copyAliasIntentFilters) return false
+        if (useSplashlessLauncherActivity != other.useSplashlessLauncherActivity) return false
         if (dynamicHeaderUsesThemes != other.dynamicHeaderUsesThemes) return false
         if (resourceRoot != other.resourceRoot) return false
         if (adaptiveBackgroundFileName != other.adaptiveBackgroundFileName) return false
@@ -181,6 +183,7 @@ internal data class CustomBrandingConfig(
 
     override fun hashCode(): Int {
         var result = copyAliasIntentFilters.hashCode()
+        result = 31 * result + useSplashlessLauncherActivity.hashCode()
         result = 31 * result + dynamicHeaderUsesThemes.hashCode()
         result = 31 * result + resourceRoot.hashCode()
         result = 31 * result + adaptiveBackgroundFileName.hashCode()
@@ -294,7 +297,6 @@ internal fun ResourcePatchContext.applyCustomBranding(
         splashlessActivity.setAttribute("android:name", SPLASHLESS_LAUNCHER_ACTIVITY_CLASS_NAME)
         splashlessActivity.setAttribute("android:theme", "@style/$SPLASHLESS_LAUNCHER_STYLE")
         splashlessActivity.setAttribute("android:exported", "false")
-        splashlessActivity.setAttribute("android:excludeFromRecents", "true")
         splashlessActivity.setAttribute("android:noHistory", "true")
         application.appendChild(splashlessActivity)
 
@@ -323,7 +325,7 @@ internal fun ResourcePatchContext.applyCustomBranding(
                 )
                 alias.setAttribute(
                     "android:targetActivity",
-                    if (icon.key == "original") {
+                    if (icon.key == "original" || !config.useSplashlessLauncherActivity) {
                         config.mainActivityName
                     } else {
                         SPLASHLESS_LAUNCHER_ACTIVITY_CLASS_NAME

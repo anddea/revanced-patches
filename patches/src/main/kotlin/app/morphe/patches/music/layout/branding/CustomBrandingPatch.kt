@@ -133,6 +133,7 @@ private val brandingConfig = CustomBrandingConfig(
     mainActivityName = "com.google.android.apps.youtube.music.activities.MusicActivity",
     activityAliasNameWithIntents = "com.google.android.apps.youtube.music.activities.MusicActivity",
     copyAliasIntentFilters = false,
+    useSplashlessLauncherActivity = false,
     dynamicHeaderResourceNames = listOf("action_bar_logo", "logo_music", "ytm_logo"),
     dynamicHeaderUsesThemes = false,
     dynamicSplashResourceName = "record",
