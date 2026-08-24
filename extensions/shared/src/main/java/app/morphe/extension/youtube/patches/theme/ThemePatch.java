@@ -78,6 +78,7 @@ public final class ThemePatch {
     private static final String RUNTIME_LIGHT_THEME_COLOR = "morphe_runtime_light_theme_color";
     private static final String SPLASH_THEME_DARK_PREFIX = "morphe_theme_splash_dark_";
     private static final String SPLASH_THEME_LIGHT_PREFIX = "morphe_theme_splash_light_";
+    private static final String SPLASH_THEME_NO_ICON_SUFFIX = "_no_icon";
     private static final int PRECOMPILED_THEME_MCC = 801;
     private static final String[] PRECOMPILED_DARK_THEME_KEYS = {
             "stock", "amoled_black", "material_you_neutral", "material_you_primary",
@@ -157,10 +158,16 @@ public final class ThemePatch {
             final String selectedTheme = dark
                     ? Settings.DARK_THEME.get()
                     : Settings.LIGHT_THEME.get();
-            String themeName = themePrefix + selectedTheme;
+            final boolean useCustomSplashAnimation =
+                    !"original".equals(Settings.CUSTOM_BRANDING_ICON.get())
+                            && !isSplashAnimationDisabled();
+            final String splashIconSuffix = useCustomSplashAnimation
+                    ? SPLASH_THEME_NO_ICON_SUFFIX
+                    : "";
+            String themeName = themePrefix + selectedTheme + splashIconSuffix;
             int themeId = ResourceUtils.getIdentifier(themeName, ResourceType.STYLE, activity);
             if (themeId == 0) {
-                themeName = themePrefix + fallbackTheme;
+                themeName = themePrefix + fallbackTheme + splashIconSuffix;
                 themeId = ResourceUtils.getIdentifier(themeName, ResourceType.STYLE, activity);
             }
             if (themeId == 0) {
@@ -472,14 +479,14 @@ public final class ThemePatch {
      * Injection point for the splash screen visibility flag.
      */
     public static boolean showSplashScreen(boolean original) {
-        return Settings.SPLASH_SCREEN_ANIMATION_STYLE.get() != SplashScreenAnimationStyle.DISABLED && original;
+        return !isSplashAnimationDisabled() && original;
     }
 
     /**
      * Injection point for the splash screen animation resource selection.
      */
     public static int showSplashScreen(int i, int i2) {
-        if (Settings.SPLASH_SCREEN_ANIMATION_STYLE.get() != SplashScreenAnimationStyle.DISABLED || i != i2) {
+        if (!isSplashAnimationDisabled() || i != i2) {
             return i;
         }
         return i - 1;
@@ -491,7 +498,7 @@ public final class ThemePatch {
     public static int getLoadingScreenType(int original) {
         SplashScreenAnimationStyle style = Settings.SPLASH_SCREEN_ANIMATION_STYLE.get();
 
-        if (style == SplashScreenAnimationStyle.DISABLED) {
+        if (isSplashAnimationDisabled()) {
             return original;
         }
 
@@ -502,5 +509,10 @@ public final class ThemePatch {
         }
 
         return replacement;
+    }
+
+    /** Returns whether the selected splash animation style disables the animation completely. */
+    private static boolean isSplashAnimationDisabled() {
+        return Settings.SPLASH_SCREEN_ANIMATION_STYLE.get() == SplashScreenAnimationStyle.DISABLED;
     }
 }

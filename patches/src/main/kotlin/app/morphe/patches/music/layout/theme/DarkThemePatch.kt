@@ -74,6 +74,7 @@ import org.w3c.dom.Element
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/DrawableColorPatch;"
 private const val SPLASH_THEME_PREFIX = "morphe_theme_splash_"
+private const val SPLASH_THEME_NO_ICON_SUFFIX = "_no_icon"
 private const val SPLASH_THEME_PARENT = "@style/Theme.YouTubeMusic"
 private const val PRECOMPILED_THEME_QUALIFIER_BASE = 801
 private const val DEFAULT_DARK_THEME_COLOR = "#FF0F0F0F"
@@ -344,29 +345,42 @@ private fun ResourcePatchContext.addSplashTheme() {
             val resources = document.documentElement
 
             splashThemeColors.forEach { (themeKey, color) ->
-                val themeName = SPLASH_THEME_PREFIX + themeKey
-                (0 until resources.childNodes.length)
-                    .map { resources.childNodes.item(it) }
-                    .filterIsInstance<Element>()
-                    .filter { it.tagName == "style" && it.getAttribute("name") == themeName }
-                    .forEach(resources::removeChild)
+                listOf("" to false, SPLASH_THEME_NO_ICON_SUFFIX to true).forEach {
+                    (iconSuffix, hideSplashIcon) ->
+                    val themeName = SPLASH_THEME_PREFIX + themeKey + iconSuffix
+                    (0 until resources.childNodes.length)
+                        .map { resources.childNodes.item(it) }
+                        .filterIsInstance<Element>()
+                        .filter { it.tagName == "style" && it.getAttribute("name") == themeName }
+                        .forEach(resources::removeChild)
 
-                val style = document.createElement("style").apply {
-                    setAttribute("name", themeName)
-                    setAttribute("parent", SPLASH_THEME_PARENT)
-                }
+                    val style = document.createElement("style").apply {
+                        setAttribute("name", themeName)
+                        setAttribute("parent", SPLASH_THEME_PARENT)
+                    }
 
-                style.appendChild(document.createElement("item").apply {
-                    setAttribute("name", "android:windowBackground")
-                    textContent = color
-                })
-                if (includeSplashBackground) {
                     style.appendChild(document.createElement("item").apply {
-                        setAttribute("name", "android:windowSplashScreenBackground")
+                        setAttribute("name", "android:windowBackground")
                         textContent = color
                     })
+                    if (includeSplashBackground) {
+                        style.appendChild(document.createElement("item").apply {
+                            setAttribute("name", "android:windowSplashScreenBackground")
+                            textContent = color
+                        })
+                        if (hideSplashIcon) {
+                            style.appendChild(document.createElement("item").apply {
+                                setAttribute("name", "android:windowSplashScreenAnimatedIcon")
+                                textContent = "@android:color/transparent"
+                            })
+                            style.appendChild(document.createElement("item").apply {
+                                setAttribute("name", "android:windowSplashScreenAnimationDuration")
+                                textContent = "0"
+                            })
+                        }
+                    }
+                    resources.appendChild(style)
                 }
-                resources.appendChild(style)
             }
         }
     }
