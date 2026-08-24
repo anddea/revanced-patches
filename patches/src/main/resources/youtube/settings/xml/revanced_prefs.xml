@@ -7,6 +7,7 @@
         <!-- SETTINGS: CUSTOM_BRANDING
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/revanced_app_name_title" android:key="morphe_custom_branding_name" android:entries="@array/morphe_custom_branding_name_entries" android:entryValues="@array/morphe_custom_branding_name_entry_values" />
         <app.morphe.extension.shared.settings.preference.IconListPreference android:title="@string/morphe_custom_branding_icon_title" android:key="morphe_custom_branding_icon" android:entries="@array/morphe_custom_branding_icon_entries" android:entryValues="@array/morphe_custom_branding_icon_entry_values" />
+        <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/morphe_custom_branding_splash_animation_size_title" android:key="morphe_custom_branding_splash_animation_size" android:summary="@string/morphe_custom_branding_splash_animation_size_summary" android:inputType="number" />
         <SwitchPreference android:title="@string/morphe_custom_branding_apply_to_rvx_settings_title" android:key="morphe_custom_branding_apply_to_rvx_settings" android:summary="@string/morphe_custom_branding_apply_to_rvx_settings_summary" />SETTINGS: CUSTOM_BRANDING -->
 
         <!-- SETTINGS: RUNTIME_THEME

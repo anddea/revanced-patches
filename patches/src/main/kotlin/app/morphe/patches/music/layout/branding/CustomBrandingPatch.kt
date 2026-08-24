@@ -266,6 +266,11 @@ val customBrandingPatch = resourcePatch(
             entriesArrayKey = "morphe_custom_branding_icon_entries",
             entryValuesArrayKey = "morphe_custom_branding_icon_entry_values",
         )
+        addCustomPreference(
+            category = CategoryType.GENERAL.value,
+            key = "morphe_custom_branding_splash_animation_size",
+            tag = "app.morphe.extension.shared.settings.preference.SliderPreference",
+        )
         if (hasRvxSettingsPreference) {
             installDynamicRvxSettingsIcon("revanced_settings_icon")
             addSwitchPreference(
@@ -281,6 +286,7 @@ val customBrandingPatch = resourcePatch(
             listOf(
                 "morphe_custom_branding_name",
                 "morphe_custom_branding_icon",
+                "morphe_custom_branding_splash_animation_size",
                 "morphe_custom_branding_apply_to_rvx_settings",
             ),
         )
