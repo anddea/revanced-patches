@@ -174,6 +174,9 @@
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_light_theme_title" android:key="morphe_light_theme" android:entries="@array/morphe_light_theme_entries" android:entryValues="@array/morphe_light_theme_entry_values" />
         <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/morphe_light_theme_custom_color_title" android:key="morphe_light_theme_custom_color" android:summary="@string/morphe_dark_theme_custom_color_summary" />SETTINGS: RUNTIME_THEME -->
 
+        <!-- SETTINGS: THEME_COLOR_CHANGE_FOREGROUND
+        <SwitchPreference android:title="@string/morphe_theme_color_change_foreground_title" android:key="morphe_theme_color_change_foreground" android:summary="@string/morphe_theme_color_change_foreground_summary" />SETTINGS: THEME_COLOR_CHANGE_FOREGROUND -->
+
         <!-- SETTINGS: CHANGE_START_PAGE
         <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/revanced_change_start_page_entries" android:title="@string/revanced_change_start_page_title" android:key="revanced_change_start_page" android:entryValues="@array/revanced_change_start_page_entry_values" />
         <SwitchPreference android:title="@string/revanced_change_start_page_type_title" android:key="revanced_change_start_page_type" android:summaryOn="@string/revanced_change_start_page_type_summary_on" android:summaryOff="@string/revanced_change_start_page_type_summary_off" />SETTINGS: CHANGE_START_PAGE -->
@@ -1206,13 +1209,11 @@
                 <Preference android:title="Hide accessibility controls dialog" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide Shorts dimming" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide shortcuts" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Icon" android:summary="@string/revanced_icon_default" android:selectable="false"/>
-                <Preference android:title="MaterialYou" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Return YouTube Dislike" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Return YouTube Username" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Settings" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="SponsorBlock" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Theme" android:summary="@string/revanced_icon_default" android:selectable="false"/>
+                <Preference android:title="Theme" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Translations" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Visual preferences icons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>

@@ -85,6 +85,7 @@ import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
+import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"unused", "deprecation"})
@@ -99,6 +100,10 @@ public final class ThemePatch {
     private static final String SPLASH_THEME_LIGHT_PREFIX = "morphe_theme_splash_light_";
     private static final String SPLASH_THEME_NO_ICON_SUFFIX = "_no_icon";
     private static final int PRECOMPILED_THEME_MCC = 801;
+    private static final int RUNTIME_THEME_MCC = 802;
+    private static final int RUNTIME_THEME_CHANGE_FOREGROUND_MNC = 1;
+    private static final int RUNTIME_THEME_DARK_BACKGROUND_MNC = 2;
+    private static final int RUNTIME_THEME_LIGHT_BACKGROUND_MNC = 3;
     private static final String[] PRECOMPILED_DARK_THEME_KEYS = {
             "stock", "amoled_black", "material_you_neutral", "material_you_primary",
             "material_you_secondary", "material_you_tertiary", "modern_youtube",
@@ -111,6 +116,9 @@ public final class ThemePatch {
             "light_green", "light_yellow", "light_orange", "light_red", "pale_blue",
             "pale_green", "pale_yellow",
     };
+    /** Offset between the full, dark-background-only, and light-background-only variants. */
+    private static final int PRECOMPILED_THEME_PAIR_COUNT =
+            PRECOMPILED_DARK_THEME_KEYS.length * PRECOMPILED_LIGHT_THEME_KEYS.length;
     private static final int STOCK_DARK_THEME_MAIN_COLOR_INDEX = 5;
     private static final int[] STOCK_DARK_THEME_COLORS = {
             0xFF282828, 0xFF212121, 0xF2212121, 0xFA212121, 0xFF181818,
@@ -136,6 +144,8 @@ public final class ThemePatch {
      * so the Activity overload also selects a stable splash theme with the chosen preset color.
      */
     public static void setTheme(Context context) {
+        BaseThemeUtils.setChangeForegroundColor(Settings.THEME_COLOR_CHANGE_FOREGROUND.get());
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
             try {
                 PrecompiledResourcePalette.install(context);
@@ -154,6 +164,46 @@ public final class ThemePatch {
             RuntimeResourceOverlay.install(context, darkColors, lightColor, lightOpacity70Color);
         } catch (Exception ex) {
             Logger.printException(() -> "Failed to install runtime YouTube theme", ex);
+        }
+    }
+
+    /**
+     * Applies the selected palette to the separate Activity used by RVX settings. Runtime resource
+     * loaders belong to a Resources instance, so a settings Activity created after YouTube's main
+     * Activity must receive the loader before its theme and views are inflated.
+     */
+    public static void applyToSettingsActivity(Activity activity) {
+        if (ResourceUtils.getIdentifier(RUNTIME_LIGHT_THEME_COLOR, ResourceType.COLOR, activity) == 0) {
+            // The Theme patch was not included, so the runtime resource does not exist.
+            return;
+        }
+        setTheme((Context) activity);
+    }
+
+    /**
+     * Selects the palette for YouTube's resolved appearance. YouTube can force light or dark mode
+     * independently of Android's night configuration, so resource foregrounds must follow the
+     * host theme result instead of a {@code night} qualifier.
+     *
+     * @param value YouTube's resolved light/dark appearance enum.
+     */
+    public static void onAppThemeResolved(Enum<?> value) {
+        BaseThemeUtils.updateLightDarkModeStatus(value);
+        final boolean dark = BaseThemeUtils.isDarkModeEnabled();
+        if (Settings.THEME_LAST_USED_DARK_MODE.get() != dark) {
+            Settings.THEME_LAST_USED_DARK_MODE.save(dark);
+        }
+        Context context = Utils.getContext();
+        if (context == null) return;
+
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+                PrecompiledResourcePalette.install(context);
+            } else {
+                RuntimeResourceOverlay.select(context);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to select resolved YouTube theme", ex);
         }
     }
 
@@ -459,6 +509,16 @@ public final class ThemePatch {
         return Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get();
     }
 
+    /**
+     * Returns YouTube's appearance, falling back to the last resolved value during process start.
+     * The device mode is not authoritative because YouTube has an independent appearance setting.
+     */
+    private static boolean isDarkTheme() {
+        return BaseThemeUtils.isAppThemeResolved()
+                ? BaseThemeUtils.isDarkModeEnabled()
+                : Settings.THEME_LAST_USED_DARK_MODE.get();
+    }
+
     @SuppressLint("DiscouragedApi")
     private static int getSystemColor(Context context, String name, int fallback) {
         int identifier = Resources.getSystem().getIdentifier(name, "color", "android");
@@ -483,6 +543,10 @@ public final class ThemePatch {
             int darkIndex = indexFor(PRECOMPILED_DARK_THEME_KEYS, Settings.DARK_THEME.get());
             int lightIndex = indexFor(PRECOMPILED_LIGHT_THEME_KEYS, Settings.LIGHT_THEME.get());
             int themedMnc = darkIndex * PRECOMPILED_LIGHT_THEME_KEYS.length + lightIndex + 1;
+            if (!Settings.THEME_COLOR_CHANGE_FOREGROUND.get()) {
+                themedMnc += PRECOMPILED_THEME_PAIR_COUNT *
+                        (isDarkTheme() ? 1 : 2);
+            }
             apply(resources, themedMnc);
 
             Context applicationContext = context.getApplicationContext();
@@ -529,15 +593,17 @@ public final class ThemePatch {
                 {0x5C, 0x34, 0x12, (byte) 0xFF}, {0x5D, 0x34, 0x12, (byte) 0xFF},
                 {0x5E, 0x34, 0x12, (byte) 0xFF},
         };
-        private static final byte[] LIGHT_PLACEHOLDER = {0x21, 0x43, 0x65, (byte) 0xFF};
+        private static final byte[] LIGHT_PLACEHOLDER =
+                {0x21, 0x43, 0x65, (byte) 0xFF};
         private static final byte[] LIGHT_OPACITY70_PLACEHOLDER =
                 {0x32, 0x54, 0x76, (byte) 0xFF};
         /**
          * Gzip/Base64 resources.arsc generated with aapt2 from the stable runtime color IDs.
-         * The placeholder values are replaced before loading it.
+         * Synthetic MNC variants represent both changed palettes, the dark background only, and
+         * the light background only. The last two keep the opposite foreground palette stock.
          */
         private static final String COMPRESSED_TABLE =
-                "H4sIAGSJhWoAA+3dz0/TcBjH8adFFBQFPHkgZkYOBpKlwEBIMJKYeBV1/v5Ry2jGQrcupTPhovwBHryYeDTx4tGjRxP+Af8ETp71L8Cn2wMsQVIXPBjzfpEP3366p+vSbMemrgzJzisRR7KM6V8X3bnf3YLzRede62ZFYqlLUaq6xvo/klBbIA1ZlUT31HQtyqZutSTVrOjr/5OC01nfOAf7smsX6Xqya67UtT2gGdFcyI7XXNG4cl2mbJ22dcbWkq2zuva3r3ikSfbP5fWJjB6cXF50neuy5qZmQ/NBs635rhnUuSVNQ/NOs635qbnoitzSbGk+agqFepw010I/aTXSWj30V4Nk3U/XQt1ciYLKupc/MiUTE3kjftwMKrV0c2G2l+H5/JNP54/M5I+UpFQ6emQjDdLWhr8SJJrKejWJW43V9oBMTh59WD1Iw6QWRH41CTf9+VlPxsdzPoffbCVhL2/qeT1ML+h07tX39q7+nCfF4p983r0D5ns9YO43X66oVl1L7YhKHMXJ4U98aGTv/a564rojUl7MfpuOjA4f77cPAAAAAAAAAAAAAAAAAAAAAAAAAAAA4K9bOm4ctyyfrnXu98/uKX6/2HnhOHYBAAAAAAAAAAAAAAAAAAAAAAAAAAAA/DOye4CzZ4QXNJ7daLwsnWd7NzVbmrfSeab3Z81XzTfNjuZHdrCTPWfcbd9LPCAytlw6v5t1x/pt6671O9b7rN+1fsJ62Xq/9XvWT1q/b/2U9QfWB6w/tD5o/ZH109YfWz9j/Yn1IetPrZ+1/sz6OevPrQ9bv3QjbPcR69Pll7u/AI6KtVjgfgAA";
+                "H4sIAAAAAAAAA+3dTU9cZRgG4Hdm2kq1CpUNi8aAdkHahJzSoaVJjQ0mbq2K3x/jABMgDAwZBhNW9ge4cGNidyZuXDbxD5h068KlS1eu1aUbfAZeykwqGQmNUXJd5OGd+/CemZMTZnnnlNOF9PPNUiqlFHMpfnrEwUe5PF56EPs+j5eLqZXW01RajrUVv5upEameNtJSaseR1Vin0k682k6dmIX4+2kyXtpfvygdHuveu2as53r2VXteD8WMxIx1z4+ZjCmnV9K1vE7n9Xpeq3mdifXs3h1vxrQffVZRSeni4YenT3s+66WY12K2Yr6JeRjza8z52HcnZiPmq5iHMb/HvFBO6fWYezHfxoyPr7famyuNWnt7o7O63qgt1dtrtc5KI14uNOuLa8XgLdfSlSuDttRam/XF1c7OrZnjbJ4d/OHTg7dcH7ylmqrVo7dsdeqd7a3aQr0ds7i23G5tbyztbUhXrx592nq902iv1pu15XZjpzY7U6TLlwdcR21zu904zpsWxTF234rdA+9+cXD3bxRpauqfXO/BCbPHPeHG3/xzNVeXVzr5jMVWs9V+/Iof23LwfjeLVC6PpPnb3e/mmXRx+GTffQAAAAAAAAAAAAAAAAAA4MmqpHTnpFMqz6fvXt7v+3c7xV/fjoMnvK5dAAAAAAAAAAAAAAAAAADgP6PbAe4+I3w8pkj7feK7af/Z3psx92K+TPvP9H4Q80PMTzG/xPzWPbnUfc54ea9LPJTSpbvV53e7uZTzGzmXc34z50rOb+V8Juf5nM/m/HbO53J+J+encn4356Gc38v5fM7v5/x0zh/k/EzOH+Z8IeePcn42549zfi7nT3Ieznni1cZeHsl5ev6z3aN62i9Weh7erqcNAAAAAAAAAAAAAAAAAAD/W3ra/2ZPu6ynDQAAAAAAAAAAAAAAAAAAp4Ce9sl62t172NvTjvj90T3tip42AAAAAAAAAAAAAAAAAACcAk+6pz05OdnX056YmOjraUf+o7enHfnP3p722NhYX097eHi4r6ddqVT6etqjo6N9Pe2iKPp62t2Kc29Pe25urq+nfXB9Fw6v/35vTzuWH3t72rHcH/Q87b8A8KKu29g3AQA=";
 
         private static ResourcesLoader loader;
 
@@ -569,12 +635,46 @@ public final class ThemePatch {
                 loader.addProvider(provider);
             }
 
+            applySelection(context);
             Resources contextResources = context.getResources();
             contextResources.addLoaders(loader);
             Context applicationContext = context.getApplicationContext();
             if (applicationContext != null && applicationContext.getResources() != contextResources) {
                 applicationContext.getResources().addLoaders(loader);
             }
+            BaseThemeUtils.setThemeColor();
+        }
+
+        /** Selects a table configuration after YouTube reports its own forced appearance. */
+        static synchronized void select(Context context) {
+            applySelection(context);
+            if (loader != null) {
+                BaseThemeUtils.setThemeColor();
+            }
+        }
+
+        private static void applySelection(Context context) {
+            int themedMnc = Settings.THEME_COLOR_CHANGE_FOREGROUND.get()
+                    ? RUNTIME_THEME_CHANGE_FOREGROUND_MNC
+                    : isDarkTheme()
+                            ? RUNTIME_THEME_DARK_BACKGROUND_MNC
+                            : RUNTIME_THEME_LIGHT_BACKGROUND_MNC;
+            Resources contextResources = context.getResources();
+            apply(contextResources, themedMnc);
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null && applicationContext.getResources() != contextResources) {
+                apply(applicationContext.getResources(), themedMnc);
+            }
+        }
+
+        private static void apply(Resources resources, int themedMnc) {
+            Configuration current = resources.getConfiguration();
+            if (current.mcc == RUNTIME_THEME_MCC && current.mnc == themedMnc) return;
+
+            Configuration themed = new Configuration(current);
+            themed.mcc = RUNTIME_THEME_MCC;
+            themed.mnc = themedMnc;
+            resources.updateConfiguration(themed, resources.getDisplayMetrics());
         }
 
         private static byte[] inflateTable() throws IOException {
@@ -592,6 +692,7 @@ public final class ThemePatch {
 
         private static void replacePlaceholderColor(byte[] table, byte[] placeholder, int color)
                 throws IOException {
+            boolean found = false;
             for (int i = 0; i <= table.length - placeholder.length; i++) {
                 if (table[i] == placeholder[0]
                         && table[i + 1] == placeholder[1]
@@ -601,10 +702,13 @@ public final class ThemePatch {
                     table[i + 1] = (byte) (color >>> 8);
                     table[i + 2] = (byte) (color >>> 16);
                     table[i + 3] = (byte) (color >>> 24);
-                    return;
+                    found = true;
+                    i += placeholder.length - 1;
                 }
             }
-            throw new IOException("Runtime theme placeholder not found");
+            if (!found) {
+                throw new IOException("Runtime theme placeholder not found");
+            }
         }
 
     }

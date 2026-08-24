@@ -45,6 +45,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.youtube.patches.theme.ThemePatch;
+import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class DrawableColorPatch {
@@ -59,17 +60,37 @@ public class DrawableColorPatch {
     private static final int[] LIGHT_COLORS = {
             -1,         // comments chip background
             0xFFF9F9F9, // music related results panel background
+            0xFFF1F1F1, // direct Elements foreground (for example, Shorts Captions)
             0xFAFFFFFF, // video chapters list background
     };
 
+    /**
+     * Recolors the palette used as the current background. The opposite palette is recolored only
+     * when foreground theming is enabled because direct Litho colors have no resource qualifier.
+     */
     public static int getLithoColor(int colorValue) {
         if (ArrayUtils.contains(DARK_COLORS, colorValue)) {
+            if (!Settings.THEME_COLOR_CHANGE_FOREGROUND.get()
+                    && !BaseThemeUtils.isDarkModeEnabled()) return colorValue;
             // Stock keeps YouTube's distinct dark shades instead of flattening them to one color.
             if (ThemePatch.isStockDarkTheme()) return colorValue;
             return BaseThemeUtils.getThemeDarkColor();
         } else if (ArrayUtils.contains(LIGHT_COLORS, colorValue)) {
+            if (!Settings.THEME_COLOR_CHANGE_FOREGROUND.get()
+                    && BaseThemeUtils.isDarkModeEnabled()) return colorValue;
             return BaseThemeUtils.getThemeLightColor();
         }
         return colorValue;
+    }
+
+    /**
+     * Applies the selected theme color only to known Elements foreground text. General Litho
+     * colors still use {@link #getLithoColor(int)} because their foreground/background role is
+     * unknown at that shared hook.
+     */
+    public static int getElementsTextColor(int colorValue) {
+        return Settings.THEME_COLOR_CHANGE_FOREGROUND.get()
+                ? getLithoColor(colorValue)
+                : colorValue;
     }
 }
