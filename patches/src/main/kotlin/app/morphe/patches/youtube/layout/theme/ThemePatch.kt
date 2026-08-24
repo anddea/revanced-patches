@@ -96,6 +96,14 @@ private const val DEFAULT_LIGHT_THEME_COLOR = "#FFFFFFFF"
 private const val NAVIGATION_CONTENT_COUNT_METHOD = "getContentCountId"
 private const val NAVIGATION_CONTENT_DOT_METHOD = "getContentDotId"
 
+/** Neutral colors shared by player scrims and the player-status ambient layer. */
+private val stockPlayerColorNames = setOf(
+    "yt_black_pure",
+    "yt_black_pure_opacity80",
+    "yt_black_pure_opacity60",
+    "yt_white1_opacity70",
+)
+
 private fun MutableMethod.addNewContentIndicatorHook(checkCastIndex: Int) {
     val stubRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
     addInstruction(
@@ -343,8 +351,13 @@ val themePatch = resourcePatch(
                 .map { it.getAttribute("name") }
                 .toSet()
         }
-        val precompiledDarkThemeResources = stockDarkThemeColors
-            .filterKeys(existingColorResourceNames::contains)
+
+        // Keep YouTube's neutral player colors stock globally. The status-bar fallback shares the
+        // translucent entries, so its selected RGB is applied only at the bytecode fingerprint.
+        val precompiledDarkThemeResources = stockDarkThemeColors.filterKeys { name ->
+            name !in stockPlayerColorNames && name in existingColorResourceNames
+        }
+
         val precompiledLightThemeResources = setOf(
             "yt_white1",
             "yt_white1_opacity95",
@@ -355,9 +368,6 @@ val themePatch = resourcePatch(
             "material_grey_50",
             "material_grey_100",
         ).filter(existingColorResourceNames::contains)
-        val precompiledLightThemeOpacity70Resource =
-            "yt_white1_opacity70".takeIf(existingColorResourceNames::contains)
-
         // Android 8–10 have no public ResourcesLoader API. Precompile every dark/light pair under
         // one synthetic MCC and a pair-specific MNC, then select concrete resources before
         // inflation. Keeping the MCC synthetic prevents these variants from matching real mobile
@@ -398,12 +408,6 @@ val themePatch = resourcePatch(
                         resourcesNode.appendChild(document.createElement("color").apply {
                             setAttribute("name", name)
                             textContent = selectedLightColor
-                        })
-                    }
-                    precompiledLightThemeOpacity70Resource?.let { name ->
-                        resourcesNode.appendChild(document.createElement("color").apply {
-                            setAttribute("name", name)
-                            textContent = lightThemeColorWithOpacity70(selectedLightColor)
                         })
                     }
                 }
@@ -455,6 +459,8 @@ val themePatch = resourcePatch(
                     val node = childNodes.item(i) as? Element ?: continue
 
                     node.textContent = when (node.getAttribute("name")) {
+                        in stockPlayerColorNames -> continue
+
                         in runtimeDarkThemeResources ->
                             "@color/${runtimeDarkThemeResources.getValue(node.getAttribute("name"))}"
 
@@ -462,9 +468,6 @@ val themePatch = resourcePatch(
                         "yt_white2", "yt_white3", "yt_white4",
                         "material_grey_50", "material_grey_100" ->
                             "@color/$RUNTIME_LIGHT_THEME_COLOR"
-
-                        "yt_white1_opacity70" ->
-                            "@color/$RUNTIME_LIGHT_THEME_COLOR_OPACITY70"
 
                         else -> continue
                     }

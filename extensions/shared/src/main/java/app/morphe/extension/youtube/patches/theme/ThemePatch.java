@@ -299,12 +299,19 @@ public final class ThemePatch {
     }
 
     /**
-     * Applies the translucent-status-bar setting only to YouTube's status-bar color result.
-     * Shared overlay resources retain their original alpha so player controls remain translucent.
+     * Applies the selected theme only to YouTube's status-bar fallback. The shared translucent
+     * resources remain stock because the player also uses them while controls are visible.
      */
     public static int getStatusBarColor(int color) {
-        if (!isDisableTranslucentStatusBar()) return color;
-        return Color.argb(0xFF, Color.red(color), Color.green(color), Color.blue(color));
+        int selectedColor = BaseThemeUtils.isDarkModeEnabled() && isStockDarkTheme()
+                ? color
+                : BaseThemeUtils.getAppBackgroundColor();
+        return Color.argb(
+                isDisableTranslucentStatusBar() ? 0xFF : Color.alpha(color),
+                Color.red(selectedColor),
+                Color.green(selectedColor),
+                Color.blue(selectedColor)
+        );
     }
 
     /**
