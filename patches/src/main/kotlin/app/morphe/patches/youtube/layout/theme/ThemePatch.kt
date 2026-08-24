@@ -38,26 +38,43 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/2524
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.layout.theme
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
+import app.morphe.patches.shared.mapping.resourceMappingPatch
+import app.morphe.patches.youtube.general.navigation.PivotBarBuilderFingerprint
 import app.morphe.patches.youtube.general.splashanimation.splashScreenAnimationBytecodePatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PATCHES_PATH
 import app.morphe.patches.youtube.utils.extension.hooks.applicationInitHook
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
-import app.morphe.patches.youtube.utils.patch.PatchList.MATERIALYOU
 import app.morphe.patches.youtube.utils.patch.PatchList.THEME
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusTheme
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 
@@ -76,6 +93,17 @@ private const val SPLASH_THEME_NO_ICON_SUFFIX = "_no_icon"
 private const val SPLASH_THEME_PARENT = "@style/Theme.YouTube.Home"
 private const val PRECOMPILED_THEME_MCC = 801
 private const val DEFAULT_LIGHT_THEME_COLOR = "#FFFFFFFF"
+private const val NAVIGATION_CONTENT_COUNT_METHOD = "getContentCountId"
+private const val NAVIGATION_CONTENT_DOT_METHOD = "getContentDotId"
+
+private fun MutableMethod.addNewContentIndicatorHook(checkCastIndex: Int) {
+    val stubRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+    addInstruction(
+        checkCastIndex + 1,
+        "invoke-static { v$stubRegister }, $THEME_EXTENSION_CLASS_DESCRIPTOR" +
+                "->onNewContentIndicator(Landroid/view/ViewStub;)V",
+    )
+}
 
 private val stockDarkThemeColors = linkedMapOf(
     "yt_black0" to "#FF282828",
@@ -235,6 +263,62 @@ private val runtimeThemeBytecodePatch = bytecodePatch(
     }
 }
 
+/** Hooks the pivot-bar and notification-button indicators so Material You can keep their color. */
+val newContentIndicatorBytecodePatch = bytecodePatch(
+    description = "newContentIndicatorBytecodePatch",
+) {
+    dependsOn(settingsPatch, resourceMappingPatch)
+
+    execute {
+        // The pivot bar has a stub for both the dot and the count next to it.
+        PivotBarNewContentDotFingerprint.matchOrNull()?.let {
+            // Hook the count first so the earlier dot match remains valid.
+            it.method.addNewContentIndicatorHook(it.instructionMatches.last().index)
+            it.method.addNewContentIndicatorHook(it.instructionMatches[2].index)
+        } ?: PivotBarBuilderFingerprint.matchOrNull()?.method?.let { method ->
+            // NavigationBarComponentsPatch replaces these findViewById calls with extension
+            // methods before this patch runs. In that form the original fingerprint cannot match,
+            // but the returned ViewStub and its cast remain unchanged.
+            val checkCastIndices = method.implementation?.instructions
+                ?.mapIndexedNotNull { index, instruction ->
+                    val reference = instruction.getReference<MethodReference>()
+                    if (instruction.opcode == Opcode.INVOKE_STATIC &&
+                        reference?.name in setOf(
+                            NAVIGATION_CONTENT_COUNT_METHOD,
+                            NAVIGATION_CONTENT_DOT_METHOD,
+                        )
+                    ) {
+                        method.indexOfFirstInstructionOrThrow(index, Opcode.CHECK_CAST)
+                    } else {
+                        null
+                    }
+                }
+                ?.distinct()
+                ?.sortedDescending()
+                ?: emptyList()
+
+            if (checkCastIndices.size < 2) {
+                throw PatchException("Could not find both pivot bar new content indicators")
+            }
+
+            checkCastIndices.forEach(method::addNewContentIndicatorHook)
+        } ?: throw PatchException("Could not find the pivot bar new content indicators")
+
+        // The notification button of the top bar has a separate pair of indicators.
+        TopBarNewContentCountFingerprint.let {
+            it.method.apply {
+                // Hook the dot first so the count match remains valid after insertion.
+                arrayOf(
+                    it.instructionMatches.last().index,
+                    it.instructionMatches[2].index,
+                ).forEach { checkCastIndex ->
+                    addNewContentIndicatorHook(checkCastIndex)
+                }
+            }
+        }
+    }
+}
+
 @Suppress("unused")
 val themePatch = resourcePatch(
     THEME.title,
@@ -247,6 +331,7 @@ val themePatch = resourcePatch(
         settingsPatch,
         splashScreenAnimationBytecodePatch,
         runtimeThemeBytecodePatch,
+        newContentIndicatorBytecodePatch,
     )
 
     execute {
@@ -389,12 +474,7 @@ val themePatch = resourcePatch(
 
         addSplashThemes()
 
-        val currentTheme = if (MATERIALYOU.included == true)
-            "MaterialYou + Stock"
-        else
-            "Stock"
-
-        updatePatchStatusTheme(currentTheme)
+        updatePatchStatusTheme("Stock + MaterialYou")
 
         addPreference(
             arrayOf(
