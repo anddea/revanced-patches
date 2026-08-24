@@ -812,27 +812,37 @@ private fun ResourcePatchContext.copyAnimatedVectorSplash(
  *
  * Launcher aliases inherit the target activity theme, so the wrapper must be installed on the
  * target activity rather than on each alias. The original theme remains the parent to preserve all
- * app- and version-specific window attributes.
+ * app- and version-specific window attributes. Android ignores {@code windowDisablePreview} for
+ * launches from system surfaces on recent versions, but it does not create a starting window for a
+ * translucent activity. The wrapper never draws UI and finishes in {@code onCreate}, so making its
+ * window transparent removes the system splash without exposing an intermediate screen.
  */
 private fun ResourcePatchContext.addSplashlessLauncherStyle(parent: String) {
     ensureValuesFile("values", "styles.xml")
     ensureValuesFile("values-v31", "styles.xml")
 
+    fun addWindowItems(style: Element) {
+        arrayOf(
+            "android:windowDisablePreview" to "true",
+            "android:windowIsTranslucent" to "true",
+            "android:windowBackground" to "@android:color/transparent",
+            "android:windowAnimationStyle" to "@null",
+            "android:backgroundDimEnabled" to "false",
+        ).forEach { (name, value) ->
+            style.appendChild(style.ownerDocument.createElement("item").also {
+                it.setAttribute("name", name)
+                it.textContent = value
+            })
+        }
+    }
+
     document("res/values/styles.xml").use { document ->
-        addStyle(document.documentElement, SPLASHLESS_LAUNCHER_STYLE, parent).appendChild(
-            document.createElement("item").also {
-                it.setAttribute("name", "android:windowDisablePreview")
-                it.textContent = "true"
-            },
-        )
+        addWindowItems(addStyle(document.documentElement, SPLASHLESS_LAUNCHER_STYLE, parent))
     }
 
     document("res/values-v31/styles.xml").use { document ->
         val style = addStyle(document.documentElement, SPLASHLESS_LAUNCHER_STYLE, parent)
-        style.appendChild(document.createElement("item").also {
-            it.setAttribute("name", "android:windowDisablePreview")
-            it.textContent = "true"
-        })
+        addWindowItems(style)
         style.appendChild(document.createElement("item").also {
             it.setAttribute("name", "android:windowSplashScreenAnimatedIcon")
             it.textContent = "@android:color/transparent"
