@@ -546,10 +546,15 @@ private fun ResourcePatchContext.addSplashThemes() {
                         if (includeSplashBackground) {
                             addItem("android:windowSplashScreenBackground")
                             if (hideSplashIcon) {
-                                addItem(
+                                // Clear all artwork layers so the persisted no-icon theme cannot
+                                // briefly reveal stock branding on OEM splash implementations.
+                                arrayOf(
                                     "android:windowSplashScreenAnimatedIcon",
-                                    "@android:color/transparent",
-                                )
+                                    "android:windowSplashScreenBrandingImage",
+                                    "android:windowSplashScreenIconBackgroundColor",
+                                ).forEach { attribute ->
+                                    addItem(attribute, "@android:color/transparent")
+                                }
                                 addItem("android:windowSplashScreenAnimationDuration", "0")
                             }
                         }

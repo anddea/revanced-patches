@@ -121,13 +121,13 @@ public final class ThemePatch {
     private static final int STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX = 7;
 
     /**
-     * Applies both palettes before YouTube inflates its first layout and selects the starting
-     * window theme before the original Activity implementation runs. Android 8–10 select
+     * Applies both palettes before YouTube inflates its first layout, then persists the next
+     * starting-window theme after the host reports its forced appearance. Android 8–10 select
      * precompiled resource configurations, while Android 11+ replaces the stable resources.
      */
     public static void setTheme(Activity activity) {
         setTheme((Context) activity);
-        applySplashScreenTheme(activity);
+        persistSplashScreenThemeWhenResolved(activity);
     }
 
     /**
@@ -163,10 +163,31 @@ public final class ThemePatch {
      * the runtime resource overlay exists. The API 31 reference is isolated so this class remains
      * loadable on older Android versions.
      */
-    private static void applySplashScreenTheme(Activity activity) {
+    private static void persistSplashScreenThemeWhenResolved(Activity activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             return;
         }
+
+        // Android draws the current starting window before the process begins. Persist the next
+        // one only after YouTube reports its forced appearance, which may differ from device mode.
+        View decor = activity.getWindow().getDecorView();
+        decor.post(new Runnable() {
+            private int remainingFrames = 120;
+
+            @Override
+            public void run() {
+                if (activity.isFinishing() || activity.isDestroyed()) return;
+                if (BaseThemeUtils.isAppThemeResolved()) {
+                    applySplashScreenTheme(activity);
+                } else if (--remainingFrames > 0) {
+                    decor.postOnAnimation(this);
+                }
+            }
+        });
+    }
+
+    private static void applySplashScreenTheme(Activity activity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return;
 
         try {
             final boolean dark = BaseThemeUtils.isDarkModeEnabled();

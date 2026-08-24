@@ -260,7 +260,8 @@ public class SeekbarThumbnailPreviewPatch {
         heatMapPeakPoint.setSingleLine(true);
         heatMapPeakPoint.setEllipsize(TextUtils.TruncateAt.END);
         heatMapPeakPoint.setHorizontallyScrolling(false);
-        heatMapPeakPoint.setPadding(0, Utils.dipToPixels(4), 0, Utils.dipToPixels(4));
+        heatMapPeakPoint.setIncludeFontPadding(false);
+        heatMapPeakPoint.setPadding(0, Utils.dipToPixels(2), 0, Utils.dipToPixels(2));
         heatMapPeakPoint.setClipToOutline(true);
         heatMapPeakPoint.setLayoutParams(params);
 

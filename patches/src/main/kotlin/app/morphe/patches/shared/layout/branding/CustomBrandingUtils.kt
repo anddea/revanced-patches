@@ -66,41 +66,51 @@ import org.w3c.dom.Element
 import java.io.File
 import java.util.ArrayDeque
 
+// region generated resource contract
+
 internal const val CUSTOM_BRANDING_EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/morphe/extension/shared/patches/CustomBrandingPatch;"
 internal const val SPLASHLESS_LAUNCHER_ACTIVITY_CLASS_NAME =
     $$"app.morphe.extension.shared.patches.CustomBrandingPatch$SplashlessLauncherActivity"
 
-private const val ADAPTIVE_BACKGROUND_PREFIX = "morphe_adaptive_background_"
-private const val ADAPTIVE_FOREGROUND_PREFIX = "morphe_adaptive_foreground_"
-private const val ADAPTIVE_MONOCHROME_PREFIX = "morphe_adaptive_monochrome_"
-private const val LAUNCHER_PREFIX = "morphe_launcher_"
-private const val NOTIFICATION_ICON_PREFIX = "morphe_notification_icon_"
-private const val RVX_SETTINGS_ICON_PREFIX = "morphe_rvx_settings_icon_"
-private const val HEADER_PREFIX = "morphe_custom_branding_header_"
-private const val SPLASH_PREFIX = "morphe_custom_branding_splash_"
-private const val SPLASHLESS_LAUNCHER_STYLE = "morphe_custom_branding_splashless_launcher"
-private const val ORIGINAL_APP_NAME_RESOURCE = "morphe_custom_branding_original_app_name"
-private const val CUSTOM_APP_NAME_RESOURCE = "morphe_custom_branding_name_custom"
-private const val DEFAULT_ICON_RESOURCE = "morphe_custom_branding_default_icon"
-private const val DEFAULT_NAME_INDEX_RESOURCE = "morphe_custom_branding_default_name_index"
-private const val MAIN_ACTIVITY_RESOURCE = "morphe_custom_branding_main_activity"
-private const val ORIGINAL_LAUNCHER_RESOURCE = "morphe_custom_branding_original_launcher"
+private const val GENERATED_RESOURCE_PREFIX = "morphe_"
+private const val CUSTOM_BRANDING_RESOURCE_PREFIX = "${GENERATED_RESOURCE_PREFIX}custom_branding_"
 private const val CUSTOM_ICON_KEY = "custom"
 private const val CUSTOM_ICON_LABEL = "Custom"
-private val customAdaptiveFileNames = arrayOf(
-    "${ADAPTIVE_BACKGROUND_PREFIX}${CUSTOM_ICON_KEY}.png",
-    "${ADAPTIVE_FOREGROUND_PREFIX}${CUSTOM_ICON_KEY}.png",
-)
-private const val CUSTOM_LAUNCHER_FILE_NAME = "${LAUNCHER_PREFIX}${CUSTOM_ICON_KEY}.png"
-private const val CUSTOM_MONOCHROME_RESOURCE_NAME =
-    "${ADAPTIVE_MONOCHROME_PREFIX}${CUSTOM_ICON_KEY}"
-private const val CUSTOM_MONOCHROME_FILE_NAME =
-    "$CUSTOM_MONOCHROME_RESOURCE_NAME.xml"
-private const val CUSTOM_NOTIFICATION_ICON_FILE_NAME =
-    "${NOTIFICATION_ICON_PREFIX}${CUSTOM_ICON_KEY}.xml"
-private const val CUSTOM_RVX_SETTINGS_ICON_FILE_NAME =
-    "${RVX_SETTINGS_ICON_PREFIX}${CUSTOM_ICON_KEY}.xml"
+
+/** Stable icon resource roles shared with the runtime extension. */
+private enum class IconResource(private val role: String) {
+    ADAPTIVE_BACKGROUND("adaptive_background"),
+    ADAPTIVE_FOREGROUND("adaptive_foreground"),
+    ADAPTIVE_MONOCHROME("adaptive_monochrome"),
+    LAUNCHER("launcher"),
+    NOTIFICATION("notification_icon"),
+    RVX_SETTINGS("rvx_settings_icon"),
+    HEADER("custom_branding_header"),
+    SPLASH("custom_branding_splash");
+
+    fun named(iconKey: String) = "$GENERATED_RESOURCE_PREFIX${role}_$iconKey"
+}
+
+/** Fixed generated resources read by name from the runtime extension or Android manifest. */
+private enum class BrandingResource(key: String) {
+    SPLASHLESS_LAUNCHER_STYLE("splashless_launcher"),
+    ORIGINAL_APP_NAME("original_app_name"),
+    CUSTOM_APP_NAME("name_custom"),
+    DEFAULT_ICON("default_icon"),
+    DEFAULT_NAME_INDEX("default_name_index"),
+    MAIN_ACTIVITY("main_activity"),
+    ORIGINAL_LAUNCHER("original_launcher");
+
+    val resourceName = "$CUSTOM_BRANDING_RESOURCE_PREFIX$key"
+}
+
+// endregion
+
+// region custom resource formats
+
+private val customIconFileExtensions = arrayOf("xml", "png")
+private val customIconNamePrefixes = setOf("morphe", "revanced", "rvx")
 private val unsupportedAaptInterpolator = Regex(
     """<aapt:attr\s+name="android:interpolator"[^>]*>.*?</aapt:attr>""",
     setOf(RegexOption.DOT_MATCHES_ALL),
@@ -115,6 +125,10 @@ private val mipmapDirectories = arrayOf(
 )
 private val drawableDirectories = mipmapDirectories.map { "drawable-$it" }
 
+// endregion
+
+// region models and options
+
 /**
  * A launcher icon that can be exposed by the in-app selector.
  *
@@ -122,8 +136,8 @@ private val drawableDirectories = mipmapDirectories.map { "drawable-$it" }
  * launcher, while themed entries are copied to stable resource names at patch time.
  *
  * [hasLauncherResource] is separate from [hasAdaptiveLayers] because a partial custom folder can
- * provide only legacy density-specific launcher images. Those images remain usable even when the
- * adaptive background or foreground is missing.
+ * provide a standalone XML or density-specific PNG launcher. That resource remains usable even
+ * when the adaptive background or foreground is missing.
  */
 internal data class BrandingIcon(
     val key: String,
@@ -224,8 +238,15 @@ internal val customBrandingIconOptionDescription = """
 
     Every resource is optional. Original app resource names and generated '*_custom' names are
     both accepted. Missing files keep the stock or bundled resource for that part of the branding.
-    A complete 'drawable/avd_anim.xml' splash takes priority over static splash images.
+    Icon resources accept XML or PNG files. Leading 'morphe', 'revanced', and 'rvx' prefixes may
+    appear in any order, and a trailing '_custom' is optional. A launcher icon is also used for the
+    RVX settings entry when no dedicated settings icon is present. A complete
+    'drawable/avd_anim.xml' splash takes priority over static splash images.
 """.trimIndent()
+
+// endregion
+
+// region branding application
 
 /**
  * Applies the common runtime branding resources and manifest aliases.
@@ -273,11 +294,17 @@ internal fun ResourcePatchContext.applyCustomBranding(
     var launcherTheme: String? = null
     document("AndroidManifest.xml").use { document ->
         val application = document.getElementsByTagName("application").item(0) as Element
-        application.setAttribute("android:label", "@string/$CUSTOM_APP_NAME_RESOURCE")
+        application.setAttribute(
+            "android:label",
+            "@string/${BrandingResource.CUSTOM_APP_NAME.resourceName}",
+        )
         if (customIcon?.hasLauncherResource == true) {
             // The application icon is not runtime-selectable and is used by Android settings,
             // installers, and some device-specific notification surfaces.
-            application.setAttribute("android:icon", "@mipmap/$LAUNCHER_PREFIX$CUSTOM_ICON_KEY")
+            application.setAttribute(
+                "android:icon",
+                "@mipmap/${IconResource.LAUNCHER.named(CUSTOM_ICON_KEY)}",
+            )
         }
 
         val source = document.childNodes.findElementByAttributeValueOrThrow(
@@ -298,7 +325,10 @@ internal fun ResourcePatchContext.applyCustomBranding(
         // prevents its forwarded MainActivity intent from opening in the current launcher task.
         val splashlessActivity = document.createElement("activity")
         splashlessActivity.setAttribute("android:name", SPLASHLESS_LAUNCHER_ACTIVITY_CLASS_NAME)
-        splashlessActivity.setAttribute("android:theme", "@style/$SPLASHLESS_LAUNCHER_STYLE")
+        splashlessActivity.setAttribute(
+            "android:theme",
+            "@style/${BrandingResource.SPLASHLESS_LAUNCHER_STYLE.resourceName}",
+        )
         splashlessActivity.setAttribute("android:exported", "false")
         splashlessActivity.setAttribute("android:noHistory", "true")
         application.appendChild(splashlessActivity)
@@ -372,11 +402,15 @@ internal fun ResourcePatchContext.applyCustomBranding(
     return hasRvxSettingsPreference
 }
 
+// endregion
+
+// region custom folder resources
+
 /**
  * Copies every recognized resource from a user-provided custom branding folder.
  *
  * Resource folders may appear anywhere below the selected path. Each file is independent: missing
- * adaptive layers fall back to legacy custom launcher images or the stock launcher, while missing
+ * adaptive layers fall back to a custom launcher drawable or the stock launcher, while missing
  * headers, splash images, notification icons, and settings icons use their runtime fallbacks.
  * Returning null only hides the custom selector entry when the folder contains no recognized file.
  */
@@ -416,9 +450,66 @@ private fun ResourcePatchContext.copyCustomIcon(
         return source
     }
 
+    fun iconKeys(vararg resourceNames: String) =
+        resourceNames.mapTo(mutableSetOf(), ::normalizedCustomIconKey)
+
+    fun findIconSource(
+        directory: String,
+        preferredResourceNames: List<String>,
+        acceptedKeys: Set<String>,
+    ): File? {
+        val files = filesByResourceDirectory[directory] ?: return null
+        preferredResourceNames.forEach { resourceName ->
+            customIconFileExtensions.forEach { extension ->
+                files.firstOrNull {
+                    it.name.equals("$resourceName.$extension", ignoreCase = true)
+                }?.let { return it }
+            }
+        }
+        acceptedKeys.forEach { key ->
+            customIconFileExtensions.forEach { extension ->
+                files.firstOrNull { source ->
+                    source.extension.equals(extension, ignoreCase = true) &&
+                        normalizedCustomIconKey(source.nameWithoutExtension) == key
+                }?.let { return it }
+            }
+        }
+        return null
+    }
+
+    fun copyIconSource(source: File, directory: String, targetResourceName: String): File {
+        val sourceExtension = source.extension.lowercase()
+        val targetDirectory = resourceDirectory.resolve(directory).also(File::mkdirs)
+        customIconFileExtensions.forEach { extension ->
+            if (extension != sourceExtension) {
+                targetDirectory.resolve("$targetResourceName.$extension").delete()
+            }
+        }
+        FilesCompat.copy(source, targetDirectory.resolve("$targetResourceName.$sourceExtension"))
+        return source
+    }
+
+    fun copyIconResource(
+        directory: String,
+        targetResourceName: String,
+        preferredResourceNames: List<String>,
+        acceptedKeys: Set<String>,
+    ): File? {
+        val source = findIconSource(directory, preferredResourceNames, acceptedKeys) ?: return null
+        return copyIconSource(source, directory, targetResourceName)
+    }
+
+    val customAdaptiveBackground = IconResource.ADAPTIVE_BACKGROUND.named(CUSTOM_ICON_KEY)
+    val customAdaptiveForeground = IconResource.ADAPTIVE_FOREGROUND.named(CUSTOM_ICON_KEY)
+    val customLauncher = IconResource.LAUNCHER.named(CUSTOM_ICON_KEY)
+    val customMonochrome = IconResource.ADAPTIVE_MONOCHROME.named(CUSTOM_ICON_KEY)
+    val customNotification = IconResource.NOTIFICATION.named(CUSTOM_ICON_KEY)
+    val customRvxSettings = IconResource.RVX_SETTINGS.named(CUSTOM_ICON_KEY)
+    val customSplash = IconResource.SPLASH.named(CUSTOM_ICON_KEY)
+
     val customDrawableFiles = filesByResourceDirectory["drawable"].orEmpty()
     val animatedSplash = customDrawableFiles.firstOrNull {
-        it.name == "${SPLASH_PREFIX}${CUSTOM_ICON_KEY}.xml"
+        it.name == "$customSplash.xml"
     } ?: customDrawableFiles.firstOrNull { it.name == "avd_anim.xml" }
     val copiedAnimatedSplash = animatedSplash != null &&
         copyCustomAnimatedVectorSplash(animatedSplash, customDrawableFiles)
@@ -426,70 +517,106 @@ private fun ResourcePatchContext.copyCustomIcon(
     var copiedAny = copiedAnimatedSplash
     var copiedAdaptiveBackground = false
     var copiedAdaptiveForeground = false
-    var copiedLegacyLauncher = false
+    var copiedLauncher = false
+    val launcherSources = mutableListOf<Pair<String, File>>()
+    val adaptiveBackgroundKeys = iconKeys(
+        customAdaptiveBackground,
+        config.adaptiveBackgroundFileName,
+    ).apply {
+        addAll(listOf("adaptive_background", "adaptive_icon_background"))
+    }
+    val adaptiveForegroundKeys = iconKeys(
+        customAdaptiveForeground,
+        config.adaptiveForegroundFileName,
+    ).apply {
+        addAll(listOf("adaptive_foreground", "adaptive_icon_foreground"))
+    }
+    val launcherKeys = iconKeys(
+        customLauncher,
+        config.originalLauncherIconName,
+    ).apply {
+        addAll(listOf("app_icon", "ic_launcher", "ic_launcher_release", "launcher_icon"))
+    }
     val mipmapResourceDirectories = filesByResourceDirectory.keys.filter {
         it == "mipmap" || it.startsWith("mipmap-")
-    }
+    }.sorted()
     mipmapResourceDirectories.forEach { directory ->
-        copiedAdaptiveBackground = copyResource(
+        copiedAdaptiveBackground = copyIconResource(
             directory,
-            customAdaptiveFileNames[0],
-            "${config.adaptiveBackgroundFileName}.png",
+            customAdaptiveBackground,
+            listOf(customAdaptiveBackground, config.adaptiveBackgroundFileName),
+            adaptiveBackgroundKeys,
         ) != null || copiedAdaptiveBackground
-        copiedAdaptiveForeground = copyResource(
+        copiedAdaptiveForeground = copyIconResource(
             directory,
-            customAdaptiveFileNames[1],
-            "${config.adaptiveForegroundFileName}.png",
+            customAdaptiveForeground,
+            listOf(customAdaptiveForeground, config.adaptiveForegroundFileName),
+            adaptiveForegroundKeys,
         ) != null || copiedAdaptiveForeground
-        if (!directory.startsWith("mipmap-anydpi")) {
-            copiedLegacyLauncher = copyResource(
-                directory,
-                CUSTOM_LAUNCHER_FILE_NAME,
-                "${config.originalLauncherIconName}.png",
-            ) != null || copiedLegacyLauncher
+        copyIconResource(
+            directory,
+            customLauncher,
+            listOf(customLauncher, config.originalLauncherIconName),
+            launcherKeys,
+        )?.let { source ->
+            copiedLauncher = true
+            launcherSources += directory to source
         }
     }
     copiedAny = copiedAny || copiedAdaptiveBackground || copiedAdaptiveForeground ||
-        copiedLegacyLauncher
+        copiedLauncher
 
     var hasMonochrome = false
     var copiedNotification = false
+    var copiedSettingsIcon = false
     val monochromeSources = mutableListOf<Pair<String, File>>()
+    val monochromeKeys = iconKeys(
+        customMonochrome,
+        config.monochromeFileName,
+    ).apply {
+        addAll(listOf("adaptive_icon_monochrome", "adaptive_monochrome", "monochrome_icon"))
+    }
+    val notificationKeys = iconKeys(customNotification).apply {
+        addAll(listOf("notification", "notification_icon"))
+    }
+    val settingsKeys = iconKeys(
+        customRvxSettings,
+        config.settingsIconFileName,
+    ).apply {
+        addAll(listOf("settings", "settings_icon", "settings_key", "settings_key_icon"))
+    }
     val drawableResourceDirectories = filesByResourceDirectory.keys.filter {
         it == "drawable" || it.startsWith("drawable-")
-    }
+    }.sorted()
     drawableResourceDirectories.forEach { directory ->
-        copyResource(
+        copyIconResource(
             directory,
-            CUSTOM_MONOCHROME_FILE_NAME,
-            "${config.monochromeFileName}.xml",
+            customMonochrome,
+            listOf(customMonochrome, config.monochromeFileName),
+            monochromeKeys,
         )?.let { source ->
             hasMonochrome = true
             copiedAny = true
             monochromeSources += directory to source
         }
-        val copiedNotificationXml = copyResource(
+        copiedNotification = copyIconResource(
             directory,
-            CUSTOM_NOTIFICATION_ICON_FILE_NAME,
-        ) != null
-        copiedNotification = copiedNotificationXml || copiedNotification
-        if (!copiedNotificationXml) {
-            copiedNotification = copyResource(
-                directory,
-                CUSTOM_NOTIFICATION_ICON_FILE_NAME.replaceAfterLast('.', "png"),
-            ) != null || copiedNotification
-        }
-        copiedAny = copyResource(
+            customNotification,
+            listOf(customNotification),
+            notificationKeys,
+        ) != null || copiedNotification
+        copiedSettingsIcon = copyIconResource(
             directory,
-            CUSTOM_RVX_SETTINGS_ICON_FILE_NAME,
-            "${config.settingsIconFileName}.xml",
-        ) != null || copiedAny
+            customRvxSettings,
+            listOf(customRvxSettings, config.settingsIconFileName),
+            settingsKeys,
+        ) != null || copiedSettingsIcon
 
         config.dynamicHeaderResourceNames.forEach { resourceName ->
             if (config.dynamicHeaderUsesThemes) {
                 arrayOf("light", "dark").forEach { theme ->
                     val targetName =
-                        "${HEADER_PREFIX}${CUSTOM_ICON_KEY}_${resourceName}_$theme.png"
+                        "${IconResource.HEADER.named("${CUSTOM_ICON_KEY}_${resourceName}_$theme")}.png"
                     copiedAny = copyResource(
                         directory,
                         targetName,
@@ -497,7 +624,8 @@ private fun ResourcePatchContext.copyCustomIcon(
                     ) != null || copiedAny
                 }
             } else {
-                val targetName = "${HEADER_PREFIX}${CUSTOM_ICON_KEY}_$resourceName.png"
+                val targetName =
+                    "${IconResource.HEADER.named("${CUSTOM_ICON_KEY}_$resourceName")}.png"
                 copiedAny = copyResource(
                     directory,
                     targetName,
@@ -508,7 +636,7 @@ private fun ResourcePatchContext.copyCustomIcon(
 
         if (!copiedAnimatedSplash) {
             config.dynamicSplashResourceName?.let { resourceName ->
-                val targetName = "${SPLASH_PREFIX}${CUSTOM_ICON_KEY}.png"
+                val targetName = "$customSplash.png"
                 copiedAny = copyResource(
                     directory,
                     targetName,
@@ -518,30 +646,42 @@ private fun ResourcePatchContext.copyCustomIcon(
         }
     }
 
+    // The launcher bitmap or vector is a useful settings fallback when the folder does not provide
+    // a dedicated settings resource. Changing the resource directory keeps the same density and
+    // lets the runtime resolve it through the drawable type used by both host apps.
+    if (!copiedSettingsIcon) {
+        launcherSources.forEach { (directory, source) ->
+            val drawableDirectory = directory.replaceFirst("mipmap", "drawable")
+            copyIconSource(source, drawableDirectory, customRvxSettings)
+            copiedSettingsIcon = true
+        }
+    }
+    copiedAny = copiedAny || copiedSettingsIcon
+
     // A monochrome adaptive layer is also a valid notification icon. Use it only when the folder
     // does not provide a notification-specific XML or density-specific PNG.
     if (!copiedNotification) {
         monochromeSources.forEach { (directory, source) ->
-            val targetDirectory = resourceDirectory.resolve(directory).also(File::mkdirs)
-            FilesCompat.copy(source, targetDirectory.resolve(CUSTOM_NOTIFICATION_ICON_FILE_NAME))
+            copyIconSource(source, directory, customNotification)
             copiedNotification = true
         }
     }
     copiedAny = copiedAny || copiedNotification
 
     val hasAdaptiveLayers = copiedAdaptiveBackground && copiedAdaptiveForeground
-    if (hasAdaptiveLayers) {
+    val hasExplicitAnyDpiLauncher = launcherSources.any { it.first == "mipmap-anydpi" }
+    if (hasAdaptiveLayers && !hasExplicitAnyDpiLauncher) {
         val adaptiveIconDirectory = resourceDirectory.resolve("mipmap-anydpi").also(File::mkdirs)
         val monochromeLayer = if (hasMonochrome) {
-            "                <monochrome android:drawable=\"@drawable/$CUSTOM_MONOCHROME_RESOURCE_NAME\" />\n"
+            "                <monochrome android:drawable=\"@drawable/$customMonochrome\" />\n"
         } else {
             ""
         }
-        adaptiveIconDirectory.resolve("$LAUNCHER_PREFIX$CUSTOM_ICON_KEY.xml").writeText(
+        adaptiveIconDirectory.resolve("$customLauncher.xml").writeText(
             """<?xml version="1.0" encoding="utf-8"?>
                 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-                    <background android:drawable="@mipmap/${ADAPTIVE_BACKGROUND_PREFIX}${CUSTOM_ICON_KEY}" />
-                    <foreground android:drawable="@mipmap/${ADAPTIVE_FOREGROUND_PREFIX}${CUSTOM_ICON_KEY}" />
+                    <background android:drawable="@mipmap/$customAdaptiveBackground" />
+                    <foreground android:drawable="@mipmap/$customAdaptiveForeground" />
 $monochromeLayer                </adaptive-icon>
             """.trimIndent(),
         )
@@ -553,13 +693,35 @@ $monochromeLayer                </adaptive-icon>
         CUSTOM_ICON_LABEL,
         hasAdaptiveLayers,
         hasMonochrome,
-        hasAdaptiveLayers || copiedLegacyLauncher,
+        hasAdaptiveLayers || copiedLauncher,
     )
 }
 
 private fun isAndroidResourceDirectory(name: String) =
     name == "drawable" || name.startsWith("drawable-") ||
         name == "mipmap" || name.startsWith("mipmap-")
+
+/**
+ * Reduces a custom icon resource name to its role key.
+ *
+ * Project prefixes may be repeated in any order and the optional `custom` suffix is ignored. For
+ * example, `rvx_morphe_settings_icon_custom` and `revanced_settings_icon` both become
+ * `settings_icon`. Keeping the role key prevents an unrelated icon in the same folder from being
+ * selected merely because it uses a recognized project prefix.
+ */
+private fun normalizedCustomIconKey(resourceName: String): String {
+    val parts = resourceName.lowercase().split('_').filter(String::isNotEmpty)
+    var startIndex = 0
+    while (parts.getOrNull(startIndex)?.let { it in customIconNamePrefixes } == true) startIndex++
+
+    var endIndex = parts.size
+    if (parts.getOrNull(endIndex - 1) == CUSTOM_ICON_KEY) endIndex--
+    return if (startIndex < endIndex) {
+        parts.subList(startIndex, endIndex).joinToString("_")
+    } else {
+        ""
+    }
+}
 
 /**
  * Copies a complete custom animated-vector graph to stable names.
@@ -605,7 +767,7 @@ private fun ResourcePatchContext.copyCustomAnimatedVectorSplash(
     }
 
     val targetResourceNames = companionSources.keys.mapIndexed { index, sourceResourceName ->
-        sourceResourceName to "${SPLASH_PREFIX}${CUSTOM_ICON_KEY}_part_$index"
+        sourceResourceName to IconResource.SPLASH.named("${CUSTOM_ICON_KEY}_part_$index")
     }.toMap()
 
     fun rewriteDrawableReferences(sourceXml: String): String {
@@ -620,7 +782,7 @@ private fun ResourcePatchContext.copyCustomAnimatedVectorSplash(
     }
 
     val targetDirectory = get("res/drawable").also(File::mkdirs)
-    targetDirectory.resolve("${SPLASH_PREFIX}${CUSTOM_ICON_KEY}.xml")
+    targetDirectory.resolve("${IconResource.SPLASH.named(CUSTOM_ICON_KEY)}.xml")
         .writeText(rewriteDrawableReferences(source.readText()))
     companionSources.forEach { (sourceResourceName, companionSource) ->
         val targetName = targetResourceNames.getValue(sourceResourceName)
@@ -634,6 +796,10 @@ private fun ResourcePatchContext.copyCustomAnimatedVectorSplash(
     return true
 }
 
+// endregion
+
+// region bundled branding resources
+
 private fun ResourcePatchContext.copyAdaptiveLayers(
     config: CustomBrandingConfig,
     icon: BrandingIcon,
@@ -644,12 +810,12 @@ private fun ResourcePatchContext.copyAdaptiveLayers(
         copyBundledResource(
             sourceDirectory,
             "mipmap-$density/${config.adaptiveBackgroundFileName}.png",
-            "mipmap-$density/${ADAPTIVE_BACKGROUND_PREFIX}${icon.key}.png",
+            "mipmap-$density/${IconResource.ADAPTIVE_BACKGROUND.named(icon.key)}.png",
         )
         copyBundledResource(
             sourceDirectory,
             "mipmap-$density/${config.adaptiveForegroundFileName}.png",
-            "mipmap-$density/${ADAPTIVE_FOREGROUND_PREFIX}${icon.key}.png",
+            "mipmap-$density/${IconResource.ADAPTIVE_FOREGROUND.named(icon.key)}.png",
         )
     }
 
@@ -659,28 +825,30 @@ private fun ResourcePatchContext.copyAdaptiveLayers(
         copyBundledResource(
             sourceMonochromeDirectory,
             "drawable/${config.monochromeFileName}.xml",
-            "drawable/${ADAPTIVE_MONOCHROME_PREFIX}${icon.key}.xml",
+            "drawable/${IconResource.ADAPTIVE_MONOCHROME.named(icon.key)}.xml",
         )
         copyBundledResource(
             sourceMonochromeDirectory,
             "drawable/${config.monochromeFileName}.xml",
-            "drawable/${NOTIFICATION_ICON_PREFIX}${icon.key}.xml",
+            "drawable/${IconResource.NOTIFICATION.named(icon.key)}.xml",
         )
     }
 
     val adaptiveIconDirectory = get("res/mipmap-anydpi")
     if (!adaptiveIconDirectory.exists()) adaptiveIconDirectory.mkdirs()
     val monochromeLayer = if (icon.hasMonochromeLayers) {
-        "                <monochrome android:drawable=\"@drawable/${ADAPTIVE_MONOCHROME_PREFIX}${icon.key}\" />\n"
+        "                <monochrome android:drawable=\"@drawable/${
+            IconResource.ADAPTIVE_MONOCHROME.named(icon.key)
+        }\" />\n"
     } else {
         ""
     }
 
-    adaptiveIconDirectory.resolve("$LAUNCHER_PREFIX${icon.key}.xml").writeText(
+    adaptiveIconDirectory.resolve("${IconResource.LAUNCHER.named(icon.key)}.xml").writeText(
         """<?xml version="1.0" encoding="utf-8"?>
             <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-                <background android:drawable="@mipmap/${ADAPTIVE_BACKGROUND_PREFIX}${icon.key}" />
-                <foreground android:drawable="@mipmap/${ADAPTIVE_FOREGROUND_PREFIX}${icon.key}" />
+                <background android:drawable="@mipmap/${IconResource.ADAPTIVE_BACKGROUND.named(icon.key)}" />
+                <foreground android:drawable="@mipmap/${IconResource.ADAPTIVE_FOREGROUND.named(icon.key)}" />
 $monochromeLayer            </adaptive-icon>
         """.trimIndent(),
     )
@@ -700,18 +868,18 @@ private fun ResourcePatchContext.copyDynamicBrandingResources(config: CustomBran
                     copyBundledResource(
                         "$brandingDirectory/header",
                         "$directory/${resourceName}_light.png",
-                        "$directory/${HEADER_PREFIX}${icon.key}_${resourceName}_light.png",
+                        "$directory/${IconResource.HEADER.named("${icon.key}_${resourceName}_light")}.png",
                     )
                     copyBundledResource(
                         "$brandingDirectory/header",
                         "$directory/${resourceName}_dark.png",
-                        "$directory/${HEADER_PREFIX}${icon.key}_${resourceName}_dark.png",
+                        "$directory/${IconResource.HEADER.named("${icon.key}_${resourceName}_dark")}.png",
                     )
                 } else {
                     copyBundledResource(
                         "$brandingDirectory/header",
                         "$directory/$resourceName.png",
-                        "$directory/${HEADER_PREFIX}${icon.key}_$resourceName.png",
+                        "$directory/${IconResource.HEADER.named("${icon.key}_$resourceName")}.png",
                     )
                 }
             }
@@ -731,7 +899,7 @@ private fun ResourcePatchContext.copyDynamicBrandingResources(config: CustomBran
                 copyBundledResource(
                     "$brandingDirectory/splash",
                     "$directory/$splashResourceName.png",
-                    "$directory/${SPLASH_PREFIX}${icon.key}.png",
+                    "$directory/${IconResource.SPLASH.named(icon.key)}.png",
                 )
             }
         }
@@ -780,7 +948,7 @@ private fun ResourcePatchContext.copyAnimatedVectorSplash(
     }
 
     val targetResourceNames = companionSources.keys.mapIndexed { index, sourceResourceName ->
-        sourceResourceName to "${SPLASH_PREFIX}${iconKey}_part_$index"
+        sourceResourceName to IconResource.SPLASH.named("${iconKey}_part_$index")
     }.toMap()
 
     // The patcher's aapt macro processor supports inline drawable, animation, and fillColor
@@ -797,7 +965,7 @@ private fun ResourcePatchContext.copyAnimatedVectorSplash(
         return rewritten
     }
 
-    val target = get("res/drawable/${SPLASH_PREFIX}${iconKey}.xml")
+    val target = get("res/drawable/${IconResource.SPLASH.named(iconKey)}.xml")
     target.parentFile?.mkdirs()
     target.writeText(rewriteDrawableReferences(source))
 
@@ -807,46 +975,49 @@ private fun ResourcePatchContext.copyAnimatedVectorSplash(
     }
 }
 
+// endregion
+
+// region launcher and settings integration
+
 /**
  * Removes Android's automatic launcher-icon preview before the in-app splash animation.
  *
  * Launcher aliases inherit the target activity theme, so the wrapper must be installed on the
  * target activity rather than on each alias. The original theme remains the parent to preserve all
- * app- and version-specific window attributes. Android ignores {@code windowDisablePreview} for
- * launches from system surfaces on recent versions, but it does not create a starting window for a
- * translucent activity. The wrapper never draws UI and finishes in {@code onCreate}, so making its
- * window transparent removes the system splash without exposing an intermediate screen.
+ * app- and version-specific window attributes.
  */
 private fun ResourcePatchContext.addSplashlessLauncherStyle(parent: String) {
+    val styleName = BrandingResource.SPLASHLESS_LAUNCHER_STYLE.resourceName
     ensureValuesFile("values", "styles.xml")
     ensureValuesFile("values-v31", "styles.xml")
 
-    fun addWindowItems(style: Element) {
-        arrayOf(
-            "android:windowDisablePreview" to "true",
-            "android:windowIsTranslucent" to "true",
-            "android:windowBackground" to "@android:color/transparent",
-            "android:windowAnimationStyle" to "@null",
-            "android:backgroundDimEnabled" to "false",
-        ).forEach { (name, value) ->
-            style.appendChild(style.ownerDocument.createElement("item").also {
-                it.setAttribute("name", name)
-                it.textContent = value
-            })
-        }
-    }
-
     document("res/values/styles.xml").use { document ->
-        addWindowItems(addStyle(document.documentElement, SPLASHLESS_LAUNCHER_STYLE, parent))
+        addStyle(document.documentElement, styleName, parent).appendChild(
+            document.createElement("item").also {
+                it.setAttribute("name", "android:windowDisablePreview")
+                it.textContent = "true"
+            },
+        )
     }
 
     document("res/values-v31/styles.xml").use { document ->
-        val style = addStyle(document.documentElement, SPLASHLESS_LAUNCHER_STYLE, parent)
-        addWindowItems(style)
+        val style = addStyle(document.documentElement, styleName, parent)
         style.appendChild(document.createElement("item").also {
-            it.setAttribute("name", "android:windowSplashScreenAnimatedIcon")
-            it.textContent = "@android:color/transparent"
+            it.setAttribute("name", "android:windowDisablePreview")
+            it.textContent = "true"
         })
+        // Clear every artwork layer because OEM splash implementations may retain the branding
+        // image or icon background even when the primary animated icon is transparent.
+        arrayOf(
+            "android:windowSplashScreenAnimatedIcon",
+            "android:windowSplashScreenBrandingImage",
+            "android:windowSplashScreenIconBackgroundColor",
+        ).forEach { attribute ->
+            style.appendChild(document.createElement("item").also {
+                it.setAttribute("name", attribute)
+                it.textContent = "@android:color/transparent"
+            })
+        }
         style.appendChild(document.createElement("item").also {
             it.setAttribute("name", "android:windowSplashScreenAnimationDuration")
             it.textContent = "0"
@@ -858,14 +1029,14 @@ private fun ResourcePatchContext.copyRvxSettingsIcons(config: CustomBrandingConf
     copyBundledResource(
         "${config.resourceRoot}/branding/${config.originalSettingsIconKey}/settings",
         "drawable/${config.settingsIconFileName}.xml",
-        "drawable/${RVX_SETTINGS_ICON_PREFIX}original.xml",
+        "drawable/${IconResource.RVX_SETTINGS.named("original")}.xml",
     )
 
     config.icons.forEach { icon ->
         copyBundledResource(
             "${config.resourceRoot}/branding/${icon.key}/settings",
             "drawable/${config.settingsIconFileName}.xml",
-            "drawable/${RVX_SETTINGS_ICON_PREFIX}${icon.key}.xml",
+            "drawable/${IconResource.RVX_SETTINGS.named(icon.key)}.xml",
         )
     }
 }
@@ -964,6 +1135,10 @@ internal fun ResourcePatchContext.installYouTubeRvxSettingsIconLayout() {
     }
 }
 
+// endregion
+
+// region XML resource helpers
+
 private fun ResourcePatchContext.copyBundledResource(
     sourceDirectory: String,
     sourceResource: String,
@@ -1022,20 +1197,32 @@ private fun ResourcePatchContext.addBrandingResources(
     document("res/values/strings.xml").use { document ->
         val resources = document.documentElement
 
-        addString(resources, ORIGINAL_APP_NAME_RESOURCE, originalName)
+        addString(resources, BrandingResource.ORIGINAL_APP_NAME.resourceName, originalName)
         // Keep the generated defaults aligned with SharedYouTubeSettings. A value equal to a
         // Setting's default is intentionally removed from SharedPreferences, so these defaults
         // must not be a different, patch-time-only value or the next launch would undo the user's
         // selection.
-        addString(resources, CUSTOM_APP_NAME_RESOURCE, customName ?: originalName)
-        addString(resources, DEFAULT_ICON_RESOURCE, if (hasCustomIcon) CUSTOM_ICON_KEY else "original")
         addString(
             resources,
-            DEFAULT_NAME_INDEX_RESOURCE,
+            BrandingResource.CUSTOM_APP_NAME.resourceName,
+            customName ?: originalName,
+        )
+        addString(
+            resources,
+            BrandingResource.DEFAULT_ICON.resourceName,
+            if (hasCustomIcon) CUSTOM_ICON_KEY else "original",
+        )
+        addString(
+            resources,
+            BrandingResource.DEFAULT_NAME_INDEX.resourceName,
             if (customName != null) (config.namePresetLabels.size + 1).toString() else "1",
         )
-        addString(resources, MAIN_ACTIVITY_RESOURCE, config.mainActivityName)
-        addString(resources, ORIGINAL_LAUNCHER_RESOURCE, config.originalLauncherIconName)
+        addString(resources, BrandingResource.MAIN_ACTIVITY.resourceName, config.mainActivityName)
+        addString(
+            resources,
+            BrandingResource.ORIGINAL_LAUNCHER.resourceName,
+            config.originalLauncherIconName,
+        )
 
         config.applicationNameKeys.forEach { key ->
             addString(resources, key, originalName)
@@ -1125,10 +1312,12 @@ private fun iconResourceName(
     config: CustomBrandingConfig,
     icon: BrandingIcon,
 ) = if (icon.hasLauncherResource) {
-    "$LAUNCHER_PREFIX${icon.key}"
+    IconResource.LAUNCHER.named(icon.key)
 } else {
     config.originalLauncherIconName
 }
 
 private fun nameResourceName(index: Int, originalName: String, labels: List<String>) =
     if (index == 1) originalName else labels[index - 1]
+
+// endregion
