@@ -135,6 +135,13 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
         }
     }
 
+    /** Refreshes the main settings Activity after YouTube's stock appearance changes. */
+    @Override
+    public void onResume() {
+        super.onResume();
+        YouTubeActivityHook.refreshTheme(getActivity());
+    }
+
     @Override
     public void onDestroy() {
         Utils.resetLocalizedContext();

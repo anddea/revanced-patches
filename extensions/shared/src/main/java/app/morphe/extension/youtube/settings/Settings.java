@@ -48,6 +48,7 @@ import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.StringSetting;
 import app.morphe.extension.shared.settings.preference.SharedPrefCategory;
 import app.morphe.extension.shared.spoof.ClientType;
+import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.PlaybackInFeedsPatch;
@@ -99,6 +100,21 @@ public class Settings extends SharedYouTubeSettings {
             @Override
             public List<Setting<?>> getParentSettings() {
                 return Collections.singletonList(selector);
+            }
+        };
+    }
+
+    /** Shows the foreground toggle only when at least one non-stock theme color is selected. */
+    private static Setting.Availability themeColorChangeForegroundAvailability() {
+        return new Setting.Availability() {
+            @Override
+            public boolean isAvailable() {
+                return !DARK_THEME.isSetToDefault() || !LIGHT_THEME.isSetToDefault();
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Arrays.asList(DARK_THEME, LIGHT_THEME);
             }
         };
     }
@@ -285,6 +301,12 @@ public class Settings extends SharedYouTubeSettings {
     public static final StringSetting LIGHT_THEME_CUSTOM_COLOR = new StringSetting(
             "morphe_light_theme_custom_color", ThemePatch.DEFAULT_LIGHT_THEME_CUSTOM_COLOR, true,
             customThemeAvailability(LIGHT_THEME));
+    public static final BooleanSetting THEME_COLOR_CHANGE_FOREGROUND = new BooleanSetting(
+            "morphe_theme_color_change_foreground", FALSE, true,
+            themeColorChangeForegroundAvailability());
+    /** Remembers YouTube's forced appearance before its resolver runs on the next process start. */
+    public static final BooleanSetting THEME_LAST_USED_DARK_MODE = new BooleanSetting(
+            "morphe_theme_last_used_dark_mode", BaseThemeUtils.isDarkModeEnabled(), false, false);
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.DEFAULT, true);
     public static final BooleanSetting CHANGE_START_PAGE_TYPE = new BooleanSetting("revanced_change_start_page_type", FALSE, true,
             new ChangeStartPagePatch.ChangeStartPageTypeAvailability());

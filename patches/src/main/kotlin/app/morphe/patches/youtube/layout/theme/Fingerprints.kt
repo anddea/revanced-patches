@@ -21,7 +21,25 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+
+/**
+ * Matches the Elements text-style converter that turns server colors into foreground spans.
+ * Elements colors bypass Android resources, so the theme patch hooks the converted color here.
+ */
+internal object ElementsTextColorFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    returnType = "Ljava/lang/CharSequence;",
+    strings = listOf("TextComponentSpec: No converter for extension."),
+    filters = listOf(
+        methodCall(smali = "Landroid/text/style/ForegroundColorSpan;-><init>(I)V"),
+    ),
+    custom = { method, _ ->
+        method.parameterTypes.size >= 15 &&
+                method.parameterTypes.getOrNull(1) == "Landroid/content/Context;"
+    },
+)
 
 /**
  * The pivot bar creates the view stub of the new content dot, and of the count next to it. The
