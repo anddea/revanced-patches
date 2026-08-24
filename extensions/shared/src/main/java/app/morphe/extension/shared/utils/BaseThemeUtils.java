@@ -84,6 +84,11 @@ public class BaseThemeUtils {
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
     }
 
+    /** Returns whether the host app has reported its forced light or dark appearance. */
+    public static boolean isAppThemeResolved() {
+        return isDarkModeEnabled != null;
+    }
+
     public static void setThemeColor() {
         setThemeLightColor(getThemeColor(getThemeLightColorResourceName(), Color.WHITE));
         setThemeDarkColor(getThemeColor(getThemeDarkColorResourceName(), Color.BLACK));

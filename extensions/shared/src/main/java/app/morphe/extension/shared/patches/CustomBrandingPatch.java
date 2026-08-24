@@ -66,6 +66,7 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -77,6 +78,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,6 +114,9 @@ public final class CustomBrandingPatch {
     private static final String HEADER_RESOURCE_PREFIX = "morphe_custom_branding_header_";
     private static final String SPLASH_RESOURCE_PREFIX = "morphe_custom_branding_splash_";
     private static final String SPLASH_OVERLAY_TAG = "morphe_custom_branding_splash_overlay";
+    private static final String SPLASH_SCREEN_STYLE_OPTION =
+            "android.activity.splashScreenStyle";
+    private static final int SPLASH_SCREEN_STYLE_SOLID_COLOR = 0;
     private static final String SPLASH_ANIMATION_STYLE_KEY = "morphe_splash_screen_animation_style";
     private static final String SPLASH_ANIMATION_STYLE_DEFAULT = "FPS_60_ONE_SECOND";
     private static final String SPLASH_ANIMATION_STYLE_DISABLED = "DISABLED";
@@ -158,7 +163,16 @@ public final class CustomBrandingPatch {
                         & ~Intent.FLAG_ACTIVITY_NEW_TASK
                         & ~Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED;
                 targetIntent.setFlags(targetFlags | Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(targetIntent);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    // ActivityOptions exposes this publicly only on newer Android releases, but
+                    // the Bundle contract exists from API 31. Suppress the forwarded activity's
+                    // icon as well as the launcher's icon to prevent an intermittent second flash.
+                    Bundle options = new Bundle();
+                    options.putInt(SPLASH_SCREEN_STYLE_OPTION, SPLASH_SCREEN_STYLE_SOLID_COLOR);
+                    startActivity(targetIntent, options);
+                } else {
+                    startActivity(targetIntent);
+                }
             } finally {
                 finish();
                 overridePendingTransition(0, 0);
@@ -496,22 +510,8 @@ public final class CustomBrandingPatch {
     }
 
     private static void applySplashAnimation(Activity activity, boolean useYouTubeSplashStyle) {
-        if (activity == null) return;
-
-        try {
-            // The hook runs before the host Activity's onCreate implementation. Deferring one UI
-            // turn lets YouTube publish its forced light or dark appearance before the overlay
-            // resolves BaseThemeUtils.getAppBackgroundColor().
-            activity.getWindow().getDecorView().post(
-                    () -> applySplashAnimationAfterCreate(activity, useYouTubeSplashStyle));
-        } catch (Exception ignored) {
-            // Keep the stock host splash if the activity window is unavailable.
-        }
-    }
-
-    private static void applySplashAnimationAfterCreate(
-            Activity activity, boolean useYouTubeSplashStyle) {
-        if (activity.isFinishing()
+        if (activity == null
+                || activity.isFinishing()
                 || activity.isDestroyed()
                 || (useYouTubeSplashStyle && isSplashAnimationDisabled())
                 || (!useYouTubeSplashStyle && isMusicSplashAnimationDisabled())) {
@@ -529,9 +529,42 @@ public final class CustomBrandingPatch {
             if (identifier == 0) return;
 
             Drawable drawable = activity.getResources().getDrawable(identifier);
-            showSplashOverlay(activity, drawable, selectedIcon, useYouTubeSplashStyle);
+            Runnable showOverlay = () -> showSplashOverlay(
+                    activity, drawable, selectedIcon, useYouTubeSplashStyle);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                try {
+                    // The transferred system splash is above the activity decor. Add our overlay
+                    // during its exit callback, then remove it in the same handoff so no stock icon
+                    // or empty frame can appear between the two splash implementations.
+                    SplashScreenBridge.installExitHandoff(activity, showOverlay);
+                } catch (Exception ignored) {
+                    // The posted overlay below remains the fallback if no splash was transferred.
+                }
+            }
+
+            // Warm launches may not receive a system splash exit callback. Posting also lets
+            // YouTube publish its forced appearance before the initial background is resolved.
+            activity.getWindow().getDecorView().post(showOverlay);
         } catch (Exception ignored) {
             // Keep the stock host splash if a generated resource is unavailable.
+        }
+    }
+
+    /** Keeps Android 12 splash-screen classes out of the verifier path on older devices. */
+    @RequiresApi(api = Build.VERSION_CODES.S)
+    private static final class SplashScreenBridge {
+        private SplashScreenBridge() {
+        }
+
+        private static void installExitHandoff(Activity activity, Runnable showOverlay) {
+            activity.getSplashScreen().setOnExitAnimationListener(splashScreenView -> {
+                try {
+                    showOverlay.run();
+                } finally {
+                    splashScreenView.remove();
+                }
+            });
         }
     }
 
