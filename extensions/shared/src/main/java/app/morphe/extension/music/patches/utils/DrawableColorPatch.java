@@ -73,6 +73,7 @@ import java.util.zip.GZIPInputStream;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
 
 @SuppressWarnings({"unused", "deprecation"})
@@ -80,6 +81,7 @@ public class DrawableColorPatch {
     public static final String DEFAULT_DARK_THEME = "modern_youtube";
     public static final String DEFAULT_DARK_THEME_CUSTOM_COLOR = "#FF000000";
 
+    private static final String SPLASH_THEME_PREFIX = "morphe_theme_splash_";
     private static final int PRECOMPILED_THEME_QUALIFIER_BASE = 801;
     private static final String[] PRECOMPILED_DARK_THEME_KEYS = {
             "stock", "amoled_black", "material_you_neutral", "material_you_primary",
@@ -134,6 +136,46 @@ public class DrawableColorPatch {
             RuntimeResourceOverlay.install(activity, colors);
         } catch (Exception ex) {
             Logger.printException(() -> "Failed to install runtime dark theme", ex);
+        }
+
+        applySplashScreenTheme(activity);
+    }
+
+    /**
+     * Selects the concrete starting-window style after the runtime palette is ready. Android 12
+     * resolves the original splash before the activity draws its first layout, so the style must
+     * contain a stable color for the selected preset instead of a runtime-overlaid color.
+     */
+    private static void applySplashScreenTheme(Activity activity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            return;
+        }
+
+        try {
+            String themeName = SPLASH_THEME_PREFIX + Settings.DARK_THEME.get();
+            int themeId = ResourceUtils.getIdentifier(themeName, ResourceType.STYLE, activity);
+            if (themeId == 0) {
+                themeId = ResourceUtils.getIdentifier(
+                        SPLASH_THEME_PREFIX + DEFAULT_DARK_THEME,
+                        ResourceType.STYLE,
+                        activity);
+            }
+            if (themeId != 0) {
+                SplashScreenBridge.apply(activity, themeId);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to apply selected Music splash theme", ex);
+        }
+    }
+
+    /** Keeps Android 12 splash-screen classes out of the verifier path on older devices. */
+    @RequiresApi(api = Build.VERSION_CODES.S)
+    private static final class SplashScreenBridge {
+        private SplashScreenBridge() {
+        }
+
+        private static void apply(Activity activity, int themeId) {
+            activity.getSplashScreen().setSplashScreenTheme(themeId);
         }
     }
 

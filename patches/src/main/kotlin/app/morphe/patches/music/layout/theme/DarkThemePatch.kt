@@ -44,6 +44,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
+import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
@@ -72,6 +73,8 @@ import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/DrawableColorPatch;"
+private const val SPLASH_THEME_PREFIX = "morphe_theme_splash_"
+private const val SPLASH_THEME_PARENT = "@style/Theme.YouTubeMusic"
 private const val PRECOMPILED_THEME_QUALIFIER_BASE = 801
 private const val DEFAULT_DARK_THEME_COLOR = "#FF0F0F0F"
 
@@ -130,6 +133,27 @@ private val precompiledDarkThemeColors = mapOf(
     "dark_yellow" to "#FF282900",
     "dark_orange" to "#FF291800",
     "dark_red" to "#FF290000",
+)
+
+/** Static colors used by Android's system process when it draws the Music starting window. */
+private val splashThemeColors = linkedMapOf(
+    "stock" to stockDarkThemeColors.getValue("yt_black3"),
+    "amoled_black" to precompiledDarkThemeColors.getValue("amoled_black"),
+    "material_you_neutral" to "@android:color/system_neutral1_900",
+    "material_you_primary" to "@android:color/system_accent1_800",
+    "material_you_secondary" to "@android:color/system_accent2_800",
+    "material_you_tertiary" to "@android:color/system_accent3_800",
+    "modern_youtube" to precompiledDarkThemeColors.getValue("modern_youtube"),
+    "classic_youtube" to precompiledDarkThemeColors.getValue("classic_youtube"),
+    "catppuccin_mocha" to precompiledDarkThemeColors.getValue("catppuccin_mocha"),
+    "dark_pink" to precompiledDarkThemeColors.getValue("dark_pink"),
+    "dark_blue" to precompiledDarkThemeColors.getValue("dark_blue"),
+    "dark_green" to precompiledDarkThemeColors.getValue("dark_green"),
+    "dark_yellow" to precompiledDarkThemeColors.getValue("dark_yellow"),
+    "dark_orange" to precompiledDarkThemeColors.getValue("dark_orange"),
+    "dark_red" to precompiledDarkThemeColors.getValue("dark_red"),
+    // A custom color is resolved by the app process, so use the stock fallback for the system splash.
+    "custom" to DEFAULT_DARK_THEME_COLOR,
 )
 
 /** Preserves each stock resource's alpha while replacing its RGB channels. */
@@ -274,6 +298,8 @@ val darkThemePatch = resourcePatch(
             copyResources("music/theme", resourceGroup)
         }
 
+        addSplashTheme()
+
         addListPreference(CategoryType.GENERAL, "morphe_dark_theme", setSummary = false)
         addCustomPreference(
             CategoryType.GENERAL,
@@ -293,5 +319,55 @@ val darkThemePatch = resourcePatch(
 
         updatePatchStatus(DARK_THEME)
 
+    }
+}
+
+/**
+ * Adds stable starting-window styles for every built-in Music dark-theme preset.
+ *
+ * Android 12 creates the original splash before the runtime resource overlay is installed. The
+ * generated styles therefore keep concrete colors for the system process, while the Activity
+ * hook selects the matching style on the next launch.
+ */
+private fun ResourcePatchContext.addSplashTheme() {
+    listOf(
+        "res/values/styles.xml" to false,
+        "res/values-v31/styles.xml" to true,
+    ).forEach { (path, includeSplashBackground) ->
+        val stylesFile = get(path)
+        if (!stylesFile.exists()) {
+            stylesFile.parentFile?.mkdirs()
+            stylesFile.writeText("<?xml version=\"1.0\" encoding=\"utf-8\"?><resources />")
+        }
+
+        document(path).use { document ->
+            val resources = document.documentElement
+
+            splashThemeColors.forEach { (themeKey, color) ->
+                val themeName = SPLASH_THEME_PREFIX + themeKey
+                (0 until resources.childNodes.length)
+                    .map { resources.childNodes.item(it) }
+                    .filterIsInstance<Element>()
+                    .filter { it.tagName == "style" && it.getAttribute("name") == themeName }
+                    .forEach(resources::removeChild)
+
+                val style = document.createElement("style").apply {
+                    setAttribute("name", themeName)
+                    setAttribute("parent", SPLASH_THEME_PARENT)
+                }
+
+                style.appendChild(document.createElement("item").apply {
+                    setAttribute("name", "android:windowBackground")
+                    textContent = color
+                })
+                if (includeSplashBackground) {
+                    style.appendChild(document.createElement("item").apply {
+                        setAttribute("name", "android:windowSplashScreenBackground")
+                        textContent = color
+                    })
+                }
+                resources.appendChild(style)
+            }
+        }
     }
 }

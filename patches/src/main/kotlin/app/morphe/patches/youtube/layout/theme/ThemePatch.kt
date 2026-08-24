@@ -42,6 +42,7 @@ package app.morphe.patches.youtube.layout.theme
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.patch.PatchException
+import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
@@ -69,6 +70,9 @@ private const val RUNTIME_LIGHT_THEME_COLOR = "morphe_runtime_light_theme_color"
 private const val RUNTIME_LIGHT_THEME_COLOR_OPACITY70 = "morphe_runtime_light_theme_color_opacity70"
 private const val RUNTIME_LIGHT_THEME_COLOR_ID = "0x7f060f0f"
 private const val RUNTIME_LIGHT_THEME_COLOR_OPACITY70_ID = "0x7f060f10"
+private const val SPLASH_THEME_DARK_PREFIX = "morphe_theme_splash_dark_"
+private const val SPLASH_THEME_LIGHT_PREFIX = "morphe_theme_splash_light_"
+private const val SPLASH_THEME_PARENT = "@style/Theme.YouTube.Home"
 private const val PRECOMPILED_THEME_MCC = 801
 private const val DEFAULT_LIGHT_THEME_COLOR = "#FFFFFFFF"
 
@@ -159,6 +163,47 @@ private val precompiledLightThemeColors = mapOf(
     "pale_yellow" to "#FFFFE9AA",
 )
 
+/** Static colors used by Android's system process when it draws the starting window. */
+private val splashDarkThemeColors = linkedMapOf(
+    "stock" to stockDarkThemeColors.getValue("yt_black3"),
+    "amoled_black" to precompiledDarkThemeColors.getValue("amoled_black"),
+    "material_you_neutral" to "@android:color/system_neutral1_900",
+    "material_you_primary" to "@android:color/system_accent1_800",
+    "material_you_secondary" to "@android:color/system_accent2_800",
+    "material_you_tertiary" to "@android:color/system_accent3_800",
+    "modern_youtube" to precompiledDarkThemeColors.getValue("modern_youtube"),
+    "classic_youtube" to precompiledDarkThemeColors.getValue("classic_youtube"),
+    "catppuccin_mocha" to precompiledDarkThemeColors.getValue("catppuccin_mocha"),
+    "dark_pink" to precompiledDarkThemeColors.getValue("dark_pink"),
+    "dark_blue" to precompiledDarkThemeColors.getValue("dark_blue"),
+    "dark_green" to precompiledDarkThemeColors.getValue("dark_green"),
+    "dark_yellow" to precompiledDarkThemeColors.getValue("dark_yellow"),
+    "dark_orange" to precompiledDarkThemeColors.getValue("dark_orange"),
+    "dark_red" to precompiledDarkThemeColors.getValue("dark_red"),
+    // A custom color is resolved by the app process, so use the stock fallback for the system splash.
+    "custom" to stockDarkThemeColors.getValue("yt_black3"),
+)
+
+private val splashLightThemeColors = linkedMapOf(
+    "white" to DEFAULT_LIGHT_THEME_COLOR,
+    "material_you_neutral" to "@android:color/system_neutral1_100",
+    "material_you_primary" to "@android:color/system_accent1_200",
+    "material_you_secondary" to "@android:color/system_accent2_200",
+    "material_you_tertiary" to "@android:color/system_accent3_200",
+    "catppuccin_latte" to precompiledLightThemeColors.getValue("catppuccin_latte"),
+    "light_pink" to precompiledLightThemeColors.getValue("light_pink"),
+    "light_blue" to precompiledLightThemeColors.getValue("light_blue"),
+    "light_green" to precompiledLightThemeColors.getValue("light_green"),
+    "light_yellow" to precompiledLightThemeColors.getValue("light_yellow"),
+    "light_orange" to precompiledLightThemeColors.getValue("light_orange"),
+    "light_red" to precompiledLightThemeColors.getValue("light_red"),
+    "pale_blue" to precompiledLightThemeColors.getValue("pale_blue"),
+    "pale_green" to precompiledLightThemeColors.getValue("pale_green"),
+    "pale_yellow" to precompiledLightThemeColors.getValue("pale_yellow"),
+    // A custom color is resolved by the app process, so use the stock fallback for the system splash.
+    "custom" to DEFAULT_LIGHT_THEME_COLOR,
+)
+
 private val runtimeThemeBytecodePatch = bytecodePatch(
     description = "runtimeThemeBytecodePatch",
 ) {
@@ -168,9 +213,10 @@ private val runtimeThemeBytecodePatch = bytecodePatch(
         // Keep the runtime theme hook owned by Theme so it is applied whenever this patch is selected.
         injectOnCreateMethodCall(THEME_EXTENSION_CLASS_DESCRIPTOR, "setTheme")
 
-        // Install the overlay before Android creates the first Activity. The shared extension hook
-        // initializes its Context at the beginning of Application.onCreate, so insert immediately
-        // after that call while retaining the Activity hook for Activity-specific Resources.
+        // Prepare the overlay before the first Activity. The shared extension hook initializes its
+        // Context at the beginning of Application.onCreate, so insert immediately after that
+        // call. The Activity hook then applies the selected starting-window theme before onCreate
+        // invokes the original Activity implementation.
         val applicationOnCreate = applicationInitHook.fingerprint.method
         val contextHookIndex = applicationOnCreate.implementation?.instructions
             ?.indexOfFirst {
@@ -340,6 +386,8 @@ val themePatch = resourcePatch(
             }
         }
 
+        addSplashThemes()
+
         val currentTheme = if (MATERIALYOU.included == true)
             "MaterialYou + Stock"
         else
@@ -355,5 +403,64 @@ val themePatch = resourcePatch(
             )
         )
 
+    }
+}
+
+/**
+ * Adds stable starting-window themes for every built-in app-theme preset.
+ *
+ * The system creates the original splash screen before Application.onCreate, so the runtime
+ * resource overlay cannot affect the manifest theme in time. These styles contain concrete colors
+ * that the system process can resolve before the app process starts; the Activity hook selects the
+ * matching style after installing the existing overlay.
+ */
+private fun ResourcePatchContext.addSplashThemes() {
+    val themes = listOf(
+        SPLASH_THEME_DARK_PREFIX to splashDarkThemeColors,
+        SPLASH_THEME_LIGHT_PREFIX to splashLightThemeColors,
+    )
+
+    listOf(
+        "res/values/styles.xml" to false,
+        "res/values-v31/styles.xml" to true,
+    ).forEach { (path, includeSplashBackground) ->
+        val stylesFile = get(path)
+        if (!stylesFile.exists()) {
+            stylesFile.parentFile?.mkdirs()
+            stylesFile.writeText("<?xml version=\"1.0\" encoding=\"utf-8\"?><resources />")
+        }
+
+        document(path).use { document ->
+            val resources = document.documentElement
+
+            themes.forEach { (themePrefix, themeColors) ->
+                themeColors.forEach { (themeKey, color) ->
+                    val themeName = themePrefix + themeKey
+                    (0 until resources.childNodes.length)
+                        .map { resources.childNodes.item(it) }
+                        .filterIsInstance<Element>()
+                        .filter { it.tagName == "style" && it.getAttribute("name") == themeName }
+                        .forEach(resources::removeChild)
+
+                    val style = document.createElement("style").apply {
+                        setAttribute("name", themeName)
+                        setAttribute("parent", SPLASH_THEME_PARENT)
+                    }
+
+                    fun addItem(name: String) {
+                        style.appendChild(document.createElement("item").apply {
+                            setAttribute("name", name)
+                            textContent = color
+                        })
+                    }
+
+                    addItem("android:windowBackground")
+                    if (includeSplashBackground) {
+                        addItem("android:windowSplashScreenBackground")
+                    }
+                    resources.appendChild(style)
+                }
+            }
+        }
     }
 }

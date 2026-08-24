@@ -64,6 +64,7 @@ import java.util.zip.GZIPInputStream;
 
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.youtube.settings.Settings;
 
@@ -75,6 +76,8 @@ public final class ThemePatch {
     public static final String DEFAULT_LIGHT_THEME_CUSTOM_COLOR = "#FFFFFFFF";
 
     private static final String RUNTIME_LIGHT_THEME_COLOR = "morphe_runtime_light_theme_color";
+    private static final String SPLASH_THEME_DARK_PREFIX = "morphe_theme_splash_dark_";
+    private static final String SPLASH_THEME_LIGHT_PREFIX = "morphe_theme_splash_light_";
     private static final int PRECOMPILED_THEME_MCC = 801;
     private static final String[] PRECOMPILED_DARK_THEME_KEYS = {
             "stock", "amoled_black", "material_you_neutral", "material_you_primary",
@@ -98,16 +101,19 @@ public final class ThemePatch {
     private static final int STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX = 7;
 
     /**
-     * Applies both palettes before YouTube inflates its first layout. Android 8–10 select
+     * Applies both palettes before YouTube inflates its first layout and selects the starting
+     * window theme before the original Activity implementation runs. Android 8–10 select
      * precompiled resource configurations, while Android 11+ replaces the stable resources.
      */
     public static void setTheme(Activity activity) {
         setTheme((Context) activity);
+        applySplashScreenTheme(activity);
     }
 
     /**
-     * Installs the resource overlay from Application.onCreate, before Android creates the first
-     * Activity and resolves its launch window and theme resources.
+     * Installs the resource overlay from Application.onCreate. The overlay is ready before the
+     * Activity inflates its first layout; Android 12+ may already have created the starting window,
+     * so the Activity overload also selects a stable splash theme with the chosen preset color.
      */
     public static void setTheme(Context context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
@@ -128,6 +134,54 @@ public final class ThemePatch {
             RuntimeResourceOverlay.install(context, darkColors, lightColor, lightOpacity70Color);
         } catch (Exception ex) {
             Logger.printException(() -> "Failed to install runtime YouTube theme", ex);
+        }
+    }
+
+    /**
+     * Persists the selected preset as Android's starting-window theme for the next launch. The
+     * style contains a concrete color because Android resolves it outside the app process, before
+     * the runtime resource overlay exists. The API 31 reference is isolated so this class remains
+     * loadable on older Android versions.
+     */
+    private static void applySplashScreenTheme(Activity activity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            return;
+        }
+
+        try {
+            final boolean dark = BaseThemeUtils.isDarkModeEnabled();
+            final String themePrefix = dark
+                    ? SPLASH_THEME_DARK_PREFIX
+                    : SPLASH_THEME_LIGHT_PREFIX;
+            final String fallbackTheme = dark ? "stock" : "white";
+            final String selectedTheme = dark
+                    ? Settings.DARK_THEME.get()
+                    : Settings.LIGHT_THEME.get();
+            String themeName = themePrefix + selectedTheme;
+            int themeId = ResourceUtils.getIdentifier(themeName, ResourceType.STYLE, activity);
+            if (themeId == 0) {
+                themeName = themePrefix + fallbackTheme;
+                themeId = ResourceUtils.getIdentifier(themeName, ResourceType.STYLE, activity);
+            }
+            if (themeId == 0) {
+                final String missingThemeName = themeName;
+                Logger.printDebug(() -> "Splash theme not found: " + missingThemeName);
+                return;
+            }
+            SplashScreenBridge.apply(activity, themeId);
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to apply selected splash theme", ex);
+        }
+    }
+
+    /** Keeps Android 12 splash-screen classes out of the verifier path on older devices. */
+    @RequiresApi(api = Build.VERSION_CODES.S)
+    private static final class SplashScreenBridge {
+        private SplashScreenBridge() {
+        }
+
+        private static void apply(Activity activity, int themeId) {
+            activity.getSplashScreen().setSplashScreenTheme(themeId);
         }
     }
 
