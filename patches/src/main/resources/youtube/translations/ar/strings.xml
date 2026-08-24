@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">ن</string>
+    <string name="accessibility_settings_edu_opt_in_text">تفعيل إعدادات إمكانية الوصول؟</string>
     <string name="accessibility_settings_edu_opt_out_text">تم تعديل عناصر التحكم الخاصة بك لأن خدمة إمكانية الوصول قيد التشغيل</string>
     <string name="gms_core_dialog_continue_text">متابعة</string>
     <string name="gms_core_dialog_dismiss_text">لا اريد مشاهدة هذا مجددا</string>
@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX، قم بتمكين المراسلة السحابية</string>
     <string name="gms_core_settings_title">فتح إعدادات GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG لم يتم تثبيته. قم بتثبيته</string>
+    <string name="morphe_custom_branding_icon_title">أيقونة التطبيق</string>
     <string name="morphe_dark_theme_title">مظهر مظلم</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">يبقي شريط التنقل ظاهرًا أثناء التمرير</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">تعطيل إخفاء شريط التنقل تلقائيًا</string>
@@ -31,7 +32,7 @@
     <string name="morphe_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"قد لا يكون 'زيادة مدة رجوع البث المباشر' متاحًا
 
-لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV' أو 'visionOS'"</string>
+لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV Simply' أو 'visionOS'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">يسمح لك بإعادة تشغيل البث المباشر لمدة تصل إلى 7 أيام مضت</string>
     <string name="morphe_expand_livestream_dvr_duration_title">زيادة مدة رجوع البث المباشر</string>
     <string name="morphe_explore_menu_screen_summary">اختر المكونات التي تظهر في قائمة استكشاف</string>
@@ -40,6 +41,12 @@
     <string name="morphe_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
     <string name="morphe_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
     <string name="morphe_force_original_audio_title">فرض لغة الصوت الأصلية</string>
+    <string name="morphe_fullscreen_large_seekbar_title">تمكين شريط التقدم الكبير بملء الشاشة</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">انقر للتنقل بين الوضع الافتراضي، التمديد، والتكبير</string>
+    <string name="morphe_fullscreen_video_scale_button_title">عرض زر مقياس الفيديو</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">تمديد (ملء الشاشة)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">تكبير (قص لملء الفراغ)</string>
+    <string name="morphe_fullscreen_video_scale_title">مقياس الفيديو بملء الشاشة</string>
     <string name="morphe_hide_courses_menu_title">إخفاء قائمة الدورات التدريبية</string>
     <string name="morphe_hide_explore_button_title">إخفاء زر استكشاف</string>
     <string name="morphe_hide_fashion_menu_title">إخفاء قائمة \'الموضة والجمال\'</string>
@@ -55,6 +62,9 @@
     <string name="morphe_hide_music_menu_title">إخفاء قائمة الموسيقى</string>
     <string name="morphe_hide_news_menu_title">إخفاء قائمة الأخبار</string>
     <string name="morphe_hide_playables_menu_title">إخفاء قائمة هيّا نلعب</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"تم إخفاء قائمة 'المقطع الصوتي'
+
+لعرض قائمة 'المقطع الصوتي'، غيّر 'Spoof Video Streams' إلى أي عميل باستثناء 'Android Studio' و 'Android VR Downgraded'"</string>
     <string name="morphe_hide_podcasts_menu_title">إخفاء قائمة البودكاست</string>
     <string name="morphe_hide_privacy_tos_footer_title">إخفاء نص سياسة الخصوصية • بنود الخدمة</string>
     <string name="morphe_hide_shopping_menu_title">إخفاء قائمة التسوّق</string>
@@ -68,9 +78,9 @@
     <string name="morphe_hide_youtube_works_menu_title">إخفاء قائمة \'كيف يعمل YouTube\'</string>
     <string name="morphe_light_theme_custom_color_title">لون مظهر فاتح مخصص</string>
     <string name="morphe_light_theme_title">لون مظهر فاتح</string>
-    <string name="morphe_livestream_dvr_not_available">"قد لا يكون 'تمكين رجوع البث المباشر' متاحًا
+    <string name="morphe_livestream_dvr_not_available">"قد لا يكون 'تمكين التنقل في البث المباشر' متاحًا
 
-لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV' أو 'visionOS'"</string>
+لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV Simply' أو 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">يسمح بالتنقل في كل البثوث المباشرة، حتى تلك التي تفرض قيودًا عليها عادةً</string>
     <string name="morphe_livestream_dvr_title">تمكين التنقل في البث المباشر</string>
     <string name="morphe_music_package_name_summary">اسم حزمة تطبيق الموسيقى المثبت لديك</string>
@@ -169,6 +179,8 @@
 
 القيود: إذا تم إيقاف تشغيل 'استعادة شريط إجراءات الفيديو القديم'، فقد لا يتوفر عنصر 'المزيد من الفيديوهات'"</string>
     <string name="morphe_tablet_layout_in_player_title">تمكين تخطيط الجهاز اللوحي في المشغل</string>
+    <string name="morphe_theme_color_change_foreground_summary">استخدام لون المظهر للنص والأيقونات</string>
+    <string name="morphe_theme_color_change_foreground_title">تغيير لون المقدمة</string>
     <string name="morphe_theme_entry_amoled_black">غامق لامع</string>
     <string name="morphe_theme_entry_classic_youtube">غامق مطفي</string>
     <string name="morphe_theme_entry_dark_blue">ازرق مظلم</string>
@@ -189,6 +201,7 @@
     <string name="morphe_theme_entry_modern_youtube">الأحدث </string>
     <string name="morphe_theme_entry_pale_blue">ازرق خفيف </string>
     <string name="morphe_theme_entry_pale_green">اخضر خفيف </string>
+    <string name="morphe_theme_entry_white">ابيض</string>
     <string name="morphe_video_quality_prioritize_dialog">إذا تم إيقاف هذا الإعداد، فقد لا تعرض الفيديوهات القديمة خيارات جودة الفيديو</string>
     <string name="morphe_video_quality_prioritize_summary">يُعطي الأولوية لأعلى جودة فيديو متاحة على حساب كفاءة الترميز</string>
     <string name="morphe_video_quality_prioritize_title">إعطاء الأولوية لجودة فيديو</string>
@@ -931,8 +944,8 @@
     <string name="revanced_hide_handle_summary_on">تم إخفاء الاسم المعرِّف</string>
     <string name="revanced_hide_handle_title">إخفاء الاسم المعرِّف</string>
     <string name="revanced_hide_hashtag_section_title">إخفاء قسم الهاشتاغ</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_off">يتم عرض قسم كيف تم إنشاء هذا المحتوى</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_on">تم إخفاء قسم كيف تم إنشاء هذا المحتوى</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">يتم عرض قسم \'طريقة صناعة هذا المحتوى\'</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">تم إخفاء قسم \'طريقة صناعة هذا المحتوى\'</string>
     <string name="revanced_hide_how_this_was_made_section_title">إخفاء قسم \'طريقة صناعة هذا المحتوى\'</string>
     <string name="revanced_hide_hype_button_summary_off">يتم عرض زر التشجيع</string>
     <string name="revanced_hide_hype_button_summary_on">تم إخفاء زر التشجيع</string>
@@ -1825,8 +1838,6 @@
     <string name="revanced_replace_time_stamp_action_summary_off">انقر لعرض الوقت المتبقي</string>
     <string name="revanced_replace_time_stamp_action_summary_on">انقر لفتح القائمة المنبثقة لسرعة التشغيل أو جودة الفيديو</string>
     <string name="revanced_replace_time_stamp_action_title">استبدال إجراء الطابع الزمني</string>
-    <string name="revanced_replace_toolbar_create_button_summary">استبدال زر الإنشاء بزر الإعدادات</string>
-    <string name="revanced_replace_toolbar_create_button_title">استبدال زر الإنشاء</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"اضغط لفتح إعدادات YouTube
 اضغط مع الاستمرار لفتح إعدادات RVX"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"اضغط لفتح إعدادات RVX
@@ -2195,7 +2206,7 @@
     <string name="revanced_shorts_custom_actions_external_downloader_title">عرض قائمة التنزيل الخارجي</string>
     <string name="revanced_shorts_custom_actions_gemini_label">تلخيص Gemini</string>
     <string name="revanced_shorts_custom_actions_gemini_summary_off">قائمة تلخيص Gemini مخفية</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">قائمة تلخيص Gemini ظاهرة</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">قائمة تلخيص Gemini ظاهرة في قائمة الافعال المخصصه</string>
     <string name="revanced_shorts_custom_actions_gemini_title">إظهار قائمة تلخيص Gemini</string>
     <string name="revanced_shorts_custom_actions_open_video_label">فتح الفيديو</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">تم إخفاء قائمة فتح الفيديو</string>

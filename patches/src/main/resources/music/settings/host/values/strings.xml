@@ -17,12 +17,6 @@ Tap the continue button and allow optimization changes"</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX Music, enable Cloud Messaging</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it</string>
-    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available.</string>
-    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
-    <string name="morphe_custom_branding_icon_title">App icon</string>
-    <string name="morphe_custom_branding_name_title">App name</string>
-    <string name="morphe_custom_branding_splash_animation_size_summary">Sets the size of the custom splash animation</string>
-    <string name="morphe_custom_branding_splash_animation_size_title">Splash animation size</string>
     <string name="morphe_crossfade_duration_10000ms">10 seconds</string>
     <string name="morphe_crossfade_duration_1000ms">1 second</string>
     <string name="morphe_crossfade_duration_11000ms">11 seconds</string>
@@ -38,6 +32,12 @@ Tap the continue button and allow optimization changes"</string>
     <string name="morphe_crossfade_duration_750ms">750 milliseconds</string>
     <string name="morphe_crossfade_duration_8000ms">8 seconds</string>
     <string name="morphe_crossfade_duration_9000ms">9 seconds</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
+    <string name="morphe_custom_branding_icon_title">App icon</string>
+    <string name="morphe_custom_branding_name_title">App name</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Sets the size of the custom splash animation</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Splash animation size</string>
     <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
     <string name="morphe_dark_theme_custom_color_title">Custom theme color</string>
     <string name="morphe_dark_theme_title">App theme</string>
@@ -200,7 +200,7 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_add_miniplayer_next_button_title">Add miniplayer next button</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adds a previous track button to the miniplayer</string>
     <string name="revanced_add_miniplayer_previous_button_title">Add miniplayer previous button</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;RVX Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_summary">Click to check the app name, app version, patch version, and patched date</string>
     <string name="revanced_app_info_title">App info</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bypasses the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received</string>
@@ -209,8 +209,6 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_change_action_bar_position_title">Change action bar position</string>
     <string name="revanced_change_miniplayer_color_summary">Changes the miniplayer color to match the fullscreen player</string>
     <string name="revanced_change_miniplayer_color_title">Change miniplayer color</string>
-    <string name="revanced_music_change_navigation_bar_color_summary">Matches the navigation bar color to the fullscreen player</string>
-    <string name="revanced_music_change_navigation_bar_color_title">Change navigation bar color</string>
     <string name="revanced_change_player_background_color_summary">Changes the player background color to custom color</string>
     <string name="revanced_change_player_background_color_title">Change player background color</string>
     <string name="revanced_change_seekbar_position_summary">Moves the seekbar below the play button</string>
@@ -327,9 +325,9 @@ Limitations: SponsorBlock segments are not shown in the seekbar"</string>
     <string name="revanced_enable_zen_mode_title">Enable Zen mode</string>
     <string name="revanced_external_downloader_action_summary">Download action button opens your external downloader</string>
     <string name="revanced_external_downloader_action_title">Override Download action button</string>
+    <string name="revanced_external_downloader_dialog_title">External downloader</string>
     <string name="revanced_external_downloader_flyout_menu_summary">Uses your chosen external downloader instead of the stock Download flyout menu</string>
     <string name="revanced_external_downloader_flyout_menu_title">Override Download menu</string>
-    <string name="revanced_external_downloader_dialog_title">External downloader</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s is not installed
 Please download %2$s from the website"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warning</string>
@@ -475,6 +473,8 @@ Please download %2$s from the website"</string>
     <string name="revanced_hide_voice_search_button_summary">Hides the voice search button in the search bar</string>
     <string name="revanced_hide_voice_search_button_title">Hide voice search button</string>
     <string name="revanced_icon_custom">Custom</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">Matches the navigation bar color to the fullscreen player</string>
+    <string name="revanced_music_change_navigation_bar_color_title">Change navigation bar color</string>
     <string name="revanced_preference_screen_account_title">Account</string>
     <string name="revanced_preference_screen_action_bar_title">Action bar</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>

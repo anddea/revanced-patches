@@ -32,6 +32,12 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="morphe_crossfade_duration_750ms">750 milisekund</string>
     <string name="morphe_crossfade_duration_8000ms">8 sekund</string>
     <string name="morphe_crossfade_duration_9000ms">9 sekund</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Jeśli jest dostępna, użyj ikony wybranej aplikacji do wprowadzenia ustawień RVX</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Użyj ikony w ustawieniach RVX</string>
+    <string name="morphe_custom_branding_icon_title">Ikona aplikacji</string>
+    <string name="morphe_custom_branding_name_title">Nazwa aplikacji</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Ustawia rozmiar niestandardowej animacji powitalnej</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Rozmiar animacji powitalnej</string>
     <string name="morphe_dark_theme_custom_color_summary">Używane, gdy wybrano opcję Niestandardowe</string>
     <string name="morphe_dark_theme_custom_color_title">Niestandardowy kolor motywu</string>
     <string name="morphe_dark_theme_title">Motyw aplikacji</string>
@@ -162,7 +168,7 @@ Aby się zalogować, naciśnij \"Kontynuuj\" poniżej"</string>
 • W przypadku zmiany hasła lub wyrejestrowania urządzenia w ustawieniach konta Google konieczne będzie ponowne zalogowanie się"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Zalogowano pomyślnie</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Nie udało się wygenerować kodu aktywacyjnego</string>
-    <string name="morphe_spoof_video_streams_summary">"Naprawia problemy z odtwarzaniem u większości użytkowników, wymuszając kompatybilny strumień filmów
+    <string name="morphe_spoof_video_streams_summary">"Naprawia problemy z odtwarzaniem u większości użytkowników, wymuszając zgodny strumień filmów
 
 Jeśli masz YouTube Premium, to ustawienie może nie być wymagane"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Wyłączone
@@ -190,7 +196,7 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="revanced_add_miniplayer_next_button_title">Dodaj przycisk do następnego utworu w miniodtwarzaczu</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Dodaje przycisk do poprzedniego utworu w miniodtwarzaczu</string>
     <string name="revanced_add_miniplayer_previous_button_title">Dodaj przycisk do poprzedniego utworu w miniodtwarzaczu</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;Nazwa aplikacji&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Wersja aplikacji&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Data załatania&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Nazwa aplikacji&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Wersja aplikacji&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;RVX Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Data załatania&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_summary">Kliknij, by sprawdzić nazwę aplikacji, wersję aplikacji, wersję łatek oraz datę załatania</string>
     <string name="revanced_app_info_title">Informacje o aplikacji</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Zastępuje domenę, która jest blokowana w niektórych regionach, aby można było otrzymywać miniaturki playlist, awatary kanałów itp</string>
@@ -313,12 +319,11 @@ Ograniczenie: segmenty SponsorBlocka nie są pokazywane na pasku"</string>
     <string name="revanced_enable_zen_mode_podcast_title">Włącz tryb zen w podcastach</string>
     <string name="revanced_enable_zen_mode_summary">Włącza jasnoszary kolor tła odtwarzacza, aby zmniejszyć zmęczenie oczu</string>
     <string name="revanced_enable_zen_mode_title">Włącz tryb zen</string>
-    <string name="revanced_external_downloader_action_summary">"Przycisk od pobierania otwiera zewnętrzną aplikację do pobierania
-
-• Jedynie zmienia działanie przycisku w odtwarzaczu
-• Nie zmienia działania przycisków w menu ustawień utworu i bibliotece"</string>
+    <string name="revanced_external_downloader_action_summary">Przycisk od pobierania otwiera zewnętrzną aplikację do pobierania</string>
     <string name="revanced_external_downloader_action_title">Zastąp przycisk od pobierania</string>
     <string name="revanced_external_downloader_dialog_title">Aplikacja od pobierania</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">Używa wybranej zewnętrznej aplikacji do pobierania zamiast domyślnego wysuwanego menu Pobierz</string>
+    <string name="revanced_external_downloader_flyout_menu_title">Zastąp menu Pobierz</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s nie jest zainstalowany
 Pobierz %2$s ze strony"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Ostrzeżenie</string>
@@ -464,6 +469,8 @@ Pobierz %2$s ze strony"</string>
     <string name="revanced_hide_voice_search_button_summary">Ukrywa przycisk od wyszukiwania głosowego z paska wyszukiwania</string>
     <string name="revanced_hide_voice_search_button_title">Ukryj przycisk od wyszukiwania głosowego</string>
     <string name="revanced_icon_custom">Własna</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">Dopasowuje kolor paska nawigacji do odtwarzacza pełnoekranowego</string>
+    <string name="revanced_music_change_navigation_bar_color_title">Zmień kolor paska nawigacji</string>
     <string name="revanced_preference_screen_account_title">Konto</string>
     <string name="revanced_preference_screen_action_bar_title">Pasek akcji</string>
     <string name="revanced_preference_screen_ads_title">Reklamy</string>

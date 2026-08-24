@@ -18,6 +18,7 @@ BLACKLIST = {
     "morphe_music_crossfade_curve_preview_title",
     "morphe_music_lyrics_source_entry_kugou",
     "morphe_music_lyrics_source_entry_lrclib",
+    "revanced_preference_screen_gemini_title",
     "revanced_settings_title",
     "revanced_vot_percent_value",
 }

@@ -20,6 +20,14 @@ Toca el botón \"Continuar\" y permite los cambios en las optimizaciones"</strin
     <string name="gms_core_settings_summary">Activa la mensajería en la nube para recibir notificaciones</string>
     <string name="gms_core_settings_title">Abrir los ajustes de GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore no está instalado. Instálalo</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Utiliza el icono de la app seleccionada para la entrada de configuración RVX cuando esté disponible</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Usar icono en la configuración de RVX</string>
+    <string name="morphe_custom_branding_icon_title">Icono de la aplicación</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Establece el tamaño de la animación personalizada de splash</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Tamaño de la animación de splash</string>
+    <string name="morphe_dark_theme_custom_color_summary">Usado cuando se selecciona Personalizado</string>
+    <string name="morphe_dark_theme_custom_color_title">Color personalizado del tema oscuro</string>
+    <string name="morphe_dark_theme_title">Tema Oscuro</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Mantiene la barra de navegación visible al hacer scroll</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Desactivar ocultación automática de la barra de navegación</string>
     <string name="morphe_disable_drc_audio_summary_off">El audio DRC está activado</string>
@@ -39,6 +47,12 @@ Para solucionar esto, activa \'Suplantar transmisiones de video\' y cambia \'Cli
     <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
     <string name="morphe_force_original_audio_summary_on">Usar el idioma de audio original</string>
     <string name="morphe_force_original_audio_title">Forzar idioma original del audio</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Activar barra de progreso grande en pantalla completa</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Pulsa para alternar entre Predeterminado, Estirar y Zoom</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Mostrar botón de escala de vídeo</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Estirar (rellenar pantalla)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Zoom (recortar para rellenar)</string>
+    <string name="morphe_fullscreen_video_scale_title">Escala de vídeo en pantalla completa</string>
     <string name="morphe_hide_courses_menu_title">Ocultar menú Cursos</string>
     <string name="morphe_hide_explore_button_title">Ocultar botón Explorar</string>
     <string name="morphe_hide_fashion_menu_title">Ocultar menú \'Moda y belleza\'</string>
@@ -54,6 +68,7 @@ Para solucionar esto, activa \'Suplantar transmisiones de video\' y cambia \'Cli
     <string name="morphe_hide_music_menu_title">Ocultar menú Música</string>
     <string name="morphe_hide_news_menu_title">Ocultar menú Noticias</string>
     <string name="morphe_hide_playables_menu_title">Ocultar menú Jugables</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"El menú 'Pista de audio' está oculto\n\nPara mostrar el menú 'Pista de audio', cambia 'Falsificar transmisiones de vídeo' a cualquier cliente excepto 'Android Studio' y 'Android VR Downgraded'"</string>
     <string name="morphe_hide_podcasts_menu_title">Ocultar menú Podcasts</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ocultar pies de página legales y de privacidad</string>
     <string name="morphe_hide_shopping_menu_title">Ocultar menú \'Compras y Suscripciones\'</string>
@@ -65,9 +80,11 @@ Para solucionar esto, activa \'Suplantar transmisiones de video\' y cambia \'Cli
     <string name="morphe_hide_youtube_premium_menu_title">Ocultar menú YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">Ocultar menú YouTube Studio</string>
     <string name="morphe_hide_youtube_works_menu_title">Ocultar menú \'Cómo funciona YouTube\'</string>
+    <string name="morphe_light_theme_custom_color_title">Color personalizado del tema claro</string>
+    <string name="morphe_light_theme_title">Tema Claro</string>
     <string name="morphe_livestream_dvr_not_available">"Es posible que 'Activar DVR para transmisiones en directo' no esté disponible
 
-Para solucionar esto, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente predeterminado' por 'TV' o 'visionOS'"</string>
+Para solucionarlo, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente predeterminado' a 'TV Simply' o 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">Permite avanzar o retroceder en todas las transmisiones en directo, incluso en aquellas que normalmente restringen esta función</string>
     <string name="morphe_livestream_dvr_title">Activar el DVR de la transmisión en directo</string>
     <string name="morphe_music_package_name_summary">Nombre del paquete de tu app de música instalada</string>
@@ -166,6 +183,31 @@ Si eres usuario de YouTube Premium, esta configuración podría no ser necesaria
 
 Limitación: si la opción 'Restaurar antigua barra de acciones de vídeo' está desactivada, es posible que la superposición 'Más vídeos' no esté disponible"</string>
     <string name="morphe_tablet_layout_in_player_title">Habilitar diseño para tablet en el reproductor</string>
+    <string name="morphe_theme_color_change_foreground_summary">Usa el color del tema para texto e iconos</string>
+    <string name="morphe_theme_color_change_foreground_title">Cambiar el color de primer plano</string>
+    <string name="morphe_theme_entry_amoled_black">Negro Amoled</string>
+    <string name="morphe_theme_entry_classic_youtube">Clásico (antiguo YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Azul Oscuro</string>
+    <string name="morphe_theme_entry_dark_green">Verde Oscuro</string>
+    <string name="morphe_theme_entry_dark_orange">Naranja Oscuro</string>
+    <string name="morphe_theme_entry_dark_pink">Rosa Oscuro</string>
+    <string name="morphe_theme_entry_dark_red">Rojo Oscuro</string>
+    <string name="morphe_theme_entry_dark_yellow">Amarillo Oscuro</string>
+    <string name="morphe_theme_entry_light_blue">Azul Claro</string>
+    <string name="morphe_theme_entry_light_green">Verde Claro</string>
+    <string name="morphe_theme_entry_light_orange">Naranja Claro</string>
+    <string name="morphe_theme_entry_light_pink">Rosa Claro</string>
+    <string name="morphe_theme_entry_light_red">Rojo Claro</string>
+    <string name="morphe_theme_entry_light_yellow">Amarillo Claro</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Neutro)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - Primario</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - Secundario</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - Terciario</string>
+    <string name="morphe_theme_entry_modern_youtube">YouTube Moderno</string>
+    <string name="morphe_theme_entry_pale_blue">Azul Pálido</string>
+    <string name="morphe_theme_entry_pale_green">Verde Pálido</string>
+    <string name="morphe_theme_entry_pale_yellow">Amarillo Pálido</string>
+    <string name="morphe_theme_entry_white">Blanco</string>
     <string name="morphe_video_quality_prioritize_dialog">Si este ajuste está desactivado, los vídeos más antiguos podrían no mostrar opciones de calidad de vídeo</string>
     <string name="morphe_video_quality_prioritize_summary">Prioriza la calidad de vídeo más alta sobre la eficiencia del códec</string>
     <string name="morphe_video_quality_prioritize_title">Priorizar la calidad del vídeo</string>
@@ -221,6 +263,8 @@ Pulsa aquí para saber más sobre DeArrow"</string>
     <string name="revanced_auto_captions_style_entry_3">Mostrar cuando no está silenciado</string>
     <string name="revanced_auto_captions_style_entry_4">Mostrar cuando está silenciado</string>
     <string name="revanced_auto_captions_style_title">Visibilidad de subtítulos automáticos</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">Pulsando hacia atrás, desplaza hasta la parte superior del feed</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">Pulsar hacia atrás siempre sale del feed/app</string>
     <string name="revanced_back_button_always_exits_feed_title">El botón Atrás cierra el feed</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Las restricciones del modo ambiente para ahorro de energía no están omitidas</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Las restricciones del modo ambiente para ahorro de energía están omitidas</string>
@@ -365,6 +409,7 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_debug_toast_on_error_title">Mostrar aviso de error en RVX</string>
     <string name="revanced_default_app_settings_summary">Para abrir RVX en un navegador externo, activa \"Abrir enlaces compatibles\" y activa las direcciones web compatibles</string>
     <string name="revanced_default_app_settings_title">Abrir ajustes predeterminados de la app</string>
+    <string name="revanced_default_playback_audio_pitch_title">Tono de audio de reproducción predeterminado</string>
     <string name="revanced_default_playback_speed_shorts_title">Velocidad predeterminada de reproducción en Shorts</string>
     <string name="revanced_default_playback_speed_title">Velocidad predeterminada de reproducción</string>
     <string name="revanced_default_video_quality_mobile_shorts_title">Calidad predeterminada de Shorts en red móvil</string>
@@ -530,6 +575,8 @@ Limitaciones:
     <string name="revanced_enable_narrow_navigation_buttons_title">Activar botones de navegación estrechos</string>
     <string name="revanced_enable_opus_codec_summary">Activa el códec OPUS si la respuesta del reproductor lo incluye</string>
     <string name="revanced_enable_opus_codec_title">Activar códec OPUS</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">Controles de tono de audio desactivados</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">Controles de tono de audio activados</string>
     <string name="revanced_enable_playback_audio_pitch_controls_title">Activar controles de tono de audio</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">La pulsación en la barra de progreso está desactivada</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">La pulsación en la barra de progreso está activada</string>
@@ -918,9 +965,9 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_hashtag_section_summary_off">Se muestra la sección de hashtags</string>
     <string name="revanced_hide_hashtag_section_summary_on">La sección de hashtags está oculta</string>
     <string name="revanced_hide_hashtag_section_title">Ocultar sección Hashtag</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_off">Se muestra la sección Cómo se hizo este contenido</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_on">La sección Cómo se hizo este contenido está oculta</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Ocultar sección \'Cómo se ha hecho este contenido\'</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">Se muestra la sección 'Cómo se hizo esto'</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">La sección 'Cómo se hizo' está oculta</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Ocultar la sección 'Cómo se hizo esto'</string>
     <string name="revanced_hide_hype_button_summary_off">El botón de hype es visible</string>
     <string name="revanced_hide_hype_button_summary_on">El botón Hype está oculto</string>
     <string name="revanced_hide_hype_button_title">Ocultar botón \"Hype\"</string>
@@ -1607,6 +1654,10 @@ Los resultados resumidos y transcritos se guardan a menos que cierres la aplicac
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Selecciona primero el inicio y el fin del ciclo</string>
     <string name="revanced_overlay_button_loop_segment_enabled_toast">Bucle %1$s - %2$s</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">No se puede usar el tiempo de reproducción actual</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_summary">Ajusta el tamaño de los marcadores de las barras de búsqueda A y B</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_title">Tamaño A y B</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_summary">Muestra el rango de bucle en la barra de búsqueda con marcadores A y B</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_title">Segmento de bucle</string>
     <string name="revanced_overlay_button_loop_segment_start_toast">Inicio de bucle seleccionado: %s</string>
     <string name="revanced_overlay_button_loop_segment_summary">"Toca una vez para seleccionar inicio, toca otra vez para seleccionar terminar y repite ese segmento, pulsa una tercera vez para limpiar
 Pulsa y mantén pulsado para copiar una URL de vídeo con parámetros de inicio y fin"</string>
@@ -1666,6 +1717,10 @@ Para mostrar el botón de descarga nativo de la lista de reproducción, activa �
     <string name="revanced_patched_date_title">Fecha de parcheado</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Excluidos</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Incluidos</font></string>
+    <string name="revanced_playback_audio_pitch_sync">Sincronización</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_off">El tono de audio es independiente de la velocidad de reproducción</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_on">El tono del audio se sincroniza con la velocidad de reproducción</string>
+    <string name="revanced_playback_audio_pitch_title">Tono de audio</string>
     <string name="revanced_playback_audio_time_stretching_summary">Permite ajustar la velocidad y el tono de forma independiente, puede causar artefactos de audio</string>
     <string name="revanced_playback_audio_time_stretching_title">Estiramiento de tiempo de audio</string>
     <string name="revanced_playback_speed_normal">Normal</string>
@@ -1854,8 +1909,6 @@ Información:
     <string name="revanced_replace_time_stamp_action_summary_off">Pulsa para mostrar el tiempo restante</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Pulsa para abrir el menú desplegable de velocidad de reproducción o de calidad de vídeo</string>
     <string name="revanced_replace_time_stamp_action_title">Reemplazar acción de marca de tiempo</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Reemplaza el botón de crear con el botón de ajustes</string>
-    <string name="revanced_replace_toolbar_create_button_title">Reemplazar botón de crear</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Pulsa para abrir la configuración de YouTube
 Mantén pulsado para abrir los ajustes de RVX"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Pulsa para abrir los ajustes de RVX
@@ -2188,6 +2241,11 @@ Puede que no funcione si:
     <string name="revanced_settings_search_clear_history_message">¿Realmente quieres borrar todo el historial de búsqueda?</string>
     <string name="revanced_settings_search_empty_history_summary">Para guardar el historial de búsqueda, escribe una consulta de búsqueda y pulsa Enter</string>
     <string name="revanced_settings_search_empty_history_title">El historial de búsqueda está vacío</string>
+    <string name="revanced_settings_search_gemini_results">Resultados de Gemini</string>
+    <string name="revanced_settings_search_gemini_searching_title">Buscando con Gemini...</string>
+    <string name="revanced_settings_search_gemini_summary_off">Gemini no se usa para la búsqueda de ajustes</string>
+    <string name="revanced_settings_search_gemini_summary_on">Gemini se utiliza cuando la búsqueda de configuración local no encuentra resultados</string>
+    <string name="revanced_settings_search_gemini_title">Configuración de búsqueda con Gemini</string>
     <string name="revanced_settings_search_history_summary">Guardar consultas de búsqueda recientes para mostrarlas cuando la barra de búsqueda esté vacía</string>
     <string name="revanced_settings_search_history_summary_off">El historial de búsqueda de ajustes está oculto</string>
     <string name="revanced_settings_search_history_summary_on">El historial de búsqueda de los ajustes es visible</string>
@@ -2232,9 +2290,9 @@ La mayoría de los errores no pueden solucionarse debido a las limitaciones del 
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">El menú del descargador externo está visible</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Mostrar menú de descargador externo</string>
     <string name="revanced_shorts_custom_actions_gemini_label">Resumen de Gemini</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_off">El menú de resumen de Gemini está oculto</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">El menú de resumen de Gemini se muestra</string>
-    <string name="revanced_shorts_custom_actions_gemini_title">Mostrar menú de resumen de Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">La acción resumen de Gemini está oculta en el menú de acciones personalizadas de Shorts </string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">La acción resumen de Gemini se muestra en el menú de acciones personalizadas de Shorts</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Mostrar Gemini en Shorts</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Abrir vídeo</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">El menú de abrir vídeo está oculto</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">El menú de abrir vídeo está visible</string>

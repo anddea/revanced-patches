@@ -20,6 +20,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="gms_core_settings_summary">RVX 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">MicroG가 설치되어 있지 않습니다. 설치하세요</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">사용할 수 있는 경우에 선택한 앱 아이콘을 RVX 설정 항목에 사용합니다</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">RVX 설정에서 아이콘 사용하기</string>
+    <string name="morphe_custom_branding_icon_title">앱 아이콘</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">사용자 정의 스플래시 애니메이션의 크기를 설정할 수 있습니다</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">스플래시 애니메이션 크기</string>
     <string name="morphe_dark_theme_custom_color_summary">사용자 정의가 선택된 경우에 사용됩니다</string>
     <string name="morphe_dark_theme_custom_color_title">사용자 정의 어두운 테마 색상</string>
     <string name="morphe_dark_theme_title">어두운 테마</string>
@@ -33,7 +38,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'실시간 스트림 DVR 탐색 구간 확장하기'를 사용할 수 없을 수 있습니다
 
-이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV' 또는 'visionOS'로 변경하세요"</string>
+이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV Simply' 또는 'visionOS'로 변경하세요"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">실시간 스트림을 최대 7일 전까지 되감아 볼 수 있습니다</string>
     <string name="morphe_expand_livestream_dvr_duration_title">실시간 스트림 DVR 탐색 구간 확장하기</string>
     <string name="morphe_explore_menu_screen_summary">탐색 메뉴에 표시할 구성 요소를 선택하세요</string>
@@ -42,6 +47,12 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_force_original_audio_summary_off">기본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_summary_on">원본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
+    <string name="morphe_fullscreen_large_seekbar_title">전체 화면 두꺼운 재생바 활성화하기</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">버튼을 탭하여 기본값, 화면 늘리기, 화면 확대 순으로 전환하여 전체 화면 동영상 크기를 조절할 수 있습니다</string>
+    <string name="morphe_fullscreen_video_scale_button_title">동영상 크기 조절 버튼 표시하기</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">늘리기 (화면 채우기)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">확대 (잘라서 채우기)</string>
+    <string name="morphe_fullscreen_video_scale_title">전체 화면 동영상 크기 조절</string>
     <string name="morphe_hide_courses_menu_title">학습 프로그램 메뉴 숨기기</string>
     <string name="morphe_hide_explore_button_title">탐색 버튼 숨기기</string>
     <string name="morphe_hide_fashion_menu_title">패션 및 뷰티 메뉴 숨기기</string>
@@ -57,6 +68,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_hide_music_menu_title">음악 메뉴 숨기기</string>
     <string name="morphe_hide_news_menu_title">뉴스 메뉴 숨기기</string>
     <string name="morphe_hide_playables_menu_title">게임 룸 메뉴 숨기기</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"'오디오 트랙' 메뉴가 숨겨져 있습니다
+
+'오디오 트랙' 메뉴를 표시하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'Android Studio'와 'Android VR Downgraded'를 제외한 다른 클라이언트로 변경하세요"</string>
     <string name="morphe_hide_podcasts_menu_title">팟캐스트 메뉴 숨기기</string>
     <string name="morphe_hide_privacy_tos_footer_title">\'법률 및 개인정보 보호\' 하단 설명 숨기기</string>
     <string name="morphe_hide_shopping_menu_title">쇼핑 메뉴 숨기기</string>
@@ -72,7 +86,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_light_theme_title">밝은 테마</string>
     <string name="morphe_livestream_dvr_not_available">"'실시간 스트림 DVR 활성화하기'를 사용할 수 없을 수 있습니다
 
-이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV' 또는 'visionOS'로 변경하세요"</string>
+이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV Simply' 또는 'visionOS'로 변경하세요"</string>
     <string name="morphe_livestream_dvr_summary">재생바 탐색이 제한된 실시간 스트림에서도 탐색할 수 있도록 허용합니다</string>
     <string name="morphe_livestream_dvr_title">실시간 스트림 DVR 활성화하기</string>
     <string name="morphe_music_package_name_summary">사용자가 사용하고 싶은 Music 앱 패키지명을 설정하세요</string>
@@ -171,29 +185,31 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 
 제한 사항: '이전 동영상 작업 버튼바 복원하기'를 비활성화하면, '동영상 더보기' 오버레이를 사용할 수 없을 수 있습니다"</string>
     <string name="morphe_tablet_layout_in_player_title">플레이어에서 태블릿 레이아웃 활성화하기</string>
-    <string name="morphe_theme_entry_amoled_black">아몰레드 블랙</string>
+    <string name="morphe_theme_color_change_foreground_summary">텍스트와 아이콘에 테마 색상을 사용합니다</string>
+    <string name="morphe_theme_color_change_foreground_title">전경 색상 변경하기</string>
+    <string name="morphe_theme_entry_amoled_black">순수 검정색</string>
     <string name="morphe_theme_entry_classic_youtube">클래식 (이전 YouTube)</string>
     <string name="morphe_theme_entry_dark_blue">어두운 파란색</string>
-    <string name="morphe_theme_entry_dark_green">어두운 녹색</string>
+    <string name="morphe_theme_entry_dark_green">어두운 초록색</string>
     <string name="morphe_theme_entry_dark_orange">어두운 주황색</string>
     <string name="morphe_theme_entry_dark_pink">어두운 분홍색</string>
     <string name="morphe_theme_entry_dark_red">어두운 빨간색</string>
     <string name="morphe_theme_entry_dark_yellow">어두운 노란색</string>
     <string name="morphe_theme_entry_light_blue">밝은 파란색</string>
-    <string name="morphe_theme_entry_light_green">밝은 녹색</string>
+    <string name="morphe_theme_entry_light_green">밝은 초록색</string>
     <string name="morphe_theme_entry_light_orange">밝은 주황색</string>
     <string name="morphe_theme_entry_light_pink">밝은 분홍색</string>
     <string name="morphe_theme_entry_light_red">밝은 빨간색</string>
     <string name="morphe_theme_entry_light_yellow">밝은 노란색</string>
-    <string name="morphe_theme_entry_material_you_neutral">Material You (중립)</string>
-    <string name="morphe_theme_entry_material_you_primary">Material You - 주요</string>
-    <string name="morphe_theme_entry_material_you_secondary">Material You - 보조</string>
-    <string name="morphe_theme_entry_material_you_tertiary">Material You - 추가</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (뉴트럴)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - 기본</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - 2차</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - 3차</string>
     <string name="morphe_theme_entry_modern_youtube">모던 스타일 YouTube</string>
     <string name="morphe_theme_entry_pale_blue">연한 파란색</string>
-    <string name="morphe_theme_entry_pale_green">연한 녹색</string>
+    <string name="morphe_theme_entry_pale_green">연한 초록색</string>
     <string name="morphe_theme_entry_pale_yellow">연한 노란색</string>
-    <string name="morphe_theme_entry_white">흰색</string>
+    <string name="morphe_theme_entry_white">하얀색</string>
     <string name="morphe_video_quality_prioritize_dialog">이 설정을 비활성화하면, 일부 오래된 동영상에서 화질 옵션이 표시되지 않을 수 있습니다</string>
     <string name="morphe_video_quality_prioritize_summary">코덱 효율성보다 사용 가능한 최고 동영상 화질을 우선합니다</string>
     <string name="morphe_video_quality_prioritize_title">동영상 우선순위를 화질로 지정하기</string>
@@ -417,8 +433,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_disable_auto_captions_summary_off">자동 자막을 활성화합니다</string>
     <string name="revanced_disable_auto_captions_summary_on">자동 자막을 비활성화합니다</string>
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화하기</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다:\n실시간 채팅, 재생목록, etc</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다:\n실시간 채팅, 재생목록, etc</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다:\n실시간 채팅, 재생목록, 뉴스 스토리, etc</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다:\n실시간 채팅, 재생목록, 뉴스 스토리, etc</string>
     <string name="revanced_disable_auto_player_popup_panels_title">플레이어 팝업 패널 비활성화하기</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"자동재생이 활성화되어 있으면, 믹스 재생목록 자동전환을 활성화합니다
 
@@ -970,8 +986,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_hide_hashtag_section_summary_off">해시태그 섹션이 표시됩니다</string>
     <string name="revanced_hide_hashtag_section_summary_on">해시태그 섹션이 숨겨집니다</string>
     <string name="revanced_hide_hashtag_section_title">해시태그 섹션 숨기기</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_off">이 콘텐츠가 제작된 방식 섹션이 표시됩니다</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_on">이 콘텐츠가 제작된 방식 섹션이 숨겨집니다</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">\'이 콘텐츠가 제작된 방식\' 섹션이 표시됩니다</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">\'이 콘텐츠가 제작된 방식\' 섹션이 숨겨집니다</string>
     <string name="revanced_hide_how_this_was_made_section_title">\'이 콘텐츠가 제작된 방식\' 섹션 숨기기</string>
     <string name="revanced_hide_hype_button_summary_off">하이프 버튼이 표시됩니다</string>
     <string name="revanced_hide_hype_button_summary_on">하이프 버튼이 숨겨집니다</string>
@@ -1666,6 +1682,10 @@ Gemini API Key를 발급받으려면 여기를 탭하세요"</string>
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">연속 구간의 시작과 종료를 먼저 선택하세요</string>
     <string name="revanced_overlay_button_loop_segment_enabled_toast">%1$s - %2$s 구간을 연속하는 중</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">현재 재생 시간을 사용할 수 없습니다</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_summary"> A 및 B 재생바 마커의 크기를 조정합니다</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_title">A &amp; B 크기</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_summary">재생바에서 A와 B 마커로 연속 구간을 표시합니다</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_title">연속 구간</string>
     <string name="revanced_overlay_button_loop_segment_start_toast">선택된 연속 구간의 시작: %s</string>
     <string name="revanced_overlay_button_loop_segment_summary">버튼을 한 번 탭하여 시작 시간을 선택하고, 다시 탭하여 종료 시간을 선택해 해당 구간을 연속 재생할 수 있습니다. 세 번째 탭하면 선택된 구간이 해제됩니다
 길게 탭하면 시작 및 종료 시간이 포함된 동영상 URL을 복사됩니다</string>
@@ -1918,8 +1938,6 @@ Gemini API Key를 발급받으려면 여기를 탭하세요"</string>
     <string name="revanced_replace_time_stamp_action_summary_off">타임스탬프를 탭하면 남은 시간을 표시할 수 있습니다</string>
     <string name="revanced_replace_time_stamp_action_summary_on">타임스탬프를 탭하면 동영상 재생 속도 또는 동영상 화질 설정 메뉴 구성요소를 열 수 있습니다</string>
     <string name="revanced_replace_time_stamp_action_title">타임스탬프 탭하기 작업 변경하기</string>
-    <string name="revanced_replace_toolbar_create_button_summary">만들기 버튼을 설정 버튼으로 변경합니다</string>
-    <string name="revanced_replace_toolbar_create_button_title">만들기 버튼 변경하기</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"버튼을 탭하여 YouTube 설정을 열 수 있습니다
 길게 탭하면 RVX 설정이 열립니다"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"버튼을 탭하여 RVX 설정을 열 수 있습니다
@@ -2252,6 +2270,11 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_settings_search_clear_history_message">모든 검색 기록을 지우시겠습니까?</string>
     <string name="revanced_settings_search_empty_history_summary">검색 기록을 저장하려면 검색어를 입력하고 엔터키를 탭하세요</string>
     <string name="revanced_settings_search_empty_history_title">검색 기록이 비어 있습니다</string>
+    <string name="revanced_settings_search_gemini_results">Gemini 결과</string>
+    <string name="revanced_settings_search_gemini_searching_title">Gemini로 검색하는 중...</string>
+    <string name="revanced_settings_search_gemini_summary_off">설정 검색에 Gemini를 사용하지 않습니다</string>
+    <string name="revanced_settings_search_gemini_summary_on">로컬 설정 검색에서 결과가 없을 경우에 Gemini를 사용합니다</string>
+    <string name="revanced_settings_search_gemini_title">Gemini로 설정 검색</string>
     <string name="revanced_settings_search_history_summary">검색창이 비어 있을 경우에 검색 기록이 표시될 수 있도록 최근 검색 쿼리를 저장합니다</string>
     <string name="revanced_settings_search_history_summary_off">설정 검색 기록을 표시하지 않습니다</string>
     <string name="revanced_settings_search_history_summary_on">설정 검색 기록을 표시합니다</string>
@@ -2296,9 +2319,9 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">외부 다운로더 실행 메뉴가 표시됩니다</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">외부 다운로더 실행 메뉴 표시하기</string>
     <string name="revanced_shorts_custom_actions_gemini_label">Gemini 요약</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_off">Gemini 요약 메뉴가 숨겨집니다</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">Gemini 요약 메뉴가 표시됩니다</string>
-    <string name="revanced_shorts_custom_actions_gemini_title">Gemini 요약 메뉴 표시하기</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">Shorts 사용자 정의 작업 메뉴에서 Gemini 요약 작업이 숨겨집니다</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">Shorts 사용자 정의 작업 메뉴에서 Gemini 요약 작업이 표시됩니다</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Shorts에서 Gemini 표시하기</string>
     <string name="revanced_shorts_custom_actions_open_video_label">일반 플레이어에서 재생</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">일반 플레이어에서 재생 메뉴가 숨겨집니다</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">일반 플레이어에서 재생 메뉴가 표시됩니다</string>

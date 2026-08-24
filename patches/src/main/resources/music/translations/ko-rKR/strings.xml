@@ -32,6 +32,12 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_crossfade_duration_750ms">750 밀리초</string>
     <string name="morphe_crossfade_duration_8000ms">8 초</string>
     <string name="morphe_crossfade_duration_9000ms">9 초</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">사용할 수 있는 경우에 선택한 앱 아이콘을 RVX 설정 항목에 사용합니다</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">RVX 설정에서 아이콘 사용</string>
+    <string name="morphe_custom_branding_icon_title">앱 아이콘</string>
+    <string name="morphe_custom_branding_name_title">앱 이름</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">사용자 정의 스플래시 애니메이션의 크기를 설정할 수 있습니다</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">스플래시 애니메이션 크기</string>
     <string name="morphe_dark_theme_custom_color_summary">사용자 정의가 선택된 경우에 사용됩니다</string>
     <string name="morphe_dark_theme_custom_color_title">사용자 정의 테마 색상</string>
     <string name="morphe_dark_theme_title">앱 테마</string>
@@ -173,24 +179,24 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다"</string>
     <string name="morphe_spoof_video_streams_title">동영상 스트림 속이기</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다</string>
-    <string name="morphe_theme_entry_amoled_black">아몰레드 블랙</string>
+    <string name="morphe_theme_entry_amoled_black">순수 검정색</string>
     <string name="morphe_theme_entry_classic_youtube">클래식 (이전 YouTube)</string>
     <string name="morphe_theme_entry_dark_blue">어두운 파란색</string>
-    <string name="morphe_theme_entry_dark_green">어두운 녹색</string>
+    <string name="morphe_theme_entry_dark_green">어두운 초록색</string>
     <string name="morphe_theme_entry_dark_orange">어두운 주황색</string>
     <string name="morphe_theme_entry_dark_pink">어두운 분홍색</string>
     <string name="morphe_theme_entry_dark_red">어두운 빨간색</string>
     <string name="morphe_theme_entry_dark_yellow">어두운 노란색</string>
-    <string name="morphe_theme_entry_material_you_neutral">Material You (중립)</string>
-    <string name="morphe_theme_entry_material_you_primary">Material You - 주요</string>
-    <string name="morphe_theme_entry_material_you_secondary">Material You - 보조</string>
-    <string name="morphe_theme_entry_material_you_tertiary">Material You - 추가</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (뉴트럴)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - 기본</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - 2차</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - 3차</string>
     <string name="morphe_theme_entry_modern_youtube">모던 스타일 YouTube</string>
     <string name="revanced_add_miniplayer_next_button_summary">미니 플레이어에 다음 트랙 재생 버튼을 추가합니다</string>
     <string name="revanced_add_miniplayer_next_button_title">미니 플레이어 다음 재생 버튼 추가</string>
     <string name="revanced_add_miniplayer_previous_button_summary">미니 플레이어에 이전 트랙 재생 버튼을 추가합니다</string>
     <string name="revanced_add_miniplayer_previous_button_title">미니 플레이어 이전 재생 버튼 추가</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;앱 이름&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;앱 버전&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;패치된 날짜&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;앱 이름&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;앱 버전&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;RVX Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;패치된 날짜&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_summary">앱 이름, 앱 버전, 패치 버전 및 패치된 날짜를 확인하려면 여기를 탭하세요</string>
     <string name="revanced_app_info_title">앱 정보</string>
     <string name="revanced_bypass_image_region_restrictions_summary">이미지 도메인을 변경하여 일부 국가에서 차단된 재생목록 썸네일, 채널 프로필 사진, 커뮤니티 게시물 이미지 등을 수신할 수 있습니다</string>
@@ -316,12 +322,11 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_enable_zen_mode_podcast_title">팟캐스트에서 집중 모드 활성화</string>
     <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다</string>
     <string name="revanced_enable_zen_mode_title">집중 모드 활성화</string>
-    <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더 앱을 실행할 수 있습니다
-
-• 플레이어 하단에 있는 오프라인 저장 버튼만 재정의할 수 있습니다
-• 메뉴 구성요소 또는 보관함에서는 오프라인 저장 버튼을 재정의할 수 없습니다"</string>
+    <string name="revanced_external_downloader_action_summary">오프라인 저장 버튼으로 외부 다운로더 앱을 실행할 수 있습니다</string>
     <string name="revanced_external_downloader_action_title">오프라인 저장 버튼 재정의</string>
     <string name="revanced_external_downloader_dialog_title">외부 다운로더 앱</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">피드 \'동영상 오프라인 저장\' 메뉴로 기본 다운로더 대신 사용자가 선택한 외부 다운로더를 사용합니다</string>
+    <string name="revanced_external_downloader_flyout_menu_title">동영상 오프라인 저장 메뉴 재정의하기</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 가 설치되어 있지 않습니다
 웹사이트에서 %2$s 를 다운로드하세요"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">경고</string>
@@ -467,6 +472,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_hide_voice_search_button_summary">툴바에서 음성 검색 버튼을 숨깁니다</string>
     <string name="revanced_hide_voice_search_button_title">음성 검색 버튼 제거</string>
     <string name="revanced_icon_custom">사용자 정의</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">하단바 색상을 전체 화면 플레이어와 일치하도록 변경합니다</string>
+    <string name="revanced_music_change_navigation_bar_color_title">하단바 색상 변경하기</string>
     <string name="revanced_preference_screen_account_title">계정</string>
     <string name="revanced_preference_screen_action_bar_title">동작바</string>
     <string name="revanced_preference_screen_ads_title">광고</string>

@@ -20,6 +20,7 @@ Clicca \"Continua\" per consentire le modifiche"</string>
     <string name="gms_core_settings_summary">Attiva \"Cloud Messaging\" per ricevere le notifiche di RVX</string>
     <string name="gms_core_settings_title">Apri GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG non è installato. Installalo</string>
+    <string name="morphe_custom_branding_icon_title">Icona dell\'app</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Mantiene la barra di navigazione visibile durante lo scorrimento</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Disabilita la scomparsa automatica della barra di navigazione</string>
     <string name="morphe_disable_drc_audio_summary_off">L\'audio DRC è abilitato</string>
@@ -30,7 +31,7 @@ Clicca \"Continua\" per consentire le modifiche"</string>
     <string name="morphe_disable_quic_protocol_title">Disabilita il protocollo QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Espandi durata DVR in diretta' potrebbe non essere disponibile
 
-Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client predefinito' in 'TV' o 'visionOS'"</string>
+Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client predefinito' in 'TV Simply' o 'visionOS'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Consente di riavvolgere i video in diretta fino a 7 giorni</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Espandi la durata DVR sui video in diretta</string>
     <string name="morphe_explore_menu_screen_summary">Scegli quali componenti mostrare nel menù a comparsa</string>
@@ -39,6 +40,12 @@ Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client pre
     <string name="morphe_force_original_audio_summary_off">Utilizza audio predefinito</string>
     <string name="morphe_force_original_audio_summary_on">Utilizza la lingua originale dell'audio</string>
     <string name="morphe_force_original_audio_title">Forza la lingua originale dell'audio</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Abilita la barra di avanzamento grande a schermo intero</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Tocca per passare da Predefinito, Adatta e Zoom</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Mostra pulsante scala video</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Adatta (riempi schermo)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Zoom (ritaglia per riempire)</string>
+    <string name="morphe_fullscreen_video_scale_title">Scala video a schermo intero</string>
     <string name="morphe_hide_courses_menu_title">Nascondi il menù Corsi</string>
     <string name="morphe_hide_explore_button_title">Nascondi il pulsante Esplora</string>
     <string name="morphe_hide_fashion_menu_title">Nascondi il menù \'Moda e Bellezza\'</string>
@@ -54,6 +61,9 @@ Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client pre
     <string name="morphe_hide_music_menu_title">Nascondi il menù Musica</string>
     <string name="morphe_hide_news_menu_title">Nascondi il menù Notizie</string>
     <string name="morphe_hide_playables_menu_title">Nascondi Sala Giochi</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"Il menu 'Audio Track' è nascosto
+
+Per mostrare il menu 'Audio Track', cambia 'Falsificazione dei flussi video' in qualsiasi client tranne 'Android Studio' e 'Android VR Downgraded'"</string>
     <string name="morphe_hide_podcasts_menu_title">Nascondi il menù Podcast</string>
     <string name="morphe_hide_privacy_tos_footer_title">Nascondi piè di pagina legali e sulla privacy</string>
     <string name="morphe_hide_shopping_menu_title">Nascondi il menù Shopping</string>
@@ -67,7 +77,7 @@ Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client pre
     <string name="morphe_hide_youtube_works_menu_title">Nascondi il menù \'Come funziona YouTube\'</string>
     <string name="morphe_livestream_dvr_not_available">"'Abilita registrazione DVR in diretta' potrebbe non essere disponibile
 
-Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client predefinito' in 'TV' o 'visionOS'"</string>
+Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client predefinito' in 'TV Simply' o 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">Consente l\'avanzamento su tutti i video in diretta, anche su quelli che normalmente lo limitano</string>
     <string name="morphe_livestream_dvr_title">Abilita DVR sui video in diretta</string>
     <string name="morphe_music_package_name_summary">Nome del pacchetto dell\'app musicale installata</string>
@@ -166,6 +176,8 @@ Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necess
 
 Limitazione: se \"Ripristina la vecchia barra delle azioni video\" è disattivato, la sovrapposizione \"Altri video\" potrebbe non essere disponibile"</string>
     <string name="morphe_tablet_layout_in_player_title">Abilita layout per tablet nel lettore</string>
+    <string name="morphe_theme_color_change_foreground_summary">Usa il colore del tema per il testo e le icone</string>
+    <string name="morphe_theme_color_change_foreground_title">Cambia colore primo piano</string>
     <string name="morphe_video_quality_prioritize_dialog">Se questa impostazione è disattivata, i video più vecchi potrebbero non mostrare opzioni di qualità video</string>
     <string name="morphe_video_quality_prioritize_summary">Dà priorità alla qualità video più elevata anziché all\'efficienza del codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioritizza la qualità del video</string>
@@ -915,7 +927,7 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_hashtag_section_title">Nascondi la sezione hashtag</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">La sezione Come è stato realizzato questo contenuto è visibile</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">La sezione Come è stato realizzato questo contenuto è nascosta</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Nascondi la sezione \'Come è stato realizzato questo contenuto\'</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Nascondi la sezione \"come è stato realizzato\"</string>
     <string name="revanced_hide_hype_button_summary_off">Pulsante Hype è mostrato</string>
     <string name="revanced_hide_hype_button_summary_on">Il pulsante Hype è nascosto</string>
     <string name="revanced_hide_hype_button_title">Nascondi il pulsante Hype</string>
@@ -1836,8 +1848,6 @@ Note:
     <string name="revanced_replace_time_stamp_action_summary_off">Tocca per mostrare il tempo rimanente</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Tocca per aprire la finestra della velocità di riproduzione o della qualità video</string>
     <string name="revanced_replace_time_stamp_action_title">Sostituisci l\'azione del timestamp</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Sostituisce il pulsante Crea con il pulsante Impostazioni</string>
-    <string name="revanced_replace_toolbar_create_button_title">Sostituisci il pulsante Crea con il pulsante Impostazioni</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Tocca per aprire le impostazioni di YouTube
 Tocca e tieni premuto per aprire le impostazioni di RVX"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Tocca per aprire le impostazioni di RVX

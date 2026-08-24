@@ -20,6 +20,7 @@ Appuyez sur le bouton 'Continuer' et autorisez la modification des optimisations
     <string name="gms_core_settings_summary">Pour recevoir les notifications de RVX, activez la messagerie cloud</string>
     <string name="gms_core_settings_title">Ouvrir les paramètres GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG n\'est pas installé. Installez-le</string>
+    <string name="morphe_custom_branding_icon_title">Icône de l\'application</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Garde la barre de navigation visible lors du défilement</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Désactiver le masquage automatique de la barre de navigation</string>
     <string name="morphe_disable_drc_audio_summary_off">L\'audio DRC est activé</string>
@@ -30,7 +31,7 @@ Appuyez sur le bouton 'Continuer' et autorisez la modification des optimisations
     <string name="morphe_disable_quic_protocol_title">Désactiver le protocole QUIC</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Étendre la durée du DVR des diffusions en direct' peut ne pas être disponible
 
-Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client par défaut' en 'TV' ou 'visionOS'"</string>
+Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client par défaut' en 'TV Simply' ou 'visionOS'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Permet de revenir en arrière dans les diffusions en direct jusqu\'à 7 jours dans le passé</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Étendre la durée du DVR des diffusions en direct</string>
     <string name="morphe_explore_menu_screen_summary">Choisissez les composants qui apparaissent dans le menu \'Explorer\'</string>
@@ -39,6 +40,12 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
     <string name="morphe_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
     <string name="morphe_force_original_audio_title">Forcer la langue audio d\'origine</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Activer la barre de progression large en plein écran</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Appuyez pour passer entre Par défaut, Étirer et Zoom</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Afficher un bouton de mise à l’échelle de la vidéo</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Étirer (remplir l’écran)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Zoom (recadrer pour remplir)</string>
+    <string name="morphe_fullscreen_video_scale_title">Échelle de la vidéo en plein écran</string>
     <string name="morphe_hide_courses_menu_title">Masquer le menu \'Cours\'</string>
     <string name="morphe_hide_explore_button_title">Masquer le bouton \'Explorer\'</string>
     <string name="morphe_hide_fashion_menu_title">Masquer le menu \'Mode et beauté\'</string>
@@ -54,6 +61,9 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_hide_music_menu_title">Masquer le menu \'Musique\'</string>
     <string name="morphe_hide_news_menu_title">Masquer le menu \'Actualités\'</string>
     <string name="morphe_hide_playables_menu_title">Masquer le menu \'Jeux intégrés\'</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"Le menu 'Piste audio' est masqué
+
+Pour afficher le menu 'Piste audio', changez 'Falsifier les flux vidéo' et sélectionnez n'importe quel client sauf 'Android Studio' ou 'Android VR Downgraded'"</string>
     <string name="morphe_hide_podcasts_menu_title">Masquer le menu \'Podcasts\'</string>
     <string name="morphe_hide_privacy_tos_footer_title">Masquer les pieds de page juridiques et de confidentialité</string>
     <string name="morphe_hide_shopping_menu_title">Masquer le menu \'Shopping\'</string>
@@ -67,7 +77,7 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_hide_youtube_works_menu_title">Masquer le menu \'Premiers pas sur YouTube\'</string>
     <string name="morphe_livestream_dvr_not_available">"'Activer le DVR des diffusions en direct' peut ne pas être disponible
 
-Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client par défaut' en 'TV' ou 'visionOS'"</string>
+Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client par défaut' en 'TV Simply' ou 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">Permet d\'afficher la barre de progression sur toutes les diffusions en directs, même ceux qui la restreignent normalement</string>
     <string name="morphe_livestream_dvr_title">Activer le DVR des diffusions en direct</string>
     <string name="morphe_music_package_name_summary">Nom du paquet de votre application musicale installée</string>
@@ -167,6 +177,8 @@ Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas né
 
 Limitation : Si 'Restaurer l'ancienne barre d'actions vidéo' est désactivé, l'overlay 'Plus de vidéos' peut ne pas être disponible"</string>
     <string name="morphe_tablet_layout_in_player_title">Activer la disposition tablette dans le lecteur</string>
+    <string name="morphe_theme_color_change_foreground_summary">Utilisez la couleur du thème pour le texte et les icônes</string>
+    <string name="morphe_theme_color_change_foreground_title">Changer la couleur du premier plan</string>
     <string name="morphe_video_quality_prioritize_dialog">Si ce paramètre est désactivé, les vidéos plus anciennes peuvent ne proposer aucune option de qualité vidéo</string>
     <string name="morphe_video_quality_prioritize_summary">Privilégie la qualité vidéo la plus élevée disponible plutôt que l\'efficacité du codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioriser la qualité vidéo</string>
@@ -1803,8 +1815,6 @@ Info :
     <string name="revanced_replace_time_stamp_action_summary_off">Appuyez pour afficher le temps restant</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Appuyez pour ouvrir le menu déroulant de la vitesse de lecture ou de la qualité vidéo</string>
     <string name="revanced_replace_time_stamp_action_title">Modifie l\'action de l\'horodatage</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Remplace le bouton \'Créer\' par le bouton \'Paramètre\'</string>
-    <string name="revanced_replace_toolbar_create_button_title">Remplacer le bouton \'Créer\'</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Appuyez pour ouvrir les paramètres YouTube
 Appuyez longuement pour ouvrir les paramètres RVX"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Appuyez pour ouvrir les paramètres RVX

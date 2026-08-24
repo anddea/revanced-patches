@@ -20,10 +20,9 @@ Tap the continue button and allow optimization changes"</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX, enable Cloud Messaging</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it</string>
-    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available.</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
     <string name="morphe_custom_branding_icon_title">App icon</string>
-    <string name="morphe_custom_branding_name_title">App name</string>
     <string name="morphe_custom_branding_splash_animation_size_summary">Sets the size of the custom splash animation</string>
     <string name="morphe_custom_branding_splash_animation_size_title">Splash animation size</string>
     <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
@@ -44,11 +43,16 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_expand_livestream_dvr_duration_title">Expand livestream DVR duration</string>
     <string name="morphe_explore_menu_screen_summary">Choose which components appear in the explore menu</string>
     <string name="morphe_explore_menu_screen_title">Explore menu</string>
-    <string name="morphe_fullscreen_large_seekbar_title">Enable fullscreen large seekbar</string>
     <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
     <string name="morphe_force_original_audio_title">Force original audio language</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Enable fullscreen large seekbar</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Tap to cycle Default, Stretch, and Zoom</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Show video scale button</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Stretch (fill screen)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Zoom (crop to fill)</string>
+    <string name="morphe_fullscreen_video_scale_title">Fullscreen video scale</string>
     <string name="morphe_hide_courses_menu_title">Hide Courses menu</string>
     <string name="morphe_hide_explore_button_title">Hide Explore button</string>
     <string name="morphe_hide_fashion_menu_title">Hide \'Fashion &amp; Beauty\' menu</string>
@@ -64,6 +68,9 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_hide_music_menu_title">Hide \'Music &amp; TV\' menu</string>
     <string name="morphe_hide_news_menu_title">Hide News menu</string>
     <string name="morphe_hide_playables_menu_title">Hide Playables menu</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"\'Audio Track\' menu is hidden
+
+To show the \'Audio Track\' menu, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'"</string>
     <string name="morphe_hide_podcasts_menu_title">Hide Podcasts menu</string>
     <string name="morphe_hide_privacy_tos_footer_title">Hide legal and privacy footers</string>
     <string name="morphe_hide_shopping_menu_title">Hide Shopping menu</string>
@@ -77,8 +84,6 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_hide_youtube_works_menu_title">Hide \'How YouTube works\' menu</string>
     <string name="morphe_light_theme_custom_color_title">Custom light theme color</string>
     <string name="morphe_light_theme_title">Light theme</string>
-    <string name="morphe_theme_color_change_foreground_title">Change foreground color</string>
-    <string name="morphe_theme_color_change_foreground_summary">Use the theme color for text and icons</string>
     <string name="morphe_livestream_dvr_not_available">"\'Enable livestream DVR\' may not be available
 
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV Simply\' or \'visionOS\'"</string>
@@ -180,6 +185,8 @@ If you are a YouTube Premium user, this setting may not be required"</string>
 
 Limitation: If \'Restore old video action bar\' is turned off, \'More videos\' overlay may not be available"</string>
     <string name="morphe_tablet_layout_in_player_title">Enable tablet layout in player</string>
+    <string name="morphe_theme_color_change_foreground_summary">Use the theme color for text and icons</string>
+    <string name="morphe_theme_color_change_foreground_title">Change foreground color</string>
     <string name="morphe_theme_entry_amoled_black">Amoled Black</string>
     <string name="morphe_theme_entry_classic_youtube">Classic (Old YouTube)</string>
     <string name="morphe_theme_entry_dark_blue">Dark Blue</string>
@@ -1654,13 +1661,13 @@ Summarized and transcribed results are saved unless you closed the app or used G
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Select loop start and end first</string>
     <string name="revanced_overlay_button_loop_segment_enabled_toast">Looping %1$s - %2$s</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Unable to use the current playback time</string>
-    <string name="revanced_overlay_button_loop_segment_start_toast">Loop start selected: %s</string>
-    <string name="revanced_overlay_button_loop_segment_summary">"Tap once to select start, tap again to select end and loop that segment, tap a third time to clear
-Tap and hold to copy a video URL with start and end parameters"</string>
     <string name="revanced_overlay_button_loop_segment_marker_size_summary">Adjust the size of the A and B seekbar markers</string>
     <string name="revanced_overlay_button_loop_segment_marker_size_title">A &amp; B size</string>
     <string name="revanced_overlay_button_loop_segment_seekbar_summary">Show the loop range on the seekbar with A and B markers</string>
     <string name="revanced_overlay_button_loop_segment_seekbar_title">Loop segment</string>
+    <string name="revanced_overlay_button_loop_segment_start_toast">Loop start selected: %s</string>
+    <string name="revanced_overlay_button_loop_segment_summary">"Tap once to select start, tap again to select end and loop that segment, tap a third time to clear
+Tap and hold to copy a video URL with start and end parameters"</string>
     <string name="revanced_overlay_button_loop_segment_title">Show loop segment button</string>
     <string name="revanced_overlay_button_mute_volume_summary">Tap to mute volume of the current video. Tap again to unmute</string>
     <string name="revanced_overlay_button_mute_volume_title">Show mute volume button</string>
