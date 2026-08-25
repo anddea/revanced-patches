@@ -4,18 +4,6 @@
     <!-- PREFERENCE_SCREEN: GENERAL
     <PreferenceScreen android:title="@string/revanced_preference_screen_general_title" android:key="revanced_preference_screen_general">PREFERENCE_SCREEN: GENERAL -->
 
-        <!-- SETTINGS: CUSTOM_BRANDING
-        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/revanced_app_name_title" android:key="morphe_custom_branding_name" android:entries="@array/morphe_custom_branding_name_entries" android:entryValues="@array/morphe_custom_branding_name_entry_values" />
-        <app.morphe.extension.shared.settings.preference.IconListPreference android:title="@string/morphe_custom_branding_icon_title" android:key="morphe_custom_branding_icon" android:entries="@array/morphe_custom_branding_icon_entries" android:entryValues="@array/morphe_custom_branding_icon_entry_values" />
-        <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/morphe_custom_branding_splash_animation_size_title" android:key="morphe_custom_branding_splash_animation_size" android:summary="@string/morphe_custom_branding_splash_animation_size_summary" android:inputType="number" />
-        <SwitchPreference android:title="@string/morphe_custom_branding_apply_to_rvx_settings_title" android:key="morphe_custom_branding_apply_to_rvx_settings" android:summary="@string/morphe_custom_branding_apply_to_rvx_settings_summary" />SETTINGS: CUSTOM_BRANDING -->
-
-        <!-- SETTINGS: RUNTIME_THEME
-        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_dark_theme_title" android:key="morphe_dark_theme" android:entries="@array/morphe_dark_theme_entries" android:entryValues="@array/morphe_dark_theme_entry_values" />
-        <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/morphe_dark_theme_custom_color_title" android:key="morphe_dark_theme_custom_color" android:summary="@string/morphe_dark_theme_custom_color_summary" />
-        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_light_theme_title" android:key="morphe_light_theme" android:entries="@array/morphe_light_theme_entries" android:entryValues="@array/morphe_light_theme_entry_values" />
-        <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/morphe_light_theme_custom_color_title" android:key="morphe_light_theme_custom_color" android:summary="@string/morphe_dark_theme_custom_color_summary" />SETTINGS: RUNTIME_THEME -->
-
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_account_menu_title" android:key="revanced_preference_screen_account_menu" android:summary="@string/revanced_preference_screen_account_menu_summary">
             <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:summary="@string/revanced_hide_account_menu_summary" />
@@ -173,6 +161,18 @@
 
         <!-- SETTINGS: TOOLBAR_COMPONENTS
         </PreferenceScreen>SETTINGS: TOOLBAR_COMPONENTS -->
+
+        <!-- SETTINGS: CUSTOM_BRANDING
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/revanced_app_name_title" android:key="morphe_custom_branding_name" android:entries="@array/morphe_custom_branding_name_entries" android:entryValues="@array/morphe_custom_branding_name_entry_values" />
+        <app.morphe.extension.shared.settings.preference.IconListPreference android:title="@string/morphe_custom_branding_icon_title" android:key="morphe_custom_branding_icon" android:entries="@array/morphe_custom_branding_icon_entries" android:entryValues="@array/morphe_custom_branding_icon_entry_values" />
+        <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/morphe_custom_branding_splash_animation_size_title" android:key="morphe_custom_branding_splash_animation_size" android:summary="@string/morphe_custom_branding_splash_animation_size_summary" android:inputType="number" />
+        <SwitchPreference android:title="@string/morphe_custom_branding_apply_to_rvx_settings_title" android:key="morphe_custom_branding_apply_to_rvx_settings" android:summary="@string/morphe_custom_branding_apply_to_rvx_settings_summary" />SETTINGS: CUSTOM_BRANDING -->
+
+        <!-- SETTINGS: RUNTIME_THEME
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_dark_theme_title" android:key="morphe_dark_theme" android:entries="@array/morphe_dark_theme_entries" android:entryValues="@array/morphe_dark_theme_entry_values" />
+        <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/morphe_dark_theme_custom_color_title" android:key="morphe_dark_theme_custom_color" android:summary="@string/morphe_dark_theme_custom_color_summary" />
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_light_theme_title" android:key="morphe_light_theme" android:entries="@array/morphe_light_theme_entries" android:entryValues="@array/morphe_light_theme_entry_values" />
+        <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/morphe_light_theme_custom_color_title" android:key="morphe_light_theme_custom_color" android:summary="@string/morphe_dark_theme_custom_color_summary" />SETTINGS: RUNTIME_THEME -->
 
         <!-- SETTINGS: CHANGE_START_PAGE
         <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/revanced_change_start_page_entries" android:title="@string/revanced_change_start_page_title" android:key="revanced_change_start_page" android:entryValues="@array/revanced_change_start_page_entry_values" />
