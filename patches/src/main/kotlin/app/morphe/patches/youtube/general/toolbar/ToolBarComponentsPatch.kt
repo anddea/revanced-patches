@@ -52,12 +52,16 @@
 
 package app.morphe.patches.youtube.general.toolbar
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
@@ -119,6 +123,46 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val NAVIGATION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/NavigationButtonsPatch;"
+private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
+    "Lapp/morphe/extension/youtube/patches/components/LayoutComponentsFilter;"
+
+private object SearchTermThumbnailFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "I"),
+    filters = listOf(
+        methodCall(
+            smali = "Ljava/util/Iterator;->next()Ljava/lang/Object;"
+        ),
+        literal(
+            0,
+            location = MatchAfterWithin(30)
+        ),
+        methodCall(
+            smali = "Landroid/widget/ImageView;->setVisibility(I)V",
+            location = MatchAfterWithin(10)
+        ),
+        literal(
+            8,
+            location = MatchAfterWithin(10)
+        ),
+        methodCall(
+            smali = "Landroid/widget/ImageView;->setVisibility(I)V",
+            location = MatchAfterWithin(10)
+        ),
+        methodCall(
+            smali = "Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V",
+        ),
+        methodCall(
+            smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;",
+        ),
+        literal(
+            0,
+            location = MatchAfterWithin(20)
+        )
+    ),
+    strings = listOf("ss_rds")
+)
 
 @Suppress("unused")
 val toolBarComponentsPatch = bytecodePatch(
@@ -305,7 +349,29 @@ val toolBarComponentsPatch = bytecodePatch(
 
         // region patch for hide search term thumbnail
 
-        if (!is_20_15_or_greater) {
+        if (is_20_15_or_greater) {
+            SearchTermThumbnailFingerprint.method.apply {
+                val methodCalls = findInstructionIndicesReversedOrThrow {
+                    (opcode == Opcode.INVOKE_INTERFACE || opcode == Opcode.INVOKE_VIRTUAL) &&
+                            getReference<MethodReference>()?.parameterTypes ==
+                            listOf("Landroid/widget/ImageView;", "Landroid/net/Uri;")
+                }
+
+                methodCalls.forEach { insertIndex ->
+                    val invokeInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
+                    val imageViewRegister = invokeInstruction.registerD
+                    val uriRegister = invokeInstruction.registerE
+
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$imageViewRegister, v$uriRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideSearchTermThumbnails(Landroid/view/View;Landroid/net/Uri;)Landroid/net/Uri;
+                            move-result-object v$uriRegister
+                        """
+                    )
+                }
+            }
+        } else {
             createSearchSuggestionsFingerprint.methodOrThrow().apply {
                 val iteratorIndex = indexOfIteratorInstruction(this)
                 val replaceIndex = indexOfFirstInstruction(iteratorIndex) {
@@ -364,9 +430,9 @@ val toolBarComponentsPatch = bytecodePatch(
                     "$GENERAL_CLASS_DESCRIPTOR->hideSearchTermThumbnail(Z)Z"
                 )
             }
-
-            settingArray += "SETTINGS: HIDE_SEARCH_TERM_THUMBNAIL"
         }
+
+        settingArray += "SETTINGS: HIDE_SEARCH_TERM_THUMBNAIL"
 
         // endregion
 
