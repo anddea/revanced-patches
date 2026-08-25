@@ -69,9 +69,10 @@ import app.morphe.patches.shared.layout.branding.installYouTubeRvxSettingsIconLa
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
+import app.morphe.patches.youtube.general.splashanimation.splashScreenAnimationBytecodePatch
+import app.morphe.patches.youtube.general.toolbar.attributeResolverFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
-import app.morphe.patches.youtube.general.toolbar.attributeResolverFingerprint
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_FOR_YOUTUBE
 import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
@@ -259,6 +260,7 @@ val customBrandingPatch = resourcePatch(
     dependsOn(
         settingsPatch,
         customBrandingBytecodePatch,
+        splashScreenAnimationBytecodePatch,
     )
 
     execute {

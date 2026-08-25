@@ -750,14 +750,14 @@ public final class ThemePatch {
      * Injection point for the splash screen visibility flag.
      */
     public static boolean showSplashScreen(boolean original) {
-        return !isSplashAnimationDisabled() && original;
+        return !shouldDisableHostSplashAnimation() && original;
     }
 
     /**
      * Injection point for the splash screen animation resource selection.
      */
     public static int showSplashScreen(int i, int i2) {
-        if (!isSplashAnimationDisabled() || i != i2) {
+        if (!shouldDisableHostSplashAnimation() || i != i2) {
             return i;
         }
         return i - 1;
@@ -769,7 +769,7 @@ public final class ThemePatch {
     public static int getLoadingScreenType(int original) {
         SplashScreenAnimationStyle style = Settings.SPLASH_SCREEN_ANIMATION_STYLE.get();
 
-        if (isSplashAnimationDisabled()) {
+        if (shouldDisableHostSplashAnimation()) {
             return original;
         }
 
@@ -785,5 +785,14 @@ public final class ThemePatch {
     /** Returns whether the selected splash animation style disables the animation completely. */
     private static boolean isSplashAnimationDisabled() {
         return Settings.SPLASH_SCREEN_ANIMATION_STYLE.get() == SplashScreenAnimationStyle.DISABLED;
+    }
+
+    /**
+     * Suppresses YouTube's host splash when custom branding supplies its own splash overlay.
+     * The style preference remains the independent control that disables both implementations.
+     */
+    private static boolean shouldDisableHostSplashAnimation() {
+        return isSplashAnimationDisabled()
+                || !"original".equals(Settings.CUSTOM_BRANDING_ICON.get());
     }
 }

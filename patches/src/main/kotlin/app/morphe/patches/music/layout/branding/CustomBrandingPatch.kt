@@ -57,6 +57,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.folderOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patches.music.general.splash.cairoSplashAnimationPatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.extension.sharedExtensionPatch
@@ -243,6 +244,7 @@ val customBrandingPatch = resourcePatch(
         settingsPatch,
         customBrandingBytecodePatch,
         changeHeaderBytecodePatch,
+        cairoSplashAnimationPatch,
     )
 
     execute {
