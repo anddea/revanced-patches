@@ -53,6 +53,7 @@ import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.spoof.ClientType;
+import app.morphe.extension.shared.spoof.potoken.PoTokenManager;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
@@ -211,7 +212,7 @@ public class StreamOrDetailsDataRequest {
                 boolean authHeadersIncludes = Utils.isNotEmpty(authorization);
 
                 // Auth header is required, but the user is not logged in. These clients are skipped:
-                // ANDROID_CREATOR, TV_SIMPLY, ANDROID_MUSIC_REEL, ANDROID_MUSIC_NO_SDK.
+                // ANDROID_CREATOR, ANDROID_MUSIC_REEL, ANDROID_MUSIC_NO_SDK.
                 if (clientType.canLogin && clientType.requireLogin && !authHeadersIncludes) {
                     Logger.printDebug(() -> "Skipping client since user is not logged in: " + clientType
                             + ", videoId: " + videoId);
@@ -241,7 +242,7 @@ public class StreamOrDetailsDataRequest {
                     }
                 }
                 // These clients can play videos without the auth header:
-                // TV_SABR, VISIONOS_1_02 (VISIONOS_1_03).
+                // TV_SABR, TV_SIMPLY, VISIONOS_1_02 (VISIONOS_1_03).
                 else {
                     Logger.printDebug(() -> "Do not set auth header: " + clientType + ", videoId: " + videoId);
                 }
@@ -296,6 +297,7 @@ public class StreamOrDetailsDataRequest {
     @Nullable
     private static Object buildPlayerStreamOrDetailsResponse(@Nullable ClientType clientType,
                                                              @Nullable HttpURLConnection connection,
+                                                             String videoId,
                                                              boolean isInline) {
         if (connection == null) {
             return null;
@@ -350,7 +352,11 @@ public class StreamOrDetailsDataRequest {
                 }
 
                 if (clientType.requireJS) {
-                    var deobfuscatedStreamingData = getDeobfuscatedStreamingData(streamingData, clientType.requireSABR);
+                    String poToken = clientType.requirePoToken
+                            ? PoTokenManager.getStreamingPoToken(clientType, videoId)
+                            : "";
+
+                    var deobfuscatedStreamingData = getDeobfuscatedStreamingData(streamingData, poToken, clientType.requireSABR);
                     if (deobfuscatedStreamingData == null) {
                         return null;
                     }
@@ -432,13 +438,13 @@ public class StreamOrDetailsDataRequest {
             for (ClientType clientTypeStream : clientOrderToUse) {
                 final boolean showErrorToast = (++i == clientOrderToUse.length) || debugEnabled;
                 HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast);
-                Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection, isInline);
+                Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection, videoId, isInline);
 
                 if (clientTypeStream == ClientType.TV_SABR && fallbackWithTVDash) {
                     fallbackWithTVDash = false;
                     clientTypeStream = ClientType.TV_DASH;
                     HttpURLConnection fallBackConnection = send(clientTypeStream, videoId, playerHeaders, showErrorToast);
-                    playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, fallBackConnection, isInline);
+                    playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, fallBackConnection, videoId, isInline);
                 }
 
                 if (playerResponseBuffer != null) {
@@ -459,7 +465,7 @@ public class StreamOrDetailsDataRequest {
             if (targetClient != null) {
                 HttpURLConnection connection = send(targetClient, videoId, playerHeaders, false);
                 if (connection != null) {
-                    return buildPlayerStreamOrDetailsResponse(targetClient, connection, isInline);
+                    return buildPlayerStreamOrDetailsResponse(targetClient, connection, videoId, isInline);
                 }
             }
         }
