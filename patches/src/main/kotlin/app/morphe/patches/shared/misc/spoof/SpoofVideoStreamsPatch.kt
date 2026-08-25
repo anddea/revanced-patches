@@ -66,6 +66,7 @@ private val spoofVideoStreamsResourcePatch = resourcePatch {
                 "polyfill.js",
                 "yt.solver.core.js",
                 "yt.solver.wrapper.js",
+                "po_token.html",
             )
         )
     }

@@ -7,6 +7,8 @@
 
 package app.morphe.extension.shared.spoof.requests;
 
+import android.text.TextUtils;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,6 +22,7 @@ import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.js.JavaScriptManager;
+import app.morphe.extension.shared.spoof.potoken.PoTokenManager;
 import app.morphe.extension.shared.utils.Logger;
 
 public final class PlayerRoutes {
@@ -145,6 +148,15 @@ public final class PlayerRoutes {
                 playbackContext.put("devicePlaybackCapabilities", devicePlaybackCapabilities);
 
                 innerTubeBody.put("playbackContext", playbackContext);
+            }
+
+            if (clientType.requirePoToken) {
+                String poToken = PoTokenManager.getPlayerPoToken(clientType, videoId);
+                if (!TextUtils.isEmpty(poToken)) {
+                    JSONObject serviceIntegrityDimensions = new JSONObject();
+                    serviceIntegrityDimensions.put("poToken", poToken);
+                    innerTubeBody.put("serviceIntegrityDimensions", serviceIntegrityDimensions);
+                }
             }
 
             innerTubeBody.put("context", context);
