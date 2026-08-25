@@ -50,6 +50,8 @@
 package app.morphe.patches.music.player.components
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -61,6 +63,8 @@ import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.string
 import app.morphe.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -103,6 +107,8 @@ import app.morphe.patches.shared.comments.commentsPanelPatch
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.mainactivity.getMainActivityMethod
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.addInstructionsAtControlFlowLabel
@@ -154,6 +160,37 @@ private const val PREVIOUS_BUTTON_VIEW_ID =
     "mini_player_previous_button"
 private const val COLOR_PICKER_PREFERENCE_TAG =
     "app.morphe.extension.shared.settings.preference.ColorPickerPreference"
+
+/** Matches the TabLayout method that assigns the navigation bar background color. */
+private object ChangeMiniplayerColorNavigationBarFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    filters = listOf(
+        string("FEmusic_radio_builder"),
+        resourceLiteral(ResourceType.COLOR, "ytm_color_grey_12"),
+        methodCall(name = "setBackgroundColor")
+    )
+)
+
+/** Matches the watch-while callback that clears the miniplayer after dismissal. */
+private fun watchWhileDismissedFingerprint(musicActivityPeerClass: String) = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = emptyList(),
+    returnType = "V",
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = musicActivityPeerClass,
+            type = "Ljava/util/concurrent/atomic/AtomicBoolean;"
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            smali = "Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V",
+            location = MatchAfterWithin(3)
+        )
+    )
+)
 
 private fun MutableMethod.hookPlayerBackgroundColor() {
     val index = indexOfFirstInstructionOrThrow(Opcode.FILLED_NEW_ARRAY)
@@ -572,6 +609,7 @@ val playerComponentsPatch = bytecodePatch(
                             move-result-object v$freeRegister
                             check-cast v$freeRegister, ${(colorMathPlayerIGetReference as FieldReference).definingClass}
                             iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
+                            invoke-static {v$freeRegister}, $PLAYER_CLASS_DESCRIPTOR->setLastMiniplayerColor(I)V
                             iput v$freeRegister, p0, $colorMathPlayerIPutReference
                             goto :off
                             :theme_color
@@ -622,6 +660,7 @@ val playerComponentsPatch = bytecodePatch(
                             move-result-object v$freeRegister
                             check-cast v$freeRegister, ${colorMathPlayerIGetReference.definingClass}
                             iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
+                            invoke-static {v$freeRegister}, $PLAYER_CLASS_DESCRIPTOR->setLastMiniplayerColor(I)V
                             iput v$freeRegister, p0, $colorMathPlayerIPutReference
                             goto :off
                             :theme_color
@@ -645,6 +684,49 @@ val playerComponentsPatch = bytecodePatch(
             CategoryType.PLAYER,
             "revanced_change_miniplayer_color",
             "false"
+        )
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_music_change_navigation_bar_color",
+            "false",
+            "revanced_change_miniplayer_color"
+        )
+
+        // Only the visible tab bar branch is patched. Registering the view lets
+        // the extension repaint it immediately when the miniplayer color changes.
+        ChangeMiniplayerColorNavigationBarFingerprint.let {
+            it.method.apply {
+                val setBackgroundColorIndex = it.instructionMatches.last().index
+                val call = getInstruction<FiveRegisterInstruction>(setBackgroundColorIndex)
+                val tabLayoutRegister = call.registerC
+                val colorRegister = call.registerD
+
+                addInstructions(
+                    setBackgroundColorIndex,
+                    """
+                        invoke-static {v$tabLayoutRegister, v$colorRegister}, $PLAYER_CLASS_DESCRIPTOR->registerNavigationBar(Landroid/view/View;I)V
+                        invoke-static {v$colorRegister}, $PLAYER_CLASS_DESCRIPTOR->overrideNavigationBarColor(I)I
+                        move-result v$colorRegister
+                    """
+                )
+            }
+        }
+
+        // Clear the cached tint when the queue/miniplayer is dismissed.
+        val musicActivityWidgetMethod = musicActivityWidgetFingerprint.methodOrThrow()
+        val widgetIndex = musicActivityWidgetMethod.indexOfFirstLiteralInstructionOrThrow(79500L)
+        val musicActivityPeerClass = (
+            musicActivityWidgetMethod.getInstruction<ReferenceInstruction>(
+                musicActivityWidgetMethod.indexOfFirstInstructionReversedOrThrow(
+                    widgetIndex,
+                    Opcode.IGET_OBJECT
+                )
+            ).reference as FieldReference
+        ).definingClass
+
+        watchWhileDismissedFingerprint(musicActivityPeerClass).method.addInstructions(
+            0,
+            "invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->onMiniplayerDismissed()V"
         )
         addSwitchPreference(
             CategoryType.PLAYER,
