@@ -40,6 +40,14 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/1881
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.music.patches.flyout;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getIdentifier;
@@ -47,6 +55,7 @@ import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.clickView;
 import static app.morphe.extension.shared.utils.Utils.runOnMainThreadDelayed;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
@@ -60,17 +69,29 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
+import app.morphe.extension.music.patches.actionbar.ActionBarPatch;
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.music.shared.VideoInformation;
 import app.morphe.extension.music.shared.VideoType;
 import app.morphe.extension.music.utils.ExtendedUtils;
 import app.morphe.extension.music.utils.VideoUtils;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceType;
+import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class FlyoutPatch {
+    /**
+     * Exposes the serialized command protobuf through a stable, non-obfuscated interface.
+     */
+    public interface ProtocolBufferFieldInterface {
+        byte[] toByteArray();
+    }
+
     private static final BooleanSetting DISABLE_TRIM_SILENCE =
             Settings.DISABLE_TRIM_SILENCE;
     private static final BooleanSetting ENABLE_COMPACT_DIALOG =
@@ -83,6 +104,12 @@ public class FlyoutPatch {
             Settings.REPLACE_FLYOUT_MENU_REPORT_ONLY_PLAYER;
     private static final boolean HIDE_FLYOUT_MENU_LIKE_DISLIKE =
             Settings.HIDE_FLYOUT_MENU_LIKE_DISLIKE.get();
+    private static final String ELEMENTS_SENDER_VIEW =
+            "com.google.android.libraries.youtube.rendering.elements.sender_view";
+    private static final int IGNORE_DOUBLE_CLICK_DURATION_MS = 1000;
+
+    private static volatile String cachedFlyoutVideoId = "";
+    private static volatile long lastFlyoutDownloadTime;
     private static volatile boolean lastMenuWasDismissQueue = false;
     private static WeakReference<View> touchOutSideViewRef = new WeakReference<>(null);
     private static final ColorFilter cf = new PorterDuffColorFilter(Color.parseColor("#ffffffff"), PorterDuff.Mode.SRC_ATOP);
@@ -99,6 +126,149 @@ public class FlyoutPatch {
         return ENABLE_COMPACT_DIALOG.get()
                 ? Math.max(original, 600)
                 : original;
+    }
+
+    private static void launchExternalDownloader() {
+        launchExternalDownloader(VideoInformation.getVideoId());
+    }
+
+    private static void launchExternalDownloader(String videoId) {
+        cachedFlyoutVideoId = "";
+        VideoUtils.launchExternalDownloader(videoId);
+    }
+
+    /**
+     * Scans the raw command protobuf for an 11-byte YouTube video ID field.
+     */
+    @Nullable
+    private static String extractVideoIdFromCommand(ProtocolBufferFieldInterface commandObj) {
+        byte[] bytes = commandObj.toByteArray();
+        if (bytes == null) {
+            return null;
+        }
+
+        for (int i = 1, lastIndex = bytes.length - 11; i < lastIndex; i++) {
+            if (bytes[i] == 11 && (bytes[i - 1] & 0b00000111) == 2) {
+                if (isLikelyVideoId(bytes, i + 1) && !isBlacklisted(bytes, i + 1)) {
+                    return new String(bytes, i + 1, 11, StandardCharsets.US_ASCII);
+                }
+            }
+        }
+        return null;
+    }
+
+    private static boolean isLikelyVideoId(byte[] bytes, int offset) {
+        for (int i = 0; i < 11; i++) {
+            byte b = bytes[offset + i];
+            if (!((b >= 'a' && b <= 'z') || (b >= 'A' && b <= 'Z')
+                    || (b >= '0' && b <= '9') || b == '_' || b == '-')) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isBlacklisted(byte[] bytes, int offset) {
+        return matchesIgnoreCase(bytes, offset, "yt_") ||
+                matchesIgnoreCase(bytes, offset, "video_") ||
+                containsIgnoreCase(bytes, offset, 11, "download") ||
+                containsIgnoreCase(bytes, offset, 11, "list_item") ||
+                containsIgnoreCase(bytes, offset, 11, "button");
+    }
+
+    private static boolean matchesIgnoreCase(byte[] bytes, int offset, String target) {
+        for (int i = 0, length = target.length(); i < length; i++) {
+            byte b = bytes[offset + i];
+            int lowerB = (b >= 'A' && b <= 'Z') ? (b + 32) : b;
+            if (lowerB != target.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @SuppressWarnings("SameParameterValue")
+    private static boolean containsIgnoreCase(byte[] bytes, int offset, int len, String target) {
+        for (int i = 0, lastIndex = len - target.length(); i <= lastIndex; i++) {
+            if (matchesIgnoreCase(bytes, offset + i, target)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean isViewInsideDialog(@Nullable Object viewObj) {
+        if (viewObj instanceof View view) {
+            View buttonRoot = view.getRootView();
+
+            Activity activity = Utils.getActivity();
+            if (activity != null) {
+                View activityRoot = activity.getWindow().getDecorView();
+                return buttonRoot != activityRoot;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Intercepts matching Download commands from Music's flyout menu.
+     */
+    public static boolean commandResolverOnClick(ProtocolBufferFieldInterface command,
+                                                  Map<Object, Object> map) {
+        try {
+            if (!Settings.EXTERNAL_DOWNLOADER_ACTION_BUTTON.get()
+                    || command == null || map == null) {
+                return false;
+            }
+            Utils.verifyOnMainThread();
+
+            if (ActionBarPatch.inAppDownloadButtonOnClick(map)) {
+                cachedFlyoutVideoId = "";
+                return true;
+            }
+
+            if (!Settings.EXTERNAL_DOWNLOADER_FLYOUT_MENU.get()) {
+                return false;
+            }
+
+            String commandString = command.toString();
+            final boolean isMenuOpen = commandString.contains("[98150882]");
+            if (isMenuOpen) {
+                String extractedId = extractVideoIdFromCommand(command);
+                cachedFlyoutVideoId = extractedId == null ? "" : extractedId;
+                return false;
+            }
+
+            final boolean isDownloadClick = Utils.containsAny(commandString,
+                    "[133724106]", "[443434441]");
+            if (isDownloadClick) {
+                final long now = System.currentTimeMillis();
+                if (now - lastFlyoutDownloadTime < IGNORE_DOUBLE_CLICK_DURATION_MS) {
+                    return true;
+                }
+
+                Object viewObj = map.get(ELEMENTS_SENDER_VIEW);
+                final boolean inDialog = isViewInsideDialog(viewObj);
+                String targetId = extractVideoIdFromCommand(command);
+
+                if (targetId == null && inDialog) {
+                    targetId = cachedFlyoutVideoId;
+                }
+
+                if (targetId != null && !targetId.isEmpty()) {
+                    lastFlyoutDownloadTime = now;
+                    launchExternalDownloader(targetId);
+                    return true;
+                } else if (inDialog) {
+                    lastFlyoutDownloadTime = now;
+                    launchExternalDownloader();
+                    return true;
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "commandResolverOnClick failure", ex);
+        }
+        return false;
     }
 
     public static boolean hideComponents(@Nullable Enum<?> flyoutMenuEnum) {

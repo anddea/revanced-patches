@@ -62,8 +62,6 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_ACTION_BUTTON_RADIO = new BooleanSetting("revanced_hide_action_button_radio", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_DISABLED = new BooleanSetting("revanced_hide_action_button_disabled", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_LABEL = new BooleanSetting("revanced_hide_action_button_label", FALSE, true);
-    public static final BooleanSetting EXTERNAL_DOWNLOADER_ACTION_BUTTON = new BooleanSetting("revanced_external_downloader_action", FALSE, true);
-    public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME = new StringSetting("revanced_external_downloader_package_name", "com.deniscerri.ytdl");
     public static final BooleanSetting REPLACE_ACTION_BUTTON_LIKE = new BooleanSetting("revanced_replace_action_button_like", FALSE, true);
     public static final BooleanSetting REPLACE_ACTION_BUTTON_LIKE_TYPE = new BooleanSetting("revanced_replace_action_button_like_type", FALSE, true);
 
@@ -257,6 +255,9 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting CHANGE_SHARE_SHEET = new BooleanSetting("revanced_change_share_sheet", FALSE, true);
     public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
+    public static final BooleanSetting EXTERNAL_DOWNLOADER_ACTION_BUTTON = new BooleanSetting("revanced_external_downloader_action", FALSE, true);
+    public static final BooleanSetting EXTERNAL_DOWNLOADER_FLYOUT_MENU = new BooleanSetting("revanced_external_downloader_flyout_menu", FALSE, true, parent(EXTERNAL_DOWNLOADER_ACTION_BUTTON));
+    public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME = new StringSetting("revanced_external_downloader_package_name", "com.deniscerri.ytdl");
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_settings_import_export", FALSE, false);
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT =
             new BooleanSetting("morphe_spoof_video_streams_sign_in_android_vr_about", FALSE, false);

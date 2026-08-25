@@ -41,8 +41,17 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/1881
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.music.flyoutmenu.components
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -50,6 +59,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patches.music.actionbar.components.actionBarComponentsPatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.music.utils.extension.Constants.FLYOUT_CLASS_DESCRIPTOR
@@ -71,6 +81,7 @@ import app.morphe.patches.music.video.information.videoInformationPatch
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.util.ResourceGroup
+import app.morphe.util.cloneMutable
 import app.morphe.util.copyResources
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
@@ -81,6 +92,7 @@ import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -118,6 +130,18 @@ private val flyoutMenuComponentsResourcePatch = resourcePatch(
 
 private const val FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlayerFlyoutMenuFilter;"
+private const val EXTENSION_PROTOCOL_BUFFER_INTERFACE =
+    $$"Lapp/morphe/extension/music/patches/flyout/FlyoutPatch$ProtocolBufferFieldInterface;"
+
+/**
+ * Matches the shared command resolver used by Music's flyout menu actions.
+ */
+private object FlyoutCommandResolverFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf("L", "L", "Ljava/util/Map;"),
+    strings = listOf("CommandResolver threw exception during resolution")
+)
 
 @Suppress("unused")
 val flyoutMenuComponentsPatch = bytecodePatch(
@@ -127,6 +151,7 @@ val flyoutMenuComponentsPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
+        actionBarComponentsPatch,
         settingsPatch,
         flyoutMenuComponentsResourcePatch,
         flyoutMenuHookPatch,
@@ -139,6 +164,35 @@ val flyoutMenuComponentsPatch = bytecodePatch(
 
     execute {
         var trimSilenceIncluded = false
+
+        // region patch for override download button in flyout menu
+
+        FlyoutCommandResolverFingerprint.let {
+            val originalMethod = it.method
+            // The newest clients have no local registers in this method. Add one so the Boolean
+            // callback result cannot overwrite p0 and fail Android's bytecode verification.
+            val method = originalMethod.cloneMutable(additionalRegisters = 1)
+            it.classDef.methods.remove(originalMethod)
+            it.classDef.methods.add(method)
+
+            // Expose the command's serialized protobuf so the flyout video ID can be resolved.
+            mutableClassDefBy(method.parameters[1].type)
+                .interfaces.add(EXTENSION_PROTOCOL_BUFFER_INTERFACE)
+
+            method.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static { p1, p2 }, $FLYOUT_CLASS_DESCRIPTOR->commandResolverOnClick(${EXTENSION_PROTOCOL_BUFFER_INTERFACE}Ljava/util/Map;)Z
+                    move-result v0
+                    if-eqz v0, :continue_resolution
+                    return v0
+                    :continue_resolution
+                    nop
+                """
+            )
+        }
+
+        // endregion
 
         // region patch for disable trim silence
 
@@ -356,6 +410,12 @@ val flyoutMenuComponentsPatch = bytecodePatch(
             "revanced_hide_flyout_menu_download",
             "false",
             false
+        )
+        addSwitchPreference(
+            CategoryType.MISC,
+            "revanced_external_downloader_flyout_menu",
+            "false",
+            "revanced_external_downloader_action"
         )
         addSwitchPreference(
             CategoryType.FLYOUT,
