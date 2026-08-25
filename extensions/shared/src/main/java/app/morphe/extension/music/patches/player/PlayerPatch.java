@@ -39,6 +39,14 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ */
+
 package app.morphe.extension.music.patches.player;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
@@ -53,6 +61,8 @@ import android.media.AudioManager;
 import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -71,6 +81,18 @@ import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
 public class PlayerPatch {
+    /** Suppresses trailing post-dismiss updates from restoring the previous album color. */
+    private static final long MINIPLAYER_DISMISS_WINDOW_MS = 1500L;
+
+    @Nullable
+    private static volatile Integer lastMiniplayerColor;
+    @Nullable
+    private static volatile Integer initialCapturedMiniplayerColor;
+    private static volatile WeakReference<View> navigationBarRef = new WeakReference<>(null);
+    @Nullable
+    private static volatile Integer defaultNavigationBarColor;
+    private static volatile long miniplayerDismissWindowUntilMs;
+
     private static final boolean ADD_MINIPLAYER_NEXT_BUTTON =
             Settings.ADD_MINIPLAYER_NEXT_BUTTON.get();
     private static final boolean ADD_MINIPLAYER_PREVIOUS_BUTTON =
@@ -146,6 +168,63 @@ public class PlayerPatch {
 
     public static boolean changeMiniPlayerColor() {
         return Settings.CHANGE_MINIPLAYER_COLOR.get();
+    }
+
+    /** Stores the resolved miniplayer color and immediately applies it to the navigation bar. */
+    public static void setLastMiniplayerColor(int color) {
+        if (SystemClock.uptimeMillis() < miniplayerDismissWindowUntilMs) return;
+
+        final Integer initial = initialCapturedMiniplayerColor;
+        if (initial == null) {
+            initialCapturedMiniplayerColor = color;
+            return;
+        }
+
+        if (color == initial) {
+            if (lastMiniplayerColor == null) return;
+            lastMiniplayerColor = null;
+            final Integer defaultColor = defaultNavigationBarColor;
+            if (defaultColor != null) postNavigationBarColor(defaultColor);
+            return;
+        }
+
+        lastMiniplayerColor = color;
+        applyToNavigationBar(color);
+    }
+
+    /** Remembers the navigation bar and its theme color for immediate repainting. */
+    public static void registerNavigationBar(View view, int defaultColor) {
+        navigationBarRef = new WeakReference<>(view);
+        defaultNavigationBarColor = defaultColor;
+    }
+
+    /** Overrides the navigation bar background while miniplayer color matching is enabled. */
+    public static int overrideNavigationBarColor(int defaultColor) {
+        final Integer color = lastMiniplayerColor;
+        return color != null && matchNavigationBarEnabled() ? color : defaultColor;
+    }
+
+    /** Clears the cached tint after the queue/miniplayer is dismissed. */
+    public static void onMiniplayerDismissed() {
+        lastMiniplayerColor = null;
+        miniplayerDismissWindowUntilMs = SystemClock.uptimeMillis() + MINIPLAYER_DISMISS_WINDOW_MS;
+        final Integer defaultColor = defaultNavigationBarColor;
+        if (defaultColor != null) postNavigationBarColor(defaultColor);
+    }
+
+    private static void applyToNavigationBar(int color) {
+        if (!Settings.CHANGE_NAVIGATION_BAR_COLOR.get()) return;
+        postNavigationBarColor(color);
+    }
+
+    private static void postNavigationBarColor(int color) {
+        View view = navigationBarRef.get();
+        if (view != null) view.post(() -> view.setBackgroundColor(color));
+    }
+
+    private static boolean matchNavigationBarEnabled() {
+        return Settings.CHANGE_MINIPLAYER_COLOR.get()
+                && Settings.CHANGE_NAVIGATION_BAR_COLOR.get();
     }
 
     /** Returns the selected app theme when dynamic miniplayer color matching is disabled. */
