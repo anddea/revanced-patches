@@ -36,6 +36,7 @@ import app.morphe.patches.youtube.utils.playerSeekbarColorFingerprint
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_49_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_02_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_12_or_greater
@@ -519,6 +520,19 @@ val seekbarComponentsPatch = bytecodePatch(
                     return-void
                     """, ExternalLabel("show", getInstruction(0))
             )
+        }
+
+        // endregion
+
+        // region patch for fullscreen large seekbar
+
+        if (is_20_28_or_greater) {
+            FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll().forEach {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$PLAYER_CLASS_DESCRIPTOR->useFullscreenLargeSeekbar(Z)Z"
+                )
+            }
         }
 
         // endregion

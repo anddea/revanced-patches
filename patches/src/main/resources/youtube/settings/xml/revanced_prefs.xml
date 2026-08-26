@@ -657,12 +657,13 @@
             <app.morphe.extension.shared.settings.preference.RangeSliderPreference android:title="@string/revanced_gradient_seekbar_positions_title" android:key="revanced_gradient_seekbar_positions" android:summary="@string/revanced_gradient_seekbar_positions_summary" android:inputType="text" />SETTINGS: CUSTOM_SEEKBAR_COLOR_ACCENT -->
 
             <!-- SETTINGS: SEEKBAR_COMPONENTS
+            <SwitchPreference android:title="@string/morphe_fullscreen_large_seekbar_title" android:key="morphe_fullscreen_large_seekbar" />
             <SwitchPreference android:title="@string/revanced_enable_seekbar_tapping_title" android:key="revanced_enable_seekbar_tapping" android:summaryOn="@string/revanced_enable_seekbar_tapping_summary_on" android:summaryOff="@string/revanced_enable_seekbar_tapping_summary_off" />
+            <SwitchPreference android:title="@string/morphe_seekbar_thumbnail_preview_title" android:key="morphe_seekbar_thumbnail_preview" android:summary="@string/morphe_seekbar_thumbnail_preview_summary" />
             <SwitchPreference android:title="@string/revanced_hide_seekbar_chapter_label_title" android:key="revanced_hide_seekbar_chapter_label" android:summaryOn="@string/revanced_hide_seekbar_chapter_label_summary_on" android:summaryOff="@string/revanced_hide_seekbar_chapter_label_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_seekbar_title" android:key="revanced_hide_seekbar" android:summaryOn="@string/revanced_hide_seekbar_summary_on" android:summaryOff="@string/revanced_hide_seekbar_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_seekbar_thumbnail_title" android:key="revanced_hide_seekbar_thumbnail" android:summaryOn="@string/revanced_hide_seekbar_thumbnail_summary_on" android:summaryOff="@string/revanced_hide_seekbar_thumbnail_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_time_stamp_title" android:key="revanced_hide_time_stamp" android:summaryOn="@string/revanced_hide_time_stamp_summary_on" android:summaryOff="@string/revanced_hide_time_stamp_summary_off" />
-            <SwitchPreference android:title="@string/morphe_seekbar_thumbnail_preview_title" android:key="morphe_seekbar_thumbnail_preview" android:summary="@string/morphe_seekbar_thumbnail_preview_summary" />SETTINGS: SEEKBAR_COMPONENTS -->
+            <SwitchPreference android:title="@string/revanced_hide_seekbar_title" android:key="revanced_hide_seekbar" android:summaryOn="@string/revanced_hide_seekbar_summary_on" android:summaryOff="@string/revanced_hide_seekbar_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_seekbar_thumbnail_title" android:key="revanced_hide_seekbar_thumbnail" android:summaryOn="@string/revanced_hide_seekbar_thumbnail_summary_on" android:summaryOff="@string/revanced_hide_seekbar_thumbnail_summary_off" />SETTINGS: SEEKBAR_COMPONENTS -->
 
             <!-- SETTINGS: LIVESTREAM_DVR
             <app.morphe.extension.youtube.settings.preference.LivestreamDVRPreference android:title="@string/morphe_livestream_dvr_title" android:key="morphe_livestream_dvr" />
