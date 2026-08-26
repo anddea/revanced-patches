@@ -991,6 +991,13 @@ public class PlayerPatch {
         return Settings.HIDE_SEEKBAR.get();
     }
 
+    /**
+     * Injection point for the fullscreen large seekbar feature flag.
+     */
+    public static boolean useFullscreenLargeSeekbar(boolean original) {
+        return Settings.FULLSCREEN_LARGE_SEEKBAR.get();
+    }
+
     public static boolean disableSeekbarChapters() {
         return Settings.DISABLE_SEEKBAR_CHAPTERS.get();
     }

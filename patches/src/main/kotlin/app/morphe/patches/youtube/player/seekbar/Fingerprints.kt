@@ -200,6 +200,15 @@ internal object TimelineMarkerArrayFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
 )
 
+/**
+ * YouTube 20.28+ feature flag controlling the fullscreen seekbar size.
+ */
+internal object FullscreenLargeSeekbarFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45691569)
+    )
+)
+
 // region Livestream DVR
 
 internal object VideoStreamingDataToStringFingerprint : Fingerprint(
