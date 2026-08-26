@@ -341,9 +341,9 @@ val themePatch = resourcePatch(
         }
 
         val currentTheme = if (MATERIALYOU.included == true)
-            "MaterialYou + Stock"
+            "MaterialYou"
         else
-            "Stock"
+            "@string/revanced_theme_default"
 
         updatePatchStatusTheme(currentTheme)
 
