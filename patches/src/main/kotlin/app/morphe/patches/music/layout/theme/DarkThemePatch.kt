@@ -63,6 +63,7 @@ import app.morphe.patches.music.utils.extension.Constants.PATCH_STATUS_CLASS_DES
 import app.morphe.patches.music.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.music.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.music.utils.patch.PatchList.DARK_THEME
+import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.music.utils.settings.ResourceUtils
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -193,29 +194,31 @@ private val darkThemeBytecodePatch = bytecodePatch(
         addDrawableColorHook("$EXTENSION_CLASS_DESCRIPTOR->getLithoColor(I)I")
 
         // The top bar shows either a count stub or a standalone dot for new content.
-        TopBarNewContentCountFingerprint.let {
-            it.method.apply {
-                val checkCastIndex = it.instructionMatches[2].index
-                val stubRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+        if (is_7_25_or_greater) {
+            TopBarNewContentCountFingerprint.let {
+                it.method.apply {
+                    val checkCastIndex = it.instructionMatches[2].index
+                    val stubRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
-                addInstruction(
-                    checkCastIndex + 1,
-                    "invoke-static { v$stubRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
-                            "->onNewContentIndicator(Landroid/view/ViewStub;)V",
-                )
+                    addInstruction(
+                        checkCastIndex + 1,
+                        "invoke-static { v$stubRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
+                                "->onNewContentIndicator(Landroid/view/ViewStub;)V",
+                    )
+                }
             }
-        }
 
-        TopBarNewContentDotFingerprint.let {
-            it.method.apply {
-                val moveResultIndex = it.instructionMatches[2].index
-                val dotRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
+            TopBarNewContentDotFingerprint.let {
+                it.method.apply {
+                    val moveResultIndex = it.instructionMatches[2].index
+                    val dotRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
 
-                addInstruction(
-                    moveResultIndex + 1,
-                    "invoke-static { v$dotRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
-                            "->onNewContentIndicator(Landroid/view/View;)V",
-                )
+                    addInstruction(
+                        moveResultIndex + 1,
+                        "invoke-static { v$dotRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
+                                "->onNewContentIndicator(Landroid/view/View;)V",
+                    )
+                }
             }
         }
 
