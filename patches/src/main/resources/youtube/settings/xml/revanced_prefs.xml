@@ -424,7 +424,13 @@
             <SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_title" android:key="revanced_overlay_button_external_downloader" android:summary="@string/revanced_overlay_button_external_downloader_summary" />
             <app.morphe.extension.youtube.settings.preference.ExternalDownloaderVideoPreference android:title="@string/revanced_external_downloader_package_name_video_title" android:key="revanced_external_downloader_package_name_video" android:summary="@string/revanced_external_downloader_package_name_playlist_summary" />
             <app.morphe.extension.youtube.settings.preference.ExternalDownloaderVideoLongPressPreference android:title="@string/revanced_external_downloader_package_name_video_long_press_title" android:key="revanced_external_downloader_package_name_video_long_press" android:summary="@string/revanced_external_downloader_package_name_video_long_press_summary" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_queue_manager_title" android:key="revanced_overlay_button_external_downloader_queue_manager" android:summary="@string/revanced_overlay_button_external_downloader_queue_manager_summary" />
+            <SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_queue_manager_title" android:key="revanced_overlay_button_external_downloader_queue_manager" android:summary="@string/revanced_overlay_button_external_downloader_queue_manager_summary" />SETTINGS: OVERLAY_BUTTONS -->
+
+            <!-- SETTINGS: FULLSCREEN_VIDEO_SCALE
+            <SwitchPreference android:title="@string/morphe_fullscreen_video_scale_button_title" android:key="morphe_fullscreen_video_scale_button" android:summary="@string/morphe_fullscreen_video_scale_button_summary" />
+            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/morphe_fullscreen_video_scale_entries" android:title="@string/morphe_fullscreen_video_scale_title" android:key="morphe_fullscreen_video_scale" android:entryValues="@array/morphe_fullscreen_video_scale_entry_values" />SETTINGS: FULLSCREEN_VIDEO_SCALE -->
+
+            <!-- SETTINGS: OVERLAY_BUTTONS
             <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_overlay_buttons_max_portrait_title" android:key="revanced_overlay_buttons_max_portrait" android:summary="@string/revanced_overlay_buttons_max_portrait_summary" android:inputType="number" />
             <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_overlay_buttons_max_landscape_title" android:key="revanced_overlay_buttons_max_landscape" android:summary="@string/revanced_overlay_buttons_max_landscape_summary" android:inputType="number" />SETTINGS: OVERLAY_BUTTONS -->
 

@@ -105,6 +105,10 @@ internal enum class PatchList(
         "Fullscreen components",
         "Adds options to hide or change components related to fullscreen."
     ),
+    FULLSCREEN_VIDEO_SCALE(
+        "Fullscreen video scale",
+        "Adds options to stretch or zoom videos to fill the screen in fullscreen mode."
+    ),
     GEMINI(
         "Gemini",
         "Adds options to use Gemini for video summaries, transcription, and settings search."

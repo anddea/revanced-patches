@@ -41,7 +41,6 @@ import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -92,7 +91,7 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for disable engagement panel
 
-        fullScreenEngagementPanelFingerprint.methodOrThrow().apply {
+        FullScreenEngagementPanelFingerprint.method.apply {
             val literalIndex =
                 indexOfFirstLiteralInstructionOrThrow(fullScreenEngagementPanel)
             val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.CHECK_CAST)
@@ -105,7 +104,7 @@ val fullscreenComponentsPatch = bytecodePatch(
             )
         }
 
-        playerTitleViewFingerprint.methodOrThrow().apply {
+        PlayerTitleViewFingerprint.method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                         getReference<MethodReference>()?.name == "addView"
@@ -173,7 +172,7 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for hide related video overlay
 
-        relatedEndScreenResultsFingerprint.mutableClassOrThrow().let {
+        RelatedEndScreenResultsFingerprint.classDef.let {
             it.methods.find { method -> method.parameters == listOf("I", "Z", "I") }
                 ?.apply {
                     addInstructionsWithLabels(
@@ -191,7 +190,7 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for quick actions
 
-        quickActionsElementSyntheticFingerprint.methodOrThrow().apply {
+        QuickActionsElementSyntheticFingerprint.method.apply {
             val containerCalls = implementation!!.instructions.withIndex()
                 .filter { instruction ->
                     (instruction.value as? WideLiteralInstruction)?.wideLiteral == quickActionsElementContainer
@@ -289,7 +288,7 @@ val fullscreenComponentsPatch = bytecodePatch(
         // region patch for keep landscape mode
 
         if (is_18_42_or_greater && !is_19_41_or_greater) {
-            landScapeModeConfigFingerprint.methodOrThrow().apply {
+            LandScapeModeConfigFingerprint.method.apply {
                 val insertIndex = implementation!!.instructions.lastIndex
                 val insertRegister =
                     getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -301,7 +300,7 @@ val fullscreenComponentsPatch = bytecodePatch(
                         """
                 )
             }
-            broadcastReceiverFingerprint.methodOrThrow().apply {
+            BroadcastReceiverFingerprint.method.apply {
                 val stringIndex =
                     indexOfFirstStringInstructionOrThrow("android.intent.action.SCREEN_ON")
                 val insertIndex =
