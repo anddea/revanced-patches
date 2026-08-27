@@ -408,12 +408,6 @@
 
             <!-- SETTINGS: OVERLAY_BUTTONS
             <PreferenceCategory android:title="@string/revanced_overlay_button" android:layout="@layout/revanced_settings_preferences_category" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_gemini_summarize_title" android:key="revanced_overlay_button_gemini_summarize" android:summary="@string/revanced_overlay_button_gemini_summarize_summary" />
-            <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:hint="AIzaSy..." android:title="@string/revanced_overlay_button_gemini_summarize_api_key_title" android:key="revanced_overlay_button_gemini_summarize_api_key" android:summary="@string/revanced_overlay_button_gemini_summarize_api_key_summary" android:inputType="textMultiLine" />
-            <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_gemini_transcribe_subtitles_font_size_title" android:key="revanced_gemini_transcribe_subtitles_font_size" android:summary="@string/revanced_gemini_transcribe_subtitles_font_size_summary" android:inputType="number" />
-            <SwitchPreference android:title="@string/revanced_yandex_transcribe_subtitles_title" android:key="revanced_yandex_transcribe_subtitles" android:summary="@string/revanced_yandex_transcribe_subtitles_summary" />
-            <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:hint="en" android:title="@string/revanced_yandex_transcribe_subtitles_language_title" android:key="revanced_yandex_transcribe_subtitles_language" android:summary="@string/revanced_yandex_transcribe_subtitles_language_summary" android:inputType="text" />
-            <app.morphe.extension.youtube.settings.preference.AboutGeminiPreference android:title="@string/revanced_overlay_button_gemini_about_title" android:key="revanced_overlay_button_gemini_about" android:selectable="true" android:summary="@string/revanced_overlay_button_gemini_about_summary" />
             <SwitchPreference android:title="@string/revanced_overlay_button_speed_dialog_title" android:key="revanced_overlay_button_speed_dialog" android:summary="@string/revanced_overlay_button_speed_dialog_summary" />
             <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_custom_playback_speed_menu_type_entries" android:title="@string/revanced_overlay_button_speed_dialog_type_title" android:key="revanced_overlay_button_speed_dialog_type" android:entryValues="@array/revanced_custom_playback_speed_menu_type_entry_values" />
             <SwitchPreference android:title="@string/revanced_overlay_button_copy_video_url_title" android:key="revanced_overlay_button_copy_video_url" android:summary="@string/revanced_overlay_button_copy_video_url_summary" />
@@ -814,7 +808,6 @@
             <SwitchPreference android:title="@string/revanced_shorts_custom_actions_speed_dialog_title" android:key="revanced_shorts_custom_actions_speed_dialog" android:summaryOn="@string/revanced_shorts_custom_actions_speed_dialog_summary_on" android:summaryOff="@string/revanced_shorts_custom_actions_speed_dialog_summary_off" />
             <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_custom_playback_speed_menu_type_entries" android:title="@string/revanced_overlay_button_speed_dialog_type_title" android:key="revanced_shorts_custom_actions_speed_dialog_type" android:entryValues="@array/revanced_custom_playback_speed_menu_type_entry_values" />
             <SwitchPreference android:title="@string/revanced_shorts_custom_actions_repeat_state_title" android:key="revanced_shorts_custom_actions_repeat_state" android:summaryOn="@string/revanced_shorts_custom_actions_repeat_state_summary_on" android:summaryOff="@string/revanced_shorts_custom_actions_repeat_state_summary_off" />
-            <SwitchPreference android:title="@string/revanced_shorts_custom_actions_gemini_title" android:key="revanced_shorts_custom_actions_gemini" android:summaryOn="@string/revanced_shorts_custom_actions_gemini_summary_on" android:summaryOff="@string/revanced_shorts_custom_actions_gemini_summary_off" />
             <Preference android:title="@string/revanced_shorts_custom_actions_about_title" android:selectable="false" android:summary="@string/revanced_shorts_custom_actions_about_about_summary" />SETTINGS: SHORTS_CUSTOM_ACTIONS_SHARED -->
 
             <!-- SETTINGS: SHORTS_COMPONENTS
@@ -1005,6 +998,19 @@
     </PreferenceScreen>PREFERENCE_SCREEN: SPONSOR_BLOCK -->
 
 
+    <!-- PREFERENCE_SCREEN: GEMINI
+    <PreferenceScreen android:title="@string/revanced_preference_screen_gemini_title" android:key="revanced_preference_screen_gemini">
+        <SwitchPreference android:title="@string/revanced_overlay_button_gemini_summarize_title" android:key="revanced_overlay_button_gemini_summarize" android:summary="@string/revanced_overlay_button_gemini_summarize_summary" />
+        <SwitchPreference android:title="@string/revanced_shorts_custom_actions_gemini_title" android:key="revanced_shorts_custom_actions_gemini" android:summaryOn="@string/revanced_shorts_custom_actions_gemini_summary_on" android:summaryOff="@string/revanced_shorts_custom_actions_gemini_summary_off" />
+        <SwitchPreference android:title="@string/revanced_settings_search_gemini_title" android:key="revanced_settings_search_gemini" android:summaryOn="@string/revanced_settings_search_gemini_summary_on" android:summaryOff="@string/revanced_settings_search_gemini_summary_off" />
+        <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:hint="AIzaSy..." android:title="@string/revanced_overlay_button_gemini_summarize_api_key_title" android:key="revanced_overlay_button_gemini_summarize_api_key" android:summary="@string/revanced_overlay_button_gemini_summarize_api_key_summary" android:inputType="textMultiLine" />
+        <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_gemini_transcribe_subtitles_font_size_title" android:key="revanced_gemini_transcribe_subtitles_font_size" android:summary="@string/revanced_gemini_transcribe_subtitles_font_size_summary" android:inputType="number" />
+        <SwitchPreference android:title="@string/revanced_yandex_transcribe_subtitles_title" android:key="revanced_yandex_transcribe_subtitles" android:summary="@string/revanced_yandex_transcribe_subtitles_summary" />
+        <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:hint="en" android:title="@string/revanced_yandex_transcribe_subtitles_language_title" android:key="revanced_yandex_transcribe_subtitles_language" android:summary="@string/revanced_yandex_transcribe_subtitles_language_summary" android:inputType="text" />
+        <app.morphe.extension.youtube.settings.preference.AboutGeminiPreference android:title="@string/revanced_overlay_button_gemini_about_title" android:key="revanced_overlay_button_gemini_about" android:selectable="true" android:summary="@string/revanced_overlay_button_gemini_about_summary" />
+    </PreferenceScreen>PREFERENCE_SCREEN: GEMINI -->
+
+
     <!-- PREFERENCE_SCREEN: VOICE_OVER_TRANSLATION
     <PreferenceScreen android:title="@string/revanced_overlay_button_vot_title" android:key="revanced_preference_screen_vot">
         <SwitchPreference android:title="@string/revanced_vot_enabled_title" android:key="vot_enabled" android:summaryOn="@string/revanced_vot_enabled_summary_on" android:summaryOff="@string/revanced_vot_enabled_summary_off" />
@@ -1188,6 +1194,7 @@
             </PreferenceCategory>
 
             <PreferenceCategory android:title="@string/revanced_preference_screen_video_title" android:layout="@layout/revanced_settings_preferences_category">
+                <Preference android:title="Gemini" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Spoof video streams" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Video playback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Voice Over Translation" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

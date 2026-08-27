@@ -1773,6 +1773,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_feed_title">Feed</string>
     <string name="revanced_preference_screen_fullscreen_summary">Hide or change fullscreen related components</string>
     <string name="revanced_preference_screen_fullscreen_title">Fullscreen</string>
+    <string name="revanced_preference_screen_gemini_title">Gemini</string>
     <string name="revanced_preference_screen_general_title">General</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">Disable or enable haptic feedback</string>
     <string name="revanced_preference_screen_haptic_feedback_title">Haptic feedback</string>
@@ -2229,6 +2230,11 @@ This may not work if:
     <string name="revanced_settings_search_clear_history_message">Are you sure you want to clear all search history?</string>
     <string name="revanced_settings_search_empty_history_summary">To save search history, type a search query and press Enter</string>
     <string name="revanced_settings_search_empty_history_title">Search history is empty</string>
+    <string name="revanced_settings_search_gemini_results">Gemini results</string>
+    <string name="revanced_settings_search_gemini_searching_title">Searching with Gemini…</string>
+    <string name="revanced_settings_search_gemini_summary_off">Gemini is not used for settings search</string>
+    <string name="revanced_settings_search_gemini_summary_on">Gemini is used when local settings search finds no results</string>
+    <string name="revanced_settings_search_gemini_title">Search settings with Gemini</string>
     <string name="revanced_settings_search_history_summary">Save recent search queries to show them when the search bar is empty</string>
     <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
     <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
@@ -2274,9 +2280,9 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">External downloader menu is shown</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Show external downloader menu</string>
     <string name="revanced_shorts_custom_actions_gemini_label">Gemini summary</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_off">Gemini summary menu is hidden</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">Gemini summary menu is shown</string>
-    <string name="revanced_shorts_custom_actions_gemini_title">Show Gemini summary menu</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">The Gemini summary action is hidden from the Shorts custom actions menu</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">The Gemini summary action is shown in the Shorts custom actions menu</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Show Gemini in Shorts</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Open video</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Open video menu is hidden</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Open video menu is shown</string>
