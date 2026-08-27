@@ -611,6 +611,8 @@ private val emptyTitles = setOf(
     "revanced_overlay_button_external_downloader_queue_manager",
     "revanced_overlay_button_gemini_about",
     "revanced_overlay_button_gemini_summarize_api_key",
+    "revanced_overlay_button_loop_segment_marker_size",
+    "revanced_overlay_button_loop_segment_seekbar",
     "revanced_overlay_button_play_all_type",
     "revanced_overlay_button_speed_dialog_type",
     "revanced_override_video_download_button_queue_manager",

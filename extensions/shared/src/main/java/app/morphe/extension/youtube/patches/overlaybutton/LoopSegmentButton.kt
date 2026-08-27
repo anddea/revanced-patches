@@ -41,6 +41,10 @@
 package app.morphe.extension.youtube.patches.overlaybutton
 
 import android.content.Intent
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Rect
+import android.graphics.Typeface
 import android.net.Uri
 import android.view.View
 import androidx.core.net.toUri
@@ -62,8 +66,28 @@ object LoopSegmentButton {
     private const val INTENT_DISMISS_GRACE_PERIOD_MS = 1500L
     private const val SEEK_COOLDOWN_MS = 500L
     private const val END_SCREEN_BUFFER_MS = 1500L
+    private const val LOOP_SEGMENT_BAR_COLOR = 0x66FFFFFF
+    private const val LOOP_SEGMENT_MARKER_COLOR = 0xCCFFFFFF.toInt()
+    private const val LOOP_SEGMENT_MARKER_BORDER_COLOR = 0x99000000.toInt()
+    private const val LOOP_SEGMENT_MARKER_TEXT_COLOR = 0xDE000000.toInt()
     private val relativeTimePattern = Pattern.compile("(\\d+)([hms])")
     private val urlPattern = Pattern.compile("(https?://\\S+|vnd\\.youtube:\\S+)")
+    private val loopSegmentBarPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = LOOP_SEGMENT_BAR_COLOR
+    }
+    private val loopSegmentMarkerPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = LOOP_SEGMENT_MARKER_COLOR
+    }
+    private val loopSegmentMarkerBorderPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = LOOP_SEGMENT_MARKER_BORDER_COLOR
+        style = Paint.Style.STROKE
+        strokeWidth = Utils.dipToPixels(1f).toFloat()
+    }
+    private val loopSegmentMarkerTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = LOOP_SEGMENT_MARKER_TEXT_COLOR
+        textAlign = Paint.Align.CENTER
+        typeface = Typeface.DEFAULT_BOLD
+    }
 
     private var instance: PlayerControlButton? = null
     private var segmentStartMs = UNSET
@@ -75,6 +99,9 @@ object LoopSegmentButton {
     private var metadataVideoId = ""
     private var metadataVideoLengthMs = 0L
     private var pendingSegment: LoopSegment? = null
+    private var seekbarAbsoluteLeft = 0
+    private var seekbarAbsoluteRight = 0
+    private var seekbarThickness = 0
 
     /**
      * Injection point.
@@ -247,6 +274,82 @@ object LoopSegmentButton {
             Logger.printException({ "videoEnded failure" }, ex)
             return false
         }
+    }
+
+    /**
+     * Injection point. Stores the seekbar geometry used to draw the active loop segment.
+     */
+    @JvmStatic
+    fun setLoopBarRect(rect: Rect?) {
+        if (rect == null) return
+
+        seekbarAbsoluteLeft = rect.left
+        seekbarAbsoluteRight = rect.right
+    }
+
+    /**
+     * Injection point. Stores every seekbar thickness, including zero when YouTube hides it.
+     */
+    @JvmStatic
+    fun setLoopBarThickness(thickness: Int) {
+        seekbarThickness = thickness
+    }
+
+    /**
+     * Injection point. Draws the active loop segment over the seekbar, matching SponsorBlock's
+     * time-bar marker placement.
+     */
+    @JvmStatic
+    fun drawLoopTimeBars(canvas: Canvas, posY: Float) {
+        try {
+            if (!isSegmentActive()
+                || segmentVideoId.isEmpty()
+                || isAdProgressTextVisible()
+                || !Settings.OVERLAY_BUTTON_LOOP_SEGMENT_SEEKBAR.get()
+                || seekbarThickness <= 0
+            ) return
+
+            val currentVideoId = VideoInformation.getVideoId()
+            val videoLength = getVideoLength(segmentVideoId)
+            if (segmentVideoId != currentVideoId
+                || videoLength <= 0
+                || seekbarAbsoluteRight <= seekbarAbsoluteLeft
+            ) {
+                return
+            }
+
+            val startMs = segmentStartMs.coerceIn(0, videoLength)
+            val endMs = segmentEndMs.coerceIn(startMs, videoLength)
+            if (endMs <= startMs) return
+
+            val thicknessDiv2 = seekbarThickness / 2
+            val top = posY - (seekbarThickness - thicknessDiv2)
+            val bottom = posY + thicknessDiv2
+            val videoMillisecondsToPixels =
+                (seekbarAbsoluteRight - seekbarAbsoluteLeft).toFloat() / videoLength
+            val left = seekbarAbsoluteLeft + startMs * videoMillisecondsToPixels
+            val right = seekbarAbsoluteLeft + endMs * videoMillisecondsToPixels
+
+            canvas.drawRect(left, top, right, bottom, loopSegmentBarPaint)
+            val markerDiameter = Utils.dipToPixels(
+                Settings.OVERLAY_BUTTON_LOOP_SEGMENT_MARKER_SIZE.get().toFloat()
+            ).toFloat()
+            loopSegmentMarkerTextPaint.textSize = markerDiameter * 0.7f
+            val markerRadius = markerDiameter / 2
+            drawLoopEndpoint(canvas, left, posY, markerRadius, "A")
+            drawLoopEndpoint(canvas, right, posY, markerRadius, "B")
+        } catch (ex: Exception) {
+            Logger.printException({ "drawLoopTimeBars failure" }, ex)
+        }
+    }
+
+    /** Draws a neutral labeled endpoint so loop markers cannot be confused with SponsorBlock. */
+    private fun drawLoopEndpoint(canvas: Canvas, x: Float, y: Float, radius: Float, label: String) {
+        canvas.drawCircle(x, y, radius, loopSegmentMarkerPaint)
+        canvas.drawCircle(x, y, radius, loopSegmentMarkerBorderPaint)
+        val textBaseline = y -
+            (loopSegmentMarkerTextPaint.ascent() + loopSegmentMarkerTextPaint.descent()) / 2
+        canvas.drawText(label, x, textBaseline, loopSegmentMarkerTextPaint)
     }
 
     private fun isButtonEnabled(): Boolean {
