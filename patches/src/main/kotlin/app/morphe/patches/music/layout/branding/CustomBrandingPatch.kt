@@ -99,21 +99,21 @@ private const val ADAPTIVE_ICON_MONOCHROME_FILE_NAME =
 private const val DEFAULT_ICON = "youtube_music"
 
 private val availableIcon = listOf(
-    BrandingIcon("afn_blue", "AFN Blue", true),
-    BrandingIcon("afn_red", "AFN Red", true),
-    BrandingIcon("mmt", "MMT", true),
-    BrandingIcon("mmt_blue", "MMT Blue", true),
-    BrandingIcon("mmt_green", "MMT Green", true),
-    BrandingIcon("mmt_orange", "MMT Orange", true),
-    BrandingIcon("mmt_pink", "MMT Pink", true),
-    BrandingIcon("mmt_turquoise", "MMT Turquoise", true),
-    BrandingIcon("mmt_yellow", "MMT Yellow", true),
-    BrandingIcon("revancify_blue", "Revancify Blue", true),
-    BrandingIcon("revancify_red", "Revancify Red", true),
-    BrandingIcon("vanced_black", "Vanced Black", true),
-    BrandingIcon("vanced_light", "Vanced Light", true),
+    BrandingIcon("afn_blue", "@string/revanced_icon_afn_blue", true),
+    BrandingIcon("afn_red", "@string/revanced_icon_afn_red", true),
+    BrandingIcon("mmt", "@string/revanced_icon_mmt", true),
+    BrandingIcon("mmt_blue", "@string/revanced_icon_mmt_blue", true),
+    BrandingIcon("mmt_green", "@string/revanced_icon_mmt_green", true),
+    BrandingIcon("mmt_orange", "@string/revanced_icon_mmt_orange", true),
+    BrandingIcon("mmt_pink", "@string/revanced_icon_mmt_pink", true),
+    BrandingIcon("mmt_turquoise", "@string/revanced_icon_mmt_turquoise", true),
+    BrandingIcon("mmt_yellow", "@string/revanced_icon_mmt_yellow", true),
+    BrandingIcon("revancify_blue", "@string/revanced_icon_revancify_blue", true),
+    BrandingIcon("revancify_red", "@string/revanced_icon_revancify_red", true),
+    BrandingIcon("vanced_black", "string/revanced_icon_vanced_black", true),
+    BrandingIcon("vanced_light", "@string/revanced_icon_vanced_light", true),
     BrandingIcon("youtube_music", "YouTube Music", false),
-    BrandingIcon("xisr_yellow", "Xisr Yellow", true),
+    BrandingIcon("xisr_yellow", "@string/revanced_icon_xisr_yellow", true),
 )
 
 private val brandingConfig = CustomBrandingConfig(
