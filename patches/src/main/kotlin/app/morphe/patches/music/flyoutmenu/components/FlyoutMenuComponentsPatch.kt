@@ -66,6 +66,7 @@ import app.morphe.patches.music.utils.extension.Constants.FLYOUT_CLASS_DESCRIPTO
 import app.morphe.patches.music.utils.flyoutmenu.flyoutMenuHookPatch
 import app.morphe.patches.music.utils.patch.PatchList.FLYOUT_MENU_COMPONENTS
 import app.morphe.patches.music.utils.playservice.is_6_36_or_greater
+import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.resourceid.endButtonsContainer
@@ -167,21 +168,22 @@ val flyoutMenuComponentsPatch = bytecodePatch(
 
         // region patch for override download button in flyout menu
 
-        FlyoutCommandResolverFingerprint.let {
-            val originalMethod = it.method
-            // The newest clients have no local registers in this method. Add one so the Boolean
-            // callback result cannot overwrite p0 and fail Android's bytecode verification.
-            val method = originalMethod.cloneMutable(additionalRegisters = 1)
-            it.classDef.methods.remove(originalMethod)
-            it.classDef.methods.add(method)
+        if (is_7_25_or_greater) {
+            FlyoutCommandResolverFingerprint.let {
+                val originalMethod = it.method
+                // The newest clients have no local registers in this method. Add one so the Boolean
+                // callback result cannot overwrite p0 and fail Android's bytecode verification.
+                val method = originalMethod.cloneMutable(additionalRegisters = 1)
+                it.classDef.methods.remove(originalMethod)
+                it.classDef.methods.add(method)
 
-            // Expose the command's serialized protobuf so the flyout video ID can be resolved.
-            mutableClassDefBy(method.parameters[1].type)
-                .interfaces.add(EXTENSION_PROTOCOL_BUFFER_INTERFACE)
+                // Expose the command's serialized protobuf so the flyout video ID can be resolved.
+                mutableClassDefBy(method.parameters[1].type)
+                    .interfaces.add(EXTENSION_PROTOCOL_BUFFER_INTERFACE)
 
-            method.addInstructionsWithLabels(
-                0,
-                """
+                method.addInstructionsWithLabels(
+                    0,
+                    """
                     invoke-static { p1, p2 }, $FLYOUT_CLASS_DESCRIPTOR->commandResolverOnClick(${EXTENSION_PROTOCOL_BUFFER_INTERFACE}Ljava/util/Map;)Z
                     move-result v0
                     if-eqz v0, :continue_resolution
@@ -189,7 +191,8 @@ val flyoutMenuComponentsPatch = bytecodePatch(
                     :continue_resolution
                     nop
                 """
-            )
+                )
+            }
         }
 
         // endregion
