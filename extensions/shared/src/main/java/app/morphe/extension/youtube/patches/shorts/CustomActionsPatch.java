@@ -144,6 +144,7 @@ public final class CustomActionsPatch {
         ExtendedUtils.showBottomSheetDialog(mContext, mainLayout, actionsMap);
     }
 
+    @SuppressWarnings("deprecation")
     private static boolean isMoreButton(String enumString) {
         return StringUtils.equalsAny(
                 enumString,
@@ -550,6 +551,9 @@ public final class CustomActionsPatch {
         }
 
         public boolean isAvailable() {
+            if (this == GEMINI) {
+                return PatchStatus.Gemini() && settings.get();
+            }
             if (this == VOICE_OVER_TRANSLATION) {
                 return PatchStatus.VoiceOverTranslation() && settings.get();
             }

@@ -180,6 +180,7 @@ public abstract class BaseSearchResultItem {
     public static class PreferenceSearchItem extends BaseSearchResultItem {
         public final Preference preference;
         final String searchableText;
+        final String semanticSearchText;
         final CharSequence originalTitle;
         final CharSequence originalSummary;
         final CharSequence originalSummaryOn;
@@ -212,6 +213,7 @@ public abstract class BaseSearchResultItem {
 
             // Build searchable text.
             this.searchableText = buildSearchableText(pref);
+            this.semanticSearchText = buildSemanticSearchText();
         }
 
         private static class FieldInitializationResult {
@@ -286,6 +288,22 @@ public abstract class BaseSearchResultItem {
             return searchBuilder.toString();
         }
 
+        /** Builds semantic-search input from visible labels without saved or internal values. */
+        private String buildSemanticSearchText() {
+            StringBuilder searchBuilder = new StringBuilder();
+            appendText(searchBuilder, originalTitle);
+            appendText(searchBuilder, originalSummary);
+            appendText(searchBuilder, originalSummaryOn);
+            appendText(searchBuilder, originalSummaryOff);
+            if (originalEntries != null) {
+                for (CharSequence entry : originalEntries) {
+                    appendText(searchBuilder, entry);
+                }
+            }
+            appendText(searchBuilder, navigationPath);
+            return searchBuilder.toString();
+        }
+
         /**
          * Appends normalized searchable text to the builder.
          * Uses full Unicode normalization for accurate search across all languages.
@@ -339,6 +357,14 @@ public abstract class BaseSearchResultItem {
         @Override
         boolean matchesQuery(String query) {
             return searchableText.contains(Utils.normalizeTextToLowercase(query));
+        }
+
+        /**
+         * Returns normalized, user-visible preference content for semantic fallback matching.
+         * Internal preference keys and saved values are intentionally excluded.
+         */
+        public String getSemanticSearchText() {
+            return semanticSearchText;
         }
 
         /**

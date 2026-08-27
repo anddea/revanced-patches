@@ -87,7 +87,7 @@ public class GeminiUtils {
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro">gemini-2.5-pro</a>
      */
     private static final String[] GEMINI_MODELS = {
-            "gemini-3.7-flash",
+            // "gemini-3.7-flash",
             "gemini-3.6-flash",
             "gemini-3.5-flash",
             "gemini-3.5-flash-lite",
@@ -163,6 +163,24 @@ public class GeminiUtils {
         String prompt = "Translate ONLY the string values associated with the \"text\" keys within the following JSON subtitle data to " + targetLangName + ". Preserve the exact JSON structure, including all keys (like \"startMs\", \"endMs\", \"durationMs\") and their original numeric values. Output ONLY the fully translated JSON data, without any introductory text, explanations, comments, or markdown formatting (like ```json ... ```).\n\nInput JSON:\n" + yandexJson;
 
         Logger.printDebug(() -> "GeminiUtils (JSON TRANSLATE): Sending Translation Prompt for target '" + targetLangName + "'.");
+        return executeRequest(RequestSpec.forPrompt(null, prompt, null, false, true), apiKeys, callback);
+    }
+
+    /**
+     * Initiates an asynchronous text-only request that must return JSON.
+     * This reuses the configured model and API-key fallback behavior used by video requests.
+     *
+     * @param prompt   The complete instruction and input data for Gemini.
+     * @param apiKeys  Gemini API keys, checked top-to-bottom for each model.
+     * @param callback Callback receiving sanitized JSON or an error.
+     * @return The running request future.
+     */
+    @Nullable
+    public static Future<?> generateJson(
+            @NonNull String prompt,
+            @NonNull List<String> apiKeys,
+            @NonNull Callback callback
+    ) {
         return executeRequest(RequestSpec.forPrompt(null, prompt, null, false, true), apiKeys, callback);
     }
 
@@ -566,12 +584,12 @@ public class GeminiUtils {
         JSONArray partsArray = new JSONArray();
 
         if (requestSpec.videoUrl != null) {
-            Logger.printDebug(() -> "GeminiUtils: Constructing payload WITH video part.");
+            Logger.printDebug(() -> "GeminiUtils: Constructing payload with video part.");
             partsArray.put(new JSONObject().put("fileData", new JSONObject()
                     .put("mimeType", "video/mp4")
                     .put("fileUri", requestSpec.videoUrl)));
         } else {
-            Logger.printDebug(() -> "GeminiUtils: Constructing payload with ONLY text part.");
+            Logger.printDebug(() -> "GeminiUtils: Constructing payload with only text part.");
         }
 
         if (!TextUtils.isEmpty(effectivePrompt)) {

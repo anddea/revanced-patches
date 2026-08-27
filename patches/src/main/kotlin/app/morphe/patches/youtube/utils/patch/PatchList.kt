@@ -105,6 +105,10 @@ internal enum class PatchList(
         "Fullscreen components",
         "Adds options to hide or change components related to fullscreen."
     ),
+    GEMINI(
+        "Gemini",
+        "Adds options to use Gemini for video summaries, transcription, and settings search."
+    ),
     GMSCORE_SUPPORT(
         "GmsCore support",
         "Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services."

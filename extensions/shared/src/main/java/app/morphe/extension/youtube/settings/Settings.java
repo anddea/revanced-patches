@@ -634,12 +634,18 @@ public class Settings extends SharedYouTubeSettings {
     public static final StringSetting OVERLAY_BUTTON_WHITELIST_SPONSORBLOCK = new StringSetting("revanced_overlay_button_whitelist_sponsorblock", "", true);
     public static final StringSetting OVERLAY_BUTTON_WHITELIST_PLAYBACK_SPEED = new StringSetting("revanced_overlay_button_whitelist_playback_speed", "", true);
 
+    // PreferenceScreen: Gemini
     public static final BooleanSetting OVERLAY_BUTTON_GEMINI = new BooleanSetting("revanced_overlay_button_gemini_summarize", FALSE);
-    public static final StringSetting GEMINI_API_KEY = new StringSetting("revanced_overlay_button_gemini_summarize_api_key", "", true, parent(OVERLAY_BUTTON_GEMINI));
+    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_GEMINI = new BooleanSetting("revanced_shorts_custom_actions_gemini", FALSE, true);
+    public static final BooleanSetting GEMINI_SETTINGS_SEARCH = new BooleanSetting("revanced_settings_search_gemini", TRUE);
+    public static final StringSetting GEMINI_API_KEY = new StringSetting("revanced_overlay_button_gemini_summarize_api_key", "", true,
+            parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI, GEMINI_SETTINGS_SEARCH));
     public static final IntegerSetting GEMINI_TRANSCRIBE_SUBTITLES_FONT_SIZE = new IntegerSetting("revanced_gemini_transcribe_subtitles_font_size", 16,
-            true, new SliderConfig(8, 48, 1, "sp"), parent(OVERLAY_BUTTON_GEMINI));
-    public static final BooleanSetting YANDEX_TRANSCRIBE_SUBTITLES = new BooleanSetting("revanced_yandex_transcribe_subtitles", TRUE, parent(OVERLAY_BUTTON_GEMINI));
-    public static final StringSetting YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE = new StringSetting("revanced_yandex_transcribe_subtitles_language", "app", true, parent(OVERLAY_BUTTON_GEMINI));
+            true, new SliderConfig(8, 48, 1, "sp"), parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
+    public static final BooleanSetting YANDEX_TRANSCRIBE_SUBTITLES = new BooleanSetting("revanced_yandex_transcribe_subtitles", TRUE,
+            parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
+    public static final StringSetting YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE = new StringSetting("revanced_yandex_transcribe_subtitles_language", "app", true,
+            parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
 
     // PreferenceScreen: Player - Seekbar
     public static final BooleanSetting APPEND_TIME_STAMP_INFORMATION = new BooleanSetting("revanced_append_time_stamp_information", TRUE, true);
@@ -755,7 +761,6 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER = new BooleanSetting("revanced_shorts_custom_actions_external_downloader", FALSE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO = new BooleanSetting("revanced_shorts_custom_actions_open_video", FALSE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG = new BooleanSetting("revanced_shorts_custom_actions_speed_dialog", FALSE, true);
-    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_GEMINI = new BooleanSetting("revanced_shorts_custom_actions_gemini", FALSE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_VOICE_OVER_TRANSLATION = new BooleanSetting("revanced_shorts_custom_actions_voice_over_translation", TRUE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_REPEAT_STATE = new BooleanSetting("revanced_shorts_custom_actions_repeat_state", FALSE, true);
 

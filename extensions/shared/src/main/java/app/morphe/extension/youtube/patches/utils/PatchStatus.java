@@ -34,6 +34,11 @@ public class PatchStatus {
         return false;
     }
 
+    public static boolean Gemini() {
+        // Replace this with true if the 'Gemini' patch succeeds
+        return false;
+    }
+
     public static boolean VoiceOverTranslation() {
         // Replace this with true if the 'Voice Over Translation' patch succeeds
         return false;
@@ -54,6 +59,7 @@ public class PatchStatus {
     }
 
     // Modified by a patch. Do not touch.
+    @SuppressWarnings("unused")
     public static String TargetActivityClass() {
         return "";
     }
