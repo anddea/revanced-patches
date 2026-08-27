@@ -252,26 +252,25 @@ public abstract class BaseSearchResultItem {
             return result;
         }
 
+        /**
+         * Builds the searchable text from preference content while excluding its internal key.
+         */
         private String buildSearchableText(Preference pref) {
             StringBuilder searchBuilder = new StringBuilder();
-            String key = pref.getKey();
-            String normalizedKey = "";
-            if (key != null) {
-                // Normalize preference key by removing the common "revanced_" prefix
-                // so that users can search by the meaningful part only.
-                normalizedKey = key.startsWith("revanced_")
-                        ? key.substring("revanced_".length())
-                        : key;
-            }
-            appendText(searchBuilder, normalizedKey);
             appendText(searchBuilder, originalTitle);
             appendText(searchBuilder, originalSummary);
 
             // Add type-specific searchable content.
-            if (pref instanceof ListPreference) {
+            if (pref instanceof ListPreference listPref) {
                 if (originalEntries != null) {
                     for (CharSequence entry : originalEntries) {
                         appendText(searchBuilder, entry);
+                    }
+                }
+                CharSequence[] entryValues = listPref.getEntryValues();
+                if (entryValues != null) {
+                    for (CharSequence entryValue : entryValues) {
+                        appendText(searchBuilder, entryValue);
                     }
                 }
             } else if (pref instanceof SwitchPreference) {
