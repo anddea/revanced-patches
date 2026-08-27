@@ -83,6 +83,7 @@ import app.morphe.util.Utils.printWarn
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
 import app.morphe.util.doRecursively
+import app.morphe.util.findElementByAttributeValue
 import app.morphe.util.findFreeRegister
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -366,6 +367,9 @@ val overlayButtonsPatch = resourcePatch(
                 ),
                 ResourceGroup(
                     "drawable",
+                    "revanced_fullscreen_video_scale_fit.xml",
+                    "revanced_fullscreen_video_scale_stretch.xml",
+                    "revanced_fullscreen_video_scale_zoom.xml",
                     "revanced_loop_segment_button_icon.xml",
                     "revanced_loop_segment_button_start_icon.xml",
                     "revanced_loop_segment_button_active_icon.xml",
@@ -404,6 +408,16 @@ val overlayButtonsPatch = resourcePatch(
                         }
                     }
             }
+
+            // Keep the native fullscreen control last in the bottom-controls container.
+            val fullscreenButton = document.childNodes.findElementByAttributeValue(
+                "android:id",
+                "@id/fullscreen_button",
+            ) ?: document.childNodes.findElementByAttributeValue(
+                "android:id",
+                "@+id/fullscreen_button",
+            )
+            fullscreenButton?.let(document.documentElement::appendChild)
         }
 
         arrayOf(

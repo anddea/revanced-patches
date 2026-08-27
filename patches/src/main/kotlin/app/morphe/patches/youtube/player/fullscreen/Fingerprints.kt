@@ -1,64 +1,99 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.player.fullscreen
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.literal
+import app.morphe.patcher.opcode
 import app.morphe.patches.youtube.utils.resourceid.appRelatedEndScreenResults
 import app.morphe.patches.youtube.utils.resourceid.fullScreenEngagementPanel
 import app.morphe.patches.youtube.utils.resourceid.playerVideoTitleView
 import app.morphe.patches.youtube.utils.resourceid.quickActionsElementContainer
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val broadcastReceiverFingerprint = legacyFingerprint(
-    name = "broadcastReceiverFingerprint",
+internal object BroadcastReceiverFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/content/Context;", "Landroid/content/Intent;"),
     strings = listOf(
         "android.intent.action.SCREEN_ON",
         "android.intent.action.SCREEN_OFF",
         "android.intent.action.BATTERY_CHANGED"
     ),
-    customFingerprint = { _, classDef ->
+    custom = { _, classDef ->
         classDef.superclass == "Landroid/content/BroadcastReceiver;"
     }
 )
 
-internal val fullScreenEngagementPanelFingerprint = legacyFingerprint(
-    name = "fullScreenEngagementPanelFingerprint",
+internal object FullScreenEngagementPanelFingerprint : Fingerprint(
     returnType = "L",
     parameters = listOf("L"),
-    literals = listOf(fullScreenEngagementPanel),
+    filters = listOf(
+        literal(fullScreenEngagementPanel),
+    ),
 )
 
 /**
  * This fingerprint is compatible with YouTube v18.42.41+
  */
-internal val landScapeModeConfigFingerprint = legacyFingerprint(
-    name = "landScapeModeConfigFingerprint",
+internal object LandScapeModeConfigFingerprint : Fingerprint(
     returnType = "Z",
-    literals = listOf(45446428L),
+    filters = listOf(
+        literal(45446428L),
+    ),
 )
 
-internal val playerTitleViewFingerprint = legacyFingerprint(
-    name = "playerTitleViewFingerprint",
+internal object PlayerTitleViewFingerprint : Fingerprint(
     returnType = "V",
-    literals = listOf(playerVideoTitleView),
+    filters = listOf(
+        literal(playerVideoTitleView),
+    ),
 )
 
-internal val quickActionsElementSyntheticFingerprint = legacyFingerprint(
-    name = "quickActionsElementSyntheticFingerprint",
+internal object QuickActionsElementSyntheticFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/view/View;"),
-    literals = listOf(quickActionsElementContainer),
-    customFingerprint = { _, classDef ->
+    filters = listOf(
+        literal(quickActionsElementContainer),
+    ),
+    custom = { _, classDef ->
         AccessFlags.SYNTHETIC.isSet(classDef.accessFlags)
     }
 )
 
-internal val relatedEndScreenResultsFingerprint = legacyFingerprint(
-    name = "relatedEndScreenResultsFingerprint",
+internal object RelatedEndScreenResultsFingerprint : Fingerprint(
     returnType = "V",
-    literals = listOf(appRelatedEndScreenResults),
+    filters = listOf(
+        literal(appRelatedEndScreenResults),
+    ),
 )
 
+internal object YouTubePlayerOverlaysLayoutConstructorFingerprint : Fingerprint(
+    definingClass = "/YouTubePlayerOverlaysLayout;",
+    name = "<init>",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    returnType = "V",
+    parameters = listOf("Landroid/content/Context;", "Landroid/util/AttributeSet;"),
+    filters = listOf(
+        opcode(Opcode.RETURN_VOID)
+    )
+)
+
+internal object YouTubePlayerViewOnLayoutFingerprint : Fingerprint(
+    definingClass = "Lcom/google/android/apps/youtube/app/player/YouTubePlayerViewNotForReflection;",
+    name = "onLayout",
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Z", "I", "I", "I", "I"),
+    filters = listOf(
+        opcode(Opcode.RETURN_VOID)
+    )
+)

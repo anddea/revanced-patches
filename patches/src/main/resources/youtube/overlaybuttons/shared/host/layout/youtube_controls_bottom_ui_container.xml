@@ -39,6 +39,8 @@
             <View android:id="@+id/revanced_always_repeat_button_placeholder" android:visibility="gone" android:layout_width="48.0dip" android:layout_height="48.0dip" />
             <com.google.android.libraries.youtube.common.ui.TouchImageView android:id="@+id/revanced_external_download_button" android:contentDescription="@string/revanced_overlay_button_external_downloader_title" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/revanced_external_download_button" android:scaleType="center" style="@style/YouTubePlayerButton" />
             <View android:id="@+id/revanced_external_download_button_placeholder" android:visibility="gone" android:layout_width="48.0dip" android:layout_height="48.0dip" />
+            <com.google.android.libraries.youtube.common.ui.TouchImageView android:id="@+id/fullscreen_video_scale_button" android:contentDescription="@string/morphe_fullscreen_video_scale_button_title" android:visibility="gone" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/revanced_fullscreen_video_scale_fit" android:scaleType="center" style="@style/YouTubePlayerButton" />
+            <View android:id="@+id/fullscreen_video_scale_button_placeholder" android:visibility="gone" android:layout_width="48.0dip" android:layout_height="48.0dip" />
         </LinearLayout>
     </app.morphe.extension.youtube.shared.ScrollableOverlayButtonsContainer>
 </android.support.constraint.ConstraintLayout>
