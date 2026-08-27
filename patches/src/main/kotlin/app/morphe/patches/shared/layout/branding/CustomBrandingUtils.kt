@@ -301,7 +301,7 @@ internal fun ResourcePatchContext.applyCustomBranding(
         // installation can make the application impossible to launch until it is uninstalled.
         val customAliasIcon = customIcon ?: BrandingIcon(CUSTOM_ICON_KEY, CUSTOM_ICON_LABEL, false)
         val runtimeIcons =
-            listOf(BrandingIcon("original", "Stock", false)) + config.icons + customAliasIcon
+            listOf(BrandingIcon("original", "@string/revanced_icon_default", false)) + config.icons + customAliasIcon
         val nameCount = config.namePresetLabels.size + 1
         val defaultIcon = if (customIcon != null) CUSTOM_ICON_KEY else "original"
         val defaultNameIndex = if (customName != null) nameCount else 1
@@ -817,7 +817,7 @@ private fun ResourcePatchContext.addBrandingResources(
     hasCustomIcon: Boolean,
 ) {
     val nameLabels = config.namePresetLabels + listOfNotNull(customName?.let { CUSTOM_ICON_LABEL })
-    val iconEntries = listOf(BrandingIcon("original", "Stock", false)) + config.icons +
+    val iconEntries = listOf(BrandingIcon("original", "@string/revanced_icon_default", false)) + config.icons +
         if (hasCustomIcon) listOf(BrandingIcon(CUSTOM_ICON_KEY, CUSTOM_ICON_LABEL, true)) else emptyList()
 
     ensureValuesFile("strings.xml")
@@ -858,24 +858,12 @@ private fun ResourcePatchContext.addBrandingResources(
             addString(resources, "morphe_custom_branding_icon_entry_${index + 1}", icon.label)
         }
 
-        addString(resources, "morphe_custom_branding_name_title", "App name")
-        addString(
-            resources,
-            "morphe_custom_branding_name_summary",
-            "Select a preset app name.",
-        )
-        addString(resources, "morphe_custom_branding_icon_title", "App icon")
-        addString(resources, "morphe_custom_branding_icon_summary", "Select the launcher icon.")
-        addString(
-            resources,
-            "morphe_custom_branding_apply_to_rvx_settings_title",
-            "Use icon in RVX settings",
-        )
-        addString(
-            resources,
-            "morphe_custom_branding_apply_to_rvx_settings_summary",
-            "Use the selected app icon for the RVX settings entry when available.",
-        )
+        addString(resources, "morphe_custom_branding_name_title", "")
+        addString(resources, "morphe_custom_branding_name_summary", "")
+        addString(resources, "morphe_custom_branding_icon_title", "")
+        addString(resources, "morphe_custom_branding_icon_summary", "")
+        addString(resources, "morphe_custom_branding_apply_to_rvx_settings_title", "")
+        addString(resources, "morphe_custom_branding_apply_to_rvx_settings_summary", "")
     }
 
     document("res/values/arrays.xml").use { document ->
