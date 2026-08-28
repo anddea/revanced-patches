@@ -125,6 +125,9 @@ public final class CustomBrandingPatch {
     private static final String SPLASH_ANIMATION_STYLE_60_BLACK_AND_WHITE = "FPS_60_BLACK_AND_WHITE";
     private static final String SPLASH_ANIMATION_STYLE_30_BLACK_AND_WHITE = "FPS_30_BLACK_AND_WHITE";
     private static final String CUSTOM_ICON_ALIAS = "custom";
+    private static final String LAUNCHER_RESOURCE_PREFIX = "morphe_launcher_";
+    private static final float RVX_SETTINGS_ICON_SCALE = 0.6f;
+    private static final float MUSIC_CUSTOM_RVX_SETTINGS_ICON_HORIZONTAL_OFFSET_DP = -3.0f;
     private static final int NAME_ALIAS_COUNT = 5;
     private static final ColorFilter MONOCHROME_SPLASH_FILTER = new ColorMatrixColorFilter(
             new ColorMatrix(new float[]{
@@ -413,6 +416,34 @@ public final class CustomBrandingPatch {
     public static final class RvxSettingsIconDrawable extends Drawable {
         private Drawable delegate;
 
+        /**
+         * Keeps launcher fallbacks aligned with Music's legacy preference icon slot. Dedicated
+         * settings artwork retains its authored bounds and does not receive implicit scaling.
+         */
+        private void updateDelegateBounds(@NonNull android.graphics.Rect bounds) {
+            if (delegate == null) return;
+
+            if (delegate instanceof RvxSettingsIconFallbackDrawable) {
+                Context context = Utils.getContext();
+                if (context == null) {
+                    delegate.setBounds(bounds);
+                    return;
+                }
+
+                int horizontalOffset = Math.round(
+                        MUSIC_CUSTOM_RVX_SETTINGS_ICON_HORIZONTAL_OFFSET_DP
+                                * context.getResources().getDisplayMetrics().density);
+                delegate.setBounds(
+                        bounds.left + horizontalOffset,
+                        bounds.top,
+                        bounds.right + horizontalOffset,
+                        bounds.bottom);
+                return;
+            }
+
+            delegate.setBounds(bounds);
+        }
+
         private Drawable getDelegate() {
             if (delegate != null) return delegate;
 
@@ -422,7 +453,7 @@ public final class CustomBrandingPatch {
             if (identifier == 0) return null;
 
             delegate = context.getResources().getDrawable(identifier);
-            delegate.setBounds(getBounds());
+            updateDelegateBounds(getBounds());
             delegate.setState(getState());
             delegate.setLevel(getLevel());
             return delegate;
@@ -431,13 +462,16 @@ public final class CustomBrandingPatch {
         @Override
         public void draw(@NonNull Canvas canvas) {
             Drawable drawable = getDelegate();
-            if (drawable != null) drawable.draw(canvas);
+            if (drawable == null) return;
+
+            updateDelegateBounds(getBounds());
+            drawable.draw(canvas);
         }
 
         @Override
         protected void onBoundsChange(@NonNull android.graphics.Rect bounds) {
-            Drawable drawable = getDelegate();
-            if (drawable != null) drawable.setBounds(bounds);
+            getDelegate();
+            updateDelegateBounds(bounds);
         }
 
         @Override
@@ -468,6 +502,138 @@ public final class CustomBrandingPatch {
         public int getIntrinsicHeight() {
             Drawable drawable = getDelegate();
             return drawable == null ? -1 : drawable.getIntrinsicHeight();
+        }
+
+        @Override
+        public void setAlpha(int alpha) {
+            Drawable drawable = getDelegate();
+            if (drawable != null) drawable.setAlpha(alpha);
+        }
+
+        @Override
+        public void setColorFilter(ColorFilter colorFilter) {
+            Drawable drawable = getDelegate();
+            if (drawable != null) drawable.setColorFilter(colorFilter);
+        }
+
+        @Override
+        public int getOpacity() {
+            Drawable drawable = getDelegate();
+            return drawable == null ? PixelFormat.TRANSPARENT : drawable.getOpacity();
+        }
+    }
+
+    private static int getLauncherIconDrawableIdentifier(Context context) {
+        String selectedIcon = SharedYouTubeSettings.CUSTOM_BRANDING_ICON.get();
+        if (selectedIcon.isEmpty()) selectedIcon = "original";
+
+        String resourceName = "original".equals(selectedIcon)
+                ? getString(context, ORIGINAL_LAUNCHER_RESOURCE, "")
+                : LAUNCHER_RESOURCE_PREFIX + selectedIcon;
+        int identifier = getLauncherResourceIdentifier(context, resourceName);
+        if (identifier != 0 || "original".equals(selectedIcon)) return identifier;
+
+        // An icon without bundled launcher layers can still use the stock launcher as a safe
+        // fallback instead of leaving the RVX settings row empty.
+        return getLauncherResourceIdentifier(
+                context, getString(context, ORIGINAL_LAUNCHER_RESOURCE, ""));
+    }
+
+    private static int getLauncherResourceIdentifier(Context context, String resourceName) {
+        if (resourceName.isEmpty()) return 0;
+
+        int identifier = ResourceUtils.getIdentifier(
+                resourceName, ResourceType.MIPMAP, context);
+        if (identifier == 0) {
+            identifier = ResourceUtils.getIdentifier(
+                    resourceName, ResourceType.DRAWABLE, context);
+        }
+        return identifier;
+    }
+
+    /**
+     * Draws a launcher icon as a smaller RVX settings icon when no dedicated settings artwork is
+     * available. The launcher aliases and manifest continue to use the unscaled resource.
+     */
+    public static final class RvxSettingsIconFallbackDrawable extends Drawable {
+        private Drawable delegate;
+
+        private int getSettingsIconSize() {
+            Context context = Utils.getContext();
+            if (context == null) return -1;
+
+            return Math.round(48.0f * context.getResources().getDisplayMetrics().density);
+        }
+
+        private Drawable getDelegate() {
+            if (delegate != null) return delegate;
+
+            Context context = Utils.getContext();
+            if (context == null) return null;
+
+            int identifier = getLauncherIconDrawableIdentifier(context);
+            if (identifier == 0) return null;
+
+            try {
+                delegate = context.getResources().getDrawable(identifier);
+                delegate.setBounds(getBounds());
+                delegate.setState(getState());
+                delegate.setLevel(getLevel());
+                return delegate;
+            } catch (Exception ignored) {
+                return null;
+            }
+        }
+
+        @Override
+        public void draw(@NonNull Canvas canvas) {
+            Drawable drawable = getDelegate();
+            if (drawable == null) return;
+
+            android.graphics.Rect bounds = getBounds();
+            if (bounds.isEmpty()) return;
+
+            int scaledWidth = Math.round(bounds.width() * RVX_SETTINGS_ICON_SCALE);
+            int scaledHeight = Math.round(bounds.height() * RVX_SETTINGS_ICON_SCALE);
+            int left = bounds.left + (bounds.width() - scaledWidth) / 2;
+            int top = bounds.top + (bounds.height() - scaledHeight) / 2;
+
+            drawable.setBounds(left, top, left + scaledWidth, top + scaledHeight);
+            drawable.draw(canvas);
+        }
+
+        @Override
+        protected void onBoundsChange(@NonNull android.graphics.Rect bounds) {
+            Drawable drawable = getDelegate();
+            if (drawable != null) drawable.setBounds(bounds);
+        }
+
+        @Override
+        protected boolean onStateChange(@NonNull int[] state) {
+            Drawable drawable = getDelegate();
+            return drawable != null && drawable.setState(state);
+        }
+
+        @Override
+        protected boolean onLevelChange(int level) {
+            Drawable drawable = getDelegate();
+            return drawable != null && drawable.setLevel(level);
+        }
+
+        @Override
+        public boolean isStateful() {
+            Drawable drawable = getDelegate();
+            return drawable != null && drawable.isStateful();
+        }
+
+        @Override
+        public int getIntrinsicWidth() {
+            return getSettingsIconSize();
+        }
+
+        @Override
+        public int getIntrinsicHeight() {
+            return getSettingsIconSize();
         }
 
         @Override
@@ -522,15 +688,15 @@ public final class CustomBrandingPatch {
             String selectedIcon = SharedYouTubeSettings.CUSTOM_BRANDING_ICON.get();
             if ("original".equals(selectedIcon)) return;
 
-            int identifier = ResourceUtils.getIdentifier(
-                    SPLASH_RESOURCE_PREFIX + selectedIcon,
-                    ResourceType.DRAWABLE,
-                    activity);
-            if (identifier == 0) return;
+            if (getSplashResourceIdentifier(activity, selectedIcon) == 0) return;
 
-            Drawable drawable = activity.getResources().getDrawable(identifier);
-            Runnable showOverlay = () -> showSplashOverlay(
-                    activity, drawable, selectedIcon, useYouTubeSplashStyle);
+            Runnable showOverlay = () -> {
+                int identifier = getSplashResourceIdentifier(activity, selectedIcon);
+                if (identifier == 0) return;
+
+                Drawable drawable = activity.getResources().getDrawable(identifier);
+                showSplashOverlay(activity, drawable, selectedIcon, useYouTubeSplashStyle);
+            };
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 try {
@@ -566,6 +732,25 @@ public final class CustomBrandingPatch {
                 }
             });
         }
+    }
+
+    /**
+     * Resolves a generated theme-specific splash when one exists, falling back to the base splash.
+     * The lookup uses YouTube's resolved appearance rather than Android's night qualifier because
+     * YouTube can force light or dark mode independently of the device configuration.
+     */
+    private static int getSplashResourceIdentifier(Context context, String selectedIcon) {
+        String theme = BaseThemeUtils.isDarkModeEnabled() ? "dark" : "light";
+        int themedIdentifier = ResourceUtils.getIdentifier(
+                SPLASH_RESOURCE_PREFIX + selectedIcon + "_" + theme,
+                ResourceType.DRAWABLE,
+                context);
+        if (themedIdentifier != 0) return themedIdentifier;
+
+        return ResourceUtils.getIdentifier(
+                SPLASH_RESOURCE_PREFIX + selectedIcon,
+                ResourceType.DRAWABLE,
+                context);
     }
 
     private static void showSplashOverlay(
