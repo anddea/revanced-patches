@@ -1,5 +1,5 @@
 {
-  "version": "4.3.0-dev.2",
+  "version": "4.3.0-dev.3",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -315,6 +315,7 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -337,7 +338,7 @@
         {
           "key": "customIcon",
           "title": "Custom icon",
-          "description": "    Folder with images to use as a custom icon.\n\n    The folder must contain one or more of the following folders, depending on the DPI of the device:\n    - mipmap-xxxhdpi\n- mipmap-xxhdpi\n- mipmap-xhdpi\n- mipmap-hdpi\n- mipmap-mdpi\n\n    Each provided mipmap folder must contain all of the following files:\n    - morphe_adaptive_background_custom.png\n- morphe_adaptive_foreground_custom.png\n\n    Optionally, the path can contain a 'drawable' folder with:\n    - morphe_adaptive_monochrome_custom.xml\n    - morphe_notification_icon_custom.xml\n\n    A notification icon can instead be supplied as morphe_notification_icon_custom.xml with a\n    .png extension in one or more matching drawable-<dpi> folders.",
+          "description": "Folder containing custom branding resources. The folder is scanned recursively, so Android\nresource folders can be placed at the root or grouped under folders such as 'launcher',\n'header', 'splash', 'monochrome', and 'settings'.\n\nEvery resource is optional. Icon resources accept XML or PNG files. \nA launcher icon is also used for the RVX settings entry when no dedicated settings icon \nis present. A complete 'drawable/avd_anim.xml' splash takes priority over static splash images.",
           "required": false,
           "type": "kotlin.String",
           "default": null,
@@ -351,6 +352,7 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch"
       ],
@@ -375,7 +377,7 @@
         {
           "key": "customIcon",
           "title": "Custom icon",
-          "description": "    Folder with images to use as a custom icon.\n\n    The folder must contain one or more of the following folders, depending on the DPI of the device:\n    - mipmap-xxxhdpi\n- mipmap-xxhdpi\n- mipmap-xhdpi\n- mipmap-hdpi\n- mipmap-mdpi\n\n    Each provided mipmap folder must contain all of the following files:\n    - morphe_adaptive_background_custom.png\n- morphe_adaptive_foreground_custom.png\n\n    Optionally, the path can contain a 'drawable' folder with:\n    - morphe_adaptive_monochrome_custom.xml\n    - morphe_notification_icon_custom.xml\n\n    A notification icon can instead be supplied as morphe_notification_icon_custom.xml with a\n    .png extension in one or more matching drawable-<dpi> folders.",
+          "description": "Folder containing custom branding resources. The folder is scanned recursively, so Android\nresource folders can be placed at the root or grouped under folders such as 'launcher',\n'header', 'splash', 'monochrome', and 'settings'.\n\nEvery resource is optional. Icon resources accept XML or PNG files. \nA launcher icon is also used for the RVX settings entry when no dedicated settings icon \nis present. A complete 'drawable/avd_anim.xml' splash takes priority over static splash images.",
           "required": false,
           "type": "kotlin.String",
           "default": null,
@@ -727,6 +729,7 @@
       "description": "Adds options to hide or change flyout menu components.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch",
         "BytecodePatch",
@@ -836,6 +839,44 @@
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "19.43.41",
+          "20.05.46",
+          "20.51.39"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Fullscreen video scale",
+      "description": "Adds options to stretch or zoom videos to fill the screen in fullscreen mode.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "19.43.41",
+          "20.05.46",
+          "20.51.39"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Gemini",
+      "description": "Adds options to use Gemini for video summaries, transcription, and settings search.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -1394,23 +1435,6 @@
       "description": "Adds support to download videos with an external downloader app using the in-app download button.",
       "use": true,
       "dependencies": [
-        "ResourcePatch"
-      ],
-      "compatiblePackages": {
-        "com.google.android.youtube": [
-          "19.43.41",
-          "20.05.46",
-          "20.51.39"
-        ]
-      },
-      "options": []
-    },
-    {
-      "name": "MaterialYou",
-      "description": "Applies the MaterialYou theme for Android 12+ devices.",
-      "use": false,
-      "dependencies": [
-        "ResourcePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
@@ -2070,6 +2094,7 @@
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
+        "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
         "ResourcePatch",
@@ -2435,6 +2460,8 @@
       "dependencies": [
         "ResourcePatch",
         "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch"
       ],

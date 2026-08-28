@@ -1,3 +1,30 @@
+# [4.3.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.2...v4.3.0-dev.3) (2026-08-28)
+
+
+### Bug Fixes
+
+* **YouTube - Disable sign in to TV popup:** Support newer versions ([9cd8c3a](https://github.com/anddea/revanced-patches/commit/9cd8c3a8c5f7e326a1ab358cf2fc6b300464f9b4))
+* **YouTube - Theme:** Keep player scrims and ambient colors stock ([cdfa8bc](https://github.com/anddea/revanced-patches/commit/cdfa8bcec99bed483e235513dcfd3c4889fd440c))
+* **YouTube - Toolbar components:** `Hide search term thumbnails` did not work for newer app versions ([6e2568a](https://github.com/anddea/revanced-patches/commit/6e2568ac53b2aa31eaa02e8cce855c89e0fb917c))
+* **YouTube & YouTube Music - Custom branding:** App disappeared from recent apps screen when custom icon was selected ([56da447](https://github.com/anddea/revanced-patches/commit/56da44734a7b1b8b98fd2ba4c9a49b7e09ecf00e))
+* **YouTube & YouTube Music - Theme:** Theme was not always applied to the splash screen ([53966bd](https://github.com/anddea/revanced-patches/commit/53966bd11e1f99a4c576088b2719112156a1edbc))
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add `Seekbar loop segment` setting ([1f69326](https://github.com/anddea/revanced-patches/commit/1f6932658379c54ef0ff04147bad35b351010e31))
+* **YouTube - Seekbar components:** Add `Enable fullscreen large seekbar` setting ([5776acc](https://github.com/anddea/revanced-patches/commit/5776accf8df3ac01c9b19815137207aab1977159))
+* **YouTube - Theme:** Add `Change foreground color` setting (`v20+`) ([664a85a](https://github.com/anddea/revanced-patches/commit/664a85a084a91f05ff835fd5632afec02b8c89df))
+* **YouTube & YouTube Music - Custom branding:** Make existing `Splash screen style` for YouTube and `Disable Cairo splash animation` for YT Music work for custom selected app icons ([4b9e566](https://github.com/anddea/revanced-patches/commit/4b9e566f28592db21ca72ca35874ad8967ab1ca8))
+* **YouTube & YouTube Music - Custom branding:** Support dynamic optional files in user-provided custom icon folders ([8f11517](https://github.com/anddea/revanced-patches/commit/8f115174d89d59f5cd45284a1b390c6e5cdfa470))
+* **YouTube & YouTube Music - Spoof video streams:** Make `TV Simply` available in signed-out or incognito mode by generating a PoToken ([d1a2959](https://github.com/anddea/revanced-patches/commit/d1a295995057daf0c703f92a3e50f51531346c8c))
+* **YouTube & YouTube Music - Theme:** Add `Splash animation size` setting ([a75e79f](https://github.com/anddea/revanced-patches/commit/a75e79f7604f4fb9181575cc4a0bc0c78fdd761e))
+* **YouTube & YouTube Music:** Remove `Material You` patch, merge it with `Theme` patch ([a8eb12c](https://github.com/anddea/revanced-patches/commit/a8eb12cf27b073aed3a5d688a386aefd1c34bbd0))
+* **YouTube Music - Flyout menu components:** Add `Override Download menu` setting ([deb3fdc](https://github.com/anddea/revanced-patches/commit/deb3fdc761dbbd2404c3205a224108759b92faa7))
+* **YouTube Music - Player components:** Add `Change navigation bar color` setting ([fdac1be](https://github.com/anddea/revanced-patches/commit/fdac1be57105b525cacea2f2cdc263101e9b367f))
+* **YouTube:** Add `Fullscreen video scale` patch ([9e91f8e](https://github.com/anddea/revanced-patches/commit/9e91f8e422ff146ff2d9aba1152000f1a7b78d4e))
+* **YouTube:** Add `Gemini` patch and `Search settings with Gemini` setting ([6fcbc7b](https://github.com/anddea/revanced-patches/commit/6fcbc7bcd3768804416b439d23520c226c3d5e8a))
+
 # [4.3.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.1...v4.3.0-dev.2) (2026-08-21)
 
 
