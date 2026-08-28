@@ -58,6 +58,7 @@ import app.morphe.util.ResourceGroup
 import app.morphe.util.copyResources
 import app.morphe.util.doRecursively
 import app.morphe.util.findElementByAttributeValueOrThrow
+import app.morphe.util.inputStreamFromBundledResource
 import app.morphe.util.inputStreamFromBundledResourceOrThrow
 import app.morphe.util.removeFromParent
 import app.morphe.util.removeStringsElements
@@ -72,6 +73,8 @@ internal const val CUSTOM_BRANDING_EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/morphe/extension/shared/patches/CustomBrandingPatch;"
 internal const val SPLASHLESS_LAUNCHER_ACTIVITY_CLASS_NAME =
     $$"app.morphe.extension.shared.patches.CustomBrandingPatch$SplashlessLauncherActivity"
+private const val RVX_SETTINGS_ICON_FALLBACK_DRAWABLE_CLASS =
+    $$"app.morphe.extension.shared.patches.CustomBrandingPatch$RvxSettingsIconFallbackDrawable"
 
 private const val GENERATED_RESOURCE_PREFIX = "morphe_"
 private const val CUSTOM_BRANDING_RESOURCE_PREFIX = "${GENERATED_RESOURCE_PREFIX}custom_branding_"
@@ -124,6 +127,9 @@ private val mipmapDirectories = arrayOf(
     "mdpi",
 )
 private val drawableDirectories = mipmapDirectories.map { "drawable-$it" }
+private const val SPLASH_LIGHT_TEXT_COLOR = "#000000"
+private const val SPLASH_DARK_TEXT_COLOR = "#ffffff"
+private val splashWhiteColor = Regex("#ffffff(?![0-9a-fA-F])", RegexOption.IGNORE_CASE)
 
 // endregion
 
@@ -172,6 +178,8 @@ internal data class CustomBrandingConfig(
     val dynamicHeaderUsesThemes: Boolean = true,
     /** Source splash logo base name used when an animated-vector is unavailable. */
     val dynamicSplashResourceName: String? = null,
+    /** Animated splash icon keys that need separate light and dark text variants. */
+    val themedSplashIconKeys: Set<String> = emptySet(),
     /** Drawable directories containing the static splash fallback. */
     val dynamicSplashResourceDirectories: List<String> = drawableDirectories,
 ) {
@@ -201,6 +209,7 @@ internal data class CustomBrandingConfig(
         if (activityAliasNameWithIntents != other.activityAliasNameWithIntents) return false
         if (dynamicHeaderResourceNames != other.dynamicHeaderResourceNames) return false
         if (dynamicSplashResourceName != other.dynamicSplashResourceName) return false
+        if (themedSplashIconKeys != other.themedSplashIconKeys) return false
         if (dynamicSplashResourceDirectories != other.dynamicSplashResourceDirectories) return false
         return true
     }
@@ -226,6 +235,7 @@ internal data class CustomBrandingConfig(
         result = 31 * result + activityAliasNameWithIntents.hashCode()
         result = 31 * result + dynamicHeaderResourceNames.hashCode()
         result = 31 * result + (dynamicSplashResourceName?.hashCode() ?: 0)
+        result = 31 * result + themedSplashIconKeys.hashCode()
         result = 31 * result + dynamicSplashResourceDirectories.hashCode()
         return result
     }
@@ -236,12 +246,9 @@ internal val customBrandingIconOptionDescription = """
     resource folders can be placed at the root or grouped under folders such as 'launcher',
     'header', 'splash', 'monochrome', and 'settings'.
 
-    Every resource is optional. Original app resource names and generated '*_custom' names are
-    both accepted. Missing files keep the stock or bundled resource for that part of the branding.
-    Icon resources accept XML or PNG files. Leading 'morphe', 'revanced', and 'rvx' prefixes may
-    appear in any order, and a trailing '_custom' is optional. A launcher icon is also used for the
-    RVX settings entry when no dedicated settings icon is present. A complete
-    'drawable/avd_anim.xml' splash takes priority over static splash images.
+    Every resource is optional. Icon resources accept XML or PNG files. 
+    A launcher icon is also used for the RVX settings entry when no dedicated settings icon 
+    is present. A complete 'drawable/avd_anim.xml' splash takes priority over static splash images.
 """.trimIndent()
 
 // endregion
@@ -646,18 +653,6 @@ private fun ResourcePatchContext.copyCustomIcon(
         }
     }
 
-    // The launcher bitmap or vector is a useful settings fallback when the folder does not provide
-    // a dedicated settings resource. Changing the resource directory keeps the same density and
-    // lets the runtime resolve it through the drawable type used by both host apps.
-    if (!copiedSettingsIcon) {
-        launcherSources.forEach { (directory, source) ->
-            val drawableDirectory = directory.replaceFirst("mipmap", "drawable")
-            copyIconSource(source, drawableDirectory, customRvxSettings)
-            copiedSettingsIcon = true
-        }
-    }
-    copiedAny = copiedAny || copiedSettingsIcon
-
     // A monochrome adaptive layer is also a valid notification icon. Use it only when the folder
     // does not provide a notification-specific XML or density-specific PNG.
     if (!copiedNotification) {
@@ -686,6 +681,14 @@ $monochromeLayer                </adaptive-icon>
             """.trimIndent(),
         )
     }
+
+    // Keep the launcher resource at its normal size for aliases and the manifest. The settings
+    // fallback is a separate drawable wrapper so only the RVX settings row gets the smaller icon.
+    if (!copiedSettingsIcon && (hasAdaptiveLayers || copiedLauncher)) {
+        writeRvxSettingsIconFallback(customRvxSettings)
+        copiedSettingsIcon = true
+    }
+    copiedAny = copiedAny || copiedSettingsIcon
 
     if (!copiedAny) return null
     return BrandingIcon(
@@ -891,7 +894,11 @@ private fun ResourcePatchContext.copyDynamicBrandingResources(config: CustomBran
         val brandingDirectory = "${config.resourceRoot}/branding/${icon.key}"
 
         val hasAnimatedVector = runCatching {
-            copyAnimatedVectorSplash(brandingDirectory, icon.key)
+            copyAnimatedVectorSplash(
+                brandingDirectory,
+                icon.key,
+                icon.key in config.themedSplashIconKeys,
+            )
         }.isSuccess
 
         if (!hasAnimatedVector) {
@@ -917,6 +924,7 @@ private fun ResourcePatchContext.copyDynamicBrandingResources(config: CustomBran
 private fun ResourcePatchContext.copyAnimatedVectorSplash(
     brandingDirectory: String,
     iconKey: String,
+    useThemeVariants: Boolean,
 ) {
     val sourceDirectory = "$brandingDirectory/splash"
     val source = inputStreamFromBundledResourceOrThrow(
@@ -947,14 +955,14 @@ private fun ResourcePatchContext.copyAnimatedVectorSplash(
         }
     }
 
-    val targetResourceNames = companionSources.keys.mapIndexed { index, sourceResourceName ->
-        sourceResourceName to IconResource.SPLASH.named("${iconKey}_part_$index")
-    }.toMap()
-
     // The patcher's aapt macro processor supports inline drawable, animation, and fillColor
     // resources, but not inline interpolators. Dropping only that optional wrapper keeps the
     // animated vector valid and lets Android use its default interpolator.
-    fun rewriteDrawableReferences(sourceXml: String): String {
+    fun rewriteDrawableReferences(
+        sourceXml: String,
+        targetResourceNames: Map<String, String>,
+        textColor: String? = null,
+    ): String {
         var rewritten = unsupportedAaptInterpolator.replace(sourceXml, "")
         targetResourceNames.forEach { (sourceResourceName, targetResourceName) ->
             rewritten = rewritten.replace(
@@ -962,16 +970,30 @@ private fun ResourcePatchContext.copyAnimatedVectorSplash(
                 "@drawable/$targetResourceName",
             )
         }
+        textColor?.let { rewritten = splashWhiteColor.replace(rewritten, it) }
         return rewritten
     }
 
-    val target = get("res/drawable/${IconResource.SPLASH.named(iconKey)}.xml")
-    target.parentFile?.mkdirs()
-    target.writeText(rewriteDrawableReferences(source))
+    fun writeSplashVariant(suffix: String, textColor: String?) {
+        val variantResourceNames = companionSources.keys.mapIndexed { index, sourceResourceName ->
+            sourceResourceName to IconResource.SPLASH.named("${iconKey}${suffix}_part_$index")
+        }.toMap()
+        val target = get("res/drawable/${IconResource.SPLASH.named("$iconKey$suffix")}.xml")
+        target.parentFile?.mkdirs()
+        target.writeText(rewriteDrawableReferences(source, variantResourceNames, textColor))
 
-    companionSources.forEach { (sourceResourceName, companionSource) ->
-        get("res/drawable/${targetResourceNames.getValue(sourceResourceName)}.xml")
-            .writeText(rewriteDrawableReferences(companionSource))
+        companionSources.forEach { (sourceResourceName, companionSource) ->
+            get("res/drawable/${variantResourceNames.getValue(sourceResourceName)}.xml")
+                .writeText(
+                    rewriteDrawableReferences(companionSource, variantResourceNames, textColor),
+                )
+        }
+    }
+
+    writeSplashVariant("", null)
+    if (useThemeVariants) {
+        writeSplashVariant("_light", SPLASH_LIGHT_TEXT_COLOR)
+        writeSplashVariant("_dark", SPLASH_DARK_TEXT_COLOR)
     }
 }
 
@@ -1025,20 +1047,37 @@ private fun ResourcePatchContext.addSplashlessLauncherStyle(parent: String) {
     }
 }
 
+/** Copies an optional dedicated settings icon, otherwise uses that preset's launcher at runtime. */
 private fun ResourcePatchContext.copyRvxSettingsIcons(config: CustomBrandingConfig) {
-    copyBundledResource(
-        "${config.resourceRoot}/branding/${config.originalSettingsIconKey}/settings",
-        "drawable/${config.settingsIconFileName}.xml",
-        "drawable/${IconResource.RVX_SETTINGS.named("original")}.xml",
-    )
+    fun copy(sourceIconKey: String, targetIconKey: String) {
+        val sourceDirectory = "${config.resourceRoot}/branding/$sourceIconKey/settings"
+        val sourceResource = "drawable/${config.settingsIconFileName}.xml"
+        val targetResourceName = IconResource.RVX_SETTINGS.named(targetIconKey)
+        val source = inputStreamFromBundledResource(sourceDirectory, sourceResource)
+        if (source == null) {
+            writeRvxSettingsIconFallback(targetResourceName)
+            return
+        }
 
-    config.icons.forEach { icon ->
-        copyBundledResource(
-            "${config.resourceRoot}/branding/${icon.key}/settings",
-            "drawable/${config.settingsIconFileName}.xml",
-            "drawable/${IconResource.RVX_SETTINGS.named(icon.key)}.xml",
-        )
+        val target = get("res/drawable/$targetResourceName.xml")
+        target.parentFile?.mkdirs()
+        source.use { FilesCompat.copy(it, target) }
     }
+
+    copy(config.originalSettingsIconKey, "original")
+    config.icons.forEach { icon -> copy(icon.key, icon.key) }
+}
+
+/** Writes the runtime wrapper used when a launcher is the only available branding icon. */
+private fun ResourcePatchContext.writeRvxSettingsIconFallback(resourceName: String) {
+    val target = get("res/drawable/$resourceName.xml")
+    target.parentFile?.mkdirs()
+    target.writeText(
+        """<?xml version="1.0" encoding="utf-8"?>
+            <drawable xmlns:android="http://schemas.android.com/apk/res/android"
+                class="$RVX_SETTINGS_ICON_FALLBACK_DRAWABLE_CLASS" />
+        """.trimIndent(),
+    )
 }
 
 /**

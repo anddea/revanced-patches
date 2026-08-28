@@ -143,6 +143,7 @@ private val brandingConfig = CustomBrandingConfig(
     copyAliasIntentFilters = true,
     dynamicHeaderResourceNames = listOf("yt_wordmark_header", "yt_premium_wordmark_header"),
     dynamicSplashResourceName = "product_logo_youtube_color_144",
+    themedSplashIconKeys = setOf("squid_game"),
 )
 
 private val applicationNameFingerprint = Fingerprint(
