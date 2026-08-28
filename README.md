@@ -39,6 +39,8 @@
 | `Force original audio` | Adds an option to disable audio tracks from being automatically enabled. | 19.43.41 ~ 20.51.39 |
 | `Force player buttons background` | Changes the dark background surrounding the video player controls at compile time. | 19.43.41 ~ 20.51.39 |
 | `Fullscreen components` | Adds options to hide or change components related to fullscreen. | 19.43.41 ~ 20.51.39 |
+| `Fullscreen video scale` | Adds options to stretch or zoom videos to fill the screen in fullscreen mode. | 19.43.41 ~ 20.51.39 |
+| `Gemini` | Adds options to use Gemini for video summaries, transcription, and settings search. | 19.43.41 ~ 20.51.39 |
 | `GmsCore support` | Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services. | 19.43.41 ~ 20.51.39 |
 | `Hide Shorts dimming` | Removes, at compile time, the dimming effect at the top and bottom of Shorts videos. | 19.43.41 ~ 20.51.39 |
 | `Hide accessibility controls dialog` | Removes, at compile time, accessibility controls dialog 'Turn on accessibility controls for the video player?'. | 19.43.41 ~ 20.51.39 |
@@ -52,7 +54,6 @@
 | `Hide player flyout menu` | Adds options to hide player flyout menu components. | 19.43.41 ~ 20.51.39 |
 | `Hide shortcuts` | Remove, at compile time, the app shortcuts that appears when the app icon is long pressed. | 19.43.41 ~ 20.51.39 |
 | `Hook download actions` | Adds support to download videos with an external downloader app using the in-app download button. | 19.43.41 ~ 20.51.39 |
-| `MaterialYou` | Applies the MaterialYou theme for Android 12+ devices. | 19.43.41 ~ 20.51.39 |
 | `Miniplayer` | Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers. | 19.43.41 ~ 20.51.39 |
 | `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 19.43.41 ~ 20.51.39 |
 | `Open links externally` | Adds an option to always open links in your browser instead of the in-app browser. | 19.43.41 ~ 20.51.39 |
