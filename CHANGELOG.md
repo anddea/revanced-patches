@@ -1,3 +1,10 @@
+# [4.3.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.3...v4.3.0-dev.4) (2026-08-28)
+
+
+### Bug Fixes
+
+* **YouTube - Visual preferences icons:** Move Gemini icon to RVX section ([4da593e](https://github.com/anddea/revanced-patches/commit/4da593ed1c610fa0218d43f2dbb684c3f08fb88a))
+
 # [4.3.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.2...v4.3.0-dev.3) (2026-08-28)
 
 
