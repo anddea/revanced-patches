@@ -88,6 +88,7 @@ import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.shared.patches.CustomBrandingPatch;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceType;
@@ -167,6 +168,10 @@ public class DrawableColorPatch {
      */
     private static void applySplashScreenTheme(Activity activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            return;
+        }
+        if (CustomBrandingPatch.isSystemSplashEnabled(activity)) {
+            CustomBrandingPatch.updateSystemSplashTheme(activity);
             return;
         }
 

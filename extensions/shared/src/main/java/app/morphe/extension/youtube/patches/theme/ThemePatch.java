@@ -81,6 +81,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 
+import app.morphe.extension.shared.patches.CustomBrandingPatch;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceType;
@@ -97,6 +98,8 @@ public final class ThemePatch {
     public static final String DEFAULT_NOTIFICATION_DOT_COLOR = "#FFFF0000";
 
     private static final String RUNTIME_LIGHT_THEME_COLOR = "morphe_runtime_light_theme_color";
+    private static final String PATCH_OPTION_DARK_THEME_COLOR = "morphe_patch_option_dark_theme_color";
+    private static final String PATCH_OPTION_LIGHT_THEME_COLOR = "morphe_patch_option_light_theme_color";
     private static final String SPLASH_THEME_DARK_PREFIX = "morphe_theme_splash_dark_";
     private static final String SPLASH_THEME_LIGHT_PREFIX = "morphe_theme_splash_light_";
     private static final String SPLASH_THEME_NO_ICON_SUFFIX = "_no_icon";
@@ -109,13 +112,13 @@ public final class ThemePatch {
             "stock", "amoled_black", "material_you_neutral", "material_you_primary",
             "material_you_secondary", "material_you_tertiary", "modern_youtube",
             "classic_youtube", "catppuccin_mocha", "dark_pink", "dark_blue", "dark_green",
-            "dark_yellow", "dark_orange", "dark_red",
+            "dark_yellow", "dark_orange", "dark_red", "patch_option",
     };
     private static final String[] PRECOMPILED_LIGHT_THEME_KEYS = {
             "white", "material_you_neutral", "material_you_primary", "material_you_secondary",
             "material_you_tertiary", "catppuccin_latte", "light_pink", "light_blue",
             "light_green", "light_yellow", "light_orange", "light_red", "pale_blue",
-            "pale_green", "pale_yellow",
+            "pale_green", "pale_yellow", "patch_option",
     };
     /** Offset between the full, dark-background-only, and light-background-only variants. */
     private static final int PRECOMPILED_THEME_PAIR_COUNT =
@@ -239,6 +242,10 @@ public final class ThemePatch {
 
     private static void applySplashScreenTheme(Activity activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return;
+        if (CustomBrandingPatch.isSystemSplashEnabled(activity)) {
+            CustomBrandingPatch.updateSystemSplashTheme(activity);
+            return;
+        }
 
         try {
             final boolean dark = BaseThemeUtils.isDarkModeEnabled();
@@ -336,9 +343,17 @@ public final class ThemePatch {
             case "dark_yellow" -> 0xFF282900;
             case "dark_orange" -> 0xFF291800;
             case "dark_red" -> 0xFF290000;
-            case "custom" -> ResourceUtils.getColor(Settings.DARK_THEME_CUSTOM_COLOR.get(), patchedColor);
+            case "custom" -> getCustomDarkThemeColor(patchedColor);
+            case "patch_option" -> ResourceUtils.getColor(PATCH_OPTION_DARK_THEME_COLOR, patchedColor);
             default -> patchedColor;
         };
+    }
+
+    /** Uses the patch-time color until the user explicitly chooses an in-app custom color. */
+    private static int getCustomDarkThemeColor(int fallback) {
+        return Settings.DARK_THEME_CUSTOM_COLOR.isSetToDefault()
+                ? ResourceUtils.getColor(PATCH_OPTION_DARK_THEME_COLOR, fallback)
+                : ResourceUtils.getColor(Settings.DARK_THEME_CUSTOM_COLOR.get(), fallback);
     }
 
     private static int getSelectedLightColor(Context context) {
@@ -359,9 +374,17 @@ public final class ThemePatch {
             case "pale_blue" -> 0xFFD4FFF8;
             case "pale_green" -> 0xFFD1FFCC;
             case "pale_yellow" -> 0xFFFFE9AA;
-            case "custom" -> ResourceUtils.getColor(Settings.LIGHT_THEME_CUSTOM_COLOR.get(), patchedColor);
+            case "custom" -> getCustomLightThemeColor(patchedColor);
+            case "patch_option" -> ResourceUtils.getColor(PATCH_OPTION_LIGHT_THEME_COLOR, patchedColor);
             default -> patchedColor;
         };
+    }
+
+    /** Uses the patch-time color until the user explicitly chooses an in-app custom color. */
+    private static int getCustomLightThemeColor(int fallback) {
+        return Settings.LIGHT_THEME_CUSTOM_COLOR.isSetToDefault()
+                ? ResourceUtils.getColor(PATCH_OPTION_LIGHT_THEME_COLOR, fallback)
+                : ResourceUtils.getColor(Settings.LIGHT_THEME_CUSTOM_COLOR.get(), fallback);
     }
 
     /** Keeps the translucent light overlay while applying the selected light-theme color. */

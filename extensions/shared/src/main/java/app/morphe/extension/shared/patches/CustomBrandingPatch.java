@@ -55,6 +55,7 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -97,9 +98,10 @@ import app.morphe.extension.shared.utils.Utils;
 /**
  * Enables the launcher alias selected in the custom branding settings.
  *
- * <p>The patch creates one alias for every app-name/icon combination. Android keeps the alias
- * labels and icons in the manifest, so changing either setting only requires switching which
- * alias is enabled. The application resources themselves remain untouched.</p>
+ * <p>The patch creates a normal alias and, when applicable, a system-splash companion for every
+ * app-name/icon combination. Android keeps the alias labels and icons in the manifest, while the
+ * system-splash theme is persisted with the platform API because activity aliases cannot override
+ * their target activity's theme. The application resources themselves remain untouched.</p>
  */
 @SuppressWarnings({"deprecation", "unused"})
 public final class CustomBrandingPatch {
@@ -113,6 +115,20 @@ public final class CustomBrandingPatch {
     private static final String NOTIFICATION_ICON_PREFIX = "morphe_notification_icon_";
     private static final String HEADER_RESOURCE_PREFIX = "morphe_custom_branding_header_";
     private static final String SPLASH_RESOURCE_PREFIX = "morphe_custom_branding_splash_";
+    private static final String SYSTEM_SPLASH_STYLE_PREFIX =
+            "morphe_custom_branding_system_splash_";
+    private static final String SYSTEM_SPLASH_THEME_KEY =
+            "morphe_custom_branding_system_splash_theme_icon";
+    private static final String SYSTEM_SPLASH_THEME_SEPARATOR = "__";
+    private static final String YOUTUBE_DARK_SPLASH_THEME_PREFIX =
+            "morphe_theme_splash_dark_";
+    private static final String YOUTUBE_LIGHT_SPLASH_THEME_PREFIX =
+            "morphe_theme_splash_light_";
+    private static final String MUSIC_SPLASH_THEME_PREFIX = "morphe_theme_splash_";
+    private static final String DARK_THEME_KEY = "morphe_dark_theme";
+    private static final String LIGHT_THEME_KEY = "morphe_light_theme";
+    private static final String LAST_USED_DARK_THEME_KEY = "morphe_theme_last_used_dark_mode";
+    private static final String SYSTEM_SPLASH_ALIAS_SUFFIX = "_system";
     private static final String SPLASH_OVERLAY_TAG = "morphe_custom_branding_splash_overlay";
     private static final String SPLASH_SCREEN_STYLE_OPTION =
             "android.activity.splashScreenStyle";
@@ -129,6 +145,7 @@ public final class CustomBrandingPatch {
     private static final float RVX_SETTINGS_ICON_SCALE = 0.6f;
     private static final float MUSIC_CUSTOM_RVX_SETTINGS_ICON_HORIZONTAL_OFFSET_DP = -3.0f;
     private static final int NAME_ALIAS_COUNT = 5;
+    private static boolean systemSplashThemePreparedBeforeLaunch;
     private static final ColorFilter MONOCHROME_SPLASH_FILTER = new ColorMatrixColorFilter(
             new ColorMatrix(new float[]{
                     0.299f, 0.587f, 0.114f, 0, 0,
@@ -167,9 +184,16 @@ public final class CustomBrandingPatch {
                         & ~Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED;
                 targetIntent.setFlags(targetFlags | Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    // A previous run can have persisted a runtime splash theme. Reset it before
+                    // forwarding through the controllable path; the system-splash alias uses its
+                    // manifest theme and does not enter this activity.
+                    if (!isSystemSplashEnabled(this)) {
+                        SplashScreenBridge.resetTheme(this);
+                    }
                     // ActivityOptions exposes this publicly only on newer Android releases, but
-                    // the Bundle contract exists from API 31. Suppress the forwarded activity's
-                    // icon as well as the launcher's icon to prevent an intermittent second flash.
+                    // the Bundle contract exists from API 31. Keep the forwarded activity's
+                    // system splash icon-free; the size-controlled custom overlay is installed
+                    // once by the main activity during the handoff.
                     Bundle options = new Bundle();
                     options.putInt(SPLASH_SCREEN_STYLE_OPTION, SPLASH_SCREEN_STYLE_SOLID_COLOR);
                     startActivity(targetIntent, options);
@@ -202,6 +226,7 @@ public final class CustomBrandingPatch {
 
     /** Entry point injected into the main activity's {@code onCreate}. */
     public static void setBranding(Activity activity) {
+        systemSplashThemePreparedBeforeLaunch = false;
         try {
             Context context = activity != null ? activity : Utils.getContext();
             if (context == null) return;
@@ -241,6 +266,11 @@ public final class CustomBrandingPatch {
             PackageManager packageManager = context.getPackageManager();
             List<ComponentName> aliases = new ArrayList<>();
             ComponentName selectedComponent = null;
+            boolean useSystemSplash = isSystemSplashEnabled(context);
+            String systemSplashThemeName = getSystemSplashThemeName(context, selectedIcon);
+            systemSplashThemePreparedBeforeLaunch = useSystemSplash
+                    && systemSplashThemeName.equals(
+                            Setting.preferences.getString(SYSTEM_SPLASH_THEME_KEY, ""));
 
             String originalLauncherName = getString(context, ORIGINAL_LAUNCHER_RESOURCE, "");
             IconListPreference.setOriginalLauncherIconName(originalLauncherName);
@@ -258,10 +288,26 @@ public final class CustomBrandingPatch {
                             packageName,
                             packageName + ".morphe_" + iconValue + "_" + nameIndex);
                     aliases.add(component);
-                    if (iconValue.equals(selectedIcon) && nameIndex == selectedNameIndex) {
+                    if (iconValue.equals(selectedIcon)
+                            && nameIndex == selectedNameIndex
+                            && !useSystemSplash) {
                         selectedComponent = component;
                     }
+                    if (!"original".equals(iconValue)) {
+                        ComponentName systemComponent = new ComponentName(
+                                packageName,
+                                packageName + ".morphe_" + iconValue + "_" + nameIndex
+                                        + SYSTEM_SPLASH_ALIAS_SUFFIX);
+                        aliases.add(systemComponent);
+                        if (iconValue.equals(selectedIcon) && nameIndex == selectedNameIndex) {
+                            selectedComponent = useSystemSplash ? systemComponent : component;
+                        }
+                    }
                 }
+            }
+
+            if (activity != null && useSystemSplash) {
+                updateSystemSplashTheme(activity);
             }
 
             if (selectedComponent == null) {
@@ -285,6 +331,106 @@ public final class CustomBrandingPatch {
         } catch (Exception ignored) {
             // Root-mounted installations do not apply manifest aliases. Keep the app launchable.
         }
+    }
+
+    /**
+     * Persists the splash theme that Android must use on the next cold or warm launch.
+     *
+     * <p>{@code activity-alias} cannot declare its own theme, and the platform splash theme is
+     * process-persistent. Calling this when the setting or selected icon changes prevents the next
+     * launcher restart from reusing the transparent theme installed for the controllable overlay.
+     * Calling it from {@link #setBranding(Activity)} also repairs settings changed outside the
+     * preference UI.</p>
+     */
+    public static void updateSystemSplashTheme(Activity activity) {
+        if (activity == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return;
+
+        try {
+            if (!isSystemSplashEnabled(activity)) {
+                SplashScreenBridge.resetTheme(activity);
+                Setting.preferences.removeKey(SYSTEM_SPLASH_THEME_KEY);
+                return;
+            }
+
+            String selectedIcon = SharedYouTubeSettings.CUSTOM_BRANDING_ICON.get();
+            String themeName = getSystemSplashThemeName(activity, selectedIcon);
+            int themeId = ResourceUtils.getIdentifier(
+                    themeName,
+                    ResourceType.STYLE,
+                    activity);
+            if (themeId != 0) {
+                SplashScreenBridge.setTheme(activity, themeId);
+                Setting.preferences.saveString(SYSTEM_SPLASH_THEME_KEY, themeName);
+            }
+        } catch (Exception ignored) {
+            // Leave the host splash theme unchanged when generated resources are unavailable.
+        }
+    }
+
+    /**
+     * Resolves a static Theme-preset background combined with the selected branding animation.
+     *
+     * <p>YouTube may force an appearance independently of the device configuration, so its last
+     * resolved appearance is used before the resolver runs. Music has one dark preset selector.
+     * When Theme is not included, or an imported setting is invalid, the icon-only style remains
+     * a safe fallback.</p>
+     */
+    @NonNull
+    private static String getSystemSplashThemeName(Context context, String selectedIcon) {
+        String baseThemeName = SYSTEM_SPLASH_STYLE_PREFIX + selectedIcon;
+
+        boolean hasYouTubeThemes = ResourceUtils.getIdentifier(
+                YOUTUBE_LIGHT_SPLASH_THEME_PREFIX + "white",
+                ResourceType.STYLE,
+                context) != 0;
+        if (hasYouTubeThemes) {
+            boolean dark = BaseThemeUtils.isAppThemeResolved()
+                    ? BaseThemeUtils.isDarkModeEnabled()
+                    : Setting.preferences.getBoolean(
+                            LAST_USED_DARK_THEME_KEY,
+                            BaseThemeUtils.isDarkModeEnabled());
+            String themeKey = Setting.preferences.getString(
+                    dark ? DARK_THEME_KEY : LIGHT_THEME_KEY,
+                    dark ? "stock" : "white");
+            String appearanceKey = (dark ? "dark_" : "light_") + themeKey;
+            String combinedThemeName = baseThemeName
+                    + SYSTEM_SPLASH_THEME_SEPARATOR + appearanceKey;
+            if (ResourceUtils.getIdentifier(
+                    combinedThemeName, ResourceType.STYLE, context) != 0) {
+                return combinedThemeName;
+            }
+
+            String fallbackThemeName = baseThemeName + SYSTEM_SPLASH_THEME_SEPARATOR
+                    + (dark ? "dark_stock" : "light_white");
+            if (ResourceUtils.getIdentifier(
+                    fallbackThemeName, ResourceType.STYLE, context) != 0) {
+                return fallbackThemeName;
+            }
+            return baseThemeName;
+        }
+
+        boolean hasMusicThemes = ResourceUtils.getIdentifier(
+                MUSIC_SPLASH_THEME_PREFIX + "modern_youtube",
+                ResourceType.STYLE,
+                context) != 0;
+        if (hasMusicThemes) {
+            String themeKey = Setting.preferences.getString(DARK_THEME_KEY, "modern_youtube");
+            String combinedThemeName = baseThemeName
+                    + SYSTEM_SPLASH_THEME_SEPARATOR + themeKey;
+            if (ResourceUtils.getIdentifier(
+                    combinedThemeName, ResourceType.STYLE, context) != 0) {
+                return combinedThemeName;
+            }
+
+            String fallbackThemeName = baseThemeName
+                    + SYSTEM_SPLASH_THEME_SEPARATOR + "modern_youtube";
+            if (ResourceUtils.getIdentifier(
+                    fallbackThemeName, ResourceType.STYLE, context) != 0) {
+                return fallbackThemeName;
+            }
+        }
+
+        return baseThemeName;
     }
 
     /**
@@ -658,8 +804,8 @@ public final class CustomBrandingPatch {
     /**
      * Shows the selected splash in the activity's first rendered frame.
      *
-     * <p>The host splash continues running behind this independent overlay so its completion
-     * callbacks and offline startup behavior remain unchanged.</p>
+     * <p>When the system-splash preference is enabled, the selected animation is already owned by
+     * the Android 12 starting window and this overlay is deliberately skipped.</p>
      */
     public static void applySplashAnimation(Activity activity) {
         applySplashAnimation(activity, false);
@@ -690,6 +836,12 @@ public final class CustomBrandingPatch {
 
             if (getSplashResourceIdentifier(activity, selectedIcon) == 0) return;
 
+            // The persisted platform theme supplies this same drawable before application code
+            // starts. On the first launch after upgrading from the broken implementation, retain
+            // the controllable overlay once because the native theme could only be prepared after
+            // Android had already created that launch's starting window.
+            if (isSystemSplashEnabled(activity) && systemSplashThemePreparedBeforeLaunch) return;
+
             Runnable showOverlay = () -> {
                 int identifier = getSplashResourceIdentifier(activity, selectedIcon);
                 if (identifier == 0) return;
@@ -698,15 +850,21 @@ public final class CustomBrandingPatch {
                 showSplashOverlay(activity, drawable, selectedIcon, useYouTubeSplashStyle);
             };
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                try {
-                    // The transferred system splash is above the activity decor. Add our overlay
-                    // during its exit callback, then remove it in the same handoff so no stock icon
-                    // or empty frame can appear between the two splash implementations.
-                    SplashScreenBridge.installExitHandoff(activity, showOverlay);
-                } catch (Exception ignored) {
-                    // The posted overlay below remains the fallback if no splash was transferred.
-                }
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+                // Android 11 and earlier do not expose a splash exit callback. The hook is inserted
+                // before the host onCreate body, so attach the overlay now and include it in the
+                // host's first frame instead of waiting for a posted callback.
+                showOverlay.run();
+                return;
+            }
+
+            try {
+                // The transferred system splash is above the activity decor. Add our overlay
+                // during its exit callback, then remove it in the same handoff so no stock icon
+                // or empty frame can appear between the two splash implementations.
+                SplashScreenBridge.installExitHandoff(activity, showOverlay);
+            } catch (Exception ignored) {
+                // The posted overlay below remains the fallback if no splash was transferred.
             }
 
             // Warm launches may not receive a system splash exit callback. Posting also lets
@@ -731,6 +889,45 @@ public final class CustomBrandingPatch {
                     splashScreenView.remove();
                 }
             });
+        }
+
+        private static void resetTheme(Activity activity) {
+            setTheme(activity, Resources.ID_NULL);
+        }
+
+        private static void setTheme(Activity activity, int themeId) {
+            activity.getSplashScreen().setSplashScreenTheme(themeId);
+        }
+
+    }
+
+    /**
+     * Returns whether the selected custom splash can be rendered by Android 12's starting window.
+     *
+     * <p>The launcher alias is selected before application code starts, so this method is shared
+     * by alias switching and the runtime overlay guard. If the selected branding has no splash
+     * drawable, the controllable overlay remains the safe fallback.</p>
+     */
+    public static boolean isSystemSplashEnabled(Context context) {
+        try {
+            if (context == null
+                    || Build.VERSION.SDK_INT < Build.VERSION_CODES.S
+                    || !SharedYouTubeSettings.CUSTOM_BRANDING_USE_AS_SYSTEM_SPLASH.get()
+                    || isSplashAnimationDisabled()
+                    || isMusicSplashAnimationDisabled()) {
+                return false;
+            }
+
+            String selectedIcon = SharedYouTubeSettings.CUSTOM_BRANDING_ICON.get();
+            return !selectedIcon.isEmpty()
+                    && !"original".equals(selectedIcon)
+                    && getSplashResourceIdentifier(context, selectedIcon) != 0
+                    && ResourceUtils.getIdentifier(
+                            SYSTEM_SPLASH_STYLE_PREFIX + selectedIcon,
+                            ResourceType.STYLE,
+                            context) != 0;
+        } catch (Exception ignored) {
+            return false;
         }
     }
 

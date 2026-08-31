@@ -80,6 +80,10 @@ private const val GENERATED_RESOURCE_PREFIX = "morphe_"
 private const val CUSTOM_BRANDING_RESOURCE_PREFIX = "${GENERATED_RESOURCE_PREFIX}custom_branding_"
 private const val CUSTOM_ICON_KEY = "custom"
 private const val CUSTOM_ICON_LABEL = "Custom"
+private const val SYSTEM_SPLASH_ALIAS_SUFFIX = "_system"
+private const val SYSTEM_SPLASH_THEME_SEPARATOR = "__"
+private const val THEME_SPLASH_STYLE_PREFIX = "morphe_theme_splash_"
+private const val THEME_SPLASH_NO_ICON_SUFFIX = "_no_icon"
 
 /** Stable icon resource roles shared with the runtime extension. */
 private enum class IconResource(private val role: String) {
@@ -98,6 +102,7 @@ private enum class IconResource(private val role: String) {
 /** Fixed generated resources read by name from the runtime extension or Android manifest. */
 private enum class BrandingResource(key: String) {
     SPLASHLESS_LAUNCHER_STYLE("splashless_launcher"),
+    SYSTEM_SPLASH_STYLE("system_splash"),
     ORIGINAL_APP_NAME("original_app_name"),
     CUSTOM_APP_NAME("name_custom"),
     DEFAULT_ICON("default_icon"),
@@ -298,6 +303,7 @@ internal fun ResourcePatchContext.applyCustomBranding(
     }
     if (hasRvxSettingsPreference) copyRvxSettingsIcons(config)
 
+    val systemSplashIconKeys = (config.icons.map { it.key } + CUSTOM_ICON_KEY).distinct()
     var launcherTheme: String? = null
     document("AndroidManifest.xml").use { document ->
         val application = document.getElementsByTagName("application").item(0) as Element
@@ -349,44 +355,52 @@ internal fun ResourcePatchContext.applyCustomBranding(
         val defaultIcon = if (customIcon != null) CUSTOM_ICON_KEY else "original"
         val defaultNameIndex = if (customName != null) nameCount else 1
 
+        fun addAlias(icon: BrandingIcon, nameIndex: Int, useSystemSplash: Boolean) {
+            val alias = document.createElement("activity-alias")
+            val suffix = if (useSystemSplash) SYSTEM_SPLASH_ALIAS_SUFFIX else ""
+            alias.setAttribute("android:name", ".morphe_${icon.key}_$nameIndex$suffix")
+            alias.setAttribute(
+                "android:enabled",
+                (!useSystemSplash && icon.key == defaultIcon && nameIndex == defaultNameIndex).toString(),
+            )
+            alias.setAttribute("android:exported", "true")
+            alias.setAttribute("android:icon", "@mipmap/${iconResourceName(config, icon)}")
+            alias.setAttribute(
+                "android:label",
+                nameResourceName(nameIndex, originalName, aliasNameLabels),
+            )
+            alias.setAttribute(
+                "android:targetActivity",
+                if (useSystemSplash || icon.key == "original" || !config.useSplashlessLauncherActivity) {
+                    config.mainActivityName
+                } else {
+                    SPLASHLESS_LAUNCHER_ACTIVITY_CLASS_NAME
+                },
+            )
+            if (config.copyAliasIntentFilters) {
+                sourceChildren.forEach { child ->
+                    alias.appendChild(child.cloneNode(true))
+                }
+            } else {
+                alias.appendChild(document.createElement("intent-filter").also { filter ->
+                    filter.appendChild(document.createElement("action").also { action ->
+                        action.setAttribute("android:name", "android.intent.action.MAIN")
+                    })
+                    filter.appendChild(document.createElement("category").also { category ->
+                        category.setAttribute("android:name", "android.intent.category.LAUNCHER")
+                    })
+                })
+            }
+
+            application.appendChild(alias)
+        }
+
         runtimeIcons.forEach { icon ->
             for (nameIndex in 1..nameCount) {
-                val alias = document.createElement("activity-alias")
-                alias.setAttribute("android:name", ".morphe_${icon.key}_$nameIndex")
-                alias.setAttribute(
-                    "android:enabled",
-                    (icon.key == defaultIcon && nameIndex == defaultNameIndex).toString(),
-                )
-                alias.setAttribute("android:exported", "true")
-                alias.setAttribute("android:icon", "@mipmap/${iconResourceName(config, icon)}")
-                alias.setAttribute(
-                    "android:label",
-                    nameResourceName(nameIndex, originalName, aliasNameLabels),
-                )
-                alias.setAttribute(
-                    "android:targetActivity",
-                    if (icon.key == "original" || !config.useSplashlessLauncherActivity) {
-                        config.mainActivityName
-                    } else {
-                        SPLASHLESS_LAUNCHER_ACTIVITY_CLASS_NAME
-                    },
-                )
-                if (config.copyAliasIntentFilters) {
-                    sourceChildren.forEach { child ->
-                        alias.appendChild(child.cloneNode(true))
-                    }
-                } else {
-                    alias.appendChild(document.createElement("intent-filter").also { filter ->
-                        filter.appendChild(document.createElement("action").also { action ->
-                            action.setAttribute("android:name", "android.intent.action.MAIN")
-                        })
-                        filter.appendChild(document.createElement("category").also { category ->
-                            category.setAttribute("android:name", "android.intent.category.LAUNCHER")
-                        })
-                    })
+                addAlias(icon, nameIndex, useSystemSplash = false)
+                if (icon.key != "original") {
+                    addAlias(icon, nameIndex, useSystemSplash = true)
                 }
-
-                application.appendChild(alias)
             }
         }
 
@@ -404,7 +418,7 @@ internal fun ResourcePatchContext.applyCustomBranding(
             }
         }
     }
-    addSplashlessLauncherStyle(launcherTheme!!)
+    addLauncherSplashStyles(launcherTheme!!, systemSplashIconKeys)
 
     return hasRvxSettingsPreference
 }
@@ -1002,24 +1016,41 @@ private fun ResourcePatchContext.copyAnimatedVectorSplash(
 // region launcher and settings integration
 
 /**
- * Removes Android's automatic launcher-icon preview before the in-app splash animation.
+ * Adds the two launcher handoff paths used by custom branding.
  *
- * Launcher aliases inherit the target activity theme, so the wrapper must be installed on the
- * target activity rather than on each alias. The original theme remains the parent to preserve all
- * app- and version-specific window attributes.
+ * Normal aliases clear Android 12's starting-window artwork and forward to the main activity,
+ * where the custom animation's size and timing remain controllable. System-splash aliases launch
+ * the main activity directly. Since an activity alias cannot override its target activity's theme,
+ * the runtime extension persists the stable generated system-splash style before the next launch.
+ * The original theme remains the parent to preserve all app- and version-specific window
+ * attributes.
  */
-private fun ResourcePatchContext.addSplashlessLauncherStyle(parent: String) {
+private fun ResourcePatchContext.addLauncherSplashStyles(
+    parent: String,
+    systemSplashIconKeys: List<String>,
+) {
     val styleName = BrandingResource.SPLASHLESS_LAUNCHER_STYLE.resourceName
     ensureValuesFile("values", "styles.xml")
     ensureValuesFile("values-v31", "styles.xml")
 
     document("res/values/styles.xml").use { document ->
-        addStyle(document.documentElement, styleName, parent).appendChild(
-            document.createElement("item").also {
-                it.setAttribute("name", "android:windowDisablePreview")
-                it.textContent = "true"
-            },
-        )
+        val style = addStyle(document.documentElement, styleName, parent)
+
+        // Android 11 and earlier have no platform splash API. The forwarding activity is only a
+        // transparent host for the custom AVD, so do not let its inherited starting window show
+        // before the main activity attaches the animation in its first frame.
+        arrayOf(
+            "android:windowDisablePreview" to "true",
+            "android:windowIsTranslucent" to "true",
+            "android:windowBackground" to "@android:color/transparent",
+            "android:windowAnimationStyle" to "@null",
+            "android:backgroundDimEnabled" to "false",
+        ).forEach { (name, value) ->
+            style.appendChild(document.createElement("item").also {
+                it.setAttribute("name", name)
+                it.textContent = value
+            })
+        }
     }
 
     document("res/values-v31/styles.xml").use { document ->
@@ -1045,7 +1076,137 @@ private fun ResourcePatchContext.addSplashlessLauncherStyle(parent: String) {
             it.textContent = "0"
         })
     }
+
+    document("res/values/styles.xml").use { document ->
+        systemSplashIconKeys.forEach { iconKey ->
+            addStyle(document.documentElement, systemSplashStyleName(iconKey), parent)
+        }
+    }
+
+    document("res/values-v31/styles.xml").use { document ->
+        systemSplashIconKeys.forEach { iconKey ->
+            val hasSplashResource = hasSplashResource(iconKey)
+            val style = addStyle(document.documentElement, systemSplashStyleName(iconKey), parent)
+            style.appendChild(document.createElement("item").also {
+                it.setAttribute("name", "android:windowSplashScreenAnimatedIcon")
+                it.textContent = if (hasSplashResource) {
+                    "@drawable/${IconResource.SPLASH.named(iconKey)}"
+                } else {
+                    "@android:color/transparent"
+                }
+            })
+            style.appendChild(document.createElement("item").also {
+                it.setAttribute("name", "android:windowSplashScreenBrandingImage")
+                it.textContent = "@android:color/transparent"
+            })
+            style.appendChild(document.createElement("item").also {
+                it.setAttribute("name", "android:windowSplashScreenIconBackgroundColor")
+                it.textContent = "@android:color/transparent"
+            })
+            style.appendChild(document.createElement("item").also {
+                it.setAttribute("name", "android:windowSplashScreenAnimationDuration")
+                it.textContent = if (hasSplashResource) "1000" else "0"
+            })
+            if (hasSplashResource) {
+                style.appendChild(document.createElement("item").also {
+                    it.setAttribute("name", "android:windowSplashScreenBehavior")
+                    it.textContent = "icon_preferred"
+                })
+            }
+        }
+    }
 }
+
+private fun systemSplashStyleName(iconKey: String) =
+    "${BrandingResource.SYSTEM_SPLASH_STYLE.resourceName}_$iconKey"
+
+/**
+ * Combines Theme's concrete preset backgrounds with branding's generated splash animations.
+ *
+ * Android resolves the starting-window style before the app process can install its runtime color
+ * overlay. A child style for every available preset keeps that background process-safe while
+ * inheriting the selected branding icon attributes on Android 12 and later. This is finalized
+ * after all resource patches execute so Custom branding remains usable without forcing Theme as a
+ * dependency.
+ */
+internal fun ResourcePatchContext.addCustomBrandingSystemSplashThemeStyles() {
+    val stylesV31 = get("res/values-v31/styles.xml")
+    if (!stylesV31.exists()) return
+
+    val systemSplashStylePrefix =
+        "${BrandingResource.SYSTEM_SPLASH_STYLE.resourceName}_"
+    val systemSplashStyleNames = document("res/values-v31/styles.xml").use { document ->
+        val resources = document.documentElement
+        (0 until resources.childNodes.length)
+            .map { resources.childNodes.item(it) }
+            .filterIsInstance<Element>()
+            .filter { element ->
+                element.tagName == "style" &&
+                    element.getAttribute("name").startsWith(systemSplashStylePrefix) &&
+                    SYSTEM_SPLASH_THEME_SEPARATOR !in element.getAttribute("name")
+            }
+            .map { it.getAttribute("name") }
+    }
+    if (systemSplashStyleNames.isEmpty()) return
+
+    val themeSplashStyleNames = document("res/values-v31/styles.xml").use { document ->
+        val resources = document.documentElement
+        (0 until resources.childNodes.length)
+            .map { resources.childNodes.item(it) }
+            .filterIsInstance<Element>()
+            .filter { element ->
+                val name = element.getAttribute("name")
+                element.tagName == "style" &&
+                    name.startsWith(THEME_SPLASH_STYLE_PREFIX) &&
+                    !name.endsWith(THEME_SPLASH_NO_ICON_SUFFIX)
+            }
+            .map { it.getAttribute("name") }
+    }
+    if (themeSplashStyleNames.isEmpty()) return
+
+    listOf("values", "values-v31").forEach { valuesDirectory ->
+        val path = "res/$valuesDirectory/styles.xml"
+        if (!get(path).exists()) return@forEach
+
+        document(path).use { document ->
+            val resources = document.documentElement
+            val sourceSystemStyles = (0 until resources.childNodes.length)
+                .map { resources.childNodes.item(it) }
+                .filterIsInstance<Element>()
+                .filter { it.tagName == "style" }
+                .associateBy { it.getAttribute("name") }
+
+            systemSplashStyleNames.forEach { systemSplashStyleName ->
+                val sourceSystemStyle = sourceSystemStyles[systemSplashStyleName]
+                themeSplashStyleNames.forEach { themeSplashStyleName ->
+                    val themeKey = themeSplashStyleName.removePrefix(THEME_SPLASH_STYLE_PREFIX)
+                    val combinedStyleName = systemSplashStyleName +
+                        SYSTEM_SPLASH_THEME_SEPARATOR + themeKey
+                    val style = addStyle(
+                        resources,
+                        combinedStyleName,
+                        "@style/$themeSplashStyleName",
+                    )
+
+                    // The base values style only needs the preset parent. API 31+ additionally
+                    // overrides its splash artwork with the selected branding animation.
+                    if (valuesDirectory == "values-v31") {
+                        sourceSystemStyle?.childNodes?.let { childNodes ->
+                            for (index in 0 until childNodes.length) {
+                                style.appendChild(childNodes.item(index).cloneNode(true))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+private fun ResourcePatchContext.hasSplashResource(iconKey: String): Boolean =
+    get("res").walkTopDown().any { file ->
+        file.isFile && file.nameWithoutExtension == IconResource.SPLASH.named(iconKey)
+    }
 
 /** Copies an optional dedicated settings icon, otherwise uses that preset's launcher at runtime. */
 private fun ResourcePatchContext.copyRvxSettingsIcons(config: CustomBrandingConfig) {

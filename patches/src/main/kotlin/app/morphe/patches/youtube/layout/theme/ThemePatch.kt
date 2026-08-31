@@ -57,6 +57,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
@@ -80,6 +81,7 @@ import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -97,6 +99,10 @@ private const val EXTENSION_SET_CONTEXT_METHOD_DESCRIPTOR =
     "$EXTENSION_UTILS_CLASS_DESCRIPTOR->setContext(Landroid/content/Context;)V"
 private const val RUNTIME_LIGHT_THEME_COLOR = "morphe_runtime_light_theme_color"
 private const val RUNTIME_LIGHT_THEME_COLOR_OPACITY70 = "morphe_runtime_light_theme_color_opacity70"
+private const val PATCH_OPTION_DARK_THEME_COLOR = "morphe_patch_option_dark_theme_color"
+private const val PATCH_OPTION_LIGHT_THEME_COLOR = "morphe_patch_option_light_theme_color"
+private const val PATCH_OPTION_THEME_ENTRY = "@string/morphe_theme_entry_patch_option"
+private const val PATCH_OPTION_THEME_KEY = "patch_option"
 private const val RUNTIME_LIGHT_THEME_COLOR_ID = "0x7f060f0f"
 private const val RUNTIME_LIGHT_THEME_COLOR_OPACITY70_ID = "0x7f060f10"
 private const val SPLASH_THEME_DARK_PREFIX = "morphe_theme_splash_dark_"
@@ -105,6 +111,7 @@ private const val SPLASH_THEME_NO_ICON_SUFFIX = "_no_icon"
 private const val SPLASH_THEME_PARENT = "@style/Theme.YouTube.Home"
 private const val PRECOMPILED_THEME_MCC = 801
 private const val DEFAULT_LIGHT_THEME_COLOR = "#FFFFFFFF"
+private const val DEFAULT_CUSTOM_DARK_THEME_COLOR = "#FF000000"
 private const val NAVIGATION_CONTENT_COUNT_METHOD = "getContentCountId"
 private const val NAVIGATION_CONTENT_DOT_METHOD = "getContentDotId"
 
@@ -435,6 +442,37 @@ val themePatch = resourcePatch(
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
+    val darkThemeColorOption = colorOption(
+        key = "darkThemeColor",
+        default = DEFAULT_CUSTOM_DARK_THEME_COLOR,
+        values = splashDarkThemeColors
+            .filterKeys { it != "custom" }
+            .mapKeys { (key, _) ->
+                key.split('_').joinToString(" ") { word ->
+                    word.replaceFirstChar(Char::uppercase)
+                }
+            },
+        title = "Custom dark theme color",
+        description = "Color for the in-app Patch option and its system splash theme. " +
+                "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        required = true,
+    )
+    val lightThemeColorOption = colorOption(
+        key = "lightThemeColor",
+        default = DEFAULT_LIGHT_THEME_COLOR,
+        values = splashLightThemeColors
+            .filterKeys { it != "custom" }
+            .mapKeys { (key, _) ->
+                key.split('_').joinToString(" ") { word ->
+                    word.replaceFirstChar(Char::uppercase)
+                }
+            },
+        title = "Custom light theme color",
+        description = "Color for the in-app Patch option and its system splash theme. " +
+                "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        required = true,
+    )
+
     dependsOn(
         sharedThemePatch,
         settingsPatch,
@@ -445,6 +483,8 @@ val themePatch = resourcePatch(
     )
 
     execute {
+        val customDarkThemeColor = darkThemeColorOption.valueOrThrow()
+        val customLightThemeColor = lightThemeColorOption.valueOrThrow()
         val existingColorResourceNames = document("res/values/public.xml").use { document ->
             val publicNodes = document.getElementsByTagName("public")
             (0 until publicNodes.length)
@@ -478,16 +518,24 @@ val themePatch = resourcePatch(
         // where the runtime loader remains authoritative. The qualified files override existing
         // app entries because arsclib cannot introduce a new resource-table entry from a
         // qualified-only definition.
-        val precompiledDarkThemeKeys = listOf("stock") + darkThemeKeys
-        val precompiledLightThemeKeys = lightThemeKeys
+        val precompiledDarkThemeKeys = listOf("stock") + darkThemeKeys + PATCH_OPTION_THEME_KEY
+        val precompiledLightThemeKeys = lightThemeKeys + PATCH_OPTION_THEME_KEY
         val precompiledThemePairCount =
             precompiledDarkThemeKeys.size * precompiledLightThemeKeys.size
         precompiledDarkThemeKeys.forEachIndexed { darkIndex, darkKey ->
             val selectedDarkColor =
-                if (darkKey == "stock") null else precompiledDarkThemeColors[darkKey]
+                when (darkKey) {
+                    "stock" -> null
+                    PATCH_OPTION_THEME_KEY -> customDarkThemeColor
+                    else -> precompiledDarkThemeColors[darkKey]
+                }
             precompiledLightThemeKeys.forEachIndexed { lightIndex, lightKey ->
                 val selectedLightColor =
-                    precompiledLightThemeColors[lightKey] ?: DEFAULT_LIGHT_THEME_COLOR
+                    if (lightKey == PATCH_OPTION_THEME_KEY) {
+                        customLightThemeColor
+                    } else {
+                        precompiledLightThemeColors[lightKey] ?: DEFAULT_LIGHT_THEME_COLOR
+                    }
                 val mnc = darkIndex * precompiledLightThemeKeys.size + lightIndex + 1
                 val darkBackgroundMnc = mnc + precompiledThemePairCount
                 val lightBackgroundMnc = mnc + precompiledThemePairCount * 2
@@ -565,6 +613,14 @@ val themePatch = resourcePatch(
                         setAttribute("name", RUNTIME_LIGHT_THEME_COLOR_OPACITY70)
                         textContent = lightThemeColorWithOpacity70(DEFAULT_LIGHT_THEME_COLOR)
                     })
+                    resourcesNode.appendChild(document.createElement("color").apply {
+                        setAttribute("name", PATCH_OPTION_DARK_THEME_COLOR)
+                        textContent = customDarkThemeColor
+                    })
+                    resourcesNode.appendChild(document.createElement("color").apply {
+                        setAttribute("name", PATCH_OPTION_LIGHT_THEME_COLOR)
+                        textContent = customLightThemeColor
+                    })
                 }
 
                 for (i in 0 until childNodes.length) {
@@ -587,10 +643,14 @@ val themePatch = resourcePatch(
             }
         }
 
-        addSplashThemes()
+        val hasPatchOptionDarkThemeColor = customDarkThemeColor != DEFAULT_CUSTOM_DARK_THEME_COLOR
+        val hasPatchOptionLightThemeColor = customLightThemeColor != DEFAULT_LIGHT_THEME_COLOR
+        addPatchOptionThemeEntries(hasPatchOptionDarkThemeColor, hasPatchOptionLightThemeColor)
+        addSplashThemes(customDarkThemeColor, customLightThemeColor)
 
         val themeSettings = mutableListOf(
             "PREFERENCE_SCREEN: GENERAL",
+            "SETTINGS: THEME_SETTINGS",
             "SETTINGS: RUNTIME_THEME",
             "SETTINGS: SPLASH_SCREEN_ANIMATION_STYLE",
         )
@@ -602,6 +662,54 @@ val themePatch = resourcePatch(
     }
 }
 
+/** Adds a selectable entry for colors supplied through the Theme patch options. */
+private fun ResourcePatchContext.addPatchOptionThemeEntries(
+    includeDark: Boolean,
+    includeLight: Boolean,
+) {
+    if (!includeDark && !includeLight) return
+
+    document("res/values/arrays.xml").use { document ->
+        fun findArray(name: String): Element {
+            val arrays = document.getElementsByTagName("string-array")
+            return (0 until arrays.length)
+                .map { arrays.item(it) as Element }
+                .firstOrNull { it.getAttribute("name") == name }
+                ?: throw PatchException("Could not find theme setting array: $name")
+        }
+
+        fun addEntry(arrayName: String, value: String, customValue: String) {
+            val array = findArray(arrayName)
+            val customEntry = (0 until array.childNodes.length)
+                .map { array.childNodes.item(it) }
+                .filterIsInstance<Element>()
+                .lastOrNull { it.tagName == "item" && it.textContent.trim() == customValue }
+                ?: throw PatchException("Could not find Custom entry in theme setting array: $arrayName")
+
+            array.insertBefore(document.createElement("item").apply {
+                textContent = value
+            }, customEntry)
+        }
+
+        if (includeDark) {
+            addEntry(
+                "morphe_dark_theme_entries",
+                PATCH_OPTION_THEME_ENTRY,
+                "@string/revanced_icon_custom",
+            )
+            addEntry("morphe_dark_theme_entry_values", PATCH_OPTION_THEME_KEY, "custom")
+        }
+        if (includeLight) {
+            addEntry(
+                "morphe_light_theme_entries",
+                PATCH_OPTION_THEME_ENTRY,
+                "@string/revanced_icon_custom",
+            )
+            addEntry("morphe_light_theme_entry_values", PATCH_OPTION_THEME_KEY, "custom")
+        }
+    }
+}
+
 /**
  * Adds stable starting-window themes for every built-in app-theme preset.
  *
@@ -610,10 +718,19 @@ val themePatch = resourcePatch(
  * that the system process can resolve before the app process starts; the Activity hook selects the
  * matching style after installing the existing overlay.
  */
-private fun ResourcePatchContext.addSplashThemes() {
+private fun ResourcePatchContext.addSplashThemes(
+    customDarkThemeColor: String,
+    customLightThemeColor: String,
+) {
     val themes = listOf(
-        SPLASH_THEME_DARK_PREFIX to splashDarkThemeColors,
-        SPLASH_THEME_LIGHT_PREFIX to splashLightThemeColors,
+        SPLASH_THEME_DARK_PREFIX to
+                (splashDarkThemeColors +
+                        ("custom" to customDarkThemeColor) +
+                        (PATCH_OPTION_THEME_KEY to customDarkThemeColor)),
+        SPLASH_THEME_LIGHT_PREFIX to
+                (splashLightThemeColors +
+                        ("custom" to customLightThemeColor) +
+                        (PATCH_OPTION_THEME_KEY to customLightThemeColor)),
     )
 
     listOf(
