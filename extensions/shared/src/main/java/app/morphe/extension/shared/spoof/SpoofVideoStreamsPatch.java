@@ -30,6 +30,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
 import app.morphe.extension.shared.requests.Route;
+import app.morphe.extension.shared.patches.PatchStatus;
 import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
@@ -42,6 +43,18 @@ import app.morphe.extension.shared.utils.Utils;
 public class SpoofVideoStreamsPatch {
     public static volatile Map<String, String> currentVideoRequestHeader;
     public static String pageIDHeaderValue = "";
+
+    public static final class SpoofVideoStreamsAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return !PatchStatus.PoTokenProvider() || !SharedYouTubeSettings.POTOKEN_PROVIDER.get();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(SharedYouTubeSettings.POTOKEN_PROVIDER);
+        }
+    }
 
     public static final class JavaScriptClientAvailability implements Setting.Availability {
         @Override
@@ -289,9 +302,13 @@ public class SpoofVideoStreamsPatch {
                     var buffers = (StreamOrDetailsDataRequest.StreamData) request.getStreamDetails();
                     if (buffers != null) {
                         byte[] stream = buffers.streamingData();
-                        Logger.printDebug(() -> "Overriding video stream: " + videoId);
+                        Logger.printInfo(() -> "SpoofVideoStreams: Overriding video stream: " + videoId);
                         return stream;
+                    } else {
+                        Logger.printWarn(() -> "SpoofVideoStreams: Stream buffers null or fetch failed for: " + videoId);
                     }
+                } else {
+                    Logger.printWarn(() -> "SpoofVideoStreams: StreamRequest not found in cache for: " + videoId);
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "getStreamingData failure", ex);

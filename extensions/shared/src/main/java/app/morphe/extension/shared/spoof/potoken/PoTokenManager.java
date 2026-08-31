@@ -23,10 +23,12 @@ public final class PoTokenManager {
 
     public static PoTokenResult getAndUpdatePoTokenIfNeeded(ClientType clientType, String videoId) {
         if (poTokenResult != null && !poTokenResult.isExpired()) {
+            Logger.printInfo(() -> "PoTokenManager: Using cached token for " + videoId);
             return poTokenResult;
         }
 
         String visitorId = VisitorIdRequester.getVisitorId(clientType);
+        Logger.printInfo(() -> "PoTokenManager: Generating token for client: " + clientType + ", videoId: " + videoId);
 
         try {
             PoTokenGenerator poTokenGenerator = new PoTokenGenerator();

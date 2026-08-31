@@ -1063,7 +1063,12 @@
         </PreferenceScreen>
 
         <!-- SETTINGS: SPOOF_VIDEO_STREAMS
-        <PreferenceScreen android:title="@string/morphe_spoof_video_streams_screen_title" android:key="morphe_spoof_video_streams_screen" android:summary="@string/morphe_spoof_video_streams_screen_summary">
+        <PreferenceScreen android:title="@string/morphe_spoof_video_streams_screen_title" android:key="morphe_spoof_video_streams_screen" android:summary="@string/morphe_spoof_video_streams_screen_summary">SETTINGS: SPOOF_VIDEO_STREAMS -->
+
+            <!-- SETTINGS: POTOKEN_PROVIDER
+            <app.morphe.extension.shared.settings.preference.PoTokenProviderPreference android:title="@string/morphe_potoken_provider_title" android:key="morphe_potoken_provider" android:summary="@string/morphe_potoken_provider_summary" />SETTINGS: POTOKEN_PROVIDER -->
+
+            <!-- SETTINGS: SPOOF_VIDEO_STREAMS
             <SwitchPreference android:title="@string/morphe_spoof_video_streams_screen_title" android:key="morphe_spoof_video_streams" android:summaryOn="@string/morphe_spoof_video_streams_summary_on" android:summaryOff="@string/morphe_spoof_video_streams_summary_off" />
             <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/morphe_spoof_video_streams_client_type_entries" android:title="@string/morphe_spoof_video_streams_client_type_title" android:key="morphe_spoof_video_streams_client_type" android:entryValues="@array/morphe_spoof_video_streams_client_type_entry_values" />
             <app.morphe.extension.youtube.settings.preference.SpoofVideoStreamsSideEffectsPreference android:title="@string/morphe_spoof_video_streams_about_title" />
