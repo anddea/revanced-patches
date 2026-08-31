@@ -110,7 +110,7 @@ public class PoTokenGenerator {
             String playerPot = state.generator.generatePoToken(videoId).get();
             String streamingPot = state.streamingPot;
             final long expirationMs = state.expirationMs;
-            Logger.printDebug(() -> "poToken for " + videoId + ": playerPot=" + playerPot +
+            Logger.printInfo(() -> "PoTokenGenerator: Generated poToken for " + videoId + ": playerPot=" + playerPot +
                     ", streamingPot=" + streamingPot + ", sessionIdentifier=" + webPoTokenSessionIdentifier +
                     ", expirationDate=" + sdf.format(expirationMs)
             );

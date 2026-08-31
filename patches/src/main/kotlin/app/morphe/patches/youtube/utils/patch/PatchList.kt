@@ -193,6 +193,10 @@ internal enum class PatchList(
         "Player components",
         "Adds options to hide or change components related to the video player."
     ),
+    POTOKEN_PROVIDER(
+        "PoToken provider",
+        "Adds option to get PoToken using the built-in PoToken provider."
+    ),
     RELOAD_VIDEO(
         "Reload video",
         "Adds an option to display a button in the video player to reload the current video."

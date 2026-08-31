@@ -105,6 +105,10 @@ internal enum class PatchList(
         "Player components",
         "Adds options to hide or change components related to the player."
     ),
+    POTOKEN_PROVIDER(
+        "PoToken provider",
+        "Adds option to get PoToken using the built-in PoToken provider."
+    ),
     REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS(
         "Remove background playback restrictions",
         "Removes restrictions on background playback, including for kids videos."
