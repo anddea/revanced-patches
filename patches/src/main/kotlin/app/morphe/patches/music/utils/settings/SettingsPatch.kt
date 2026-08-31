@@ -425,15 +425,6 @@ val settingsPatch = resourcePatch(
 
         ResourceUtils.setContext(this)
         ResourceUtils.addRVXSettingsPreference(insertKey)
-        ResourceUtils.addPreferenceCategory(CategoryType.GENERAL.value)
-        ResourceUtils.addCustomPreference(
-            category = CategoryType.GENERAL.value,
-            key = SETTINGS_NAME_PREFERENCE_KEY,
-            tag = "app.morphe.extension.shared.settings.preference.SettingsNamePreference",
-            setSummary = false,
-            entriesArrayKey = "morphe_settings_name_entries",
-            entryValuesArrayKey = "morphe_settings_name_entry_values",
-        )
 
         ResourceUtils.updatePatchStatus(SETTINGS_FOR_YOUTUBE_MUSIC)
 

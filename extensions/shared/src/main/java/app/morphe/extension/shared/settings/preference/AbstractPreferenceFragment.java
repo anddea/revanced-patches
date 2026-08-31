@@ -86,10 +86,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import app.morphe.extension.shared.patches.CustomBrandingPatch;
 import app.morphe.extension.shared.patches.SettingsNamePatch;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.Setting;
+import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
@@ -176,6 +178,15 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 // Apply 'Setting <- SharedPreferences -> Preference'. Reading from SharedPreferences
                 // avoids stale in-memory values when the same key appears in multiple Preferences.
                 Setting.privateSyncValueFromPreferences(setting);
+                if (setting == SharedYouTubeSettings.CUSTOM_BRANDING_ICON
+                        || setting == SharedYouTubeSettings.CUSTOM_BRANDING_USE_AS_SYSTEM_SPLASH
+                        || "morphe_dark_theme".equals(setting.key)
+                        || "morphe_light_theme".equals(setting.key)) {
+                    // The platform persists one splash theme for the application. Update it before
+                    // the restart dialog can relaunch through a newly selected launcher path or
+                    // with an obsolete concrete Theme-preset background.
+                    CustomBrandingPatch.updateSystemSplashTheme(getActivity());
+                }
                 updatePreferencesWithKey(getPreferenceScreen(), str, setting);
             }
             // Update any other preference availability that may now be different.

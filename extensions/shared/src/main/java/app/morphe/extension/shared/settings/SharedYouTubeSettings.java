@@ -4,6 +4,7 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static app.morphe.extension.shared.settings.Setting.migrateOldSettingToNew;
 import static app.morphe.extension.shared.settings.Setting.parent;
+import static app.morphe.extension.shared.settings.Setting.parentInverted;
 
 import app.morphe.extension.shared.patches.PatchStatus;
 import app.morphe.extension.shared.patches.PoTokenProviderPatch.PoTokenProviderAvailability;
@@ -29,10 +30,15 @@ public class SharedYouTubeSettings extends BaseSettings {
     public static final IntegerSetting CUSTOM_BRANDING_NAME = new IntegerSetting(
             "morphe_custom_branding_name", CustomBrandingPatch.getDefaultAppNameIndex(), true);
 
+    /** Uses the selected animation as Android 12's native splash instead of the controllable overlay. */
+    public static final BooleanSetting CUSTOM_BRANDING_USE_AS_SYSTEM_SPLASH = new BooleanSetting(
+            "morphe_custom_branding_use_as_system_splash", FALSE, true);
+
     /** Percentage applied to the selected custom splash drawable while its animation runs. */
     public static final IntegerSetting CUSTOM_BRANDING_SPLASH_ANIMATION_SIZE = new IntegerSetting(
             "morphe_custom_branding_splash_animation_size", 100, true,
-            new Setting.SliderConfig(25, 200, 5, "%"));
+            new Setting.SliderConfig(25, 200, 5, "%"),
+            parentInverted(CUSTOM_BRANDING_USE_AS_SYSTEM_SPLASH));
 
     public static final BooleanSetting CUSTOM_BRANDING_APPLY_TO_RVX_SETTINGS = new BooleanSetting(
             "morphe_custom_branding_apply_to_rvx_settings", FALSE, true);

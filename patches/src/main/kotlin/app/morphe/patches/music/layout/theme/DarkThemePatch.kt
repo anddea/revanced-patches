@@ -57,6 +57,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
@@ -65,7 +66,6 @@ import app.morphe.patches.music.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.music.utils.patch.PatchList.DARK_THEME
 import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
-import app.morphe.patches.music.utils.settings.ResourceUtils
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addCustomPreference
 import app.morphe.patches.music.utils.settings.addListPreference
@@ -79,6 +79,7 @@ import app.morphe.util.ResourceGroup
 import app.morphe.util.copyResources
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import app.morphe.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
@@ -250,9 +251,26 @@ val darkThemePatch = resourcePatch(
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
+    val darkThemeColorOption = colorOption(
+        key = "darkThemeColor",
+        default = "#FF000000",
+        values = splashThemeColors
+            .filterKeys { it != "custom" }
+            .mapKeys { (key, _) ->
+                key.split('_').joinToString(" ") { word ->
+                    word.replaceFirstChar(Char::uppercase)
+                }
+            },
+        title = "Custom dark theme color",
+        description = "Static system splash color for the in-app Custom dark theme. " +
+                "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        required = true,
+    )
+
     dependsOn(darkThemeBytecodePatch)
 
     execute {
+        val customDarkThemeColor = darkThemeColorOption.valueOrThrow()
         val existingColorResourceNames = document("res/values/public.xml").use { document ->
             val publicNodes = document.getElementsByTagName("public")
             (0 until publicNodes.length)
@@ -341,7 +359,7 @@ val darkThemePatch = resourcePatch(
             copyResources("music/theme", resourceGroup)
         }
 
-        addSplashTheme()
+        addSplashTheme(customDarkThemeColor)
 
         addListPreference(CategoryType.GENERAL, "morphe_dark_theme", setSummary = false)
         addCustomPreference(
@@ -354,18 +372,6 @@ val darkThemePatch = resourcePatch(
             "morphe_notification_dot_color",
             "app.morphe.extension.shared.settings.preference.ColorPickerPreference",
         )
-        ResourceUtils.movePreferencesToTop(
-            CategoryType.GENERAL.value,
-            listOf(
-                "morphe_custom_branding_name",
-                "morphe_custom_branding_icon",
-                "morphe_custom_branding_apply_to_rvx_settings",
-                "morphe_dark_theme",
-                "morphe_dark_theme_custom_color",
-                "morphe_notification_dot_color",
-            ),
-        )
-
         updatePatchStatus(DARK_THEME)
 
     }
@@ -378,7 +384,7 @@ val darkThemePatch = resourcePatch(
  * generated styles therefore keep concrete colors for the system process, while the Activity
  * hook selects the matching style on the next launch.
  */
-private fun ResourcePatchContext.addSplashTheme() {
+private fun ResourcePatchContext.addSplashTheme(customDarkThemeColor: String) {
     listOf(
         "res/values/styles.xml" to false,
         "res/values-v31/styles.xml" to true,
@@ -392,7 +398,8 @@ private fun ResourcePatchContext.addSplashTheme() {
         document(path).use { document ->
             val resources = document.documentElement
 
-            splashThemeColors.forEach { (themeKey, color) ->
+            (splashThemeColors + ("custom" to customDarkThemeColor))
+                .forEach { (themeKey, color) ->
                 listOf("" to false, SPLASH_THEME_NO_ICON_SUFFIX to true).forEach {
                     (iconSuffix, hideSplashIcon) ->
                     val themeName = SPLASH_THEME_PREFIX + themeKey + iconSuffix
