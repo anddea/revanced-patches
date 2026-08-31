@@ -68,6 +68,8 @@ private const val FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/FeedVideoViewsFilter;"
 private const val KEYWORD_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/KeywordContentFilter;"
+private const val AISLIST_FILTER_CLASS_DESCRIPTOR =
+    "$COMPONENTS_PATH/AiSListFilter;"
 
 @Suppress("unused")
 val feedComponentsPatch = bytecodePatch(
@@ -406,6 +408,7 @@ val feedComponentsPatch = bytecodePatch(
         addLithoFilter(FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(KEYWORD_FILTER_CLASS_DESCRIPTOR)
+        addLithoFilter(AISLIST_FILTER_CLASS_DESCRIPTOR)
 
         // region add settings
 

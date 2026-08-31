@@ -293,10 +293,22 @@
 
     <!-- PREFERENCE_SCREEN: FEED
     <PreferenceScreen android:title="@string/revanced_preference_screen_feed_title" android:key="revanced_preference_screen_feed">PREFERENCE_SCREEN: FEED -->
-        <!-- SETTINGS: PLAYBACK_IN_FEEDS
-        <app.morphe.extension.youtube.settings.preference.PlaybackInFeedsListPreference android:title="@string/morphe_playback_in_feeds_title" android:key="morphe_playback_in_feeds" android:entries="@array/morphe_playback_in_feeds_entries" android:entryValues="@array/morphe_playback_in_feeds_entry_values" />SETTINGS: PLAYBACK_IN_FEEDS -->
-
         <!-- SETTINGS: HIDE_FEED_COMPONENTS
+        <PreferenceScreen android:title="@string/morphe_hide_aislist_screen_title" android:key="morphe_hide_aislist_screen" android:summary="@string/morphe_hide_aislist_screen_summary">
+            <PreferenceCategory android:title="@string/morphe_hide_aislist_blocklist_category_title" android:key="morphe_hide_aislist_blocklist_category" android:layout="@layout/revanced_settings_preferences_category">
+                <SwitchPreference android:title="@string/morphe_hide_aislist_hide_home_title" android:key="morphe_hide_aislist_blocklist_home" />
+                <SwitchPreference android:title="@string/morphe_hide_aislist_hide_search_title" android:key="morphe_hide_aislist_blocklist_search" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/morphe_hide_aislist_warnlist_category_title" android:key="morphe_hide_aislist_warnlist_category" android:layout="@layout/revanced_settings_preferences_category">
+                <SwitchPreference android:title="@string/morphe_hide_aislist_hide_home_title" android:key="morphe_hide_aislist_warnlist_home" />
+                <SwitchPreference android:title="@string/morphe_hide_aislist_hide_search_title" android:key="morphe_hide_aislist_warnlist_search" />
+            </PreferenceCategory>
+            <app.morphe.extension.youtube.settings.preference.AiSListStatsPreferenceCategory android:title="@string/morphe_hide_stats_category_title" android:key="morphe_hide_aislist_stats_category" android:layout="@layout/revanced_settings_preferences_category" />
+            <PreferenceCategory android:title="@string/morphe_hide_about_category_title" android:key="morphe_hide_aislist_about_category" android:layout="@layout/revanced_settings_preferences_category">
+                <app.morphe.extension.shared.settings.preference.BulletPointPreference android:title="@string/morphe_hide_aislist_screen_title" android:key="morphe_hide_aislist_about" android:selectable="false" android:summary="@string/morphe_hide_aislist_about_summary" />
+                <app.morphe.extension.shared.settings.preference.AiSListAttributionPreference android:title="@string/morphe_hide_aislist_attribution_title" android:key="morphe_hide_aislist_attribution" android:summary="@string/morphe_hide_aislist_attribution_summary" />
+            </PreferenceCategory>
+        </PreferenceScreen>
         <PreferenceScreen android:title="@string/revanced_preference_screen_carousel_shelf_title" android:key="revanced_preference_screen_carousel_shelf" android:summary="@string/revanced_preference_screen_carousel_shelf_summary">
             <SwitchPreference android:title="@string/revanced_hide_carousel_shelf_home_title" android:key="revanced_hide_carousel_shelf_home" android:summaryOn="@string/revanced_hide_carousel_shelf_home_summary_on" android:summaryOff="@string/revanced_hide_carousel_shelf_home_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_carousel_shelf_subscriptions_title" android:key="revanced_hide_carousel_shelf_subscriptions" android:summaryOn="@string/revanced_hide_carousel_shelf_subscriptions_summary_on" android:summaryOff="@string/revanced_hide_carousel_shelf_subscriptions_summary_off" />
@@ -354,7 +366,12 @@
                 <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_video_view_counts_multiplier_title" android:key="revanced_hide_video_view_counts_multiplier" android:summary="@string/revanced_hide_video_view_counts_multiplier_summary" android:inputType="textMultiLine" />
                 <Preference android:title="@string/revanced_hide_video_by_view_counts_about_title" android:selectable="false" android:summary="@string/revanced_hide_video_by_view_counts_about_summary" />
             </PreferenceCategory>
-        </PreferenceScreen>
+        </PreferenceScreen>SETTINGS: HIDE_FEED_COMPONENTS -->
+
+        <!-- SETTINGS: PLAYBACK_IN_FEEDS
+        <app.morphe.extension.youtube.settings.preference.PlaybackInFeedsListPreference android:title="@string/morphe_playback_in_feeds_title" android:key="morphe_playback_in_feeds" android:entries="@array/morphe_playback_in_feeds_entries" android:entryValues="@array/morphe_playback_in_feeds_entry_values" />SETTINGS: PLAYBACK_IN_FEEDS -->
+
+        <!-- SETTINGS: HIDE_FEED_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_feed_captions_button_title" android:key="revanced_hide_feed_captions_button" android:summaryOn="@string/revanced_hide_feed_captions_button_on" android:summaryOff="@string/revanced_hide_feed_captions_button_off" />
         <SwitchPreference android:title="@string/revanced_hide_floating_button_title" android:key="revanced_hide_floating_button" android:summaryOn="@string/revanced_hide_floating_button_summary_on" android:summaryOff="@string/revanced_hide_floating_button_summary_off" />
