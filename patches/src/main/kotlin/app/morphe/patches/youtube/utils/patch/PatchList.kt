@@ -201,6 +201,10 @@ internal enum class PatchList(
         "Reload video",
         "Adds an option to display a button in the video player to reload the current video."
     ),
+    SAVE_TO_WATCH_LATER(
+        "Save to Watch later",
+        "Adds options to save videos to Watch later from the video player or feed flyout menu."
+    ),
     REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS(
         "Remove background playback restrictions",
         "Removes restrictions on background playback, including for music and kids videos."
