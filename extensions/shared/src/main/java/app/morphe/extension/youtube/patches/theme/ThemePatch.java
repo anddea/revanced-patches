@@ -94,6 +94,7 @@ public final class ThemePatch {
     public static final String DEFAULT_LIGHT_THEME = "white";
     public static final String DEFAULT_DARK_THEME_CUSTOM_COLOR = "#FF000000";
     public static final String DEFAULT_LIGHT_THEME_CUSTOM_COLOR = "#FFFFFFFF";
+    public static final String DEFAULT_NOTIFICATION_DOT_COLOR = "#FFFF0000";
 
     private static final String RUNTIME_LIGHT_THEME_COLOR = "morphe_runtime_light_theme_color";
     private static final String SPLASH_THEME_DARK_PREFIX = "morphe_theme_splash_dark_";
@@ -451,7 +452,7 @@ public final class ThemePatch {
             }
         }
 
-        if (view instanceof TextView count) {
+        if (view instanceof TextView count && isMaterialYouTheme()) {
             final int textColor = getIndicatorTextColor(view.getContext());
             if (count.getCurrentTextColor() != textColor) {
                 count.setTextColor(textColor);
@@ -460,39 +461,43 @@ public final class ThemePatch {
     }
 
     /**
-     * Returns the Material You indicator color, or {@code null} to preserve the stock app color.
+     * Returns the dynamic Material You color or the configured color for other themes.
      */
     @Nullable
     public static Integer getIndicatorColor(Context context) {
         try {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-                return null;
-            }
-
-            final boolean dark = BaseThemeUtils.isDarkModeEnabled();
+            final boolean dark = isDarkTheme();
             final String selectedTheme = dark
                     ? Settings.DARK_THEME.get()
                     : Settings.LIGHT_THEME.get();
-            if (!selectedTheme.startsWith("material_you_")) {
-                return null;
+            if (selectedTheme.startsWith("material_you_")) {
+                return getMaterialYouIndicatorColor(context, dark);
             }
 
-            return getMaterialYouIndicatorColor(context);
+            return ResourceUtils.getColor(
+                    Settings.NOTIFICATION_DOT_COLOR.get(),
+                    Color.parseColor(DEFAULT_NOTIFICATION_DOT_COLOR));
         } catch (Exception ex) {
             Logger.printException(() -> "getIndicatorColor failure", ex);
             return null;
         }
     }
 
-    private static Integer getMaterialYouIndicatorColor(Context context) {
+    private static Integer getMaterialYouIndicatorColor(Context context, boolean dark) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             return null;
         }
 
-        final boolean dark = BaseThemeUtils.isDarkModeEnabled();
         return context.getColor(dark
                 ? android.R.color.system_accent1_100
                 : android.R.color.system_accent1_200);
+    }
+
+    private static boolean isMaterialYouTheme() {
+        final String selectedTheme = isDarkTheme()
+                ? Settings.DARK_THEME.get()
+                : Settings.LIGHT_THEME.get();
+        return selectedTheme.startsWith("material_you_");
     }
 
     /** Returns text that remains readable on the selected Material You indicator color. */

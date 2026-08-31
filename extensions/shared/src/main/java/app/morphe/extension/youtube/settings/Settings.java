@@ -120,6 +120,22 @@ public class Settings extends SharedYouTubeSettings {
         };
     }
 
+    /** Enables the shared notification-dot picker only when neither palette is Material You. */
+    private static Setting.Availability notificationDotColorAvailability() {
+        return new Setting.Availability() {
+            @Override
+            public boolean isAvailable() {
+                return !DARK_THEME.get().startsWith("material_you_")
+                        && !LIGHT_THEME.get().startsWith("material_you_");
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Arrays.asList(DARK_THEME, LIGHT_THEME);
+            }
+        };
+    }
+
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
             new EnumSetting<>("morphe_spoof_video_streams_client_type", ClientType.VISIONOS_1_02, true, parent(SPOOF_VIDEO_STREAMS));
     public static final BooleanSetting FORCE_AVC_CODEC = new BooleanSetting(
@@ -302,6 +318,9 @@ public class Settings extends SharedYouTubeSettings {
     public static final StringSetting LIGHT_THEME_CUSTOM_COLOR = new StringSetting(
             "morphe_light_theme_custom_color", ThemePatch.DEFAULT_LIGHT_THEME_CUSTOM_COLOR, true,
             customThemeAvailability(LIGHT_THEME));
+    public static final StringSetting NOTIFICATION_DOT_COLOR = new StringSetting(
+            "morphe_notification_dot_color", ThemePatch.DEFAULT_NOTIFICATION_DOT_COLOR, true,
+            notificationDotColorAvailability());
     public static final BooleanSetting THEME_COLOR_CHANGE_FOREGROUND = new BooleanSetting(
             "morphe_theme_color_change_foreground", FALSE, true,
             themeColorChangeForegroundAvailability());

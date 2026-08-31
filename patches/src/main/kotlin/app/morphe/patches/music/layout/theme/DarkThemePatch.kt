@@ -349,6 +349,11 @@ val darkThemePatch = resourcePatch(
             "morphe_dark_theme_custom_color",
             "app.morphe.extension.shared.settings.preference.ColorPickerPreference",
         )
+        addCustomPreference(
+            CategoryType.GENERAL,
+            "morphe_notification_dot_color",
+            "app.morphe.extension.shared.settings.preference.ColorPickerPreference",
+        )
         ResourceUtils.movePreferencesToTop(
             CategoryType.GENERAL.value,
             listOf(
@@ -357,6 +362,7 @@ val darkThemePatch = resourcePatch(
                 "morphe_custom_branding_apply_to_rvx_settings",
                 "morphe_dark_theme",
                 "morphe_dark_theme_custom_color",
+                "morphe_notification_dot_color",
             ),
         )
 

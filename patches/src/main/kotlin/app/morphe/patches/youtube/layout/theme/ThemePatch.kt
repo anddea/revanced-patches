@@ -372,7 +372,7 @@ private val elementsForegroundColorBytecodePatch = bytecodePatch(
     }
 }
 
-/** Hooks the pivot-bar and notification-button indicators so Material You can keep their color. */
+/** Hooks the pivot-bar and notification-button indicators for dynamic or user-selected colors. */
 val newContentIndicatorBytecodePatch = bytecodePatch(
     description = "newContentIndicatorBytecodePatch",
 ) {
