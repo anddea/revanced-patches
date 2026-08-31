@@ -854,7 +854,7 @@ private val shortsRepeatPatch = bytecodePatch(
                         index + 1,
                         """
                             sget-object v0, $reference
-                            invoke-static {v0}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
+                            invoke-static {v0}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnumLegacy(Ljava/lang/Enum;)V
                             """
                     )
                 }

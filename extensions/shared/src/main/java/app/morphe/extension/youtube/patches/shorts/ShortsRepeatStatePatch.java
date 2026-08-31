@@ -81,6 +81,14 @@ public class ShortsRepeatStatePatch {
         }
     }
 
+    public static void setYTShortsRepeatEnumLegacy(Enum<?> ytEnum) {
+        try {
+            ShortsLoopBehavior.setYTEnumValue(ytEnum);
+        } catch (Exception ex) {
+            Logger.printException(() -> "setYTShortsRepeatEnum failure", ex);
+        }
+    }
+
     /**
      * Injection point.
      */
