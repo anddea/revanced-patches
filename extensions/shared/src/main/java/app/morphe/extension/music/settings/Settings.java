@@ -36,6 +36,21 @@ import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {
+    /** Enables the notification-dot picker for every theme except Material You. */
+    private static Setting.Availability notificationDotColorAvailability() {
+        return new Setting.Availability() {
+            @Override
+            public boolean isAvailable() {
+                return !DARK_THEME.get().startsWith("material_you_");
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.singletonList(DARK_THEME);
+            }
+        };
+    }
+
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
             new EnumSetting<>("morphe_spoof_video_streams_client_type",
                     ClientType.VISIONOS_1_02, true, parent(SPOOF_VIDEO_STREAMS));
@@ -141,6 +156,11 @@ public class Settings extends SharedYouTubeSettings {
                     return Collections.singletonList(DARK_THEME);
                 }
             });
+    public static final StringSetting NOTIFICATION_DOT_COLOR = new StringSetting(
+            "morphe_notification_dot_color",
+            DrawableColorPatch.DEFAULT_NOTIFICATION_DOT_COLOR,
+            true,
+            notificationDotColorAvailability());
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.DEFAULT, true);
     public static final BooleanSetting DISABLE_CAIRO_SPLASH_ANIMATION = new BooleanSetting("revanced_disable_cairo_splash_animation", FALSE, true);
     public static final BooleanSetting DISABLE_DISLIKE_REDIRECTION = new BooleanSetting("revanced_disable_dislike_redirection", FALSE);

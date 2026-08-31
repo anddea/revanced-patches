@@ -172,7 +172,8 @@
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_dark_theme_title" android:key="morphe_dark_theme" android:entries="@array/morphe_dark_theme_entries" android:entryValues="@array/morphe_dark_theme_entry_values" />
         <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/morphe_dark_theme_custom_color_title" android:key="morphe_dark_theme_custom_color" android:summary="@string/morphe_dark_theme_custom_color_summary" />
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_light_theme_title" android:key="morphe_light_theme" android:entries="@array/morphe_light_theme_entries" android:entryValues="@array/morphe_light_theme_entry_values" />
-        <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/morphe_light_theme_custom_color_title" android:key="morphe_light_theme_custom_color" android:summary="@string/morphe_dark_theme_custom_color_summary" />SETTINGS: RUNTIME_THEME -->
+        <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/morphe_light_theme_custom_color_title" android:key="morphe_light_theme_custom_color" android:summary="@string/morphe_dark_theme_custom_color_summary" />
+        <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/morphe_notification_dot_color_title" android:key="morphe_notification_dot_color" android:summary="@string/morphe_notification_dot_color_summary" />SETTINGS: RUNTIME_THEME -->
 
         <!-- SETTINGS: THEME_COLOR_CHANGE_FOREGROUND
         <SwitchPreference android:title="@string/morphe_theme_color_change_foreground_title" android:key="morphe_theme_color_change_foreground" android:summary="@string/morphe_theme_color_change_foreground_summary" />SETTINGS: THEME_COLOR_CHANGE_FOREGROUND -->
