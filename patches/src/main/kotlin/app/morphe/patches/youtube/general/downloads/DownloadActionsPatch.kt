@@ -56,32 +56,28 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.string
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patches.shared.startVideoInformerFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.HOOK_DOWNLOAD_ACTIONS
-import app.morphe.patches.youtube.utils.pip.pipStateHookPatch
-import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
-import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
-import app.morphe.patches.youtube.utils.playlist.playlistPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
-import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findFreeRegister
 import app.morphe.util.findInstructionIndicesReversedOrThrow
-import app.morphe.util.fingerprint.matchOrNull
+import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -96,13 +92,27 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/DownloadActionsPatch;"
 
 private const val EXTENSION_FLYOUT_MENU_VIDEO_ID_INTERFACE =
-    "Lapp/morphe/extension/youtube/patches/general/DownloadActionsPatch${'$'}FlyoutMenuVideoIdInterface;"
+    $$"Lapp/morphe/extension/youtube/patches/general/DownloadActionsPatch$FlyoutMenuVideoIdInterface;"
 
 private const val EXTENSION_PROTOCOL_BUFFER_INTERFACE =
-    "Lapp/morphe/extension/youtube/patches/general/DownloadActionsPatch${'$'}ProtocolBufferFieldInterface;"
+    $$"Lapp/morphe/extension/youtube/patches/general/DownloadActionsPatch$ProtocolBufferFieldInterface;"
+
+private const val EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR = "Lapp/morphe/extension/youtube/patches/utils/FlyoutUtils;"
 
 private const val OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR =
-    "Lcom/google/protos/youtube/api/innertube/OfflinePlaylistEndpointOuterClass${'$'}OfflinePlaylistEndpoint;"
+    $$"Lcom/google/protos/youtube/api/innertube/OfflinePlaylistEndpointOuterClass$OfflinePlaylistEndpoint;"
+
+private object FeedPopupWindowFlyoutFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            smali = $$"Landroid/widget/PopupWindow;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V",
+        ),
+    ),
+)
 
 @Suppress("unused")
 val downloadActionsPatch = bytecodePatch(
@@ -198,7 +208,7 @@ val downloadActionsPatch = bytecodePatch(
             }
         }
 
-        // Playlists in the You tab use a separate generated message on 20.21+.
+        // Playlists in the "You" tab use a separate generated message on 20.21+.
         SingularGeneratedExtensionFingerprint.let { fingerprint ->
             val match = fingerprint.matchOrNull()
             if (match != null) {
@@ -300,6 +310,24 @@ val downloadActionsPatch = bytecodePatch(
                 )
             }
         }
+
+        FeedPopupWindowFlyoutFingerprint.matchAll(2..4).forEach {
+            it.method.apply {
+                val instructionIndex = it.instructionMatches.last().index
+                val instructionRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
+
+                addInstruction(
+                    instructionIndex,
+                    "invoke-static { v$instructionRegister }, $EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR->" +
+                            "setPopupWindowFlyout(Landroid/widget/PopupWindow;)V",
+                )
+            }
+        }
+
+        startVideoInformerFingerprint.methodOrThrow().addInstruction(
+            0,
+            "invoke-static { }, $EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR->setVideoMarkedAsForKids()V",
+        )
 
         // endregion
 

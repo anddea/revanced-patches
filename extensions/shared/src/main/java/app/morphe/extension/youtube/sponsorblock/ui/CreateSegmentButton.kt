@@ -22,6 +22,7 @@ object CreateSegmentButton {
                 buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick() }
             )
+            instance?.setIcon("revanced_sb_logo")
         } catch (ex: Exception) {
             Logger.printException({ "initializeButton failure" }, ex)
         }

@@ -401,11 +401,19 @@
             <SwitchPreference android:title="@string/revanced_hide_player_collapse_button_title" android:key="revanced_hide_player_collapse_button" android:summaryOn="@string/revanced_hide_player_collapse_button_summary_on" android:summaryOff="@string/revanced_hide_player_collapse_button_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_player_fullscreen_button_title" android:key="revanced_hide_player_fullscreen_button" android:summaryOn="@string/revanced_hide_player_fullscreen_button_summary_on" android:summaryOff="@string/revanced_hide_player_fullscreen_button_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_player_previous_next_button_title" android:key="revanced_hide_player_previous_next_button" android:summaryOn="@string/revanced_hide_player_previous_next_button_summary_on" android:summaryOff="@string/revanced_hide_player_previous_next_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_player_youtube_music_button_title" android:key="revanced_hide_player_youtube_music_button" android:summaryOn="@string/revanced_hide_player_youtube_music_button_summary_on" android:summaryOff="@string/revanced_hide_player_youtube_music_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_player_control_buttons_background_title" android:key="revanced_hide_player_control_buttons_background" android:summaryOn="@string/revanced_hide_player_control_buttons_background_summary_on" android:summaryOff="@string/revanced_hide_player_control_buttons_background_summary_off" />SETTINGS: HIDE_PLAYER_BUTTONS -->
+            <SwitchPreference android:title="@string/revanced_hide_player_youtube_music_button_title" android:key="revanced_hide_player_youtube_music_button" android:summaryOn="@string/revanced_hide_player_youtube_music_button_summary_on" android:summaryOff="@string/revanced_hide_player_youtube_music_button_summary_off" />SETTINGS: HIDE_PLAYER_BUTTONS -->
 
             <!-- SETTINGS: RELOAD_VIDEO
             <SwitchPreference android:title="@string/morphe_reload_video_title" android:key="morphe_reload_video" android:summaryOn="@string/morphe_reload_video_summary_on" android:summaryOff="@string/morphe_reload_video_summary_off" />SETTINGS: RELOAD_VIDEO -->
+
+            <!-- SETTINGS: SAVE_TO_WATCH_LATER
+            <SwitchPreference android:title="@string/morphe_save_to_watch_later_button_title" android:key="morphe_save_to_watch_later_button" android:summary="@string/morphe_save_to_watch_later_button_summary" />
+            <SwitchPreference android:title="@string/morphe_swap_save_and_queue_actions_title" android:key="morphe_swap_save_and_queue_actions" android:summary="@string/morphe_swap_save_and_queue_actions_summary" />
+            <SwitchPreference android:title="@string/morphe_save_to_watch_later_kids_flyout_button_title" android:key="morphe_save_to_watch_later_kids_flyout_button" android:summary="@string/morphe_save_to_watch_later_kids_flyout_button_summary" />
+            <SwitchPreference android:title="@string/morphe_save_to_watch_later_shorts_flyout_button_title" android:key="morphe_save_to_watch_later_shorts_flyout_button" android:summary="@string/morphe_save_to_watch_later_shorts_flyout_button_summary" />SETTINGS: SAVE_TO_WATCH_LATER -->
+
+            <!-- SETTINGS: HIDE_PLAYER_BUTTONS
+            <SwitchPreference android:title="@string/revanced_hide_player_control_buttons_background_title" android:key="revanced_hide_player_control_buttons_background" android:summaryOn="@string/revanced_hide_player_control_buttons_background_summary_on" android:summaryOff="@string/revanced_hide_player_control_buttons_background_summary_off" />SETTINGS: HIDE_PLAYER_BUTTONS -->
 
             <!-- SETTINGS: OVERLAY_BUTTONS
             <PreferenceCategory android:title="@string/revanced_overlay_button" android:layout="@layout/revanced_settings_preferences_category" />
@@ -1193,6 +1201,7 @@
                 <Preference android:title="Overlay buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Player components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Reload video" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Save to Watch later" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Seekbar components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>
 

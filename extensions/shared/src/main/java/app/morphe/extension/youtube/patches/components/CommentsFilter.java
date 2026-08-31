@@ -1,5 +1,7 @@
 package app.morphe.extension.youtube.patches.components;
 
+import static app.morphe.extension.youtube.patches.utils.FlyoutUtils.setVideoMarkedAsForKids;
+
 import java.util.regex.Pattern;
 
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
@@ -198,6 +200,8 @@ public final class CommentsFilter extends Filter {
      * Injection point.
      */
     public static byte[] onCommentsLoaded(byte[] bytes) {
+        setVideoMarkedAsForKids(bytes);
+
         if (!Settings.HIDE_COMMENTS_CAROUSEL.get()) {
             return bytes;
         }
