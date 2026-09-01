@@ -38,7 +38,16 @@ public class ResourceUtils extends Utils {
     public static int getIdentifier(@NonNull String str, @NonNull ResourceType resourceType,
                                     @NonNull Context context) {
         try {
-            return context.getResources().getIdentifier(str, resourceType.getType(), context.getPackageName());
+            String name = str;
+            if (name.startsWith("@")) {
+                int slash = name.indexOf('/');
+                if (slash != -1) {
+                    name = name.substring(slash + 1);
+                } else {
+                    name = name.substring(1);
+                }
+            }
+            return context.getResources().getIdentifier(name, resourceType.getType(), context.getPackageName());
         } catch (Exception ex) {
             handleException(str, resourceType);
         }

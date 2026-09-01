@@ -10,9 +10,9 @@ internal object Constants {
         name = "YouTube",
         packageName = YOUTUBE_PACKAGE_NAME,
         targets = listOf(
-            AppTarget(version = "19.43.41", minSdk = 26), // This is the latest version where edge-to-edge display is not enforced on Android 15+
             AppTarget(version = "20.05.46", minSdk = 26),
-            AppTarget(version = "20.51.39", minSdk = 28),
+            AppTarget(version = "21.04.223", minSdk = 28),
+            AppTarget(version = "21.07.247", minSdk = 28),
         )
     )
 

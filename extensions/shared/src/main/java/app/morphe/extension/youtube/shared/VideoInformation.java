@@ -82,6 +82,20 @@ public final class VideoInformation {
         void patch_setPlayWhenReady(boolean playing);
     }
 
+    public interface PlaybackSpeedMenuInterface {
+        void patch_setSpeed(float speed);
+    }
+
+    private static volatile PlaybackSpeedMenuInterface currentPlaybackSpeedMenu;
+
+    public static void setPlaybackSpeedMenu(PlaybackSpeedMenuInterface menu) {
+        currentPlaybackSpeedMenu = menu;
+    }
+
+    public static PlaybackSpeedMenuInterface getPlaybackSpeedMenu() {
+        return currentPlaybackSpeedMenu;
+    }
+
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
     /**
      * Prefix present in all Short player parameters signature.
@@ -333,6 +347,20 @@ public final class VideoInformation {
         }
     }
 
+    /**
+     * Injection point used by the YouTube 21.04 player-response path.
+     */
+    public static void setChannelId(@Nullable String newlyLoadedChannelId) {
+        channelId = newlyLoadedChannelId != null ? newlyLoadedChannelId : "";
+    }
+
+    /**
+     * Injection point used by the YouTube 21.04 player-response path.
+     */
+    public static void setChannelName(@Nullable String newlyLoadedChannelName) {
+        channelName = newlyLoadedChannelName != null ? newlyLoadedChannelName : "";
+    }
+
     public static boolean isPlayerInitialized() {
         return playerInitialized;
     }
@@ -378,6 +406,15 @@ public final class VideoInformation {
                         newlyLoadedLiveStreamValue +
                         "'"
         );
+    }
+
+    /**
+     * Injection point used by the YouTube 21.04 player seekbar path.
+     *
+     * @param newlyLoadedVideoLength length of the current video in milliseconds
+     */
+    public static void setVideoLength(final long newlyLoadedVideoLength) {
+        videoLength = newlyLoadedVideoLength;
     }
 
     /**
@@ -865,6 +902,13 @@ public final class VideoInformation {
      */
     public static void overridePlaybackSpeed(float speedOverride) {
         Logger.printDebug(() -> "Overriding playback speed to: " + speedOverride);
+        if (currentPlaybackSpeedMenu != null) {
+            try {
+                currentPlaybackSpeedMenu.patch_setSpeed(speedOverride);
+            } catch (Throwable t) {
+                Logger.printException(() -> "Failed to set playback speed on menu", t);
+            }
+        }
         if (playbackSpeed != speedOverride) {
             playbackSpeed = speedOverride;
             if (!Settings.PLAYBACK_AUDIO_TIME_STRETCHING.get()) {

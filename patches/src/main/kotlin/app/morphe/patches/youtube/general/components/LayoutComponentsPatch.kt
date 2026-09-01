@@ -16,6 +16,7 @@ import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
 import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.fab
@@ -23,6 +24,7 @@ import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.resourceid.ytCallToAction
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
@@ -71,27 +73,31 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for disable pip notification
 
-        pipNotificationFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val checkCastCalls = implementation!!.instructions.withIndex()
-                    .filter { instruction ->
-                        (instruction.value as? ReferenceInstruction)?.reference.toString() == "Lcom/google/apps/tiktok/account/AccountId;"
+        if (!is_21_04_or_greater) {
+            pipNotificationFingerprint.matchOrThrow().let {
+                it.method.apply {
+                    val checkCastCalls = implementation!!.instructions.withIndex()
+                        .filter { instruction ->
+                            (instruction.value as? ReferenceInstruction)?.reference.toString() == "Lcom/google/apps/tiktok/account/AccountId;"
+                        }
+
+                    val checkCastCallSize = checkCastCalls.size
+                    if (checkCastCallSize != 3)
+                        throw PatchException("Couldn't find target index, size: $checkCastCallSize")
+
+                    arrayOf(
+                        checkCastCalls.elementAt(1).index,
+                        checkCastCalls.elementAt(0).index
+                    ).forEach { index ->
+                        addInstruction(
+                            index + 1,
+                            "return-void"
+                        )
                     }
-
-                val checkCastCallSize = checkCastCalls.size
-                if (checkCastCallSize != 3)
-                    throw PatchException("Couldn't find target index, size: $checkCastCallSize")
-
-                arrayOf(
-                    checkCastCalls.elementAt(1).index,
-                    checkCastCalls.elementAt(0).index
-                ).forEach { index ->
-                    addInstruction(
-                        index + 1,
-                        "return-void"
-                    )
                 }
             }
+        } else {
+            printWarn("\"Disable PiP notification\" is not supported in this version. Use YouTube versions up to 20.51.")
         }
 
         // endregion

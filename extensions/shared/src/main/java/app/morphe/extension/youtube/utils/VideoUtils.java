@@ -108,8 +108,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -136,6 +134,7 @@ import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
 import app.morphe.extension.youtube.patches.video.PlaybackSpeedPatch;
 import app.morphe.extension.youtube.patches.video.VideoQualityPatch;
+import app.morphe.extension.youtube.patches.video.VideoQualityPatch.VideoQualityInterface;
 import app.morphe.extension.youtube.patches.video.VideoQualityPatch.VideoQualityMenuInterface;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch;
 import app.morphe.extension.youtube.settings.Settings;
@@ -538,8 +537,8 @@ public class VideoUtils extends IntentUtils {
 
     public static void showCustomVideoQualityFlyoutMenu(Context context) {
         try {
-            VideoQuality[] currentQualities = VideoQualityPatch.getCurrentQualities();
-            VideoQuality currentQuality = VideoQualityPatch.getCurrentQuality();
+            VideoQualityInterface[] currentQualities = VideoQualityPatch.getCurrentQualities();
+            VideoQualityInterface currentQuality = VideoQualityPatch.getCurrentQuality();
             if (currentQualities == null || currentQuality == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
@@ -557,7 +556,7 @@ public class VideoUtils extends IntentUtils {
 
             // -1 adjustment for automatic quality at first index.
             int listViewSelectedIndex = -1;
-            for (VideoQuality quality : currentQualities) {
+            for (VideoQualityInterface quality : currentQualities) {
                 if (quality.patch_getQualityName().equals(currentQuality.patch_getQualityName())) {
                     break;
                 }
@@ -565,7 +564,7 @@ public class VideoUtils extends IntentUtils {
             }
 
             List<String> qualityLabels = new ArrayList<>(currentQualities.length - 1);
-            for (VideoQuality availableQuality : currentQualities) {
+            for (VideoQualityInterface availableQuality : currentQualities) {
                 if (availableQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
                     qualityLabels.add(availableQuality.patch_getQualityName());
                 }
@@ -669,7 +668,7 @@ public class VideoUtils extends IntentUtils {
             listView.setOnItemClickListener((parent, view, which, id) -> {
                 try {
                     final int originalIndex = which + 1; // Adjust for automatic.
-                    VideoQuality selectedQuality = currentQualities[originalIndex];
+                    VideoQualityInterface selectedQuality = currentQualities[originalIndex];
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
 
                     if (VideoQualityPatch.shouldRememberVideoQuality()) {

@@ -1153,10 +1153,17 @@ fun Method.cloneMutableAndPreserveParameters(
     return clonedMethod
 }
 
+/**
+ * Clone this method, optionally changing the class that owns the cloned method.
+ *
+ * The owner must be overridden when a clone is inserted into a different class,
+ * otherwise the generated DEX class data can refer to the original class.
+ */
 fun Method.cloneMutable(
     registerCount: Int = implementation?.registerCount ?: 0,
     clearImplementation: Boolean = false,
     name: String = this.name,
+    definingClass: String = this.definingClass,
     accessFlags: Int = this.accessFlags,
     parameters: List<MethodParameter> = this.parameters,
     returnType: String = this.returnType,

@@ -164,15 +164,22 @@ public class SpoofVideoStreamsPatch {
         return playerRequestUri;
     }
 
-    public static Uri.Builder blockGetWatchRequest(Uri.Builder playerRequestBuilder) {
+    /**
+     * Injection point.
+     * Blocks '/get_watch' endpoint requests by returning an unreachable URI.
+     *
+     * @param innerTubeRequestBuilder The URI builder of the InnerTube request.
+     * @return An unreachable URI builder for '/get_watch', otherwise the original builder.
+     */
+    public static Uri.Builder blockGetWatchRequest(Uri.Builder innerTubeRequestBuilder) {
         if (SPOOF_VIDEO_STREAMS) {
             try {
-                Uri playerRequestUri = playerRequestBuilder.build();
+                Uri playerRequestUri = innerTubeRequestBuilder.build();
                 String path = playerRequestUri.getPath();
 
                 if (path != null && path.contains("get_watch")) {
                     if (!TextUtils.isEmpty(pendingLegacyVideoId.get())) {
-                        return playerRequestBuilder;
+                        return innerTubeRequestBuilder;
                     }
                     Logger.printDebug(() -> "Blocking 'get_watch' by returning internet connection check URI");
                     return INTERNET_CONNECTION_CHECK_URI.buildUpon();
@@ -181,7 +188,7 @@ public class SpoofVideoStreamsPatch {
                 Logger.printException(() -> "blockGetWatchRequest failure", ex);
             }
         }
-        return playerRequestBuilder;
+        return innerTubeRequestBuilder;
     }
 
     public static String blockInitPlaybackRequest(String originalUrlString) {

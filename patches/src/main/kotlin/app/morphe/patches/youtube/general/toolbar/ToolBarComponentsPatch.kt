@@ -64,7 +64,6 @@ import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.misc.fix.proto.immutableMethodRef
@@ -83,8 +82,6 @@ import app.morphe.patches.youtube.utils.playservice.is_20_15_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.morphe.patches.youtube.utils.resourceid.ytOutlineExperimentalVideoCamera
-import app.morphe.patches.youtube.utils.resourceid.ytOutlineVideoCamera
 import app.morphe.patches.youtube.utils.resourceid.ytPremiumWordMarkHeader
 import app.morphe.patches.youtube.utils.resourceid.ytWordMarkHeader
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -92,10 +89,9 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.toolbar.hookToolBar
 import app.morphe.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.morphe.util.containsLiteralInstruction
+import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.findMutableMethodOf
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodCall
@@ -106,7 +102,6 @@ import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
-import app.morphe.util.indexOfFirstLiteralInstruction
 import app.morphe.util.replaceLiteralInstructionCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -323,12 +318,14 @@ val toolBarComponentsPatch = bytecodePatch(
             )
         }
 
-        AppCompatToolbarNavigationIconSetterFingerprint.method.apply {
-            findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { returnIndex ->
-                addInstruction(
-                    returnIndex,
-                    "invoke-static {p0, p1}, $GENERAL_CLASS_DESCRIPTOR->applySearchBarBackButtonSpacing(Landroid/view/ViewGroup;Landroid/graphics/drawable/Drawable;)V"
-                )
+        AppCompatToolbarNavigationIconSetterFingerprint.let { match ->
+            match.method.cloneMutableAndPreserveParameters(match.classDef).apply {
+                findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { returnIndex ->
+                    addInstruction(
+                        returnIndex,
+                        "invoke-static {p0, p1}, $GENERAL_CLASS_DESCRIPTOR->applySearchBarBackButtonSpacing(Landroid/view/ViewGroup;Landroid/graphics/drawable/Drawable;)V"
+                    )
+                }
             }
         }
 

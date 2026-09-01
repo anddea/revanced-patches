@@ -400,9 +400,9 @@ public class ReturnYouTubeDislikePatch {
             return;
         }
 
-        // A dismissed player can reuse its view hierarchy for the next video. Remove the old
+        // A dismissed or minimized player can reuse its view hierarchy for the next video. Remove the old
         // labels immediately so they cannot flash before newVideoLoaded() receives the new ID.
-        if (PlayerType.getCurrent().isNoneHiddenOrSlidingMinimized()) {
+        if (PlayerType.getCurrent().isNoneHiddenOrMinimized()) {
             removeRegularActionButtonCountOverlays();
             return;
         }
@@ -414,11 +414,17 @@ public class ReturnYouTubeDislikePatch {
 
         if (!canShowRegularActionButtonCountOverlays()) {
             removeRegularActionButtonCountSearchUpdates();
+            removeRegularActionButtonCountOverlays();
             regularActionButtonCountSearchExhausted = false;
             return;
         }
 
         if (currentVideoData != null) {
+            String currentPlayingVideoId = VideoInformation.getVideoId();
+            if (!currentPlayingVideoId.isEmpty() && !currentVideoData.getVideoId().equals(currentPlayingVideoId)) {
+                clearData();
+                return;
+            }
             scheduleRegularActionButtonCountOverlayUpdates();
         }
     }
@@ -457,6 +463,12 @@ public class ReturnYouTubeDislikePatch {
         ReturnYouTubeDislike videoData = currentVideoData;
         if (videoData == null) {
             removeRegularActionButtonCountOverlays();
+            return;
+        }
+
+        String currentPlayingVideoId = VideoInformation.getVideoId();
+        if (!currentPlayingVideoId.isEmpty() && !videoData.getVideoId().equals(currentPlayingVideoId)) {
+            clearData();
             return;
         }
 
@@ -552,6 +564,12 @@ public class ReturnYouTubeDislikePatch {
                 // A fetch for the previous video can finish after a new video has started.
                 // It must not remove or disturb overlays already created for the new video.
                 Logger.printDebug(() -> "Ignoring stale action button counts for video: " + videoId);
+                return;
+            }
+
+            String currentPlayingVideoId = VideoInformation.getVideoId();
+            if (!currentPlayingVideoId.isEmpty() && !videoId.equals(currentPlayingVideoId)) {
+                Logger.printDebug(() -> "Ignoring action button counts for non-current video: " + videoId);
                 return;
             }
 
@@ -883,6 +901,7 @@ public class ReturnYouTubeDislikePatch {
             return;
         }
         if (!canShowRegularActionButtonCountOverlays()) {
+            hideTrackedRegularActionButtonCountLabels();
             return;
         }
 
@@ -1447,6 +1466,15 @@ public class ReturnYouTubeDislikePatch {
                 return;
             }
 
+            if (!videoIdIsSame(currentVideoData, videoId)) {
+                currentVideoData = null;
+                regularActionButtonCountVideoId = null;
+                regularLikeActionButtonCountText = null;
+                regularDislikeActionButtonCountText = null;
+                regularActionButtonCountFetchVideoId = null;
+                Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::removeRegularActionButtonCountOverlays);
+            }
+
             Logger.printDebug(() -> "Prefetching RYD for video: " + videoId);
             ReturnYouTubeDislike.getFetchForVideoId(videoId);
 
@@ -1479,12 +1507,10 @@ public class ReturnYouTubeDislikePatch {
             }
 
             final PlayerType currentPlayerType = PlayerType.getCurrent();
-            final boolean isNoneHiddenOrSlidingMinimized = currentPlayerType.isNoneHiddenOrSlidingMinimized();
-            if (isNoneHiddenOrSlidingMinimized) {
+            final boolean isNoneHiddenOrMinimized = currentPlayerType.isNoneHiddenOrMinimized();
+            if (isNoneHiddenOrMinimized) {
                 removeRegularActionButtonCountSearchUpdates();
-                if (currentPlayerType != PlayerType.WATCH_WHILE_MINIMIZED) {
-                    removeRegularActionButtonCountOverlays();
-                }
+                removeRegularActionButtonCountOverlays();
                 return;
             }
 

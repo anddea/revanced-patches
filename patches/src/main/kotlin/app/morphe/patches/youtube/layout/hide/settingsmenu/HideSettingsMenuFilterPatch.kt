@@ -7,6 +7,7 @@
 
 package app.morphe.patches.youtube.layout.hide.settingsmenu
 
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.misc.settingsmenu.HIDE_MATCHING_METHOD
 import app.morphe.patches.shared.misc.settingsmenu.SETTINGS_MENU_FILTER_CLASS
@@ -19,8 +20,8 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findFreeRegister
-import app.morphe.util.getReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 private const val EXTENSION_CLASS =
     "Lapp/morphe/extension/youtube/patches/SettingsMenuFilterPatch;"
@@ -48,39 +49,37 @@ val hideSettingsMenuFilterPatch = bytecodePatch(
         injectSettingsMenuFilterHook(EXTENSION_CLASS)
         injectHideMatchingHelper()
 
+        // Reuse the method's own getPreferenceScreen call; fragmentRegister is dead after it.
         PreferenceScreenSyntheticFingerprint.let {
-            val fragmentField = it.classDef.fields.first { field ->
-                field.type.startsWith("L")
-            }
-
             it.method.apply {
+                val getPreferenceScreenIndex = it.instructionMatches[1].index
+                val fragmentRegister =
+                    getInstruction<FiveRegisterInstruction>(getPreferenceScreenIndex).registerC
                 val getPreferenceScreenReference =
-                    it.instructionMatches[1].instruction.getReference<MethodReference>()!!
+                    getInstruction<ReferenceInstruction>(getPreferenceScreenIndex).reference
 
-                val insertIndex = it.instructionMatches.last().index
-                val fragmentRegister = findFreeRegister(insertIndex)
+                // Insert after the settings-name block added by settingsPatch. The
+                // fragment register is reused for the needles array below, so no
+                // later code may need it as the settings fragment receiver.
+                val insertIndex = it.method.implementation!!.instructions.lastIndex
                 val screenRegister = findFreeRegister(insertIndex, fragmentRegister)
-                val needlesRegister = findFreeRegister(insertIndex, fragmentRegister, screenRegister)
-                val nullRegister = findFreeRegister(insertIndex, fragmentRegister, screenRegister, needlesRegister)
+                val nullRegister = findFreeRegister(insertIndex, fragmentRegister, screenRegister)
 
                 addInstructionsAtControlFlowLabel(
                     insertIndex,
                     """
-                        iget-object v$fragmentRegister, p0, ${it.classDef.type}->${fragmentField.name}:${fragmentField.type}
-                        if-eqz v$fragmentRegister, :ignore
-
                         invoke-virtual { v$fragmentRegister }, $getPreferenceScreenReference
                         move-result-object v$screenRegister
                         if-eqz v$screenRegister, :ignore
 
                         invoke-static { }, $EXTENSION_CLASS->getNeedles()[Ljava/lang/String;
-                        move-result-object v$needlesRegister
-                        if-eqz v$needlesRegister, :ignore
+                        move-result-object v$fragmentRegister
+                        if-eqz v$fragmentRegister, :ignore
 
                         invoke-static { }, $SETTINGS_MENU_FILTER_CLASS->beginCapture()V
 
                         const/4 v$nullRegister, 0x0
-                        invoke-virtual { v$screenRegister, v$needlesRegister, v$nullRegister }, $HIDE_MATCHING_METHOD
+                        invoke-virtual { v$screenRegister, v$fragmentRegister, v$nullRegister }, $HIDE_MATCHING_METHOD
 
                         invoke-static { }, $SETTINGS_MENU_FILTER_CLASS->endCapture()V
 

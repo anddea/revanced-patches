@@ -5,8 +5,8 @@ import app.morphe.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS
 import app.morphe.util.findMethodsOrThrow
 import app.morphe.util.returnEarly
 
-private const val THEME_FOREGROUND_COLOR = "@color/yt_white1"
-private const val THEME_BACKGROUND_COLOR = "@color/yt_black3"
+private const val THEME_FOREGROUND_COLOR = "yt_white1"
+private const val THEME_BACKGROUND_COLOR = "yt_black3"
 
 val baseSettingsPatch = bytecodePatch(
     description = "baseSettingsPatch"

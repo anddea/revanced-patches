@@ -13,7 +13,9 @@ package app.morphe.patches.youtube.player.miniplayer.general
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.anyInstruction
 import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patches.shared.mapping.ResourceType
@@ -337,4 +339,19 @@ internal object MiniplayerSetIconsLegacyFingerprint : Fingerprint(
         resourceLiteral(ResourceType.DRAWABLE, "yt_fill_pause_white_36"),
         resourceLiteral(ResourceType.DRAWABLE, "yt_fill_pause_black_36")
     )
+)
+
+internal object ModernMiniplayerMinimumSizeFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    filters = listOf(
+        resourceLiteral(ResourceType.DIMEN, "miniplayer_max_size"),
+        anyInstruction(
+            literal(192),
+            literal(192.0f),
+        ),
+        anyInstruction(
+            literal(128),
+            literal(128.0f),
+        ),
+    ),
 )

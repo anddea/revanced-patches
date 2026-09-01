@@ -155,12 +155,6 @@ public final class FeedComponentsFilter extends Filter {
                 "tvfilm_attachment"
         );
 
-        final StringFilterGroup tasteBuilder = new StringFilterGroup(
-                Settings.HIDE_SURVEYS,
-                "selectable_item.",
-                "cell_button."
-        );
-
         final StringFilterGroup ticketShelfIdentifier = new StringFilterGroup(
                 Settings.HIDE_TICKET_SHELF,
                 "ticket_"
@@ -191,7 +185,6 @@ public final class FeedComponentsFilter extends Filter {
                 expandableShelf,
                 feedSearchBar,
                 movieShelfIdentifier,
-                tasteBuilder,
                 ticketShelfIdentifier,
                 inviteToMessageCard
         );
@@ -283,8 +276,9 @@ public final class FeedComponentsFilter extends Filter {
 
         final StringFilterGroup surveys = new StringFilterGroup(
                 Settings.HIDE_SURVEYS,
-                "feed_nudge",
-                "_survey"
+                "in_feed_survey",
+                "slimline_survey",
+                "feed_nudge"
         );
 
         // It appears YouTube no longer uses this keyword.

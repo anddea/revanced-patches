@@ -14,6 +14,7 @@ package app.morphe.extension.youtube.patches.general;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_31_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_AUTOMOTIVE;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_WATCH;
 
@@ -85,7 +86,8 @@ public class ChangeFormFactorPatch {
     private static final boolean USING_AUTOMOTIVE_TYPE = Objects.requireNonNull(
             FormFactor.AUTOMOTIVE.formFactorType).equals(FORM_FACTOR_TYPE);
     private static final boolean TABLET_LAYOUT_IN_PLAYER =
-            FORM_FACTOR != FormFactor.LARGE
+            IS_20_31_OR_GREATER
+                    && FORM_FACTOR != FormFactor.LARGE
                     && FORM_FACTOR != FormFactor.LARGE_WIDTH_DP
                     && Settings.TABLET_LAYOUT_IN_PLAYER.get();
 
@@ -209,10 +211,11 @@ public class ChangeFormFactorPatch {
     }
 
     /**
-     * Prevents the player from continuing with an empty Litho element list after a layout change
-     * when YouTube resumes the player without recreating its activity.
+     * If the form factor is spoofed as a tablet, {@code shelfRenderer} is used instead of
+     * {@code itemSectionRenderer}. Sometimes YouTube still parses it as an item section; skip
+     * parsing when that renderer index is invalid to avoid a crash.
      */
-    public static boolean checkPlayerLithoElementsListSize(List<?> list) {
-        return list.isEmpty();
+    public static boolean checkItemSectionRenderer(List<?> list, int listIndex) {
+        return list != null && !list.isEmpty() && listIndex >= 0 && listIndex < list.size();
     }
 }
