@@ -17,14 +17,13 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.morphe.patches.shared.settingmenu.findPreferenceFingerprint
+import app.morphe.patches.shared.settingmenu.PreferenceGroupFindPreferenceFingerprint
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findFreeRegister
 import app.morphe.util.getReference
-import app.morphe.util.fingerprint.methodCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -54,7 +53,7 @@ internal val fixPreferenceIconPatch = bytecodePatch {
     execute {
         val setPreferenceIconMethod = SetPreferenceIconFingerprint.method
         val setPreferenceIconSpaceReservedMethodCall = SetPreferenceIconSpaceReservedFingerprint.method
-        val findPreferenceMethodCall = findPreferenceFingerprint.methodCall()
+        val findPreferenceMethodCall = PreferenceGroupFindPreferenceFingerprint.method
 
         val setPreferenceIconResourceMethod: MutableMethod
         val getPreferenceKeyMethod: MutableMethod

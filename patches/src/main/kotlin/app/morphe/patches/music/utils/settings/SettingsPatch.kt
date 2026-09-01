@@ -50,6 +50,7 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patches.music.layout.hide.settingsmenu.SettingsHeadersOnCreatePreferencesFingerprint
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.music.utils.extension.Constants.UTILS_PATH
@@ -58,7 +59,6 @@ import app.morphe.patches.music.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.music.utils.patch.PatchList.GMSCORE_SUPPORT
 import app.morphe.patches.music.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.playservice.is_6_39_or_greater
-import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.patches.music.utils.playservice.is_8_40_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.ResourceUtils.addGmsCorePreference
@@ -69,6 +69,10 @@ import app.morphe.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.mainactivity.injectConstructorMethodCall
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
+import app.morphe.patches.shared.misc.settings.MUSIC_SETTINGS_ENTRY_KEY
+import app.morphe.patches.shared.misc.settings.SETTINGS_NAME_PREFERENCE_KEY
+import app.morphe.patches.shared.misc.settings.customSettingsNameInstructions
+import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.patches.shared.settings.baseSettingsPatch
 import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printInfo
@@ -77,6 +81,8 @@ import app.morphe.util.copyXmlNode
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.getFreeRegisterProvider
+import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.removeStringsElements
 import app.morphe.util.valueOrThrow
@@ -84,6 +90,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import org.w3c.dom.Element
@@ -94,6 +102,8 @@ private const val EXTENSION_FRAGMENT_CLASS_DESCRIPTOR =
     "$EXTENSION_PATH/settings/preference/ReVancedPreferenceFragment;"
 private const val EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/InitializationPatch;"
+private const val SETTINGS_HEADERS_FRAGMENT_CLASS =
+    "Lcom/google/android/apps/youtube/music/settings/fragment/SettingsHeadersFragment;"
 
 private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
@@ -218,6 +228,35 @@ private val settingsBytecodePatch = bytecodePatch(
                 "invoke-static/range { p7 .. p7 }, $EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR->" +
                         "onLoggedIn(Ljava/lang/String;)V"
             )
+
+        SettingsHeadersOnCreatePreferencesFingerprint.let {
+            val matchInstruction = it.instructionMatches.first().instruction
+            val fragmentField = matchInstruction.getReference<FieldReference>()!!
+            val peerRegister = (matchInstruction as TwoRegisterInstruction).registerB
+
+            it.method.apply {
+                val insertIndex = implementation!!.instructions.size - 1
+                val registerProvider = getFreeRegisterProvider(insertIndex, 3, peerRegister)
+                val screenRegister = registerProvider.getFreeRegister()
+                val preferenceRegister = registerProvider.getFreeRegister()
+                val nameRegister = registerProvider.getFreeRegister()
+
+                addInstructionsWithLabels(
+                    insertIndex,
+                    customSettingsNameInstructions(
+                        preferenceKey = MUSIC_SETTINGS_ENTRY_KEY,
+                        getPreferenceScreen = """
+                            iget-object v$screenRegister, v$peerRegister, $fragmentField
+                            invoke-virtual { v$screenRegister }, $SETTINGS_HEADERS_FRAGMENT_CLASS->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+                            move-result-object v$screenRegister
+                        """,
+                        screenRegister = screenRegister,
+                        preferenceRegister = preferenceRegister,
+                        nameRegister = nameRegister
+                    )
+                )
+            }
+        }
     }
 }
 
@@ -386,6 +425,15 @@ val settingsPatch = resourcePatch(
 
         ResourceUtils.setContext(this)
         ResourceUtils.addRVXSettingsPreference(insertKey)
+        ResourceUtils.addPreferenceCategory(CategoryType.GENERAL.value)
+        ResourceUtils.addCustomPreference(
+            category = CategoryType.GENERAL.value,
+            key = SETTINGS_NAME_PREFERENCE_KEY,
+            tag = "app.morphe.extension.shared.settings.preference.SettingsNamePreference",
+            setSummary = false,
+            entriesArrayKey = "morphe_settings_name_entries",
+            entryValuesArrayKey = "morphe_settings_name_entry_values",
+        )
 
         ResourceUtils.updatePatchStatus(SETTINGS_FOR_YOUTUBE_MUSIC)
 
