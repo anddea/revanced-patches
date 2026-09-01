@@ -86,6 +86,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import app.morphe.extension.shared.patches.SettingsNamePatch;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.Setting;
@@ -615,7 +616,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         PreferenceScreen root = getPreferenceScreen();
         if (root == null) return null;
         List<CharSequence> path = new ArrayList<>();
-        path.add(str("revanced_settings_title"));
+        path.add(SettingsNamePatch.getSettingsName());
         if (target == root) return path;
         return searchPreferencePath(root, target, path) ? path : null;
     }

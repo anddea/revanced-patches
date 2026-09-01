@@ -19,6 +19,10 @@ import app.morphe.extension.shared.patches.CustomBrandingPatch;
  * or reference this class.
  */
 public class SharedYouTubeSettings extends BaseSettings {
+    /** Name shown for the RVX settings entry: a preset value or a name entered by the user. */
+    public static final StringSetting SETTINGS_NAME = new StringSetting(
+            "morphe_settings_name", "DEFAULT", true);
+
     public static final StringSetting CUSTOM_BRANDING_ICON = new StringSetting(
             "morphe_custom_branding_icon", CustomBrandingPatch.getDefaultIconStyle(), true);
 

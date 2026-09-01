@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import app.morphe.extension.shared.patches.SettingsNamePatch;
 import app.morphe.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
@@ -32,8 +33,6 @@ public abstract class BaseActivityHook extends Activity {
             getResourceIdentifierOrThrow("revanced_toolbar_parent", "id");
     public static final int LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR =
             getResourceIdentifierOrThrow("revanced_settings_with_toolbar", "layout");
-    private static final int STRING_REVANCED_SETTINGS_TITLE =
-            getResourceIdentifierOrThrow("revanced_settings_title", "string");
 
     /**
      * Layout parameters for the toolbar, extracted from the dummy toolbar.
@@ -104,7 +103,7 @@ public abstract class BaseActivityHook extends Activity {
         toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(getNavigationIcon());
         toolbar.setNavigationOnClickListener(getNavigationClickListener(activity));
-        toolbar.setTitle(STRING_REVANCED_SETTINGS_TITLE);
+        toolbar.setTitle(SettingsNamePatch.getSettingsName());
 
         final int margin = Utils.dipToPixels(16);
         toolbar.setTitleMarginStart(margin);

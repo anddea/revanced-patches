@@ -85,6 +85,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import app.morphe.extension.shared.patches.SettingsNamePatch;
 import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.Setting;
@@ -195,7 +196,7 @@ public abstract class BaseSearchViewController {
 
         searchContainer = activity.findViewById(ID_REVANCED_SEARCH_VIEW_CONTAINER);
 
-        String rvxSettingsLabel = getString("revanced_settings_title");
+        String rvxSettingsLabel = SettingsNamePatch.getSettingsName();
         String searchLabel = getString("revanced_settings_search_title");
         String searchHint = String.format(searchLabel, rvxSettingsLabel);
 
