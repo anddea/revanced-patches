@@ -40,13 +40,14 @@ val disableHdrPatch = bytecodePatch(
                 method.replaceInstruction(
                     index,
                     "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                            "disableHDRVideo(Landroid/view/Display\$HdrCapabilities;)[I",
+                            $$"overrideSupportedHdrTypes(Landroid/view/Display$HdrCapabilities;)[I",
                 )
             },
         ),
     )
 }
 
+@Suppress("unused")
 private enum class MethodCall(
     override val definedClassName: String,
     override val methodName: String,
@@ -54,7 +55,7 @@ private enum class MethodCall(
     override val returnType: String,
 ) : IMethodCall {
     SupportedHdrTypes(
-        "Landroid/view/Display\$HdrCapabilities;",
+        $$"Landroid/view/Display$HdrCapabilities;",
         "getSupportedHdrTypes",
         emptyArray(),
         "[I"
