@@ -40,4 +40,11 @@ public class BackgroundPlaybackPatch {
     public static boolean isAutomaticForegroundPlaybackAllowed(boolean original) {
         return false;
     }
+
+    /**
+     * Injection point.
+     */
+    public static boolean isAutomaticPlaybackPauseInFlyout(boolean original) {
+        return false;
+    }
 }
