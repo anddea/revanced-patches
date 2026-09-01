@@ -77,6 +77,10 @@ internal enum class PatchList(
         "Disable layout updates",
         "Adds an option to disable layout updates by server."
     ),
+    DISABLE_PLAYLIST_AUTOPLAY(
+        "Disable playlist autoplay",
+        "Adds an option to stop a playlist from automatically advancing to the next video."
+    ),
     DISABLE_RESUMING_MINIPLAYER_ON_STARTUP(
         "Disable resuming Miniplayer on startup",
         "Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup."
