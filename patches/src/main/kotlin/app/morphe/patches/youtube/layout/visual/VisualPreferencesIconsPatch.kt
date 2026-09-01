@@ -597,6 +597,7 @@ private val emptyTitles = setOf(
     "revanced_external_downloader_package_name_playlist",
     "revanced_external_downloader_package_name_video",
     "revanced_external_downloader_package_name_video_long_press",
+    "revanced_force_hdr_video",
     "revanced_gms_show_dialog",
     "revanced_hide_live_chat_replay_button",
     "revanced_hide_player_flyout_menu_captions_footer",

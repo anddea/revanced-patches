@@ -726,6 +726,14 @@ Known issue: Sometimes the swipe overlay appears before switching to fullscreen 
     <string name="revanced_fix_transcript_summary_off">Transcript may not be available due to a precondition check failure</string>
     <string name="revanced_fix_transcript_summary_on">Transcript is available</string>
     <string name="revanced_fix_transcript_title">Fix transcript</string>
+    <string name="revanced_force_hdr_video_summary">Forces app to recognize this device as HDR‑capable</string>
+    <string name="revanced_force_hdr_video_title">Force HDR video</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"Use this if HDR decoding works but YouTube does not offer HDR, such as some HyperOS devices that hide HLG.
+
+Limitations:
+• Colors may look wrong if the display cannot actually show HDR
+• Playback may fail if the decoder cannot handle HDR
+• HDR still depends on the spoof video streams client"</string>
     <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed</string>
     <string name="revanced_gemini_cancelled">Canceled</string>
     <string name="revanced_gemini_chat_input_hint">Ask about this video</string>

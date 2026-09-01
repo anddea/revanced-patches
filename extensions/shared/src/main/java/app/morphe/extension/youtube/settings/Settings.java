@@ -900,6 +900,8 @@ public class Settings extends SharedYouTubeSettings {
 
     // PreferenceScreen: Video - Codec
     public static final BooleanSetting DISABLE_HDR_VIDEO = new BooleanSetting("revanced_disable_hdr_video", FALSE, true);
+    public static final BooleanSetting FORCE_HDR_VIDEO = new BooleanSetting("revanced_force_hdr_video", FALSE, true,
+            "revanced_force_hdr_video_user_dialog_message", parentInverted(DISABLE_HDR_VIDEO));
     public static final BooleanSetting DISABLE_VP9_CODEC = new BooleanSetting("revanced_disable_vp9_codec", FALSE, true);
 
     // PreferenceScreen: Video - Playback speed
