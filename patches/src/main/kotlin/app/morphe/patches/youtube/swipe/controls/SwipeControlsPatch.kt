@@ -264,6 +264,23 @@ val swipeControlsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for disable pinch-to-zoom gesture
+
+        VideoZoomScaleBeginFingerprint.method.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static {}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableZoomGesture()Z
+                move-result v0
+                if-eqz v0, :allow_zoom
+                const/4 v0, 0x0
+                return v0
+                :allow_zoom
+                nop
+            """
+        )
+
+        // endregion
+
         // region copy resources
 
         getContext().copyResources(
