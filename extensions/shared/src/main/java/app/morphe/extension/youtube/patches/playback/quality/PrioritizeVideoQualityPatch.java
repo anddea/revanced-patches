@@ -19,10 +19,24 @@ import java.util.List;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.innertube.FormatOuterClass.Format;
 import app.morphe.extension.youtube.patches.FullscreenVideoScalePatch;
+import app.morphe.extension.youtube.patches.video.VideoQualityPatch;
 import app.morphe.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class PrioritizeVideoQualityPatch {
+    /**
+     * Generally, height, quality label, and quality ordinal are consistent. Sometimes YouTube
+     * supplies inconsistent values, such as height 288 with a 240p label and 360p ordinal; those
+     * formats are corrected by {@link VideoQualityPatch#fixVideoQualityResolution(String, int)}.
+     * Filtering those malformed heights here prevents SABR from stalling when AVC is the only
+     * usable codec. See Morphe issue 2713.
+     */
+    private static final List<Integer> AVAILABLE_FORMAT_HEIGHT = List.of(
+            // YouTube mobile does not support 4320p.
+            2160, 1440, 1080, 720,
+            480, 360, 240, 144
+    );
+
     private static final boolean PRIORITIZE_VIDEO_QUALITY = Settings.VIDEO_QUALITY_PRIORITIZE.get();
 
     /**
@@ -54,21 +68,32 @@ public final class PrioritizeVideoQualityPatch {
                     var adaptiveFormat = Format.parseFrom(messageLite.toByteArray());
                     if (adaptiveFormat != null) {
                         String mimeType = adaptiveFormat.getMimeType();
-                        if (mimeType != null && mimeType.contains("video")) {
-                            int height = adaptiveFormat.getHeight();
-                            if (mimeType.contains("avc")) {
-                                maxHeightAVC = Math.max(maxHeightAVC, height);
-                            } else if (mimeType.contains("vp9")) {
-                                maxHeightVP9 = Math.max(maxHeightVP9, height);
-                            }
-                            if (maxHeightAVC != -1 && maxHeightVP9 != -1) {
-                                break;
-                            }
+                        if (mimeType == null || !mimeType.contains("video")) {
+                            continue;
+                        }
+                        int height = adaptiveFormat.getHeight();
+                        if (!AVAILABLE_FORMAT_HEIGHT.contains(height)) {
+                            continue;
+                        }
+                        if (mimeType.contains("avc")) {
+                            maxHeightAVC = Math.max(maxHeightAVC, height);
+                        } else if (mimeType.contains("vp9")) {
+                            maxHeightVP9 = Math.max(maxHeightVP9, height);
+                        }
+                        if (maxHeightAVC != -1 && maxHeightVP9 != -1) {
+                            break;
                         }
                     }
                 }
 
-                boolean shouldRemoveVP9 = maxHeightVP9 > 0 && maxHeightVP9 < maxHeightAVC;
+                final int finalMaxHeightAVC = maxHeightAVC;
+                final int finalMaxHeightVP9 = maxHeightVP9;
+                final boolean shouldRemoveVP9 = finalMaxHeightVP9 > -1
+                        && finalMaxHeightVP9 < finalMaxHeightAVC;
+                Logger.printDebug(() -> "videoId: " + videoId
+                        + ", maxHeightAVC: " + finalMaxHeightAVC
+                        + ", maxHeightVP9: " + finalMaxHeightVP9
+                        + ", shouldRemoveVP9: " + shouldRemoveVP9);
 
                 if (shouldRemoveVP9) {
                     ArrayList<MessageLite> newFormats = new ArrayList<>(adaptiveFormats.size());

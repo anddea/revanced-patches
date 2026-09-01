@@ -119,15 +119,15 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.WeakHashMap;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.function.IntSupplier;
 
 import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.requests.Route;
-import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.PackageUtils;
@@ -348,10 +348,18 @@ public class GeneralPatch {
     private static final int MAX_MILLISECONDS_TO_WAIT_FOR_CONFIG_FETCH = 20 * 1000;
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String COLD_CONFIG_DATA_HEADER = "X-Youtube-Cold-Config-Data";
+    private static final String COLD_HASH_DATA_HEADER = "X-Youtube-Cold-Hash-Data";
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
+    private static final String CONFIG_CLIENT_VERSION = ExtendedUtils.IS_21_21_OR_GREATER
+            // YT 21.21+ includes an experimental flag that is incompatible with the phone layout.
+            ? "21.20.402"
+            : PackageUtils.getAppVersionName();
     private static final Route.CompiledRoute GET_CONFIG = new Route(
             Route.Method.POST,
-            "config?fields=responseContext.globalConfigGroup.bytesSerializedColdConfigGroup&alt=proto"
+            "config" +
+                    "?fields=responseContext.globalConfigGroup.bytesSerializedColdConfigGroup," +
+                    "responseContext.globalConfigGroup.coldHashData" +
+                    "&alt=proto"
     ).compile();
 
     private static final boolean DISABLE_LAYOUT_UPDATES =
@@ -362,7 +370,17 @@ public class GeneralPatch {
             // Tablets already have a non-collapsed video action bar.
             && !PackageUtils.isTablet();
     private static volatile boolean needFetch = true;
-    private static volatile Future<String> configRequestFuture;
+
+    /**
+     * Interface implemented by YouTube's generated config model during patching.
+     */
+    public interface ConfigInfoInterface {
+        void patch_setColdConfigData(String coldConfigData);
+        void patch_setColdHashData(String coldHashData);
+    }
+
+    private record ConfigGroup(String coldConfigData, String coldHashData) {
+    }
 
     /**
      * @param key   Keys to be added to the header of CronetBuilder.
@@ -378,45 +396,38 @@ public class GeneralPatch {
         return value;
     }
 
-    private static void clearConfigRequest() {
-        configRequestFuture = null;
-    }
-
     private static void fetchConfigRequest(Map<String, String> requestHeaders) {
-        if (configRequestFuture == null) {
-            configRequestFuture = Utils.submitOnBackgroundThread(() -> sendConfigRequest(requestHeaders));
-        }
-    }
-
-    private static String getConfigRequestResult() {
-        Future<String> future = configRequestFuture;
-        if (future == null) {
-            return null;
-        }
-
+        CompletableFuture<ConfigGroup> future = CompletableFuture.supplyAsync(
+                () -> sendConfigRequest(requestHeaders)
+        );
         try {
-            if (BaseSettings.DEBUG.get() && !future.isDone() && Utils.isCurrentlyOnMainThread()) {
-                Logger.printException(() -> "Debug: Blocking main thread");
+            ConfigGroup configGroup = future.get(
+                    MAX_MILLISECONDS_TO_WAIT_FOR_CONFIG_FETCH,
+                    TimeUnit.MILLISECONDS
+            );
+            if (configGroup != null) {
+                Settings.INNERTUBE_COLD_CONFIG_DATA.save(configGroup.coldConfigData);
+                Settings.INNERTUBE_COLD_HASH_DATA.save(configGroup.coldHashData);
             }
-
-            return future.get(MAX_MILLISECONDS_TO_WAIT_FOR_CONFIG_FETCH, TimeUnit.MILLISECONDS);
         } catch (TimeoutException ex) {
-            Logger.printInfo(() -> "getConfig timed out", ex);
+            Logger.printInfo(() -> "getConfigGroup timed out", ex);
+            future.cancel(true);
+        } catch (CancellationException ex) {
+            Logger.printInfo(() -> "getConfigGroup was previously cancelled");
         } catch (InterruptedException ex) {
-            Logger.printException(() -> "getConfig interrupted", ex);
-            Thread.currentThread().interrupt();
+            Logger.printException(() -> "getConfigGroup interrupted", ex);
+            future.cancel(true);
+            Thread.currentThread().interrupt(); // Restore interrupt status flag.
         } catch (ExecutionException ex) {
-            Logger.printException(() -> "getConfig failure", ex);
+            Logger.printException(() -> "getConfigGroup failure", ex);
         }
-
-        return null;
     }
 
     private static void handleConfigConnectionError(String toastMessage, Exception ex) {
         Logger.printInfo(() -> toastMessage, ex);
     }
 
-    private static String parseConfigResponse(HttpURLConnection connection) {
+    private static ConfigGroup parseConfigResponse(HttpURLConnection connection) {
         try (InputStream inputStream = connection.getInputStream()) {
             ConfigResponse configResponse = ConfigResponse.parseFrom(inputStream);
             if (!configResponse.hasContext()) {
@@ -432,6 +443,11 @@ public class GeneralPatch {
 
             app.morphe.extension.youtube.innertube.ConfigResponseOuterClass.GlobalConfigGroup globalConfigGroup =
                     context.getGlobalConfigGroup();
+            String coldHashData = globalConfigGroup.getColdHashData();
+            if (StringUtils.isEmpty(coldHashData)) {
+                Logger.printDebug(() -> "ColdHashData is empty");
+                return null;
+            }
             if (!globalConfigGroup.hasRawColdConfigGroup()) {
                 Logger.printDebug(() -> "RawColdConfigGroup is empty");
                 return null;
@@ -439,12 +455,13 @@ public class GeneralPatch {
 
             app.morphe.extension.youtube.innertube.ConfigResponseOuterClass.RawColdConfigGroup rawColdConfigGroup =
                     globalConfigGroup.getRawColdConfigGroup();
-            if (!rawColdConfigGroup.hasConfigData()) {
+            String coldConfigData = rawColdConfigGroup.getConfigData();
+            if (StringUtils.isEmpty(coldConfigData)) {
                 Logger.printDebug(() -> "ConfigData is empty");
                 return null;
             }
 
-            return rawColdConfigGroup.getConfigData();
+            return new ConfigGroup(coldConfigData, coldHashData);
         } catch (Exception ex) {
             Logger.printException(() -> "Parse failed", ex);
         }
@@ -456,16 +473,18 @@ public class GeneralPatch {
         try {
             JSONObject client = new JSONObject();
             client.put("clientName", "ANDROID");
-            client.put("clientVersion", PackageUtils.getAppVersionName());
+            client.put("clientVersion", CONFIG_CLIENT_VERSION);
             client.put("deviceMake", Build.MANUFACTURER);
             client.put("deviceModel", Build.MODEL);
             client.put("osName", "Android");
             client.put("osVersion", Build.VERSION.RELEASE);
-            // Tablet cold config avoids the modern action bar that breaks
-            // v20.21 action-button filtering and RYD wiring.
-            client.put("platform", "TABLET");
-            client.put("clientFormFactor", "LARGE_FORM_FACTOR");
+            // The modern video action bar is not enabled for unknown cold-config clients.
+            client.put("clientFormFactor", "UNKNOWN_FORM_FACTOR");
             client.put("androidSdkVersion", Build.VERSION.SDK_INT);
+            client.put("screenWidthPoints", 1280);
+            client.put("screenHeightPoints", 720);
+            client.put("screenPixelDensity", 4);
+            client.put("screenDensityFloat", 4);
 
             Locale localeDefault = Locale.getDefault();
             client.put("hl", localeDefault.getLanguage());
@@ -488,7 +507,7 @@ public class GeneralPatch {
         String userAgent = String.format(
                 Locale.US,
                 "com.google.android.youtube/%s(Linux; U; Android %s; %s; %s Build/%s)",
-                PackageUtils.getAppVersionName(),
+                CONFIG_CLIENT_VERSION,
                 Build.VERSION.RELEASE,
                 Locale.getDefault(),
                 Build.MODEL,
@@ -502,7 +521,7 @@ public class GeneralPatch {
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("User-Agent", userAgent);
         connection.setRequestProperty("X-YouTube-Client-Name", "3");
-        connection.setRequestProperty("X-YouTube-Client-Version", PackageUtils.getAppVersionName());
+        connection.setRequestProperty("X-YouTube-Client-Version", CONFIG_CLIENT_VERSION);
         connection.setRequestProperty("X-GOOG-API-FORMAT-VERSION", "2");
         connection.setUseCaches(false);
         connection.setDoOutput(true);
@@ -521,7 +540,7 @@ public class GeneralPatch {
         return connection;
     }
 
-    private static String sendConfigRequest(Map<String, String> requestHeaders) {
+    private static ConfigGroup sendConfigRequest(Map<String, String> requestHeaders) {
         Utils.verifyOffMainThread();
 
         final long startTime = System.currentTimeMillis();
@@ -553,12 +572,9 @@ public class GeneralPatch {
         return null;
     }
 
-    /**
-     * On older YouTube builds, the modern server-side action bar prevents
-     * dislike restoration and reliable per-button hiding.
-     */
-    public static void fetchRequest(String url, Map<String, String> requestHeaders) {
-        if (FIX_VIDEO_ACTION_BAR && Settings.COLD_CONFIG_DATA.isSetToDefault()) {
+    private static void fetchConfigRequestIfNeeded(String url, Map<String, String> requestHeaders) {
+        if (Settings.INNERTUBE_COLD_CONFIG_DATA.isSetToDefault()
+                || Settings.INNERTUBE_COLD_HASH_DATA.isSetToDefault()) {
             if (needFetch) {
                 if (requestHeaders != null) {
                     String visitorId = requestHeaders.get(VISITOR_ID_HEADER);
@@ -572,14 +588,8 @@ public class GeneralPatch {
                         }
 
                         needFetch = false;
-                        clearConfigRequest();
                         fetchConfigRequest(minHeaders);
                     }
-                }
-            } else {
-                String newColdConfigData = getConfigRequestResult();
-                if (StringUtils.isNotEmpty(newColdConfigData)) {
-                    Settings.COLD_CONFIG_DATA.save(newColdConfigData);
                 }
             }
         } else {
@@ -588,18 +598,49 @@ public class GeneralPatch {
     }
 
     /**
-     * Overrides the cold config header with the tablet response fetched above so older app
-     * versions keep the legacy video action bar structure.
+     * Overrides the matching cold-config headers on {@code /next} requests.
      */
-    public static String fixVideoActionBar(String key, String value) {
-        if (FIX_VIDEO_ACTION_BAR && COLD_CONFIG_DATA_HEADER.equals(key)) {
-            String coldConfigData = Settings.COLD_CONFIG_DATA.get();
-            if (StringUtils.isNotEmpty(coldConfigData)) {
-                return coldConfigData;
+    public static Map<String, String> fixVideoActionBar(
+            String url,
+            Map<String, String> requestHeaders
+    ) {
+        if (FIX_VIDEO_ACTION_BAR && url != null) {
+            fetchConfigRequestIfNeeded(url, requestHeaders);
+
+            String path = Uri.parse(url).getPath();
+            if (path != null && path.contains("next") && requestHeaders != null) {
+                if (requestHeaders.get(COLD_CONFIG_DATA_HEADER) != null) {
+                    String coldConfigData = Settings.INNERTUBE_COLD_CONFIG_DATA.get();
+                    if (StringUtils.isNotEmpty(coldConfigData)) {
+                        requestHeaders.put(COLD_CONFIG_DATA_HEADER, coldConfigData);
+                    }
+                }
+                if (requestHeaders.get(COLD_HASH_DATA_HEADER) != null) {
+                    String coldHashData = Settings.INNERTUBE_COLD_HASH_DATA.get();
+                    if (StringUtils.isNotEmpty(coldHashData)) {
+                        requestHeaders.put(COLD_HASH_DATA_HEADER, coldHashData);
+                    }
+                }
             }
         }
 
-        return value;
+        return requestHeaders;
+    }
+
+    /**
+     * Overrides the generated request model before it is serialized.
+     */
+    public static void fixVideoActionBar(ConfigInfoInterface configInfo) {
+        if (FIX_VIDEO_ACTION_BAR && configInfo != null) {
+            String coldConfigData = Settings.INNERTUBE_COLD_CONFIG_DATA.get();
+            if (StringUtils.isNotEmpty(coldConfigData)) {
+                configInfo.patch_setColdConfigData(coldConfigData);
+            }
+            String coldHashData = Settings.INNERTUBE_COLD_HASH_DATA.get();
+            if (StringUtils.isNotEmpty(coldHashData)) {
+                configInfo.patch_setColdHashData(coldHashData);
+            }
+        }
     }
 
     /**
@@ -607,7 +648,9 @@ public class GeneralPatch {
      * videos overlay. Keep that old overlay path to avoid a broken fullscreen panel.
      */
     public static boolean fixRelatedVideoOverlay(boolean original) {
-        if (FIX_VIDEO_ACTION_BAR && !Settings.COLD_CONFIG_DATA.isSetToDefault()) {
+        if (FIX_VIDEO_ACTION_BAR
+                && !Settings.INNERTUBE_COLD_CONFIG_DATA.isSetToDefault()
+                && !Settings.INNERTUBE_COLD_HASH_DATA.isSetToDefault()) {
             return false;
         }
 

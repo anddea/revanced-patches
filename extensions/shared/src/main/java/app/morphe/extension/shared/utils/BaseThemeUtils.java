@@ -100,7 +100,7 @@ public class BaseThemeUtils {
      * Sets the theme light color used by the app.
      */
     public static void setThemeLightColor(@ColorInt int color) {
-        Logger.printDebug(() -> "Setting theme light color: " + getColorHexString(color));
+        // Logger.printDebug(() -> "Setting theme light color: " + getColorHexString(color));
         lightColor = color;
     }
 
@@ -108,7 +108,7 @@ public class BaseThemeUtils {
      * Sets the theme dark used by the app.
      */
     public static void setThemeDarkColor(@ColorInt int color) {
-        Logger.printDebug(() -> "Setting theme dark color: " + getColorHexString(color));
+        // Logger.printDebug(() -> "Setting theme dark color: " + getColorHexString(color));
         darkColor = color;
     }
 

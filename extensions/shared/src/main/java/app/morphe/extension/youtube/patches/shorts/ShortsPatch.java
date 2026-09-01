@@ -106,13 +106,16 @@ public class ShortsPatch {
         return Settings.HIDE_SHORTS_SOUND_BUTTON.get();
     }
 
-    private static final int zeroPaddingDimenId =
-            ResourceUtils.getDimenIdentifier("revanced_zero_padding");
+    private static int zeroPaddingDimenId = -1;
 
     public static int getShortsSoundButtonDimenId(int dimenId) {
-        return Settings.HIDE_SHORTS_SOUND_BUTTON.get()
-                ? zeroPaddingDimenId
-                : dimenId;
+        if (!Settings.HIDE_SHORTS_SOUND_BUTTON.get()) {
+            return dimenId;
+        }
+        if (zeroPaddingDimenId == -1) {
+            zeroPaddingDimenId = ResourceUtils.getDimenIdentifier("revanced_zero_padding");
+        }
+        return zeroPaddingDimenId != 0 ? zeroPaddingDimenId : dimenId;
     }
 
     public static int hideShortsSubscribeButton(int original) {

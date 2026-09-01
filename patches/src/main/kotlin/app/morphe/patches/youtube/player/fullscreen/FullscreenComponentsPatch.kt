@@ -27,6 +27,7 @@ import app.morphe.patches.youtube.utils.patch.PatchList.FULLSCREEN_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_18_42_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_41_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.autoNavPreviewStub
 import app.morphe.patches.youtube.utils.resourceid.fullScreenEngagementPanel
@@ -38,6 +39,7 @@ import app.morphe.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.morphe.patches.youtube.video.information.videoEndMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
@@ -246,41 +248,45 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for disable landscape mode
 
-        onConfigurationChangedMethod.apply {
-            val walkerIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.parameterTypes == listOf("Landroid/content/res/Configuration;") &&
-                        reference.returnType == "V" &&
-                        reference.name != "onConfigurationChanged"
-            }
-
-            val walkerMethod = getWalkerMethod(walkerIndex)
-            val constructorMethod =
-                findMethodOrThrow(walkerMethod.definingClass) {
-                    name == "<init>" &&
-                            parameterTypes == listOf("Landroid/app/Activity;")
+        if (!is_21_04_or_greater) {
+            onConfigurationChangedMethod.apply {
+                val walkerIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    reference?.parameterTypes == listOf("Landroid/content/res/Configuration;") &&
+                            reference.returnType == "V" &&
+                            reference.name != "onConfigurationChanged"
                 }
 
-            arrayOf(
-                walkerMethod,
-                constructorMethod
-            ).forEach { method ->
-                method.apply {
-                    val index = indexOfFirstInstructionOrThrow {
-                        val reference = getReference<MethodReference>()
-                        reference?.parameterTypes == listOf("Landroid/content/Context;") &&
-                                reference.returnType == "Z"
-                    } + 1
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                val walkerMethod = getWalkerMethod(walkerIndex)
+                val constructorMethod =
+                    findMethodOrThrow(walkerMethod.definingClass) {
+                        name == "<init>" &&
+                                parameterTypes == listOf("Landroid/app/Activity;")
+                    }
 
-                    addInstructions(
-                        index + 1, """
-                            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->disableLandScapeMode(Z)Z
-                            move-result v$register
-                            """
-                    )
+                arrayOf(
+                    walkerMethod,
+                    constructorMethod
+                ).forEach { method ->
+                    method.apply {
+                        val index = indexOfFirstInstructionOrThrow {
+                            val reference = getReference<MethodReference>()
+                            reference?.parameterTypes == listOf("Landroid/content/Context;") &&
+                                    reference.returnType == "Z"
+                        } + 1
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                        addInstructions(
+                            index + 1, """
+                                invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->disableLandScapeMode(Z)Z
+                                move-result v$register
+                                """
+                        )
+                    }
                 }
             }
+        } else {
+            printWarn("\"Disable landscape mode\" is not supported in this version. Use YouTube versions up to 20.51.")
         }
 
         // endregion

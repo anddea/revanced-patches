@@ -6,6 +6,7 @@ import app.morphe.patches.shared.drawable.addDrawableColorHook
 import app.morphe.patches.shared.drawable.drawableColorHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import org.w3c.dom.Element
 
 private const val SPLASH_SCREEN_COLOR_NAME = "splashScreenColor"
@@ -16,7 +17,7 @@ val sharedThemePatch = resourcePatch(
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
-    dependsOn(drawableColorHookPatch)
+    dependsOn(drawableColorHookPatch, versionCheckPatch)
 
     execute {
         addDrawableColorHook("$UTILS_PATH/DrawableColorPatch;->getLithoColor(I)I")

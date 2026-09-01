@@ -24,6 +24,8 @@ import app.morphe.patches.shared.drawable.drawableColorHookPatch
 import app.morphe.patches.shared.mainactivity.onCreateMethod
 import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.patches.youtube.misc.chapters.chaptersHookPatch
+import app.morphe.patches.youtube.misc.chapters.getTimelineMarkersArrayFingerprint
+import app.morphe.patches.youtube.misc.chapters.TimelineMarkerFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
@@ -38,6 +40,7 @@ import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_49_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_02_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_12_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_21_or_greater
@@ -54,7 +57,9 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.totalTimeFingerprint
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
+import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.findFreeRegister
 import app.morphe.util.findMethodsOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
@@ -64,6 +69,8 @@ import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
+import app.morphe.util.numberOfParameterRegisters
+import app.morphe.util.numberOfParameterRegistersLogical
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -109,71 +116,113 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // region patch for enable seekbar tapping patch
 
-        SeekbarTappingFingerprint.method.apply {
-            val pointIndex = indexOfPointInstruction(this)
-            val pointInstruction = getInstruction<FiveRegisterInstruction>(pointIndex)
-            val freeRegister = pointInstruction.registerE
-            val xAxisRegister = pointInstruction.registerD
+        if (is_21_04_or_greater) {
+            val tapToSeekMethods = ModernOnTouchEventHandlerFingerprint.let {
+                fun getReference(index: Int) = it.method.getInstruction<ReferenceInstruction>(index)
+                    .reference as MethodReference
 
-            val tapSeekIndex = indexOfFirstInstructionOrThrow(pointIndex) {
-                val reference = getReference<MethodReference>()
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        reference?.returnType == "V" &&
-                        reference.parameterTypes.isEmpty()
-            }
-            val thisInstanceRegister =
-                getInstruction<FiveRegisterInstruction>(tapSeekIndex).registerC
-
-            val tapSeekClass = getInstruction(tapSeekIndex)
-                .getReference<MethodReference>()!!
-                .definingClass
-
-            val tapSeekMethods = findMethodsOrThrow(tapSeekClass)
-            var pMethodCall = ""
-            var oMethodCall = ""
-
-            for (method in tapSeekMethods) {
-                if (method.implementation == null)
-                    continue
-
-                val instructions = method.implementation!!.instructions
-                // here we make sure we actually find the method because it has more than 7 instructions
-                if (instructions.count() != 10)
-                    continue
-
-                // we know that the 7th instruction has the opcode CONST_4
-                val instruction = instructions.elementAt(6)
-                if (instruction.opcode != Opcode.CONST_4)
-                    continue
-
-                // the literal for this instruction has to be either 1 or 2
-                val literal = (instruction as NarrowLiteralInstruction).narrowLiteral
-
-                // method founds
-                if (literal == 1)
-                    pMethodCall = "${method.definingClass}->${method.name}(I)V"
-                else if (literal == 2)
-                    oMethodCall = "${method.definingClass}->${method.name}(I)V"
+                listOf(
+                    getReference(it.instructionMatches.first().index),
+                    getReference(it.instructionMatches.last().index),
+                )
             }
 
-            if (pMethodCall.isEmpty()) {
-                throw PatchException("pMethod not found")
-            }
-            if (oMethodCall.isEmpty()) {
-                throw PatchException("oMethod not found")
-            }
+            ModernTapToSeekFingerprint.let {
+                val insertIndex = it.instructionMatches.last().index + 1
 
-            val insertIndex = tapSeekIndex + 1
+                it.method.apply {
+                    val thisInstanceRegister = getInstruction<FiveRegisterInstruction>(
+                        insertIndex - 1
+                    ).registerC
+                    val xAxisRegister = getInstruction<FiveRegisterInstruction>(
+                        it.instructionMatches[2].index
+                    ).registerD
+                    val freeRegister = findFreeRegister(
+                        insertIndex, thisInstanceRegister, xAxisRegister
+                    )
+                    val oMethod = tapToSeekMethods[0]
+                    val nMethod = tapToSeekMethods[1]
 
-            addInstructionsWithLabels(
-                insertIndex, """
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSeekbarTapping()Z
-                    move-result v$freeRegister
-                    if-eqz v$freeRegister, :disabled
-                    invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $pMethodCall
-                    invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethodCall
-                    """, ExternalLabel("disabled", getInstruction(insertIndex))
-            )
+                    addInstructionsWithLabels(
+                        insertIndex,
+                        """
+                            invoke-static { }, $PLAYER_CLASS_DESCRIPTOR->enableSeekbarTapping()Z
+                            move-result v$freeRegister
+                            if-eqz v$freeRegister, :disabled
+                            invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethod
+                            invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $nMethod
+                        """,
+                        ExternalLabel("disabled", getInstruction(insertIndex)),
+                    )
+                }
+            }
+        } else {
+            SeekbarTappingFingerprint.method.apply {
+                val pointIndex = indexOfPointInstruction(this)
+                val pointInstruction = getInstruction<FiveRegisterInstruction>(pointIndex)
+                val freeRegister = pointInstruction.registerE
+                val xAxisRegister = pointInstruction.registerD
+
+                val tapSeekIndex = indexOfFirstInstructionOrThrow(pointIndex) {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.returnType == "V" &&
+                            reference.parameterTypes.isEmpty()
+                }
+                val thisInstanceRegister =
+                    getInstruction<FiveRegisterInstruction>(tapSeekIndex).registerC
+
+                val tapSeekClass = getInstruction(tapSeekIndex)
+                    .getReference<MethodReference>()!!
+                    .definingClass
+
+                val tapSeekMethods = findMethodsOrThrow(tapSeekClass)
+                var pMethodCall = ""
+                var oMethodCall = ""
+
+                for (method in tapSeekMethods) {
+                    if (method.implementation == null)
+                        continue
+
+                    val instructions = method.implementation!!.instructions
+                    // here we make sure we actually find the method because it has more than 7 instructions
+                    if (instructions.count() != 10)
+                        continue
+
+                    // we know that the 7th instruction has the opcode CONST_4
+                    val instruction = instructions.elementAt(6)
+                    if (instruction.opcode != Opcode.CONST_4)
+                        continue
+
+                    // the literal for this instruction has to be either 1 or 2
+                    val literal = (instruction as NarrowLiteralInstruction).narrowLiteral
+
+                    // method founds
+                    if (literal == 1)
+                        pMethodCall = "${method.definingClass}->${method.name}(I)V"
+                    else if (literal == 2)
+                        oMethodCall = "${method.definingClass}->${method.name}(I)V"
+                }
+
+                if (pMethodCall.isEmpty()) {
+                    throw PatchException("pMethod not found")
+                }
+                if (oMethodCall.isEmpty()) {
+                    throw PatchException("oMethod not found")
+                }
+
+                val insertIndex = tapSeekIndex + 1
+
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSeekbarTapping()Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :disabled
+                        invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $pMethodCall
+                        invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethodCall
+                        """, ExternalLabel("disabled", getInstruction(insertIndex))
+                )
+            }
         }
 
         // endregion
@@ -479,17 +528,37 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // region patch for hide chapter
 
-        TimelineMarkerArrayFingerprint.method.apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableSeekbarChapters()Z
-                    move-result v0
-                    if-eqz v0, :show
-                    const/4 v0, 0x0
-                    new-array v0, v0, [Lcom/google/android/libraries/youtube/player/features/overlay/timebar/TimelineMarker;
-                    return-object v0
-                    """, ExternalLabel("show", getInstruction(0))
-            )
+        if (is_21_04_or_greater) {
+            val timelineMarkerClassType = TimelineMarkerFingerprint.classDef.type
+            getTimelineMarkersArrayFingerprint(timelineMarkerClassType).let { match ->
+                val method = match.method.cloneMutableAndPreserveParameters(match.classDef)
+                val featureFlagRegister = method.implementation!!.registerCount - method.numberOfParameterRegisters
+                val insertIndex = method.numberOfParameterRegistersLogical
+
+                method.addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableSeekbarChapters()Z
+                        move-result v$featureFlagRegister
+                        if-eqz v$featureFlagRegister, :show
+                        const/4 v$featureFlagRegister, 0x0
+                        new-array v$featureFlagRegister, v$featureFlagRegister, [$timelineMarkerClassType
+                        return-object v$featureFlagRegister
+                        """, ExternalLabel("show", method.getInstruction(insertIndex))
+                )
+            }
+        } else {
+            TimelineMarkerArrayFingerprint.method.apply {
+                addInstructionsWithLabels(
+                    0, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableSeekbarChapters()Z
+                        move-result v0
+                        if-eqz v0, :show
+                        const/4 v0, 0x0
+                        new-array v0, v0, [Lcom/google/android/libraries/youtube/player/features/overlay/timebar/TimelineMarker;
+                        return-object v0
+                        """, ExternalLabel("show", getInstruction(0))
+                )
+            }
         }
 
         playerButtonsVisibilityFingerprint.methodOrThrow(playerButtonsResourcesFingerprint).apply {

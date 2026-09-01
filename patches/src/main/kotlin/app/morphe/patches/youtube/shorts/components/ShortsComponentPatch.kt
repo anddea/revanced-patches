@@ -70,8 +70,8 @@ import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.textComponentPatch
-import app.morphe.patches.youtube.player.overlaybuttons.geminiButton
 import app.morphe.patches.youtube.player.fullscreen.openVideosFullscreenHookPatch
+import app.morphe.patches.youtube.player.overlaybuttons.geminiButton
 import app.morphe.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
@@ -90,7 +90,6 @@ import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_FEED_FLYOUT_MENU
 import app.morphe.patches.youtube.utils.patch.PatchList.SHORTS_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
-import app.morphe.patches.youtube.utils.playservice.*
 import app.morphe.patches.youtube.utils.playservice.is_18_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_18_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_18_49_or_greater
@@ -100,6 +99,15 @@ import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_07_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_09_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_16_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_18_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_40_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_05_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_07_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_10_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_17_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
@@ -124,10 +132,14 @@ import app.morphe.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.morphe.patches.youtube.utils.videoIdFingerprintShorts
 import app.morphe.patches.youtube.video.information.hookShortsVideoInformation
 import app.morphe.patches.youtube.video.information.videoInformationPatch
-import app.morphe.patches.youtube.video.playbackstart.*
+import app.morphe.patches.youtube.video.playbackstart.ModernShortsPlaybackStartIntentFingerprint
+import app.morphe.patches.youtube.video.playbackstart.PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
+import app.morphe.patches.youtube.video.playbackstart.playbackStartDescriptorPatch
+import app.morphe.patches.youtube.video.playbackstart.playbackStartVideoIdReference
+import app.morphe.patches.youtube.video.playbackstart.shortsPlaybackStartIntentFingerprint
+import app.morphe.patches.youtube.video.playbackstart.shortsPlaybackStartIntentLegacyFingerprint
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
-import app.morphe.util.*
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.ResourceGroup
 import app.morphe.util.cloneMutable
@@ -135,6 +147,7 @@ import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.containsStringInstruction
 import app.morphe.util.copyResources
 import app.morphe.util.doRecursively
+import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findMutableMethodOf
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
@@ -151,11 +164,17 @@ import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.or
 import app.morphe.util.replaceLiteralInstructionCall
+import app.morphe.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.*
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -476,70 +495,145 @@ private val shortsCustomActionsPatch = bytecodePatch(
                 val bottomSheetMenuItemBuilderMethod = bottomSheetMenuItemBuilderFingerprint
                     .methodOrThrow()
 
-                val newParameter =
-                    bottomSheetMenuItemBuilderMethod.parameters + listOf(customActionClass)
+                if (is_21_07_or_greater) {
+                    val clickActionIndex = bottomSheetMenuItemBuilderMethod.indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.IPUT_OBJECT &&
+                                getReference<FieldReference>()?.let { fieldReference ->
+                                    fieldReference.name == "j" &&
+                                            fieldReference.type == "Ljava/lang/Runnable;"
+                                } == true
+                    }
+                    val runnableField =
+                        bottomSheetMenuItemBuilderMethod.getInstruction<ReferenceInstruction>(clickActionIndex).reference as FieldReference
 
-                it.classDef.methods.add(
-                    bottomSheetMenuItemBuilderMethod
-                        .cloneMutable(
-                            accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-                            name = "buildFlyoutMenu",
-                            registerCount = bottomSheetMenuItemBuilderMethod.implementation!!.registerCount + 1,
-                            parameters = newParameter,
-                        ).apply {
-                            val drawableIndex = indexOfFirstInstructionOrThrow {
-                                opcode == Opcode.INVOKE_DIRECT &&
-                                        getReference<MethodReference>()?.returnType == "Landroid/graphics/drawable/Drawable;"
-                            }
-                            val drawableRegister =
-                                getInstruction<OneRegisterInstruction>(drawableIndex + 1).registerA
+                    val iconIndex = bottomSheetMenuItemBuilderMethod.indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.IPUT_OBJECT &&
+                                getReference<FieldReference>()?.type == "Landroid/graphics/drawable/Drawable;"
+                    }
+                    val iconField =
+                        bottomSheetMenuItemBuilderMethod.getInstruction<ReferenceInstruction>(iconIndex).reference as FieldReference
 
-                            addInstructions(
-                                drawableIndex + 2, """
-                                    invoke-virtual {p2}, $customActionClass->getDrawable()Landroid/graphics/drawable/Drawable;
-                                    move-result-object v$drawableRegister
-                                    """
-                            )
+                    val titleField = this@execute.classDefBy(iconField.definingClass).fields.first {
+                        it.type == "Ljava/lang/String;"
+                    }
 
-                            val charSequenceIndex = indexOfSpannedCharSequenceInstruction(this)
-                            val charSequenceRegister =
-                                getInstruction<OneRegisterInstruction>(charSequenceIndex + 1).registerA
+                    val itemBuilderIndex = indexOfFirstInstructionOrThrow {
+                        val ref = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                ref?.parameterTypes?.size == 1 &&
+                                ref.parameterTypes[0] == bottomSheetMenuObject &&
+                                ref.returnType == getObjectReference.definingClass
+                    }
+                    val itemBuilderReference =
+                        getInstruction<ReferenceInstruction>(itemBuilderIndex).reference as MethodReference
 
-                            val insertIndex = charSequenceIndex + 2
-
-                            if (HIDE_FEED_FLYOUT_MENU.included == true)
-                                removeInstructions(insertIndex, 2)
-
-                            addInstructions(
-                                insertIndex, """
+                    it.classDef.methods.add(
+                        ImmutableMethod(
+                            it.classDef.type,
+                            "buildFlyoutMenu",
+                            listOf(
+                                ImmutableMethodParameter(bottomSheetMenuObject.toString(), null, "menuItem"),
+                                ImmutableMethodParameter(customActionClass.type, null, "customAction")
+                            ),
+                            getObjectReference.definingClass,
+                            AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                            null,
+                            null,
+                            MutableMethodImplementation(6)
+                        ).toMutable().apply {
+                            addInstructionsWithLabels(
+                                0,
+                                """
+                                    invoke-virtual {p0, p1}, $bottomSheetMenuClass->${itemBuilderReference.name}(${bottomSheetMenuObject})${getObjectReference.definingClass}
+                                    move-result-object v0
+                                    invoke-virtual {v0}, ${getObjectReference.definingClass}->isPresent()Z
+                                    move-result v1
+                                    if-eqz v1, :done
+                                    invoke-virtual {v0}, ${getObjectReference.definingClass}->get()Ljava/lang/Object;
+                                    move-result-object v1
+                                    check-cast v1, ${runnableField.definingClass}
                                     invoke-virtual {p2}, $customActionClass->getLabel()Ljava/lang/String;
-                                    move-result-object v$charSequenceRegister
-                                    """
-                            )
-
-                            val clickActionIndex = indexOfFirstInstructionOrThrow {
-                                opcode == Opcode.IPUT_OBJECT &&
-                                        getReference<FieldReference>()?.let { fieldReference ->
-                                            fieldReference.name == "j" &&
-                                                    fieldReference.type == "Ljava/lang/Runnable;"
-                                        } == true
-                            }
-                            val clickActionInstruction =
-                                getInstruction<TwoRegisterInstruction>(clickActionIndex)
-                            val clickActionRegister = clickActionInstruction.registerA
-                            val flyoutMenuItemRegister = clickActionInstruction.registerB
-                            val clickActionReference =
-                                getInstruction<ReferenceInstruction>(clickActionIndex).reference
-
-                            addInstructions(
-                                clickActionIndex + 1, """
+                                    move-result-object v2
+                                    iput-object v2, v1, ${titleField.definingClass}->${titleField.name}:${titleField.type}
+                                    invoke-virtual {p2}, $customActionClass->getDrawable()Landroid/graphics/drawable/Drawable;
+                                    move-result-object v2
+                                    iput-object v2, v1, $iconField
                                     invoke-virtual {p2}, $customActionClass->getOnClickActionWithFlyoutMenuDismiss()Ljava/lang/Runnable;
-                                    move-result-object v$clickActionRegister
-                                    iput-object v$clickActionRegister, v$flyoutMenuItemRegister, $clickActionReference
-                                    """
+                                    move-result-object v2
+                                    iput-object v2, v1, $runnableField
+                                    :done
+                                    return-object v0
+                                """
                             )
                         }
-                )
+                    )
+                } else {
+                    val newParameter =
+                        bottomSheetMenuItemBuilderMethod.parameters + listOf(customActionClass)
+
+                    it.classDef.methods.add(
+                        bottomSheetMenuItemBuilderMethod
+                            .cloneMutable(
+                                accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+                                name = "buildFlyoutMenu",
+                                definingClass = it.classDef.type,
+                                registerCount = bottomSheetMenuItemBuilderMethod.implementation!!.registerCount + 1,
+                                parameters = newParameter,
+                            ).apply {
+                                val drawableIndex = indexOfFirstInstructionOrThrow {
+                                    opcode == Opcode.INVOKE_DIRECT &&
+                                            getReference<MethodReference>()?.returnType == "Landroid/graphics/drawable/Drawable;"
+                                }
+                                val drawableRegister =
+                                    getInstruction<OneRegisterInstruction>(drawableIndex + 1).registerA
+
+                                addInstructions(
+                                    drawableIndex + 2, """
+                                        invoke-virtual {p2}, $customActionClass->getDrawable()Landroid/graphics/drawable/Drawable;
+                                        move-result-object v$drawableRegister
+                                        """
+                                )
+
+                                val charSequenceIndex = indexOfSpannedCharSequenceInstruction(this)
+                                val charSequenceRegister =
+                                    getInstruction<OneRegisterInstruction>(charSequenceIndex + 1).registerA
+
+                                val insertIndex = charSequenceIndex + 2
+
+                                if (HIDE_FEED_FLYOUT_MENU.included == true)
+                                    removeInstructions(insertIndex, 2)
+
+                                addInstructions(
+                                    insertIndex, """
+                                        invoke-virtual {p2}, $customActionClass->getLabel()Ljava/lang/String;
+                                        move-result-object v$charSequenceRegister
+                                        """
+                                )
+
+                                val clickActionIndex = indexOfFirstInstructionOrThrow {
+                                    opcode == Opcode.IPUT_OBJECT &&
+                                            getReference<FieldReference>()?.let { fieldReference ->
+                                                fieldReference.name == "j" &&
+                                                        fieldReference.type == "Ljava/lang/Runnable;"
+                                            } == true
+                                }
+                                val clickActionInstruction =
+                                    getInstruction<TwoRegisterInstruction>(clickActionIndex)
+                                val clickActionRegister = clickActionInstruction.registerA
+                                val flyoutMenuItemRegister = clickActionInstruction.registerB
+                                val clickActionReference =
+                                    getInstruction<ReferenceInstruction>(clickActionIndex).reference
+
+                                addInstructions(
+                                    clickActionIndex + 1, """
+                                        invoke-virtual {p2}, $customActionClass->getOnClickActionWithFlyoutMenuDismiss()Ljava/lang/Runnable;
+                                        move-result-object v$clickActionRegister
+                                        iput-object v$clickActionRegister, v$flyoutMenuItemRegister, $clickActionReference
+                                        """
+                                )
+                            }
+                    )
+                }
             }
         }
 
@@ -1246,6 +1340,8 @@ val shortsComponentPatch = bytecodePatch(
                         """, ExternalLabel("hide", getInstruction(jumpIndex))
                 )
             }
+        } else if (is_21_05_or_greater) {
+            // YouTube 21.05+ no longer exposes the legacy sound-button dimension resource.
         } else if (reelPlayerRightPivotV2Size != -1L) {
             // Invoke Sound button dimen into extension.
             val smaliInstruction = """
@@ -1388,7 +1484,15 @@ val shortsComponentPatch = bytecodePatch(
                 nop
             """
 
-        if (is_19_25_or_greater) {
+        if (is_21_04_or_greater) {
+            ModernShortsPlaybackStartIntentFingerprint.method.addInstructionsWithLabels(
+                0,
+                """
+                    move-object/from16 v0, p1
+                    ${extensionInstructions(0, 1)}
+                    """
+            )
+        } else if (is_19_25_or_greater) {
             shortsPlaybackStartIntentFingerprint.methodOrThrow().addInstructionsWithLabels(
                 0,
                 """

@@ -12,23 +12,31 @@ import app.morphe.patches.youtube.utils.componentlist.hookComponentList
 import app.morphe.patches.youtube.utils.componentlist.lazilyConvertedElementHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.morphe.patches.youtube.utils.extension.Constants.VIDEO_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_FLYOUT_MENU
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.proto.elementProtoParserHookPatch
 import app.morphe.patches.youtube.utils.proto.hookElement
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.patches.youtube.video.information.VideoQualityFingerprint
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.getFiveRegisters
+import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val PANELS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/PlayerFlyoutMenuFilter;"
+
+private const val EXTENSION_VIDEO_QUALITY_INTERFACE =
+    $$"$$VIDEO_PATH/VideoQualityPatch$VideoQualityInterface;"
 
 @Suppress("unused")
 val playerFlyoutMenuPatch = bytecodePatch(
@@ -100,18 +108,40 @@ val playerFlyoutMenuPatch = bytecodePatch(
 
         // region patch for hide '1080p Premium' label
 
-        CurrentVideoFormatConstructorFingerprint.method.apply {
-            val videoQualitiesIndex =
-                indexOfVideoQualitiesInstruction(this)
-            val videoQualitiesRegister =
-                getInstruction<TwoRegisterInstruction>(videoQualitiesIndex).registerA
+        if (!is_21_04_or_greater) {
+            CurrentVideoFormatConstructorFingerprint.method.apply {
+                val videoQualitiesIndex =
+                    indexOfVideoQualitiesInstruction(this)
+                val videoQualitiesRegister =
+                    getInstruction<TwoRegisterInstruction>(videoQualitiesIndex).registerA
 
-            addInstructions(
-                1, """
-                    invoke-static/range { v$videoQualitiesRegister .. v$videoQualitiesRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuEnhancedBitrate([$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE)[$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
-                    move-result-object v$videoQualitiesRegister
-                    """
-            )
+                addInstructions(
+                    1, """
+                        invoke-static/range { v$videoQualitiesRegister .. v$videoQualitiesRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuEnhancedBitrate([$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE)[$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+                        move-result-object v$videoQualitiesRegister
+                        """
+                )
+            }
+        } else {
+            val videoQualityArray = DefaultOverflowOverlayOnClickFingerprint.instructionMatches.lastOrNull()
+                ?.instruction?.getReference<FieldReference>()?.type
+                ?: "[${VideoQualityFingerprint.classDef.type}"
+
+            getCurrentVideoFormatConstructorFingerprint(videoQualityArray).let {
+                it.method.apply {
+                    val index = it.instructionMatches.last().index
+                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index,
+                        """
+                            invoke-static/range { v$register .. v$register }, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuEnhancedBitrate([$EXTENSION_VIDEO_QUALITY_INTERFACE)[Ljava/lang/Object;
+                            move-result-object v$register
+                            check-cast v$register, $videoQualityArray
+                        """
+                    )
+                }
+            }
         }
 
         // endregion

@@ -103,8 +103,8 @@ private const val PATCH_OPTION_DARK_THEME_COLOR = "morphe_patch_option_dark_them
 private const val PATCH_OPTION_LIGHT_THEME_COLOR = "morphe_patch_option_light_theme_color"
 private const val PATCH_OPTION_THEME_ENTRY = "@string/morphe_theme_entry_patch_option"
 private const val PATCH_OPTION_THEME_KEY = "patch_option"
-private const val RUNTIME_LIGHT_THEME_COLOR_ID = "0x7f060f0f"
-private const val RUNTIME_LIGHT_THEME_COLOR_OPACITY70_ID = "0x7f060f10"
+private const val RUNTIME_LIGHT_THEME_COLOR_ID = "0x7f06200f"
+private const val RUNTIME_LIGHT_THEME_COLOR_OPACITY70_ID = "0x7f062010"
 private const val SPLASH_THEME_DARK_PREFIX = "morphe_theme_splash_dark_"
 private const val SPLASH_THEME_LIGHT_PREFIX = "morphe_theme_splash_light_"
 private const val SPLASH_THEME_NO_ICON_SUFFIX = "_no_icon"
@@ -167,7 +167,7 @@ private val runtimeDarkThemeResources = stockDarkThemeColors.keys.associateWith 
 
 private val runtimeThemeResourceIds =
     runtimeDarkThemeResources.values.mapIndexed { index, name ->
-        name to "0x7f06${(0xf00 + index).toString(16).padStart(4, '0')}"
+        name to "0x7f06${(0x2000 + index).toString(16).padStart(4, '0')}"
     }.toMap() + mapOf(
         RUNTIME_LIGHT_THEME_COLOR to RUNTIME_LIGHT_THEME_COLOR_ID,
         RUNTIME_LIGHT_THEME_COLOR_OPACITY70 to RUNTIME_LIGHT_THEME_COLOR_OPACITY70_ID,
@@ -318,7 +318,7 @@ private val splashLightThemeColors = linkedMapOf(
 private val runtimeThemeBytecodePatch = bytecodePatch(
     description = "runtimeThemeBytecodePatch",
 ) {
-    dependsOn(settingsPatch, mainActivityResolvePatch)
+    dependsOn(settingsPatch, mainActivityResolvePatch, versionCheckPatch)
 
     execute {
         // Keep the runtime theme hook owned by Theme so it is applied whenever this patch is selected.
@@ -383,7 +383,7 @@ private val elementsForegroundColorBytecodePatch = bytecodePatch(
 val newContentIndicatorBytecodePatch = bytecodePatch(
     description = "newContentIndicatorBytecodePatch",
 ) {
-    dependsOn(settingsPatch, resourceMappingPatch)
+    dependsOn(settingsPatch, resourceMappingPatch, versionCheckPatch)
 
     execute {
         // The pivot bar has a stub for both the dot and the count next to it.
@@ -476,6 +476,7 @@ val themePatch = resourcePatch(
     dependsOn(
         sharedThemePatch,
         settingsPatch,
+        versionCheckPatch,
         splashScreenAnimationBytecodePatch,
         runtimeThemeBytecodePatch,
         elementsForegroundColorBytecodePatch,
@@ -498,7 +499,16 @@ val themePatch = resourcePatch(
         // translucent entries, so its selected RGB is applied only at the bytecode fingerprint.
         val precompiledDarkThemeResources = stockDarkThemeColors.filterKeys { name ->
             name !in stockPlayerColorNames && name in existingColorResourceNames
-        }
+        } + setOf(
+            "yt_ref_color_constants_default_baseline_black_black1",
+            "yt_ref_color_constants_default_baseline_black_black3",
+            "yt_sys_color_baseline_dark_menu_background",
+            "yt_sys_color_baseline_dark_static_black",
+            "yt_sys_color_baseline_dark_raised_background",
+            "yt_sys_color_baseline_dark_base_background",
+            "yt_sys_color_baseline_light_inverted_background",
+            "yt_sys_color_baseline_light_static_black",
+        ).filter(existingColorResourceNames::contains).associateWith { "#FF0F0F0F" }
 
         val precompiledLightThemeResources = setOf(
             "yt_white1",
@@ -509,6 +519,9 @@ val themePatch = resourcePatch(
             "yt_white4",
             "material_grey_50",
             "material_grey_100",
+            "yt_sys_color_baseline_light_base_background",
+            "yt_sys_color_baseline_light_raised_background",
+            "yt_sys_color_baseline_light_menu_background",
         ).filter(existingColorResourceNames::contains)
         // Android 8–10 have no public ResourcesLoader API. Precompile every dark/light pair under
         // one synthetic MCC and a pair-specific MNC, plus separate foreground-disabled MNCs for
@@ -632,9 +645,26 @@ val themePatch = resourcePatch(
                         in runtimeDarkThemeResources ->
                             "@color/${runtimeDarkThemeResources.getValue(node.getAttribute("name"))}"
 
+                        "yt_ref_color_constants_default_baseline_black_black1",
+                        "yt_sys_color_baseline_dark_raised_background" ->
+                            "@color/${runtimeDarkThemeResources.getValue("yt_black1")}"
+
+                        "yt_sys_color_baseline_dark_menu_background" ->
+                            "@color/${runtimeDarkThemeResources.getValue("yt_black0")}"
+
+                        "yt_ref_color_constants_default_baseline_black_black3",
+                        "yt_sys_color_baseline_dark_static_black",
+                        "yt_sys_color_baseline_dark_base_background",
+                        "yt_sys_color_baseline_light_inverted_background",
+                        "yt_sys_color_baseline_light_static_black" ->
+                            "@color/${runtimeDarkThemeResources.getValue("yt_black3")}"
+
                         "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
                         "yt_white2", "yt_white3", "yt_white4",
-                        "material_grey_50", "material_grey_100" ->
+                        "material_grey_50", "material_grey_100",
+                        "yt_sys_color_baseline_light_base_background",
+                        "yt_sys_color_baseline_light_raised_background",
+                        "yt_sys_color_baseline_light_menu_background" ->
                             "@color/$RUNTIME_LIGHT_THEME_COLOR"
 
                         else -> continue

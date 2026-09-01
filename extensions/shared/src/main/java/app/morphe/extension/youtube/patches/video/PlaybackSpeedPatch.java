@@ -91,6 +91,7 @@ public class PlaybackSpeedPatch {
     private static long lastTimeSpeedChanged;
     private static long lastTimePitchChanged;
     private static volatile boolean newAudioStarted = true;
+    private static volatile boolean newVideoStarted;
 
     /**
      * The last used playback speed.
@@ -120,6 +121,54 @@ public class PlaybackSpeedPatch {
     };
 
     /**
+     * Applies default playback speed to the active video.
+     */
+    private static void applyDefaultPlaybackSpeed() {
+        if (isShortsActive() || userChangedSpeedForCurrentVideo) {
+            return;
+        }
+
+        float defaultPlaybackSpeed = DEFAULT_PLAYBACK_SPEED.get();
+        if (defaultPlaybackSpeed < 0) {
+            defaultPlaybackSpeed = lastSelectedPlaybackSpeed;
+        }
+
+        String currentChannelId = VideoInformation.getChannelId();
+        boolean isWhitelisted = !currentChannelId.isEmpty() && Whitelist.isChannelWhitelistedPlaybackSpeed(currentChannelId);
+        boolean isIgnored;
+        synchronized (ignoredPlaybackSpeedVideoIds) {
+            isIgnored = ignoredPlaybackSpeedVideoIds.containsKey(videoId);
+        }
+        boolean isMusic = isMusic(videoId);
+
+        if (isWhitelisted || isIgnored || isMusic) {
+            defaultPlaybackSpeed = 1.0f;
+        }
+
+        if (defaultPlaybackSpeed > 0 && defaultPlaybackSpeed != 1.0f) {
+            final float speedToApply = defaultPlaybackSpeed;
+            Logger.printDebug(() -> "applyDefaultPlaybackSpeed: applying default speed: " + speedToApply);
+            VideoInformation.setPlaybackSpeed(speedToApply);
+            VideoInformation.overridePlaybackSpeed(speedToApply);
+        } else if (defaultPlaybackSpeed == 1.0f) {
+            VideoInformation.setPlaybackSpeed(1.0f);
+        }
+    }
+
+    /**
+     * Injection point.
+     * Overrides the video speed. Called when playback speed values are initialized on video load.
+     */
+    public static void setDefaultPlaybackSpeed(VideoInformation.PlaybackSpeedMenuInterface menu) {
+        VideoInformation.setPlaybackSpeedMenu(menu);
+
+        if (newVideoStarted) {
+            newVideoStarted = false;
+            applyDefaultPlaybackSpeed();
+        }
+    }
+
+    /**
      * Injection point.
      * This method is used to reset the playback speed to 1.0 when a general video is started, whether it is a live stream, music, or whitelist.
      */
@@ -129,9 +178,13 @@ public class PlaybackSpeedPatch {
         if (isShortsActive()) {
             return;
         }
+        if (newlyLoadedVideoId.isEmpty() || newlyLoadedVideoId.equals(videoId)) {
+            return;
+        }
         videoId = newlyLoadedVideoId;
         userChangedSpeedForCurrentVideo = false;
         newAudioStarted = true;
+        newVideoStarted = true;
 
         boolean isMusic = isMusic(newlyLoadedVideoId);
         boolean isWhitelisted = !newlyLoadedChannelId.isEmpty() && Whitelist.isChannelWhitelistedPlaybackSpeed(newlyLoadedChannelId);
@@ -237,6 +290,7 @@ public class PlaybackSpeedPatch {
             } else {
                 lastSelectedPlaybackSpeed = playbackSpeed;
                 userChangedSpeedForCurrentVideo = true;
+                VideoInformation.setPlaybackSpeed(playbackSpeed);
                 // If the user has manually changed the playback speed, the whitelist has already been applied.
                 // If there is a videoId on the map, it will be removed.
                 synchronized (ignoredPlaybackSpeedVideoIds) {

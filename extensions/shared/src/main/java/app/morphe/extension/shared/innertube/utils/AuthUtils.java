@@ -50,12 +50,24 @@ public class AuthUtils {
      */
     public static void setAccountIdentity(@Nullable String newlyLoadedPageId,
                                           boolean newlyLoadedIncognitoStatus) {
-        if (StringUtils.isEmpty(newlyLoadedPageId)) {
-            pageId = "";
-        } else if (!pageId.equals(newlyLoadedPageId)) {
+        setPageId(newlyLoadedPageId == null ? "" : newlyLoadedPageId);
+        setIncognitoStatus(newlyLoadedIncognitoStatus);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setPageId(@Nullable String newlyLoadedPageId) {
+        if (newlyLoadedPageId != null && !pageId.equals(newlyLoadedPageId)) {
             pageId = newlyLoadedPageId;
             Logger.printDebug(() -> "new PageId loaded: " + newlyLoadedPageId);
         }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setIncognitoStatus(boolean newlyLoadedIncognitoStatus) {
         incognitoStatus = newlyLoadedIncognitoStatus;
     }
 

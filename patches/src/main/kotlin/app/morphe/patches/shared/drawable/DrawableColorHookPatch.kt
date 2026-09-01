@@ -45,6 +45,9 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
+import app.morphe.patches.youtube.utils.playservice.is_21_07_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
+import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -58,8 +61,18 @@ private var offset = 0
 val drawableColorHookPatch = bytecodePatch(
     description = "drawableColorHookPatch"
 ) {
+    dependsOn(versionCheckPatch)
+
     execute {
-        DrawableColorFingerprint.method.apply {
+        val drawableColorMethod = DrawableColorFingerprint.let {
+            if (is_21_07_or_greater) {
+                it.method.cloneMutableAndPreserveParameters(it.classDef)
+            } else {
+                it.method
+            }
+        }
+
+        drawableColorMethod.apply {
             insertMethod = this
             insertIndex = indexOfFirstInstructionReversedOrThrow {
                 getReference<MethodReference>()?.name == "setColor"

@@ -45,9 +45,6 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     hookAccountIdentity = {
         true
     },
-    useNewRequestBuilderFingerprint = {
-        false
-    },
     restoreMissingCuepointMethod = {
         is_20_35_or_greater && !is_21_13_or_greater
     },
