@@ -742,6 +742,9 @@
         <!-- SETTINGS: DESCRIPTION_COMPONENTS
         </PreferenceScreen>SETTINGS: DESCRIPTION_COMPONENTS -->
 
+        <!-- SETTINGS: DISABLE_PLAYLIST_AUTOPLAY
+        <SwitchPreference android:title="@string/revanced_disable_playlist_autoplay_title" android:key="revanced_disable_playlist_autoplay" android:summaryOn="@string/revanced_disable_playlist_autoplay_summary_on" android:summaryOff="@string/revanced_disable_playlist_autoplay_summary_off" />SETTINGS: DISABLE_PLAYLIST_AUTOPLAY -->
+
         <!-- SETTINGS: PLAYER_COMPONENTS
         <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_custom_player_overlay_opacity_title" android:key="revanced_custom_player_overlay_opacity" android:summary="@string/revanced_custom_player_overlay_opacity_summary" android:inputType="number" />
         <SwitchPreference android:title="@string/revanced_disable_auto_switch_mix_playlists_title" android:key="revanced_disable_auto_switch_mix_playlists" android:summaryOn="@string/revanced_disable_auto_switch_mix_playlists_summary_on" android:summaryOff="@string/revanced_disable_auto_switch_mix_playlists_summary_off" />
