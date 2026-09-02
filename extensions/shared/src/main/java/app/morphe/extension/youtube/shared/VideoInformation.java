@@ -79,6 +79,7 @@ import app.morphe.extension.youtube.utils.VideoUtils;
 public final class VideoInformation {
     public interface ExoPlayerImpl {
         void patch_setPlaybackParameters(float speed, float pitch);
+        void patch_setPlayWhenReady(boolean playing);
     }
 
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
@@ -670,6 +671,30 @@ public final class VideoInformation {
         } else {
             Logger.printDebug(() -> "Cannot change playback parameters, exoPlayerImpl is null");
         }
+    }
+
+    /**
+     * Changes whether the current ExoPlayer is ready to play.
+     *
+     * @param playing whether the player should be ready to play
+     * @return true if a playback-control method was invoked
+     */
+    public static boolean setPlayerPlaying(boolean playing) {
+        Utils.verifyOnMainThread();
+
+        ExoPlayerImpl exoPlayerImpl = exoPlayerImplRef.get();
+        if (exoPlayerImpl == null) {
+            Logger.printDebug(() -> "Cannot change playback state, exoPlayerImpl is null");
+            return false;
+        }
+
+        try {
+            exoPlayerImpl.patch_setPlayWhenReady(playing);
+            return true;
+        } catch (Exception e) {
+            Logger.printDebug(() -> "Failed to change playback state: " + e.getMessage());
+        }
+        return false;
     }
 
     /**
