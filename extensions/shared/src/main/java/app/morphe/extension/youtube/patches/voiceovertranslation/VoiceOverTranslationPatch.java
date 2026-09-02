@@ -7,6 +7,7 @@
  * Original author(s):
  * - anddea (https://github.com/anddea)
  * - Jav1x (https://github.com/Jav1x)
+ * - sashade8-ship-it (https://github.com/sashade8-ship-it)
  *
  * Licensed under the GNU General Public License v3.0.
  *
@@ -50,6 +51,7 @@ import android.media.MediaPlayer;
 import android.media.PlaybackParams;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.SystemClock;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -84,7 +86,8 @@ public class VoiceOverTranslationPatch {
     private static final AtomicBoolean isTranslating = new AtomicBoolean(false);
     private static final AtomicLong translationRequestGeneration = new AtomicLong();
     private static final AtomicReference<String> currentTranslatedVideoId = new AtomicReference<>("");
-    private static volatile long translationWaitUntilMs = 0L;
+    private static volatile long translationWaitStartedAtMs = 0L;
+    private static volatile long translationWaitDurationMs = 0L;
     private static volatile String lastFailedAudioFallbackUrl = "";
     private static volatile String lastEmptyAudioFallbackKey = "";
     private static volatile String lastAudioDownloadAttemptKey = "";
@@ -236,21 +239,62 @@ public class VoiceOverTranslationPatch {
 
     public static String getTranslationRequestStatusText() {
         if (!isTranslationRequestInProgress()) return "";
-        long waitUntil = translationWaitUntilMs;
-        if (waitUntil > 0) {
-            long remainingMs = waitUntil - System.currentTimeMillis();
-            int remainingSeconds = (int) Math.max(1, (remainingMs + 999) / 1000);
-            return str("revanced_vot_stream_waiting", formatRemainingTime(remainingSeconds));
-        }
-        return str("revanced_vot_stream_requesting");
+        int remainingSeconds = getTranslationRequestRemainingSeconds();
+        return remainingSeconds > 0
+                ? formatRemainingSeconds(remainingSeconds)
+                : str("revanced_vot_stream_waiting_status");
     }
 
-    private static void setTranslationRequestWaiting(int seconds) {
-        translationWaitUntilMs = System.currentTimeMillis() + Math.max(1, seconds) * 1000L;
+    /**
+     * Returns the exact whole-second countdown from the first positive server estimate.
+     * A negative value means that no estimate is available or that it has expired.
+     */
+    public static int getTranslationRequestRemainingSeconds() {
+        long remainingMs = getTranslationRequestRemainingMs();
+        return remainingMs > 0L ? (int) ((remainingMs + 999L) / 1000L) : -1;
     }
 
-    private static void clearTranslationRequestProgress() {
-        translationWaitUntilMs = 0L;
+    /**
+     * Returns the fraction of the original server estimate that is still remaining.
+     * A negative value means that no estimate is available or that it has expired, so the UI
+     * should use an indeterminate indicator while the request continues to be polled.
+     */
+    public static float getTranslationRequestProgressFraction() {
+        long waitDuration = translationWaitDurationMs;
+        long remainingMs = getTranslationRequestRemainingMs();
+        if (waitDuration <= 0L || remainingMs <= 0L) return -1.0f;
+        return Math.max(0.0f, Math.min(1.0f, remainingMs / (float) waitDuration));
+    }
+
+    /**
+     * Uses one monotonic deadline for both the seconds label and the circular progress.
+     * The API's remainingTime field is expressed in seconds; it is never treated as minutes.
+     */
+    private static long getTranslationRequestRemainingMs() {
+        if (!isTranslationRequestInProgress()) return -1L;
+        long waitStartedAt = translationWaitStartedAtMs;
+        long waitDuration = translationWaitDurationMs;
+        if (waitStartedAt <= 0L || waitDuration <= 0L) return -1L;
+
+        long remainingMs = waitDuration - (SystemClock.elapsedRealtime() - waitStartedAt);
+        if (remainingMs <= 0L) return -1L;
+        return remainingMs;
+    }
+
+    private static synchronized void setTranslationRequestWaiting(
+            long requestId, String videoId, int seconds
+    ) {
+        if (!isCurrentTranslationRequestGeneration(requestId, videoId)
+                || seconds <= 0 || translationWaitDurationMs > 0L) return;
+
+        long durationMs = seconds * 1000L;
+        translationWaitStartedAtMs = SystemClock.elapsedRealtime();
+        translationWaitDurationMs = durationMs;
+    }
+
+    private static synchronized void clearTranslationRequestProgress() {
+        translationWaitDurationMs = 0L;
+        translationWaitStartedAtMs = 0L;
     }
 
     private static void clearPausedVideoState() {
@@ -266,12 +310,20 @@ public class VoiceOverTranslationPatch {
     }
 
     private static boolean isCurrentTranslationRequest(long requestId, String videoId) {
+        return isCurrentTranslationRequestGeneration(requestId, videoId)
+                && videoId.equals(VideoInformation.getVideoId());
+    }
+
+    /**
+     * Checks request ownership without depending on the player hook's transient video-ID state.
+     * Translation responses are already gated by this generation before their UI state is read.
+     */
+    private static boolean isCurrentTranslationRequestGeneration(long requestId, String videoId) {
         return requestId != 0L
                 && requestId == translationRequestGeneration.get()
                 && videoId != null
                 && !videoId.isEmpty()
-                && videoId.equals(pendingVideoId)
-                && videoId.equals(VideoInformation.getVideoId());
+                && videoId.equals(pendingVideoId);
     }
 
     private static void pauseVideoForTranslation(String videoId, long requestId) {
@@ -393,12 +445,12 @@ public class VoiceOverTranslationPatch {
         });
     }
 
-    static String formatRemainingTime(int seconds) {
-        if (seconds < 60) {
-            return str("revanced_vot_time_sec", Math.max(1, seconds));
-        }
-        int minutes = (seconds + 30) / 60;
-        return str("revanced_vot_time_min", minutes);
+    /**
+     * Formats an API ETA without converting seconds to minutes, so a received value of 120 is
+     * shown as 120 sec and matches the countdown shown beside the progress ring.
+     */
+    static String formatRemainingSeconds(int seconds) {
+        return str("revanced_vot_time_sec", Math.max(1, seconds));
     }
 
     private static void requestTranslation(
@@ -413,12 +465,6 @@ public class VoiceOverTranslationPatch {
                     youtubeUrl, durationSeconds, sourceLang, targetLang, videoTitle);
             if (!isCurrentTranslationRequest(requestId, videoId)) return;
             if (result == null) {
-                if (Settings.VOT_USE_LIVE_VOICES.get()) {
-                    Settings.VOT_USE_LIVE_VOICES.save(false);
-                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
-                    requestTranslation(videoId, videoTitle, sourceLang, targetLang, durationSeconds, requestId);
-                    return;
-                }
                 Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
                 return;
             }
@@ -442,23 +488,36 @@ public class VoiceOverTranslationPatch {
                     break;
                 case VotApiClient.STATUS_WAITING:
                 case VotApiClient.STATUS_LONG_WAITING:
-                    int waitTime = result.remainingTime() > 0 ? result.remainingTime() : 5;
-                    setTranslationRequestWaiting(waitTime);
-                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting", formatRemainingTime(waitTime))));
-                    pollTranslation(requestId, videoId, videoTitle, youtubeUrl, durationSeconds, sourceLang, targetLang, waitTime);
+                    int waitTime = result.remainingTime();
+                    setTranslationRequestWaiting(requestId, videoId, waitTime);
+                    if (waitTime > 0) {
+                        Utils.runOnMainThread(() -> showToastShort(str(
+                                "revanced_vot_stream_waiting", formatRemainingSeconds(waitTime))));
+                    } else {
+                        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting_status")));
+                    }
+                    pollTranslation(requestId, videoId, videoTitle, youtubeUrl, durationSeconds,
+                            sourceLang, targetLang, waitTime > 0 ? waitTime : 5);
                     break;
                 case VotApiClient.STATUS_AUDIO_REQUESTED:
-                    int audioWaitTime = result.remainingTime() > 0 ? result.remainingTime() : 10;
-                    setTranslationRequestWaiting(audioWaitTime);
-                    Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting", formatRemainingTime(audioWaitTime))));
-                    handleAudioRequested(requestId, videoId, youtubeUrl, result.translationId(), durationSeconds, sourceLang, targetLang, videoTitle, audioWaitTime);
+                    int audioWaitTime = result.remainingTime();
+                    setTranslationRequestWaiting(requestId, videoId, audioWaitTime);
+                    if (audioWaitTime > 0) {
+                        Utils.runOnMainThread(() -> showToastShort(str(
+                                "revanced_vot_stream_waiting", formatRemainingSeconds(audioWaitTime))));
+                    } else {
+                        Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting_status")));
+                    }
+                    handleAudioRequested(requestId, videoId, youtubeUrl, result.translationId(),
+                            durationSeconds, sourceLang, targetLang, videoTitle,
+                            audioWaitTime > 0 ? audioWaitTime : 10);
                     break;
                 case VotApiClient.STATUS_SESSION_REQUIRED:
                     Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_auth_required")));
                     break;
                 case VotApiClient.STATUS_FAILED:
                 default:
-                    if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                    if (Settings.VOT_USE_LIVE_VOICES.get() && VotApiClient.isLivelyVoiceUnavailableError(result.message())) {
                         Settings.VOT_USE_LIVE_VOICES.save(false);
                         Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
                         requestTranslation(videoId, videoTitle, sourceLang, targetLang, durationSeconds, requestId);
@@ -487,6 +546,7 @@ public class VoiceOverTranslationPatch {
         VotApiClient.TranslationResult result = VotApiClient.pollUntilReady(
                 url, duration, sourceLang, targetLang, videoTitle,
                 waitSeconds,
+                false,
                 new VotApiClient.PollHandler() {
                     @Override
                     public boolean isCancelled() {
@@ -515,9 +575,10 @@ public class VoiceOverTranslationPatch {
                     }
 
                     @Override
-                    public boolean onFailed() {
+                    public boolean onFailed(VotApiClient.TranslationResult failedResult) {
                         if (!isCurrentTranslationRequest(requestId, videoId)) return false;
-                        if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                        if (Settings.VOT_USE_LIVE_VOICES.get()
+                                && VotApiClient.isLivelyVoiceUnavailableError(failedResult.message())) {
                             Settings.VOT_USE_LIVE_VOICES.save(false);
                             Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
                             return true;
@@ -535,9 +596,13 @@ public class VoiceOverTranslationPatch {
 
                     @Override
                     public void onWaiting(int wait, boolean isFirstWait) {
-                        if (isCurrentTranslationRequest(requestId, videoId)) {
-                            setTranslationRequestWaiting(wait);
-                        }
+                        // This only fills in an estimate when the initial response did not
+                        // provide one. A later estimate can never refill or shorten the
+                        // original countdown.
+                        setTranslationRequestWaiting(requestId, videoId, wait);
+                        // The server's later remainingTime values control polling cadence only.
+                        // Keeping the first estimate prevents the visible progress from jumping
+                        // from the original ETA to a shorter countdown on the first poll.
                     }
                 }
         );
