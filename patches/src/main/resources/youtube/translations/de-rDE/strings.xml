@@ -28,7 +28,7 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="morphe_disable_drc_audio_title">Audiokompression (DRC) deaktivieren</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
-    <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
+    <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Livestream-DVR-Dauer erweitern' ist möglicherweise nicht verfügbar
 
 Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standard-Client' auf 'TV Simply' oder 'visionOS' um"</string>
@@ -36,6 +36,7 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_expand_livestream_dvr_duration_title">Livestream DVR-Dauer erweitern</string>
     <string name="morphe_explore_menu_screen_summary">Wähle aus, welche Einträge im Entdecken-Menü angezeigt werden sollen</string>
     <string name="morphe_explore_menu_screen_title">Entdecken-Menü</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Wenn es nicht funktioniert, versuche, MicroG zwangsweise zu beenden</string>
     <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \"Video-Streams fälschen\" auf einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
@@ -46,6 +47,27 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_fullscreen_video_scale_entry_stretch">Strecken (Bildschirm ausfüllen)</string>
     <string name="morphe_fullscreen_video_scale_entry_zoom">Zoomen (Zuschneiden zum Ausfüllen)</string>
     <string name="morphe_fullscreen_video_scale_title">Vollbild-Videoskalierung</string>
+    <string name="morphe_hide_aislist_about_summary">"Die Startseite und Suchergebnisse werden gefiltert, um die von AiSList als KI-generiert gekennzeichneten Videos auszublenden
+
+Einschränkungen:
+• Gefilterte KI-Shorts werden möglicherweise als leerer Bereich angezeigt
+• Einige KI-Videos werden möglicherweise weiterhin angezeigt"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"Daten werden von AiSList bereitgestellt
+
+Tippen Sie hier, um AiSlopList.com zu öffnen und Downloads für andere Plattformen anzuzeigen"</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">Blockierliste: Hohe Wahrscheinlichkeit</string>
+    <string name="morphe_hide_aislist_hide_home_title">Videos auf Startseite ausblenden</string>
+    <string name="morphe_hide_aislist_hide_search_title">Videos in der Suche ausblenden</string>
+    <string name="morphe_hide_aislist_screen_summary">Videos von Kanälen ausblenden, die von der AiSList-Community als KI-generierte Inhalte gekennzeichnet wurden</string>
+    <string name="morphe_hide_aislist_screen_title">KI-Kanalfilter</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">Kanäle in der Blocklist</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">Filter aktivieren, um Kanäle zu laden</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">Kanäle werden geladen…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Startseite: %s
+• Suche: %s
+• Insgesamt: %s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">Kanäle in der Warnliste</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">Warnliste: Moderate Wahrscheinlichkeit</string>
     <string name="morphe_hide_courses_menu_title">Eintrag „Kurse“ ausblenden</string>
     <string name="morphe_hide_explore_button_title">Schaltfläche „Entdecken“ ausblenden</string>
     <string name="morphe_hide_fashion_menu_title">Eintrag „Mode &amp; Beauty“ ausblenden</string>
@@ -68,6 +90,10 @@ Um das Menü anzuzeigen, ändern Sie \"Video-Streams fälschen\" in einen belieb
     <string name="morphe_hide_privacy_tos_footer_title">Rechtliche Hinweise und Datenschutz-Footer ausblenden</string>
     <string name="morphe_hide_shopping_menu_title">Eintrag „Shopping“ ausblenden</string>
     <string name="morphe_hide_sports_menu_title">Eintrag „Sport“ ausblenden</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">Zähler der letzten 24 Stunden zurücksetzen?</string>
+    <string name="morphe_hide_stats_hidden_24h_title">Ausgeblendete Videos, letzte 24 Stunden</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">Zähler für den gesamten Zeitraum zurücksetzen?</string>
+    <string name="morphe_hide_stats_hidden_all_title">Ausgeblendete Videos, insgesamt</string>
     <string name="morphe_hide_sync_button_title">Schaltfläche „Mit Video synchronisieren“ ausblenden</string>
     <string name="morphe_hide_youtube_create_menu_title">Eintrag „YouTube Create“ ausblenden</string>
     <string name="morphe_hide_youtube_kids_menu_title">Eintrag „Youtube Kids“ ausblenden</string>
@@ -90,12 +116,16 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="morphe_oauth2_toast_invalid">Ungültiger VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
     <string name="morphe_oauth2_toast_reset">Von Android VR abgemeldet</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">Verhindert, dass der Livestream geöffnet wird, wenn Sie auf das Avatar des Kanals tippen</string>
+    <string name="morphe_open_channel_of_live_avatar_title">Kanal vom Live-Avatar aus öffnen</string>
     <string name="morphe_override_youtube_music_buttons_summary">Öffnet deine bevorzugte Musik-App anstelle der Standard-YouTube-Music-App</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube-Music-Schaltfläche überschreiben</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Immer an</string>
     <string name="morphe_playback_in_feeds_entry_off">Aus</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Nur über WLAN</string>
     <string name="morphe_playback_in_feeds_title">Wiedergabe in Feeds</string>
+    <string name="morphe_queue_manager_check_failed_auth">Nicht angemeldet</string>
+    <string name="morphe_queue_manager_check_failed_video_id">Keine Video-ID</string>
     <string name="morphe_reload_video_summary_off">Schaltfläche „Video wiederholen“ ist ausgeblendet</string>
     <string name="morphe_reload_video_summary_on">Schaltfläche „Video wiederholen“ wird angezeigt</string>
     <string name="morphe_reload_video_title">Video-Wiederholschaltfläche anzeigen</string>
@@ -107,6 +137,14 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_title">Freigabelinks bereinigen</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">Dieses Video ist bereits zur Wiedergabeliste \"Später ansehen\" hinzugefügt</string>
+    <string name="morphe_save_to_watch_later_button_summary">Tippen zum Speichern unter \'Später ansehen\', tippen und halten für Warteschlangenoptionen</string>
+    <string name="morphe_save_to_watch_later_button_title">Schaltfläche \'Später ansehen\' anzeigen</string>
+    <string name="morphe_save_to_watch_later_error_toast">Dieses Video kann nicht zur Wiedergabeliste \"Später ansehen\" hinzugefügt werden</string>
+    <string name="morphe_save_to_watch_later_flyout_title">Später ansehen</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Ermöglicht das Speichern von kinderbezogenen Videos im Flyout-Menü „Später ansehen“</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Schaltfläche \'Später ansehen\' in Kinder-Videos anzeigen</string>
+    <string name="morphe_save_to_watch_later_success_toast">Video erfolgreich zur Wiedergabeliste \"Später ansehen\" hinzugefügt</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Am häufigsten wiederholt</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Zeigt ein Vorschaubild beim Ziehen des Fortschrittsbalkens an</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Vorschaubild beim Suchen anzeigen</string>
@@ -114,6 +152,9 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_settings_menu_filter_picker_empty">Öffnen Sie den Bildschirm der Standard-App-Einstellungen einmal, um die Liste zu befüllen</string>
     <string name="morphe_settings_menu_filter_screen_summary">Elemente auf dem Bildschirm der Standard-App-Einstellungen anhand ihres sichtbaren Namens ausblenden</string>
     <string name="morphe_settings_menu_filter_screen_title">Filter für das Einstellungsmenü</string>
+    <string name="morphe_settings_name_custom_item_hint">Name eingeben</string>
+    <string name="morphe_settings_name_empty_warning">Name darf nicht leer sein</string>
+    <string name="morphe_settings_name_title">RVX-Einstellungsname</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Farbe</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monochrom</string>
     <string name="morphe_splash_screen_animation_style_title">Art des Begrüßungsbildschirms</string>
@@ -172,6 +213,8 @@ Die Wiedergabe funktioniert möglicherweise nicht"</string>
 
 Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">Tippen für Warteschlangenoptionen, tippen und halten, um zu „Später ansehen“ hinzuzufügen</string>
+    <string name="morphe_swap_save_and_queue_actions_title">Tausche Speichern- und Warteschlangenaktionen</string>
     <string name="morphe_tablet_layout_in_player_summary">"Stellt das alte Player-Layout wieder her
 
 Einschränkung: Wenn \"Alte Video-Aktionsleiste wiederherstellen\" deaktiviert ist, ist das Overlay \"Mehr Videos\" möglicherweise nicht verfügbar"</string>
@@ -255,20 +298,22 @@ Durch Aktivieren dieser Option können fehlende Bilder behoben werden, die in ei
     <string name="revanced_change_form_factor_entry_5">Tablet (min. 600 dp)</string>
     <string name="revanced_change_form_factor_entry_6">Automobil</string>
     <string name="revanced_change_form_factor_title">Geräte-Layout</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Änderungen umfassen:
+    <string name="revanced_change_form_factor_user_dialog_message">"Die Änderungen umfassen:
 
 Tablet-Layout
-• Community-Beiträge werden ausgeblendet
-• Wiedergabe in Feeds-Einstellung ist nicht verfügbar
-• Remix-Schaltfläche und Sound-Schaltfläche sind in Shorts nicht verfügbar
-• Nicht zusammengeklappte alte Video-Aktionsleiste wird angezeigt
+• Community-Beiträge sind ausgeblendet
+• Die Einstellung 'Wiedergabe in Feeds' ist nicht verfügbar
+• Remix-Button und Sound-Button sind in Shorts nicht verfügbar
+• 'Weitere Videos'-Overlay ist möglicherweise nicht verfügbar
+• Die alte, nicht eingeklappte Video-Aktionsleiste wird angezeigt
 
-Automobil-Layout
-• Feed ist nach Themen und Kanälen organisiert
-• Wiedergabe in Feeds-Einstellung ist nicht verfügbar
-• Remix-Schaltfläche und Sound-Schaltfläche sind in Shorts nicht verfügbar
-• Shorts werden im regulären Player geöffnet
-• Nicht zusammengeklappte alte Video-Aktionsleiste wird angezeigt"</string>
+Automotive-Layout
+• Der Feed ist nach Themen und Kanälen organisiert
+• Die Einstellung 'Wiedergabe in Feeds' ist nicht verfügbar
+• Remix-Button und Sound-Button sind in Shorts nicht verfügbar
+• 'Weitere Videos'-Overlay ist möglicherweise nicht verfügbar
+• Shorts werden im normalen Player geöffnet
+• Die alte, nicht eingeklappte Video-Aktionsleiste wird angezeigt"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Schalter werden verwendet</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Textschalter werden verwendet</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Umschalttyp ändern</string>
@@ -412,6 +457,7 @@ Einstellungen → Autoplay / Wiedergabe → Nächstes Video Autoplay"</string>
     <string name="revanced_disable_engagement_panel_summary_off">Engagement Panel ist aktiviert</string>
     <string name="revanced_disable_engagement_panel_summary_on">Engagement Panel ist deaktiviert</string>
     <string name="revanced_disable_engagement_panel_title">Engagement-Panel deaktivieren</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">Pinch-to-Zoom-Geste deaktivieren</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Kapitelhaptik ist aktiviert</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Kapitelhaptik ist deaktiviert</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Kapitelhaptik deaktivieren</string>
@@ -449,6 +495,7 @@ Folgende Änderungen werden vorgenommen:
     <string name="revanced_disable_like_dislike_glow_summary_off">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchtet, wenn sie erwähnt werden</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchten nicht, wenn sie erwähnt werden</string>
     <string name="revanced_disable_like_dislike_glow_title">Leuchten der \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen deaktivieren</string>
+    <string name="revanced_disable_playlist_autoplay_title">Playlist-Autoplay deaktivieren</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine's QUIC-Protokoll deaktivieren"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Weiter beobachten&lt;/b&gt; wird beim Start der App fortgesetzt.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Weiter&lt;/b&gt; ist die YouTube Premium-Funktion.&lt;br&gt;• Diese Einstellung erzwingt &lt;b&gt;Weiter&lt;/b&gt; nicht zum Aktivieren</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Weiter beobachten&lt;/b&gt; wird beim Start der App nicht fortgesetzt</string>
@@ -488,7 +535,7 @@ Information:
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Wischen zum Beenden des Vollbildmodus deaktivieren</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_off">Statusleiste ist transluzent</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">Navigationsleiste ist durchsichtig</string>
-    <string name="revanced_disable_translucent_navigation_bar_title">Transluzente Statusleiste deaktivieren </string>
+    <string name="revanced_disable_translucent_navigation_bar_title">Transluzente Statusleiste deaktivieren</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">Die Statusleiste ist undurchsichtig oder durchscheinend</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Statusleiste ist undurchsichtig</string>
     <string name="revanced_disable_translucent_status_bar_title">Transluzente Statusleiste deaktivieren</string>
@@ -640,6 +687,14 @@ Bekanntes Problem: Manchmal erscheint die Wisch-Überlagerung, bevor zum Vollbil
     <string name="revanced_fix_transcript_summary_off">Transkript kann aufgrund eines Vorbedingungsprüfungsfehlers nicht verfügbar sein</string>
     <string name="revanced_fix_transcript_summary_on">Transkript verfügbar</string>
     <string name="revanced_fix_transcript_title">Transkript reparieren</string>
+    <string name="revanced_force_hdr_video_summary">Zwingt die App, dieses Gerät als HDR-fähig zu erkennen</string>
+    <string name="revanced_force_hdr_video_title">HDR-Video erzwingen</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"Verwenden Sie dies, wenn HDR-Dekodierung funktioniert, YouTube jedoch kein HDR anbietet, wie z. B. einige HyperOS-Geräte, die HLG verbergen
+
+Einschränkungen:
+• Farben können falsch aussehen, wenn das Display tatsächlich kein HDR anzeigen kann
+• Die Wiedergabe kann fehlschlagen, wenn der Decoder HDR nicht verarbeiten kann
+• HDR hängt weiterhin vom Client für das Spoofing von Video-Streams ab"</string>
     <string name="revanced_fullscreen_ads_closed_toast">Vollbildwerbung wurde geschlossen</string>
     <string name="revanced_gemini_cancelled">Abgebrochen</string>
     <string name="revanced_gemini_chat_input_hint">Frage zu diesem Video</string>
@@ -832,7 +887,7 @@ Einschränkung: Einige markierte Suchlinks, die keinen Standard-Textstil haben, 
     <string name="revanced_hide_crowdfunding_box_title">Crowdfunding-Box ausblenden</string>
     <string name="revanced_hide_dislike_button_summary_off">Dislikes werden angezeigt</string>
     <string name="revanced_hide_dislike_button_summary_on">Dislikes werden versteckt</string>
-    <string name="revanced_hide_dislike_button_title">Dislikes verstecken </string>
+    <string name="revanced_hide_dislike_button_title">Dislikes verstecken</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">Filter für Doppeltippen wird angezeigt</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">Doppeltipp-Overlay-Filter ausgeblendet</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Doppeltipp-Overlay-Filter ausblenden</string>
@@ -977,7 +1032,7 @@ Wörter mit Großbuchstaben in der Mitte müssen exakt übereinstimmen (z. B. iP
     <string name="revanced_hide_latest_videos_button_title">Schaltfläche „Neueste Videos“ ausblenden</string>
     <string name="revanced_hide_like_button_summary_off">Likes werden angezeigt</string>
     <string name="revanced_hide_like_button_summary_on">Likes werden versteckt</string>
-    <string name="revanced_hide_like_button_title">Likes verstecken </string>
+    <string name="revanced_hide_like_button_title">Likes verstecken</string>
     <string name="revanced_hide_like_dislike_button_summary_off">\"Gefällt mir\"-Tasten werden angezeigt</string>
     <string name="revanced_hide_like_dislike_button_summary_on">\"Gefällt mir\"-Tasten sind ausgeblendet</string>
     <string name="revanced_hide_like_dislike_button_title">Like- und Dislike-Schaltfläche ausblenden</string>
@@ -2272,7 +2327,7 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Helligkeit beim Beenden oder Einschalten des Vollbildes nicht speichern und wiederherstellen</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Helligkeit speichern und wiederherstellen, wenn Vollbild verlassen oder betreten wird</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Helligkeit speichern und wiederherstellen</string>
-    <string name="revanced_swipe_seek_title">Wischgesten aktivieren </string>
+    <string name="revanced_swipe_seek_title">Wischgesten aktivieren</string>
     <string name="revanced_swipe_speed_title">Geste für Geschwindigkeitssteuerung aktivieren</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">Die Textgröße muss zwischen 1 und 30 liegen</string>
     <string name="revanced_swipe_text_overlay_size_summary">Passt die Größe auf dem Bildschirm an (1-30)</string>

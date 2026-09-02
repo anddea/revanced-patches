@@ -38,17 +38,14 @@ Tap the continue button and allow optimization changes"</string>
     <string name="morphe_custom_branding_name_title">App name</string>
     <string name="morphe_custom_branding_splash_animation_size_summary">Sets the size of the custom splash animation</string>
     <string name="morphe_custom_branding_splash_animation_size_title">Splash animation size</string>
-    <string name="morphe_custom_branding_use_as_system_splash_summary">Uses the selected animation as Android's system splash</string>
-    <string name="morphe_custom_branding_use_as_system_splash_title">Use as system splash</string>
     <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
     <string name="morphe_dark_theme_custom_color_title">Custom theme color</string>
     <string name="morphe_dark_theme_title">App theme</string>
-    <string name="morphe_notification_dot_color_summary">Changes the color of notification dots</string>
-    <string name="morphe_notification_dot_color_title">Notification dot color</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">If it does not work, try force-closing MicroG</string>
     <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Always plays the video\'s original audio track instead of a dubbed version</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
@@ -129,6 +126,8 @@ When no third-party lyrics are found, the built-in lyrics are shown instead"</st
     <string name="morphe_music_lyrics_translate_hide">Show original</string>
     <string name="morphe_music_lyrics_translate_show">Translate</string>
     <string name="morphe_music_lyrics_translating">Translating…</string>
+    <string name="morphe_notification_dot_color_summary">Changes the color of notification dots</string>
+    <string name="morphe_notification_dot_color_title">Notification dot color</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Cannot sign in to VR, website authentication was not approved</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 is temporarily not available</string>
@@ -137,14 +136,13 @@ When no third-party lyrics are found, the built-in lyrics are shown instead"</st
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
     <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
-    <string name="morphe_potoken_provider_title">PoToken provider</string>
     <string name="morphe_potoken_provider_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 If you are a YouTube Premium user, this setting may not be required"</string>
+    <string name="morphe_potoken_provider_title">PoToken provider</string>
     <string name="morphe_potoken_provider_unavailable_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 To use this feature, turn off \'Spoof video streams\'"</string>
-    <string name="morphe_external_potoken_provider_user_dialog_message">If it does not work, try force-closing MicroG</string>
     <string name="morphe_replace_music_with_youtube_summary">Shared links use youtube.com instead of music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
@@ -157,15 +155,13 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_settings_menu_filter_picker_empty">Open the standard app settings screen once to populate the list</string>
     <string name="morphe_settings_menu_filter_screen_summary">Hide items on the standard app settings screen by their visible name</string>
     <string name="morphe_settings_menu_filter_screen_title">Settings menu filter</string>
-    <string name="morphe_settings_name_title">RVX settings name</string>
-    <string name="morphe_settings_name_default_item">Default</string>
-    <string name="morphe_settings_name_entry_1" translatable="false">ReVanced Extended</string>
-    <string name="morphe_settings_name_entry_2">Extras</string>
-    <string name="morphe_settings_name_entry_3">Tweaks</string>
-    <string name="morphe_settings_name_entry_4">Premium</string>
-    <string name="morphe_settings_name_custom_item">Custom</string>
     <string name="morphe_settings_name_custom_item_hint">Enter a name</string>
     <string name="morphe_settings_name_empty_warning">Name cannot be empty</string>
+    <string name="morphe_settings_name_entry_1" translatable="false">ReVanced Extended</string>
+    <string name="morphe_settings_name_entry_2" translatable="false">Extras</string>
+    <string name="morphe_settings_name_entry_3" translatable="false">Tweaks</string>
+    <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
+    <string name="morphe_settings_name_title">RVX settings name</string>
     <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
     <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
@@ -249,6 +245,7 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_summary">Select which page the app opens in</string>
     <string name="revanced_change_start_page_title">Change start page</string>
+    <string name="revanced_confirm_user_dialog_title">Are you sure you want to proceed?</string>
     <string name="revanced_credits_title">Credits</string>
     <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter, separated by new lines</string>
     <string name="revanced_custom_filter_strings_title">Custom filter</string>

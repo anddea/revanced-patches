@@ -104,6 +104,10 @@ def update_strings(
 
     """
     blacklist: set[str] = {
+        "morphe_settings_name_entry_1",
+        "morphe_settings_name_entry_2",
+        "morphe_settings_name_entry_3",
+        "morphe_settings_name_entry_4",
         "revanced_enable_swipe_brightness_summary_off",
         "revanced_enable_swipe_brightness_summary_on",
         "revanced_enable_swipe_volume_summary_off",

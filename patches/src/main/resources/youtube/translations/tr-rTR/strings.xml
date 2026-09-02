@@ -18,7 +18,7 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin"</string
     <string name="gms_core_dialog_title">Eylem gerekli</string>
     <string name="gms_core_offline_account_login_error">Yakın zamanda hesap giriş bilgilerinizi değiştirdiyseniz, GmsCore\'u kaldırıp yeniden yükleyin</string>
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin</string>
-    <string name="gms_core_settings_title">GmsCore ayarlarını aç </string>
+    <string name="gms_core_settings_title">GmsCore ayarlarını aç</string>
     <string name="gms_core_toast_not_installed_message">MicroG yüklenmemiş. Yükleyin</string>
     <string name="morphe_custom_branding_icon_title">Uygulama simgesi</string>
     <string name="morphe_dark_theme_title">Koyu tema</string>
@@ -37,6 +37,7 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_expand_livestream_dvr_duration_title">Canlı yayın DVR süresini uzat</string>
     <string name="morphe_explore_menu_screen_summary">Keşfet menüsünde hangi bileşenlerin görüneceğini seçin</string>
     <string name="morphe_explore_menu_screen_title">Menüyü keşfet</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Çalışmazsa, MicroG\'u zorla kapatmayı deneyin</string>
     <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için, \'Video akışlarını taklit et\' ayarını \'Android Studio\' ve \'Android VR Downgraded\' dışındaki herhangi bir istemciye değiştirin</string>
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
@@ -47,6 +48,27 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_fullscreen_video_scale_entry_stretch">Esnet (ekranı doldur)</string>
     <string name="morphe_fullscreen_video_scale_entry_zoom">Yakınlaştır (kırparak doldur)</string>
     <string name="morphe_fullscreen_video_scale_title">Tam ekran video ölçeği</string>
+    <string name="morphe_hide_aislist_about_summary">"Ana sayfa ve arama sonuçları, AiSList tarafından işaretlenen kanallardan gelen videoları gizlemek için filtrelenir
+
+Sınırlamalar:
+• Filtrelenmiş AI Shorts boş bir alan olarak görünebilir
+• Bazı yapay zeka videoları hala gösterilebilir"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"Veriler AiSList tarafından sağlanır
+
+AiSlopList.com'u açmak ve diğer platformlar için indirmeleri görmek için buraya dokunun"</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">Engelleme Listesi: Yüksek güven</string>
+    <string name="morphe_hide_aislist_hide_home_title">Videoları Ana sayfada gizle</string>
+    <string name="morphe_hide_aislist_hide_search_title">Videoları aramada gizle</string>
+    <string name="morphe_hide_aislist_screen_summary">AiSList topluluğu tarafından yapay zeka tarafından oluşturulan içerik olarak işaretlenen kanallardan videoları gizle</string>
+    <string name="morphe_hide_aislist_screen_title">Yapay zeka kanalı filtresi</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">Engellenen kanallar</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">Kanalları yüklemek için bir filtre etkinleştirin</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">Kanallar yükleniyor…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Ana Sayfa: %s
+• Arama: %s
+• Toplam: %s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">Uyarı listesindeki kanallar</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">Uyarı Listesi: Orta güven</string>
     <string name="morphe_hide_courses_menu_title">Dersler menüsünü gizle</string>
     <string name="morphe_hide_explore_button_title">Keşfet düğmesini gizle</string>
     <string name="morphe_hide_fashion_menu_title">\'Moda &amp; Güzellik\' menüsünü gizle</string>
@@ -69,6 +91,10 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_hide_privacy_tos_footer_title">Yasal ve gizlilik altbilgilerini gizle</string>
     <string name="morphe_hide_shopping_menu_title">Alışveriş menüsünü gizle</string>
     <string name="morphe_hide_sports_menu_title">Sporlar menüsünü gizle</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">Son 24 saat sayacını sıfırla?</string>
+    <string name="morphe_hide_stats_hidden_24h_title">Son 24 saatte gizlenen videolar</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">Tüm zamanlayıcıyı sıfırla?</string>
+    <string name="morphe_hide_stats_hidden_all_title">Tüm zamanlarda gizlenen videolar</string>
     <string name="morphe_hide_sync_button_title">\'Videoyla senkronize et\' düğmesini gizle</string>
     <string name="morphe_hide_youtube_create_menu_title">YouTube Oluştur menüsünü gizle</string>
     <string name="morphe_hide_youtube_kids_menu_title">YouTube Kids menüsünü gizle</string>
@@ -91,12 +117,16 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="morphe_oauth2_toast_invalid">Geçersiz VR oturum açma belirteci, VR\'da tekrar oturum açmayı deneyin</string>
     <string name="morphe_oauth2_toast_reset">Android VR oturumu kapatıldı</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">Kanal avatarına dokunulduğunda canlı yayının açılmasını engeller</string>
+    <string name="morphe_open_channel_of_live_avatar_title">Canlı avatardan kanalı aç</string>
     <string name="morphe_override_youtube_music_buttons_summary">Tercih ettiğiniz müzik uygulamasını, yerleşik YouTube Music uygulaması yerine açar</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music düğmelerini değiştir</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Her zaman açık</string>
     <string name="morphe_playback_in_feeds_entry_off">Kapalı</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Yalnızca Wi-Fi üzerinde</string>
     <string name="morphe_playback_in_feeds_title">Beslemelerde oynatma</string>
+    <string name="morphe_queue_manager_check_failed_auth">Giriş yapılmadı</string>
+    <string name="morphe_queue_manager_check_failed_video_id">Video kimliği yok</string>
     <string name="morphe_reload_video_summary_off">Videoyu yeniden yükle düğmesi gösterilmiyor</string>
     <string name="morphe_reload_video_summary_on">Videoyu yeniden yükle düğmesi gösteriliyor</string>
     <string name="morphe_reload_video_title">Videoyu yeniden yükle düğmesini göster</string>
@@ -108,6 +138,14 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">Bu video daha sonra izle listesinde zaten kayıtlı</string>
+    <string name="morphe_save_to_watch_later_button_summary">Daha sonra izlemek için dokunun, sıra seçenekleri için basılı tutun</string>
+    <string name="morphe_save_to_watch_later_button_title">Daha sonra izle düğmesini göster</string>
+    <string name="morphe_save_to_watch_later_error_toast">Bu video daha sonra izle listesine kaydedilemiyor</string>
+    <string name="morphe_save_to_watch_later_flyout_title">Daha sonra izle</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Çocuklarla ilgili videoları \'Daha Sonra İzle\' açılır menüsünde kaydetmeye izin verir</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Çocuk videolarında daha sonra izle düğmesini göster</string>
+    <string name="morphe_save_to_watch_later_success_toast">Video, daha sonra izle listesine başarıyla kaydedildi</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">En çok tekrar oynatılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Arama çubuğunu sürüklerken video küçük resmini gösterir</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Zaman çubuğu küçük resimlerini etkinleştir</string>
@@ -115,6 +153,9 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_settings_menu_filter_picker_empty">Listeyi doldurmak için standart uygulama ayarları ekranını bir kez açın</string>
     <string name="morphe_settings_menu_filter_screen_summary">Görünür adlarına göre standart uygulama ayarları ekranındaki öğeleri gizle</string>
     <string name="morphe_settings_menu_filter_screen_title">Ayarlar menüsü filtresi</string>
+    <string name="morphe_settings_name_custom_item_hint">Bir ad gir</string>
+    <string name="morphe_settings_name_empty_warning">Ad boş olamaz</string>
+    <string name="morphe_settings_name_title">RVX ayarları adı</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Renkli</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Tek renk</string>
     <string name="morphe_splash_screen_animation_style_title">Açılış ekranı stili</string>
@@ -173,6 +214,8 @@ Oynatma çalışmayabilir"</string>
 
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak oynatma sorunlarına yol açabilir</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">Sıra seçenekleri için dokunun, \'Daha Sonra İzle\'ye kaydetmek için basılı tutun</string>
+    <string name="morphe_swap_save_and_queue_actions_title">Kaydet ve Sıra eylemlerini değiştir</string>
     <string name="morphe_tablet_layout_in_player_summary">"Eski oynatıcı düzenini geri yükler
 
 Sınırlamalar: 'Eski video eylem çubuğunu geri yükle' kapatılırsa, 'Daha fazla video' katmanı kullanılamayabilir"</string>
@@ -269,20 +312,22 @@ Bunu etkinleştirmek, bazı bölgelerde engellenen eksik resimleri düzeltebilir
     <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
     <string name="revanced_change_form_factor_entry_6">Otomotiv</string>
     <string name="revanced_change_form_factor_title">Cihaz düzeni</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Değişiklikler şunları içerir:
+    <string name="revanced_change_form_factor_user_dialog_message">"Değişiklikler:
 
 Tablet düzeni
-• Topluluk gönderileri gizlenmiştir
-• Akış ayarlarında oynatma mevcut değildir
-• Remix düğmesi ve Ses düğmesi Shorts'ta mevcut değildir
-• Daraltılmamış, eski video eylem çubuğu gösterilir
+• Topluluk gönderileri gizlenir
+• Akışlarda oynatma ayarı kullanılamaz
+• Shorts'ta Remix düğmesi ve Ses düğmesi bulunmaz
+• 'Daha fazla video' katmanı kullanılamayabilir
+• Daraltılmamış eski video eylem çubuğu gösterilir
 
 Otomotiv düzeni
-• Akış konulara ve kanallara göre düzenlenmiştir
-• Akış ayarlarında oynatma mevcut değildir
-• Remix düğmesi ve Ses düğmesi Shorts'ta mevcut değildir
-• Shorts normal oynatıcıda açılır
-• Daraltılmamış, eski video eylem çubuğu gösterilir"</string>
+• Akış, konulara ve kanallara göre düzenlenmiştir
+• Akışlarda oynatma ayarı kullanılamaz
+• Shorts'ta Remix düğmesi ve Ses düğmesi kullanılamaz
+• \"Daha fazla video\" katmanı kullanılamayabilir
+• Shorts, normal oynatıcıda açılır
+• Daraltılmamış eski video eylem çubuğu gösterilir"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Anahtar geçişleri kullanılıyor</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Yazı geçişleri kullanılıryor</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Geçiş anahtarı tipini değiştir</string>
@@ -429,6 +474,7 @@ Ayarlar → Otomatik Oynatma / Oynatma → Sonraki videoyu otomatik oynat"</stri
     <string name="revanced_disable_engagement_panel_summary_off">Etkileşim paneli açık</string>
     <string name="revanced_disable_engagement_panel_summary_on">Etkileşim paneli devre dışı</string>
     <string name="revanced_disable_engagement_panel_title">Etkileşim panelini devre dışı bırak</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">Kıstırma ile yakınlaştırma hareketini devre dışı bırak</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Bölümler titreşimi etkin</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Bölümler titreşimi devre dışı</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Bölümler titreşimini devre dışı bırak</string>
@@ -466,6 +512,7 @@ Değişiklikler şunları içerir:
     <string name="revanced_disable_like_dislike_glow_summary_off">Beğen Ve beğenme butonları bahsedildiğinde parıldayacak</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Beğen Ve beğenme butonları bahsedildiğinde parıldamayacak</string>
     <string name="revanced_disable_like_dislike_glow_title">Beğen ve Beğenme düğmesinin parlamasını devre dışı bırak</string>
+    <string name="revanced_disable_playlist_autoplay_title">Çalma listelerinin otomatik olarak sonraki videoya geçmesini engeller</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine'in QUIC protokolünü devre dışı bırak"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;İzlemeye devam et&lt;/b&gt; özelliği, uygulama başlangıcında devam edecektir.&lt;br&gt;&lt;br&gt;Bilgi:&lt;br&gt;• &lt;b&gt;İzlemeye devam et&lt;/b&gt;, YouTube Premium özelliğidir.&lt;br&gt;• Bu ayar, &lt;b&gt;İzlemeye devam et&lt;/b&gt; özelliğinin etkinleştirilmesini zorlamaz</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;İzlemeye devam et&lt;/b&gt; özelliği, uygulama başlangıcında devam etmeyecektir</string>
@@ -653,6 +700,14 @@ Bilinen sorun: Bazen kaydırma kaplaması, tam ekran moduna geçmeden önce gör
     <string name="revanced_fix_transcript_summary_off">Ön koşul kontrolü başarısız olduğu için transkript mevcut olmayabilir</string>
     <string name="revanced_fix_transcript_summary_on">Transkript mevcut</string>
     <string name="revanced_fix_transcript_title">Transkript\'i düzelt</string>
+    <string name="revanced_force_hdr_video_summary">Uygulamayı bu cihazı HDR destekli olarak tanımaya zorlar</string>
+    <string name="revanced_force_hdr_video_title">HDR videoyu zorla</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"Bunu, HDR kod çözme çalışıyorsa ancak YouTube HDR sunmuyorsa kullanın, örneğin HLG'yi gizleyen bazı HyperOS cihazları gibi
+
+Sınırlamalar:
+• Ekran gerçekten HDR gösteremiyorsa renkler yanlış görünebilir
+• Kod çözücü HDR'yi işleyemezse oynatma başarısız olabilir
+• HDR hala spoof video akışı istemcisine bağlıdır"</string>
     <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamlar kapatıldı</string>
     <string name="revanced_gemini_cancelled">İptal edildi</string>
     <string name="revanced_gemini_chat_input_hint">Video hakkında bilgi al</string>
@@ -2478,7 +2533,6 @@ Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya 
     <string name="revanced_vot_stream_waiting">Bekleniyor… ~%s</string>
     <string name="revanced_vot_target_language_summary">Çevirilecek dili seçin</string>
     <string name="revanced_vot_target_language_title">Hedef dil</string>
-    <string name="revanced_vot_time_min">https://youtu.be/JQatRG3Tx18</string>
     <string name="revanced_vot_time_sec">%d saniye</string>
     <string name="revanced_vot_translation_volume_summary">Dublaj yapılan çeviri sesinin seviyesi</string>
     <string name="revanced_vot_translation_volume_title">Çeviri ses seviyesi</string>

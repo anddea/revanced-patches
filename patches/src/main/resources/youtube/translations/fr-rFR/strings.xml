@@ -36,16 +36,38 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_expand_livestream_dvr_duration_title">Étendre la durée du DVR des diffusions en direct</string>
     <string name="morphe_explore_menu_screen_summary">Choisissez les composants qui apparaissent dans le menu \'Explorer\'</string>
     <string name="morphe_explore_menu_screen_title">Menu \'Explorer\'</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Si cela ne fonctionne pas, essayez de forcer l\'arrêt de MicroG</string>
     <string name="morphe_force_original_audio_not_available">Pour utiliser cette fonctionnalité, changez \'Falsifier les flux vidéo\' et sélectionnez n\'importe quel client sauf \'Android Studio\' ou \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
     <string name="morphe_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
     <string name="morphe_force_original_audio_title">Forcer la langue audio d\'origine</string>
     <string name="morphe_fullscreen_large_seekbar_title">Activer la barre de progression large en plein écran</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Appuyez pour passer entre Par défaut, Étirer et Zoom</string>
-    <string name="morphe_fullscreen_video_scale_button_title">Afficher un bouton de mise à l’échelle de la vidéo</string>
-    <string name="morphe_fullscreen_video_scale_entry_stretch">Étirer (remplir l’écran)</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Afficher un bouton de mise à l\'échelle de la vidéo</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Étirer (remplir l\'écran)</string>
     <string name="morphe_fullscreen_video_scale_entry_zoom">Zoom (recadrer pour remplir)</string>
     <string name="morphe_fullscreen_video_scale_title">Échelle de la vidéo en plein écran</string>
+    <string name="morphe_hide_aislist_about_summary">"L'accueil et les résultats de recherche sont filtrés afin de masquer les vidéos provenant de chaînes signalées par AiSList
+
+Limitations :
+Les Shorts IA filtrés peuvent apparaître sous la forme d'un espace vide
+Certaines vidéos générées peuvent encore apparaître"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"Les données sont fournies par AiSList
+
+Appuyez ici pour ouvrir AiSlopList.com et voir les téléchargements disponibles pour les autres plateformes"</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">Liste de blocage : confiance élevée</string>
+    <string name="morphe_hide_aislist_hide_home_title">Masquer les vidéos dans \'Accueil\'</string>
+    <string name="morphe_hide_aislist_hide_search_title">Masquer les vidéos dans la recherche</string>
+    <string name="morphe_hide_aislist_screen_summary">Masquer les vidéos des chaînes signalées comme diffusant du contenu généré par IA par la liste communautaire AiSList</string>
+    <string name="morphe_hide_aislist_screen_title">Filtre des chaînes IA</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">Chaînes de la liste de blocage</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">Activer un filtre pour charger les chaînes</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">Chargement des chaînes…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Accueil : %s
+• Recherche : %s
+• Total : %s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">Chaînes de la liste d\'avertissement</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">Liste d\'avertissement : confiance modérée</string>
     <string name="morphe_hide_courses_menu_title">Masquer le menu \'Cours\'</string>
     <string name="morphe_hide_explore_button_title">Masquer le bouton \'Explorer\'</string>
     <string name="morphe_hide_fashion_menu_title">Masquer le menu \'Mode et beauté\'</string>
@@ -68,6 +90,10 @@ Pour afficher le menu 'Piste audio', changez 'Falsifier les flux vidéo' et sél
     <string name="morphe_hide_privacy_tos_footer_title">Masquer les pieds de page juridiques et de confidentialité</string>
     <string name="morphe_hide_shopping_menu_title">Masquer le menu \'Shopping\'</string>
     <string name="morphe_hide_sports_menu_title">Masquer le menu \'Sport\'</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">Réinitialiser le compteur des dernières 24 heures ?</string>
+    <string name="morphe_hide_stats_hidden_24h_title">Vidéos masquées, ces 24 dernières heures</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">Réinitialiser le compteur de temps total ?</string>
+    <string name="morphe_hide_stats_hidden_all_title">Vidéos masquées, depuis toujours</string>
     <string name="morphe_hide_sync_button_title">Masquer le bouton \'Synchroniser avec la vidéo\'</string>
     <string name="morphe_hide_youtube_create_menu_title">Masquer le menu \'YouTube Create\'</string>
     <string name="morphe_hide_youtube_kids_menu_title">Masquer le menu \'YouTube Kids\'</string>
@@ -90,12 +116,16 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 est temporairement indisponible (délai d\'attente de l\'API dépassé)</string>
     <string name="morphe_oauth2_toast_invalid">Jeton de connexion à VR invalide, veuillez réessayer la connexion à VR</string>
     <string name="morphe_oauth2_toast_reset">Déconnexion de Android VR</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">Empêche l\'ouverture du direct lorsqu\'on appuie sur l\'avatar de la chaîne</string>
+    <string name="morphe_open_channel_of_live_avatar_title">Ouvrir la chaîne depuis l\'avatar du direct</string>
     <string name="morphe_override_youtube_music_buttons_summary">Ouvre votre application musicale préférée au lieu de l\'application YouTube Music par défaut</string>
     <string name="morphe_override_youtube_music_buttons_title">Remplacer les boutons \'YouTube Music\'</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Toujours activé</string>
     <string name="morphe_playback_in_feeds_entry_off">Désactivé</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi uniquement</string>
     <string name="morphe_playback_in_feeds_title">Lecture dans les flux</string>
+    <string name="morphe_queue_manager_check_failed_auth">Non connecté</string>
+    <string name="morphe_queue_manager_check_failed_video_id">Aucun ID vidéo</string>
     <string name="morphe_reload_video_summary_off">Le bouton \'Recharger la vidéo\' n\'est pas affiché</string>
     <string name="morphe_reload_video_summary_on">Le bouton \'Recharger la vidéo\' est affiché</string>
     <string name="morphe_reload_video_title">Afficher un bouton \'Recharger la vidéo\'</string>
@@ -107,6 +137,14 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_sanitize_sharing_links_summary_off">Le paramètre de suivi n\'est pas supprimé des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Le paramètre de suivi est supprimé des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">Cette vidéo est déjà enregistrée dans la playlist \'À regarder plus tard\'</string>
+    <string name="morphe_save_to_watch_later_button_summary">Appuyez pour enregistrer dans \'À regarder plus tard\', appuyez longuement pour afficher les options de file d\'attente</string>
+    <string name="morphe_save_to_watch_later_button_title">Afficher un bouton \'Enregistrer dans \"À regarder plus tard\"\'</string>
+    <string name="morphe_save_to_watch_later_error_toast">Impossible d\'enregistrer cette vidéo dans la playlist \'À regarder plus tard\'</string>
+    <string name="morphe_save_to_watch_later_flyout_title">Enregistrer dans \'À regarder plus tard\'</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Permet d\'enregistrer les vidéos pour enfants dans le menu déroulant \'À regarder plus tard\'</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Afficher le bouton \'Enregistrer dans \"À regarder plus tard\"\' dans les vidéos pour enfants</string>
+    <string name="morphe_save_to_watch_later_success_toast">Vidéo enregistrée avec succès dans la playlist \'À regarder plus tard\'</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Le plus revisionné</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Affiche une miniature de la vidéo lors du déplacement sur la barre de progression</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Activer les miniatures sur la barre de progression</string>
@@ -114,6 +152,9 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_settings_menu_filter_picker_empty">Ouvrez une fois l\'écran des paramètres standard de l\'application pour remplir la liste</string>
     <string name="morphe_settings_menu_filter_screen_summary">Masquer les éléments de l\'écran des paramètres standard de l\'application en fonction de leur nom visible</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtre du menu des paramètres</string>
+    <string name="morphe_settings_name_custom_item_hint">Entrez un nom</string>
+    <string name="morphe_settings_name_empty_warning">Le nom ne peut pas être vide</string>
+    <string name="morphe_settings_name_title">Nom des paramètres de RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Coloré</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monochrome</string>
     <string name="morphe_splash_screen_animation_style_title">Style de l\'écran de lancement</string>
@@ -173,6 +214,8 @@ La lecture peut ne pas fonctionner"</string>
 
 Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas nécessaire"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">La désactivation de ce paramètre peut entraîner des problèmes de lecture</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">Appuyez pour afficher les options de la file d\'attente, appuyez longuement pour enregistrer dans \'À regarder plus tard</string>
+    <string name="morphe_swap_save_and_queue_actions_title">Inverser les actions \'Enregistrer\' et \'File d\'attente\'</string>
     <string name="morphe_tablet_layout_in_player_summary">"Restaure l'ancienne disposition du lecteur
 
 Limitation : Si 'Restaurer l'ancienne barre d'actions vidéo' est désactivé, l'overlay 'Plus de vidéos' peut ne pas être disponible"</string>
@@ -265,12 +308,14 @@ Disposition tablette
 • Les posts destinés à la communauté sont masquées
 • Le paramètre de lecture dans les flux n'est pas disponible
 • Le bouton 'Remixer' et le bouton 'Son' ne sont pas disponibles dans les Shorts
+• L'overlay 'Plus de vidéos' peut ne pas être disponible
 • L'ancienne barre d'actions vidéo non réduite est affichée
 
 Disposition automobile
 • Le flux est organisé par thèmes et chaînes
 • Le paramètre de lecture dans les flux n'est pas disponible
 • Le bouton 'Remixer' et le bouton 'Son' ne sont pas disponibles dans les Shorts
+• L'overlay 'Plus de vidéos' peut ne pas être disponible
 • Les Shorts s'ouvrent dans le lecteur normal
 • L'ancienne barre d’actions vidéo non réduite est affichée"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Les boutons à bascule sont utilisés</string>
@@ -417,6 +462,7 @@ Paramètres → Lecture automatique / Lecture → Lecture automatique de la vid�
     <string name="revanced_disable_engagement_panel_summary_off">La description en plein écran est activée</string>
     <string name="revanced_disable_engagement_panel_summary_on">La description en plein écran est désactivée</string>
     <string name="revanced_disable_engagement_panel_title">Désactiver description en plein écran</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">Désactiver le geste de pincement pour zoomer</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Le retour haptique des chapitres est activé</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Le retour haptique des chapitres est désactivé</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Désactiver le retour haptique des chapitres</string>
@@ -454,6 +500,7 @@ Les changements incluent :
     <string name="revanced_disable_like_dislike_glow_summary_off">Les boutons \'J\'aime\' et \'Je n\'aime pas\' s\'illuminerons lorsqu\'ils sont mentionné</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Les boutons \'J\'aime\' et \'Je n\'aime pas\' ne s\'illuminerons pas lorsqu\'ils sont mentionné</string>
     <string name="revanced_disable_like_dislike_glow_title">Désac. lueur des \'J\'aime\' et \'Je n\'aime pas\'</string>
+    <string name="revanced_disable_playlist_autoplay_title">Désactiver la lecture automatique de la playlist</string>
     <string name="revanced_disable_quic_protocol_summary">"Désactive le protocole QUIC de CronetEngine"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Reprendre la lecture&lt;/b&gt; reprendra au démarrage de l\'application.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Reprendre la lecture&lt;/b&gt; est une fonctionnalité YouTube Premium.&lt;br&gt;• Ce paramètre ne force pas l\'option &lt;b&gt;Reprendre la lecture&lt;/b&gt; à être activé</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Reprendre la lecture&lt;/b&gt; ne reprendra pas au démarrage de l\'application</string>
@@ -491,8 +538,8 @@ Note :
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Glisser vers le bas en plein écran permets de sortir du mode plein écran</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Glisser vers le bas en mode plein écran ne permet pas de sortir du mode plein écran</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Désactiver les gestes pour sortir du mode plein écran</string>
-    <string name="revanced_disable_translucent_navigation_bar_summary_off">La barre de navigation est translucide. </string>
-    <string name="revanced_disable_translucent_navigation_bar_summary_on">La barre de navigation est opaque. </string>
+    <string name="revanced_disable_translucent_navigation_bar_summary_off">La barre de navigation est translucide</string>
+    <string name="revanced_disable_translucent_navigation_bar_summary_on">La barre de navigation est opaque</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Désactiver la barre de navigation translucide</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">La barre d\'état est opaque ou translucide</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">La barre d\'état est opaque</string>
@@ -645,16 +692,24 @@ Problème connu : Il arrive que l'interface de balayage s'affiche avant le pass
     <string name="revanced_fix_transcript_summary_off">La transcription peut ne pas être disponible en raison d’un échec de la vérification d’une condition préalable</string>
     <string name="revanced_fix_transcript_summary_on">La transcription est disponible</string>
     <string name="revanced_fix_transcript_title">Corriger la transcription</string>
+    <string name="revanced_force_hdr_video_summary">Force l\'application à reconnaître cet appareil comme compatible HDR</string>
+    <string name="revanced_force_hdr_video_title">Forcer la vidéo HDR</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"Utilisez cela si le décodage HDR fonctionne mais que YouTube ne propose pas le HDR, comme sur certains appareils HyperOS qui masquent le HLG
+
+Limitations :
+• Les couleurs peuvent paraître incorrectes si l'écran ne prend pas réellement en charge le HDR
+• La lecture peut échouer si le décodeur ne peut pas gérer le HDR
+• Le HDR dépend toujours des flux vidéo proposés par le client"</string>
     <string name="revanced_fullscreen_ads_closed_toast">Les publicités en plein écran sont fermées</string>
     <string name="revanced_gemini_cancelled">Annulé</string>
-    <string name="revanced_gemini_chat_input_hint">Posez des questions sur cette vidéo </string>
+    <string name="revanced_gemini_chat_input_hint">Posez des questions sur cette vidéo</string>
     <string name="revanced_gemini_copy_success">Résumé copié dans le presse-papiers</string>
     <string name="revanced_gemini_error_already_running_summarize">Résumé déjà en cours</string>
     <string name="revanced_gemini_error_already_running_transcribe">Transcription déjà en cours</string>
     <string name="revanced_gemini_error_already_running_yandex_transcribe">La transcription Yandex est déjà en cours</string>
     <string name="revanced_gemini_error_api_failed">Échec de la requête API Gemini: %s</string>
     <string name="revanced_gemini_error_dialog_show">Erreur d\'affichage de la boîte de dialogue</string>
-    <string name="revanced_gemini_error_no_api_key">Clé API Gemini non définie dans les paramètres avancés de ReVanced Extended. </string>
+    <string name="revanced_gemini_error_no_api_key">Clé API Gemini non définie dans les paramètres avancés de ReVanced Extended</string>
     <string name="revanced_gemini_error_no_video">Impossible d\'obtenir l\'URL de la vidéo</string>
     <string name="revanced_gemini_error_overlay_display">Échec de l\'affichage des sous-titres superposés</string>
     <string name="revanced_gemini_error_transcription_no_raw_data">Aucune donnée brute de transcription à analyser</string>
@@ -1227,8 +1282,8 @@ Info :
     <string name="revanced_hide_shorts_channel_bar_summary_off">La barre de chaîne est affichée</string>
     <string name="revanced_hide_shorts_channel_bar_summary_on">La barre de chaîne est masquée</string>
     <string name="revanced_hide_shorts_channel_bar_title">Masquer la barre de chaîne</string>
-    <string name="revanced_hide_shorts_comments_panel_summary_off">Le panneau des commentaires est affiché. </string>
-    <string name="revanced_hide_shorts_comments_panel_summary_on">Le panneau des commentaires masqué. </string>
+    <string name="revanced_hide_shorts_comments_panel_summary_off">Le panneau des commentaires est affiché</string>
+    <string name="revanced_hide_shorts_comments_panel_summary_on">Le panneau des commentaires masqué</string>
     <string name="revanced_hide_shorts_comments_panel_title">Masquer le panneau des commentaires</string>
     <string name="revanced_hide_shorts_floating_button_summary_off">Les boutons flottants comme \'Utiliser ce son\' sont affichés dans l\'onglet Shorts des chaînes</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">Les boutons flottants comme \'Utiliser ce son\' sont masqués dans l\'onglet Shorts des chaînes</string>
@@ -1398,7 +1453,7 @@ Limitations :
     <string name="revanced_hide_youtube_doodles_summary_off">L\'animation YouTube Doodles sur le logo est affichée</string>
     <string name="revanced_hide_youtube_doodles_summary_on">L\'animation YouTube Doodles sur le logo est masquée</string>
     <string name="revanced_hide_youtube_doodles_title">Masquer les YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">L\'affichage des YouTube Doodles peut empêcher l\'affichage des en-têtes personnalisés. </string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">L\'affichage des YouTube Doodles peut empêcher l\'affichage des en-têtes personnalisés</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">La promotion YouTube Premium est affichée</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"La promotion YouTube Premium est masquée
 
@@ -1572,8 +1627,8 @@ Les réponses générées par l'IA peuvent contenir des informations inexactes
 Appuyez ici pour obtenir une clé API"</string>
     <string name="revanced_overlay_button_gemini_about_title">À propos de Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Résumer</string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Obtenez votre clé API sur https://aistudio.google.com/apikey" </string>
-    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Clé API Gemini </string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Obtenez votre clé API sur https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Clé API Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize_summary">"Appuyez pour résumer la vidéo. Maintenez pour transcrire
 
 Les résultats résumés et transcrits sont enregistrés, sauf si vous fermez l'application ou utilisez Gemini sur une autre vidéo. Appuyez à nouveau sur le bouton pour afficher les résultats"</string>
@@ -1607,8 +1662,8 @@ Info :
 Appuyez longuement pour revenir à la vitesse de lecture à 1.0x. Appuyez longuement à nouveau rétablir les vitesses par défaut"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Afficher bouton \'Vitesse de lecture\'</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Type de boîte de dialogue de vitesse</string>
-    <string name="revanced_overlay_button_vot_summary">Afficher le bouton de superposition pour basculer la traduction vocale pour la vidéo actuelle </string>
-    <string name="revanced_overlay_button_vot_title">Traduction voix off </string>
+    <string name="revanced_overlay_button_vot_summary">Afficher le bouton de superposition pour basculer la traduction vocale pour la vidéo actuelle</string>
+    <string name="revanced_overlay_button_vot_title">Traduction voix off</string>
     <string name="revanced_overlay_button_whitelist_summary">Appuyez pour ouvrir la liste blanche
 Appuyez longuement pour ouvrir les paramètres de la liste blanche</string>
     <string name="revanced_overlay_button_whitelist_title">Afficher le bouton \'Liste blanche\'</string>
@@ -1663,7 +1718,7 @@ Pour afficher le bouton de téléchargement de playlist natif, activez l\'option
     <string name="revanced_preference_screen_category_bar_summary">Masque ou affiche la barre de catégorie dans les flux, recherche, et vidéos similaires</string>
     <string name="revanced_preference_screen_category_bar_title">Barre de catégorie</string>
     <string name="revanced_preference_screen_channel_bar_summary">Masque ou affiche des éléments de la barre de chaîne sous la vidéo</string>
-    <string name="revanced_preference_screen_channel_bar_title">Barre de chaîne </string>
+    <string name="revanced_preference_screen_channel_bar_title">Barre de chaîne</string>
     <string name="revanced_preference_screen_channel_page_summary">Masque ou affiche des éléments des pages de chaîne</string>
     <string name="revanced_preference_screen_channel_page_title">Page de chaîne</string>
     <string name="revanced_preference_screen_comments_summary">Masque ou affiche des éléments de la section commentaires</string>
@@ -2178,7 +2233,7 @@ La plupart des bugs ne peuvent pas être corrigés en raison des limitations cô
     <string name="revanced_shorts_custom_actions_external_downloader_title">Aff. menu téléchargeur externe</string>
     <string name="revanced_shorts_custom_actions_gemini_label">Résumé Gemini</string>
     <string name="revanced_shorts_custom_actions_gemini_summary_off">Le menu résumé Gemini est masqué</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">Le menu résumé Gemini est affiché. </string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">Le menu résumé Gemini est affiché</string>
     <string name="revanced_shorts_custom_actions_gemini_title">Afficher le menu résumé Gemini</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Ouvrir la vidéo</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Le menu \'Ouvrir la vidéo\' est masqué</string>
@@ -2193,8 +2248,8 @@ La plupart des bugs ne peuvent pas être corrigés en raison des limitations cô
     <string name="revanced_shorts_custom_actions_speed_dialog_summary_on">Le menu \'Vitesse de lecture\' est affiché</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_title">Afficher menu \'Vitesse de lecture\'</string>
     <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">Le dialogue de vitesse moderne peut ne pas fonctionner sur YouTube 19.01-19.34</string>
-    <string name="revanced_shorts_custom_actions_speed_summary_off">Le menu de vitesse de lecture est masqué. \n\nInfo:\n• La vitesse de lecture par défaut des Shorts doit être activée. \n• La vitesse sélectionné sera appliquée à la vidéo suivante. </string>
-    <string name="revanced_shorts_custom_actions_speed_summary_on">Le menu de vitesse de lecture est affiché. \n\nInfo:\n• La vitesse de lecture par défaut des Shorts doit être activée. \n• La vitesse sélectionné sera appliquée à la vidéo suivante. </string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">Le menu de vitesse de lecture est masqué. \n\nInfo:\n• La vitesse de lecture par défaut des Shorts doit être activée. \n• La vitesse sélectionné sera appliquée à la vidéo suivante</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">Le menu de vitesse de lecture est affiché. \n\nInfo:\n• La vitesse de lecture par défaut des Shorts doit être activée. \n• La vitesse sélectionné sera appliquée à la vidéo suivante</string>
     <string name="revanced_shorts_custom_actions_speed_title">Afficher le menu de vitesse de lecture</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Pouce en l\'air</string>
@@ -2229,7 +2284,7 @@ Limitation : Le titre de la vidéo disparaît lorsque vous cliquez dessus"</stri
     <string name="revanced_spoof_app_version_summary_on">Version falsifiée</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaure la fonctionnalité de transcription</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restauration de la barre d\'action vidéo non réduite</string>
-    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Restaurer les anciens composants filtre </string>
+    <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Restaurer les anciens composants filtre</string>
     <string name="revanced_spoof_app_version_target_entry_title">Choisir la version à falsifier</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Version de falsification de l\'app invalide : %s</string>
     <string name="revanced_spoof_app_version_target_summary">Saisissez la version de l\'application à falsifier</string>
@@ -2364,14 +2419,14 @@ Réglez la luminosité en faisant glisser verticalement sur le côté gauche de 
     <string name="revanced_swipe_save_and_restore_brightness_title">Enregistrer et restaurer la luminosité</string>
     <string name="revanced_swipe_seek_distance_summary">"Nombre de pixels à balayer pour passer d'une partie à l'autre d'une vidéo. Plus la valeur est faible, plus la barre de progression sera rapide, plus la valeur est élevée, plus elle sera lente (1-1000)"</string>
     <string name="revanced_swipe_seek_distance_title">Distance de barre de progression</string>
-    <string name="revanced_swipe_seek_summary_off">Le balayage de barre de progression en plein écran est desactivé. </string>
+    <string name="revanced_swipe_seek_summary_off">Le balayage de barre de progression en plein écran est desactivé</string>
     <string name="revanced_swipe_seek_summary_on">"Le balayage de barre de progression en plein écran est activé 
 
 Utiliser la barre de progression en balayant horizontalement la moitié supérieure de l'écran"</string>
     <string name="revanced_swipe_seek_title">Activer le geste de barre de progression</string>
     <string name="revanced_swipe_speed_distance_summary">Nombre de pixels à balayer pour modifier la vitesse vidéo. Plus la valeur est faible, plus la vitesse vidéo change rapidement, plus la valeur est élevée, plus le vitesse vidéo change lentement (1-1000)</string>
     <string name="revanced_swipe_speed_distance_title">Distance de vitesse</string>
-    <string name="revanced_swipe_speed_summary_off">Le balayage de vitesse en plein écran est desactivé. </string>
+    <string name="revanced_swipe_speed_summary_off">Le balayage de vitesse en plein écran est desactivé</string>
     <string name="revanced_swipe_speed_summary_on">"Le balayage de vitesse en plein écran est activé 
 
 Ajustez la vitesse en balayant horizontalement la moitié inférieure de l'écran"</string>
@@ -2437,41 +2492,40 @@ Avertissement : les cookies émis sans connexion peuvent être invalides ou mett
     <string name="revanced_transcript_cookies_summary">Cookies à utiliser dans les requêtes API Transcript</string>
     <string name="revanced_transcript_cookies_title">Transcript Cookies</string>
     <string name="revanced_translations_title">Traductions</string>
-    <string name="revanced_vot_audio_proxy_summary_off">Le flux audio utilise l'URL directe </string>
-    <string name="revanced_vot_audio_proxy_summary_on">Le flux audio est fourni par le travailleur </string>
-    <string name="revanced_vot_audio_proxy_title">Spectre audio proxy </string>
-    <string name="revanced_vot_enabled_summary_off">La traduction en voix off de Yandex est désactivée </string>
-    <string name="revanced_vot_enabled_summary_on">La traduction en voix off de Yandex est activée </string>
+    <string name="revanced_vot_audio_proxy_summary_off">Le flux audio utilise l'URL directe</string>
+    <string name="revanced_vot_audio_proxy_summary_on">Le flux audio est fourni par le travailleur</string>
+    <string name="revanced_vot_audio_proxy_title">Spectre audio proxy</string>
+    <string name="revanced_vot_enabled_summary_off">La traduction en voix off de Yandex est désactivée</string>
+    <string name="revanced_vot_enabled_summary_on">La traduction en voix off de Yandex est activée</string>
     <string name="revanced_vot_enabled_title">Traduction en voix off</string>
-    <string name="revanced_vot_lang_auto">Détection automatique </string>
-    <string name="revanced_vot_live_voices_unavailable">Voix en direct indisponibles, utilisant la norme </string>
+    <string name="revanced_vot_lang_auto">Détection automatique</string>
+    <string name="revanced_vot_live_voices_unavailable">Voix en direct indisponibles, utilisant la norme</string>
     <string name="revanced_vot_original_audio_volume_summary">Volume de l\'audio original YouTube pendant la lecture de la traduction</string>
     <string name="revanced_vot_original_audio_volume_title">Volume audio original</string>
-    <string name="revanced_vot_playback_error">Échec de la lecture audio de traduction </string>
-    <string name="revanced_vot_proxy_url_summary">hôte proxy VOT. Par défaut : vot-worker.toil.cc </string>
-    <string name="revanced_vot_proxy_url_title">Serveur proxy </string>
-    <string name="revanced_vot_source_language_summary">Sélectionnez la langue de l'audio vidéo </string>
-    <string name="revanced_vot_source_language_title">Langue source </string>
-    <string name="revanced_vot_started">Traduction commencée </string>
-    <string name="revanced_vot_stopped">Arrêt de la traduction </string>
-    <string name="revanced_vot_stream_not_ready">Traduction pas prête. Utilisez le bouton pour activer lorsqu'il est prêt. </string>
-    <string name="revanced_vot_stream_ready">Traduction prête, jouant </string>
-    <string name="revanced_vot_stream_requesting">Demander une traduction pour le flux... </string>
-    <string name="revanced_vot_stream_waiting">En attente... ~%s </string>
-    <string name="revanced_vot_target_language_summary">Sélectionnez la langue à traduire </string>
-    <string name="revanced_vot_target_language_title">Langue cible </string>
-    <string name="revanced_vot_time_min">%d min </string>
-    <string name="revanced_vot_time_sec">%d sec </string>
+    <string name="revanced_vot_playback_error">Échec de la lecture audio de traduction</string>
+    <string name="revanced_vot_proxy_url_summary">hôte proxy VOT. Par défaut : vot-worker.toil.cc</string>
+    <string name="revanced_vot_proxy_url_title">Serveur proxy</string>
+    <string name="revanced_vot_source_language_summary">Sélectionnez la langue de l'audio vidéo</string>
+    <string name="revanced_vot_source_language_title">Langue source</string>
+    <string name="revanced_vot_started">Traduction commencée</string>
+    <string name="revanced_vot_stopped">Arrêt de la traduction</string>
+    <string name="revanced_vot_stream_not_ready">Traduction pas prête. Utilisez le bouton pour activer lorsqu'il est prêt</string>
+    <string name="revanced_vot_stream_ready">Traduction prête, jouant</string>
+    <string name="revanced_vot_stream_requesting">Demander une traduction pour le flux...</string>
+    <string name="revanced_vot_stream_waiting">En attente... ~%s</string>
+    <string name="revanced_vot_target_language_summary">Sélectionnez la langue à traduire</string>
+    <string name="revanced_vot_target_language_title">Langue cible</string>
+    <string name="revanced_vot_time_sec">%d sec</string>
     <string name="revanced_vot_translation_volume_summary">Volume de la voix doublée de la traduction</string>
     <string name="revanced_vot_translation_volume_title">Volume de la traduction</string>
-    <string name="revanced_vot_unavailable_live">La traduction n'est pas disponible pour les flux en direct </string>
-    <string name="revanced_vot_unavailable_same_language">L'audio vidéo est déjà dans la langue cible </string>
-    <string name="revanced_vot_unavailable_too_long">La vidéo est trop longue pour la traduction (max 4 heures) </string>
-    <string name="revanced_vot_voice_style_live">Voix en direct </string>
-    <string name="revanced_vot_voice_style_live_summary_off">Voix TTS standard </string>
-    <string name="revanced_vot_voice_style_live_summary_on">Voix à consonance naturelle de Yandex </string>
-    <string name="revanced_vot_voice_style_standard">Voix standard </string>
-    <string name="revanced_vot_voice_style_title">Voix off </string>
+    <string name="revanced_vot_unavailable_live">La traduction n'est pas disponible pour les flux en direct</string>
+    <string name="revanced_vot_unavailable_same_language">L'audio vidéo est déjà dans la langue cible</string>
+    <string name="revanced_vot_unavailable_too_long">La vidéo est trop longue pour la traduction (max 4 heures)</string>
+    <string name="revanced_vot_voice_style_live">Voix en direct</string>
+    <string name="revanced_vot_voice_style_live_summary_off">Voix TTS standard</string>
+    <string name="revanced_vot_voice_style_live_summary_on">Voix à consonance naturelle de Yandex</string>
+    <string name="revanced_vot_voice_style_standard">Voix standard</string>
+    <string name="revanced_vot_voice_style_title">Voix off</string>
     <string name="revanced_watch_history_about_status_blocked">• L\'historique de visionnage est bloqué</string>
     <string name="revanced_watch_history_about_status_original">"• Suit les paramètres de l'historique de visionnage du compte Google
 • L'historique de visionnage peut ne pas fonctionner en raison d'un DNS ou d'un VPN"</string>

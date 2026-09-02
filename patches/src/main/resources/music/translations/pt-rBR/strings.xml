@@ -38,7 +38,8 @@ Toque no botão continuar e permita as mudanças de otimização"</string>
     <string name="morphe_disable_drc_audio_summary_on">Áudio DRC desativado</string>
     <string name="morphe_disable_quic_protocol_summary_off">Protocolo QUIC ativado</string>
     <string name="morphe_disable_quic_protocol_summary_on">Protocolo QUIC desativado</string>
-    <string name="morphe_force_original_audio_not_available">Para usar este recurso, mude \'Simular streams de vídeo\' para qualquer cliente exceto \'Android Studio\' e \'Android VR Downgraded\'</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Se não funcionar, tente forçar o fechamento do MicroG</string>
+    <string name="morphe_force_original_audio_not_available">Para usar este recurso, altere \"Simular streams de vídeo\" para qualquer cliente, exceto \"Android Studio\" e \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary">Sempre reproduz a faixa de áudio original do vídeo, em vez de uma versão dublada</string>
     <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
     <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
@@ -118,7 +119,7 @@ Quando nenhuma letra de terceiros é encontrada, as letras internas são exibida
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 temporariamente indisponível (status %d)</string>
-    <string name="morphe_oauth2_connection_failure_status_400">Entrada na Android VR expirou, tente entrar novamente na VR</string>
+    <string name="morphe_oauth2_connection_failure_status_400">O login do Android VR expirou, tente fazer login no VR novamente</string>
     <string name="morphe_oauth2_connection_failure_timeout">\"OAuth2 está temporariamente indisponível (API expirou)\"</string>
     <string name="morphe_oauth2_toast_invalid">Token de login do VR inválido, tente fazer login no VR novamente</string>
     <string name="morphe_oauth2_toast_reset">Deslogado do Android VR</string>
@@ -134,26 +135,29 @@ Quando nenhuma letra de terceiros é encontrada, as letras internas são exibida
     <string name="morphe_settings_menu_filter_picker_empty">Abra a tela de configurações do aplicativo padrão uma vez para preencher a lista</string>
     <string name="morphe_settings_menu_filter_screen_summary">Ocultar itens na tela de configurações do aplicativo padrão pelo nome visível</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtro do menu de configurações</string>
+    <string name="morphe_settings_name_custom_item_hint">Digite um nome</string>
+    <string name="morphe_settings_name_empty_warning">O nome não pode ficar em branco</string>
+    <string name="morphe_settings_name_title">Nome das configurações do RVX</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente padrão</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Não foi possível obter nenhum stream de cliente</string>
     <string name="morphe_spoof_video_streams_screen_summary">Configure a simulação de cliente para evitar problemas de reprodução</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Você não fez login no Android VR. Toque aqui para fazer login</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar essa função, altere \'Cliente padrão\' para Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar essa função, altere \"Cliente padrão\" para Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Atualmente conectado ao Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Fazer login no Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Login do Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Código de ativação: %s
 
-1. Toque em 'Abrir site' abaixo para abrir o site 'Conectar um dispositivo'
-2. Cole da área de transferência (ou digite) o código de ativação mostrado acima
-3. Faça login no Google se solicitado. Se você tiver várias contas, escolha a conta do YouTube usada neste app
-4. Toque em 'Permitir o acesso do YouTube VR'
-5. Volte para este app após a mensagem 'Dispositivo conectado' ser exibida"</string>
+1. Toque em \"Abrir site\" abaixo para abrir o site \"Conectar um dispositivo\"
+2. Cole o código de ativação exibido acima a partir da área de transferência (ou digite-o manualmente)
+3. Faça login no Google, se solicitado. Se você tiver várias contas, escolha esta conta do YouTube
+4. Toque em \"Permitir acesso ao YouTube VR\"
+5. Retorne a este aplicativo após chegar à mensagem \"Dispositivo conectado\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instruções</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Fazer login no Android VR pode corrigir problemas de reprodução para alguns usuários
 
 Para fazer login, pressione continuar abaixo"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Sair</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Conectar ao Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Fazer login no Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autenticação salva
 
 • Suas configurações do RVX não vão importar/exportar a autenticação do Android VR
@@ -204,6 +208,7 @@ Se você é um usuário do YouTube Premium, esta configuração pode não ser ne
     <string name="revanced_change_start_page_entry_subscriptions">Inscrições</string>
     <string name="revanced_change_start_page_summary">Selecione em qual página o aplicativo será aberto</string>
     <string name="revanced_change_start_page_title">Página inicial</string>
+    <string name="revanced_confirm_user_dialog_title">Tem certeza que deseja prosseguir?</string>
     <string name="revanced_credits_title">Créditos</string>
     <string name="revanced_custom_filter_strings_summary">Lista de strings de componente de construção de caminhos para filtrar, separadas por novas linhas</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
@@ -660,7 +665,7 @@ Toque aqui para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Sem letras em tempo real</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_7_12_52">7.12.52 - Letras em tempo real</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_06_52">8.06.52 - Letras em tempo real + Botão Compartilhar</string>
-    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Letras em tempo real + Botão Compartilhar + Botão Traduzir (Somente para usuários Premium) </string>
+    <string name="revanced_spoof_app_version_for_lyrics_target_entry_8_33_54">8.33.54 - Letras em tempo real + Botão Compartilhar + Botão Traduzir (Somente para usuários Premium)</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_summary">Selecione a versão do app para falsificação</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_title">Versão falsa do app para letras</string>
     <string name="revanced_spoof_app_version_for_lyrics_title">Versão falsa do app para letras</string>

@@ -15,7 +15,7 @@
     <string name="gms_core_dialog_open_website_text">فتح الموقع</string>
     <string name="gms_core_dialog_title">الإجراء مطلوب</string>
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX Music، قم بتمكين المراسلة السحابية</string>
-    <string name="gms_core_settings_title">GmsCore فتح اعدادات </string>
+    <string name="gms_core_settings_title">GmsCore فتح اعدادات</string>
     <string name="gms_core_toast_not_installed_message">MicroG لم يتم تثبيته. قم بتثبيته</string>
     <string name="morphe_crossfade_duration_10000ms">10 ثوانٍ</string>
     <string name="morphe_crossfade_duration_1000ms">ثانية واحدة</string>
@@ -39,6 +39,7 @@
     <string name="morphe_disable_drc_audio_summary_on">تم تعطيل صوت DRC</string>
     <string name="morphe_disable_quic_protocol_summary_off">تم تمكين بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_summary_on">تم تعطيل بروتوكول QUIC</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">إذا لم ينجح الأمر، جرّب إيقاف MicroG إجباريًا</string>
     <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\' و \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">يقوم دائمًا بتشغيل المقطع الصوتي الأصلي للفيديو بدلًا عن النسخة المدبلجة</string>
     <string name="morphe_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
@@ -135,6 +136,9 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="morphe_settings_menu_filter_picker_empty">افتح شاشة إعدادات التطبيق القياسية مرة واحدة لتعبئة القائمة</string>
     <string name="morphe_settings_menu_filter_screen_summary">إخفاء العناصر في شاشة إعدادات التطبيق القياسية بالاسم المرئي</string>
     <string name="morphe_settings_menu_filter_screen_title">تصفية قائمة الإعدادات</string>
+    <string name="morphe_settings_name_custom_item_hint">أدخل اسم</string>
+    <string name="morphe_settings_name_empty_warning">خانة الاسم لايمكن ان تكون فارغه</string>
+    <string name="morphe_settings_name_title">اسم إعدادات RVX</string>
     <string name="morphe_spoof_video_streams_client_type_title">العميل الافتراضي</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">تعذر جلب أي تدفقات عميل</string>
     <string name="morphe_spoof_video_streams_screen_summary">ضبط خاصية تمويه هوية العميل لمنع مشاكل التشغيل</string>
@@ -180,11 +184,11 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="morphe_theme_entry_dark_orange">برتقالي مظلم</string>
     <string name="morphe_theme_entry_dark_pink">وردي مظلم</string>
     <string name="morphe_theme_entry_dark_red">احمر مظلم</string>
-    <string name="morphe_theme_entry_dark_yellow">اصفر مظلم </string>
+    <string name="morphe_theme_entry_dark_yellow">اصفر مظلم</string>
     <string name="morphe_theme_entry_material_you_neutral">محايد مخصص</string>
     <string name="morphe_theme_entry_material_you_primary">محايد رئسي</string>
     <string name="morphe_theme_entry_material_you_secondary">مخصص ثانوي</string>
-    <string name="morphe_theme_entry_modern_youtube">الأحدث </string>
+    <string name="morphe_theme_entry_modern_youtube">الأحدث</string>
     <string name="revanced_add_miniplayer_next_button_summary">إضافة زر المسار التالي إلى المشغل المصغّر</string>
     <string name="revanced_add_miniplayer_next_button_title">إضافة زر المسار التالي إلى المشغل المصغّر</string>
     <string name="revanced_add_miniplayer_previous_button_summary">إضافة زر المسار السابق إلى المشغل المصغّر</string>
@@ -217,6 +221,7 @@ YouTube Music 8.x - يعمل الانتقال التدريجي فقط على ا�
     <string name="revanced_change_start_page_entry_subscriptions">الاشتراكات</string>
     <string name="revanced_change_start_page_summary">تحديد الصفحة التي يفتح فيها التطبيق</string>
     <string name="revanced_change_start_page_title">صفحة البدء</string>
+    <string name="revanced_confirm_user_dialog_title">هل انت متاكد انك تريد المتابعة؟</string>
     <string name="revanced_credits_title">المساهمون</string>
     <string name="revanced_custom_filter_strings_summary">قائمة بسلاسل بناء مسار المكونات المراد تصفيتها، مفصولة بأسطر جديدة</string>
     <string name="revanced_custom_filter_strings_title">فلتر مخصص</string>

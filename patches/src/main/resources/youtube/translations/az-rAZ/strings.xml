@@ -32,6 +32,7 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_expand_livestream_dvr_duration_title">Canlı yayım DVR müddətini genişləndir</string>
     <string name="morphe_explore_menu_screen_summary">Kəşf et menyusunda hansı elementlər görünür seç</string>
     <string name="morphe_explore_menu_screen_title">Kəşf edin menyusu</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Əgər bu işləmirsə, MicroG-ni məcburi qapatmağa çalışın</string>
     <string name="morphe_force_original_audio_not_available">Bu xüsusiyyəti istifadə etmək üçün \'Video yayımların saxtalaşdırı\' \'Android Studio\' və \'Android VR Downgraded\' istisna istənilən qəbulediciyə dəyiş</string>
     <string name="morphe_force_original_audio_summary_off">İlkin səs istifadəsi</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal səs dilini faydalanmaq</string>
@@ -42,6 +43,27 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_fullscreen_video_scale_entry_stretch">Uzat (ekranı doldur)</string>
     <string name="morphe_fullscreen_video_scale_entry_zoom">Yaxınlaşdır (doldurmaq üçün kəs)</string>
     <string name="morphe_fullscreen_video_scale_title">Tam ekran video miqyası</string>
+    <string name="morphe_hide_aislist_about_summary">"AiSList tərəfindən nişanlanmış kanallardan videoları gizlətmək məqsədilə ev və axtarış nəticələri filtrlənir
+
+Məhdudiyyətlər:
+• Filtrlənmiş süni intellekt Shorts-ları boş yer kimi görünə bilər
+• Bəzi süni intellekt videoları hələ də görünə bilər"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"Məlumatlar AiSList tərəfindən təmin edilir
+
+AiSlopList.com 'u açmaq və digər platformalar üçün yükləmələri görmək üçün buraya toxun"</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">Bloklama siyahısı: Yüksək etibarlılıq</string>
+    <string name="morphe_hide_aislist_hide_home_title">Videoları Ev səhifəsində gizlət</string>
+    <string name="morphe_hide_aislist_hide_search_title">Videoları axtarışda gizlət</string>
+    <string name="morphe_hide_aislist_screen_summary">AiSList icma siyahısı tərəfindən süni intellekt ilə yaradılan məzmun kimi nişanlanmış kanallardan videoları gizlət</string>
+    <string name="morphe_hide_aislist_screen_title">Süni intellekt kanalı filtri</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">Bloklanma siyahısı kanalları</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">Kanalları yükləmək üçün filtri aktivləşdir</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">Kanallar yüklənilir…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Ev: %s
+• Axtarış: %s
+• Ümumi: %s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">Xəbərdarlıq siyahısı kanalları</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">Xəbərdarlıq siyahısı: Orta dərəcədə etibarlılıq</string>
     <string name="morphe_hide_courses_menu_title">Kurslar menyusunu gizlət</string>
     <string name="morphe_hide_explore_button_title">Kəşf edin düyməsini gizlət</string>
     <string name="morphe_hide_fashion_menu_title">\"Moda və Gözəllik\" menyusunu gizlət</string>
@@ -64,6 +86,10 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_hide_privacy_tos_footer_title">Hüquqi və məxfilik alt yazıların gizlət</string>
     <string name="morphe_hide_shopping_menu_title">Alış-veriş menyusunu gizlət</string>
     <string name="morphe_hide_sports_menu_title">İdman menyusunu gizlət</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">Son 24 saatlıq sayğac sıfırlansın?</string>
+    <string name="morphe_hide_stats_hidden_24h_title">Son 24 saatda gizlədilən videolar</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">Bütün vaxt sayğacı sıfırlansın?</string>
+    <string name="morphe_hide_stats_hidden_all_title">Bütün zamanlar üzrə gizlədilən videolar</string>
     <string name="morphe_hide_sync_button_title">\'Videoya sinxronlaşdırın\' düyməsin gizlət</string>
     <string name="morphe_hide_youtube_create_menu_title">YouTube Create menyusunu gizlət</string>
     <string name="morphe_hide_youtube_kids_menu_title">YouTube Kids menyusunu gizlət</string>
@@ -86,12 +112,16 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 keçici olaraq əlçatan deyil (API vaxtı bitdi)</string>
     <string name="morphe_oauth2_toast_invalid">Token-dəki etibarsız VR girişi, VR-a təkrar daxil olmağa cəhd et</string>
     <string name="morphe_oauth2_toast_reset">Android VR-dan Çıxıldı</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">Kanalın profilinə toxunduqda canlı yayımın açılmasın əngəlləyir</string>
+    <string name="morphe_open_channel_of_live_avatar_title">Canlı profildən kanalı aç</string>
     <string name="morphe_override_youtube_music_buttons_summary">Əsas YouTube Music tətbiqi əvəzinə üstünlük verdiyiniz musiqi tətbiqini açır</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music düymələrini nəzərə alma</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Həmişə aktiv</string>
     <string name="morphe_playback_in_feeds_entry_off">Qapalı</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Yalnız Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Axınlarda oynatma</string>
+    <string name="morphe_queue_manager_check_failed_auth">Daxil olunmayıb</string>
+    <string name="morphe_queue_manager_check_failed_video_id">Video ID-si yoxdur</string>
     <string name="morphe_reload_video_summary_off">Videonu təkrar yüklə düyməsi görünmür</string>
     <string name="morphe_reload_video_summary_on">Videonu təkrar yüklə düyməsi görünür</string>
     <string name="morphe_reload_video_title">Videonu təkrar yüklə düyməsini göstər</string>
@@ -103,6 +133,14 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_sanitize_sharing_links_summary_off">İzlənmə sorğusu faktoru paylaşılan linklərdən silinmir</string>
     <string name="morphe_sanitize_sharing_links_summary_on">İzlənmə sorğusu faktoru paylaşılan linklərdən silinir</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım keçidlərin təmizlə</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">Bu video artıq sonra izləyin pleylistində saxlanılıb</string>
+    <string name="morphe_save_to_watch_later_button_summary">Daha sonra Baxmağa saxlamaq üçün toxun, növbə seçimləri üçün toxun və saxla</string>
+    <string name="morphe_save_to_watch_later_button_title">Daha sonra İzləmək üçün Saxla düyməsini Göstər</string>
+    <string name="morphe_save_to_watch_later_error_toast">Bu videonu sonra izləyin pleylistində saxlamaq olmur</string>
+    <string name="morphe_save_to_watch_later_flyout_title">Daha sonra izləmək üçün saxla</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Uşaqlarla əlaqəli videoları \"Sonra izləyin\" açılan menyusunda saxlamağa imkan verir</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Uşaq videolarında Daha sonra İzləmək üçün Saxlanı göstər</string>
+    <string name="morphe_save_to_watch_later_success_toast">Video uğurla sonra izləyin pleylistində saxlanıldı</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Ən çox təkrar oynadılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Çəkmə cizgisin sürükləyərkən video miniatürün göstərir</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Çəkmə cizgisinin miniatürlərini aktiv et</string>
@@ -110,6 +148,9 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_settings_menu_filter_picker_empty">Siyahıya yerləşdirmək üçün standart tətbiq ayarları ekranını bir dəfə aç</string>
     <string name="morphe_settings_menu_filter_screen_summary">Standart tətbiq ayarları ekranındakı elementləri görünən adları ilə gizlət</string>
     <string name="morphe_settings_menu_filter_screen_title">Ayarlar menyusu filtri</string>
+    <string name="morphe_settings_name_custom_item_hint">Ad daxil edin</string>
+    <string name="morphe_settings_name_empty_warning">Ad boş ola bilməz</string>
+    <string name="morphe_settings_name_title">RVX tənzimləmələrinin adı</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Rəng</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Saya</string>
     <string name="morphe_splash_screen_animation_style_title">Sıçrama ekranı üslubu</string>
@@ -168,6 +209,8 @@ Oynatma işləməyə bilər"</string>
 
 Əgər YouTube Premium istifadəçisisinizsə, bu tənzimlənmə tələb olunmaya bilər"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu tənzimləməni qapatmaq oynatma problemlərinə səbəb ola bilər</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">Növbə seçimləri üçün toxun, sonra Baxmağa saxlamaq üçün toxun və saxla</string>
+    <string name="morphe_swap_save_and_queue_actions_title">Saxla və Növbə fəaliyyətlərini dəyişdir</string>
     <string name="morphe_tablet_layout_in_player_summary">"Köhnə oynadıcı tərtibatını bərpa edir
 
 Məhdudiyyət: 'Köhnə video fəaliyyət cizgisini bərpa et' qapadılıbsa, 'Daha çox video' örtüyü mövcud olmaya bilər"</string>
@@ -189,7 +232,7 @@ DeArrow.ajay.app 'i açmaq üçün buraya toxun"</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API son nöqtəsi</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow əlçatan deyilsə bildiriş göstərilmir</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow əlçatan deyilsə bildiriş göstərilir</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow müvəqqəti mövcud deyil (status kodu: %s) </string>
+    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow müvəqqəti mövcud deyil (status kodu: %s)</string>
     <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow müvəqqəti olaraq mövcud deyil</string>
     <string name="revanced_alt_thumbnail_home_title">Ev tabeli üçün</string>
     <string name="revanced_alt_thumbnail_library_title">Siz tabeli üçün</string>
@@ -235,12 +278,14 @@ Planşet tərtibatı
 • İcma postları gizlədilir
 • Axınlarda oynatma seçimi mövcud deyil
 • Shorts-da Remiks düyməsi və Səs düyməsi mövcud deyil
+• \"Daha çox video\" örtüyü mövcud olmaya bilər
 • Yığılmamış köhnə video fəaliyyət cizgisi göstərilir
 
 Avtomobil tərtibatı
 • Axın mövzular və kanallara görə qruplaşdırılır
 • Axınlarda oynatma seçimi mövcud deyil
 • Shorts-da Remiks düyməsi və Səs düyməsi mövcud deyil
+• \"Daha çox video\" örtüyü mövcud olmaya bilər
 • Shorts müntəzəm oynadıcıda açılır
 • Yığılmamış köhnə video fəaliyyət cizgisi göstərilir"</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">Bütün abunəliklər</string>
@@ -305,6 +350,7 @@ Avtomobil tərtibatı
     <string name="revanced_disable_chapter_skip_double_tap_title">Cüt toxunuşla fəsil ötürülməsini qapat</string>
     <string name="revanced_disable_drc_audio_summary_off">DRC səsi işləkdir</string>
     <string name="revanced_disable_drc_audio_summary_on">DRC səsi qapalıdır</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">Yaxınlaşdırmaq üçün çimdikləmə jestini qapat</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Fəsillər reaksiyası aktivdir</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Fəsillər reaksiyası qapalıdır</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Fəsillər reaksiyasın qapat</string>
@@ -333,6 +379,7 @@ Dəyişikliklər ehtiva edir:
 • Video təsvirinin Musiqi bölməsi işləməyə bilər
 • Oynadıcı açılan menyu elementləri gizlədilə bilməz
 • Hesab keçirmə düyməsi Kitabxana tabelində görünməyə bilər"</string>
+    <string name="revanced_disable_playlist_autoplay_title">Pleylist avtomatik oynatmasını qapat</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
     <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını qapat</string>
@@ -365,6 +412,14 @@ Paket adının düzgün olduğunu və tətbiqin quraşdırıldığını yoxla"</
     <string name="revanced_fix_transcript_summary_off">İlkin status yoxlanılması uğursuzluğuna görə transkript əlçatan olmaya bilər</string>
     <string name="revanced_fix_transcript_summary_on">Transkript əlçatandır</string>
     <string name="revanced_fix_transcript_title">Transkripti düzəlt</string>
+    <string name="revanced_force_hdr_video_summary">Tətbiqi bu cihazı HDR dəstəkli kimi tanımağa məcbur edir</string>
+    <string name="revanced_force_hdr_video_title">HDR videoya məcbur et</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"HDR dekodlaşdırılması işlədiyi halda YouTube HDR təklif etmədikdə, məsələn, HLG-ni gizlədən bəzi HyperOS cihazlarında bunu istifadə edin
+
+Məhdudiyyətlər:
+• Ekran faktiki olaraq HDR göstərə bilmirsə, rənglər problemli görünə bilər
+• Dekoder HDR-i emal edə bilməsə, oynatma uğursuz ola bilər
+• HDR hələ də video yayımları saxtalaşdır qəbuledicisindən asılıdır"</string>
     <string name="revanced_fullscreen_ads_closed_toast">Tam ekran reklamları bağlandı</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Filtrləmək üçün Kitabxana / Siz alt menyu adlarını yeni sətirlərlə ayrılmış şəkildə qeyd et</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Kitabxana / Aşağı menyu filtriniz</string>
@@ -969,7 +1024,7 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock müvəqqəti əlçatmazdır (API vaxtı bitdi)</string>
     <string name="revanced_sb_square_layout">Kvadrat düzümü istifadə et</string>
     <string name="revanced_sb_square_layout_sum_off">Düymələr və idarəedicilər dairəvidir</string>
-    <string name="revanced_sb_square_layout_sum_on">Düymələr və idarəedicilər kvadratdır </string>
+    <string name="revanced_sb_square_layout_sum_on">Düymələr və idarəedicilər kvadratdır</string>
     <string name="revanced_sb_stats_connection_failure">Statistikalar müvəqqəti mövcud deyil (API işləmir)</string>
     <string name="revanced_sb_stats_reputation">Nüfuzunuz: &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="revanced_sb_stats_saved">İnsanları &lt;b&gt;%s&lt;/b&gt; bölümdən azad etdiniz</string>

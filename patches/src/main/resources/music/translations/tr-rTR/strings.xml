@@ -32,12 +32,20 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin"</string
     <string name="morphe_crossfade_duration_750ms">750 milisaniye</string>
     <string name="morphe_crossfade_duration_8000ms">8 saniye</string>
     <string name="morphe_crossfade_duration_9000ms">9 saniye</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">RVX ayarlarında simgeyi kullanın</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">RVX ayarlarında simgeyi kullanın</string>
     <string name="morphe_custom_branding_icon_title">Uygulama simgesi</string>
     <string name="morphe_custom_branding_name_title">Uygulama adı</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Özel açılış animasyonunun boyutunu ayarlar</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Splash animasyonunun boyutu</string>
+    <string name="morphe_dark_theme_custom_color_summary">"Özel" seçeneği seçildiğinde kullanılır</string>
+    <string name="morphe_dark_theme_custom_color_title">Özel tema rengi</string>
+    <string name="morphe_dark_theme_title">Uygulama teması</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC ( Dinamik Aralık Sıkıştırma ) ses kontrolü etkinleştirildi</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC ( Dinamik Aralık Sıkıştırma ) ses kontrolü devre dışı bırakıldı</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC ( Hızlı Bağlantı ) protokolü etkinleştirildi</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC  ( Hızlı Bağlantı ) protokolü devre dışı</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Çalışmazsa, MicroG\'u zorla kapatmayı deneyin</string>
     <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için 'Video akışlarını taklit et' seçeneğini Android Makarası veya TV olarak değiştirin</string>
     <string name="morphe_force_original_audio_summary">Videoda dublajlı versiyon yerine her zaman orijinal ses parçasını oynatır</string>
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
@@ -134,6 +142,9 @@ Eş zamanlı şarkı sözleri oynatmayı takip eder. Kayıyorsa, zamanlama kayd�
     <string name="morphe_settings_menu_filter_picker_empty">Listeyi doldurmak için standart uygulama ayarları ekranını bir kez açın</string>
     <string name="morphe_settings_menu_filter_screen_summary">Görünür adlarına göre standart uygulama ayarları ekranındaki öğeleri gizle</string>
     <string name="morphe_settings_menu_filter_screen_title">Ayarlar menüsü filtresi</string>
+    <string name="morphe_settings_name_custom_item_hint">Bir ad gir</string>
+    <string name="morphe_settings_name_empty_warning">Ad boş olamaz</string>
+    <string name="morphe_settings_name_title">RVX ayarları adı</string>
     <string name="morphe_spoof_video_streams_client_type_title">Varsayılan istemci</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Hiçbir istemci akışı alınamadı</string>
     <string name="morphe_spoof_video_streams_screen_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et</string>
@@ -172,6 +183,15 @@ Oynatma çalışmayabilir"</string>
 YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="morphe_spoof_video_streams_title">Video akışlarını taklit et</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak oynatma sorunlarına yol açabilir</string>
+    <string name="morphe_theme_entry_amoled_black">Amoled Siyah</string>
+    <string name="morphe_theme_entry_classic_youtube">Klasik (Eski YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Koyu Mavi</string>
+    <string name="morphe_theme_entry_dark_green">Koyu Yeşil</string>
+    <string name="morphe_theme_entry_dark_orange">Koyu Turuncu</string>
+    <string name="morphe_theme_entry_dark_pink">Koyu Pembe</string>
+    <string name="morphe_theme_entry_dark_red">Koyu Kırmızı</string>
+    <string name="morphe_theme_entry_dark_yellow">Koyu Sarı</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Natural)</string>
     <string name="revanced_add_miniplayer_next_button_summary">Mini çalara bir sonraki parça düğmesi ekler</string>
     <string name="revanced_add_miniplayer_next_button_title">Mini oynatıcı ekle sonraki düğmesi</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Mini çalara önceki bir iz düğmesi ekler</string>
@@ -204,7 +224,8 @@ YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonelikler</string>
     <string name="revanced_change_start_page_summary">Uygulamanın başlangıç sayfasını değiştirin</string>
     <string name="revanced_change_start_page_title">Başlangıç sayfası</string>
-    <string name="revanced_credits_title">Krediler </string>
+    <string name="revanced_confirm_user_dialog_title">Devam etmek istediğinden emin misin?</string>
+    <string name="revanced_credits_title">Krediler</string>
     <string name="revanced_custom_filter_strings_summary">Filtrelenecek bileşen yolu oluşturucu dizelerinin yeni satırlarla ayrılmış listesi</string>
     <string name="revanced_custom_filter_strings_title">Özel filtre</string>
     <string name="revanced_custom_filter_summary">Düzen bileşenlerini gizlemek için özel filtreyi etkinleştirir</string>

@@ -45,6 +45,7 @@ Pulsa el botón Continuar y permite los cambios de optimización"</string>
     <string name="morphe_disable_drc_audio_summary_on">El audio DRC está desactivado</string>
     <string name="morphe_disable_quic_protocol_summary_off">El protocolo QUIC está activado</string>
     <string name="morphe_disable_quic_protocol_summary_on">El protocolo QUIC está desactivado</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Si no funciona, prueba a forzar el cierre de MicroG</string>
     <string name="morphe_force_original_audio_not_available">Para usar esta función, cambia \'Falsificar transmisiones de vídeo\' a cualquier cliente excepto \'Android Studio\' y \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Siempre reproduce la pista de audio original del vídeo en lugar de una versión doblada</string>
     <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
@@ -121,6 +122,8 @@ Cuando no se encuentran letras de terceros, se muestran las letras integradas en
     <string name="morphe_music_lyrics_translate_hide">Mostrar original</string>
     <string name="morphe_music_lyrics_translate_show">Traducir</string>
     <string name="morphe_music_lyrics_translating">Traduciendo…</string>
+    <string name="morphe_notification_dot_color_summary">Cambia el color de los puntos de notificación</string>
+    <string name="morphe_notification_dot_color_title">Color de punto de notificación</string>
     <string name="morphe_oauth2_connection_failure_auth_error">No se puede iniciar sesión en VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">No se puede iniciar sesión en VR, la autenticación del sitio web no se ha aprobado</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 no está disponible temporalmente</string>
@@ -129,6 +132,13 @@ Cuando no se encuentran letras de terceros, se muestran las letras integradas en
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 no está disponible temporalmente (la API no responde)</string>
     <string name="morphe_oauth2_toast_invalid">Token de inicio de sesión de VR no válido, intenta iniciar sesión en VR de nuevo</string>
     <string name="morphe_oauth2_toast_reset">Desconectado de Android VR</string>
+    <string name="morphe_potoken_provider_summary">"Soluciona problemas de reproducción usando el proveedor PoToken integrado (Experimental)
+
+Si eres usuario de YouTube Premium, puede que esta opción no sea obligatoria"</string>
+    <string name="morphe_potoken_provider_title">Proveedor de PoToken</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Soluciona problemas de reproducción usando el proveedor PoToken integrado (Experimental)
+
+Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_replace_music_with_youtube_summary">Reemplaza music.youtube.com por youtube.com en los enlaces compartidos</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Los enlaces compartidos usan music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Los enlaces compartidos usan youtube.com</string>
@@ -141,6 +151,9 @@ Cuando no se encuentran letras de terceros, se muestran las letras integradas en
     <string name="morphe_settings_menu_filter_picker_empty">Abre la pantalla de configuración de la aplicación estándar una vez para completar la lista</string>
     <string name="morphe_settings_menu_filter_screen_summary">Oculta elementos en la pantalla de configuración de la aplicación estándar por su nombre visible</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtro del menú de configuración</string>
+    <string name="morphe_settings_name_custom_item_hint">Introduce un nombre</string>
+    <string name="morphe_settings_name_empty_warning">El nombre no puede estar vacío</string>
+    <string name="morphe_settings_name_title">Nombre de los ajustes de RVX</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente predeterminado</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
     <string name="morphe_spoof_video_streams_screen_summary">Falsifica las transmisiones de vídeo del cliente para evitar problemas de reproducción</string>
@@ -185,7 +198,7 @@ Si eres un usuario de YouTube Premium, esta configuración podría no ser necesa
     <string name="morphe_theme_entry_dark_green">Verde oscuro</string>
     <string name="morphe_theme_entry_dark_orange">Naranja oscuro</string>
     <string name="morphe_theme_entry_dark_pink">Rosado oscuro</string>
-    <string name="morphe_theme_entry_dark_red">Rojo oscuro </string>
+    <string name="morphe_theme_entry_dark_red">Rojo oscuro</string>
     <string name="morphe_theme_entry_dark_yellow">Amarillo oscuro</string>
     <string name="morphe_theme_entry_material_you_neutral">Material You (Neutro)</string>
     <string name="morphe_theme_entry_material_you_primary">Material You - Primario</string>
@@ -224,6 +237,7 @@ Si eres un usuario de YouTube Premium, esta configuración podría no ser necesa
     <string name="revanced_change_start_page_entry_subscriptions">Suscripciones</string>
     <string name="revanced_change_start_page_summary">Seleccione en qué página se abre la aplicación</string>
     <string name="revanced_change_start_page_title">Página de inicio</string>
+    <string name="revanced_confirm_user_dialog_title">¿Realmente quieres continuar?</string>
     <string name="revanced_credits_title">Créditos</string>
     <string name="revanced_custom_filter_strings_summary">Lista de cadenas del constructor de rutas de componentes a filtrar, una por línea</string>
     <string name="revanced_custom_filter_strings_title">Hola</string>
@@ -317,7 +331,7 @@ Limitantes: Los segmentos de SponsorBlock no se mostrarán en la barra de acció
     <string name="revanced_enable_zen_mode_podcast_title">Activar el modo Zen en podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Añade un tinte gris al reproductor de vídeo para reducir la fatiga visual</string>
     <string name="revanced_enable_zen_mode_title">Activar modo zen</string>
-    <string name="revanced_external_downloader_action_summary">El botón de descargar acción abre tu descarga externa </string>
+    <string name="revanced_external_downloader_action_summary">El botón de descargar acción abre tu descarga externa</string>
     <string name="revanced_external_downloader_action_title">Reemplazar botón de acción de Descarga</string>
     <string name="revanced_external_downloader_dialog_title">Descargador externo</string>
     <string name="revanced_external_downloader_flyout_menu_summary">Utiliza el descargador externo seleccionado en lugar del menú desplegable de descarga original</string>
@@ -342,7 +356,7 @@ Descarga %2$s desde el sitio web"</string>
     <string name="revanced_hide_action_button_comment_summary">Oculta el botón de comentarios</string>
     <string name="revanced_hide_action_button_comment_title">Ocultar botón de comentarios</string>
     <string name="revanced_hide_action_button_details_summary">Hides the Details button in Podcast</string>
-    <string name="revanced_hide_action_button_details_title">Ocultar detalles </string>
+    <string name="revanced_hide_action_button_details_title">Ocultar detalles</string>
     <string name="revanced_hide_action_button_disabled_summary">Oculta botones inhabilitados, como el botón de comentarios cuando están desactivados</string>
     <string name="revanced_hide_action_button_disabled_title">Ocultar botones inhabilitados</string>
     <string name="revanced_hide_action_button_download_summary">Oculta el botón Descargar</string>
@@ -352,7 +366,7 @@ Descarga %2$s desde el sitio web"</string>
     <string name="revanced_hide_action_button_like_dislike_summary">Oculta los botones \"Me gusta\" y \"no me gusta\". No funciona en el diseño del reproductor antiguo</string>
     <string name="revanced_hide_action_button_like_dislike_title">Ocultar botones Me gusta y No me gusta</string>
     <string name="revanced_hide_action_button_live_chat_replay_summary">Hides the Live chat replay button for live videos</string>
-    <string name="revanced_hide_action_button_live_chat_replay_title">Chat en vivo </string>
+    <string name="revanced_hide_action_button_live_chat_replay_title">Chat en vivo</string>
     <string name="revanced_hide_action_button_lyrics_summary">Esconde el botón de letras</string>
     <string name="revanced_hide_action_button_lyrics_title">Esconde el botón de letras</string>
     <string name="revanced_hide_action_button_radio_summary">Oculta el botón Radio</string>

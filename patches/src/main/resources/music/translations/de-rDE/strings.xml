@@ -38,6 +38,7 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC-Audio ist deaktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Wenn es nicht funktioniert, versuche, MicroG zwangsweise zu beenden</string>
     <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \"Video-Streams fälschen\" auf einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary">Spielt immer die Original-Audiospur des Videos ab, anstatt eine synchronisierte Version</string>
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
@@ -134,6 +135,9 @@ Wenn keine fremden Liedtexte gefunden werden, werden stattdessen die eingebauten
     <string name="morphe_settings_menu_filter_picker_empty">Öffnen Sie den Bildschirm der Standard-App-Einstellungen einmal, um die Liste zu befüllen</string>
     <string name="morphe_settings_menu_filter_screen_summary">Elemente auf dem Bildschirm der Standard-App-Einstellungen anhand ihres sichtbaren Namens ausblenden</string>
     <string name="morphe_settings_menu_filter_screen_title">Filter für das Einstellungsmenü</string>
+    <string name="morphe_settings_name_custom_item_hint">Name eingeben</string>
+    <string name="morphe_settings_name_empty_warning">Name darf nicht leer sein</string>
+    <string name="morphe_settings_name_title">RVX-Einstellungsname</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
     <string name="morphe_spoof_video_streams_screen_summary">Client-Streams spoofen, um Wiedergabeprobleme zu vermeiden</string>
@@ -173,7 +177,7 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="morphe_spoof_video_streams_title">Video-Streams spoofen</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann Wiedergabeprobleme verursachen</string>
     <string name="revanced_add_miniplayer_next_button_summary">Fügt dem Miniplayer eine Schaltfläche für den nächsten Titel hinzu</string>
-    <string name="revanced_add_miniplayer_next_button_title">einen mini Player hinzufügen mit weiter Button </string>
+    <string name="revanced_add_miniplayer_next_button_title">einen mini Player hinzufügen mit weiter Button</string>
     <string name="revanced_change_start_page_entry_charts">Charts</string>
     <string name="revanced_change_start_page_entry_default">Standard</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Episoden für später</string>
@@ -184,6 +188,7 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_change_start_page_entry_search">Suchen</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
     <string name="revanced_change_start_page_title">Startseite</string>
+    <string name="revanced_confirm_user_dialog_title">Möchten Sie wirklich fortfahren?</string>
     <string name="revanced_custom_filter_strings_summary">Liste der Komponenten-Pfad-Generator-Zeichenketten zum Filtern, getrennt durch neue Zeilen</string>
     <string name="revanced_custom_filter_strings_title">Eigener Filter</string>
     <string name="revanced_custom_filter_title">Eigenen Filter aktivieren</string>
@@ -192,7 +197,7 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_debug_protobuffer_title">Debug-Protokollpuffer</string>
     <string name="revanced_debug_title">Debug-Protokollierung aktivieren</string>
     <string name="revanced_disable_drc_audio_title">Audiokompression (DRC) deaktivieren</string>
-    <string name="revanced_disable_quic_protocol_title">QUIC-Protokoll deaktivieren </string>
+    <string name="revanced_disable_quic_protocol_title">QUIC-Protokoll deaktivieren</string>
     <string name="revanced_external_downloader_flyout_menu_summary">Verwendet den von dir gewählten externen Downloader anstelle des standardmäßigen Download-Flyout-Menüs</string>
     <string name="revanced_external_downloader_flyout_menu_title">Download-Menü überschreiben</string>
     <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren Sie es zuerst</string>
@@ -200,7 +205,7 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_icon_custom">Benutzerdefiniert</string>
     <string name="revanced_music_change_navigation_bar_color_summary">Farbe der Navigationsleiste passt sich an den Vollbild-Player an</string>
     <string name="revanced_music_change_navigation_bar_color_title">Farbe der Navigationsleiste ändern</string>
-    <string name="revanced_preference_screen_general_title">Allgemein </string>
+    <string name="revanced_preference_screen_general_title">Allgemein</string>
     <string name="revanced_preference_screen_lyrics_title">Songtexte</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">Dies umgeht die Altersbeschränkung nicht. Es akzeptiert sie nur automatisch</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Hinweis zur Altersfreigabe entfernen</string>
@@ -225,7 +230,7 @@ Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Warnungen zu Verbindungfehlern anzeigen</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Vom Ersteller deaktiviert</string>
     <string name="revanced_sb_skip_automatically_once">Automatisch einmal überspringen</string>
-    <string name="revanced_settings_export_as_file">Exportiere Einstellungen zu dieser Datei </string>
+    <string name="revanced_settings_export_as_file">Exportiere Einstellungen zu dieser Datei</string>
     <string name="revanced_settings_import">Importieren</string>
     <string name="revanced_settings_import_copy">Kopieren</string>
     <string name="revanced_settings_import_reset">RVX-Einstellungen auf Standardwerte zurückgesetzt</string>
