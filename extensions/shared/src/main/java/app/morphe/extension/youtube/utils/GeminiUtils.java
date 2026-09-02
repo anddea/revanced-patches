@@ -75,6 +75,7 @@ public class GeminiUtils {
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
 
     /**
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">gemini-3.8-flash</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash">gemini-3.7-flash</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash">gemini-3.6-flash</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash">gemini-3.5-flash</a>
@@ -87,7 +88,8 @@ public class GeminiUtils {
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro">gemini-2.5-pro</a>
      */
     private static final String[] GEMINI_MODELS = {
-            // "gemini-3.7-flash",
+            "gemini-3.8-flash",
+            "gemini-3.7-flash",
             "gemini-3.6-flash",
             "gemini-3.5-flash",
             "gemini-3.5-flash-lite",
@@ -480,6 +482,9 @@ public class GeminiUtils {
 
         JSONArray candidates = jsonResponse.optJSONArray("candidates");
         if (candidates == null || candidates.length() == 0) {
+            if (jsonResponse.has("usageMetadata")) {
+                return StreamEventResult.empty();
+            }
             String blockReason = extractBlockReason(jsonResponse);
             return StreamEventResult.failure(blockReason != null ? "Content blocked: " + blockReason : "API response missing valid streamed candidates.");
         }
@@ -493,6 +498,9 @@ public class GeminiUtils {
                 for (int i = 0; i < parts.length(); i++) {
                     JSONObject part = parts.optJSONObject(i);
                     if (part != null) {
+                        if (part.optBoolean("thought", false)) {
+                            continue;
+                        }
                         String text = part.optString("text", "");
                         if (!text.isEmpty()) {
                             deltaText.append(text);
@@ -548,7 +556,11 @@ public class GeminiUtils {
      */
     @NonNull
     private static String getThinkingLevel(@NonNull String model) {
-        if ("gemini-3.7-flash".equals(model) || "gemini-3.1-pro-preview".equals(model)) {
+        if (
+                "gemini-3.8-flash".equals(model) ||
+                "gemini-3.7-flash".equals(model) ||
+                "gemini-3.1-pro-preview".equals(model)
+        ) {
             return "low";
         }
         return "minimal";
@@ -700,6 +712,9 @@ public class GeminiUtils {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < parts.length(); i++) {
             JSONObject part = parts.getJSONObject(i);
+            if (part.optBoolean("thought", false)) {
+                continue;
+            }
             if (part.has("text")) {
                 result.append(part.getString("text"));
             }
