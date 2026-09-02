@@ -42,6 +42,7 @@
 package app.morphe.extension.youtube.patches.voiceovertranslation;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -54,10 +55,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.regex.Matcher;
@@ -71,13 +69,10 @@ import app.morphe.extension.youtube.settings.Settings;
 
 public class VotApiClient {
 
-    private static final String DEFAULT_WORKER_HOST = "vot-worker.toil.cc";
     private static final String VOT_USER_SCRIPT_URL =
             "https://raw.githubusercontent.com/ilyhalight/voice-over-translation/master/dist/vot.user.js";
     private static final Pattern PROXY_WORKER_HOST_PATTERN =
             Pattern.compile("\\bproxyWorkerHost\\s*=\\s*[\"']([^\"']+)[\"']");
-    private static final Pattern PROXY_WORKER_HOST_MODE_1_PATTERN =
-            Pattern.compile("\\bproxyWorkerHostMode1\\s*=\\s*[\"']([^\"']+)[\"']");
 
     private static final String HMAC_KEY = "bt8xH3VOlb4mqf0nqAibnDOoiPlXsisf";
     private static final String COMPONENT_VERSION = "25.6.0.2259";
@@ -110,9 +105,6 @@ public class VotApiClient {
     public static final int STATUS_PART_CONTENT = 5;
     public static final int STATUS_AUDIO_REQUESTED = 6;
     public static final int STATUS_SESSION_REQUIRED = 7;
-
-    private record ProxyWorkerRetryResult(TranslationResult result, boolean workerHostsFound) {
-    }
 
     /**
      * Callback interface for {@link #pollUntilReady}.
@@ -322,21 +314,8 @@ public class VotApiClient {
         final String finalOauthToken = oauthToken;
 
         try {
-            TranslationResult result = requestTranslationInternal(videoUrl, duration, sourceLang, targetLang, videoTitle, finalOauthToken);
-            if (result != null) {
-                return result;
-            }
-
-            return requestTranslationUsingFreshProxyWorkers(
-                    videoUrl, duration, sourceLang, targetLang, videoTitle, finalOauthToken, null).result();
+            return requestTranslationInternal(videoUrl, duration, sourceLang, targetLang, videoTitle, finalOauthToken);
         } catch (Exception e) {
-            ProxyWorkerRetryResult retryResult = requestTranslationUsingFreshProxyWorkers(
-                    videoUrl, duration, sourceLang, targetLang, videoTitle, finalOauthToken, e);
-
-            if (retryResult.result() != null || retryResult.workerHostsFound()) {
-                return retryResult.result();
-            }
-
             Logger.printException(() -> "VotApiClient.requestTranslation failed for " + videoUrl, e);
             return null;
         }
@@ -385,42 +364,6 @@ public class VotApiClient {
                 response.translationId,
                 response.message
         );
-    }
-
-    private static ProxyWorkerRetryResult requestTranslationUsingFreshProxyWorkers(
-            String videoUrl, double duration,
-            String sourceLang, String targetLang,
-            String videoTitle, String oauthToken,
-            Exception originalException
-    ) {
-        String[] workerHosts = fetchProxyWorkerHosts();
-        if (workerHosts.length == 0) {
-            if (originalException != null) {
-                Logger.printDebug(() -> "VOT proxy worker refresh found no workers");
-            }
-            return new ProxyWorkerRetryResult(null, false);
-        }
-
-        Exception retryException = originalException;
-        for (String workerHost : workerHosts) {
-            Settings.VOT_PROXY_URL.save(workerHost);
-            resetSession();
-
-            try {
-                TranslationResult result = requestTranslationInternal(videoUrl, duration, sourceLang, targetLang, videoTitle, oauthToken);
-                if (result != null) {
-                    return new ProxyWorkerRetryResult(result, true);
-                }
-            } catch (Exception e) {
-                retryException = e;
-            }
-        }
-
-        if (retryException != null) {
-            Exception exception = retryException;
-            Logger.printDebug(() -> "VOT proxy worker retry failed: " + exception.getMessage());
-        }
-        return new ProxyWorkerRetryResult(null, true);
     }
 
     public static void sendFailedAudio(String videoUrl) {
@@ -540,6 +483,24 @@ public class VotApiClient {
         }
     }
 
+    /**
+     * Saves a worker host selected by the user and invalidates the session when it changes.
+     *
+     * @param workerHost the worker host to use for future VOT requests
+     */
+    public static void saveProxyWorkerHost(@NonNull String workerHost) {
+        String normalizedWorkerHost = normalizeWorkerHost(workerHost);
+        if (normalizedWorkerHost.isEmpty()) {
+            return;
+        }
+
+        String previousWorkerHost = getWorkerHost();
+        Settings.VOT_PROXY_URL.save(normalizedWorkerHost);
+        if (!normalizedWorkerHost.equals(previousWorkerHost)) {
+            resetSession();
+        }
+    }
+
     private static byte[] sendWorkerRequest(
             String path, byte[] body,
             String vtransSignature, String secretKey, String vtransToken,
@@ -652,7 +613,7 @@ public class VotApiClient {
     private static String getWorkerHost() {
         String workerHost = Settings.VOT_PROXY_URL.get();
         if (workerHost.isEmpty()) {
-            workerHost = DEFAULT_WORKER_HOST;
+            workerHost = Settings.VOT_PROXY_URL.defaultValue;
         }
 
         return normalizeWorkerHost(workerHost);
@@ -672,8 +633,14 @@ public class VotApiClient {
         return workerHost;
     }
 
-    @NonNull
-    private static String[] fetchProxyWorkerHosts() {
+    /**
+     * Fetches the current {@code proxyWorkerHost} from the upstream userscript when explicitly
+     * requested from the VOT settings. Translation requests never call this method automatically.
+     *
+     * @return the fetched worker host, or {@code null} if it could not be fetched or parsed
+     */
+    @Nullable
+    public static String fetchLatestProxyWorkerHost() {
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) new URL(VOT_USER_SCRIPT_URL).openConnection();
@@ -683,36 +650,30 @@ public class VotApiClient {
             connection.setReadTimeout(READ_TIMEOUT_MS);
 
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                return new String[0];
+                return null;
             }
 
-            String script = new String(readBytes(connection.getInputStream()), StandardCharsets.UTF_8);
-            return parseProxyWorkerHosts(script);
+            String script;
+            try (InputStream inputStream = connection.getInputStream()) {
+                script = new String(readBytes(inputStream), StandardCharsets.UTF_8);
+            }
+            Matcher matcher = PROXY_WORKER_HOST_PATTERN.matcher(script);
+            if (!matcher.find()) {
+                return null;
+            }
+
+            String workerHost = normalizeWorkerHost(matcher.group(1));
+            if (workerHost.isEmpty()) {
+                return null;
+            }
+
+            return workerHost;
         } catch (Exception e) {
-            Logger.printDebug(() -> "VOT proxy worker refresh failed: " + e.getMessage());
-            return new String[0];
+            Logger.printDebug(() -> "VOT proxy worker fetch failed: " + e.getMessage());
+            return null;
         } finally {
             if (connection != null) {
                 connection.disconnect();
-            }
-        }
-    }
-
-    @NonNull
-    private static String[] parseProxyWorkerHosts(@NonNull String script) {
-        List<String> workerHosts = new ArrayList<>(2);
-        addProxyWorkerHost(workerHosts, script, PROXY_WORKER_HOST_PATTERN);
-        addProxyWorkerHost(workerHosts, script, PROXY_WORKER_HOST_MODE_1_PATTERN);
-
-        return workerHosts.toArray(new String[0]);
-    }
-
-    private static void addProxyWorkerHost(List<String> workerHosts, String script, Pattern pattern) {
-        Matcher matcher = pattern.matcher(script);
-        if (matcher.find()) {
-            String workerHost = normalizeWorkerHost(Objects.requireNonNull(matcher.group(1)));
-            if (!workerHost.isEmpty() && !workerHosts.contains(workerHost)) {
-                workerHosts.add(workerHost);
             }
         }
     }

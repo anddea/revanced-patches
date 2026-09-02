@@ -2,6 +2,7 @@ package app.morphe.extension.youtube.settings.preference;
 
 import static app.morphe.extension.shared.patches.PatchStatus.PatchVersion;
 import static app.morphe.extension.shared.patches.PatchStatus.PatchedTime;
+import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT;
 import static app.morphe.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT_TYPE;
 
@@ -25,6 +26,7 @@ import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.general.ChangeFormFactorPatch;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
 import app.morphe.extension.youtube.patches.utils.ReturnYouTubeDislikePatch;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient;
 import app.morphe.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.settings.YouTubeActivityHook;
@@ -88,6 +90,9 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
 
             // Debug log
             setDebugLogPreference();
+
+            // Voice Over Translation proxy host fetch
+            setVotProxyPreference();
 
             setPreferenceAvailability();
         } catch (Exception ex) {
@@ -226,6 +231,33 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
         exportLogToFile.setOnPreferenceClickListener(pref -> {
             exportActivity();
             return false;
+        });
+    }
+
+    /**
+     * Adds the explicit VOT proxy host refresh action. The host is never fetched or changed while
+     * processing a translation request.
+     */
+    private void setVotProxyPreference() {
+        Preference fetchPreference = findPreference("vot_proxy_url_fetch");
+        if (fetchPreference == null) {
+            return;
+        }
+        fetchPreference.setOnPreferenceClickListener(pref -> {
+            pref.setEnabled(false);
+            Utils.runOnBackgroundThread(() -> {
+                String workerHost = VotApiClient.fetchLatestProxyWorkerHost();
+                Utils.runOnMainThread(() -> {
+                    pref.setEnabled(true);
+                    if (workerHost == null) {
+                        Utils.showToastLong(str("revanced_vot_proxy_url_fetch_failed"));
+                        return;
+                    }
+                    VotApiClient.saveProxyWorkerHost(workerHost);
+                    Utils.showToastShort(str("revanced_vot_proxy_url_fetch_success", workerHost));
+                });
+            });
+            return true;
         });
     }
 
