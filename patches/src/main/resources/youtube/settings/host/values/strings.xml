@@ -2701,7 +2701,11 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_original_audio_volume_title">Original audio volume</string>
     <string name="revanced_vot_percent_value">%d%%</string>
     <string name="revanced_vot_playback_error">Failed to play translation audio</string>
-    <string name="revanced_vot_proxy_url_summary">VOT worker proxy host. Default: auto-detected</string>
+    <string name="revanced_vot_proxy_url_fetch_failed">Failed to fetch the VOT worker proxy host</string>
+    <string name="revanced_vot_proxy_url_fetch_success">VOT worker proxy host updated to %s</string>
+    <string name="revanced_vot_proxy_url_fetch_summary">Fetch the current proxy worker host manually. It is never updated automatically.</string>
+    <string name="revanced_vot_proxy_url_fetch_title">Fetch latest proxy server</string>
+    <string name="revanced_vot_proxy_url_summary">VOT worker proxy host. Default: vot-worker.eu.cc</string>
     <string name="revanced_vot_proxy_url_title">Proxy server</string>
     <string name="revanced_vot_source_language_summary">Select the language of the video audio</string>
     <string name="revanced_vot_source_language_title">Source language</string>
