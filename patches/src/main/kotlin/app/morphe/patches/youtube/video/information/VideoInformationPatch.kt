@@ -124,6 +124,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SHARED_PATH/VideoInformation;"
 
+private const val EXO_PLAYER_TYPE = "Landroidx/media3/exoplayer/ExoPlayer;"
+
 internal const val EXTENSION_EXOPLAYERIMPL_INTERFACE =
     $$"$$SHARED_PATH/VideoInformation$ExoPlayerImpl;"
 
@@ -668,6 +670,13 @@ val videoInformationPatch = bytecodePatch(
 
         val playbackParametersType = PlaybackParametersToStringFingerprint.classDef.type
         val setPlaybackParametersFingerprint = getPlaybackParametersSetterFingerprint(playbackParametersType)
+        val playerInterfaceType = classDefBy(EXO_PLAYER_TYPE).interfaces.first()
+        // Resolve this through the stable media3 interface because the concrete player implementation is obfuscated.
+        val setPlayWhenReadyMethod = Fingerprint(
+            definingClass = playerInterfaceType,
+            returnType = "V",
+            parameters = listOf("Z"),
+        ).method
 
         // for patch_setPlaybackParameters helper method to call setPlaybackParameters(PlaybackParameters p1).
         val setPlaybackParametersMethod = setPlaybackParametersFingerprint.method
@@ -698,7 +707,7 @@ val videoInformationPatch = bytecodePatch(
 
         // Capture the ExoPlayerImpl reference at its init constructor (only 1 yet)
         // Extension is initialized (Application.onCreate) before starting to play any video.
-        // This is required for patch_setPlaybackParameters function.
+        // This is required for the extension's playback parameter and state bridge methods.
         Fingerprint(
             classFingerprint = setPlaybackParametersFingerprint,
             name = "<init>",
@@ -719,8 +728,7 @@ val videoInformationPatch = bytecodePatch(
         }
 
         setPlaybackParametersFingerprint.classDef.apply {
-            // Add interface and helper method to allow extension code
-            // to directly set the ExoPlayer playback parameters.
+            // Add interface and helper methods to allow extension code to directly control ExoPlayer playback.
             interfaces.add(EXTENSION_EXOPLAYERIMPL_INTERFACE)
 
             methods.add(
@@ -743,6 +751,27 @@ val videoInformationPatch = bytecodePatch(
                             new-instance v0, $playbackParametersType
                             invoke-direct { v0, p1, p2 }, $playbackParametersConstructorReference
                             invoke-virtual { p0, v0 }, $setPlaybackParametersReference
+                            return-void
+                        """
+                    )
+                }
+            )
+
+            methods.add(
+                ImmutableMethod(
+                    type,
+                    "patch_setPlayWhenReady",
+                    listOf(ImmutableMethodParameter("Z", null, null)),
+                    "V",
+                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(2),
+                ).toMutable().apply {
+                    addInstructions(
+                        0,
+                        """
+                            invoke-interface { p0, p1 }, ${setPlayWhenReadyMethod.definingClass}->${setPlayWhenReadyMethod.name}(Z)V
                             return-void
                         """
                     )
