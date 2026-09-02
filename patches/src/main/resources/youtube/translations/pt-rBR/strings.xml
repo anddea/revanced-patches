@@ -43,6 +43,7 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_expand_livestream_dvr_duration_title">Expandir a duração do DVR em lives</string>
     <string name="morphe_explore_menu_screen_summary">Escolha quais componentes aparecem no menu Explorar</string>
     <string name="morphe_explore_menu_screen_title">Menu Explorar</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Se não funcionar, tente forçar o fechamento do MicroG</string>
     <string name="morphe_force_original_audio_not_available">Para usar este recurso, altere \'Falsificar dados de transmissão\' para Android Reel ou TV</string>
     <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
     <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
@@ -53,6 +54,27 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_fullscreen_video_scale_entry_stretch">Esticar (preencher a tela)</string>
     <string name="morphe_fullscreen_video_scale_entry_zoom">Zoom (cortar para preencher)</string>
     <string name="morphe_fullscreen_video_scale_title">Escala de vídeo em tela cheia</string>
+    <string name="morphe_hide_aislist_about_summary">"Os resultados da página inicial e da pesquisa são filtrados para ocultar vídeos de canais sinalizados pelo AiSList
+
+Limitações:
+• Shorts de IA filtrados podem aparecer como um espaço vazio
+• Alguns vídeos de IA ainda podem aparecer"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"Os dados são fornecidos pelo AiSList
+
+Toque aqui para abrir AiSlopList.com e ver downloads para outras plataformas"</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">Lista de bloqueio: alta confiança</string>
+    <string name="morphe_hide_aislist_hide_home_title">Ocultar vídeos na página inicial</string>
+    <string name="morphe_hide_aislist_hide_search_title">Ocultar vídeos na pesquisa</string>
+    <string name="morphe_hide_aislist_screen_summary">Ocultar vídeos de canais sinalizados como conteúdo gerado por IA pela lista da comunidade AiSList</string>
+    <string name="morphe_hide_aislist_screen_title">Filtro de canal de IA</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">Canais na lista de bloqueio</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">Ativar um filtro para carregar canais</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">Carregando canais…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Página inicial: %s
+• Pesquisa: %s
+• Total: %s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">Canais na lista de avisos</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">Lista de alertas: confiança moderada</string>
     <string name="morphe_hide_courses_menu_title">Ocultar menu Cursos</string>
     <string name="morphe_hide_explore_button_title">Ocultar botão Mais</string>
     <string name="morphe_hide_fashion_menu_title">Ocultar menu \'Moda e Beleza\'</string>
@@ -75,6 +97,10 @@ Para mostrar o menu 'Faixa de áudio', altere 'Simular streams de vídeo' para q
     <string name="morphe_hide_privacy_tos_footer_title">Ocultar rodapé \'Política de Privacidade\' e \'Termos de Serviço\'</string>
     <string name="morphe_hide_shopping_menu_title">Ocultar menu Compras</string>
     <string name="morphe_hide_sports_menu_title">Ocultar menu Esportes</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">Redefinir contador das últimas 24 horas?</string>
+    <string name="morphe_hide_stats_hidden_24h_title">Vídeos ocultos, últimas 24 horas</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">Redefinir todos os contadores de tempo?</string>
+    <string name="morphe_hide_stats_hidden_all_title">Vídeos ocultos, todos os tempos</string>
     <string name="morphe_hide_sync_button_title">Ocultar botão \'Sincronizar com vídeo\'</string>
     <string name="morphe_hide_youtube_create_menu_title">Ocultar menu Criar no YouTube</string>
     <string name="morphe_hide_youtube_kids_menu_title">Ocultar menu YouTube Kids</string>
@@ -97,12 +123,16 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_oauth2_connection_failure_timeout">\"OAuth2 está temporariamente indisponível (API expirou)\"</string>
     <string name="morphe_oauth2_toast_invalid">Token de login do VR inválido, tente fazer login no VR novamente</string>
     <string name="morphe_oauth2_toast_reset">Deslogado do Android VR</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">Impedir a abertura de transmissões ao vivo ao tocar no avatar do canal</string>
+    <string name="morphe_open_channel_of_live_avatar_title">Não abrir live ao tocar no avatar do canal</string>
     <string name="morphe_override_youtube_music_buttons_summary">Abre seu app de música preferido em vez do app oficial do YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Substituir botões do YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Sempre ligado</string>
     <string name="morphe_playback_in_feeds_entry_off">Desligado</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Somente Wi-Fi</string>
-    <string name="morphe_playback_in_feeds_title">Reprodução em feeds</string>
+    <string name="morphe_playback_in_feeds_title">Reprodução nos feeds</string>
+    <string name="morphe_queue_manager_check_failed_auth">Você não está logado</string>
+    <string name="morphe_queue_manager_check_failed_video_id">Nenhum ID de vídeo</string>
     <string name="morphe_reload_video_summary_off">Botão de recarregar vídeo não está visível</string>
     <string name="morphe_reload_video_summary_on">Botão de recarregar vídeo está visível</string>
     <string name="morphe_reload_video_title">Mostrar botão de recarregar vídeo</string>
@@ -114,6 +144,14 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_sanitize_sharing_links_summary_off">Parâmetro de consulta de rastreamento não é removido dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parâmetro de consulta de rastreamento é removido dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_title">Limpar links de compartilhamento</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">Este vídeo já está salvo na playlist \"Assistir mais tarde\"</string>
+    <string name="morphe_save_to_watch_later_button_summary">Toque para salvar em \"Assistir mais tarde\", toque e segure para opções da fila</string>
+    <string name="morphe_save_to_watch_later_button_title">Mostrar o botão \"Salvar em Assistir mais tarde\"</string>
+    <string name="morphe_save_to_watch_later_error_toast">Não foi possível salvar este vídeo na playlist \"Assistir mais tarde\"</string>
+    <string name="morphe_save_to_watch_later_flyout_title">Salvar em Assistir mais tarde</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Permite salvar vídeos voltados para crianças no menu suspenso \"Assistir mais tarde\"</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Mostrar o botão \"Salvar em Assistir mais tarde\" em vídeos infantis</string>
+    <string name="morphe_save_to_watch_later_success_toast">Vídeo salvo com sucesso na playlist \"Assistir mais tarde\"</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Mais reproduzidos</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Mostra uma thumbnail do vídeo ao arrastar a barra de progresso</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Ativar thumbnails na barra de progresso</string>
@@ -121,6 +159,9 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_settings_menu_filter_picker_empty">Abra a tela de configurações do aplicativo padrão uma vez para preencher a lista</string>
     <string name="morphe_settings_menu_filter_screen_summary">Ocultar itens na tela de configurações do aplicativo padrão pelo nome visível</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtro do menu de configurações</string>
+    <string name="morphe_settings_name_custom_item_hint">Digite um nome</string>
+    <string name="morphe_settings_name_empty_warning">O nome não pode ficar em branco</string>
+    <string name="morphe_settings_name_title">Nome das configurações do RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Cor</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monocromático</string>
     <string name="morphe_splash_screen_animation_style_title">Estilo da tela inicial</string>
@@ -148,20 +189,20 @@ A reprodução de vídeos com AV1 pode apresentar travamentos ou perda de frames
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Você não fez login no Android VR. Toque aqui para fazer login</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">Para usar essa função, altere o \'Cliente padrão\' para Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">Atualmente conectado ao Android VR</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Fazer login no Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_about_title">Login do Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_message">"Código de ativação: %s
 
-1. Toque em 'Abrir site' abaixo para abrir o site 'Conectar um dispositivo'
-2. Cole da área de transferência (ou digite) o código de ativação mostrado acima
-3. Faça login no Google se solicitado. Se você tiver várias contas, escolha a conta do YouTube usada neste app
-4. Toque em 'Permitir o acesso do YouTube VR'
-5. Volte para este app após a mensagem 'Dispositivo conectado' ser exibida"</string>
+1. Toque em \"Abrir site\" abaixo para abrir o site \"Conectar um dispositivo\"
+2. Cole o código de ativação exibido acima a partir da área de transferência (ou digite-o manualmente)
+3. Faça login no Google, se solicitado. Se você tiver várias contas, escolha esta conta do YouTube
+4. Toque em \"Permitir acesso ao YouTube VR\"
+5. Retorne a este aplicativo após chegar à mensagem \"Dispositivo conectado\""</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">Instruções</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Fazer login no Android VR pode corrigir problemas de reprodução para alguns usuários
 
 Para fazer login, pressione continuar abaixo"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">Sair</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Conectar ao Android VR</string>
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Fazer login no Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autenticação salva
 
 • Suas configurações do RVX não vão importar/exportar a autenticação do Android VR
@@ -179,6 +220,8 @@ A reprodução pode não funcionar"</string>
 
 Se você é um usuário do YouTube Premium, esta configuração pode não ser necessária"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">Toque para ver as opções da fila, toque e segure para salvar em \"Assistir mais tarde\"</string>
+    <string name="morphe_swap_save_and_queue_actions_title">Trocar as ações de Salvar e Fila</string>
     <string name="morphe_tablet_layout_in_player_summary">"Restaura o layout antigo do player de vídeo
 
 Limitação: Se 'Restaurar barra de ações de vídeo antiga' estiver desativado, a sobreposição 'Mais vídeos' pode não estar disponível"</string>
@@ -264,7 +307,7 @@ Habilitar isso pode corrigir imagens ausentes que estão bloqueadas em algumas r
     <string name="revanced_change_form_factor_entry_4">Tablet</string>
     <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
     <string name="revanced_change_form_factor_entry_6">Automotivo</string>
-    <string name="revanced_change_form_factor_title">Fator de forma do layout </string>
+    <string name="revanced_change_form_factor_title">Fator de forma do layout</string>
     <string name="revanced_change_form_factor_user_dialog_message">"As mudanças incluem:
 
 Layout de tablet
@@ -333,7 +376,7 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar"</strin
     <string name="revanced_change_youtube_header_title">Alterar cabeçalho do YouTube</string>
     <string name="revanced_confirm_user_dialog_title">Tem certeza que deseja prosseguir?</string>
     <string name="revanced_copy_error">Falha ao copiar texto</string>
-    <string name="revanced_credits_title">créditos </string>
+    <string name="revanced_credits_title">créditos</string>
     <string name="revanced_custom_dpi_summary">Densidade de exibição forçada em pontos por polegada apenas para este app (0 = padrão do sistema)</string>
     <string name="revanced_custom_dpi_title">DPI personalizado</string>
     <string name="revanced_custom_filter_strings_summary">Lista de strings de componente de construção de caminhos para filtrar, separadas por novas linhas</string>
@@ -428,6 +471,7 @@ Configurações → Reprodução automática → Reprodução automática do pr�
     <string name="revanced_disable_engagement_panel_summary_off">O painel de engajamento está ativado</string>
     <string name="revanced_disable_engagement_panel_summary_on">O painel de engajamento está desativado</string>
     <string name="revanced_disable_engagement_panel_title">Desativar painel de engajamento</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">Desativar gesto de pinça para zoom</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptics de capítulos ativado</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptics de capítulos desativado</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Desativar haptics de capítulos</string>
@@ -464,6 +508,7 @@ As mudanças incluem:
     <string name="revanced_disable_like_dislike_glow_summary_off">Os botões Like e Dislike brilharão quando pressionados</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Os botões Like e Dislike não brilharão quando pressionados</string>
     <string name="revanced_disable_like_dislike_glow_title">Desativar brilho do botão Like e Dislike</string>
+    <string name="revanced_disable_playlist_autoplay_title">Desativar reprodução automática de playlists</string>
     <string name="revanced_disable_quic_protocol_summary">"Desativar o protocolo QUIC do CronetEngine"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continuar assistindo&lt;/b&gt; continuará na inicialização do aplicativo.&lt;br&gt;&lt;br&gt;Informação:&lt;br&gt;• &lt;b&gt;Continuar assistindo&lt;/b&gt; é um recurso do YouTube Premium.&lt;br&gt;• Esta configuração não força &lt;b&gt;Continuar assistindo&lt;/b&gt; a estar ativado</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continuar assistindo&lt;/b&gt; não continuará na inicialização do aplicativo</string>
@@ -629,7 +674,7 @@ Por favor, baixe %2$s do site"</string>
     <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale-o</string>
     <string name="revanced_external_downloader_other_item">Outro</string>
     <string name="revanced_external_downloader_other_item_hint">Digite o nome do pacote</string>
-    <string name="revanced_external_downloader_package_name_playlist_summary">Nome do pacote do seu aplicativo de download externo instalado. </string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Nome do pacote do seu aplicativo de download externo instalado</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nome do pacote do aplicativo de download de playlist</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Nome do pacote do seu aplicativo de download externo instalado, como NewPipe ou YTDLnis, ao pressionar longamente</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Nome do pacote do aplicativo de baixar vídeos por toque longo</string>
@@ -655,6 +700,14 @@ Problema conhecido: Às vezes, a sobreposição de deslizar aparece antes de alt
     <string name="revanced_fix_transcript_summary_off">A transcrição pode não estar disponível devido a uma falha na verificação prévia</string>
     <string name="revanced_fix_transcript_summary_on">Transcrição está disponível</string>
     <string name="revanced_fix_transcript_title">Corrigir transcrição</string>
+    <string name="revanced_force_hdr_video_summary">Força o aplicativo a reconhecer este dispositivo como compatível com HDR</string>
+    <string name="revanced_force_hdr_video_title">Forçar vídeo em HDR</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"Use isto se a decodificação de HDR funcionar, mas o YouTube não disponibilizar HDR, como em alguns dispositivos com HyperOS que ocultam o HLG
+
+Limitações:
+• As cores podem parecer incorretas se a tela não for capaz de exibir HDR
+• A reprodução pode falhar se o decodificador não suportar HDR
+• O HDR ainda depende do cliente selecionado em \"Simular streams de vídeo\""</string>
     <string name="revanced_fullscreen_ads_closed_toast">Os anúncios em tela cheia são fechados</string>
     <string name="revanced_gemini_cancelled">Cancelado</string>
     <string name="revanced_gemini_chat_input_hint">
@@ -966,7 +1019,7 @@ Limitação: Alguns links de pesquisa destacados que não possuem um estilo de t
     <string name="revanced_hide_info_panel_title">Ocultar painéis de informações</string>
     <string name="revanced_hide_join_button_in_channel_page_summary_off">O botão Seja Membro será exibido</string>
     <string name="revanced_hide_join_button_in_channel_page_summary_on">O botão Seja Membro está oculto</string>
-    <string name="revanced_hide_join_button_in_channel_page_title">Ocultar botão Seja membro </string>
+    <string name="revanced_hide_join_button_in_channel_page_title">Ocultar botão Seja membro</string>
     <string name="revanced_hide_key_concepts_section_summary_off">A seção Conceitos-chave é mostrada</string>
     <string name="revanced_hide_key_concepts_section_summary_on">A seção Conceitos-chave está oculta</string>
     <string name="revanced_hide_key_concepts_section_title">Ocultar seção \'Conceitos-chave\'</string>
@@ -1025,7 +1078,7 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_live_chat_messages_title">Ocultar mensagens do chat ao vivo</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">O botão \"Repetição do chat ao vivo\" na sobreposição do player é exibido</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">O botão \"Repetição do chat ao vivo\" na sobreposição do player está oculto</string>
-    <string name="revanced_hide_live_chat_replay_button_title">Ocultar botão \'Replay do chat ao vivo\'</string>
+    <string name="revanced_hide_live_chat_replay_button_title">Ocultar botão \"Replay do chat ao vivo\"</string>
     <string name="revanced_hide_medical_panel_summary_off">Os painéis médicos serão exibidos</string>
     <string name="revanced_hide_medical_panel_summary_on">Os painéis médicos estão ocultos</string>
     <string name="revanced_hide_medical_panel_title">Ocultar painéis médicos</string>
@@ -1208,7 +1261,7 @@ Palavras com letras maiúsculas no meio devem corresponder exatamente (por exemp
     <string name="revanced_hide_rewards_button_summary_on">O botão recompensas está oculto</string>
     <string name="revanced_hide_rewards_button_title">Ocultar botão recompensas</string>
     <string name="revanced_hide_search_bar_back_button_summary_off">O botão Voltar da barra de pesquisa é exibido</string>
-    <string name="revanced_hide_search_bar_back_button_summary_on">Português BR </string>
+    <string name="revanced_hide_search_bar_back_button_summary_on">Português BR</string>
     <string name="revanced_hide_search_bar_back_button_title">Ocultar botão Voltar da barra de pesquisa</string>
     <string name="revanced_hide_search_inside_this_video_section_summary_off">A seção "Pesquisar neste vídeo" está visível</string>
     <string name="revanced_hide_search_inside_this_video_section_summary_on">A seção "Pesquisar neste vídeo" está oculta</string>
@@ -1747,8 +1800,8 @@ Para exibir o botão nativo para baixar a lista de reprodução, ative \'Falsifi
     <string name="revanced_preference_screen_player_buttons_title">Botões do player</string>
     <string name="revanced_preference_screen_player_flyout_menu_summary">Ocultar ou alterar o menu flutuante no playerde vídeo</string>
     <string name="revanced_preference_screen_player_title">Player</string>
-    <string name="revanced_preference_screen_return_youtube_username_title">Exibir Nome de Usuário do YouTube </string>
-    <string name="revanced_preference_screen_ryd_title">Voltar a mostrar Dislikes do YouTube </string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Exibir Nome de Usuário do YouTube</string>
+    <string name="revanced_preference_screen_ryd_title">Voltar a mostrar Dislikes do YouTube</string>
     <string name="revanced_preference_screen_seekbar_summary">Personalize os componentes da barra de progresso</string>
     <string name="revanced_preference_screen_seekbar_title">Barra de progresso</string>
     <string name="revanced_preference_screen_settings_menu_summary">Ocultar elementos no menu de configurações do YouTube</string>
@@ -2147,7 +2200,7 @@ Já existe"</string>
     <string name="revanced_search_in_channel_no_results">Nenhum vídeo encontrado nos resultados da pesquisa</string>
     <string name="revanced_search_in_channel_query_hint">Pesquise neste canal</string>
     <string name="revanced_search_in_channel_scroll_tip">Deslize para baixo para carregar mais vídeos antes de criar uma fila</string>
-    <string name="revanced_search_in_channel_search_youtube">Pesquisar no YouTube </string>
+    <string name="revanced_search_in_channel_search_youtube">Pesquisar no YouTube</string>
     <string name="revanced_search_in_channel_title">Pesquisar no canal</string>
     <string name="revanced_search_in_channel_use_webview_summary_off">A busca de canais utiliza a busca nativa do YouTube. Isso exibirá alguns resultados irrelevantes</string>
     <string name="revanced_search_in_channel_use_webview_summary_on">A busca de canais abre a página de busca de canais da web móvel</string>
@@ -2275,7 +2328,7 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configura a porcentagem de altura do espaço vazio esquerdo quando a barra de navegação está oculta, entre 0 e 100 (%)</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Porcentagem de altura do espaço vazio</string>
     <string name="revanced_shorts_player_type_regular_player">Player padrão</string>
-    <string name="revanced_shorts_player_type_regular_player_fullscreen">Player normal em tela cheia</string>
+    <string name="revanced_shorts_player_type_regular_player_fullscreen">Player padrão em tela cheia</string>
     <string name="revanced_shorts_player_type_title">Abrir Shorts com</string>
     <string name="revanced_show_search_button_summary_off">O botão de pesquisa não é exibido</string>
     <string name="revanced_show_search_button_title">Mostrar botão Pesquisar</string>
@@ -2309,7 +2362,7 @@ Limitação: Título do vídeo desaparece quando clicado"</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restaurar funcionalidade de Transcrição</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restaurar a barra de ação de vídeo não recolhida</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Restaurar filtro de componentes antigo</string>
-    <string name="revanced_spoof_app_version_target_entry_title">Versão alvo da falsificação </string>
+    <string name="revanced_spoof_app_version_target_entry_title">Versão alvo da falsificação</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versão da falsificação do app inválida: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
     <string name="revanced_spoof_app_version_title">Falsificar versão do aplicativo</string>
@@ -2543,7 +2596,7 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_lang_auto">Detecção automática</string>
     <string name="revanced_vot_live_voices_unavailable">revanced_vot_live_voices_unavailable</string>
     <string name="revanced_vot_oauth_account_management_title">Token OAuth do Yandex</string>
-    <string name="revanced_vot_oauth_auth_method_message">Português brasileiro </string>
+    <string name="revanced_vot_oauth_auth_method_message">Português brasileiro</string>
     <string name="revanced_vot_oauth_auth_method_title">Autorização do Yandex</string>
     <string name="revanced_vot_oauth_enter_manually_button">Insira o token manualmente</string>
     <string name="revanced_vot_oauth_expired_summary">O token expirou. Faça login novamente</string>
@@ -2570,7 +2623,6 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_stream_waiting">Aguardando tradução…</string>
     <string name="revanced_vot_target_language_summary">Selecione o idioma para o qual deseja traduzir</string>
     <string name="revanced_vot_target_language_title">Língua de destino</string>
-    <string name="revanced_vot_time_min">%d min </string>
     <string name="revanced_vot_time_sec">%d seg</string>
     <string name="revanced_vot_translation_volume_summary">Volume da voz dublada da tradução</string>
     <string name="revanced_vot_translation_volume_title">Volume da tradução</string>
@@ -2578,9 +2630,9 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_unavailable_same_language">O áudio do vídeo já está no idioma de destino</string>
     <string name="revanced_vot_unavailable_too_long">O vídeo é muito longo para ser traduzido (máximo de 4 horas)</string>
     <string name="revanced_vot_voice_style_live">Voz ao vivo</string>
-    <string name="revanced_vot_voice_style_live_summary_off">Vozes TTS (text-to-speech) padrão </string>
+    <string name="revanced_vot_voice_style_live_summary_off">Vozes TTS (text-to-speech) padrão</string>
     <string name="revanced_vot_voice_style_live_summary_on">Vozes realistas do Yandex</string>
-    <string name="revanced_vot_voice_style_standard">Vozes padrão. </string>
+    <string name="revanced_vot_voice_style_standard">Vozes padrão</string>
     <string name="revanced_vot_voice_style_title">Estilo de dublagem</string>
     <string name="revanced_watch_history_about_status_blocked">• O histórico de exibição não funciona</string>
     <string name="revanced_watch_history_about_status_original">"• Segue as configurações do histórico de exibição da conta do Google

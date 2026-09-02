@@ -45,6 +45,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan"</string>
     <string name="morphe_disable_drc_audio_summary_on">Audio DRC dinonaktifkan</string>
     <string name="morphe_disable_quic_protocol_summary_off">Protokol QUIC diaktifkan</string>
     <string name="morphe_disable_quic_protocol_summary_on">Protokol QUIC dinonaktifkan</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Jika tidak berhasil, coba hentikan paksa MicroG</string>
     <string name="morphe_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke klien apa pun kecuali \'Android Studio\' dan \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Selalu memutar trek audio asli video tersebut daripada versi sulih suara</string>
     <string name="morphe_force_original_audio_summary_off">Menggunakan audio bawaan</string>
@@ -121,6 +122,8 @@ Ketika tidak ada lirik pihak ketiga yang ditemukan, lirik bawaan ditampilkan seb
     <string name="morphe_music_lyrics_translate_hide">Tampilkan yang asli</string>
     <string name="morphe_music_lyrics_translate_show">Terjemahkan</string>
     <string name="morphe_music_lyrics_translating">Menerjemahkan…</string>
+    <string name="morphe_notification_dot_color_summary">Ubah warna dot Notifikasi</string>
+    <string name="morphe_notification_dot_color_title">Warna dot Notifikasi</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Tidak dapat masuk ke VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Tidak dapat masuk ke VR, autentikasi situs web tidak disetujui</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 sementara tidak tersedia</string>
@@ -129,6 +132,13 @@ Ketika tidak ada lirik pihak ketiga yang ditemukan, lirik bawaan ditampilkan seb
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 sementara tidak tersedia (API kehabisan waktu)</string>
     <string name="morphe_oauth2_toast_invalid">Token masuk VR tidak sah, coba masuk ke VR lagi</string>
     <string name="morphe_oauth2_toast_reset">Keluar dari Android VR</string>
+    <string name="morphe_potoken_provider_summary">"Memperbaiki isu Playback menggunakan provider PoToken bawaan (Eksperimental)
+
+Jika anda pengguna YouTube Premium , pengaturan ini mungkin tidak diperlukan"</string>
+    <string name="morphe_potoken_provider_title">Provider PoToken</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Memperbaiki isu Playback menggunakan provider PoToken bawaan (Experimental)
+
+Untuk menggunakan fitur ini, Matikan \'Spoof video streams\'"</string>
     <string name="morphe_replace_music_with_youtube_summary">Mengganti music.youtube.com dengan youtube.com di tautan yang dibagikan</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Tautan yang dibagikan menggunakan music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Tautan yang dibagikan menggunakan youtube.com</string>
@@ -141,6 +151,9 @@ Ketika tidak ada lirik pihak ketiga yang ditemukan, lirik bawaan ditampilkan seb
     <string name="morphe_settings_menu_filter_picker_empty">Buka layar pengaturan aplikasi standar sekali untuk mengisi daftar</string>
     <string name="morphe_settings_menu_filter_screen_summary">Sembunyikan item di layar pengaturan aplikasi standar berdasarkan nama yang terlihat</string>
     <string name="morphe_settings_menu_filter_screen_title">Filter menu Pengaturan</string>
+    <string name="morphe_settings_name_custom_item_hint">Masukkan nama</string>
+    <string name="morphe_settings_name_empty_warning">Nama tidak boleh kosong</string>
+    <string name="morphe_settings_name_title">Nama pengaturan RVX</string>
     <string name="morphe_spoof_video_streams_client_type_title">Klien bawaan</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Tidak dapat mengambil aliran klien apa pun</string>
     <string name="morphe_spoof_video_streams_screen_summary">Konfigurasikan pemalsuan klien untuk mencegah masalah pemutaran</string>
@@ -224,6 +237,7 @@ Jika Anda adalah pengguna YouTube Premium, pengaturan ini mungkin tidak diperluk
     <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_summary">Pilih di halaman mana aplikasi dibuka</string>
     <string name="revanced_change_start_page_title">Halaman awal</string>
+    <string name="revanced_confirm_user_dialog_title">Apakah kamu yakin ingin melanjutkan?</string>
     <string name="revanced_credits_title">Kredit</string>
     <string name="revanced_custom_filter_strings_summary">Daftar string pembuat jalur komponen yang akan disaring, dipisahkan oleh baris baru</string>
     <string name="revanced_custom_filter_strings_title">Penyaring khusus</string>
@@ -288,7 +302,7 @@ Info:
     <string name="revanced_enable_comments_scroll_top_summary">"Clicking on the comment panel title ('Comments') scrolls to the top
 
 Limitations: Does not apply to comment replies"</string>
-    <string name="revanced_enable_comments_scroll_top_title">Aktifkan gulir ke atas pada komentar </string>
+    <string name="revanced_enable_comments_scroll_top_title">Aktifkan gulir ke atas pada komentar</string>
     <string name="revanced_enable_compact_dialog_summary">"Mengaktifkan dialog ringkas di ponsel
 
 Keterbatasan:
@@ -319,10 +333,10 @@ Keterbatasan: Segmen SponsorBlock tidak ditampilkan di seekbar"</string>
     <string name="revanced_enable_zen_mode_podcast_title">Aktifkan mode Zen di podcast</string>
     <string name="revanced_enable_zen_mode_summary">Mengaktifkan warna abu-abu muda untuk latar belakang pemutar untuk mengurangi kelelahan mata</string>
     <string name="revanced_enable_zen_mode_title">Aktifkan mode Zen</string>
-    <string name="revanced_external_downloader_action_summary">"Tombol Unduh membuka pengunduh eksternal Anda
+    <string name="revanced_external_downloader_action_summary">Tombol Unduh membuka pengunduh eksternal Anda
 
 • Hanya mengganti tombol tindakan Unduh di pemutar
-• Tidak mengganti tombol Unduh di menu flyout atau tab Pustaka"</string>
+• Tidak mengganti tombol Unduh di menu flyout atau tab Pustaka</string>
     <string name="revanced_external_downloader_action_title">Ganti tombol tindakan Unduh</string>
     <string name="revanced_external_downloader_dialog_title">Pengunduh eksternal</string>
     <string name="revanced_external_downloader_flyout_menu_summary">Menggunakan pengunduh eksternal pilihan Anda, daripada menu melayang Unduh bawaan</string>
@@ -430,7 +444,7 @@ Keterbatasan:
     <string name="revanced_hide_history_button_summary">Menyembunyikan Rombol riwayat di toolbar</string>
     <string name="revanced_hide_history_button_title">Sembunyikan tombol Riwayat</string>
     <string name="revanced_hide_lyrics_share_button_summary">Sembunyikan tombol bagi pada lirik</string>
-    <string name="revanced_hide_lyrics_share_button_title">Sembunyikan tombol bagi </string>
+    <string name="revanced_hide_lyrics_share_button_title">Sembunyikan tombol bagi</string>
     <string name="revanced_hide_music_ads_summary">Menyembunyikan iklan sebelum memutar musik</string>
     <string name="revanced_hide_music_ads_title">Sembunyikan iklan media</string>
     <string name="revanced_hide_navigation_bar_summary">Menyembunyikan bilah navigasi</string>
@@ -512,7 +526,7 @@ Keterbatasan:
     <string name="revanced_remove_viewer_discretion_dialog_title">Hapus dialog pembatasan penonton</string>
     <string name="revanced_replace_action_button_like_summary">"Gunakan ikon dan animasi yang berbeda untuk tombol Suka
 
-• Pengaturan ini mungkin tidak lagi diperlukan setelah masalah diperbaiki di sisi server" </string>
+• Pengaturan ini mungkin tidak lagi diperlukan setelah masalah diperbaiki di sisi server"</string>
     <string name="revanced_replace_action_button_like_title">Ganti tombol sukai</string>
     <string name="revanced_replace_action_button_like_type_summary">"Gunakan tombol yang lebih kecil
 
@@ -542,7 +556,7 @@ Klik untuk membuka pengaturan ‘Ubah halaman awal’"</string>
     <string name="revanced_replace_navigation_samples_button_title">Ganti tombol Sampel</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">Menggantikan tombol Upgrade dengan tombol Pengaturan</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Ganti tombol Upgrade</string>
-    <string name="revanced_reset_to_default_toast">Reset ke value default </string>
+    <string name="revanced_reset_to_default_toast">Reset ke value default</string>
     <string name="revanced_restart_dialog_message">Mulai ulang aplikasi untuk menerapkan perubahan</string>
     <string name="revanced_restart_first_run">Mulai ulang untuk menyelesaikan penyiapan</string>
     <string name="revanced_restart_message">Refresh dan restart</string>
@@ -663,8 +677,8 @@ Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_search_clear_history_message">Apakah Anda yakin ingin menghapus semua riwayat pencarian?</string>
     <string name="revanced_settings_search_empty_history_summary">Untuk menyimpan riwayat pencarian, ketik kueri pencarian dan tekan Enter</string>
     <string name="revanced_settings_search_empty_history_title">Riwayat pencarian kosong</string>
-    <string name="revanced_settings_search_history_summary_off">Pengaturan history pencarian tidak ditampilkan. </string>
-    <string name="revanced_settings_search_history_summary_on">Pengaturan history pencarian ditampilkan. </string>
+    <string name="revanced_settings_search_history_summary_off">Pengaturan history pencarian tidak ditampilkan</string>
+    <string name="revanced_settings_search_history_summary_on">Pengaturan history pencarian ditampilkan</string>
     <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
     <string name="revanced_settings_search_no_results_summary">Coba kata kunci lain</string>
     <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
@@ -708,9 +722,28 @@ Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_summary">Klik disini untuk melihat cara masuk ke Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_about_title">Masuk ke Android No SDK</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_get_authorization_token_text">Dapatkan token autentikasi</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_dialog_message">"Masuk ke Android Tanpa SDK (YouTube) mengikuti pedoman yang disediakan oleh Google (Otorisasi akun Google-OAuth 2.0 untuk Aplikasi Android):
+
+1. Klik 'Dapatkan token otorisasi' untuk membuka halaman masuk di Tampilan Web
+2. Masuk ke Akun Google Anda
+3. Hasil login akan ditampilkan dalam waktu 5 detik
+
+ Click Klik 'Setel Ulang' untuk menghapus token autentikasi"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_message">"Token otentikasi disimpan
+
+- Token autentikasi yang dikeluarkan melalui proses ini hanya dapat digunakan di YouTube (Di RVX, digunakan untuk mengambil data streaming dari YouTube)
+- Token autentikasi yang tidak digunakan selama lebih dari 6 bulan akan dicabut oleh server Google
+- Jika Anda mengubah kata sandi, atau membatalkan pendaftaran perangkat di pengaturan akun Anda, atau mencopot pemasangan aplikasi, Anda perlu menerbitkan ulang token autentikasi"</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_success_dialog_title">Masuk</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_no_sdk_toast_reset">Reset token autentikasi</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_activation_code_toast_copy">Kode aktivasi disalin ke clipboard: %s</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed">Gagal menerbitkan token autentikasi</string>
     <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_failed_suggestion">Klik Reset dan coba lagi</string>
+    <string name="revanced_spoof_streaming_data_sign_in_android_vr_toast_reset">Reset token autentikasi dan kode aktivasi</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Tentang Android VR Auth</string>
+    <string name="revanced_spoof_video_streams_default_client_summary">"Efek samping:
+• Aplikasi mungkin akan menutup paksa jika menggunakan VPN atau DNS
+• Audio mungkin sesekali tersendat saat pemutaran pada klien streaming dengan bitrate adaptif (Semua klien lainnya dibandingkan Android VR 1.43.32)"</string>
     <string name="revanced_translations_title">Terjemahkan</string>
     <string name="revanced_watch_history_type_entry_1">Asli</string>
     <string name="revanced_watch_history_type_entry_2">Ganti domain</string>
@@ -719,5 +752,11 @@ Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
 • Ganti domain: Mengikuti pengaturan riwayat tontonan akun Google
 • Blokir riwayat tontonan: Riwayat tontonan diblokir"</string>
     <string name="revanced_watch_history_type_title">Jenis riwayat tontonan</string>
+    <string name="revanced_webview_cookies">Kukis</string>
+    <string name="revanced_webview_data_sync_id">ID Sinkronisasi Data</string>
     <string name="revanced_webview_toast_copy_success">%s disalin ke clipboard</string>
+    <string name="revanced_webview_toast_empty">%s kosong</string>
+    <string name="revanced_webview_toast_no_network">Silakan periksa koneksi jaringan Anda</string>
+    <string name="revanced_webview_toast_unavailable">WebView tidak tersedia</string>
+    <string name="revanced_webview_visitor_data">Data Pengunjung</string>
 </resources>

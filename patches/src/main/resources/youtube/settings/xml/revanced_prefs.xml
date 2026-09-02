@@ -310,8 +310,8 @@
                 <SwitchPreference android:title="@string/morphe_hide_aislist_hide_home_title" android:key="morphe_hide_aislist_warnlist_home" />
                 <SwitchPreference android:title="@string/morphe_hide_aislist_hide_search_title" android:key="morphe_hide_aislist_warnlist_search" />
             </PreferenceCategory>
-            <app.morphe.extension.youtube.settings.preference.AiSListStatsPreferenceCategory android:title="@string/morphe_hide_stats_category_title" android:key="morphe_hide_aislist_stats_category" android:layout="@layout/revanced_settings_preferences_category" />
-            <PreferenceCategory android:title="@string/morphe_hide_about_category_title" android:key="morphe_hide_aislist_about_category" android:layout="@layout/revanced_settings_preferences_category">
+            <app.morphe.extension.youtube.settings.preference.AiSListStatsPreferenceCategory android:title="@string/revanced_sb_stats" android:key="morphe_hide_aislist_stats_category" android:layout="@layout/revanced_settings_preferences_category" />
+            <PreferenceCategory android:title="@string/revanced_ryd_about" android:key="morphe_hide_aislist_about_category" android:layout="@layout/revanced_settings_preferences_category">
                 <app.morphe.extension.shared.settings.preference.BulletPointPreference android:title="@string/morphe_hide_aislist_screen_title" android:key="morphe_hide_aislist_about" android:selectable="false" android:summary="@string/morphe_hide_aislist_about_summary" />
                 <app.morphe.extension.shared.settings.preference.AiSListAttributionPreference android:title="@string/morphe_hide_aislist_attribution_title" android:key="morphe_hide_aislist_attribution" android:summary="@string/morphe_hide_aislist_attribution_summary" />
             </PreferenceCategory>

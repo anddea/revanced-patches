@@ -36,6 +36,7 @@
     <string name="morphe_expand_livestream_dvr_duration_title">扩展直播 DVR 时长</string>
     <string name="morphe_explore_menu_screen_summary">选择在探索菜单中显示哪些组件</string>
     <string name="morphe_explore_menu_screen_title">探索菜单</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">如果不起作用，请尝试强制关闭 MicroG</string>
     <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除“Android Studio”和“Android VR 降级”之外的任何客户端</string>
     <string name="morphe_force_original_audio_summary_off">正在使用默认音频</string>
     <string name="morphe_force_original_audio_summary_on">使用原始音频语言</string>
@@ -46,6 +47,27 @@
     <string name="morphe_fullscreen_video_scale_entry_stretch">拉伸（填充屏幕）</string>
     <string name="morphe_fullscreen_video_scale_entry_zoom">缩放（裁剪填充）</string>
     <string name="morphe_fullscreen_video_scale_title">全屏视频缩放</string>
+    <string name="morphe_hide_aislist_about_summary">"主页和搜索结果经过过滤，以隐藏AiSList标记的视频
+
+限制：
+• 过滤后的AI Shorts可能显示为空白
+• 某些AI视频可能仍然显示"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"数据由AiSList提供
+
+点击此处打开AiSlopList.com，查看其他平台的下载内容"</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">阻止列表：高置信度</string>
+    <string name="morphe_hide_aislist_hide_home_title">在主页隐藏</string>
+    <string name="morphe_hide_aislist_hide_search_title">在搜索中隐藏</string>
+    <string name="morphe_hide_aislist_screen_summary">隐藏来自AiSList社区列表标记为AI生成内容的频道视频</string>
+    <string name="morphe_hide_aislist_screen_title">AI频道过滤</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">屏蔽频道</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">启用过滤器以加载频道</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">正在加载频道…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• 主页：%s
+• 搜索：%s
+• 总计：%s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">警告名单频道</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">警告列表：中等置信度</string>
     <string name="morphe_hide_courses_menu_title">隐藏课程菜单</string>
     <string name="morphe_hide_explore_button_title">隐藏探索按钮</string>
     <string name="morphe_hide_fashion_menu_title">隐藏“时尚与美妆”菜单</string>
@@ -68,6 +90,10 @@
     <string name="morphe_hide_privacy_tos_footer_title">隐藏法律和隐私页脚</string>
     <string name="morphe_hide_shopping_menu_title">隐藏购物菜单</string>
     <string name="morphe_hide_sports_menu_title">隐藏体育菜单</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">重置过去 24 小时计数？</string>
+    <string name="morphe_hide_stats_hidden_24h_title">过去 24 小时内隐藏的视频</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">重置所有计时器？</string>
+    <string name="morphe_hide_stats_hidden_all_title">所有时间隐藏的视频</string>
     <string name="morphe_hide_sync_button_title">隐藏“同步到视频”按钮</string>
     <string name="morphe_hide_youtube_create_menu_title">隐藏YouTube Create菜单</string>
     <string name="morphe_hide_youtube_kids_menu_title">隐藏YouTube Kids菜单</string>
@@ -90,12 +116,16 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暂时不可用（API 超时）</string>
     <string name="morphe_oauth2_toast_invalid">无效的 VR 登录令牌，请重新登录 VR</string>
     <string name="morphe_oauth2_toast_reset">已从 Android VR 登出</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">防止点击频道头像时打开直播</string>
+    <string name="morphe_open_channel_of_live_avatar_title">从直播头像打开频道</string>
     <string name="morphe_override_youtube_music_buttons_summary">打开您首选的音乐应用，而不是默认的YouTube Music应用</string>
     <string name="morphe_override_youtube_music_buttons_title">覆盖 YouTube Music 按钮</string>
     <string name="morphe_playback_in_feeds_entry_always_on">始终开启</string>
     <string name="morphe_playback_in_feeds_entry_off">关闭</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">仅限 Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">在信息流中播放</string>
+    <string name="morphe_queue_manager_check_failed_auth">未登录</string>
+    <string name="morphe_queue_manager_check_failed_video_id">没有视频ID</string>
     <string name="morphe_reload_video_summary_off">不显示重新加载视频按钮</string>
     <string name="morphe_reload_video_summary_on">显示重新加载视频按钮</string>
     <string name="morphe_reload_video_title">显示重新加载视频按钮</string>
@@ -107,6 +137,14 @@
     <string name="morphe_sanitize_sharing_links_summary_off">跟踪查询参数未从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_summary_on">跟踪查询参数已从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_title">净化分享链接</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">此视频已保存到稍后观看播放列表</string>
+    <string name="morphe_save_to_watch_later_button_summary">点按以保存到稍后观看，长按可查看队列选项</string>
+    <string name="morphe_save_to_watch_later_button_title">显示“保存到稍后观看”按钮</string>
+    <string name="morphe_save_to_watch_later_error_toast">无法将此视频保存到稍后观看播放列表</string>
+    <string name="morphe_save_to_watch_later_flyout_title">保存到稍后观看</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">允许在“稍后观看”弹出菜单中保存儿童相关视频</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">在儿童视频中显示“保存到稍后观看”按钮</string>
+    <string name="morphe_save_to_watch_later_success_toast">视频已成功保存到稍后观看播放列表</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">播放最多的片段</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">拖动进度条时显示视频缩略图</string>
     <string name="morphe_seekbar_thumbnail_preview_title">启用进度条缩略图</string>
@@ -114,6 +152,9 @@
     <string name="morphe_settings_menu_filter_picker_empty">打开标准应用设置屏幕一次以填充列表</string>
     <string name="morphe_settings_menu_filter_screen_summary">通过可见名称隐藏标准应用设置屏幕上的项目</string>
     <string name="morphe_settings_menu_filter_screen_title">设置菜单筛选</string>
+    <string name="morphe_settings_name_custom_item_hint">输入名称</string>
+    <string name="morphe_settings_name_empty_warning">名称不能为空</string>
+    <string name="morphe_settings_name_title">RVX 设置名称</string>
     <string name="morphe_splash_screen_animation_style_entry_2">颜色</string>
     <string name="morphe_splash_screen_animation_style_entry_3">单色</string>
     <string name="morphe_splash_screen_animation_style_title">启动画面的样式</string>
@@ -172,6 +213,8 @@
 
 如果您是 YouTube Premium 用户，此设置可能不需要"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">关闭此设置可能会导致播放问题。</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">点击可查看队列选项，长按可保存到“稍后观看”</string>
+    <string name="morphe_swap_save_and_queue_actions_title">交换保存和队列操作</string>
     <string name="morphe_tablet_layout_in_player_summary">"恢复旧版播放器布局
 
 限制：如果关闭“恢复旧版视频操作栏”选项，则“更多视频”叠加层可能不可用"</string>
@@ -255,20 +298,22 @@
     <string name="revanced_change_form_factor_entry_5">平板（最小 600 dp）</string>
     <string name="revanced_change_form_factor_entry_6">汽车</string>
     <string name="revanced_change_form_factor_title">设备布局</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"更改包括：
+    <string name="revanced_change_form_factor_user_dialog_message">"更改内容包括：
 
 平板电脑布局
 • 社区帖子已隐藏
-• 消息流中播放不可用
-• Shorts 中没有混音按钮和声音按钮
-• 显示未折叠的旧视频操作栏
+• 信息流中的播放设置不可用
+• Remix 按钮和声音按钮在 Shorts 中不可用
+• “更多视频”叠加层可能不可用
+• 显示未折叠的旧版视频操作栏
 
 汽车布局
-• 消息流按主题和频道组织
-• 消息流中播放不可用
-• Shorts 中没有混音按钮和声音按钮
+• 信息流按主题和频道组织
+• 信息流中的播放设置不可用
+• Remix 按钮和声音按钮在 Shorts 中不可用
+• “更多视频”叠加层可能不可用
 • Shorts 在常规播放器中打开
-• 显示未折叠的旧视频操作栏"</string>
+• 显示未折叠的旧版视频操作栏"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用开关切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用文本切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切换类型</string>
@@ -413,6 +458,7 @@
     <string name="revanced_disable_engagement_panel_summary_off">启用互动面板</string>
     <string name="revanced_disable_engagement_panel_summary_on">禁用互动面板</string>
     <string name="revanced_disable_engagement_panel_title">禁用互动面板</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">禁用捏合缩放手势</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">已启用章节触感反馈</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">已禁用章节触感反馈</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">禁用章节触感反馈</string>
@@ -450,6 +496,7 @@
     <string name="revanced_disable_like_dislike_glow_summary_off">点赞和点踩按钮点击时有动效</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">点赞和点踩按钮点击时无动效</string>
     <string name="revanced_disable_like_dislike_glow_title">禁用点赞和点踩按钮动效</string>
+    <string name="revanced_disable_playlist_autoplay_title">禁用播放列表自动播放</string>
     <string name="revanced_disable_quic_protocol_summary">"禁用 Cronet 引擎的 QUIC 协议"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;继续观看&lt;/b&gt;将在应用启动时恢复。&lt;br&gt;&lt;br&gt;信息：&lt;br&gt;• &lt;b&gt;继续观看&lt;/b&gt;是YouTube Premium功能。&lt;br&gt;• 此设置不会强制启用&lt;b&gt;继续观看&lt;/b&gt;。</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;继续观看&lt;/b&gt;将在应用启动时不恢复。</string>
@@ -640,6 +687,14 @@
     <string name="revanced_fix_transcript_summary_off">由于预检失败，文本可能无法使用</string>
     <string name="revanced_fix_transcript_summary_on">文本可用</string>
     <string name="revanced_fix_transcript_title">修复文本</string>
+    <string name="revanced_force_hdr_video_summary">强制应用将此设备识别为 HDR 兼容设备</string>
+    <string name="revanced_force_hdr_video_title">强制 HDR 视频</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"如果 HDR 解码有效但 YouTube 不提供 HDR 时使用，例如某些 HyperOS 设备隐藏 HLG。
+
+限制：
+• 如果显示器实际上无法显示 HDR，则颜色可能会出现错误
+• 如果解码器无法处理 HDR，则播放可能会失败
+• HDR 仍然取决于 spoof 视频流客户端"</string>
     <string name="revanced_fullscreen_ads_closed_toast">已关闭全屏广告。</string>
     <string name="revanced_gemini_cancelled">已取消</string>
     <string name="revanced_gemini_copy_success">摘要已复制到剪贴板。</string>

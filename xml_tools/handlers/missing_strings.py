@@ -14,10 +14,15 @@ from utils.xml_processor import XMLProcessor
 logger = logging.getLogger("xml_tools")
 
 BLACKLIST = {
+    "morphe_hide_aislist_attribution_title",
     "morphe_music_crossfade_about_banner_title",
     "morphe_music_crossfade_curve_preview_title",
     "morphe_music_lyrics_source_entry_kugou",
     "morphe_music_lyrics_source_entry_lrclib",
+    "morphe_settings_name_entry_1",
+    "morphe_settings_name_entry_2",
+    "morphe_settings_name_entry_3",
+    "morphe_settings_name_entry_4",
     "revanced_preference_screen_gemini_title",
     "revanced_settings_title",
     "revanced_vot_percent_value",

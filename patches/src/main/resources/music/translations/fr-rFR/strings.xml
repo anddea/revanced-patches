@@ -37,12 +37,13 @@ Appuyez sur le bouton 'Continuer' et autorisez la modification des optimisations
     <string name="morphe_disable_drc_audio_summary_on">L\'audio DRC est désactivé</string>
     <string name="morphe_disable_quic_protocol_summary_off">Le protocole QUIC est activé</string>
     <string name="morphe_disable_quic_protocol_summary_on">Le protocole QUIC est désactivé</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Si cela ne fonctionne pas, essayez de forcer l\'arrêt de MicroG</string>
     <string name="morphe_force_original_audio_not_available">Pour utiliser cette fonctionnalité, changez \'Falsifier les flux vidéo\' et sélectionnez n\'importe quel client sauf \'Android Studio\' ou \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Lit toujours la piste audio originale de la vidéo au lieu d\'une version doublée</string>
     <string name="morphe_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
     <string name="morphe_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
     <string name="morphe_force_original_audio_title">Forcer la langue audio d\'origine</string>
-    <string name="morphe_music_crossfade_about_best_summary">Lecture normale d\'une chanson à l\'autre avec passage automatique à la suivante, répétition d\'un seul titre (la chanson effectue un fondu enchaîné vers elle-même) et audio local — haut-parleur du téléphone, écouteurs filaires, Bluetooth ou USB. </string>
+    <string name="morphe_music_crossfade_about_best_summary">Lecture normale d\'une chanson à l\'autre avec passage automatique à la suivante, répétition d\'un seul titre (la chanson effectue un fondu enchaîné vers elle-même) et audio local — haut-parleur du téléphone, écouteurs filaires, Bluetooth ou USB</string>
     <string name="morphe_music_crossfade_about_best_title">Fonctionne mieux avec</string>
     <string name="morphe_music_crossfade_about_credit_summary">Fonctionnalité de fondu enchaîné par VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Crédit</string>
@@ -133,6 +134,9 @@ Lorsque aucune parole tierce n'est trouvée, les paroles intégrées sont affich
     <string name="morphe_settings_menu_filter_picker_empty">Ouvrez une fois l\'écran des paramètres standard de l\'application pour remplir la liste</string>
     <string name="morphe_settings_menu_filter_screen_summary">Masquer les éléments de l\'écran des paramètres standard de l\'application en fonction de leur nom visible</string>
     <string name="morphe_settings_menu_filter_screen_title">Filtre du menu des paramètres</string>
+    <string name="morphe_settings_name_custom_item_hint">Entrez un nom</string>
+    <string name="morphe_settings_name_empty_warning">Le nom ne peut pas être vide</string>
+    <string name="morphe_settings_name_title">Nom des paramètres de RVX</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client par défaut</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Impossible de récupérer les flux du client</string>
     <string name="morphe_spoof_video_streams_screen_summary">Configurer la falsification du client afin d\'éviter les problèmes de lecture</string>
@@ -203,6 +207,7 @@ Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas né
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
     <string name="revanced_change_start_page_summary">Sélectionnez la page de démarrage de l\'appli</string>
     <string name="revanced_change_start_page_title">Page de démarrage</string>
+    <string name="revanced_confirm_user_dialog_title">Voulez-vous vraiment continuer ?</string>
     <string name="revanced_credits_title">Crédits</string>
     <string name="revanced_custom_filter_strings_summary">Liste des chaînes du générateur de chemins de composants à filtrer, séparées par des sauts de ligne</string>
     <string name="revanced_custom_filter_strings_title">Filtre personnalisé</string>
@@ -339,7 +344,7 @@ Veuillez télécharger %2$s à partir du site web"</string>
     <string name="revanced_hide_action_button_lyrics_title">Cacher le bouton Paroles</string>
     <string name="revanced_hide_action_button_radio_summary">Masque le bouton \'Démarrer la radio\'</string>
     <string name="revanced_hide_action_button_radio_title">Masquer le bouton \'Radio\'</string>
-    <string name="revanced_hide_action_button_share_summary">Masque le bouton \'Partager\'. </string>
+    <string name="revanced_hide_action_button_share_summary">Masque le bouton \'Partager\'</string>
     <string name="revanced_hide_action_button_share_title">Masquer le bouton \'Partager\'</string>
     <string name="revanced_hide_action_button_song_video_summary">"Masque le bouton 'Titre / Vidéo'
 (Ce bouton n'est accessible qu'à certains utilisateurs.)"</string>
@@ -430,7 +435,7 @@ Veuillez télécharger %2$s à partir du site web"</string>
     <string name="revanced_hide_premium_promotion_closed_toast">Les popups de promotion pour YT Music Premium sont fermés</string>
     <string name="revanced_hide_premium_promotion_summary">Masquer les publicités pour YouTube Premium</string>
     <string name="revanced_hide_premium_promotion_title">Masquer les publicités pour YouTube Premium</string>
-    <string name="revanced_hide_premium_renewal_summary">Masque la bannière \'Renouveler votre abonnement Premium\'. </string>
+    <string name="revanced_hide_premium_renewal_summary">Masque la bannière \'Renouveler votre abonnement Premium\'</string>
     <string name="revanced_hide_premium_renewal_title">Masquer la bannière \'Renouveler votre abonnement Premium\'</string>
     <string name="revanced_hide_promotion_alert_banner_summary">Masque la bannière d\'alerte de promotion</string>
     <string name="revanced_hide_promotion_alert_banner_title">Masquer la bannière d\'alerte de promotion</string>
@@ -442,7 +447,7 @@ Veuillez télécharger %2$s à partir du site web"</string>
     <string name="revanced_hide_song_video_toggle_title">Masquer le bouton de bascule \'Titre / Vidéo\'</string>
     <string name="revanced_hide_sound_search_button_summary">Masque le bouton \'Rechercher une musique\' de la barre de recherche</string>
     <string name="revanced_hide_sound_search_button_title">Masquer le bouton \'Rechercher une musique\'</string>
-    <string name="revanced_hide_tap_to_update_button_summary">Masque le bouton \'Appuyer pour mettre à jour\'. </string>
+    <string name="revanced_hide_tap_to_update_button_summary">Masque le bouton \'Appuyer pour mettre à jour\'</string>
     <string name="revanced_hide_tap_to_update_button_title">Masquer le bouton \'Appuyer pour mettre à jour\'</string>
     <string name="revanced_hide_terms_container_summary">Masque le conteneur des conditions d\'utilisation</string>
     <string name="revanced_hide_terms_container_title">Masquer le conteneur de termes</string>
@@ -501,7 +506,7 @@ Veuillez télécharger %2$s à partir du site web"</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Url de la vidéo invalide</string>
     <string name="revanced_replace_flyout_menu_report_only_player_summary">Conserve le menu \'Signaler\' dans la section des commentaires</string>
     <string name="revanced_replace_flyout_menu_report_only_player_title">Conserver le menu \'Signaler\' dans les commentaires</string>
-    <string name="revanced_replace_flyout_menu_report_summary">Remplace le menu \'Signaler\' par le menu \'Vitesse de lecture\'. </string>
+    <string name="revanced_replace_flyout_menu_report_summary">Remplace le menu \'Signaler\' par le menu \'Vitesse de lecture\'</string>
     <string name="revanced_replace_flyout_menu_report_title">Remplacer le menu \'Signaler\'</string>
     <string name="revanced_replace_navigation_button_about_summary">"Cette fonctionnalité est expérimentale
 Ce patch présente des limitations structurelles, car les activités telles que la recherche et les paramètres dans YouTube Music ne sont pas publiques

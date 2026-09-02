@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">להפעיל בקרות נגישות עבור נגן הווידאו?</string>
-    <string name="accessibility_settings_edu_opt_out_text">הפקדים שלך שונו מכיוון ששירות נגישות מופעל. </string>
+    <string name="accessibility_settings_edu_opt_out_text">הפקדים שלך שונו מכיוון ששירות נגישות מופעל</string>
     <string name="gms_core_dialog_continue_text">המשך</string>
     <string name="gms_core_dialog_dismiss_text">אל תראה שוב</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ל-MicroG GmsCore אין הרשאה לרוץ ברקע
@@ -36,6 +36,7 @@
     <string name="morphe_expand_livestream_dvr_duration_title">הרחב את משך ה-DVR בשידור חי</string>
     <string name="morphe_explore_menu_screen_summary">בחר אילו רכיבים יופיעו בתפריט החקירה</string>
     <string name="morphe_explore_menu_screen_title">חקור תפריט</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">אם זה לא עובד, נסה לסגור בכוח את MicroG</string>
     <string name="morphe_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד \'Android Studio\' ו\'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
     <string name="morphe_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
@@ -46,6 +47,27 @@
     <string name="morphe_fullscreen_video_scale_entry_stretch">מתיחה (מילוי מסך)</string>
     <string name="morphe_fullscreen_video_scale_entry_zoom">זום (חיתוך למילוי)</string>
     <string name="morphe_fullscreen_video_scale_title">קנה מידה של וידאו במסך מלא</string>
+    <string name="morphe_hide_aislist_about_summary">"תוצאות בעמוד הבית ובחיפוש מסוננות כדי להסתיר סרטונים מערוצים שסומנו על ידי AiSList
+
+מגבלות:
+• Shorts מסוננים עשויים להופיע כשטח ריק
+• חלק מסרטוני הבינה המלאכותית עדיין עשויים להופיע"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"הנתונים מסופקים על ידי AiSList
+
+הקש כאן כדי לפתוח את AiSlopList.com ולראות הורדות עבור פלטפורמות אחרות"</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">רשימה חסומה: ביטחון גבוה</string>
+    <string name="morphe_hide_aislist_hide_home_title">הסתר סרטונים בעמוד הבית</string>
+    <string name="morphe_hide_aislist_hide_search_title">הסתר סרטונים בחיפוש</string>
+    <string name="morphe_hide_aislist_screen_summary">הסתר סרטונים מערוצים שסומנו כתוכן שנוצר על ידי בינה מלאכותית על ידי רשימת AiSList</string>
+    <string name="morphe_hide_aislist_screen_title">מסנן ערוצי בינה מלאכותית</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">ערוצים חסומים</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">הפעל מסנן לטעינת ערוצים</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">טעינת ערוצים…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• עמוד הבית: %s
+• חיפוש: %s
+• סה\"כ: %s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">ערוצים ברשימת אזהרה</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">רשימת אזהרה: ביטחון בינוני</string>
     <string name="morphe_hide_courses_menu_title">הסתר תפריט קורסים</string>
     <string name="morphe_hide_explore_button_title">הסתר כפתור חקור</string>
     <string name="morphe_hide_fashion_menu_title">הסתר תפריט \'אופנה ויופי\'</string>
@@ -68,6 +90,10 @@
     <string name="morphe_hide_privacy_tos_footer_title">הסתר כותרות גרורות משפטיות ופרטיות</string>
     <string name="morphe_hide_shopping_menu_title">הסתר תפריט קניות</string>
     <string name="morphe_hide_sports_menu_title">הסתר תפריט ספורט</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">לאפס את מונה 24 השעות האחרונות?</string>
+    <string name="morphe_hide_stats_hidden_24h_title">סרטונים מוסתרים, 24 השעות האחרונות</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">לאפס את כל מונה הזמן?</string>
+    <string name="morphe_hide_stats_hidden_all_title">סרטונים מוסתרים, בכל הזמנים</string>
     <string name="morphe_hide_sync_button_title">הסתר כפתור \'סנכרן לסרטון\'</string>
     <string name="morphe_hide_youtube_create_menu_title">הסתר תפריט YouTube Create</string>
     <string name="morphe_hide_youtube_kids_menu_title">הסתר תפריט YouTube Kids</string>
@@ -90,12 +116,16 @@
     <string name="morphe_oauth2_connection_failure_timeout">Очнення (способность  временно недоступен (время вышло)</string>
     <string name="morphe_oauth2_toast_invalid">טוקן התחברות ל-VR לא חוקי, נסה להתחבר ל-VR שוב</string>
     <string name="morphe_oauth2_toast_reset">Вышли из Android VR</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">מונע את פתיחת השידור החי בעת הקשה על האווטאר של הערוץ</string>
+    <string name="morphe_open_channel_of_live_avatar_title">פתח ערוץ מאווטאר חי</string>
     <string name="morphe_override_youtube_music_buttons_summary">פותח את אפליקציית המוזיקה המועדפת עליך במקום אפליקציית YouTube Music הרגילה</string>
     <string name="morphe_override_youtube_music_buttons_title">גמַהת במְירַד הכולַה</string>
     <string name="morphe_playback_in_feeds_entry_always_on">תמיד מופעל</string>
     <string name="morphe_playback_in_feeds_entry_off">כבוי</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">רק Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">השמעה בפידים</string>
+    <string name="morphe_queue_manager_check_failed_auth">לא מחובר</string>
+    <string name="morphe_queue_manager_check_failed_video_id">מזהה וידאו לא נמצא</string>
     <string name="morphe_reload_video_summary_off">לחצן טעינת סרטון אינו מוצג</string>
     <string name="morphe_reload_video_summary_on">לחצן טעינת סרטון מוצג</string>
     <string name="morphe_reload_video_title">הצג לחצן טעינת סרטון</string>
@@ -107,6 +137,14 @@
     <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">הסרטון הזה כבר שמור בפלייליסט \'צפייה מאוחרת\'</string>
+    <string name="morphe_save_to_watch_later_button_summary">הקש כדי לשמור לצפייה מאוחרת, הקש והחזק לאפשרויות התור</string>
+    <string name="morphe_save_to_watch_later_button_title">הצג כפתור שמירה לצפייה מאוחרת</string>
+    <string name="morphe_save_to_watch_later_error_toast">לא ניתן לשמור סרטון זה בפלייליסט \'צפייה מאוחרת\'</string>
+    <string name="morphe_save_to_watch_later_flyout_title">שמור לצפייה מאוחרת</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">מאפשר שמירת סרטונים לילדים בתפריט הצף \'צפייה מאוחרת\' %d videos</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">הצג כפתור שמירה לצפייה מאוחרת בסרטוני ילדים</string>
+    <string name="morphe_save_to_watch_later_success_toast">הסרטון נשמר בהצלחה בפלייליסט \'צפייה מאוחרת\'</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">הכי הרבה השמעות חוזרות</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">מציג תמונה ממוזערת של הסרטון בזמן גרירת סרגל החיפוש</string>
     <string name="morphe_seekbar_thumbnail_preview_title">אפשר תמונות ממוזערות בסרגל החיפוש</string>
@@ -114,6 +152,9 @@
     <string name="morphe_settings_menu_filter_picker_empty">פתח את מסך ההגדרות הסטנדרטי של האפליקציה פעם אחת כדי לאכלס את הרשימה</string>
     <string name="morphe_settings_menu_filter_screen_summary">הסתר פריטים ממסך ההגדרות הסטנדרטי של האפליקציה לפי השם הגלוי שלהם</string>
     <string name="morphe_settings_menu_filter_screen_title">מסנן תפריט הגדרות</string>
+    <string name="morphe_settings_name_custom_item_hint">הזן שם</string>
+    <string name="morphe_settings_name_empty_warning">השם לא יכול להיות ריק</string>
+    <string name="morphe_settings_name_title">שם ההגדרות של RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">צבע</string>
     <string name="morphe_splash_screen_animation_style_entry_3">חד גווני</string>
     <string name="morphe_splash_screen_animation_style_title">סגנון מסך פתיחה</string>
@@ -172,6 +213,8 @@
 
 אם אתה משתמש YouTube Premium, ייתכן שהגדרה זו אינה נחוצה"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות השמעה</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">הקש כדי לראות אפשרויות תור, הקש והחזק כדי לשמור לצפייה מאוחרת</string>
+    <string name="morphe_swap_save_and_queue_actions_title">החלף בין פעולות שמירה לתור</string>
     <string name="morphe_tablet_layout_in_player_summary">"משחזר את פריסת הנגן הישנה
 
 מגבלה: אם \"שחזר סרגל הפעולות של הווידאו הישן\" כבוי, ייתכן ש-\"עוד סרטונים\" לא יהיה זמין"</string>
@@ -185,8 +228,8 @@
     <string name="revanced_advanced_video_quality_menu_summary_on">תפריט איכות סרטון מתקדם מוצג</string>
     <string name="revanced_advanced_video_quality_menu_title">פתח תפריט איכות מתקדם</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">נעשה שימוש בתפריט נשלף בסגנון ישן</string>
-    <string name="revanced_advanced_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית. </string>
-    <string name="revanced_advanced_video_quality_menu_type_title">סוג תפריט איכות וידאו מתקדמת ב-Shorts </string>
+    <string name="revanced_advanced_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית</string>
+    <string name="revanced_advanced_video_quality_menu_type_title">סוג תפריט איכות וידאו מתקדמת ב-Shorts</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow מספק תמונות ממוזערות שנאספו בהמונים לסרטוני YouTube. תמונות ממוזערות אלה רלוונטיות לרוב מאלו שסיפק YouTube
 
 אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, יוצגו התמונות המקוריות או הצילומים המצולמים
@@ -260,15 +303,17 @@
 פריסת טאבלט
 • פוסטים קהילתיים מוסתרים
 • הגדרת השמעה בפידים אינה זמינה
-• לחצן רמיקס ולחצן סאונד אינם זמינים ב-Shorts
-• סרגל הפעולות הישן שאינו מקופל מוצג
+• כפתור רמיקס וכפתור סאונד אינם זמינים ב-Shorts
+• שכבת 'עוד סרטונים' עשויה לא להיות זמינה
+• סרגל פעולות וידאו ישן שאינו מקופל מוצג
 
-פריסת רכב
+פריסה לרכב
 • הפיד מאורגן לפי נושאים וערוצים
 • הגדרת השמעה בפידים אינה זמינה
-• לחצן רמיקס ולחצן סאונד אינם זמינים ב-Shorts
+• כפתור רמיקס וכפתור סאונד אינם זמינים ב-Shorts
+• שכבת 'עוד סרטונים' עשויה לא להיות זמינה
 • Shorts נפתחים בנגן הרגיל
-• סרגל הפעולות הישן שאינו מקופל מוצג"</string>
+• סרגל פעולות וידאו ישן שאינו מקופל מוצג"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">נעשה שימוש במתגים</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">נעשה שימוש בלחצני טקסט</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">שנה את סוג החלפת המצב</string>
@@ -368,6 +413,7 @@
     <string name="revanced_disable_chapter_skip_double_tap_title">משבית את מצב הסריקה המדויק שמופעל כשמחזיקים את מיקום החיפוש</string>
     <string name="revanced_disable_drc_audio_summary_off">אודיו DRC מופעל</string>
     <string name="revanced_disable_drc_audio_summary_on">אודיו DRC מושבת</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">השבת מחוות צביטה לזום</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">משוב ברטט עבור פרקים מופעל</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">משוב ברטט עבור פרקים מושבת</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">השבת משוב ברטט עבור פרקים</string>
@@ -396,6 +442,7 @@
 •部分 של המוזיקה של תיאור הוידאו עשויה שלא לעבוד
 •מרכיבי תפריט הטיסה של שחקן לא ניתן להסתר
 • כפתור החלפת חשבון עשוי שלא להופיע על טאב הספרייה"</string>
+    <string name="revanced_disable_playlist_autoplay_title">השבת הפעלה אוטומטית של רשימת השמעה</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">נגן Shorts יתחדש בעת הפעלת היישום</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">נגן Shorts לא יתחדש בעת הפעלת היישום</string>
     <string name="revanced_disable_resuming_shorts_player_title">השבת חידוש נגן Shorts</string>
@@ -429,6 +476,14 @@
     <string name="revanced_fix_transcript_summary_off">תמליל עשוי לא להיות זמין עקב בדיקה מוקדמת של תנאים</string>
     <string name="revanced_fix_transcript_summary_on">תמליל זמין</string>
     <string name="revanced_fix_transcript_title">תיקון תמליל</string>
+    <string name="revanced_force_hdr_video_summary">מאלץ את האפליקציה לזהות מכשיר זה כתומך HDR</string>
+    <string name="revanced_force_hdr_video_title">אלץ וידאו HDR</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"השתמש בזה אם פענוח HDR עובד אך YouTube אינו מציע HDR, כמו חלק ממכשירי HyperOS שמסתירים HLG
+
+מגבלות:
+• צבעים עשויים להיראות לא נכונים אם התצוגה אינה יכולה להציג HDR בפועל
+• הפעלה עלולה להיכשל אם המפענח אינו יכול להתמודד עם HDR
+• HDR עדיין תלוי בלקוח שמזייף זרמי וידאו"</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">הזן את שמות התפריטים התחתונים של הספריה שעל פיהם תסנן, מופרדים בשורות חדשות</string>
     <string name="revanced_hide_account_menu_filter_strings_title">הפעל ספריה / מסנן בתפריט התחתון שלך</string>
     <string name="revanced_hide_account_menu_title">הפעל ספריה / מסנן בתפריט התחתון שלך</string>

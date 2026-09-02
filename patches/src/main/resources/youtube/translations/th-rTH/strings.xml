@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">หากต้องการรับการแจ้งเตือนใน RVX โปรดเปิดใช้งานการส่งข้อความบนคลาวด์</string>
     <string name="gms_core_toast_not_installed_message">MicroG ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
     <string name="morphe_custom_branding_icon_title">ไอคอนแอป</string>
+    <string name="morphe_dark_theme_custom_color_title">ปรับแต่งโหมดมืด</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">ทำให้แถบนำทางมองเห็นได้ในขณะที่เลื่อน</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">ปิดใช้งานการซ่อนแถบนำทางอัตโนมัติ</string>
     <string name="morphe_disable_drc_audio_summary_off">เสียง DRC ถูกเปิด</string>
@@ -35,6 +36,7 @@
     <string name="morphe_expand_livestream_dvr_duration_title">ขยายระยะเวลา DVR ไลฟ์สตรีม</string>
     <string name="morphe_explore_menu_screen_summary">เลือกส่วนประกอบที่จะปรากฏในเมนูสำรวจ</string>
     <string name="morphe_explore_menu_screen_title">เมนูสำรวจ</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">หากไม่ได้ผล ให้ลองบังคับปิด MicroG</string>
     <string name="morphe_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'ปลอมแปลงสตรีมวิดีโอ\' เป็นไคลเอ็นต์อื่น ๆ ยกเว้น \'Android Studio\' และ \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
     <string name="morphe_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
@@ -45,9 +47,30 @@
     <string name="morphe_fullscreen_video_scale_entry_stretch">ยืด (เติมเต็มหน้าจอ)</string>
     <string name="morphe_fullscreen_video_scale_entry_zoom">ซูม (ครอปเพื่อเติมเต็ม)</string>
     <string name="morphe_fullscreen_video_scale_title">มาตราส่วนวิดีโอเต็มหน้าจอ</string>
+    <string name="morphe_hide_aislist_about_summary">"ผลลัพธ์ในหน้าหลักและหน้าค้นหาจะถูกกรองเพื่อซ่อนวิดีโอจากช่องที่ถูกตั้งค่าสถานะโดย AiSList
+
+ข้อจำกัด:
+• Shorts AI ที่ถูกกรองอาจปรากฏเป็นช่องว่าง
+• วิดีโอ AI บางรายการอาจยังปรากฏอยู่"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"ข้อมูลนี้จัดทำโดย AiSList
+
+แตะที่นี่เพื่อเปิด AiSlopList.com และดูการดาวน์โหลดสำหรับแพลตฟอร์มอื่น ๆ"</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">รายการบล็อก: ความมั่นใจสูง</string>
+    <string name="morphe_hide_aislist_hide_home_title">ซ่อนวิดีโอในหน้าหลัก</string>
+    <string name="morphe_hide_aislist_hide_search_title">ซ่อนวิดีโอในการค้นหา</string>
+    <string name="morphe_hide_aislist_screen_summary">ซ่อนวิดีโอจากช่องที่ถูกตั้งค่าสถานะว่าเป็นเนื้อหาที่สร้างโดย AI โดยชุมชน AiSList</string>
+    <string name="morphe_hide_aislist_screen_title">ตัวกรองช่อง AI</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">ช่องที่ถูกบล็อก</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">เปิดใช้งานตัวกรองเพื่อโหลดช่อง</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">กำลังโหลดช่อง…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• หน้าหลัก: %s
+• การค้นหา: %s
+• รวม: %s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">ช่องที่ถูกเตือน</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">รายการเตือน: ความมั่นใจปานกลาง</string>
     <string name="morphe_hide_courses_menu_title">ซ่อนเมนูหลักสูตร</string>
     <string name="morphe_hide_explore_button_title">ซ่อนปุ่ม \'สำรวจ\'</string>
-    <string name="morphe_hide_fashion_menu_title">ซ่อนป</string>
+    <string name="morphe_hide_fashion_menu_title">ซ่อนเมนู \'แฟชั่น &amp; ความงาม\'</string>
     <string name="morphe_hide_gaming_menu_title">ซ่อนเมนูเกม</string>
     <string name="morphe_hide_get_premium_button_title">ซ่อนปุ่ม \'รับ Premium\'</string>
     <string name="morphe_hide_hype_menu_title">ซ่อนเมนู Hype</string>
@@ -67,6 +90,10 @@
     <string name="morphe_hide_privacy_tos_footer_title">ซ่อนส่วนท้ายด้านกฎหมายและความเป็นส่วนตัว</string>
     <string name="morphe_hide_shopping_menu_title">ซ่อนเมนูร้านค้า</string>
     <string name="morphe_hide_sports_menu_title">ซ่อนเมนูกีฬา</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">รีเซ็ตตัวนับ 24 ชั่วโมงที่ผ่านมา?</string>
+    <string name="morphe_hide_stats_hidden_24h_title">วิดีโอที่ซ่อนไว้, 24 ชั่วโมงที่ผ่านมา</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">รีเซ็ตตัวนับเวลาทั้งหมดหรือไม่?</string>
+    <string name="morphe_hide_stats_hidden_all_title">วิดีโอที่ซ่อนไว้, ตลอดเวลา</string>
     <string name="morphe_hide_sync_button_title">ซ่อนปุ่ม \'ซิงค์กับวิดีโอ\'</string>
     <string name="morphe_hide_youtube_create_menu_title">ซ่อนเมนู YouTube Create</string>
     <string name="morphe_hide_youtube_kids_menu_title">ซ่อนเมนู YouTube Kids</string>
@@ -74,6 +101,7 @@
     <string name="morphe_hide_youtube_premium_menu_title">ซ่อนเมนู YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">ซ่อนเมนู YouTube Studio</string>
     <string name="morphe_hide_youtube_works_menu_title">ซ่อนเมนู \'วิธีการทำงานของ YouTube\'</string>
+    <string name="morphe_light_theme_title">ธีมสว่าง</string>
     <string name="morphe_livestream_dvr_not_available">"'เปิดใช้งาน DVR ไลฟ์สตรีม' อาจไม่สามารถใช้งานได้
 
 หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV Simply' หรือ 'visionOS'"</string>
@@ -89,12 +117,16 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ไม่สามารถใช้งานได้ชั่วคราว (API หมดเวลา)</string>
     <string name="morphe_oauth2_toast_invalid">โทเค็นเข้าสู่ระบบ VR ไม่ถูกต้อง กรุณาลองเข้าสู่ระบบ VR อีกครั้ง</string>
     <string name="morphe_oauth2_toast_reset">ออกจากระบบ VR แล้ว</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">ป้องกันไม่ให้การถ่ายทอดสดเปิดเมื่อแตะที่อวาตาร์ของช่อง</string>
+    <string name="morphe_open_channel_of_live_avatar_title">เปิดช่องจากอวาตาร์สด</string>
     <string name="morphe_override_youtube_music_buttons_summary">เปิดแอปเพลงที่คุณต้องการแทนแอป YouTube Music เริ่มต้น</string>
     <string name="morphe_override_youtube_music_buttons_title">แทนที่ปุ่ม YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">เปิดตลอดเวลา</string>
     <string name="morphe_playback_in_feeds_entry_off">ปิด</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi เท่านั้น</string>
     <string name="morphe_playback_in_feeds_title">การเล่นในฟีด</string>
+    <string name="morphe_queue_manager_check_failed_auth">ยังไม่ได้เข้าสู่ระบบ</string>
+    <string name="morphe_queue_manager_check_failed_video_id">ไม่มี ID วิดีโอ</string>
     <string name="morphe_reload_video_summary_off">ปุ่มโหลดวิดีโอไม่แสดง</string>
     <string name="morphe_reload_video_summary_on">ปุ่มโหลดวิดีโอแสดง</string>
     <string name="morphe_reload_video_title">แสดงปุ่มโหลดวิดีโอ</string>
@@ -106,6 +138,14 @@
     <string name="morphe_sanitize_sharing_links_summary_off">พารามิเตอร์การติดตามไม่ได้ถูกลบออกจากลิงก์ที่แชร์</string>
     <string name="morphe_sanitize_sharing_links_summary_on">พารามิเตอร์การติดตามจะถูกลบออกจากลิงก์ที่แชร์</string>
     <string name="morphe_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">วิดีโอนี้ถูกบันทึกในรายการดูภายหลังแล้ว</string>
+    <string name="morphe_save_to_watch_later_button_summary">แตะเพื่อบันทึกไปยังดูภายหลัง แตะค้างไว้สำหรับตัวเลือกในคิว</string>
+    <string name="morphe_save_to_watch_later_button_title">แสดงปุ่ม \'บันทึกไปยังดูภายหลัง\'</string>
+    <string name="morphe_save_to_watch_later_error_toast">ไม่สามารถบันทึกวิดีโอนี้ลงในรายการดูภายหลังได้</string>
+    <string name="morphe_save_to_watch_later_flyout_title">บันทึกไปยังดูภายหลัง</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">อนุญาตให้บันทึกวิดีโอที่เกี่ยวข้องกับเด็กในเมนูย่อย \'ดูภายหลัง\'</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">แสดงปุ่ม \'บันทึกไปยังดูภายหลัง\' ในวิดีโอสำหรับเด็ก</string>
+    <string name="morphe_save_to_watch_later_success_toast">บันทึกวิดีโอลงในรายการดูภายหลังเรียบร้อยแล้ว</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">เล่นซ้ำมากที่สุด</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">แสดงภาพขนาดย่อของวิดีโอขณะลากแถบเลื่อน</string>
     <string name="morphe_seekbar_thumbnail_preview_title">เปิดใช้งานภาพขนาดย่อของแถบเลื่อน</string>
@@ -113,6 +153,9 @@
     <string name="morphe_settings_menu_filter_picker_empty">เปิดหน้าจอการตั้งค่าแอปมาตรฐานหนึ่งครั้งเพื่อสร้างรายการ</string>
     <string name="morphe_settings_menu_filter_screen_summary">ซ่อนรายการบนหน้าจอการตั้งค่าแอปมาตรฐานตามชื่อที่แสดง</string>
     <string name="morphe_settings_menu_filter_screen_title">ตัวกรองเมนูการตั้งค่า</string>
+    <string name="morphe_settings_name_custom_item_hint">ป้อนชื่อ</string>
+    <string name="morphe_settings_name_empty_warning">ชื่อต้องไม่ว่างเปล่า</string>
+    <string name="morphe_settings_name_title">ชื่อการตั้งค่า RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">สี</string>
     <string name="morphe_splash_screen_animation_style_entry_3">ขาวดำ</string>
     <string name="morphe_splash_screen_animation_style_title">รูปแบบหน้าจอ Splash</string>
@@ -171,6 +214,8 @@
 
 หากคุณเป็นผู้ใช้ YouTube Premium การตั้งค่านี้อาจไม่จำเป็น"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">แตะเพื่อดูตัวเลือกในคิว แตะค้างไว้เพื่อบันทึกไปยังดูภายหลัง</string>
+    <string name="morphe_swap_save_and_queue_actions_title">สลับการดำเนินการบันทึกและคิว</string>
     <string name="morphe_tablet_layout_in_player_summary">"คืนรูปแบบผู้เล่นแบบเก่า
 
 ข้อจำกัด: หากปิด 'คืนแถบการทำงานของวิดีโอแบบเก่า' การแสดงผล 'วิดีโอเพิ่มเติม' อาจใช้งานไม่ได้"</string>
@@ -202,7 +247,7 @@
     <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; รูปขนาดย่อดั้งเดิม</string>
     <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; ภาพนิ่ง</string>
     <string name="revanced_alt_thumbnail_options_entry_4">ภาพนิ่ง</string>
-    <string name="revanced_alt_thumbnail_player_title">สำหรับเพลย์ลิสต์และคำแนะนำของเครื่องเล่น</string>
+    <string name="revanced_alt_thumbnail_player_title">สำหรับเพลย์ลิสต์ &amp; คำแนะนำของเครื่องเล่น</string>
     <string name="revanced_alt_thumbnail_search_title">สำหรับผลการค้นหา</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">ภาพนิ่งถูกถ่ายจากจุดเริ่มต้น/กลาง/ท้ายของแต่ละวิดีโอ รูปภาพเหล่านี้ถูกสร้างไว้ใน YouTube และไม่มีการใช้ API ภายนอก</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">ใช้ภาพนิ่งคุณภาพสูง</string>
@@ -241,12 +286,14 @@
 • โพสต์จากชุมชนจะถูกซ่อนไว้
 • จะไม่มีตัวเลือกการเล่นในฟีด
 • จะไม่มีปุ่มรีมิกซ์และปุ่มเสียงใน Shorts
+• อาจไม่สามารถใช้งานโอเวอร์เลย์ 'วิดีโอเพิ่มเติม' ได้
 • แถบการทำงานของวิดีโอแบบเดิมที่ไม่ยุบจะแสดงขึ้น
 
 เลย์เอาต์สำหรับรถยนต์
 • ฟีดจะถูกจัดระเบียบตามหัวข้อและช่อง
 • จะไม่มีตัวเลือกการเล่นในฟีด
 • จะไม่มีปุ่มรีมิกซ์และปุ่มเสียงใน Shorts
+• อาจไม่สามารถใช้งานโอเวอร์เลย์ 'วิดีโอเพิ่มเติม' ได้
 • Shorts จะเปิดในเครื่องเล่นปกติ
 • แถบการทำงานของวิดีโอแบบเดิมที่ไม่ยุบจะแสดงขึ้น"</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">การติดตามทั้งหมด</string>
@@ -313,6 +360,7 @@
     <string name="revanced_disable_chapter_skip_double_tap_title">ปิดใช้งานการข้ามส่วนเนื้อหาโดยการแตะสองครั้ง</string>
     <string name="revanced_disable_drc_audio_summary_off">เสียง DRC ถูกเปิด</string>
     <string name="revanced_disable_drc_audio_summary_on">เสียง DRC ถูกปิด</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">ปิดใช้งานท่าทางสัมผัสแบบบีบเพื่อซูม</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">เปิดใช้งานแฮปติกบทแล้ว</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">ปิดใช้งานแฮปติกบทแล้ว</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">ปิดใช้งานแฮปติกบท</string>
@@ -341,6 +389,7 @@
 • ส่วนเพลงของคำอธิบายวิดีโออาจไม่ทำงาน
 • สิ่งที่แสดงในเมนูตัวเลือกของตัวเล่นไม่สามารถซ่อนได้
 • ปุ่มสลับบัญชีอาจไม่ปรากฏบนแท็บคลัง"</string>
+    <string name="revanced_disable_playlist_autoplay_title">ปิดการเล่นอัตโนมัติของเพลย์ลิสต์</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">เครื่องเล่น Shorts จะกลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">เครื่องเล่น Shorts จะไม่กลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
     <string name="revanced_disable_resuming_shorts_player_title">ปิดใช้งานการกลับมาทำงานต่อของเครื่องเล่น Shorts</string>
@@ -372,6 +421,14 @@
     <string name="revanced_fix_transcript_summary_off">บทความอาจไม่มีอยู่เนื่องจากการตรวจสอบเงื่อนไขล้มเหลว</string>
     <string name="revanced_fix_transcript_summary_on">บทความมีอยู่</string>
     <string name="revanced_fix_transcript_title">แก้ไขข้อความถอดเสียง</string>
+    <string name="revanced_force_hdr_video_summary">บังคับให้แอปรับรู้ว่าอุปกรณ์นี้รองรับ HDR‑capable</string>
+    <string name="revanced_force_hdr_video_title">บังคับวิดีโอ HDR</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"ใช้หากการถอดรหัส HDR ทำงานได้ แต่ YouTube ไม่นำเสนอ HDR เช่น อุปกรณ์ HyperOS บางรุ่นที่ซ่อน HLG
+
+ข้อจำกัด:
+• สีอาจดูผิดเพี้ยนไป หากหน้าจอมิสามารถแสดง HDR ได้จริง
+• การเล่นอาจล้มเหลวหากตัวถอดรหัสไม่สามารถจัดการ HDR ได้
+• HDR ยังคงขึ้นอยู่กับสตรีมวิดีโอ \"spoof\""</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">ป้อนชื่อเมนูด้านล่างคลัง / คุณที่คุณต้องการกรอง คั่นด้วยบรรทัดใหม่</string>
     <string name="revanced_hide_account_menu_filter_strings_title">ตัวกรองเมนูด้านล่าง คลัง / คุณ</string>
     <string name="revanced_hide_account_menu_title">เปิดใช้งานตัวกรองเมนูด้านล่าง คลัง / คุณ</string>
