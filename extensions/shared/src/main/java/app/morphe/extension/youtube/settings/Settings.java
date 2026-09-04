@@ -248,6 +248,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final IntegerSetting PLAYBACK_IN_FEEDS = new IntegerSetting("morphe_playback_in_feeds", PlaybackInFeedsPatch.MODE_ALWAYS_ON, true);
     public static final IntegerSetting CUSTOM_DPI = new IntegerSetting("morphe_custom_dpi", 0,
             true, new SliderConfig(0, 1_000, 1, "dpi"));
+    public static final BooleanSetting OPEN_CHANNEL_OF_LIVE_AVATAR = new BooleanSetting("morphe_open_channel_of_live_avatar", FALSE);
 
     // PreferenceScreen: Feed - Carousel shelf
     public static final BooleanSetting HIDE_CAROUSEL_SHELF_HOME = new BooleanSetting("revanced_hide_carousel_shelf_home", FALSE);
