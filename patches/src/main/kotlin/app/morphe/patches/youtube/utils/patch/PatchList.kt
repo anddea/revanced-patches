@@ -181,6 +181,10 @@ internal enum class PatchList(
         "Navigation bar components",
         "Adds options to hide or change components related to the navigation bar."
     ),
+    OPEN_CHANNEL_OF_LIVE_AVATAR(
+        "Open channel of live avatar",
+        "Adds an option to prevent a channel's current live video from opening when tapping its avatar."
+    ),
     OPEN_LINKS_EXTERNALLY(
         "Open links externally",
         "Adds an option to always open links in your browser instead of the in-app browser."

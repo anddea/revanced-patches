@@ -13,6 +13,11 @@ public final class Dim {
     public static final int dp32 = Utils.dipToPixels(32);
     public static final int dp36 = Utils.dipToPixels(36);
     public static final int dp40 = Utils.dipToPixels(40);
+    public static final int dp48 = Utils.dipToPixels(48);
+
+    public static android.util.DisplayMetrics getMetrics() {
+        return Utils.getResources().getDisplayMetrics();
+    }
 
     public static int dp(int value) {
         return Utils.dipToPixels(value);
