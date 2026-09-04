@@ -1,3 +1,26 @@
+# [4.3.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.4...v4.3.0-dev.5) (2026-09-04)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts components:** Shorts autoplay setting was ignored ([399f3ce](https://github.com/anddea/revanced-patches/commit/399f3ce0bf0f3809ae1df41c0b58573243e64097))
+
+
+### Features
+
+* **YouTube - Hide feed components:** Add `AI channel filter` settings ([2627f01](https://github.com/anddea/revanced-patches/commit/2627f01296f3b149eda7275af64a75c32bb7cd79))
+* **YouTube - Swipe controls:** Add `Disable pinch-to-zoom gesture` setting ([ddeb07e](https://github.com/anddea/revanced-patches/commit/ddeb07e1ac80db234a16daac56303f1723670fab))
+* **YouTube - Theme:** Add `Notification dot color` setting ([3e70db4](https://github.com/anddea/revanced-patches/commit/3e70db49dad41bb0db30299a9ea724e1f2882302))
+* **YouTube - Video playback:** Add `Force HDR video` setting ([5abbc44](https://github.com/anddea/revanced-patches/commit/5abbc44363cd605adabd4431ad3e0311bd90eb3d))
+* **YouTube - Voice Over Translation:** Add `Fetch latest proxy server` setting, and never update proxy worker host automatically ([c3bd938](https://github.com/anddea/revanced-patches/commit/c3bd938f28981c65580070ebda5ee4f508481b7e))
+* **YouTube - Voice Over Translation:** Add `Pause video while preparing translation` setting ([03af205](https://github.com/anddea/revanced-patches/commit/03af2055e726fa5181ea38b6c9227df842b4d996))
+* **YouTube & YouTube Music - Custom branding:** Add `Use as system splash` setting, add `Theme` patch options ([8e04b31](https://github.com/anddea/revanced-patches/commit/8e04b31968f9829b2e8da37f40b98784be6255ea))
+* **YouTube & YouTube Music - Settings:** Add `RVX settings name` setting ([c080920](https://github.com/anddea/revanced-patches/commit/c0809205552540163aa9c23cb3e76e34bba74dfa))
+* **YouTube & YouTube Music:** Add `PoToken provider` patch ([2b8d4fa](https://github.com/anddea/revanced-patches/commit/2b8d4fa51602bac4f1972224b00e7c483d618602))
+* **YouTube:** Add `Disable playlist autoplay` patch ([ccd053b](https://github.com/anddea/revanced-patches/commit/ccd053b93347dcf01af947a578287633f7a38587))
+* **YouTube:** Add `Open channel of live avatar` patch ([1b6a062](https://github.com/anddea/revanced-patches/commit/1b6a062cb2dbbb42521d145f5a4fc635517bba7e))
+* **YouTube:** Add `Save to Watch later` settings ([71b0b06](https://github.com/anddea/revanced-patches/commit/71b0b06cf9b45436d87cafa27dee8330c741eb29))
+
 # [4.3.0-dev.4](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.3...v4.3.0-dev.4) (2026-08-28)
 
 
