@@ -58,6 +58,7 @@ import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addTextPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
+import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -217,7 +218,8 @@ val accountComponentsPatch = bytecodePatch(
         addTextPreference(
             CategoryType.ACCOUNT,
             "revanced_hide_account_menu_filter_strings",
-            "revanced_hide_account_menu"
+            "revanced_hide_account_menu",
+            inputType = InputType.TEXT_MULTI_LINE,
         )
         addSwitchPreference(
             CategoryType.ACCOUNT,

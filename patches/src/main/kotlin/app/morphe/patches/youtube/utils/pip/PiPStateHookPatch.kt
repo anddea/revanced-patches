@@ -4,6 +4,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.fingerprint.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -13,7 +15,11 @@ private const val EXTENSION_VIDEO_UTILS_CLASS_DESCRIPTOR =
 val pipStateHookPatch = bytecodePatch(
     description = "pipStateHookPatch",
 ) {
+    dependsOn(versionCheckPatch)
+
     execute {
+        if (is_21_04_or_greater) return@execute
+
         pipPlaybackFingerprint.matchOrThrow().let {
             it.method.apply {
                 val insertIndex = it.instructionMatches.last().index

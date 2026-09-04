@@ -41,13 +41,9 @@ internal enum class PatchList(
         "Custom Shorts action buttons",
         "Changes, at compile time, the icon of the action buttons of the Shorts player."
     ),
-    CUSTOM_BRANDING_ICON_FOR_YOUTUBE(
-        "Custom branding icon for YouTube",
-        "Changes the YouTube app icon to the icon specified in patch options."
-    ),
-    CUSTOM_BRANDING_NAME_FOR_YOUTUBE(
-        "Custom branding name for YouTube",
-        "Changes the YouTube app name to the name specified in patch options."
+    CUSTOM_BRANDING_FOR_YOUTUBE(
+        "Custom branding for YouTube",
+        "Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection."
     ),
     CUSTOM_DOUBLE_TAP_LENGTH(
         "Custom double tap length",
@@ -56,10 +52,6 @@ internal enum class PatchList(
     CUSTOM_DPI(
         "Custom DPI",
         "Forces a higher display density for this app only, so the whole UI scales up without changing system density."
-    ),
-    CUSTOM_HEADER_FOR_YOUTUBE(
-        "Custom header for YouTube",
-        "Applies a custom header in the top left corner within the app."
     ),
     DESCRIPTION_COMPONENTS(
         "Description components",
@@ -85,6 +77,10 @@ internal enum class PatchList(
         "Disable layout updates",
         "Adds an option to disable layout updates by server."
     ),
+    DISABLE_PLAYLIST_AUTOPLAY(
+        "Disable playlist autoplay",
+        "Adds an option to stop a playlist from automatically advancing to the next video."
+    ),
     DISABLE_RESUMING_MINIPLAYER_ON_STARTUP(
         "Disable resuming Miniplayer on startup",
         "Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup."
@@ -96,10 +92,6 @@ internal enum class PatchList(
     DISABLE_SIGN_IN_TO_TV_POPUP(
         "Disable sign in to TV popup",
         "Adds an option to disable the popup asking to sign into a TV on the same local network."
-    ),
-    DISABLE_SPLASH_ANIMATION(
-        "Disable splash animation",
-        "Adds an option to disable the splash animation on app startup."
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
@@ -116,6 +108,14 @@ internal enum class PatchList(
     FULLSCREEN_COMPONENTS(
         "Fullscreen components",
         "Adds options to hide or change components related to fullscreen."
+    ),
+    FULLSCREEN_VIDEO_SCALE(
+        "Fullscreen video scale",
+        "Adds options to stretch or zoom videos to fill the screen in fullscreen mode."
+    ),
+    GEMINI(
+        "Gemini",
+        "Adds options to use Gemini for video summaries, transcription, and settings search."
     ),
     GMSCORE_SUPPORT(
         "GmsCore support",
@@ -165,17 +165,13 @@ internal enum class PatchList(
         "Hide shortcuts",
         "Remove, at compile time, the app shortcuts that appears when the app icon is long pressed."
     ),
-    HOOK_YOUTUBE_MUSIC_ACTIONS(
-        "Hook YouTube Music actions",
-        "Adds support for opening music in RVX Music using the in-app YouTube Music button."
+    OVERRIDE_YOUTUBE_MUSIC_BUTTONS(
+        "Override YouTube Music buttons",
+        "Overrides YouTube Music buttons to open RVX Music or any compatible third-party client."
     ),
     HOOK_DOWNLOAD_ACTIONS(
         "Hook download actions",
         "Adds support to download videos with an external downloader app using the in-app download button."
-    ),
-    MATERIALYOU(
-        "MaterialYou",
-        "Applies the MaterialYou theme for Android 12+ devices."
     ),
     MINIPLAYER(
         "Miniplayer",
@@ -184,6 +180,10 @@ internal enum class PatchList(
     NAVIGATION_BAR_COMPONENTS(
         "Navigation bar components",
         "Adds options to hide or change components related to the navigation bar."
+    ),
+    OPEN_CHANNEL_OF_LIVE_AVATAR(
+        "Open channel of live avatar",
+        "Adds an option to prevent a channel's current live video from opening when tapping its avatar."
     ),
     OPEN_LINKS_EXTERNALLY(
         "Open links externally",
@@ -201,9 +201,17 @@ internal enum class PatchList(
         "Player components",
         "Adds options to hide or change components related to the video player."
     ),
+    POTOKEN_PROVIDER(
+        "PoToken provider",
+        "Adds option to get PoToken using the built-in PoToken provider."
+    ),
     RELOAD_VIDEO(
         "Reload video",
         "Adds an option to display a button in the video player to reload the current video."
+    ),
+    SAVE_TO_WATCH_LATER(
+        "Save to Watch later",
+        "Adds options to save videos to Watch later from the video player or feed flyout menu."
     ),
     REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS(
         "Remove background playback restrictions",
@@ -267,7 +275,7 @@ internal enum class PatchList(
     ),
     THEME(
         "Theme",
-        "Changes the app's themes to the values specified in patch options."
+        "Adds options to change the app's themes and splash screen style."
     ),
     TOOLBAR_COMPONENTS(
         "Toolbar components",

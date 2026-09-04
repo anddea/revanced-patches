@@ -1,5 +1,27 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.video.information
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.InstructionLocation.MatchFirst
+import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.anyInstruction
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
 import app.morphe.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
@@ -14,19 +36,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-import app.morphe.patcher.Fingerprint
-import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
-import app.morphe.patcher.InstructionLocation.MatchAfterWithin
-import app.morphe.patcher.InstructionLocation.MatchFirst
-import app.morphe.patcher.OpcodesFilter
-import app.morphe.patcher.StringComparisonType
-import app.morphe.patcher.anyInstruction
-import app.morphe.patcher.fieldAccess
-import app.morphe.patcher.literal
-import app.morphe.patcher.methodCall
-import app.morphe.patcher.opcode
-import app.morphe.patcher.string
+import app.morphe.patcher.methodCall as patcherMethodCall
 
 internal object VideoQualityChangedFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
@@ -40,7 +50,7 @@ internal object VideoQualityChangedFingerprint : Fingerprint(
 
         opcode(Opcode.IGET_OBJECT, location = MatchAfterWithin(6)),
         opcode(Opcode.CHECK_CAST),
-        fieldAccess(type = "I", opcode = Opcode.IGET, location = MatchAfterImmediately()), // Video resolution (human readable).
+        fieldAccess(type = "I", opcode = Opcode.IGET, location = MatchAfterImmediately()), // Video resolution (human-readable).
     )
 )
 
@@ -48,6 +58,13 @@ internal object CreateVideoPlayerSeekbarFingerprint : Fingerprint(
     returnType = "V",
     filters = listOf(
         string("timed_markers_width"),
+    )
+)
+
+internal object InitializePlaybackSpeedValuesFingerprint : Fingerprint(
+    parameters = listOf("[L", "I"),
+    filters = listOf(
+        string("menu_item_playback_speed"),
     )
 )
 
@@ -72,41 +89,9 @@ internal object OnPlaybackSpeedItemClickParentFingerprint : Fingerprint(
     }
 )
 
-/**
- * Resolves using the method found in [OnPlaybackSpeedItemClickParentFingerprint].
- */
-internal object OnPlaybackSpeedItemClickFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "V",
-    parameters = listOf("L", "L", "I", "J"),
-    custom = { method, _ ->
-        method.name == "onItemClick"
-    }
-)
-
-internal object PlayerControllerSetTimeReferenceFingerprint : Fingerprint(
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.INVOKE_DIRECT_RANGE, Opcode.IGET_OBJECT),
-    strings = listOf("Media progress reported outside media playback: ")
-)
-
 internal object PlayerInitFingerprint : Fingerprint(
     filters = listOf(
         string("playVideo called on player response with no videoStreamingData."),
-    )
-)
-
-internal object PlayerStatusEnumFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR),
-    strings = listOf(
-        "NEW",
-        "PLAYBACK_PENDING",
-        "PLAYBACK_LOADED",
-        "PLAYBACK_INTERRUPTED",
-        "INTERSTITIAL_REQUESTED",
-        "INTERSTITIAL_PLAYING",
-        "VIDEO_PLAYING",
-        "ENDED",
     )
 )
 
@@ -142,45 +127,6 @@ internal object VideoLengthFingerprint : Fingerprint(
 )
 
 /**
- * Matches using class found in [MdxPlayerDirectorSetVideoStageFingerprint].
- */
-internal object MdxSeekFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Z",
-    parameters = listOf("J", "L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.RETURN,
-    ),
-    custom = { methodDef, _ ->
-        // The instruction count is necessary here to avoid matching the relative version
-        // of the seek method we're after, which has the same function signature as the
-        // regular one, is in the same class, and even has the exact same 3 opcodes pattern.
-        methodDef.implementation!!.instructions.count() == 3
-    }
-)
-
-internal object MdxPlayerDirectorSetVideoStageFingerprint : Fingerprint(
-    filters = listOf(
-        string("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "),
-    )
-)
-
-/**
- * Matches using class found in [MdxPlayerDirectorSetVideoStageFingerprint].
- */
-internal object MdxSeekRelativeFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    // Return type is boolean up to 19.39, and void with 19.39+.
-    parameters = listOf("J", "L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-    )
-)
-
-/**
  * Matches using class found in [PlayerInitFingerprint].
  */
 internal object SeekRelativeFingerprint : Fingerprint(
@@ -191,58 +137,6 @@ internal object SeekRelativeFingerprint : Fingerprint(
         Opcode.ADD_LONG_2ADDR,
         Opcode.INVOKE_VIRTUAL,
     )
-)
-
-/**
- * Resolves with the class found in [VideoQualityChangedFingerprint].
- */
-internal object PlaybackSpeedMenuSpeedChangedFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "L",
-    parameters = listOf("L"),
-    filters = listOf(
-        fieldAccess(opcode = Opcode.IGET, type = "F")
-    )
-)
-
-internal object PlaybackSpeedClassFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
-    returnType = "L",
-    parameters = listOf("L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.RETURN_OBJECT
-    ),
-    strings = listOf("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
-)
-
-/**
- * YouTube 20.19 and lower.
- */
-internal object VideoQualityLegacyFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
-    parameters = listOf(
-        "I", // Resolution.
-        "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
-        "Z",
-        "L"
-    ),
-    custom = { _, classDef ->
-        classDef.type == "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
-    }
-)
-
-internal object PlaybackStartDescriptorToStringFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Ljava/lang/String;",
-    filters = listOf(
-        methodCall(smali = "Ljava/util/Locale;->getDefault()Ljava/util/Locale;"),
-        // First method call after Locale is the video id.
-        methodCall(returnType = "Ljava/lang/String;", parameters = listOf()),
-        string("PlaybackStartDescriptor:", comparison = StringComparisonType.STARTS_WITH)
-    ),
-    custom = { method, _ ->
-        method.name == "toString"
-    }
 )
 
 // Class name is un-obfuscated in targets before 21.01
@@ -269,19 +163,6 @@ internal object VideoQualitySetterFingerprint : Fingerprint(
         Opcode.IPUT_BOOLEAN,
     ),
     strings = listOf("menu_item_video_quality")
-)
-
-/**
- * Matches with the class found in [VideoQualitySetterFingerprint].
- */
-internal object SetVideoQualityFingerprint : Fingerprint(
-    returnType = "V",
-    parameters = listOf("L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.IGET_OBJECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET_OBJECT,
-    )
 )
 
 internal val channelIdFingerprint = legacyFingerprint(
@@ -522,4 +403,108 @@ internal val videoQualityArrayFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/util/List;", "L"),
     opcodes = listOf(Opcode.RETURN_OBJECT)
+)
+
+/**
+ * Matches method {androidx.media3.exoplayer.ExoPlayerImpl.setPlaybackParameters(PlaybackParameters p1)}
+ *
+ * @param playbackParametersType The PlaybackParameters type, obtained from [PlaybackParametersToStringFingerprint].
+ */
+internal fun getPlaybackParametersSetterFingerprint(playbackParametersType: String) = object : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf(playbackParametersType),
+    custom = { methodDef, classDef ->
+        methodDef.implementation != null
+            && classDef.interfaces.contains("Landroidx/media3/exoplayer/ExoPlayer;")
+    }
+) {}
+
+/**
+ * Matches method {androidx.media3.common.PlaybackParameters}.toString()
+ */
+internal object PlaybackParametersToStringFingerprint : Fingerprint(
+    name = "toString",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Ljava/lang/String;",
+    parameters = listOf(),
+    filters = listOf(
+        fieldAccess(definingClass = "this", opcode = Opcode.IGET, type = "F"),
+        string("PlaybackParameters(speed=%.2f, pitch=%.2f)")
+    )
+)
+
+internal object ModernChannelInformationFingerprint : Fingerprint(
+    classFingerprint = PlayerInitFingerprint,
+    filters = listOf(
+        string("loadVideo() called on LocalDirector in wrong state"),
+    ),
+)
+
+internal fun getModernChannelIdFingerprint(playerResponseType: String) = object : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Ljava/lang/Object;"),
+    filters = listOf(
+        patcherMethodCall(
+            definingClass = playerResponseType,
+            returnType = "Ljava/lang/String;",
+        ),
+        string(
+            string = "com.google.android.apps.youtube.mdx.watch.LAST_MEALBAR_PROMOTED_LIVE_FEED_CHANNELS",
+            location = MatchAfterWithin(20),
+        ),
+    ),
+) {}
+
+internal fun getModernChannelNameFingerprint(playerResponseType: String) = object : Fingerprint(
+    filters = listOf(
+        string("setMetadata may only be called once"),
+        patcherMethodCall(
+            definingClass = playerResponseType,
+            returnType = "Ljava/lang/String;",
+            location = MatchAfterWithin(30),
+        ),
+    ),
+) {}
+
+internal object ModernPlaybackSpeedOnItemClickFingerprint : Fingerprint(
+    classFingerprint = OnPlaybackSpeedItemClickParentFingerprint,
+    name = "onItemClick",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "L", "I", "J"),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IGET,
+            type = "F",
+        ),
+        patcherMethodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            parameters = listOf("F"),
+            returnType = "V",
+        ),
+    ),
+)
+
+internal object ModernSetVideoQualityFingerprint : Fingerprint(
+    classFingerprint = VideoQualitySetterFingerprint,
+    returnType = "V",
+    parameters = listOf("L"),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            location = MatchFirst(),
+        ),
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            location = MatchAfterImmediately(),
+        ),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            location = MatchAfterImmediately(),
+        ),
+    ),
 )

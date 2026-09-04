@@ -45,6 +45,7 @@
 
 package app.morphe.patches.youtube.player.overlaybuttons
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -66,8 +67,11 @@ import app.morphe.patches.youtube.utils.playercontrols.injectControl
 import app.morphe.patches.youtube.utils.playercontrols.playerControlsPatch
 import app.morphe.patches.youtube.utils.playlist.playlistPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.morphe.patches.youtube.utils.seekbarFingerprint
+import app.morphe.patches.youtube.utils.seekbarOnDrawFingerprint
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.patches.youtube.utils.sponsorblock.rectangleFieldInvalidatorFingerprint
 import app.morphe.patches.youtube.general.startpage.IntentActionFingerprint
 import app.morphe.patches.youtube.general.startpage.IntentResolverFingerprint
 import app.morphe.patches.youtube.video.information.videoEndMethod
@@ -79,8 +83,19 @@ import app.morphe.util.Utils.printWarn
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
 import app.morphe.util.doRecursively
+import app.morphe.util.findElementByAttributeValue
 import app.morphe.util.findFreeRegister
+import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversed
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.lowerCaseOrThrow
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 
 private const val EXTENSION_ALWAYS_REPEAT_CLASS_DESCRIPTOR =
@@ -132,6 +147,50 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
 
         IntentActionFingerprint.method.addHandleIntentHook()
         IntentResolverFingerprint.method.addHandleIntentHook()
+
+        // Mark the active loop segment on the seekbar.
+        val seekbarOnDrawMethod = seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint)
+        val rectangleFieldMethod = rectangleFieldInvalidatorFingerprint.methodOrThrow(seekbarFingerprint)
+        val invalidateIndex = rectangleFieldMethod.indexOfFirstInstructionReversed {
+            getReference<MethodReference>()?.name == "invalidate"
+        }
+        val rectangleIndex = rectangleFieldMethod.indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
+            getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+        }
+        val rectangleFieldReference = rectangleFieldMethod
+            .getInstruction<ReferenceInstruction>(rectangleIndex)
+            .reference
+
+        seekbarOnDrawMethod.addInstructions(
+            0,
+            """
+                move-object/from16 v0, p0
+                iget-object v1, v0, $rectangleFieldReference
+                invoke-static { v1 }, $EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->setLoopBarRect(Landroid/graphics/Rect;)V
+            """
+        )
+
+        val roundIndex = seekbarOnDrawMethod.indexOfFirstInstructionOrThrow {
+            getReference<MethodReference>()?.name == "round"
+        } + 1
+        val roundRegister = seekbarOnDrawMethod
+            .getInstruction<OneRegisterInstruction>(roundIndex)
+            .registerA
+        seekbarOnDrawMethod.addInstruction(
+            roundIndex + 1,
+            "invoke-static {v$roundRegister}, $EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->setLoopBarThickness(I)V"
+        )
+
+        val drawCircleIndex = seekbarOnDrawMethod.indexOfFirstInstructionReversedOrThrow {
+            getReference<MethodReference>()?.name == "drawCircle"
+        }
+        val drawCircleInstruction = seekbarOnDrawMethod
+            .getInstruction<FiveRegisterInstruction>(drawCircleIndex)
+        seekbarOnDrawMethod.addInstruction(
+            drawCircleIndex,
+            "invoke-static {v${drawCircleInstruction.registerC}, v${drawCircleInstruction.registerE}}, " +
+                    "$EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->drawLoopTimeBars(Landroid/graphics/Canvas;F)V"
+        )
 
         // endregion
 
@@ -308,6 +367,9 @@ val overlayButtonsPatch = resourcePatch(
                 ),
                 ResourceGroup(
                     "drawable",
+                    "revanced_fullscreen_video_scale_fit.xml",
+                    "revanced_fullscreen_video_scale_stretch.xml",
+                    "revanced_fullscreen_video_scale_zoom.xml",
                     "revanced_loop_segment_button_icon.xml",
                     "revanced_loop_segment_button_start_icon.xml",
                     "revanced_loop_segment_button_active_icon.xml",
@@ -346,6 +408,16 @@ val overlayButtonsPatch = resourcePatch(
                         }
                     }
             }
+
+            // Keep the native fullscreen control last in the bottom-controls container.
+            val fullscreenButton = document.childNodes.findElementByAttributeValue(
+                "android:id",
+                "@id/fullscreen_button",
+            ) ?: document.childNodes.findElementByAttributeValue(
+                "android:id",
+                "@+id/fullscreen_button",
+            )
+            fullscreenButton?.let(document.documentElement::appendChild)
         }
 
         arrayOf(

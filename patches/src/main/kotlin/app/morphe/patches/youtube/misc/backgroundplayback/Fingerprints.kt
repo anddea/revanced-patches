@@ -1,7 +1,19 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.misc.backgroundplayback
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.literal
 import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.resourceid.backgroundCategory
 import app.morphe.util.customLiteral
@@ -12,6 +24,18 @@ import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+
+internal object AutomaticForegroundPlaybackResumeFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45770945L)
+    )
+)
+
+internal object AutomaticPlaybackPausedInFlyoutFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45741823L)
+    )
+)
 
 internal object KidsBackgroundPlaybackPolicyControllerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),

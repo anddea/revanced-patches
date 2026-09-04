@@ -64,6 +64,8 @@ import app.morphe.patches.youtube.utils.playservice.is_20_15_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_16_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_18_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_19_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_07_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.darkBackground
 import app.morphe.patches.youtube.utils.resourceid.eduOverlayStub
@@ -92,6 +94,7 @@ import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
+import app.morphe.util.numberOfParameterRegisters
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -301,17 +304,23 @@ private val speedOverlayPatch = bytecodePatch(
                 val speedOverlayFloatValueIndex = indexOfFirstInstructionOrThrow {
                     (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits()
                 }
-                val insertIndex =
-                    indexOfFirstInstructionReversedOrThrow(speedOverlayFloatValueIndex) {
+
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(speedOverlayFloatValueIndex) {
                         getReference<MethodReference>()?.name == "removeCallbacks"
                     } + 1
-                val insertRegister =
-                    getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerC
-                val jumpIndex =
-                    indexOfFirstInstructionOrThrow(
-                        speedOverlayFloatValueIndex,
-                        Opcode.RETURN_VOID
-                    ) + 1
+
+                val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerC
+
+                val speedOverlayReturnIndex = indexOfFirstInstructionOrThrow(
+                    speedOverlayFloatValueIndex,
+                    Opcode.RETURN_VOID
+                )
+
+                val jumpIndex = if (is_21_07_or_greater) {
+                    speedOverlayReturnIndex
+                } else {
+                    speedOverlayReturnIndex + 1
+                }
 
                 hookSpeedOverlay(insertIndex, insertRegister, jumpIndex)
             }
@@ -628,18 +637,22 @@ val playerComponentsPatch = bytecodePatch(
         }
 
         if (is_19_43_or_greater) {
-            endScreenPlayerResponseModelFingerprint
-                .methodOrThrow()
-                .addInstructionsWithLabels(
-                    0, """
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideEndScreenCards()Z
-                    move-result v0
-                    if-eqz v0, :show
-                    return-void
-                    :show
-                    nop
-                    """
-                )
+            val endScreenMethod = if (is_21_04_or_greater) {
+                ModernEndScreenPlayerResponseFingerprint.method
+            } else {
+                endScreenPlayerResponseModelFingerprint.methodOrThrow()
+            }
+
+            endScreenMethod.addInstructionsWithLabels(
+                0, """
+                invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideEndScreenCards()Z
+                move-result v0
+                if-eqz v0, :show
+                return-void
+                :show
+                nop
+                """
+            )
         }
 
         // endregion
@@ -688,7 +701,13 @@ val playerComponentsPatch = bytecodePatch(
                     val index = it.instructionMatches.first().index
                     val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-                    hookFilmstripOverlay(index, register)
+                    val hookRegister = if (is_21_07_or_greater) {
+                        implementation!!.registerCount - numberOfParameterRegisters - 1
+                    } else {
+                        register
+                    }
+
+                    hookFilmstripOverlay(index, hookRegister)
                 }
             }
 

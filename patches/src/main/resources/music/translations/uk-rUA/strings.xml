@@ -32,11 +32,14 @@
     <string name="morphe_crossfade_duration_750ms">750 мілісекунд</string>
     <string name="morphe_crossfade_duration_8000ms">8 секунд</string>
     <string name="morphe_crossfade_duration_9000ms">9 секунд</string>
+    <string name="morphe_custom_branding_icon_title">Іконка застосунку</string>
+    <string name="morphe_custom_branding_name_title">Назва застосунку</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудіо DRC увімкнено</string>
     <string name="morphe_disable_drc_audio_summary_on">Аудіо DRC вимкнено</string>
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC увімкнено</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC вимкнено</string>
-    <string name="morphe_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підміни відеопотоків\" на будь-який, окрім \"Android Studio\"</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Якщо це не працює, спробуйте примусово закрити MicroG</string>
+    <string name="morphe_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підміни відеопотоків\" на будь-який, окрім \"Android Studio\" або \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary">Завжди відтворює оригінальну аудіодоріжку відео замість дубльованої</string>
     <string name="morphe_force_original_audio_summary_off">Використовується звукова доріжка за замовчуванням</string>
     <string name="morphe_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
@@ -132,6 +135,9 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_settings_menu_filter_picker_empty">Відкрийте екран стандартних налаштувань застосунку один раз, щоб заповнити список</string>
     <string name="morphe_settings_menu_filter_screen_summary">Приховати елементи на екрані стандартних налаштувань застосунку за їхньою видимою назвою</string>
     <string name="morphe_settings_menu_filter_screen_title">Фільтр меню налаштувань</string>
+    <string name="morphe_settings_name_custom_item_hint">Введіть назву</string>
+    <string name="morphe_settings_name_empty_warning">Назва не може бути порожньою</string>
+    <string name="morphe_settings_name_title">Назва налаштувань RVX</string>
     <string name="morphe_spoof_video_streams_client_type_title">Типовий клієнт</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
     <string name="morphe_spoof_video_streams_screen_summary">Налаштування підміни клієнта для запобігання проблемам з відтворенням</string>
@@ -174,7 +180,7 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_add_miniplayer_next_button_title">Додати кнопку наступне у мініплеєр</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Додає кнопку попереднього треку у мініплеєр</string>
     <string name="revanced_add_miniplayer_previous_button_title">Додати кнопку попереднє у мініплеєр</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;Назва&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Версія&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Патчі&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Пропатчено&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Назва&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Версія&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;RVX Патчі&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Пропатчено&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_summary">Натисніть , щоб перевірити назву, версію, патч і коли пропатчено</string>
     <string name="revanced_app_info_title">Про застосунок</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Обходить домен для зображень, заблокований у деяких регіонах, що дозволить отримувати мініатюри списків відтворення, аватари каналів тощо</string>
@@ -202,6 +208,7 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_change_start_page_entry_subscriptions">Підписки</string>
     <string name="revanced_change_start_page_summary">Виберіть сторінку з якої буде стартувати застосунок</string>
     <string name="revanced_change_start_page_title">Початкова сторінка</string>
+    <string name="revanced_confirm_user_dialog_title">Впевнені, що бажаєте продовжити?</string>
     <string name="revanced_credits_title">Автори</string>
     <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляху компонента, які потрібно приховати, кожен з нового рядка</string>
     <string name="revanced_custom_filter_strings_title">Власний фільтр</string>
@@ -303,6 +310,8 @@ YouTube Music 8.x - плавний перехід працює лише на в�
 • Не підміняє кнопку \"Завантажити\" у спливаючому меню чи бібліотеці"</string>
     <string name="revanced_external_downloader_action_title">Підмінити \"Завантажити\"</string>
     <string name="revanced_external_downloader_dialog_title">Зовнішній завантажувач</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">Використовує вибраний зовнішній завантажувач замість вбудованого меню завантаження</string>
+    <string name="revanced_external_downloader_flyout_menu_title">Замінити меню \"Завантажити\"</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не встановлено
 Будь ласка, завантажте %2$s з сайту"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Увага</string>
@@ -447,6 +456,9 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_hide_terms_container_title">Приховати \"Конфіденційність • Умови використання\"</string>
     <string name="revanced_hide_voice_search_button_summary">Приховує кнопку голосового пошуку у панелі пошуку</string>
     <string name="revanced_hide_voice_search_button_title">Приховати кнопку голосового пошуку</string>
+    <string name="revanced_icon_custom">Користувацька</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">Підлаштовує колір панелі навігації під повноекранний плеєр</string>
+    <string name="revanced_music_change_navigation_bar_color_title">Змінити колір панелі навігації</string>
     <string name="revanced_preference_screen_account_title">Обліковий запис</string>
     <string name="revanced_preference_screen_action_bar_title">Панель дій</string>
     <string name="revanced_preference_screen_ads_title">Реклама</string>

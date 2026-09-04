@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="morphe_settings_name_entries">
+        <item>@string/revanced_change_start_page_entry_default</item>
+        <item>@string/morphe_settings_name_entry_1</item>
+        <item>@string/morphe_settings_name_entry_2</item>
+        <item>@string/morphe_settings_name_entry_3</item>
+        <item>@string/morphe_settings_name_entry_4</item>
+        <item>@string/revanced_icon_custom</item>
+    </string-array>
+    <string-array name="morphe_settings_name_entry_values">
+        <item>DEFAULT</item>
+        <item>PREMIUM</item>
+        <item>EXTRAS</item>
+        <item>TWEAKS</item>
+        <item>MORPHING_TIME</item>
+        <item>CUSTOM</item>
+    </string-array>
     <string-array name="revanced_change_start_page_entries">
         <item>@string/revanced_change_start_page_entry_default</item>
         <item>@string/revanced_change_start_page_entry_charts</item>
@@ -122,7 +138,7 @@
     <string-array name="morphe_spoof_video_streams_client_type_entries">
         <item>Android Music Reel</item>
         <item>Android Music No SDK</item>
-        <item>Android VR</item>
+        <item>Android VR Downgraded</item>
         <item>TV</item>
         <item>TV Simply</item>
         <item>visionOS</item>
@@ -130,7 +146,7 @@
     <string-array name="morphe_spoof_video_streams_client_type_entry_values">
         <item>ANDROID_MUSIC_REEL</item>
         <item>ANDROID_MUSIC_NO_SDK</item>
-        <item>ANDROID_VR</item>
+        <item>ANDROID_VR_DASH</item>
         <item>TV_SABR</item>
         <item>TV_SIMPLY</item>
         <item>VISIONOS_1_02</item>
@@ -154,5 +170,41 @@
         <item>LRCLIB_THEN_KUGOU</item>
         <item>LRCLIB</item>
         <item>KUGOU</item>
+    </string-array>
+    <string-array name="morphe_dark_theme_entries">
+        <item>@string/revanced_change_start_page_entry_default</item>
+        <item>@string/morphe_theme_entry_amoled_black</item>
+        <item>@string/morphe_theme_entry_material_you_neutral</item>
+        <item>@string/morphe_theme_entry_material_you_primary</item>
+        <item>@string/morphe_theme_entry_material_you_secondary</item>
+        <item>@string/morphe_theme_entry_material_you_tertiary</item>
+        <item>@string/morphe_theme_entry_modern_youtube</item>
+        <item>@string/morphe_theme_entry_classic_youtube</item>
+        <item>Catppuccin (Mocha)</item>
+        <item>@string/morphe_theme_entry_dark_pink</item>
+        <item>@string/morphe_theme_entry_dark_blue</item>
+        <item>@string/morphe_theme_entry_dark_green</item>
+        <item>@string/morphe_theme_entry_dark_yellow</item>
+        <item>@string/morphe_theme_entry_dark_orange</item>
+        <item>@string/morphe_theme_entry_dark_red</item>
+        <item>@string/revanced_icon_custom</item>
+    </string-array>
+    <string-array name="morphe_dark_theme_entry_values">
+        <item>stock</item>
+        <item>amoled_black</item>
+        <item>material_you_neutral</item>
+        <item>material_you_primary</item>
+        <item>material_you_secondary</item>
+        <item>material_you_tertiary</item>
+        <item>modern_youtube</item>
+        <item>classic_youtube</item>
+        <item>catppuccin_mocha</item>
+        <item>dark_pink</item>
+        <item>dark_blue</item>
+        <item>dark_green</item>
+        <item>dark_yellow</item>
+        <item>dark_orange</item>
+        <item>dark_red</item>
+        <item>custom</item>
     </string-array>
 </resources>

@@ -32,11 +32,21 @@
     <string name="morphe_crossfade_duration_750ms">750 миллисекунд</string>
     <string name="morphe_crossfade_duration_8000ms">8 секунд</string>
     <string name="morphe_crossfade_duration_9000ms">9 секунд</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Использовать иконку приложения для настроек RVX</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Использовать иконку в настройках RVX</string>
+    <string name="morphe_custom_branding_icon_title">Иконка приложения</string>
+    <string name="morphe_custom_branding_name_title">Название приложения</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Задать размер пользовательской анимации при запуске</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Масштаб сплеш-анимации</string>
+    <string name="morphe_dark_theme_custom_color_summary">Используется, когда выбран «Пользовательский»</string>
+    <string name="morphe_dark_theme_custom_color_title">Пользовательский цвет темы</string>
+    <string name="morphe_dark_theme_title">Тема приложения</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудио DRC включено</string>
     <string name="morphe_disable_drc_audio_summary_on">Аудио DRC отключено</string>
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC отключен</string>
-    <string name="morphe_force_original_audio_not_available">Для использования этой функции измените клиент в \"Подмене видеопотоков\" на любой, кроме Android Studio\'</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">Если не работает, попробуйте принудительно закрыть MicroG</string>
+    <string name="morphe_force_original_audio_not_available">Чтобы использовать эту функцию, измените \'Подмена видеопотоков\' на любой клиент, кроме \'Android Studio\' и \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Всегда воспроизводит оригинальную аудиодорожку видео вместо дублированной версии</string>
     <string name="morphe_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
     <string name="morphe_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
@@ -44,7 +54,7 @@
     <string name="morphe_music_crossfade_about_best_summary">Обычное воспроизведение песен, автоматическое воспроизведение, повтор одной песни (песня плавно переходит в саму себя) и локальное аудио — динамик телефона, проводные наушники, Bluetooth или USB</string>
     <string name="morphe_music_crossfade_about_best_title">Лучше всего работает с</string>
     <string name="morphe_music_crossfade_about_credit_summary">Функция плавного перехода от VazerOG</string>
-    <string name="morphe_music_crossfade_about_credit_title">Источник</string>
+    <string name="morphe_music_crossfade_about_credit_title">Благодарности</string>
     <string name="morphe_music_crossfade_about_how_summary">"Плавный переход между треками накладывает конец одной песни на начало следующей, постепенно уменьшая громкость одной песни, одновременно увеличивая громкость другой в течение выбранной вами продолжительности и с выбранной кривой
 
 Он работает в режиме автоматического воспроизведения (когда песня заканчивается сама по себе) и при ручном пропуске — для каждого из них есть отдельный переключатель выше. В режиме автоматического воспроизведения смешивание начинается за несколько секунд до конца песни
@@ -63,30 +73,30 @@
     <string name="morphe_music_crossfade_about_quirks_title">Работает не совсем корректно</string>
     <string name="morphe_music_crossfade_about_summary">Как работает плавный переход между треками — и в каких случаях он не работает</string>
     <string name="morphe_music_crossfade_about_title">Информация</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляция или зеркалирование аудио (Chromecast, зеркалирование экрана или аудио) — плавный переход приостанавливается, поскольку это нестабильно и, возможно, никогда не будет исправлено
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляция или дублирование аудио (Chromecast, дублирование экрана или звука) — функция плавного перехода (кроссфейда) приостанавливается, так как в этом режиме работа нестабильна и проблема, возможно, никогда не будет исправлена
 
-YouTube Music 8.x — плавный переход работает только в 9.x и более новых версиях"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">Не работает вообще</string>
+YouTube Music версии 8.x — плавный переход работает только в версиях 9.x и новее"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Совсем не работает</string>
     <string name="morphe_music_crossfade_cast_unstable_toast">Во время воспроизведения аудио в режиме трансляции или зеркального отображения плавный переход между треками приостанавливается. Плавный переход при трансляции/зеркальном отображении может быть нестабильным и, возможно, никогда не будет исправлен</string>
-    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Незначительное удержание</string>
+    <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Плавное удержание</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Мягкое сглаживание</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Равномерная мощность</string>
     <string name="morphe_music_crossfade_curve_entry_smoothstep">Плавная S-образная кривая</string>
     <string name="morphe_music_crossfade_curve_preview_incoming">Входящий</string>
     <string name="morphe_music_crossfade_curve_preview_outgoing">Исходящий</string>
-    <string name="morphe_music_crossfade_curve_title">Кривая сглаживания</string>
+    <string name="morphe_music_crossfade_curve_title">Кривая плавного затухания</string>
     <string name="morphe_music_crossfade_duration_title">Длительность плавного перехода</string>
     <string name="morphe_music_crossfade_enabled_title">Включить плавный переход</string>
-    <string name="morphe_music_crossfade_on_auto_advance_summary">Применяет эффект кроссфейда при естественном окончании трека</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Применяет эффект плавного перехода при автопереходе к следующему треку</string>
     <string name="morphe_music_crossfade_on_auto_advance_title">Плавный переход при автоматическом переходе</string>
-    <string name="morphe_music_crossfade_on_skip_summary">Применяет эффект кроссфейда при ручном переходе к следующему треку</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Применяет эффект плавного перехода при ручном переключении трека</string>
     <string name="morphe_music_crossfade_on_skip_title">Плавный переход при ручном пропуске</string>
-    <string name="morphe_music_crossfade_paused_toast">Воспроизведение с переходом поставлено на паузу для текущей сессии</string>
-    <string name="morphe_music_crossfade_resumed_toast">Воспроизведение с переходом возобновлено</string>
+    <string name="morphe_music_crossfade_paused_toast">Плавный переход приостановлен для текущей сессии</string>
+    <string name="morphe_music_crossfade_resumed_toast">Плавный переход возобновлен</string>
     <string name="morphe_music_crossfade_screen_summary">Плавное переключение между треками</string>
     <string name="morphe_music_crossfade_screen_title">Плавный переход</string>
     <string name="morphe_music_crossfade_session_control_summary">Долгое нажатие на кнопку перемешивания позволяет приостановить или возобновить плавный переход</string>
-    <string name="morphe_music_crossfade_session_control_title">Управление сеансом</string>
+    <string name="morphe_music_crossfade_session_control_title">Управление сеансами</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">Видеорежим недоступен при включенном плавном переходе</string>
     <string name="morphe_music_lyrics_about_summary">"Текст песни ищется по названию трека и исполнителю, поэтому, если у трека необычные метаданные, он может не найти ничего или найти неверную версию
 
@@ -132,6 +142,9 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="morphe_settings_menu_filter_picker_empty">Откройте экран стандартных настроек приложения один раз, чтобы заполнить список</string>
     <string name="morphe_settings_menu_filter_screen_summary">Скрыть элементы на экране настроек приложения, основываясь на их видимом имени</string>
     <string name="morphe_settings_menu_filter_screen_title">Фильтр меню настроек</string>
+    <string name="morphe_settings_name_custom_item_hint">Укажите название</string>
+    <string name="morphe_settings_name_empty_warning">Поле имени не может быть пустым</string>
+    <string name="morphe_settings_name_title">Настройки RVX</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить никаких клиентских потоков</string>
     <string name="morphe_spoof_video_streams_screen_summary">Настройте подмену клиента, чтобы предотвратить проблемы с воспроизведением</string>
@@ -170,11 +183,24 @@ YouTube Music 8.x — плавный переход работает тольк�
 Если Вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
     <string name="morphe_spoof_video_streams_title">Поддельные видео потоки</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Выключение этой настройки может привести к возникновению проблем с воспроизведением</string>
+    <string name="morphe_theme_entry_amoled_black">Черная (Amoled)</string>
+    <string name="morphe_theme_entry_classic_youtube">Классическая (Старый YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Темно-синяя</string>
+    <string name="morphe_theme_entry_dark_green">Темно-зеленая</string>
+    <string name="morphe_theme_entry_dark_orange">Темно-оранжевая</string>
+    <string name="morphe_theme_entry_dark_pink">Темно-розовая</string>
+    <string name="morphe_theme_entry_dark_red">Темно-красная</string>
+    <string name="morphe_theme_entry_dark_yellow">Темно-жёлтая</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Нейтральная)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You (Основной)</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You (Второстепенная)</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You (Дополнительная)</string>
+    <string name="morphe_theme_entry_modern_youtube">Современный YouTube</string>
     <string name="revanced_add_miniplayer_next_button_summary">Добавляет кнопку следующего трека в миниплеер</string>
     <string name="revanced_add_miniplayer_next_button_title">Добавить кнопку следующее в миниплеер</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Добавляет кнопку предыдущего трека в миниплеер</string>
     <string name="revanced_add_miniplayer_previous_button_title">Добавить кнопку предыдущее в миниплеер</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;Название&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Версия&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Патчи&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Пропатчено&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;Название&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Версия&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;RVX Патчи&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Пропатчено&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_summary">Нажмите для проверки названия, версии, патча и когда пропатчено</string>
     <string name="revanced_app_info_title">О приложении</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Заменяет заблокированный в некоторых регионах домен, чтобы можно было получать миниатюры плейлистов, аватары каналов и т. д</string>
@@ -202,6 +228,7 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
     <string name="revanced_change_start_page_summary">Выберите, на какой странице откроется приложение</string>
     <string name="revanced_change_start_page_title">Начальная страница</string>
+    <string name="revanced_confirm_user_dialog_title">Вы, точно, хотите продолжить?</string>
     <string name="revanced_credits_title">О разработчиках</string>
     <string name="revanced_custom_filter_strings_summary">Список строк конструктора путей компонентов для фильтрации, разделенных новой строкой</string>
     <string name="revanced_custom_filter_strings_title">Кастомный фильтр</string>
@@ -301,6 +328,8 @@ YouTube Music 8.x — плавный переход работает тольк�
 • Не переопределяет кнопку загрузки во всплывающем меню или библиотеке"</string>
     <string name="revanced_external_downloader_action_title">Подменить кнопку \"Скачать\"</string>
     <string name="revanced_external_downloader_dialog_title">Внешний загрузчик</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">Использует выбранный вами внешний загрузчик вместо стандартного выпадающего меню загрузки</string>
+    <string name="revanced_external_downloader_flyout_menu_title">Переопределить меню загрузки</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не установлен
 Пожалуйста, скачайте %2$s с сайта"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Внимание</string>
@@ -330,6 +359,10 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="revanced_hide_action_button_label_title">Скрыть подписи кнопок действий</string>
     <string name="revanced_hide_action_button_like_dislike_summary">Скрывает кнопки \"Нравится\" и \"Не нравится\". Не работает в старом интерфейсе проигрывателя</string>
     <string name="revanced_hide_action_button_like_dislike_title">Скрыть кнопки \"Нравится\" и \"Не нравится\"</string>
+    <string name="revanced_hide_action_button_live_chat_replay_summary">Убрать повтор чата в прямых эфирах</string>
+    <string name="revanced_hide_action_button_live_chat_replay_title">Скрыть кнопку повтора чата</string>
+    <string name="revanced_hide_action_button_lyrics_summary">Скрыть кнопку «Текст песни»</string>
+    <string name="revanced_hide_action_button_lyrics_title">Скрыть кнопку «Текст песни»</string>
     <string name="revanced_hide_action_button_radio_summary">Скрывает кнопку \"Включить радиостанцию\"</string>
     <string name="revanced_hide_action_button_radio_title">Скрыть кнопку \"Включить радиостанцию\"</string>
     <string name="revanced_hide_action_button_share_summary">Скрывает кнопку \"Поделиться\"</string>
@@ -441,6 +474,9 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="revanced_hide_terms_container_title">Скрыть \"Конфиденциальность • Условия\"</string>
     <string name="revanced_hide_voice_search_button_summary">Скрывает кнопку голосового поиска в строке поиска</string>
     <string name="revanced_hide_voice_search_button_title">Скрыть кнопку голосового поиска</string>
+    <string name="revanced_icon_custom">Пользовательский</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">Соответствует цвет панели навигации полноэкранному плееру</string>
+    <string name="revanced_music_change_navigation_bar_color_title">Изменить цвет панели навигации</string>
     <string name="revanced_preference_screen_account_title">Аккаунт</string>
     <string name="revanced_preference_screen_action_bar_title">Панель действий</string>
     <string name="revanced_preference_screen_ads_title">Реклама</string>
@@ -640,6 +676,8 @@ YouTube Music 8.x — плавный переход работает тольк�
 • Родительские настройки отображаются над отключенными дочерними настройками"</string>
     <string name="revanced_settings_search_tips_title">Советы по поиску</string>
     <string name="revanced_settings_search_title">Поиск %s</string>
+    <string name="revanced_settings_show_slider_summaries_summary">Показывать/скрывать описания под параметрами с ползунком</string>
+    <string name="revanced_settings_show_slider_summaries_title">Отображать описание под ползунками</string>
     <string name="revanced_share_copy_settings_success">Настройки скопированы в буфер</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Подменяет версию клиента, используемую в текстах песен, на более старую версию</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Без динамического текста</string>
@@ -656,6 +694,7 @@ YouTube Music 8.x — плавный переход работает тольк�
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Отключает динамических текстов</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Восстановить старую панель действий</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Раздел комментариев не отображается на вкладке \"Главная\"</string>
+    <string name="revanced_spoof_app_version_target_entry_8_05_50">8.05.50 — Исправлен экран обновления приложения</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Неверная версия подмены: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены</string>
     <string name="revanced_spoof_app_version_target_title">Подменить версию приложения на</string>

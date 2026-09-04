@@ -62,6 +62,7 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_20_22_OR_GREATER = isVersionOrGreater("20.22.00");
     public static final boolean IS_20_31_OR_GREATER = isVersionOrGreater("20.31.00");
     public static final boolean IS_21_17_OR_GREATER = isVersionOrGreater("21.17.00");
+    public static final boolean IS_21_21_OR_GREATER = isVersionOrGreater("21.21.00");
 
     public static final boolean IS_ARC = hasSystemFeature("org.chromium.arc");
     public static final boolean IS_AUTOMOTIVE = hasSystemFeature("android.hardware.type.automotive");
@@ -200,6 +201,12 @@ public class ExtendedUtils extends PackageUtils {
 
     public static void showBottomSheetDialog(Context mContext, LinearLayout mainLayout,
                                              @Nullable Map<LinearLayout, Runnable> actionsMap) {
+        showBottomSheetDialog(mContext, mainLayout, actionsMap, null);
+    }
+
+    public static void showBottomSheetDialog(Context mContext, LinearLayout mainLayout,
+                                             @Nullable Map<LinearLayout, Runnable> actionsMap,
+                                             @Nullable android.content.DialogInterface.OnDismissListener onDismissListener) {
         // Create a dialog without a theme for custom appearance.
         Dialog dialog = new Dialog(mContext);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
@@ -297,6 +304,9 @@ public class ExtendedUtils extends PackageUtils {
         dialog.setOnDismissListener(d -> {
             PlayerType.getOnChange().removeObserver(playerTypeObserver);
             Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
+            if (onDismissListener != null) {
+                onDismissListener.onDismiss(d);
+            }
         });
 
         dialog.show(); // Display the dialog.

@@ -12,6 +12,8 @@ import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.shared.SPANNABLE_STRING_REFERENCE
 import app.morphe.patches.shared.indexOfSpannableStringInstruction
 import app.morphe.patches.shared.spannableStringBuilderFingerprint
+import app.morphe.patches.youtube.utils.playservice.is_21_07_or_greater
+import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
@@ -24,6 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch as youtubeVersionCheckPatch
 
 private lateinit var spannedMethod: MutableMethod
 private var spannedIndex = 0
@@ -38,7 +41,7 @@ private var textComponentContextRegister = 0
 val textComponentPatch = bytecodePatch(
     description = "textComponentPatch"
 ) {
-    dependsOn(versionCheckPatch)
+    dependsOn(versionCheckPatch, youtubeVersionCheckPatch)
     execute {
         spannableStringBuilderFingerprint.methodOrThrow().apply {
             spannedMethod = this
@@ -57,7 +60,15 @@ val textComponentPatch = bytecodePatch(
             )
         }
 
-        TextComponentContextFingerprint.method.apply {
+        val textComponentContextMethod = TextComponentContextFingerprint.let {
+            if (is_21_07_or_greater) {
+                it.method.cloneMutableAndPreserveParameters(it.classDef)
+            } else {
+                it.method
+            }
+        }
+
+        textComponentContextMethod.apply {
             textComponentMethod = this
             if (is_9_00_or_greater) {
                 val charSequenceInvokeIndex = indexOfFirstInstruction {

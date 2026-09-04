@@ -32,11 +32,21 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_crossfade_duration_750ms">750 밀리초</string>
     <string name="morphe_crossfade_duration_8000ms">8 초</string>
     <string name="morphe_crossfade_duration_9000ms">9 초</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">사용할 수 있는 경우에 선택한 앱 아이콘을 RVX 설정 항목에 사용합니다</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">RVX 설정에서 아이콘 사용</string>
+    <string name="morphe_custom_branding_icon_title">앱 아이콘</string>
+    <string name="morphe_custom_branding_name_title">앱 이름</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">사용자 정의 스플래시 애니메이션의 크기를 설정할 수 있습니다</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">스플래시 애니메이션 크기</string>
+    <string name="morphe_dark_theme_custom_color_summary">사용자 정의가 선택된 경우에 사용됩니다</string>
+    <string name="morphe_dark_theme_custom_color_title">사용자 정의 테마 색상</string>
+    <string name="morphe_dark_theme_title">앱 테마</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC 오디오를 활성화합니다</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC 오디오를 비활성화합니다</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC 프로토콜을 활성화합니다</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC 프로토콜을 비활성화합니다</string>
-    <string name="morphe_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android Studio\'를 제외한 다른 클라이언트로 변경하세요</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">이 기능이 작동하지 않는다면, MicroG를 강제로 종료하세요</string>
+    <string name="morphe_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android Studio\'와 \'Android VR Downgraded\'를 제외한 다른 클라이언트로 변경하세요</string>
     <string name="morphe_force_original_audio_summary">더빙 버전 대신 동영상의 원본 오디오 트랙을 항상 재생합니다</string>
     <string name="morphe_force_original_audio_summary_off">기본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_summary_on">원본 오디오 언어를 활성화합니다</string>
@@ -112,6 +122,8 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_music_lyrics_translate_hide">원본 보기</string>
     <string name="morphe_music_lyrics_translate_show">번역</string>
     <string name="morphe_music_lyrics_translating">번역하는 중…</string>
+    <string name="morphe_notification_dot_color_summary">알림 점의 색상을 변경합니다</string>
+    <string name="morphe_notification_dot_color_title">알림 점 색상</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR에 로그인할 수 없습니다: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR에 로그인할 수 없습니다. 웹사이트 인증이 승인되지 않았습니다</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2를 일시적으로 사용할 수 없습니다</string>
@@ -120,6 +132,13 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2를 일시적으로 사용할 수 없습니다 (API 시간 초과)</string>
     <string name="morphe_oauth2_toast_invalid">잘못된 VR 로그인 토큰입니다. 다시 VR에 로그인하세요</string>
     <string name="morphe_oauth2_toast_reset">Android VR에서 로그아웃되었습니다</string>
+    <string name="morphe_potoken_provider_summary">"내부 PoToken 생성기를 사용하여 재생 문제를 수정합니다 (실험 기능)
+
+YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"</string>
+    <string name="morphe_potoken_provider_title">PoToken 제공자</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"내부 PoToken 생성기를 사용하여 재생 문제를 수정합니다 (실험 기능)
+
+기능을 사용하려면, '동영상 스트림 속이기'를 비활성화하세요"</string>
     <string name="morphe_replace_music_with_youtube_summary">공유 링크에서 music.youtube.com을 youtube.com으로 변경합니다</string>
     <string name="morphe_replace_music_with_youtube_summary_off">공유 링크를 \'music.youtube.com\'으로 사용합니다</string>
     <string name="morphe_replace_music_with_youtube_summary_on">공유 링크를 \'youtube.com\'으로 사용합니다</string>
@@ -132,6 +151,9 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_settings_menu_filter_picker_empty">목록을 생성하려면 일반 앱 설정 화면을 한 번 실행해야 합니다</string>
     <string name="morphe_settings_menu_filter_screen_summary">일반 앱 설정 화면에서 표시되는 이름을 기준으로 항목을 숨깁니다</string>
     <string name="morphe_settings_menu_filter_screen_title">설정 메뉴 필터</string>
+    <string name="morphe_settings_name_custom_item_hint">이름을 입력하세요</string>
+    <string name="morphe_settings_name_empty_warning">이름을 비워 둘 수 없습니다</string>
+    <string name="morphe_settings_name_title">RVX 설정 이름</string>
     <string name="morphe_spoof_video_streams_client_type_title">기본 클라이언트</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">클라이언트 스트림을 가져올 수 없습니다</string>
     <string name="morphe_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다</string>
@@ -170,11 +192,24 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다"</string>
     <string name="morphe_spoof_video_streams_title">동영상 스트림 속이기</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다</string>
+    <string name="morphe_theme_entry_amoled_black">순수 검정색</string>
+    <string name="morphe_theme_entry_classic_youtube">클래식 (이전 YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">어두운 파란색</string>
+    <string name="morphe_theme_entry_dark_green">어두운 초록색</string>
+    <string name="morphe_theme_entry_dark_orange">어두운 주황색</string>
+    <string name="morphe_theme_entry_dark_pink">어두운 분홍색</string>
+    <string name="morphe_theme_entry_dark_red">어두운 빨간색</string>
+    <string name="morphe_theme_entry_dark_yellow">어두운 노란색</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (뉴트럴)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - 기본</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - 2차</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - 3차</string>
+    <string name="morphe_theme_entry_modern_youtube">모던 스타일 YouTube</string>
     <string name="revanced_add_miniplayer_next_button_summary">미니 플레이어에 다음 트랙 재생 버튼을 추가합니다</string>
     <string name="revanced_add_miniplayer_next_button_title">미니 플레이어 다음 재생 버튼 추가</string>
     <string name="revanced_add_miniplayer_previous_button_summary">미니 플레이어에 이전 트랙 재생 버튼을 추가합니다</string>
     <string name="revanced_add_miniplayer_previous_button_title">미니 플레이어 이전 재생 버튼 추가</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;앱 이름&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;앱 버전&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;패치된 날짜&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;앱 이름&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;앱 버전&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;RVX Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;패치된 날짜&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_summary">앱 이름, 앱 버전, 패치 버전 및 패치된 날짜를 확인하려면 여기를 탭하세요</string>
     <string name="revanced_app_info_title">앱 정보</string>
     <string name="revanced_bypass_image_region_restrictions_summary">이미지 도메인을 변경하여 일부 국가에서 차단된 재생목록 썸네일, 채널 프로필 사진, 커뮤니티 게시물 이미지 등을 수신할 수 있습니다</string>
@@ -202,6 +237,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_change_start_page_entry_subscriptions">구독</string>
     <string name="revanced_change_start_page_summary">앱 시작 페이지를 변경합니다</string>
     <string name="revanced_change_start_page_title">앱 시작 페이지</string>
+    <string name="revanced_confirm_user_dialog_title">계속하시겠습니까?</string>
     <string name="revanced_credits_title">크레딧</string>
     <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정하세요</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터</string>
@@ -274,7 +310,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 제한 사항:
 • 보관함 탭에서 앨범 아트가 그리드로 구성될 때 작아집니다
 • 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다"</string>
-    <string name="revanced_enable_compact_dialog_title">소형 다이얼로그 활성화</string>
+    <string name="revanced_enable_compact_dialog_title">소형 대화 상자 활성화</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">사용자 정의 하단바 색상을 활성화합니다</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">사용자 정의 하단바 색상 활성화</string>
     <string name="revanced_enable_forced_miniplayer_summary">새로운 트랙으로 변경되면 강제로 미니 플레이어를 활성화합니다</string>
@@ -300,12 +336,11 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_enable_zen_mode_podcast_title">팟캐스트에서 집중 모드 활성화</string>
     <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다</string>
     <string name="revanced_enable_zen_mode_title">집중 모드 활성화</string>
-    <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더 앱을 실행할 수 있습니다
-
-• 플레이어 하단에 있는 오프라인 저장 버튼만 재정의할 수 있습니다
-• 메뉴 구성요소 또는 보관함에서는 오프라인 저장 버튼을 재정의할 수 없습니다"</string>
+    <string name="revanced_external_downloader_action_summary">오프라인 저장 버튼으로 외부 다운로더 앱을 실행할 수 있습니다</string>
     <string name="revanced_external_downloader_action_title">오프라인 저장 버튼 재정의</string>
     <string name="revanced_external_downloader_dialog_title">외부 다운로더 앱</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">피드 \'동영상 오프라인 저장\' 메뉴로 기본 다운로더 대신 사용자가 선택한 외부 다운로더를 사용합니다</string>
+    <string name="revanced_external_downloader_flyout_menu_title">동영상 오프라인 저장 메뉴 재정의하기</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 가 설치되어 있지 않습니다
 웹사이트에서 %2$s 를 다운로드하세요"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">경고</string>
@@ -313,8 +348,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 앱 패키지명입니다</string>
     <string name="revanced_external_downloader_package_name_title">외부 다운로더 앱 패키지명</string>
     <string name="revanced_fullscreen_ads_closed_toast">전체 화면 광고가 닫아졌습니다</string>
-    <string name="revanced_gms_show_dialog_summary">앱을 시작할 때마다 GmsCore에 대한 배터리 최적화 다이얼로그를 표시합니다</string>
-    <string name="revanced_gms_show_dialog_title">GmsCore 배터리 최적화 다이얼로그 표시</string>
+    <string name="revanced_gms_show_dialog_summary">앱을 시작할 때마다 GmsCore에 대한 배터리 최적화 대화 상자를 표시합니다</string>
+    <string name="revanced_gms_show_dialog_title">GmsCore 배터리 최적화 대화 상자 표시</string>
     <string name="revanced_hide_account_menu_empty_component_summary">계정 메뉴에서 비어있는 구성요소를 숨깁니다</string>
     <string name="revanced_hide_account_menu_empty_component_title">비어있는 구성요소 제거</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">필터링할 계정 메뉴 이름 목록을 줄바꿈으로 구분하여 설정합니다</string>
@@ -450,6 +485,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_hide_terms_container_title">서비스 약관 컨테이너 제거</string>
     <string name="revanced_hide_voice_search_button_summary">툴바에서 음성 검색 버튼을 숨깁니다</string>
     <string name="revanced_hide_voice_search_button_title">음성 검색 버튼 제거</string>
+    <string name="revanced_icon_custom">사용자 정의</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">하단바 색상을 전체 화면 플레이어와 일치하도록 변경합니다</string>
+    <string name="revanced_music_change_navigation_bar_color_title">하단바 색상 변경하기</string>
     <string name="revanced_preference_screen_account_title">계정</string>
     <string name="revanced_preference_screen_action_bar_title">동작바</string>
     <string name="revanced_preference_screen_ads_title">광고</string>
@@ -481,8 +519,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_remember_video_quality_mobile">모바일 네트워크에서의 기본 동영상 품질 값을 %s으로 변경합니다</string>
     <string name="revanced_remember_video_quality_none">동영상 품질을 설정할 수 없습니다</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi에서의 기본 동영상 품질 값을 %s으로 변경합니다</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">이 설정은 대화 상자를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 대화 상자 제거하기</string>
     <string name="revanced_replace_action_button_like_summary">"좋아요 버튼에 다른 아이콘과 애니메이션을 사용합니다
 
 • 서버 측에서 문제가 해결되면 이 설정은 더 이상 필요하지 않을 수 있습니다"</string>
@@ -649,6 +687,8 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
 • 상위 설정이 비활성화된 하위 설정 위에 표시됩니다"</string>
     <string name="revanced_settings_search_tips_title">검색 팁</string>
     <string name="revanced_settings_search_title">%s 검색</string>
+    <string name="revanced_settings_show_slider_summaries_summary">슬라이더 설정에 대한 요약을 표시하거나 숨길 수 있습니다</string>
+    <string name="revanced_settings_show_slider_summaries_title">슬라이더 설정에 대한 요약 표시</string>
     <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">가사에 사용된 클라이언트 버전이 이전 버전으로 속여집니다</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - 실시간 가사가 없습니다</string>
@@ -665,6 +705,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - 실시간 가사를 비활성화합니다</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - 이전 동작바로 복원합니다</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - 홈 피드에서 댓글 섹션이 표시되지 않습니다</string>
+    <string name="revanced_spoof_app_version_target_entry_8_05_50">8.05.50 - 앱 업데이트 화면이 수정됩니다</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">속여질 앱 버전이 잘못되었습니다: %s</string>
     <string name="revanced_spoof_app_version_target_summary">속여질 앱 버전을 선택하세요</string>
     <string name="revanced_spoof_app_version_target_title">속이기에 사용될 앱 버전</string>

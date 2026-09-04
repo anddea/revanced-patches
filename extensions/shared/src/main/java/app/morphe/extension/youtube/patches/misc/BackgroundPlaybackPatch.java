@@ -34,4 +34,17 @@ public class BackgroundPlaybackPatch {
         return !DISABLE_SHORTS_BACKGROUND_PLAYBACK.get();
     }
 
+    /**
+     * Injection point.
+     */
+    public static boolean isAutomaticForegroundPlaybackAllowed(boolean original) {
+        return false;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean isAutomaticPlaybackPauseInFlyout(boolean original) {
+        return false;
+    }
 }

@@ -3,6 +3,7 @@ package app.morphe.extension.youtube.shared
 import android.view.View
 import android.widget.ImageView
 import app.morphe.extension.shared.utils.Logger
+import app.morphe.extension.shared.utils.ResourceType
 import app.morphe.extension.shared.utils.ResourceUtils
 import app.morphe.extension.shared.utils.Utils
 import java.lang.ref.WeakReference
@@ -86,6 +87,23 @@ class PlayerControlButton(
     }
 
     fun imageView() = buttonRef.get()
+
+    /**
+     * Sets the button icon using YouTube's active thin or bold icon style.
+     *
+     * @param iconResourceName the drawable name without the optional `_bold` suffix.
+     */
+    fun setIcon(iconResourceName: String) {
+        Utils.verifyOnMainThread()
+        val selectedIconResourceName = if (Utils.appIsUsingBoldIcons()) {
+            "${iconResourceName}_bold"
+        } else {
+            iconResourceName
+        }
+        imageView()?.setImageResource(
+            ResourceUtils.getIdentifierOrThrow(selectedIconResourceName, ResourceType.DRAWABLE)
+        )
+    }
 
     fun setVisibilityNegatedImmediate() {
         try {

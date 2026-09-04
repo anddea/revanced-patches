@@ -11,6 +11,7 @@ import android.widget.Toolbar;
 
 import app.morphe.extension.shared.settings.BaseActivityHook;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.theme.ThemePatch;
 import app.morphe.extension.youtube.settings.preference.YouTubePreferenceFragment;
 import app.morphe.extension.youtube.settings.search.YouTubeSearchViewController;
 import app.morphe.extension.youtube.utils.ThemeUtils;
@@ -19,6 +20,7 @@ import app.morphe.extension.youtube.utils.ThemeUtils;
  * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment}
  * with a toolbar and search functionality.
  */
+@SuppressWarnings("deprecation")
 public class YouTubeActivityHook extends BaseActivityHook {
 
     private static final long MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS = 30 * 1000;
@@ -28,6 +30,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
             && (System.currentTimeMillis() - Settings.FIRST_TIME_APP_LAUNCHED.get())
             > MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS;
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
+    private static Boolean settingsDarkMode;
 
     static {
         Utils.setAppIsUsingBoldIcons(USE_BOLD_ICONS);
@@ -44,7 +47,24 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static void initialize(Activity parentActivity) {
+        ThemePatch.applyToSettingsActivity(parentActivity);
+        settingsDarkMode = ThemeUtils.isDarkModeEnabled();
         BaseActivityHook.initialize(new YouTubeActivityHook(), parentActivity);
+    }
+
+    /**
+     * Recreates the already-inflated main RVX settings screen when YouTube changes appearance.
+     * Nested preference dialogs are created later and already read the current palette directly.
+     */
+    public static void refreshTheme(Activity activity) {
+        if (activity == null || activity.isFinishing() || activity.isDestroyed()) return;
+
+        ThemePatch.applyToSettingsActivity(activity);
+        final boolean dark = ThemeUtils.isDarkModeEnabled();
+        if (settingsDarkMode != null && settingsDarkMode != dark) {
+            settingsDarkMode = dark;
+            activity.recreate();
+        }
     }
 
     /**

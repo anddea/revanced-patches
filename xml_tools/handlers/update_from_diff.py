@@ -175,7 +175,7 @@ def apply_forced_strings(target_path: Path, strings_to_force: dict[str, dict[str
 
     if modified:
         XMLProcessor.write_file(target_path, target_root)
-        logger.info("Applied %d forced string(s) to %s.", len(strings_to_force), log_path)
+        logger.debug("Applied %d forced string(s) to %s.", len(strings_to_force), log_path)
         return True
 
     return False

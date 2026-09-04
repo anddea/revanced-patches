@@ -35,6 +35,7 @@ import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.returnEarly
+import app.morphe.util.updatePatchStatus
 import app.morphe.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
@@ -410,6 +411,8 @@ fun gmsCoreSupportPatch(
                 name == methodName
             }.returnEarly(value)
         }
+
+        updatePatchStatus("$PATCHES_PATH/PatchStatus;", "GmsCoreSupport")
 
         executeBlock()
     }

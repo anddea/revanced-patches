@@ -6,6 +6,7 @@
  *
  * Original author(s):
  * - Jav1x (https://github.com/Jav1x)
+ * - sashade8-ship-it (https://github.com/sashade8-ship-it)
  *
  * Licensed under the GNU General Public License v3.0.
  *
@@ -132,8 +133,8 @@ public final class VotStreamReplacer {
                         }
 
                         @Override
-                        public boolean onFailed() {
-                            if (Settings.VOT_USE_LIVE_VOICES.get()) {
+                        public boolean onFailed(VotApiClient.TranslationResult failedResult) {
+                            if (Settings.VOT_USE_LIVE_VOICES.get() && VotApiClient.isLivelyVoiceUnavailableError(failedResult.message())) {
                                 Settings.VOT_USE_LIVE_VOICES.save(false);
                                 Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_live_voices_unavailable")));
                                 return true;
@@ -152,7 +153,7 @@ public final class VotStreamReplacer {
                         public void onWaiting(int waitSeconds, boolean isFirstWait) {
                             hadWaiting[0] = true;
                             if (isFirstWait) {
-                                String timeStr = VoiceOverTranslationPatch.formatRemainingTime(waitSeconds);
+                                String timeStr = VoiceOverTranslationPatch.formatRemainingSeconds(waitSeconds);
                                 Utils.runOnMainThread(() -> Utils.showToastShort(str("revanced_vot_stream_waiting", timeStr)));
                             }
                         }

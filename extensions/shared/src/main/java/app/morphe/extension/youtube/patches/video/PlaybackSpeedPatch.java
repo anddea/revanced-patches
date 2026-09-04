@@ -39,6 +39,17 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.video;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
@@ -69,6 +80,8 @@ public class PlaybackSpeedPatch {
             Settings.DEFAULT_PLAYBACK_SPEED;
     private static final FloatSetting DEFAULT_PLAYBACK_SPEED_SHORTS =
             Settings.DEFAULT_PLAYBACK_SPEED_SHORTS;
+    private static final FloatSetting DEFAULT_PLAYBACK_AUDIO_PITCH =
+            Settings.DEFAULT_PLAYBACK_AUDIO_PITCH;
 
     private static final boolean DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC =
             Settings.DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC.get();
@@ -76,6 +89,9 @@ public class PlaybackSpeedPatch {
             DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC && Settings.DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC_TYPE.get();
     private static final long TOAST_DELAY_MILLISECONDS = 750;
     private static long lastTimeSpeedChanged;
+    private static long lastTimePitchChanged;
+    private static volatile boolean newAudioStarted = true;
+    private static volatile boolean newVideoStarted;
 
     /**
      * The last used playback speed.
@@ -105,6 +121,54 @@ public class PlaybackSpeedPatch {
     };
 
     /**
+     * Applies default playback speed to the active video.
+     */
+    private static void applyDefaultPlaybackSpeed() {
+        if (isShortsActive() || userChangedSpeedForCurrentVideo) {
+            return;
+        }
+
+        float defaultPlaybackSpeed = DEFAULT_PLAYBACK_SPEED.get();
+        if (defaultPlaybackSpeed < 0) {
+            defaultPlaybackSpeed = lastSelectedPlaybackSpeed;
+        }
+
+        String currentChannelId = VideoInformation.getChannelId();
+        boolean isWhitelisted = !currentChannelId.isEmpty() && Whitelist.isChannelWhitelistedPlaybackSpeed(currentChannelId);
+        boolean isIgnored;
+        synchronized (ignoredPlaybackSpeedVideoIds) {
+            isIgnored = ignoredPlaybackSpeedVideoIds.containsKey(videoId);
+        }
+        boolean isMusic = isMusic(videoId);
+
+        if (isWhitelisted || isIgnored || isMusic) {
+            defaultPlaybackSpeed = 1.0f;
+        }
+
+        if (defaultPlaybackSpeed > 0 && defaultPlaybackSpeed != 1.0f) {
+            final float speedToApply = defaultPlaybackSpeed;
+            Logger.printDebug(() -> "applyDefaultPlaybackSpeed: applying default speed: " + speedToApply);
+            VideoInformation.setPlaybackSpeed(speedToApply);
+            VideoInformation.overridePlaybackSpeed(speedToApply);
+        } else if (defaultPlaybackSpeed == 1.0f) {
+            VideoInformation.setPlaybackSpeed(1.0f);
+        }
+    }
+
+    /**
+     * Injection point.
+     * Overrides the video speed. Called when playback speed values are initialized on video load.
+     */
+    public static void setDefaultPlaybackSpeed(VideoInformation.PlaybackSpeedMenuInterface menu) {
+        VideoInformation.setPlaybackSpeedMenu(menu);
+
+        if (newVideoStarted) {
+            newVideoStarted = false;
+            applyDefaultPlaybackSpeed();
+        }
+    }
+
+    /**
      * Injection point.
      * This method is used to reset the playback speed to 1.0 when a general video is started, whether it is a live stream, music, or whitelist.
      */
@@ -114,8 +178,13 @@ public class PlaybackSpeedPatch {
         if (isShortsActive()) {
             return;
         }
+        if (newlyLoadedVideoId.isEmpty() || newlyLoadedVideoId.equals(videoId)) {
+            return;
+        }
         videoId = newlyLoadedVideoId;
         userChangedSpeedForCurrentVideo = false;
+        newAudioStarted = true;
+        newVideoStarted = true;
 
         boolean isMusic = isMusic(newlyLoadedVideoId);
         boolean isWhitelisted = !newlyLoadedChannelId.isEmpty() && Whitelist.isChannelWhitelistedPlaybackSpeed(newlyLoadedChannelId);
@@ -221,6 +290,7 @@ public class PlaybackSpeedPatch {
             } else {
                 lastSelectedPlaybackSpeed = playbackSpeed;
                 userChangedSpeedForCurrentVideo = true;
+                VideoInformation.setPlaybackSpeed(playbackSpeed);
                 // If the user has manually changed the playback speed, the whitelist has already been applied.
                 // If there is a videoId on the map, it will be removed.
                 synchronized (ignoredPlaybackSpeedVideoIds) {
@@ -272,6 +342,64 @@ public class PlaybackSpeedPatch {
         } catch (Exception ex) {
             Logger.printException(() -> "userSelectedPlaybackSpeed failure", ex);
         }
+    }
+
+    /**
+     * Called when user sets audio pitch.
+     *
+     * @param playbackAudioPitch The playback audio pitch the user selected
+     */
+    public static void userSelectedPlaybackAudioPitch(float playbackAudioPitch) {
+        try {
+            if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get()) {
+                return;
+            }
+            playbackAudioPitch = Math.min(playbackAudioPitch, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM);
+
+            final long now = System.currentTimeMillis();
+            lastTimePitchChanged = now;
+
+            final float finalPlaybackAudioPitch = playbackAudioPitch;
+            Utils.runOnMainThreadDelayed(() -> {
+                if (lastTimePitchChanged != now) {
+                    return;
+                }
+                if (DEFAULT_PLAYBACK_AUDIO_PITCH.get() == finalPlaybackAudioPitch) {
+                    return;
+                }
+                DEFAULT_PLAYBACK_AUDIO_PITCH.save(finalPlaybackAudioPitch);
+
+                if (Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST.get()) {
+                    Utils.showToastShort(str("revanced_remember_playback_audio_pitch_toast",
+                            String.format(java.util.Locale.US, "%.2fx", finalPlaybackAudioPitch)));
+                }
+            }, TOAST_DELAY_MILLISECONDS);
+        } catch (Exception ex) {
+            Logger.printException(() -> "userSelectedPlaybackAudioPitch failure", ex);
+        }
+    }
+
+    /**
+     * Audio pitch override called on new video.
+     */
+    public static float getPlaybackAudioPitchOverride() {
+        if (newAudioStarted) {
+            newAudioStarted = false;
+
+            final float defaultAudioPitch = DEFAULT_PLAYBACK_AUDIO_PITCH.get();
+            if (DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC && defaultAudioPitch != 1.0f) {
+                if (isMusic(videoId)) {
+                    Logger.printDebug(() -> "Overriding music audio pitch to 1.0x: " + videoId);
+                    return 1.0f;
+                }
+            }
+
+            if (defaultAudioPitch > 0) {
+                return defaultAudioPitch;
+            }
+        }
+
+        return -2.0f;
     }
 
     /**

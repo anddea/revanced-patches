@@ -32,11 +32,21 @@ Tap the continue button and allow optimization changes"</string>
     <string name="morphe_crossfade_duration_750ms">750 milliseconds</string>
     <string name="morphe_crossfade_duration_8000ms">8 seconds</string>
     <string name="morphe_crossfade_duration_9000ms">9 seconds</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
+    <string name="morphe_custom_branding_icon_title">App icon</string>
+    <string name="morphe_custom_branding_name_title">App name</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Sets the size of the custom splash animation</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Splash animation size</string>
+    <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
+    <string name="morphe_dark_theme_custom_color_title">Custom theme color</string>
+    <string name="morphe_dark_theme_title">App theme</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
-    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to Android Reel or TV</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">If it does not work, try force-closing MicroG</string>
+    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Always plays the video\'s original audio track instead of a dubbed version</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
@@ -116,6 +126,8 @@ When no third-party lyrics are found, the built-in lyrics are shown instead"</st
     <string name="morphe_music_lyrics_translate_hide">Show original</string>
     <string name="morphe_music_lyrics_translate_show">Translate</string>
     <string name="morphe_music_lyrics_translating">Translating…</string>
+    <string name="morphe_notification_dot_color_summary">Changes the color of notification dots</string>
+    <string name="morphe_notification_dot_color_title">Notification dot color</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Cannot sign in to VR, website authentication was not approved</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 is temporarily not available</string>
@@ -124,6 +136,13 @@ When no third-party lyrics are found, the built-in lyrics are shown instead"</st
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
     <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
+    <string name="morphe_potoken_provider_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
+
+If you are a YouTube Premium user, this setting may not be required"</string>
+    <string name="morphe_potoken_provider_title">PoToken provider</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
+
+To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_replace_music_with_youtube_summary">Shared links use youtube.com instead of music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
@@ -136,6 +155,13 @@ When no third-party lyrics are found, the built-in lyrics are shown instead"</st
     <string name="morphe_settings_menu_filter_picker_empty">Open the standard app settings screen once to populate the list</string>
     <string name="morphe_settings_menu_filter_screen_summary">Hide items on the standard app settings screen by their visible name</string>
     <string name="morphe_settings_menu_filter_screen_title">Settings menu filter</string>
+    <string name="morphe_settings_name_custom_item_hint">Enter a name</string>
+    <string name="morphe_settings_name_empty_warning">Name cannot be empty</string>
+    <string name="morphe_settings_name_entry_1" translatable="false">ReVanced Extended</string>
+    <string name="morphe_settings_name_entry_2" translatable="false">Extras</string>
+    <string name="morphe_settings_name_entry_3" translatable="false">Tweaks</string>
+    <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
+    <string name="morphe_settings_name_title">RVX settings name</string>
     <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
     <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
@@ -174,11 +200,24 @@ Playback may not work"</string>
 If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="morphe_spoof_video_streams_title">Spoof video streams</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues</string>
+    <string name="morphe_theme_entry_amoled_black">Amoled Black</string>
+    <string name="morphe_theme_entry_classic_youtube">Classic (Old YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Dark Blue</string>
+    <string name="morphe_theme_entry_dark_green">Dark Green</string>
+    <string name="morphe_theme_entry_dark_orange">Dark Orange</string>
+    <string name="morphe_theme_entry_dark_pink">Dark Pink</string>
+    <string name="morphe_theme_entry_dark_red">Dark Red</string>
+    <string name="morphe_theme_entry_dark_yellow">Dark Yellow</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Neutral)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - Primary</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - Secondary</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - Tertiary</string>
+    <string name="morphe_theme_entry_modern_youtube">Modern YouTube</string>
     <string name="revanced_add_miniplayer_next_button_summary">Adds a next track button to the miniplayer</string>
     <string name="revanced_add_miniplayer_next_button_title">Add miniplayer next button</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adds a previous track button to the miniplayer</string>
     <string name="revanced_add_miniplayer_previous_button_title">Add miniplayer previous button</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;RVX Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_summary">Click to check the app name, app version, patch version, and patched date</string>
     <string name="revanced_app_info_title">App info</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bypasses the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received</string>
@@ -206,6 +245,7 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_summary">Select which page the app opens in</string>
     <string name="revanced_change_start_page_title">Change start page</string>
+    <string name="revanced_confirm_user_dialog_title">Are you sure you want to proceed?</string>
     <string name="revanced_credits_title">Credits</string>
     <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter, separated by new lines</string>
     <string name="revanced_custom_filter_strings_title">Custom filter</string>
@@ -301,12 +341,11 @@ Limitations: SponsorBlock segments are not shown in the seekbar"</string>
     <string name="revanced_enable_zen_mode_podcast_title">Enable Zen mode in podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Enables a light grey color for the player background to reduce eye strain</string>
     <string name="revanced_enable_zen_mode_title">Enable Zen mode</string>
-    <string name="revanced_external_downloader_action_summary">"Download button opens your external downloader
-
-• Only overrides the Download action button in the player
-• Does not override the Download button in the flyout menu or Library tab"</string>
+    <string name="revanced_external_downloader_action_summary">Download action button opens your external downloader</string>
     <string name="revanced_external_downloader_action_title">Override Download action button</string>
     <string name="revanced_external_downloader_dialog_title">External downloader</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">Uses your chosen external downloader instead of the stock Download flyout menu</string>
+    <string name="revanced_external_downloader_flyout_menu_title">Override Download menu</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s is not installed
 Please download %2$s from the website"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warning</string>
@@ -451,6 +490,9 @@ Please download %2$s from the website"</string>
     <string name="revanced_hide_terms_container_title">Hide terms container</string>
     <string name="revanced_hide_voice_search_button_summary">Hides the voice search button in the search bar</string>
     <string name="revanced_hide_voice_search_button_title">Hide voice search button</string>
+    <string name="revanced_icon_custom">Custom</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">Matches the navigation bar color to the fullscreen player</string>
+    <string name="revanced_music_change_navigation_bar_color_title">Change navigation bar color</string>
     <string name="revanced_preference_screen_account_title">Account</string>
     <string name="revanced_preference_screen_action_bar_title">Action bar</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>
@@ -649,6 +691,8 @@ Click to see how to issue an API key"</string>
 • Parent settings appear above disabled child settings"</string>
     <string name="revanced_settings_search_tips_title">Search Tips</string>
     <string name="revanced_settings_search_title">Search %s</string>
+    <string name="revanced_settings_show_slider_summaries_summary">Shows or hides summaries below slider settings</string>
+    <string name="revanced_settings_show_slider_summaries_title">Show summaries for slider settings</string>
     <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_settings_success">Settings copied to clipboard</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Spoofs the client version used in the lyrics to an older version</string>
@@ -670,6 +714,7 @@ Click to see how to issue an API key"</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Disable real-time lyrics</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restore old action bar</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Comments section does not appear in home feed</string>
+    <string name="revanced_spoof_app_version_target_entry_8_05_50">8.05.50 - Fix update app screen</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Invalid spoof app version: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Select the spoof app version target</string>
     <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>

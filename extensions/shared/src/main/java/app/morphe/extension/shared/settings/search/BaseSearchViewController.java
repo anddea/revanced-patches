@@ -1,3 +1,48 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ *
+ * Back-ported from ReVanced (originally based on anddea/revanced-patches):
+ * https://github.com/ReVanced/revanced-patches
+ *
+ * This file is the product of multiple backports between ReVanced and RVX.
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.shared.settings.search;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getDrawableIdentifier;
@@ -40,12 +85,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import app.morphe.extension.shared.patches.SettingsNamePatch;
 import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.preference.ColorPickerPreference;
 import app.morphe.extension.shared.settings.preference.CustomDialogListPreference;
 import app.morphe.extension.shared.settings.preference.NoTitlePreferenceCategory;
+import app.morphe.extension.shared.ui.ShimmerTextView;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -64,6 +111,8 @@ public abstract class BaseSearchViewController {
     protected final BasePreferenceFragment fragment;
     protected final CharSequence originalTitle;
     protected BaseSearchResultsAdapter searchResultsAdapter;
+    private ListView searchResultsListView;
+    private ShimmerTextView searchStatusView;
     protected final List<BaseSearchResultItem> allSearchItems;
     protected final List<BaseSearchResultItem> filteredSearchItems;
     protected final Map<String, BaseSearchResultItem> keyToSearchItem;
@@ -147,7 +196,7 @@ public abstract class BaseSearchViewController {
 
         searchContainer = activity.findViewById(ID_REVANCED_SEARCH_VIEW_CONTAINER);
 
-        String rvxSettingsLabel = getString("revanced_settings_title");
+        String rvxSettingsLabel = SettingsNamePatch.getSettingsName();
         String searchLabel = getString("revanced_settings_search_title");
         String searchHint = String.format(searchLabel, rvxSettingsLabel);
 
@@ -178,7 +227,7 @@ public abstract class BaseSearchViewController {
         searchResultsContainer.setVisibility(View.VISIBLE);
 
         // Create a ListView for the results.
-        ListView searchResultsListView = new ListView(activity);
+        searchResultsListView = new ListView(activity);
         searchResultsListView.setDivider(null);
         searchResultsListView.setDividerHeight(0);
         searchResultsAdapter = createSearchResultsAdapter();
@@ -188,6 +237,19 @@ public abstract class BaseSearchViewController {
         searchResultsContainer.addView(searchResultsListView, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
+
+        searchStatusView = new ShimmerTextView(activity);
+        searchStatusView.setTextColor(BaseThemeUtils.getAppForegroundColor());
+        searchStatusView.setTextSize(16);
+        searchStatusView.setGravity(Gravity.CENTER);
+        searchStatusView.setVisibility(View.GONE);
+        FrameLayout.LayoutParams statusParams = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                Gravity.TOP
+        );
+        statusParams.topMargin = Utils.dipToPixels(16);
+        searchResultsContainer.addView(searchStatusView, statusParams);
 
         // Add results container into overlay.
         overlayContainer.addView(searchResultsContainer, new FrameLayout.LayoutParams(
@@ -456,9 +518,56 @@ public abstract class BaseSearchViewController {
      */
     protected void filterAndShowResults(String query) {
         hideSearchHistory();
+        String queryLower = Utils.normalizeTextToLowercase(query);
+
+        // Collect matched items first.
+        List<BaseSearchResultItem> matched = new ArrayList<>();
+        int matchCount = 0;
+        for (BaseSearchResultItem item : allSearchItems) {
+            if (matchCount >= MAX_SEARCH_RESULTS) break; // Stop after collecting max results.
+            if (item.matchesQuery(queryLower)) {
+                matched.add(item);
+                matchCount++;
+            }
+        }
+
+        showMatchedResults(query, matched, null);
+    }
+
+    /**
+     * Displays matches supplied by an app-specific fallback using the same preference rows,
+     * dependency handling, grouping, and navigation behavior as the regular local search.
+     *
+     * @param query        The original user query used for text highlighting.
+     * @param matched      The fallback-selected search items to display.
+     * @param sectionTitle An optional heading inserted before the regular path groups.
+     */
+    protected final void showAlternativeSearchResults(String query, List<BaseSearchResultItem> matched,
+                                                      CharSequence sectionTitle) {
+        showMatchedResults(query, matched, sectionTitle);
+    }
+
+    /** Displays top-aligned, horizontally centered shimmering text during a search fallback. */
+    protected final void showSearchStatus(CharSequence title) {
+        for (BaseSearchResultItem item : filteredSearchItems) {
+            item.clearHighlighting();
+        }
+        filteredSearchItems.clear();
+        searchResultsAdapter.notifyDataSetChanged();
+        searchResultsListView.setVisibility(View.GONE);
+        searchStatusView.setText(title);
+        searchStatusView.setVisibility(View.VISIBLE);
+        searchStatusView.startShimmer();
+        overlayContainer.setVisibility(View.VISIBLE);
+    }
+
+    /** Builds and displays search rows from an already selected list of settings. */
+    private void showMatchedResults(String query, List<BaseSearchResultItem> matched,
+                                    CharSequence sectionTitle) {
+        hideSearchStatus();
+
         // Keep track of the previously displayed items to clear their highlights.
         List<BaseSearchResultItem> previouslyDisplayedItems = new ArrayList<>(filteredSearchItems);
-
         filteredSearchItems.clear();
 
         String queryLower = Utils.normalizeTextToLowercase(query);
@@ -470,16 +579,8 @@ public abstract class BaseSearchViewController {
             item.clearHighlighting();
         }
 
-        // Collect matched items first.
-        List<BaseSearchResultItem> matched = new ArrayList<>();
-        int matchCount = 0;
-        for (BaseSearchResultItem item : allSearchItems) {
-            if (matchCount >= MAX_SEARCH_RESULTS) break; // Stop after collecting max results.
-            if (item.matchesQuery(queryLower)) {
-                item.applyHighlighting(queryPattern);
-                matched.add(item);
-                matchCount++;
-            }
+        for (BaseSearchResultItem item : matched) {
+            item.applyHighlighting(queryPattern);
         }
 
         // Build filteredSearchItems, inserting parent enablers for disabled dependents.
@@ -513,6 +614,10 @@ public abstract class BaseSearchViewController {
         if (!filteredSearchItems.isEmpty()) {
             filteredSearchItems.sort(Comparator.comparingInt(BaseSearchViewController::getCategorySortOrder).thenComparing(o -> o.navigationPath));
             List<BaseSearchResultItem> displayItems = new ArrayList<>();
+            if (!TextUtils.isEmpty(sectionTitle)) {
+                displayItems.add(new BaseSearchResultItem.GroupHeaderItem(
+                        sectionTitle.toString(), Collections.emptyList()));
+            }
             String currentPath = null;
             for (BaseSearchResultItem item : filteredSearchItems) {
                 if (!item.navigationPath.equals(currentPath)) {
@@ -527,17 +632,32 @@ public abstract class BaseSearchViewController {
         }
         // Show "No results found" if search results are empty.
         if (filteredSearchItems.isEmpty()) {
-            Preference noResultsPreference = new Preference(activity);
-            noResultsPreference.setKey("no_results_placeholder");
-            noResultsPreference.setTitle(str("revanced_settings_search_no_results_title", query));
-            noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
-            noResultsPreference.setSelectable(false);
-            noResultsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
-            filteredSearchItems.add(new BaseSearchResultItem.PreferenceSearchItem(noResultsPreference, "", Collections.emptyList()));
+            addNoResultsItem(
+                    str("revanced_settings_search_no_results_title", query),
+                    str("revanced_settings_search_no_results_summary")
+            );
         }
 
         searchResultsAdapter.notifyDataSetChanged();
         overlayContainer.setVisibility(View.VISIBLE);
+    }
+
+    private void addNoResultsItem(CharSequence title, CharSequence summary) {
+        Preference statusPreference = new Preference(activity);
+        statusPreference.setKey("no_results_placeholder");
+        statusPreference.setTitle(title);
+        statusPreference.setSummary(summary);
+        statusPreference.setSelectable(false);
+        statusPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
+        filteredSearchItems.add(new BaseSearchResultItem.PreferenceSearchItem(
+                statusPreference, "", Collections.emptyList()));
+    }
+
+    /** Restores the results list and releases the loading animation when it is no longer visible. */
+    private void hideSearchStatus() {
+        searchStatusView.stopShimmer();
+        searchStatusView.setVisibility(View.GONE);
+        searchResultsListView.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -576,6 +696,7 @@ public abstract class BaseSearchViewController {
         isShowingSearchHistory = false;
 
         searchHistoryManager.hideSearchHistoryContainer();
+        hideSearchStatus();
         overlayContainer.setVisibility(View.GONE);
 
         filteredSearchItems.clear();
@@ -628,6 +749,7 @@ public abstract class BaseSearchViewController {
      * Hides the search results overlay and clears the filtered results.
      */
     protected void hideSearchResults() {
+        hideSearchStatus();
         overlayContainer.setVisibility(View.GONE);
         filteredSearchItems.clear();
         searchResultsAdapter.notifyDataSetChanged();

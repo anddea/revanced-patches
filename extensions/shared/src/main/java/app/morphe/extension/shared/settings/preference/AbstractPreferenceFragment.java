@@ -86,9 +86,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import app.morphe.extension.shared.patches.CustomBrandingPatch;
+import app.morphe.extension.shared.patches.SettingsNamePatch;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.Setting;
+import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
@@ -109,6 +112,12 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * Prevents recursive calls during preference <-> UI syncing from showing extra dialogs.
      */
     private static boolean updatingPreference;
+
+    /**
+     * Prevents a slider's per-step SharedPreferences commits from showing a restart dialog.
+     * SliderPreference shows the dialog once when the touch interaction ends.
+     */
+    private static boolean sliderInteractionInProgress;
 
     /**
      * Used to prevent showing reboot dialog.
@@ -134,6 +143,10 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 return;
             }
             if (str == null) {
+                return;
+            }
+            if (sliderInteractionInProgress) {
+                Logger.printDebug(() -> "Ignoring preference change while slider is being moved");
                 return;
             }
             Setting<?> setting = Setting.getSettingFromPath(str);
@@ -165,15 +178,31 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 // Apply 'Setting <- SharedPreferences -> Preference'. Reading from SharedPreferences
                 // avoids stale in-memory values when the same key appears in multiple Preferences.
                 Setting.privateSyncValueFromPreferences(setting);
+                if (setting == SharedYouTubeSettings.CUSTOM_BRANDING_ICON
+                        || setting == SharedYouTubeSettings.CUSTOM_BRANDING_USE_AS_SYSTEM_SPLASH
+                        || "morphe_dark_theme".equals(setting.key)
+                        || "morphe_light_theme".equals(setting.key)) {
+                    // The platform persists one splash theme for the application. Update it before
+                    // the restart dialog can relaunch through a newly selected launcher path or
+                    // with an obsolete concrete Theme-preset background.
+                    CustomBrandingPatch.updateSystemSplashTheme(getActivity());
+                }
                 updatePreferencesWithKey(getPreferenceScreen(), str, setting);
             }
             // Update any other preference availability that may now be different.
             updateUIAvailability();
+            if (BaseSettings.SHOW_SLIDER_SUMMARIES.key.equals(str)) {
+                refreshSliderSummaries(getPreferenceScreen());
+            }
             updatingPreference = false;
         } catch (Exception ex) {
             Logger.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
         }
     };
+
+    static void setSliderInteractionInProgress(boolean inProgress) {
+        sliderInteractionInProgress = inProgress;
+    }
 
     /**
      * Initialize this instance, and do any custom behavior.
@@ -188,8 +217,28 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         addPreferencesFromResource(identifier);
 
         PreferenceScreen screen = getPreferenceScreen();
+        removeInvisiblePreferences(screen);
         Utils.sortPreferenceGroups(screen);
         Utils.setPreferenceTitlesToMultiLineIfNeeded(screen);
+    }
+
+    /**
+     * Removes preferences whose setting has no meaningful UI on this device. This is separate
+     * from the normal enabled-state handling so dependent settings remain visible and disabled.
+     */
+    private void removeInvisiblePreferences(@NonNull PreferenceGroup group) {
+        for (int i = group.getPreferenceCount() - 1; i >= 0; i--) {
+            Preference preference = group.getPreference(i);
+            if (preference instanceof PreferenceGroup subgroup) {
+                removeInvisiblePreferences(subgroup);
+            }
+
+            if (!preference.hasKey()) continue;
+            Setting<?> setting = Setting.getSettingFromPath(preference.getKey());
+            if (setting != null && !setting.isVisible()) {
+                group.removePreference(preference);
+            }
+        }
     }
 
     private void showSettingUserDialogConfirmation(Preference pref, Setting<?> setting) {
@@ -255,6 +304,20 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      */
     protected void updateUIAvailability() {
         updatePreferenceScreen(getPreferenceScreen(), false, false);
+    }
+
+    /** Rebinds every inline slider after the global summary visibility setting changes. */
+    private void refreshSliderSummaries(@NonNull PreferenceGroup group) {
+        for (int i = 0, count = group.getPreferenceCount(); i < count; i++) {
+            Preference preference = group.getPreference(i);
+            if (preference instanceof SliderPreference sliderPreference) {
+                sliderPreference.refreshSummaryVisibility();
+            } else if (preference instanceof RangeSliderPreference rangeSliderPreference) {
+                rangeSliderPreference.refreshSummaryVisibility();
+            } else if (preference instanceof PreferenceGroup subgroup) {
+                refreshSliderSummaries(subgroup);
+            }
+        }
     }
 
     /**
@@ -564,7 +627,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         PreferenceScreen root = getPreferenceScreen();
         if (root == null) return null;
         List<CharSequence> path = new ArrayList<>();
-        path.add(str("revanced_settings_title"));
+        path.add(SettingsNamePatch.getSettingsName());
         if (target == root) return path;
         return searchPreferencePath(root, target, path) ? path : null;
     }

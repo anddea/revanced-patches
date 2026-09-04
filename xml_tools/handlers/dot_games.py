@@ -31,6 +31,11 @@ def remove_dots(text: str) -> str:
     Single-dot rules only match exact single-dot endings so the following
     double-dot rules can expand exact double dots into ellipses.
     """
+    text = re.sub(
+        r'(?<!>)\s+</string>',
+        "</string>",
+        text,
+    )
     text = re.sub(r"(?<!\.)\.</", "</", text)
     text = re.sub(r"(?<!\.)\.\.</", "...</", text)
     text = re.sub(r'(?<!\.)\."</', '"</', text)
@@ -55,7 +60,7 @@ def process_file(path: Path) -> None:
         return
 
     path.write_text(cleaned_text, encoding="utf-8")
-    logger.info("Removed unwanted dots from %s", path)
+    logger.debug("Removed unwanted dots from %s", path)
 
 
 def process() -> None:

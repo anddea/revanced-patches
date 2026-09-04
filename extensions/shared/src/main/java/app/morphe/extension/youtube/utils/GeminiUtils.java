@@ -75,24 +75,30 @@ public class GeminiUtils {
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
 
     /**
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">gemini-3.8-flash</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash">gemini-3.7-flash</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash">gemini-3.6-flash</a>
-     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite">gemini-3.5-flash-lite</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash">gemini-3.5-flash</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite">gemini-3.5-flash-lite</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite">gemini-3.1-flash-lite</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview">gemini-3-flash-preview</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview">gemini-3.1-pro-preview</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash">gemini-2.5-flash</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite">gemini-2.5-flash-lite</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro">gemini-2.5-pro</a>
      */
     private static final String[] GEMINI_MODELS = {
+            "gemini-3.8-flash",
+            "gemini-3.7-flash",
             "gemini-3.6-flash",
-            "gemini-3.5-flash-lite",
             "gemini-3.5-flash",
+            "gemini-3.5-flash-lite",
             "gemini-3.1-flash-lite",
             "gemini-3-flash-preview",
             "gemini-3.1-pro-preview",
             "gemini-2.5-flash",
             "gemini-2.5-flash-lite",
+            "gemini-2.5-pro",
     };
 
     private static final String GENERATE_ACTION = ":generateContent?key=";
@@ -159,6 +165,24 @@ public class GeminiUtils {
         String prompt = "Translate ONLY the string values associated with the \"text\" keys within the following JSON subtitle data to " + targetLangName + ". Preserve the exact JSON structure, including all keys (like \"startMs\", \"endMs\", \"durationMs\") and their original numeric values. Output ONLY the fully translated JSON data, without any introductory text, explanations, comments, or markdown formatting (like ```json ... ```).\n\nInput JSON:\n" + yandexJson;
 
         Logger.printDebug(() -> "GeminiUtils (JSON TRANSLATE): Sending Translation Prompt for target '" + targetLangName + "'.");
+        return executeRequest(RequestSpec.forPrompt(null, prompt, null, false, true), apiKeys, callback);
+    }
+
+    /**
+     * Initiates an asynchronous text-only request that must return JSON.
+     * This reuses the configured model and API-key fallback behavior used by video requests.
+     *
+     * @param prompt   The complete instruction and input data for Gemini.
+     * @param apiKeys  Gemini API keys, checked top-to-bottom for each model.
+     * @param callback Callback receiving sanitized JSON or an error.
+     * @return The running request future.
+     */
+    @Nullable
+    public static Future<?> generateJson(
+            @NonNull String prompt,
+            @NonNull List<String> apiKeys,
+            @NonNull Callback callback
+    ) {
         return executeRequest(RequestSpec.forPrompt(null, prompt, null, false, true), apiKeys, callback);
     }
 
@@ -458,6 +482,9 @@ public class GeminiUtils {
 
         JSONArray candidates = jsonResponse.optJSONArray("candidates");
         if (candidates == null || candidates.length() == 0) {
+            if (jsonResponse.has("usageMetadata")) {
+                return StreamEventResult.empty();
+            }
             String blockReason = extractBlockReason(jsonResponse);
             return StreamEventResult.failure(blockReason != null ? "Content blocked: " + blockReason : "API response missing valid streamed candidates.");
         }
@@ -471,6 +498,9 @@ public class GeminiUtils {
                 for (int i = 0; i < parts.length(); i++) {
                     JSONObject part = parts.optJSONObject(i);
                     if (part != null) {
+                        if (part.optBoolean("thought", false)) {
+                            continue;
+                        }
                         String text = part.optString("text", "");
                         if (!text.isEmpty()) {
                             deltaText.append(text);
@@ -510,7 +540,7 @@ public class GeminiUtils {
         JSONObject thinkingConfig;
         if (model.startsWith("gemini-3")) {
             thinkingConfig = new JSONObject()
-                    .put("thinkingLevel", "minimal")
+                    .put("thinkingLevel", getThinkingLevel(model))
                     .put("includeThoughts", false);
         } else {
             thinkingConfig = new JSONObject().put("thinkingBudget", 0);
@@ -518,6 +548,22 @@ public class GeminiUtils {
         generationConfig.put("thinkingConfig", thinkingConfig);
         requestBody.put("generationConfig", generationConfig);
         return requestBody;
+    }
+
+    /**
+     * Returns the lowest supported thinking level for the given Gemini 3 model.
+     * Gemini 3.7 Flash and Gemini 3.1 Pro do not support {@code minimal}.
+     */
+    @NonNull
+    private static String getThinkingLevel(@NonNull String model) {
+        if (
+                "gemini-3.8-flash".equals(model) ||
+                "gemini-3.7-flash".equals(model) ||
+                "gemini-3.1-pro-preview".equals(model)
+        ) {
+            return "low";
+        }
+        return "minimal";
     }
 
     @NonNull
@@ -550,12 +596,12 @@ public class GeminiUtils {
         JSONArray partsArray = new JSONArray();
 
         if (requestSpec.videoUrl != null) {
-            Logger.printDebug(() -> "GeminiUtils: Constructing payload WITH video part.");
+            Logger.printDebug(() -> "GeminiUtils: Constructing payload with video part.");
             partsArray.put(new JSONObject().put("fileData", new JSONObject()
                     .put("mimeType", "video/mp4")
                     .put("fileUri", requestSpec.videoUrl)));
         } else {
-            Logger.printDebug(() -> "GeminiUtils: Constructing payload with ONLY text part.");
+            Logger.printDebug(() -> "GeminiUtils: Constructing payload with only text part.");
         }
 
         if (!TextUtils.isEmpty(effectivePrompt)) {
@@ -666,6 +712,9 @@ public class GeminiUtils {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < parts.length(); i++) {
             JSONObject part = parts.getJSONObject(i);
+            if (part.optBoolean("thought", false)) {
+                continue;
+            }
             if (part.has("text")) {
                 result.append(part.getString("text"));
             }

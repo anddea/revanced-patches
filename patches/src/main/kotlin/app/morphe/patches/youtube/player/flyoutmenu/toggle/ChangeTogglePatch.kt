@@ -10,8 +10,11 @@ import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.CHANGE_PLAYER_FLYOUT_MENU_TOGGLES
+import app.morphe.patches.youtube.utils.playservice.is_21_07_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.resolvable
 import app.morphe.util.getReference
@@ -33,9 +36,17 @@ val changeTogglePatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
-    dependsOn(settingsPatch)
+    dependsOn(
+        settingsPatch,
+        versionCheckPatch,
+    )
 
     execute {
+        if (is_21_07_or_greater) {
+            printWarn("\"${CHANGE_PLAYER_FLYOUT_MENU_TOGGLES.title}\" is not supported in this version. Use YouTube versions up to 21.04.")
+            return@execute
+        }
+
         fun changeToggleCinematicLightingHook() {
             val stableVolumeMethod = stableVolumeFingerprint.methodOrThrow()
 

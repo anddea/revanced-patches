@@ -6,7 +6,6 @@ import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.validateValue;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.v7.widget.RecyclerView;
@@ -21,7 +20,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
@@ -29,6 +27,8 @@ import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -43,6 +43,7 @@ import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.innertube.NextResponseOuterClass.NewElement;
 import app.morphe.extension.youtube.patches.utils.InitializationPatch;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
+import app.morphe.extension.youtube.patches.video.VideoQualityPatch.VideoQualityInterface;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.EngagementPanel;
 import app.morphe.extension.youtube.shared.PlayerType;
@@ -244,7 +245,6 @@ public class PlayerPatch {
         return Settings.DISABLE_HAPTIC_FEEDBACK_ZOOM.get();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void vibrate(Vibrator vibrator, VibrationEffect vibrationEffect) {
         if (disableVibrate()) return;
         vibrator.vibrate(vibrationEffect);
@@ -429,33 +429,28 @@ public class PlayerPatch {
         return !Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTON.get() && previousOrNextButtonVisible;
     }
 
-    private static final int playerControlPreviousButtonTouchAreaId =
-            ResourceUtils.getIdIdentifier("player_control_previous_button_touch_area");
-    private static final int playerControlNextButtonTouchAreaId =
-            ResourceUtils.getIdIdentifier("player_control_next_button_touch_area");
-
     public static void hidePreviousNextButtons(View parentView) {
         if (!Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTON.get()) {
             return;
         }
 
-        // Must use a deferred call to main thread to hide the button.
-        // Otherwise the layout crashes if set to hidden now.
-        Utils.runOnMainThread(() -> {
-            hideView(parentView, playerControlPreviousButtonTouchAreaId);
-            hideView(parentView, playerControlNextButtonTouchAreaId);
-        });
+        hideView(parentView, "player_control_previous_button_touch_area");
+        hideView(parentView, "player_control_next_button_touch_area");
     }
 
-    private static void hideView(View parentView, int resourceId) {
-        View nextPreviousButton = parentView.findViewById(resourceId);
+    private static void hideView(View parentView, String name) {
+        int resourceId = ResourceUtils.getIdIdentifier(name);
 
-        if (nextPreviousButton == null) {
-            Logger.printException(() -> "Could not find player previous / next button");
-            return;
-        }
+        // Must use a deferred call to the main thread; hiding immediately crashes the layout.
+        Utils.runOnMainThread(() -> {
+            View targetView = parentView.findViewById(resourceId);
+            if (targetView == null) {
+                Logger.printException(() -> "Could not find player button: R.id." + name);
+                return;
+            }
 
-        Utils.hideViewByRemovingFromParentUnderCondition(true, nextPreviousButton);
+            Utils.hideViewByRemovingFromParentUnderCondition(true, targetView);
+        });
     }
 
     public static boolean hideMusicButton() {
@@ -735,6 +730,29 @@ public class PlayerPatch {
     }
 
     /**
+     * Injection point for modern YouTube (21.04+).
+     */
+    public static Object[] hidePlayerFlyoutMenuEnhancedBitrate(VideoQualityInterface[] videoQualities) {
+        if (Settings.HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE.get() &&
+                ArrayUtils.isNotEmpty(videoQualities)) {
+            try {
+                List<VideoQualityInterface> filtered = new ArrayList<>();
+                for (VideoQualityInterface quality : videoQualities) {
+                    if (quality != null && !StringUtils.contains(quality.patch_getQualityName(), "Premium")) {
+                        filtered.add(quality);
+                    }
+                }
+                Object[] result = (Object[]) Array.newInstance(Objects.requireNonNull(videoQualities.getClass().getComponentType()), filtered.size());
+                return filtered.toArray(result);
+            } catch (Exception ex) {
+                Logger.printException(() -> "hidePlayerFlyoutMenuEnhancedBitrate failure", ex);
+            }
+        }
+
+        return videoQualities;
+    }
+
+    /**
      * Injection point.
      */
     public static void hideNativeBottomSheetFooter(String path, List<Object> treeNodeResultList) {
@@ -989,6 +1007,13 @@ public class PlayerPatch {
 
     public static boolean hideSeekbar() {
         return Settings.HIDE_SEEKBAR.get();
+    }
+
+    /**
+     * Injection point for the fullscreen large seekbar feature flag.
+     */
+    public static boolean useFullscreenLargeSeekbar(boolean original) {
+        return Settings.FULLSCREEN_LARGE_SEEKBAR.get();
     }
 
     public static boolean disableSeekbarChapters() {

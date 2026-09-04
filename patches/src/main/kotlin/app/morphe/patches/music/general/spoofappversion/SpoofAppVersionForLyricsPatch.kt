@@ -47,7 +47,7 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.patch.PatchList.SPOOF_APP_VERSION_FOR_LYRICS
-import app.morphe.patches.music.utils.playservice.is_6_43_or_greater
+import app.morphe.patches.music.utils.playservice.is_7_03_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_13_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_07_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_30_or_greater
@@ -58,20 +58,20 @@ import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addListPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
-import app.morphe.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
-import app.morphe.patches.shared.createPlayerRequestBodyWithModelFingerprint
-import app.morphe.patches.shared.indexOfReleaseInstruction
+import app.morphe.patches.shared.clientTypeFingerprint
 import app.morphe.patches.shared.spoof.browse.addClientInfoHook
 import app.morphe.patches.shared.spoof.browse.spoofClientBrowseEndpointPatch
 import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.appendAppVersion
 import app.morphe.util.copyResources
-import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private val spoofAppVersionForLyricsBytecodePatch = bytecodePatch(
@@ -80,28 +80,33 @@ private val spoofAppVersionForLyricsBytecodePatch = bytecodePatch(
     dependsOn(spoofClientBrowseEndpointPatch)
 
     execute {
-        createPlayerRequestBodyWithModelFingerprint.methodOrThrow().apply {
-            val appVersionIndex = indexOfReleaseInstruction(this) + 1
-            val appVersionFieldIndex =
-                indexOfFirstInstructionReversedOrThrow(appVersionIndex) {
-                    val reference = getReference<FieldReference>()
-                    opcode == Opcode.IPUT_OBJECT &&
-                            reference?.type == "Ljava/lang/String;" &&
-                            reference.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR
-                }
-            val appVersionField =
-                getInstruction<ReferenceInstruction>(appVersionFieldIndex).reference
+        val clientVersionFieldReference = clientTypeFingerprint.matchOrThrow().let {
+            with(it.method) {
+                val dummyClientVersionIndex = it.stringMatches.first().index
+                val dummyClientVersionRegister =
+                    getInstruction<OneRegisterInstruction>(dummyClientVersionIndex).registerA
+                val clientVersionIndex =
+                    indexOfFirstInstructionOrThrow(dummyClientVersionIndex) {
+                        opcode == Opcode.IPUT_OBJECT &&
+                                getReference<FieldReference>()?.type == "Ljava/lang/String;" &&
+                                (this as TwoRegisterInstruction).registerA == dummyClientVersionRegister
+                    }
 
-            addClientInfoHook(
-                helperMethodName = "patch_setClientAppVersion",
-                smaliInstructions = """
-                    invoke-static {v3}, $GENERAL_CLASS_DESCRIPTOR->getLyricsVersionOverride(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v2
-                    iput-object v2, v1, $appVersionField
-                    """,
-                insertLast = false
-            )
+                getInstruction<ReferenceInstruction>(clientVersionIndex).reference as FieldReference
+            }
         }
+
+        addClientInfoHook(
+            helperMethodName = "patch_setClientAppVersion",
+            smaliInstructions = """
+                invoke-static {v3}, $GENERAL_CLASS_DESCRIPTOR->getLyricsVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                move-result-object v2
+                if-eqz v2, :skip_lyrics_spoof
+                iput-object v2, v1, $clientVersionFieldReference
+                :skip_lyrics_spoof
+                """,
+            insertLast = false
+        )
     }
 }
 
@@ -119,8 +124,8 @@ val spoofAppVersionForLyricsPatch = resourcePatch(
     )
 
     execute {
-        if (!is_6_43_or_greater) {
-            printWarn("\"${SPOOF_APP_VERSION_FOR_LYRICS.title}\" is not supported in this version. Use YouTube Music 6.51.53 or later.")
+        if (!is_7_03_or_greater) {
+            printWarn("\"${SPOOF_APP_VERSION_FOR_LYRICS.title}\" is not supported in this version. Use YouTube Music 7 or later.")
             return@execute
         }
 

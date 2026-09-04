@@ -49,6 +49,8 @@
 
 package app.morphe.extension.youtube.patches.general;
 
+import static app.morphe.extension.shared.utils.BaseThemeUtils.getAppForegroundColor;
+import static app.morphe.extension.shared.utils.BaseThemeUtils.getDialogBackgroundColor;
 import static app.morphe.extension.shared.utils.ResourceUtils.getXmlIdentifier;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.getChildView;
@@ -96,9 +98,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.google.android.apps.youtube.app.application.Shell_SettingsActivity;
-import com.google.android.apps.youtube.app.settings.SettingsActivity;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -112,19 +114,20 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.WeakHashMap;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.function.IntSupplier;
 
 import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.requests.Route;
-import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.PackageUtils;
@@ -132,12 +135,12 @@ import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.innertube.ConfigResponseOuterClass.ConfigResponse;
+import app.morphe.extension.youtube.patches.utils.PlaylistPatch;
 import app.morphe.extension.youtube.patches.utils.ReturnYouTubeChannelNamePatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
-import app.morphe.extension.youtube.utils.ThemeUtils;
 
 @SuppressWarnings({"deprecation", "unused"})
 public class GeneralPatch {
@@ -282,6 +285,53 @@ public class GeneralPatch {
             })();
             """;
 
+    private static final String CHANNEL_SEARCH_WEBVIEW_VIDEO_IDS_JAVASCRIPT = """
+            (function() {
+                function getSearchResults() {
+                    var searchTab = document.querySelector('yt-tab-shape.ytTabShapeLastTab');
+                    var searchTitle = searchTab ? searchTab.getAttribute('tab-title') : null;
+                    if (!searchTitle) {
+                        var activeTab = document.querySelector('yt-tab-shape[aria-selected="true"]');
+                        searchTitle = activeTab ? activeTab.getAttribute('tab-title') : null;
+                    }
+                    if (searchTitle) {
+                        var tabs = document.querySelectorAll('.tab-content');
+                        for (var i = 0; i < tabs.length; i++) {
+                            if (tabs[i].getAttribute('tab-title') === searchTitle) {
+                                return tabs[i];
+                            }
+                        }
+                    }
+                    return document;
+                }
+
+                function getVideoId(href) {
+                    var watchMatch = href.match(/[?&]v=([^&#]+)/);
+                    if (watchMatch) {
+                        return watchMatch[1];
+                    }
+                    var shortsMatch = href.match(/\\/shorts\\/([^/?#]+)/);
+                    return shortsMatch ? shortsMatch[1] : null;
+                }
+
+                var videoIds = [];
+                var seen = {};
+                var results = getSearchResults();
+                var anchors = results.querySelectorAll(
+                        'ytm-compact-video-renderer a[href], '
+                        + 'ytm-video-renderer a[href], '
+                        + 'ytm-reel-item-renderer a[href]');
+                Array.prototype.forEach.call(anchors, function(anchor) {
+                    var videoId = getVideoId(anchor.getAttribute('href') || '');
+                    if (videoId && videoId.length === 11 && !seen[videoId]) {
+                        seen[videoId] = true;
+                        videoIds.push(videoId);
+                    }
+                });
+                return videoIds;
+            })();
+            """;
+
     private static volatile String lastSearchInChannelQuery = "";
     private static volatile String pendingSearchInChannelVisibleQuery = "";
     private static volatile String pendingSearchInChannelRequestQuery = "";
@@ -298,10 +348,18 @@ public class GeneralPatch {
     private static final int MAX_MILLISECONDS_TO_WAIT_FOR_CONFIG_FETCH = 20 * 1000;
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String COLD_CONFIG_DATA_HEADER = "X-Youtube-Cold-Config-Data";
+    private static final String COLD_HASH_DATA_HEADER = "X-Youtube-Cold-Hash-Data";
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
+    private static final String CONFIG_CLIENT_VERSION = ExtendedUtils.IS_21_21_OR_GREATER
+            // YT 21.21+ includes an experimental flag that is incompatible with the phone layout.
+            ? "21.20.402"
+            : PackageUtils.getAppVersionName();
     private static final Route.CompiledRoute GET_CONFIG = new Route(
             Route.Method.POST,
-            "config?fields=responseContext.globalConfigGroup.bytesSerializedColdConfigGroup&alt=proto"
+            "config" +
+                    "?fields=responseContext.globalConfigGroup.bytesSerializedColdConfigGroup," +
+                    "responseContext.globalConfigGroup.coldHashData" +
+                    "&alt=proto"
     ).compile();
 
     private static final boolean DISABLE_LAYOUT_UPDATES =
@@ -312,7 +370,17 @@ public class GeneralPatch {
             // Tablets already have a non-collapsed video action bar.
             && !PackageUtils.isTablet();
     private static volatile boolean needFetch = true;
-    private static volatile Future<String> configRequestFuture;
+
+    /**
+     * Interface implemented by YouTube's generated config model during patching.
+     */
+    public interface ConfigInfoInterface {
+        void patch_setColdConfigData(String coldConfigData);
+        void patch_setColdHashData(String coldHashData);
+    }
+
+    private record ConfigGroup(String coldConfigData, String coldHashData) {
+    }
 
     /**
      * @param key   Keys to be added to the header of CronetBuilder.
@@ -328,45 +396,38 @@ public class GeneralPatch {
         return value;
     }
 
-    private static void clearConfigRequest() {
-        configRequestFuture = null;
-    }
-
     private static void fetchConfigRequest(Map<String, String> requestHeaders) {
-        if (configRequestFuture == null) {
-            configRequestFuture = Utils.submitOnBackgroundThread(() -> sendConfigRequest(requestHeaders));
-        }
-    }
-
-    private static String getConfigRequestResult() {
-        Future<String> future = configRequestFuture;
-        if (future == null) {
-            return null;
-        }
-
+        CompletableFuture<ConfigGroup> future = CompletableFuture.supplyAsync(
+                () -> sendConfigRequest(requestHeaders)
+        );
         try {
-            if (BaseSettings.DEBUG.get() && !future.isDone() && Utils.isCurrentlyOnMainThread()) {
-                Logger.printException(() -> "Debug: Blocking main thread");
+            ConfigGroup configGroup = future.get(
+                    MAX_MILLISECONDS_TO_WAIT_FOR_CONFIG_FETCH,
+                    TimeUnit.MILLISECONDS
+            );
+            if (configGroup != null) {
+                Settings.INNERTUBE_COLD_CONFIG_DATA.save(configGroup.coldConfigData);
+                Settings.INNERTUBE_COLD_HASH_DATA.save(configGroup.coldHashData);
             }
-
-            return future.get(MAX_MILLISECONDS_TO_WAIT_FOR_CONFIG_FETCH, TimeUnit.MILLISECONDS);
         } catch (TimeoutException ex) {
-            Logger.printInfo(() -> "getConfig timed out", ex);
+            Logger.printInfo(() -> "getConfigGroup timed out", ex);
+            future.cancel(true);
+        } catch (CancellationException ex) {
+            Logger.printInfo(() -> "getConfigGroup was previously cancelled");
         } catch (InterruptedException ex) {
-            Logger.printException(() -> "getConfig interrupted", ex);
-            Thread.currentThread().interrupt();
+            Logger.printException(() -> "getConfigGroup interrupted", ex);
+            future.cancel(true);
+            Thread.currentThread().interrupt(); // Restore interrupt status flag.
         } catch (ExecutionException ex) {
-            Logger.printException(() -> "getConfig failure", ex);
+            Logger.printException(() -> "getConfigGroup failure", ex);
         }
-
-        return null;
     }
 
     private static void handleConfigConnectionError(String toastMessage, Exception ex) {
         Logger.printInfo(() -> toastMessage, ex);
     }
 
-    private static String parseConfigResponse(HttpURLConnection connection) {
+    private static ConfigGroup parseConfigResponse(HttpURLConnection connection) {
         try (InputStream inputStream = connection.getInputStream()) {
             ConfigResponse configResponse = ConfigResponse.parseFrom(inputStream);
             if (!configResponse.hasContext()) {
@@ -382,6 +443,11 @@ public class GeneralPatch {
 
             app.morphe.extension.youtube.innertube.ConfigResponseOuterClass.GlobalConfigGroup globalConfigGroup =
                     context.getGlobalConfigGroup();
+            String coldHashData = globalConfigGroup.getColdHashData();
+            if (StringUtils.isEmpty(coldHashData)) {
+                Logger.printDebug(() -> "ColdHashData is empty");
+                return null;
+            }
             if (!globalConfigGroup.hasRawColdConfigGroup()) {
                 Logger.printDebug(() -> "RawColdConfigGroup is empty");
                 return null;
@@ -389,12 +455,13 @@ public class GeneralPatch {
 
             app.morphe.extension.youtube.innertube.ConfigResponseOuterClass.RawColdConfigGroup rawColdConfigGroup =
                     globalConfigGroup.getRawColdConfigGroup();
-            if (!rawColdConfigGroup.hasConfigData()) {
+            String coldConfigData = rawColdConfigGroup.getConfigData();
+            if (StringUtils.isEmpty(coldConfigData)) {
                 Logger.printDebug(() -> "ConfigData is empty");
                 return null;
             }
 
-            return rawColdConfigGroup.getConfigData();
+            return new ConfigGroup(coldConfigData, coldHashData);
         } catch (Exception ex) {
             Logger.printException(() -> "Parse failed", ex);
         }
@@ -406,16 +473,18 @@ public class GeneralPatch {
         try {
             JSONObject client = new JSONObject();
             client.put("clientName", "ANDROID");
-            client.put("clientVersion", PackageUtils.getAppVersionName());
+            client.put("clientVersion", CONFIG_CLIENT_VERSION);
             client.put("deviceMake", Build.MANUFACTURER);
             client.put("deviceModel", Build.MODEL);
             client.put("osName", "Android");
             client.put("osVersion", Build.VERSION.RELEASE);
-            // Tablet cold config avoids the modern action bar that breaks
-            // v20.21 action-button filtering and RYD wiring.
-            client.put("platform", "TABLET");
-            client.put("clientFormFactor", "LARGE_FORM_FACTOR");
+            // The modern video action bar is not enabled for unknown cold-config clients.
+            client.put("clientFormFactor", "UNKNOWN_FORM_FACTOR");
             client.put("androidSdkVersion", Build.VERSION.SDK_INT);
+            client.put("screenWidthPoints", 1280);
+            client.put("screenHeightPoints", 720);
+            client.put("screenPixelDensity", 4);
+            client.put("screenDensityFloat", 4);
 
             Locale localeDefault = Locale.getDefault();
             client.put("hl", localeDefault.getLanguage());
@@ -438,7 +507,7 @@ public class GeneralPatch {
         String userAgent = String.format(
                 Locale.US,
                 "com.google.android.youtube/%s(Linux; U; Android %s; %s; %s Build/%s)",
-                PackageUtils.getAppVersionName(),
+                CONFIG_CLIENT_VERSION,
                 Build.VERSION.RELEASE,
                 Locale.getDefault(),
                 Build.MODEL,
@@ -452,7 +521,7 @@ public class GeneralPatch {
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("User-Agent", userAgent);
         connection.setRequestProperty("X-YouTube-Client-Name", "3");
-        connection.setRequestProperty("X-YouTube-Client-Version", PackageUtils.getAppVersionName());
+        connection.setRequestProperty("X-YouTube-Client-Version", CONFIG_CLIENT_VERSION);
         connection.setRequestProperty("X-GOOG-API-FORMAT-VERSION", "2");
         connection.setUseCaches(false);
         connection.setDoOutput(true);
@@ -471,7 +540,7 @@ public class GeneralPatch {
         return connection;
     }
 
-    private static String sendConfigRequest(Map<String, String> requestHeaders) {
+    private static ConfigGroup sendConfigRequest(Map<String, String> requestHeaders) {
         Utils.verifyOffMainThread();
 
         final long startTime = System.currentTimeMillis();
@@ -503,12 +572,9 @@ public class GeneralPatch {
         return null;
     }
 
-    /**
-     * On older YouTube builds, the modern server-side action bar prevents
-     * dislike restoration and reliable per-button hiding.
-     */
-    public static void fetchRequest(String url, Map<String, String> requestHeaders) {
-        if (FIX_VIDEO_ACTION_BAR && Settings.COLD_CONFIG_DATA.isSetToDefault()) {
+    private static void fetchConfigRequestIfNeeded(String url, Map<String, String> requestHeaders) {
+        if (Settings.INNERTUBE_COLD_CONFIG_DATA.isSetToDefault()
+                || Settings.INNERTUBE_COLD_HASH_DATA.isSetToDefault()) {
             if (needFetch) {
                 if (requestHeaders != null) {
                     String visitorId = requestHeaders.get(VISITOR_ID_HEADER);
@@ -522,14 +588,8 @@ public class GeneralPatch {
                         }
 
                         needFetch = false;
-                        clearConfigRequest();
                         fetchConfigRequest(minHeaders);
                     }
-                }
-            } else {
-                String newColdConfigData = getConfigRequestResult();
-                if (StringUtils.isNotEmpty(newColdConfigData)) {
-                    Settings.COLD_CONFIG_DATA.save(newColdConfigData);
                 }
             }
         } else {
@@ -538,18 +598,49 @@ public class GeneralPatch {
     }
 
     /**
-     * Overrides the cold config header with the tablet response fetched above so older app
-     * versions keep the legacy video action bar structure.
+     * Overrides the matching cold-config headers on {@code /next} requests.
      */
-    public static String fixVideoActionBar(String key, String value) {
-        if (FIX_VIDEO_ACTION_BAR && COLD_CONFIG_DATA_HEADER.equals(key)) {
-            String coldConfigData = Settings.COLD_CONFIG_DATA.get();
-            if (StringUtils.isNotEmpty(coldConfigData)) {
-                return coldConfigData;
+    public static Map<String, String> fixVideoActionBar(
+            String url,
+            Map<String, String> requestHeaders
+    ) {
+        if (FIX_VIDEO_ACTION_BAR && url != null) {
+            fetchConfigRequestIfNeeded(url, requestHeaders);
+
+            String path = Uri.parse(url).getPath();
+            if (path != null && path.contains("next") && requestHeaders != null) {
+                if (requestHeaders.get(COLD_CONFIG_DATA_HEADER) != null) {
+                    String coldConfigData = Settings.INNERTUBE_COLD_CONFIG_DATA.get();
+                    if (StringUtils.isNotEmpty(coldConfigData)) {
+                        requestHeaders.put(COLD_CONFIG_DATA_HEADER, coldConfigData);
+                    }
+                }
+                if (requestHeaders.get(COLD_HASH_DATA_HEADER) != null) {
+                    String coldHashData = Settings.INNERTUBE_COLD_HASH_DATA.get();
+                    if (StringUtils.isNotEmpty(coldHashData)) {
+                        requestHeaders.put(COLD_HASH_DATA_HEADER, coldHashData);
+                    }
+                }
             }
         }
 
-        return value;
+        return requestHeaders;
+    }
+
+    /**
+     * Overrides the generated request model before it is serialized.
+     */
+    public static void fixVideoActionBar(ConfigInfoInterface configInfo) {
+        if (FIX_VIDEO_ACTION_BAR && configInfo != null) {
+            String coldConfigData = Settings.INNERTUBE_COLD_CONFIG_DATA.get();
+            if (StringUtils.isNotEmpty(coldConfigData)) {
+                configInfo.patch_setColdConfigData(coldConfigData);
+            }
+            String coldHashData = Settings.INNERTUBE_COLD_HASH_DATA.get();
+            if (StringUtils.isNotEmpty(coldHashData)) {
+                configInfo.patch_setColdHashData(coldHashData);
+            }
+        }
     }
 
     /**
@@ -557,7 +648,9 @@ public class GeneralPatch {
      * videos overlay. Keep that old overlay path to avoid a broken fullscreen panel.
      */
     public static boolean fixRelatedVideoOverlay(boolean original) {
-        if (FIX_VIDEO_ACTION_BAR && !Settings.COLD_CONFIG_DATA.isSetToDefault()) {
+        if (FIX_VIDEO_ACTION_BAR
+                && !Settings.INNERTUBE_COLD_CONFIG_DATA.isSetToDefault()
+                && !Settings.INNERTUBE_COLD_HASH_DATA.isSetToDefault()) {
             return false;
         }
 
@@ -570,21 +663,6 @@ public class GeneralPatch {
 
     public static boolean disableSignInToTvPopup() {
         return Settings.DISABLE_SIGNIN_TO_TV_POPUP.get();
-    }
-
-    // endregion
-
-    // region [Disable splash animation] patch
-
-    public static boolean disableSplashAnimation(boolean original) {
-        return !Settings.DISABLE_SPLASH_ANIMATION.get() && original;
-    }
-
-    public static int disableSplashAnimation(int i, int i2) {
-        if (!Settings.DISABLE_SPLASH_ANIMATION.get() || i != i2) {
-            return i;
-        }
-        return i - 1;
     }
 
     // endregion
@@ -1111,8 +1189,14 @@ public class GeneralPatch {
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-            android.widget.FrameLayout layout = new android.widget.FrameLayout(context);
+            LinearLayout layout = new LinearLayout(context);
+            layout.setOrientation(LinearLayout.VERTICAL);
+            layout.setBackgroundColor(getDialogBackgroundColor());
             layout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+
+            android.widget.FrameLayout webViewContainer = new android.widget.FrameLayout(context);
+            webViewContainer.setLayoutParams(new LinearLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, 0, 1.0f));
 
             android.widget.ProgressBar progressBar = new android.widget.ProgressBar(context);
             android.widget.FrameLayout.LayoutParams progressParams = new android.widget.FrameLayout.LayoutParams(
@@ -1120,13 +1204,48 @@ public class GeneralPatch {
             progressParams.gravity = android.view.Gravity.CENTER;
             progressBar.setLayoutParams(progressParams);
 
+            LinearLayout actionPanel = new LinearLayout(context);
+            actionPanel.setOrientation(LinearLayout.VERTICAL);
+            actionPanel.setGravity(android.view.Gravity.CENTER_HORIZONTAL);
+            actionPanel.setPadding(
+                    Utils.dipToPixels(24),
+                    Utils.dipToPixels(8),
+                    Utils.dipToPixels(24),
+                    Utils.dipToPixels(8));
+            actionPanel.setBackgroundColor(getDialogBackgroundColor());
+
+            TextView addToQueueTip = new TextView(context);
+            addToQueueTip.setText(str("revanced_search_in_channel_scroll_tip"));
+            addToQueueTip.setTextColor(getAppForegroundColor());
+            addToQueueTip.setTextSize(14);
+            addToQueueTip.setGravity(android.view.Gravity.CENTER);
+            addToQueueTip.setPadding(0, 0, 0, Utils.dipToPixels(4));
+
+            Button addToQueueButton = Utils.addButton(
+                    context,
+                    str("revanced_queue_manager_add_to_queue_and_open_queue"),
+                    null,
+                    true,
+                    false,
+                    dialog);
+            addToQueueButton.setEnabled(false);
+
             String webViewUrl = getChannelSearchWebViewUrl(channelId, query);
             Logger.printDebug(() -> "Channel search WebView load URL: " + webViewUrl);
-            WebView webView = getWebView(context, dialog, progressBar);
+            WebView webView = getWebView(context, dialog, progressBar, addToQueueButton);
             webView.setVisibility(View.INVISIBLE);
+            addToQueueButton.setOnClickListener(view ->
+                    addChannelSearchResultsToQueue(webView, dialog, addToQueueButton));
 
-            layout.addView(webView);
-            layout.addView(progressBar);
+            webViewContainer.addView(webView);
+            webViewContainer.addView(progressBar);
+            layout.addView(webViewContainer);
+            actionPanel.addView(addToQueueTip, new LinearLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+            actionPanel.addView(addToQueueButton, new LinearLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, Utils.dipToPixels(36)));
+            layout.addView(actionPanel, new LinearLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 
             dialog.setContentView(layout);
             dialog.setOnDismissListener(dialogInterface -> {
@@ -1148,9 +1267,51 @@ public class GeneralPatch {
         }
     }
 
+    private static void addChannelSearchResultsToQueue(
+            WebView webView,
+            Dialog dialog,
+            Button addToQueueButton
+    ) {
+        addToQueueButton.setEnabled(false);
+        try {
+            webView.evaluateJavascript(CHANNEL_SEARCH_WEBVIEW_VIDEO_IDS_JAVASCRIPT, result -> {
+                String[] videoIds = parseChannelSearchVideoIds(result);
+                if (videoIds.length == 0) {
+                    addToQueueButton.setEnabled(true);
+                    Utils.showToastShort(str("revanced_search_in_channel_no_results"));
+                    return;
+                }
+
+                Logger.printDebug(() -> "Channel search WebView queue videos: " + videoIds.length);
+                dialog.dismiss();
+                PlaylistPatch.addVideosToQueueAndOpen(videoIds);
+            });
+        } catch (Exception ex) {
+            addToQueueButton.setEnabled(true);
+            Logger.printException(() -> "addChannelSearchResultsToQueue failed", ex);
+        }
+    }
+
+    private static String[] parseChannelSearchVideoIds(String result) {
+        try {
+            JSONArray videoIdsJson = new JSONArray(result);
+            LinkedHashSet<String> videoIds = new LinkedHashSet<>();
+            for (int i = 0; i < videoIdsJson.length(); i++) {
+                String videoId = videoIdsJson.optString(i, "");
+                if (videoId.length() == YOUTUBE_VIDEO_ID_LENGTH) {
+                    videoIds.add(videoId);
+                }
+            }
+            return videoIds.toArray(new String[0]);
+        } catch (JSONException ex) {
+            Logger.printException(() -> "parseChannelSearchVideoIds failed: " + result, ex);
+            return new String[0];
+        }
+    }
+
     @SuppressLint("SetJavaScriptEnabled") // Required by YouTube mobile search. WebView is restricted below.
     @NonNull
-    private static WebView getWebView(Context context, Dialog dialog, View progressBar) {
+    private static WebView getWebView(Context context, Dialog dialog, View progressBar, Button addToQueueButton) {
         WebView webView = new WebView(context);
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -1189,6 +1350,7 @@ public class GeneralPatch {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
+                addToQueueButton.setEnabled(false);
                 Logger.printDebug(() -> "Channel search WebView page started: " + url);
             }
 
@@ -1198,6 +1360,7 @@ public class GeneralPatch {
                 progressBar.setVisibility(View.GONE);
                 view.setVisibility(View.VISIBLE);
                 boolean searchUrl = isChannelSearchWebViewSearchUrl(url);
+                addToQueueButton.setEnabled(searchUrl);
                 Logger.printDebug(() -> "Channel search WebView page finished: "
                         + url + ", searchUrl: " + searchUrl);
                 if (searchUrl) {
@@ -1615,67 +1778,6 @@ public class GeneralPatch {
         imageView.setImageDrawable(drawable);
     }
 
-    private static int settingsDrawableId = 0;
-    private static int settingsCairoDrawableId = 0;
-
-    public static int getCreateButtonDrawableId(int original) {
-        if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get()) {
-            return original;
-        }
-
-        if (settingsDrawableId == 0) {
-            settingsDrawableId = ResourceUtils.getDrawableIdentifier("yt_outline_gear_black_24");
-        }
-
-        if (settingsDrawableId == 0) {
-            return original;
-        }
-
-        // Match YouTube's server-controlled toolbar icon style.
-        if (!Utils.appIsUsingBoldIcons()) {
-            return settingsDrawableId;
-        }
-
-        if (settingsCairoDrawableId == 0) {
-            settingsCairoDrawableId = ResourceUtils.getDrawableIdentifier("yt_outline_gear_cairo_black_24");
-        }
-
-        return settingsCairoDrawableId == 0
-                ? settingsDrawableId
-                : settingsCairoDrawableId;
-    }
-
-    public static void replaceCreateButton(String enumString, View toolbarView) {
-        if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get())
-            return;
-        // The semantic replacement is safe to identify by its Settings enum only when the
-        // separately-added toolbar Settings button is disabled.
-        if (!isCreateButton(enumString)
-                && (Settings.SHOW_TOOLBAR_SETTINGS_BUTTON.get()
-                || !"SETTINGS_CAIRO".equals(enumString)))
-            return;
-        ImageView imageView = getChildView((ViewGroup) toolbarView, view -> view instanceof ImageView);
-        if (imageView == null)
-            return;
-
-        // Overriding is possible only after OnClickListener is assigned to the create button.
-        Utils.runOnMainThreadDelayed(() -> {
-            if (Settings.REPLACE_TOOLBAR_CREATE_BUTTON_TYPE.get()) {
-                imageView.setOnClickListener(GeneralPatch::openRVXSettings);
-                imageView.setOnLongClickListener(button -> {
-                    openYouTubeSettings(button);
-                    return true;
-                });
-            } else {
-                imageView.setOnClickListener(GeneralPatch::openYouTubeSettings);
-                imageView.setOnLongClickListener(button -> {
-                    openRVXSettings(button);
-                    return true;
-                });
-            }
-        }, 0);
-    }
-
     public static void openYouTubeSettings(View view) {
         Context context = view.getContext();
         Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -1692,22 +1794,6 @@ public class GeneralPatch {
         intent.setData(Uri.parse("revanced_settings_intent"));
         intent.setClassName(context.getPackageName(), "com.google.android.libraries.social.licenses.LicenseActivity");
         context.startActivity(intent);
-    }
-
-    /**
-     * The theme of {@link Shell_SettingsActivity} is dark theme.
-     * Since this theme is hardcoded, we should manually specify the theme for the activity.
-     * <p>
-     * Since {@link Shell_SettingsActivity} only invokes {@link SettingsActivity}, finish activity after specifying a theme.
-     *
-     * @param base {@link Shell_SettingsActivity}
-     */
-    public static void setShellActivityTheme(Activity base) {
-        if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get())
-            return;
-
-        base.setTheme(ThemeUtils.getThemeId());
-        Utils.runOnMainThreadDelayed(base::finish, 0);
     }
 
     private static boolean isCreateButton(String enumString) {

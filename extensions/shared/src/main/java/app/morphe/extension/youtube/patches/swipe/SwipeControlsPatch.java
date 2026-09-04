@@ -27,8 +27,12 @@ public class SwipeControlsPatch {
      */
     public static boolean disableSwipeToEnterFullscreenModeBelowThePlayer(String nextGestureType) {
         Logger.printDebug(() -> "The next player gesture will be: " + nextGestureType);
-        return "MAXIMIZED_TO_FULLSCREEN_SLIDING".equals(nextGestureType) &&
-                Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER.get();
+        return ("MAXIMIZED_TO_FULLSCREEN_SLIDING".equals(nextGestureType) &&
+                Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER.get()) ||
+                ("MAXIMIZED_PULLED_UP".equals(nextGestureType) &&
+                Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_IN_THE_PLAYER.get()) ||
+                ("FULLSCREEN_DRAGGED_DOWN".equals(nextGestureType) &&
+                Settings.DISABLE_SWIPE_TO_EXIT_FULLSCREEN_MODE.get());
     }
 
     /**
@@ -43,6 +47,13 @@ public class SwipeControlsPatch {
      */
     public static boolean disableSwipeToExitFullscreenMode(boolean original) {
         return !Settings.DISABLE_SWIPE_TO_EXIT_FULLSCREEN_MODE.get() && original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean disableZoomGesture() {
+        return Settings.DISABLE_FULLSCREEN_ZOOM_GESTURE.get();
     }
 
     /**

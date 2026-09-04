@@ -30,10 +30,12 @@ import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_43_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_03_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_05_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_20_38_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_17_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_32_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerClose
 import app.morphe.patches.youtube.utils.resourceid.modernMiniPlayerExpand
@@ -74,7 +76,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "$PLAYER_PATH/MiniplayerPatch;"
 
 // YT uses "Miniplayer" without a space between 'mini' and 'player: https://support.google.com/youtube/answer/9162927.
-@Suppress("unused")
+@Suppress("unused", "DEPRECATION")
 val miniplayerPatch = bytecodePatch(
     MINIPLAYER.title,
     MINIPLAYER.summary,
@@ -184,7 +186,7 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        if (!is_20_37_or_greater || is_20_38_or_greater) {
+        if (!is_20_37_or_greater) {
             miniplayerResponseModelSizeCheckFingerprint.matchOrThrow().let {
                 it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
             }
@@ -251,38 +253,51 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_26_or_greater) {
-            miniplayerModernConstructorFingerprint.methodOrThrow().apply {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(
-                    MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
-                )
-                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
-                val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            if (!is_21_32_or_greater) {
+                miniplayerModernConstructorFingerprint.methodOrThrow().apply {
+                    val literalIndex = indexOfFirstLiteralInstructionOrThrow(
+                        MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
+                    )
+                    val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
+                    val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                addInstructions(
-                    targetIndex + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
-                        move-result v$register
-                        """,
-                )
-            }
-
-            // Override a minimum size constant.
-            miniplayerMinimumSizeFingerprint.methodOrThrow().apply {
-                val index = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.CONST_16 &&
-                            (this as NarrowLiteralInstruction).narrowLiteral == 192
+                    addInstructions(
+                        targetIndex + 1,
+                        """
+                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
+                            move-result v$register
+                            """,
+                    )
                 }
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
-                // The 170 initial limit probably could be patched to allow even smaller initial sizes,
-                // but 170 is already half the horizontal space and smaller does not seem useful.
-                replaceInstruction(index, "const/16 v$register, 170")
+                // Override a minimum size constant.
+                if (is_21_04_or_greater) {
+                    ModernMiniplayerMinimumSizeFingerprint.method.apply {
+                        val index = ModernMiniplayerMinimumSizeFingerprint.instructionMatches[1].index
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                        // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
+                        // The 170 initial limit probably could be patched to allow even smaller initial sizes,
+                        // but 170 is already half the horizontal space and smaller does not seem useful.
+                        replaceInstruction(index, "const/16 v$register, 170")
+                    }
+                } else miniplayerMinimumSizeFingerprint.methodOrThrow().apply {
+                    val index = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.CONST_16 &&
+                                (this as NarrowLiteralInstruction).narrowLiteral == 192
+                    }
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
+                    // The 170 initial limit probably could be patched to allow even smaller initial sizes,
+                    // but 170 is already half the horizontal space and smaller does not seem useful.
+                    replaceInstruction(index, "const/16 v$register, 170")
+                }
+
+                settingArray += "SETTINGS: MINIPLAYER_WIDTH_DIP"
             }
 
             settingArray += "SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_26"
-            settingArray += "SETTINGS: MINIPLAYER_WIDTH_DIP"
         } else {
             settingArray += "SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_25"
             settingArray += "SETTINGS: MINIPLAYER_REWIND_FORWARD"
@@ -297,7 +312,7 @@ val miniplayerPatch = bytecodePatch(
             settingArray += "SETTINGS: MINIPLAYER_ROUNDED_CORNERS"
         }
 
-        if (is_19_43_or_greater) {
+        if (is_20_05_or_greater) {
             miniplayerOnCloseHandlerFingerprint.injectLiteralInstructionBooleanCall(
                 MINIPLAYER_DISABLED_FEATURE_KEY,
                 "$EXTENSION_CLASS_DESCRIPTOR->getMiniplayerOnCloseHandler(Z)Z"
@@ -481,7 +496,7 @@ val miniplayerPatch = bytecodePatch(
                                 ImmutableMethodParameter("Landroid/view/View;", annotations, null),
                                 ImmutableMethodParameter("I", annotations, null),
                                 ImmutableMethodParameter(
-                                    "Landroid/view/ViewGroup\$LayoutParams;",
+                                    $$"Landroid/view/ViewGroup$LayoutParams;",
                                     annotations,
                                     null
                                 ),
@@ -493,9 +508,9 @@ val miniplayerPatch = bytecodePatch(
                             MutableMethodImplementation(4),
                         ).toMutable().apply {
                             addInstructions(
-                                """
-                                    invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup${'$'}LayoutParams;)V
-                                    invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
+                                $$"""
+                                    invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+                                    invoke-static { p1 }, $$EXTENSION_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
                                     return-void
                                     """,
                             )

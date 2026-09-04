@@ -24,6 +24,7 @@ object VotingButton {
                 buttonVisibility = { isButtonEnabled() },
                 onClickListener = { view: View -> onClick(view) }
             )
+            instance?.setIcon("revanced_sb_voting")
         } catch (ex: Exception) {
             Logger.printException({ "initializeButton failure" }, ex)
         }

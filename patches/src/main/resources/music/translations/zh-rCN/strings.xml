@@ -32,11 +32,14 @@
     <string name="morphe_crossfade_duration_750ms">750 毫秒</string>
     <string name="morphe_crossfade_duration_8000ms">8 秒</string>
     <string name="morphe_crossfade_duration_9000ms">9 秒</string>
+    <string name="morphe_custom_branding_icon_title">应用图标</string>
+    <string name="morphe_custom_branding_name_title">应用名称</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC 音频已启用</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC 音频已禁用</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC协议已启用</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC协议已禁用</string>
-    <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除 Android Studio 之外的任何客户端</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">如果不起作用，请尝试强制关闭 MicroG</string>
+    <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除“Android Studio”和“Android VR 降级”之外的任何客户端</string>
     <string name="morphe_force_original_audio_summary">始终播放视频的原始音频轨道，而不是配音版本</string>
     <string name="morphe_force_original_audio_summary_off">正在使用默认音频</string>
     <string name="morphe_force_original_audio_summary_on">使用原始音频语言</string>
@@ -132,6 +135,9 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_settings_menu_filter_picker_empty">打开标准应用设置屏幕一次以填充列表</string>
     <string name="morphe_settings_menu_filter_screen_summary">通过可见名称隐藏标准应用设置屏幕上的项目</string>
     <string name="morphe_settings_menu_filter_screen_title">设置菜单筛选</string>
+    <string name="morphe_settings_name_custom_item_hint">输入名称</string>
+    <string name="morphe_settings_name_empty_warning">名称不能为空</string>
+    <string name="morphe_settings_name_title">RVX 设置名称</string>
     <string name="morphe_spoof_video_streams_client_type_title">默认客户端</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">无法获取任何客户端流</string>
     <string name="morphe_spoof_video_streams_screen_summary">配置客户端欺骗以防止播放问题</string>
@@ -201,6 +207,7 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
     <string name="revanced_change_start_page_summary">选择打开应用显示的页面</string>
     <string name="revanced_change_start_page_title">开始页面</string>
+    <string name="revanced_confirm_user_dialog_title">你确定要继续吗？</string>
     <string name="revanced_credits_title">Credits</string>
     <string name="revanced_custom_filter_strings_summary">用于过滤的组件路径生成器字符串列表，按换行符分隔</string>
     <string name="revanced_custom_filter_strings_title">自定义过滤器</string>
@@ -282,6 +289,8 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
 • 不覆盖弹出菜单或库选项卡中的下载按钮。"</string>
     <string name="revanced_external_downloader_action_title">覆盖下载操作按钮</string>
     <string name="revanced_external_downloader_dialog_title">外部下载器</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">使用您选择的外部下载器代替系统默认的「下载」弹出菜单</string>
+    <string name="revanced_external_downloader_flyout_menu_title">覆盖「下载」菜单</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安装。
 请从网站下载 %2$s。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
@@ -415,6 +424,9 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_hide_terms_container_title">隐藏条款栏</string>
     <string name="revanced_hide_voice_search_button_summary">隐藏搜索栏中的语音搜索按钮</string>
     <string name="revanced_hide_voice_search_button_title">隐藏语音搜索按钮</string>
+    <string name="revanced_icon_custom">自定义</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">使导航栏颜色与全屏播放器匹配</string>
+    <string name="revanced_music_change_navigation_bar_color_title">更改导航栏颜色</string>
     <string name="revanced_preference_screen_account_title">账号</string>
     <string name="revanced_preference_screen_action_bar_title">操作栏</string>
     <string name="revanced_preference_screen_ads_title">广告</string>

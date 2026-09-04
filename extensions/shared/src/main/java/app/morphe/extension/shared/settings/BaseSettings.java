@@ -30,7 +30,7 @@ public class BaseSettings {
     public static final BooleanSetting SPOOF_STREAMING_DATA_USE_JS = new BooleanSetting("revanced_spoof_streaming_data_use_js", TRUE, true,
             "revanced_spoof_streaming_data_use_js_user_dialog_message", new J2V8Availability());
 
-    public static final BooleanSetting ENABLE_COMMENTS_SCROLL_TOP = new BooleanSetting("revanced_enable_comments_scroll_top", FALSE, true);
+    public static final BooleanSetting ENABLE_COMMENTS_SCROLL_TOP = new BooleanSetting("revanced_enable_comments_scroll_top", TRUE, true);
     public static final BooleanSetting HIDE_COMMENTS_INFORMATION_BUTTON = new BooleanSetting("revanced_hide_comments_information_button", FALSE, true);
     public static final BooleanSetting HIDE_FULLSCREEN_ADS = new BooleanSetting("revanced_hide_fullscreen_ads", TRUE, true);
     public static final BooleanSetting HIDE_PROMOTION_ALERT_BANNER = new BooleanSetting("revanced_hide_promotion_alert_banner", TRUE);
@@ -50,6 +50,7 @@ public class BaseSettings {
             true, null, parent(RETURN_YOUTUBE_USERNAME_ENABLED));
 
     public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("revanced_settings_search_history", TRUE, true);
+    public static final BooleanSetting SHOW_SLIDER_SUMMARIES = new BooleanSetting("revanced_settings_show_slider_summaries", TRUE);
     public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("revanced_settings_search_entries", "", true);
     public static final BooleanSetting SETTINGS_DISABLE_BOLD_ICONS = new BooleanSetting("revanced_settings_disable_bold_icons", FALSE, true);
     public static final LongSetting FIRST_TIME_APP_LAUNCHED = new LongSetting("revanced_last_time_app_was_launched", -1L, false, false);

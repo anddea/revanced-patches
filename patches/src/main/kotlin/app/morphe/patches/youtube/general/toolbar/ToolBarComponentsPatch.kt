@@ -52,15 +52,18 @@
 
 package app.morphe.patches.youtube.general.toolbar
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.misc.fix.proto.immutableMethodRef
@@ -79,8 +82,6 @@ import app.morphe.patches.youtube.utils.playservice.is_20_15_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.morphe.patches.youtube.utils.resourceid.ytOutlineExperimentalVideoCamera
-import app.morphe.patches.youtube.utils.resourceid.ytOutlineVideoCamera
 import app.morphe.patches.youtube.utils.resourceid.ytPremiumWordMarkHeader
 import app.morphe.patches.youtube.utils.resourceid.ytWordMarkHeader
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -88,10 +89,9 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.toolbar.hookToolBar
 import app.morphe.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.morphe.util.containsLiteralInstruction
+import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.findMutableMethodOf
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodCall
@@ -102,7 +102,6 @@ import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
-import app.morphe.util.indexOfFirstLiteralInstruction
 import app.morphe.util.replaceLiteralInstructionCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -119,6 +118,46 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val NAVIGATION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/NavigationButtonsPatch;"
+private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
+    "Lapp/morphe/extension/youtube/patches/components/LayoutComponentsFilter;"
+
+private object SearchTermThumbnailFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "I"),
+    filters = listOf(
+        methodCall(
+            smali = "Ljava/util/Iterator;->next()Ljava/lang/Object;"
+        ),
+        literal(
+            0,
+            location = MatchAfterWithin(30)
+        ),
+        methodCall(
+            smali = "Landroid/widget/ImageView;->setVisibility(I)V",
+            location = MatchAfterWithin(10)
+        ),
+        literal(
+            8,
+            location = MatchAfterWithin(10)
+        ),
+        methodCall(
+            smali = "Landroid/widget/ImageView;->setVisibility(I)V",
+            location = MatchAfterWithin(10)
+        ),
+        methodCall(
+            smali = "Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V",
+        ),
+        methodCall(
+            smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;",
+        ),
+        literal(
+            0,
+            location = MatchAfterWithin(20)
+        )
+    ),
+    strings = listOf("ss_rds")
+)
 
 @Suppress("unused")
 val toolBarComponentsPatch = bytecodePatch(
@@ -279,12 +318,14 @@ val toolBarComponentsPatch = bytecodePatch(
             )
         }
 
-        AppCompatToolbarNavigationIconSetterFingerprint.method.apply {
-            findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { returnIndex ->
-                addInstruction(
-                    returnIndex,
-                    "invoke-static {p0, p1}, $GENERAL_CLASS_DESCRIPTOR->applySearchBarBackButtonSpacing(Landroid/view/ViewGroup;Landroid/graphics/drawable/Drawable;)V"
-                )
+        AppCompatToolbarNavigationIconSetterFingerprint.let { match ->
+            match.method.cloneMutableAndPreserveParameters(match.classDef).apply {
+                findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { returnIndex ->
+                    addInstruction(
+                        returnIndex,
+                        "invoke-static {p0, p1}, $GENERAL_CLASS_DESCRIPTOR->applySearchBarBackButtonSpacing(Landroid/view/ViewGroup;Landroid/graphics/drawable/Drawable;)V"
+                    )
+                }
             }
         }
 
@@ -305,7 +346,29 @@ val toolBarComponentsPatch = bytecodePatch(
 
         // region patch for hide search term thumbnail
 
-        if (!is_20_15_or_greater) {
+        if (is_20_15_or_greater) {
+            SearchTermThumbnailFingerprint.method.apply {
+                val methodCalls = findInstructionIndicesReversedOrThrow {
+                    (opcode == Opcode.INVOKE_INTERFACE || opcode == Opcode.INVOKE_VIRTUAL) &&
+                            getReference<MethodReference>()?.parameterTypes ==
+                            listOf("Landroid/widget/ImageView;", "Landroid/net/Uri;")
+                }
+
+                methodCalls.forEach { insertIndex ->
+                    val invokeInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
+                    val imageViewRegister = invokeInstruction.registerD
+                    val uriRegister = invokeInstruction.registerE
+
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$imageViewRegister, v$uriRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideSearchTermThumbnails(Landroid/view/View;Landroid/net/Uri;)Landroid/net/Uri;
+                            move-result-object v$uriRegister
+                        """
+                    )
+                }
+            }
+        } else {
             createSearchSuggestionsFingerprint.methodOrThrow().apply {
                 val iteratorIndex = indexOfIteratorInstruction(this)
                 val replaceIndex = indexOfFirstInstruction(iteratorIndex) {
@@ -364,9 +427,9 @@ val toolBarComponentsPatch = bytecodePatch(
                     "$GENERAL_CLASS_DESCRIPTOR->hideSearchTermThumbnail(Z)Z"
                 )
             }
-
-            settingArray += "SETTINGS: HIDE_SEARCH_TERM_THUMBNAIL"
         }
+
+        settingArray += "SETTINGS: HIDE_SEARCH_TERM_THUMBNAIL"
 
         // endregion
 
@@ -645,7 +708,7 @@ val toolBarComponentsPatch = bytecodePatch(
 
                             invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->createToolbarSettingsButton(Ljava/util/List;)[B
                             move-result-object v$buttonByteRegister
-                            if-eqz v$buttonByteRegister, :settings_button_not_created
+                            if-eqz v$buttonByteRegister, :immutable
 
                             sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
                             invoke-static {v$protoListFreeRegister, v$buttonByteRegister}, ${parseByteArrayMethodRef.get()!!}
@@ -653,19 +716,6 @@ val toolBarComponentsPatch = bytecodePatch(
                             check-cast v$protoListFreeRegister, $buttonsClass
                             invoke-interface {v$protoListRegister, v$protoListFreeRegister}, Ljava/util/List;->add(Ljava/lang/Object;)Z
                             invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->applyToolbarSettingsButtonIndex(Ljava/util/List;)V
-
-                            :settings_button_not_created
-                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceToolbarCreateButton(Ljava/util/List;)[B
-                            move-result-object v$buttonByteRegister
-                            if-eqz v$buttonByteRegister, :immutable
-
-                            sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
-                            invoke-static {v$protoListFreeRegister, v$buttonByteRegister}, ${parseByteArrayMethodRef.get()!!}
-                            move-result-object v$protoListFreeRegister
-                            check-cast v$protoListFreeRegister, $buttonsClass
-                            invoke-static {}, $NAVIGATION_CLASS_DESCRIPTOR->getToolbarCreateButtonIndex()I
-                            move-result v$buttonByteRegister
-                            invoke-interface {v$protoListRegister, v$buttonByteRegister, v$protoListFreeRegister}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
                             :immutable
                             nop
@@ -697,64 +747,6 @@ val toolBarComponentsPatch = bytecodePatch(
                 )
             }
         }
-
-        // endregion
-
-        // region patch for replace create button
-
-        val matchedMethods = mutableListOf<MutableMethod>()
-        classDefForEach { classDef ->
-            classDef.methods.forEach { method ->
-                if (method.containsLiteralInstruction(ytOutlineVideoCamera)) {
-                    val mutableMethod = mutableClassDefBy(classDef).findMutableMethodOf(method)
-                    matchedMethods.add(mutableMethod)
-                }
-            }
-        }
-
-        if (matchedMethods.isEmpty()) {
-            throw PatchException("No methods matched createButtonDrawableFingerprint")
-        }
-
-        // println("Found ${matchedMethods.size} methods matching createButtonDrawableFingerprint")
-        // matchedMethods.forEach { method ->
-        //     println("Patching method: ${method.methodCall()} in class ${method.definingClass}")
-        // }
-
-        matchedMethods.forEach { method ->
-            method.apply {
-                val indices = mutableListOf<Int>()
-
-                val idx1 = indexOfFirstLiteralInstruction(ytOutlineVideoCamera)
-                if (idx1 != -1) indices.add(idx1)
-
-                val idx2 = indexOfFirstLiteralInstruction(ytOutlineExperimentalVideoCamera)
-                if (idx2 != -1) indices.add(idx2)
-
-                // Sort descending so we modify the end of the method first,
-                // preventing index shifting from affecting subsequent inserts
-                indices.sortedDescending().forEach { index ->
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
-                    addInstructions(
-                        index + 1, """
-                        invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->getCreateButtonDrawableId(I)I
-                        move-result v$register
-                        """
-                    )
-                }
-            }
-        }
-
-        hookToolBar("$GENERAL_CLASS_DESCRIPTOR->replaceCreateButton")
-
-        findMethodOrThrow(
-            "Lcom/google/android/apps/youtube/app/application/Shell_SettingsActivity;"
-        ) {
-            name == "onCreate"
-        }.addInstruction(
-            0,
-            "invoke-static {p0}, $GENERAL_CLASS_DESCRIPTOR->setShellActivityTheme(Landroid/app/Activity;)V"
-        )
 
         // endregion
 

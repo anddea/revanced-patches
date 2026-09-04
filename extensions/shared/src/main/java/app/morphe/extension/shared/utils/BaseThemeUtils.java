@@ -13,7 +13,7 @@ import android.view.Window;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 
-@SuppressWarnings({"unused", "SameReturnValue"})
+@SuppressWarnings({"deprecation", "unused", "SameReturnValue"})
 public class BaseThemeUtils {
     // Must initially be a non-valid enum ordinal value.
     private static int currentThemeValueOrdinal = -1;
@@ -22,6 +22,8 @@ public class BaseThemeUtils {
     private static int darkColor = Color.BLACK;
     @ColorInt
     private static int lightColor = Color.WHITE;
+
+    private static boolean changeForegroundColor = true;
 
     @Nullable
     private static Boolean isDarkModeEnabled;
@@ -84,6 +86,11 @@ public class BaseThemeUtils {
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
     }
 
+    /** Returns whether the host app has reported its forced light or dark appearance. */
+    public static boolean isAppThemeResolved() {
+        return isDarkModeEnabled != null;
+    }
+
     public static void setThemeColor() {
         setThemeLightColor(getThemeColor(getThemeLightColorResourceName(), Color.WHITE));
         setThemeDarkColor(getThemeColor(getThemeDarkColorResourceName(), Color.BLACK));
@@ -93,7 +100,7 @@ public class BaseThemeUtils {
      * Sets the theme light color used by the app.
      */
     public static void setThemeLightColor(@ColorInt int color) {
-        Logger.printDebug(() -> "Setting theme light color: " + getColorHexString(color));
+        // Logger.printDebug(() -> "Setting theme light color: " + getColorHexString(color));
         lightColor = color;
     }
 
@@ -101,7 +108,7 @@ public class BaseThemeUtils {
      * Sets the theme dark used by the app.
      */
     public static void setThemeDarkColor(@ColorInt int color) {
-        Logger.printDebug(() -> "Setting theme dark color: " + getColorHexString(color));
+        // Logger.printDebug(() -> "Setting theme dark color: " + getColorHexString(color));
         darkColor = color;
     }
 
@@ -180,14 +187,35 @@ public class BaseThemeUtils {
         return getAppForegroundColor(isDarkModeEnabled());
     }
 
+    /** Keeps extension foregrounds consistent with the host app's foreground-color setting. */
+    public static void setChangeForegroundColor(boolean enabled) {
+        changeForegroundColor = enabled;
+    }
+
+    /** Returns whether dark text remains readable on the supplied background color. */
+    private static boolean isBrightColor(@ColorInt int color) {
+        // Rec. 601 luma weights each channel according to human visual sensitivity.
+        final int luma = (299 * Color.red(color)
+                + 587 * Color.green(color)
+                + 114 * Color.blue(color)) / 1000;
+        return luma >= 128;
+    }
+
     /**
      * @return The current app foreground color.
      */
     @ColorInt
     public static int getAppForegroundColor(boolean isDarkModeEnabled) {
-        return isDarkModeEnabled
-                ? getThemeLightColor()
-                : getThemeDarkColor();
+        if (changeForegroundColor) {
+            return isDarkModeEnabled
+                    ? getThemeLightColor()
+                    : getThemeDarkColor();
+        }
+
+        final int backgroundColor = isDarkModeEnabled
+                ? getThemeDarkColor()
+                : getThemeLightColor();
+        return isBrightColor(backgroundColor) ? Color.BLACK : Color.WHITE;
     }
 
     @ColorInt
@@ -225,7 +253,7 @@ public class BaseThemeUtils {
     }
 
     /**
-     * Uses {@link #adjustColorBrightness(int, float)} depending if light or dark mode is active.
+     * Uses {@link #adjustColorBrightness(int, float)} depending on if light or dark mode is active.
      */
     @ColorInt
     public static int adjustColorBrightness(@ColorInt int baseColor, float lightThemeFactor, float darkThemeFactor) {

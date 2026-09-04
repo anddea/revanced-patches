@@ -1,6 +1,7 @@
 package app.morphe.patches.music.general.audiotracks
 
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
+import app.morphe.patches.music.utils.mainactivity.mainActivityFingerprint
 import app.morphe.patches.music.utils.patch.PatchList.FORCE_ORIGINAL_AUDIO
 import app.morphe.patches.music.utils.playservice.is_8_05_or_greater
 import app.morphe.patches.music.utils.playservice.is_9_26_or_greater
@@ -31,5 +32,7 @@ val audioTracksPatch = audioTracksPatch(
         updatePatchStatus(FORCE_ORIGINAL_AUDIO)
     },
     fixUseLocalizedAudioTrackFlag = { is_8_05_or_greater && !is_9_26_or_greater },
-    forcedServerAdaptiveStreaming = { is_9_26_or_greater }
+    forcedServerAdaptiveStreaming = { is_9_26_or_greater },
+    mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
+    subclassExtensionClassDescriptor = "Lapp/morphe/extension/music/patches/ForceOriginalAudioPatch;",
 )

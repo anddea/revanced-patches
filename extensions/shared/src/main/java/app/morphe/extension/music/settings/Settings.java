@@ -7,7 +7,12 @@ import static app.morphe.extension.music.sponsorblock.objects.CategoryBehaviour.
 import static app.morphe.extension.shared.settings.Setting.parent;
 import static app.morphe.extension.shared.utils.StringRef.str;
 
+import android.os.Build;
+
 import androidx.annotation.NonNull;
+
+import java.util.Collections;
+import java.util.List;
 
 import app.morphe.extension.music.patches.CrossfadeManager.CrossFadeDuration;
 import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
@@ -15,6 +20,7 @@ import app.morphe.extension.music.patches.general.ChangeStartPagePatch.StartPage
 import app.morphe.extension.music.patches.lyrics.LyricsSource;
 import app.morphe.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
 import app.morphe.extension.music.patches.utils.PatchStatus;
+import app.morphe.extension.music.patches.utils.DrawableColorPatch;
 import app.morphe.extension.music.sponsorblock.SponsorBlockSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.EnumSetting;
@@ -24,21 +30,34 @@ import app.morphe.extension.shared.settings.LongSetting;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.StringSetting;
-import app.morphe.extension.shared.settings.preference.SeekBarPreference;
-import app.morphe.extension.shared.settings.preference.SeekBarPreference.SeekBarConfig;
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {
+    /** Enables the notification-dot picker for every theme except Material You. */
+    private static Setting.Availability notificationDotColorAvailability() {
+        return new Setting.Availability() {
+            @Override
+            public boolean isAvailable() {
+                return !DARK_THEME.get().startsWith("material_you_");
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.singletonList(DARK_THEME);
+            }
+        };
+    }
+
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
             new EnumSetting<>("morphe_spoof_video_streams_client_type",
                     ClientType.VISIONOS_1_02, true, parent(SPOOF_VIDEO_STREAMS));
 
     // PreferenceScreen: Account
     public static final BooleanSetting HIDE_ACCOUNT_MENU = new BooleanSetting("revanced_hide_account_menu", FALSE);
-    public static final StringSetting HIDE_ACCOUNT_MENU_FILTER_STRINGS = new StringSetting("revanced_hide_account_menu_filter_strings", "");
+    public static final StringSetting HIDE_ACCOUNT_MENU_FILTER_STRINGS = new StringSetting("revanced_hide_account_menu_filter_strings", "", true);
     public static final BooleanSetting HIDE_ACCOUNT_MENU_EMPTY_COMPONENT = new BooleanSetting("revanced_hide_account_menu_empty_component", FALSE);
     public static final BooleanSetting HIDE_HANDLE = new BooleanSetting("revanced_hide_handle", TRUE, true);
     public static final BooleanSetting HIDE_TERMS_CONTAINER = new BooleanSetting("revanced_hide_terms_container", FALSE);
@@ -58,8 +77,6 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_ACTION_BUTTON_RADIO = new BooleanSetting("revanced_hide_action_button_radio", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_DISABLED = new BooleanSetting("revanced_hide_action_button_disabled", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_LABEL = new BooleanSetting("revanced_hide_action_button_label", FALSE, true);
-    public static final BooleanSetting EXTERNAL_DOWNLOADER_ACTION_BUTTON = new BooleanSetting("revanced_external_downloader_action", FALSE, true);
-    public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME = new StringSetting("revanced_external_downloader_package_name", "com.deniscerri.ytdl");
     public static final BooleanSetting REPLACE_ACTION_BUTTON_LIKE = new BooleanSetting("revanced_replace_action_button_like", FALSE, true);
     public static final BooleanSetting REPLACE_ACTION_BUTTON_LIKE_TYPE = new BooleanSetting("revanced_replace_action_button_like_type", FALSE, true);
 
@@ -112,7 +129,38 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting REPLACE_FLYOUT_MENU_REPORT_ONLY_PLAYER = new BooleanSetting("revanced_replace_flyout_menu_report_only_player", TRUE);
 
 
-    // PreferenceScreen: General
+    /** Precompiled presets work on Android 8+, while arbitrary colors require Android 11+. */
+    public static final StringSetting DARK_THEME = new StringSetting(
+            "morphe_dark_theme", DrawableColorPatch.DEFAULT_DARK_THEME, true);
+    /** Arbitrary runtime color, enabled for the Custom selector on Android 11+. */
+    public static final StringSetting DARK_THEME_CUSTOM_COLOR = new StringSetting(
+            "morphe_dark_theme_custom_color",
+            DrawableColorPatch.DEFAULT_DARK_THEME_CUSTOM_COLOR,
+            true,
+            new Setting.Availability() {
+                @Override
+                public boolean isAvailable() {
+                    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                            && DARK_THEME.isAvailable()
+                            && "custom".equals(DARK_THEME.get());
+                }
+
+                @Override
+                public boolean isVisible() {
+                    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                            && DARK_THEME.isVisible();
+                }
+
+                @Override
+                public List<Setting<?>> getParentSettings() {
+                    return Collections.singletonList(DARK_THEME);
+                }
+            });
+    public static final StringSetting NOTIFICATION_DOT_COLOR = new StringSetting(
+            "morphe_notification_dot_color",
+            DrawableColorPatch.DEFAULT_NOTIFICATION_DOT_COLOR,
+            true,
+            notificationDotColorAvailability());
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.DEFAULT, true);
     public static final BooleanSetting DISABLE_CAIRO_SPLASH_ANIMATION = new BooleanSetting("revanced_disable_cairo_splash_animation", FALSE, true);
     public static final BooleanSetting DISABLE_DISLIKE_REDIRECTION = new BooleanSetting("revanced_disable_dislike_redirection", FALSE);
@@ -138,7 +186,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_VOICE_SEARCH_BUTTON = new BooleanSetting("revanced_hide_voice_search_button", FALSE, true);
     public static final BooleanSetting REMOVE_VIEWER_DISCRETION_DIALOG = new BooleanSetting("revanced_remove_viewer_discretion_dialog", FALSE);
     public static final BooleanSetting RESTORE_OLD_STYLE_LIBRARY_SHELF = new BooleanSetting("revanced_restore_old_style_library_shelf", FALSE, true);
-    public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true);
+    public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version",
+            PatchStatus.SpoofAppVersionDefaultBoolean(), true);
     public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target",
             PatchStatus.SpoofAppVersionDefaultString(), true);
     public static final BooleanSetting SPOOF_APP_VERSION_FOR_LYRICS = new BooleanSetting("revanced_spoof_app_version_for_lyrics", FALSE, true);
@@ -164,7 +213,8 @@ public class Settings extends SharedYouTubeSettings {
     // PreferenceScreen: Player
     public static final BooleanSetting ADD_MINIPLAYER_NEXT_BUTTON = new BooleanSetting("revanced_add_miniplayer_next_button", TRUE, true);
     public static final BooleanSetting ADD_MINIPLAYER_PREVIOUS_BUTTON = new BooleanSetting("revanced_add_miniplayer_previous_button", TRUE, true);
-    public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_change_miniplayer_color", TRUE);
+    public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_change_miniplayer_color", FALSE);
+    public static final BooleanSetting CHANGE_NAVIGATION_BAR_COLOR = new BooleanSetting("revanced_music_change_navigation_bar_color", FALSE, true, parent(CHANGE_MINIPLAYER_COLOR));
     public static final BooleanSetting CHANGE_PLAYER_BACKGROUND_COLOR = new BooleanSetting("revanced_change_player_background_color", FALSE, true);
     public static final BooleanSetting CROSSFADE_ENABLED = new BooleanSetting("morphe_music_crossfade_enabled", FALSE, true);
     public static final EnumSetting<FadeCurve> CROSSFADE_CURVE = new EnumSetting<>("morphe_music_crossfade_curve", FadeCurve.EQUAL_POWER);
@@ -203,8 +253,12 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting LYRICS_TAP_TO_SEEK = new BooleanSetting("morphe_music_lyrics_tap_to_seek", TRUE, true, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_SHOW_COPY_BUTTON = new BooleanSetting("morphe_music_lyrics_show_copy_button", TRUE, true, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_SHOW_TRANSLATE_BUTTON = new BooleanSetting("morphe_music_lyrics_show_translate_button", TRUE, true, parent(LYRICS_ENABLED));
-    public static final IntegerSetting LYRICS_TEXT_SIZE = new IntegerSetting("morphe_music_lyrics_text_size", 24, true, parent(LYRICS_ENABLED));
-    public static final IntegerSetting LYRICS_OFFSET_MS = new IntegerSetting("morphe_music_lyrics_offset_ms", 0, true, parent(LYRICS_ENABLED));
+    public static final IntegerSetting LYRICS_TEXT_SIZE = new IntegerSetting(
+            "morphe_music_lyrics_text_size", 24, true,
+            new Setting.SliderConfig(14, 40, 1, "sp"), parent(LYRICS_ENABLED));
+    public static final IntegerSetting LYRICS_OFFSET_MS = new IntegerSetting(
+            "morphe_music_lyrics_offset_ms", 0, true,
+            new Setting.SliderConfig(-2_000, 2_000, 1, "ms"), parent(LYRICS_ENABLED));
 
     // PreferenceScreen: Video
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds", "0.5\n0.8\n1.0\n1.2\n1.5\n1.8\n2.0", true);
@@ -221,6 +275,9 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting CHANGE_SHARE_SHEET = new BooleanSetting("revanced_change_share_sheet", FALSE, true);
     public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
+    public static final BooleanSetting EXTERNAL_DOWNLOADER_ACTION_BUTTON = new BooleanSetting("revanced_external_downloader_action", FALSE, true);
+    public static final BooleanSetting EXTERNAL_DOWNLOADER_FLYOUT_MENU = new BooleanSetting("revanced_external_downloader_flyout_menu", FALSE, true, parent(EXTERNAL_DOWNLOADER_ACTION_BUTTON));
+    public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME = new StringSetting("revanced_external_downloader_package_name", "com.deniscerri.ytdl");
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_settings_import_export", FALSE, false);
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT =
             new BooleanSetting("morphe_spoof_video_streams_sign_in_android_vr_about", FALSE, false);
@@ -295,14 +352,6 @@ public class Settings extends SharedYouTubeSettings {
 
         // endregion
 
-        // region SeekBar preference registrations
-
-        SeekBarPreference.register(new SeekBarConfig(LYRICS_TEXT_SIZE,
-                14, 40, 2, "sp"));
-        SeekBarPreference.register(new SeekBarConfig(LYRICS_OFFSET_MS,
-                -2000, 2000, 100, "ms"));
-
-        // endregion
     }
 
     public static final String OPEN_DEFAULT_APP_SETTINGS = "revanced_default_app_settings";

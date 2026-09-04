@@ -1,11 +1,27 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.video.playback
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
-import app.morphe.patches.shared.mapping.ResourceType.LAYOUT
+import app.morphe.patcher.extensions.InstructionExtensions.instructionsOrNull
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
 import app.morphe.patches.shared.mapping.ResourceType.STRING
 import app.morphe.patches.shared.mapping.resourceLiteral
-import app.morphe.patcher.extensions.InstructionExtensions.instructionsOrNull
+import app.morphe.patches.youtube.video.information.VideoQualityChangedFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -14,13 +30,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal object deviceDimensionsModelToStringFingerprint : Fingerprint(
+internal object DeviceDimensionsModelToStringFingerprint : Fingerprint(
     returnType = "L",
     strings = listOf("minh.", ";maxh.")
 )
 
-internal object playbackSpeedChangedFromRecyclerViewFingerprint : Fingerprint(
-    classFingerprint = qualityChangedFromRecyclerViewFingerprint,
+internal object PlaybackSpeedChangedFromRecyclerViewFingerprint : Fingerprint(
+    classFingerprint = QualityChangedFromRecyclerViewFingerprint,
     returnType = "L",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
@@ -38,9 +54,28 @@ internal object playbackSpeedChangedFromRecyclerViewFingerprint : Fingerprint(
     }
 )
 
+internal object ModernPlaybackSpeedChangedFromRecyclerViewFingerprint : Fingerprint(
+    classFingerprint = VideoQualityChangedFingerprint,
+    returnType = "L",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("L"),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.INVOKE_INTERFACE,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET,
+        Opcode.INVOKE_VIRTUAL,
+    ),
+    custom = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.IGET &&
+                    getReference<FieldReference>()?.type == "F"
+        } >= 0
+    }
+)
+
 // Fingerprint for the METHOD that returns PlayerConfigModel
 private const val PCM_GETTER_FIELD_TYPE = "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;"
-internal object pcmGetterMethodFingerprint : Fingerprint(
+internal object PcmGetterMethodFingerprint : Fingerprint(
     returnType = PCM_GETTER_FIELD_TYPE,
     parameters = listOf(),
     filters = OpcodesFilter.opcodesToFilters(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT),
@@ -53,8 +88,8 @@ internal object pcmGetterMethodFingerprint : Fingerprint(
     }
 )
 
-internal object loadVideoParamsFingerprint : Fingerprint(
-    classFingerprint = loadVideoParamsParentFingerprint,
+internal object LoadVideoParamsFingerprint : Fingerprint(
+    classFingerprint = LoadVideoParamsParentFingerprint,
     returnType = "V",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
     parameters = listOf("L"),
@@ -66,13 +101,13 @@ internal object loadVideoParamsFingerprint : Fingerprint(
     )
 )
 
-internal object loadVideoParamsParentFingerprint : Fingerprint(
+internal object LoadVideoParamsParentFingerprint : Fingerprint(
     returnType = "Z",
     parameters = listOf("J"),
     strings = listOf("LoadVideoParams.playerListener = null")
 )
 
-internal object qualityChangedFromRecyclerViewFingerprint : Fingerprint(
+internal object QualityChangedFromRecyclerViewFingerprint : Fingerprint(
     returnType = "L",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
@@ -88,48 +123,69 @@ internal object qualityChangedFromRecyclerViewFingerprint : Fingerprint(
     }
 )
 
-internal object videoQualityMenuOptionsFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.STATIC),
-    returnType = "[L",
-    parameters = listOf("Landroid/content/Context", "L", "L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.CONST_4,
-        Opcode.CONST_4,
-        Opcode.IF_EQZ,
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_NEZ,
-    ) + resourceLiteral(STRING, "video_quality_quick_menu_advanced_menu_description")
-)
-
-internal object videoQualityMenuViewInflateFingerprint : Fingerprint(
+internal object ShowVideoQualityQuickMenuFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "L",
-    parameters = listOf("L", "L", "L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.INVOKE_SUPER,
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CONST_16,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-    ) + resourceLiteral(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
+    returnType = "V",
+    strings = listOf("VIDEO_QUALITIES_QUICK_MENU_BOTTOM_SHEET_FRAGMENT"),
+    filters = listOf(
+        opcode(Opcode.MOVE_RESULT),
+        opcode(
+            opcode = Opcode.IF_NEZ,
+            location = MatchAfterWithin(3)
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "getSupportFragmentManager",
+            location = MatchAfterWithin(3)
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            parameters = listOf("L", "Ljava/lang/String;"),
+            returnType = "V",
+            location = MatchAfterWithin(5)
+        )
+    )
 )
 
-internal object videoQualityItemOnClickParentFingerprint : Fingerprint(
+internal object ShortsQualityMenuFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("Z"),
+    returnType = "V",
+    filters = listOf(
+        resourceLiteral(STRING, "video_quality_unavailable_announcement")
+    )
+)
+
+internal object ShortsQualityConstructorFingerprint : Fingerprint(
+    classFingerprint = ShortsQualityMenuFingerprint,
+    name = "<init>",
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = "this"
+        )
+    )
+)
+
+internal object ShortsQualityChangeObserverPrimaryFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45387052)
+    )
+)
+
+internal object ShortsQualityChangeObserverSecondaryFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45399743)
+    )
+)
+
+internal object VideoQualityItemOnClickParentFingerprint : Fingerprint(
     returnType = "V",
     strings = listOf("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
 )
 
-internal object videoQualityItemOnClickFingerprint : Fingerprint(
-    classFingerprint = videoQualityItemOnClickParentFingerprint,
+internal object VideoQualityItemOnClickFingerprint : Fingerprint(
+    classFingerprint = VideoQualityItemOnClickParentFingerprint,
     returnType = "V",
     parameters = listOf(
         "Landroid/widget/AdapterView;",
@@ -142,7 +198,7 @@ internal object videoQualityItemOnClickFingerprint : Fingerprint(
     }
 )
 
-internal object vp9CapabilityFingerprint : Fingerprint(
+internal object Vp9CapabilityFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Z",
     strings = listOf(

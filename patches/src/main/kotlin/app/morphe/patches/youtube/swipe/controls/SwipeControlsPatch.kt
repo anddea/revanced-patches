@@ -20,6 +20,7 @@ import app.morphe.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_40_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.autoNavScrollCancelPadding
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -234,33 +235,52 @@ val swipeControlsPatch = bytecodePatch(
 
         // region patch for disable swipe to enter fullscreen mode (in the player) and disable swipe to exit fullscreen mode
 
-        playerGestureConfigSyntheticFingerprint.methodOrThrow().apply {
-            val disableSwipeToExitFullscreenModeIndex =
-                indexOfPlayerConfigModelBooleanInstruction(this)
-            val disableSwipeToEnterFullscreenModeInThePlayerIndex =
-                indexOfPlayerConfigModelBooleanInstruction(
-                    this,
-                    disableSwipeToExitFullscreenModeIndex + 1
-                )
-
-            mapOf(
-                disableSwipeToExitFullscreenModeIndex to "disableSwipeToExitFullscreenMode",
-                disableSwipeToEnterFullscreenModeInThePlayerIndex to "disableSwipeToEnterFullscreenModeInThePlayer"
-            ).forEach { (walkerIndex, methodName) ->
-                getWalkerMethod(walkerIndex).apply {
-                    val index = implementation!!.instructions.lastIndex
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                    addInstructions(
-                        index,
-                        """
-                            invoke-static {v$register}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->$methodName(Z)Z
-                            move-result v$register
-                            """
+        if (!is_21_04_or_greater) {
+            playerGestureConfigSyntheticFingerprint.methodOrThrow().apply {
+                val disableSwipeToExitFullscreenModeIndex =
+                    indexOfPlayerConfigModelBooleanInstruction(this)
+                val disableSwipeToEnterFullscreenModeInThePlayerIndex =
+                    indexOfPlayerConfigModelBooleanInstruction(
+                        this,
+                        disableSwipeToExitFullscreenModeIndex + 1
                     )
+
+                mapOf(
+                    disableSwipeToExitFullscreenModeIndex to "disableSwipeToExitFullscreenMode",
+                    disableSwipeToEnterFullscreenModeInThePlayerIndex to "disableSwipeToEnterFullscreenModeInThePlayer"
+                ).forEach { (walkerIndex, methodName) ->
+                    getWalkerMethod(walkerIndex).apply {
+                        val index = implementation!!.instructions.lastIndex
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                        addInstructions(
+                            index,
+                            """
+                                invoke-static {v$register}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->$methodName(Z)Z
+                                move-result v$register
+                                """
+                        )
+                    }
                 }
             }
         }
+
+        // endregion
+
+        // region patch for disable pinch-to-zoom gesture
+
+        VideoZoomScaleBeginFingerprint.method.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static {}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableZoomGesture()Z
+                move-result v0
+                if-eqz v0, :allow_zoom
+                const/4 v0, 0x0
+                return v0
+                :allow_zoom
+                nop
+            """
+        )
 
         // endregion
 

@@ -4,9 +4,14 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static app.morphe.extension.shared.settings.Setting.migrateOldSettingToNew;
 import static app.morphe.extension.shared.settings.Setting.parent;
+import static app.morphe.extension.shared.settings.Setting.parentInverted;
 
+import app.morphe.extension.shared.patches.PatchStatus;
+import app.morphe.extension.shared.patches.PoTokenProviderPatch.PoTokenProviderAvailability;
+import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.SpoofVideoStreamsAvailability;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.JavaScriptClientAvailability;
 import app.morphe.extension.shared.spoof.js.JavaScriptVariant;
+import app.morphe.extension.shared.patches.CustomBrandingPatch;
 
 /**
  * Settings shared by YouTube and YouTube Music.
@@ -15,20 +20,40 @@ import app.morphe.extension.shared.spoof.js.JavaScriptVariant;
  * or reference this class.
  */
 public class SharedYouTubeSettings extends BaseSettings {
-    public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("morphe_settings_search_history", TRUE, true);
-    public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("morphe_settings_search_entries", "");
+    /** Name shown for the RVX settings entry: a preset value or a name entered by the user. */
+    public static final StringSetting SETTINGS_NAME = new StringSetting(
+            "morphe_settings_name", "DEFAULT", true);
 
-    public static final BooleanSetting DISABLE_DRC_AUDIO = new BooleanSetting("morphe_disable_drc_audio", FALSE, true);
+    public static final StringSetting CUSTOM_BRANDING_ICON = new StringSetting(
+            "morphe_custom_branding_icon", CustomBrandingPatch.getDefaultIconStyle(), true);
 
-    public static final BooleanSetting DISABLE_QUIC_PROTOCOL = new BooleanSetting("morphe_disable_quic_protocol", FALSE, true);
+    public static final IntegerSetting CUSTOM_BRANDING_NAME = new IntegerSetting(
+            "morphe_custom_branding_name", CustomBrandingPatch.getDefaultAppNameIndex(), true);
+
+    /** Uses the selected animation as Android 12's native splash instead of the controllable overlay. */
+    public static final BooleanSetting CUSTOM_BRANDING_USE_AS_SYSTEM_SPLASH = new BooleanSetting(
+            "morphe_custom_branding_use_as_system_splash", FALSE, true);
+
+    /** Percentage applied to the selected custom splash drawable while its animation runs. */
+    public static final IntegerSetting CUSTOM_BRANDING_SPLASH_ANIMATION_SIZE = new IntegerSetting(
+            "morphe_custom_branding_splash_animation_size", 100, true,
+            new Setting.SliderConfig(25, 200, 5, "%"),
+            parentInverted(CUSTOM_BRANDING_USE_AS_SYSTEM_SPLASH));
+
+    public static final BooleanSetting CUSTOM_BRANDING_APPLY_TO_RVX_SETTINGS = new BooleanSetting(
+            "morphe_custom_branding_apply_to_rvx_settings", FALSE, true);
 
     public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("morphe_force_original_audio", TRUE, true);
-    public static final BooleanSetting OVERRIDE_INITIAL_VIDEO_QUALITY = new BooleanSetting("morphe_override_initial_video_quality", TRUE, true);
 
     public static final BooleanSetting LIVESTREAM_DVR = new BooleanSetting("morphe_livestream_dvr", FALSE, true);
     public static final BooleanSetting EXPAND_LIVESTREAM_DVR_DURATION = new BooleanSetting("morphe_expand_livestream_dvr_duration", FALSE, true);
 
-    public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("morphe_spoof_video_streams", TRUE, true, "morphe_spoof_video_streams_user_dialog_message");
+    public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting(
+            "morphe_spoof_video_streams",
+            PatchStatus.GmsCoreSupport() && !PatchStatus.PoTokenProvider(),
+            true,
+            "morphe_spoof_video_streams_user_dialog_message",
+            new SpoofVideoStreamsAvailability());
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_STATS_FOR_NERDS = new BooleanSetting("morphe_spoof_video_streams_stats_for_nerds", TRUE, parent(SPOOF_VIDEO_STREAMS));
     public static final EnumSetting<JavaScriptVariant> SPOOF_VIDEO_STREAMS_PLAYER_JS_VARIANT = new EnumSetting<>("morphe_spoof_video_streams_player_js_variant", JavaScriptVariant.HOUSE_BRAND, true,
             new JavaScriptClientAvailability());
@@ -37,13 +62,16 @@ public class SharedYouTubeSettings extends BaseSettings {
     public static final StringSetting OAUTH2_REFRESH_TOKEN = new StringSetting("morphe_oauth2_refresh_token", "", false, false);
     public static final StringSetting SPOOF_VIDEO_STREAMS_CLIENT_IDS = new StringSetting("morphe_spoof_video_streams_clent_id", "", false, false);
 
+    public static final BooleanSetting POTOKEN_PROVIDER = new BooleanSetting(
+            "morphe_potoken_provider",
+            PatchStatus.GmsCoreSupport() && PatchStatus.PoTokenProvider(),
+            true,
+            "morphe_external_potoken_provider_user_dialog_message",
+            new PoTokenProviderAvailability());
+
     public static final BooleanSetting SANITIZE_SHARING_LINKS = new BooleanSetting("morphe_sanitize_sharing_links", TRUE);
     public static final BooleanSetting REPLACE_MUSIC_LINKS_WITH_YOUTUBE = new BooleanSetting("morphe_replace_music_with_youtube", FALSE);
     public static final BooleanSetting REPLACE_LINKS_WITH_SHORTENER = new BooleanSetting("morphe_replace_links_with_shortener", FALSE);
-
-    public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("morphe_check_watch_history_domain_name", TRUE, false, false);
-
-    public static final StringSetting DISABLED_FEATURE_FLAGS = new StringSetting("morphe_disabled_feature_flags", "", true, parent(DEBUG));
 
     // Renamed settings
     private static final BooleanSetting DEPRECATED_REVANCED_SANITIZE_SHARING_LINKS = BaseSettings.SANITIZE_SHARING_LINKS;
