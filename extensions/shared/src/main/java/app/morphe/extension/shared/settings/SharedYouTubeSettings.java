@@ -78,6 +78,12 @@ public class SharedYouTubeSettings extends BaseSettings {
     private static final BooleanSetting DEPRECATED_SANITIZE_URL_QUERY = new BooleanSetting("morphe_sanitize_url_query", TRUE);
 
     static {
+        // Prioritize the PoToken provider on upgrades, including installs that already saved
+        // both settings as enabled. Otherwise, each setting disables the other's switch.
+        if (SPOOF_VIDEO_STREAMS.get() && POTOKEN_PROVIDER.get()) {
+            SPOOF_VIDEO_STREAMS.save(FALSE);
+        }
+
         // TODO: Eventually remove these migrations
         migrateOldSettingToNew(DEPRECATED_REVANCED_SANITIZE_SHARING_LINKS, SANITIZE_SHARING_LINKS);
         migrateOldSettingToNew(DEPRECATED_SANITIZE_URL_QUERY, SANITIZE_SHARING_LINKS);
