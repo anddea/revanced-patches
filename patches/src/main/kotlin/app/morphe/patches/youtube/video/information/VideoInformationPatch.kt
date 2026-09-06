@@ -815,62 +815,83 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
-        if (!is_21_04_or_greater) {
-            videoIdFingerprintShorts.matchOrThrow().let {
-                it.method.apply {
-                    val shortsPlaybackSpeedClassField = it.classDef.fields.find { field ->
-                        field.type == setPlaybackSpeedMethodReference.definingClass
-                    } ?: throw PatchException("Failed to find hook field")
+        videoIdFingerprintShorts.matchOrThrow().let {
+            it.method.apply {
+                val shortsPlaybackSpeedClassField = it.classDef.fields.find { field ->
+                    field.type == setPlaybackSpeedMethodReference.definingClass
+                } ?: throw PatchException("Failed to find hook field")
 
-                    val smaliInstructions =
+                val smaliInstructions = if (is_21_04_or_greater) {
+                    """
+                        invoke-static { }, $SHARED_PATH/RootView;->isShortsActive()Z
+                        move-result v0
+                        if-eqz v0, :regular
+                        sget-object v0, $EXTENSION_CLASS_DESCRIPTOR->playbackSpeedShortsClass:$definingClass
+                        if-eqz v0, :regular
+                        invoke-virtual { v0, p0 }, $definingClass->overridePlaybackSpeed(F)V
+                        return-void
+                        :regular
+                        nop
+                    """
+                } else {
+                    """
+                        if-eqz v0, :ignore
+                        invoke-virtual {v0, p0}, $definingClass->overridePlaybackSpeed(F)V
+                        :ignore
+                        return-void
                         """
-                            if-eqz v0, :ignore
-                            invoke-virtual {v0, p0}, $definingClass->overridePlaybackSpeed(F)V
-                            :ignore
-                            return-void
-                            """
+                }
 
-                    addStaticFieldToExtension(
-                        EXTENSION_CLASS_DESCRIPTOR,
-                        "overridePlaybackSpeed",
-                        "playbackSpeedShortsClass",
-                        definingClass,
-                        smaliInstructions
-                    )
-
-                    // add override playback speed method
-                    it.classDef.methods.add(
-                        ImmutableMethod(
-                            definingClass,
-                            "overridePlaybackSpeed",
-                            listOf(ImmutableMethodParameter("F", annotations, null)),
-                            "V",
-                            AccessFlags.PUBLIC or AccessFlags.PUBLIC,
-                            annotations,
-                            null,
-                            ImmutableMethodImplementation(
-                                3, """
-                                    # Check if the playback speed is not auto (-2.0f)
-                                    const/4 v0, 0x0
-                                    cmpg-float v0, v2, v0
-                                    if-lez v0, :ignore
-
-                                    # Get the container class field.
-                                    iget-object v0, v1, $shortsPlaybackSpeedClassField
-
-                                    # For some reason, in YouTube 19.44.39 this value is sometimes null.
-                                    if-eqz v0, :ignore
-
-                                    # Invoke setPlaybackSpeed on that class.
-                                    invoke-virtual {v0, v2}, $setPlaybackSpeedMethodReference
-
-                                    :ignore
-                                    return-void
-                                    """.toInstructions(), null, null
-                            )
-                        ).toMutable()
+                // On 21.04+, capture the fragment delivering the playback event. A controller
+                // captured globally from constructors can belong to another player instance.
+                if (is_21_04_or_greater) {
+                    addInstruction(
+                        0,
+                        "sput-object p0, $EXTENSION_CLASS_DESCRIPTOR->playbackSpeedShortsClass:$definingClass"
                     )
                 }
+
+                addStaticFieldToExtension(
+                    EXTENSION_CLASS_DESCRIPTOR,
+                    "overridePlaybackSpeed",
+                    "playbackSpeedShortsClass",
+                    definingClass,
+                    smaliInstructions,
+                    shouldAddConstructor = !is_21_04_or_greater
+                )
+
+                // add override playback speed method
+                it.classDef.methods.add(
+                    ImmutableMethod(
+                        definingClass,
+                        "overridePlaybackSpeed",
+                        listOf(ImmutableMethodParameter("F", annotations, null)),
+                        "V",
+                        AccessFlags.PUBLIC or AccessFlags.PUBLIC,
+                        annotations,
+                        null,
+                        ImmutableMethodImplementation(
+                            3, """
+                                # Check if the playback speed is not auto (-2.0f)
+                                const/4 v0, 0x0
+                                cmpg-float v0, v2, v0
+                                if-lez v0, :ignore
+
+                                # Get the container class field.
+                                iget-object v0, v1, $shortsPlaybackSpeedClassField
+
+                                # For some reason, in YouTube 19.44.39 this value is sometimes null.
+                                if-eqz v0, :ignore
+
+                                # Invoke setPlaybackSpeed on that class.
+                                invoke-virtual {v0, v2}, $setPlaybackSpeedMethodReference
+
+                                :ignore
+                                return-void
+                                """.toInstructions(), null, null
+                        )
+                    ).toMutable()
+                )
             }
         }
 

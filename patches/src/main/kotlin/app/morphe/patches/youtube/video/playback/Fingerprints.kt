@@ -212,3 +212,15 @@ internal object Vp9CapabilityFingerprint : Fingerprint(
         "video/x-vnd.on2.vp9"
     )
 )
+
+/**
+ * The 21.04+ load parameters override the legacy rate getter for the new player settings model.
+ * Both feature-flag branches must be hooked: one reads the legacy field, the other the rate model.
+ */
+internal object ModernLoadPlaybackSpeedFingerprint : Fingerprint(
+    returnType = "F",
+    parameters = emptyList(),
+    strings = listOf(
+        "null cannot be cast to non-null type com.google.android.libraries.youtube.player.settings.control.models.PlayerSettingModel.PlaybackRateSettingModel"
+    ),
+)

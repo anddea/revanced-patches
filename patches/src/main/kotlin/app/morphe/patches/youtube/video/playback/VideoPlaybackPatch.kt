@@ -55,6 +55,7 @@ import app.morphe.patches.youtube.video.information.VideoQualityChangedFingerpri
 import app.morphe.patches.youtube.video.quality.prioritizeVideoQualityPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
+import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.ResourceGroup
 import app.morphe.util.copyResources
 import app.morphe.util.findFreeRegister
@@ -176,7 +177,26 @@ val videoPlaybackPatch = bytecodePatch(
             }
         }
 
-        if (is_20_14_or_greater && !is_21_04_or_greater) {
+        if (is_21_04_or_greater) {
+            // Supply the rate when the media player loads the Short, before a speed menu or
+            // metadata callback is needed. Hook both returns for the player-settings flag.
+            ModernLoadPlaybackSpeedFingerprint.method.apply {
+                implementation!!.instructions.withIndex()
+                    .filter { it.value.opcode == Opcode.RETURN }
+                    .map { it.index }
+                    .reversed()
+                    .forEach { index ->
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+                        addInstructionsAtControlFlowLabel(
+                            index,
+                            """
+                            invoke-static { v$register }, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->getShortsPlaybackSpeed(F)F
+                            move-result v$register
+                            """
+                        )
+                    }
+            }
+        } else if (is_20_14_or_greater) {
             PcmGetterMethodFingerprint.classDef.let {
                 val targetMethod =
                     it.methods.find { method -> method.returnType == "F" && method.parameters.isEmpty() }

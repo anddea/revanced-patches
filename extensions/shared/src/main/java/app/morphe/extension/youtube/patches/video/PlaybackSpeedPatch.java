@@ -234,6 +234,25 @@ public class PlaybackSpeedPatch {
     }
 
     /**
+     * Injection point for the 21.04+ media player's load parameters. Shorts must receive their
+     * initial rate here because opening them directly does not initialize the regular speed menu.
+     * Use the opening player response rather than view attachment: on a cold start the Shorts
+     * view may not be attached yet. Shelf prefetches do not change lastVideoIdIsShort().
+     * Regular videos retain the rate supplied by YouTube and the regular-video speed hooks.
+     */
+    public static float getShortsPlaybackSpeed(float playbackSpeed) {
+        if (!VideoInformation.lastVideoIdIsShort()) {
+            return playbackSpeed;
+        }
+        float speed = DEFAULT_PLAYBACK_SPEED_SHORTS.get();
+        if (speed < 0) {
+            speed = lastSelectedShortsPlaybackSpeed;
+        }
+        VideoInformation.setPlaybackSpeed(speed);
+        return speed;
+    }
+
+    /**
      * Injection point.
      * This method is called every second for regular videos and Shorts.
      */
