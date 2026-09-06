@@ -271,13 +271,13 @@ public class GeminiUtils {
                             return;
 
                         case RETRY:
+                            if (requestSpec.streaming) {
+                                // Replace the failed attempt's preview before trying another key or model.
+                                postPartial(callback, "", "", attempt.model);
+                            }
                             lastError = result.errorMessage;
                             logRetry(attempt, normalizedApiKeys, modelIndex, result.errorMessage);
                             continue;
-
-                        case FAILURE:
-                            postFailure(callback, result.errorMessage);
-                            return;
 
                         case CANCELLED:
                             postFailure(callback, "Operation cancelled.");
@@ -392,7 +392,8 @@ public class GeminiUtils {
             @NonNull AttemptState attempt,
             @NonNull Callback callback
     ) {
-        boolean emittedPartial = false;
+        // EOF alone does not mean generation completed: the server must report STOP.
+        boolean completed = false;
         StringBuilder accumulatedText = new StringBuilder();
         String lastFailureMessage = "Stream ended before returning text.";
 
@@ -417,9 +418,9 @@ public class GeminiUtils {
                     if (line.isEmpty()) {
                         if (eventData.length() > 0) {
                             StreamEventResult eventResult = processStreamEvent(eventData.toString(), accumulatedText, attempt, callback);
-                            emittedPartial |= eventResult.emittedPartial;
+                            completed |= eventResult.completed;
                             if (eventResult.failureMessage != null) {
-                                lastFailureMessage = eventResult.failureMessage;
+                                return AttemptResult.retry(eventResult.failureMessage);
                             }
                             eventData.setLength(0);
                         }
@@ -433,32 +434,26 @@ public class GeminiUtils {
 
                 if (eventData.length() > 0) {
                     StreamEventResult eventResult = processStreamEvent(eventData.toString(), accumulatedText, attempt, callback);
-                    emittedPartial |= eventResult.emittedPartial;
+                    completed |= eventResult.completed;
                     if (eventResult.failureMessage != null) {
-                        lastFailureMessage = eventResult.failureMessage;
+                        return AttemptResult.retry(eventResult.failureMessage);
                     }
                 }
             }
 
-            if (accumulatedText.length() > 0) {
+            if (completed && accumulatedText.length() > 0) {
                 return AttemptResult.success(accumulatedText.toString());
             }
-            return AttemptResult.retry(lastFailureMessage);
+            return AttemptResult.retry(completed ? lastFailureMessage : "Stream ended without a STOP finish reason.");
         } catch (InterruptedException e) {
             Logger.printInfo(() -> "Gemini task explicitly cancelled.");
             Thread.currentThread().interrupt();
             return AttemptResult.cancelled();
         } catch (IOException e) {
             Logger.printException(() -> "Gemini streamed request IO failed (" + describeAttempt(attempt) + ")", e);
-            if (emittedPartial) {
-                return AttemptResult.failure();
-            }
             return AttemptResult.retry(e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error");
         } catch (JSONException e) {
             Logger.printException(() -> "Gemini streamed response parsing failed (" + describeAttempt(attempt) + ")", e);
-            if (emittedPartial) {
-                return AttemptResult.failure();
-            }
             return AttemptResult.retry("Failed to parse streamed response.");
         }
     }
@@ -513,12 +508,15 @@ public class GeminiUtils {
         if (deltaText.length() > 0) {
             accumulatedText.append(deltaText);
             postPartial(callback, deltaText.toString(), accumulatedText.toString(), attempt.model);
-            return StreamEventResult.partial();
         }
 
         if (firstCandidate.has("finishReason")) {
             String finishReason = firstCandidate.optString("finishReason", "");
-            if (!TextUtils.isEmpty(finishReason) && !"STOP".equals(finishReason) && !"MAX_TOKENS".equals(finishReason)) {
+            Logger.printInfo(() -> "GeminiUtils: Stream finish reason (" + describeAttempt(attempt) + "): " + finishReason);
+            if ("STOP".equals(finishReason)) {
+                return StreamEventResult.complete();
+            }
+            if (!TextUtils.isEmpty(finishReason)) {
                 String blockReason = extractBlockReason(jsonResponse);
                 return StreamEventResult.failure(blockReason != null ? "Content blocked: " + blockReason : finishReason);
             }
@@ -1009,7 +1007,6 @@ public class GeminiUtils {
     private enum AttemptStatus {
         SUCCESS,
         RETRY,
-        FAILURE,
         CANCELLED
     }
 
@@ -1027,19 +1024,15 @@ public class GeminiUtils {
             }
 
             @NonNull
-            private static AttemptResult failure() {
-                return new AttemptResult(AttemptStatus.FAILURE, null, "Stream interrupted after partial response.");
-            }
-
-            @NonNull
             private static AttemptResult cancelled() {
                 return new AttemptResult(AttemptStatus.CANCELLED, null, "Operation cancelled.");
             }
         }
 
-    private record StreamEventResult(boolean emittedPartial, @Nullable String failureMessage) {
+    /** Tracks terminal status independently of text, since the final chunk can contain both. */
+    private record StreamEventResult(boolean completed, @Nullable String failureMessage) {
         @NonNull
-            private static StreamEventResult partial() {
+            private static StreamEventResult complete() {
                 return new StreamEventResult(true, null);
             }
 
@@ -1068,6 +1061,8 @@ public class GeminiUtils {
 
         /**
          * Called when the Gemini API emits a streamed text chunk.
+         * <p>
+         * Empty text and accumulated text reset the preview when a streamed attempt is retried.
          *
          * @param partialText     The newly received delta text.
          * @param accumulatedText The full text accumulated so far.
