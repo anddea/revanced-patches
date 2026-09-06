@@ -1,3 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/2524
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.video.playback
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -25,6 +36,7 @@ import app.morphe.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.VIDEO_PLAYBACK
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_40_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
@@ -281,6 +293,16 @@ val videoPlaybackPatch = bytecodePatch(
         // endregion
 
         // region patch for show advanced video quality menu
+
+        if (is_20_40_or_greater) {
+            // Flag breaks opening advanced quality menu.
+            // Alternatively can be fixed by using a delay when simulating the UI click.
+            NewFlyoutMenuFeatureFlagFingerprint.matchAll().forEach {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index, false
+                )
+            }
+        }
 
         ShowVideoQualityQuickMenuFingerprint.matchAll().forEach {
             it.method.apply {

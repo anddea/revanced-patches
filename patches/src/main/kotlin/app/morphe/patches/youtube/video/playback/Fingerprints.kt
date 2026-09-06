@@ -123,6 +123,12 @@ internal object QualityChangedFromRecyclerViewFingerprint : Fingerprint(
     }
 )
 
+internal object NewFlyoutMenuFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45712556)
+    )
+)
+
 internal object ShowVideoQualityQuickMenuFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",

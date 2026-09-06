@@ -1,3 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.video;
 
 import android.support.v7.widget.RecyclerView;
@@ -70,10 +81,12 @@ public class AdvancedVideoQualityMenuPatch {
     }
 
     /**
-     * Injection point.
+     * Injection point.  Regular videos.
+     * <p>
+     * Regular video quality flyout.
      */
-    public static void onFlyoutMenuCreate(final RecyclerView recyclerView) {
-        if (!ADVANCED_VIDEO_QUALITY_MENU) return;
+    public static void onFlyoutMenuCreate(RecyclerView recyclerView) {
+        if (!Settings.ADVANCED_VIDEO_QUALITY_MENU.get()) return;
 
         recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
             try {
@@ -81,21 +94,21 @@ public class AdvancedVideoQualityMenuPatch {
                 if (!VideoQualityMenuFilter.isVideoQualityMenuVisible || recyclerView.getChildCount() == 0) {
                     return;
                 }
+                VideoQualityMenuFilter.isVideoQualityMenuVisible = false;
 
                 if (!(Utils.getParentView(recyclerView, 3) instanceof ViewGroup quickQualityViewParent)) {
                     return;
                 }
 
-                if (!(recyclerView.getChildAt(0) instanceof ViewGroup advancedQualityParentView)) {
+                if (!(recyclerView.getChildAt(0) instanceof ViewGroup firstChildGroup)) {
                     return;
                 }
 
-                if (advancedQualityParentView.getChildCount() < 4) {
+                if (firstChildGroup.getChildCount() < 4) {
                     return;
                 }
 
-                View advancedQualityView = advancedQualityParentView.getChildAt(3);
-                if (advancedQualityView == null) {
+                if (!(firstChildGroup.getChildAt(3) instanceof ViewGroup advancedQualityView)) {
                     return;
                 }
 
@@ -103,8 +116,6 @@ public class AdvancedVideoQualityMenuPatch {
 
                 // Click the "Advanced" quality menu to show the "old" quality menu.
                 advancedQualityView.callOnClick();
-
-                VideoQualityMenuFilter.isVideoQualityMenuVisible = false;
             } catch (Exception ex) {
                 Logger.printException(() -> "onFlyoutMenuCreate failure", ex);
             }
