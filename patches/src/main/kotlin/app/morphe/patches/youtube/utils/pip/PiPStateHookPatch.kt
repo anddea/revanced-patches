@@ -18,9 +18,11 @@ val pipStateHookPatch = bytecodePatch(
     dependsOn(versionCheckPatch)
 
     execute {
-        if (is_21_04_or_greater) return@execute
+        val pipFingerprint =
+            if (is_21_04_or_greater) pipPlaybackModernFingerprint
+            else pipPlaybackFingerprint
 
-        pipPlaybackFingerprint.matchOrThrow().let {
+        pipFingerprint.matchOrThrow().let {
             it.method.apply {
                 val insertIndex = it.instructionMatches.last().index
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA

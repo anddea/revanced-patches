@@ -16,3 +16,15 @@ internal val pipPlaybackFingerprint = legacyFingerprint(
         Opcode.IF_NEZ
     )
 )
+
+internal val pipPlaybackModernFingerprint = legacyFingerprint(
+    name = "pipPlaybackModernFingerprint",
+    returnType = "Lcom/google/common/util/concurrent/ListenableFuture;",
+    parameters = listOf("Landroid/view/View;"),
+    strings = listOf("Error entering picture and picture"),
+    opcodes = listOf(
+        Opcode.INVOKE_DIRECT,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_NEZ
+    )
+)
