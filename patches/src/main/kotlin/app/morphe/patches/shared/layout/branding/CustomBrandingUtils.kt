@@ -6,6 +6,7 @@
  *
  * Original author(s):
  * - anddea (https://github.com/anddea)
+ * - COOLak (https://github.com/COOLak)
  *
  * Licensed under the GNU General Public License v3.0.
  *

@@ -49,6 +49,7 @@ import app.morphe.patches.youtube.video.information.EXTENSION_PLAYBACK_SPEED_MEN
 import app.morphe.patches.youtube.video.information.InitializePlaybackSpeedValuesFingerprint
 import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.morphe.patches.youtube.video.information.hookVideoInformation
+import app.morphe.patches.youtube.video.information.onCreateHook
 import app.morphe.patches.youtube.video.information.speedSelectionInsertMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.information.VideoQualityChangedFingerprint
@@ -152,6 +153,8 @@ val videoPlaybackPatch = bytecodePatch(
         // endregion
 
         // region patch for default playback speed
+
+        onCreateHook(EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR, "newPlayerStarted")
 
         val newMethod = (if (is_21_04_or_greater) {
             ModernPlaybackSpeedChangedFromRecyclerViewFingerprint

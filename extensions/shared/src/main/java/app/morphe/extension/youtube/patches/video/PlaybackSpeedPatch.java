@@ -169,6 +169,16 @@ public class PlaybackSpeedPatch {
     }
 
     /**
+     * Injection point called when a new player controller is created.
+     * Re-arms speed initialization for a player reopening the same video.
+     */
+    public static void newPlayerStarted() {
+        userChangedSpeedForCurrentVideo = false;
+        newAudioStarted = true;
+        newVideoStarted = true;
+    }
+
+    /**
      * Injection point.
      * This method is used to reset the playback speed to 1.0 when a general video is started, whether it is a live stream, music, or whitelist.
      */
