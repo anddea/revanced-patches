@@ -15,6 +15,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.MISC_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS
@@ -27,10 +28,7 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findInstructionIndicesReversedOrThrow
-import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.fingerprint.originalMethodOrThrow
+import app.morphe.util.fingerprint.matchSingle
 import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.returnEarly
@@ -41,7 +39,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$MISC_PATH/BackgroundPlaybackPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "DEPRECATION")
 val backgroundPlaybackPatch = bytecodePatch(
     REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS.title,
     REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS.summary,
@@ -51,16 +49,17 @@ val backgroundPlaybackPatch = bytecodePatch(
     dependsOn(
         playerTypeHookPatch,
         settingsPatch,
+        resourceMappingPatch,
         versionCheckPatch,
     )
 
     execute {
 
         arrayOf(
-            backgroundPlaybackManagerFingerprint to "isBackgroundPlaybackAllowed",
-            backgroundPlaybackManagerShortsFingerprint to "isBackgroundShortsPlaybackAllowed",
+            BackgroundPlaybackManagerFingerprint to "isBackgroundPlaybackAllowed",
+            BackgroundPlaybackManagerShortsFingerprint to "isBackgroundShortsPlaybackAllowed",
         ).forEach { (fingerprint, extensionsMethod) ->
-            fingerprint.methodOrThrow().apply {
+            fingerprint.matchSingle().method.apply {
                 findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -76,7 +75,7 @@ val backgroundPlaybackPatch = bytecodePatch(
         }
 
         // Enable background playback option in YouTube settings
-        backgroundPlaybackSettingsFingerprint.originalMethodOrThrow().apply {
+        BackgroundPlaybackSettingsFingerprint.originalMethod.apply {
             val booleanCalls = instructions.withIndex().filter {
                 it.value.getReference<MethodReference>()?.returnType == "Z"
             }
@@ -88,7 +87,7 @@ val backgroundPlaybackPatch = bytecodePatch(
         }
 
         // Force allowing background play for Shorts.
-        shortsBackgroundPlaybackFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+        ShortsBackgroundPlaybackFeatureFlagFingerprint.matchSingle().method.insertLiteralOverride(
             SHORTS_BACKGROUND_PLAYBACK_FEATURE_FLAG,
             "$EXTENSION_CLASS_DESCRIPTOR->isBackgroundShortsPlaybackAllowed(Z)Z"
         )
@@ -96,10 +95,10 @@ val backgroundPlaybackPatch = bytecodePatch(
         // Fix PiP mode issue.
         if (is_19_34_or_greater) {
             arrayOf(
-                backgroundPlaybackManagerCairoFragmentPrimaryFingerprint,
-                backgroundPlaybackManagerCairoFragmentSecondaryFingerprint
+                BackgroundPlaybackManagerCairoFragmentPrimaryFingerprint,
+                BackgroundPlaybackManagerCairoFragmentSecondaryFingerprint,
             ).forEach { fingerprint ->
-                fingerprint.matchOrThrow(backgroundPlaybackManagerCairoFragmentParentFingerprint)
+                fingerprint.match(BackgroundPlaybackManagerCairoFragmentParentFingerprint.originalClassDef)
                     .let {
                         it.method.apply {
                             val insertIndex = it.instructionMatches.first().index + 4
@@ -114,9 +113,9 @@ val backgroundPlaybackPatch = bytecodePatch(
                     }
             }
 
-            pipInputConsumerFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+            PipInputConsumerFeatureFlagFingerprint.matchSingle().method.insertLiteralOverride(
                 PIP_INPUT_CONSUMER_FEATURE_FLAG,
-                "0x0"
+                false,
             )
         }
 

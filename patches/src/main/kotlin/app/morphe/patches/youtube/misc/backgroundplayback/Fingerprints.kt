@@ -12,28 +12,25 @@
 package app.morphe.patches.youtube.misc.backgroundplayback
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.literal
-import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-import app.morphe.patches.youtube.utils.resourceid.backgroundCategory
-import app.morphe.util.customLiteral
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
+import app.morphe.patcher.opcode
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal object AutomaticForegroundPlaybackResumeFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
-        literal(45770945L)
+        literal(45770945L),
     )
 )
 
 internal object AutomaticPlaybackPausedInFlyoutFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
-        literal(45741823L)
+        literal(45741823L),
     )
 )
 
@@ -41,7 +38,9 @@ internal object KidsBackgroundPlaybackPolicyControllerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = listOf("I", "L", "L"),
-    filters = OpcodesFilter.opcodesToFilters(
+    filters = listOf(
+        literal(5L),
+    ) + OpcodesFilter.opcodesToFilters(
         Opcode.CONST_4,
         Opcode.IF_NE,
         Opcode.SGET_OBJECT,
@@ -50,84 +49,63 @@ internal object KidsBackgroundPlaybackPolicyControllerFingerprint : Fingerprint(
         Opcode.CONST_4,
         Opcode.IF_NE,
         Opcode.IGET_OBJECT,
-    ),
-    custom = customLiteral { 5 }
+    )
 )
 
-internal val backgroundPlaybackManagerFingerprint = legacyFingerprint(
-    name = "backgroundPlaybackManagerFingerprint",
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L"),
-    opcodes = listOf(Opcode.AND_INT_LIT16),
-    literals = listOf(64657230L),
-)
-
-internal val backgroundPlaybackSettingsFingerprint = legacyFingerprint(
-    name = "backgroundPlaybackSettingsFingerprint",
-    returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ,
-        Opcode.IF_NEZ,
-        Opcode.GOTO
-    ),
-    literals = listOf(backgroundCategory),
-)
-
-internal val kidsBackgroundPlaybackPolicyControllerFingerprint = legacyFingerprint(
-    name = "kidsBackgroundPlaybackPolicyControllerFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("I", "L", "L"),
-    literals = listOf(5L),
-)
-
-internal val kidsBackgroundPlaybackPolicyControllerParentFingerprint = legacyFingerprint(
-    name = "kidsBackgroundPlaybackPolicyControllerParentFingerprint",
-    returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf(PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR),
-    customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.SGET_OBJECT
-                    && getReference<FieldReference>()?.name == "miniplayerRenderer"
-        } >= 0
-    }
-)
-
-internal val backgroundPlaybackManagerShortsFingerprint = legacyFingerprint(
-    name = "backgroundPlaybackManagerShortsFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+internal object BackgroundPlaybackManagerFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
     returnType = "Z",
     parameters = listOf("L"),
-    literals = listOf(151635310L),
+    filters = listOf(
+        opcode(Opcode.AND_INT_LIT16),
+        literal(64657230L),
+    )
 )
 
-internal val backgroundPlaybackManagerCairoFragmentParentFingerprint = legacyFingerprint(
-    name = "backgroundPlaybackManagerCairoFragmentParentFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal object BackgroundPlaybackSettingsFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Ljava/lang/String;",
+    parameters = emptyList(),
+    filters = listOf(
+        opcode(Opcode.INVOKE_VIRTUAL),
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately()),
+        opcode(Opcode.INVOKE_VIRTUAL, location = MatchAfterImmediately()),
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately()),
+        opcode(Opcode.IF_EQZ, location = MatchAfterImmediately()),
+        opcode(Opcode.IF_NEZ, location = MatchAfterImmediately()),
+        opcode(Opcode.GOTO, location = MatchAfterImmediately()),
+        resourceLiteral(ResourceType.STRING, "pref_background_and_offline_category"),
+    )
+)
+
+internal object BackgroundPlaybackManagerShortsFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    returnType = "Z",
+    parameters = listOf("L"),
+    filters = listOf(
+        literal(151635310L),
+        opcode(Opcode.IGET_BOOLEAN, location = MatchAfterWithin(8)),
+    )
+)
+
+internal object BackgroundPlaybackManagerCairoFragmentParentFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = emptyList(),
     strings = listOf("yt_android_settings"),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.definingClass != "Lcom/google/android/apps/youtube/app/settings/AboutPrefsFragment;"
     }
 )
 
 /**
- * Matches using the class found in [backgroundPlaybackManagerCairoFragmentParentFingerprint].
+ * Matches using the class found in [BackgroundPlaybackManagerCairoFragmentParentFingerprint].
  */
-internal val backgroundPlaybackManagerCairoFragmentPrimaryFingerprint = legacyFingerprint(
-    name = "backgroundPlaybackManagerCairoFragmentPrimaryFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal object BackgroundPlaybackManagerCairoFragmentPrimaryFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = emptyList(),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_SUPER,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,  // Method of [cairoFragmentConfigFingerprint]
@@ -136,18 +114,17 @@ internal val backgroundPlaybackManagerCairoFragmentPrimaryFingerprint = legacyFi
         Opcode.IGET_OBJECT,
         Opcode.CONST_4,
         Opcode.IPUT_OBJECT,
-    ),
+    )
 )
 
 /**
- * Matches using the class found in [backgroundPlaybackManagerCairoFragmentParentFingerprint].
+ * Matches using the class found in [BackgroundPlaybackManagerCairoFragmentParentFingerprint].
  */
-internal val backgroundPlaybackManagerCairoFragmentSecondaryFingerprint = legacyFingerprint(
-    name = "backgroundPlaybackManagerCairoFragmentSecondaryFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal object BackgroundPlaybackManagerCairoFragmentSecondaryFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = emptyList(),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_SUPER,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,  // Method of [cairoFragmentConfigFingerprint]
@@ -157,7 +134,7 @@ internal val backgroundPlaybackManagerCairoFragmentSecondaryFingerprint = legacy
         Opcode.IPUT_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.NEW_INSTANCE,
-    ),
+    )
 )
 
 internal const val PIP_INPUT_CONSUMER_FEATURE_FLAG = 45638483L
@@ -166,17 +143,19 @@ internal const val PIP_INPUT_CONSUMER_FEATURE_FLAG = 45638483L
  * Fix 'E/InputDispatcher: Window handle pip_input_consumer has no registered input channel'
  * Related with [ReVanced_Extended#2764](https://github.com/inotia00/ReVanced_Extended/issues/2764).
  */
-internal val pipInputConsumerFeatureFlagFingerprint = legacyFingerprint(
-    name = "pipInputConsumerFeatureFlagFingerprint",
-    literals = listOf(PIP_INPUT_CONSUMER_FEATURE_FLAG),
+internal object PipInputConsumerFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(PIP_INPUT_CONSUMER_FEATURE_FLAG),
+    )
 )
 
 internal const val SHORTS_BACKGROUND_PLAYBACK_FEATURE_FLAG = 45415425L
 
-internal val shortsBackgroundPlaybackFeatureFlagFingerprint = legacyFingerprint(
-    name = "shortsBackgroundPlaybackFeatureFlagFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal object ShortsBackgroundPlaybackFeatureFlagFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Z",
     parameters = emptyList(),
-    literals = listOf(SHORTS_BACKGROUND_PLAYBACK_FEATURE_FLAG),
+    filters = listOf(
+        literal(SHORTS_BACKGROUND_PLAYBACK_FEATURE_FLAG),
+    )
 )
