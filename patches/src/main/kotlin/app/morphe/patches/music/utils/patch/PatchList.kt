@@ -5,6 +5,10 @@ internal enum class PatchList(
     val summary: String,
     var included: Boolean? = false
 ) {
+    APP_REFRESH_RATE(
+        "App refresh rate",
+        "Adds an option to change the app refresh rate."
+    ),
     BITRATE_DEFAULT_VALUE(
         "Bitrate default value",
         "Sets the audio quality to 'Always High' when you first install the app."

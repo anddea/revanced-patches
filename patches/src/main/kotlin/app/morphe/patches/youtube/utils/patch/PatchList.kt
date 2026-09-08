@@ -5,6 +5,10 @@ internal enum class PatchList(
     val summary: String,
     var included: Boolean? = false
 ) {
+    APP_REFRESH_RATE(
+        "App refresh rate",
+        "Adds an option to change the app refresh rate."
+    ),
     ALTERNATIVE_THUMBNAILS(
         "Alternative thumbnails",
         "Adds options to replace video thumbnails using the DeArrow API or image captures from the video."

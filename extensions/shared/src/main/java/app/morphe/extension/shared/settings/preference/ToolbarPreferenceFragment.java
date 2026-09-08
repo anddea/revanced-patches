@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+import app.morphe.extension.shared.patches.BaseAppRefreshRatePatch;
 import app.morphe.extension.shared.settings.BaseHostActivity;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.Setting;
@@ -66,6 +67,12 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
 
                             // Fix the system navigation bar color for submenus.
                             BaseThemeUtils.setNavigationBarColor(preferenceScreenDialog.getWindow());
+
+                            // Set the refresh rate for submenus.
+                            BaseAppRefreshRatePatch.setWindowRefreshRate(
+                                    childScreen.getContext(),
+                                    preferenceScreenDialog.getWindow()
+                            );
 
                             // Fix edge-to-edge screen with Android 15 and YT 19.44+
                             // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets

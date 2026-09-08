@@ -1134,6 +1134,10 @@
             <app.morphe.extension.youtube.settings.preference.WatchHistoryStatusPreference android:title="@string/revanced_watch_history_about_title" />
         </PreferenceScreen>SETTINGS: WATCH_HISTORY -->
 
+        <!-- SETTINGS: APP_REFRESH_RATE
+        <app.morphe.extension.shared.settings.preference.AppRefreshRateListPreference android:title="@string/morphe_app_refresh_rate_title" android:key="morphe_app_refresh_rate" />
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/morphe_app_refresh_rate_type_entries" android:title="@string/morphe_app_refresh_rate_type_title" android:key="morphe_app_refresh_rate_type" android:entryValues="@array/morphe_app_refresh_rate_type_entry_values" />SETTINGS: APP_REFRESH_RATE -->
+
         <!-- SETTINGS: BYPASS_URL_REDIRECTS
         <SwitchPreference android:title="@string/revanced_bypass_url_redirects_title" android:key="revanced_bypass_url_redirects" android:summaryOn="@string/revanced_bypass_url_redirects_summary_on" android:summaryOff="@string/revanced_bypass_url_redirects_summary_off" />SETTINGS: BYPASS_URL_REDIRECTS -->
 

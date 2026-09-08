@@ -11,6 +11,8 @@ import app.morphe.extension.shared.patches.PoTokenProviderPatch.PoTokenProviderA
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.SpoofVideoStreamsAvailability;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.JavaScriptClientAvailability;
 import app.morphe.extension.shared.spoof.js.JavaScriptVariant;
+import app.morphe.extension.shared.patches.BaseAppRefreshRatePatch.AppRefreshType;
+import app.morphe.extension.shared.patches.BaseAppRefreshRatePatch.RefreshRateType;
 import app.morphe.extension.shared.patches.CustomBrandingPatch;
 
 /**
@@ -72,6 +74,9 @@ public class SharedYouTubeSettings extends BaseSettings {
     public static final BooleanSetting SANITIZE_SHARING_LINKS = new BooleanSetting("morphe_sanitize_sharing_links", TRUE);
     public static final BooleanSetting REPLACE_MUSIC_LINKS_WITH_YOUTUBE = new BooleanSetting("morphe_replace_music_with_youtube", FALSE);
     public static final BooleanSetting REPLACE_LINKS_WITH_SHORTENER = new BooleanSetting("morphe_replace_links_with_shortener", FALSE);
+
+    public static final StringSetting APP_REFRESH_RATE = new StringSetting("morphe_app_refresh_rate", "DEFAULT", true);
+    public static final EnumSetting<AppRefreshType> APP_REFRESH_RATE_TYPE = new EnumSetting<>("morphe_app_refresh_rate_type", AppRefreshType.ALWAYS, true, new RefreshRateType());
 
     // Renamed settings
     private static final BooleanSetting DEPRECATED_REVANCED_SANITIZE_SHARING_LINKS = BaseSettings.SANITIZE_SHARING_LINKS;
