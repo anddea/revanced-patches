@@ -302,6 +302,24 @@ val toolBarComponentsPatch = bytecodePatch(
             }
         }
 
+        searchResultFingerprint.methodOrThrow().apply {
+            addInstruction(
+                0,
+                "invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->setSearchBarBackButtonActive()V"
+            )
+
+            findInstructionIndicesReversedOrThrow {
+                opcode == Opcode.RETURN_OBJECT
+            }.forEach { returnIndex ->
+                val viewRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+
+                addInstruction(
+                    returnIndex,
+                    "invoke-static {v$viewRegister}, $GENERAL_CLASS_DESCRIPTOR->setSearchBarBackButtonView(Landroid/view/View;)V"
+                )
+            }
+        }
+
         SearchBarBackButtonOnExitFingerprint.method.addInstruction(
             0,
             "invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->clearSearchBarBackButtonView()V"
@@ -309,6 +327,17 @@ val toolBarComponentsPatch = bytecodePatch(
 
         SearchBarBackButtonOnResumeFingerprint.match(
             searchBarParentFingerprint.mutableClassOrThrow()
+        ).method.apply {
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_SUPER) + 1
+
+            addInstruction(
+                insertIndex,
+                "invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->setSearchBarBackButtonActive()V"
+            )
+        }
+
+        SearchResultsBackButtonOnResumeFingerprint.match(
+            searchResultFingerprint.mutableClassOrThrow()
         ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_SUPER) + 1
 

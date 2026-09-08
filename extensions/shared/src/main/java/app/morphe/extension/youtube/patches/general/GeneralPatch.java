@@ -118,6 +118,7 @@ import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.WeakHashMap;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
@@ -1546,6 +1547,8 @@ public class GeneralPatch {
     private static final int SEARCH_BAR_BACK_BUTTON_SPACER_WIDTH_DIP = 8;
     private static final Map<View, SearchBarBackButtonState> searchBarBackButtonStates =
             Collections.synchronizedMap(new WeakHashMap<>());
+    private static final Set<View> searchBarViews =
+            Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap<>()));
     private static volatile WeakReference<ViewGroup> searchBarBackButtonToolbarRef = new WeakReference<>(null);
     private static volatile WeakReference<View> searchBarBackButtonViewRef = new WeakReference<>(null);
     private static volatile boolean searchBarBackButtonActive;
@@ -1614,15 +1617,38 @@ public class GeneralPatch {
     }
 
     public static void setSearchBarBackButtonView(View view) {
+        if (view != null && searchBarViews.add(view)) {
+            view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+                @Override
+                public void onViewAttachedToWindow(@NonNull View v) {
+                    if (searchBarBackButtonActive) {
+                        applySearchBarBackButtonSpacing(searchBarBackButtonToolbarRef.get(), null);
+                    }
+                }
+
+                @Override
+                public void onViewDetachedFromWindow(@NonNull View v) {
+                    searchBarViews.remove(v);
+                    if (searchBarViews.isEmpty()) {
+                        searchBarBackButtonActive = false;
+                        searchBarBackButtonViewRef = new WeakReference<>(null);
+                        restoreSearchBarBackButtonSpacing(searchBarBackButtonToolbarRef.get());
+                    }
+                }
+            });
+        }
         searchBarBackButtonViewRef = new WeakReference<>(view);
         searchBarBackButtonActive = true;
         applySearchBarBackButtonSpacing(searchBarBackButtonToolbarRef.get(), null);
     }
 
     public static void clearSearchBarBackButtonView() {
-        searchBarBackButtonActive = false;
-        searchBarBackButtonViewRef = new WeakReference<>(null);
-        restoreSearchBarBackButtonSpacing(searchBarBackButtonToolbarRef.get());
+        if (searchBarViews.size() <= 1) {
+            searchBarBackButtonActive = false;
+            searchBarBackButtonViewRef = new WeakReference<>(null);
+            searchBarViews.clear();
+            restoreSearchBarBackButtonSpacing(searchBarBackButtonToolbarRef.get());
+        }
     }
 
     private static boolean isSearchBarBackButtonActive() {
@@ -1630,8 +1656,20 @@ public class GeneralPatch {
             return false;
         }
 
-        View view = searchBarBackButtonViewRef.get();
-        return view == null || view.isShown() || view.getWindowToken() != null;
+        if (searchBarViews.isEmpty()) {
+            View view = searchBarBackButtonViewRef.get();
+            return view == null || view.isShown() || view.getWindowToken() != null;
+        }
+
+        synchronized (searchBarViews) {
+            for (View view : searchBarViews) {
+                if (view != null && (view.isShown() || view.getWindowToken() != null || view.isAttachedToWindow())) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private static ImageButton getToolbarNavigationButton(ViewGroup toolbar, Drawable navigationIcon) {

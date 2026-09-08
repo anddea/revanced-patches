@@ -333,6 +333,13 @@ internal object SearchBarBackButtonOnResumeFingerprint : Fingerprint(
     }
 )
 
+internal object SearchResultsBackButtonOnResumeFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    strings = listOf("suggest"),
+)
+
 internal object AppCompatToolbarNavigationIconSetterFingerprint : Fingerprint(
     definingClass = "Landroid/support/v7/widget/Toolbar;",
     accessFlags = listOf(AccessFlags.PUBLIC),
