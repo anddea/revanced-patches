@@ -69,6 +69,7 @@ import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.utils.AlwaysRepeatPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.morphe.extension.youtube.patches.video.PlaybackSpeedPatch;
+import app.morphe.extension.youtube.patches.voiceovertranslation.GoogleVoiceOverTranslationPatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.utils.VideoUtils;
 
@@ -268,7 +269,10 @@ public final class VideoInformation {
             Logger.printDebug(() -> "Seeking to: " + getFormattedTimeStamp(adjustedSeekTime));
 
             // Try regular playback controller first, and it will not succeed if casting.
-            if (overrideVideoTime(adjustedSeekTime)) return true;
+            if (overrideVideoTime(adjustedSeekTime)) {
+                GoogleVoiceOverTranslationPatch.onVideoSeeked();
+                return true;
+            }
             Logger.printDebug(() -> "seekTo did not succeeded. Trying MXD.");
             // Else the video is loading or changing videos, or video is casting to a different device.
 
@@ -281,7 +285,9 @@ public final class VideoInformation {
                 return false;
             }
 
-            return overrideMDXVideoTime(adjustedSeekTime);
+            final boolean mdxSeekSuccessful = overrideMDXVideoTime(adjustedSeekTime);
+            if (mdxSeekSuccessful) GoogleVoiceOverTranslationPatch.onVideoSeeked();
+            return mdxSeekSuccessful;
         } catch (Exception ex) {
             Logger.printException(() -> "Failed to seek", ex);
             return false;

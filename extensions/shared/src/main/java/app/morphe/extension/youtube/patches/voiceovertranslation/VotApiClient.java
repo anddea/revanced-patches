@@ -40,6 +40,34 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Userscript protocol behavior ported from ilyhalight/voice-over-translation.
+ * https://github.com/ilyhalight/voice-over-translation
+ *
+ * MIT License
+ * 
+ * Copyright (c) 2021 [sodapng](https://github.com/sodapng/voice-over-translation)
+ * Copyright (c) 2022-present ilyhalight
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package app.morphe.extension.youtube.patches.voiceovertranslation;
 
 import androidx.annotation.NonNull;
@@ -84,13 +112,13 @@ public class VotApiClient {
             Pattern.compile("\\bproxyWorkerHost\\s*=\\s*[\"']([^\"']+)[\"']");
 
     private static final String HMAC_KEY = "bt8xH3VOlb4mqf0nqAibnDOoiPlXsisf";
-    private static final String COMPONENT_VERSION = "26.6.4.760";
+    private static final String COMPONENT_VERSION = "26.8.1.1024";
     private static final String VOT_MODULE = "video-translation";
     private static final double DEFAULT_DURATION = 310.0;
 
     private static final String USER_AGENT =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
-            "(KHTML, like Gecko) Chrome/148.0.0.0 YaBrowser/26.6.0.0 Safari/537.36";
+            "(KHTML, like Gecko) Chrome/150.0.0.0 YaBrowser/26.8.0.0 Safari/537.36";
 
     private static final int CONNECT_TIMEOUT_MS = 15000;
     private static final int READ_TIMEOUT_MS = 30000;
@@ -98,6 +126,7 @@ public class VotApiClient {
     private static String sessionUuid = null;
     private static String sessionSecretKey = null;
     private static long sessionExpires = 0;
+    private static String sessionHost = null;
     private static final ReentrantLock sessionLock = new ReentrantLock();
 
     /** Translation results are reusable while the worker's generated audio remains fresh. */
@@ -136,7 +165,7 @@ public class VotApiClient {
         boolean isCancelled();
 
         /**
-         * Called when translation audio is ready (STATUS_FINISHED or STATUS_PART_CONTENT
+         * Called when complete translation audio is ready (STATUS_FINISHED
          * with a non-empty audioUrl).
          */
         void onAudioReady(TranslationResult result);
@@ -262,7 +291,7 @@ public class VotApiClient {
 
             int status = result.status();
 
-            if (status == STATUS_FINISHED || status == STATUS_PART_CONTENT) {
+            if (status == STATUS_FINISHED) {
                 if (result.audioUrl() != null && !result.audioUrl().isEmpty()) {
                     handler.onAudioReady(result);
                     return result;
@@ -284,7 +313,9 @@ public class VotApiClient {
             }
 
             int waitSeconds1 = result.remainingTime() > 0 ? result.remainingTime() : 5;
-            if (status == STATUS_WAITING || status == STATUS_LONG_WAITING) {
+            // PART_CONTENT can contain only the first 600 seconds. Keep polling because
+            // MediaPlayer cannot replace a partial file seamlessly as the rest is generated.
+            if (status == STATUS_WAITING || status == STATUS_LONG_WAITING || status == STATUS_PART_CONTENT) {
                 waitSeconds = pollDelaySeconds(waitSeconds1);
                 final int nextPollDelaySeconds = waitSeconds;
                 Logger.printDebug(() -> "VOT poll #" + pollNumber
@@ -539,7 +570,8 @@ public class VotApiClient {
                     if (ensureSession()) continue;
                 }
 
-                if (result.status() == STATUS_FINISHED || result.status() == STATUS_PART_CONTENT) {
+                // Never cache partial audio: a cache hit would prevent polling the completed result.
+                if (result.status() == STATUS_FINISHED) {
                     translationCache.put(cacheKey, new CachedResult(result, System.currentTimeMillis()));
                 }
                 return result;
@@ -695,16 +727,32 @@ public class VotApiClient {
             @NonNull byte[] body,
             @Nullable String oauthToken
     ) throws IOException {
-        if (!ensureSession()) return false;
-
+        // The userscript retries the same encoded chunk twice without downloading it again.
         String path = "/video-translation/audio";
-        return sendWorkerRequest(path, body, getVtransHeaders(path, body, oauthToken), "PUT") != null;
+        for (int attempt = 0; attempt <= 2; attempt++) {
+            try {
+                if (ensureSession() && sendWorkerRequest(path, body,
+                        getVtransHeaders(path, body, oauthToken), "PUT") != null) return true;
+            } catch (IOException e) {
+                if (attempt == 2) throw e;
+                Logger.printInfo(() -> "VOT audio upload: network failure; retrying the same chunk", e);
+            }
+            if (attempt < 2) {
+                final int retry = attempt + 1;
+                Logger.printInfo(() -> "VOT audio upload: retry " + retry + "/2 after 1500ms");
+                try {
+                    Thread.sleep(1500);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    throw new IOException("Audio upload interrupted", e);
+                }
+            }
+        }
+        return false;
     }
 
     /**
-     * Creates a Yandex session through the configured worker. Newer workers forward the
-     * Ya-summary session headers, while older workers expect the body-signature form.
-     * Accepting both keeps the manually selected worker host compatible across protocol revisions.
+     * Creates a Yandex session through the configured worker.
      */
     private static boolean createSession() {
         String uuid = generateUuid();
@@ -712,17 +760,13 @@ public class VotApiClient {
         byte[] body = VotProtobuf.encodeSessionRequest(uuid, VOT_MODULE);
 
         try {
-            Map<String, String> summaryHeaders = getSessionHeaders(uuid, path);
-            byte[] responseBytes = sendWorkerRequest(path, body, summaryHeaders, "POST");
+            Map<String, String> headers = new LinkedHashMap<>();
+            headers.put("Content-Type", "application/x-protobuf");
+            headers.put("Accept", "application/x-protobuf");
+            headers.put("User-Agent", USER_AGENT);
+            headers.put("Vtrans-Signature", computeHmacHex(body));
+            byte[] responseBytes = sendWorkerRequest(path, body, headers, "POST");
             VotProtobuf.SessionResponse sessionResponse = decodeValidSessionResponse(responseBytes);
-
-            if (sessionResponse == null) {
-                Logger.printDebug(() -> "VOT createSession: summary session request was not accepted; retrying legacy headers");
-                Map<String, String> legacyHeaders = getVtransHeaders(
-                        path, body, uuid, null, null);
-                responseBytes = sendWorkerRequest(path, body, legacyHeaders, "POST");
-                sessionResponse = decodeValidSessionResponse(responseBytes);
-            }
 
             if (sessionResponse == null) {
                 Logger.printDebug(() -> "VOT createSession: empty or invalid session response");
@@ -749,23 +793,6 @@ public class VotApiClient {
             Logger.printException(() -> "VOT createSession failed", e);
             return false;
         }
-    }
-
-    @NonNull
-    private static Map<String, String> getSessionHeaders(
-            @NonNull String uuid,
-            @NonNull String path
-    ) {
-        String tokenData = uuid + ":" + path + ":" + COMPONENT_VERSION;
-        String tokenSignature = computeHmacHex(tokenData.getBytes(StandardCharsets.UTF_8));
-
-        Map<String, String> headers = new LinkedHashMap<>();
-        headers.put("Accept", "application/x-protobuf");
-        headers.put("Content-Type", "application/x-protobuf");
-        headers.put("User-Agent", USER_AGENT);
-        headers.put("X-Ya-Summary-Token", tokenSignature + ":" + tokenData);
-        headers.put("X-Ya-Summary-Sk", "");
-        return headers;
     }
 
     @NonNull
@@ -823,13 +850,15 @@ public class VotApiClient {
         sessionLock.lock();
         try {
             long now = System.currentTimeMillis() / 1000;
-            if (sessionSecretKey != null && !sessionSecretKey.isEmpty() && now < sessionExpires) {
+            if (getApiHost().equals(sessionHost) && sessionSecretKey != null && !sessionSecretKey.isEmpty() && now < sessionExpires) {
                 return true;
             }
             sessionUuid = null;
             sessionSecretKey = null;
             sessionExpires = 0;
-            return createSession();
+            boolean created = createSession();
+            if (created) sessionHost = getApiHost();
+            return created;
         } finally {
             sessionLock.unlock();
         }
@@ -887,7 +916,7 @@ public class VotApiClient {
             @NonNull Map<String, String> headers,
             @NonNull String method
     ) throws IOException {
-        String workerHost = getWorkerHost();
+        String workerHost = getApiHost();
         String workerUrl = "https://" + workerHost + path;
         Logger.printDebug(() -> "VOT sendWorkerRequest: " + method + " " + workerUrl);
 
@@ -896,22 +925,31 @@ public class VotApiClient {
             connection.setRequestMethod(method);
             // These are the headers for the outer worker request. The Yandex headers are
             // serialized inside the JSON envelope by writeBinaryWorkerRequest().
-            connection.setRequestProperty("Content-Type", "application/json");
+            boolean proxy = Settings.VOT_AUDIO_PROXY_ENABLED.get();
+            connection.setRequestProperty("Content-Type", proxy ? "application/json" : "application/x-protobuf");
+            if (!proxy) {
+                for (Map.Entry<String, String> header : headers.entrySet()) {
+                    connection.setRequestProperty(header.getKey(), header.getValue());
+                }
+            }
             connection.setRequestProperty("Accept", "application/x-protobuf");
             connection.setRequestProperty("User-Agent", USER_AGENT);
             connection.setConnectTimeout(CONNECT_TIMEOUT_MS);
             connection.setReadTimeout(READ_TIMEOUT_MS);
             connection.setDoOutput(true);
-            connection.setChunkedStreamingMode(32 * 1024);
+            if (proxy) connection.setChunkedStreamingMode(32 * 1024);
+            else connection.setFixedLengthStreamingMode(body.length);
 
             try (OutputStream os = connection.getOutputStream()) {
-                writeBinaryWorkerRequest(os, body, headers);
+                if (proxy) writeBinaryWorkerRequest(os, body, headers);
+                else os.write(body);
             }
 
             int responseCode = connection.getResponseCode();
             if (responseCode != 200) {
-                Logger.printDebug(() -> "VOT sendWorkerRequest: " + workerUrl
-                        + " returned " + responseCode);
+                Logger.printInfo(() -> "VOT API request: " + workerUrl
+                        + " returned HTTP " + responseCode + ", protobuf bytes=" + body.length
+                        + ", transport=" + (proxy ? "worker JSON byte array" : "direct protobuf"));
                 return null;
             }
 
@@ -923,13 +961,15 @@ public class VotApiClient {
     }
 
     private static void sendWorkerJsonRequest(String path, String jsonBody) throws IOException {
-        String workerHost = getWorkerHost();
+        String workerHost = getApiHost();
         String workerUrl = "https://" + workerHost + path;
         Map<String, String> headers = new LinkedHashMap<>();
         headers.put("User-Agent", USER_AGENT);
         headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
-        byte[] payloadBytes = wrapJsonWorkerRequest(jsonBody, headers);
+        boolean proxy = Settings.VOT_AUDIO_PROXY_ENABLED.get();
+        byte[] payloadBytes = proxy ? wrapJsonWorkerRequest(jsonBody, headers)
+                : jsonBody.getBytes(StandardCharsets.UTF_8);
 
         HttpURLConnection connection = (HttpURLConnection) new URL(workerUrl).openConnection();
         try {
@@ -953,6 +993,12 @@ public class VotApiClient {
         } finally {
             connection.disconnect();
         }
+    }
+
+    /** Session, translation and audio requests must use the same transport and host. */
+    @NonNull
+    private static String getApiHost() {
+        return Settings.VOT_AUDIO_PROXY_ENABLED.get() ? getWorkerHost() : "api.browser.yandex.ru";
     }
 
     @NonNull

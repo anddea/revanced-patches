@@ -84,6 +84,16 @@ public class CustomDialogListPreference extends ListPreference {
     public static final int LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED =
             ResourceUtils.getLayoutIdentifier("revanced_custom_list_item_checked");
 
+    public static final int ID_MORPHE_CHECK_ICON = ID_REVANCED_CHECK_ICON;
+    public static final int ID_MORPHE_CHECK_ICON_PLACEHOLDER = ID_REVANCED_CHECK_ICON_PLACEHOLDER;
+    public static final int ID_MORPHE_ITEM_TEXT = ID_REVANCED_ITEM_TEXT;
+    public static final int LAYOUT_MORPHE_CUSTOM_LIST_ITEM_CHECKED = LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED;
+
+    public static final int DRAWABLE_CHECKMARK =
+            ResourceUtils.getDrawableIdentifier("yt_outline_check_black_24");
+    public static final int DRAWABLE_CHECKMARK_BOLD =
+            ResourceUtils.getDrawableIdentifier("yt_outline_experimental_check_vd_theme_24");
+
     private String staticSummary = null;
     private CharSequence[] highlightedEntriesForDialog = null;
 

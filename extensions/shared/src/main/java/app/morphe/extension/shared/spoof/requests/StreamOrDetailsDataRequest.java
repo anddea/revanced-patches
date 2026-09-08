@@ -2,9 +2,11 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
  *
- * Copyright (C) 2026 anddea (https://github.com/anddea)
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to Morphe contributions.
  */
 
 package app.morphe.extension.shared.spoof.requests;
@@ -147,6 +149,22 @@ public class StreamOrDetailsDataRequest {
                 fetch(endpoint, videoId, isInline, playerHeaders, clientStreamOrderOverride));
     }
 
+    /**
+     * Fetches one download candidate without replacing the playback cache or selecting a
+     * playback client. The caller owns fallback because a valid URL can still return HTTP 403.
+     */
+    @Nullable
+    public static StreamData fetchDownloadStream(String videoId, ClientType clientType,
+                                                 Map<String, String> playerHeaders) {
+        HttpURLConnection connection = send(clientType, videoId, playerHeaders, false, true);
+        try {
+            Object response = buildPlayerStreamOrDetailsResponse(clientType, connection, videoId, false, true);
+            return response instanceof StreamData ? (StreamData) response : null;
+        } finally {
+            if (connection != null) connection.disconnect();
+        }
+    }
+
     public static void fetchStreamRequest(String videoId, Map<String, String> fetchHeaders) {
         fetchStreamRequest(videoId, false, fetchHeaders);
     }
@@ -194,6 +212,14 @@ public class StreamOrDetailsDataRequest {
                                           @Nullable String videoId,
                                           Map<String, String> playerHeaders,
                                           boolean showErrorToasts) {
+        return send(clientType, videoId, playerHeaders, showErrorToasts, false);
+    }
+
+    @Nullable
+    private static HttpURLConnection send(@Nullable ClientType clientType,
+                                          @Nullable String videoId,
+                                          Map<String, String> playerHeaders,
+                                          boolean showErrorToasts, boolean forDownload) {
         Objects.requireNonNull(clientType);
         Objects.requireNonNull(videoId);
 
@@ -204,7 +230,7 @@ public class StreamOrDetailsDataRequest {
             connection.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 
-            authHeadersOverrides = false;
+            if (!forDownload) authHeadersOverrides = false;
 
             String visitorId = "";
             if (isStream) {
@@ -229,7 +255,7 @@ public class StreamOrDetailsDataRequest {
                 else if (clientType.supportsOAuth2 && clientType.requireLogin) {
                     String oauth2Authorization = OAuth2Requester.getAndUpdateAccessTokenIfNeeded();
                     if (Utils.isNotEmpty(oauth2Authorization)) {
-                        authHeadersOverrides = true;
+                        if (!forDownload) authHeadersOverrides = true;
                         connection.setRequestProperty(AUTHORIZATION_HEADER, oauth2Authorization);
                         Logger.printDebug(() -> "Set oauth2 auth header: " + clientType + ", videoId: " + videoId);
                     }
@@ -299,6 +325,14 @@ public class StreamOrDetailsDataRequest {
                                                              @Nullable HttpURLConnection connection,
                                                              String videoId,
                                                              boolean isInline) {
+        return buildPlayerStreamOrDetailsResponse(clientType, connection, videoId, isInline, false);
+    }
+
+    @Nullable
+    private static Object buildPlayerStreamOrDetailsResponse(@Nullable ClientType clientType,
+                                                             @Nullable HttpURLConnection connection,
+                                                             String videoId,
+                                                             boolean isInline, boolean forDownload) {
         if (connection == null) {
             return null;
         }
@@ -344,7 +378,7 @@ public class StreamOrDetailsDataRequest {
                 // TV SABR clients in livestreams will be temporarily fallbacked to TV DASH clients.
                 //
                 // TODO: Override other playerConfigs such as exoPlayerConfig.
-                if (clientType.requireSABR && clientType == ClientType.TV_SABR
+                if (!forDownload && clientType.requireSABR && clientType == ClientType.TV_SABR
                         && Utils.containsAny(streamingData.getServerAbrStreamingUrl(), "yt_live_broadcast", "yt_premiere_broadcast")) {
                     Logger.printDebug(() -> "Livestream detected, fallback to TV dash");
                     fallbackWithTVDash = true;
@@ -356,7 +390,7 @@ public class StreamOrDetailsDataRequest {
                             ? PoTokenManager.getStreamingPoToken(clientType, videoId)
                             : "";
 
-                    var deobfuscatedStreamingData = getDeobfuscatedStreamingData(streamingData, poToken, clientType.requireSABR);
+                    var deobfuscatedStreamingData = getDeobfuscatedStreamingData(streamingData, poToken, !forDownload && clientType.requireSABR);
                     if (deobfuscatedStreamingData == null) {
                         return null;
                     }

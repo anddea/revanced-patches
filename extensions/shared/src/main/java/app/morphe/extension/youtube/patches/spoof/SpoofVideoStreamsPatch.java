@@ -9,6 +9,16 @@ import app.morphe.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
 
+    /** Default YouTube fallback order shared by playback spoofing and VOT audio downloads. */
+    public static final List<ClientType> AVAILABLE_CLIENTS = List.of(
+            ClientType.TV_SIMPLY,
+            ClientType.VISIONOS_1_02,
+            ClientType.ANDROID_CREATOR
+            // If not signed in to Android VR, there may be playback issues.
+            // Only use it if the user has selected it.
+            // ClientType.ANDROID_VR_DASH
+    );
+
     public static final class SpoofClientAv1Availability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
@@ -42,16 +52,7 @@ public class SpoofVideoStreamsPatch {
             }
         }
 
-        List<ClientType> availableClients = List.of(
-                ClientType.TV_SIMPLY,
-                ClientType.VISIONOS_1_02,
-                ClientType.ANDROID_CREATOR
-                // If not signed in to Android VR, there may be playback issues.
-                // Only use it if the user has selected it.
-                // ClientType.ANDROID_VR_DASH
-        );
-
         app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.setClientsToUse(
-                availableClients, client);
+                AVAILABLE_CLIENTS, client);
     }
 }

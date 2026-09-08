@@ -1370,7 +1370,7 @@ public class VideoUtils extends IntentUtils {
         final int dip8 = dipToPixels(8);
         final int dip12 = dipToPixels(12);
         final int dip16 = dipToPixels(16);
-        final int dip32 = dipToPixels(32);
+        final int dip24 = dipToPixels(24);
 
         LinearLayout container = new LinearLayout(context);
         container.setOrientation(LinearLayout.HORIZONTAL);
@@ -1378,7 +1378,7 @@ public class VideoUtils extends IntentUtils {
         container.setPadding(dip16, dip8, dip16, dip12);
 
         VotCountdownProgressView progressView = new VotCountdownProgressView(context);
-        LinearLayout.LayoutParams progressParams = new LinearLayout.LayoutParams(dip32, dip32);
+        LinearLayout.LayoutParams progressParams = new LinearLayout.LayoutParams(dip24, dip24);
         progressParams.setMargins(0, 0, dip12, 0);
         container.addView(progressView, progressParams);
 

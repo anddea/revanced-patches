@@ -45,6 +45,7 @@ message Format {
     int32 width = 7;
     int32 height = 8;
     int64 lastModified = 11;
+    int64 contentLength = 12;
     string quality = 16;
     string xtags = 23;
     int32 fps = 25;

@@ -191,6 +191,25 @@ public class ResourceUtils extends Utils {
         return getResources().getString(identifier);
     }
 
+    public static String getStringByLocale(@NonNull String str, @NonNull java.util.Locale locale) {
+        final int identifier = getStringIdentifier(str);
+        if (identifier == 0) {
+            handleException(str, ResourceType.STRING);
+            return str;
+        }
+        try {
+            Context context = getContext();
+            if (context != null) {
+                android.content.res.Configuration config =
+                        new android.content.res.Configuration(context.getResources().getConfiguration());
+                config.setLocale(locale);
+                return context.createConfigurationContext(config).getResources().getString(identifier);
+            }
+        } catch (Exception ignored) {
+        }
+        return getResources().getString(identifier);
+    }
+
     public static String[] getStringArray(@NonNull String str) {
         final int identifier = getArrayIdentifier(str);
         if (identifier == 0) {

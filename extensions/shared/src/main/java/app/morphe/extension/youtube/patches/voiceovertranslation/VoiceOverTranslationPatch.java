@@ -6,6 +6,7 @@
  *
  * Original author(s):
  * - anddea (https://github.com/anddea)
+ * - COOLak (https://github.com/COOLak)
  * - Jav1x (https://github.com/Jav1x)
  * - sashade8-ship-it (https://github.com/sashade8-ship-it)
  *
@@ -88,9 +89,6 @@ public class VoiceOverTranslationPatch {
     private static final AtomicReference<String> currentTranslatedVideoId = new AtomicReference<>("");
     private static volatile long translationWaitStartedAtMs = 0L;
     private static volatile long translationWaitDurationMs = 0L;
-    private static volatile String lastFailedAudioFallbackUrl = "";
-    private static volatile String lastEmptyAudioFallbackKey = "";
-    private static volatile String lastAudioDownloadAttemptKey = "";
     private static volatile boolean isPaused = false;
     private static volatile boolean shortsPlaybackPaused = false;
     private static float lastAppliedPlaybackSpeed = 1.0f;
@@ -355,14 +353,12 @@ public class VoiceOverTranslationPatch {
         long requestId = translationRequestGeneration.incrementAndGet();
         clearTranslationRequestProgress();
         clearPausedVideoState();
-        lastAudioDownloadAttemptKey = "";
-        lastFailedAudioFallbackUrl = "";
-        lastEmptyAudioFallbackKey = "";
+        notifyTranslationStateChanged();
         if (pauseVideo) pauseVideoForTranslation(videoId, requestId);
         Utils.runOnBackgroundThread(() -> requestTranslation(
                 videoId, videoTitle,
                 sourceLang, targetLang,
-                durationSeconds, requestId
+                durationSeconds, requestId, new VotAudioUploadState()
         ));
         return true;
     }
@@ -456,7 +452,7 @@ public class VoiceOverTranslationPatch {
     private static void requestTranslation(
             String videoId, String videoTitle,
             String sourceLang, String targetLang,
-            double durationSeconds, long requestId
+            double durationSeconds, long requestId, VotAudioUploadState audioUploadState
     ) {
         try {
             if (!isCurrentTranslationRequest(requestId, videoId)) return;
@@ -497,7 +493,7 @@ public class VoiceOverTranslationPatch {
                         Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_stream_waiting_status")));
                     }
                     pollTranslation(requestId, videoId, videoTitle, youtubeUrl, durationSeconds,
-                            sourceLang, targetLang, waitTime > 0 ? waitTime : 5);
+                            sourceLang, targetLang, waitTime > 0 ? waitTime : 5, audioUploadState);
                     break;
                 case VotApiClient.STATUS_AUDIO_REQUESTED:
                     int audioWaitTime = result.remainingTime();
@@ -510,7 +506,7 @@ public class VoiceOverTranslationPatch {
                     }
                     handleAudioRequested(requestId, videoId, youtubeUrl, result.translationId(),
                             durationSeconds, sourceLang, targetLang, videoTitle,
-                            audioWaitTime > 0 ? audioWaitTime : 10);
+                            audioWaitTime > 0 ? audioWaitTime : 10, audioUploadState);
                     break;
                 case VotApiClient.STATUS_SESSION_REQUIRED:
                     Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_auth_required")));
@@ -520,7 +516,7 @@ public class VoiceOverTranslationPatch {
                     if (Settings.VOT_USE_LIVE_VOICES.get() && VotApiClient.isLivelyVoiceUnavailableError(result.message())) {
                         Settings.VOT_USE_LIVE_VOICES.save(false);
                         Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
-                        requestTranslation(videoId, videoTitle, sourceLang, targetLang, durationSeconds, requestId);
+                        requestTranslation(videoId, videoTitle, sourceLang, targetLang, durationSeconds, requestId, audioUploadState);
                         return;
                     }
                     Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_playback_error")));
@@ -541,7 +537,7 @@ public class VoiceOverTranslationPatch {
             long requestId, String videoId, String videoTitle,
             String url, double duration,
             String sourceLang, String targetLang,
-            int waitSeconds
+            int waitSeconds, VotAudioUploadState audioUploadState
     ) {
         VotApiClient.TranslationResult result = VotApiClient.pollUntilReady(
                 url, duration, sourceLang, targetLang, videoTitle,
@@ -570,7 +566,7 @@ public class VoiceOverTranslationPatch {
                     @Override
                     public void onAudioRequested(String videoUrl, String translationId) {
                         if (isCurrentTranslationRequest(requestId, videoId)) {
-                            sendAudioRequestedAudio(videoId, videoUrl, translationId);
+                            sendAudioRequestedAudio(audioUploadState, videoId, videoUrl, translationId);
                         }
                     }
 
@@ -614,13 +610,13 @@ public class VoiceOverTranslationPatch {
     private static void handleAudioRequested(
             long requestId, String videoId, String url, String translationId,
             double duration, String sourceLang, String targetLang,
-            String videoTitle, int waitSeconds
+            String videoTitle, int waitSeconds, VotAudioUploadState audioUploadState
     ) {
         try {
             if (!isCurrentTranslationRequest(requestId, videoId)) return;
-            sendAudioRequestedAudio(videoId, url, translationId);
+            sendAudioRequestedAudio(audioUploadState, videoId, url, translationId);
             if (isCurrentTranslationRequest(requestId, videoId)) {
-                pollTranslation(requestId, videoId, videoTitle, url, duration, sourceLang, targetLang, waitSeconds);
+                pollTranslation(requestId, videoId, videoTitle, url, duration, sourceLang, targetLang, waitSeconds, audioUploadState);
             }
         } catch (Exception e) {
             Logger.printException(() -> "handleAudioRequested failed", e);
@@ -630,31 +626,32 @@ public class VoiceOverTranslationPatch {
         }
     }
 
-    private static void sendAudioRequestedAudio(String videoId, String url, String translationId) {
-        if (translationId != null && !translationId.isEmpty()) {
-            String fallbackKey = url + "#" + translationId;
-            if (!fallbackKey.equals(lastAudioDownloadAttemptKey)) {
-                lastAudioDownloadAttemptKey = fallbackKey;
-                if (VotAudioDownloader.downloadAndSend(videoId, url, translationId)) {
-                    return;
-                }
-            }
-        }
-        sendAudioRequestedFallback(url, translationId);
+    private static void sendAudioRequestedAudio(
+            VotAudioUploadState state, String videoId, String url, String translationId
+    ) {
+        state.handle(url, translationId,
+                () -> VotAudioDownloader.downloadAndSend(videoId, url, translationId),
+                () -> VotApiClient.sendFailedAudio(url),
+                () -> VotApiClient.sendEmptyAudio(url, translationId,
+                        Settings.VOT_USE_LIVE_VOICES.get() ? Settings.VOT_OAUTH_TOKEN.get() : null));
     }
 
-    private static void sendAudioRequestedFallback(String url, String translationId) {
-        if (!url.equals(lastFailedAudioFallbackUrl)) {
-            VotApiClient.sendFailedAudio(url);
-            lastFailedAudioFallbackUrl = url;
-        }
-        if (translationId != null && !translationId.isEmpty()) {
-            String fallbackKey = url + "#" + translationId;
-            if (!fallbackKey.equals(lastEmptyAudioFallbackKey)) {
-                VotApiClient.sendEmptyAudio(url, translationId,
-                        Settings.VOT_USE_LIVE_VOICES.get() ? Settings.VOT_OAUTH_TOKEN.get() : null);
-                lastEmptyAudioFallbackKey = fallbackKey;
+    /** Injection point: retain source audio from this exact video's native player response. */
+    public static void cacheAudioSources(Object streamingData, Object videoDetails) {
+        if (!Settings.VOT_ENABLED.get()) return;
+        try {
+            if (streamingData instanceof com.google.protobuf.MessageLite stream
+                    && videoDetails instanceof com.google.protobuf.MessageLite details) {
+                VotAudioSourceCache.put(stream.toByteArray(), details.toByteArray());
+                var data = app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.StreamingData.parseFrom(stream.toByteArray());
+                var id = app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.VideoDetails.parseFrom(details.toByteArray()).getVideoId();
+                Logger.printDebug(() -> "VOT native source: video=" + id + ", formats=" + data.getAdaptiveFormatsCount()
+                        + ", cached=" + VotAudioSourceCache.get(id).size() + ", sabr=" + !data.getServerAbrStreamingUrl().isEmpty());
+            } else {
+                Logger.printDebug(() -> "VOT native source: unavailable protobuf objects");
             }
+        } catch (Exception e) {
+            Logger.printDebug(() -> "VOT could not cache native audio formats", e);
         }
     }
 
