@@ -138,6 +138,16 @@ public class ReturnYouTubeDislikePatch {
     private static int regularActionButtonCountSearchRetries;
     private static boolean regularActionButtonCountSearchExhausted;
 
+    /**
+     * Accessibility text parsed for the last action-bar video. YouTube can reuse the same button
+     * view while a playlist item is changing, so equal text from the previous video is not safe to
+     * parse until the action bar has had a chance to rebind.
+     */
+    @Nullable
+    private static String lastParsedRegularLikeButtonContentDescription;
+    @Nullable
+    private static String lastParsedRegularLikeButtonVideoId;
+
     static {
         PlayerType.getOnChange().addObserver((PlayerType type) -> {
             Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::onPlayerTypeChangedForRegularActionButtonCounts);
@@ -485,9 +495,19 @@ public class ReturnYouTubeDislikePatch {
 
         ViewGroup decorViewRoot = getDecorViewRoot();
         RegularActionButtonAnchors anchors = null;
+        boolean actionBarLikeCountReady = true;
         if (decorViewRoot != null) {
             anchors = findRegularActionButtonAnchors(decorViewRoot);
-            updateUserVoteAndParseLikes(videoData, anchors);
+            actionBarLikeCountReady = updateUserVoteAndParseLikes(videoData, anchors);
+        }
+
+        if (!actionBarLikeCountReady) {
+            ensureRegularActionButtonCountSearchUpdates(decorViewRoot);
+            return;
+        }
+
+        if (anchors != null) {
+            removeRegularActionButtonCountSearchUpdates();
         }
 
         updateRegularActionButtonCountOverlaysFromCache(videoData);
@@ -598,7 +618,10 @@ public class ReturnYouTubeDislikePatch {
             }
 
             Long oldLikes = VideoInformation.getOriginalLikeCount();
-            updateUserVoteAndParseLikes(currentData, anchors);
+            if (!updateUserVoteAndParseLikes(currentData, anchors)) {
+                ensureRegularActionButtonCountSearchUpdates(decorViewRoot);
+                return;
+            }
             Long newLikes = VideoInformation.getOriginalLikeCount();
             if (!Objects.equals(oldLikes, newLikes)) {
                 regularLikeActionButtonCountText = currentData.getLikeSpanForRegularVideoActionButton(ACTION_BUTTON_COUNT_PLACEHOLDER);
@@ -1024,9 +1047,10 @@ public class ReturnYouTubeDislikePatch {
 
             RegularActionButtonAnchors anchors = findRegularActionButtonAnchors(decorRoot);
             if (anchors != null) {
-                removeRegularActionButtonCountSearchUpdates();
                 scheduleRegularActionButtonCountOverlayUpdates();
-                return true;
+                if (regularActionButtonCountSearchListener == null) {
+                    return true;
+                }
             }
 
             if (++regularActionButtonCountSearchRetries > 15) {
@@ -1438,6 +1462,9 @@ public class ReturnYouTubeDislikePatch {
 
     /**
      * Injection point.  Uses 'playback response' video id hook to preload RYD.
+     * <p>
+     * Prefetching can happen before the current video ends. Keep its visible counts until
+     * {@link #newVideoLoaded(String)} receives the next video's ID and clears them.
      */
     public static void preloadVideoId(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
         try {
@@ -1464,15 +1491,6 @@ public class ReturnYouTubeDislikePatch {
                 Logger.printDebug(() -> "Ignoring short video id: " + videoId);
                 lastPrefetchedVideoId = videoId;
                 return;
-            }
-
-            if (!videoIdIsSame(currentVideoData, videoId)) {
-                currentVideoData = null;
-                regularActionButtonCountVideoId = null;
-                regularLikeActionButtonCountText = null;
-                regularDislikeActionButtonCountText = null;
-                regularActionButtonCountFetchVideoId = null;
-                Utils.runOnMainThreadNowOrLater(ReturnYouTubeDislikePatch::removeRegularActionButtonCountOverlays);
             }
 
             Logger.printDebug(() -> "Prefetching RYD for video: " + videoId);
@@ -1550,6 +1568,9 @@ public class ReturnYouTubeDislikePatch {
             currentVideoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
 
             if (canShowRegularActionButtonCountOverlays()) {
+                // The action bar can still contain the previous video's accessibility text here.
+                // scheduleRegularActionButtonCountOverlayUpdates() waits for the reused view to
+                // rebind before parsing it and uses the pre-draw listener as a retry point.
                 scheduleRegularActionButtonCountOverlayUpdates();
             } else if (regularActionButtonCountOverlaysAreUnsupported()) {
                 removeRegularActionButtonCountSearchUpdates();
@@ -1615,19 +1636,34 @@ public class ReturnYouTubeDislikePatch {
         }
     }
 
-    private static void updateUserVoteAndParseLikes(@NonNull ReturnYouTubeDislike videoData,
-                                                    @Nullable RegularActionButtonAnchors anchors) {
-        if (anchors != null && anchors.likeButton() != null) {
-            if (isLikeButtonLiked(anchors.likeButton())) {
-                videoData.setUserVote(Vote.LIKE);
-            } else if (anchors.dislikeButton() != null && isDislikeButtonDisliked(anchors.dislikeButton())) {
-                videoData.setUserVote(Vote.DISLIKE);
-            } else if (videoData.getUserVote() == null) {
-                videoData.setUserVote(Vote.LIKE_REMOVE);
-            }
-            CharSequence contentDesc = anchors.likeButton().getContentDescription();
-            parseAndSetOriginalLikeCount(contentDesc);
+    private static boolean updateUserVoteAndParseLikes(@NonNull ReturnYouTubeDislike videoData,
+                                                       @Nullable RegularActionButtonAnchors anchors) {
+        if (anchors == null || anchors.likeButton() == null) {
+            return true;
         }
+
+        CharSequence contentDesc = anchors.likeButton().getContentDescription();
+        String contentDescription = contentDesc == null ? null : contentDesc.toString();
+        if (!regularActionButtonCountSearchExhausted
+                && lastParsedRegularLikeButtonVideoId != null
+                && !videoData.getVideoId().equals(lastParsedRegularLikeButtonVideoId)
+                && Objects.equals(contentDescription, lastParsedRegularLikeButtonContentDescription)) {
+            Logger.printDebug(() -> "Waiting for like button to rebind for video: " + videoData.getVideoId());
+            return false;
+        }
+
+        if (isLikeButtonLiked(anchors.likeButton())) {
+            videoData.setUserVote(Vote.LIKE);
+        } else if (anchors.dislikeButton() != null && isDislikeButtonDisliked(anchors.dislikeButton())) {
+            videoData.setUserVote(Vote.DISLIKE);
+        } else if (videoData.getUserVote() == null) {
+            videoData.setUserVote(Vote.LIKE_REMOVE);
+        }
+
+        lastParsedRegularLikeButtonContentDescription = contentDescription;
+        lastParsedRegularLikeButtonVideoId = videoData.getVideoId();
+        parseAndSetOriginalLikeCount(contentDesc);
+        return true;
     }
 
     /**
