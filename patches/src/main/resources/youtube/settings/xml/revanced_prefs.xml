@@ -1079,6 +1079,26 @@
 
     <PreferenceScreen android:title="@string/revanced_preference_screen_misc_title" android:key="revanced_preference_screen_misc">
 
+        <!-- SETTINGS: POTOKEN_PROVIDER
+        <app.morphe.extension.shared.settings.preference.PoTokenProviderPreference android:title="@string/morphe_potoken_provider_title" android:key="morphe_potoken_provider" android:summary="@string/morphe_potoken_provider_summary" />SETTINGS: POTOKEN_PROVIDER -->
+
+        <!-- SETTINGS: SPOOF_VIDEO_STREAMS
+        <PreferenceScreen android:title="@string/morphe_spoof_video_streams_screen_title" android:key="morphe_spoof_video_streams_screen" android:summary="@string/morphe_spoof_video_streams_screen_summary">SETTINGS: SPOOF_VIDEO_STREAMS -->
+
+            <!-- SETTINGS: SPOOF_VIDEO_STREAMS
+            <SwitchPreference android:title="@string/morphe_spoof_video_streams_screen_title" android:key="morphe_spoof_video_streams" android:summaryOn="@string/morphe_spoof_video_streams_summary_on" android:summaryOff="@string/morphe_spoof_video_streams_summary_off" />
+            <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/morphe_spoof_video_streams_client_type_entries" android:title="@string/morphe_spoof_video_streams_client_type_title" android:key="morphe_spoof_video_streams_client_type" android:entryValues="@array/morphe_spoof_video_streams_client_type_entry_values" />
+            <app.morphe.extension.youtube.settings.preference.SpoofVideoStreamsSideEffectsPreference android:title="@string/morphe_spoof_video_streams_about_title" />
+            <SwitchPreference android:title="@string/morphe_spoof_video_streams_stats_for_nerds_title" android:key="morphe_spoof_video_streams_stats_for_nerds" android:summaryOn="@string/morphe_spoof_video_streams_stats_for_nerds_summary_on" android:summaryOff="@string/morphe_spoof_video_streams_stats_for_nerds_summary_off" />
+
+            <PreferenceCategory android:title="@string/revanced_preference_category_android_vr" android:layout="@layout/revanced_settings_preferences_category" />
+            <app.morphe.extension.youtube.settings.preference.SpoofVideoStreamsSignInPreference android:title="@string/morphe_spoof_video_streams_sign_in_android_vr_about_title" android:summary="@string/morphe_spoof_video_streams_sign_in_android_vr_about_summary" />
+            <SwitchPreference android:title="@string/morphe_spoof_video_streams_av1_title" android:key="morphe_spoof_video_streams_av1" android:summaryOn="@string/morphe_spoof_video_streams_av1_summary_on" android:summaryOff="@string/morphe_spoof_video_streams_av1_summary_off" />
+
+            <PreferenceCategory android:title="@string/revanced_preference_category_js" android:layout="@layout/revanced_settings_preferences_category"/>
+            <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/morphe_spoof_video_streams_player_js_variant_entries" android:title="@string/morphe_spoof_video_streams_player_js_variant_title" android:key="morphe_spoof_video_streams_player_js_variant" android:entryValues="@array/morphe_spoof_video_streams_player_js_variant_entry_values" />
+        </PreferenceScreen>SETTINGS: SPOOF_VIDEO_STREAMS -->
+
         <!-- SETTINGS: DEBUGGING
         <PreferenceScreen android:title="@string/revanced_preference_screen_debugging_title" android:key="revanced_preference_screen_debugging" android:summary="@string/revanced_preference_screen_debugging_summary">
             <SwitchPreference android:title="@string/revanced_debug_title" android:key="revanced_debug" android:summaryOn="@string/revanced_debug_summary_on" android:summaryOff="@string/revanced_debug_summary_off" />
@@ -1104,26 +1124,6 @@
             <PreferenceCategory android:title="@string/revanced_preference_category_import_export_as_text" android:layout="@layout/revanced_settings_preferences_category" />
             <app.morphe.extension.youtube.settings.preference.ImportExportPreference android:title="@string/revanced_preference_category_import_export_as_text" android:summary="@string/revanced_settings_import_export_as_text_summary" android:inputType="textMultiLine" />
         </PreferenceScreen>
-
-        <!-- SETTINGS: SPOOF_VIDEO_STREAMS
-        <PreferenceScreen android:title="@string/morphe_spoof_video_streams_screen_title" android:key="morphe_spoof_video_streams_screen" android:summary="@string/morphe_spoof_video_streams_screen_summary">SETTINGS: SPOOF_VIDEO_STREAMS -->
-
-            <!-- SETTINGS: POTOKEN_PROVIDER
-            <app.morphe.extension.shared.settings.preference.PoTokenProviderPreference android:title="@string/morphe_potoken_provider_title" android:key="morphe_potoken_provider" android:summary="@string/morphe_potoken_provider_summary" />SETTINGS: POTOKEN_PROVIDER -->
-
-            <!-- SETTINGS: SPOOF_VIDEO_STREAMS
-            <SwitchPreference android:title="@string/morphe_spoof_video_streams_screen_title" android:key="morphe_spoof_video_streams" android:summaryOn="@string/morphe_spoof_video_streams_summary_on" android:summaryOff="@string/morphe_spoof_video_streams_summary_off" />
-            <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/morphe_spoof_video_streams_client_type_entries" android:title="@string/morphe_spoof_video_streams_client_type_title" android:key="morphe_spoof_video_streams_client_type" android:entryValues="@array/morphe_spoof_video_streams_client_type_entry_values" />
-            <app.morphe.extension.youtube.settings.preference.SpoofVideoStreamsSideEffectsPreference android:title="@string/morphe_spoof_video_streams_about_title" />
-            <SwitchPreference android:title="@string/morphe_spoof_video_streams_stats_for_nerds_title" android:key="morphe_spoof_video_streams_stats_for_nerds" android:summaryOn="@string/morphe_spoof_video_streams_stats_for_nerds_summary_on" android:summaryOff="@string/morphe_spoof_video_streams_stats_for_nerds_summary_off" />
-
-            <PreferenceCategory android:title="@string/revanced_preference_category_android_vr" android:layout="@layout/revanced_settings_preferences_category" />
-            <app.morphe.extension.youtube.settings.preference.SpoofVideoStreamsSignInPreference android:title="@string/morphe_spoof_video_streams_sign_in_android_vr_about_title" android:summary="@string/morphe_spoof_video_streams_sign_in_android_vr_about_summary" />
-            <SwitchPreference android:title="@string/morphe_spoof_video_streams_av1_title" android:key="morphe_spoof_video_streams_av1" android:summaryOn="@string/morphe_spoof_video_streams_av1_summary_on" android:summaryOff="@string/morphe_spoof_video_streams_av1_summary_off" />
-
-            <PreferenceCategory android:title="@string/revanced_preference_category_js" android:layout="@layout/revanced_settings_preferences_category"/>
-            <app.morphe.extension.shared.settings.preference.SortedListPreference android:entries="@array/morphe_spoof_video_streams_player_js_variant_entries" android:title="@string/morphe_spoof_video_streams_player_js_variant_title" android:key="morphe_spoof_video_streams_player_js_variant" android:entryValues="@array/morphe_spoof_video_streams_player_js_variant_entry_values" />
-        </PreferenceScreen>SETTINGS: SPOOF_VIDEO_STREAMS -->
 
         <!-- SETTINGS: WATCH_HISTORY
         <PreferenceScreen android:title="@string/revanced_preference_screen_watch_history_title" android:key="revanced_preference_screen_watch_history" android:summary="@string/revanced_preference_screen_watch_history_summary">

@@ -25,7 +25,6 @@ val poTokenProviderPatch = poTokenProviderPatch(
         dependsOn(
             sharedExtensionPatch,
             settingsPatch,
-            spoofStreamingDataPatch,
         )
     },
     executeBlock = {
