@@ -93,6 +93,10 @@ internal enum class PatchList(
         "Disable resuming Shorts on startup",
         "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched."
     ),
+    DISABLE_SCROLLING_SPEED_LIMIT(
+        "Disable scrolling speed limit",
+        "Adds an option to remove limits of how fast the home and subscription feed can be scrolled."
+    ),
     DISABLE_SIGN_IN_TO_TV_POPUP(
         "Disable sign in to TV popup",
         "Adds an option to disable the popup asking to sign into a TV on the same local network."
