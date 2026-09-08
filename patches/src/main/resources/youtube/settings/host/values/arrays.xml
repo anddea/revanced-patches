@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="morphe_auto_pause_on_screen_lock_entries">
+        <item>@string/morphe_auto_pause_on_screen_lock_off</item>
+        <item>@string/morphe_auto_pause_on_screen_lock_always</item>
+        <item>@string/morphe_auto_pause_on_screen_lock_except_wireless</item>
+    </string-array>
+    <string-array name="morphe_auto_pause_on_screen_lock_entry_values" translatable="false">
+        <item>OFF</item>
+        <item>ALWAYS</item>
+        <item>EXCEPT_WIRELESS_AUDIO</item>
+    </string-array>
     <string-array name="morphe_settings_name_entries">
         <item>@string/revanced_change_form_factor_entry_1</item>
         <item>@string/morphe_settings_name_entry_1</item>

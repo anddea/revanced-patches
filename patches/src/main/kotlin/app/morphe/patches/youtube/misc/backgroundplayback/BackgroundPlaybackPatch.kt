@@ -26,6 +26,8 @@ import app.morphe.patches.youtube.utils.playservice.is_21_15_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.patches.youtube.video.information.onCreateHook
+import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.fingerprint.matchSingle
@@ -48,6 +50,7 @@ val backgroundPlaybackPatch = bytecodePatch(
 
     dependsOn(
         playerTypeHookPatch,
+        videoInformationPatch,
         settingsPatch,
         resourceMappingPatch,
         versionCheckPatch,
@@ -143,12 +146,15 @@ val backgroundPlaybackPatch = bytecodePatch(
         // Force allowing background play for videos labeled for kids.
         KidsBackgroundPlaybackPolicyControllerFingerprint.method.returnEarly()
 
+        onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "initialize")
+
         // region add settings
 
         addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: SHORTS",
-                "SETTINGS: DISABLE_SHORTS_BACKGROUND_PLAYBACK"
+                "SETTINGS: DISABLE_SHORTS_BACKGROUND_PLAYBACK",
+                "SETTINGS: AUTO_PAUSE_ON_SCREEN_LOCK"
             ),
             REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS
         )

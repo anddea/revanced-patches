@@ -1148,6 +1148,9 @@
         <!-- SETTINGS: DISABLE_SCROLLING_SPEED_LIMIT
         <SwitchPreference android:title="@string/morphe_disable_scrolling_speed_limit_title" android:key="morphe_disable_scrolling_speed_limit" />SETTINGS: DISABLE_SCROLLING_SPEED_LIMIT -->
 
+        <!-- SETTINGS: AUTO_PAUSE_ON_SCREEN_LOCK
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/morphe_auto_pause_on_screen_lock_entries" android:title="@string/morphe_auto_pause_on_screen_lock_title" android:key="morphe_auto_pause_on_screen_lock" android:defaultValue="OFF" android:entryValues="@array/morphe_auto_pause_on_screen_lock_entry_values" />SETTINGS: AUTO_PAUSE_ON_SCREEN_LOCK -->
+
         <!-- SETTINGS: OPEN_LINKS_EXTERNALLY
         <SwitchPreference android:title="@string/revanced_open_links_externally_title" android:key="revanced_open_links_externally" android:summaryOn="@string/revanced_open_links_externally_summary_on" android:summaryOff="@string/revanced_open_links_externally_summary_off" />SETTINGS: OPEN_LINKS_EXTERNALLY -->
 
