@@ -20,6 +20,17 @@
     <string name="gms_core_settings_summary">Щоб отримувати сповіщення у RVX, увімкніть Хмарні повідомлення</string>
     <string name="gms_core_settings_title">Відкрити налаштування GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG не встановлено. Встановіть його</string>
+    <string name="morphe_app_refresh_rate_default">Типова</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">Частота оновлення застосунку</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Завжди</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Портретне відтворення</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Повноекранне відтворення</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Портретне та повноекранне відтворення</string>
+    <string name="morphe_app_refresh_rate_type_title">Замінити частоту оновлення</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Завжди призупиняти при блокуванні</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Призупиняти, якщо не підключено бездротовий звук</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Автоматично призупиняти, коли пристрій заблоковано</string>
     <string name="morphe_custom_branding_icon_title">Іконка застосунку</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Залишає панель навігації видимою під час прокручування</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Вимкнути автоприховування панелі навігації</string>
@@ -29,6 +40,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC увімкнено</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC вимкнено</string>
     <string name="morphe_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Вимкнути обмеження швидкості прокручування</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\"Розширити тривалість DVR прямої трансляції\" може бути недоступним
 
 Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV Simply\" або \"visionOS\""</string>
@@ -124,6 +136,8 @@
     <string name="morphe_playback_in_feeds_entry_off">Вимкнено</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Лише Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Відтворення в стрічках</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Налаштуйте прозорість фону за кнопками керування плеєром та панеллю часу (0 - невидиме, 100 - суцільне)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Прозорість фону кнопок керування</string>
     <string name="morphe_queue_manager_check_failed_auth">Не увійшли в систему</string>
     <string name="morphe_queue_manager_check_failed_video_id">Немає ID відео</string>
     <string name="morphe_reload_video_summary_off">Кнопка перезавантаження відео не показується</string>
@@ -224,6 +238,51 @@
     <string name="morphe_video_quality_prioritize_dialog">Якщо це налаштування вимкнено, старіші відео можуть не показувати параметри якості відео</string>
     <string name="morphe_video_quality_prioritize_summary">Надає пріоритет найвищій доступній якості відео над ефективністю кодека</string>
     <string name="morphe_video_quality_prioritize_title">Пріоритет якості відео</string>
+    <string name="morphe_vot_caption_language_title">Мова</string>
+    <string name="morphe_vot_cost_free">Безплатно</string>
+    <string name="morphe_vot_cost_per_hour">%s за 100 годин відео</string>
+    <string name="morphe_vot_enabled_title">Голосовий переклад</string>
+    <string name="morphe_vot_export_api_key_warning">"Ваші налаштування містять ключ API OpenRouter
+
+Ваш ключ API ніколи не можна передавати іншим. Будь-хто з доступом до нього може використовувати ваші кредити OpenRouter"</string>
+    <string name="morphe_vot_http_error_message">"Сервіс перекладу повернув помилку HTTP %s. Ймовірно, вашу IP-адресу тимчасово обмежено на термін до 24 годин
+
+Щоб продовжити користуватися перекладом, виберіть іншого постачальника перекладу в налаштуваннях або скористайтеся VPN"</string>
+    <string name="morphe_vot_http_error_title">Переклад недоступний</string>
+    <string name="morphe_vot_max_speech_rate_summary">Максимальний коефіцієнт прискорення мовлення для вписування у слот субтитрів</string>
+    <string name="morphe_vot_max_speech_rate_title">Максимальна швидкість мовлення</string>
+    <string name="morphe_vot_mymemory_email_summary">Необов\'язково. Введіть вашу електронну пошту MyMemory, щоб збільшити денний ліміт із 5 000 до 50 000 символів. Залиште порожнім, щоб використовувати анонімний ліміт</string>
+    <string name="morphe_vot_mymemory_email_title">Електронна пошта MyMemory</string>
+    <string name="morphe_vot_mymemory_error">Переклад через MyMemory не вдався (статус %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"Безплатний API перекладу, ключ API не потрібен. До 5 000 символів на день у безплатному тарифі, або до 50 000 символів на день із вказаною електронною поштою
+
+Натисніть тут, щоб відкрити MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Ви використали сьогоднішню безплатну квоту перекладу MyMemory (5 000 символів). Додайте електронну пошту MyMemory в налаштуваннях, щоб збільшити денний ліміт до 50 000 символів, або виберіть інший сервіс перекладу</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Ви використали сьогоднішню квоту перекладу MyMemory (50 000 символів). Виберіть інший сервіс перекладу або спробуйте знову завтра</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Доступно знову о %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Досягнуто денного ліміту MyMemory</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Ваш ключ API OpenRouter. Створіть ключ на OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">Ключ API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Досягнуто лімітy кредитів OpenRouter. Поповніть баланс або збільшіть ліміт витрат ключа на OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Досягнуто ліміту кредитів OpenRouter</string>
+    <string name="morphe_vot_openrouter_error">Переклад через OpenRouter не вдався (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Платний переклад на основі ШІ через OpenRouter. Поповніть баланс один раз і перекладайте тисячі відео. Mistral Nemo - найдешевший варіант, Gemma 4 пропонує найвищу якість
+
+Натисніть тут, щоб відкрити OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Модель OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Введіть ваш ключ API OpenRouter у налаштуваннях перед вибором цього постачальника</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter не налаштовано</string>
+    <string name="morphe_vot_openrouter_open_website">Відкрити OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Гучність оригінального звуку YouTube під час озвучення перекладу</string>
+    <string name="morphe_vot_translation_service_title">Постачальник перекладу</string>
+    <string name="morphe_vot_translation_volume_summary">Гучність озвученого перекладу</string>
+    <string name="morphe_vot_tts_sample">Час морфінгу!</string>
+    <string name="morphe_vot_tts_system">Системний</string>
+    <string name="morphe_vot_tts_voice_type">Голос</string>
+    <string name="morphe_vot_voice_gender_female">Жіночий</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Багатомовний жіночий</string>
+    <string name="morphe_vot_voice_gender_male">Чоловічий</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Багатомовний чоловічий</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Розширене меню якості відео не показується</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Розширене меню якості відео показується</string>
     <string name="revanced_advanced_video_quality_menu_title">Відкривати меню якості \"Розширені налаштування\"</string>
@@ -1609,7 +1668,6 @@
 
 Мініплеєр можливо перетягнути за межі екрана ліворуч чи праворуч"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Увімкнути жест горизонтального перетягування</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Значення затемнення мініплеєра має бути від 0 до 100</string>
     <string name="revanced_miniplayer_opacity_title">Затемнення мініплеєра</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Кути квадратні</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Кути округлені</string>
@@ -2444,7 +2502,6 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Проведення вниз до найнижчого значення не вмикає автоматичну яскравість</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Проведення вниз до найнижчого значення яскравості вмикає автоматичну яскравість</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Жест автояскравості</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Налаштовує рівень прозорості (0 це прозоро, 100 це непрозоро)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Затемнення фону панелі жесту</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Встановлює колір індикатора яскравості</string>
@@ -2486,7 +2543,6 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">Зона жесту перемотування вверху, а швидкості внизу</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">Зона жесту швидкості вверху, а перемотування внизу</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Поміняти жести швидкості й перемотування</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">Розмір тексту має бути від 1 до 30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Налаштовує розміру тексту на екрані (від 1 до 30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Розмір тексту панелі жесту</string>
     <string name="revanced_swipe_threshold_summary">Встановлює мінімальну дистанцію свайпу для спрацювання</string>

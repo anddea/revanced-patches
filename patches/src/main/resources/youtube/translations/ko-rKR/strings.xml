@@ -20,6 +20,17 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="gms_core_settings_summary">RVX 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">MicroG가 설치되어 있지 않습니다. 설치하세요</string>
+    <string name="morphe_app_refresh_rate_default">기본값</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">앱 주사율</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">항상</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">세로 모드 재생</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">전체 화면 재생</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">세로 모드 및 전체 화면 재생</string>
+    <string name="morphe_app_refresh_rate_type_title">앱 주사율 재정의하기</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">화면 잠금 시 항상 일시 정지</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">무선 오디오 미연결 시 일시 정지</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">기기 잠금 시 자동 일시 정지</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">사용할 수 있는 경우에 선택한 앱 아이콘을 RVX 설정 항목에 사용합니다</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">RVX 설정에서 아이콘 사용하기</string>
     <string name="morphe_custom_branding_icon_title">앱 아이콘</string>
@@ -38,6 +49,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_disable_quic_protocol_summary_off">QUIC 프로토콜을 활성화합니다</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC 프로토콜을 비활성화합니다</string>
     <string name="morphe_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">스크롤 속도 제한 비활성화하기</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'실시간 스트림 DVR 탐색 구간 확장하기'를 사용할 수 없을 수 있습니다
 
 이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV Simply' 또는 'visionOS'로 변경하세요"</string>
@@ -137,6 +149,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_playback_in_feeds_entry_off">사용 안함</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi 전용</string>
     <string name="morphe_playback_in_feeds_title">피드에서 재생</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">플레이어 컨트롤 버튼과 시간 표시 버튼 뒤 배경의 투명도를 설정할 수 있습니다 (0: 투명, 100: 불투명)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">컨트롤 버튼 배경 투명도</string>
     <string name="morphe_potoken_provider_summary">"내부 PoToken 제공자를 사용하여 재생 문제를 수정합니다 (실험 기능)
 
 YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"</string>
@@ -164,8 +178,8 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_save_to_watch_later_flyout_title">나중에 볼 동영상에 저장</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_summary">\'나중에 볼 동영상에 저장\' 피드 메뉴로 관련 동영상에 있는 Kids 동영상을 저장할 수 있습니다</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Kids 동영상에 \'나중에 볼 동영상에 저장\' 메뉴 표시하기</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">피드 메뉴에서 Shorts를 '나중에 볼 동영상' 재생목록에 저장할 수 있습니다</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Shorts에 대한 '나중에 볼 동영상' 버튼</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">피드 메뉴로 Shorts를 '나중에 볼 동영상' 재생목록에 저장할 수 있습니다</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Shorts에 '나중에 볼 동영상' 버튼 표시하기</string>
     <string name="morphe_save_to_watch_later_success_toast">동영상을 \'나중에 볼 동영상\' 재생목록에 성공적으로 저장하였습니다</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">가장 많이 다시 본 장면</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">재생바를 드래그하는 동안에 동영상 썸네일을 표시합니다</string>
@@ -272,6 +286,51 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="morphe_video_quality_prioritize_dialog">이 설정을 비활성화하면, 일부 오래된 동영상에서 화질 옵션이 표시되지 않을 수 있습니다</string>
     <string name="morphe_video_quality_prioritize_summary">코덱 효율성보다 사용 가능한 최고 동영상 화질을 우선합니다</string>
     <string name="morphe_video_quality_prioritize_title">동영상 우선순위를 화질로 지정하기</string>
+    <string name="morphe_vot_caption_language_title">언어</string>
+    <string name="morphe_vot_cost_free">무료</string>
+    <string name="morphe_vot_cost_per_hour">동영상 100 시간당 %s</string>
+    <string name="morphe_vot_enabled_title">음성 번역</string>
+    <string name="morphe_vot_export_api_key_warning">"설정에 OpenRouter API 키가 포함되어 있습니다
+
+API 키는 절대로 다른 사람과 공유해서는 안 됩니다. API 키에 접근할 수 있는 사람은 누구나 사용자의 OpenRouter 크레딧을 사용할 수 있습니다"</string>
+    <string name="morphe_vot_http_error_message">"번역 서비스가 HTTP 오류 %s를 반환하였니다. 현재 사용 중인 IP 주소가 최대 24시간 동안 사용 제한된 것으로 보입니다
+
+번역 기능을 계속 사용하려면 설정에서 다른 번역 제공자로 변경하거나 VPN을 사용하세요"</string>
+    <string name="morphe_vot_http_error_title">번역을 할 수 없음</string>
+    <string name="morphe_vot_max_speech_rate_summary">자막 구간에 맞추기 위한 최대 음성 속도 배수</string>
+    <string name="morphe_vot_max_speech_rate_title">최대 음성 속도</string>
+    <string name="morphe_vot_mymemory_email_summary">선택 사항입니다. MyMemory 이메일 주소를 입력하면 일일 사용 한도가 5,000자에서 50,000자로 증가합니다. 이메일 주소를 입력하지 않으면 익명 사용자 한도가 적용됩니다</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory 이메일</string>
+    <string name="morphe_vot_mymemory_error">MyMemory 번역을 사용할 수 없습니다 (상태 코드: %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"무료 번역 API로, API 키가 필요하지 않습니다. 무료 플랜에서는 하루 최대 5,000자까지 사용할 수 있으며, 이메일 주소를 등록하면 하루 최대 50,000자까지 사용할 수 있습니다
+
+자세한 정보를 보려면 여기를 탭하여 'MyMemory.translated.net'으로 이동하세요"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">오늘의 무료 MyMemory 번역 할당량(5,000자)을 모두 사용하였습니다. 설정에서 MyMemory 이메일 주소를 추가하여 일일 한도를 50,000자로 늘리거나 다른 번역 서비스를 사용하세요</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">오늘의 MyMemory 번역 할당량(50,000자)을 모두 사용하였습니다. 다른 번역 서비스를 사용하거나 내일 다시 시도하세요</string>
+    <string name="morphe_vot_mymemory_quota_next_available">%s에 다시 사용할 수 있습니다</string>
+    <string name="morphe_vot_mymemory_quota_title">MyMemory 일일 사용 한도 도달</string>
+    <string name="morphe_vot_openrouter_api_key_summary">OpenRouter API 키입니다. API 키는 \'OpenRouter.ai &gt; Workspace &gt; API Keys\'에서 만들 수 있습니다</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API 키</string>
+    <string name="morphe_vot_openrouter_credits_message">OpenRouter 크레딧 한도에 도달하였습니다. OpenRouter.ai에서 잔액을 충전하거나 API 키의 사용 한도를 늘리세요</string>
+    <string name="morphe_vot_openrouter_credits_title">OpenRouter 크레딧 한도 도달</string>
+    <string name="morphe_vot_openrouter_error">OpenRouter 번역을 사용할 수 없습니다 (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"OpenRouter를 통한 유료 AI 번역입니다. 한 번만 충전하면 수천 개의 동영상을 번역할 수 있습니다. Mistral Nemo는 가장 저렴한 옵션이며, Gemma 4는 가장 높은 번역 품질을 제공합니다
+
+자세한 정보를 보려면 여기를 탭하여 'OpenRouter.ai'로 이동하세요"</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter 모델</string>
+    <string name="morphe_vot_openrouter_not_configured_message">이 제공자를 선택하기 전에 설정에서 OpenRouter API 키를 입력하세요</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter가 설정되지 않았습니다</string>
+    <string name="morphe_vot_openrouter_open_website">OpenRouter.ai 열기</string>
+    <string name="morphe_vot_original_audio_volume_summary">번역 음성이 재생되는 동안에 원본 YouTube 오디오의 볼륨</string>
+    <string name="morphe_vot_translation_service_title">번역 제공자</string>
+    <string name="morphe_vot_translation_volume_summary">더빙된 번역 음성의 볼륨</string>
+    <string name="morphe_vot_tts_sample">모르핑할 시간이야!</string>
+    <string name="morphe_vot_tts_system">시스템</string>
+    <string name="morphe_vot_tts_voice_type">음성</string>
+    <string name="morphe_vot_voice_gender_female">여성</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">다국어 여성</string>
+    <string name="morphe_vot_voice_gender_male">남성</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">다국어 남성</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">고급 동영상 화질 설정 메뉴를 표시하지 않습니다</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">고급 동영상 화질 설정 메뉴를 표시합니다</string>
     <string name="revanced_advanced_video_quality_menu_title">고급 화질 메뉴 열기</string>
@@ -327,9 +386,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_auto_captions_style_entry_3">음소거 해제 시 표시</string>
     <string name="revanced_auto_captions_style_entry_4">음소거 시 표시</string>
     <string name="revanced_auto_captions_style_title">자동 자막 표시 여부</string>
-    <string name="revanced_back_button_always_exits_feed_summary_off">뒤로가기 버튼을 탭하면 피드 맨 위로 스크롤됩니다</string>
-    <string name="revanced_back_button_always_exits_feed_summary_on">뒤로가기 버튼을 탭하면 항상 피드/앱이 종료됩니다</string>
-    <string name="revanced_back_button_always_exits_feed_title">뒤로가기 버튼으로 피드 나가기</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">'뒤로가기' 버튼을 탭하면 피드 맨 위로 스크롤됩니다</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">'뒤로가기' 버튼을 탭하면 항상 피드/앱이 종료됩니다</string>
+    <string name="revanced_back_button_always_exits_feed_title">'뒤로가기' 버튼으로 피드 나가기</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전을 위한 앰비언트 모드 제한을 우회하지 않습니다</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">배터리 절전을 위한 엠비언트 모드 제한을 우회합니다</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">앰비언트 모드 제한 우회하기</string>
@@ -413,7 +472,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_change_start_page_type_summary_on">"앱 시작 페이지가 항상 변경됩니다
 
 제한 사항:
-• 툴바에서 '뒤로 가기' 버튼이 작동되지 않을 수 있습니다"</string>
+• 툴바에서 '뒤로가기' 버튼이 작동되지 않을 수 있습니다"</string>
     <string name="revanced_change_start_page_type_title">앱 시작 페이지 유형 변경하기</string>
     <string name="revanced_change_youtube_header_summary_off">일반 헤더를 활성화합니다</string>
     <string name="revanced_change_youtube_header_summary_on">Premium 헤더를 활성화합니다</string>
@@ -557,15 +616,15 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_disable_like_dislike_glow_summary_on">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다</string>
     <string name="revanced_disable_like_dislike_glow_title">빛나는 \'좋아요 &amp; 싫어요\' 비활성화하기</string>
     <string name="revanced_disable_playlist_autoplay_summary_off">재생목록이 자동으로 다음 동영상으로 넘어갑니다</string>
-    <string name="revanced_disable_playlist_autoplay_summary_on">재생목록에서 다음 동영상으로 자동 넘기기가 방지됩니다</string>
+    <string name="revanced_disable_playlist_autoplay_summary_on">재생목록에서 다음 동영상으로 자동 넘어가지 않습니다</string>
     <string name="revanced_disable_playlist_autoplay_title">재생목록 자동재생 비활성화하기</string>
     <string name="revanced_disable_quic_protocol_summary">"CronetEngine's QUIC 프로토콜을 비활성화합니다"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">앱 시작 시 &lt;b&gt;\'이어서 시청하기\'&lt;/b&gt;를 다시 시작합니다.&lt;br&gt;&lt;br&gt;알림:&lt;br&gt;• &lt;b&gt;\'이어서 시청하기\'&lt;/b&gt;는 YouTube Premium 기능입니다.&lt;br&gt;• 이 설정은 &lt;b&gt;\'이어서 시청하기\'&lt;/b&gt;를 강제로 사용하도록 설정하지는 않습니다</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">앱 시작 시 &lt;b&gt;\'이어서 시청하기\'&lt;/b&gt;를 다시 시작하지 않습니다</string>
     <string name="revanced_disable_resuming_miniplayer_title">미니플레이어 다시 시작 비활성화하기</string>
-    <string name="revanced_disable_resuming_shorts_player_summary_off">앱 시작 시 Shorts 플레이어를 다시 실행합니다</string>
-    <string name="revanced_disable_resuming_shorts_player_summary_on">앱 시작 시 Shorts 플레이어를 다시 실행하지 않습니다</string>
-    <string name="revanced_disable_resuming_shorts_player_title">앱 시작 시 Shorts 플레이어 비활성화하기</string>
+    <string name="revanced_disable_resuming_shorts_player_summary_off">앱 시작 시 Shorts를 이어서 재생합니다</string>
+    <string name="revanced_disable_resuming_shorts_player_summary_on">앱 시작 시 Shorts를 이어서 재생하지 않습니다</string>
+    <string name="revanced_disable_resuming_shorts_player_title">앱 시작 시 Shorts 이어서 재생하지 않기</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">롤링 넘버 애니메이션을 활성화합니다</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">롤링 넘버 애니메이션을 비활성화합니다</string>
     <string name="revanced_disable_rolling_number_animations_title">롤링 넘버 애니메이션 비활성화하기</string>
@@ -1332,9 +1391,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_hide_rewards_button_summary_off">리워드 버튼이 표시됩니다</string>
     <string name="revanced_hide_rewards_button_summary_on">리워드 버튼이 숨겨집니다</string>
     <string name="revanced_hide_rewards_button_title">리워드 버튼 숨기기</string>
-    <string name="revanced_hide_search_bar_back_button_summary_off">검색창에서 뒤로 가기 버튼이 표시됩니다</string>
-    <string name="revanced_hide_search_bar_back_button_summary_on">검색창에서 뒤로 가기 버튼이 숨겨집니다</string>
-    <string name="revanced_hide_search_bar_back_button_title">검색창 뒤로 가기 버튼 숨기기</string>
+    <string name="revanced_hide_search_bar_back_button_summary_off">검색창에서 '뒤로가기' 버튼이 표시됩니다</string>
+    <string name="revanced_hide_search_bar_back_button_summary_on">검색창에서 '뒤로가기' 버튼이 숨겨집니다</string>
+    <string name="revanced_hide_search_bar_back_button_title">검색창 '뒤로가기' 버튼 숨기기</string>
     <string name="revanced_hide_search_inside_this_video_section_summary_off">\'이 동영상에서 검색\' 섹션이 표시됩니다</string>
     <string name="revanced_hide_search_inside_this_video_section_summary_on">\'이 동영상에서 검색\' 섹션이 숨겨집니다</string>
     <string name="revanced_hide_search_inside_this_video_section_title">\'이 동영상에서 검색\' 섹션 숨기기</string>
@@ -1401,7 +1460,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_hide_shorts_hashtag_button_summary_on">해시태그 버튼이 숨겨집니다</string>
     <string name="revanced_hide_shorts_hashtag_button_title">해시태그 버튼 숨기기</string>
     <string name="revanced_hide_shorts_live_header_summary_off">실시간 채팅 헤더(상단 채널바)가 표시됩니다</string>
-    <string name="revanced_hide_shorts_live_header_summary_on">실시간 채팅 헤더(상단 채널바)가 숨겨집니다.\n\n헤더에서 뒤로 가기 버튼은 숨길 수 없습니다</string>
+    <string name="revanced_hide_shorts_live_header_summary_on">실시간 채팅 헤더(상단 채널바)가 숨겨집니다.\n\n헤더에서 '뒤로가기' 버튼은 숨길 수 없습니다</string>
     <string name="revanced_hide_shorts_live_header_title">실시간 채팅 헤더 숨기기</string>
     <string name="revanced_hide_shorts_live_preview_summary_off">라이브 미리보기가 표시됩니다</string>
     <string name="revanced_hide_shorts_live_preview_summary_on">라이브 미리보기가 숨겨집니다</string>
@@ -1701,7 +1760,6 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
 
 • 미니 플레이어 절반 정도를 왼쪽 밖 또는 오른쪽 밖으로 드래그하여 숨길 수 있습니다"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">수평 드래그 제스처 활성화하기</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">미니 플레이어 오버레이 불투명도는 0-100 사이여야 합니다</string>
     <string name="revanced_miniplayer_opacity_title">미니 플레이어 오버레이 불투명도</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다</string>
@@ -1755,9 +1813,9 @@ Gemini API Key를 발급받으려면 여기를 탭하세요"</string>
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">연속 구간의 시작과 종료를 먼저 선택하세요</string>
     <string name="revanced_overlay_button_loop_segment_enabled_toast">%1$s - %2$s 구간을 연속하는 중</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">현재 재생 시간을 사용할 수 없습니다</string>
-    <string name="revanced_overlay_button_loop_segment_marker_size_summary"> A 및 B 재생바 마커의 크기를 조정합니다</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_summary"> A &amp; B 재생바 마커의 크기를 조정합니다</string>
     <string name="revanced_overlay_button_loop_segment_marker_size_title">A &amp; B 크기</string>
-    <string name="revanced_overlay_button_loop_segment_seekbar_summary">재생바에서 A와 B 마커로 연속 구간을 표시합니다</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_summary">재생바에서 A &amp; B 마커로 연속 구간을 표시합니다</string>
     <string name="revanced_overlay_button_loop_segment_seekbar_title">연속 구간</string>
     <string name="revanced_overlay_button_loop_segment_start_toast">선택된 연속 구간의 시작: %s</string>
     <string name="revanced_overlay_button_loop_segment_summary">버튼을 한 번 탭하여 시작 시간을 선택하고, 다시 탭하여 종료 시간을 선택해 해당 구간을 연속 재생할 수 있습니다. 세 번째 탭하면 선택된 구간이 해제됩니다
@@ -1942,7 +2000,7 @@ Gemini API Key를 발급받으려면 여기를 탭하세요"</string>
     <string name="revanced_queue_manager_show_original_video_information">원본 동영상 정보 표시</string>
     <string name="revanced_queue_manager_user_dialog_message">"외부 다운로더 대신 현재 재생목록 관리자 대화 상자를 실행할 수 있습니다
 
-시스템 네비게이션 바에서 '뒤로 가기' 버튼을 길게 탭하여 현재 재생목록 관리자를 실행할 수도 있습니다
+시스템 네비게이션 바에서 '뒤로가기' 버튼을 길게 탭하여 현재 재생목록 관리자를 실행할 수도 있습니다
 
 이 기능은 아직 개발 중이므로 대부분의 기능이 작동하지 않을 수 있습니다
 
@@ -2561,7 +2619,6 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">전체 화면에서 스와이프하여 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">전체 화면에서 스와이프하여 밝기가 0이 되면 자동 밝기를 활성화합니다</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">스와이프 제스처로 자동 밝기 활성화하기</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 배경 불투명도 값은 0-100 사이여야 합니다</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">투명도를 설정할 수 있습니다 (0: 투명, 100: 불투명)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">밝기 조절 진행률 색상을 설정할 수 있습니다</string>
@@ -2603,7 +2660,6 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">탐색 스와이프 영역은 상단에, 속도 스와이프 영역은 하단에 위치합니다</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">속도 스와이프 영역은 상단에, 탐색 스와이프 영역은 하단에 위치합니다</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">속도 스와이프 영역과 탐색 스와이프 영역 위치 교환하기</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">텍스트 크기는 1-30 사이여야 합니다</string>
     <string name="revanced_swipe_text_overlay_size_summary">화면 텍스트 크기를 설정할 수 있습니다 (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
     <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 설정할 수 있습니다</string>
@@ -2672,7 +2728,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_vot_audio_proxy_summary_on">오디오 스트림을 Worker를 통해 프록시 처리합니다</string>
     <string name="revanced_vot_audio_proxy_title">프록시 오디오 스트림</string>
     <string name="revanced_vot_auth_required">인증이 필요합니다. 설정에서 Yandex 인증 토큰을 추가하세요</string>
-    <string name="revanced_vot_credits_summary">Jav1x, sashade8-ship-it, and anddea가 개발한 Yandex VOT 구현입니다. ilyhalight/voice-over-translation을 기반으로 합니다</string>
+    <string name="revanced_vot_credits_summary">anddea, COOLak, Jav1x, 그리고 sashade8-ship-it가 개발한 Yandex VOT 구현입니다. ilyhalight/voice-over-translation을 기반으로 합니다</string>
     <string name="revanced_vot_enabled_summary_off">Yandex 음성 번역을 비활성화합니다</string>
     <string name="revanced_vot_enabled_summary_on">Yandex 음성 번역을 활성화합니다</string>
     <string name="revanced_vot_enabled_title">음성 번역</string>

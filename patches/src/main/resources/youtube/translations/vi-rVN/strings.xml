@@ -12,6 +12,17 @@
     <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và bật Cloud Messaging để nhận thông báo đẩy</string>
     <string name="gms_core_settings_title">Cài đặt GmsCore</string>
     <string name="gms_core_toast_not_installed_message">microG chưa được cài đặt. Hãy cài đặt nó đi</string>
+    <string name="morphe_app_refresh_rate_default">Mặc định</string>
+    <string name="morphe_app_refresh_rate_fps">%s khung hình/giây</string>
+    <string name="morphe_app_refresh_rate_title">Tần số quét của ứng dụng</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Luôn luôn</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Phát lại dọc</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Phát lại toàn màn hình</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Phát lại dọc và toàn màn hình</string>
+    <string name="morphe_app_refresh_rate_type_title">Ghi đè tần số quét</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Luôn tạm dừng khi khóa</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Tạm dừng trừ khi có thiết bị âm thanh không dây được kết nối</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Tạm dừng khi khóa thiết bị</string>
     <string name="morphe_custom_branding_icon_title">Biểu tượng ứng dụng</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Giữ thanh điều hướng hiển thị khi cuộn</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Tắt tự động ẩn thanh điều hướng</string>
@@ -21,6 +32,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">Giao thức QUIC đã bật</string>
     <string name="morphe_disable_quic_protocol_summary_on">Giao thức QUIC đã tắt</string>
     <string name="morphe_disable_quic_protocol_title">Tắt giao thức QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Tắt giới hạn tốc độ cuộn</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Mở rộng thời lượng DVR phát trực tiếp' có thể không khả dụng
 
 Để khắc phục, hãy bật 'Giả mạo luồng video' và thay đổi 'Máy khách mặc định' thành 'TV Simply' hoặc 'visionOS'"</string>
@@ -116,6 +128,8 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
     <string name="morphe_playback_in_feeds_entry_off">Tắt</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Chỉ Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Phát trong trang video</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Điều chỉnh độ mờ của nền phía sau các nút điều khiển trình phát và thanh thời gian (0 là vô hình, 100 là đặc)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Độ mờ nền của các nút điều khiển</string>
     <string name="morphe_queue_manager_check_failed_auth">Chưa đăng nhập</string>
     <string name="morphe_queue_manager_check_failed_video_id">Không có ID video</string>
     <string name="morphe_reload_video_summary_off">Nút tải lại video không được hiển thị</string>
@@ -216,6 +230,51 @@ Hạn chế: Nếu tùy chọn \"Khôi phục thanh thao tác video cũ\" bị t
     <string name="morphe_video_quality_prioritize_dialog">Nếu tắt tính năng này, các video cũ có thể không hiển thị tùy chọn chất lượng video</string>
     <string name="morphe_video_quality_prioritize_summary">Ưu tiên chất lượng video cao nhất hơn là tối ưu codec</string>
     <string name="morphe_video_quality_prioritize_title">Ưu tiên chất lượng video</string>
+    <string name="morphe_vot_caption_language_title">Ngôn ngữ</string>
+    <string name="morphe_vot_cost_free">Miễn phí</string>
+    <string name="morphe_vot_cost_per_hour">%s cho mỗi 100 giờ video</string>
+    <string name="morphe_vot_enabled_title">Dịch giọng nói</string>
+    <string name="morphe_vot_export_api_key_warning">"Cài đặt của bạn đang chứa khóa API OpenRouter
+
+Tuyệt đối không được chia sẻ khoá API. Bởi vì, bất kỳ ai có được nó đều có thể sử dụng số dư OpenRouter của bạn"</string>
+    <string name="morphe_vot_http_error_message">"Dịch vụ dịch trả về lỗi HTTP %s. Có thể địa chỉ IP của bạn đã bị giới hạn tốc độ truy cập trong tối đa 24 giờ
+
+Để tiếp tục sử dụng, hãy chọn một dịch vụ dịch khác trong phần Cài đặt hoặc dùng VPN"</string>
+    <string name="morphe_vot_http_error_title">Bản dịch không khả dụng</string>
+    <string name="morphe_vot_max_speech_rate_summary">Hệ số tốc độ tối đa khi điều chỉnh giọng nói để khớp thời lượng phụ đề</string>
+    <string name="morphe_vot_max_speech_rate_title">Tốc độ đọc tối đa</string>
+    <string name="morphe_vot_mymemory_email_summary">Không bắt buộc. Nhập địa chỉ email MyMemory để tăng giới hạn hàng ngày từ 5.000 lên 50.000 ký tự. Để trống nếu bạn muốn sử dụng giới hạn cho người dùng ẩn danh</string>
+    <string name="morphe_vot_mymemory_email_title">Email MyMemory</string>
+    <string name="morphe_vot_mymemory_error">Dịch qua MyMemory thất bại (trạng thái %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"API dịch miễn phí, không cần khóa API. Tối đa 5.000 ký tự mỗi ngày ở gói miễn phí, hoặc lên tới 50.000 ký tự mỗi ngày nếu có địa chỉ email
+
+Bấm vào đây để truy cập MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Bạn đã dùng hết hạn mức dịch miễn phí của MyMemory cho hôm nay (5.000 ký tự). Hãy thêm email MyMemory trong phần Cài đặt để nâng giới hạn hằng ngày lên 50.000 ký tự hoặc chuyển sang dịch vụ dịch khác</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Bạn đã dùng hết hạn mức dịch miễn phí của MyMemory cho hôm nay (5.000 ký tự). Hãy chuyển sang dịch vụ dịch khác hoặc thử lại vào ngày mai</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Có thể thử lại vào lúc %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Đã đạt giới hạn dịch hàng ngày của MyMemory</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Nhập khóa API OpenRouter.\nTạo khóa tại OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">Khóa API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Đã đạt giới hạn sử dụng OpenRouter. Hãy nạp thêm số dư hoặc tăng giới hạn chi tiêu của khóa tại OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Đã đạt giới hạn số dư OpenRouter</string>
+    <string name="morphe_vot_openrouter_error">Dịch qua OpenRouter thất bại (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Dịch thuật AI trả phí qua OpenRouter. Chỉ cần nạp tiền một lần và dịch hàng nghìn video. Về lựa chọn mô hình, Mistral Nemo là lựa chọn tiết kiệm nhất, trong khi Gemma 4 mang lại chất lượng tốt nhất
+
+Bấm vào đây để truy cập OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Mô hình OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Nhập khóa API OpenRouter trong cài đặt trước khi chọn dịch vụ này</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter chưa được cấu hình</string>
+    <string name="morphe_vot_openrouter_open_website">Truy cập OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Âm lượng của âm thanh gốc trên YouTube khi bản dịch đang phát</string>
+    <string name="morphe_vot_translation_service_title">Dịch vụ dịch thuật</string>
+    <string name="morphe_vot_translation_volume_summary">Âm lượng của giọng lồng tiếng bản dịch</string>
+    <string name="morphe_vot_tts_sample">Bắt đầu biến đổi!</string>
+    <string name="morphe_vot_tts_system">Hệ thống</string>
+    <string name="morphe_vot_tts_voice_type">Giọng đọc</string>
+    <string name="morphe_vot_voice_gender_female">Nữ</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Giọng nữ đa ngôn ngữ</string>
+    <string name="morphe_vot_voice_gender_male">Nam</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Giọng nam đa ngôn ngữ</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Trình đơn chất lượng video nâng cao không được hiển thị</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Trình đơn chất lượng video nâng cao được hiển thị</string>
     <string name="revanced_advanced_video_quality_menu_title">Mở menu Chất lượng nâng cao</string>
@@ -1618,7 +1677,6 @@ Vuốt để mở rộng hoặc đóng"</string>
 
 Trình phát thu nhỏ có thể được kéo vào rìa bên trái hoặc phải trên màn hình"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Cử chỉ kéo ngang</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Độ mờ lớp phủ phải nằm trong khoảng từ 0-100</string>
     <string name="revanced_miniplayer_opacity_title">Độ mờ lớp phủ</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Các góc của trình phát thu nhỏ như mặc định</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Các góc của trình phát thu nhỏ được bo tròn</string>
@@ -2457,7 +2515,6 @@ Trong số các ứng dụng khách JavaScript, lựa chọn khuyên dùng là T
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Vuốt xuống đến giá trị thấp nhất không bật độ sáng tự động</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Vuốt xuống đến giá trị thấp nhất của cử chỉ độ sáng bật độ sáng tự động</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Bật cử chỉ độ sáng tự động</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Độ mờ vuốt phải nằm trong khoảng từ 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Điều chỉnh độ trong suốt của lớp phủ (0 là trong suốt, 100 là mờ)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Độ mờ nền phủ vuốt</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Đặt màu cho thanh điều khiển độ sáng</string>
@@ -2503,7 +2560,6 @@ Tua video bằng cách vuốt ngang nửa trên màn hình"</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">Vuốt nửa trên để tua, còn nửa dưới để điều chỉnh tốc độ phát</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">Vuốt nửa trên để điều chỉnh tốc độ phát, còn nửa dưới để tua</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Hoán đổi cử chỉ tốc độ phát và tua</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">Kích thước văn bản phải nằm trong khoảng 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Điều chỉnh kích thước văn bản trên màn hình (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Kích thước văn bản lớp phủ vuốt</string>
     <string name="revanced_swipe_threshold_summary">Đặt khoảng cách tối thiếu để vuốt có ý nghĩa</string>

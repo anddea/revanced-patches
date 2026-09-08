@@ -20,6 +20,17 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="gms_core_settings_summary">Cloud-Nachrichteneinstellungen aktivieren, um Benachrichtigungen zu erhalten</string>
     <string name="gms_core_settings_title">GmsCore öffnen</string>
     <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installieren Sie es</string>
+    <string name="morphe_app_refresh_rate_default">Standard</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">Bildwiederholrate der App</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Immer</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Wiedergabe im Hochformat</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Wiedergabe im Vollbild</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Wiedergabe im Hochformat und Vollbild</string>
+    <string name="morphe_app_refresh_rate_type_title">Bildwiederholrate überschreiben</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Immer pausieren, wenn gesperrt</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausieren, außer wenn drahtloses Audio verbunden ist</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Auto-Pause bei gesperrtem Gerät</string>
     <string name="morphe_custom_branding_icon_title">App-Icon</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Audio Track-Menü-Header ausblenden</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Auto-Ausblenden der Navigationsleiste deaktivieren</string>
@@ -29,6 +40,7 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC-Protokoll ist aktiviert</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC-Protokoll ist deaktiviert</string>
     <string name="morphe_disable_quic_protocol_title">QUIC-Protokoll deaktivieren</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Scrollgeschwindigkeitslimit deaktivieren</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Livestream-DVR-Dauer erweitern' ist möglicherweise nicht verfügbar
 
 Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standard-Client' auf 'TV Simply' oder 'visionOS' um"</string>
@@ -124,6 +136,8 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_playback_in_feeds_entry_off">Aus</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Nur über WLAN</string>
     <string name="morphe_playback_in_feeds_title">Wiedergabe in Feeds</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Deckkraft des Hintergrunds hinter den Player-Steuertasten und der Zeitleiste anpassen (0 = unsichtbar, 100 = deckend)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Hintergrundtransparenz der Steuertasten</string>
     <string name="morphe_queue_manager_check_failed_auth">Nicht angemeldet</string>
     <string name="morphe_queue_manager_check_failed_video_id">Keine Video-ID</string>
     <string name="morphe_reload_video_summary_off">Schaltfläche „Video wiederholen“ ist ausgeblendet</string>
@@ -224,6 +238,51 @@ Einschränkung: Wenn \"Alte Video-Aktionsleiste wiederherstellen\" deaktiviert i
     <string name="morphe_video_quality_prioritize_dialog">Ist diese Einstellung deaktiviert, werden bei älteren Videos möglicherweise keine Optionen zur Videoqualität angezeigt</string>
     <string name="morphe_video_quality_prioritize_summary">Priorisiert die höchstmögliche Videoqualität gegenüber der Codec-Effizienz</string>
     <string name="morphe_video_quality_prioritize_title">Videoqualität priorisieren</string>
+    <string name="morphe_vot_caption_language_title">Sprache</string>
+    <string name="morphe_vot_cost_free">Kostenlos</string>
+    <string name="morphe_vot_cost_per_hour">%s pro 100 Videostunden</string>
+    <string name="morphe_vot_enabled_title">Sprachausgabe-Übersetzung</string>
+    <string name="morphe_vot_export_api_key_warning">"Deine Einstellungen enthalten einen OpenRouter API-Key
+
+Ein API-Key sollte niemals weitergegeben werden! Jeder mit Zugriff darauf kann dadurch dein OpenRouter-Guthaben verwenden"</string>
+    <string name="morphe_vot_http_error_message">"Der Übersetzungsdienst hat einen HTTP-Fehler %s zurückgegeben. Ihre IP-Adresse wurde wahrscheinlich für bis zu 24 Stunden gedrosselt
+
+Wechsel in den Einstellungen zu einem anderen Übersetzungsanbieter oder verwende ein VPN, um weiterhin Übersetzungen nutzen zu können"</string>
+    <string name="morphe_vot_http_error_title">Übersetzung nicht verfügbar</string>
+    <string name="morphe_vot_max_speech_rate_summary">Maximaler Geschwindigkeitsmultiplikator beim Anpassen der Sprache an einen Untertitelplatz</string>
+    <string name="morphe_vot_max_speech_rate_title">Maximale Sprechgeschwindigkeit</string>
+    <string name="morphe_vot_mymemory_email_summary">Optional. Geben Sie Ihre MyMemory-E-Mail-Adresse ein, um das tägliche Limit von 5.000 auf 50.000 Zeichen zu erhöhen. Lassen Sie das Feld leer, um das anonyme Limit zu verwenden</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory E-Mail</string>
+    <string name="morphe_vot_mymemory_error">Übersetzung mit MyMemory fehlgeschlagen (Status %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"Kostenloses Übersetzungs-API, kein API-Key erforderlich. Bis zu 5.000 Zeichen pro Tag im kostenlosen Tarif oder bis zu 50.000 Zeichen pro Tag mit einer E-Mail-Adresse
+
+Tippen Sie hier, um MyMemory.translated.net zu öffnen"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Du hast dein tägliches kostenloses Übersetzungskontingent für MyMemory (5.000 Zeichen) verbraucht. Füge eine MyMemory registrierte E-Mail-Adresse in den Einstellungen hinzu, um das tägliche Limit auf 50.000 Zeichen zu erhöhen oder wechsel zu einem anderen Übersetzungsdienst</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Sie haben heute Ihr MyMemory-Übersetzungskontingent (50.000 Zeichen) verbraucht. Wechseln Sie zu einem anderen Übersetzungsdienst oder versuchen Sie es morgen erneut</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Wieder verfügbar um %s</string>
+    <string name="morphe_vot_mymemory_quota_title">MyMemory tägliches Limit erreicht</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Ihr OpenRouter API-Key. Erstellen Sie einen Key unter OpenRouter.ai &gt; Workspace &gt; API-Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API-Key</string>
+    <string name="morphe_vot_openrouter_credits_message">Dein Guthabenlimit für OpenRouter wurde erreicht. Lade dein Guthaben auf oder erhöhe das Ausgabenlimit bei OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">OpenRouter-Guthabenlimit erreicht</string>
+    <string name="morphe_vot_openrouter_error">Übersetzung mit OpenRouter fehlgeschlagen (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Kostenpflichtige KI-Übersetzung über OpenRouter. Laden Sie Guthaben auf und übersetzen Sie Tausende von Videos. Mistral Nemo ist die günstigste Option, Gemma 4 bietet die höchste Qualität
+
+Tippen Sie hier, um OpenRouter.ai zu öffnen"</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter-Modell</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Geben Sie Ihren OpenRouter-API-Key in den Einstellungen ein, bevor Sie diesen Anbieter auswählen</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter nicht konfiguriert</string>
+    <string name="morphe_vot_openrouter_open_website">Öffne OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Lautstärke des Original-YouTube-Audios, während die Übersetzung spricht</string>
+    <string name="morphe_vot_translation_service_title">Übersetzungsanbieter</string>
+    <string name="morphe_vot_translation_volume_summary">Lautstärke der synchronisierten Übersetzungsstimme</string>
+    <string name="morphe_vot_tts_sample">Es ist Morphing-Zeit!</string>
+    <string name="morphe_vot_tts_system">System</string>
+    <string name="morphe_vot_tts_voice_type">Sprache</string>
+    <string name="morphe_vot_voice_gender_female">Weiblich</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Mehrsprachig weiblich</string>
+    <string name="morphe_vot_voice_gender_male">Männlich</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Mehrsprachig männlich</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Erweitertes Videoqualitätsmenü wird nicht angezeigt</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Erweitertes Videoqualitätsmenü wird angezeigt</string>
     <string name="revanced_advanced_video_quality_menu_title">Erweiterte Qualitätseinstellungen öffnen</string>
@@ -1555,7 +1614,6 @@ Wischen, um zu erweitern oder zu schließen"</string>
 
 Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts gezogen werden"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Horizontales Ziehen aktivieren</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer-Overlay-Deckkraft muss zwischen 0-100 liegen</string>
     <string name="revanced_miniplayer_opacity_title">Deckkraft der Überlagerung</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Ecken sind nicht abgerundet</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Ecken sind abgerundet</string>
@@ -2300,7 +2358,6 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Wenn man zum niedrigsten Wert wischt, aktiviert man die automatische Helligkeit nicht</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Wische runter auf den niedrigsten Wert der Helligkeitsgeste, um die automatische Helligkeit zu aktivieren</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Geste für automatische Helligkeit aktivieren</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Die Deckkraft muss zwischen 0 und 100 liegen</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Passt die Deckkraft an (0 ist transparent, 100 ist undurchsichtig)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Deckkraft des Gesten-Overlay-Hintergrunds</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Die Farbe des Helligkeitsreglers im Overlay der Gestensteuerung</string>
@@ -2329,7 +2386,6 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
     <string name="revanced_swipe_save_and_restore_brightness_title">Helligkeit speichern und wiederherstellen</string>
     <string name="revanced_swipe_seek_title">Wischgesten aktivieren</string>
     <string name="revanced_swipe_speed_title">Geste für Geschwindigkeitssteuerung aktivieren</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">Die Textgröße muss zwischen 1 und 30 liegen</string>
     <string name="revanced_swipe_text_overlay_size_summary">Passt die Größe auf dem Bildschirm an (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Textgröße Gesten-Overlays</string>
     <string name="revanced_swipe_threshold_summary">Legen Sie die erforderliche Wischdistanz fest, bevor eine Anpassung ausgelöst wird</string>

@@ -20,11 +20,24 @@ Toque no botão continuar e permita as mudanças de otimização"</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX, ative o Cloud Messaging</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG não está instalado. Instale-o</string>
+    <string name="morphe_app_refresh_rate_default">Padrão</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">Taxa de atualização do aplicativo</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Sempre</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Reprodução em modo retrato</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Reprodução em tela cheia</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Reprodução em modo retrato e tela cheia</string>
+    <string name="morphe_app_refresh_rate_type_title">Substituir taxa de atualização</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Sempre pausar quando bloqueado</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausar a menos que o áudio sem fio esteja conectado</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Pausa automática quando o dispositivo estiver bloqueado</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Usar o ícone do aplicativo selecionado para a entrada de configurações do RVX quando disponível</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Usar ícone nas configurações do RVX</string>
     <string name="morphe_custom_branding_icon_title">Ícone do aplicativo</string>
     <string name="morphe_custom_branding_splash_animation_size_summary">Define o tamanho da animação de abertura personalizada</string>
     <string name="morphe_custom_branding_splash_animation_size_title">Tamanho da animação de abertura</string>
+    <string name="morphe_custom_branding_use_as_system_splash_summary">Usa a animação selecionada como tela de apresentação do sistema Android</string>
+    <string name="morphe_custom_branding_use_as_system_splash_title">Usar como imagem de fundo do sistema</string>
     <string name="morphe_dark_theme_custom_color_summary">Usado quando Personalizado for selecionado</string>
     <string name="morphe_dark_theme_custom_color_title">Cor do tema escuro personalizado</string>
     <string name="morphe_dark_theme_title">Tema escuro</string>
@@ -36,6 +49,7 @@ Toque no botão continuar e permita as mudanças de otimização"</string>
     <string name="morphe_disable_quic_protocol_summary_off">Protocolo QUIC ativado</string>
     <string name="morphe_disable_quic_protocol_summary_on">Protocolo QUIC desativado</string>
     <string name="morphe_disable_quic_protocol_title">Desativar protocolo QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Desativar limite de velocidade de rolagem</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Expandir a duração do DVR em lives' pode não estar disponível
 
 Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrão' para 'TV Simply' ou 'visionOS'"</string>
@@ -108,6 +122,8 @@ Para mostrar o menu 'Faixa de áudio', altere 'Simular streams de vídeo' para q
     <string name="morphe_hide_youtube_premium_menu_title">Ocultar menu YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">Ocultar menu YouTube Studio</string>
     <string name="morphe_hide_youtube_works_menu_title">Ocultar menu \'Como o YouTube funciona\'</string>
+    <string name="morphe_light_theme_custom_color_title">Cor personalizada do tema claro</string>
+    <string name="morphe_light_theme_title">Tema claro</string>
     <string name="morphe_livestream_dvr_not_available">"'Ativar o DVR em lives' pode não estar disponível
 
 Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrão' para 'TV Simply' ou 'visionOS'"</string>
@@ -115,6 +131,8 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_livestream_dvr_title">Ativar o DVR em lives</string>
     <string name="morphe_music_package_name_summary">Nome do pacote do seu aplicativo de música instalado</string>
     <string name="morphe_music_package_name_title">Nome do pacote do app de música</string>
+    <string name="morphe_notification_dot_color_summary">Altera a cor dos pontos de notificação</string>
+    <string name="morphe_notification_dot_color_title">Cor do ponto de notificação</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Não é possível fazer login no VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
@@ -131,6 +149,15 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_playback_in_feeds_entry_off">Desligado</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Somente Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Reprodução nos feeds</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Ajuste a opacidade do fundo atrás dos botões de controle do player e da barra de tempo (0 é invisível, 100 é sólido)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Opacidade do fundo dos botões de controle</string>
+    <string name="morphe_potoken_provider_summary">"Corrige problemas de reprodução usando o provedor PoToken integrado (Experimental)
+
+Se você for assinante do YouTube Premium, essa configuração pode não ser necessária"</string>
+    <string name="morphe_potoken_provider_title">Provedor PoToken</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Corrige problemas de reprodução usando o provedor PoToken integrado (Experimental)
+
+Para usar este recurso, desative 'Falsificar fluxos de vídeo'"</string>
     <string name="morphe_queue_manager_check_failed_auth">Você não está logado</string>
     <string name="morphe_queue_manager_check_failed_video_id">Nenhum ID de vídeo</string>
     <string name="morphe_reload_video_summary_off">Botão de recarregar vídeo não está visível</string>
@@ -151,6 +178,8 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_save_to_watch_later_flyout_title">Salvar em Assistir mais tarde</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Permite salvar vídeos voltados para crianças no menu suspenso \"Assistir mais tarde\"</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Mostrar o botão \"Salvar em Assistir mais tarde\" em vídeos infantis</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Permite salvar vídeos curtos na lista de reprodução "Assistir mais tarde" a partir do menu suspenso do feed</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Botão Salvar para Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Vídeo salvo com sucesso na playlist \"Assistir mais tarde\"</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Mais reproduzidos</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Mostra uma thumbnail do vídeo ao arrastar a barra de progresso</string>
@@ -228,9 +257,80 @@ Limitação: Se 'Restaurar barra de ações de vídeo antiga' estiver desativado
     <string name="morphe_tablet_layout_in_player_title">Ativar layout de tablet no player</string>
     <string name="morphe_theme_color_change_foreground_summary">Use a cor do tema para texto e ícones</string>
     <string name="morphe_theme_color_change_foreground_title">Alterar a cor do primeiro plano</string>
+    <string name="morphe_theme_entry_amoled_black">Preto AMOLED</string>
+    <string name="morphe_theme_entry_classic_youtube">Clássico (YouTube antigo)</string>
+    <string name="morphe_theme_entry_dark_blue">Azul escuro</string>
+    <string name="morphe_theme_entry_dark_green">Azul Preto</string>
+    <string name="morphe_theme_entry_dark_orange">Laranja escuro</string>
+    <string name="morphe_theme_entry_dark_pink">Rosa escuro</string>
+    <string name="morphe_theme_entry_dark_red">Vermelho escuro</string>
+    <string name="morphe_theme_entry_dark_yellow">Amarelo escuro</string>
+    <string name="morphe_theme_entry_light_blue">Azul claro</string>
+    <string name="morphe_theme_entry_light_green">Verde claro</string>
+    <string name="morphe_theme_entry_light_orange">Laranja claro</string>
+    <string name="morphe_theme_entry_light_pink">Rosa claro</string>
+    <string name="morphe_theme_entry_light_red">Vermelho claro</string>
+    <string name="morphe_theme_entry_light_yellow">Amarelo claro</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material Você (Neutro)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material Você - Primário</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material Você - Secundário</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - Terciário</string>
+    <string name="morphe_theme_entry_modern_youtube">YouTube moderno</string>
+    <string name="morphe_theme_entry_pale_blue">Azul claro</string>
+    <string name="morphe_theme_entry_pale_green">Verde claro</string>
+    <string name="morphe_theme_entry_pale_yellow">Amarelo pálido</string>
+    <string name="morphe_theme_entry_patch_option">Opção de patch</string>
+    <string name="morphe_theme_entry_white">Branco</string>
+    <string name="morphe_theme_settings_summary">Personalize o tema, a aparência e a identidade visual do aplicativo</string>
+    <string name="morphe_theme_settings_title">Configurações do tema</string>
     <string name="morphe_video_quality_prioritize_dialog">Se esta configuração estiver desativada, vídeos antigos podem não mostrar opções de qualidade de vídeo</string>
     <string name="morphe_video_quality_prioritize_summary">Prioriza a maior qualidade de vídeo disponível em vez da eficiência do codec</string>
     <string name="morphe_video_quality_prioritize_title">Priorizar a qualidade do vídeo</string>
+    <string name="morphe_vot_caption_language_title">Idioma</string>
+    <string name="morphe_vot_cost_free">Gratuito</string>
+    <string name="morphe_vot_cost_per_hour">%s por 100 horas de vídeo</string>
+    <string name="morphe_vot_enabled_title">Tradução por voz</string>
+    <string name="morphe_vot_export_api_key_warning">"Suas configurações contêm uma chave de API OpenRouter
+
+Sua chave de API nunca deve ser compartilhada. Qualquer pessoa com acesso a ela pode usar seus créditos OpenRouter"</string>
+    <string name="morphe_vot_http_error_message">"O serviço de tradução retornou um erro HTTP %s. Seu endereço IP provavelmente foi limitado por até 24 horas
+
+Para continuar usando as traduções, altere para um provedor de tradução diferente nas configurações ou use uma VPN"</string>
+    <string name="morphe_vot_http_error_title">Tradução não disponível</string>
+    <string name="morphe_vot_max_speech_rate_summary">Multiplicador máximo de velocidade ao ajustar a fala a um espaço de legenda</string>
+    <string name="morphe_vot_max_speech_rate_title">Velocidade máxima da fala</string>
+    <string name="morphe_vot_mymemory_email_summary">Opcional. Insira seu endereço de e-mail do MyMemory para aumentar o limite diário de 5.000 para 50.000 caracteres. Deixe em branco para usar o limite anônimo</string>
+    <string name="morphe_vot_mymemory_email_title">E-mail do MyMemory</string>
+    <string name="morphe_vot_mymemory_error">Falha na tradução do MyMemory (status %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"API de tradução gratuita, sem chave de API necessária. Até 5.000 caracteres por dia no plano gratuito, ou até 50.000 caracteres por dia com um endereço de e-mail
+
+Toque aqui para abrir MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Você usou a cota de tradução gratuita do MyMemory (5.000 caracteres) de hoje. Adicione um e-mail do MyMemory nas configurações para aumentar o limite diário para 50.000 caracteres, ou altere para um serviço de tradução diferente</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Você usou a cota de tradução do MyMemory (50.000 caracteres) de hoje. Altere para um serviço de tradução diferente ou tente novamente amanhã</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Disponível novamente em %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Limite diário do MyMemory atingido</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Sua chave de API OpenRouter. Crie uma chave em OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">Chave de API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Seu limite de crédito OpenRouter foi atingido. Recarregue seu saldo ou aumente o limite de gastos da sua chave em OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Limite de crédito OpenRouter atingido</string>
+    <string name="morphe_vot_openrouter_error">Falha na tradução do OpenRouter (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Tradução de IA paga via OpenRouter. Recarregue uma vez e traduza milhares de vídeos. Mistral Nemo é a opção mais barata, Gemma 4 oferece a maior qualidade
+
+Toque aqui para abrir OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Modelo OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Insira sua chave de API OpenRouter nas configurações antes de selecionar este provedor</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter não configurado</string>
+    <string name="morphe_vot_openrouter_open_website">Abrir OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Volume do áudio original do YouTube enquanto a tradução está sendo reproduzida</string>
+    <string name="morphe_vot_translation_service_title">Provedor de tradução</string>
+    <string name="morphe_vot_translation_volume_summary">Volume da voz dublada da tradução</string>
+    <string name="morphe_vot_tts_sample">É hora de transformar!</string>
+    <string name="morphe_vot_tts_system">Sistema</string>
+    <string name="morphe_vot_tts_voice_type">Voz</string>
+    <string name="morphe_vot_voice_gender_female">Feminino</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Feminino multilíngue</string>
+    <string name="morphe_vot_voice_gender_male">Masculino</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Masculino multilíngue</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">O menu de qualidade de vídeo avançado não é exibido</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">O menu de qualidade de vídeo avançado é exibido</string>
     <string name="revanced_advanced_video_quality_menu_title">Abrir menu de qualidade avançada</string>
@@ -286,6 +386,8 @@ Toque e segure para trocar o tipo de informação adicionada"</string>
     <string name="revanced_auto_captions_style_entry_3">Mostrar quando não estiver mudo</string>
     <string name="revanced_auto_captions_style_entry_4">Mostrar quando estiver mudo</string>
     <string name="revanced_auto_captions_style_title">Legendas automáticas</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">Pressionar o botão Voltar rola para o topo do feed</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">Pressionar o botão Voltar sempre fecha o feed/aplicativo</string>
     <string name="revanced_back_button_always_exits_feed_title">Botão Voltar sai do feed</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Restrições de modo ambiente para economia de energia não são ignoradas</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Restrições de modo ambiente para economia de energia são ignoradas</string>
@@ -430,6 +532,7 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar"</strin
     <string name="revanced_debug_toast_on_error_title">Mostrar notificação flutuante de erro do RVX</string>
     <string name="revanced_default_app_settings_summary">Para abrir o RVX em um navegador externo, ative \'Abrir links suportados\' e habilite os endereços web suportados</string>
     <string name="revanced_default_app_settings_title">Abrir configurações padrão do aplicativo</string>
+    <string name="revanced_default_playback_audio_pitch_title">Tom de áudio de reprodução padrão</string>
     <string name="revanced_default_playback_speed_shorts_title">Velocidade de reprodução padrão em Shorts</string>
     <string name="revanced_default_playback_speed_title">Velocidade de reprodução padrão</string>
     <string name="revanced_default_video_quality_mobile_shorts_title">Qualidade de Shorts padrão nos dados móveis</string>
@@ -471,6 +574,8 @@ Configurações → Reprodução automática → Reprodução automática do pr�
     <string name="revanced_disable_engagement_panel_summary_off">O painel de engajamento está ativado</string>
     <string name="revanced_disable_engagement_panel_summary_on">O painel de engajamento está desativado</string>
     <string name="revanced_disable_engagement_panel_title">Desativar painel de engajamento</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_off">O gesto de pinça para ampliar está ativado</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_on">O gesto de pinça para ampliar está desativado</string>
     <string name="revanced_disable_fullscreen_zoom_gesture_title">Desativar gesto de pinça para zoom</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptics de capítulos ativado</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptics de capítulos desativado</string>
@@ -508,6 +613,8 @@ As mudanças incluem:
     <string name="revanced_disable_like_dislike_glow_summary_off">Os botões Like e Dislike brilharão quando pressionados</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Os botões Like e Dislike não brilharão quando pressionados</string>
     <string name="revanced_disable_like_dislike_glow_title">Desativar brilho do botão Like e Dislike</string>
+    <string name="revanced_disable_playlist_autoplay_summary_off">As listas de reprodução avançam automaticamente para o próximo vídeo</string>
+    <string name="revanced_disable_playlist_autoplay_summary_on">As listas de reprodução estão impedidas de avançar automaticamente para o próximo vídeo</string>
     <string name="revanced_disable_playlist_autoplay_title">Desativar reprodução automática de playlists</string>
     <string name="revanced_disable_quic_protocol_summary">"Desativar o protocolo QUIC do CronetEngine"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continuar assistindo&lt;/b&gt; continuará na inicialização do aplicativo.&lt;br&gt;&lt;br&gt;Informação:&lt;br&gt;• &lt;b&gt;Continuar assistindo&lt;/b&gt; é um recurso do YouTube Premium.&lt;br&gt;• Esta configuração não força &lt;b&gt;Continuar assistindo&lt;/b&gt; a estar ativado</string>
@@ -594,6 +701,8 @@ Limitações:
     <string name="revanced_enable_narrow_navigation_buttons_title">Ativar botões estreitos de navegação</string>
     <string name="revanced_enable_opus_codec_summary">Ative o codec OPUS se a resposta do player incluir o codec OPUS</string>
     <string name="revanced_enable_opus_codec_title">Ativar codec OPUS</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">Controles de tom de áudio desativados</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">Controles de tom de áudio ativados</string>
     <string name="revanced_enable_playback_audio_pitch_controls_title">Ativar controles de tom do áudio</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">O toque na barra de progresso desativado</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">O toque na barra de progresso está ativado</string>
@@ -1617,7 +1726,6 @@ Deslize para expandir ou fechar"</string>
 
 O Miniplayer pode ser arrastado para fora da tela para a esquerda ou direita"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Ativa o gesto de arrastar horizontalmente</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Opacidade da sobreposição de miniplayer deve estar entre 0-100</string>
     <string name="revanced_miniplayer_opacity_title">Opacidade de sobreposição</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Os cantos serão quadrados</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Os cantos serão arredondados</string>
@@ -1671,6 +1779,10 @@ Os resultados resumidos e transcritos são salvos, a menos que você feche o app
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Selecione primeiro o início e o fim do loop</string>
     <string name="revanced_overlay_button_loop_segment_enabled_toast">Repetindo %1$s - %2$s</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Não foi possível utilizar o tempo de reprodução atual</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_summary">Ajuste o tamanho dos marcadores da barra de busca A e B</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_title">Tamanho A e B</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_summary">Mostre o intervalo do loop na barra de busca com marcadores A e B</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_title">Segmento de loop</string>
     <string name="revanced_overlay_button_loop_segment_start_toast">Início do loop selecionado: %s</string>
     <string name="revanced_overlay_button_loop_segment_summary">"Toque uma vez para selecionar o início, toque novamente para selecionar o fim e repetir esse segmento, toque uma terceira vez para limpar
 Toque e segure para copiar um URL de vídeo com parâmetros de início e fim"</string>
@@ -1731,6 +1843,10 @@ Para exibir o botão nativo para baixar a lista de reprodução, ative \'Falsifi
     <string name="revanced_patched_date_title">Data da atualização</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Excluído</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Incluído</font></string>
+    <string name="revanced_playback_audio_pitch_sync">Sincronizar</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_off">A altura do som é independente da velocidade de reprodução</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_on">A altura do áudio está sincronizada com a velocidade de reprodução</string>
+    <string name="revanced_playback_audio_pitch_title">Tom de áudio</string>
     <string name="revanced_playback_audio_time_stretching_summary">Permite ajustar velocidade e tom de forma independente, pode causar ruídos no áudio</string>
     <string name="revanced_playback_audio_time_stretching_title">Alongamento temporal de áudio</string>
     <string name="revanced_playback_speed_normal">Normal</string>
@@ -2251,6 +2367,11 @@ Isso pode não funcionar se:
     <string name="revanced_settings_search_clear_history_message">Tem certeza de que deseja limpar todo o histórico de pesquisa?</string>
     <string name="revanced_settings_search_empty_history_summary">Para salvar o histórico de pesquisa, digite uma consulta de pesquisa e pressione Enter</string>
     <string name="revanced_settings_search_empty_history_title">O histórico de pesquisa está vazio</string>
+    <string name="revanced_settings_search_gemini_results">Resultados do Gemini</string>
+    <string name="revanced_settings_search_gemini_searching_title">Buscando com Gemini…</string>
+    <string name="revanced_settings_search_gemini_summary_off">Gemini não é usado para pesquisa de configurações</string>
+    <string name="revanced_settings_search_gemini_summary_on">Gemini é usado quando a busca nas configurações locais não encontra resultados</string>
+    <string name="revanced_settings_search_gemini_title">Configurações de pesquisa com Gemini</string>
     <string name="revanced_settings_search_history_summary">Salvar consultas de pesquisa recentes para exibi-las quando a barra de pesquisa estiver vazia</string>
     <string name="revanced_settings_search_history_summary_off">O histórico de pesquisa de configurações não é exibido</string>
     <string name="revanced_settings_search_history_summary_on">O histórico de pesquisa das configurações é mostrado</string>
@@ -2470,7 +2591,6 @@ Ajuste o brilho deslizando verticalmente no lado esquerdo da tela"</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizar para baixo até o menor valor do gesto de brilho, não ativa o brilho automático</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizar para baixo até o menor valor do gesto de brilho, ativa o brilho automático</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ativar gesto de brilho automático</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A opacidade do deslizar deve estar entre 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Ajuste o nível de transparência (0 é transparente, 100 é opaco)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Opacidade do plano de fundo de sobreposição de deslize</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Definir a cor da barra de progresso dos controles de brilho</string>
@@ -2516,7 +2636,6 @@ Ajuste a velocidade deslizando horizontalmente na metade inferior da tela"</stri
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">A zona do gesto de busca fica na parte superior, a zona de velocidade fica na parte inferior</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">A zona do gesto de velocidade fica na parte superior, a zona de busca fica na parte inferior</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Inverter gestos de velocidade e busca</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">O tamanho do texto deve estar entre 1 e 30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Ajuste o tamanho do texto na tela (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Tamanho do texto da sobreposição de deslize</string>
     <string name="revanced_swipe_threshold_summary">Defina a distância de deslize necessária antes que um ajuste seja acionado</string>
@@ -2610,7 +2729,14 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_oauth_token_summary">Necessário para gravações ao vivo</string>
     <string name="revanced_vot_original_audio_volume_summary">Volume do áudio original do YouTube enquanto a tradução está sendo reproduzida</string>
     <string name="revanced_vot_original_audio_volume_title">Volume do áudio original</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">O vídeo continua sendo reproduzido enquanto a tradução é preparada</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">O vídeo pausa até que o áudio traduzido esteja pronto</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_title">Pause o vídeo enquanto prepara a tradução</string>
     <string name="revanced_vot_playback_error">Falha ao reproduzir áudio traduzido</string>
+    <string name="revanced_vot_proxy_url_fetch_failed">Falha ao obter o host proxy do worker VOT</string>
+    <string name="revanced_vot_proxy_url_fetch_success">O host proxy do trabalhador VOT foi atualizado para %s</string>
+    <string name="revanced_vot_proxy_url_fetch_summary">Obtenha manualmente o host do servidor proxy atual. Ele nunca é atualizado automaticamente</string>
+    <string name="revanced_vot_proxy_url_fetch_title">Obter o servidor proxy mais recente</string>
     <string name="revanced_vot_proxy_url_summary">Host proxy do servidor VOT. Padrão: vot-worker.toil.cc</string>
     <string name="revanced_vot_proxy_url_title">Servidor proxy</string>
     <string name="revanced_vot_source_language_summary">Selecione o idioma do áudio do vídeo</string>
@@ -2621,6 +2747,7 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_stream_ready">Tradução pronta, tocando</string>
     <string name="revanced_vot_stream_requesting">Solicitar tradução para a transmissão…</string>
     <string name="revanced_vot_stream_waiting">Aguardando tradução…</string>
+    <string name="revanced_vot_stream_waiting_status">A tradução ainda está sendo processada…</string>
     <string name="revanced_vot_target_language_summary">Selecione o idioma para o qual deseja traduzir</string>
     <string name="revanced_vot_target_language_title">Língua de destino</string>
     <string name="revanced_vot_time_sec">%d seg</string>

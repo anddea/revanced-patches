@@ -20,6 +20,17 @@
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX، قم بتمكين المراسلة السحابية</string>
     <string name="gms_core_settings_title">فتح إعدادات GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG لم يتم تثبيته. قم بتثبيته</string>
+    <string name="morphe_app_refresh_rate_default">الوضع الافتراضي</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">معدل تحديث التطبيق</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">دائمًا</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">التشغيل بالوضع الطولي</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">التشغيل بوضع ملء الشاشة</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">التشغيل بالوضع الطولي ووضع ملء الشاشة</string>
+    <string name="morphe_app_refresh_rate_type_title">تجاوز معدل التحديث</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">إيقاف التشغيل دائمًا عند القفل</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">إيقاف التشغيل إلا إذا كان الصوت اللاسلكي متصلًا</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">إيقاف التشغيل تلقائيًا عند قفل الجهاز</string>
     <string name="morphe_custom_branding_icon_title">أيقونة التطبيق</string>
     <string name="morphe_dark_theme_title">مظهر مظلم</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">يبقي شريط التنقل ظاهرًا أثناء التمرير</string>
@@ -30,6 +41,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">تم تمكين بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_summary_on">تم تعطيل بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">تعطيل تحديد سرعة التمرير</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"قد لا يكون 'زيادة مدة رجوع البث المباشر' متاحًا
 
 لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV Simply' أو 'visionOS'"</string>
@@ -127,6 +139,8 @@
     <string name="morphe_playback_in_feeds_entry_off">متوقف</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">فقط Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">التشغيل في الخلاصات</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">ضبط شفافية الخلفية خلف أزرار تحكم المشغل وشريط الوقت (0 غير مرئية، 100 معتمة)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">شفافية خلفية أزرار التحكم</string>
     <string name="morphe_queue_manager_check_failed_auth">تسجيل الدخول غير ممكن</string>
     <string name="morphe_queue_manager_check_failed_video_id">لا يوجد معرّف فيديو</string>
     <string name="morphe_reload_video_summary_off">لا يتم عرض زر إعادة تحميل الفيديو</string>
@@ -248,6 +262,54 @@
     <string name="morphe_video_quality_prioritize_dialog">إذا تم إيقاف هذا الإعداد، فقد لا تعرض الفيديوهات القديمة خيارات جودة الفيديو</string>
     <string name="morphe_video_quality_prioritize_summary">يُعطي الأولوية لأعلى جودة فيديو متاحة على حساب كفاءة الترميز</string>
     <string name="morphe_video_quality_prioritize_title">إعطاء الأولوية لجودة فيديو</string>
+    <string name="morphe_vot_caption_language_title">اللغة</string>
+    <string name="morphe_vot_cost_free">مجاني</string>
+    <string name="morphe_vot_cost_per_hour">‎%s لكل 100 ساعة فيديو‎</string>
+    <string name="morphe_vot_enabled_title">الترجمة الصوتية</string>
+    <string name="morphe_vot_export_api_key_warning">"تحتوي إعداداتك على مفتاح OpenRouter API
+
+يجب ألا تتم مشاركة مفتاح API الخاص بك أبدًا. يمكن لأي شخص لديه حق الوصول إليه استخدام أرصدة OpenRouter الخاصة بك"</string>
+    <string name="morphe_vot_http_error_message">"خدمة الترجمة أعادت خطأ HTTP ‏%s
+يبدو أن عنوان IP الخاص بك قد خضع لتقييد مؤقت لمدة تصل إلى 24 ساعة
+
+لمتابعة استخدام الترجمات، بدّل إلى مزود ترجمة آخر من الإعدادات أو استخدم VPN"</string>
+    <string name="morphe_vot_http_error_title">الترجمة غير متوفرة</string>
+    <string name="morphe_vot_max_speech_rate_summary">أقصى سرعة تُستخدم عند ضبط الكلام ليتناسب مع خانة الترجمة</string>
+    <string name="morphe_vot_max_speech_rate_title">الحد الأقصى لسرعة النطق</string>
+    <string name="morphe_vot_mymemory_email_summary">اختياري. أدخل بريدك الإلكتروني في MyMemory لزيادة الحد اليومي من 5000 إلى 50000 حرف. اتركه فارغًا لاستخدام الحد غير المسجّل</string>
+    <string name="morphe_vot_mymemory_email_title">بريد MyMemory الإلكتروني</string>
+    <string name="morphe_vot_mymemory_error">فشلت ترجمة MyMemory (الحالة %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"واجهة برمجة تطبيقات ترجمة مجانية، لا يلزم مفتاح API. حتى 5000 حرف يوميًا في الخطة المجانية، أو حتى 50000 حرف يوميًا عند استخدام عنوان بريد إلكتروني
+
+انقر هنا لفتح MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">لقد استخدمت حصة الترجمة المجانية اليومية لـ MyMemory (5000 حرف). أضف بريدًا إلكترونيًا لـ MyMemory في الإعدادات لرفع الحد اليومي إلى 50000 حرف، أو قم بالتبديل إلى خدمة ترجمة مختلفة</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">لقد استخدمت حصة ترجمة MyMemory اليومية (50000 حرف). قم بالتبديل إلى خدمة ترجمة مختلفة أو حاول مرة أخرى غدًا</string>
+    <string name="morphe_vot_mymemory_quota_next_available">متاح مرة أخرى في %s</string>
+    <string name="morphe_vot_mymemory_quota_title">تم الوصول إلى الحد اليومي لـ MyMemory</string>
+    <string name="morphe_vot_openrouter_api_key_summary">مفتاح OpenRouter API الخاص بك. قم بإنشاء مفتاح على OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">مفتاح OpenRouter API</string>
+    <string name="morphe_vot_openrouter_credits_message">لقد وصل رصيد OpenRouter الخاص بك إلى الحد المسموح به. أضف رصيدًا أو ارفع حد الإنفاق الخاص بمفتاحك على OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">تم الوصول إلى حد رصيد OpenRouter</string>
+    <string name="morphe_vot_openrouter_error">فشلت ترجمة OpenRouter (HTTP ‏%s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"ترجمة مدفوعة بالذكاء الاصطناعي عبر OpenRouter
+أضف رصيدًا مرة واحدة لترجمة آلاف الفيديوهات
+Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعلى جودة
+
+انقر هنا لفتح OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">نموذج OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">أدخل مفتاح OpenRouter API الخاص بك في الإعدادات قبل تحديد هذا المزود</string>
+    <string name="morphe_vot_openrouter_not_configured_title">لم يتم تكوين OpenRouter</string>
+    <string name="morphe_vot_openrouter_open_website">فتح OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">مستوى صوت الصوت الأصلي في YouTube أثناء نطق الترجمة</string>
+    <string name="morphe_vot_translation_service_title">مزوّد الترجمة</string>
+    <string name="morphe_vot_translation_volume_summary">مستوى صوت الترجمة المدبلجة</string>
+    <string name="morphe_vot_tts_sample">حان وقت التحول!</string>
+    <string name="morphe_vot_tts_system">النظام</string>
+    <string name="morphe_vot_tts_voice_type">الصوت</string>
+    <string name="morphe_vot_voice_gender_female">أنثى</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">أنثى متعددة اللغات</string>
+    <string name="morphe_vot_voice_gender_male">ذكر</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">ذكر متعدد اللغات</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو المتقدمة</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو المتقدمة</string>
     <string name="revanced_advanced_video_quality_menu_title">فتح قائمة \'الجودة المتقدمة\'</string>
@@ -1625,7 +1687,6 @@
 
 يمكن سحب المشغل المصغر خارج الشاشة إلى اليمين أو اليسار"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">تمكين إيماءة السحب الأفقية</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">شفافية واجهة المشغل المصغر يجب أن تكون بين 0-100</string>
     <string name="revanced_miniplayer_opacity_title">شفافية الواجهة</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">الزوايا مربعة</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">الزوايا مستديرة</string>
@@ -2419,7 +2480,6 @@
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">لا يؤدي التمرير لأسفل إلى أدنى قيمة إلى تمكين السطوع التلقائي</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">التمرير لأسفل إلى أدنى قيمة للسطوع يمكّن السطوع التلقائي</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">تمكين إيماءة السطوع التلقائي</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">يجب أن تكون شفافية التمرير بين 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">ضبط مستوى الشفافية (0 شفاف ، 100 معتم)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">تعتيم خلفية واجهة التمرير</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">تعيين لون شريط تقدم عناصر التحكم في مستوى السطوع</string>
@@ -2465,7 +2525,6 @@
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">منطقة إيماءة سحب التمرير في الأعلى، ومنطقة السرعة في الأسفل</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">منطقة إيماءة سحب السرعة في الأعلى، ومنطقة التمرير في الأسفل</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">تبديل أماكن إيماءات السرعة والتمرير</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">يجب أن يكون حجم النص بين 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">ضبط حجم النص على الشاشة (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">حجم نص نمط إيماءة التمرير</string>
     <string name="revanced_swipe_threshold_summary">تعيين مسافة التمرير المطلوبة قبل بدء التعديل</string>

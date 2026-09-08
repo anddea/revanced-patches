@@ -20,6 +20,17 @@
     <string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
     <string name="gms_core_toast_not_installed_message">MicroG 尚未安裝。請安裝它。</string>
+    <string name="morphe_app_refresh_rate_default">預設</string>
+    <string name="morphe_app_refresh_rate_fps">%s 幀/秒</string>
+    <string name="morphe_app_refresh_rate_title">應用程式更新頻率</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">一律</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">直向播放</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">全螢幕播放</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">直向與全螢幕播放</string>
+    <string name="morphe_app_refresh_rate_type_title">覆寫更新頻率</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">鎖定時一律暫停</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">除非連接無線音訊，否則暫停</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">裝置鎖定時自動暫停</string>
     <string name="morphe_custom_branding_icon_title">應用程式圖示</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">在捲動時，保持導覽列可見</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">停用自動隱藏導航欄</string>
@@ -29,6 +40,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">已啟用 QUIC 協定</string>
     <string name="morphe_disable_quic_protocol_summary_on">已停用 QUIC 協定</string>
     <string name="morphe_disable_quic_protocol_title">停用 QUIC 協定</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">停用捲動速度限制</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"「延長直播 DVR 時長」可能無法使用
 
 要修正此問題，請開啟「偽造影片串流」，並將「預設用戶端」變更為「TV Simply」或「visionOS」"</string>
@@ -124,6 +136,8 @@
     <string name="morphe_playback_in_feeds_entry_off">關閉</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">僅 Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">feeds 中的播放</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">調整播放器控制按鈕和時間列後方背景的不透明度（0 為隱形，100 為不透明）</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">控制按鈕背景不透明度</string>
     <string name="morphe_queue_manager_check_failed_auth">未登入</string>
     <string name="morphe_queue_manager_check_failed_video_id">沒有影片 ID</string>
     <string name="morphe_reload_video_summary_off">不顯示「重新載入影片」按鈕</string>
@@ -224,6 +238,51 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="morphe_video_quality_prioritize_dialog">如果關閉此設定，則舊影片可能不會顯示任何影片品質選項</string>
     <string name="morphe_video_quality_prioritize_summary">優先考慮可用的最高影片品質，而非編碼器效率</string>
     <string name="morphe_video_quality_prioritize_title">優先影片品質</string>
+    <string name="morphe_vot_caption_language_title">語言</string>
+    <string name="morphe_vot_cost_free">免費</string>
+    <string name="morphe_vot_cost_per_hour">每 100 小時影片 %s 元</string>
+    <string name="morphe_vot_enabled_title">語音轉錄翻譯</string>
+    <string name="morphe_vot_export_api_key_warning">"您的設定包含 OpenRouter API 金鑰。
+
+您的 API 金鑰不應與他人分享。具有存取權的人可以使用您的 OpenRouter 額度"</string>
+    <string name="morphe_vot_http_error_message">"翻譯服務傳回 HTTP 錯誤 %s。您的 IP 位址可能已被限制速率，長達 24 小時。
+
+若要繼續使用翻譯，請在設定中切換至其他翻譯供應商，或使用 VPN"</string>
+    <string name="morphe_vot_http_error_title">翻譯不可用</string>
+    <string name="morphe_vot_max_speech_rate_summary">在字幕欄位中調整語速時的最大倍數</string>
+    <string name="morphe_vot_max_speech_rate_title">最大語速</string>
+    <string name="morphe_vot_mymemory_email_summary">選用。輸入您的 MyMemory 電子郵件地址，將每日字元限制從 5,000 個提高到 50,000 個。留空則使用匿名限制</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory 電子郵件</string>
+    <string name="morphe_vot_mymemory_error">MyMemory 翻譯失敗 (狀態 %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"免費翻譯 API，無需 API 金鑰。免費版每日最多可翻譯 5,000 個字元，或輸入電子郵件地址後，每日最多可翻譯 50,000 個字元。
+
+點擊這裡打開 MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">您已用完今天的免費 MyMemory 翻譯額度 (5,000 個字元)。在設定中新增 MyMemory 電子郵件地址，將每日額度提高到 50,000 個字元，或切換至其他翻譯服務</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">您已用完今天的 MyMemory 翻譯額度 (50,000 個字元)。切換至其他翻譯服務或明天再試</string>
+    <string name="morphe_vot_mymemory_quota_next_available">下次可用時間為 %s。</string>
+    <string name="morphe_vot_mymemory_quota_title">MyMemory 每日額度已達標</string>
+    <string name="morphe_vot_openrouter_api_key_summary">您的 OpenRouter API 金鑰。在 OpenRouter.ai &gt; 工作區 &gt; API 金鑰中建立金鑰</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API 金鑰</string>
+    <string name="morphe_vot_openrouter_credits_message">您的 OpenRouter 信用額度已達標。在 OpenRouter.ai 補充您的餘額或提高您的金鑰支出限制</string>
+    <string name="morphe_vot_openrouter_credits_title">OpenRouter 信用額度已達標</string>
+    <string name="morphe_vot_openrouter_error">OpenRouter 翻譯失敗 (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"透過 OpenRouter 提供的付費 AI 翻譯。一次儲值即可翻譯數千個影片。Mistral Nemo 是最便宜的選項，Gemma 4 則提供最高的品質。
+
+點擊這裡打開 OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter 模型</string>
+    <string name="morphe_vot_openrouter_not_configured_message">在設定中輸入您的 OpenRouter API 金鑰，然後再選取此供應商</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter 未設定</string>
+    <string name="morphe_vot_openrouter_open_website">開啟 OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">翻譯語音講話時，原始 YouTube 音影片音量</string>
+    <string name="morphe_vot_translation_service_title">翻譯供應商</string>
+    <string name="morphe_vot_translation_volume_summary">配音翻譯語音的音量</string>
+    <string name="morphe_vot_tts_sample">變形時間到了！</string>
+    <string name="morphe_vot_tts_system">系統</string>
+    <string name="morphe_vot_tts_voice_type">語音</string>
+    <string name="morphe_vot_voice_gender_female">女性</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">多語言女性</string>
+    <string name="morphe_vot_voice_gender_male">男性</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">多語言男性</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">不顯示進階影片畫質選單</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">已顯示進階影片畫質選單</string>
     <string name="revanced_advanced_video_quality_menu_title">開啟進階畫質選單</string>
@@ -1597,7 +1656,6 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
 
 迷你播放器可以向左或向右拖曳出螢幕。"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">啟用水平拖曳手勢。</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">迷你播放器覆蓋的不透明度必須介於 0 到 100 之間</string>
     <string name="revanced_miniplayer_opacity_title">覆蓋不透明度</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">已設定角落為方形。</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">已設定角落為圓角。</string>
@@ -1678,7 +1736,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_overlay_button_speed_dialog_summary">"點擊選擇影片播放速度。
 長按設定預設播放速度（1.0x）"</string>
     <string name="revanced_overlay_button_speed_dialog_title">播放速度按鈕</string>
-    <string name="revanced_overlay_button_speed_dialog_type_title">快速對話類型</string>
+    <string name="revanced_overlay_button_speed_dialog_type_title">速度對話框類型</string>
     <string name="revanced_overlay_button_vot_summary">顯示疊加按鈕，用於切換目前影片的語音翻譯</string>
     <string name="revanced_overlay_button_vot_title">語音翻譯</string>
     <string name="revanced_overlay_button_whitelist_summary">點選可開啟白名單對話框。
@@ -2268,11 +2326,11 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_shorts_custom_actions_repeat_state_summary_off">重複狀態選單被已隱藏。</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_on">重複狀態選單已顯示。</string>
     <string name="revanced_shorts_custom_actions_repeat_state_title">顯示重複狀態選單</string>
-    <string name="revanced_shorts_custom_actions_speed_dialog_label">快速對話</string>
-    <string name="revanced_shorts_custom_actions_speed_dialog_summary_off">快速對話選單已隱藏。</string>
-    <string name="revanced_shorts_custom_actions_speed_dialog_summary_on">快速對話選單已顯示。</string>
-    <string name="revanced_shorts_custom_actions_speed_dialog_title">顯示快速對話選單</string>
-    <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">現代快速對話可能無法在 YouTube 19.01-19.34 上運行。</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_label">速度對話框</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_summary_off">速度對話選單已隱藏。</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_summary_on">速度對話選單已顯示。</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_title">顯示速度對話選單</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_type_user_dialog_message">現代速度對話框可能無法在 YouTube 19.01-19.34 上運行。</string>
     <string name="revanced_shorts_custom_actions_speed_summary_off">播放速度選單已隱藏。\n\n資訊:\n• 應該要啟用短片預設播放速度。\n• 所選的速度會套用於下一個影片。</string>
     <string name="revanced_shorts_custom_actions_speed_summary_on">播放速度選單已顯示。\n\n資訊:\n• 應該要啟用短片預設播放速度。\n• 所選的速度會套用於下一個影片。</string>
     <string name="revanced_shorts_custom_actions_speed_title">顯示播放速度選單</string>
@@ -2409,7 +2467,6 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">亮度手勢滑到最底時，不啟用自動亮度</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">亮度手勢滑到最底時，啟用自動亮度</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">啟用自動亮度手勢</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑動透明度必須介於 0 到 100 之間</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">調整覆蓋圖的透明度 (0 為透明，100 為不透明)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">滑動覆蓋背景透明度</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">設定亮度控制進度條的顏色</string>
@@ -2455,7 +2512,6 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">進度搜尋滑動區域在上方，速度滑動區域在下方。</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">速度滑動區域在上方，進度搜尋滑動區域在下方。</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">切換速度與進度搜尋手勢</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">文字大小必須介於 1 至 30 之間</string>
     <string name="revanced_swipe_text_overlay_size_summary">調整螢幕上文字的大小 (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">滑動疊加文字大小</string>
     <string name="revanced_swipe_threshold_summary">設定觸發調整所需滑動距離</string>

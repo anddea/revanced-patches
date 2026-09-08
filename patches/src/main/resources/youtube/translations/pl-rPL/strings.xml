@@ -20,11 +20,24 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX, włącz Cloud Messaging</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG nie jest zainstalowany. Zainstaluj go</string>
+    <string name="morphe_app_refresh_rate_default">Domyślna</string>
+    <string name="morphe_app_refresh_rate_fps">%s kl./s</string>
+    <string name="morphe_app_refresh_rate_title">Częstotliwość odświeżania aplikacji</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Zawsze</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Odtwarzanie w pionie</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Odtwarzanie na pełnym ekranie</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Odtwarzanie w pionie i na pełnym ekranie</string>
+    <string name="morphe_app_refresh_rate_type_title">Nadpisz częstotliwość odświeżania</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Zawsze wstrzymuj po zablokowaniu</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Wstrzymuj, chyba że podłączono bezprzewodowe słuchawki lub głośnik</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Automatyczne wstrzymywanie po zablokowaniu urządzenia</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Jeśli jest dostępna, użyj ikony wybranej aplikacji do wprowadzenia ustawień RVX</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Użyj ikony w ustawieniach RVX</string>
     <string name="morphe_custom_branding_icon_title">Ikona aplikacji</string>
     <string name="morphe_custom_branding_splash_animation_size_summary">Ustawia rozmiar niestandardowej animacji powitalnej</string>
     <string name="morphe_custom_branding_splash_animation_size_title">Rozmiar animacji powitalnej</string>
+    <string name="morphe_custom_branding_use_as_system_splash_summary">Użyj wybranej animacji jako powitalnego ekranu systemu Android</string>
+    <string name="morphe_custom_branding_use_as_system_splash_title">Użyj jako systemu rozpryskowego</string>
     <string name="morphe_dark_theme_custom_color_summary">Używane, gdy wybrano opcję Niestandardowe</string>
     <string name="morphe_dark_theme_custom_color_title">Niestandardowy ciemny kolor motywu</string>
     <string name="morphe_dark_theme_title">Ciemny motyw</string>
@@ -36,6 +49,7 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="morphe_disable_quic_protocol_summary_off">Włączony</string>
     <string name="morphe_disable_quic_protocol_summary_on">Wyłączony</string>
     <string name="morphe_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Wyłącz limit prędkości przewijania</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Opcja \"Wydłuż czas przewijania transmisji na żywo\" może być niedostępna
 
 ​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
@@ -117,6 +131,8 @@ Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy
     <string name="morphe_livestream_dvr_title">Włącz przewijanie transmisji na żywo</string>
     <string name="morphe_music_package_name_summary">Nazwa pakietu zainstalowanej aplikacji muzycznej</string>
     <string name="morphe_music_package_name_title">Nazwa pakietu aplikacji muzycznej</string>
+    <string name="morphe_notification_dot_color_summary">Zmienia kolor kropek powiadomień</string>
+    <string name="morphe_notification_dot_color_title">Kolor kropki powiadomienia</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nie można zalogować się do VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nie można zalogować się do VR, autoryzacja na stronie nie została zatwierdzona</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 jest tymczasowo niedostępny</string>
@@ -133,6 +149,15 @@ Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy
     <string name="morphe_playback_in_feeds_entry_off">Wyłączone</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Tylko Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Odtwarzanie w kanałach</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Dostosuj krycie tła za przyciskami sterowania odtwarzacza i paskiem czasu (0 to brak krycia, 100 to pełne krycie)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Krycie tła przycisków sterowania</string>
+    <string name="morphe_potoken_provider_summary">"Naprawia problemy z odtwarzaniem za pomocą wbudowanego dostawcy PoToken (wersja eksperymentalna)
+
+Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>
+    <string name="morphe_potoken_provider_title">Dostawca PoTokena</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Naprawia problemy z odtwarzaniem za pomocą wbudowanego dostawcy PoToken (wersja eksperymentalna)
+
+Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</string>
     <string name="morphe_queue_manager_check_failed_auth">Nie zalogowano</string>
     <string name="morphe_queue_manager_check_failed_video_id">Brak identyfikatora filmu</string>
     <string name="morphe_reload_video_summary_off">Ukryty</string>
@@ -153,6 +178,8 @@ Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy
     <string name="morphe_save_to_watch_later_flyout_title">Zapisz do obejrzenia</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Pozwala zapisywać filmy dla dzieci w wysuwanym menu \"Do obejrzenia\"</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Pokaż przycisk Zapisz do obejrzenia w filmach dla dzieci</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Umożliwia zapisywanie filmów krótkometrażowych \'Obejrzyj później\' lista odtwarzania z menu podręcznego kanału</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Przycisk Zapisz dla filmów krótkometrażowych</string>
     <string name="morphe_save_to_watch_later_success_toast">Zapisano na playliście \"Do obejrzenia\"</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Najczęściej odtwarzane</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Pokazuje podgląd filmu podczas przeciągania paska postępu</string>
@@ -252,10 +279,58 @@ Ograniczenia: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączo
     <string name="morphe_theme_entry_pale_blue">Bladoniebieski</string>
     <string name="morphe_theme_entry_pale_green">Bladozielony</string>
     <string name="morphe_theme_entry_pale_yellow">Bladożółty</string>
+    <string name="morphe_theme_entry_patch_option">Opcja poprawki</string>
     <string name="morphe_theme_entry_white">Biały</string>
+    <string name="morphe_theme_settings_summary">Dostosuj motyw, wygląd i markę aplikacji</string>
+    <string name="morphe_theme_settings_title">Ustawienia motywu</string>
     <string name="morphe_video_quality_prioritize_dialog">Jeśli to ustawienie będzie wyłączone, starsze filmy mogą nie wyświetlać opcji wyboru jakości filmu</string>
     <string name="morphe_video_quality_prioritize_summary">Nadaje priorytet najwyższej dostępnej jakości filmu kosztem wydajności kodeka</string>
     <string name="morphe_video_quality_prioritize_title">Priorytet jakości filmu</string>
+    <string name="morphe_vot_caption_language_title">Język</string>
+    <string name="morphe_vot_cost_free">Za darmo</string>
+    <string name="morphe_vot_cost_per_hour">%s za 100 godzin filmu</string>
+    <string name="morphe_vot_enabled_title">Tłumaczenie głosowe</string>
+    <string name="morphe_vot_export_api_key_warning">"Twoje ustawienia zawierają klucz API OpenRouter
+
+​Nigdy nie udostępniaj swojego klucza API. Każdy, kto ma do niego dostęp, może wykorzystać Twoje środki na OpenRouterze"</string>
+    <string name="morphe_vot_http_error_message">"Usługa tłumaczenia zwróciła błąd HTTP %s. Prawdopodobnie nałożono limit na Twój adres IP na maksymalnie 24 godziny
+
+​Aby kontynuować korzystanie z tłumaczeń, zmień dostawcę w ustawieniach lub użyj VPN"</string>
+    <string name="morphe_vot_http_error_title">Tłumaczenie niedostępne</string>
+    <string name="morphe_vot_max_speech_rate_summary">Maksymalny mnożnik szybkości podczas wpasowywania mowy w czas wyświetlania napisu</string>
+    <string name="morphe_vot_max_speech_rate_title">Maksymalne tempo mowy</string>
+    <string name="morphe_vot_mymemory_email_summary">Opcjonalne. Wprowadź swój adres e-mail z MyMemory, aby zwiększyć dzienny limit z 5000 do 50 000 znaków. Zostaw puste, aby korzystać z limitu dla anonimowych użytkowników</string>
+    <string name="morphe_vot_mymemory_email_title">Adres e-mail MyMemory</string>
+    <string name="morphe_vot_mymemory_error">Tłumaczenie MyMemory nie powiodło się (status %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"Darmowe API do tłumaczeń, nie wymaga klucza. Do 5000 znaków dziennie w darmowym planie lub do 50 000 znaków dziennie po podaniu adresu e-mail
+
+​Dotknij tutaj, aby otworzyć MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Wykorzystano dzisiejszy darmowy limit tłumaczeń MyMemory (5000 znaków). Dodaj adres e-mail MyMemory w ustawieniach, aby zwiększyć dzienny limit do 50 000 znaków, lub zmień usługę tłumaczenia</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Wykorzystano dzisiejszy limit tłumaczeń MyMemory (50 000 znaków). Zmień usługę tłumaczenia lub spróbuj ponownie jutro</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Dostępne ponownie o %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Osiągnięto dzienny limit MyMemory</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Twój klucz API OpenRouter. Utwórz klucz na stronie OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">Klucz API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Osiągnięto limit środków na koncie OpenRouter. Doładuj saldo lub zwiększ limit wydatków dla klucza na stronie OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Osiągnięto limit środków OpenRouter</string>
+    <string name="morphe_vot_openrouter_error">Tłumaczenie OpenRouter nie powiodło się (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Płatne tłumaczenia AI przez OpenRouter. Doładuj konto raz i tłumacz tysiące filmów. Mistral Nemo to najtańsza opcja, a Gemma 4 oferuje najwyższą jakość
+
+​Dotknij tutaj, aby otworzyć OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Model OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Wprowadź klucz API OpenRouter w ustawieniach, zanim wybierzesz tego dostawcę</string>
+    <string name="morphe_vot_openrouter_not_configured_title">Brak konfiguracji OpenRouter</string>
+    <string name="morphe_vot_openrouter_open_website">Otwórz OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Głośność oryginalnego dźwięku z YouTube podczas odtwarzania tłumaczenia</string>
+    <string name="morphe_vot_translation_service_title">Dostawca tłumaczeń</string>
+    <string name="morphe_vot_translation_volume_summary">Głośność nałożonego głosu tłumaczenia</string>
+    <string name="morphe_vot_tts_sample">Czas na morfowanie!</string>
+    <string name="morphe_vot_tts_system">Systemowy</string>
+    <string name="morphe_vot_tts_voice_type">Głos</string>
+    <string name="morphe_vot_voice_gender_female">Żeński</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Żeński wielojęzyczny</string>
+    <string name="morphe_vot_voice_gender_male">Męski</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Męski wielojęzyczny</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Zaawansowane menu jakości filmu nie jest wyświetlane</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Zaawansowane menu jakości filmu jest wyświetlane</string>
     <string name="revanced_advanced_video_quality_menu_title">Otwórz menu zaawansowanej jakości</string>
@@ -501,6 +576,8 @@ Ustawienia → Autoodtwarzanie / Odtwarzanie → Autoodtwarzanie następnego fil
     <string name="revanced_disable_engagement_panel_summary_off">Widoczny</string>
     <string name="revanced_disable_engagement_panel_summary_on">Ukryty</string>
     <string name="revanced_disable_engagement_panel_title">Panel zaangażowania</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_off">Włączony</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_on">Wyłączony</string>
     <string name="revanced_disable_fullscreen_zoom_gesture_title">Wyłącz gest powiększania palcami</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptyka rozdziałów jest włączona</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptyka rozdziałów jest wyłączona</string>
@@ -539,6 +616,8 @@ Zmiany obejmują:
     <string name="revanced_disable_like_dislike_glow_summary_off">Widoczna</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Ukryta</string>
     <string name="revanced_disable_like_dislike_glow_title">Poświata przycisków od łapkowania w górę i dół</string>
+    <string name="revanced_disable_playlist_autoplay_summary_off">Przechodzą</string>
+    <string name="revanced_disable_playlist_autoplay_summary_on">Nie Przechodzą</string>
     <string name="revanced_disable_playlist_autoplay_title">Wyłącz autoodtwarzanie playlist</string>
     <string name="revanced_disable_quic_protocol_summary">"Wyłącz protokół QUIC w CronetEngine"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Oglądaj dalej&lt;/b&gt; pojawi się po uruchomieniu aplikacji.&lt;br&gt;&lt;br&gt;Informacje:&lt;br&gt;• &lt;b&gt;Oglądaj dalej&lt;/b&gt; jest funkcją YouTube Premium&lt;br&gt;• Ustawienie nie wymusza włączenia opcji &lt;b&gt;Oglądaj dalej&lt;/b&gt;</string>
@@ -1665,8 +1744,7 @@ Przesuń, aby rozwinąć lub zamknąć"</string>
 
 Miniodtwarzacz można przeciągnąć poza ekran w lewo lub prawo"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Gest przeciągania w poziomie</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Przezroczystość nakładki musi wynosić 0-100</string>
-    <string name="revanced_miniplayer_opacity_title">Przezroczystość nakładki</string>
+    <string name="revanced_miniplayer_opacity_title">Krycie nakładki</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Wyłączone (boki są kwadratowe)</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Włączone</string>
     <string name="revanced_miniplayer_rounded_corners_title">Zaokrąglone boki</string>
@@ -2525,9 +2603,8 @@ Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu"</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Przesunięcie w dół do najniższej wartości nie włącza automatycznej jasności</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Przesunięcie w dół do najniższej wartości gestu jasności włącza automatyczną jasność</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Włącz gest automatycznej jasności</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Przezroczystość nakładki musi wynosić 0-100</string>
-    <string name="revanced_swipe_overlay_background_opacity_summary">Dostosuj poziom przezroczystości (0 to pełna przezroczystość, 100 to brak przezroczystości)</string>
-    <string name="revanced_swipe_overlay_background_opacity_title">Przezroczystość tła nakładki gestów</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">Dostosuj poziom krycia (0 to pełna przezroczystość, 100 to brak przezroczystości)</string>
+    <string name="revanced_swipe_overlay_background_opacity_title">Krycie tła nakładki gestów</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Ustaw kolor paska postępu dla regulacji jasności</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Kolor wskaźnika jasności</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">Kolor paska postępu dla elementów sterujących przewijaniem</string>
@@ -2571,7 +2648,6 @@ Dostosuj prędkość, przesuwając palcem w poziomie na dolnej połowie ekranu"<
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">Strefa gestu przewijania przesunięciem znajduje się na górze, a strefa prędkości na dole</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">Strefa gestu szybkiego przesuwania znajduje się na górze, a strefa przewijania na dole</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Gest zmiany prędkości i przewijania</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">Rozmiar tekstu musi wynosić 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Dostosuj rozmiar tekstu wyświetlanego na ekranie (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Rozmiar tekstu nakładki gestów</string>
     <string name="revanced_swipe_threshold_summary">Ustaw wymagany dystans przesunięcia palcem, zanim rozpocznie się regulacja</string>
@@ -2641,7 +2717,7 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_vot_audio_proxy_summary_on">Strumień audio jest przesyłany</string>
     <string name="revanced_vot_audio_proxy_title">Proxy strumień audio</string>
     <string name="revanced_vot_auth_required">Wymagana autoryzacja. Dodaj token Yandex OAuth w ustawieniach</string>
-    <string name="revanced_vot_credits_summary">Implementacja Yandex VOT przez Jav1x i anddea. Na podstawie ilyhalight/voice-over-translation</string>
+    <string name="revanced_vot_credits_summary">Implementacja Yandex VOT przez Jav1x, sashade8-ship-it, I anddea. Na podstawie ilyhalight/tłumaczenie głosowe</string>
     <string name="revanced_vot_enabled_summary_off">Wyłączone</string>
     <string name="revanced_vot_enabled_summary_on">Włączone</string>
     <string name="revanced_vot_enabled_title">Tłumaczenie głosowe</string>
@@ -2662,8 +2738,15 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_vot_oauth_token_summary">Wymagane w przypadku głosów na żywo</string>
     <string name="revanced_vot_original_audio_volume_summary">Głośność oryginalnego dźwięku z YouTube podczas odtwarzania tłumaczenia</string>
     <string name="revanced_vot_original_audio_volume_title">Głośność oryginalnego dźwięku</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">Odtwarzane wideo</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Zatrzymane wideo</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_title">Wstrzymaj wideo podczas przygotowywania tłumaczenia</string>
     <string name="revanced_vot_playback_error">Nie udało się odtworzyć tłumaczenia audio</string>
-    <string name="revanced_vot_proxy_url_summary">Host proxy VOT. Domyślnie: wykrywany automatycznie</string>
+    <string name="revanced_vot_proxy_url_fetch_failed">Nie udało się pobrać hosta proxy VOT</string>
+    <string name="revanced_vot_proxy_url_fetch_success">Zaktualizowano hosta proxy VOT %s</string>
+    <string name="revanced_vot_proxy_url_fetch_summary">Pobierz ręcznie aktualny host proxy. Nigdy nie jest on aktualizowany automatycznie</string>
+    <string name="revanced_vot_proxy_url_fetch_title">Pobierz najnowszy serwer proxy</string>
+    <string name="revanced_vot_proxy_url_summary">Host proxy VOT. Domyślny: vot-pracy.eu.cc</string>
     <string name="revanced_vot_proxy_url_title">Serwer proxy</string>
     <string name="revanced_vot_source_language_summary">Wybierz język ścieżki dźwiękowej filmu</string>
     <string name="revanced_vot_source_language_title">Język źródłowy</string>
@@ -2673,6 +2756,7 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_vot_stream_ready">Tłumaczenie gotowe, odtwarzanie</string>
     <string name="revanced_vot_stream_requesting">Żądanie tłumaczenia strumienia...</string>
     <string name="revanced_vot_stream_waiting">Oczekiwanie na tłumaczenie...</string>
+    <string name="revanced_vot_stream_waiting_status">Tłumaczenie jest nadal przetwarzane…</string>
     <string name="revanced_vot_target_language_summary">Wybierz język, na który ma zostać przetłumaczony film</string>
     <string name="revanced_vot_target_language_title">Język docelowy</string>
     <string name="revanced_vot_time_sec">%d sekund</string>

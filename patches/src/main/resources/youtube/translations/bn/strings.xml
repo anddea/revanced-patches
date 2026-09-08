@@ -20,6 +20,17 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="gms_core_settings_summary">RVX-এ নোটিফিকেশন পেতে, ক্লাউড মেসেজিং সক্ষম করুন।</string>
     <string name="gms_core_settings_title">GmsCore সেটিংস খুলুন।</string>
     <string name="gms_core_toast_not_installed_message">MicroG គয় ইনস্টল না। ইনস্টল করুন।</string>
+    <string name="morphe_app_refresh_rate_default">ডিফল্ট</string>
+    <string name="morphe_app_refresh_rate_fps">%s এফপিএস</string>
+    <string name="morphe_app_refresh_rate_title">অ্যাপ রিফ্রেশ রেট</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">সবসময়</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">পোর্ট্রেট প্লেব্যাক</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">ফুলস্ক্রিন প্লেব্যাক</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">পোর্ট্রেট এবং ফুলস্ক্রিন প্লেব্যাক</string>
+    <string name="morphe_app_refresh_rate_type_title">রিফ্রেশ রেট ওভাররাইড করুন</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">লক থাকলে সর্বদা বিরতি</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">ওয়্যারলেস অডিও সংযুক্ত না থাকলে বিরতি</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">ডিভাইস লক থাকলে স্বয়ংক্রিয়ভাবে বিরতি</string>
     <string name="morphe_custom_branding_icon_title">অ্যাপ আইকন</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">স্ক্রোল করার সময় নেভিগেশন বারটি দৃশ্যমান রাখে</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">স্বয়ংক্রিয়ভাবে নেভিগেশন বার লুকানো নিষ্ক্রিয় করুন</string>
@@ -29,6 +40,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_disable_quic_protocol_summary_off">কিউআইসি প্রোটোকল চালু আছে</string>
     <string name="morphe_disable_quic_protocol_summary_on">কিউআইসি প্রোটোকল বন্ধ আছে</string>
     <string name="morphe_disable_quic_protocol_title">কিউআইসি প্রোটোকল বন্ধ করুন</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">স্ক্রলিং গতির সীমা অক্ষম করুন</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'লাইভ স্ট্রিম ডিভিআর সময়কাল বাড়ান' উপলব্ধ নাও হতে পারে
 
 এটি ঠিক করতে, 'ভিডিও স্ট্রিম স্পুফ করুন' চালু করুন এবং 'ডিফল্ট ক্লায়েন্ট' পরিবর্তন করে 'TV Simply' বা 'visionOS' করুন"</string>
@@ -124,6 +136,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_playback_in_feeds_entry_off">বন্ধ</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">শুধুমাত্র ওয়াই-ফাই</string>
     <string name="morphe_playback_in_feeds_title">ফিডে প্লেব্যাক</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">প্লেয়ার কন্ট্রোল বাটন এবং টাইম বারের পিছনের ব্যাকগ্রাউন্ডের অস্বচ্ছতা সামঞ্জস্য করুন (0 অদৃশ্য, 100 অস্বচ্ছ)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">কন্ট্রোল বাটনের পটভূমির অস্বচ্ছতা</string>
     <string name="morphe_queue_manager_check_failed_auth">লগইন করা হয়নি</string>
     <string name="morphe_queue_manager_check_failed_video_id">ভিডিও আইডি নেই</string>
     <string name="morphe_reload_video_summary_off">পুনরায় লোড ভিডিও বোতামটি দেখানো হয়নি</string>
@@ -224,6 +238,51 @@ AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে
     <string name="morphe_video_quality_prioritize_dialog">যদি এই সেটিংস বন্ধ করা হয়, তাহলে পুরোনো ভিডিওতে ভিডিওর গুণমানের কোনো বিকল্প নাও দেখাতে পারে</string>
     <string name="morphe_video_quality_prioritize_summary">কোডেক দক্ষতার চেয়ে সর্বোচ্চ উপলব্ধ ভিডিও গুণমানকে অগ্রাধিকার দেয়</string>
     <string name="morphe_video_quality_prioritize_title">ভিডিওর গুণমানকে অগ্রাধিকার দিন</string>
+    <string name="morphe_vot_caption_language_title">ভাষা</string>
+    <string name="morphe_vot_cost_free">ফ্রি</string>
+    <string name="morphe_vot_cost_per_hour">প্রতি ১০০ ভিডিও ঘণ্টায় %s</string>
+    <string name="morphe_vot_enabled_title">ভয়েস ওভার অনুবাদ</string>
+    <string name="morphe_vot_export_api_key_warning">"সেটিংসে একটি OpenRouter API কী রয়েছে।
+
+আপনার API কী কখনো শেয়ার করা উচিত নয়। এর অ্যাক্সেস থাকলে যে কেউ আপনার OpenRouter ক্রেডিট ব্যবহার করতে পারবে।"</string>
+    <string name="morphe_vot_http_error_message">"অনুবাদ সার্ভিস থেকে HTTP এরর %s এসেছে। সম্ভবত আপনার IP অ্যাড্রেসের ওপর ২৪ ঘণ্টা পর্যন্ত সাময়িক নিষেধাজ্ঞা (Rate-limit) দেওয়া হয়েছে।
+
+অনুবাদ ব্যবহার চালিয়ে যেতে সেটিংসে অন্য কোনো অনুবাদ প্রোভাইডার বেছে নিন অথবা VPN ব্যবহার করুন"</string>
+    <string name="morphe_vot_http_error_title">অনুবাদ পাওয়া যায়নি</string>
+    <string name="morphe_vot_max_speech_rate_summary">সাবটাইটেলে কথা মেলানোর সর্বোচ্চ গতি</string>
+    <string name="morphe_vot_max_speech_rate_title">সর্বোচ্চ কথা বলার গতি</string>
+    <string name="morphe_vot_mymemory_email_summary">ঐচ্ছিক। দৈনিক সীমা 5,000 থেকে 50,000 অক্ষরে বাড়ানোর জন্য আপনার MyMemory ইমেল ঠিকানা লিখুন। বেনামী সীমা ব্যবহার করতে ফাঁকা রাখুন</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory ইমেল</string>
+    <string name="morphe_vot_mymemory_error">MyMemory অনুবাদ ব্যর্থ হয়েছে (স্ট্যাটাস %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"ফ্রি অনুবাদ API, কোনো API কি (key) লাগবে না। ফ্রি সুবিধায় প্রতিদিন ৫,০০০ অক্ষর পর্যন্ত, অথবা ইমেইল এড্রেস দিয়ে প্রতিদিন ৫০,০০০ অক্ষর পর্যন্ত অনুবাদ সম্ভব।
+
+MyMemory.translated.net ওপেন করতে এখানে চাপুন"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">আজকের ফ্রি MyMemory অনুবাদ কোটা (৫,০০০ ক্যারেক্টার) শেষ হয়েছে। দৈনিক সীমা ৫০,০০০ ক্যারেক্টার করতে সেটিংসে একটি MyMemory ইমেইল যোগ করুন, অথবা অন্য কোনো অনুবাদ সার্ভিস বেছে নিন</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">আজকের MyMemory অনুবাদ কোটা (৫০,০০০ ক্যারেক্টার) শেষ হয়েছে। অন্য কোনো অনুবাদ সার্ভিস বেছে নিন অথবা আগামীকাল আবার চেষ্টা করুন</string>
+    <string name="morphe_vot_mymemory_quota_next_available">পরবর্তী সুযোগ %s-এ উপলব্ধ।</string>
+    <string name="morphe_vot_mymemory_quota_title">MyMemory দৈনিক সীমা শেষ</string>
+    <string name="morphe_vot_openrouter_api_key_summary">আপনার OpenRouter API কী। একটি কী তৈরি করতে ওপেন করুন: OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API কী</string>
+    <string name="morphe_vot_openrouter_credits_message">OpenRouter ক্রেডিটের সীমা শেষ হয়ে গেছে। ব্যালেন্স টপ-আপ করুন অথবা OpenRouter.ai থেকে কী-এর খরচের সীমা বাড়ান</string>
+    <string name="morphe_vot_openrouter_credits_title">OpenRouter ক্রেডিটের সীমা শেষ</string>
+    <string name="morphe_vot_openrouter_error">OpenRouter অনুবাদ ব্যর্থ (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"OpenRouter-এর মাধ্যমে পেইড AI অনুবাদ। একবার টপ-আপ করে হাজার হাজার ভিডিও অনুবাদ করুন। Mistral Nemo সবচেয়ে সাশ্রয়ী এবং Gemma 4 সবচেয়ে উন্নত মানের।
+
+OpenRouter.ai ওপেন করতে এখানে ট্যাপ করুন"</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter মডেল</string>
+    <string name="morphe_vot_openrouter_not_configured_message">এই প্রোভাইডারটি নির্বাচন করার আগে সেটিংসে আপনার OpenRouter API কী লিখুন</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter কনফিগার করা হয়নি</string>
+    <string name="morphe_vot_openrouter_open_website">OpenRouter.ai খুলুন</string>
+    <string name="morphe_vot_original_audio_volume_summary">অনুবাদ চলার সময় ইউটিউবের মূল অডিও ভলিউম</string>
+    <string name="morphe_vot_translation_service_title">অনুবাদ প্রদানকারী</string>
+    <string name="morphe_vot_translation_volume_summary">ডাব করা অনূদিত ভয়েসের ভলিউম</string>
+    <string name="morphe_vot_tts_sample">এবার মরফিং-এর সময়!</string>
+    <string name="morphe_vot_tts_system">সিস্টেম</string>
+    <string name="morphe_vot_tts_voice_type">ভয়েস</string>
+    <string name="morphe_vot_voice_gender_female">মহিলা</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">বহুভাষী মহিলা কণ্ঠ</string>
+    <string name="morphe_vot_voice_gender_male">পুরুষ</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">বহুভাষী পুরুষ কণ্ঠ</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">উন্নত ভিডিও গুণমান মেনু দেখানো হয়নি</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">উন্নত ভিডিও গুণমান মেনু দেখানো হয়েছে</string>
     <string name="revanced_advanced_video_quality_menu_title">অ্যাডভান্সড কোয়ালিটি মেনু খুলুন</string>
@@ -783,7 +842,6 @@ DeArrow.ajay.app ওপেন করতে এখানে ট্যাপ ক�
     <string name="revanced_miniplayer_hide_subtext_summary_off">উপপাঠ প্রদর্শিত হয়েছে</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">উপপাঠ লুকিয়ে রয়েছে</string>
     <string name="revanced_miniplayer_hide_subtext_title">উপপাঠ লুকান</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">মিনিপ্লেয়ার ওভারলে অস্বচ্ছতা অবশ্যই ০-১০০ এর মধ্যে হতে হবে</string>
     <string name="revanced_miniplayer_opacity_title">ওভারলে অস্বচ্ছতা</string>
     <string name="revanced_miniplayer_type_entry_2">ন্যূনতম</string>
     <string name="revanced_miniplayer_type_entry_4">মর্ডান ১</string>
@@ -1129,7 +1187,6 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">সর্বনিম্ন মানে সোয়াইপ ডাউন করলে অটো-উজ্জ্বলতা সক্ষম হয় না</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">উজ্জ্বলতার অঙ্গভঙ্গির সর্বনিম্ন মানে সোয়াইপ ডাউন করলে অটো-উজ্জ্বলতা সক্ষম হয়</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">স্বয়ংক্রিয়-উজ্জ্বলতার অঙ্গভঙ্গি সক্রিয় করুন</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">সোয়াইপের অস্বচ্ছতা অবশ্যই 0-100 এর মধ্যে হতে হবে</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">অন-স্ক্রিন টেক্সটের আকার সামঞ্জস্য করুন (১-৩০)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">অস্বচ্ছতা</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">অ্যাডজাস্টমেন্ট ট্রিগার করার আগে প্রয়োজনীয় সোয়াইপের দূরত্ব সেট করুন</string>
@@ -1155,7 +1212,6 @@ ReturnYouTubeDislike.com ওপেন করতে এখানে ট্যা�
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">পূর্ণস্ক্রিনে প্রবেশ বা পূর্ণস্ক্রিন থেকে বাহির হওয়ার সময়, উজ্জ্বলতা সংরক্ষণ এবং পুনরুদ্ধার করবে</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">উজ্জ্বলতা সংরক্ষণ এবং পুনরুদ্ধার করুন</string>
     <string name="revanced_swipe_speed_title">স্পিড অঙ্গভঙ্গি সক্রিয় করুন</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">টেক্সট সাইজ অবশ্যই ১-৩০ এর মধ্যে হতে হবে</string>
     <string name="revanced_swipe_text_overlay_size_summary">ফুলস্ক্রিন মোডে সোয়াইপ করে পরবর্তী বা পূর্ববর্তী ভিডিওতে যান</string>
     <string name="revanced_swipe_text_overlay_size_title">সোয়াইপ ওভারলে টেক্সট সাইজ</string>
     <string name="revanced_swipe_threshold_summary">পোর্ট্রেট এবং ফুলস্ক্রিন মোডে কোন অ্যাকশন বাটনগুলি প্রদর্শিত হবে তা নির্বাচন করুন</string>

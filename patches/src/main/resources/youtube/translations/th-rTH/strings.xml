@@ -19,6 +19,17 @@
     <string name="gms_core_offline_account_login_error">หากคุณเพิ่งเปลี่ยนรายละเอียดการเข้าสู่ระบบบัญชีของคุณ โปรดถอนการติดตั้งและติดตั้ง GmsCore ใหม่</string>
     <string name="gms_core_settings_summary">หากต้องการรับการแจ้งเตือนใน RVX โปรดเปิดใช้งานการส่งข้อความบนคลาวด์</string>
     <string name="gms_core_toast_not_installed_message">MicroG ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
+    <string name="morphe_app_refresh_rate_default">ค่าเริ่มต้น</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">อัตราการรีเฟรชแอป</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">เสมอ</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">เล่นในโหมดแนวตั้ง</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">เล่นแบบเต็มหน้าจอ</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">เล่นในโหมดแนวตั้งและเต็มหน้าจอ</string>
+    <string name="morphe_app_refresh_rate_type_title">ตั้งค่าอัตราการรีเฟรชใหม่</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">หยุดเสมอเมื่อล็อกอุปกรณ์</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">หยุดเว้นแต่เชื่อมต่อเสียงไร้สาย</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">หยุดอัตโนมัติเมื่อล็อกอุปกรณ์</string>
     <string name="morphe_custom_branding_icon_title">ไอคอนแอป</string>
     <string name="morphe_dark_theme_custom_color_title">ปรับแต่งโหมดมืด</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">ทำให้แถบนำทางมองเห็นได้ในขณะที่เลื่อน</string>
@@ -29,6 +40,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">โพรโทคอล QUIC ถูกเปิดใช้งาน</string>
     <string name="morphe_disable_quic_protocol_summary_on">โพรโทคอล QUIC ถูกปิดใช้งาน</string>
     <string name="morphe_disable_quic_protocol_title">ปิดใช้งานโพรโทคอล QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">ปิดใช้งานการจำกัดความเร็วในการเลื่อน</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'ขยายระยะเวลา DVR ไลฟ์สตรีม' อาจไม่สามารถใช้งานได้
 
 หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV Simply' หรือ 'visionOS'"</string>
@@ -125,6 +137,8 @@
     <string name="morphe_playback_in_feeds_entry_off">ปิด</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi เท่านั้น</string>
     <string name="morphe_playback_in_feeds_title">การเล่นในฟีด</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">ปรับความทึบแสงของพื้นหลังด้านหลังปุ่มควบคุมเครื่องเล่นและแถบเวลา (0 คือมองไม่เห็น, 100 คือทึบแสง)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">ความทึบแสงของพื้นหลังปุ่มควบคุม</string>
     <string name="morphe_queue_manager_check_failed_auth">ยังไม่ได้เข้าสู่ระบบ</string>
     <string name="morphe_queue_manager_check_failed_video_id">ไม่มี ID วิดีโอ</string>
     <string name="morphe_reload_video_summary_off">ปุ่มโหลดวิดีโอไม่แสดง</string>
@@ -225,6 +239,51 @@
     <string name="morphe_video_quality_prioritize_dialog">หากปิดการตั้งค่านี้ วิดีโอเก่าบางรายการอาจไม่แสดงตัวเลือกคุณภาพวิดีโอ</string>
     <string name="morphe_video_quality_prioritize_summary">จัดลำดับความสำคัญของคุณภาพวิดีโอสูงสุดเหนือประสิทธิภาพของ codec</string>
     <string name="morphe_video_quality_prioritize_title">จัดลำดับความสำคัญของคุณภาพวิดีโอ</string>
+    <string name="morphe_vot_caption_language_title">ภาษา</string>
+    <string name="morphe_vot_cost_free">ฟรี</string>
+    <string name="morphe_vot_cost_per_hour">%s ต่อวิดีโอ 100 ชั่วโมง</string>
+    <string name="morphe_vot_enabled_title">การแปลเสียงบรรยาย</string>
+    <string name="morphe_vot_export_api_key_warning">"การตั้งค่าของคุณมีคีย์ API OpenRouter อยู่
+
+คีย์ API ของคุณไม่ควรถูกเปิดเผย ใครก็ตามที่มีสิทธิ์เข้าถึงสามารถใช้เครดิต OpenRouter ของคุณได้"</string>
+    <string name="morphe_vot_http_error_message">"บริการแปลคืนค่าข้อผิดพลาด HTTP %s ที่อยู่ IP ของคุณอาจถูกจำกัดอัตราเป็นเวลาสูงสุด 24 ชั่วโมง
+
+หากต้องการใช้งานการแปลต่อ ให้เปลี่ยนไปใช้ผู้ให้บริการแปลอื่นในการตั้งค่าหรือใช้ VPN"</string>
+    <string name="morphe_vot_http_error_title">ไม่สามารถแปลได้</string>
+    <string name="morphe_vot_max_speech_rate_summary">ตัวคูณความเร็วสูงสุดเมื่อปรับการพูดให้พอดีกับช่องคำบรรยาย</string>
+    <string name="morphe_vot_max_speech_rate_title">อัตราการพูดสูงสุด</string>
+    <string name="morphe_vot_mymemory_email_summary">ไม่บังคับ ใส่ที่อยู่อีเมล MyMemory ของคุณเพื่อเพิ่มขีดจำกัดรายวันจาก 5,000 เป็น 50,000 ตัวอักษร ปล่อยว่างไว้เพื่อใช้ขีดจำกัดที่ไม่ระบุตัวตน</string>
+    <string name="morphe_vot_mymemory_email_title">อีเมล MyMemory</string>
+    <string name="morphe_vot_mymemory_error">การแปล MyMemory ล้มเหลว (สถานะ %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"API การแปลภาษาฟรี ไม่จำเป็นต้องใช้คีย์ API สูงสุด 5,000 ตัวอักษรต่อวันในระดับฟรี หรือสูงสุด 50,000 ตัวอักษรต่อวันเมื่อใช้ที่อยู่อีเมล
+
+แตะที่นี่เพื่อเปิด MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">คุณใช้โควต้าการแปล MyMemory ฟรีสำหรับวันนี้แล้ว (5,000 ตัวอักษร) เพิ่มอีเมล MyMemory ในการตั้งค่าเพื่อเพิ่มขีดจำกัดรายวันเป็น 50,000 ตัวอักษร หรือเปลี่ยนไปใช้บริการแปลอื่น</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">คุณใช้โควต้าการแปล MyMemory สำหรับวันนี้แล้ว (50,000 ตัวอักษร) เปลี่ยนไปใช้บริการแปลอื่นหรือลองใหม่อีกครั้งในวันพรุ่งนี้</string>
+    <string name="morphe_vot_mymemory_quota_next_available">พร้อมใช้งานอีกครั้งใน %s</string>
+    <string name="morphe_vot_mymemory_quota_title">ถึงขีดจำกัดรายวันของ MyMemory แล้ว</string>
+    <string name="morphe_vot_openrouter_api_key_summary">คีย์ API OpenRouter ของคุณ สร้างคีย์ที่ OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">คีย์ API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">เครดิต OpenRouter ของคุณหมดแล้ว เติมเงินในบัญชีของคุณหรือเพิ่มขีดจำกัดการใช้จ่ายของคีย์ของคุณที่ OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">ถึงเครดิต OpenRouter แล้ว</string>
+    <string name="morphe_vot_openrouter_error">การแปล OpenRouter ล้มเหลว (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"การแปลด้วย AI แบบเสียเงินผ่าน OpenRouter เติมเงินครั้งเดียวแล้วแปลวิดีโอหลายพันรายการ Mistral Nemo เป็นตัวเลือกที่ถูกที่สุด Gemma 4 มีคุณภาพสูงสุด
+
+แตะที่นี่เพื่อเปิด OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">โมเดล OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">ป้อนคีย์ API OpenRouter ของคุณในการตั้งค่าก่อนที่จะเลือกผู้ให้บริการนี้</string>
+    <string name="morphe_vot_openrouter_not_configured_title">ยังไม่ได้กำหนดค่า OpenRouter</string>
+    <string name="morphe_vot_openrouter_open_website">เปิด OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">ระดับเสียงของเสียง YouTube ต้นฉบับขณะที่การแปลกำลังพูดอยู่</string>
+    <string name="morphe_vot_translation_service_title">ผู้ให้บริการแปล</string>
+    <string name="morphe_vot_translation_volume_summary">ระดับเสียงของเสียงพากย์แปล</string>
+    <string name="morphe_vot_tts_sample">ถึงเวลาแปลงร่าง!</string>
+    <string name="morphe_vot_tts_system">ระบบ</string>
+    <string name="morphe_vot_tts_voice_type">เสียง</string>
+    <string name="morphe_vot_voice_gender_female">หญิง</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">หญิงหลายภาษา</string>
+    <string name="morphe_vot_voice_gender_male">ชาย</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">ชายหลายภาษา</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
     <string name="revanced_advanced_video_quality_menu_title">เปิดเมนูคุณภาพขั้นสูง</string>
@@ -778,7 +837,6 @@
     <string name="revanced_miniplayer_hide_subtext_summary_off">ข้อความย่อยแสดงอยู่</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">ข้อความย่อยถูกซ่อน</string>
     <string name="revanced_miniplayer_hide_subtext_title">ซ่อนข้อความย่อย</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">ความทึบแสงของโอเวอร์เลย์เครื่องเล่นย่อขนาดต้องอยู่ระหว่าง 0-100</string>
     <string name="revanced_miniplayer_opacity_title">ความทึบแสงของโอเวอร์เลย์</string>
     <string name="revanced_miniplayer_type_entry_2">น้อยที่สุด</string>
     <string name="revanced_miniplayer_type_entry_4">ทันสมัย 1</string>
@@ -1125,7 +1183,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">การปัดลงไปที่ค่าต่ำสุดจะไม่เปิดใช้งานความสว่างอัตโนมัติ</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">การปัดลงไปที่ค่าต่ำสุดของท่าทางความสว่างจะเปิดใช้งานความสว่างอัตโนมัติ</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">เปิดใช้งานท่าทางความสว่างอัตโนมัติ</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">ค่าความทึบแสงของสไลด์ต้องอยู่ระหว่าง 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">ปรับระดับความโปร่งใสของภาพซ้อนทับ (0 คือโปร่งใส 100 คือทึบแสง)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">ความทึบแสงพื้นหลังของสไลด์โอเวอร์เลย์</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">ตั้งค่าสีของแถบความคืบหน้าของการควบคุมความสว่าง</string>
@@ -1151,7 +1208,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">บันทึกและคืนค่าความสว่างเมื่อออกจากหรือเข้าสู่โหมดเต็มหน้าจอ</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">บันทึกและคืนค่าความสว่าง</string>
     <string name="revanced_swipe_speed_title">เปิดใช้งานท่าทางความเร็ว</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">ขนาดข้อความต้องอยู่ระหว่าง 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">ปรับขนาดตัวอักษรบนหน้าจอ (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของการปัด</string>
     <string name="revanced_swipe_threshold_summary">ตั้งค่าระยะการปัดที่จำเป็นก่อนที่จะเกิดการปรับ</string>

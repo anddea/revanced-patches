@@ -20,7 +20,27 @@ Clicca \"Continua\" per consentire le modifiche"</string>
     <string name="gms_core_settings_summary">Attiva \"Cloud Messaging\" per ricevere le notifiche di RVX</string>
     <string name="gms_core_settings_title">Apri GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG non è installato. Installalo</string>
+    <string name="morphe_app_refresh_rate_default">Predefinita</string>
+    <string name="morphe_app_refresh_rate_fps">%s fps</string>
+    <string name="morphe_app_refresh_rate_title">Frequenza di aggiornamento dell\'app</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Sempre</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Riproduzione in verticale</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Riproduzione a schermo intero</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Riproduzione in verticale e a schermo intero</string>
+    <string name="morphe_app_refresh_rate_type_title">Override della frequenza di aggiornamento</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Pausa sempre quando il dispositivo è bloccato</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausa a meno che non sia connesso un audio wireless</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Pausa automatica quando il dispositivo è bloccato</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Se disponibile, utilizza l'icona dell'app selezionata per la voce relativa alle impostazioni RVX</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Utilizza l'icona nelle impostazioni di RVX</string>
     <string name="morphe_custom_branding_icon_title">Icona dell\'app</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Imposta le dimensioni dell'animazione di avvio personalizzata</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Dimensioni dell'animazione di avvio</string>
+    <string name="morphe_custom_branding_use_as_system_splash_summary">Utilizza l'animazione selezionata come schermata iniziale di sistema di Android</string>
+    <string name="morphe_custom_branding_use_as_system_splash_title">Utilizza come schermata iniziale di sistema</string>
+    <string name="morphe_dark_theme_custom_color_summary">Utilizzato quando è selezionata l'opzione Personalizzato</string>
+    <string name="morphe_dark_theme_custom_color_title">Colore personalizzato per il tema scuro</string>
+    <string name="morphe_dark_theme_title">Tema scuro</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Mantiene la barra di navigazione visibile durante lo scorrimento</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Disabilita la scomparsa automatica della barra di navigazione</string>
     <string name="morphe_disable_drc_audio_summary_off">L\'audio DRC è abilitato</string>
@@ -29,6 +49,7 @@ Clicca \"Continua\" per consentire le modifiche"</string>
     <string name="morphe_disable_quic_protocol_summary_off">Il protocollo QUIC è abilitato</string>
     <string name="morphe_disable_quic_protocol_summary_on">Il protocollo QUIC è disabilitato</string>
     <string name="morphe_disable_quic_protocol_title">Disabilita il protocollo QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Disabilita la velocità di scorrimento</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Espandi durata DVR in diretta' potrebbe non essere disponibile
 
 Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client predefinito' in 'TV Simply' o 'visionOS'"</string>
@@ -101,6 +122,8 @@ Per mostrare il menu 'Audio Track', cambia 'Falsificazione dei flussi video' in 
     <string name="morphe_hide_youtube_premium_menu_title">Nascondi la promozione di YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">Nascondi il menù YouTube Studio</string>
     <string name="morphe_hide_youtube_works_menu_title">Nascondi il menù \'Come funziona YouTube\'</string>
+    <string name="morphe_light_theme_custom_color_title">Colore personalizzato per il tema chiaro</string>
+    <string name="morphe_light_theme_title">Tema chiaro</string>
     <string name="morphe_livestream_dvr_not_available">"'Abilita registrazione DVR in diretta' potrebbe non essere disponibile
 
 Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client predefinito' in 'TV Simply' o 'visionOS'"</string>
@@ -108,6 +131,8 @@ Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client pre
     <string name="morphe_livestream_dvr_title">Abilita DVR sui video in diretta</string>
     <string name="morphe_music_package_name_summary">Nome del pacchetto dell\'app musicale installata</string>
     <string name="morphe_music_package_name_title">Nome pacchetto dell\'app musicale</string>
+    <string name="morphe_notification_dot_color_summary">Modifica il colore dei puntini di notifica</string>
+    <string name="morphe_notification_dot_color_title">Colore del puntino di notifica</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Impossibile accedere ad Android VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Impossibile accedere ad Android VR, l\'autenticazione del sito non è stata approvata</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 non è al momento disponibile</string>
@@ -124,6 +149,15 @@ Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client pre
     <string name="morphe_playback_in_feeds_entry_off">Disattivato</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Solo Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Riproduzione nei feed</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Regola l\'opacità dello sfondo dietro i pulsanti di controllo del player e la barra del tempo (0 è invisibile, 100 è opaco)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Opacità dello sfondo dei pulsanti di controllo</string>
+    <string name="morphe_potoken_provider_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
+
+Se sei un utente di YouTube Premium, questa impostazione potrebbe non essere necessaria"</string>
+    <string name="morphe_potoken_provider_title">Fornitore PoToken</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
+
+Per utilizzare questa funzione, disattiva l'opzione \'Falsificazioneidei flussi video\'"</string>
     <string name="morphe_queue_manager_check_failed_auth">Non connesso</string>
     <string name="morphe_queue_manager_check_failed_video_id">ID video non trovato</string>
     <string name="morphe_reload_video_summary_off">Il pulsante ricarica video non è visibile</string>
@@ -144,6 +178,8 @@ Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client pre
     <string name="morphe_save_to_watch_later_flyout_title">Salva in Guarda più tardi</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Consente di salvare video correlati ai bambini nel menu a comparsa \"Guarda più tardi\"</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Mostra il pulsante Salva per guardare più tardi nei video per bambini</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Consente di salvare gli Shorts nella playlist \'Guarda più tardi\' dal menu a comparsa del feed</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Pulsante Salva per gli Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video salvato con successo nella playlist \"Guarda più tardi\"</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Più riprodotti</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Mostra un\'anteprima in miniatura del video durante il trascinamento della barra di ricerca</string>
@@ -221,9 +257,80 @@ Limitazione: se \"Ripristina la vecchia barra delle azioni video\" è disattivat
     <string name="morphe_tablet_layout_in_player_title">Abilita layout per tablet nel lettore</string>
     <string name="morphe_theme_color_change_foreground_summary">Usa il colore del tema per il testo e le icone</string>
     <string name="morphe_theme_color_change_foreground_title">Cambia colore primo piano</string>
+    <string name="morphe_theme_entry_amoled_black">Nero Amoled</string>
+    <string name="morphe_theme_entry_classic_youtube">Classico (vecchio YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Blu scuro</string>
+    <string name="morphe_theme_entry_dark_green">Verde scuro</string>
+    <string name="morphe_theme_entry_dark_orange">Arancione scuro</string>
+    <string name="morphe_theme_entry_dark_pink">Rosa scuro</string>
+    <string name="morphe_theme_entry_dark_red">Rosso scuro</string>
+    <string name="morphe_theme_entry_dark_yellow">Giallo scuro</string>
+    <string name="morphe_theme_entry_light_blue">Azzurro</string>
+    <string name="morphe_theme_entry_light_green">Verde chiaro</string>
+    <string name="morphe_theme_entry_light_orange">Arancione chiaro</string>
+    <string name="morphe_theme_entry_light_pink">Rosa chiaro</string>
+    <string name="morphe_theme_entry_light_red">Rosso chiaro</string>
+    <string name="morphe_theme_entry_light_yellow">Giallo chiaro</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Neutrale)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - Primario</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - Secondario</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - Terziario</string>
+    <string name="morphe_theme_entry_modern_youtube">YouTube moderno</string>
+    <string name="morphe_theme_entry_pale_blue">Blu pallido</string>
+    <string name="morphe_theme_entry_pale_green">Verde pallido</string>
+    <string name="morphe_theme_entry_pale_yellow">Giallo pallido</string>
+    <string name="morphe_theme_entry_patch_option">Opzione patch</string>
+    <string name="morphe_theme_entry_white">Bianco</string>
+    <string name="morphe_theme_settings_summary">Personalizza il tema, l'aspetto e il marchio dell'app</string>
+    <string name="morphe_theme_settings_title">Impostazioni dei temi</string>
     <string name="morphe_video_quality_prioritize_dialog">Se questa impostazione è disattivata, i video più vecchi potrebbero non mostrare opzioni di qualità video</string>
     <string name="morphe_video_quality_prioritize_summary">Dà priorità alla qualità video più elevata anziché all\'efficienza del codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioritizza la qualità del video</string>
+    <string name="morphe_vot_caption_language_title">Lingua</string>
+    <string name="morphe_vot_cost_free">Gratuito</string>
+    <string name="morphe_vot_cost_per_hour">%s per 100 ore di video</string>
+    <string name="morphe_vot_enabled_title">Traduzione voice over</string>
+    <string name="morphe_vot_export_api_key_warning">"Le tue impostazioni contengono una chiave API OpenRouter
+
+La tua chiave API non deve mai essere condivisa. Chiunque vi abbia accesso può utilizzare i tuoi crediti OpenRouter"</string>
+    <string name="morphe_vot_http_error_message">"Il servizio di traduzione ha restituito un errore HTTP %s. Il tuo indirizzo IP probabilmente è stato limitato per un massimo di 24 ore
+
+Per continuare a utilizzare le traduzioni, passa a un altro provider di traduzione nelle impostazioni o utilizza una VPN"</string>
+    <string name="morphe_vot_http_error_title">Traduzione non disponibile</string>
+    <string name="morphe_vot_max_speech_rate_summary">Moltiplicatore di velocità massima quando si adatta la pronuncia a uno spazio dei sottotitoli</string>
+    <string name="morphe_vot_max_speech_rate_title">Velocità di pronuncia massima</string>
+    <string name="morphe_vot_mymemory_email_summary">Facoltativo. Inserisci il tuo indirizzo email di MyMemory per aumentare il limite giornaliero da 5.000 a 50.000 caratteri. Lasciare vuoto per utilizzare il limite anonimo</string>
+    <string name="morphe_vot_mymemory_email_title">Email di MyMemory</string>
+    <string name="morphe_vot_mymemory_error">Traduzione MyMemory non riuscita (stato %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"API di traduzione gratuita, non è richiesta alcuna chiave API. Fino a 5.000 caratteri al giorno nel piano gratuito, oppure fino a 50.000 caratteri al giorno con un indirizzo email
+
+Tocca qui per aprire MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Hai utilizzato la quota di traduzione gratuita giornaliera di MyMemory (5.000 caratteri). Aggiungi un\'email di MyMemory nelle impostazioni per aumentare il limite giornaliero a 50.000 caratteri, oppure passa a un altro servizio di traduzione</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Hai utilizzato la quota di traduzione di MyMemory (50.000 caratteri) di oggi. Passa a un altro servizio di traduzione o riprova domani</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Disponibile di nuovo alle %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Limite giornaliero di MyMemory raggiunto</string>
+    <string name="morphe_vot_openrouter_api_key_summary">La tua chiave API OpenRouter. Crea una chiave su OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">Chiave API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Il tuo limite di credito OpenRouter è stato raggiunto. Ricarica il tuo saldo o aumenta il limite di spesa della tua chiave su OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Limite di credito OpenRouter raggiunto</string>
+    <string name="morphe_vot_openrouter_error">Traduzione OpenRouter non riuscita (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Traduzione AI a pagamento tramite OpenRouter. Ricarica una volta e traduci migliaia di video. Mistral Nemo è l'opzione più economica, Gemma 4 offre la massima qualità
+
+Tocca qui per aprire OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Modello OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Inserisci la tua chiave API OpenRouter nelle impostazioni prima di selezionare questo provider</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter non configurato</string>
+    <string name="morphe_vot_openrouter_open_website">Apri OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Volume dell\'audio originale di YouTube durante la riproduzione della traduzione</string>
+    <string name="morphe_vot_translation_service_title">Fornitore di traduzione</string>
+    <string name="morphe_vot_translation_volume_summary">Volume della voce doppiata della traduzione</string>
+    <string name="morphe_vot_tts_sample">È tempo di trasformazione!</string>
+    <string name="morphe_vot_tts_system">Sistema</string>
+    <string name="morphe_vot_tts_voice_type">Voce</string>
+    <string name="morphe_vot_voice_gender_female">Femminile</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Multilingue femminile</string>
+    <string name="morphe_vot_voice_gender_male">Maschile</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Multilingue maschile</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Il menu avanzato della qualità video non viene mostrato</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Viene mostrato il menu avanzato della qualità video</string>
     <string name="revanced_advanced_video_quality_menu_title">Apri il menu avanzato della qualità video</string>
@@ -279,6 +386,8 @@ Tocca e tieni premuto per cambiare il tipo di informazione mostrata"</string>
     <string name="revanced_auto_captions_style_entry_3">Mostra con audio</string>
     <string name="revanced_auto_captions_style_entry_4">Mostra quando silenzioso</string>
     <string name="revanced_auto_captions_style_title">Visibilità dei sottotitoli automatici</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">Premendo il tasto Indietro si torna all'inizio del feed</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">Premendo il tasto Indietro si esce sempre dal feed/dall’app</string>
     <string name="revanced_back_button_always_exits_feed_title">Il pulsante Indietro esce dal feed</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Le restrizioni della modalità ambientale per il risparmio energetico non sono bypassate</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Le restrizioni della modalità ambientale per il risparmio energetico sono bypassate</string>
@@ -334,10 +443,12 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare"</string
     <string name="revanced_change_start_page_entry_all_subscriptions">Tutte le iscrizioni</string>
     <string name="revanced_change_start_page_entry_browse">Sfoglia canali</string>
     <string name="revanced_change_start_page_entry_courses">Corsi/Formazione</string>
+    <string name="revanced_change_start_page_entry_create">Crea</string>
     <string name="revanced_change_start_page_entry_explore">Esplora</string>
     <string name="revanced_change_start_page_entry_fashion">Moda e Bellezza</string>
     <string name="revanced_change_start_page_entry_gaming">Giochi</string>
     <string name="revanced_change_start_page_entry_history">Cronologia</string>
+    <string name="revanced_change_start_page_entry_home">\"Home\"</string>
     <string name="revanced_change_start_page_entry_hype">Dai hype</string>
     <string name="revanced_change_start_page_entry_library">Libreria</string>
     <string name="revanced_change_start_page_entry_liked_videos">Video piaciuti</string>
@@ -349,6 +460,7 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare"</string
     <string name="revanced_change_start_page_entry_playlists">Playlist</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_search">Cerca</string>
+    <string name="revanced_change_start_page_entry_settings">Impostazioni</string>
     <string name="revanced_change_start_page_entry_shopping">Acquisti</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Sport</string>
@@ -422,6 +534,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare"<
     <string name="revanced_debug_toast_on_error_title">Mostra notifica per errore di RVX</string>
     <string name="revanced_default_app_settings_summary">Per aprire RVX da un\'applicazione esterna, attiva \"Apri collegamenti supportati\" e tutti gli indirizzi web supportati</string>
     <string name="revanced_default_app_settings_title">Apri le impostazioni predefinite dell\'app</string>
+    <string name="revanced_default_playback_audio_pitch_title">Tonalità audio predefinita per la riproduzione</string>
     <string name="revanced_default_playback_speed_shorts_title">Velocità di riproduzione predefinita degli Shorts</string>
     <string name="revanced_default_playback_speed_title">Velocità di riproduzione predefinita dei video</string>
     <string name="revanced_default_video_quality_mobile_shorts_title">Qualità predefinita degli Shorts con connessione dati</string>
@@ -463,6 +576,8 @@ Impostazioni → Riproduzione automatica / Riproduzione → Riproduci automatic.
     <string name="revanced_disable_engagement_panel_summary_off">Il pannello di coinvolgimento è attivato</string>
     <string name="revanced_disable_engagement_panel_summary_on">Il pannello di coinvolgimento è disattivato</string>
     <string name="revanced_disable_engagement_panel_title">Disattiva il pannello di coinvolgimento</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_off">Il gesto pizzica per ingrandire è abilitato</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_on">Il gesto pizzica per ingrandire è disabilitato</string>
     <string name="revanced_disable_fullscreen_zoom_gesture_title">Disattiva il gesto di pizzica per zoomare</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Aptica capitoli abilitata</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Aptica capitoli disabilitata</string>
@@ -501,6 +616,8 @@ I cambiamenti riguarderanno:
     <string name="revanced_disable_like_dislike_glow_summary_off">I pulsanti Mi Piace e Non Mi Piace brilleranno quando menzionati</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">I pulsanti Mi Piace e Non Mi Piace non brilleranno quando menzionati</string>
     <string name="revanced_disable_like_dislike_glow_title">Disattiva il bagliore dei pulsanti Mi Piace e Non Mi Piace</string>
+    <string name="revanced_disable_playlist_autoplay_summary_off">Le playlist avanzano automaticamente al video successivo</string>
+    <string name="revanced_disable_playlist_autoplay_summary_on">Alle playlist è impedito di passare automaticamente al video successivo</string>
     <string name="revanced_disable_playlist_autoplay_title">Disattiva la riproduzione automatica delle playlist</string>
     <string name="revanced_disable_quic_protocol_summary">"Disattiva il protocollo QUIC di CronetEngine"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continua a guardare&lt;/b&gt; riprenderà all\'avvio dell\'app.&lt;br&gt;&lt;br&gt;Note:&lt;br&gt;• &lt;b&gt;Continua a guardare&lt;/b&gt; è un impostazione Premium di YouTube del riproduttore minimizzato.&lt;br&gt;• Questa impostazione non attiva forzatamente &lt;b&gt;Continua a guardare&lt;/b&gt;</string>
@@ -589,6 +706,8 @@ Note:
     <string name="revanced_enable_narrow_navigation_buttons_title">Attiva i pulsanti di navigazione compatti</string>
     <string name="revanced_enable_opus_codec_summary">Attiva il codec Opus se la risposta del riproduttore lo include</string>
     <string name="revanced_enable_opus_codec_title">Attiva il codec Opus</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">Controlli dell'intonazione audio disattivati</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">Controlli dell'intonazione audio attivati</string>
     <string name="revanced_enable_playback_audio_pitch_controls_title">Abilita controlli pitch audio</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Il tocco è disattivato</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Il tocco è attivato</string>
@@ -899,7 +1018,11 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_connect_button_summary_off">Il pulsante Connetti è visibile</string>
     <string name="revanced_hide_connect_button_summary_on">Il pulsante Connetti è nascosto</string>
     <string name="revanced_hide_connect_button_title">Nascondi il pulsante Connect</string>
+    <string name="revanced_hide_corrections_section_summary_off">La sezione Correzioni è visibile</string>
+    <string name="revanced_hide_corrections_section_summary_on">La sezione Correzioni è nascosta</string>
     <string name="revanced_hide_corrections_section_title">Nascondi la sezione Correzioni</string>
+    <string name="revanced_hide_course_progress_section_summary_off">La sezione relativa allo stato di avanzamento del corso è visibile</string>
+    <string name="revanced_hide_course_progress_section_summary_on">La sezione relativa allo stato di avanzamento del corso è nascosta</string>
     <string name="revanced_hide_course_progress_section_title">Nascondi la sezione \'Progresso del corso\'</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">La mensola del negozio del creatore sotto il riproduttore video è mostrata</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">La sezione del negozio del creator sotto il riproduttore video è nascosta</string>
@@ -934,15 +1057,23 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_expandable_shelf_summary_off">Gli scaffali espandibili sono visibili</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Gli scaffali espandibili sono nascosti</string>
     <string name="revanced_hide_expandable_shelf_title">Nascondi gli scaffali espandibili</string>
+    <string name="revanced_hide_explore_course_section_summary_off">La sezione Esplora questo corso è visibile</string>
+    <string name="revanced_hide_explore_course_section_summary_on">La sezione Esplora questo corso è nascosta</string>
     <string name="revanced_hide_explore_course_section_title">Nascondi la sezione \'Esplora questo corso\'</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">La sezione Esplora il podcast è visibile</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">La sezione Esplora il podcast è nascosta</string>
     <string name="revanced_hide_explore_podcast_section_title">Nascondi la sezione \'Esplora il podcast\'</string>
+    <string name="revanced_hide_explore_section_summary_off">Le sezioni Esplora questo corso ed Esplora il podcast sono visibili</string>
+    <string name="revanced_hide_explore_section_summary_on">Le sezioni Esplora questo corso ed Esplora il podcast sono nascoste</string>
     <string name="revanced_hide_explore_section_title">Nascondi la sezione Esplora</string>
+    <string name="revanced_hide_featured_channels_section_summary_off">La sezione Canali in primo piano è visibile</string>
+    <string name="revanced_hide_featured_channels_section_summary_on">La sezione Canali in primo piano è nascosta</string>
     <string name="revanced_hide_featured_channels_section_title">Nascondi la sezione Canali in evidenza</string>
     <string name="revanced_hide_featured_links_section_summary_off">La sezione dei link in evidenza è mostrata</string>
     <string name="revanced_hide_featured_links_section_summary_on">La sezione dei link in evidenza è nascosta</string>
     <string name="revanced_hide_featured_links_section_title">Nascondi la sezione Link in evidenza</string>
+    <string name="revanced_hide_featured_playlists_section_summary_off">La sezione Playlist in primo piano è visibile</string>
+    <string name="revanced_hide_featured_playlists_section_summary_on">La sezione Playlist in primo piano è nascosta</string>
     <string name="revanced_hide_featured_playlists_section_title">Nascondi la sezione Playlist in evidenza</string>
     <string name="revanced_hide_featured_videos_section_summary_off">La sezione dei video in evidenza è mostrata</string>
     <string name="revanced_hide_featured_videos_section_summary_on">La sezione dei video in evidenza è nascosta</string>
@@ -979,10 +1110,12 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_handle_summary_off">L\'handle è visibile</string>
     <string name="revanced_hide_handle_summary_on">L\'handle è nascosto</string>
     <string name="revanced_hide_handle_title">Nascondi l\'handle</string>
+    <string name="revanced_hide_hashtag_section_summary_off">La sezione degli Hashtag è visibile</string>
+    <string name="revanced_hide_hashtag_section_summary_on">La sezione degli Hashtag è nascosta</string>
     <string name="revanced_hide_hashtag_section_title">Nascondi la sezione hashtag</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_off">La sezione Come è stato realizzato questo contenuto è visibile</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_on">La sezione Come è stato realizzato questo contenuto è nascosta</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Nascondi la sezione \"come è stato realizzato\"</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">La sezione \'Come è stato realizzato questo contenuto\' è visibile</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">La sezione \'Come è stato realizzato questo contenuto\' è nascosta</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Nascondi la sezione \'Come è stato realizzato questo contenuto\'</string>
     <string name="revanced_hide_hype_button_summary_off">Pulsante Hype è mostrato</string>
     <string name="revanced_hide_hype_button_summary_on">Il pulsante Hype è nascosto</string>
     <string name="revanced_hide_hype_button_title">Nascondi il pulsante Hype</string>
@@ -1255,6 +1388,8 @@ Nota: tutti i pulsanti in sovrapposizione potrebbero essere nascosti al termine 
     <string name="revanced_hide_search_bar_back_button_summary_off">Il pulsante Indietro della barra di ricerca è visibile</string>
     <string name="revanced_hide_search_bar_back_button_summary_on">Il pulsante Indietro della barra di ricerca è nascosto</string>
     <string name="revanced_hide_search_bar_back_button_title">Nasconde il pulsante Indietro della barra di ricerca</string>
+    <string name="revanced_hide_search_inside_this_video_section_summary_off">La sezione di Ricerca all'interno di questo video è visibile</string>
+    <string name="revanced_hide_search_inside_this_video_section_summary_on">La sezione di Ricerca all'interno di questo video è nascosta</string>
     <string name="revanced_hide_search_inside_this_video_section_title">Nascondi la sezione \'Cerca all\'interno di questo video\'</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">I thumbnails nella cronologia delle ricerche sono visibili</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">I thumbnails nella cronologia delle ricerche sono nascosti</string>
@@ -1438,6 +1573,8 @@ Nota: i video live, con 0 visualizzazioni e gli Shorts non possono essere nascos
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Nascondi i video della scheda Iscrizioni per visualizzazioni</string>
     <string name="revanced_hide_video_by_view_counts_summary">Nascondi i video consigliati con meno di un numero specifico di visualizzazioni.\n\nProblema noto: I video con 0 visualizzazioni non vengono filtrati</string>
     <string name="revanced_hide_video_by_view_counts_title">Nascondi i video consigliati per il numero di visualizzazioni</string>
+    <string name="revanced_hide_video_details_section_summary_off">La sezione Dettagli video è visibile</string>
+    <string name="revanced_hide_video_details_section_summary_on">La sezione Dettagli video è nascosta</string>
     <string name="revanced_hide_video_details_section_title">Nascondi la sezione \'Dettagli video\'</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">Le etichette \'Le persone hanno anche guardato\' e \'Potrebbe piacerti anche\' nei risultati di ricerca sono mostrate</string>
     <string name="revanced_hide_video_recommendation_labels_title">Nascondi etichette di video consigliati</string>
@@ -1604,7 +1741,6 @@ Trascina per espandere o chiudere"</string>
 
 Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistra o a destra"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Attiva il gesto Trascina Orizzontalmente</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">L\'opacità della sovrapposizione del lettore minimizzato deve essere compresa tra 0-100</string>
     <string name="revanced_miniplayer_opacity_title">Opacità sovrapposizione</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Gli angoli sono quadrati</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Gli angoli sono arrotondati</string>
@@ -1620,6 +1756,9 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_miniplayer_width_dip_title">Dimensione predefinita</string>
     <string name="revanced_navigation_bar_animations_summary">Anima le transizioni quando si passa tra le schede</string>
     <string name="revanced_navigation_bar_animations_title">Abilita animazioni della barra di navigazione</string>
+    <string name="revanced_navigation_bar_order_drag_handle">Trascina per riordinare</string>
+    <string name="revanced_navigation_bar_order_summary">Trascina le voci di navigazione nell'ordine in cui devono apparire</string>
+    <string name="revanced_navigation_bar_order_title">Ordine della barra di navigazione</string>
     <string name="revanced_open_links_externally_summary_off">Browser dell\'app</string>
     <string name="revanced_open_links_externally_summary_on">Browser esterno</string>
     <string name="revanced_open_links_externally_title">Cambia il modo di aprire i link</string>
@@ -1655,6 +1794,10 @@ I risultati riassunti e trascritti vengono salvati a meno che tu non abbia chius
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Selezionare prima l'inizio e la fine del loop</string>
     <string name="revanced_overlay_button_loop_segment_enabled_toast">Riproduzione in loop di %1$s - %2$s</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Impossibile utilizzare il tempo di riproduzione corrente</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_summary">Regola le dimensioni degli indicatori A e B della barra di scorrimento</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_title">Dimensione A &amp; B</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_summary">Mostra l'intervallo del ciclo sulla barra di scorrimento con gli indicatori A e B</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_title">Segmento di ciclo</string>
     <string name="revanced_overlay_button_loop_segment_start_toast">Inizio del loop selezionato: %s</string>
     <string name="revanced_overlay_button_loop_segment_summary">"Tocca una volta per selezionare il punto di inizio, tocca di nuovo per selezionare il punto di fine e riprodurre quel segmento in loop, tocca una terza volta per deselezionare
 Tocca e tieni premuto per copiare l'URL di un video con i parametri di inizio e fine"</string>
@@ -1715,6 +1858,10 @@ Per mostrare il pulsante Scarica Playlist nativo, attiva il camuffamento della v
     <string name="revanced_patched_date_title">Data e ora della patch</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Escluso</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Incluso</font></string>
+    <string name="revanced_playback_audio_pitch_sync">Sincronizza</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_off">L'intonazione dell'audio è indipendente dalla velocità di riproduzione</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_on">L'intonazione dell'audio è sincronizzata con la velocità di riproduzione</string>
+    <string name="revanced_playback_audio_pitch_title">Intonazione audio</string>
     <string name="revanced_playback_audio_time_stretching_summary">Consente di impostare velocità e pitch indipendentemente, potrebbe causare artefatti audio</string>
     <string name="revanced_playback_audio_time_stretching_title">Time stretching audio</string>
     <string name="revanced_playback_speed_normal">Normale</string>
@@ -2181,7 +2328,9 @@ Esiste già"</string>
     <string name="revanced_sb_vote_no_segments">Non ci sono segmenti da votare</string>
     <string name="revanced_sb_vote_segment_time_to_from">Da %1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Mi piace</string>
+    <string name="revanced_search_in_channel_no_results">Nessun video trovato nei risultati della ricerca</string>
     <string name="revanced_search_in_channel_query_hint">Cerca questo canale</string>
+    <string name="revanced_search_in_channel_scroll_tip">Scorri verso il basso per caricare altri video prima di creare una coda</string>
     <string name="revanced_search_in_channel_search_youtube">Cerca YouTube</string>
     <string name="revanced_search_in_channel_title">Cerca canale</string>
     <string name="revanced_search_in_channel_use_webview_summary_off">La ricerca del canale utilizza la funzione di ricerca nativa di YouTube. Ciò comporta la visualizzazione di alcuni risultati non pertinenti</string>
@@ -2226,6 +2375,11 @@ Note:
     <string name="revanced_settings_search_clear_history_message">Sei sicuro di voler cancellare tutta la cronologia delle ricerche?</string>
     <string name="revanced_settings_search_empty_history_summary">Per salvare la cronologia delle ricerche, digita una query di ricerca e premi Invio</string>
     <string name="revanced_settings_search_empty_history_title">La cronologia delle ricerche è vuota</string>
+    <string name="revanced_settings_search_gemini_results">Risultati di Gemini</string>
+    <string name="revanced_settings_search_gemini_searching_title">Ricerca con Gemini…</string>
+    <string name="revanced_settings_search_gemini_summary_off">Gemini non viene utilizzato per la ricerca delle impostazioni</string>
+    <string name="revanced_settings_search_gemini_summary_on">Gemini viene utilizzato quando la ricerca nelle impostazioni locali non produce alcun risultato</string>
+    <string name="revanced_settings_search_gemini_title">Ricerca le impostazioni con Gemini</string>
     <string name="revanced_settings_search_history_summary">Salva recenti query di ricerca per mostrarle quando la barra di ricerca è vuota</string>
     <string name="revanced_settings_search_history_summary_off">La cronologia di ricerca delle impostazioni non viene mostrata</string>
     <string name="revanced_settings_search_history_summary_on">La cronologia di ricerca delle impostazioni è visualizzata</string>
@@ -2241,6 +2395,9 @@ Note:
 • Le impostazioni padre appaiono sopra le impostazioni figlio disabilitate"</string>
     <string name="revanced_settings_search_tips_title">Suggerimenti per la ricerca</string>
     <string name="revanced_settings_search_title">Cerca su %s</string>
+    <string name="revanced_settings_show_slider_summaries_summary_off">I riassunti sotto le impostazioni dello slider sono nascosti</string>
+    <string name="revanced_settings_show_slider_summaries_summary_on">I riassunti sotto le impostazioni dello slider sono visibili</string>
+    <string name="revanced_settings_show_slider_summaries_title">Mostra i riepiloghi delle impostazioni dello slider</string>
     <string name="revanced_share_copy_timestamp_success">Timestamp copiato negli appunti (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>
     <string name="revanced_share_copy_url_timestamp_success">URL con timestamp copiato</string>
@@ -2267,9 +2424,9 @@ La maggior parte dei bug non può essere risolta a causa di limitazioni lato cli
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Il menù Downloader Esterno è visibile</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Mostra il menù Downloader Esterno</string>
     <string name="revanced_shorts_custom_actions_gemini_label">Riepilogo di Gemini</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_off">Il menu di riepilogo Gemini è nascosto</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">Il menu di riepilogo Gemini è mostrato</string>
-    <string name="revanced_shorts_custom_actions_gemini_title">Mostra il menu di riepilogo Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">L'azione di riepilogo Gemini nel menu delle azioni personalizzate degli Shorts è nascosta</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">L'azione di riepilogo Gemini nel menu delle azioni personalizzate degli Shorts è visibile</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Mostra Gemini negli Shorts</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Apri il video</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Il menù Apri il Video è nascosto</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Il menù Apri il Video è visibile</string>
@@ -2302,6 +2459,7 @@ La maggior parte dei bug non può essere risolta a causa di limitazioni lato cli
     <string name="revanced_shorts_player_type_regular_player">Lettore normale</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Lettore normale a schermo intero</string>
     <string name="revanced_shorts_player_type_title">Apri Shorts con</string>
+    <string name="revanced_show_search_button_summary_off">Il pulsante Cerca è nascosto</string>
     <string name="revanced_show_search_button_title">Mostra il pulsante Ricerca</string>
     <string name="revanced_show_settings_button_summary_off">Il pulsante Impostazioni è nascosto</string>
     <string name="revanced_show_settings_button_summary_on">Il pulsante Impostazioni è visibile</string>
@@ -2425,11 +2583,12 @@ Regola la luminosità scorrendo verticalmente sul lato sinistro dello schermo"</
     <string name="revanced_swipe_gestures_lock_mode_summary_on">I gesti di trascinamento in modalità Blocca Schermo sono attivati</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Attiva i gesti di trascinamento in modalità Blocca Schermo</string>
     <string name="revanced_swipe_haptic_feedback_title">Abilita il feedback aptico</string>
+    <string name="revanced_swipe_horizontal_zone_summary">Percentuale dell'altezza del riproduttore riservata ai bordi superiore e inferiore per gli scorrimenti rapidi e di ricerca</string>
+    <string name="revanced_swipe_horizontal_zone_title">Area di scorrimento orizzontale</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatico</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Scorrendo verso il basso, il valore più basso non abilita la luminosità automatica</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Scorri verso il basso fino al valore più basso del gesto luminosità per abilitare la luminosità automatica</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Attiva il gesto per la luminosità automatica</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacità di scorrimento deve essere tra 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Regola il livello di trasparenza (0 è trasparente, 100 è opaco)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Opacità sfondo dello scorrimento in sovrapposizione</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Imposta il colore della barra di avanzamento dei controlli della luminosità</string>
@@ -2475,11 +2634,12 @@ Regola la velocità scorrendo orizzontalmente nella metà inferiore dello scherm
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">La zona del gesto di ricerca è in alto, la zona della velocità è in basso</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">La zona del gesto della velocità è in alto, la zona della ricerca è in basso</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Cambia velocità e gesti di scorrimento</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">La dimensione del testo deve essere compresa tra 1 e 30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Regola la dimensione del testo sullo schermo (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Dimensione del testo dello scorrimento in sovrapposizione</string>
     <string name="revanced_swipe_threshold_summary">Imposta la distanza di scorrimento necessaria prima che venga attivata una regolazione</string>
     <string name="revanced_swipe_threshold_title">Ampiezza limite della soglia di scorrimento</string>
+    <string name="revanced_swipe_vertical_zone_summary">Percentuale della larghezza del riproduttore riservata ai bordi sinistro e destro per i gesti di regolazione della luminosità e del volume</string>
+    <string name="revanced_swipe_vertical_zone_title">Area di scorrimento verticale</string>
     <string name="revanced_swipe_volume_distance_summary">La quantità di pixel da scorrere per regolare il volume. I valori più bassi rendono la variazione del volume più veloce, i valori più alti lo rendono più lento (1-1000)</string>
     <string name="revanced_swipe_volume_distance_title">Distanza del volume</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">La sensibilità del trascinamento deve essere tra 1 e 1000</string>
@@ -2491,6 +2651,7 @@ Regola la velocità scorrendo orizzontalmente nella metà inferiore dello scherm
 Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
     <string name="revanced_swipe_volume_title">Attiva il gesto per modificare il volume</string>
     <string name="revanced_swipe_zone_label_brightness">Luminosità</string>
+    <string name="revanced_swipe_zone_label_seek">Ricerca</string>
     <string name="revanced_swipe_zone_label_speed">Velocità</string>
     <string name="revanced_swipe_zone_label_volume">Volume</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Scambia le posizioni del pulsante Crea con il pulsante notifiche camuffando informazioni del dispositivo
@@ -2542,6 +2703,7 @@ Se i server di Yandex non sono disponibili nella tua regione, utilizza l'opzione
     <string name="revanced_vot_audio_proxy_summary_on">La riproduzione del caricamento è stata occulta</string>
     <string name="revanced_vot_audio_proxy_title">Riproduzione proxy dell'audio</string>
     <string name="revanced_vot_auth_required">È richiesta l'autorizzazione. Aggiungi il token OAuth di Yandex nelle impostazioni</string>
+    <string name="revanced_vot_credits_summary">Implementazione del doppiaggio Yandex a cura di Jav1x, sashade8-ship-it e anddea. Basata su ilyhalight/voice-over-translation</string>
     <string name="revanced_vot_enabled_summary_off">La traduzione vocale di Yandex è disabilitata</string>
     <string name="revanced_vot_enabled_summary_on">La traduzione vocale di Yandex è abilitata</string>
     <string name="revanced_vot_enabled_title">Traduzione voice over</string>
@@ -2562,8 +2724,15 @@ Se i server di Yandex non sono disponibili nella tua regione, utilizza l'opzione
     <string name="revanced_vot_oauth_token_summary">Necessario per le voci dal vivo</string>
     <string name="revanced_vot_original_audio_volume_summary">Volume dell\'audio originale di YouTube durante la riproduzione della traduzione</string>
     <string name="revanced_vot_original_audio_volume_title">Volume audio originale</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">Il video continua a essere riprodotto mentre viene preparato il doppiaggio</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Il video viene messo in pausa finché il doppiaggio non è pronto</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_title">Metti in pausa il video mentre la traduzione viene preparata</string>
     <string name="revanced_vot_playback_error">Riproduzione della traduzione audio fallita</string>
-    <string name="revanced_vot_proxy_url_summary">Host proxy per il doppiaggio. Predefinito: rilevato automaticamente</string>
+    <string name="revanced_vot_proxy_url_fetch_failed">Impossibile recuperare l'host del proxy per il doppiaggio</string>
+    <string name="revanced_vot_proxy_url_fetch_success">Host proxy per il doppiaggio aggiornato a %s</string>
+    <string name="revanced_vot_proxy_url_fetch_summary">Recupera manualmente l'host attuale della proxy. Non viene mai aggiornato automaticamente</string>
+    <string name="revanced_vot_proxy_url_fetch_title">Recupera il server proxy più recente</string>
+    <string name="revanced_vot_proxy_url_summary">Host proxy per il doppiaggio. Predefinito: vot-worker.eu.cc</string>
     <string name="revanced_vot_proxy_url_title">Server proxy</string>
     <string name="revanced_vot_source_language_summary">Seleziona la lingua dell'audio del video</string>
     <string name="revanced_vot_source_language_title">Lingua sorgente</string>
@@ -2573,6 +2742,7 @@ Se i server di Yandex non sono disponibili nella tua regione, utilizza l'opzione
     <string name="revanced_vot_stream_ready">Traduzione disponibile, in esecuzione</string>
     <string name="revanced_vot_stream_requesting">Richiesta di traduzione per la stream...</string>
     <string name="revanced_vot_stream_waiting">Attendi... ~%s</string>
+    <string name="revanced_vot_stream_waiting_status">Il doppiaggio è ancora in corso…</string>
     <string name="revanced_vot_target_language_summary">Seleziona la lingua in cui tradurre</string>
     <string name="revanced_vot_target_language_title">Lingua target</string>
     <string name="revanced_vot_time_sec">Secondo %d</string>

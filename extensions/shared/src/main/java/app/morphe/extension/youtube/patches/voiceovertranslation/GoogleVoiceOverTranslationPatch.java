@@ -84,7 +84,7 @@ public class GoogleVoiceOverTranslationPatch {
                 null,
                 () -> {},
                 null,
-                str("morphe_vot_do_not_show_again"),
+                str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"),
                 () -> Settings.GOOGLE_VOT_HIDE_EXPORT_WARNING.save(true),
                 true
         );
@@ -1065,7 +1065,7 @@ public class GoogleVoiceOverTranslationPatch {
                     null,
                     () -> { },
                     null,
-                    str("morphe_vot_do_not_show_again"),
+                    str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"),
                     () -> Settings.GOOGLE_VOT_SHOW_HTTP_ERROR_DIALOG.save(false),
                     true
             );

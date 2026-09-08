@@ -20,6 +20,17 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="gms_core_settings_summary">Engedélyezze a felhő alapú üzenetküldést az értesítések fogadásához</string>
     <string name="gms_core_settings_title">GmsCore beállítások megnyitása</string>
     <string name="gms_core_toast_not_installed_message">A MicroG nincs telepítve. Telepítse azt</string>
+    <string name="morphe_app_refresh_rate_default">Alapértelmezett</string>
+    <string name="morphe_app_refresh_rate_fps">%s képkocka/mp</string>
+    <string name="morphe_app_refresh_rate_title">Alkalmazás frissítési gyakorisága</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Mindig</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Álló lejátszás</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Teljes képernyős lejátszás</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Álló és teljes képernyős lejátszás</string>
+    <string name="morphe_app_refresh_rate_type_title">Frissítési gyakoriság felülbírálása</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Mindig szüneteltetés, ha le van zárva</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Szüneteltetés, hacsak nincs vezeték nélküli hang csatlakoztatva</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Automatikus szüneteltetés, ha az eszköz le van zárva</string>
     <string name="morphe_custom_branding_icon_title">Alkalmazás ikonja</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">A navigációs sáv látható marad a görgetés közben</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Kapcsold ki az automatikus elrejtést a navigációs sávra</string>
@@ -29,6 +40,7 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protokoll engedélyezve</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokoll letiltva</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokoll letiltása</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Görgetési sebességkorlát letiltása. ,\"key\":\"morphe_disable_scrolling_speed_limit_title\",\"context\":\"morphe_disable_scrolling_speed_limit_title\nlayout.disableScrollSpeedLimitPatch\",\"maxLength\":null,\"terms\":[]}</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Előfordulhat, hogy az 'Élő közvetítés DVR-időtartamának bővítése' nem érhető el
 
 A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módosítsd az 'Alapértelmezett kliens' értékét a következőre: 'TV Simply' vagy 'visionOS'"</string>
@@ -124,6 +136,8 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_playback_in_feeds_entry_off">Ki</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Csak Wi-Fi esetén</string>
     <string name="morphe_playback_in_feeds_title">Lejátszás a hírekben</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">A lejátszó vezérlőgombjai és az idővonal mögötti háttér átlátszatlanságának beállítása (0 láthatatlan, 100 átlátszatlan)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Vezérlőgombok hátterének átlátszatlansága</string>
     <string name="morphe_queue_manager_check_failed_auth">Nem jelentkezett be</string>
     <string name="morphe_queue_manager_check_failed_video_id">Nincs videóazonosító</string>
     <string name="morphe_reload_video_summary_off">A videó újraindítás gomb nem látható</string>
@@ -224,6 +238,51 @@ Korlátozás: Ha a „Régi videós eszköztár visszaállítása” ki van kapc
     <string name="morphe_video_quality_prioritize_dialog">Ha ez a beállítás ki van kapcsolva, akkor a régebbi videóknál nem jelenik meg videóminőségi opció</string>
     <string name="morphe_video_quality_prioritize_summary">A legmagasabb elérhető videóminőség részesít előnyben a kodek hatékonyságával szemben</string>
     <string name="morphe_video_quality_prioritize_title">Videóminőség prioritása</string>
+    <string name="morphe_vot_caption_language_title">Nyelv</string>
+    <string name="morphe_vot_cost_free">Ingyenes</string>
+    <string name="morphe_vot_cost_per_hour">%s dollár 100 videóóra esetén</string>
+    <string name="morphe_vot_enabled_title">Hangfelirat hangos felolvasása</string>
+    <string name="morphe_vot_export_api_key_warning">"A beállításaid tartalmaznak egy OpenRouter API kulcsot
+
+A API kulcsodat soha nem szabad megosztani. Bárki, akinek hozzáférése van hozzá, felhasználhatja az OpenRouter jóváírásaidat"</string>
+    <string name="morphe_vot_http_error_message">"A fordításszolgáltatás HTTP hibát (%s) adott vissza. Az IP-címe valószínűleg korlátozva lett legfeljebb 24 órára
+
+A fordítások folytatásához váltson másik fordításszolgáltatót a beállításokban, vagy használjon VPN-t"</string>
+    <string name="morphe_vot_http_error_title">A fordítás nem elérhető</string>
+    <string name="morphe_vot_max_speech_rate_summary">A maximális sebesség szorzója, amikor a beszédet egy felirat helyére illesztjük</string>
+    <string name="morphe_vot_max_speech_rate_title">Maximális beszédsebesség</string>
+    <string name="morphe_vot_mymemory_email_summary">Nem kötelező. Adja meg MyMemory e-mail címét a napi korlát 5000-ről 50000 karakterre növeléséhez. Hagyja üresen az anonim korlát használatához</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory e-mail cím</string>
+    <string name="morphe_vot_mymemory_error">A MyMemory fordítása sikertelen (állapot %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"Ingyenes fordítási API, API kulcsra nincs szükség. Naponta akár 5000 karakter a díjmentes verzióban, vagy akár 50000 karakter e-mail címmel 
+
+Érintse meg ide a MyMemory.translated.net megnyitásához"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Kimerítette a mai ingyenes MyMemory fordítási kvótát (5000 karakter). Adjon meg egy MyMemory e-mail címet a beállításokban a napi korlát 50000 karakterre emeléséhez, vagy váltson másik fordításszolgáltatót</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Kimerítette a mai MyMemory fordítási kvótát (50000 karakter). Váltson másik fordításszolgáltatót, vagy próbálkozzon holnap</string>
+    <string name="morphe_vot_mymemory_quota_next_available">A következő elérhetőség: %s</string>
+    <string name="morphe_vot_mymemory_quota_title">A MyMemory napi limite elérése</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Az OpenRouter API kulcsa. Hozzon létre egy kulcsot az OpenRouter.ai oldalon a Workspace &gt; API Keys területen</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API kulcs</string>
+    <string name="morphe_vot_openrouter_credits_message">Az OpenRouter jóváírásának limite elérése. Töltse fel egyenlegét vagy növelje a kulcs költési limitjét az OpenRouter.ai oldalon</string>
+    <string name="morphe_vot_openrouter_credits_title">Az OpenRouter jóváírásának limite elérése</string>
+    <string name="morphe_vot_openrouter_error">Az OpenRouter fordítása sikertelen (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Fizetős AI fordítás az OpenRouteren keresztül. Töltsön fel egyszer, és fordítson több ezer videót. A Mistral Nemo a legolcsóbb opció, a Gemma 4 a legjobb minőséget kínálja
+
+Érintse meg ide az OpenRouter.ai megnyitásához"</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter modell</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Adja meg az OpenRouter API kulcsát a beállításokban, mielőtt kiválasztja ezt a szolgáltatót</string>
+    <string name="morphe_vot_openrouter_not_configured_title">Az OpenRouter nincs konfigurálva</string>
+    <string name="morphe_vot_openrouter_open_website">Nyissa meg az OpenRouter.ai oldalt</string>
+    <string name="morphe_vot_original_audio_volume_summary">Az eredeti YouTube hang hangereje a fordítás közben</string>
+    <string name="morphe_vot_translation_service_title">Fordítási szolgáltató</string>
+    <string name="morphe_vot_translation_volume_summary">A szinkronizált fordítás hangjának hangereje</string>
+    <string name="morphe_vot_tts_sample">Változás van!</string>
+    <string name="morphe_vot_tts_system">Rendszer</string>
+    <string name="morphe_vot_tts_voice_type">Hang</string>
+    <string name="morphe_vot_voice_gender_female">Női</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Többnyelvű női</string>
+    <string name="morphe_vot_voice_gender_male">Férfi</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Többnyelvű férfi</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">A speciális videóminőség menü nem látható</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">A speciális videóminőség menü látható</string>
     <string name="revanced_advanced_video_quality_menu_title">Nyissa meg a fejlett minőség menüt</string>
@@ -1584,7 +1643,6 @@ Csúsztassa a kibontáshoz vagy bezáráshoz"</string>
 
 A minilejátszó jobbra vagy balra húzható a képernyőn"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Vízszintes húzás engedélyezése</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">A minilejátszó fedvény átlátszatlanságának 0 és 100 között kell lennie</string>
     <string name="revanced_miniplayer_opacity_title">Átfedés átlátszósága</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">A sarkok négyzet alakúak</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">A sarkok lekerekítettek</string>
@@ -2378,7 +2436,6 @@ A fényerő beállítása a képernyő bal oldalán történő függőleges húz
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">A legalacsonyabb értékig csúsztatás nem engedélyezi az auto fényerőt</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">A fényerő kézmozdulat legalacsonyabb értékig csúsztatása engedélyezi az auto fényerőt</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Auto fényerő gesztus engedélyezése</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A csúsztatás átlátszóságának 0 és 100 között kell lennie</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Állítsa be az átlátszóság szintjét (0 átlátszó, 100 opák)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Az áthúzás átfedésének átlátszósága</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Állítsa be a fényerő szabályozó progresszív sáv színét</string>
@@ -2424,7 +2481,6 @@ Keress a videóban a képernyő felső felén történő vízszintes csúsztatá
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">A keresési gesztus zónája felül, a sebesség zónája alul található</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">A sebesség gesztus zónája felül, a keresési zóna alul található</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Sebesség és keresés gesztusok felcserélése</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">A szövegméretnek 1-30 között kell lennie</string>
     <string name="revanced_swipe_text_overlay_size_summary">Állítsa be a képernyőn megjelenő szöveg méretét (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Áthúzás fedvény szövegmérete</string>
     <string name="revanced_swipe_threshold_summary">Állítsa be a szükséges gesztus távolságot, mielőtt a beállítás érvénybe lép</string>

@@ -17,6 +17,14 @@ Clicca \"Continua\" per consentire le modifiche"</string>
     <string name="gms_core_settings_summary">Per ricevere notifiche in RVX Music, abilita Cloud Messaging</string>
     <string name="gms_core_settings_title">Apri le impostazioni GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG non è installato. Installalo</string>
+    <string name="morphe_app_refresh_rate_default">Predefinita</string>
+    <string name="morphe_app_refresh_rate_fps">%s fps</string>
+    <string name="morphe_app_refresh_rate_title">Frequenza di aggiornamento dell\'app</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Sempre</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Riproduzione in verticale</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Riproduzione a schermo intero</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Riproduzione in verticale e a schermo intero</string>
+    <string name="morphe_app_refresh_rate_type_title">Override della frequenza di aggiornamento</string>
     <string name="morphe_crossfade_duration_10000ms">10 secondi</string>
     <string name="morphe_crossfade_duration_1000ms">1 secondo</string>
     <string name="morphe_crossfade_duration_11000ms">11 secondi</string>
@@ -32,8 +40,15 @@ Clicca \"Continua\" per consentire le modifiche"</string>
     <string name="morphe_crossfade_duration_750ms">750 millisecondi</string>
     <string name="morphe_crossfade_duration_8000ms">8 secondi</string>
     <string name="morphe_crossfade_duration_9000ms">9 secondi</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Se disponibile, utilizza l'icona dell'app selezionata per la voce relativa alle impostazioni RVX</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Utilizza l'icona nelle impostazioni di RVX</string>
     <string name="morphe_custom_branding_icon_title">Icona dell\'app</string>
     <string name="morphe_custom_branding_name_title">Nome dell\'app</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Imposta le dimensioni dell'animazione di avvio personalizzata</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Dimensioni dell'animazione di avvio</string>
+    <string name="morphe_dark_theme_custom_color_summary">Utilizzato quando è selezionata l'opzione Personalizzato</string>
+    <string name="morphe_dark_theme_custom_color_title">Colore personalizzato del tema</string>
+    <string name="morphe_dark_theme_title">Tema dell'applicazione</string>
     <string name="morphe_disable_drc_audio_summary_off">L'audio DRC è abilitato</string>
     <string name="morphe_disable_drc_audio_summary_on">L'audio DRC è disabilitato</string>
     <string name="morphe_disable_quic_protocol_summary_off">Il protocollo QUIC è abilitato</string>
@@ -115,6 +130,8 @@ Quando non vengono trovati testi di terze parti, vengono visualizzati i testi in
     <string name="morphe_music_lyrics_translate_hide">Mostra originale</string>
     <string name="morphe_music_lyrics_translate_show">Traduci</string>
     <string name="morphe_music_lyrics_translating">Traduzione in corso…</string>
+    <string name="morphe_notification_dot_color_summary">Modifica il colore dei puntini di notifica</string>
+    <string name="morphe_notification_dot_color_title">Colore del puntino di notifica</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Impossibile accedere ad Android VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Impossibile accedere ad Android VR, l\'autenticazione del sito non è stata approvata</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 non è al momento disponibile</string>
@@ -123,6 +140,13 @@ Quando non vengono trovati testi di terze parti, vengono visualizzati i testi in
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 è temporaneamente non disponibile (API scaduta)</string>
     <string name="morphe_oauth2_toast_invalid">Token di accesso Android VR non valido, prova ad accedere nuovamente</string>
     <string name="morphe_oauth2_toast_reset">Disconnesso da Android VR</string>
+    <string name="morphe_potoken_provider_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
+
+Se sei un utente di YouTube Premium, questa impostazione potrebbe non essere necessaria"</string>
+    <string name="morphe_potoken_provider_title">fornitore PoToken</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
+
+Per utilizzare questa funzione, disattiva l'opzione \'Falsificazioneidei flussi video\'"</string>
     <string name="morphe_replace_music_with_youtube_summary">Sostituisce music.youtube.com con youtube.com nei link condivisi</string>
     <string name="morphe_replace_music_with_youtube_summary_off">I link condivisi usano music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">I link condivisi usano youtube.com</string>
@@ -176,6 +200,19 @@ La riproduzione potrebbe non funzionare"</string>
 Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necessaria"</string>
     <string name="morphe_spoof_video_streams_title">Utilizza un client simulato per il flusso video</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione</string>
+    <string name="morphe_theme_entry_amoled_black">Nero Amoled</string>
+    <string name="morphe_theme_entry_classic_youtube">Classico (vecchio YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Blu scuro</string>
+    <string name="morphe_theme_entry_dark_green">Verde scuro</string>
+    <string name="morphe_theme_entry_dark_orange">Arancione scuro</string>
+    <string name="morphe_theme_entry_dark_pink">Rosa scuro</string>
+    <string name="morphe_theme_entry_dark_red">Rosso scuro</string>
+    <string name="morphe_theme_entry_dark_yellow">Giallo scuro</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Neutrale)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - Primario</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - Secondario</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - Terziario</string>
+    <string name="morphe_theme_entry_modern_youtube">YouTube moderno</string>
     <string name="revanced_add_miniplayer_next_button_summary">Aggiunge un pulsante traccia successiva al miniplayer</string>
     <string name="revanced_add_miniplayer_next_button_title">Aggiungi il pulsante successivo nel miniplayer</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Aggiunge un pulsante traccia precedente al miniplayer</string>
@@ -306,10 +343,7 @@ Limitazioni: i segmenti SponsorBlock non vengono mostrati nella barra di ricerca
     <string name="revanced_enable_zen_mode_podcast_title">Abilita la modalità Zen nei podcast</string>
     <string name="revanced_enable_zen_mode_summary">Aggiunge una sfumatura grigia al riproduttore video per ridurre l\'affaticamento degli occhi</string>
     <string name="revanced_enable_zen_mode_title">Abilita la modalità zen</string>
-    <string name="revanced_external_downloader_action_summary">"Il pulsante Download apre il downloader esterno
-
-• Sovrascrive solo il pulsante Download nel player
-• Non sovrascrive il pulsante Download nel menu flyout o nella scheda Libreria"</string>
+    <string name="revanced_external_downloader_action_summary">Il pulsante Scarica apre il tuo scaricatore esterno</string>
     <string name="revanced_external_downloader_action_title">Sovrascrivi il pulsante di azione Download</string>
     <string name="revanced_external_downloader_dialog_title">Downloader esterno</string>
     <string name="revanced_external_downloader_flyout_menu_summary">Utilizza il downloader esterno scelto invece del menu flyout Scarica</string>
@@ -659,6 +693,8 @@ Tocca qui per aprire ReturnYouTubeDislike.com"</string>
 • Le impostazioni padre appaiono sopra le impostazioni figlio disabilitate"</string>
     <string name="revanced_settings_search_tips_title">Suggerimenti per la ricerca</string>
     <string name="revanced_settings_search_title">Cerca su %s</string>
+    <string name="revanced_settings_show_slider_summaries_summary">Mostra o nasconde i riepiloghi sotto le impostazioni dello slider</string>
+    <string name="revanced_settings_show_slider_summaries_title">Mostra i riepiloghi per le impostazioni dello slider</string>
     <string name="revanced_share_copy_settings_success">Impostazioni copiate negli appunti</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Simula una versione precedente del client per i testi delle canzoni</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - Senza testi in tempo real</string>
@@ -675,6 +711,7 @@ Tocca qui per aprire ReturnYouTubeDislike.com"</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Disabilita i testi in tempo reale</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Ripristina la vecchia barra d\'azione</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - La sezione commenti non viene visualizzata nel feed principale</string>
+    <string name="revanced_spoof_app_version_target_entry_8_05_50">8.05.50 - Correzione della schermata di aggiornamento dell'app</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versione dell\'app da falsificare non valida: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Seleziona la destinazione falsificata della versione app</string>
     <string name="revanced_spoof_app_version_target_title">Versione dell\'app di destinazione desiderata</string>

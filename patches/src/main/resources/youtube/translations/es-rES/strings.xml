@@ -20,6 +20,17 @@ Toca el botón \"Continuar\" y permite los cambios en las optimizaciones"</strin
     <string name="gms_core_settings_summary">Activa la mensajería en la nube para recibir notificaciones</string>
     <string name="gms_core_settings_title">Abrir los ajustes de GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore no está instalado. Instálalo</string>
+    <string name="morphe_app_refresh_rate_default">Predeterminada</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">Tasa de refresco de la aplicación</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Siempre</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Reproducción en vertical</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Reproducción en pantalla completa</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Reproducción en vertical y en pantalla completa</string>
+    <string name="morphe_app_refresh_rate_type_title">Forzar tasa de refresco</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Siempre pausar cuando esté bloqueado</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausar a menos que haya audio inalámbrico conectado</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Pausa automática cuando el dispositivo está bloqueado</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Utiliza el icono de la app seleccionada para la entrada de configuración RVX cuando esté disponible</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Usar icono en la configuración de RVX</string>
     <string name="morphe_custom_branding_icon_title">Icono de la aplicación</string>
@@ -38,6 +49,7 @@ Toca el botón \"Continuar\" y permite los cambios en las optimizaciones"</strin
     <string name="morphe_disable_quic_protocol_summary_off">El protocolo QUIC está activado</string>
     <string name="morphe_disable_quic_protocol_summary_on">El protocolo QUIC está desactivado</string>
     <string name="morphe_disable_quic_protocol_title">Desactivar protocolo QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Desactivar límite de velocidad de desplazamiento</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Es posible que \'Ampliar la duración del DVR de la transmisión en directo\' no esté disponible
 
 Para solucionar esto, activa \'Suplantar transmisiones de video\' y cambia \'Cliente predeterminado\' a \'TV\' o \'visionOS\'"</string>
@@ -135,6 +147,8 @@ Para solucionarlo, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente
     <string name="morphe_playback_in_feeds_entry_off">Desactivada</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Solo con Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Reproducción en feeds</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Ajusta la opacidad del fondo detrás de los botones de control del reproductor y la barra de tiempo (0 es invisible, 100 es opaco)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Opacidad del fondo de los botones de control</string>
     <string name="morphe_potoken_provider_summary">"Soluciona problemas de reproducción usando el proveedor PoToken integrado (Experimental)
 
 Si eres usuario de YouTube Premium, puede que esta opción no sea obligatoria"</string>
@@ -160,7 +174,7 @@ Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_save_to_watch_later_button_title">Mostrar botón \'Guardar para ver más tarde\'</string>
     <string name="morphe_save_to_watch_later_error_toast">No se puede guardar este video en la lista de reproducción \'Ver más tarde\'</string>
     <string name="morphe_save_to_watch_later_flyout_title">Guardar en \'Ver más tarde\'</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Permite guardar videos infantiles en el menú emergente \'Ver más tarde\'</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Permite guardar videos infantiles en el menú desplegable \'Ver más tarde\'</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Mostrar botón \'Guardar para ver más tarde\' en videos infantiles</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Permite guardar los Shorts en la lista de reproducción \'Ver más tarde\' desde el menú desplegable del feed</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Botón de guardar para Shorts</string>
@@ -270,6 +284,51 @@ Limitación: si la opción 'Restaurar antigua barra de acciones de vídeo' está
     <string name="morphe_video_quality_prioritize_dialog">Si este ajuste está desactivado, los vídeos más antiguos podrían no mostrar opciones de calidad de vídeo</string>
     <string name="morphe_video_quality_prioritize_summary">Prioriza la calidad de vídeo más alta sobre la eficiencia del códec</string>
     <string name="morphe_video_quality_prioritize_title">Priorizar la calidad del vídeo</string>
+    <string name="morphe_vot_caption_language_title">Idioma</string>
+    <string name="morphe_vot_cost_free">Gratis</string>
+    <string name="morphe_vot_cost_per_hour">%s por 100 horas de video</string>
+    <string name="morphe_vot_enabled_title">Traducción con voz</string>
+    <string name="morphe_vot_export_api_key_warning">"Tus ajustes contienen una clave API de OpenRouter
+
+Tu clave API nunca debe compartirse. Cualquiera que tenga acceso a ella puede usar tus créditos de OpenRouter"</string>
+    <string name="morphe_vot_http_error_message">"El servicio de traducción devolvió un error HTTP %s. Es probable que tu dirección IP tenga un límite de peticiones activo por hasta 24 horas
+
+Para seguir traduciendo, cambia de proveedor en los ajustes o usa una VPN"</string>
+    <string name="morphe_vot_http_error_title">Traducción no disponible</string>
+    <string name="morphe_vot_max_speech_rate_summary">Multiplicador máximo de velocidad al ajustar la voz al intervalo de tiempo de un subtítulo</string>
+    <string name="morphe_vot_max_speech_rate_title">Velocidad máxima de voz</string>
+    <string name="morphe_vot_mymemory_email_summary">Opcional. Introduce tu dirección de correo electrónico de MyMemory para aumentar el límite diario de 5000 a 50.000 caracteres. Déjalo vacío para utilizar el límite anónimo</string>
+    <string name="morphe_vot_mymemory_email_title">Correo electrónico de MyMemory</string>
+    <string name="morphe_vot_mymemory_error">Falló la traducción con MyMemory (estado %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"API de traducción gratuita, sin necesidad de clave API. Hasta 5000 caracteres al día en el plan gratuito, o hasta 50.000 caracteres al día proporcionando una dirección de correo electrónico
+
+Toca aquí para abrir MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Has utilizado la cuota diaria gratuita de traducción de MyMemory (5.000 caracteres). Agrega una dirección de correo electrónico de MyMemory en los ajustes para aumentar el límite diario a 50.000 caracteres o cambia a un servicio de traducción diferente</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Has utilizado la cuota de traducción de MyMemory de hoy (50.000 caracteres). Cambia a un servicio de traducción diferente o inténtalo de nuevo mañana</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Próximo disponible en %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Límite diario de MyMemory alcanzado</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Tu clave de API de OpenRouter. Crea una clave en OpenRouter.ai &gt; Espacio de trabajo &gt; Claves de API</string>
+    <string name="morphe_vot_openrouter_api_key_title">Clave API de OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Se ha alcanzado tu límite de crédito de OpenRouter. Recarga tu saldo o aumenta el límite de gasto de tu clave en OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Límite de crédito de OpenRouter alcanzado</string>
+    <string name="morphe_vot_openrouter_error">Falló la traducción con OpenRouter (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Traducción con IA de pago mediante OpenRouter. Recarga saldo una sola vez y traduce miles de vídeos. Mistral Nemo es la opción más económica, mientras que Gemma 4 ofrece la mayor calidad
+
+Toca aquí para abrir OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Modelo OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Ingresa tu clave de API de OpenRouter en los ajustes antes de seleccionar este proveedor</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter no configurado</string>
+    <string name="morphe_vot_openrouter_open_website">Abrir OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Volumen del audio original de YouTube mientras se reproduce la traducción</string>
+    <string name="morphe_vot_translation_service_title">Proveedor de traducción</string>
+    <string name="morphe_vot_translation_volume_summary">Volumen de la voz de traducción</string>
+    <string name="morphe_vot_tts_sample">¡Que empiece el cambio!</string>
+    <string name="morphe_vot_tts_system">Sistema</string>
+    <string name="morphe_vot_tts_voice_type">Voz</string>
+    <string name="morphe_vot_voice_gender_female">Femenino</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Multilingüe femenino</string>
+    <string name="morphe_vot_voice_gender_male">Masculino</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Multilingüe masculino</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">No se muestra el menú de calidad de vídeo avanzado</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Se muestra el menú de calidad de vídeo avanzado</string>
     <string name="revanced_advanced_video_quality_menu_title">Abrir menú de calidad avanzada</string>
@@ -350,14 +409,14 @@ Habilitar esto puede solucionar las imágenes que faltan que están bloqueadas e
 
 Diseño para tablet
 • Las publicaciones de la comunidad están ocultas
-• La configuración de reproducción en feeds no está disponible
+• El ajuste de reproducción en feeds no está disponible
 • El botón Remix y el botón Sonido no están disponibles en Shorts
 • La superposición 'Más vídeos' puede no estar disponible
 • Se muestra la antigua barra de acciones de vídeo sin colapsar
 
 Diseño para automóviles
 • El feed está organizado por temas y canales
-• La configuración de reproducción en feeds no está disponible
+• El ajuste de reproducción en feeds no está disponible
 • El botón Remix y el botón Sonido no están disponibles en Shorts
 • La superposición 'Más vídeos' puede no estar disponible
 • Shorts se abre en el reproductor normal
@@ -793,7 +852,7 @@ Limitaciones:
     <string name="revanced_gradient_seekbar_positions_summary">Posiciones de inicio y fin del degradado de 0 a 1 separadas por coma</string>
     <string name="revanced_gradient_seekbar_positions_title">Límites del degradado de la barra de búsqueda</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Introduce los nombres de los elementos del menú inferior «Biblioteca / Tú» que quieres filtrar, separados por saltos de línea</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Filtro del menú inferior de \'Biblioteca / Tú\'</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Filtro del menú inferior «Biblioteca / Tú»</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Filtrar si coincide.&lt;br&gt;&lt;br&gt;Para ocultar el menú &lt;b&gt;\"Obtener YouTube Premium\"&lt;/b&gt;, solo puedes utilizar &lt;b&gt;\"Obtener YouTube Premium\"&lt;/b&gt; como palabras claves</string>
     <string name="revanced_hide_account_menu_filter_type_summary_on">Filtrar si contiene.&lt;br&gt;&lt;br&gt;Para ocultar el menú &lt;b&gt;\"Obtener YouTube Premium\"&lt;/b&gt;, puedes utilizar &lt;b&gt;\"YouTube Premium\"&lt;/b&gt; o &lt;b&gt;\"Premium\"&lt;/b&gt; como palabras clave</string>
     <string name="revanced_hide_account_menu_filter_type_title">Tipo de filtro de menú de cuenta</string>
@@ -1675,7 +1734,6 @@ Deslizar para expandir o cerrar"</string>
 
 El mini reproductor puede ser arrastrado de la pantalla a la izquierda o derecha"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Activar gesto de arrastre horizontal</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">La opacidad del reproductor en miniatura debe estar entre 0 y 100</string>
     <string name="revanced_miniplayer_opacity_title">Opacidad de superposición</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Las esquinas son cuadradas</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Las esquinas están redondeadas</string>
@@ -2332,7 +2390,7 @@ Puede que no funcione si:
     <string name="revanced_settings_search_tips_summary">"• Toca una ruta para navegar a ella
 • Mantén pulsado un ajuste para navegar a él
 • Pulsa Enter para guardar una consulta de búsqueda en el historial
-• La búsqueda ignora mayúsculas/minúsculas y puntuación
+• La búsqueda ignora mayúsculas, minúsculas y puntuación
 • Los ajustes principales aparecen sobre los ajustes secundarios deshabilitados"</string>
     <string name="revanced_settings_search_tips_title">Consejos de búsqueda</string>
     <string name="revanced_settings_search_title">Buscar en %s</string>
@@ -2531,7 +2589,6 @@ Ajusta el brillo deslizando verticalmente en el lado izquierdo de la pantalla"</
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizar hacia abajo hasta el valor más bajo no habilita el brillo automático</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizar hacia abajo hasta el valor más bajo del gesto de brillo permite el brillo automático</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activar gesto de brillo automático</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">La opacidad deslizante debe ser entre 0 y 100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Ajusta el nivel de transparencia (0 es transparente, 100 es opaco)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Opacidad de fondo de superposición deslizante</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Establece el color de la barra de progreso de los controles de brillo</string>
@@ -2577,7 +2634,6 @@ Ajusta la velocidad deslizando horizontalmente en la mitad inferior de la pantal
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">La zona del gesto de búsqueda está en la parte superior, la zona de velocidad está en la parte inferior</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">La zona del gesto de velocidad está en la parte superior, la zona de búsqueda está en la parte inferior</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Intercambiar gestos de velocidad y búsqueda</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">El tamaño del texto debe ser entre 1 y 30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Ajusta el tamaño del texto en pantalla (de 1 a 30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Tamaño del texto de superposición deslizante</string>
     <string name="revanced_swipe_threshold_summary">Establece la distancia de deslizamiento necesaria antes de activar un ajuste</string>
@@ -2648,7 +2704,7 @@ Se requiere autorización para solicitar la traducción con voces en vivo para l
     <string name="revanced_vot_audio_proxy_summary_on">La transmisión de audio se transmite a través del servidor</string>
     <string name="revanced_vot_audio_proxy_title">Proxy de transmisión de audio</string>
     <string name="revanced_vot_auth_required">Se requiere autorización. Agrega el token OAuth de Yandex en la configuración</string>
-    <string name="revanced_vot_credits_summary">Implementación de Yandex VOT por Jav1x, sashade8-ship-it y anddea. Basado en ilyhalight/traducción en voz en off</string>
+    <string name="revanced_vot_credits_summary">Implementación de Yandex VOT por anddea, COOLak, Jav1x y sashade8-ship-it. Basado en ilyhalight/voice-over-translation</string>
     <string name="revanced_vot_enabled_summary_off">La traducción de voz de Yandex está deshabilitada</string>
     <string name="revanced_vot_enabled_summary_on">La traducción de voz de Yandex está habilitada</string>
     <string name="revanced_vot_enabled_title">Traducción con voz</string>

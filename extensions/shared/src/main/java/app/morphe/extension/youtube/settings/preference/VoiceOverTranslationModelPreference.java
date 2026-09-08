@@ -93,7 +93,7 @@ public class VoiceOverTranslationModelPreference extends CustomDialogListPrefere
                 str("morphe_vot_openrouter_model_mistral_nemo"),
                 str("morphe_vot_openrouter_model_deepseek_flash_v4"),
                 str("morphe_vot_openrouter_model_gemma4_26b_a4b"),
-                str("morphe_vot_openrouter_model_custom")
+                str("revanced_icon_custom")
         });
         List<String> entryValues = new ArrayList<>(PRESET_IDS);
         entryValues.add(CUSTOM_SENTINEL);

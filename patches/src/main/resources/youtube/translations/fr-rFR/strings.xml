@@ -20,6 +20,17 @@ Appuyez sur le bouton 'Continuer' et autorisez la modification des optimisations
     <string name="gms_core_settings_summary">Pour recevoir les notifications de RVX, activez la messagerie cloud</string>
     <string name="gms_core_settings_title">Ouvrir les paramètres GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG n\'est pas installé. Installez-le</string>
+    <string name="morphe_app_refresh_rate_default">Par défaut</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">Taux de rafraîchissement de l\'application</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Toujours</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Lecture en mode portrait</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Lecture en plein écran</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Lecture en mode portrait et en plein écran</string>
+    <string name="morphe_app_refresh_rate_type_title">Remplacer le taux de rafraîchissement</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Toujours mettre en pause lorsque l\'appareil est verrouillé</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Mettre en pause sauf si un appareil audio sans fil est connecté</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Mettre en pause automatiquement lorsque l\'appareil est verrouillé</string>
     <string name="morphe_custom_branding_icon_title">Icône de l\'application</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Garde la barre de navigation visible lors du défilement</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Désactiver le masquage automatique de la barre de navigation</string>
@@ -29,6 +40,7 @@ Appuyez sur le bouton 'Continuer' et autorisez la modification des optimisations
     <string name="morphe_disable_quic_protocol_summary_off">Le protocole QUIC est activé</string>
     <string name="morphe_disable_quic_protocol_summary_on">Le protocole QUIC est désactivé</string>
     <string name="morphe_disable_quic_protocol_title">Désactiver le protocole QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Désactiver la limite de vitesse de défilement</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Étendre la durée du DVR des diffusions en direct' peut ne pas être disponible
 
 Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client par défaut' en 'TV Simply' ou 'visionOS'"</string>
@@ -124,6 +136,8 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_playback_in_feeds_entry_off">Désactivé</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi uniquement</string>
     <string name="morphe_playback_in_feeds_title">Lecture dans les flux</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Ajustez l\'opacité de l\'arrière-plan derrière les boutons de contrôle du lecteur et la barre de temps (0 est invisible, 100 est opaque)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Opacité de l\'arrière-plan des boutons de contrôle</string>
     <string name="morphe_queue_manager_check_failed_auth">Non connecté</string>
     <string name="morphe_queue_manager_check_failed_video_id">Aucun ID vidéo</string>
     <string name="morphe_reload_video_summary_off">Le bouton \'Recharger la vidéo\' n\'est pas affiché</string>
@@ -225,6 +239,51 @@ Limitation : Si 'Restaurer l'ancienne barre d'actions vidéo' est désactivé, l
     <string name="morphe_video_quality_prioritize_dialog">Si ce paramètre est désactivé, les vidéos plus anciennes peuvent ne proposer aucune option de qualité vidéo</string>
     <string name="morphe_video_quality_prioritize_summary">Privilégie la qualité vidéo la plus élevée disponible plutôt que l\'efficacité du codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioriser la qualité vidéo</string>
+    <string name="morphe_vot_caption_language_title">Langue</string>
+    <string name="morphe_vot_cost_free">Gratuit</string>
+    <string name="morphe_vot_cost_per_hour">%s pour 100 heures de vidéo</string>
+    <string name="morphe_vot_enabled_title">Traduction en voix off</string>
+    <string name="morphe_vot_export_api_key_warning">"Vos paramètres contiennent une clé API OpenRouter
+
+Votre clé API ne doit jamais être partagée. Toute personne ayant accès à celle-ci peut utiliser vos crédits OpenRouter"</string>
+    <string name="morphe_vot_http_error_message">"Le service de traduction a renvoyé une erreur HTTP %s. Il est probable que votre adresse IP ait été limitée temporairement jusqu'à 24 heures
+
+Pour continuer à utiliser les traductions, changez de fournisseur de traduction dans les paramètres ou utilisez un VPN"</string>
+    <string name="morphe_vot_http_error_title">Traduction indisponible</string>
+    <string name="morphe_vot_max_speech_rate_summary">Multiplicateur maximal de vitesse pour adapter la parole à la durée du sous-titre</string>
+    <string name="morphe_vot_max_speech_rate_title">Vitesse d\'élocution maximale</string>
+    <string name="morphe_vot_mymemory_email_summary">Optionnel. Entrez votre adresse e-mail MyMemory pour augmenter la limite quotidienne de 5,000 à 50,000 caractères. Laissez vide pour utiliser la limite anonyme</string>
+    <string name="morphe_vot_mymemory_email_title">E-mail MyMemory</string>
+    <string name="morphe_vot_mymemory_error">La traduction via MyMemory a échoué (statut : %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"API de traduction gratuite, aucune clé API nécessaire. Jusqu'à 5,000 caractères par jour avec l'offre gratuite, ou jusqu'à 50,000 caractères par jour avec une adresse e-mail
+
+Appuyez ici pour ouvrir MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Vous avez utilisé le quota gratuit de traduction MyMemory d\'aujourd\'hui (5,000 caractères). Ajoutez une adresse e-mail MyMemory dans les paramètres pour porter la limite quotidienne à 50,000 caractères, ou passez à un autre service de traduction</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Vous avez utilisé le quota de traduction MyMemory d\'aujourd\'hui (50,000 caractères). Passez à un autre service de traduction ou réessayez demain</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Disponible à nouveau le %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Limite quotidienne de MyMemory atteinte</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Votre clé API OpenRouter. Créez une clé sur OpenRouter.ai &gt; Espace de travail &gt; Clés API</string>
+    <string name="morphe_vot_openrouter_api_key_title">Clé d\'API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Votre limite de crédit OpenRouter a été atteinte. Rechargez votre solde ou augmentez la limite de dépenses de votre clé sur OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Limite de crédit OpenRouter atteinte</string>
+    <string name="morphe_vot_openrouter_error">La traduction via OpenRouter a échoué (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Traduction IA payante via OpenRouter. Rechargez une seule fois et traduisez des milliers de vidéos. Mistral Nemo est l'option la moins chère, Gemma 4 offre la meilleure qualité
+
+Appuyez ici pour ouvrir OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Modèle OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Entrez votre clé API OpenRouter dans les paramètres avant de sélectionner ce fournisseur</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter n\'est pas configuré</string>
+    <string name="morphe_vot_openrouter_open_website">Ouvrir OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Volume de l\'audio original YouTube pendant la lecture de la traduction</string>
+    <string name="morphe_vot_translation_service_title">Fournisseur de traduction</string>
+    <string name="morphe_vot_translation_volume_summary">Volume de la voix doublée de la traduction</string>
+    <string name="morphe_vot_tts_sample">C\'est l\'heure de la métamorphose !</string>
+    <string name="morphe_vot_tts_system">Système</string>
+    <string name="morphe_vot_tts_voice_type">Voix</string>
+    <string name="morphe_vot_voice_gender_female">Femme</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Femme multilingue</string>
+    <string name="morphe_vot_voice_gender_male">Homme</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Homme multilingue</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Le menu de qualité vidéo avancé n\'est pas affiché</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Le menu de qualité vidéo avancé est affiché</string>
     <string name="revanced_advanced_video_quality_menu_title">Ouvrir le menu qualité \'Avancée\'</string>
@@ -1587,7 +1646,6 @@ Balayez pour développer ou fermer"</string>
 
 Le minilecteur peut être glissé hors de l'écran vers la gauche ou la droite"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Activer le geste de glissement horizontal</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">L\'opacité de l\'overlay du mini-lecteur doit être compris entre 0-100</string>
     <string name="revanced_miniplayer_opacity_title">Opacité de l\'overlay</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Les coins sont carrés</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Les coins sont arrondis</string>
@@ -2388,7 +2446,6 @@ Réglez la luminosité en faisant glisser verticalement sur le côté gauche de 
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Balayer vers le bas jusqu\'à la valeur minimum n\'active pas la luminosité automatique</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Balayer vers le bas jusqu\'à la valeur minimum du geste de contrôle de la luminosité active la luminosité automatique</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activer le geste de luminosité automatique</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacité du balayage doit être entre 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Ajustez le niveau de transparence (0 est transparent, 100 est opaque)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Opacité de l\'arrière-plan de l\'overlay de balayage</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Définir la couleur de la barre de progression des contrôles de luminosité</string>
@@ -2434,7 +2491,6 @@ Ajustez la vitesse en balayant horizontalement la moitié inférieure de l'écra
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">La zone de geste de balayage pour la barre de progression est en haut, la zone pour la vitesse est en bas</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">La zone de geste de balayage pour la vitesse est en haut, la zone de barre de progression est en bas</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Échanger les gestes de vitesse et de la barre de progression</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">La taille du texte doit être comprise entre 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Ajustez la taille du texte à l\'écran (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Taille du texte de l\'overlay de balayage</string>
     <string name="revanced_swipe_threshold_summary">Définir la distance de balayage nécessaire avant qu\'un ajustement ne soit déclenché</string>

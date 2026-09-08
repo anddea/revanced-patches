@@ -17,6 +17,14 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX Music, włącz Cloud Messaging</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG nie jest zainstalowany. Zainstaluj go</string>
+    <string name="morphe_app_refresh_rate_default">Domyślna</string>
+    <string name="morphe_app_refresh_rate_fps">%s kl./s</string>
+    <string name="morphe_app_refresh_rate_title">Częstotliwość odświeżania aplikacji</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Zawsze</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Odtwarzanie w pionie</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Odtwarzanie na pełnym ekranie</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Odtwarzanie w pionie i na pełnym ekranie</string>
+    <string name="morphe_app_refresh_rate_type_title">Nadpisz częstotliwość odświeżania</string>
     <string name="morphe_crossfade_duration_10000ms">10 sekund</string>
     <string name="morphe_crossfade_duration_1000ms">1 sekunda</string>
     <string name="morphe_crossfade_duration_11000ms">11 sekund</string>
@@ -122,6 +130,8 @@ Gdy nie zostaną znalezione żadne zewnętrzne teksty, zamiast nich wyświetlane
     <string name="morphe_music_lyrics_translate_hide">Pokaż oryginał</string>
     <string name="morphe_music_lyrics_translate_show">Przetłumacz</string>
     <string name="morphe_music_lyrics_translating">Tłumaczenie…</string>
+    <string name="morphe_notification_dot_color_summary">Zmienia kolor kropek powiadomień</string>
+    <string name="morphe_notification_dot_color_title">Kolor kropki powiadomienia</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nie można zalogować się do VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nie można zalogować się do VR, autoryzacja na stronie nie została zatwierdzona</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 jest tymczasowo niedostępny</string>
@@ -130,6 +140,13 @@ Gdy nie zostaną znalezione żadne zewnętrzne teksty, zamiast nich wyświetlane
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 jest tymczasowo niedostępny (API nie reaguje)</string>
     <string name="morphe_oauth2_toast_invalid">Nieprawidłowy token logowania VR, spróbuj zalogować się ponownie</string>
     <string name="morphe_oauth2_toast_reset">Wylogowano z Android VR</string>
+    <string name="morphe_potoken_provider_summary">"Naprawia problemy z odtwarzaniem za pomocą wbudowanego dostawcy PoToken (wersja eksperymentalna)
+
+Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>
+    <string name="morphe_potoken_provider_title">Dostawca PoTokena</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Naprawia problemy z odtwarzaniem za pomocą wbudowanego dostawcy PoToken (wersja eksperymentalna)
+
+Aby korzystać z tej funkcji, wyłącz opcję „Podrabianie strumieni wideo”\'"</string>
     <string name="morphe_replace_music_with_youtube_summary">Zamienia music.youtube.com na youtube.com w udostępnianych linkach</string>
     <string name="morphe_replace_music_with_youtube_summary_off">music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">youtube.com</string>

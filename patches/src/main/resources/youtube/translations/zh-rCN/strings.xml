@@ -20,6 +20,17 @@
     <string name="gms_core_settings_summary">启用云消息传递以接收通知</string>
     <string name="gms_core_settings_title">打开 GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG 未安装。请先安装。</string>
+    <string name="morphe_app_refresh_rate_default">默认</string>
+    <string name="morphe_app_refresh_rate_fps">%s 帧/秒</string>
+    <string name="morphe_app_refresh_rate_title">应用刷新率</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">始终</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">竖屏播放</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">全屏播放</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">竖屏和全屏播放</string>
+    <string name="morphe_app_refresh_rate_type_title">覆盖刷新率</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">锁定时始终暂停</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">除非连接无线音频，否则暂停</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">设备锁定时自动暂停</string>
     <string name="morphe_custom_branding_icon_title">应用图标</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">隐藏“音轨”菜单页脚</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">禁用自动隐藏导航栏</string>
@@ -29,6 +40,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">QUIC协议已启用</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC协议已禁用</string>
     <string name="morphe_disable_quic_protocol_title">禁用QUIC协议</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">禁用滚动速度限制</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"“扩展直播 DVR 时长”可能不可用
 
 要解决此问题，请开启“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
@@ -124,6 +136,8 @@
     <string name="morphe_playback_in_feeds_entry_off">关闭</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">仅限 Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">在信息流中播放</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">调整播放器控制按钮和时间栏后面背景的不透明度（0为不可见，100为完全不透明）</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">控制按钮背景不透明度</string>
     <string name="morphe_queue_manager_check_failed_auth">未登录</string>
     <string name="morphe_queue_manager_check_failed_video_id">没有视频ID</string>
     <string name="morphe_reload_video_summary_off">不显示重新加载视频按钮</string>
@@ -224,6 +238,51 @@
     <string name="morphe_video_quality_prioritize_dialog">如果关闭此设置，旧视频可能不显示视频质量选项</string>
     <string name="morphe_video_quality_prioritize_summary">优先考虑最高视频画质而不是编解码器效率</string>
     <string name="morphe_video_quality_prioritize_title">优先视频画质</string>
+    <string name="morphe_vot_caption_language_title">语言</string>
+    <string name="morphe_vot_cost_free">免费</string>
+    <string name="morphe_vot_cost_per_hour">每 100 小时 %s</string>
+    <string name="morphe_vot_enabled_title">语音旁白翻译</string>
+    <string name="morphe_vot_export_api_key_warning">"您的设置包含 OpenRouter API 密钥。
+
+您的 API 密钥绝不能共享。任何访问它的人都可以使用您的 OpenRouter 积分"</string>
+    <string name="morphe_vot_http_error_message">"翻译服务返回 HTTP 错误 %s。您的 IP 地址可能已被限制速率，最长 24 小时。
+
+要继续使用翻译，请在设置中切换到不同的翻译提供商，或使用 VPN"</string>
+    <string name="morphe_vot_http_error_title">翻译不可用</string>
+    <string name="morphe_vot_max_speech_rate_summary">将语音适应字幕时，最大语速倍数</string>
+    <string name="morphe_vot_max_speech_rate_title">最大语速</string>
+    <string name="morphe_vot_mymemory_email_summary">可选。输入您的 MyMemory 邮箱地址以将每日限制从 5,000 个字符提高到 50,000 个字符。留空以使用匿名限制</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory 邮箱</string>
+    <string name="morphe_vot_mymemory_error">MyMemory 翻译失败 (状态 %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"免费翻译 API，无需 API 密钥。免费套餐每天最多 5,000 个字符，或使用电子邮件地址每天最多 50,000 个字符。
+
+点击此处打开 MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">您已使用今天的免费 MyMemory 翻译配额（5,000 个字符）。在设置中添加 MyMemory 邮箱以将每日限制提高到 50,000 个字符，或切换到其他翻译服务</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">您已使用今天的 MyMemory 翻译配额（50,000 个字符）。切换到其他翻译服务或明天再试</string>
+    <string name="morphe_vot_mymemory_quota_next_available">下次可用时间为 %s。</string>
+    <string name="morphe_vot_mymemory_quota_title">MyMemory 每日限制已达到</string>
+    <string name="morphe_vot_openrouter_api_key_summary">您的 OpenRouter API 密钥。在 OpenRouter.ai &gt; 工作区 &gt; API 密钥处创建密钥</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API 密钥</string>
+    <string name="morphe_vot_openrouter_credits_message">您的 OpenRouter 信用额度已用完。在 OpenRouter.ai 上充值或增加您的密钥支出限制</string>
+    <string name="morphe_vot_openrouter_credits_title">OpenRouter 信用额度已用完</string>
+    <string name="morphe_vot_openrouter_error">OpenRouter 翻译失败 (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"通过 OpenRouter 付费 AI 翻译。一次充值，即可翻译数千个视频。Mistral Nemo 是最便宜的选项，Gemma 4 提供最高的质量。
+
+点击此处打开 OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter 模型</string>
+    <string name="morphe_vot_openrouter_not_configured_message">在设置中输入您的 OpenRouter API 密钥，然后再选择此提供商</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter 未配置</string>
+    <string name="morphe_vot_openrouter_open_website">打开 OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">翻译语音播放时原始 YouTube 音频的音量</string>
+    <string name="morphe_vot_translation_service_title">翻译提供商</string>
+    <string name="morphe_vot_translation_volume_summary">配音翻译语音的音量</string>
+    <string name="morphe_vot_tts_sample">变身时间到了！</string>
+    <string name="morphe_vot_tts_system">系统</string>
+    <string name="morphe_vot_tts_voice_type">语音</string>
+    <string name="morphe_vot_voice_gender_female">女声</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">多语言女声</string>
+    <string name="morphe_vot_voice_gender_male">男声</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">多语言男声</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">不显示高级视频质量菜单</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">显示高级视频质量菜单</string>
     <string name="revanced_advanced_video_quality_menu_title">打开高级画质菜单</string>
@@ -1576,7 +1635,6 @@
 
 迷你播放器可以向左或向右拖动到屏幕外。"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">启用横向拖动手势。</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">小型播放器叠加层的透明度必须介于 0-100 之间</string>
     <string name="revanced_miniplayer_opacity_title">覆盖层不透明度</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">角落为直角。</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">角落已圆润。</string>
@@ -2378,7 +2436,6 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">滑动到最低亮度手势不启用自动亮度</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">滑动到最低亮度手势将启用自动亮度</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">启用自动亮度手势</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑动不透明度必须介于 0-100 之间</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">使状态栏完全不透明</string>
     <string name="revanced_swipe_overlay_background_opacity_title">滑动提示层背景的不透明度</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">设置亮度控制进度条的颜色</string>
@@ -2424,7 +2481,6 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">快进滑动手势区域位于顶部，播放速度区域位于底部。</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">播放速度滑动手势区域位于顶部，快进区域位于底部。</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">切换播放速度和快进手势</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">文字大小必须在 1-30 之间</string>
     <string name="revanced_swipe_text_overlay_size_summary">选择要在工具栏中显示的组件</string>
     <string name="revanced_swipe_text_overlay_size_title">滑动提示层文字大小</string>
     <string name="revanced_swipe_threshold_summary">设置触发调整所需的滑动距离</string>

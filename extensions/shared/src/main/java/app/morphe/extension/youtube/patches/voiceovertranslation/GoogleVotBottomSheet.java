@@ -133,7 +133,7 @@ public final class GoogleVotBottomSheet {
         content.addView(engineRow);
         content.addView(makeDivider(context, fg));
         content.addView(makeSliderRow(context,
-                str("morphe_vot_original_audio_volume_title"),
+                str("revanced_vot_original_audio_volume_title"),
                 Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME,
                 fg,
                 value -> {
@@ -141,7 +141,7 @@ public final class GoogleVotBottomSheet {
                     GoogleVoiceOverTranslationPatch.updateOriginalAudioMultiplier();
                 }));
         content.addView(makeSliderRow(context,
-                str("morphe_vot_translation_volume_title"),
+                str("revanced_vot_translation_volume_title"),
                 Settings.GOOGLE_VOT_TRANSLATION_VOLUME,
                 fg,
                 value -> {

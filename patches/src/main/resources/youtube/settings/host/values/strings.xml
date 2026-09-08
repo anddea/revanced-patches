@@ -20,6 +20,17 @@ Tap the continue button and allow optimization changes"</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX, enable Cloud Messaging</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it</string>
+    <string name="morphe_app_refresh_rate_default">Default</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">App refresh rate</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Always</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Playback portrait</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Playback fullscreen</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Playback portrait and fullscreen</string>
+    <string name="morphe_app_refresh_rate_type_title">Override refresh rate</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Always pause when locked</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pause unless wireless audio is connected</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Auto pause when device is locked</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
     <string name="morphe_custom_branding_icon_title">App icon</string>
@@ -38,6 +49,7 @@ Tap the continue button and allow optimization changes"</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
     <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Disable scrolling speed limit</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Expand livestream DVR duration\' may not be available
 
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV Simply\' or \'visionOS\'"</string>
@@ -138,6 +150,8 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_playback_in_feeds_entry_off">Off</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi only</string>
     <string name="morphe_playback_in_feeds_title">Playback in feeds</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Adjust the opacity of the circle behind the player control buttons (0 is invisible, 100 is solid)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Control buttons background opacity</string>
     <string name="morphe_potoken_provider_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 If you are a YouTube Premium user, this setting may not be required"</string>
@@ -277,6 +291,58 @@ Limitation: If \'Restore old video action bar\' is turned off, \'More videos\' o
     <string name="morphe_video_quality_prioritize_dialog">If this setting is turned off, then older videos can show no video quality options</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritizes the highest available video quality over codec efficiency</string>
     <string name="morphe_video_quality_prioritize_title">Prioritize video quality</string>
+    <string name="morphe_vot_caption_language_title">Language</string>
+    <string name="morphe_vot_cost_free">Free</string>
+    <string name="morphe_vot_cost_per_hour">%s per 100 video hours</string>
+    <string name="morphe_vot_enabled_title">Voice over translation</string>
+    <string name="morphe_vot_export_api_key_warning">"Your settings contain an OpenRouter API key
+
+Your API key should never be shared. Anyone with access to it can use your OpenRouter credits"</string>
+    <string name="morphe_vot_http_error_message">"The translation service returned HTTP error %s. Your IP address has likely been rate-limited for up to 24 hours
+
+To continue using translations, switch to a different translation provider in settings or use a VPN"</string>
+    <string name="morphe_vot_http_error_title">Translation unavailable</string>
+    <string name="morphe_vot_max_speech_rate_summary">Maximum speed multiplier when fitting speech into a subtitle slot</string>
+    <string name="morphe_vot_max_speech_rate_title">Max speech rate</string>
+    <string name="morphe_vot_mymemory_email_summary">Optional. Enter your MyMemory email address to increase the daily limit from 5,000 to 50,000 characters. Leave empty to use the anonymous limit</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory email</string>
+    <string name="morphe_vot_mymemory_error">MyMemory translation failed (status %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"Free translation API, no API key required. Up to 5,000 characters per day on the free tier, or up to 50,000 characters per day with an email address
+
+Tap here to open MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">You\'ve used today\'s free MyMemory translation quota (5,000 characters). Add a MyMemory email in settings to raise the daily limit to 50,000 characters, or switch to a different translation service</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">You\'ve used today\'s MyMemory translation quota (50,000 characters). Switch to a different translation service or try again tomorrow</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Next available at %s</string>
+    <string name="morphe_vot_mymemory_quota_title">MyMemory daily limit reached</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Your OpenRouter API key. Create a key at OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API key</string>
+    <string name="morphe_vot_openrouter_credits_message">Your OpenRouter credit limit has been reached. Top up your balance or increase your key spending limit at OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">OpenRouter credit limit reached</string>
+    <string name="morphe_vot_openrouter_error">OpenRouter translation failed (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Paid AI translation via OpenRouter. Top up once and translate thousands of videos. Mistral Nemo is the cheapest option, Gemma 4 offers the highest quality
+
+Tap here to open OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_deepseek_flash_v4" translatable="false">DeepSeek V4 Flash</string>
+    <string name="morphe_vot_openrouter_model_gemma4_26b_a4b" translatable="false">Gemma 4</string>
+    <string name="morphe_vot_openrouter_model_hint" translatable="false">e.g. qwen/qwen3.5-flash-02-23</string>
+    <string name="morphe_vot_openrouter_model_mistral_nemo" translatable="false">Mistral Nemo</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter Model</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Enter your OpenRouter API key in settings before selecting this provider</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter not configured</string>
+    <string name="morphe_vot_openrouter_open_website">Open OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Volume of the original YouTube audio while the translation is speaking</string>
+    <string name="morphe_vot_service_google" translatable="false">Google Translate</string>
+    <string name="morphe_vot_service_mymemory" translatable="false">MyMemory</string>
+    <string name="morphe_vot_service_openrouter" translatable="false">OpenRouter</string>
+    <string name="morphe_vot_translation_service_title">Translation provider</string>
+    <string name="morphe_vot_translation_volume_summary">Volume of the dubbed translation voice</string>
+    <string name="morphe_vot_tts_sample">It\'s morphing time!</string>
+    <string name="morphe_vot_tts_system">System</string>
+    <string name="morphe_vot_tts_voice_type">Voice</string>
+    <string name="morphe_vot_voice_gender_female">Female</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Multilingual female</string>
+    <string name="morphe_vot_voice_gender_male">Male</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Multilingual male</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown</string>
     <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
@@ -1195,8 +1261,6 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_control_buttons_background_summary_off">Player control buttons background is shown</string>
     <string name="revanced_hide_player_control_buttons_background_summary_on">Player control buttons background is hidden</string>
     <string name="revanced_hide_player_control_buttons_background_title">Hide player control buttons background</string>
-    <string name="morphe_player_control_buttons_background_opacity_title">Control buttons background opacity</string>
-    <string name="morphe_player_control_buttons_background_opacity_summary">Adjust the opacity of the circle behind the player control buttons (0 is invisible, 100 is solid)</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambient mode menu is shown</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambient mode menu is hidden</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Hide Ambient mode menu</string>
@@ -1687,7 +1751,6 @@ Swipe to expand or close"</string>
 
 Miniplayer can be dragged off-screen to the left or right"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Enable horizontal drag gesture</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
     <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
@@ -1780,7 +1843,6 @@ Tap and hold to reset playback speed to 1.0x. Tap and hold again to reset back t
     <string name="revanced_overlay_button_speed_dialog_type_title">Speed dialog type</string>
     <string name="revanced_overlay_button_vot_summary">Show overlay button to toggle voice-over translation for the current video</string>
     <string name="revanced_overlay_button_vot_title">Voice Over Translation</string>
-    <string name="revanced_overlay_button_google_vot_title">Google Voice Over Translation</string>
     <string name="revanced_overlay_button_whitelist_summary">"Tap to open whitelist dialog
 Tap and hold to open whitelist setting dialog</string>
     <string name="revanced_overlay_button_whitelist_title">Show whitelist button</string>
@@ -1861,7 +1923,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_feed_title">Feed</string>
     <string name="revanced_preference_screen_fullscreen_summary">Hide or change fullscreen related components</string>
     <string name="revanced_preference_screen_fullscreen_title">Fullscreen</string>
-    <string name="revanced_preference_screen_gemini_title">Gemini</string>
+    <string name="revanced_preference_screen_gemini_title" translatable="false">Gemini</string>
     <string name="revanced_preference_screen_general_title">General</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">Disable or enable haptic feedback</string>
     <string name="revanced_preference_screen_haptic_feedback_title">Haptic feedback</string>
@@ -2341,7 +2403,7 @@ This may not work if:
     <string name="revanced_settings_show_slider_summaries_summary_off">Summaries below slider settings are hidden</string>
     <string name="revanced_settings_show_slider_summaries_summary_on">Summaries below slider settings are shown</string>
     <string name="revanced_settings_show_slider_summaries_title">Show summaries for slider settings</string>
-    <string name="revanced_settings_title">RVX</string>
+    <string name="revanced_settings_title" translatable="false">RVX</string>
     <string name="revanced_share_copy_timestamp_success">Timestamp copied to clipboard (%s)</string>
     <string name="revanced_share_copy_url_success">URL copied to clipboard</string>
     <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied to clipboard</string>
@@ -2544,7 +2606,6 @@ Adjust brightness by swiping vertically on the left side of the screen"</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Lowest value of the brightness gesture does not activate auto-brightness</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Lowest value of the brightness gesture activates auto-brightness</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Enable auto-brightness gesture</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">The color of the progress bar for brightness controls</string>
@@ -2590,7 +2651,6 @@ Adjust speed by swiping horizontally on the bottom half of the screen"</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">The seek swipe gesture zone is at the top, the speed zone is at the bottom</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">The speed swipe gesture zone is at the top, the seek zone is at the bottom</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Switch speed and seek gestures</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">The text size must be between 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">The text size for swipe overlay between 1-30</string>
     <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
     <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
@@ -2665,6 +2725,7 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_enabled_summary_off">Yandex voice-over translation is disabled</string>
     <string name="revanced_vot_enabled_summary_on">Yandex voice-over translation is enabled</string>
     <string name="revanced_vot_enabled_title">Enable voice-over translation</string>
+    <string name="revanced_vot_google_title" translatable="false">Google</string>
     <string name="revanced_vot_lang_auto">Auto-detect</string>
     <string name="revanced_vot_live_voices_unavailable">Live voices unavailable, using standard</string>
     <string name="revanced_vot_oauth_account_management_title">Yandex OAuth token</string>
@@ -2685,7 +2746,7 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">Video keeps playing while translation is prepared</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Video pauses until translated audio is ready</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_title">Pause video while preparing translation</string>
-    <string name="revanced_vot_percent_value">%d%%</string>
+    <string name="revanced_vot_percent_value" translatable="false">%d%%</string>
     <string name="revanced_vot_playback_error">Failed to play translation audio</string>
     <string name="revanced_vot_proxy_url_fetch_failed">Failed to fetch the VOT worker proxy host</string>
     <string name="revanced_vot_proxy_url_fetch_success">VOT worker proxy host updated to %s</string>
@@ -2715,6 +2776,7 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_voice_style_live_summary_on">Natural-sounding voices from Yandex</string>
     <string name="revanced_vot_voice_style_standard">Standard voices</string>
     <string name="revanced_vot_voice_style_title">Voice-over style</string>
+    <string name="revanced_vot_yandex_title" translatable="false">Yandex</string>
     <string name="revanced_watch_history_about_status_blocked">• Watch history is blocked</string>
     <string name="revanced_watch_history_about_status_original">"• Follows the watch history settings of Google account
 • Watch history may not work due to DNS or VPN"</string>
@@ -2778,78 +2840,4 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
-    <string name="morphe_app_refresh_rate_title">App refresh rate</string>
-    <string name="morphe_app_refresh_rate_default">Default</string>
-    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
-    <string name="morphe_app_refresh_rate_type_title">Override refresh rate</string>
-    <string name="morphe_app_refresh_rate_type_entry_1">Always</string>
-    <string name="morphe_app_refresh_rate_type_entry_2">Playback portrait</string>
-    <string name="morphe_app_refresh_rate_type_entry_3">Playback fullscreen</string>
-    <string name="morphe_app_refresh_rate_type_entry_4">Playback portrait and fullscreen</string>
-    <string name="morphe_disable_scrolling_speed_limit_title">Disable scrolling speed limit</string>
-    <string name="morphe_auto_pause_on_screen_lock_title">Auto pause when device is locked</string>
-    <string name="morphe_auto_pause_on_screen_lock_off">Off</string>
-    <string name="morphe_auto_pause_on_screen_lock_always">Always pause when locked</string>
-    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pause unless wireless audio is connected</string>
-    <string name="revanced_vot_google_title">Google</string>
-    <string name="revanced_vot_yandex_title">Yandex</string>
-    <string name="morphe_vot_screen_title">Voice over translation</string>
-    <string name="morphe_vot_screen_summary">Read video captions aloud using on-device text-to-speech, synchronized with playback</string>
-    <string name="morphe_vot_enabled_title">Voice over translation</string>
-    <string name="morphe_vot_caption_language_title">Language</string>
-    <string name="morphe_vot_translation_service_title">Translation provider</string>
-    <string name="morphe_vot_original_audio_volume_title">Original audio volume</string>
-    <string name="morphe_vot_original_audio_volume_summary">Volume of the original YouTube audio while the translation is speaking</string>
-    <string name="morphe_vot_translation_volume_title">Translation volume</string>
-    <string name="morphe_vot_translation_volume_summary">Volume of the dubbed translation voice</string>
-    <string name="morphe_vot_max_speech_rate_title">Max speech rate</string>
-    <string name="morphe_vot_max_speech_rate_summary">Maximum speed multiplier when fitting speech into a subtitle slot</string>
-    <string name="morphe_vot_service_google" translatable="false">Google Translate</string>
-    <string name="morphe_vot_service_mymemory" translatable="false">MyMemory</string>
-    <string name="morphe_vot_mymemory_info_summary">"Free translation API, no API key required. Up to 5,000 characters per day on the free tier, or up to 50,000 characters per day with an email address.
-
-Tap here to open MyMemory.translated.net"</string>
-    <string name="morphe_vot_mymemory_email_title">MyMemory email</string>
-    <string name="morphe_vot_mymemory_email_summary">Optional. Enter your MyMemory email address to increase the daily limit from 5,000 to 50,000 characters. Leave empty to use the anonymous limit</string>
-    <string name="morphe_vot_service_openrouter" translatable="false">OpenRouter</string>
-    <string name="morphe_vot_openrouter_info_summary">"Paid AI translation via OpenRouter. Top up once and translate thousands of videos. Mistral Nemo is the cheapest option, Gemma 4 offers the highest quality.
-
-Tap here to open OpenRouter.ai"</string>
-    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API key</string>
-    <string name="morphe_vot_openrouter_api_key_summary">Your OpenRouter API key. Create a key at OpenRouter.ai > Workspace > API Keys</string>
-    <string name="morphe_vot_openrouter_model_title">OpenRouter Model</string>
-    <string name="morphe_vot_openrouter_model_mistral_nemo" translatable="false">Mistral Nemo</string>
-    <string name="morphe_vot_openrouter_model_gemma4_26b_a4b" translatable="false">Gemma 4</string>
-    <string name="morphe_vot_openrouter_model_deepseek_flash_v4" translatable="false">DeepSeek V4 Flash</string>
-    <string name="morphe_vot_openrouter_model_custom">Custom</string>
-    <string name="morphe_vot_openrouter_model_hint" translatable="false">e.g. qwen/qwen3.5-flash-02-23</string>
-    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter not configured</string>
-    <string name="morphe_vot_openrouter_not_configured_message">Enter your OpenRouter API key in settings before selecting this provider</string>
-    <string name="morphe_vot_cost_free">Free</string>
-    <string name="morphe_vot_cost_per_hour">%s per 100 video hours</string>
-    <string name="morphe_vot_tts_voice_type">Voice</string>
-    <string name="morphe_vot_tts_system">System</string>
-    <string name="morphe_vot_voice_gender_male_multilingual">Multilingual male</string>
-    <string name="morphe_vot_voice_gender_female_multilingual">Multilingual female</string>
-    <string name="morphe_vot_voice_gender_male">Male</string>
-    <string name="morphe_vot_voice_gender_female">Female</string>
-    <string name="morphe_vot_tts_sample">It\'s morphing time!</string>
-    <string name="morphe_vot_http_error_title">Translation unavailable</string>
-    <string name="morphe_vot_http_error_message">"The translation service returned HTTP error %s. Your IP address has likely been rate-limited for up to 24 hours.
-
-To continue using translations, switch to a different translation provider in settings or use a VPN"</string>
-    <string name="morphe_vot_do_not_show_again">Do not show again</string>
-    <string name="morphe_vot_export_api_key_warning">"Your settings contain an OpenRouter API key.
-
-Your API key should never be shared. Anyone with access to it can use your OpenRouter credits"</string>
-    <string name="morphe_vot_openrouter_credits_title">OpenRouter credit limit reached</string>
-    <string name="morphe_vot_openrouter_credits_message">Your OpenRouter credit limit has been reached. Top up your balance or increase your key spending limit at OpenRouter.ai</string>
-    <string name="morphe_vot_openrouter_open_website">Open OpenRouter.ai</string>
-    <string name="morphe_vot_openrouter_error">OpenRouter translation failed (HTTP %s)</string>
-    <string name="morphe_vot_mymemory_quota_title">MyMemory daily limit reached</string>
-    <string name="morphe_vot_mymemory_quota_next_available">Next available at %s.</string>
-    <string name="morphe_vot_mymemory_quota_message_no_email">You\'ve used today\'s free MyMemory translation quota (5,000 characters). Add a MyMemory email in settings to raise the daily limit to 50,000 characters, or switch to a different translation service</string>
-    <string name="morphe_vot_mymemory_quota_message_with_email">You\'ve used today\'s MyMemory translation quota (50,000 characters). Switch to a different translation service or try again tomorrow</string>
-    <string name="morphe_vot_mymemory_error">MyMemory translation failed (status %s)</string>
-    <string name="morphe_language_DEFAULT">@string/revanced_language_DEFAULT</string>
 </resources>

@@ -20,6 +20,17 @@
     <string name="gms_core_settings_summary">Για να λαμβάνετε ειδοποιήσεις στο RVX, ενεργοποιήστε τις ρυθμίσεις Cloud Messaging</string>
     <string name="gms_core_settings_title">Άνοιγμα ρυθμίσεων του MicroG GmsCore</string>
     <string name="gms_core_toast_not_installed_message">Το MicroG δεν είναι εγκατεστημένο. Εγκαταστήστε το</string>
+    <string name="morphe_app_refresh_rate_default">Προεπιλογή</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">Ρυθμός ανανέωσης εφαρμογής</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Πάντα</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Αναπαραγωγή σε κατακόρυφη λειτουργία</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Αναπαραγωγή σε πλήρη οθόνη</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Αναπαραγωγή σε κατακόρυφη λειτουργία και σε πλήρη οθόνη</string>
+    <string name="morphe_app_refresh_rate_type_title">Παράκαμψη ρυθμού ανανέωσης</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Πάντα παύση όταν η συσκευή είναι κλειδωμένη</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Παύση εκτός αν είναι συνδεδεμένη ασύρματη συσκευή ήχου</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Αυτόματη παύση όταν η συσκευή είναι κλειδωμένη</string>
     <string name="morphe_custom_branding_icon_title">Εικονίδιο εφαρμογής</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Απόκρυψη του σκούρου shading γύρω από τα στοιχεία ελέγχου του video player</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Απενεργοποίηση αυτόματης απόκρυψης της γραμμής πλοήγησης</string>
@@ -29,6 +40,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">Το πρωτόκολλο QUIC είναι ενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_summary_on">Το πρωτόκολλο QUIC είναι απενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Απενεργοποίηση ορίου ταχύτητας κύλισης</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Επέκταση διάρκειας DVR ζωντανής μετάδοσης' μπορεί να μην είναι διαθέσιμη
 
 Για να το διορθώσετε, ενεργοποιήστε το 'Πλαστογράφηση του βίντεο' και αλλάξτε το 'Προεπιλεγμένο πρόγραμμα-πελάτη' σε 'TV Simply' ή 'visionOS'"</string>
@@ -124,6 +136,8 @@
     <string name="morphe_playback_in_feeds_entry_off">Απενεργό</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Μόνο Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Αναπαραγωγή στις ροές</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Προσαρμόστε την αδιαφάνεια του φόντου πίσω από τα κουμπιά ελέγχου του προγράμματος αναπαραγωγής και τη γραμμή χρόνου (0 είναι αόρατο, 100 είναι αδιαφανές)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Αδιαφάνεια φόντου κουμπιών ελέγχου</string>
     <string name="morphe_queue_manager_check_failed_auth">Δεν έχετε συνδεθεί</string>
     <string name="morphe_queue_manager_check_failed_video_id">Δεν υπάρχει ID βίντεο</string>
     <string name="morphe_reload_video_summary_off">Δεν εμφανίζεται το κουμπί επανεξέτασης βίντεο</string>
@@ -224,6 +238,51 @@
     <string name="morphe_video_quality_prioritize_dialog">Εάν αυτή η ρύθμιση είναι απενεργοποιημένη, τότε παλαιότερα βίντεο ενδέχεται να μην εμφανίζουν επιλογές ποιότητας βίντεο</string>
     <string name="morphe_video_quality_prioritize_summary">Δίνει προτεραιότητα στην υψηλότερη διαθέσιμη ποιότητα βίντεο έναντι της αποδοτικότητας του κωδικοποιητή</string>
     <string name="morphe_video_quality_prioritize_title">Προτεραιότητα στην ποιότητα βίντεο</string>
+    <string name="morphe_vot_caption_language_title">Γλώσσα</string>
+    <string name="morphe_vot_cost_free">Δωρεάν</string>
+    <string name="morphe_vot_cost_per_hour">%s ανά 100 ώρες βίντεο</string>
+    <string name="morphe_vot_enabled_title">Μετάφραση φωνής</string>
+    <string name="morphe_vot_export_api_key_warning">"Οι ρυθμίσεις σας περιέχουν ένα κλειδί API OpenRouter
+
+Το κλειδί API σας δεν πρέπει ποτέ να κοινοποιείται. Όποιος έχει πρόσβαση σε αυτό μπορεί να χρησιμοποιήσει τα credits του OpenRouter σας"</string>
+    <string name="morphe_vot_http_error_message">"Η υπηρεσία μετάφρασης επέστρεψε σφάλμα HTTP %s. Η διεύθυνση IP σας έχει πιθανώς περιοριστεί για έως και 24 ώρες
+
+Για να συνεχίσετε να χρησιμοποιείτε μεταφράσεις, αλλάξτε σε έναν άλλο πάροχο μετάφρασης στις ρυθμίσεις ή χρησιμοποιήστε ένα VPN"</string>
+    <string name="morphe_vot_http_error_title">Μετάφραση μη διαθέσιμη</string>
+    <string name="morphe_vot_max_speech_rate_summary">Μέγιστος πολλαπλασιαστής ταχύτητας κατά την προσαρμογή της ομιλίας σε μια υποτιτλισμένη θέση</string>
+    <string name="morphe_vot_max_speech_rate_title">Μέγιστη ταχύτητα ομιλίας</string>
+    <string name="morphe_vot_mymemory_email_summary">Προαιρετικό. Εισαγάγετε τη διεύθυνση email του MyMemory σας για να αυξήσετε το ημερήσιο όριο από 5.000 σε 50.000 χαρακτήρες. Αφήστε το κενό για να χρησιμοποιήσετε το ανώνυμο όριο</string>
+    <string name="morphe_vot_mymemory_email_title">Email MyMemory</string>
+    <string name="morphe_vot_mymemory_error">Αποτυχία μετάφρασης MyMemory (κατάσταση %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"Δωρεάν API μετάφρασης, δεν απαιτείται κλειδί API. Έως 5.000 χαρακτήρες την ημέρα στο δωρεάν πρόγραμμα, ή έως 50.000 χαρακτήρες την ημέρα με μια διεύθυνση email
+
+Πατήστε εδώ για να ανοίξετε το MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Έχετε χρησιμοποιήσει το σημερινό δωρεάν ποσοστωτικό μετάφρασης MyMemory (5.000 χαρακτήρες). Προσθέστε ένα email MyMemory στις ρυθμίσεις για να αυξήσετε το ημερήσιο όριο σε 50.000 χαρακτήρες ή αλλάξτε σε μια άλλη υπηρεσία μετάφρασης</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Έχετε χρησιμοποιήσει το σημερινό ποσοστωτικό μετάφρασης MyMemory (50.000 χαρακτήρες). Αλλάξτε σε μια άλλη υπηρεσία μετάφρασης ή δοκιμάστε ξανά αύριο</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Διαθέσιμο στις %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Επιτεύχθηκε το ημερήσιο όριο MyMemory</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Το κλειδί API OpenRouter σας. Δημιουργήστε ένα κλειδί στο OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">Κλειδί API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Έχετε φτάσει στο όριο πίστωσης OpenRouter σας. Προσθέστε χρήματα στο υπόλοιπό σας ή αυξήστε το όριο δαπανών του κλειδιού σας στο OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Επιτεύχθηκε το όριο πίστωσης OpenRouter</string>
+    <string name="morphe_vot_openrouter_error">Αποτυχία μετάφρασης OpenRouter (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Επι πληρωμή μετάφραση AI μέσω OpenRouter. Προσθέστε χρήματα μία φορά και μεταφράστε χιλιάδες βίντεο. Το Mistral Nemo είναι η φθηνότερη επιλογή, το Gemma 4 προσφέρει την υψηλότερη ποιότητα
+
+Πατήστε εδώ για να ανοίξετε το OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Μοντέλο OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Εισαγάγετε το κλειδί API OpenRouter σας στις ρυθμίσεις πριν επιλέξετε αυτόν τον πάροχο</string>
+    <string name="morphe_vot_openrouter_not_configured_title">Το OpenRouter δεν έχει διαμορφωθεί</string>
+    <string name="morphe_vot_openrouter_open_website">Άνοιγμα OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Ένταση του αρχικού ήχου του YouTube κατά τη διάρκεια της μετάφρασης</string>
+    <string name="morphe_vot_translation_service_title">Πάροχος μετάφρασης</string>
+    <string name="morphe_vot_translation_volume_summary">Ένταση της φωνής της μεταγλωττισμένης μετάφρασης</string>
+    <string name="morphe_vot_tts_sample">Ώρα μεταμόρφωσης!</string>
+    <string name="morphe_vot_tts_system">Σύστημα</string>
+    <string name="morphe_vot_tts_voice_type">Φωνή</string>
+    <string name="morphe_vot_voice_gender_female">Γυναίκα</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Πολυγλωσσική γυναίκα</string>
+    <string name="morphe_vot_voice_gender_male">Άνδρας</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Πολυγλωσσικός άνδρας</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Δεν εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
     <string name="revanced_advanced_video_quality_menu_title">Άνοιγμα μενού προηγμένης ποιότητας</string>
@@ -1574,7 +1633,6 @@ Playlists
 
 Η ελαχιστοποιημένη οθόνη μπορεί να συρθεί εκτός οθόνης προς τα αριστερά ή δεξιά"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Χειρονομία οριζόντιας σύρσης</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Η αδιαφάνεια φόντου οθόνης αναπαραγωγής πρέπει να είναι μεταξύ 0-100</string>
     <string name="revanced_miniplayer_opacity_title">Αδιαφάνεια φόντου παρασκηνίου</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Οι γωνίες της ελαχιστοποιημένης οθόνης είναι τετράγωνες</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Οι γωνίες της ελαχιστοποιημένης οθόνης είναι στρογγυλεμένες</string>
@@ -2371,7 +2429,6 @@ Playlists
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Η σάρωση προς τα κάτω στη χαμηλότερη τιμή της χειρονομίας φωτεινότητας δεν ενεργοποιεί την αυτόματη φωτεινότητα</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Η σάρωση προς τα κάτω στη χαμηλότερη τιμή της χειρονομίας φωτεινότητας ενεργοποιεί την αυτόματη φωτεινότητα</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Αυτόματη φωτεινότητα με σάρωση</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Η αδιαφάνεια σάρωσης πρέπει να είναι μεταξύ 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Ρυθμίστε το επίπεδο διαφάνειας (0 είναι διαφανές, 100 είναι αδιαφανές)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Αδιαφάνεια φόντου σάρωσης</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Απόκρυψη κουμπιού \"Σταμάτα διαφημίσεις\"</string>
@@ -2417,7 +2474,6 @@ Playlists
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">Η ζώνη χειρονομίας αναζήτησης βρίσκεται στο επάνω μέρος, η ζώνη ταχύτητας στο κάτω μέρος</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">Η ζώνη χειρονομίας ταχύτητας βρίσκεται στο επάνω μέρος, η ζώνη αναζήτησης στο κάτω μέρος</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Εναλλαγή χειρονομιών ταχύτητας και αναζήτησης</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">Το μέγεθος κειμένου πρέπει να είναι μεταξύ 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Προσαρμόστε το μέγεθος του κειμένου που εμφανίζεται στην οθόνη (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Μέγεθος κειμένου φόντου σάρωσης</string>
     <string name="revanced_swipe_threshold_summary">Ορίστε την απαιτούμενη απόσταση μεταφοράς πριν ενεργοποιηθεί μια ρύθμιση</string>

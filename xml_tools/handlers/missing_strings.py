@@ -13,24 +13,28 @@ from utils.xml_processor import XMLProcessor
 
 logger = logging.getLogger("xml_tools")
 
-BLACKLIST = {
-    "morphe_hide_aislist_attribution_title",
-    "morphe_music_crossfade_about_banner_title",
-    "morphe_music_crossfade_curve_preview_title",
-    "morphe_music_lyrics_source_entry_kugou",
-    "morphe_music_lyrics_source_entry_lrclib",
-    "morphe_settings_name_entry_1",
-    "morphe_settings_name_entry_2",
-    "morphe_settings_name_entry_3",
-    "morphe_settings_name_entry_4",
-    "revanced_preference_screen_gemini_title",
-    "revanced_settings_title",
-    "revanced_vot_percent_value",
-}
+def remove_non_translatable_strings(path: Path, names: set[str]) -> None:
+    """Remove translations excluded by the host's translatable attribute.
+
+    Translation overlays may omit the attribute, so the host names are authoritative.
+    """
+    _, root, _ = XMLProcessor.parse_file(path)
+    if root is None:
+        return
+
+    removed = [element for element in root if element.get("name") in names]
+    if not removed:
+        return
+
+    for element in removed:
+        root.remove(element)
+    XMLProcessor.write_file(path, root)
+    XMLProcessor.cleanup_if_empty(path)
+    logger.debug("Removed %d non-translatable strings from %s", len(removed), path)
 
 
 def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -> None:
-    """Compare source and destination files and update missing strings.
+    """Clean non-translatable entries from translations and update missing strings.
 
     Args:
         source_path: Path to source XML file
@@ -41,11 +45,17 @@ def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -
     try:
         # Parse source and destination files
         _, _, source_strings = XMLProcessor.parse_file(source_path)
+        non_translatable = {name for name, data in source_strings.items() if data.get("translatable") == "false"}
+        if non_translatable:
+            for path in (dest_path, dest_path.parent / "forced_strings.xml", dest_path.parent / "updated_strings.xml"):
+                remove_non_translatable_strings(path, non_translatable)
         _, _, dest_strings = XMLProcessor.parse_file(dest_path)
 
-        # Find missing strings (excluding those in the BLACKLIST)
+        # Find missing strings excluding those marked non-translatable in the host.
         missing_strings = {
-            name: data for name, data in source_strings.items() if name not in dest_strings and name not in BLACKLIST
+            name: data
+            for name, data in source_strings.items()
+            if name not in dest_strings and name not in non_translatable
         }
 
         if missing_strings:

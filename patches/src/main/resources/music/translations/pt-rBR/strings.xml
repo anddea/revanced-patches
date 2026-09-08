@@ -17,6 +17,14 @@ Toque no botão continuar e permita as mudanças de otimização"</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX Music, ative as mensagens na nuvem</string>
     <string name="gms_core_settings_title">Abrir configurações do GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG não está instalado. Instale-o</string>
+    <string name="morphe_app_refresh_rate_default">Padrão</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">Taxa de atualização do aplicativo</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Sempre</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Reprodução em modo retrato</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Reprodução em tela cheia</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Reprodução em modo retrato e tela cheia</string>
+    <string name="morphe_app_refresh_rate_type_title">Substituir taxa de atualização</string>
     <string name="morphe_crossfade_duration_10000ms">10 segundos</string>
     <string name="morphe_crossfade_duration_1000ms">1 segundo</string>
     <string name="morphe_crossfade_duration_11000ms">11 segundos</string>
@@ -32,8 +40,15 @@ Toque no botão continuar e permita as mudanças de otimização"</string>
     <string name="morphe_crossfade_duration_750ms">750 milisegundos</string>
     <string name="morphe_crossfade_duration_8000ms">8 segundos</string>
     <string name="morphe_crossfade_duration_9000ms">9 segundos</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use o ícone do aplicativo selecionado para a entrada de configurações do RVX, quando disponível</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Usar ícone nas configurações do RVX</string>
     <string name="morphe_custom_branding_icon_title">Ícone do aplicativo</string>
     <string name="morphe_custom_branding_name_title">Nome do aplicativo</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Define o tamanho da animação de abertura personalizada</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">tamanho da animação Splash</string>
+    <string name="morphe_dark_theme_custom_color_summary">Usado quando a opção Personalizado é selecionada</string>
+    <string name="morphe_dark_theme_custom_color_title">Cor do tema personalizada</string>
+    <string name="morphe_dark_theme_title">Tema do aplicativo</string>
     <string name="morphe_disable_drc_audio_summary_off">Áudio DRC ativado</string>
     <string name="morphe_disable_drc_audio_summary_on">Áudio DRC desativado</string>
     <string name="morphe_disable_quic_protocol_summary_off">Protocolo QUIC ativado</string>
@@ -115,6 +130,8 @@ Quando nenhuma letra de terceiros é encontrada, as letras internas são exibida
     <string name="morphe_music_lyrics_translate_hide">Mostrar original</string>
     <string name="morphe_music_lyrics_translate_show">Traduzir</string>
     <string name="morphe_music_lyrics_translating">Traduzindo…</string>
+    <string name="morphe_notification_dot_color_summary">Altera a cor dos pontos de notificação</string>
+    <string name="morphe_notification_dot_color_title">Cor do ponto de notificação</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Não é possível fazer login no VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
@@ -123,6 +140,13 @@ Quando nenhuma letra de terceiros é encontrada, as letras internas são exibida
     <string name="morphe_oauth2_connection_failure_timeout">\"OAuth2 está temporariamente indisponível (API expirou)\"</string>
     <string name="morphe_oauth2_toast_invalid">Token de login do VR inválido, tente fazer login no VR novamente</string>
     <string name="morphe_oauth2_toast_reset">Deslogado do Android VR</string>
+    <string name="morphe_potoken_provider_summary">"Corrige problemas de reprodução usando o provedor PoToken integrado (Experimental)
+
+Se você for assinante do YouTube Premium, essa configuração pode não ser necessária"</string>
+    <string name="morphe_potoken_provider_title">Provedor PoToken</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Corrige problemas de reprodução usando o provedor PoToken integrado (Experimental)
+
+Para usar este recurso, desative-o \'Transmissões de vídeo falsas\"</string>
     <string name="morphe_replace_music_with_youtube_summary">Substitui music.youtube.com por youtube.com em links compartilhados</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Links compartilhados usam music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Links compartilhados usam youtube.com</string>
@@ -176,6 +200,19 @@ A reprodução pode não funcionar"</string>
 Se você é um usuário do YouTube Premium, esta configuração pode não ser necessária"</string>
     <string name="morphe_spoof_video_streams_title">Simular streams de vídeo</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução</string>
+    <string name="morphe_theme_entry_amoled_black">Preto AMOLED</string>
+    <string name="morphe_theme_entry_classic_youtube">Clássico (YouTube antigo)</string>
+    <string name="morphe_theme_entry_dark_blue">Azul escuro</string>
+    <string name="morphe_theme_entry_dark_green">Verde escuro</string>
+    <string name="morphe_theme_entry_dark_orange">Laranja escuro</string>
+    <string name="morphe_theme_entry_dark_pink">Rosa escuro</string>
+    <string name="morphe_theme_entry_dark_red">Vermelho escuro</string>
+    <string name="morphe_theme_entry_dark_yellow">Amarelo escuro</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material Você (Neutro)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material que você - Primário</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material Você - Secundário</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material Você - Ensino Superior</string>
+    <string name="morphe_theme_entry_modern_youtube">YouTube moderno</string>
     <string name="revanced_add_miniplayer_next_button_summary">Adiciona o botão próxima faixa ao mini reprodutor</string>
     <string name="revanced_add_miniplayer_next_button_title">Adicionar o botão próximo ao mini reprodutor</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adiciona o botão faixa anterior ao mini reprodutor</string>
@@ -676,6 +713,7 @@ Toque aqui para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Desativar letras em tempo real</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restaurar barra de ação antiga</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - A seção de comentários não aparece no feed inicial</string>
+    <string name="revanced_spoof_app_version_target_entry_8_05_50">8.05.50 - Correção da tela de atualização do aplicativo</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versão da falsificação do app inválida: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação</string>
     <string name="revanced_spoof_app_version_target_title">Versão-alvo para simulação do aplicativo</string>

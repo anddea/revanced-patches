@@ -20,6 +20,17 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan"</string>
     <string name="gms_core_settings_summary">Untuk menerima notifikasi di RVX, aktifkan Cloud Messaging</string>
     <string name="gms_core_settings_title">Buka Setelan GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG belum dipasang. Pasang dulu</string>
+    <string name="morphe_app_refresh_rate_default">Bawaan</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">Penyegaran layar aplikasi</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Selalu</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Pemutaran potret</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Pemutaran layar penuh</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Pemutaran potret dan layar penuh</string>
+    <string name="morphe_app_refresh_rate_type_title">Timpa penyegaran layar</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Selalu jeda saat perangkat dikunci</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Jeda kecuali jika audio nirkabel terhubung</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Jeda otomatis saat perangkat dikunci</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Gunakan ikon aplikasi yang dipilih untuk entri pengaturan RVX jika tersedia</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Gunakan ikon RVX Di pengaturan</string>
     <string name="morphe_custom_branding_icon_title">Ikon aplikasi</string>
@@ -38,6 +49,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan"</string>
     <string name="morphe_disable_quic_protocol_summary_off">Protokol QUIC diaktifkan</string>
     <string name="morphe_disable_quic_protocol_summary_on">Protokol QUIC dinonaktifkan</string>
     <string name="morphe_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Nonaktifkan batas kecepatan menggulir</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Perluas durasi siaran langsung DVR' mungkin tidak tersedia
 
 Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' menjadi 'TV Simply' atau 'visionOS'"</string>
@@ -137,6 +149,8 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_playback_in_feeds_entry_off">Nonaktif</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi saja</string>
     <string name="morphe_playback_in_feeds_title">Pemutaran di feed</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Sesuaikan opasitas latar belakang di belakang tombol kontrol pemutar dan bilah waktu (0 tidak terlihat, 100 solid)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Opasitas latar belakang tombol kontrol</string>
     <string name="morphe_potoken_provider_summary">"Memperbaiki isu Playback menggunakan provider PoToken bawaan (Experimental)
 
 Jika anda pengguna YouTube Premium, pengaturan ini mungkin tidak diperlukan"</string>
@@ -271,6 +285,51 @@ Batasan: Jika 'Kembalikan bilah tindakan video lama' dinonaktifkan, hamparan 'Vi
     <string name="morphe_video_quality_prioritize_dialog">Jika pengaturan ini dimatikan, maka video lama tidak dapat menampilkan pilihan kualitas video</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritaskan kualitas video tertinggi yang tersedia daripada efisiensi codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioritaskan kualitas video</string>
+    <string name="morphe_vot_caption_language_title">Bahasa</string>
+    <string name="morphe_vot_cost_free">Gratis</string>
+    <string name="morphe_vot_cost_per_hour">%s per 100 jam video</string>
+    <string name="morphe_vot_enabled_title">Terjemahan sulih suara</string>
+    <string name="morphe_vot_export_api_key_warning">"Pengaturan Anda berisi kunci API OpenRouter
+
+Kunci API Anda tidak boleh dibagikan. Siapa pun yang memiliki akses ke kunci tersebut dapat menggunakan kredit OpenRouter Anda"</string>
+    <string name="morphe_vot_http_error_message">"Layanan terjemahan mengembalikan kesalahan HTTP %s. Alamat IP Anda kemungkinan telah dibatasi aksesnya hingga 24 jam
+
+Untuk melanjutkan menggunakan terjemahan, ganti ke penyedia terjemahan yang berbeda di pengaturan atau gunakan VPN"</string>
+    <string name="morphe_vot_http_error_title">Terjemahan tidak tersedia</string>
+    <string name="morphe_vot_max_speech_rate_summary">Pengali kecepatan maksimum saat menyesuaikan ucapan ke dalam slot terjemahan</string>
+    <string name="morphe_vot_max_speech_rate_title">Kecepatan bicara maksimal</string>
+    <string name="morphe_vot_mymemory_email_summary">Opsional. Masukkan alamat email MyMemory Anda untuk meningkatkan batas harian dari 5.000 menjadi 50.000 karakter. Biarkan kosong untuk menggunakan batas anonim</string>
+    <string name="morphe_vot_mymemory_email_title">Email MyMemory</string>
+    <string name="morphe_vot_mymemory_error">Terjemahan MyMemory gagal (status %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"API terjemahan gratis, tidak memerlukan kunci API. Hingga 5.000 karakter per hari pada paket gratis, atau hingga 50.000 karakter per hari dengan alamat email
+
+Ketuk di sini untuk membuka MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Anda telah menggunakan kuota terjemahan MyMemory gratis hari ini (5.000 karakter). Tambahkan email MyMemory di pengaturan untuk meningkatkan batas harian menjadi 50.000 karakter, atau ganti ke layanan terjemahan yang berbeda</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Anda telah menggunakan kuota terjemahan MyMemory hari ini (50.000 karakter). Ganti ke layanan terjemahan yang berbeda atau coba lagi besok</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Tersedia kembali pada %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Batas harian MyMemory tercapai</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Kunci API OpenRouter Anda. Buat kunci di OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">Kunci API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Batas kredit OpenRouter Anda telah tercapai. Isi ulang saldo Anda atau tingkatkan batas pengeluaran kunci Anda di OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Batas kredit OpenRouter tercapai</string>
+    <string name="morphe_vot_openrouter_error">Terjemahan OpenRouter gagal (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Terjemahan AI berbayar melalui OpenRouter. Isi ulang sekali dan terjemahkan ribuan video. Mistral Nemo adalah pilihan termurah, Gemma 4 menawarkan kualitas tertinggi
+
+Ketuk di sini untuk membuka OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Model OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Masukkan kunci API OpenRouter Anda di pengaturan sebelum memilih penyedia ini</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter belum dikonfigurasi</string>
+    <string name="morphe_vot_openrouter_open_website">Buka OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Volume audio YouTube asli saat terjemahan sedang berbicara</string>
+    <string name="morphe_vot_translation_service_title">Penyedia terjemahan</string>
+    <string name="morphe_vot_translation_volume_summary">Volume suara terjemahan yang telah disulihsuara</string>
+    <string name="morphe_vot_tts_sample">Waktunya bermetamorfosis!</string>
+    <string name="morphe_vot_tts_system">Sistem</string>
+    <string name="morphe_vot_tts_voice_type">Suara</string>
+    <string name="morphe_vot_voice_gender_female">Wanita</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Wanita multibahasa</string>
+    <string name="morphe_vot_voice_gender_male">Pria</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Pria multibahasa</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Menu kualitas video lanjutan tidak ditampilkan</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Menu kualitas video lanjutan ditampilkan</string>
     <string name="revanced_advanced_video_quality_menu_title">Buka menu kualitas Lanjutan</string>
@@ -1057,7 +1116,7 @@ Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya, iPh
     <string name="revanced_hide_navigation_subscriptions_button_title">Sembunyikan tombol langganan</string>
     <string name="revanced_hide_notify_me_button_summary_off">Tombol beri tahu saya ditampilkan</string>
     <string name="revanced_hide_notify_me_button_summary_on">Tombol beri tahu saya disembunyikan</string>
-    <string name="revanced_hide_notify_me_button_title">Sembunyikan \'Beri tahu saya\'</string>
+    <string name="revanced_hide_notify_me_button_title">Sembunyikan tombol \'Beri tahu saya\'</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">Label promosi berbayar ditampilkan</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">Label promosi berbayar disembunyikan</string>
     <string name="revanced_hide_paid_promotion_label_title">Sembunyikan label \'Termasuk promosi berbayar\'</string>
@@ -1272,7 +1331,6 @@ Seret untuk memperluas atau menutup"</string>
 
 Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Aktifkan gerakan seret horizontal</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Opasitas hamparan pemutar mini antara 0-100</string>
     <string name="revanced_miniplayer_opacity_title">Opasitas hamparan</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Sudutnya persegi</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Sudutnya membulat</string>
@@ -1734,7 +1792,6 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Mengusap ke bawah ke nilai terendah tidak mengaktifkan kecerahan otomatis</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Mengusap ke bawah ke nilai terendah dari gerakan kecerahan akan menyalakan kecerahan otomatis</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktifkan gerakan kecerahan otomatis</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas usap harus antara 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Sesuaikan level transparansi (0 transparan, 100 buram)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Opasitas latar belakang hamparan usap</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Atur warna bilah kemajuan kontrol kecerahan</string>
@@ -1760,7 +1817,6 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Simpan dan pulihkan kecerahan saat keluar atau memasuki layar penuh</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Simpan dan kembalikan kecerahan</string>
     <string name="revanced_swipe_speed_title">Aktifkan gerakan kecepatan</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">Ukuran teks harus antara 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Sesuaikan ukuran teks di layar (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Ukuran teks lapisan usap</string>
     <string name="revanced_swipe_threshold_summary">Atur jarak usap yang diperlukan agar penyesuaian dimulai</string>

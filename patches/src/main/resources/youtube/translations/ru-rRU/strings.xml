@@ -20,6 +20,17 @@
     <string name="gms_core_settings_summary">Для получения уведомлений в RVX, включите \"Облачные уведомления\" сообщениями</string>
     <string name="gms_core_settings_title">Открыть GmsCore или MicroG</string>
     <string name="gms_core_toast_not_installed_message">MicroG не установлен. Установите его</string>
+    <string name="morphe_app_refresh_rate_default">По умолчанию</string>
+    <string name="morphe_app_refresh_rate_fps">%s кадр/с</string>
+    <string name="morphe_app_refresh_rate_title">Частота обновления приложения</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Всегда</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Просмотр в портретной ориентации</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Просмотр в полноэкранном режиме</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Просмотр в портретной ориентации и в полноэкранном режиме</string>
+    <string name="morphe_app_refresh_rate_type_title">Переопределение частоты обновления</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Всегда ставить на паузу при блокировке экрана</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Ставить на паузу, если не подключено беспроводное аудио</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Автоматическая пауза при блокировке устройства</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Использовать значок приложения для настроек RVX (если доступен)</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Применить иконку в RVX настройках</string>
     <string name="morphe_custom_branding_icon_title">Иконка приложения</string>
@@ -36,6 +47,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC отключен</string>
     <string name="morphe_disable_quic_protocol_title">Отключить протокол QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Отключить ограничение скорости прокрутки</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"«Расширить длительность DVR прямых трансляций» может быть недоступно
 
 Чтобы исправить это, включите «Подмена видеопотоков» и измените «Клиент по умолчанию» на «TV Simply» или «visionOS»"</string>
@@ -133,6 +145,8 @@
     <string name="morphe_playback_in_feeds_entry_off">Выкл</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Только по Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Воспроизведение в ленте</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Регулирует непрозрачность фона за кнопками управления плеером и временной шкалой (0 — невидимый, 100 — непрозрачный)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Прозрачность фона кнопок управления</string>
     <string name="morphe_queue_manager_check_failed_auth">Не вошел в систему</string>
     <string name="morphe_queue_manager_check_failed_video_id">ID видео не указан</string>
     <string name="morphe_reload_video_summary_off">Кнопка перезагрузки видео скрыта</string>
@@ -253,9 +267,56 @@
     <string name="morphe_theme_entry_pale_green">Бледно-зеленая</string>
     <string name="morphe_theme_entry_pale_yellow">Бледно-желтая</string>
     <string name="morphe_theme_entry_white">Белая</string>
+    <string name="morphe_theme_settings_summary">Настройте тему оформления, внешний вид и брендирование</string>
+    <string name="morphe_theme_settings_title">Настройки темы</string>
     <string name="morphe_video_quality_prioritize_dialog">Если эта настройка отключена, в старых видео могут отсутствовать варианты выбора качества</string>
     <string name="morphe_video_quality_prioritize_summary">Приоритет максимально доступного качества видео над эффективностью кодека</string>
     <string name="morphe_video_quality_prioritize_title">Приоритет качества видео</string>
+    <string name="morphe_vot_caption_language_title">Язык</string>
+    <string name="morphe_vot_cost_free">Бесплатно</string>
+    <string name="morphe_vot_cost_per_hour">%s за 100 часов видео</string>
+    <string name="morphe_vot_enabled_title">Перевод озвучивания</string>
+    <string name="morphe_vot_export_api_key_warning">"В ваших настройках содержится ключ API OpenRouter
+
+Вашим ключом API ни с кем делиться нельзя. Любой, у кого есть доступ к нему, может использовать ваши кредиты OpenRouter"</string>
+    <string name="morphe_vot_http_error_message">"Служба перевода вернула ошибку HTTP %s. Ваш IP-адрес, вероятно, был ограничен по скорости на срок до 24 часов
+
+Чтобы продолжить использовать переводы, переключитесь на другого поставщика перевода в настройках или используйте VPN"</string>
+    <string name="morphe_vot_http_error_title">Перевод недоступен</string>
+    <string name="morphe_vot_max_speech_rate_summary">Максимальный множитель скорости при подгонке речи к субтитру</string>
+    <string name="morphe_vot_max_speech_rate_title">Максимальная скорость речи</string>
+    <string name="morphe_vot_mymemory_email_summary">Необязательно. Введите свой адрес электронной почты MyMemory, чтобы увеличить ежедневный лимит с 5000 до 50 000 символов. Оставьте пустым, чтобы использовать анонимный лимит</string>
+    <string name="morphe_vot_mymemory_email_title">Электронная почта MyMemory</string>
+    <string name="morphe_vot_mymemory_error">Сбой перевода MyMemory (статус %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"Бесплатный API перевода, не требующий ключа API. До 5000 символов в день в бесплатной версии или до 50 000 символов в день с адресом электронной почты
+
+Нажмите здесь, чтобы открыть MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Вы использовали сегодняшнюю бесплатную квоту перевода MyMemory (5000 символов). Добавьте адрес электронной почты MyMemory в настройках, чтобы увеличить ежедневный лимит до 50 000 символов, или переключитесь на другую службу перевода</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Вы использовали сегодняшнюю квоту перевода MyMemory (50 000 символов). Переключитесь на другую службу перевода или попробуйте снова завтра</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Доступно в %s</string>
+    <string name="morphe_vot_mymemory_quota_title">Достигнут ежедневный лимит MyMemory</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Ваш ключ API OpenRouter. Создайте ключ на OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">Ключ API OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">Ваш кредитный лимит OpenRouter исчерпан. Пополните свой баланс или увеличьте лимит расходов ключа на OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">Достигнут кредитный лимит OpenRouter</string>
+    <string name="morphe_vot_openrouter_error">Сбой перевода OpenRouter (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Платный перевод с использованием ИИ через OpenRouter. Пополните счет один раз и переводите тысячи видео. Mistral Nemo — самый дешевый вариант, Gemma 4 предлагает наивысшее качество
+
+Нажмите здесь, чтобы открыть OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">Модель OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Введите свой ключ API OpenRouter в настройках, прежде чем выбирать этого поставщика</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter не настроен</string>
+    <string name="morphe_vot_openrouter_open_website">Открыть OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Громкость оригинального звука YouTube во время воспроизведения перевода</string>
+    <string name="morphe_vot_translation_service_title">Поставщик перевода</string>
+    <string name="morphe_vot_translation_volume_summary">Громкость озвученного перевода</string>
+    <string name="morphe_vot_tts_sample">Начинаем трансформацию!</string>
+    <string name="morphe_vot_tts_system">Системная</string>
+    <string name="morphe_vot_tts_voice_type">Голос</string>
+    <string name="morphe_vot_voice_gender_female">Женский</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Мультиязычный женский</string>
+    <string name="morphe_vot_voice_gender_male">Мужской</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Мультиязычный мужской</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Расширенное меню качества видео скрыто</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Расширенное меню качества видео показано</string>
     <string name="revanced_advanced_video_quality_menu_title">Открыть меню расширенных настроек качества</string>
@@ -1655,7 +1716,6 @@ Shorts
 
 Мини-плеер можно перетаскивать за пределы экрана влево или вправо"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Жест горизонтального перетаскивания</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Значение затемнения миниплеера должно быть от 0 до 100</string>
     <string name="revanced_miniplayer_opacity_title">Затемнение миниплеера при нажатии</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Скругления углов отключено</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Скругления углов включено</string>
@@ -2494,7 +2554,6 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Активация автояркости жестом до самого низкого значения яркости отключена</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Активация автояркости жестом до самого низкого значения яркости включена</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Включить жест автояркости</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значение затемнения панели жестов должно быть от 0 до 100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Отрегулируйте уровень прозрачности наложения (0 — прозрачный, 100 — непрозрачный)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Затемнение фона панели жестов</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Установите цвет индикатора выполнения управления яркостью</string>
@@ -2536,7 +2595,6 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">Зона жеста шкалы воспроизведения вверху, зона скорости воспроизведения внизу</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">Зона жеста скорости воспроизведения вверху, зона шкалы воспроизведения внизу</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Поменять зоны жестов скорости воспроизведения и шкалы воспроизведения</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">Размер текста должен быть в диапазоне от 1 до 30</string>
     <string name="revanced_swipe_text_overlay_size_summary">Отрегулируйте размер текста на экране (от 1 до 30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Размер текста панели жестов</string>
     <string name="revanced_swipe_threshold_summary">Установите необходимое расстояние смахивания перед срабатыванием регулировки</string>

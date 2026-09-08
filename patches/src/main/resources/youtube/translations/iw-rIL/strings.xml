@@ -20,6 +20,17 @@
     <string name="gms_core_settings_summary">כדי לקבל התראות ב-RVX, הפעל את Cloud Messaging</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
     <string name="gms_core_toast_not_installed_message">דו׮י טבמ עורמ מדמ. רוריתמ</string>
+    <string name="morphe_app_refresh_rate_default">ברירת מחדל</string>
+    <string name="morphe_app_refresh_rate_fps">%s פריימים לשנייה</string>
+    <string name="morphe_app_refresh_rate_title">קצב רענון אפליקציה</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">תמיד</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">נגינה בפורטרט</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">נגינה במסך מלא</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">נגינה בפורטרט ומסך מלא</string>
+    <string name="morphe_app_refresh_rate_type_title">עקוף קצב רענון</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">השהה תמיד כשהמכשיר נעול</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">השהה אלא אם כן אודיו אלחוטי מחובר</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">השהייה אוטומטית כשהמכשיר נעול</string>
     <string name="morphe_custom_branding_icon_title">אייקון האפליקציה</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">שומר את סרגל הניווט גלוי בזמן גלילה</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">השבת הסתרת אוטומטית של סרגל הניווט</string>
@@ -29,6 +40,7 @@
     <string name="morphe_disable_quic_protocol_summary_off">פרוטוקול QUIC פעיל</string>
     <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
     <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">השבת מגבלת מהירות גלילה</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'הרחבת משך ה-DVR לשידורים חיים' אולי לא תהיה זמינה
 
 כדי לתקן זאת, הפעל את 'זיוף הזרמות וידאו' ושנה את 'הלקוח המוגדר כברירת מחדל' ל-'TV Simply' או 'visionOS'"</string>
@@ -124,6 +136,8 @@
     <string name="morphe_playback_in_feeds_entry_off">כבוי</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">רק Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">השמעה בפידים</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">כוונן את אטימות הרקע מאחורי כפתורי בקרת הנגן ופס הזמן (0 בלתי נראה, 100 אטום)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">אטימות הרקע של כפתורי השליטה</string>
     <string name="morphe_queue_manager_check_failed_auth">לא מחובר</string>
     <string name="morphe_queue_manager_check_failed_video_id">מזהה וידאו לא נמצא</string>
     <string name="morphe_reload_video_summary_off">לחצן טעינת סרטון אינו מוצג</string>
@@ -224,6 +238,51 @@
     <string name="morphe_video_quality_prioritize_dialog">אם ההגדרה הזו כבויה, ייתכן שסרטונים ישנים לא יציגו אפשרויות איכות וידאו</string>
     <string name="morphe_video_quality_prioritize_summary">מתעדף את איכות הווידאו הגבוהה ביותר הזמינה על פני יעילות הקידוד</string>
     <string name="morphe_video_quality_prioritize_title">תעדוף איכות וידאו</string>
+    <string name="morphe_vot_caption_language_title">שפה</string>
+    <string name="morphe_vot_cost_free">חינם</string>
+    <string name="morphe_vot_cost_per_hour">%s לכל 100 שעות וידאו</string>
+    <string name="morphe_vot_enabled_title">תרגום דיבוב</string>
+    <string name="morphe_vot_export_api_key_warning">"ההגדרות שלך מכילות מפתח API של OpenRouter
+
+לעולם אסור לשתף את מפתח ה-API שלך. כל מי שיש לו גישה אליו יכול להשתמש בזכויות שלך ב-OpenRouter"</string>
+    <string name="morphe_vot_http_error_message">"שירות התרגום החזיר שגיאת HTTP %s. כתובת ה-IP שלך כנראה הוגבלה לתעבורה עד 24 שעות
+
+כדי להמשיך להשתמש בתרגומים, החלף לספק תרגום אחר בהגדרות או השתמש ב-VPN"</string>
+    <string name="morphe_vot_http_error_title">תרגום לא זמין</string>
+    <string name="morphe_vot_max_speech_rate_summary">מכפיל המהירות המקסימלי להתאמת הדיבור לחריץ כתוביות</string>
+    <string name="morphe_vot_max_speech_rate_title">קצב דיבור מקסימלי</string>
+    <string name="morphe_vot_mymemory_email_summary">אופציונלי. הזן את כתובת הדוא\"ל שלך ב-MyMemory כדי להגדיל את המגבלה היומית מ-5,000 ל-50,000 תווים. השאר ריק כדי להשתמש במגבלה האנונימית</string>
+    <string name="morphe_vot_mymemory_email_title">דוא\"ל MyMemory</string>
+    <string name="morphe_vot_mymemory_error">תרגום MyMemory נכשל (סטטוס %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"API תרגום חינמי, ללא מפתח API נדרש. עד 5,000 תווים ליום בתוכנית החינמית, או עד 50,000 תווים ליום עם כתובת דוא\"ל
+
+הקש כאן כדי לפתוח את MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">השתמשת במכסת התרגום החינמית של MyMemory להיום (5,000 תווים). הוסף דוא\"ל MyMemory בהגדרות כדי להעלות את המגבלה היומית ל-50,000 תווים, או החלף לשירות תרגום אחר</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">השתמשת במכסת התרגום של MyMemory להיום (50,000 תווים). החלף לשירות תרגום אחר או נסה שוב מחר</string>
+    <string name="morphe_vot_mymemory_quota_next_available">זמין שוב ב-%s</string>
+    <string name="morphe_vot_mymemory_quota_title">הגיעה מגבלת היומית של MyMemory</string>
+    <string name="morphe_vot_openrouter_api_key_summary">מפתח ה-API שלך ב-OpenRouter. צור מפתח ב-OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">מפתח API של OpenRouter</string>
+    <string name="morphe_vot_openrouter_credits_message">הגיעה מגבלת האשראי שלך ב-OpenRouter. טען את היתרה שלך או הגדל את מגבלת ההוצאות של המפתח שלך ב-OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">הגיעה מגבלת האשראי של OpenRouter</string>
+    <string name="morphe_vot_openrouter_error">תרגום OpenRouter נכשל (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"תרגום AI בתשלום דרך OpenRouter. טען כסף פעם אחת ותרגם אלפי סרטונים. Mistral Nemo היא האפשרות הזולה ביותר, Gemma 4 מציעה את האיכות הגבוהה ביותר
+
+הקש כאן כדי לפתוח את OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">מודל OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">הזן את מפתח ה-API של OpenRouter בהגדרות לפני בחירת ספק זה</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter לא מוגדר</string>
+    <string name="morphe_vot_openrouter_open_website">פתח את OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">עוצמת השמע המקורית של YouTube בזמן שהתרגום מדבר</string>
+    <string name="morphe_vot_translation_service_title">ספק תרגום</string>
+    <string name="morphe_vot_translation_volume_summary">עוצמת הקול של התרגום המדובב</string>
+    <string name="morphe_vot_tts_sample">זה זמן מורפינג!</string>
+    <string name="morphe_vot_tts_system">מערכת</string>
+    <string name="morphe_vot_tts_voice_type">קול</string>
+    <string name="morphe_vot_voice_gender_female">אישה</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">אישה רב לשונית</string>
+    <string name="morphe_vot_voice_gender_male">גבר</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">גבר רב לשוני</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">תפריט איכות סרטון מתקדם אינו מוצג</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">תפריט איכות סרטון מתקדם מוצג</string>
     <string name="revanced_advanced_video_quality_menu_title">פתח תפריט איכות מתקדם</string>
@@ -841,7 +900,6 @@
 
 מיני-נגן ניתן לגרירה מחוץ למסך לשמאל או לימין"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">הפעל מחוות גרירה אופקית</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">אטימות שכבת-על של מיני-נגן חייבת להיות בין 0 ל-100</string>
     <string name="revanced_miniplayer_opacity_title">אטימות שכבת-על</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">הפינות מרובעות</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">הפינות מעוגלות</string>
@@ -1189,7 +1247,6 @@
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">החלקה למטה לערך הנמוך ביותר לא מפעילה בהירות אוטומטית</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">החלקה למטה לערך הנמוך ביותר של מחוות הבהירות מפעילה בהירות אוטומטית</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">הפעל מחוות בהירות אוטומטית</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">אטימות החלקה חייבת להיות בין 0 ל-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">הסתר כפתור \'הפסק פרסומות\'</string>
     <string name="revanced_swipe_overlay_background_opacity_title">אטימות רקע שכבת-על של החלקה</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">הגדר את הצבע של פס התקדמות בקרת הבהירות</string>
@@ -1215,7 +1272,6 @@
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">שמור ושחזר בהירות בעת יציאה או כניסה למסך מלא</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">שמור ושחזר בהירות</string>
     <string name="revanced_swipe_speed_title">הפעל מחוות מהירות</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">גודל הטקסט חייב להיות בין 1 ל-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">הסתר כפתור \'הורדה\'</string>
     <string name="revanced_swipe_text_overlay_size_title">גודל טקסט שכבת-על של החלקה</string>
     <string name="revanced_swipe_threshold_summary">הסתר כפתור \'הייפ\'</string>

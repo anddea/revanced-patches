@@ -16,6 +16,17 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="gms_core_dialog_open_website_text">Veb saytı aç</string>
     <string name="gms_core_dialog_title">Fəaliyyət lazımdır</string>
     <string name="gms_core_toast_not_installed_message">MicroG quraşdırılmayıb. Onu quraşdır</string>
+    <string name="morphe_app_refresh_rate_default">İlkin</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">Tətbiq yeniləmə sürəti</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Həmişə</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Şaquli oynatma</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Tam ekran oynatma</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Şaquli və tam ekran oynatma</string>
+    <string name="morphe_app_refresh_rate_type_title">Yeniləmə tezliyini əvəzlə</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Kilidli olduqda həmişə fasilə ver</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Simsiz səs qoşulmadıqca fasilə ver</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Cihaz kilidləndikdə avtomatik fasilə</string>
     <string name="morphe_custom_branding_icon_title">Tətbiq simvolu</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Sürüşdürərkən fəaliyyət zolağın görünən saxlayır</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Fəaliyyət cərgəsin avtomatik gizlətməsini qapat</string>
@@ -25,6 +36,7 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protokolu işləkdir</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokolu qapadılıb</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokolunu qeyri-aktiv et</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Sürüşdürmə sürət həddini qapat</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayım DVR müddətini genişləndir' əlçatan olmaya bilər
 
 Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir və 'İlkin qəbuledicini' 'TV Simply' və ya 'visionOS' olaraq dəyişdir"</string>
@@ -120,6 +132,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_playback_in_feeds_entry_off">Qapalı</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Yalnız Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Axınlarda oynatma</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Oynadıcının idarəetmə düymələrinin və vaxt cizgisinin arxasındakı fonun çevrəsinin şəffaflığını tənzimlə (0 görünməzdir, 100 şəffaf olmayandır)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">İdarəetmə düymələrinin fon şəffaflığı</string>
     <string name="morphe_queue_manager_check_failed_auth">Daxil olunmayıb</string>
     <string name="morphe_queue_manager_check_failed_video_id">Video ID-si yoxdur</string>
     <string name="morphe_reload_video_summary_off">Videonu təkrar yüklə düyməsi görünmür</string>
@@ -220,6 +234,51 @@ Məhdudiyyət: 'Köhnə video fəaliyyət cizgisini bərpa et' qapadılıbsa, 'D
     <string name="morphe_video_quality_prioritize_dialog">Bu seçim qapalıdırsa, daha köhnə videolar video keyfiyyəti seçimlərini göstərməyə bilər</string>
     <string name="morphe_video_quality_prioritize_summary">Kodek səmərəliliyindən artıq mövcud ən yüksək video keyfiyyətinə üstünlük verir</string>
     <string name="morphe_video_quality_prioritize_title">Video keyfiyyətinə üstünlük ver</string>
+    <string name="morphe_vot_caption_language_title">Dil</string>
+    <string name="morphe_vot_cost_free">Pulsuz</string>
+    <string name="morphe_vot_cost_per_hour">Hər 100 video saatına %s</string>
+    <string name="morphe_vot_enabled_title">Səs üstələyici tərcümə</string>
+    <string name="morphe_vot_export_api_key_warning">"Tənzimləmələriniz OpenRouter API açarını ehtiva edir
+
+API açarınız heç vaxt paylaşılmamalıdır. Buna girişi olan hər bir kəs OpenRouter balansınızı istifadə edə bilər"</string>
+    <string name="morphe_vot_http_error_message">"Tərcümə xidməti HTTP %s xətası qaytardı. IP ünvanınız deyəsən 24 saatlıq norma limitinə məruz qalıb
+
+​Tərcümələri istifadə etməyə davam etmək üçün tənzimləmələrdə başqa tərcümə təminatçısına keç və ya VPN istifadə et"</string>
+    <string name="morphe_vot_http_error_title">Tərcümə əlçatan deyil</string>
+    <string name="morphe_vot_max_speech_rate_summary">Danışığı titr bölümünə uyğunlaşdıranda ən yüksək sürət misli</string>
+    <string name="morphe_vot_max_speech_rate_title">Ən yüksək danışıq sürəti</string>
+    <string name="morphe_vot_mymemory_email_summary">Könüllü. Gündəlik həddi 5.000-dən 50.000 simvola qədər artırmaq üçün MyMemory e-poçt ünvanınızı qeyd edin. Gizli limitdən istifadə etmək üçün boş buraxın</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory e-poçtu</string>
+    <string name="morphe_vot_mymemory_error">MyMemory tərcüməsi uğursuz oldu (status %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"Pulsuz tərcümə API-si, API açarı tələb olunmur. Pulsuz paketdə hər gün 5.000 simvola qədər və ya e-poçt ünvanı ilə hər gün 50.000 simvola qədər
+
+MyMemory.translated.net-i açmaq üçün buraya toxun"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Bugünkü pulsuz MyMemory tərcümə normasını (5.000 simvol) istifadə etmisiniz. Gündəlik limiti 50.000 simvola artırmaq üçün tənzimləmələrdə MyMemory e-poçtunu əlavə edin və ya fərqli tərcümə xidmətinə keçin</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">Bugünkü MyMemory tərcümə normasını (50.000 simvol) istifadə etmisiniz. Başqa tərcümə xidmətinə keçin və ya sabah təkrar cəhd edin</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Növbəti %s tarixində əlçatan olacaq</string>
+    <string name="morphe_vot_mymemory_quota_title">MyMemory gündəlik limiti bitdi</string>
+    <string name="morphe_vot_openrouter_api_key_summary">OpenRouter API açarınız. OpenRouter.ai &gt; İş sahəsi &gt; API Açarların-da açar yaradın</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API açarı</string>
+    <string name="morphe_vot_openrouter_credits_message">OpenRouter balans limitiniz bitdi. OpenRouter.ai-da balansınızı artırın və ya açar xərcləmə limitinizi yüksəldin</string>
+    <string name="morphe_vot_openrouter_credits_title">OpenRouter balans limitinə çatıldı</string>
+    <string name="morphe_vot_openrouter_error">OpenRouter tərcüməsi uğursuz oldu (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"OpenRouter vasitəsilə ödənişli Sİ tərcüməsi. Bir dəfə balansınızı artırın və minlərlə videonu tərcümə edin. Mistral Nemo ən ucuz seçimdir, Gemma 4 isə ən yüksək keyfiyyət təklif edir
+
+OpenRouter.ai-ı açmaq üçün buraya toxunun"</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter Modeli</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Bu təminatçını seçməzdən əvvəl tənzimləmələrdə OpenRouter API açarınızı qeyd edin</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter tənzimlənməyib</string>
+    <string name="morphe_vot_openrouter_open_website">OpenRouter.ai-ı Aç</string>
+    <string name="morphe_vot_original_audio_volume_summary">Tərcümə səslənərkən orijinal YouTube səsinin səviyyəsi</string>
+    <string name="morphe_vot_translation_service_title">Tərcümə təminatçısı</string>
+    <string name="morphe_vot_translation_volume_summary">Dublyaj olunmuş tərcümə səsinin səviyyəsi</string>
+    <string name="morphe_vot_tts_sample">Dəyişmə vaxtıdır!</string>
+    <string name="morphe_vot_tts_system">Sistem</string>
+    <string name="morphe_vot_tts_voice_type">Səs</string>
+    <string name="morphe_vot_voice_gender_female">Qadın</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Çoxdilli qadın</string>
+    <string name="morphe_vot_voice_gender_male">Kişi</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Çoxdilli kişi</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Qabaqcıl video keyfiyyət siyahısı göstərilmir</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Qabaqcıl video keyfiyyət siyahısı göstərilir</string>
     <string name="revanced_advanced_video_quality_menu_title">Təkmil keyfiyyət menyusunu aç</string>
@@ -785,7 +844,6 @@ Genişləndirmək və ya bağlamaq üçün sürüşdürün"</string>
 
 Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Üfüqi sürükləmə jestini aktivləşdir</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Kiçik oynadıcı örtük qeyri-şəffaflığı 0-100 arası olmalıdır</string>
     <string name="revanced_miniplayer_opacity_title">Örtük qeyri-şəffaflığı</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Künclər kvadratdır</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Künclər dairəvidir</string>
@@ -1126,7 +1184,6 @@ Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Parlaqlığı ən aşağı dəyərə sürüşdürəndə avto-parlaqlıq aktivləşmir</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaqlıq ən aşağı dəyərinə sürüşdürüləndə avto-parlaqlıq aktivləşir</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Avto-parlaqlıq jestini aktivləşdir</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Sürüşdürmə qeyri-şəffaflığı 0-100 arası olmalıdır</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Şəffaflıq səviyyəsini tənzimlə (0 şəffafdır, 100 qeyri-şəffafdır)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Sürüşdürmə cildinin arxa plan qeyri-şəffaflığı</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Parlaqlıq nizamlayıcılarının çəkmə cizgisinin rəngin təyin et</string>
@@ -1152,7 +1209,6 @@ Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxla və bərpa et</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Parlaqlığı saxla və bərpa et</string>
     <string name="revanced_swipe_speed_title">Sürət jestini aktivləşdir</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">Mətn ölçüsü 1-30 arası olmalıdır</string>
     <string name="revanced_swipe_text_overlay_size_summary">Ekrandakı mətnin ölçüsünü nizamla (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">Sürüşdürmə örtüyü mətn ölçüsü</string>
     <string name="revanced_swipe_threshold_summary">Nizamlama aktivləşməzdən əvvəl tələb olunan sürüşdürmə məsafəsini təyin et</string>
