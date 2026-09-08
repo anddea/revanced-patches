@@ -1,6 +1,7 @@
 package app.morphe.extension.youtube.swipecontrols
 
 import android.graphics.Color
+import app.morphe.extension.shared.settings.preference.SeekBarPreference
 import app.morphe.extension.shared.utils.Utils.validateColor
 import app.morphe.extension.shared.utils.Utils.validateValue
 import app.morphe.extension.youtube.settings.Settings
@@ -169,17 +170,9 @@ class SwipeControlsConfigurationProvider {
 
     /**
      * The background opacity of the overlay, converted from a percentage (0-100) to an alpha value (0-255).
-     * Resets to default and shows a toast if the value is out of range.
      */
     val overlayBackgroundOpacity: Int by lazy {
-        var opacity = validateValue(
-            Settings.SWIPE_OVERLAY_OPACITY,
-            0,
-            100,
-            "revanced_swipe_overlay_background_opacity_invalid_toast"
-        )
-
-        opacity = opacity * 255 / 100
+        val opacity = SeekBarPreference.clampToRange(Settings.SWIPE_OVERLAY_OPACITY) * 255 / 100
         Color.argb(opacity, 0, 0, 0)
     }
 
@@ -228,16 +221,9 @@ class SwipeControlsConfigurationProvider {
 
     /**
      * The text size in the overlay, in density-independent pixels (dp).
-     * Must be between 1 and 30 dp; resets to default and shows a toast if invalid.
      */
-    val overlayTextSize: Int by lazy {
-        validateValue(
-            Settings.SWIPE_OVERLAY_TEXT_SIZE,
-            1,
-            30,
-            "revanced_swipe_text_overlay_size_invalid_toast"
-        )
-    }
+    val overlayTextSize: Int
+        get() = SeekBarPreference.clampToRange(Settings.SWIPE_OVERLAY_TEXT_SIZE)
 
     /**
      * Percentage of the effective player width reserved at both sides for vertical swipes.

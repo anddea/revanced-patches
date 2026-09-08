@@ -1,12 +1,23 @@
 package app.morphe.extension.youtube.shared
 
+import android.graphics.Bitmap
+import android.graphics.BlurMaskFilter
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Rect
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.DrawableWrapper
 import android.view.View
 import android.widget.ImageView
 import app.morphe.extension.shared.utils.Logger
 import app.morphe.extension.shared.utils.ResourceType
 import app.morphe.extension.shared.utils.ResourceUtils
 import app.morphe.extension.shared.utils.Utils
+import app.morphe.extension.youtube.patches.player.PlayerPatch
+import app.morphe.extension.youtube.settings.Settings
 import java.lang.ref.WeakReference
+import androidx.core.graphics.createBitmap
 
 class PlayerControlButton(
     controlsViewGroup: View,
@@ -40,6 +51,16 @@ class PlayerControlButton(
         val imageView =
             Utils.getChildViewByResourceName<ImageView>(controlsViewGroup, imageViewButtonId)
         imageView.visibility = View.GONE
+
+        val background = imageView.background
+        if (background != null) {
+            if (Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                imageView.background = null
+            } else {
+                imageView.background = PlayerPatch.applyControlButtonsBackgroundOpacity(background)
+            }
+        }
+        applyIconShadow(imageView)
 
         var tempPlaceholder: View? = null
         if (hasPlaceholder) {
@@ -100,9 +121,11 @@ class PlayerControlButton(
         } else {
             iconResourceName
         }
-        imageView()?.setImageResource(
+        val imageView = imageView() ?: return
+        imageView.setImageResource(
             ResourceUtils.getIdentifierOrThrow(selectedIconResourceName, ResourceType.DRAWABLE)
         )
+        applyIconShadow(imageView)
     }
 
     fun setVisibilityNegatedImmediate() {
@@ -188,6 +211,7 @@ class PlayerControlButton(
                 } else {
                     button.alpha = 1f
                 }
+                applyIconShadow(button)
 
                 placeholder?.visibility = View.GONE
             } else {
@@ -233,6 +257,7 @@ class PlayerControlButton(
                 if (isVisible) {
                     button.visibility = View.VISIBLE
                     button.alpha = 1f
+                    applyIconShadow(button)
                     placeholder?.visibility = View.GONE
                 } else {
                     button.visibility = View.GONE
@@ -258,8 +283,99 @@ class PlayerControlButton(
         isVisible = false
     }
 
+    private class ShadowedIconDrawable(icon: Drawable) : DrawableWrapper(icon) {
+        private var shadow: Bitmap? = null
+
+        override fun onBoundsChange(bounds: Rect) {
+            super.onBoundsChange(bounds)
+            shadow = null
+        }
+
+        override fun draw(canvas: Canvas) {
+            if (shadow == null) {
+                buildShadow()
+            }
+            shadow?.let {
+                val bounds = bounds
+                canvas.drawBitmap(it, bounds.left.toFloat(), bounds.top.toFloat(), null)
+            }
+            super.draw(canvas)
+        }
+
+        private fun buildShadow() {
+            val icon = drawable ?: return
+            val bounds = bounds
+            if (bounds.isEmpty) return
+
+            val width = bounds.width()
+            val height = bounds.height()
+
+            try {
+                val rendered = createBitmap(width, height)
+                val iconBounds = Rect(icon.bounds)
+                icon.setBounds(0, 0, width, height)
+                icon.draw(Canvas(rendered))
+                icon.bounds = iconBounds
+
+                val mask = rendered.extractAlpha()
+                rendered.recycle()
+
+                val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = iconShadowColor
+                    maskFilter = BlurMaskFilter(iconShadowBlurRadius.toFloat(), BlurMaskFilter.Blur.NORMAL)
+                }
+
+                val blurred = createBitmap(width, height)
+                Canvas(blurred).drawBitmap(
+                    mask,
+                    iconShadowOffsetX.toFloat(),
+                    iconShadowOffsetY.toFloat(),
+                    paint
+                )
+                mask.recycle()
+
+                shadow = blurred
+            } catch (ex: Exception) {
+                Logger.printException({ "Could not build player icon shadow" }, ex)
+            }
+        }
+    }
+
     companion object {
         private val fadeInDuration: Int = ResourceUtils.getInteger("fade_duration_fast")
         private val fadeOutDuration: Int = ResourceUtils.getInteger("fade_duration_scheduled")
+
+        private val iconShadowOffsetX: Int
+        private val iconShadowOffsetY: Int
+        private val iconShadowBlurRadius: Int
+        private val iconShadowColor: Int
+
+        init {
+            var offsetX = 0
+            var offsetY = 0
+            var blurRadius = 0
+            var color = Color.TRANSPARENT
+            try {
+                offsetX = ResourceUtils.getInteger("shadow_icon_offset_x")
+                offsetY = ResourceUtils.getInteger("shadow_icon_offset_y")
+                blurRadius = ResourceUtils.getInteger("shadow_icon_size")
+                color = Color.argb(ResourceUtils.getInteger("shadow_icon_alpha"), 0, 0, 0)
+            } catch (ex: Exception) {
+                Logger.printException({ "Could not resolve player icon shadow resources" }, ex)
+            }
+            iconShadowOffsetX = offsetX
+            iconShadowOffsetY = offsetY
+            iconShadowBlurRadius = blurRadius
+            iconShadowColor = color
+        }
+
+        @JvmStatic
+        fun applyIconShadow(imageView: ImageView?) {
+            if (iconShadowBlurRadius <= 0 || imageView == null) return
+            val icon = imageView.drawable
+            if (icon != null && icon !is ShadowedIconDrawable) {
+                imageView.setImageDrawable(ShadowedIconDrawable(icon))
+            }
+        }
     }
 }

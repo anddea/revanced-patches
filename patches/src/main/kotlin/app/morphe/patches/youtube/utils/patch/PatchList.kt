@@ -109,10 +109,6 @@ internal enum class PatchList(
         "Enable gradient loading screen",
         "Adds an option to enable the gradient loading screen."
     ),
-    FORCE_HIDE_PLAYER_BUTTONS_BACKGROUND(
-        "Force player buttons background",
-        "Changes the dark background surrounding the video player controls at compile time."
-    ),
     FULLSCREEN_COMPONENTS(
         "Fullscreen components",
         "Adds options to hide or change components related to fullscreen."
@@ -163,7 +159,7 @@ internal enum class PatchList(
     ),
     HIDE_PLAYER_BUTTONS(
         "Hide player buttons",
-        "Adds options to hide buttons in the video player."
+        "Adds options to hide buttons in the video player, and to hide or change the opacity of the player control buttons background."
     ),
     HIDE_PLAYER_FLYOUT_MENU(
         "Hide player flyout menu",

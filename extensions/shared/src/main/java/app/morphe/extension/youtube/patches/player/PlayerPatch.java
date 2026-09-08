@@ -6,6 +6,12 @@ import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.validateValue;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableWrapper;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +28,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import java.util.function.Consumer;
+
 import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -37,6 +45,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.IntegerSetting;
+import app.morphe.extension.shared.settings.preference.SeekBarPreference;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
@@ -54,6 +63,14 @@ import app.morphe.extension.youtube.utils.VideoUtils;
 @SuppressWarnings({"unused", "deprecation"})
 public class PlayerPatch {
     private static final IntegerSetting quickActionsMarginTopSetting = Settings.QUICK_ACTIONS_TOP_MARGIN;
+
+    private static final int CONTROL_BUTTONS_BACKGROUND_OPACITY =
+            SeekBarPreference.clampToRange(Settings.PLAYER_CONTROL_BUTTONS_BACKGROUND_OPACITY);
+
+    /** At the app default the drawables are left untouched, so the stock look stays exact. */
+    private static final boolean CONTROL_BUTTONS_BACKGROUND_OPACITY_CHANGED =
+            CONTROL_BUTTONS_BACKGROUND_OPACITY
+                    != Settings.PLAYER_CONTROL_BUTTONS_BACKGROUND_OPACITY.defaultValue;
 
     private static final int PLAYER_OVERLAY_OPACITY_LEVEL;
     private static final int QUICK_ACTIONS_MARGIN_TOP;
@@ -422,6 +439,12 @@ public class PlayerPatch {
         final boolean hideView = Settings.HIDE_PLAYER_FULLSCREEN_BUTTON.get();
 
         Utils.hideViewUnderCondition(hideView, imageView);
+        if (!hideView && imageView != null) {
+            Drawable background = imageView.getBackground();
+            if (background != null) {
+                imageView.setBackground(applyControlButtonsBackgroundOpacity(background));
+            }
+        }
         return hideView ? null : imageView;
     }
 
@@ -461,26 +484,84 @@ public class PlayerPatch {
      * Injection point.
      */
     public static void hidePlayerControlButtonsBackground(View rootView) {
-        try {
-            if (!Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
-                return;
-            }
+        styleControlButtonsBackground(rootView);
+    }
 
+    /**
+     * Injection point.
+     */
+    public static void styleControlButtonsBackground(View rootView) {
+        try {
             // Each button is an ImageView with a background set to another drawable.
-            removeImageViewsBackgroundRecursive(rootView);
+            if (Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                forEachImageViewRecursive(rootView, imageView -> imageView.setBackground(null));
+            } else if (CONTROL_BUTTONS_BACKGROUND_OPACITY_CHANGED) {
+                forEachImageViewRecursive(rootView, imageView -> {
+                    Drawable background = imageView.getBackground();
+                    if (background != null) {
+                        imageView.setBackground(applyControlButtonsBackgroundOpacity(background));
+                    }
+                });
+            }
         } catch (Exception ex) {
-            Logger.printException(() -> "removePlayerControlButtonsBackground failure", ex);
+            Logger.printException(() -> "styleControlButtonsBackground failure", ex);
+        }
+
+    }
+
+    /**
+     * Also used for the bottom overlay buttons, which copy their background from the
+     * fullscreen button instead of declaring one in a layout.
+     *
+     * @return the drawable to use, unchanged if the opacity is left at the app default.
+     */
+    public static Drawable applyControlButtonsBackgroundOpacity(Drawable background) {
+        if (background != null
+                && CONTROL_BUTTONS_BACKGROUND_OPACITY_CHANGED
+                && !Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+            // Mutate so the color does not leak into the same drawable used elsewhere.
+            background = background.mutate();
+            setSolidColorOpacityRecursive(background);
+        }
+
+        return background;
+    }
+
+    /**
+     * The circle's transparency is baked into its solid color, so the color is replaced.
+     * setAlpha() only scales what is already there and can never exceed the app default.
+     */
+    private static void setSolidColorOpacityRecursive(Drawable drawable) {
+        if (drawable instanceof GradientDrawable gradient) {
+            ColorStateList color = gradient.getColor();
+            if (color != null) {
+                final int rgb = color.getDefaultColor();
+                // Replacing the alpha rather than scaling it keeps this safe to apply twice.
+                gradient.setColor(Color.argb(
+                        CONTROL_BUTTONS_BACKGROUND_OPACITY * 255 / 100,
+                        Color.red(rgb),
+                        Color.green(rgb),
+                        Color.blue(rgb)));
+            }
+        } else if (drawable instanceof LayerDrawable layers) {
+            for (int i = 0, count = layers.getNumberOfLayers(); i < count; i++) {
+                setSolidColorOpacityRecursive(layers.getDrawable(i));
+            }
+        } else if (drawable instanceof DrawableWrapper wrapper) {
+            // The bottom buttons get the circle wrapped in an InsetDrawable, which is not a
+            // LayerDrawable and would otherwise be skipped.
+            setSolidColorOpacityRecursive(wrapper.getDrawable());
         }
     }
 
-    private static void removeImageViewsBackgroundRecursive(View currentView) {
+    private static void forEachImageViewRecursive(View currentView, Consumer<ImageView> action) {
         if (currentView instanceof ImageView imageView) {
-            imageView.setBackground(null);
+            action.accept(imageView);
         }
 
         if (currentView instanceof ViewGroup viewGroup) {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                removeImageViewsBackgroundRecursive(viewGroup.getChildAt(i));
+                forEachImageViewRecursive(viewGroup.getChildAt(i), action);
             }
         }
     }
@@ -489,8 +570,33 @@ public class PlayerPatch {
 
     // region [Player components] patch
 
-    public static void changeOpacity(ImageView imageView) {
-        imageView.setImageAlpha(PLAYER_OVERLAY_OPACITY_LEVEL);
+    public static void changeOpacity(ImageView scrimOverlay) {
+        scrimOverlay.setImageAlpha(PLAYER_OVERLAY_OPACITY_LEVEL);
+
+        // The top and bottom gradient scrims are siblings of the full screen scrim.
+        if (scrimOverlay.getParent() instanceof View parent) {
+            applyGradientScrimOpacity(parent, "top_gradient_scrim_overlay");
+            applyGradientScrimOpacity(parent, "bottom_gradient_scrim_overlay");
+        }
+    }
+
+    private static void applyGradientScrimOpacity(View parent, String resourceName) {
+        int resourceId = ResourceUtils.getIdIdentifier(resourceName);
+        if (resourceId == 0) return;
+
+        View gradient = parent.findViewById(resourceId);
+        if (gradient == null) {
+            Logger.printDebug(() -> "Could not find player scrim: R.id." + resourceName);
+            return;
+        }
+
+        // The gradients are set as a background rather than an image, so setImageAlpha
+        // does nothing for them.
+        Drawable background = gradient.getBackground();
+        if (background != null) {
+            // Mutate so the alpha does not leak into the same drawable used elsewhere.
+            background.mutate().setAlpha(PLAYER_OVERLAY_OPACITY_LEVEL);
+        }
     }
 
     /**

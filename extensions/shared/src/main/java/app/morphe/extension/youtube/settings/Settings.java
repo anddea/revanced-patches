@@ -641,6 +641,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_PLAYER_FULLSCREEN_BUTTON = new BooleanSetting("revanced_hide_player_fullscreen_button", FALSE, true);
     public static final BooleanSetting HIDE_PLAYER_PREVIOUS_NEXT_BUTTON = new BooleanSetting("revanced_hide_player_previous_next_button", FALSE, true);
     public static final BooleanSetting HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND = new BooleanSetting("revanced_hide_player_control_buttons_background", FALSE, true);
+    public static final IntegerSetting PLAYER_CONTROL_BUTTONS_BACKGROUND_OPACITY = new IntegerSetting("morphe_player_control_buttons_background_opacity", 30, true, new SliderConfig(0, 100, 1, "%"), parentInverted(HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND));
     public static final BooleanSetting HIDE_PLAYER_YOUTUBE_MUSIC_BUTTON = new BooleanSetting("revanced_hide_player_youtube_music_button", FALSE);
 
     public static final BooleanSetting ALWAYS_REPEAT = new BooleanSetting("revanced_always_repeat", FALSE);

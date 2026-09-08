@@ -440,7 +440,8 @@
             <SwitchPreference android:title="@string/morphe_save_to_watch_later_shorts_flyout_button_title" android:key="morphe_save_to_watch_later_shorts_flyout_button" android:summary="@string/morphe_save_to_watch_later_shorts_flyout_button_summary" />SETTINGS: SAVE_TO_WATCH_LATER -->
 
             <!-- SETTINGS: HIDE_PLAYER_BUTTONS
-            <SwitchPreference android:title="@string/revanced_hide_player_control_buttons_background_title" android:key="revanced_hide_player_control_buttons_background" android:summaryOn="@string/revanced_hide_player_control_buttons_background_summary_on" android:summaryOff="@string/revanced_hide_player_control_buttons_background_summary_off" />SETTINGS: HIDE_PLAYER_BUTTONS -->
+            <SwitchPreference android:title="@string/revanced_hide_player_control_buttons_background_title" android:key="revanced_hide_player_control_buttons_background" android:summaryOn="@string/revanced_hide_player_control_buttons_background_summary_on" android:summaryOff="@string/revanced_hide_player_control_buttons_background_summary_off" />
+            <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/morphe_player_control_buttons_background_opacity_title" android:key="morphe_player_control_buttons_background_opacity" android:summary="@string/morphe_player_control_buttons_background_opacity_summary" android:inputType="number" />SETTINGS: HIDE_PLAYER_BUTTONS -->
 
             <!-- SETTINGS: OVERLAY_BUTTONS
             <PreferenceCategory android:title="@string/revanced_overlay_button" android:layout="@layout/revanced_settings_preferences_category" />

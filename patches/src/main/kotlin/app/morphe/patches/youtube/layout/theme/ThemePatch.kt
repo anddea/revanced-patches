@@ -54,6 +54,7 @@ package app.morphe.patches.youtube.layout.theme
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.bytecodePatch
@@ -62,6 +63,8 @@ import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
+import app.morphe.patches.shared.mapping.ResourceType
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.patches.youtube.general.navigation.PivotBarBuilderFingerprint
 import app.morphe.patches.youtube.general.splashanimation.splashScreenAnimationBytecodePatch
@@ -69,9 +72,11 @@ import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YO
 import app.morphe.patches.youtube.utils.extension.Constants.PATCHES_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.hooks.applicationInitHook
+import app.morphe.patches.youtube.utils.layoutConstructorFingerprint
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.youtube.utils.patch.PatchList.THEME
 import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -79,6 +84,7 @@ import app.morphe.patches.youtube.utils.settings.themeSetterSystemFingerprint
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.forEachChildElement
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.valueOrThrow
@@ -87,6 +93,18 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
+
+/** The background of the light theme, and also the white the app draws over a video. */
+private const val STATIC_WHITE_COLOR_NAME = "yt_white1"
+
+/** The attributes of the second use, which have to stay white to be readable. */
+private val STATIC_WHITE_ATTRIBUTE_NAMES = setOf(
+    "ytStaticWhite",
+    "ytOverlayIconActiveOther"
+)
+
+/** Value of 'android.R.color.white'. A public id of the framework never changes. */
+private const val ANDROID_WHITE_COLOR_ID = 0x106000B
 
 private const val THEME_EXTENSION_CLASS_DESCRIPTOR = "$PATCHES_PATH/theme/ThemePatch;"
 private const val THEME_APPLICATION_METHOD_DESCRIPTOR =
@@ -318,7 +336,7 @@ private val splashLightThemeColors = linkedMapOf(
 private val runtimeThemeBytecodePatch = bytecodePatch(
     description = "runtimeThemeBytecodePatch",
 ) {
-    dependsOn(settingsPatch, mainActivityResolvePatch, versionCheckPatch)
+    dependsOn(settingsPatch, mainActivityResolvePatch, versionCheckPatch, resourceMappingPatch)
 
     execute {
         // Keep the runtime theme hook owned by Theme so it is applied whenever this patch is selected.
@@ -353,6 +371,19 @@ private val runtimeThemeBytecodePatch = bytecodePatch(
                     index,
                     "invoke-static { v$register }, $THEME_RESOLVED_METHOD_DESCRIPTOR",
                 )
+            }
+        }
+
+        // The player previous and next buttons read the same color as a value and not through
+        // an attribute, so the id itself is swapped. A disabled one carries a gray of its own.
+        if (is_20_31_or_greater) {
+            layoutConstructorFingerprint.methodOrThrow().apply {
+                findInstructionIndicesReversedOrThrow(
+                    resourceLiteral(ResourceType.COLOR, STATIC_WHITE_COLOR_NAME)
+                ).forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                    replaceInstruction(index, "const v$register, $ANDROID_WHITE_COLOR_ID")
+                }
             }
         }
     }
@@ -493,6 +524,22 @@ val themePatch = resourcePatch(
                 .filter { it.getAttribute("type") == "color" }
                 .map { it.getAttribute("name") }
                 .toSet()
+        }
+
+        // Replacing the resource repaints both of its uses, because the resource system
+        // cannot tell them apart, so these attributes keep the value the app gives them.
+        document("res/values/styles.xml").use { document ->
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+
+            resourcesNode.forEachChildElement { style ->
+                style.forEachChildElement { item ->
+                    if (item.textContent == "@color/$STATIC_WHITE_COLOR_NAME"
+                        && item.getAttribute("name") in STATIC_WHITE_ATTRIBUTE_NAMES
+                    ) {
+                        item.textContent = "@android:color/white"
+                    }
+                }
+            }
         }
 
         // Keep YouTube's neutral player colors stock globally. The status-bar fallback shares the

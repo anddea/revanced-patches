@@ -9,7 +9,6 @@
 package app.morphe.extension.youtube.patches.player;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
-import static app.morphe.extension.shared.utils.Utils.validateValue;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DEFAULT;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DISABLED;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MINIMAL;
@@ -42,6 +41,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import app.morphe.extension.shared.settings.Setting;
+import app.morphe.extension.shared.settings.preference.SeekBarPreference;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
@@ -223,18 +223,7 @@ public final class MiniplayerPatch {
     private static final boolean HIDE_BROKEN_MODERN_2_SUBTITLE =
             CURRENT_TYPE == MODERN_2 && !IS_19_21_OR_GREATER;
 
-    private static final int OPACITY_LEVEL;
-
-    static {
-        final int opacity = validateValue(
-                Settings.MINIPLAYER_OPACITY,
-                0,
-                100,
-                "revanced_miniplayer_opacity_invalid_toast"
-        );
-
-        OPACITY_LEVEL = (opacity * 255) / 100;
-    }
+    private static final int OPACITY_LEVEL = SeekBarPreference.clampToRange(Settings.MINIPLAYER_OPACITY) * 255 / 100;
 
     public static final class MiniplayerHorizontalDragAvailability implements Setting.Availability {
         @Override
