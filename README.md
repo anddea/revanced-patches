@@ -16,6 +16,7 @@
 |:--------:|:--------------:|:-----------------:|
 | `Alternative thumbnails` | Adds options to replace video thumbnails using the DeArrow API or image captures from the video. | 20.05.46 ~ 21.07.247 |
 | `Ambient mode control` | Adds options to disable Ambient mode and to bypass Ambient mode restrictions. | 20.05.46 ~ 21.07.247 |
+| `App refresh rate` | Adds an option to change the app refresh rate. | 20.05.46 ~ 21.07.247 |
 | `Bypass URL redirects` | Adds an option to bypass URL redirects and open the original URL directly. | 20.05.46 ~ 21.07.247 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 20.05.46 ~ 21.07.247 |
 | `Change form factor` | Adds an option to change the UI appearance to a phone, tablet, or automotive device. | 20.05.46 ~ 21.07.247 |
@@ -34,11 +35,11 @@
 | `Disable playlist autoplay` | Adds an option to stop a playlist from automatically advancing to the next video. | 20.05.46 ~ 21.07.247 |
 | `Disable resuming Miniplayer on startup` | Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup. | 20.05.46 ~ 21.07.247 |
 | `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 20.05.46 ~ 21.07.247 |
+| `Disable scrolling speed limit` | Adds an option to remove limits of how fast the home and subscription feed can be scrolled. | 20.05.46 ~ 21.07.247 |
 | `Disable sign in to TV popup` | Adds an option to disable the popup asking to sign into a TV on the same local network. | 20.05.46 ~ 21.07.247 |
 | `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 20.05.46 ~ 21.07.247 |
 | `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 20.05.46 ~ 21.07.247 |
 | `Force original audio` | Adds an option to disable audio tracks from being automatically enabled. | 20.05.46 ~ 21.07.247 |
-| `Force player buttons background` | Changes the dark background surrounding the video player controls at compile time. | 20.05.46 ~ 21.07.247 |
 | `Fullscreen components` | Adds options to hide or change components related to fullscreen. | 20.05.46 ~ 21.07.247 |
 | `Fullscreen video scale` | Adds options to stretch or zoom videos to fill the screen in fullscreen mode. | 20.05.46 ~ 21.07.247 |
 | `Gemini` | Adds options to use Gemini for video summaries, transcription, and settings search. | 20.05.46 ~ 21.07.247 |
@@ -51,7 +52,7 @@
 | `Hide feed components` | Adds options to hide components related to feeds. | 20.05.46 ~ 21.07.247 |
 | `Hide feed flyout menu` | Adds the ability to hide feed flyout menu components using a custom filter. | 20.05.46 ~ 21.07.247 |
 | `Hide layout components` | Adds options to hide general layout components. | 20.05.46 ~ 21.07.247 |
-| `Hide player buttons` | Adds options to hide buttons in the video player. | 20.05.46 ~ 21.07.247 |
+| `Hide player buttons` | Adds options to hide buttons in the video player, and to hide or change the opacity of the player control buttons background. | 20.05.46 ~ 21.07.247 |
 | `Hide player flyout menu` | Adds options to hide player flyout menu components. | 20.05.46 ~ 21.07.247 |
 | `Hide shortcuts` | Remove, at compile time, the app shortcuts that appears when the app icon is long pressed. | 20.05.46 ~ 21.07.247 |
 | `Hook download actions` | Adds support to download videos with an external downloader app using the in-app download button. | 20.05.46 ~ 21.07.247 |
@@ -96,6 +97,7 @@
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `App refresh rate` | Adds an option to change the app refresh rate. | 8.12.54 ~ 9.15.51 |
 | `Bitrate default value` | Sets the audio quality to 'Always High' when you first install the app. | 8.12.54 ~ 9.15.51 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 8.12.54 ~ 9.15.51 |
 | `Certificate spoof` | Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate. | 8.12.54 ~ 9.15.51 |

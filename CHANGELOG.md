@@ -1,3 +1,25 @@
+# [4.3.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.5...v4.3.0-dev.6) (2026-09-11)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding:** Avoid quadratic Android DOM scans ([#1793](https://github.com/anddea/revanced-patches/issues/1793)) ([7ee0d35](https://github.com/anddea/revanced-patches/commit/7ee0d35726dd0bfc1eebd7bf535b9e4eaa07d465))
+* **YouTube - Remove background playback restrictions:** `Disable Shorts background play` did not work for some versions ([dc72673](https://github.com/anddea/revanced-patches/commit/dc726730f67c3c6f397c4b318b42bef3de2ddf45))
+* **YouTube - Sanitize sharing links:** Update sanitation logic ([5c36c12](https://github.com/anddea/revanced-patches/commit/5c36c1214e1cc37ff4583986c50c348a1e14f813))
+* **YouTube - Video playback:** Shorts custom speed did not work for `v21+` ([0ffa062](https://github.com/anddea/revanced-patches/commit/0ffa062697d22499b173a5a5b1e058babb93d3e4))
+* **YouTube - Voice Over Translation:** Some improvements + add other providers ([6941b05](https://github.com/anddea/revanced-patches/commit/6941b053a946501b9e4f84a8f2f2f846ef8c06d5))
+* **YouTube:** `Show advanced video quality menu` did not work in newer versions ([f534867](https://github.com/anddea/revanced-patches/commit/f5348678cdacd475a1c006b5125a770015c9b106))
+* **YouTube:** Restore external downloader PiP guard on 21.04+ ([#1786](https://github.com/anddea/revanced-patches/issues/1786)) ([f8992a5](https://github.com/anddea/revanced-patches/commit/f8992a55904a6142eb681d83ccb1a6d16c2899b7))
+
+
+### Features
+
+* **YouTube - Hide player buttons:** Add option to change the player control buttons background opacity ([55f0c14](https://github.com/anddea/revanced-patches/commit/55f0c1462419b65bf067c2c4e18cd6b9a029b889))
+* **YouTube - Remove background playback restrictions:** Add `Auto pause when device is locked` setting ([5a0c6c5](https://github.com/anddea/revanced-patches/commit/5a0c6c5704405811566a6639216086b7a5f9b1b9))
+* **YouTube - Toolbar components:** Hide the search bar back button in search results screen ([138e89a](https://github.com/anddea/revanced-patches/commit/138e89a42da33738d9d6b21fef6a20dc9488474b))
+* **YouTube & YouTube Music:** Add `App refresh rate` patch ([1ee9116](https://github.com/anddea/revanced-patches/commit/1ee91163159390ade48989a790e0e6f3829f9d9f))
+* **YouTube:** Add `Disable scrolling speed limit` patch ([727a65f](https://github.com/anddea/revanced-patches/commit/727a65f1926a7134c61138cef814344c37e71f8f))
+
 # [4.3.0-dev.5](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.4...v4.3.0-dev.5) (2026-09-04)
 
 

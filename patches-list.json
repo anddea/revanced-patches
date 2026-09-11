@@ -1,5 +1,5 @@
 {
-  "version": "4.3.0-dev.5",
+  "version": "4.3.0-dev.6",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -14,7 +14,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -31,7 +30,40 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
+          "21.07.247"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "App refresh rate",
+      "description": "Adds an option to change the app refresh rate.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.apps.youtube.music": [
+          "8.12.54",
+          "8.28.54",
+          "8.30.54",
+          "9.15.51"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "App refresh rate",
+      "description": "Adds an option to change the app refresh rate.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "20.05.46",
           "21.07.247"
         ]
       },
@@ -65,7 +97,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -100,7 +131,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -136,7 +166,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -163,7 +192,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -200,7 +228,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -235,7 +262,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -272,7 +298,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -289,7 +314,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -324,7 +348,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -398,7 +421,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -432,7 +454,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -486,7 +507,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -548,7 +568,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -565,7 +584,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -581,7 +599,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -618,7 +635,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -634,7 +650,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -652,7 +667,23 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
+          "21.07.247"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Disable scrolling speed limit",
+      "description": "Adds an option to remove limits of how fast the home and subscription feed can be scrolled.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "20.05.46",
           "21.07.247"
         ]
       },
@@ -669,7 +700,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -704,7 +734,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -720,7 +749,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -800,50 +828,10 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
       "options": []
-    },
-    {
-      "name": "Force player buttons background",
-      "description": "Changes the dark background surrounding the video player controls at compile time.",
-      "use": true,
-      "dependencies": [
-        "ResourcePatch"
-      ],
-      "compatiblePackages": {
-        "com.google.android.youtube": [
-          "20.05.46",
-          "21.04.223",
-          "21.07.247"
-        ]
-      },
-      "options": [
-        {
-          "key": "BackgroundColor",
-          "title": "Background color",
-          "description": "Specify a background color for player buttons using a hex color code. The first two symbols of the hex code represent the alpha channel, which is used to change the opacity.",
-          "required": false,
-          "type": "kotlin.String",
-          "default": "?ytOverlayBackgroundMediumLight",
-          "values": {
-            "Default": "?ytOverlayBackgroundMediumLight",
-            "Transparent": "@android:color/transparent",
-            "Opacity10": "#1a000000",
-            "Opacity20": "#33000000",
-            "Opacity30": "#4d000000",
-            "Opacity40": "#66000000",
-            "Opacity50": "#80000000",
-            "Opacity60": "#99000000",
-            "Opacity70": "#b3000000",
-            "Opacity80": "#cc000000",
-            "Opacity90": "#e6000000",
-            "Opacity100": "#ff000000"
-          }
-        }
-      ]
     },
     {
       "name": "Fullscreen components",
@@ -863,7 +851,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -882,7 +869,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -901,7 +887,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1001,7 +986,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1082,7 +1066,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1098,7 +1081,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1163,7 +1145,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1210,7 +1191,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1234,7 +1214,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1256,7 +1235,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1273,7 +1251,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1314,7 +1291,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1340,7 +1316,7 @@
     },
     {
       "name": "Hide player buttons",
-      "description": "Adds options to hide buttons in the video player.",
+      "description": "Adds options to hide buttons in the video player, and to hide or change the opacity of the player control buttons background.",
       "use": true,
       "dependencies": [
         "BytecodePatch",
@@ -1351,7 +1327,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1375,7 +1350,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1407,7 +1381,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1461,7 +1434,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1479,7 +1451,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1522,7 +1493,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1542,7 +1512,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1559,7 +1528,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1583,7 +1551,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1645,7 +1612,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1670,7 +1636,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1732,7 +1697,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1765,13 +1729,11 @@
       "dependencies": [
         "BytecodePatch",
         "ResourcePatch",
-        "BytecodePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1789,7 +1751,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1819,13 +1780,14 @@
       "use": true,
       "dependencies": [
         "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
         "ResourcePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1860,7 +1822,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1917,7 +1878,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1953,7 +1913,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -1987,7 +1946,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2010,7 +1968,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2034,7 +1991,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2052,7 +2008,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2073,7 +2028,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2172,7 +2126,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2207,7 +2160,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2224,7 +2176,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2340,7 +2291,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2401,7 +2351,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2496,7 +2445,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2513,7 +2461,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2534,7 +2481,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2599,7 +2545,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2690,7 +2635,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2727,7 +2671,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2857,7 +2800,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2873,7 +2815,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -2963,7 +2904,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
@@ -3002,7 +2942,6 @@
       "compatiblePackages": {
         "com.google.android.youtube": [
           "20.05.46",
-          "21.04.223",
           "21.07.247"
         ]
       },
