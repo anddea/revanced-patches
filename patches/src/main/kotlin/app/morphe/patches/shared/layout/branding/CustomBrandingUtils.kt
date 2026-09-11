@@ -332,7 +332,8 @@ internal fun ResourcePatchContext.applyCustomBranding(
             .ifBlank { application.getAttribute("android:theme") }
             .takeIf(String::isNotBlank)
             ?: throw PatchException("Could not find the main activity theme")
-        val sourceChildren = List(source.childNodes.length) { source.childNodes.item(it) }
+        val childNodes = source.childNodes
+        val sourceChildren = List(childNodes.length) { childNodes.item(it) }
 
         // This entry must remain a standard activity. Inheriting the host's singleTask launch mode
         // prevents its forwarded MainActivity intent from opening in the current launcher task.
@@ -1137,8 +1138,9 @@ internal fun ResourcePatchContext.addCustomBrandingSystemSplashThemeStyles() {
         "${BrandingResource.SYSTEM_SPLASH_STYLE.resourceName}_"
     val systemSplashStyleNames = document("res/values-v31/styles.xml").use { document ->
         val resources = document.documentElement
-        (0 until resources.childNodes.length)
-            .map { resources.childNodes.item(it) }
+        val childNodes = resources.childNodes
+        (0 until childNodes.length)
+            .map { childNodes.item(it) }
             .filterIsInstance<Element>()
             .filter { element ->
                 element.tagName == "style" &&
@@ -1151,8 +1153,9 @@ internal fun ResourcePatchContext.addCustomBrandingSystemSplashThemeStyles() {
 
     val themeSplashStyleNames = document("res/values-v31/styles.xml").use { document ->
         val resources = document.documentElement
-        (0 until resources.childNodes.length)
-            .map { resources.childNodes.item(it) }
+        val childNodes = resources.childNodes
+        (0 until childNodes.length)
+            .map { childNodes.item(it) }
             .filterIsInstance<Element>()
             .filter { element ->
                 val name = element.getAttribute("name")
@@ -1170,8 +1173,9 @@ internal fun ResourcePatchContext.addCustomBrandingSystemSplashThemeStyles() {
 
         document(path).use { document ->
             val resources = document.documentElement
-            val sourceSystemStyles = (0 until resources.childNodes.length)
-                .map { resources.childNodes.item(it) }
+            val childNodes = resources.childNodes
+            val sourceSystemStyles = (0 until childNodes.length)
+                .map { childNodes.item(it) }
                 .filterIsInstance<Element>()
                 .filter { it.tagName == "style" }
                 .associateBy { it.getAttribute("name") }
@@ -1500,8 +1504,11 @@ private fun addStringArray(resources: Element, name: String, values: List<String
 }
 
 private fun removeResource(resources: Element, tagName: String, name: String) {
-    for (index in resources.childNodes.length - 1 downTo 0) {
-        val element = resources.childNodes.item(index) as? Element ?: continue
+    // Android's DOM copies the children on every getChildNodes() call.
+    // Take one snapshot and remove backwards so both snapshot and live lists work.
+    val childNodes = resources.childNodes
+    for (index in childNodes.length - 1 downTo 0) {
+        val element = childNodes.item(index) as? Element ?: continue
         if (element.tagName == tagName && element.getAttribute("name") == name) {
             resources.removeChild(element)
         }
