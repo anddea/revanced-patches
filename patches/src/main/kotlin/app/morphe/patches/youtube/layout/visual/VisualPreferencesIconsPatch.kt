@@ -594,6 +594,7 @@ private val emptyTitles = setOf(
     "revanced_advanced_video_quality_menu",
     "revanced_advanced_video_quality_menu_type",
     "revanced_change_start_page_type",
+    "revanced_custom_playback_audio_pitches",
     "revanced_custom_playback_speed_menu_type",
     "revanced_custom_playback_speeds",
     "revanced_debug_protobuffer",

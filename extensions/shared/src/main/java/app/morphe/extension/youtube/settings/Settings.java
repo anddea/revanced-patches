@@ -930,6 +930,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting PLAYBACK_AUDIO_TIME_STRETCHING = new BooleanSetting("revanced_playback_audio_time_stretching", TRUE, parentsAll(ENABLE_CUSTOM_PLAYBACK_SPEED, ENABLE_PLAYBACK_AUDIO_PITCH));
     public static final EnumSetting<PlaybackSpeedMenuType> CUSTOM_PLAYBACK_SPEED_MENU_TYPE = new EnumSetting<>("revanced_custom_playback_speed_menu_type", PlaybackSpeedMenuType.CUSTOM_MODERN, parent(ENABLE_CUSTOM_PLAYBACK_SPEED));
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds", "0.25\n0.5\n0.75\n1.0\n1.25\n1.5\n1.75\n2.0\n2.25\n2.5", true, parent(ENABLE_CUSTOM_PLAYBACK_SPEED));
+    public static final StringSetting CUSTOM_PLAYBACK_AUDIO_PITCHES = new StringSetting("revanced_custom_playback_audio_pitches", "", true, parent(ENABLE_PLAYBACK_AUDIO_PITCH));
 
     // PreferenceScreen: Video - Video quality
     public static final IntegerSetting DEFAULT_VIDEO_QUALITY_MOBILE = new IntegerSetting("revanced_default_video_quality_mobile", -2);

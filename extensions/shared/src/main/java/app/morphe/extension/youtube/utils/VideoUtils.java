@@ -130,6 +130,7 @@ import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.video.CustomPlaybackAudioPitchPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
 import app.morphe.extension.youtube.patches.video.PlaybackSpeedPatch;
@@ -1037,7 +1038,7 @@ public class VideoUtils extends IntentUtils {
                 SeekBar pitchSlider = new SeekBar(context);
                 pitchSlider.setFocusable(true);
                 pitchSlider.setFocusableInTouchMode(true);
-                pitchSlider.setMax(pitchToProgressValue(CustomPlaybackSpeedPatch.getPlaybackSpeedMaximum()));
+                pitchSlider.setMax(pitchToProgressValue(CustomPlaybackAudioPitchPatch.PLAYBACK_AUDIO_PITCH_MAXIMUM));
                 pitchSlider.setProgress(pitchToProgressValue(currentPitch));
                 pitchSlider.getProgressDrawable().setColorFilter(
                         ThemeUtils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
@@ -1052,7 +1053,7 @@ public class VideoUtils extends IntentUtils {
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         if (fromUser) {
                             userSelectedPitch.accept(roundSpeedToNearestIncrement(
-                                    CustomPlaybackSpeedPatch.getPlaybackSpeedMinimum() + (progress / PROGRESS_BAR_VALUE_SCALE)));
+                                    CustomPlaybackAudioPitchPatch.PLAYBACK_AUDIO_PITCH_MINIMUM + (progress / PROGRESS_BAR_VALUE_SCALE)));
                         }
                     }
 
@@ -1072,14 +1073,23 @@ public class VideoUtils extends IntentUtils {
                 GridLayout pitchPresetGrid = new GridLayout(context);
                 pitchPresetGrid.setColumnCount(5);
                 pitchPresetGrid.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
-                pitchPresetGrid.setRowCount(1);
+                final float[] customPitchPresets = CustomPlaybackAudioPitchPatch.getPlaybackAudioPitches();
+                final String[] defaultPitchButtonLabels = {"/2", "−1st", "1x", "+1st", "×2"};
+                final boolean hasCustomPitchPresets = customPitchPresets.length > 0;
+                final int pitchPresetCount = hasCustomPitchPresets
+                        ? customPitchPresets.length
+                        : defaultPitchButtonLabels.length;
+                pitchPresetGrid.setRowCount((int) Math.ceil(pitchPresetCount / 5.0));
                 LinearLayout.LayoutParams pitchGridParams = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 pitchGridParams.setMargins(dip4, dip12, dip4, dip12);
                 pitchPresetGrid.setLayoutParams(pitchGridParams);
 
-                String[] pitchButtonLabels = {"/2", "−1st", "1x", "+1st", "×2"};
-                for (String pitchLabel : pitchButtonLabels) {
+                for (int i = 0; i < pitchPresetCount; i++) {
+                    final float customPitch = hasCustomPitchPresets ? customPitchPresets[i] : 0;
+                    final String pitchLabel = hasCustomPitchPresets
+                            ? formatSpeedStringX(customPitch, 2)
+                            : defaultPitchButtonLabels[i];
                     FrameLayout pitchButtonContainer = new FrameLayout(context);
                     GridLayout.LayoutParams pitchContainerParams = new GridLayout.LayoutParams();
                     pitchContainerParams.width = 0;
@@ -1106,6 +1116,11 @@ public class VideoUtils extends IntentUtils {
                     pitchPresetButton.setLayoutParams(pitchButtonParams);
 
                     pitchPresetButton.setOnClickListener(v -> {
+                        if (hasCustomPitchPresets) {
+                            userSelectedPitch.accept(customPitch);
+                            return;
+                        }
+
                         final float pitch = VideoInformation.getPlaybackAudioPitch();
                         final float newValue = switch (pitchLabel) {
                             case "/2" -> pitch * 0.5f;
@@ -1447,7 +1462,7 @@ public class VideoUtils extends IntentUtils {
         }
 
         @Override
-        protected void onDraw(Canvas canvas) {
+        protected void onDraw(@NonNull Canvas canvas) {
             super.onDraw(canvas);
             float inset = strokeWidth / 2.0f;
             bounds.set(inset, inset, getWidth() - inset, getHeight() - inset);
@@ -1470,6 +1485,7 @@ public class VideoUtils extends IntentUtils {
             }
         }
 
+        @SuppressWarnings("SameParameterValue")
         private static int withAlpha(int color, int alpha) {
             return (color & 0x00FFFFFF) | (Math.max(0, Math.min(255, alpha)) << 24);
         }
@@ -1681,7 +1697,7 @@ public class VideoUtils extends IntentUtils {
     private static final double ONE_SEMITONE = Math.pow(2.0, 1.0 / 12.0);
 
     private static int pitchToProgressValue(float pitch) {
-        return (int) ((pitch - CustomPlaybackSpeedPatch.getPlaybackSpeedMinimum()) * PROGRESS_BAR_VALUE_SCALE);
+        return (int) ((pitch - CustomPlaybackAudioPitchPatch.PLAYBACK_AUDIO_PITCH_MINIMUM) * PROGRESS_BAR_VALUE_SCALE);
     }
 
     private static LinearLayout createSectionHeader(
