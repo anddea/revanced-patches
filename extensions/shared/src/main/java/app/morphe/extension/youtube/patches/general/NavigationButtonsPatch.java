@@ -97,6 +97,8 @@ public final class NavigationButtonsPatch {
             Settings.SHOW_TOOLBAR_SETTINGS_BUTTON_INDEX;
     private static final boolean SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE =
             Settings.SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE.get();
+    private static final boolean SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE_IN_YOU_TAB =
+            Settings.SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE_IN_YOU_TAB.get();
 
     private static final String SETTINGS_BUTTON_ENUM_NAME = "SETTINGS_CAIRO";
 
@@ -547,6 +549,13 @@ public final class NavigationButtonsPatch {
     public static void setToolbarSettingsOnClickListener(String enumName, View toolbarView) {
         if (!SHOW_TOOLBAR_SETTINGS_BUTTON || !SETTINGS_BUTTON_ENUM_NAME.equals(enumName)
                 || !(toolbarView instanceof ViewGroup viewGroup)) {
+            return;
+        }
+
+        // The hook also sees YouTube's native Settings button in the "You" tab. Keep its original
+        // behavior when the toolbar action override is not meant to apply there.
+        if (!SHOW_TOOLBAR_SETTINGS_BUTTON_TYPE_IN_YOU_TAB
+                && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY) {
             return;
         }
 

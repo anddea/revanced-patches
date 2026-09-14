@@ -652,6 +652,7 @@ private val emptyTitles = setOf(
     "revanced_shorts_double_tap_to_like_animation",
     "revanced_shorts_navigation_bar_height_percentage",
     "revanced_show_settings_button_type",
+    "revanced_show_toolbar_settings_button_type_in_you_tab",
     "revanced_show_toolbar_settings_button_index",
     "revanced_show_toolbar_settings_button_type",
     "revanced_show_toolbar_settings_button_type_in_you_tab",
