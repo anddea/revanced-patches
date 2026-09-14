@@ -24,7 +24,6 @@ import app.morphe.extension.shared.oauth2.object.ActivationCodeData;
 import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
-import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -119,13 +118,13 @@ public abstract class OAuth2Preference extends Preference implements Preference.
     };
 
     private void registerApplicationOnResumeCallback() {
-        SpoofVideoStreamsPatch.getApplication().registerActivityLifecycleCallbacks(
+        ((Application) getContext().getApplicationContext()).registerActivityLifecycleCallbacks(
                 ACTIVITY_LIFECYCLE_CALLBACKS
         );
     }
 
     private void unregisterApplicationOnResumeCallback() {
-        SpoofVideoStreamsPatch.getApplication().unregisterActivityLifecycleCallbacks(
+        ((Application) getContext().getApplicationContext()).unregisterActivityLifecycleCallbacks(
                 ACTIVITY_LIFECYCLE_CALLBACKS
         );
     }

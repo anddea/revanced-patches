@@ -77,6 +77,7 @@ import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.youtube.utils.patch.PatchList.THEME
 import app.morphe.patches.youtube.utils.playservice.is_20_00_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
@@ -179,6 +180,25 @@ private val stockDarkThemeColors = linkedMapOf(
     "yt_black0_opacity60" to "#99282828",
     "yt_black_pure_opacity80" to "#CC000000",
     "yt_black_pure_opacity60" to "#99000000",
+)
+
+/**
+ * YouTube 21.13 introduced baseline styles that bypass the legacy yt_* color aliases. Keep their
+ * neutral references connected to the same aliases, but leave static black/player scrims stock.
+ */
+private val youtube21_13DarkThemeColorAliases = linkedMapOf(
+    "yt_ref_color_constants_baseline_black_black0" to "yt_black0",
+    "yt_ref_color_constants_baseline_black_black1" to "yt_black1",
+    "yt_ref_color_constants_baseline_black_black2" to "yt_black2",
+    "yt_ref_color_constants_baseline_black_black3" to "yt_black3",
+    "yt_ref_color_constants_baseline_black_black4" to "yt_black4",
+)
+
+private val youtube21_13LightThemeColorAliases = linkedMapOf(
+    "yt_ref_color_constants_baseline_white_white1" to "yt_white1",
+    "yt_ref_color_constants_baseline_white_white2" to "yt_white2",
+    "yt_ref_color_constants_baseline_white_white3" to "yt_white3",
+    "yt_ref_color_constants_baseline_white_white4" to "yt_white4",
 )
 
 private val runtimeDarkThemeResources = stockDarkThemeColors.keys.associateWith { name -> "morphe_runtime_dark_theme_${name.removePrefix("yt_")}" }
@@ -544,18 +564,33 @@ val themePatch = resourcePatch(
 
         // Keep YouTube's neutral player colors stock globally. The status-bar fallback shares the
         // translucent entries, so its selected RGB is applied only at the bytecode fingerprint.
-        val precompiledDarkThemeResources = stockDarkThemeColors.filterKeys { name ->
-            name !in stockPlayerColorNames && name in existingColorResourceNames
-        } + setOf(
-            "yt_ref_color_constants_default_baseline_black_black1",
-            "yt_ref_color_constants_default_baseline_black_black3",
-            "yt_sys_color_baseline_dark_menu_background",
-            "yt_sys_color_baseline_dark_static_black",
-            "yt_sys_color_baseline_dark_raised_background",
-            "yt_sys_color_baseline_dark_base_background",
-            "yt_sys_color_baseline_light_inverted_background",
-            "yt_sys_color_baseline_light_static_black",
-        ).filter(existingColorResourceNames::contains).associateWith { "#FF0F0F0F" }
+        val youtube21_13DarkThemeResources = if (is_21_13_or_greater) {
+            youtube21_13DarkThemeColorAliases
+                .filterKeys(existingColorResourceNames::contains)
+                .mapValues { (_, stockName) -> stockDarkThemeColors.getValue(stockName) }
+        } else {
+            emptyMap()
+        }
+        val youtube21_13LightThemeResources = if (is_21_13_or_greater) {
+            youtube21_13LightThemeColorAliases.keys.filter(existingColorResourceNames::contains)
+        } else {
+            emptySet()
+        }
+        val precompiledDarkThemeResources = (
+            stockDarkThemeColors.filterKeys { name ->
+                name !in stockPlayerColorNames && name in existingColorResourceNames
+            } + setOf(
+                "yt_ref_color_constants_default_baseline_black_black1",
+                "yt_ref_color_constants_default_baseline_black_black3",
+                "yt_sys_color_baseline_dark_menu_background",
+                "yt_sys_color_baseline_dark_static_black",
+                "yt_sys_color_baseline_dark_raised_background",
+                "yt_sys_color_baseline_dark_base_background",
+                "yt_sys_color_baseline_light_inverted_background",
+                "yt_sys_color_baseline_light_static_black",
+            ).filter(existingColorResourceNames::contains).associateWith { "#FF0F0F0F" }
+                + youtube21_13DarkThemeResources
+        )
 
         val precompiledLightThemeResources = setOf(
             "yt_white1",
@@ -569,7 +604,22 @@ val themePatch = resourcePatch(
             "yt_sys_color_baseline_light_base_background",
             "yt_sys_color_baseline_light_raised_background",
             "yt_sys_color_baseline_light_menu_background",
-        ).filter(existingColorResourceNames::contains)
+        ).filter(existingColorResourceNames::contains) + youtube21_13LightThemeResources
+        val youtube21_13RuntimeThemeAliases = if (is_21_13_or_greater) {
+            youtube21_13DarkThemeColorAliases
+                .filterKeys(existingColorResourceNames::contains)
+                .mapValues { (_, stockName) -> runtimeDarkThemeResources.getValue(stockName) }
+                .toMutableMap()
+                .apply {
+                    putAll(
+                        youtube21_13LightThemeColorAliases
+                            .filterKeys(existingColorResourceNames::contains)
+                            .mapValues { RUNTIME_LIGHT_THEME_COLOR },
+                    )
+                }
+        } else {
+            emptyMap()
+        }
         // Android 8–10 have no public ResourcesLoader API. Precompile every dark/light pair under
         // one synthetic MCC and a pair-specific MNC, plus separate foreground-disabled MNCs for
         // the app's dark and light appearances. A day/night qualifier cannot be used here because
@@ -685,6 +735,13 @@ val themePatch = resourcePatch(
 
                 for (i in 0 until childNodes.length) {
                     val node = childNodes.item(i) as? Element ?: continue
+
+                    val youtube21_13RuntimeThemeAlias =
+                        youtube21_13RuntimeThemeAliases[node.getAttribute("name")]
+                    if (youtube21_13RuntimeThemeAlias != null) {
+                        node.textContent = "@color/$youtube21_13RuntimeThemeAlias"
+                        continue
+                    }
 
                     node.textContent = when (node.getAttribute("name")) {
                         in stockPlayerColorNames -> continue

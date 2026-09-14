@@ -59,7 +59,8 @@ public final class CommentsFilter extends Filter {
                 Settings.HIDE_CHANNEL_GUIDELINES,
                 "channel_guidelines_entry_banner",
                 "community_guidelines",
-                "sponsorships_comments_upsell"
+                "sponsorships_comments_upsell",
+                "viewer_engagement_message"
         );
 
         comments = new StringFilterGroup(

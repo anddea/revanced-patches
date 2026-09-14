@@ -15,6 +15,7 @@ import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.BuilderInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import java.lang.ref.WeakReference
@@ -25,7 +26,7 @@ private var videoIdInsertIndex = -1
 
 private lateinit var backgroundPlaybackMethodRef: WeakReference<MutableMethod>
 private var backgroundPlaybackVideoIdRegister = -1
-private var backgroundPlaybackInsertIndex = -1
+private lateinit var backgroundPlaybackInsertInstruction: BuilderInstruction
 
 val videoIdPatch = bytecodePatch(
     description = "videoIdPatch",
@@ -68,7 +69,9 @@ val videoIdPatch = bytecodePatch(
                 backgroundPlaybackMethodRef = WeakReference(this)
                 val index = it.instructionMatches.first().index
                 backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
-                backgroundPlaybackInsertIndex = index + 2
+                // Video information can insert instructions before this hook. Track the
+                // instruction after move-result-object so callbacks always receive a String.
+                backgroundPlaybackInsertInstruction = getInstruction(index + 2)
             }
         }
     }
@@ -80,7 +83,7 @@ val videoIdPatch = bytecodePatch(
 internal fun hookBackgroundPlayVideoId(
     methodDescriptor: String,
 ) = backgroundPlaybackMethodRef.get()!!.addInstruction(
-    backgroundPlaybackInsertIndex++,
+    backgroundPlaybackInsertInstruction.location.index,
     "invoke-static {v$backgroundPlaybackVideoIdRegister}, $methodDescriptor",
 )
 
@@ -93,7 +96,7 @@ internal fun hookBackgroundPlayVideoId(
 internal fun hookBackgroundPlayVideoIdNoArgs(
     methodDescriptor: String,
 ) = backgroundPlaybackMethodRef.get()!!.addInstruction(
-    backgroundPlaybackInsertIndex++,
+    backgroundPlaybackInsertInstruction.location.index,
     "invoke-static { }, $methodDescriptor",
 )
 

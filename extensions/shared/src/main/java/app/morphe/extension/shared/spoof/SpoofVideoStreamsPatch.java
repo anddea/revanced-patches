@@ -14,15 +14,11 @@
 
 package app.morphe.extension.shared.spoof;
 
-import android.app.Activity;
-import android.app.Application;
 import android.net.Uri;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -84,16 +80,6 @@ public class SpoofVideoStreamsPatch {
      * request builder, where its authentication headers are available.
      */
     private static final AtomicReference<String> pendingLegacyVideoId = new AtomicReference<>("");
-
-    private static WeakReference<Application> mainActivityRef = new WeakReference<>(null);
-
-    public static void setMainActivity(Activity activity) {
-        mainActivityRef = new WeakReference<>(activity.getApplication());
-    }
-
-    public static Application getApplication() {
-        return mainActivityRef.get();
-    }
 
     public static boolean isPatchIncluded() {
         return false;

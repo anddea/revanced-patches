@@ -75,6 +75,7 @@ import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.youtube.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE
 import app.morphe.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_12_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.settingsFragment
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -121,8 +122,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 private lateinit var bytecodeContext: BytecodePatchContext
 
-internal fun getBytecodeContext() = bytecodeContext
-
+@Suppress("DEPRECATION")
 private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
 ) {
@@ -202,7 +202,7 @@ private val settingsBytecodePatch = bytecodePatch(
             }
         }
 
-        if (is_20_31_or_greater) {
+        if (is_20_31_or_greater && !is_21_12_or_greater) {
             boldIconsFeatureFlagMethodFingerprint.method.insertLiteralOverride(
                 BOLD_ICONS_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useBoldIcons(Z)Z"
@@ -480,7 +480,7 @@ val settingsPatch = resourcePatch(
             "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
             "SETTINGS: RESTORE_OLD_SETTINGS_MENUS",
         )
-        if (is_20_31_or_greater) {
+        if (is_20_31_or_greater && !is_21_12_or_greater) {
             generalExperimentalSettings += "SETTINGS: DISABLE_BOLD_ICONS"
         }
         ResourceUtils.addPreference(

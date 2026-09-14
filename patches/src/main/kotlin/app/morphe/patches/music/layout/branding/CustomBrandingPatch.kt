@@ -70,7 +70,6 @@ import app.morphe.patches.music.utils.resourceid.actionBarLogoRingo2
 import app.morphe.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.music.utils.resourceid.ytmLogoRingo2
 import app.morphe.patches.music.utils.settings.CategoryType
-import app.morphe.patches.music.utils.settings.ResourceUtils
 import app.morphe.patches.music.utils.settings.ResourceUtils.addCustomPreference
 import app.morphe.patches.music.utils.settings.ResourceUtils.addListPreference
 import app.morphe.patches.music.utils.settings.ResourceUtils.addSwitchPreference
@@ -302,18 +301,6 @@ val customBrandingPatch = resourcePatch(
                 setSummary = true,
             )
         }
-        ResourceUtils.movePreferencesToTop(
-            CategoryType.GENERAL.value,
-            listOf(
-                "morphe_custom_branding_name",
-                "morphe_settings_name",
-                "morphe_custom_branding_icon",
-                "morphe_custom_branding_splash_animation_size",
-                "morphe_custom_branding_use_as_system_splash",
-                "morphe_custom_branding_apply_to_rvx_settings",
-            ),
-        )
-
         updatePatchStatus(CUSTOM_BRANDING_FOR_YOUTUBE_MUSIC)
     }
 

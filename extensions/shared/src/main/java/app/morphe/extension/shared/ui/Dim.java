@@ -20,6 +20,13 @@ public final class Dim {
         return Utils.getResources().getDisplayMetrics();
     }
 
+    /**
+     * Returns the current display height in pixels.
+     */
+    public static int getScreenHeight() {
+        return getMetrics().heightPixels;
+    }
+
     public static int dp(int value) {
         return Utils.dipToPixels(value);
     }

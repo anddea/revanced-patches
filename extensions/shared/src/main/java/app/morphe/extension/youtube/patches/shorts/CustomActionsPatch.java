@@ -46,6 +46,7 @@ import static app.morphe.extension.shared.utils.ResourceUtils.getString;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.youtube.patches.components.ShortsCustomActionsFilter.isShortsFlyoutMenuVisible;
 import static app.morphe.extension.youtube.shared.RootView.isShortsActive;
+import static app.morphe.extension.youtube.settings.YouTubeActivityHook.USE_BOLD_ICONS;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
 import android.content.Context;
@@ -534,7 +535,7 @@ public final class CustomActionsPatch {
                      @NonNull Runnable onClickAction,
                      @Nullable Runnable onLongClickAction
         ) {
-            String selectedIcon = Utils.appIsUsingBoldIcons() ? boldIcon : icon;
+            String selectedIcon = USE_BOLD_ICONS ? boldIcon : icon;
             Drawable drawable = ResourceUtils.getDrawable(selectedIcon);
             if (drawable == null && !selectedIcon.equals(icon)) {
                 // Bold resource names differ between supported YouTube versions. Use the normal

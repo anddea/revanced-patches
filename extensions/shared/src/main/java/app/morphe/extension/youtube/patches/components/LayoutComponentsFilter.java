@@ -48,6 +48,16 @@ public final class LayoutComponentsFilter extends Filter {
     /**
      * Injection point.
      */
+    public static boolean disableUIPaddingFeatureFlags(boolean original) {
+        if (Settings.HIDE_VISUAL_SPACER.get()) {
+            return false;
+        }
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static void hideSyncButton(View view) {
         Utils.hideViewBy0dpUnderCondition(Settings.HIDE_SYNC_BUTTON, view);
     }

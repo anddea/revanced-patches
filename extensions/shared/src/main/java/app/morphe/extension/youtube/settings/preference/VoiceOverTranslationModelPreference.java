@@ -47,6 +47,7 @@ import app.morphe.extension.shared.ui.CustomDialog;
 import app.morphe.extension.shared.ui.Dim;
 import app.morphe.extension.youtube.patches.voiceovertranslation.GoogleVoiceOverTranslationPatch;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.settings.YouTubeActivityHook;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class VoiceOverTranslationModelPreference extends CustomDialogListPreference {
@@ -110,7 +111,7 @@ public class VoiceOverTranslationModelPreference extends CustomDialogListPrefere
 
         final int fg = ThemeUtils.getAppForegroundColor();
         final int secondaryFg = Color.argb(153, Color.red(fg), Color.green(fg), Color.blue(fg));
-        final int checkmarkRes = Utils.appIsUsingBoldIcons() ? DRAWABLE_CHECKMARK_BOLD : DRAWABLE_CHECKMARK;
+        final int checkmarkRes = YouTubeActivityHook.USE_BOLD_ICONS ? DRAWABLE_CHECKMARK_BOLD : DRAWABLE_CHECKMARK;
         LayoutInflater inflater = LayoutInflater.from(context);
 
         LinearLayout contentLayout = new LinearLayout(context);

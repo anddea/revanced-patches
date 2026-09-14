@@ -58,11 +58,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Pair;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import androidx.annotation.Nullable;
-
-import com.facebook.litho.ComponentHost;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -207,8 +206,8 @@ public final class DownloadActionsPatch {
                 View senderView = senderViewRef.get();
                 ViewParent parent = senderView == null ? null : senderView.getParent();
                 while (parent != null) {
-                    if (parent instanceof ComponentHost componentHost) {
-                        CharSequence description = componentHost.getContentDescription();
+                    if (parent instanceof ViewGroup viewGroupParent) {
+                        CharSequence description = viewGroupParent.getContentDescription();
                         if (description != null) {
                             flyoutBuffer = getTrimmedHorizontalShelfBuffer(
                                     flyoutBuffer,

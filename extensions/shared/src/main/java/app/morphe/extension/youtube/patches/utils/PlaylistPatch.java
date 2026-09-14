@@ -52,6 +52,7 @@ package app.morphe.extension.youtube.patches.utils;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.runOnMainThreadDelayed;
 import static app.morphe.extension.youtube.shared.RootView.getContext;
+import static app.morphe.extension.youtube.settings.YouTubeActivityHook.USE_BOLD_ICONS;
 import static app.morphe.extension.youtube.utils.VideoUtils.launchVideoExternalDownloader;
 import static app.morphe.extension.youtube.utils.VideoUtils.openPlaylist;
 import static app.morphe.extension.youtube.utils.VideoUtils.reloadVideo;
@@ -683,7 +684,7 @@ public class PlaylistPatch {
         QueueManager(@NonNull String label, @NonNull String icon, @NonNull String boldIcon,
                      @NonNull Runnable onClickAction) {
             this.drawableId = ResourceUtils.getDrawableIdentifier(
-                    Utils.appIsUsingBoldIcons() ? boldIcon : icon);
+                    USE_BOLD_ICONS ? boldIcon : icon);
             this.label = ResourceUtils.getString(label);
             this.onClickAction = onClickAction;
         }
