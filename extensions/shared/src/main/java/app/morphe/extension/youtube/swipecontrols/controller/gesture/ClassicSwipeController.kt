@@ -7,10 +7,9 @@ import app.morphe.extension.youtube.settings.Settings
 import app.morphe.extension.youtube.shared.PlayerControlsVisibilityObserver
 import app.morphe.extension.youtube.shared.PlayerControlsVisibilityObserverImpl
 import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
+import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider.SwipeZoneAction
 import app.morphe.extension.youtube.swipecontrols.SwipeControlsHostActivity
 import app.morphe.extension.youtube.swipecontrols.controller.gesture.core.BaseGestureController
-import app.morphe.extension.youtube.swipecontrols.controller.gesture.core.SwipeDetector
-import app.morphe.extension.youtube.swipecontrols.misc.contains
 import app.morphe.extension.youtube.swipecontrols.misc.toPoint
 
 /**
@@ -36,41 +35,10 @@ class ClassicSwipeController(
     private val swipeDelayMs = Settings.SWIPE_DELAY.get()
 
     override val shouldForceInterceptEvents: Boolean
-        get() = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL
-
-    override fun isInSwipeZone(motionEvent: MotionEvent): Boolean {
-        // A touch stream starts before its direction is known. Only vertical zones may intercept
-        // at that point, so a vertical player gesture starting inside a horizontal zone can still
-        // reach YouTube. Once the direction is detected, validate against that axis only.
-        return when (currentSwipe) {
-            SwipeDetector.SwipeDirection.HORIZONTAL -> isInHorizontalSwipeZone(motionEvent)
-            SwipeDetector.SwipeDirection.VERTICAL,
-            SwipeDetector.SwipeDirection.NONE -> isInVerticalSwipeZone(motionEvent)
+        get() {
+            val origin = lastOnDownEvent?.toPoint() ?: return false
+            return swipeActionAt(origin, currentSwipe) != SwipeZoneAction.OFF
         }
-    }
-
-    private fun isInVerticalSwipeZone(motionEvent: MotionEvent): Boolean {
-        val inVolumeZone = if (controller.config.enableVolumeControls) {
-            (motionEvent.toPoint() in controller.zones.volume)
-        } else {
-            false
-        }
-        val inBrightnessZone = if (controller.config.enableBrightnessControl) {
-            (motionEvent.toPoint() in controller.zones.brightness)
-        } else {
-            false
-        }
-
-        return inVolumeZone || inBrightnessZone
-    }
-
-    private fun isInHorizontalSwipeZone(motionEvent: MotionEvent): Boolean {
-        val inSpeedZone =
-            controller.config.enableSpeedControl && (motionEvent.toPoint() in controller.zones.speed)
-        val inSeekZone =
-            controller.config.enableSeekControl && (motionEvent.toPoint() in controller.zones.seek)
-        return inSpeedZone || inSeekZone
-    }
 
     override fun shouldDropMotion(motionEvent: MotionEvent): Boolean {
         // ignore gestures with more than one pointer
@@ -100,8 +68,8 @@ class ClassicSwipeController(
         lastOnDownEvent?.recycle()
         lastOnDownEvent = MotionEvent.obtain(motionEvent)
 
-        // must be inside swipe zone
-        return isInSwipeZone(motionEvent) || isInHorizontalSwipeZone(motionEvent)
+        // must be inside an active swipe zone
+        return isInSwipeZone(motionEvent)
     }
 
     override fun onUp(motionEvent: MotionEvent) {
@@ -150,74 +118,26 @@ class ClassicSwipeController(
         if (!config.enableSwipeControlsLockMode && config.isScreenLocked) return false
 
         // Ensure the gesture starts in the valid zone.
-        // If we swipe Vertically, but we are not in the Volume/Brightness zone (e.g. we are on the Description Panel,
-        // Comments), we must return false immediately to allow the view hierarchy (ScrollView) to handle the touch.
-        val validVertical = currentSwipe == SwipeDetector.SwipeDirection.VERTICAL && isInVerticalSwipeZone(from)
-        val validHorizontal = currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL && isInHorizontalSwipeZone(from)
+        // If the swipe did not start in an active zone, let the view hierarchy handle it.
+        if (!shouldForceInterceptEvents) return false
 
-        if (!validVertical && !validHorizontal) {
-            return false
-        }
-
-        // If the swipe is already confirmed, process immediately
+        // If the swipe is already confirmed, process immediately.
         if (isSwipeConfirmed) {
-            return if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
-                processVerticalSwipe(from, distanceY)
-            } else {
-                processHorizontalSwipe(from, distanceX)
-            }
+            return applySwipeAction(from, distanceX, distanceY)
         }
 
         // If not confirmed, queue the runnable (if not already queued)
         if (delayedSwipeRunnable == null) {
             delayedSwipeRunnable = Runnable {
                 isSwipeConfirmed = true
-                // Execute the action that was pending
-                if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
-                    processVerticalSwipe(from, distanceY)
-                } else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL) {
-                    processHorizontalSwipe(from, distanceX)
-                }
+                // Execute the action that was pending.
+                applySwipeAction(from, distanceX, distanceY)
             }
             handler.postDelayed(delayedSwipeRunnable!!, swipeDelayMs)
         }
 
         // Return true to indicate we are handling (or waiting to handle) the gesture
         return true
-    }
-
-    // Logic for vertical swipes (Volume/Brightness)
-    private fun processVerticalSwipe(from: MotionEvent, distanceY: Double): Boolean {
-        return when (from.toPoint()) {
-            in controller.zones.volume -> {
-                scrollVolume(distanceY)
-                true
-            }
-            in controller.zones.brightness -> {
-                scrollBrightness(distanceY)
-                true
-            }
-            else -> false
-        }
-    }
-
-    // Logic for horizontal swipes (Seek/Speed)
-    private fun processHorizontalSwipe(from: MotionEvent, distanceX: Double): Boolean {
-        return when (from.toPoint()) {
-            in controller.zones.speed -> {
-                if (config.enableSpeedControl) {
-                    scrollSpeed(distanceX)
-                    true
-                } else false
-            }
-            in controller.zones.seek -> {
-                if (config.enableSeekControl) {
-                    scrollSeek(distanceX)
-                    true
-                } else false
-            }
-            else -> false
-        }
     }
 
     private fun cancelDelayedSwipe() {
