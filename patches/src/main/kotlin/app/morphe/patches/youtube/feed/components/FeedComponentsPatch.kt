@@ -3,6 +3,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * Original hard forked code:
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
@@ -33,6 +37,7 @@ import app.morphe.patches.youtube.utils.playservice.is_20_02_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_10_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_26_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.bar
 import app.morphe.patches.youtube.utils.resourceid.captionToggleContainer
@@ -126,28 +131,56 @@ val feedComponentsPatch = bytecodePatch(
 
         // region patch for hide caption button
 
-        captionsButtonFingerprint.methodOrThrow().apply {
-            val constIndex = indexOfFirstLiteralInstructionOrThrow(captionToggleContainer)
-            val insertIndex = indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.IF_EQZ)
-            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        if (!is_21_13_or_greater) {
+            captionsButtonFingerprint.methodOrThrow().apply {
+                val constIndex = indexOfFirstLiteralInstructionOrThrow(captionToggleContainer)
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.IF_EQZ)
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-            addInstructions(
-                insertIndex, """
-                    invoke-static {v$insertRegister}, $FEED_CLASS_DESCRIPTOR->hideCaptionsButton(Landroid/view/View;)Landroid/view/View;
-                    move-result-object v$insertRegister
-                    """
-            )
-        }
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $FEED_CLASS_DESCRIPTOR->hideCaptionsButton(Landroid/view/View;)Landroid/view/View;
+                        move-result-object v$insertRegister
+                        """
+                )
+            }
 
-        captionsButtonSyntheticFingerprint.methodOrThrow().apply {
-            val constIndex = indexOfFirstLiteralInstructionOrThrow(captionToggleContainer)
-            val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
-            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            captionsButtonSyntheticFingerprint.methodOrThrow().apply {
+                val constIndex = indexOfFirstLiteralInstructionOrThrow(captionToggleContainer)
+                val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            addInstruction(
-                targetIndex + 1,
-                "invoke-static {v$targetRegister}, $FEED_CLASS_DESCRIPTOR->hideCaptionsButtonContainer(Landroid/view/View;)V"
-            )
+                addInstruction(
+                    targetIndex + 1,
+                    "invoke-static {v$targetRegister}, $FEED_CLASS_DESCRIPTOR->hideCaptionsButtonContainer(Landroid/view/View;)V"
+                )
+            }
+        } else {
+            ModernCaptionsButtonFingerprint.let {
+                it.method.apply {
+                    val insertIndex = it.instructionMatches.first().index
+                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$insertRegister}, $FEED_CLASS_DESCRIPTOR->hideCaptionsButton(Landroid/view/View;)Landroid/view/View;
+                            move-result-object v$insertRegister
+                            """
+                    )
+                }
+            }
+
+            ModernCaptionsButtonSyntheticFingerprint.let {
+                it.method.apply {
+                    val checkCastIndex = it.instructionMatches.last().index
+                    val insertRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+
+                    addInstruction(
+                        checkCastIndex + 1,
+                        "invoke-static {v$insertRegister}, $FEED_CLASS_DESCRIPTOR->hideCaptionsButtonContainer(Landroid/view/View;)V"
+                    )
+                }
+            }
         }
 
         // endregion
@@ -370,8 +403,14 @@ val feedComponentsPatch = bytecodePatch(
 
         channelTabRendererFingerprint.matchOrThrow().let {
             it.method.apply {
-                val iteratorIndex = indexOfFirstInstructionOrThrow {
-                    getReference<MethodReference>()?.name == "hasNext"
+                val iteratorIndex = if (is_21_13_or_greater) {
+                    indexOfFirstInstructionReversedOrThrow {
+                        getReference<MethodReference>()?.name == "hasNext"
+                    }
+                } else {
+                    indexOfFirstInstructionOrThrow {
+                        getReference<MethodReference>()?.name == "hasNext"
+                    }
                 }
                 val iteratorRegister =
                     getInstruction<FiveRegisterInstruction>(iteratorIndex).registerC

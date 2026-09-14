@@ -16,6 +16,7 @@ import app.morphe.extension.shared.utils.ResourceUtils
 import app.morphe.extension.shared.utils.Utils
 import app.morphe.extension.youtube.patches.player.PlayerPatch
 import app.morphe.extension.youtube.settings.Settings
+import app.morphe.extension.youtube.settings.YouTubeActivityHook
 import java.lang.ref.WeakReference
 import androidx.core.graphics.createBitmap
 
@@ -116,7 +117,7 @@ class PlayerControlButton(
      */
     fun setIcon(iconResourceName: String) {
         Utils.verifyOnMainThread()
-        val selectedIconResourceName = if (Utils.appIsUsingBoldIcons()) {
+        val selectedIconResourceName = if (YouTubeActivityHook.USE_BOLD_ICONS) {
             "${iconResourceName}_bold"
         } else {
             iconResourceName

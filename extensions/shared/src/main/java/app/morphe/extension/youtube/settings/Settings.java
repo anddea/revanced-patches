@@ -19,6 +19,7 @@ import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviou
 import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
 import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_21_29_OR_GREATER;
 
 import android.content.Context;
 import android.os.Build;
@@ -227,6 +228,7 @@ public class Settings extends SharedYouTubeSettings {
 
     // PreferenceScreen: Feed
     public static final BooleanSetting HIDE_ALBUM_CARDS = new BooleanSetting("revanced_hide_album_card", FALSE);
+    public static final BooleanSetting HIDE_AUTO_DUBBED_LABEL = new BooleanSetting("morphe_hide_auto_dubbed_label", FALSE);
     public static final BooleanSetting HIDE_FEED_CAPTIONS_BUTTON = new BooleanSetting("revanced_hide_feed_captions_button", FALSE, true);
     public static final BooleanSetting HIDE_CHIPS_SHELF = new BooleanSetting("revanced_hide_chips_shelf", TRUE);
     public static final EnumSetting<FeedComponentsFilter.ExpandableCardStyle> HIDE_EXPANDABLE_CARD =
@@ -234,6 +236,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_EXPANDABLE_SHELF = new BooleanSetting("revanced_hide_expandable_shelf", TRUE);
     public static final BooleanSetting HIDE_FLOATING_BUTTON = new BooleanSetting("revanced_hide_floating_button", FALSE, true);
     public static final BooleanSetting HIDE_IMAGE_SHELF = new BooleanSetting("revanced_hide_image_shelf", TRUE);
+    public static final BooleanSetting HIDE_HYPED_LABEL = new BooleanSetting("morphe_hide_hyped_label", FALSE);
     public static final BooleanSetting HIDE_INVITE_TO_MESSAGE_CARD = new BooleanSetting("morphe_hide_invite_to_message_card", TRUE);
     public static final BooleanSetting HIDE_LATEST_POSTS = new BooleanSetting("revanced_hide_latest_posts", TRUE);
     public static final BooleanSetting HIDE_LATEST_VIDEOS_BUTTON = new BooleanSetting("revanced_hide_latest_videos_button", TRUE);
@@ -350,7 +353,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final EnumSetting<SplashScreenAnimationStyle> SPLASH_SCREEN_ANIMATION_STYLE = new EnumSetting<>("morphe_splash_screen_animation_style", SplashScreenAnimationStyle.FPS_60_ONE_SECOND, true);
     public static final BooleanSetting ENABLE_GRADIENT_LOADING_SCREEN = new BooleanSetting("revanced_enable_gradient_loading_screen", FALSE, true);
     public static final BooleanSetting HIDE_FLOATING_MICROPHONE = new BooleanSetting("revanced_hide_floating_microphone", TRUE, true);
-    public static final BooleanSetting HIDE_VISUAL_SPACER = new BooleanSetting("revanced_hide_visual_spacer", TRUE);
+    public static final BooleanSetting HIDE_VISUAL_SPACER = new BooleanSetting("revanced_hide_visual_spacer", TRUE, true);
     public static final BooleanSetting HIDE_SYNC_BUTTON = new BooleanSetting("morphe_hide_sync_button", FALSE, true);
     public static final BooleanSetting REMOVE_VIEWER_DISCRETION_DIALOG = new BooleanSetting("revanced_remove_viewer_discretion_dialog", FALSE);
     public static final BooleanSetting FIX_TRANSCRIPT = new BooleanSetting("revanced_fix_transcript", TRUE, true);
@@ -565,6 +568,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_CAPTIONS = new BooleanSetting("revanced_hide_player_flyout_menu_captions", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_CAPTIONS_FOOTER = new BooleanSetting("revanced_hide_player_flyout_menu_captions_footer", FALSE, true, parentInverted(HIDE_PLAYER_FLYOUT_MENU_CAPTIONS));
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_LOCK_SCREEN = new BooleanSetting("revanced_hide_player_flyout_menu_lock_screen", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_ON_THE_GO = new BooleanSetting("morphe_hide_player_flyout_on_the_go", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_MORE = new BooleanSetting("revanced_hide_player_flyout_menu_more_info", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_PLAYBACK_SPEED = new BooleanSetting("revanced_hide_player_flyout_menu_playback_speed", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_QUALITY = new BooleanSetting("revanced_hide_player_flyout_quality", FALSE);
@@ -621,9 +625,10 @@ public class Settings extends SharedYouTubeSettings {
 
     // PreferenceScreen: Player - Miniplayer
     public static final BooleanSetting DISABLE_RESUMING_MINIPLAYER = new BooleanSetting("revanced_disable_resuming_miniplayer", FALSE, true);
-    public static final EnumSetting<MiniplayerType> MINIPLAYER_TYPE = new EnumSetting<>("revanced_miniplayer_type", MiniplayerType.DEFAULT, true);
+    public static final EnumSetting<MiniplayerType> MINIPLAYER_TYPE = new EnumSetting<>("revanced_miniplayer_type",
+            IS_21_29_OR_GREATER ? MiniplayerType.MODERN_4 : MiniplayerType.DEFAULT, true);
     public static final BooleanSetting MINIPLAYER_DOUBLE_TAP_ACTION = new BooleanSetting("revanced_miniplayer_double_tap_action", TRUE, true, new MiniplayerPatch.MiniplayerAnyModernAvailability());
-    public static final BooleanSetting MINIPLAYER_DRAG_AND_DROP = new BooleanSetting("revanced_miniplayer_drag_and_drop", TRUE, true, new MiniplayerPatch.MiniplayerAnyModernAvailability());
+    public static final BooleanSetting MINIPLAYER_DRAG_AND_DROP = new BooleanSetting("revanced_miniplayer_drag_and_drop", TRUE, true, new MiniplayerPatch.MiniplayerDragAndDropAvailability());
     public static final BooleanSetting MINIPLAYER_HORIZONTAL_DRAG = new BooleanSetting("revanced_miniplayer_horizontal_drag", FALSE, true, new MiniplayerPatch.MiniplayerHorizontalDragAvailability());
     public static final BooleanSetting MINIPLAYER_DISABLE_HORIZONTAL_DRAG_PLAYBACK = new BooleanSetting("revanced_miniplayer_disable_horizontal_drag_playback", FALSE, true, new MiniplayerPatch.MiniplayerHorizontalDragPlaybackAvailability());
     public static final BooleanSetting MINIPLAYER_DISABLE_HORIZONTAL_REPOSITION = new BooleanSetting("revanced_miniplayer_disable_horizontal_reposition", FALSE, true, new MiniplayerPatch.MiniplayerHorizontalRepositioningAvailability());
@@ -661,6 +666,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting OVERLAY_BUTTON_EXTERNAL_DOWNLOADER_QUEUE_MANAGER = new BooleanSetting("revanced_overlay_button_external_downloader_queue_manager", FALSE, true,
             "revanced_queue_manager_user_dialog_message", parent(OVERLAY_BUTTON_EXTERNAL_DOWNLOADER));
     public static final BooleanSetting FULLSCREEN_VIDEO_SCALE_BUTTON = new BooleanSetting("morphe_fullscreen_video_scale_button", FALSE, true);
+    public static final BooleanSetting FULLSCREEN_VIDEO_SCALE_BUTTON_FULLSCREEN_ONLY = new BooleanSetting("morphe_fullscreen_video_scale_button_fullscreen_only", FALSE, parent(FULLSCREEN_VIDEO_SCALE_BUTTON));
     public static final EnumSetting<VideoScaleMode> FULLSCREEN_VIDEO_SCALE = new EnumSetting<>("morphe_fullscreen_video_scale", VideoScaleMode.DEFAULT);
 
     public static final BooleanSetting OVERLAY_BUTTON_SPEED_DIALOG = new BooleanSetting("revanced_overlay_button_speed_dialog", FALSE);
@@ -1152,6 +1158,15 @@ public class Settings extends SharedYouTubeSettings {
             } else {
                 migrateFromOldPreferences(ytPrefs, setting, key);
             }
+        }
+
+        // 21.29+ YouTube removed all miniplayer types except modern_4 and rebuilt minimal bars.
+        if (IS_21_29_OR_GREATER && !MINIPLAYER_TYPE.isSetToDefault()
+                && MINIPLAYER_TYPE.get() != MiniplayerType.MINIMAL_BAR
+                && MINIPLAYER_TYPE.get() != MiniplayerType.MINIMAL_BAR_2
+                && MINIPLAYER_TYPE.get() != MiniplayerType.DISABLED) {
+            Logger.printInfo(() -> "Resetting miniplayer type");
+            MINIPLAYER_TYPE.resetToDefault();
         }
 
         // Migrate the pre-20.26 switch once, while preserving an explicitly selected style.

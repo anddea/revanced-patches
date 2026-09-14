@@ -1,3 +1,11 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.utils;
 
 import android.view.View;
@@ -63,5 +71,15 @@ public class PlayerControlsPatch {
      */
     public static String getPlayerTopControlsLayoutResourceName(String original) {
         return "default";
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean forcePlayerSeekbar(boolean original) {
+        if (!original) {
+            Logger.printDebug(() -> "Player seekbar feature flag is off");
+        }
+        return true;
     }
 }

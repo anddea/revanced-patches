@@ -383,6 +383,8 @@
         <SwitchPreference android:title="@string/revanced_hide_feed_captions_button_title" android:key="revanced_hide_feed_captions_button" android:summaryOn="@string/revanced_hide_feed_captions_button_on" android:summaryOff="@string/revanced_hide_feed_captions_button_off" />
         <SwitchPreference android:title="@string/revanced_hide_floating_button_title" android:key="revanced_hide_floating_button" android:summaryOn="@string/revanced_hide_floating_button_summary_on" android:summaryOff="@string/revanced_hide_floating_button_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_image_shelf_title" android:key="revanced_hide_image_shelf" android:summaryOn="@string/revanced_hide_image_shelf_summary_on" android:summaryOff="@string/revanced_hide_image_shelf_summary_off" />
+        <SwitchPreference android:title="@string/morphe_hide_auto_dubbed_label_title" android:key="morphe_hide_auto_dubbed_label" />
+        <SwitchPreference android:title="@string/morphe_hide_hyped_label_title" android:key="morphe_hide_hyped_label" />
         <SwitchPreference android:title="@string/morphe_hide_invite_to_message_card_title" android:key="morphe_hide_invite_to_message_card" android:summary="@string/morphe_hide_invite_to_message_card_summary" />
         <SwitchPreference android:title="@string/revanced_hide_chips_shelf_title" android:key="revanced_hide_chips_shelf" android:summaryOn="@string/revanced_hide_chips_shelf_on" android:summaryOff="@string/revanced_hide_chips_shelf_off" />SETTINGS: HIDE_FEED_COMPONENTS -->
 
@@ -465,6 +467,7 @@
 
             <!-- SETTINGS: FULLSCREEN_VIDEO_SCALE
             <SwitchPreference android:title="@string/morphe_fullscreen_video_scale_button_title" android:key="morphe_fullscreen_video_scale_button" android:summary="@string/morphe_fullscreen_video_scale_button_summary" />
+            <SwitchPreference android:title="@string/morphe_fullscreen_video_scale_button_fullscreen_only_title" android:key="morphe_fullscreen_video_scale_button_fullscreen_only" android:summary="@string/morphe_fullscreen_video_scale_button_fullscreen_only_summary" />
             <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/morphe_fullscreen_video_scale_entries" android:title="@string/morphe_fullscreen_video_scale_title" android:key="morphe_fullscreen_video_scale" android:entryValues="@array/morphe_fullscreen_video_scale_entry_values" />SETTINGS: FULLSCREEN_VIDEO_SCALE -->
 
             <!-- SETTINGS: OVERLAY_BUTTONS
@@ -558,6 +561,7 @@
             <SwitchPreference android:title="@string/revanced_hide_player_flyout_menu_captions_footer_title" android:key="revanced_hide_player_flyout_menu_captions_footer" android:summaryOn="@string/revanced_hide_player_flyout_menu_captions_footer_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_menu_captions_footer_summary_off" />
             <app.morphe.extension.youtube.settings.preference.HideAudioFlyoutMenuPreference android:title="@string/revanced_hide_player_flyout_menu_audio_track_title" android:key="revanced_hide_player_flyout_menu_audio_track" />
             <SwitchPreference android:title="@string/revanced_hide_player_flyout_menu_lock_screen_title" android:key="revanced_hide_player_flyout_menu_lock_screen" android:summaryOn="@string/revanced_hide_player_flyout_menu_lock_screen_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_menu_lock_screen_summary_off" />
+            <SwitchPreference android:title="@string/morphe_hide_player_flyout_on_the_go_title" android:key="morphe_hide_player_flyout_on_the_go" />
             <SwitchPreference android:title="@string/revanced_hide_player_flyout_menu_more_info_title" android:key="revanced_hide_player_flyout_menu_more_info" android:summaryOn="@string/revanced_hide_player_flyout_menu_more_info_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_menu_more_info_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_player_flyout_menu_report_title" android:key="revanced_hide_player_flyout_menu_report" android:summaryOn="@string/revanced_hide_player_flyout_menu_report_summary_on" android:summaryOff="@string/revanced_hide_player_flyout_menu_report_summary_off" />
 
@@ -640,6 +644,12 @@
 
             <!-- SETTINGS: MINIPLAYER_TYPE_20_03
             <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_miniplayer_type_20_03_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_20_03_entry_values" />SETTINGS: MINIPLAYER_TYPE_20_03 -->
+
+            <!-- SETTINGS: MINIPLAYER_TYPE_20_37
+            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_miniplayer_type_20_37_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_20_37_entry_values" />SETTINGS: MINIPLAYER_TYPE_20_37 -->
+
+            <!-- SETTINGS: MINIPLAYER_TYPE_21_29
+            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_miniplayer_type_21_29_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_21_29_entry_values" />SETTINGS: MINIPLAYER_TYPE_21_29 -->
 
             <!-- SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION
             <SwitchPreference android:title="@string/revanced_miniplayer_double_tap_action_title" android:key="revanced_miniplayer_double_tap_action" android:summaryOn="@string/revanced_miniplayer_double_tap_action_summary_on" android:summaryOff="@string/revanced_miniplayer_double_tap_action_summary_off" />SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION -->
@@ -1249,7 +1259,6 @@
                 <Preference android:title="Description components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable haptic feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable resuming Miniplayer on startup" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Force player buttons background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Fullscreen components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide action buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide comments components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

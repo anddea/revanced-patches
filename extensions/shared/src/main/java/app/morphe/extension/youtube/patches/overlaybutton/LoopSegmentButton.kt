@@ -255,6 +255,10 @@ object LoopSegmentButton {
      * Injection point. Fallback for when playback reaches the end before the time hook loops.
      */
     @JvmStatic
+    fun videoEnded(status: Enum<*>?): Boolean = status?.name == "ENDED" && videoEnded()
+
+    /** Injection point for targets below 21.13. */
+    @JvmStatic
     fun videoEnded(): Boolean {
         try {
             val currentVideoId = VideoInformation.getVideoId()

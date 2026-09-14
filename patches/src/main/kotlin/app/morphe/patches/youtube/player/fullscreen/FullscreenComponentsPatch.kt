@@ -1,3 +1,10 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.player.fullscreen
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -28,6 +35,7 @@ import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_18_42_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_41_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.autoNavPreviewStub
 import app.morphe.patches.youtube.utils.resourceid.fullScreenEngagementPanel
@@ -37,6 +45,7 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
+import app.morphe.patches.youtube.video.information.playerStatusHook
 import app.morphe.patches.youtube.video.information.videoEndMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.Utils.printWarn
@@ -55,6 +64,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+
+private const val EXTENSION_QUICK_ACTIONS_MARGIN_CLASS_DESCRIPTOR =
+    "Lapp/morphe/extension/youtube/patches/QuickActionsMarginPatch;"
 
 private const val FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/QuickActionFilter;"
@@ -144,7 +156,9 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for exit fullscreen
 
-        videoEndMethod.apply {
+        if (is_21_13_or_greater) {
+            playerStatusHook(EXTENSION_EXIT_FULLSCREEN_CLASS_DESCRIPTOR, "endOfVideoReached")
+        } else videoEndMethod.apply {
             addInstructionsAtControlFlowLabel(
                 implementation!!.instructions.lastIndex,
                 "invoke-static {}, $EXTENSION_EXIT_FULLSCREEN_CLASS_DESCRIPTOR->endOfVideoReached()V",
@@ -192,7 +206,19 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for quick actions
 
-        QuickActionsElementSyntheticFingerprint.method.apply {
+        if (is_21_13_or_greater) {
+            QuickActionsElementSyntheticFingerprint.let {
+                it.method.apply {
+                    val checkCastIndex = it.instructionMatches.last().index
+                    val insertRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+
+                    addInstruction(
+                        checkCastIndex + 1,
+                        "invoke-static { v$insertRegister }, $EXTENSION_QUICK_ACTIONS_MARGIN_CLASS_DESCRIPTOR->setQuickActionsMargin(Landroid/view/View;)V"
+                    )
+                }
+            }
+        } else LegacyQuickActionsElementSyntheticFingerprint.method.apply {
             val containerCalls = implementation!!.instructions.withIndex()
                 .filter { instruction ->
                     (instruction.value as? WideLiteralInstruction)?.wideLiteral == quickActionsElementContainer

@@ -20,6 +20,7 @@ import static app.morphe.extension.youtube.patches.voiceovertranslation.GoogleVo
 import static app.morphe.extension.youtube.patches.voiceovertranslation.TranscriptTranslator.TRANSLATION_SERVICE_GOOGLE;
 import static app.morphe.extension.youtube.patches.voiceovertranslation.TranscriptTranslator.TRANSLATION_SERVICE_MY_MEMORY;
 import static app.morphe.extension.youtube.patches.voiceovertranslation.TranscriptTranslator.TRANSLATION_SERVICE_OPENROUTER;
+import static app.morphe.extension.youtube.settings.YouTubeActivityHook.USE_BOLD_ICONS;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -187,7 +188,7 @@ public final class GoogleVotBottomSheet {
         row.addView(valueView);
 
         ImageView chevron = new ImageView(context);
-        chevron.setImageResource(Utils.appIsUsingBoldIcons() ? DRAWABLE_CHEVRON_RIGHT_BOLD : DRAWABLE_CHEVRON_RIGHT);
+        chevron.setImageResource(USE_BOLD_ICONS ? DRAWABLE_CHEVRON_RIGHT_BOLD : DRAWABLE_CHEVRON_RIGHT);
         chevron.setColorFilter(new PorterDuffColorFilter(secondaryColor(fg), PorterDuff.Mode.SRC_IN));
         chevron.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -234,7 +235,7 @@ public final class GoogleVotBottomSheet {
         pickerRoot.addView(makeTitle(context, str("morphe_vot_translation_service_title"), fg));
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        int checkmarkRes = Utils.appIsUsingBoldIcons() ? DRAWABLE_CHECKMARK_BOLD : DRAWABLE_CHECKMARK;
+        int checkmarkRes = USE_BOLD_ICONS ? DRAWABLE_CHECKMARK_BOLD : DRAWABLE_CHECKMARK;
         String selectedService = Settings.GOOGLE_VOT_TRANSLATION_SERVICE.get();
 
         SheetBottomDialog.SlideDialog pickerDialog =
@@ -356,8 +357,8 @@ public final class GoogleVotBottomSheet {
         scroll.addView(listLayout);
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        int checkmarkRes = Utils.appIsUsingBoldIcons() ? DRAWABLE_CHECKMARK_BOLD : DRAWABLE_CHECKMARK;
-        int speakerRes = Utils.appIsUsingBoldIcons() ? DRAWABLE_SPEAKER_BOLD : DRAWABLE_SPEAKER;
+        int checkmarkRes = USE_BOLD_ICONS ? DRAWABLE_CHECKMARK_BOLD : DRAWABLE_CHECKMARK;
+        int speakerRes = USE_BOLD_ICONS ? DRAWABLE_SPEAKER_BOLD : DRAWABLE_SPEAKER;
         final int rippleColor = Color.argb(60, Color.red(fg), Color.green(fg), Color.blue(fg));
 
         int maleCount = 0;
@@ -529,7 +530,7 @@ public final class GoogleVotBottomSheet {
         row.addView(valueView);
 
         ImageView chevron = new ImageView(context);
-        chevron.setImageResource(Utils.appIsUsingBoldIcons() ? DRAWABLE_CHEVRON_RIGHT_BOLD : DRAWABLE_CHEVRON_RIGHT);
+        chevron.setImageResource(USE_BOLD_ICONS ? DRAWABLE_CHEVRON_RIGHT_BOLD : DRAWABLE_CHEVRON_RIGHT);
         chevron.setColorFilter(new PorterDuffColorFilter(secondaryColor(fgColor), PorterDuff.Mode.SRC_IN));
         chevron.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));

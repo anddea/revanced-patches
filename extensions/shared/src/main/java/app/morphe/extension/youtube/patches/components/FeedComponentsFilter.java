@@ -67,8 +67,11 @@ public final class FeedComponentsFilter extends Filter {
     private final ByteArrayFilterGroup summaryCardBuffer;
     private final ByteArrayFilterGroup playablesBuffer;
     private final ByteArrayFilterGroup ticketShelfBuffer;
+    private final ByteArrayFilterGroup movieShelfBuffer;
     private final StringFilterGroup inviteToMessageCard;
     private final ByteArrayFilterGroup inviteToMessageCardBuffer;
+    private final StringFilterGroup videoLabels;
+    private final ByteArrayFilterGroupList videoLabelsGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup videoRecommendationLabels;
 
     private final Supplier<Stream<String>> knownBrowseId = () -> Stream.of(
@@ -338,6 +341,23 @@ public final class FeedComponentsFilter extends Filter {
                 "endorsement_header_footer."
         );
 
+        videoLabels = new StringFilterGroup(
+                null,
+                "|badge.e"
+        );
+        videoLabelsGroupList.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_AUTO_DUBBED_LABEL,
+                        "yt_outline_person_radar",
+                        "yt_outline_experimental_person_waves"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_HYPED_LABEL,
+                        "yt_fill_star_shooting",
+                        "yt_fill_experimental_hype"
+                )
+        );
+
         carouselShelves = new StringFilterGroup(
                 null,
                 "horizontal_video_shelf.",
@@ -367,6 +387,11 @@ public final class FeedComponentsFilter extends Filter {
                 "ticket_item"
         );
 
+        movieShelfBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_MOVIE_SHELF,
+                "movie_card.e"
+        );
+
         addPathCallbacks(
                 albumCard,
                 carouselShelves,
@@ -387,6 +412,7 @@ public final class FeedComponentsFilter extends Filter {
                 subscriptionsSectionHeader,
                 surveys,
                 ticketShelfPath,
+                videoLabels,
                 videoRecommendationLabels
         );
     }
@@ -567,6 +593,7 @@ public final class FeedComponentsFilter extends Filter {
             if (contentIndex == 0) {
                 return playablesBuffer.check(buffer).isFiltered()
                         || ticketShelfBuffer.check(buffer).isFiltered()
+                        || movieShelfBuffer.check(buffer).isFiltered()
                         || (!carouselShelfExceptions.matches(path) && hideShelves());
             }
             return false;
@@ -584,6 +611,10 @@ public final class FeedComponentsFilter extends Filter {
 
             // Check the navigation button last and only after all buffer checks pass.
             return NavigationButton.getSelectedNavigationButton() == NavigationButton.NOTIFICATIONS;
+        }
+
+        if (matchedGroup == videoLabels) {
+            return videoLabelsGroupList.check(buffer).isFiltered();
         }
 
         if (matchedGroup == videoRecommendationLabels) {

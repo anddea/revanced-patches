@@ -367,6 +367,14 @@ public final class VideoInformation {
         channelName = newlyLoadedChannelName != null ? newlyLoadedChannelName : "";
     }
 
+    /**
+     * Injection point.
+     */
+    public static void setVideoTitle(@Nullable String newlyLoadedVideoTitle) {
+        videoTitle = newlyLoadedVideoTitle != null ? newlyLoadedVideoTitle : "";
+        Logger.printDebug(() -> "Extracted Video Title: " + videoTitle);
+    }
+
     public static boolean isPlayerInitialized() {
         return playerInitialized;
     }

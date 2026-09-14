@@ -1,9 +1,19 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.general.components
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
-import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.litho.addLithoFilter
@@ -12,11 +22,11 @@ import app.morphe.patches.shared.viewgroup.viewGroupMarginLayoutParamsHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
-import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
 import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_07_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.fab
@@ -32,12 +42,12 @@ import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.injectHideViewCall
+import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -221,6 +231,24 @@ val layoutComponentsPatch = bytecodePatch(
                     LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR,
                     "hideSyncButton"
                 )
+            }
+        }
+
+        // endregion
+
+        // region disable UI padding feature flags
+
+        if (is_21_07_or_greater) {
+            listOf(
+                CommentReplyPaddingFeatureFlagFingerprint,
+                IncognitoSearchPaddingFeatureFlagFingerprint
+            ).forEach { fingerprint ->
+                fingerprint.matchAll().forEach {
+                    it.method.insertLiteralOverride(
+                        it.instructionMatches.first().index,
+                        "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->disableUIPaddingFeatureFlags(Z)Z"
+                    )
+                }
             }
         }
 

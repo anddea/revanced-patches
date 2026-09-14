@@ -58,6 +58,23 @@ import javax.xml.transform.TransformerFactory
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
 
+/**
+ * Shared order for the high-priority General preferences added by the branding and theme patches.
+ * The settings patch applies this order after all dependent patches have added their preferences;
+ * missing keys are ignored by [ResourceUtils.movePreferencesToTop].
+ */
+internal val GENERAL_PREFERENCE_ORDER = listOf(
+    "morphe_custom_branding_name",
+    "morphe_settings_name",
+    "morphe_custom_branding_icon",
+    "morphe_custom_branding_splash_animation_size",
+    "morphe_custom_branding_use_as_system_splash",
+    "morphe_custom_branding_apply_to_rvx_settings",
+    "morphe_dark_theme",
+    "morphe_dark_theme_custom_color",
+    "morphe_notification_dot_color",
+)
+
 internal object ResourceUtils {
     private lateinit var context: ResourcePatchContext
 
@@ -246,7 +263,8 @@ internal object ResourceUtils {
 
     /**
      * Adds a switch preference. Optional title and summary resource names keep the storage key
-     * stable when two generated settings intentionally share the same visible text.
+     * stable when two generated settings intentionally share the same visible text. State-specific
+     * summary keys can be supplied for switches whose summary changes with their checked state.
      */
     fun addSwitchPreference(
         category: String,
@@ -256,6 +274,8 @@ internal object ResourceUtils {
         setSummary: Boolean,
         titleKey: String = "${key}_title",
         summaryKey: String = "${key}_summary",
+        summaryOnKey: String? = null,
+        summaryOffKey: String? = null,
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -267,7 +287,12 @@ internal object ResourceUtils {
                     it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
                         setAttribute("android:title", "@string/$titleKey")
                         if (setSummary) {
-                            setAttribute("android:summary", "@string/$summaryKey")
+                            if (summaryOnKey != null && summaryOffKey != null) {
+                                setAttribute("android:summaryOn", "@string/$summaryOnKey")
+                                setAttribute("android:summaryOff", "@string/$summaryOffKey")
+                            } else {
+                                setAttribute("android:summary", "@string/$summaryKey")
+                            }
                         }
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)

@@ -24,12 +24,25 @@ import app.morphe.extension.youtube.patches.FullscreenVideoScalePatch;
 import app.morphe.extension.youtube.patches.FullscreenVideoScalePatch.VideoScaleMode;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerControlButton;
+import app.morphe.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public class FullscreenVideoScaleButton {
 
     @Nullable
     private static PlayerControlButton instance;
+
+    private static boolean isOverlayButtonEnabled() {
+        if (!Settings.FULLSCREEN_VIDEO_SCALE_BUTTON.get()) {
+            return false;
+        }
+        if (!Settings.FULLSCREEN_VIDEO_SCALE_BUTTON_FULLSCREEN_ONLY.get()) {
+            return true;
+        }
+        PlayerType type = PlayerType.getCurrent();
+        return type == PlayerType.WATCH_WHILE_FULLSCREEN
+                || type == PlayerType.WATCH_WHILE_SLIDING_MAXIMIZED_FULLSCREEN;
+    }
 
     /**
      * Injection point.
@@ -40,7 +53,7 @@ public class FullscreenVideoScaleButton {
                     controlsView,
                     "fullscreen_video_scale_button",
                     true,
-                    Settings.FULLSCREEN_VIDEO_SCALE_BUTTON::get,
+                    FullscreenVideoScaleButton::isOverlayButtonEnabled,
                     view -> cycleScaleMode(),
                     null
             );

@@ -55,6 +55,7 @@ public final class ShortsButtonFilter extends Filter {
 
         pausedOverlayButtons = new StringFilterGroup(
                 null,
+                "lens_paused_state",
                 "shorts_paused_state"
         );
 

@@ -93,6 +93,11 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                         "yt_outline_lock_"
                 ),
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_ON_THE_GO,
+                        "yt_outline_headset_",
+                        "yt_outline_experimental_headset_"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MENU_MORE,
                         "yt_outline_info_circle_"
                 ),

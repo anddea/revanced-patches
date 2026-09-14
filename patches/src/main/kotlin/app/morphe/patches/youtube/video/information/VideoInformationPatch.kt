@@ -81,6 +81,8 @@ import app.morphe.patches.youtube.utils.extension.Constants.VIDEO_PATH
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_20_49_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_29_or_greater
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.videoEndFingerprint
 import app.morphe.patches.youtube.utils.videoIdFingerprintShorts
@@ -126,6 +128,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import app.morphe.patcher.methodCall as patcherMethodCall
+import java.lang.ref.WeakReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SHARED_PATH/VideoInformation;"
@@ -193,6 +196,8 @@ private lateinit var setPlaybackSpeedMethodReference: MethodReference
 
 // Used by other patches.
 internal lateinit var speedSelectionInsertMethod: MutableMethod
+internal lateinit var playerStatusMethodRef: WeakReference<MutableMethod>
+
 internal lateinit var videoEndMethod: MutableMethod
 
 val videoInformationPatch = bytecodePatch(
@@ -285,13 +290,13 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
-        fun Pair<String, Fingerprint>.getPlayerResponseInstruction(
+        fun Fingerprint.getPlayerResponseInstruction(
             returnType: String,
             fromString: Boolean? = null
         ): String {
-            methodOrThrow().apply {
+            method.apply {
                 val startIndex = if (fromString == true)
-                    matchOrThrow().stringMatches.first().index
+                    match().stringMatches.first().index
                 else
                     0
                 val targetReference = getInstruction<ReferenceInstruction>(
@@ -306,6 +311,11 @@ val videoInformationPatch = bytecodePatch(
                 return "invoke-interface {v$REGISTER_PLAYER_RESPONSE_MODEL}, $targetReference"
             }
         }
+
+        fun Pair<String, Fingerprint>.getPlayerResponseInstruction(
+            returnType: String,
+            fromString: Boolean? = null
+        ): String = second.getPlayerResponseInstruction(returnType, fromString)
 
         if (is_21_04_or_greater) {
             val playerClass = PlayerInitFingerprint.classDef
@@ -352,7 +362,13 @@ val videoInformationPatch = bytecodePatch(
                 "videoInformationClass"
             )
 
-            seekMethod.apply {
+            if (is_21_13_or_greater) {
+                playerStatusMethodRef = WeakReference(
+                    getPlayerStatusFingerprint(
+                        PlayerStatusEnumFingerprint.originalClassDef.type
+                    ).method
+                )
+            } else seekMethod.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(45368273L)
                 val walkerIndex = indexOfFirstInstructionReversedOrThrow(literalIndex) {
                     val reference = getReference<MethodReference>()
@@ -378,7 +394,7 @@ val videoInformationPatch = bytecodePatch(
             seekSourceEnumType = parameterTypes[1].toString()
             seekSourceMethodName = name
 
-            seekRelativeFingerprint.methodOrThrow(videoEndFingerprint).also { method ->
+            seekRelativeFingerprint.match(videoEndFingerprint.second.classDef).method.also { method ->
                 seekRelativeSourceMethodName = method.name
                 cloneSeekRelativeSourceMethod = method.returnType == "V"
             }
@@ -395,7 +411,7 @@ val videoInformationPatch = bytecodePatch(
                 "videoInformationClass"
             )
             addSeekInterfaceMethods(
-                seekRelativeFingerprint.mutableClassOrThrow(),
+                seekRelativeFingerprint.classDef,
                 this,
                 seekRelativeSourceMethodName,
                 "overrideVideoTimeRelative",
@@ -458,6 +474,19 @@ val videoInformationPatch = bytecodePatch(
                 val channelNameMethodCall = getModernChannelNameFingerprint(playerResponseType)
                     .instructionMatches.last().instruction.getReference<MethodReference>()!!
 
+                // The helper this resolves through only exists in later targets, and the title is
+                // only used by the minimal miniplayer, which is only rebuilt for those.
+                val videoTitleInstructions = if (is_21_29_or_greater) {
+                    val videoTitleMethodCall = getVideoTitleFingerprint(playerResponseType)
+                        .instructionMatches.first().instruction.getReference<MethodReference>()!!
+
+                    """
+                        invoke-interface { p1 }, $videoTitleMethodCall
+                        move-result-object v0
+                        invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoTitle(Ljava/lang/String;)V
+                    """
+                } else ""
+
                 it.classDef.apply {
                     val helperMethod = ImmutableMethod(
                         type,
@@ -477,6 +506,8 @@ val videoInformationPatch = bytecodePatch(
                                 invoke-interface { p1 }, $channelNameMethodCall
                                 move-result-object v0
                                 invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setChannelName(Ljava/lang/String;)V
+
+                                $videoTitleInstructions
 
                                 return-void
                             """.toInstructions(),
@@ -554,7 +585,7 @@ val videoInformationPatch = bytecodePatch(
             videoLengthMethodCall = videoLengthFingerprint.getPlayerResponseInstruction("J")
             videoIsLiveMethodCall = channelIdFingerprint.getPlayerResponseInstruction("Z")
 
-            playbackInitializationFingerprint.matchOrThrow().let {
+            playbackInitializationFingerprint.match().let {
                 it.method.apply {
                     val targetIndex = indexOfPlayerResponseModelDirectInstruction(this) + 1
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
@@ -571,7 +602,7 @@ val videoInformationPatch = bytecodePatch(
                 }
             }
 
-            videoIdFingerprintBackgroundPlay.matchOrThrow().let {
+            videoIdFingerprintBackgroundPlay.match().let {
                 it.method.apply {
                     val targetIndex = indexOfPlayerResponseModelInterfaceInstruction(this)
                     val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
@@ -605,7 +636,7 @@ val videoInformationPatch = bytecodePatch(
         /**
          * Set current video time method
          */
-        playerControllerSetTimeReferenceFingerprint.matchOrThrow().let {
+        playerControllerSetTimeReferenceFingerprint.match().let {
             videoTimeConstructorMethod =
                 it.getWalkerMethod(it.instructionMatches.first().index)
         }
@@ -645,7 +676,7 @@ val videoInformationPatch = bytecodePatch(
                 OnPlaybackSpeedItemClickParentFingerprint.classDef,
             )
         } else {
-            onPlaybackSpeedItemClickFingerprint.matchOrThrow()
+            onPlaybackSpeedItemClickFingerprint.match()
         }
 
         playbackSpeedItemClickFingerprint.let {
@@ -896,7 +927,7 @@ val videoInformationPatch = bytecodePatch(
         }
 
         if (!is_21_04_or_greater) {
-            playbackSpeedClassFingerprint.methodOrThrow().apply {
+            playbackSpeedClassFingerprint.method.apply {
                 val index = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
                 val playbackSpeedClass = this.returnType
@@ -1199,7 +1230,7 @@ val videoInformationPatch = bytecodePatch(
         if (!is_21_04_or_greater) {
             onCreateHook(EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR, "newVideoStarted")
 
-            videoQualityFingerprint.matchOrThrow().let {
+            videoQualityFingerprint.match().let {
                 // Fix bad data used by YouTube.
                 val (qualityNameField, resolutionField) = with(it.method) {
                     val qualityNameIndex = indexOfVideoQualityNameFieldInstruction(this)
@@ -1275,7 +1306,7 @@ val videoInformationPatch = bytecodePatch(
             }
 
             val formatStreamFpsReference = formatStreamingModelQualityLabelBuilderFingerprint
-                .matchOrThrow()
+                .match()
                 .let {
                     with(it.method) {
                         val stringIndex = it.stringMatches.first().index
@@ -1291,7 +1322,7 @@ val videoInformationPatch = bytecodePatch(
                 }
 
             val formatStreamQualityNameReference = formatStreamingModelQualityLabelBuilderFingerprint
-                .methodOrThrow()
+                .method
                 .methodCall()
 
             val formatStreamITagReference =
@@ -1300,8 +1331,8 @@ val videoInformationPatch = bytecodePatch(
                     .methodCall()
 
             val formatStreamResolutionReference =
-                availableVideoFormatsFingerprint.matchOrThrow(
-                    formatStreamModelBuilderFingerprint
+                availableVideoFormatsFingerprint.match(
+                    formatStreamModelBuilderFingerprint.classDef
                 ).let {
                     with(it.method) {
                         val formatStreamIndex = it.instructionMatches.first().index + 1
@@ -1357,8 +1388,7 @@ val videoInformationPatch = bytecodePatch(
                     )
             }
 
-            initFormatStreamFingerprint.methodOrThrow(initFormatStreamParentFingerprint)
-                .apply {
+            initFormatStreamFingerprint.match(initFormatStreamParentFingerprint.classDef).method.apply {
                     val preferredFormatStreamIndex =
                         indexOfPreferredFormatStreamInstruction(this)
                     val preferredFormatStreamReference =
@@ -1402,7 +1432,7 @@ val videoInformationPatch = bytecodePatch(
                     }
                 }
 
-            videoQualityArrayFingerprint.matchOrThrow(formatStreamModelBuilderFingerprint).let {
+            videoQualityArrayFingerprint.match(formatStreamModelBuilderFingerprint.classDef).let {
                 it.method.apply {
                     val index = it.instructionMatches.first().index
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -1416,7 +1446,7 @@ val videoInformationPatch = bytecodePatch(
                 }
             }
 
-            videoQualityListFingerprint.matchOrThrow().let {
+            videoQualityListFingerprint.match().let {
                 val classDef = it.classDef
                 it.method.apply {
                     classDef.interfaces.add(EXTENSION_VIDEO_QUALITY_MENU_INTERFACE)
@@ -1467,7 +1497,7 @@ val videoInformationPatch = bytecodePatch(
                 }
             }
 
-            videoQualitySetterFingerprint.matchOrThrow().let {
+            videoQualitySetterFingerprint.match().let {
                 it.method.apply {
                     val textIndex = it.instructionMatches.last().index
                     val textRegister = getInstruction<TwoRegisterInstruction>(textIndex).registerA
@@ -1659,3 +1689,13 @@ internal fun hookShortsVideoInformation(descriptor: String) =
             descriptor
         )
     }
+
+fun playerStatusHook(targetMethodClass: String, targetMethodName: String) {
+    playerStatusMethodRef.get()!!.apply {
+        val insertIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT) + 1
+        addInstruction(
+            insertIndex,
+            "invoke-static/range { p1 .. p1 }, $targetMethodClass->$targetMethodName(Ljava/lang/Enum;)V"
+        )
+    }
+}

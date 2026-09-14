@@ -12,6 +12,7 @@
 package app.morphe.extension.youtube.patches.utils;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.youtube.settings.YouTubeActivityHook.USE_BOLD_ICONS;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -49,6 +50,7 @@ import app.morphe.extension.youtube.patches.SaveToWatchLaterPatch;
 import app.morphe.extension.youtube.patches.general.DownloadActionsPatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
+import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ThemeUtils;
 
 @SuppressWarnings("unused")
@@ -80,8 +82,10 @@ public final class FlyoutUtils {
     private static final String saveToWatchLaterButtonName =
             str("morphe_save_to_watch_later_flyout_title");
     private static final Drawable saveToWatchLaterDrawable = getSaveToWatchLaterDrawable();
+    private static final Drawable aiSListSubmitDrawable = getAiSListSubmitDrawable();
+    private static final String aiSListSubmitButtonName = str("morphe_aislist_submit_title");
 
-    private static WeakReference<TextView> customItemTextRef = new WeakReference<>(null);
+    private static final List<WeakReference<TextView>> customItemTextRefs = new ArrayList<>();
 
     private static Dialog flyoutDialog;
     private static PopupWindow flyoutPopupWindow;
@@ -96,10 +100,23 @@ public final class FlyoutUtils {
     }
 
     private static Drawable getSaveToWatchLaterDrawable() {
-        Drawable drawable = ResourceUtils.getDrawable("yt_outline_experimental_clock_vd_theme_24");
+        Drawable drawable = ResourceUtils.getDrawable(USE_BOLD_ICONS
+                ? "yt_outline_experimental_clock_vd_theme_24"
+                : "yt_outline_clock_black_24");
         return drawable != null
                 ? drawable
-                : ResourceUtils.getDrawable("morphe_save_to_watch_later_button_bold");
+                : ResourceUtils.getDrawable(USE_BOLD_ICONS
+                        ? "morphe_save_to_watch_later_button_bold"
+                        : "morphe_save_to_watch_later_button");
+    }
+
+    private static Drawable getAiSListSubmitDrawable() {
+        Drawable drawable = ResourceUtils.getDrawable(USE_BOLD_ICONS
+                ? "yt_outline_experimental_flag_vd_theme_24"
+                : "yt_outline_flag_black_24");
+        return drawable != null
+                ? drawable
+                : ResourceUtils.getDrawable("yt_outline_flag_black_24");
     }
 
     public static void setVideoMarkedAsForKids(byte[] bytes) {
@@ -212,6 +229,10 @@ public final class FlyoutUtils {
     private static void addFlyoutElements(Object flyoutPanel) {
         int nextButtonIndex = 0;
 
+        // The items of the menu that is closing are gone, and their typeface is copied
+        // onto whatever this call adds instead.
+        customItemTextRefs.clear();
+
         boolean showKidsSaveToWatchLater = Settings.KIDS_SAVE_TO_WATCH_LATER_BUTTON.get()
                 && PlayerType.getCurrent().isMaximizedOrFullscreen()
                 && videoMarkedAsForKids;
@@ -232,9 +253,41 @@ public final class FlyoutUtils {
             );
         }
 
+        if (Settings.AISLIST_SUBMIT_FLYOUT_MENU.get()) {
+            String videoId = getSubmittableVideoId();
+            if (!videoId.isEmpty()) {
+                nextButtonIndex = addFlyoutButton(
+                        flyoutPanel,
+                        aiSListSubmitDrawable,
+                        aiSListSubmitButtonName,
+                        v -> {
+                            AiSListSubmitDialog.show(videoId);
+
+                            dismissFlyout();
+                        },
+                        nextButtonIndex
+                );
+            }
+        }
+
         if (nextButtonIndex > 0) {
             addDivider(flyoutPanel, nextButtonIndex);
         }
+    }
+
+    /**
+     * @return The video the flyout belongs to. The player menu has no feed item to read the id
+     *         from, so the video that is playing is used for it instead.
+     */
+    private static String getSubmittableVideoId() {
+        String flyoutVideoId = DownloadActionsPatch.getFlyoutVideoId();
+        if (!flyoutVideoId.isEmpty()) {
+            return flyoutVideoId;
+        }
+        if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+            return VideoInformation.getVideoId();
+        }
+        return "";
     }
 
     /**
@@ -252,7 +305,15 @@ public final class FlyoutUtils {
             // The items are inside the list, which is the last view of the menu container.
             LinearLayout menuContainer = menuInfo.menuContainer();
             View lastChild = menuContainer.getChildAt(menuContainer.getChildCount() - 1);
-            if (!(lastChild instanceof ViewGroup itemList) || itemList.getChildCount() == 0) {
+            if (!(lastChild instanceof ViewGroup itemList)) {
+                return;
+            }
+
+            if (!customItemTextRefs.isEmpty()) {
+                removeNativeListTopPadding(itemList);
+            }
+
+            if (itemList.getChildCount() == 0) {
                 return;
             }
 
@@ -262,21 +323,37 @@ public final class FlyoutUtils {
         }
     }
 
+    private static void removeNativeListTopPadding(ViewGroup itemList) {
+        if (itemList.getPaddingTop() == 0) {
+            return;
+        }
+
+        itemList.setPaddingRelative(
+                itemList.getPaddingStart(),
+                0,
+                itemList.getPaddingEnd(),
+                itemList.getPaddingBottom()
+        );
+    }
+
     /**
      * The app applies its own font weight to the menu items after they are bound,
      * so the custom item only matches them by taking the typeface of a bound item.
      */
     private static void copyListItemTypeface(ViewGroup itemList) {
-        TextView customItemText = customItemTextRef.get();
-        if (customItemText == null || ITEM_TEXT_ID == 0) {
+        if (customItemTextRefs.isEmpty() || ITEM_TEXT_ID == 0) {
             return;
         }
 
         if (itemList.getChildAt(0).findViewById(ITEM_TEXT_ID) instanceof TextView itemText) {
-            // setTypeface always requests a layout, so only call it when the font really differs.
             Typeface itemTypeface = itemText.getTypeface();
-            if (customItemText.getTypeface() != itemTypeface) {
-                customItemText.setTypeface(itemTypeface);
+
+            for (WeakReference<TextView> customItemTextRef : customItemTextRefs) {
+                TextView customItemText = customItemTextRef.get();
+                // setTypeface always requests a layout, so only call it when the font really differs.
+                if (customItemText != null && customItemText.getTypeface() != itemTypeface) {
+                    customItemText.setTypeface(itemTypeface);
+                }
             }
         }
     }
@@ -457,7 +534,7 @@ public final class FlyoutUtils {
         TextView textView = customButton.findViewById(ITEM_TEXT_ID);
         if (textView != null) {
             textView.setText(text);
-            customItemTextRef = new WeakReference<>(textView);
+            customItemTextRefs.add(new WeakReference<>(textView));
         }
 
         ImageView iconView = customButton.findViewById(

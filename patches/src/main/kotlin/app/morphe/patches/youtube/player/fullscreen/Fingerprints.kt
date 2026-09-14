@@ -1,4 +1,11 @@
 /*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
+/*
  * Portions of this file are ported from Morphe:
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
@@ -9,8 +16,12 @@
 package app.morphe.patches.youtube.player.fullscreen
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.checkCast
+import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patcher.literal
 import app.morphe.patcher.opcode
+import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.appRelatedEndScreenResults
 import app.morphe.patches.youtube.utils.resourceid.fullScreenEngagementPanel
 import app.morphe.patches.youtube.utils.resourceid.playerVideoTitleView
@@ -57,7 +68,7 @@ internal object PlayerTitleViewFingerprint : Fingerprint(
     ),
 )
 
-internal object QuickActionsElementSyntheticFingerprint : Fingerprint(
+internal object LegacyQuickActionsElementSyntheticFingerprint : Fingerprint(
     returnType = "V",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/view/View;"),
@@ -95,5 +106,19 @@ internal object YouTubePlayerViewOnLayoutFingerprint : Fingerprint(
     parameters = listOf("Z", "I", "I", "I", "I"),
     filters = listOf(
         opcode(Opcode.RETURN_VOID)
+    )
+)
+
+/**
+ * Matches the method that processes the quick actions container view.
+ * Used to inject a top margin adjustment into the quick actions bar.
+ */
+internal object QuickActionsElementSyntheticFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Landroid/view/View;"),
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "quick_actions_element_container"),
+        checkCast("Landroid/view/ViewGroup;", location = MatchAfterWithin(10))
     )
 )

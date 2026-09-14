@@ -114,7 +114,11 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
         addSwitchPreference(
             CategoryType.MISC,
             "morphe_spoof_video_streams",
-            "true"
+            "true",
+            dependencyKey = "",
+            setSummary = true,
+            summaryOnKey = "morphe_spoof_video_streams_summary_on",
+            summaryOffKey = "morphe_spoof_video_streams_summary_off",
         )
         addListPreference(
             CategoryType.MISC,

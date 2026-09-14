@@ -7,6 +7,8 @@
 
 package app.morphe.extension.youtube.videoplayer;
 
+import static app.morphe.extension.youtube.settings.YouTubeActivityHook.USE_BOLD_ICONS;
+
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.View;
@@ -30,7 +32,9 @@ public class SaveToWatchLaterButton {
 
     public static final int saveToWatchLaterResourceId =
             ResourceUtils.getIdentifier(
-                    "yt_outline_experimental_playlist_add_vd_theme_24",
+                    USE_BOLD_ICONS
+                            ? "yt_outline_experimental_playlist_add_vd_theme_24"
+                            : "yt_outline_list_add_black_24",
                     ResourceType.DRAWABLE
             );
 

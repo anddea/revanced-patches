@@ -23,11 +23,20 @@ public class ResourceUtils extends Utils {
     private ResourceUtils() {
     } // utility class
 
+    public static boolean useActivityContextIfAvailable = true;
+
+    public static Context getActivityOrContext() {
+        if (useActivityContextIfAvailable) {
+            Activity activity = getActivity();
+            if (activity != null) {
+                return activity;
+            }
+        }
+        return getContext();
+    }
+
     public static int getIdentifier(@NonNull String str, @NonNull ResourceType resourceType) {
-        Activity mActivity = getActivity();
-        Context mContext = mActivity != null
-                ? mActivity
-                : getContext();
+        Context mContext = getActivityOrContext();
         if (mContext == null) {
             handleException(str, resourceType);
             return 0;
@@ -179,7 +188,18 @@ public class ResourceUtils extends Utils {
             handleException(str, ResourceType.DRAWABLE);
             return null;
         }
-        return getResources().getDrawable(identifier);
+        Context context = getActivityOrContext();
+        if (context != null) {
+            try {
+                return context.getDrawable(identifier);
+            } catch (Exception ignored) {
+            }
+        }
+        try {
+            return getResources().getDrawable(identifier);
+        } catch (Exception ignored) {
+        }
+        return null;
     }
 
     public static String getString(@NonNull String str) {

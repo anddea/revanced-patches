@@ -502,6 +502,11 @@ val settingsPatch = resourcePatch(
             "revanced_app_info"
         )
 
+        ResourceUtils.movePreferencesToTop(
+            CategoryType.GENERAL.value,
+            GENERAL_PREFERENCE_ORDER,
+        )
+
         /**
          * sort preference
          */
@@ -541,6 +546,8 @@ internal fun addSwitchPreference(
     setSummary: Boolean,
     titleKey: String = "${key}_title",
     summaryKey: String = "${key}_summary",
+    summaryOnKey: String? = null,
+    summaryOffKey: String? = null,
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
@@ -552,6 +559,8 @@ internal fun addSwitchPreference(
             setSummary,
             titleKey,
             summaryKey,
+            summaryOnKey,
+            summaryOffKey,
         )
 }
 

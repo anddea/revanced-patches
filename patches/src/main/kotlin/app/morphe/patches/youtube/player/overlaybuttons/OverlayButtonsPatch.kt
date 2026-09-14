@@ -1,4 +1,14 @@
 /*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
+/*
  * Copyright (C) 2022-2026 anddea
  *
  * This file is part of the revanced-patches project:
@@ -66,6 +76,7 @@ import app.morphe.patches.youtube.utils.pip.pipStateHookPatch
 import app.morphe.patches.youtube.utils.playercontrols.injectControl
 import app.morphe.patches.youtube.utils.playercontrols.playerControlsPatch
 import app.morphe.patches.youtube.utils.playlist.playlistPatch
+import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.seekbarFingerprint
 import app.morphe.patches.youtube.utils.seekbarOnDrawFingerprint
@@ -74,6 +85,7 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.sponsorblock.rectangleFieldInvalidatorFingerprint
 import app.morphe.patches.youtube.general.startpage.IntentActionFingerprint
 import app.morphe.patches.youtube.general.startpage.IntentResolverFingerprint
+import app.morphe.patches.youtube.video.information.playerStatusMethodRef
 import app.morphe.patches.youtube.video.information.videoEndMethod
 import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.videoInformationPatch
@@ -91,6 +103,7 @@ import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.lowerCaseOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -115,7 +128,7 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
 
         // region patch for always repeat
 
-        videoEndMethod.apply {
+        if (!is_21_13_or_greater) videoEndMethod.apply {
             addInstructionsWithLabels(
                 0, """
                     invoke-static {}, $EXTENSION_ALWAYS_REPEAT_CLASS_DESCRIPTOR->alwaysRepeat()Z
@@ -134,7 +147,11 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
         hookDismissObserver("$EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->onPlayerDismissed(I)V")
         videoTimeHook(EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR, "videoTimeChanged")
 
-        videoEndMethod.apply {
+        if (is_21_13_or_greater) {
+            // Preserve the legacy priority: an active segment loops before whole-video repeat.
+            hookLoopPlayerStatus(EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR, "videoEnded")
+            hookLoopPlayerStatus(EXTENSION_ALWAYS_REPEAT_CLASS_DESCRIPTOR, "alwaysRepeat")
+        } else videoEndMethod.apply {
             addInstructionsWithLabels(
                 0, """
                     invoke-static {}, $EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->videoEnded()Z
@@ -543,5 +560,32 @@ val overlayButtonsPatch = resourcePatch(
 
         // endregion
 
+    }
+}
+
+private fun hookLoopPlayerStatus(extensionClass: String, methodName: String) {
+    playerStatusMethodRef.get()!!.apply {
+        // Add call to start playback again, but must not allow exit fullscreen patch call
+        // to be reached if the video is looped.
+        val insertIndex =
+            indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
+        // Since instructions are added just above Opcode.SGET_OBJECT, instead of calling findFreeRegister(),
+        // a register from Opcode.SGET_OBJECT is used.
+        val freeRegister =
+            getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+        // Since 'videoInformationPatch' is used as a dependency of this patch,
+        // the loop is implemented through 'VideoInformation.seekTo(0)'.
+        addInstructionsWithLabels(
+            insertIndex,
+            """
+                invoke-static/range { p1 .. p1 }, $extensionClass->$methodName(Ljava/lang/Enum;)Z
+                move-result v$freeRegister
+                if-eqz v$freeRegister, :do_not_loop
+                return-void
+                :do_not_loop
+                nop
+            """
+        )
     }
 }
