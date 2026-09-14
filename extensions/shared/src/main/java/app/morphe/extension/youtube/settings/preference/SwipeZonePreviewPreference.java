@@ -7,6 +7,8 @@
  * Original author(s):
  * - anddea (https://github.com/anddea)
  *
+ * Modified by Morphe contributors.
+ *
  * Licensed under the GNU General Public License v3.0.
  *
  * ------------------------------------------------------------------------
@@ -68,14 +70,14 @@ import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.ui.Dim;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider.SwipeZoneAction;
 
 /**
  * Draws a live map of the vertical or horizontal swipe zones in the settings screen.
  *
- * <p>The preference key selects the direction. Vertical previews show brightness, default, and
- * volume from left to right; horizontal previews show seek, default, and speed from top to bottom.
- * The preview follows the corresponding area slider, enabled controls, colors, and speed/seek
- * switch setting.</p>
+ * <p>The preference key selects the direction. Vertical previews show the left and right actions;
+ * horizontal previews show the top and bottom actions. The preview follows the corresponding area
+ * slider, action assignments, and action colors.</p>
  */
 @SuppressWarnings({"unused", "deprecation"})
 public final class SwipeZonePreviewPreference extends Preference {
@@ -175,11 +177,6 @@ public final class SwipeZonePreviewPreference extends Preference {
     @SuppressLint("ViewConstructor")
     private static final class ZoneView extends View {
 
-        private static final int BRIGHTNESS_FALLBACK_COLOR = 0xFF42A5F5;
-        private static final int VOLUME_FALLBACK_COLOR = 0xFF66BB6A;
-        private static final int SEEK_FALLBACK_COLOR = 0xFFAB47BC;
-        private static final int SPEED_FALLBACK_COLOR = 0xFFFFA726;
-
         private final boolean horizontal;
         private final Paint fillPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         private final Paint borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -203,6 +200,7 @@ public final class SwipeZonePreviewPreference extends Preference {
         private final String volumeLabel = str("revanced_swipe_zone_label_volume");
         private final String seekLabel = str("revanced_swipe_zone_label_seek");
         private final String speedLabel = str("revanced_swipe_zone_label_speed");
+        private final String offLabel = str("revanced_swipe_zone_label_off");
         private final String defaultLabel = str("revanced_change_form_factor_entry_1");
 
         ZoneView(Context context, boolean horizontal) {
@@ -283,16 +281,14 @@ public final class SwipeZonePreviewPreference extends Preference {
             canvas.drawRect(left, top, effectiveLeft, bottom, fillPaint);
             canvas.drawRect(effectiveRight, top, right, bottom, fillPaint);
 
-            final int brightnessColor = previewColor(
-                    Settings.SWIPE_OVERLAY_BRIGHTNESS_COLOR.get(), BRIGHTNESS_FALLBACK_COLOR);
-            final int volumeColor = previewColor(
-                    Settings.SWIPE_OVERLAY_VOLUME_COLOR.get(), VOLUME_FALLBACK_COLOR);
+            final SwipeZoneAction leftAction = Settings.SWIPE_LEFT_ZONE.get();
+            final SwipeZoneAction rightAction = Settings.SWIPE_RIGHT_ZONE.get();
 
             zoneRect.set(effectiveLeft, top, effectiveLeft + zoneWidth, bottom);
-            drawZone(canvas, zoneRect, brightnessColor, Settings.SWIPE_BRIGHTNESS.get());
+            drawZone(canvas, zoneRect, leftAction);
 
             zoneRect.set(effectiveRight - zoneWidth, top, effectiveRight, bottom);
-            drawZone(canvas, zoneRect, volumeColor, Settings.SWIPE_VOLUME.get());
+            drawZone(canvas, zoneRect, rightAction);
 
             canvas.drawLine(effectiveLeft, top, effectiveLeft, bottom, separatorPaint);
             canvas.drawLine(effectiveLeft + zoneWidth, top,
@@ -303,11 +299,11 @@ public final class SwipeZonePreviewPreference extends Preference {
 
             if (zoneWidth >= Dim.dp(30)) {
                 zoneRect.set(effectiveLeft, top, effectiveLeft + zoneWidth, bottom);
-                drawZoneLabel(canvas, zoneRect, brightnessLabel, zonePercent,
-                        Settings.SWIPE_BRIGHTNESS.get());
+                drawZoneLabel(canvas, zoneRect, labelFor(leftAction), zonePercent,
+                        leftAction != SwipeZoneAction.OFF);
                 zoneRect.set(effectiveRight - zoneWidth, top, effectiveRight, bottom);
-                drawZoneLabel(canvas, zoneRect, volumeLabel, zonePercent,
-                        Settings.SWIPE_VOLUME.get());
+                drawZoneLabel(canvas, zoneRect, labelFor(rightAction), zonePercent,
+                        rightAction != SwipeZoneAction.OFF);
             }
 
             if (defaultWidth >= Dim.dp(48)) {
@@ -334,19 +330,14 @@ public final class SwipeZonePreviewPreference extends Preference {
             canvas.drawRect(left, top, effectiveLeft, bottom, fillPaint);
             canvas.drawRect(effectiveRight, top, right, bottom, fillPaint);
 
-            final int seekColor = previewColor(
-                    Settings.SWIPE_OVERLAY_SEEK_COLOR.get(), SEEK_FALLBACK_COLOR);
-            final int speedColor = previewColor(
-                    Settings.SWIPE_OVERLAY_SPEED_COLOR.get(), SPEED_FALLBACK_COLOR);
-            final boolean topIsSpeed = Settings.SWIPE_SWITCH_SPEED_AND_SEEK.get();
+            final SwipeZoneAction topAction = Settings.SWIPE_TOP_ZONE.get();
+            final SwipeZoneAction bottomAction = Settings.SWIPE_BOTTOM_ZONE.get();
 
             zoneRect.set(effectiveLeft, top, effectiveRight, top + zoneHeight);
-            drawZone(canvas, zoneRect, topIsSpeed ? speedColor : seekColor,
-                    topIsSpeed ? Settings.SWIPE_SPEED.get() : Settings.SWIPE_SEEK.get());
+            drawZone(canvas, zoneRect, topAction);
 
             zoneRect.set(effectiveLeft, bottom - zoneHeight, effectiveRight, bottom);
-            drawZone(canvas, zoneRect, topIsSpeed ? seekColor : speedColor,
-                    topIsSpeed ? Settings.SWIPE_SEEK.get() : Settings.SWIPE_SPEED.get());
+            drawZone(canvas, zoneRect, bottomAction);
 
             canvas.drawLine(effectiveLeft, top, effectiveLeft, bottom, separatorPaint);
             canvas.drawLine(effectiveRight, top, effectiveRight, bottom, separatorPaint);
@@ -357,11 +348,11 @@ public final class SwipeZonePreviewPreference extends Preference {
 
             if (zoneHeight >= Dim.dp(20) && effectiveRight - effectiveLeft >= Dim.dp(50)) {
                 zoneRect.set(effectiveLeft, top, effectiveRight, top + zoneHeight);
-                drawZoneLabel(canvas, zoneRect, topIsSpeed ? speedLabel : seekLabel, zonePercent,
-                        topIsSpeed ? Settings.SWIPE_SPEED.get() : Settings.SWIPE_SEEK.get());
+                drawZoneLabel(canvas, zoneRect, labelFor(topAction), zonePercent,
+                        topAction != SwipeZoneAction.OFF);
                 zoneRect.set(effectiveLeft, bottom - zoneHeight, effectiveRight, bottom);
-                drawZoneLabel(canvas, zoneRect, topIsSpeed ? seekLabel : speedLabel, zonePercent,
-                        topIsSpeed ? Settings.SWIPE_SEEK.get() : Settings.SWIPE_SPEED.get());
+                drawZoneLabel(canvas, zoneRect, labelFor(bottomAction), zonePercent,
+                        bottomAction != SwipeZoneAction.OFF);
             }
 
             if (defaultHeight >= Dim.dp(28) && effectiveRight - effectiveLeft >= Dim.dp(50)) {
@@ -370,11 +361,41 @@ public final class SwipeZonePreviewPreference extends Preference {
             }
         }
 
-        private void drawZone(Canvas canvas, RectF rect, @ColorInt int color, boolean enabled) {
+        private void drawZone(Canvas canvas, RectF rect, SwipeZoneAction action) {
+            final boolean enabled = action != SwipeZoneAction.OFF;
             fillPaint.setColor(enabled
-                    ? withAlpha(color, 0x72)
+                    ? withAlpha(colorFor(action), 0x72)
                     : withAlpha(foregroundColor, 0x18));
             canvas.drawRect(rect, fillPaint);
+        }
+
+        private String labelFor(SwipeZoneAction action) {
+            return switch (action) {
+                case BRIGHTNESS -> brightnessLabel;
+                case VOLUME -> volumeLabel;
+                case SPEED -> speedLabel;
+                case SEEK -> seekLabel;
+                default -> offLabel;
+            };
+        }
+
+        @ColorInt
+        private int colorFor(SwipeZoneAction action) {
+            return switch (action) {
+                case BRIGHTNESS -> previewColor(
+                        Settings.SWIPE_OVERLAY_BRIGHTNESS_COLOR.get(),
+                        Settings.SWIPE_OVERLAY_BRIGHTNESS_COLOR.defaultValue);
+                case VOLUME -> previewColor(
+                        Settings.SWIPE_OVERLAY_VOLUME_COLOR.get(),
+                        Settings.SWIPE_OVERLAY_VOLUME_COLOR.defaultValue);
+                case SPEED -> previewColor(
+                        Settings.SWIPE_OVERLAY_SPEED_COLOR.get(),
+                        Settings.SWIPE_OVERLAY_SPEED_COLOR.defaultValue);
+                case SEEK -> previewColor(
+                        Settings.SWIPE_OVERLAY_SEEK_COLOR.get(),
+                        Settings.SWIPE_OVERLAY_SEEK_COLOR.defaultValue);
+                default -> foregroundColor;
+            };
         }
 
         private void drawZoneLabel(Canvas canvas, RectF rect, String label,
@@ -398,16 +419,13 @@ public final class SwipeZonePreviewPreference extends Preference {
         }
 
         @ColorInt
-        private int previewColor(String value, @ColorInt int fallback) {
+        private int previewColor(String value, String defaultValue) {
             try {
                 final int parsed = Color.parseColor(value) | 0xFF000000;
-                final float first = relativeLuminance(parsed);
-                final float second = relativeLuminance(screenBackgroundColor);
-                final float contrast = (Math.max(first, second) + 0.05f)
-                        / (Math.min(first, second) + 0.05f);
-                return contrast >= 1.5f ? parsed : fallback;
+                final int parsedDefault = Color.parseColor(defaultValue) | 0xFF000000;
+                return parsed == parsedDefault ? foregroundColor : parsed;
             } catch (Exception ignored) {
-                return fallback;
+                return foregroundColor;
             }
         }
 
@@ -415,14 +433,6 @@ public final class SwipeZonePreviewPreference extends Preference {
             return Math.max(0, Math.min(50, value));
         }
 
-        private static float relativeLuminance(@ColorInt int color) {
-            final float red = Color.red(color) / 255f;
-            final float green = Color.green(color) / 255f;
-            final float blue = Color.blue(color) / 255f;
-            return 0.2126f * red + 0.7152f * green + 0.0722f * blue;
-        }
-
-        @ColorInt
         private static int withAlpha(@ColorInt int color, int alpha) {
             return (color & 0x00FFFFFF) | (alpha << 24);
         }

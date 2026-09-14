@@ -22,7 +22,7 @@ import app.morphe.extension.youtube.swipecontrols.views.SwipeControlsOverlayLayo
 import java.lang.ref.WeakReference
 
 /**
- * The main controller for volume and brightness swipe controls.
+ * The main controller for configurable edge-assigned swipe controls.
  * note that the superclass is overwritten to the superclass of the MainActivity at patch time.
  */
 class SwipeControlsHostActivity : Activity() {

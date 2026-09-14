@@ -2616,7 +2616,7 @@ Adjust brightness by swiping vertically on the left side of the screen"</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Swipe gestures are enabled in Lock screen mode</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Swipe gestures in Lock screen mode</string>
     <string name="revanced_swipe_haptic_feedback_title">Enable haptic feedback</string>
-    <string name="revanced_swipe_horizontal_zone_summary">Percentage of the player height reserved at the top and bottom edges for speed and seek swipes</string>
+    <string name="revanced_swipe_horizontal_zone_summary">Percentage of the player height reserved at the top and bottom edges for configured swipe actions</string>
     <string name="revanced_swipe_horizontal_zone_title">Horizontal swipe area</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Lowest value of the brightness gesture does not activate auto-brightness</string>
@@ -2671,7 +2671,7 @@ Adjust speed by swiping horizontally on the bottom half of the screen"</string>
     <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
     <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
     <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
-    <string name="revanced_swipe_vertical_zone_summary">Percentage of the player width reserved at the left and right edges for brightness and volume swipes</string>
+    <string name="revanced_swipe_vertical_zone_summary">Percentage of the player width reserved at the left and right edges for configured swipe actions</string>
     <string name="revanced_swipe_vertical_zone_title">Vertical swipe area</string>
     <string name="revanced_swipe_volume_distance_summary">The amount of pixels to swipe to adjust the volume. Lower values make the volume change faster, higher values make it slower (1-1000)</string>
     <string name="revanced_swipe_volume_distance_title">Volume distance</string>
@@ -2683,7 +2683,12 @@ Adjust speed by swiping horizontally on the bottom half of the screen"</string>
 
 Adjust volume by swiping vertically on the right side of the screen"</string>
     <string name="revanced_swipe_volume_title">Enable volume gesture</string>
+    <string name="revanced_swipe_left_zone_title">Left swipe gesture</string>
+    <string name="revanced_swipe_right_zone_title">Right swipe gesture</string>
+    <string name="revanced_swipe_top_zone_title">Top swipe gesture</string>
+    <string name="revanced_swipe_bottom_zone_title">Bottom swipe gesture</string>
     <string name="revanced_swipe_zone_label_brightness">Brightness</string>
+    <string name="revanced_swipe_zone_label_off">Off</string>
     <string name="revanced_swipe_zone_label_seek">Seek</string>
     <string name="revanced_swipe_zone_label_speed">Speed</string>
     <string name="revanced_swipe_zone_label_volume">Volume</string>
