@@ -71,6 +71,7 @@ import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.onCreateHook
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.information.videoTimeHook
+import app.morphe.patches.youtube.video.videoid.hookBackgroundPlayVideoId
 import app.morphe.patches.youtube.video.videoid.hookVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
 import app.morphe.util.updatePatchStatus
@@ -162,6 +163,11 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
             EXTENSION_GOOGLE_VOT_CLASS_DESCRIPTOR,
             "videoTimeChanged"
         )
+
+        // The metadata bridge can still contain the previous video's ID during a transition.
+        // Only the raw foreground/background ID hooks may assign the new pause owner.
+        hookVideoId("$EXTENSION_VOT_PATH/TranslationPlaybackController;->newVideoLoaded(Ljava/lang/String;)V")
+        hookBackgroundPlayVideoId("$EXTENSION_VOT_PATH/TranslationPlaybackController;->newVideoLoaded(Ljava/lang/String;)V")
 
         // Hook new video loaded event to load transcript (Google)
         hookVideoId("$EXTENSION_GOOGLE_VOT_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")

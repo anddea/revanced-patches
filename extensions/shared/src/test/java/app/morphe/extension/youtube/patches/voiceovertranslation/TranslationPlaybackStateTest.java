@@ -102,4 +102,19 @@ public class TranslationPlaybackStateTest {
         state.newVideo("a", YANDEX, true);
         assertFalse(state.filterPlay(true, false));
     }
+    @Test public void cachedMetadataCannotClaimANewPlayerBeforeItsActualIdArrives() {
+        state.reset(GOOGLE, true);
+        state.newVideo("old", GOOGLE, true);
+        state.ready(GOOGLE, "old");
+        state.reset(GOOGLE, true);
+        assertFalse(state.matchesVideo("old"));
+        assertFalse(state.matchesVideo(""));
+        assertFalse(state.ready(GOOGLE, "old"));
+        assertFalse(state.filterPlay(true, false));
+        state.newVideo("new", GOOGLE, true);
+        assertFalse(state.matchesVideo("old"));
+        assertTrue(state.matchesVideo("new"));
+        assertTrue(state.ready(GOOGLE, "new"));
+    }
+
 }

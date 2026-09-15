@@ -156,7 +156,7 @@ public class VoiceOverTranslationPatch {
             invalidateTranslationRequest();
         }
         if (!Settings.VOT_ENABLED.get()) {
-            TranslationPlaybackController.newVideoLoaded(newId);
+            TranslationPlaybackController.metadataLoaded(newId);
             return;
         }
         if (!newId.equals(currentTranslatedVideoId.get())) {
@@ -169,7 +169,7 @@ public class VoiceOverTranslationPatch {
         pendingVideoTitle = videoTitle != null ? videoTitle : "";
         pendingVideoLength = videoLength;
         pendingIsLive = isLive;
-        TranslationPlaybackController.newVideoLoaded(newId);
+        TranslationPlaybackController.metadataLoaded(newId);
     }
 
     static boolean startAutomaticTranslation(String videoId) {

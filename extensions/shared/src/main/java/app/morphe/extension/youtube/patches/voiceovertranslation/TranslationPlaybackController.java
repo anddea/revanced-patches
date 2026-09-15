@@ -43,9 +43,15 @@ public final class TranslationPlaybackController {
         return state.filterPlay(playing, internalChange);
     }
 
-    static void newVideoLoaded(String videoId) {
+    /** Injection point using the actual video-ID register, never the cached metadata bridge. */
+    public static void newVideoLoaded(String videoId) {
         int provider = configuredProvider();
         if (state.newVideo(videoId, provider, pauseEnabled(provider))) automaticVideoId = "";
+        metadataLoaded(videoId);
+    }
+
+    static void metadataLoaded(String videoId) {
+        if (!state.matchesVideo(videoId)) return;
         Utils.runOnMainThread(() -> {
             if (!videoId.equals(state.videoId()) || !videoId.equals(VideoInformation.getVideoId())) return;
             enforcePause();

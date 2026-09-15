@@ -367,7 +367,7 @@ public class GoogleVoiceOverTranslationPatch {
         lastVideoTimeMs = 0;
         lastSpokenIndex = -1;
         wasExplicitSeek = false;
-        TranslationPlaybackController.newVideoLoaded(videoId);
+        TranslationPlaybackController.metadataLoaded(videoId);
         if (videoId.equals(currentVideoId)) return;
         transcriptGeneration++;
         clearNativeStartupAudio();

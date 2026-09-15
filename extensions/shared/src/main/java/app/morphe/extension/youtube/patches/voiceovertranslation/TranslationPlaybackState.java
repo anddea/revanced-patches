@@ -46,6 +46,7 @@ final class TranslationPlaybackState {
         return waiting && this.provider == provider && videoId.equals(id);
     }
 
+    synchronized boolean matchesVideo(String id) { return !id.isEmpty() && videoId.equals(id); }
     synchronized boolean isWaiting() { return waiting; }
     synchronized int provider() { return provider; }
     synchronized String videoId() { return videoId; }
