@@ -978,6 +978,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting VOT_ENABLED = new BooleanSetting("vot_enabled", FALSE);
     public static final StringSetting VOT_SOURCE_LANGUAGE = new StringSetting("vot_source_language", "auto", parent(VOT_ENABLED));
     public static final StringSetting VOT_TARGET_LANGUAGE = new StringSetting("vot_target_language", "ru", parent(VOT_ENABLED));
+    public static final BooleanSetting VOT_AUTO_TRANSLATE = new BooleanSetting("vot_auto_translate", FALSE, parent(VOT_ENABLED));
     public static final BooleanSetting VOT_PAUSE_VIDEO_WHILE_PREPARING_TRANSLATION = new BooleanSetting("vot_pause_video_while_preparing_translation", FALSE, parent(VOT_ENABLED));
     public static final IntegerSetting VOT_TRANSLATION_VOLUME = new IntegerSetting("vot_translation_volume", 100,
             new SliderConfig(0, 100, 1, "%"), parent(VOT_ENABLED));
@@ -992,6 +993,8 @@ public class Settings extends SharedYouTubeSettings {
 
     // PreferenceScreen: Voice Over Translation - Google
     public static final BooleanSetting GOOGLE_VOT_ENABLED = new BooleanSetting("morphe_vot_enabled", FALSE, true);
+    public static final BooleanSetting GOOGLE_VOT_AUTO_TRANSLATE = new BooleanSetting("morphe_vot_auto_translate", FALSE, parent(GOOGLE_VOT_ENABLED));
+    public static final BooleanSetting GOOGLE_VOT_PAUSE_WHILE_PREPARING = new BooleanSetting("morphe_vot_pause_while_preparing", FALSE, parent(GOOGLE_VOT_ENABLED));
     public static final BooleanSetting GOOGLE_VOT_SESSION_ENABLED = new BooleanSetting("morphe_vot_session_enabled", FALSE);
     public static final StringSetting GOOGLE_VOT_CAPTION_LANGUAGE = new StringSetting("morphe_vot_caption_language", "app", parent(GOOGLE_VOT_ENABLED));
     public static final StringSetting GOOGLE_VOT_TTS_VOICE_TYPE = new StringSetting("morphe_vot_tts_voice_type", "auto", parent(GOOGLE_VOT_ENABLED));

@@ -166,6 +166,7 @@ private lateinit var videoTitleMethodCall: String
 private lateinit var videoLengthMethodCall: String
 private lateinit var videoIsLiveMethodCall: String
 
+private lateinit var playWhenReadyMethod: MutableMethod
 private lateinit var videoInformationMethod: MutableMethod
 private lateinit var backgroundVideoInformationMethod: MutableMethod
 private lateinit var shortsVideoInformationMethod: MutableMethod
@@ -950,6 +951,9 @@ val videoInformationPatch = bytecodePatch(
             returnType = "V",
             parameters = listOf("Z"),
         ).method
+        playWhenReadyMethod = setPlaybackParametersFingerprint.classDef.methods.single {
+            it.name == setPlayWhenReadyMethod.name && it.parameterTypes == listOf("Z") && it.returnType == "V"
+        }
 
         // for patch_setPlaybackParameters helper method to call setPlaybackParameters(PlaybackParameters p1).
         val setPlaybackParametersMethod = setPlaybackParametersFingerprint.method
@@ -1659,3 +1663,12 @@ internal fun hookShortsVideoInformation(descriptor: String) =
             descriptor
         )
     }
+
+/** Filters local playback before ExoPlayer begins rendering. */
+internal fun hookPlayWhenReady(descriptor: String) = playWhenReadyMethod.addInstructions(
+    0,
+    """
+        invoke-static { p1 }, $descriptor
+        move-result p1
+    """
+)

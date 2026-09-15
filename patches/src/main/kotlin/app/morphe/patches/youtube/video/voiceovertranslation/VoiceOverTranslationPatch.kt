@@ -65,6 +65,8 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.player.overlaybuttons.overlayButtonsPatch
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
+import app.morphe.patches.youtube.video.information.hookPlayWhenReady
 import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.onCreateHook
 import app.morphe.patches.youtube.video.information.videoInformationPatch
@@ -94,6 +96,9 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
     )
 
     execute {
+        onCreateHook("$EXTENSION_VOT_PATH/TranslationPlaybackController;", "initialize")
+        hookPlayWhenReady("$EXTENSION_VOT_PATH/TranslationPlaybackController;->overridePlayWhenReady(Z)Z")
+
         // Read the final native fields after optional stream spoofing has completed.
         // The response's VideoDetails identifies the source even during preloading.
         CreateStreamingDataFingerprint.let {
@@ -143,6 +148,9 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
 
         // Hook new video started event to trigger translation (Yandex)
         hookVideoInformation(
+            "$EXTENSION_VOT_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V"
+        )
+        hookBackgroundPlayVideoInformation(
             "$EXTENSION_VOT_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V"
         )
 

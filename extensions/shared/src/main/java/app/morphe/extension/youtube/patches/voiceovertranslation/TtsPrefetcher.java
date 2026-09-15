@@ -287,6 +287,11 @@ final class TtsPrefetcher {
                         + (System.currentTimeMillis() - start) + "ms text: "
                         + (seg.text.length() > textSubstringLength ? seg.text
                         .substring(0, textSubstringLength).concat("...") : seg.text));
+                Utils.runOnMainThread(() -> {
+                    if (videoId.equals(app.morphe.extension.youtube.shared.VideoInformation.getVideoId())) {
+                        GoogleVoiceOverTranslationPatch.checkStartupReady();
+                    }
+                });
                 return true;
             }
             return false;
