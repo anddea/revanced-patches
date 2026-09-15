@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by COOLak:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
  */
 
@@ -19,6 +23,7 @@ import android.content.Intent;
 import android.media.AudioAttributes;
 import android.net.Uri;
 import android.os.Bundle;
+import android.media.MediaMetadataRetriever;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.util.Pair;
@@ -26,10 +31,13 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 import app.morphe.extension.shared.utils.Logger;
@@ -57,7 +65,7 @@ import app.morphe.extension.youtube.shared.VideoState;
  *
  * <p>State is touched only on the main thread; the few cross-thread reads use volatile fields.
  */
-@SuppressWarnings({"unused", "deprecation", "RedundantSuppression"})
+@SuppressWarnings({"unused", "deprecation", "RedundantSuppression", "ResultOfMethodCallIgnored"})
 public class GoogleVoiceOverTranslationPatch {
 
     public static final Setting.ImportExportCallback VOT_IMPORT_EXPORT_CALLBACK = new Setting.ImportExportCallback() {
@@ -161,6 +169,137 @@ public class GoogleVoiceOverTranslationPatch {
     }
     private static String currentVideoId = "";
     private static boolean isLoading;
+    private static long transcriptGeneration;
+    private static NativeStartupAudio nativeStartupAudio;
+
+    private static final class NativeStartupAudio {
+        final String videoId, lang, text, utteranceId;
+        final int index;
+        final long generation;
+        final File file;
+        byte[] bytes;
+        NativeStartupAudio(String videoId, String lang, String text, int index, File file) {
+            this.videoId = videoId; this.lang = lang; this.text = text; this.index = index; this.file = file;
+            generation = transcriptGeneration;
+            utteranceId = "vot_prepare_" + System.nanoTime();
+        }
+    }
+
+    static void suspendTranslation() {
+        sessionEnabled = false;
+        Settings.GOOGLE_VOT_SESSION_ENABLED.save(false);
+        TranscriptTranslator.requestAbort();
+        transcriptGeneration++;
+        clearNativeStartupAudio();
+        stopTts();
+        TtsPrefetcher.clear();
+        TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+        notifyStateChanged();
+    }
+
+    static void startAutomaticTranslation() {
+        if (!Settings.GOOGLE_VOT_ENABLED.get()) return;
+        sessionEnabled = true;
+        Settings.GOOGLE_VOT_SESSION_ENABLED.save(true);
+        TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
+        if (segments.isEmpty() && !isLoading) loadTranscript(currentVideoId);
+        checkStartupReady();
+        notifyStateChanged();
+    }
+
+    private static void clearNativeStartupAudio() {
+        NativeStartupAudio old = nativeStartupAudio;
+        nativeStartupAudio = null;
+        if (old != null) old.file.delete();
+    }
+
+    /** Called by transcript updates and successful synthesis, even while video time is stopped. */
+    static void checkStartupReady() {
+        Utils.verifyOnMainThread();
+        if (!sessionEnabled || !TranslationPlaybackController.isWaiting(TranslationPlaybackState.GOOGLE, currentVideoId)) return;
+        long position = Math.max(0, VideoInformation.getVideoTime());
+        TtsPrefetcher.updateTime(position);
+        String lang = resolveTargetLang();
+        String voice = resolveVoice(lang);
+        if (voice == null) {
+            TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+            return;
+        }
+        for (int i = 0; i < segments.size(); i++) {
+            TranscriptSegment seg = segments.get(i);
+            if (seg.playbackEndMs <= position) continue;
+            if (TranscriptFetcher.isSpokenLanguageDifferent(lang, seg.lang)
+                    || TranscriptTranslator.isAwaitingTranslationAt(i, seg.startMs, seg.text)) {
+                if (!isLoading) TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                return;
+            }
+            if (TTS_ENGINE_SYSTEM.equals(voice)) {
+                ensureTts();
+                if (!ttsReady) return;
+                NativeStartupAudio prepared = nativeStartupAudio;
+                if (prepared != null && prepared.generation == transcriptGeneration && prepared.index == i
+                        && prepared.lang.equals(lang) && prepared.text.equals(seg.text)) {
+                    if (prepared.bytes != null) TranslationPlaybackController.ready(TranslationPlaybackState.GOOGLE, currentVideoId);
+                    return;
+                }
+                clearNativeStartupAudio();
+                try {
+                    File file = File.createTempFile("vot_startup_", ".wav", Utils.getContext().getCacheDir());
+                    prepared = new NativeStartupAudio(currentVideoId, lang, seg.text, i, file);
+                    nativeStartupAudio = prepared;
+                    updateTtsLanguage();
+                    tts.setSpeechRate(1.0f);
+                    if (tts.synthesizeToFile(seg.text, new Bundle(), file, prepared.utteranceId) != TextToSpeech.SUCCESS) {
+                        clearNativeStartupAudio();
+                        TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                    }
+                } catch (Exception ex) {
+                    clearNativeStartupAudio();
+                    TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                    logError(() -> "Native startup synthesis failed", ex);
+                }
+            } else if (TtsCache.get(currentVideoId, i, voice, lang, seg.text) != null) {
+                TranslationPlaybackController.ready(TranslationPlaybackState.GOOGLE, currentVideoId);
+            }
+            return;
+        }
+        if (!isLoading) TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+    }
+
+    private static void nativeStartupFinished(String utteranceId, boolean success) {
+        Utils.runOnMainThread(() -> {
+            NativeStartupAudio prepared = nativeStartupAudio;
+            if (prepared == null || !prepared.utteranceId.equals(utteranceId)) return;
+            if (!success || prepared.generation != transcriptGeneration || !prepared.videoId.equals(currentVideoId)) {
+                clearNativeStartupAudio();
+                TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, prepared.videoId);
+                return;
+            }
+            Utils.runOnBackgroundThread(() -> {
+                byte[] bytes = null;
+                long duration = -1;
+                try (MediaMetadataRetriever metadata = new MediaMetadataRetriever()) {
+                    bytes = Files.readAllBytes(prepared.file.toPath());
+                    metadata.setDataSource(prepared.file.getAbsolutePath());
+                    duration = Long.parseLong(Objects.requireNonNull(metadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)));
+                } catch (Exception ex) { logError(() -> "Native startup audio read failed", ex); }
+                prepared.file.delete();
+                final byte[] data = bytes;
+                final long durationMs = duration;
+                Utils.runOnMainThread(() -> {
+                    if (nativeStartupAudio != prepared || prepared.generation != transcriptGeneration) return;
+                    if (data == null || data.length == 0) {
+                        clearNativeStartupAudio();
+                        TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, prepared.videoId);
+                    } else {
+                        prepared.bytes = data;
+                        if (prepared.index < segments.size()) segments.get(prepared.index).durationMs = durationMs;
+                        checkStartupReady();
+                    }
+                });
+            });
+        });
+    }
     private static volatile boolean sessionEnabled = Settings.GOOGLE_VOT_SESSION_ENABLED.get();
     // Cached result of isTranslationActive() for safe off-main-thread reads.
     // Updated on the main thread whenever any of its constituent state changes.
@@ -200,18 +339,10 @@ public class GoogleVoiceOverTranslationPatch {
 
         VideoState.getOnChange().addObserver(state -> {
             if (state == VideoState.PAUSED) {
-                // System TTS has no pause API, so fall back to stop+restart for it.
-                // Edge TTS pauses in place to avoid restarting the segment and re-arming
-                // audio focus (which would clip the first frames after resume).
-                if (tts != null && tts.isSpeaking()) {
-                    Logger.printDebug(() -> "Stopping system TTS for video state: " + state);
-                    stopTts();
-                } else {
-                    Logger.printDebug(() -> "Pausing Edge TTS for video state: " + state);
-                    ttsEngine.pause();
-                }
+                onPlaybackPaused();
             } else if (state == VideoState.PLAYING) {
-                ttsEngine.resume();
+                TranslationPlaybackController.enforcePause();
+                if (!TranslationPlaybackController.isWaiting(TranslationPlaybackState.GOOGLE, currentVideoId)) ttsEngine.resume();
             } else if (state == VideoState.ENDED) {
                 Logger.printDebug(() -> "Stopping TTS prefetch and abandoning ducking: " + state);
                 // Do not stop TTS to allow any currently playing TTS to finish.
@@ -220,6 +351,14 @@ public class GoogleVoiceOverTranslationPatch {
             }
             return kotlin.Unit.INSTANCE;
         });
+    }
+
+    static void onPlaybackPaused() {
+        Utils.verifyOnMainThread();
+        // File synthesis is silent preparation and must survive a pause request.
+        if (tts != null && tts.isSpeaking()
+                && (nativeStartupAudio == null || nativeStartupAudio.bytes != null)) stopTts();
+        else ttsEngine.pause();
     }
 
     /**
@@ -232,7 +371,12 @@ public class GoogleVoiceOverTranslationPatch {
         lastVideoTimeMs = 0;
         lastSpokenIndex = -1;
         wasExplicitSeek = false;
+        TranslationPlaybackController.metadataLoaded(videoId);
         if (videoId.equals(currentVideoId)) return;
+        transcriptGeneration++;
+        clearNativeStartupAudio();
+        sessionEnabled = Settings.GOOGLE_VOT_AUTO_TRANSLATE.get() && TranslationPlaybackController.usesGoogle();
+        Settings.GOOGLE_VOT_SESSION_ENABLED.save(sessionEnabled);
 
         Logger.printDebug(() -> "preloadTranslations newVideoLoaded");
         TranscriptTranslator.requestAbort();
@@ -283,11 +427,12 @@ public class GoogleVoiceOverTranslationPatch {
         // initial batch even when the first setVideoTime ticks arrive before play begins.
         videoPositionHint = timeMs;
         // Video state can be null until the overlay is activated the first time.
-        if (state != null && state != VideoState.PLAYING) {
+        if (!VideoInformation.isPlayerPlaying()) {
             Logger.printDebug(() -> "Ignoring TTS for video state: " + state);
             return; // paused, ended, or loading
         }
 
+        ttsEngine.resume();
         TtsPrefetcher.updateTime(timeMs);
 
         final long prevVideoTimeMs = lastVideoTimeMs;
@@ -395,18 +540,24 @@ public class GoogleVoiceOverTranslationPatch {
     }
 
     /** Flips the session enabled flag and either stops TTS or kicks off transcript loading. */
+    @SuppressWarnings("NonAtomicOperationOnVolatileField")
     public static void toggleTranslation() {
         Utils.verifyOnMainThread();
         if (Settings.GOOGLE_VOT_ENABLED.get()) {
             sessionEnabled = !sessionEnabled;
             Settings.GOOGLE_VOT_SESSION_ENABLED.save(sessionEnabled);
             if (!sessionEnabled) {
+                TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                clearNativeStartupAudio();
                 stopTts();
                 lastSpokenIndex = -1;
             } else {
+                TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
                 if (!currentVideoId.isEmpty() && segments.isEmpty() && !isLoading) {
                     loadTranscript(currentVideoId);
                 }
+                TtsPrefetcher.updateVideo(currentVideoId, segments);
+                checkStartupReady();
             }
             notifyStateChanged();
         }
@@ -480,6 +631,7 @@ public class GoogleVoiceOverTranslationPatch {
         Utils.verifyOnMainThread();
         if (isLoading) return;
         isLoading = true;
+        final long loadGeneration = transcriptGeneration;
         final String loadLang = resolveTargetLang();
         final String loadService = Settings.GOOGLE_VOT_TRANSLATION_SERVICE.get();
 
@@ -492,7 +644,7 @@ public class GoogleVoiceOverTranslationPatch {
                         videoId,
                         updated -> {
                             Utils.verifyOnMainThread();
-                            if (videoId.equals(currentVideoId) && loadLang.equals(resolveTargetLang())) {
+                            if (loadGeneration == transcriptGeneration && videoId.equals(currentVideoId) && loadLang.equals(resolveTargetLang())) {
                                 // If the segment we last started speaking had its text replaced
                                 // by a freshly-arrived translation, stop and let videoTimeChanged
                                 // re-speak it with the translated text on the next tick.
@@ -504,16 +656,18 @@ public class GoogleVoiceOverTranslationPatch {
                                 }
                                 segments = updated;
                                 updateTranslationActiveCache();
+                                TtsPrefetcher.updateVideo(videoId, segments);
+                                checkStartupReady();
                             }
                         },
                         () -> {
                             Utils.verifyOnMainThread();
-                            return !videoId.equals(currentVideoId)
+                            return loadGeneration != transcriptGeneration || !videoId.equals(currentVideoId)
                                     || VideoState.getCurrent() == VideoState.ENDED;
                         });
 
                 Utils.runOnMainThread(() -> {
-                    if (videoId.equals(currentVideoId) && loadLang.equals(resolveTargetLang())) {
+                    if (loadGeneration == transcriptGeneration && videoId.equals(currentVideoId) && loadLang.equals(resolveTargetLang())) {
                         // With sequential batch execution, cancelCheck.get() ensures every
                         // onUpdate fires before translate() returns, so segments is already
                         // fully translated by the time we arrive here. Only fall back to the
@@ -522,21 +676,26 @@ public class GoogleVoiceOverTranslationPatch {
                         if (segments.isEmpty()) segments = fetched;
                         TtsPrefetcher.updateVideo(videoId, segments);
                         Logger.printDebug(() -> "Loaded: " + fetched.size() + " segments for :" + videoId);
+                        checkStartupReady();
                         notifyStateChanged();
                     }
                 });
             } catch (Exception ex) {
                 logError(() -> "Transcript fetch failed", ex);
+                Utils.runOnMainThread(() -> {
+                    if (loadGeneration == transcriptGeneration) TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, videoId);
+                });
             } finally {
                 Utils.runOnMainThread(() -> {
                     isLoading = false;
-                    // Restart if the video, language, or translation provider changed while this fetch was in flight.
-                    if (!currentVideoId.isEmpty() && Settings.GOOGLE_VOT_ENABLED.get()
-                            && (!currentVideoId.equals(videoId)
+                    // Restart before checking readiness, so a retired fetch cannot release the new video's pause.
+                    if (!currentVideoId.isEmpty() && sessionEnabled && Settings.GOOGLE_VOT_ENABLED.get()
+                            && (loadGeneration != transcriptGeneration || !currentVideoId.equals(videoId)
                             || !loadLang.equals(resolveTargetLang())
                             || !loadService.equals(Settings.GOOGLE_VOT_TRANSLATION_SERVICE.get()))) {
                         loadTranscript(currentVideoId);
                     }
+                    checkStartupReady();
                 });
             }
         });
@@ -550,6 +709,7 @@ public class GoogleVoiceOverTranslationPatch {
         tts = new TextToSpeech(Utils.getContext(), status -> Utils.runOnMainThreadNowOrLater(() -> {
             if (status != TextToSpeech.SUCCESS) {
                 Logger.printDebug(() -> "TTS initialization failed: " + status);
+                TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
                 return;
             }
             updateTtsLanguage();
@@ -568,6 +728,10 @@ public class GoogleVoiceOverTranslationPatch {
 
                 @Override
                 public void onDone(String utteranceId) {
+                    if (utteranceId != null && utteranceId.startsWith("vot_prepare_")) {
+                        nativeStartupFinished(utteranceId, true);
+                        return;
+                    }
                     Utils.runOnMainThreadNowOrLater(() -> {
                         try {
                             if (utteranceId == null) return;
@@ -593,11 +757,16 @@ public class GoogleVoiceOverTranslationPatch {
 
                 @Override
                 public void onError(String utteranceId) {
+                    if (utteranceId != null && utteranceId.startsWith("vot_prepare_")) {
+                        nativeStartupFinished(utteranceId, false);
+                        return;
+                    }
                     onDone(utteranceId);
                 }
             });
 
             ttsReady = true;
+            checkStartupReady();
         }));
     }
 
@@ -651,6 +820,16 @@ public class GoogleVoiceOverTranslationPatch {
         lastAppliedPlaybackSpeed = VideoInformation.getPlaybackSpeed();
 
         if (TTS_ENGINE_SYSTEM.equals(voice)) {
+            NativeStartupAudio prepared = nativeStartupAudio;
+            if (prepared != null && prepared.bytes != null && prepared.generation == transcriptGeneration
+                    && prepared.videoId.equals(currentVideoId) && prepared.index == index
+                    && prepared.lang.equals(lang) && prepared.text.equals(seg.text)) {
+                GoogleVotOriginalVolumePatch.setAudioMultiplier(Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME.get() / 100.0f);
+                long playbackId = ttsEngine.markBusy();
+                ttsEngine.play(prepared.bytes, volume, rate * VideoInformation.getPlaybackSpeed(), startTimeMs,
+                        playbackId, GoogleVoiceOverTranslationPatch::triggerNextSegmentCheck);
+                return;
+            }
             ensureTts();
             if (!ttsReady) {
                 Logger.printDebug(() -> "Native TTS not ready, skipping segment");
@@ -711,7 +890,7 @@ public class GoogleVoiceOverTranslationPatch {
 
     private static void triggerNextSegmentCheck() {
         Utils.runOnMainThreadNowOrLater(() -> {
-            if (VideoState.getCurrent() == VideoState.PLAYING) {
+            if (VideoInformation.isPlayerPlaying()) {
                 videoTimeChanged(VideoInformation.getVideoTime());
             }
         });

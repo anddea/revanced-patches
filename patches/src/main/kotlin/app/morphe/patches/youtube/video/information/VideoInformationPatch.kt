@@ -6,6 +6,7 @@
  *
  * Original author(s):
  * - anddea (https://github.com/anddea)
+ * - COOLak (https://github.com/COOLak)
  * - inotia00 (https://github.com/inotia00)
  * - Jav1x (https://github.com/Jav1x)
  *
@@ -117,6 +118,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -169,6 +171,7 @@ private lateinit var videoTitleMethodCall: String
 private lateinit var videoLengthMethodCall: String
 private lateinit var videoIsLiveMethodCall: String
 
+private lateinit var playWhenReadyMethod: MutableMethod
 private lateinit var videoInformationMethod: MutableMethod
 private lateinit var backgroundVideoInformationMethod: MutableMethod
 private lateinit var shortsVideoInformationMethod: MutableMethod
@@ -981,6 +984,18 @@ val videoInformationPatch = bytecodePatch(
             returnType = "V",
             parameters = listOf("Z"),
         ).method
+        playWhenReadyMethod = setPlaybackParametersFingerprint.classDef.methods.single {
+            it.name == setPlayWhenReadyMethod.name && it.parameterTypes == listOf("Z") && it.returnType == "V"
+        }
+
+        // BasePlayer.isPlaying checks STATE_READY (3), playWhenReady and suppression.
+        val basePlayerType = setPlaybackParametersFingerprint.classDef.superclass!!
+        val isPlayingMethod = classDefBy(basePlayerType).methods.single {
+            it.parameterTypes.isEmpty() && it.returnType == "Z" &&
+                it.implementation?.instructions?.any { instruction ->
+                    instruction is NarrowLiteralInstruction && instruction.narrowLiteral == 3
+                } == true
+        }
 
         // for patch_setPlaybackParameters helper method to call setPlaybackParameters(PlaybackParameters p1).
         val setPlaybackParametersMethod = setPlaybackParametersFingerprint.method
@@ -1057,6 +1072,28 @@ val videoInformationPatch = bytecodePatch(
                             invoke-direct { v0, p1, p2 }, $playbackParametersConstructorReference
                             invoke-virtual { p0, v0 }, $setPlaybackParametersReference
                             return-void
+                        """
+                    )
+                }
+            )
+
+            methods.add(
+                ImmutableMethod(
+                    type,
+                    "patch_isPlaying",
+                    emptyList(),
+                    "Z",
+                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(2),
+                ).toMutable().apply {
+                    addInstructions(
+                        0,
+                        """
+                            invoke-virtual { p0 }, $basePlayerType->${isPlayingMethod.name}()Z
+                            move-result v0
+                            return v0
                         """
                     )
                 }
@@ -1623,6 +1660,13 @@ internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
         "invoke-static { }, $targetMethodClass->$targetMethodName()V"
     )
 
+/** Hook the same constructor with the controller instance for callback ownership. */
+internal fun onCreateHookWithPlayer(targetMethodClass: String, targetMethodName: String) =
+    playerConstructorMethod.addInstruction(
+        playerConstructorInsertIndex++,
+        "invoke-static/range { p0 .. p0 }, $targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+    )
+
 /**
  * Hook the MDX player director. Called when playing videos while casting to a big screen device.
  *
@@ -1699,3 +1743,12 @@ fun playerStatusHook(targetMethodClass: String, targetMethodName: String) {
         )
     }
 }
+
+/** Filters local playback before ExoPlayer begins rendering. */
+internal fun hookPlayWhenReady(descriptor: String) = playWhenReadyMethod.addInstructions(
+    0,
+    """
+        invoke-static { p0, p1 }, $descriptor
+        move-result p1
+    """
+)
