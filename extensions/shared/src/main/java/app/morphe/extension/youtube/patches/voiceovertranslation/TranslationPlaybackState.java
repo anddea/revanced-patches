@@ -29,7 +29,7 @@ final class TranslationPlaybackState {
         videoId = id;
         this.provider = provider;
         waiting = pause;
-        resume = pause && (alreadyHeld || playing);
+        resume = pause && (alreadyHeld ? resume : playing);
     }
 
     synchronized boolean filterPlay(boolean playing, boolean internalChange) {

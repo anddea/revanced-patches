@@ -96,6 +96,15 @@ public class TranslationPlaybackStateTest {
         assertTrue(state.ready(GOOGLE, "a"));
     }
 
+    @Test public void selectingTranslationPreservesAnEarlierManualPause() {
+        state.reset(YANDEX, true);
+        state.filterPlay(false, false);
+        state.newVideo("a", YANDEX, true);
+        state.select("a", YANDEX, true, false);
+        assertFalse(state.ready(YANDEX, "a"));
+        assertTrue(state.filterPlay(true, false));
+    }
+
     @Test public void metadataArmsPauseEvenIfEarlierRequestWasCancelled() {
         state.reset(YANDEX, true);
         state.cancel(YANDEX, "");
