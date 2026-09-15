@@ -2795,7 +2795,7 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_original_audio_volume_summary">Volume of the original video track when translation is playing (0-100). Default: 20</string>
     <string name="revanced_vot_original_audio_volume_title">Original audio volume</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">Video keeps playing while translation is prepared</string>
-    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Video pauses until translated audio is ready</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">New videos start paused and resume when translated audio is ready</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_title">Pause video while preparing translation</string>
     <string name="revanced_vot_percent_value" translatable="false">%d%%</string>
     <string name="revanced_vot_playback_error">Failed to play translation audio</string>
@@ -2891,4 +2891,13 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
+    <string name="revanced_vot_auto_translate_title">Automatically translate videos</string>
+    <string name="revanced_vot_auto_translate_summary_on">Yandex translation starts automatically for each video</string>
+    <string name="revanced_vot_auto_translate_summary_off">Tap the translation button to start Yandex translation</string>
+    <string name="morphe_vot_auto_translate_title">Automatically translate videos</string>
+    <string name="morphe_vot_auto_translate_summary_on">Google translation starts automatically for each video</string>
+    <string name="morphe_vot_auto_translate_summary_off">Tap the translation button to start Google translation</string>
+    <string name="morphe_vot_pause_while_preparing_title">Pause video while preparing translation</string>
+    <string name="morphe_vot_pause_while_preparing_summary_on">New videos start paused and resume when translated audio is ready</string>
+    <string name="morphe_vot_pause_while_preparing_summary_off">Video keeps playing while translation is prepared</string>
 </resources>

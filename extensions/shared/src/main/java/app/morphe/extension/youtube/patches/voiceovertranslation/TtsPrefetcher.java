@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by COOLak:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
  */
 
@@ -287,6 +291,11 @@ final class TtsPrefetcher {
                         + (System.currentTimeMillis() - start) + "ms text: "
                         + (seg.text.length() > textSubstringLength ? seg.text
                         .substring(0, textSubstringLength).concat("...") : seg.text));
+                Utils.runOnMainThread(() -> {
+                    if (videoId.equals(app.morphe.extension.youtube.shared.VideoInformation.getVideoId())) {
+                        GoogleVoiceOverTranslationPatch.checkStartupReady();
+                    }
+                });
                 return true;
             }
             return false;
