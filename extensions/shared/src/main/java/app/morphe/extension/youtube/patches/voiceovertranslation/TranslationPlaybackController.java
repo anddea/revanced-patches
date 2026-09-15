@@ -1,5 +1,8 @@
 package app.morphe.extension.youtube.patches.voiceovertranslation;
 
+import com.google.protobuf.MessageLite;
+import java.lang.ref.WeakReference;
+import app.morphe.extension.shared.innertube.utils.PlayerResponseOuterClass.VideoDetails;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
@@ -10,6 +13,7 @@ public final class TranslationPlaybackController {
     private static final TranslationPlaybackState state = new TranslationPlaybackState();
     private static boolean internalChange;
     private static String automaticVideoId = "";
+    private static volatile WeakReference<Object> nativePlayer = new WeakReference<>(null);
 
     private static int configuredProvider() {
         // Automatic translation takes precedence over a provider waiting for a manual tap.
@@ -30,10 +34,35 @@ public final class TranslationPlaybackController {
     }
 
     /** Injection point, before YouTube has assigned the new video metadata. */
-    public static void initialize() {
+    public static void initialize(Object player) {
+        nativePlayer = new WeakReference<>(player);
         int provider = configuredProvider();
         state.reset(provider, pauseEnabled(provider));
         automaticVideoId = "";
+    }
+
+    /** Injection point in the current LocalDirector's loadVideo, not response preloading. */
+    public static void nativeVideoLoaded(Object player, Object rawDetails) {
+        if (nativePlayer.get() != player || !(rawDetails instanceof MessageLite details)) return;
+        try {
+            VideoDetails video = VideoDetails.parseFrom(details.toByteArray());
+            String id = video.getVideoId();
+            if (id.isEmpty()) return;
+            Utils.runOnMainThread(() -> {
+                // A queued callback from a retired director must not replace the pause owner.
+                if (nativePlayer.get() != player) return;
+                Logger.printDebug(() -> "Translation native video loaded: " + id);
+                VideoInformation.setVideoInformation(video.getChannelId(), video.getAuthor(),
+                        id, video.getTitle(), video.getLengthSeconds() * 1000, video.getIsLiveContent());
+                VoiceOverTranslationPatch.newVideoStarted(video.getChannelId(), video.getAuthor(),
+                        id, video.getTitle(), video.getLengthSeconds() * 1000, video.getIsLiveContent());
+                newVideoLoaded(id);
+                // Stop the previous video's speech even if the Google UI hook is absent.
+                GoogleVoiceOverTranslationPatch.newVideoLoaded(id);
+            });
+        } catch (Exception ex) {
+            Logger.printException(() -> "Could not read translation playback metadata", ex);
+        }
     }
 
     /** YouTube normally waits for playback before showing the watch page, or for a timeout. */

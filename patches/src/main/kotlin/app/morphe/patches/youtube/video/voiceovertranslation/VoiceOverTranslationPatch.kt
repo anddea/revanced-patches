@@ -64,6 +64,7 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -74,10 +75,13 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.player.overlaybuttons.overlayButtonsPatch
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.video.information.ModernChannelInformationFingerprint
 import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.morphe.patches.youtube.video.information.hookPlayWhenReady
 import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.onCreateHook
+import app.morphe.patches.youtube.video.information.onCreateHookWithPlayer
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.information.videoTimeHook
 import app.morphe.patches.youtube.video.videoid.hookBackgroundPlayVideoId
@@ -106,8 +110,47 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
     )
 
     execute {
-        onCreateHook("$EXTENSION_VOT_PATH/TranslationPlaybackController;", "initialize")
+        onCreateHookWithPlayer("$EXTENSION_VOT_PATH/TranslationPlaybackController;", "initialize")
         hookPlayWhenReady("$EXTENSION_VOT_PATH/TranslationPlaybackController;->overridePlayWhenReady(Ljava/lang/Object;Z)Z")
+
+        // The visible/background UI callbacks can both be absent when switching tracks
+        // from a settings screen. LocalDirector.loadVideo receives the selected response
+        // independently of the UI. Do not use response construction (which also preloads).
+        if (is_21_04_or_greater) {
+            val detailsField = CreateStreamingDataFingerprint.instructionMatches[2]
+                .instruction.getReference<FieldReference>()!!
+            val matches = ModernChannelInformationFingerprint.matchAll(2..3)
+            val responseType = matches.first().method.parameterTypes.first().toString()
+            val responseGetter = classDefBy(responseType).methods.single {
+                it.parameterTypes.isEmpty() && it.returnType == detailsField.definingClass
+            }
+            val playerClass = ModernChannelInformationFingerprint.classDef
+            val helper = ImmutableMethod(
+                playerClass.type,
+                "patch_translationVideoLoaded",
+                listOf(ImmutableMethodParameter(responseType, null, null)),
+                "V",
+                AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                null,
+                null,
+                MutableMethodImplementation(3),
+            ).toMutable().apply {
+                addInstructions(0, """
+                    if-eqz p1, :done
+                    invoke-interface { p1 }, $responseGetter
+                    move-result-object v0
+                    if-eqz v0, :done
+                    iget-object v0, v0, $detailsField
+                    invoke-static { p0, v0 }, $EXTENSION_VOT_PATH/TranslationPlaybackController;->nativeVideoLoaded(Ljava/lang/Object;Ljava/lang/Object;)V
+                    :done
+                    return-void
+                """)
+            }
+            playerClass.methods.add(helper)
+            matches.forEach { match ->
+                match.method.addInstruction(0, "invoke-direct { p0, p1 }, $helper")
+            }
+        }
 
         // The watch page normally waits for playback or a timeout. A translation hold
         // must not leave details/comments blank. Override the consumed delay, after
@@ -194,7 +237,7 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
         )
 
         // The metadata bridge can still contain the previous video's ID during a transition.
-        // Only the raw foreground/background ID hooks may assign the new pause owner.
+        // Raw foreground/background IDs also cover the older player implementation.
         hookVideoId("$EXTENSION_VOT_PATH/TranslationPlaybackController;->newVideoLoaded(Ljava/lang/String;)V")
         hookBackgroundPlayVideoId("$EXTENSION_VOT_PATH/TranslationPlaybackController;->newVideoLoaded(Ljava/lang/String;)V")
 

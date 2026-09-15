@@ -1629,6 +1629,13 @@ internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
         "invoke-static { }, $targetMethodClass->$targetMethodName()V"
     )
 
+/** Hook the same constructor with the controller instance for callback ownership. */
+internal fun onCreateHookWithPlayer(targetMethodClass: String, targetMethodName: String) =
+    playerConstructorMethod.addInstruction(
+        playerConstructorInsertIndex++,
+        "invoke-static/range { p0 .. p0 }, $targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+    )
+
 /**
  * Hook the MDX player director. Called when playing videos while casting to a big screen device.
  *
