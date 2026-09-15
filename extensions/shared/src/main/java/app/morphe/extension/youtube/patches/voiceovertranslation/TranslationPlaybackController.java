@@ -36,6 +36,15 @@ public final class TranslationPlaybackController {
         automaticVideoId = "";
     }
 
+    /** YouTube normally waits for playback before showing the watch page, or for a timeout. */
+    public static int overrideWatchNextProcessingDelay(int delay) {
+        // This is read before the player is created, so use the configured provider.
+        // Loading details/comments must not depend on releasing the translation pause.
+        if (!pauseEnabled(configuredProvider())) return delay;
+        Logger.printDebug(() -> "Loading watch page without waiting for playback");
+        return 0;
+    }
+
     /** Injection point in ExoPlayer.setPlayWhenReady, before any frames are played. */
     public static boolean overridePlayWhenReady(Object player, boolean playing) {
         if (!VideoInformation.isCurrentPlayer(player)) return playing;

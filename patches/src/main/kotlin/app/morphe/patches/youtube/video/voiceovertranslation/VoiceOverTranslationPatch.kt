@@ -44,16 +44,25 @@ package app.morphe.patches.youtube.video.voiceovertranslation
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.shared.misc.spoof.CreateStreamingDataFingerprint
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
+import app.morphe.patches.shared.WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING
+import app.morphe.patches.shared.playbackStartParametersToStringFingerprint
+import app.morphe.patches.youtube.misc.debugging.currentWatchNextResponseParentFingerprint
 import app.morphe.patches.youtube.utils.auth.authHookPatch
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.getReference
+import app.morphe.util.findFieldFromToString
+import app.morphe.util.fingerprint.mutableClassOrThrow
+import app.morphe.util.fingerprint.originalMethodOrThrow
+import app.morphe.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
@@ -99,6 +108,26 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
     execute {
         onCreateHook("$EXTENSION_VOT_PATH/TranslationPlaybackController;", "initialize")
         hookPlayWhenReady("$EXTENSION_VOT_PATH/TranslationPlaybackController;->overridePlayWhenReady(Ljava/lang/Object;Z)Z")
+
+        // The watch page normally waits for playback or a timeout. A translation hold
+        // must not leave details/comments blank. Override the consumed delay, after
+        // any debugging override in PlaybackStartParameters' constructor.
+        val watchNextDelayField = playbackStartParametersToStringFingerprint.originalMethodOrThrow()
+            .findFieldFromToString(WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING)
+        currentWatchNextResponseParentFingerprint.mutableClassOrThrow().methods.single { method ->
+            method.implementation?.instructions?.any {
+                it.opcode == Opcode.IGET && it.getReference<FieldReference>() == watchNextDelayField
+            } == true
+        }.apply {
+            val index = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.IGET && getReference<FieldReference>() == watchNextDelayField
+            }
+            val register = getInstruction<TwoRegisterInstruction>(index).registerA
+            addInstructions(index + 1, """
+                invoke-static/range { v$register .. v$register }, $EXTENSION_VOT_PATH/TranslationPlaybackController;->overrideWatchNextProcessingDelay(I)I
+                move-result v$register
+            """)
+        }
 
         // Read the final native fields after optional stream spoofing has completed.
         // The response's VideoDetails identifies the source even during preloading.
