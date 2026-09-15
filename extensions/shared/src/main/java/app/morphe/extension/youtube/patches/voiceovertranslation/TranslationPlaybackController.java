@@ -4,7 +4,6 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.VideoInformation;
-import app.morphe.extension.youtube.shared.VideoState;
 
 /** Shares a single playback pause between the two translation providers. */
 public final class TranslationPlaybackController {
@@ -38,9 +37,15 @@ public final class TranslationPlaybackController {
     }
 
     /** Injection point in ExoPlayer.setPlayWhenReady, before any frames are played. */
-    public static boolean overridePlayWhenReady(boolean playing) {
-        if (!pauseEnabled(state.provider())) return playing;
-        return state.filterPlay(playing, internalChange);
+    public static boolean overridePlayWhenReady(Object player, boolean playing) {
+        if (!VideoInformation.isCurrentPlayer(player)) return playing;
+        boolean result = pauseEnabled(state.provider()) ? state.filterPlay(playing, internalChange) : playing;
+        if (!result) Utils.runOnMainThread(() -> {
+            if (!VideoInformation.isCurrentPlayer(player) || VideoInformation.isPlayerPlaying()) return;
+            VoiceOverTranslationPatch.pauseAudio();
+            GoogleVoiceOverTranslationPatch.onPlaybackPaused();
+        });
+        return result;
     }
 
     /** Injection point using the actual video-ID register, never the cached metadata bridge. */
@@ -69,7 +74,7 @@ public final class TranslationPlaybackController {
 
     static void select(int provider, String videoId) {
         Utils.verifyOnMainThread();
-        state.select(videoId, provider, pauseEnabled(provider), VideoState.getCurrent() == VideoState.PLAYING);
+        state.select(videoId, provider, pauseEnabled(provider), VideoInformation.isPlayerPlaying());
         if (provider == TranslationPlaybackState.YANDEX) GoogleVoiceOverTranslationPatch.suspendTranslation();
         else VoiceOverTranslationPatch.suspendTranslation();
         enforcePause();

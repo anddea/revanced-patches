@@ -968,7 +968,7 @@ public class VoiceOverTranslationPatch {
         if (RootView.isShortsActive()) {
             return !shortsPlaybackPaused;
         }
-        return VideoState.getCurrent() == VideoState.PLAYING;
+        return VideoInformation.isPlayerPlaying();
     }
 
     /**

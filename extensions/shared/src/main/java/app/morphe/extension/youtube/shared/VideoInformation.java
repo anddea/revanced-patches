@@ -81,6 +81,7 @@ public final class VideoInformation {
     public interface ExoPlayerImpl {
         void patch_setPlaybackParameters(float speed, float pitch);
         void patch_setPlayWhenReady(boolean playing);
+        boolean patch_isPlaying();
     }
 
     public interface PlaybackSpeedMenuInterface {
@@ -714,6 +715,21 @@ public final class VideoInformation {
         } else {
             Logger.printDebug(() -> "Cannot change playback parameters, exoPlayerImpl is null");
         }
+    }
+
+    public static boolean isCurrentPlayer(Object player) {
+        return player == exoPlayerImplRef.get();
+    }
+
+    /** Read the backend state; the visible-player enum can remain stale in the background. */
+    public static boolean isPlayerPlaying() {
+        Utils.verifyOnMainThread();
+        ExoPlayerImpl player = exoPlayerImplRef.get();
+        if (player != null) {
+            try { return player.patch_isPlaying(); }
+            catch (Exception ex) { Logger.printDebug(() -> "Cannot read playback state: " + ex); }
+        }
+        return VideoState.getCurrent() == VideoState.PLAYING;
     }
 
     /**

@@ -98,7 +98,7 @@ val voiceOverTranslationBytecodePatch = bytecodePatch(
 
     execute {
         onCreateHook("$EXTENSION_VOT_PATH/TranslationPlaybackController;", "initialize")
-        hookPlayWhenReady("$EXTENSION_VOT_PATH/TranslationPlaybackController;->overridePlayWhenReady(Z)Z")
+        hookPlayWhenReady("$EXTENSION_VOT_PATH/TranslationPlaybackController;->overridePlayWhenReady(Ljava/lang/Object;Z)Z")
 
         // Read the final native fields after optional stream spoofing has completed.
         // The response's VideoDetails identifies the source even during preloading.

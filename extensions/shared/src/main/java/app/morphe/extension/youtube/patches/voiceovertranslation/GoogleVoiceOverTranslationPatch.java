@@ -334,16 +334,7 @@ public class GoogleVoiceOverTranslationPatch {
 
         VideoState.getOnChange().addObserver(state -> {
             if (state == VideoState.PAUSED) {
-                // System TTS has no pause API, so fall back to stop+restart for it.
-                // Edge TTS pauses in place to avoid restarting the segment and re-arming
-                // audio focus (which would clip the first frames after resume).
-                if (tts != null && tts.isSpeaking()) {
-                    Logger.printDebug(() -> "Stopping system TTS for video state: " + state);
-                    stopTts();
-                } else {
-                    Logger.printDebug(() -> "Pausing Edge TTS for video state: " + state);
-                    ttsEngine.pause();
-                }
+                onPlaybackPaused();
             } else if (state == VideoState.PLAYING) {
                 TranslationPlaybackController.enforcePause();
                 if (!TranslationPlaybackController.isWaiting(TranslationPlaybackState.GOOGLE, currentVideoId)) ttsEngine.resume();
@@ -355,6 +346,14 @@ public class GoogleVoiceOverTranslationPatch {
             }
             return kotlin.Unit.INSTANCE;
         });
+    }
+
+    static void onPlaybackPaused() {
+        Utils.verifyOnMainThread();
+        // File synthesis is silent preparation and must survive a pause request.
+        if (tts != null && tts.isSpeaking()
+                && (nativeStartupAudio == null || nativeStartupAudio.bytes != null)) stopTts();
+        else ttsEngine.pause();
     }
 
     /**
@@ -423,11 +422,12 @@ public class GoogleVoiceOverTranslationPatch {
         // initial batch even when the first setVideoTime ticks arrive before play begins.
         videoPositionHint = timeMs;
         // Video state can be null until the overlay is activated the first time.
-        if (state != null && state != VideoState.PLAYING) {
+        if (!VideoInformation.isPlayerPlaying()) {
             Logger.printDebug(() -> "Ignoring TTS for video state: " + state);
             return; // paused, ended, or loading
         }
 
+        ttsEngine.resume();
         TtsPrefetcher.updateTime(timeMs);
 
         final long prevVideoTimeMs = lastVideoTimeMs;
@@ -884,7 +884,7 @@ public class GoogleVoiceOverTranslationPatch {
 
     private static void triggerNextSegmentCheck() {
         Utils.runOnMainThreadNowOrLater(() -> {
-            if (VideoState.getCurrent() == VideoState.PLAYING) {
+            if (VideoInformation.isPlayerPlaying()) {
                 videoTimeChanged(VideoInformation.getVideoTime());
             }
         });

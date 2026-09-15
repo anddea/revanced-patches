@@ -115,6 +115,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -955,6 +956,15 @@ val videoInformationPatch = bytecodePatch(
             it.name == setPlayWhenReadyMethod.name && it.parameterTypes == listOf("Z") && it.returnType == "V"
         }
 
+        // BasePlayer.isPlaying checks STATE_READY (3), playWhenReady and suppression.
+        val basePlayerType = setPlaybackParametersFingerprint.classDef.superclass!!
+        val isPlayingMethod = classDefBy(basePlayerType).methods.single {
+            it.parameterTypes.isEmpty() && it.returnType == "Z" &&
+                it.implementation?.instructions?.any { instruction ->
+                    instruction is NarrowLiteralInstruction && instruction.narrowLiteral == 3
+                } == true
+        }
+
         // for patch_setPlaybackParameters helper method to call setPlaybackParameters(PlaybackParameters p1).
         val setPlaybackParametersMethod = setPlaybackParametersFingerprint.method
 
@@ -1030,6 +1040,28 @@ val videoInformationPatch = bytecodePatch(
                             invoke-direct { v0, p1, p2 }, $playbackParametersConstructorReference
                             invoke-virtual { p0, v0 }, $setPlaybackParametersReference
                             return-void
+                        """
+                    )
+                }
+            )
+
+            methods.add(
+                ImmutableMethod(
+                    type,
+                    "patch_isPlaying",
+                    emptyList(),
+                    "Z",
+                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(2),
+                ).toMutable().apply {
+                    addInstructions(
+                        0,
+                        """
+                            invoke-virtual { p0 }, $basePlayerType->${isPlayingMethod.name}()Z
+                            move-result v0
+                            return v0
                         """
                     )
                 }
@@ -1668,7 +1700,7 @@ internal fun hookShortsVideoInformation(descriptor: String) =
 internal fun hookPlayWhenReady(descriptor: String) = playWhenReadyMethod.addInstructions(
     0,
     """
-        invoke-static { p1 }, $descriptor
+        invoke-static { p0, p1 }, $descriptor
         move-result p1
     """
 )
