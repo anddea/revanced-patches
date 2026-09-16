@@ -97,6 +97,16 @@ public final class ThemePatch {
     public static final String DEFAULT_LIGHT_THEME_CUSTOM_COLOR = "#FFFFFFFF";
     public static final String DEFAULT_NOTIFICATION_DOT_COLOR = "#FFFF0000";
 
+    /** Controls how YouTube's status-bar fallback color is resolved. */
+    public enum StatusBarTranslucency {
+        /** Keeps YouTube's original status-bar behavior. */
+        DEFAULT,
+        /** Uses the selected app color without transparency. */
+        OPAQUE,
+        /** Removes the status-bar color completely. */
+        TRANSPARENT
+    }
+
     private static final String RUNTIME_LIGHT_THEME_COLOR = "morphe_runtime_light_theme_color";
     private static final String PATCH_OPTION_DARK_THEME_COLOR = "morphe_patch_option_dark_theme_color";
     private static final String PATCH_OPTION_LIGHT_THEME_COLOR = "morphe_patch_option_light_theme_color";
@@ -298,30 +308,42 @@ public final class ThemePatch {
     private static int[] getSelectedDarkColors(Context context) {
         if (isStockDarkTheme()) {
             int[] colors = STOCK_DARK_THEME_COLORS.clone();
-            if (isDisableTranslucentStatusBar()) {
-                int statusBarColor = colors[STOCK_DARK_THEME_MAIN_COLOR_INDEX];
-                colors[STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX] = Color.argb(
-                        0xFF,
-                        Color.red(statusBarColor),
-                        Color.green(statusBarColor),
-                        Color.blue(statusBarColor)
-                );
+            switch (Settings.STATUS_BAR_TRANSLUCENCY.get()) {
+                case OPAQUE -> {
+                    int statusBarColor = colors[STOCK_DARK_THEME_MAIN_COLOR_INDEX];
+                    colors[STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX] = Color.argb(
+                            0xFF,
+                            Color.red(statusBarColor),
+                            Color.green(statusBarColor),
+                            Color.blue(statusBarColor)
+                    );
+                }
+                case TRANSPARENT ->
+                        colors[STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX] = Color.TRANSPARENT;
+                default -> {
+                }
             }
             return colors;
         }
 
         int[] colors = new int[STOCK_DARK_THEME_COLORS.length];
         int selectedColor = getSelectedDarkColor(context);
+        StatusBarTranslucency translucency = Settings.STATUS_BAR_TRANSLUCENCY.get();
         for (int i = 0; i < colors.length; i++) {
-            colors[i] = Color.argb(
-                    isDisableTranslucentStatusBar()
-                            && i == STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX
-                            ? 0xFF
-                            : Color.alpha(STOCK_DARK_THEME_COLORS[i]),
-                    Color.red(selectedColor),
-                    Color.green(selectedColor),
-                    Color.blue(selectedColor)
-            );
+            if (i == STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX
+                    && translucency == StatusBarTranslucency.TRANSPARENT) {
+                colors[i] = Color.TRANSPARENT;
+            } else {
+                colors[i] = Color.argb(
+                        i == STOCK_DARK_THEME_STATUS_BAR_COLOR_INDEX
+                                && translucency == StatusBarTranslucency.OPAQUE
+                                ? 0xFF
+                                : Color.alpha(STOCK_DARK_THEME_COLORS[i]),
+                        Color.red(selectedColor),
+                        Color.green(selectedColor),
+                        Color.blue(selectedColor)
+                );
+            }
         }
         return colors;
     }
@@ -395,14 +417,18 @@ public final class ThemePatch {
 
     /**
      * Applies the selected theme only to YouTube's status-bar fallback. The shared translucent
-     * resources remain stock because the player also uses them while controls are visible.
+     * resources remain stock because the player also uses them while controls are visible. The
+     * selected status-bar translucency mode is applied only to this fallback.
      */
     public static int getStatusBarColor(int color) {
+        StatusBarTranslucency translucency = Settings.STATUS_BAR_TRANSLUCENCY.get();
+        if (translucency == StatusBarTranslucency.TRANSPARENT) return Color.TRANSPARENT;
+
         int selectedColor = BaseThemeUtils.isDarkModeEnabled() && isStockDarkTheme()
                 ? color
                 : BaseThemeUtils.getAppBackgroundColor();
         return Color.argb(
-                isDisableTranslucentStatusBar() ? 0xFF : Color.alpha(color),
+                translucency == StatusBarTranslucency.OPAQUE ? 0xFF : Color.alpha(color),
                 Color.red(selectedColor),
                 Color.green(selectedColor),
                 Color.blue(selectedColor)
@@ -531,10 +557,6 @@ public final class ThemePatch {
 
         // Never reached: an indicator color exists only on Android 12 and newer.
         return Color.BLACK;
-    }
-
-    private static boolean isDisableTranslucentStatusBar() {
-        return Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get();
     }
 
     /**
