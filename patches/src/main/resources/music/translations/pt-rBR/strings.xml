@@ -106,20 +106,16 @@ YouTube Music 8.x — o Crossfade funciona apenas no YouTube Music 9.x ou mais r
     <string name="morphe_music_crossfade_session_control_summary">Pressione e segure o botão de aleatorizar para pausar ou retomar o crossfade</string>
     <string name="morphe_music_crossfade_session_control_title">Controles de sessão</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">O modo de vídeo não está disponível enquanto o crossfade estiver habilitado</string>
-    <string name="morphe_music_lyrics_about_summary">"As letras são pesquisadas pelo título da faixa e pelo artista, portanto, uma faixa com metadados incomuns pode não encontrar nada ou encontrar a versão errada
-
-As letras sincronizadas acompanham a reprodução. Se elas se desviarem, ajuste o deslocamento de tempo
-
-Quando nenhuma letra de terceiros é encontrada, as letras internas são exibidas"</string>
+    <string name="morphe_music_lyrics_about_summary">"As letras são pesquisadas pelo título e pelo artista da faixa, então uma faixa com metadados incomuns pode não encontrar nada ou encontrar a versão errada. Você também pode tentar o botão de atualizar para alternar as versões manualmente. Quando nenhuma letra de terceiros é encontrada, letras internas ou embutidas são mostradas no lugar. Provedores marcados com * exigem um token para serem ativados. Os provedores ativados nem sempre são consultados na sua ordem, mas respondem de acordo com a velocidade"</string>
     <string name="morphe_music_lyrics_about_title">Sobre letras de terceiros</string>
     <string name="morphe_music_lyrics_copied">Copiado para a área de transferência</string>
     <string name="morphe_music_lyrics_enabled_summary">Exibe letras de um serviço de terceiros, recorrendo às letras embutidas quando nenhuma for encontrada</string>
     <string name="morphe_music_lyrics_enabled_title">Usar letras de terceiros</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">Ajuste as letras sincronizadas para frente ou para trás. Use um valor positivo se a letra estiver adiantada em relação à música</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">As letras sincronizadas acompanham a reprodução. Se elas saírem da sincronia, ajuste a compensação de tempo. Desloque as letras sincronizadas para frente ou para trás. Use um valor positivo se as letras estiverem adiantadas em relação à música</string>
     <string name="morphe_music_lyrics_offset_ms_title">Deslocamento de tempo</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Mostrar botão Copiar</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Mostrar botão Traduzir</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, então KuGou</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, depois QQ, depois KuGou, depois NetEase, depois BiniLyrics, depois Unison, depois AMLL</string>
     <string name="morphe_music_lyrics_source_label">Fonte: %s</string>
     <string name="morphe_music_lyrics_source_title">Serviço de letras</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Tocar em uma linha leva você àquele momento da música</string>
@@ -127,7 +123,7 @@ Quando nenhuma letra de terceiros é encontrada, as letras internas são exibida
     <string name="morphe_music_lyrics_text_size_summary">Tamanho do texto da letra</string>
     <string name="morphe_music_lyrics_text_size_title">Tamanho do texto</string>
     <string name="morphe_music_lyrics_translate_failed">Não foi possível traduzir a letra</string>
-    <string name="morphe_music_lyrics_translate_hide">Mostrar original</string>
+    <string name="morphe_music_lyrics_translate_hide">Traduzido</string>
     <string name="morphe_music_lyrics_translate_show">Traduzir</string>
     <string name="morphe_music_lyrics_translating">Traduzindo…</string>
     <string name="morphe_notification_dot_color_summary">Altera a cor dos pontos de notificação</string>
@@ -595,8 +591,8 @@ Clique para ver como emitir uma chave de API"</string>
 
 Toque aqui para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Reduz a largura do botão Curtir para economizar espaço</string>
-    <string name="revanced_ryd_compact_layout_title">Usar botão Curtir compacto</string>
+    <string name="revanced_ryd_compact_layout_summary">Reduz a largura do botão Gostei para economizar espaço</string>
+    <string name="revanced_ryd_compact_layout_title">Usar botão Gostei compacto</string>
     <string name="revanced_ryd_dislike_percentage_summary">Exibe não gostei como porcentagem, substituindo o número convencional</string>
     <string name="revanced_ryd_dislike_percentage_title">Mostrar não gostei como porcentagem</string>
     <string name="revanced_ryd_enabled_summary">Mostra a contagem de deslike dos vídeos</string>

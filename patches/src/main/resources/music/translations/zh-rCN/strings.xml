@@ -99,20 +99,16 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_music_crossfade_session_control_summary">长按播放列表按钮可暂停或恢复淡入淡出效果</string>
     <string name="morphe_music_crossfade_session_control_title">会话控制</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">启用交叉淡入时，视频模式不可用</string>
-    <string name="morphe_music_lyrics_about_summary">"歌词通过曲目标题和艺术家查找，因此元数据不寻常的曲目可能找不到任何内容，或者找到错误的版本
-
-同步歌词跟随播放。如果它们漂移，请调整时间偏移
-
-如果没有找到第三方歌词，则会显示内置歌词"</string>
+    <string name="morphe_music_lyrics_about_summary">"歌词是根据曲目标题和艺人查找的，因此元数据不常见的曲目可能找不到歌词，或找到错误的版本。你也可以尝试使用刷新按钮来手动切换版本。当找不到第三方歌词时，会显示内置或嵌入的歌词。标有 * 的提供方需要 token 才能启用。并非所有已启用的提供方都会按照你的顺序被请求，而是根据它们的速度进行响应"</string>
     <string name="morphe_music_lyrics_about_title">关于第三方歌词</string>
     <string name="morphe_music_lyrics_copied">复制到剪贴板</string>
     <string name="morphe_music_lyrics_enabled_summary">从第三方服务获取歌词，如果找不到则回退到内置歌词</string>
     <string name="morphe_music_lyrics_enabled_title">使用第三方歌词</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">将同步歌词向前或向后移动。如果歌词超前于歌曲，请使用正值</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">同步歌词会跟随播放。如果出现偏移，请调整时间偏移。将同步歌词向前或向后移动。如果歌词比歌曲超前，请使用正值</string>
     <string name="morphe_music_lyrics_offset_ms_title">时间偏移</string>
     <string name="morphe_music_lyrics_show_copy_button_title">显示复制按钮</string>
     <string name="morphe_music_lyrics_show_translate_button_title">显示翻译按钮</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB，然后是酷狗</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB，然后 QQ，然后 KuGou，然后 NetEase，然后 BiniLyrics，然后 Unison，然后 AMLL</string>
     <string name="morphe_music_lyrics_source_label">来源：%s</string>
     <string name="morphe_music_lyrics_source_title">歌词服务</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">点击一行将跳到歌曲的该时刻</string>
@@ -120,7 +116,7 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_music_lyrics_text_size_summary">歌词文本的大小</string>
     <string name="morphe_music_lyrics_text_size_title">文本大小</string>
     <string name="morphe_music_lyrics_translate_failed">无法翻译歌词</string>
-    <string name="morphe_music_lyrics_translate_hide">显示原始歌词</string>
+    <string name="morphe_music_lyrics_translate_hide">翻译</string>
     <string name="morphe_music_lyrics_translate_show">翻译</string>
     <string name="morphe_music_lyrics_translating">正在翻译…</string>
     <string name="morphe_oauth2_connection_failure_auth_error">无法登录 VR：%s</string>

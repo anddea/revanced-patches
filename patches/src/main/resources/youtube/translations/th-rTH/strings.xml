@@ -19,6 +19,32 @@
     <string name="gms_core_offline_account_login_error">หากคุณเพิ่งเปลี่ยนรายละเอียดการเข้าสู่ระบบบัญชีของคุณ โปรดถอนการติดตั้งและติดตั้ง GmsCore ใหม่</string>
     <string name="gms_core_settings_summary">หากต้องการรับการแจ้งเตือนใน RVX โปรดเปิดใช้งานการส่งข้อความบนคลาวด์</string>
     <string name="gms_core_toast_not_installed_message">MicroG ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
+    <string name="morphe_aislist_submit_already_blocklisted">ช่องนี้อยู่ในรายการบล็อก AiSList แล้ว</string>
+    <string name="morphe_aislist_submit_already_warnlisted">ช่องนี้อยู่ในรายการเตือน AiSList แล้ว</string>
+    <string name="morphe_aislist_submit_category_title">รายงานช่อง AI</string>
+    <string name="morphe_aislist_submit_dialog_confirm">รายงาน</string>
+    <string name="morphe_aislist_submit_dialog_message">"ส่ง %s ไปยัง AiSList โดยใช้วิดีโอนี้เป็นหลักฐานหรือไม่
+
+รายงานเฉพาะช่องที่:
+• ใช้เสียง ภาพ สคริปต์ หรือเพลงที่สร้างด้วย AI เป็นเนื้อหาหลัก
+• ผลิตเนื้อหาจำนวนมากด้วยเครื่องมือ AI และใช้แรงงานมนุษย์เพียงเล็กน้อย
+
+อย่ารายงานช่องที่เพียงพูดถึง AI หรือใช้ AI ในบางส่วนของวิดีโอ
+
+รายงานเป็นข้อมูลสาธารณะและจะได้รับการตรวจสอบก่อนที่จะเพิ่มช่องลงในรายการ การนำออกทำได้ผ่านคำขอบน GitHub เท่านั้น"</string>
+    <string name="morphe_aislist_submit_failed">ส่งรายงานไม่สำเร็จ โปรดตรวจสอบการเชื่อมต่อของคุณ</string>
+    <string name="morphe_aislist_submit_failed_channel">ไม่พบช่องของวิดีโอนี้</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList ไม่สามารถบันทึกรายงานได้ โปรดลองอีกครั้งในภายหลัง</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">มีการส่งรายงานมากเกินไป โปรดลองอีกครั้งในภายหลัง</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList ปฏิเสธรายงาน</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">เพิ่มรายการในเมนูวิดีโอเพื่อรายงานช่องของวิดีโอไปยัง AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">เพิ่มรายการรายงานในเมนูวิดีโอ</string>
+    <string name="morphe_aislist_submit_no_username">กำหนดชื่อผู้ส่งรายงานในการตั้งค่าตัวกรองช่อง AI เพื่อรายงานช่อง</string>
+    <string name="morphe_aislist_submit_resolving">กำลังค้นหาช่อง…</string>
+    <string name="morphe_aislist_submit_success">รายงานช่องแล้ว กำลังรอการตรวจสอบ</string>
+    <string name="morphe_aislist_submit_title">รายงานช่อง AI</string>
+    <string name="morphe_aislist_submit_username_summary">ชื่อที่แสดงถัดจากรายงานของคุณบนกระดานจัดอันดับสาธารณะของ AiSList การรายงานจะไม่พร้อมใช้งานในขณะที่ค่านี้ยังว่างอยู่</string>
+    <string name="morphe_aislist_submit_username_title">ชื่อผู้ส่งรายงาน</string>
     <string name="morphe_app_refresh_rate_default">ค่าเริ่มต้น</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">อัตราการรีเฟรชแอป</string>
@@ -54,6 +80,8 @@
     <string name="morphe_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
     <string name="morphe_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
     <string name="morphe_fullscreen_large_seekbar_title">เปิดใช้งานแถบเลื่อนขนาดใหญ่แบบเต็มหน้าจอ</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">ซ่อนปุ่มปรับขนาดวิดีโอในเครื่องเล่นแนวตั้ง</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">แสดงเฉพาะในโหมดเต็มหน้าจอ</string>
     <string name="morphe_fullscreen_video_scale_button_summary">แตะเพื่อสลับค่าเริ่มต้น ยืด และซูม</string>
     <string name="morphe_fullscreen_video_scale_button_title">แสดงปุ่มมาตราส่วนวิดีโอ</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">ยืด (เติมเต็มหน้าจอ)</string>
@@ -80,12 +108,14 @@
 • รวม: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">ช่องที่ถูกเตือน</string>
     <string name="morphe_hide_aislist_warnlist_category_title">รายการเตือน: ความมั่นใจปานกลาง</string>
+    <string name="morphe_hide_auto_dubbed_label_title">ซ่อนป้ายกำกับ \'มีการพากย์เสียงอัตโนมัติ\'</string>
     <string name="morphe_hide_courses_menu_title">ซ่อนเมนูหลักสูตร</string>
     <string name="morphe_hide_explore_button_title">ซ่อนปุ่ม \'สำรวจ\'</string>
     <string name="morphe_hide_fashion_menu_title">ซ่อนเมนู \'แฟชั่น &amp; ความงาม\'</string>
     <string name="morphe_hide_gaming_menu_title">ซ่อนเมนูเกม</string>
     <string name="morphe_hide_get_premium_button_title">ซ่อนปุ่ม \'รับ Premium\'</string>
     <string name="morphe_hide_hype_menu_title">ซ่อนเมนู Hype</string>
+    <string name="morphe_hide_hyped_label_title">ซ่อนป้ายกำกับ \'Hyped\'</string>
     <string name="morphe_hide_invite_to_message_card_summary">ซ่อนการ์ดเชิญที่แสดงในส่วนการแจ้งเตือนของแท็บข้อความ</string>
     <string name="morphe_hide_invite_to_message_card_title">ซ่อนการ์ด \'เชิญผู้อื่นให้ส่งข้อความ\'</string>
     <string name="morphe_hide_learning_menu_title">ซ่อนเมนูการเรียนรู้</string>
@@ -98,6 +128,7 @@
     <string name="morphe_hide_player_flyout_audio_track_not_available">"เมนู 'แทร็กเสียง' ถูกซ่อน
 
 เพื่อแสดงเมนู 'แทร็กเสียง' ให้เปลี่ยน 'ปลอมแปลงสตรีมวิดีโอ' เป็นไคลเอ็นต์ใดก็ได้ ยกเว้น 'Android Studio' และ 'Android VR Downgraded'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">ซ่อนเมนู \'ระหว่างเดินทาง\'</string>
     <string name="morphe_hide_podcasts_menu_title">ซ่อนเมนูพอดแคสต์</string>
     <string name="morphe_hide_privacy_tos_footer_title">ซ่อนส่วนท้ายด้านกฎหมายและความเป็นส่วนตัว</string>
     <string name="morphe_hide_shopping_menu_title">ซ่อนเมนูร้านค้า</string>
@@ -131,6 +162,7 @@
     <string name="morphe_oauth2_toast_reset">ออกจากระบบ VR แล้ว</string>
     <string name="morphe_open_channel_of_live_avatar_summary">ป้องกันไม่ให้การถ่ายทอดสดเปิดเมื่อแตะที่อวาตาร์ของช่อง</string>
     <string name="morphe_open_channel_of_live_avatar_title">เปิดช่องจากอวาตาร์สด</string>
+    <string name="morphe_open_videos_fullscreen_title">เปิดวิดีโอในโหมดเต็มหน้าจอ</string>
     <string name="morphe_override_youtube_music_buttons_summary">เปิดแอปเพลงที่คุณต้องการแทนแอป YouTube Music เริ่มต้น</string>
     <string name="morphe_override_youtube_music_buttons_title">แทนที่ปุ่ม YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">เปิดตลอดเวลา</string>
@@ -144,6 +176,9 @@
     <string name="morphe_reload_video_summary_off">ปุ่มโหลดวิดีโอไม่แสดง</string>
     <string name="morphe_reload_video_summary_on">ปุ่มโหลดวิดีโอแสดง</string>
     <string name="morphe_reload_video_title">แสดงปุ่มโหลดวิดีโอ</string>
+    <string name="morphe_remember_livestream_position_summary">สำหรับไลฟ์สตรีมที่กำลังดำเนินอยู่ จะจดจำและเล่นต่อจากตำแหน่งที่ค้างไว้ แทนที่จะข้ามไปยังตำแหน่งสดปัจจุบัน</string>
+    <string name="morphe_remember_livestream_position_title">จดจำตำแหน่งการเล่นของไลฟ์สตรีม</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">ฟีเจอร์นี้ไม่ทำงานกับไลฟ์สตรีม 24/7 และสตรีมอื่น ๆ ที่ \'เปิดตลอดเวลา\'</string>
     <string name="morphe_replace_links_with_shortener_summary">บังคับให้วิดีโอใช้รูปแบบ URL แบบสั้น youtu.be</string>
     <string name="morphe_replace_links_with_shortener_title">เปลี่ยนลิงก์การแชร์เป็น youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">ลิงก์ที่แชร์ใช้ music.youtube.com</string>
@@ -157,8 +192,10 @@
     <string name="morphe_save_to_watch_later_button_title">แสดงปุ่ม \'บันทึกไปยังดูภายหลัง\'</string>
     <string name="morphe_save_to_watch_later_error_toast">ไม่สามารถบันทึกวิดีโอนี้ลงในรายการดูภายหลังได้</string>
     <string name="morphe_save_to_watch_later_flyout_title">บันทึกไปยังดูภายหลัง</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">อนุญาตให้บันทึกวิดีโอที่เกี่ยวข้องกับเด็กในเมนูย่อย \'ดูภายหลัง\'</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">อนุญาตให้บันทึกวิดีโอที่เกี่ยวข้องกับเด็กใน \'ดูภายหลัง\' จากเมนู flyout</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">แสดงปุ่ม \'บันทึกไปยังดูภายหลัง\' ในวิดีโอสำหรับเด็ก</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">อนุญาตให้บันทึก Shorts ใน \'ดูภายหลัง\' จากเมนู flyout</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">แสดงปุ่มบันทึกลงในดูภายหลังในเมนู flyout ของ Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">บันทึกวิดีโอลงในรายการดูภายหลังเรียบร้อยแล้ว</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">เล่นซ้ำมากที่สุด</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">แสดงภาพขนาดย่อของวิดีโอขณะลากแถบเลื่อน</string>
@@ -458,9 +495,6 @@
     <string name="revanced_disable_signin_to_tv_popup_summary_off">เปิดใช้งานป๊อปอัปเข้าสู่ระบบไปยังทีวีแล้ว</string>
     <string name="revanced_disable_signin_to_tv_popup_summary_on">ปิดใช้งานป๊อปอัปเข้าสู่ระบบไปยังทีวีแล้ว</string>
     <string name="revanced_disable_signin_to_tv_popup_title">ปิดใช้งานป๊อปอัป \"ลงชื่อเข้าใช้ทีวี\"</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">แถบสถานะโปร่งแสงหรือไม่โปร่งแสง</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">แถบสถานะไม่โปร่งแสง</string>
-    <string name="revanced_disable_translucent_status_bar_title">ปิดใช้งานแถบสถานะแบบโปร่งแสง</string>
     <string name="revanced_dismiss_player_not_available_toast">ไม่สามารถใช้ Video ID ได้ โปรดรีโหลดวิดีโอด้วยตนเอง</string>
     <string name="revanced_enable_playback_audio_pitch_controls_title">เปิดใช้งานการควบคุมระดับเสียง</string>
     <string name="revanced_enable_shorts_time_stamp_title">gms_core_dialog_dismiss_text</string>
@@ -509,6 +543,7 @@
     <string name="revanced_hide_autoplay_preview_summary_off">การแสดงตัวอย่างเล่นอัตโนมัติแสดงอยู่</string>
     <string name="revanced_hide_autoplay_preview_summary_on">การแสดงตัวอย่างเล่นอัตโนมัติถูกซ่อน</string>
     <string name="revanced_hide_autoplay_preview_title">ซ่อนตัวอย่างเล่นอัตโนมัติ</string>
+    <string name="revanced_hide_category_bar_in_comments_title">ซ่อนในความคิดเห็น</string>
     <string name="revanced_hide_channel_tab_filter_strings_summary">ป้อนชื่อแท็บช่องเพื่อกรอง โดยคั่นด้วยบรรทัดใหม่</string>
     <string name="revanced_hide_channel_tab_filter_strings_title">ตัวกรองแท็บช่อง</string>
     <string name="revanced_hide_channel_tab_summary_off">ปิดใช้งานตัวกรองแท็บช่องแล้ว</string>
@@ -839,10 +874,11 @@
     <string name="revanced_miniplayer_hide_subtext_title">ซ่อนข้อความย่อย</string>
     <string name="revanced_miniplayer_opacity_title">ความทึบแสงของโอเวอร์เลย์</string>
     <string name="revanced_miniplayer_type_entry_2">น้อยที่สุด</string>
-    <string name="revanced_miniplayer_type_entry_4">ทันสมัย 1</string>
-    <string name="revanced_miniplayer_type_entry_5">ทันสมัย 2</string>
-    <string name="revanced_miniplayer_type_entry_6">ทันสมัย 3</string>
-    <string name="revanced_miniplayer_type_entry_7">ทันสมัย 4</string>
+    <string name="revanced_miniplayer_type_entry_3">มินิมอล 2</string>
+    <string name="revanced_miniplayer_type_entry_4">แท็บเล็ต</string>
+    <string name="revanced_miniplayer_type_entry_5">ทันสมัย 1</string>
+    <string name="revanced_miniplayer_type_entry_6">ทันสมัย 2</string>
+    <string name="revanced_miniplayer_type_entry_7">ทันสมัย 3</string>
     <string name="revanced_miniplayer_type_title">ประเภทของเครื่องเล่นย่อขนาด</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">ขนาดพิกเซลต้องอยู่ระหว่าง %1$s ถึง %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">ตั้งค่าขนาดเริ่มต้นบนหน้าจอเป็นพิกเซล</string>
@@ -1165,6 +1201,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_spoof_app_version_summary">หลอกให้เซิร์ฟเวอร์คิดว่าคุณกำลังใช้แอปเวอร์ชันเก่าเพื่อเรียกคืนคุณสมบัติ UI แบบเดิม</string>
     <string name="revanced_spoof_app_version_summary_off">เวอร์ชันไม่ได้ปลอมแปลง</string>
     <string name="revanced_spoof_app_version_summary_on">เวอร์ชันปลอมแปลง</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - กู้คืนพฤติกรรมคำบรรยายแบบเดิม</string>
     <string name="revanced_spoof_app_version_title">ปลอมแปลงเวอร์ชันแอป</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"เวอร์ชันแอปจะถูกปลอมแปลงเป็นเวอร์ชันเก่า
 
@@ -1179,6 +1216,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 ปรับความสว่างโดยการเลื่อนในแนวตั้งทางด้านซ้ายของหน้าจอ"</string>
     <string name="revanced_swipe_brightness_title">เปิดใช้งานท่าทางความสว่าง</string>
     <string name="revanced_swipe_haptic_feedback_title">เปิดใช้งานการตอบสนองแบบสัมผัส</string>
+    <string name="revanced_swipe_left_zone_title">ท่าทางปัดไปทางซ้าย</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">อัตโนมัติ</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">การปัดลงไปที่ค่าต่ำสุดจะไม่เปิดใช้งานความสว่างอัตโนมัติ</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">การปัดลงไปที่ค่าต่ำสุดของท่าทางความสว่างจะเปิดใช้งานความสว่างอัตโนมัติ</string>
@@ -1204,6 +1242,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_swipe_press_to_engage_summary_off">ปิดใช้งานกดเพื่อปัด</string>
     <string name="revanced_swipe_press_to_engage_summary_on">เปิดใช้งานกดเพื่อปัด</string>
     <string name="revanced_swipe_press_to_engage_title">เปิดใช้งานท่าทางกดเพื่อปัด</string>
+    <string name="revanced_swipe_right_zone_title">ท่าทางปัดไปทางขวา</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">อย่าบันทึกและคืนค่าความสว่างเมื่อออกจากหรือเข้าสู่โหมดเต็มหน้าจอ</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">บันทึกและคืนค่าความสว่างเมื่อออกจากหรือเข้าสู่โหมดเต็มหน้าจอ</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">บันทึกและคืนค่าความสว่าง</string>
@@ -1212,6 +1251,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของการปัด</string>
     <string name="revanced_swipe_threshold_summary">ตั้งค่าระยะการปัดที่จำเป็นก่อนที่จะเกิดการปรับ</string>
     <string name="revanced_swipe_threshold_title">เกณฑ์ขนาดของการปัด</string>
+    <string name="revanced_swipe_top_zone_title">ท่าทางปัดไปด้านบน</string>
+    <string name="revanced_swipe_volume_distance_summary">ค่าที่สูงขึ้นต้องปัดมากขึ้นต่อขั้นปรับระดับเสียง</string>
+    <string name="revanced_swipe_volume_distance_title">ความไวในการปัดปรับระดับเสียง</string>
     <string name="revanced_swipe_volume_sensitivity_summary">ค่าที่สูงขึ้นจะเพิ่มการเปลี่ยนแปลงระดับเสียงต่อการปัดแต่ละครั้ง</string>
     <string name="revanced_swipe_volume_sensitivity_title">ความไวในการปัดปรับระดับเสียง</string>
     <string name="revanced_swipe_volume_summary_off">ปิดใช้งานการปัดระดับเสียงแบบเต็มหน้าจอ</string>

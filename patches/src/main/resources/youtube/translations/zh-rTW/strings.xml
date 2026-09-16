@@ -20,6 +20,32 @@
     <string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
     <string name="gms_core_toast_not_installed_message">MicroG 尚未安裝。請安裝它。</string>
+    <string name="morphe_aislist_submit_already_blocklisted">此頻道已在 AiSList 封鎖清單中</string>
+    <string name="morphe_aislist_submit_already_warnlisted">此頻道已在 AiSList 警告清單中</string>
+    <string name="morphe_aislist_submit_category_title">檢舉 AI 頻道</string>
+    <string name="morphe_aislist_submit_dialog_confirm">檢舉</string>
+    <string name="morphe_aislist_submit_dialog_message">"將 %s 提交至 AiSList，並使用此影片作為證據？
+
+請僅檢舉符合以下條件的頻道：
+• 以 AI 語音、視覺效果、腳本或音樂為主要內容
+• 使用 AI 工具大量製作內容，且幾乎沒有真人投入
+
+請勿檢舉僅討論 AI，或僅在影片某些部分使用 AI 的頻道。
+
+檢舉內容是公開的，且在頻道加入清單前會經過審查。若要移除，只能透過在 GitHub 上提出請求"</string>
+    <string name="morphe_aislist_submit_failed">檢舉失敗，請檢查你的網路連線</string>
+    <string name="morphe_aislist_submit_failed_channel">找不到此影片的頻道</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList 無法儲存此筆檢舉，請稍後再試</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">已送出太多檢舉，請稍後再試</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList 拒絕了此筆檢舉</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">在影片選單中新增一個項目，以向 AiSList 檢舉影片的頻道</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">在影片選單中新增檢舉項目</string>
+    <string name="morphe_aislist_submit_no_username">在 AI 頻道篩選設定中設定檢舉者名稱，以便檢舉頻道</string>
+    <string name="morphe_aislist_submit_resolving">正在查詢頻道…</string>
+    <string name="morphe_aislist_submit_success">頻道已檢舉，正在等待審查</string>
+    <string name="morphe_aislist_submit_title">檢舉 AI 頻道</string>
+    <string name="morphe_aislist_submit_username_summary">顯示在公開 AiSList 排行榜上你的檢舉旁邊的名稱。此欄位留空時無法檢舉</string>
+    <string name="morphe_aislist_submit_username_title">檢舉者名稱</string>
     <string name="morphe_app_refresh_rate_default">預設</string>
     <string name="morphe_app_refresh_rate_fps">%s 幀/秒</string>
     <string name="morphe_app_refresh_rate_title">應用程式更新頻率</string>
@@ -54,6 +80,8 @@
     <string name="morphe_force_original_audio_summary_on">正在使用原始音訊語言</string>
     <string name="morphe_force_original_audio_title">強制使用原始音訊語言</string>
     <string name="morphe_fullscreen_large_seekbar_title">啟用全螢幕大型搜尋列</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">在直向播放器中隱藏影片縮放按鈕</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">僅在全螢幕顯示</string>
     <string name="morphe_fullscreen_video_scale_button_summary">點擊以循環切換預設、伸展和縮放</string>
     <string name="morphe_fullscreen_video_scale_button_title">顯示影片縮放按鈕</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">伸展（填滿畫面）</string>
@@ -80,12 +108,14 @@
 • 總計：%s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">警告頻道</string>
     <string name="morphe_hide_aislist_warnlist_category_title">警告清單：中等信度</string>
+    <string name="morphe_hide_auto_dubbed_label_title">隱藏「自動配音」標籤</string>
     <string name="morphe_hide_courses_menu_title">隱藏「課程」選單</string>
     <string name="morphe_hide_explore_button_title">隱藏「探索」按鈕</string>
     <string name="morphe_hide_fashion_menu_title">隱藏「時尚&amp;美妝」選單</string>
     <string name="morphe_hide_gaming_menu_title">隱藏「遊戲」選單</string>
-    <string name="morphe_hide_get_premium_button_title">隶裈、要账利按键</string>
+    <string name="morphe_hide_get_premium_button_title">隱藏取得 Premium 按鈕</string>
     <string name="morphe_hide_hype_menu_title">隱藏「Hype」選單</string>
+    <string name="morphe_hide_hyped_label_title">隱藏熱門標籤</string>
     <string name="morphe_hide_invite_to_message_card_summary">隱藏在「通知」分頁「訊息」區塊中顯示的邀請卡片</string>
     <string name="morphe_hide_invite_to_message_card_title">隱藏「邀請他人傳訊息」卡片</string>
     <string name="morphe_hide_learning_menu_title">隱藏「學習」選單</string>
@@ -98,6 +128,7 @@
     <string name="morphe_hide_player_flyout_audio_track_not_available">"「音訊軌道」選單已隱藏
 
 若要顯示「音訊軌道」選單，請將「欺騙影片串流」變更為「Android Studio」和「Android VR Downgraded」以外的任何用戶端"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">隱藏「外出」選單</string>
     <string name="morphe_hide_podcasts_menu_title">隱藏「播客」選單</string>
     <string name="morphe_hide_privacy_tos_footer_title">隱藏法律和隱私權頁尾</string>
     <string name="morphe_hide_shopping_menu_title">隱藏「購物」選單</string>
@@ -130,6 +161,7 @@
     <string name="morphe_oauth2_toast_reset">已登出 Android VR</string>
     <string name="morphe_open_channel_of_live_avatar_summary">防止點擊頻道形象時開啟直播</string>
     <string name="morphe_open_channel_of_live_avatar_title">從直播形象開啟頻道</string>
+    <string name="morphe_open_videos_fullscreen_title">以全螢幕模式開啟影片</string>
     <string name="morphe_override_youtube_music_buttons_summary">開啟您偏好的音樂應用程式，而非內建的 YouTube Music 應用程式</string>
     <string name="morphe_override_youtube_music_buttons_title">覆蓋 YouTube Music 按鈕</string>
     <string name="morphe_playback_in_feeds_entry_always_on">持續開啟</string>
@@ -143,6 +175,9 @@
     <string name="morphe_reload_video_summary_off">不顯示「重新載入影片」按鈕</string>
     <string name="morphe_reload_video_summary_on">已顯示重新載入影片按鈕</string>
     <string name="morphe_reload_video_title">顯示重新載入影片按鈕</string>
+    <string name="morphe_remember_livestream_position_summary">對於進行中的直播，記住並恢復您的播放位置，而不是跳到目前直播位置。</string>
+    <string name="morphe_remember_livestream_position_title">記住直播播放位置</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">此功能不適用於 24/7 全天候直播和其他「持續開啟」的直播。</string>
     <string name="morphe_replace_links_with_shortener_summary">強制影片使用縮短的 youtu.be URL 格式</string>
     <string name="morphe_replace_links_with_shortener_title">將分享連結更改為 youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
@@ -156,8 +191,10 @@
     <string name="morphe_save_to_watch_later_button_title">顯示「稍後觀看」按鈕</string>
     <string name="morphe_save_to_watch_later_error_toast">無法將此影片儲存至稍後觀看播放清單</string>
     <string name="morphe_save_to_watch_later_flyout_title">儲存至「稍後觀看」</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">允許在兒童影片的「稍後觀看」彈出選單中儲存相關影片</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">允許將與兒童相關的影片從彈出式選單儲存到「稍後觀看」中</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">在兒童影片中顯示「稍後觀看」按鈕</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">允許將 Shorts 儲存在彈出式選單的「稍後觀看」中</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">在 Shorts 彈出視窗中顯示「儲存以稍後觀看」按鈕</string>
     <string name="morphe_save_to_watch_later_success_toast">影片已成功儲存至稍後觀看播放清單</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">最多重播</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">在拖動搜尋條時顯示影片縮圖</string>
@@ -168,7 +205,7 @@
     <string name="morphe_settings_menu_filter_screen_title">設定選單篩選器</string>
     <string name="morphe_settings_name_custom_item_hint">輸入名稱</string>
     <string name="morphe_settings_name_empty_warning">名稱不可為空</string>
-    <string name="morphe_settings_name_title">RVX</string>
+    <string name="morphe_settings_name_title">RVX 設定名稱</string>
     <string name="morphe_splash_screen_animation_style_entry_2">顏色</string>
     <string name="morphe_splash_screen_animation_style_entry_3">單色</string>
     <string name="morphe_splash_screen_animation_style_title">啟動畫面樣式</string>
@@ -604,9 +641,6 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_off">導覽列顯示為半透明</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">導覽列顯示為不透明</string>
     <string name="revanced_disable_translucent_navigation_bar_title">停用導覽列半透明效果</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">狀態列為不透明或半透明</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">狀態列為不透明</string>
-    <string name="revanced_disable_translucent_status_bar_title">停用半透明狀態列</string>
     <string name="revanced_disable_video_description_interaction_summary">"當影片描述展開時，停用以下互動：
 
 ・點擊捲動。
@@ -704,11 +738,6 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">寬搜尋欄不包括 YouTube 標題</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">寬搜尋欄包括 YouTube 標題</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">啟用帶標題的寬搜尋欄</string>
-    <string name="revanced_enter_fullscreen_summary_off">影片開始時請勿進入全螢幕模式。</string>
-    <string name="revanced_enter_fullscreen_summary_on">"影片開始時進入全螢幕模式。
-
-限制：如果播放器最小化, 處於畫中畫模式或處於後台, 則不起作用。"</string>
-    <string name="revanced_enter_fullscreen_title">影片開始時進入全螢幕模式</string>
     <string name="revanced_exit_fullscreen_entry_1">停用</string>
     <string name="revanced_exit_fullscreen_entry_2">直立</string>
     <string name="revanced_exit_fullscreen_entry_3">橫向</string>
@@ -871,6 +900,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
 • 購物
 • 再看一遍"</string>
     <string name="revanced_hide_carousel_shelf_title">隱藏輪播內容</string>
+    <string name="revanced_hide_category_bar_in_comments_title">在留言中隱藏</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">在探索欄顯示。</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">在探索欄隱藏。</string>
     <string name="revanced_hide_category_bar_in_feed_title">隱藏探索欄</string>
@@ -1661,10 +1691,11 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">已設定角落為圓角。</string>
     <string name="revanced_miniplayer_rounded_corners_title">啟用圓角角落</string>
     <string name="revanced_miniplayer_type_entry_2">極簡</string>
-    <string name="revanced_miniplayer_type_entry_4">現代 1</string>
-    <string name="revanced_miniplayer_type_entry_5">現代 2</string>
-    <string name="revanced_miniplayer_type_entry_6">現代 3</string>
-    <string name="revanced_miniplayer_type_entry_7">現代 4</string>
+    <string name="revanced_miniplayer_type_entry_3">精簡 2</string>
+    <string name="revanced_miniplayer_type_entry_4">平板電腦</string>
+    <string name="revanced_miniplayer_type_entry_5">現代 1</string>
+    <string name="revanced_miniplayer_type_entry_6">現代 2</string>
+    <string name="revanced_miniplayer_type_entry_7">現代 3</string>
     <string name="revanced_miniplayer_type_title">迷你播放器類型</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">像素大小必須介於 %1$s 和 %2$s 之間</string>
     <string name="revanced_miniplayer_width_dip_summary">設定開始的螢幕大小（以像素為單位）</string>
@@ -2372,6 +2403,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - 恢復逐字稿功能</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - 恢復未折疊的影片操作欄</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - 恢復成舊的過濾方式</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - 恢復舊版字幕行為</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽裝應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">無效的偽裝應用程式版本: %s。</string>
     <string name="revanced_spoof_app_version_target_summary">輸入偽裝的應用程式版本目標。</string>
@@ -2463,6 +2495,7 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_swipe_gestures_lock_mode_summary_on">在「鎖定螢幕」模式下啟用滑動手勢</string>
     <string name="revanced_swipe_gestures_lock_mode_title">在「鎖定螢幕」模式下滑動手勢</string>
     <string name="revanced_swipe_haptic_feedback_title">啟用震動回饋</string>
+    <string name="revanced_swipe_left_zone_title">向左滑動手勢</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自動</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">亮度手勢滑到最底時，不啟用自動亮度</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">亮度手勢滑到最底時，啟用自動亮度</string>
@@ -2492,6 +2525,7 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_swipe_press_to_engage_summary_off">已停用按壓滑動</string>
     <string name="revanced_swipe_press_to_engage_summary_on">已啟用按壓滑動</string>
     <string name="revanced_swipe_press_to_engage_title">啟用按壓滑動手勢</string>
+    <string name="revanced_swipe_right_zone_title">向右滑動手勢</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">退出或進入全螢幕時亮度維持不變</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">退出或進入全螢幕時儲存並還原亮度</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">儲存並還原亮度</string>
@@ -2516,8 +2550,9 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_swipe_text_overlay_size_title">滑動疊加文字大小</string>
     <string name="revanced_swipe_threshold_summary">設定觸發調整所需滑動距離</string>
     <string name="revanced_swipe_threshold_title">滑動幅度臨界點</string>
-    <string name="revanced_swipe_volume_distance_summary">調整音量所需滑動的像素數量。數值越低，音量變化越快；數值越高，音量變化越慢（1-1000）。</string>
-    <string name="revanced_swipe_volume_distance_title">音量範圍</string>
+    <string name="revanced_swipe_top_zone_title">向上滑動手勢</string>
+    <string name="revanced_swipe_volume_distance_summary">數值越高，每段音量需要滑動更多次</string>
+    <string name="revanced_swipe_volume_distance_title">音量滑動靈敏度</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">音量滑動靈敏度必須介於 1-1000 之間。</string>
     <string name="revanced_swipe_volume_sensitivity_summary">較高的數值會增加每次滑動的音量變化</string>
     <string name="revanced_swipe_volume_sensitivity_title">音量滑動靈敏度</string>
@@ -2658,7 +2693,6 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_yandex_status_processing_minutes_plural">剩餘 %d 分鐘...</string>
     <string name="revanced_yandex_status_processing_short">處理中...</string>
     <string name="revanced_yandex_status_requesting_translation">正在請求翻譯</string>
-    <string name="revanced_yandex_status_session_ok">會話正常</string>
     <string name="revanced_yandex_status_subs_found">找到字幕，正在取得...</string>
     <string name="revanced_yandex_status_transcription_delayed">轉錄略有延遲</string>
     <string name="revanced_yandex_status_youtube_specific">處理 YouTube 音訊請求...</string>

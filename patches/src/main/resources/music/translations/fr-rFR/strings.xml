@@ -98,20 +98,16 @@ YouTube Music 8.x — le fondu enchaîné ne fonctionne que sur les versions 9.x
     <string name="morphe_music_crossfade_session_control_summary">Appuyez longuement sur le bouton \'Lecture aléatoire\' pour activer ou désactiver le fondu enchaîné</string>
     <string name="morphe_music_crossfade_session_control_title">Contrôle de session</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">Le mode vidéo n\'est pas disponible lorsque le fondu enchaîné est activé</string>
-    <string name="morphe_music_lyrics_about_summary">"Les paroles sont recherchées à partir du titre du morceau et de l'artiste, ainsi, un morceau avec des métadonnées inhabituelles peut ne rien trouver, ou trouver la mauvaise version
-
-Les paroles synchronisées suivent la lecture. Si elles dérivent, ajustez le décalage de synchronisation
-
-Lorsque aucune parole tierce n'est trouvée, les paroles intégrées sont affichées à la place"</string>
+    <string name="morphe_music_lyrics_about_summary">"Les paroles sont recherchées à partir du titre du morceau et de l'artiste. Ainsi un morceau dont les métadonnées sont inhabituelles peut ne rien trouver ou trouver la mauvaise version. Vous pouvez également utiliser le bouton 'Actualiser' pour changer manuellement de version. Lorsqu'aucune parole provenant d'un service tiers n'est trouvée, les paroles intégrées ou natives sont affichées à la place. Les fournisseurs marqués d'un * nécessitent un jeton pour être activés. Tous les fournisseurs activés ne sont pas toujours sollicités dans votre ordre, mais répondent en fonction de leur vitesse"</string>
     <string name="morphe_music_lyrics_about_title">À propos des paroles de tiers</string>
     <string name="morphe_music_lyrics_copied">Copié dans le presse-papiers</string>
     <string name="morphe_music_lyrics_enabled_summary">Affiche les paroles d\'un service tiers, en utilisant les paroles intégrées en cas d\'absence de celles-ci</string>
     <string name="morphe_music_lyrics_enabled_title">Utiliser les paroles de tiers</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">Décale les paroles synchronisées vers l\'avant ou vers l\'arrière. Utilisez une valeur positive si les paroles sont en avance sur la chanson</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">Les paroles synchronisées suivent la lecture. Si elles sont décalées, ajustez le décalage de synchronisation. Décalez les paroles synchronisées vers l\'avant ou vers l\'arrière. Utilisez une valeur positive si les paroles sont en avance sur la chanson</string>
     <string name="morphe_music_lyrics_offset_ms_title">Décalage de synchronisation</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Afficher un bouton \'Copier\'</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Afficher un bouton \'Traduire\'</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, puis KuGou</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, puis QQ, puis KuGou, puis NetEase, puis BiniLyrics, puis Unison, puis AMLL</string>
     <string name="morphe_music_lyrics_source_label">Source: %s</string>
     <string name="morphe_music_lyrics_source_title">Service de paroles</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Appuyez sur une ligne pour aller directement à ce moment de la chanson</string>
@@ -119,7 +115,7 @@ Lorsque aucune parole tierce n'est trouvée, les paroles intégrées sont affich
     <string name="morphe_music_lyrics_text_size_summary">Taille du texte des paroles</string>
     <string name="morphe_music_lyrics_text_size_title">Taille du texte</string>
     <string name="morphe_music_lyrics_translate_failed">Impossible de traduire les paroles</string>
-    <string name="morphe_music_lyrics_translate_hide">Afficher l\'original</string>
+    <string name="morphe_music_lyrics_translate_hide">Traduit</string>
     <string name="morphe_music_lyrics_translate_show">Traduire</string>
     <string name="morphe_music_lyrics_translating">Traduction…</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Impossible de se connecter à VR : %s</string>

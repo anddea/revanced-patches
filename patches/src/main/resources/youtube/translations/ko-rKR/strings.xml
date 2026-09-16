@@ -20,6 +20,32 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="gms_core_settings_summary">RVX 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">MicroG가 설치되어 있지 않습니다. 설치하세요</string>
+    <string name="morphe_aislist_submit_already_blocklisted">이 채널은 이미 AiSList 차단 목록에 있습니다</string>
+    <string name="morphe_aislist_submit_already_warnlisted">이 채널은 이미 AiSList 경고 목록에 있습니다</string>
+    <string name="morphe_aislist_submit_category_title">AI 채널 신고하기</string>
+    <string name="morphe_aislist_submit_dialog_confirm">신고</string>
+    <string name="morphe_aislist_submit_dialog_message">"이 동영상을 증거로 '%s'를 AiSList에 신고하시겠습니까?
+
+다음 조건을 충족하는 채널만 신고하세요:
+• AI 음성, AI 동영상, AI로 작성한 스크립트 또는 AI 음악을 주요 콘텐츠로 사용하는 채널
+• AI 도구를 이용해 콘텐츠를 대량 생산하며, 사람의 직접 적인 작업이 거의 없는 채널
+
+단순히 AI에 대해 이야기하는 채널이나, 동영상의 일부 과정에서만 AI를 사용하는 채널은 신고하지 마세요
+
+신고 내용은 공개되며, 검토를 거친 후 해당 채널이 목록에 추가됩니다. 목록에서 삭제하려면 GitHub를 통해 삭제 요청을 해야 합니다"</string>
+    <string name="morphe_aislist_submit_failed">신고할 수 없습니다. 연결을 확인하세요</string>
+    <string name="morphe_aislist_submit_failed_channel">이 동영상의 채널을 찾을 수 없습니다</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList에서 신고 내역을 저장할 수 없습니다. 나중에 다시 시도하세요</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">신고가 너무 많이 전송되었습니다. 나중에 다시 시도하세요</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList에서 신고를 거부하였습니다</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">동영상 메뉴에 AiSList에 동영상 채널을 신고하는 항목을 추가합니다</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">동영상 메뉴에 신고 항목 추가하기</string>
+    <string name="morphe_aislist_submit_no_username">채널을 신고하려면 AI 채널 필터 설정에서 제출자 이름을 설정하세요</string>
+    <string name="morphe_aislist_submit_resolving">채널을 찾는 중…</string>
+    <string name="morphe_aislist_submit_success">채널이 신고되었으며 검토 대기 중입니다</string>
+    <string name="morphe_aislist_submit_title">AI 채널 신고</string>
+    <string name="morphe_aislist_submit_username_summary">공개 AiSList 리더보드에서 신고 내역 옆에 표시되는 이름입니다. 이 필드가 비어 있으면 신고할 수 없습니다</string>
+    <string name="morphe_aislist_submit_username_title">제출자 이름</string>
     <string name="morphe_app_refresh_rate_default">기본값</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">앱 주사율</string>
@@ -50,6 +76,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_disable_quic_protocol_summary_on">QUIC 프로토콜을 비활성화합니다</string>
     <string name="morphe_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
     <string name="morphe_disable_scrolling_speed_limit_title">스크롤 속도 제한 비활성화하기</string>
+    <string name="morphe_disable_system_splash_summary">정적 시스템 스플래시 아이콘을 투명하게 만듭니다</string>
+    <string name="morphe_disable_system_splash_title">시스템 스플래시 비활성화하기</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'실시간 스트림 DVR 탐색 구간 확장하기'를 사용할 수 없을 수 있습니다
 
 이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV Simply' 또는 'visionOS'로 변경하세요"</string>
@@ -63,6 +91,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_force_original_audio_summary_on">원본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
     <string name="morphe_fullscreen_large_seekbar_title">전체 화면 두꺼운 재생바 활성화하기</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">세로 모드 플레이어에서 동영상 크기 조절 버튼을 숨깁니다</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">전체 화면에서만 표시하기</string>
     <string name="morphe_fullscreen_video_scale_button_summary">버튼을 탭하여 기본값, 화면 늘리기, 화면 확대 순으로 전환하여 전체 화면 동영상 크기를 조절할 수 있습니다</string>
     <string name="morphe_fullscreen_video_scale_button_title">동영상 크기 조절 버튼 표시하기</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">늘리기 (화면 채우기)</string>
@@ -89,12 +119,14 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 • 합계: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">경고 목록 채널</string>
     <string name="morphe_hide_aislist_warnlist_category_title">경고 목록: 보통 신뢰도</string>
+    <string name="morphe_hide_auto_dubbed_label_title">자동 더빙 라벨 숨기기</string>
     <string name="morphe_hide_courses_menu_title">학습 프로그램 메뉴 숨기기</string>
     <string name="morphe_hide_explore_button_title">탐색 버튼 숨기기</string>
     <string name="morphe_hide_fashion_menu_title">패션 및 뷰티 메뉴 숨기기</string>
     <string name="morphe_hide_gaming_menu_title">게임 메뉴 숨기기</string>
     <string name="morphe_hide_get_premium_button_title">Premium 구매 버튼 숨기기</string>
     <string name="morphe_hide_hype_menu_title">하이프 메뉴 숨기기</string>
+    <string name="morphe_hide_hyped_label_title">하이프 관련 라벨 숨기기</string>
     <string name="morphe_hide_invite_to_message_card_summary">알림 탭의 메시지 섹션에 표시되는 초대 카드를 숨깁니다</string>
     <string name="morphe_hide_invite_to_message_card_title">\'메시지 전송을 위해 다른 사용자 초대\' 카드 숨기기</string>
     <string name="morphe_hide_learning_menu_title">학습 메뉴 숨기기</string>
@@ -107,6 +139,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_hide_player_flyout_audio_track_not_available">"'오디오 트랙' 메뉴가 숨겨져 있습니다
 
 '오디오 트랙' 메뉴를 표시하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'Android Studio'와 'Android VR Downgraded'를 제외한 다른 클라이언트로 변경하세요"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">\'이동 중 모드\' 메뉴 숨기기</string>
     <string name="morphe_hide_podcasts_menu_title">팟캐스트 메뉴 숨기기</string>
     <string name="morphe_hide_privacy_tos_footer_title">\'법률 및 개인정보 보호\' 하단 설명 숨기기</string>
     <string name="morphe_hide_shopping_menu_title">쇼핑 메뉴 숨기기</string>
@@ -143,6 +176,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_oauth2_toast_reset">Android VR에서 로그아웃되었습니다</string>
     <string name="morphe_open_channel_of_live_avatar_summary">채널 아바타를 탭했을 경우에 실시간 스트림이 재생되지 않도록 합니다</string>
     <string name="morphe_open_channel_of_live_avatar_title">라이브 아바타 채널 열기</string>
+    <string name="morphe_open_videos_fullscreen_title">전체 화면 모드로 동영상 열기</string>
     <string name="morphe_override_youtube_music_buttons_summary">기본 YouTube Music 앱 대신 사용자가 사용하고 싶은 Music 앱을 열 수 있도록 설정합니다</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music 버튼 재정의하기</string>
     <string name="morphe_playback_in_feeds_entry_always_on">항상 사용</string>
@@ -163,6 +197,9 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_reload_video_summary_off">동영상 새로고침 버튼을 표시하지 않습니다</string>
     <string name="morphe_reload_video_summary_on">동영상 새로고침 버튼을 표시합니다</string>
     <string name="morphe_reload_video_title">동영상 새로고침 버튼 표시하기</string>
+    <string name="morphe_remember_livestream_position_summary">진행 중인 실시간 스트림의 경우, 현재 실시간 위치로 이동하는 대신 재생 위치를 기억하고 다시 시작합니다</string>
+    <string name="morphe_remember_livestream_position_title">실시간 스트림 재생 위치 기억하기</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">이 기능은 24/7 실시간 스트림 및 \'항상 켜짐\' 상태인 기타 스트림에서는 작동하지 않습니다</string>
     <string name="morphe_replace_links_with_shortener_summary">동영상이 단축된 youtu.be URL 형식을 사용하도록 강제합니다</string>
     <string name="morphe_replace_links_with_shortener_title">공유 링크를 \'youtu.be\'으로 변경하기</string>
     <string name="morphe_replace_music_with_youtube_summary_off">공유 링크를 \'music.youtube.com\'으로 사용합니다</string>
@@ -176,7 +213,7 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_save_to_watch_later_button_title">\'나중에 볼 동영상에 저장\' 버튼 표시하기</string>
     <string name="morphe_save_to_watch_later_error_toast">이 동영상을 \'나중에 볼 동영상\' 재생목록에 저장할 수 없습니다</string>
     <string name="morphe_save_to_watch_later_flyout_title">나중에 볼 동영상에 저장</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">\'나중에 볼 동영상에 저장\' 피드 메뉴로 관련 동영상에 있는 Kids 동영상을 저장할 수 있습니다</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">피드 메뉴로 관련 동영상에 있는 Kids 동영상을 \'나중에 볼 동영상\'에 저장할 수 있습니다</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Kids 동영상에 \'나중에 볼 동영상에 저장\' 메뉴 표시하기</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">피드 메뉴로 Shorts를 '나중에 볼 동영상' 재생목록에 저장할 수 있습니다</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Shorts에 '나중에 볼 동영상' 버튼 표시하기</string>
@@ -244,7 +281,9 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">전문 통계에서 속이기 정보 표시하기</string>
     <string name="morphe_spoof_video_streams_summary_off">"동영상 스트림이 속여지지 않습니다
 
-재생 문제가 발생할 수 있습니다"</string>
+재생 문제가 발생할 수 있습니다
+
+이 기능을 사용하려면, 'PoToken 제공자'를 비활성화하세요"</string>
     <string name="morphe_spoof_video_streams_summary_on">"동영상 스트림이 속여집니다
 
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다"</string>
@@ -286,6 +325,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="morphe_video_quality_prioritize_dialog">이 설정을 비활성화하면, 일부 오래된 동영상에서 화질 옵션이 표시되지 않을 수 있습니다</string>
     <string name="morphe_video_quality_prioritize_summary">코덱 효율성보다 사용 가능한 최고 동영상 화질을 우선합니다</string>
     <string name="morphe_video_quality_prioritize_title">동영상 우선순위를 화질로 지정하기</string>
+    <string name="morphe_vot_auto_translate_summary_off">번역 버튼을 탭하면 Google 번역이 시작됩니다</string>
+    <string name="morphe_vot_auto_translate_summary_on">각 동영상에 대해 Google 번역이 자동으로 시작됩니다</string>
     <string name="morphe_vot_caption_language_title">언어</string>
     <string name="morphe_vot_cost_free">무료</string>
     <string name="morphe_vot_cost_per_hour">동영상 100 시간당 %s</string>
@@ -488,6 +529,10 @@ API 키는 절대로 다른 사람과 공유해서는 안 됩니다. API 키에 
     <string name="revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">잘못된 사용자 정의 필터 값입니다: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_invalid">사용자 정의 오디오 피치는 %1$s x와 %2$s X 사이여야 합니다</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">잘못된 사용자 정의 오디오 피치입니다</string>
+    <string name="revanced_custom_playback_audio_pitches_summary">0.85x 또는 1.3x와 같은 오디오 피치 프리셋을 공백이나 줄바꿈으로 구분하여 설정하세요 (0.05x ~ 8x)</string>
+    <string name="revanced_custom_playback_audio_pitches_title">사용자 정의 오디오 피치 프리셋 편집하기</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">사용자 정의 (기존)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">사용자 정의 (모던)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">사용자 정의 (테마 없음)</string>
@@ -661,9 +706,6 @@ API 키는 절대로 다른 사람과 공유해서는 안 됩니다. API 키에 
     <string name="revanced_disable_translucent_navigation_bar_summary_off">하단바가 반투명합니다</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">하단바가 불투명합니다</string>
     <string name="revanced_disable_translucent_navigation_bar_title">반투명 하단바 비활성화하기</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">상태바가 불투명하거나 반투명합니다</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">상태바가 불투명합니다</string>
-    <string name="revanced_disable_translucent_status_bar_title">반투명 상태바 비활성화하기</string>
     <string name="revanced_disable_video_description_interaction_summary">"동영상 설명이 펼쳐질 경우에 다음 상호 작용을 비활성화합니다:
 
 • 탭하여 스크롤하기
@@ -767,12 +809,6 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">YouTube 헤더가 없는 넓은 검색창을 활성화합니다</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">YouTube 헤더가 있는 넓은 검색창을 활성화합니다</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">헤더가 있는 넓은 검색창 활성화하기</string>
-    <string name="revanced_enter_fullscreen_summary_off">동영상 시작 시 전체 화면으로 들어가지 않습니다</string>
-    <string name="revanced_enter_fullscreen_summary_on">"동영상 시작 시 전체 화면으로 들어갑니다
-
-제한 사항:
-• 플레이어가 최소화되어 있거나 PIP 모드 또는 백그라운드 재생에 있는 경우에는 작동되지 않습니다"</string>
-    <string name="revanced_enter_fullscreen_title">동영상 시작 시 전체 화면으로 들어가기</string>
     <string name="revanced_exit_fullscreen_entry_1">사용 안함</string>
     <string name="revanced_exit_fullscreen_entry_2">세로 모드에서만</string>
     <string name="revanced_exit_fullscreen_entry_3">가로 모드에서만</string>
@@ -942,6 +978,9 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
 • 보건 정보 출처
 • 관련성, etc"</string>
     <string name="revanced_hide_carousel_shelf_title">좌우 슬라이드형 선반 숨기기</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_off">댓글에서 표시됩니다</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_on">댓글에서 숨겨집니다</string>
+    <string name="revanced_hide_category_bar_in_comments_title">댓글에서 숨기기</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">피드에서 표시됩니다</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">피드에서 숨겨집니다</string>
     <string name="revanced_hide_category_bar_in_feed_title">피드에서 숨기기</string>
@@ -1764,11 +1803,12 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다</string>
     <string name="revanced_miniplayer_rounded_corners_title">둥근 모서리 활성화하기</string>
-    <string name="revanced_miniplayer_type_entry_2">최소화</string>
-    <string name="revanced_miniplayer_type_entry_4">모던 스타일 1</string>
-    <string name="revanced_miniplayer_type_entry_5">모던 스타일 2</string>
-    <string name="revanced_miniplayer_type_entry_6">모던 스타일 3</string>
-    <string name="revanced_miniplayer_type_entry_7">모던 스타일 4</string>
+    <string name="revanced_miniplayer_type_entry_2">최소화 1</string>
+    <string name="revanced_miniplayer_type_entry_3">최소화 2</string>
+    <string name="revanced_miniplayer_type_entry_4">태블릿</string>
+    <string name="revanced_miniplayer_type_entry_5">모던 스타일 1</string>
+    <string name="revanced_miniplayer_type_entry_6">모던 스타일 2</string>
+    <string name="revanced_miniplayer_type_entry_7">모던 스타일 3</string>
     <string name="revanced_miniplayer_type_title">미니 플레이어 유형</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">픽셀 크기는 %1$s-%2$s 사이여야 합니다</string>
     <string name="revanced_miniplayer_width_dip_summary">초기 화면 크기를 설정할 수 있습니다 (픽셀)</string>
@@ -2497,6 +2537,9 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_show_toolbar_settings_button_summary_off">툴바에서 설정 버튼을 표시하지 않습니다</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">툴바에서 설정 버튼을 표시합니다</string>
     <string name="revanced_show_toolbar_settings_button_title">설정 버튼 표시하기</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_off">원래 설정 버튼 동작을 '내 페이지' 탭에 그대로 유지합니다</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_on">설정 버튼 동작을 '내 페이지' 탭에 적용합니다</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_title">'내 페이지' 탭에 적용하기</string>
     <string name="revanced_show_video_title_section_summary">"전체 화면에서 동영상 제목 섹션을 표시합니다
 
 제한 사항:
@@ -2515,6 +2558,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - 스크립트 기능을 복원합니다</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - 접히지 않은 동영상 작업바를 복원합니다</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - 이전 구성요소 필터를 복원합니다</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - 이전 자막 동작을 복원합니다</string>
     <string name="revanced_spoof_app_version_target_entry_title">속이기에 사용될 앱 버전</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">속이기에 사용될 앱 버전이 잘못되었습니다: %s</string>
     <string name="revanced_spoof_app_version_target_summary">속이기에 사용될 앱 버전을 입력하세요</string>
@@ -2601,6 +2645,10 @@ uBlock Origin은 이 문제에 대한 해결 방법을 찾아냈으며, ‘페�
 JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply입니다"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">인증 토큰을 받는 방법을 보려면 여기를 탭하세요</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR 인증 있음에 대한 정보</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">불투명</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">투명</string>
+    <string name="revanced_status_bar_translucency_title">상태바 투명도</string>
+    <string name="revanced_swipe_bottom_zone_title">하단 스와이프 제스처</string>
     <string name="revanced_swipe_brightness_distance_summary">스와이프하여 밝기를 변경할 픽셀의 양을 지정할 수 있습니다. 값이 낮을수록 밝기가 빠르게 변경되고, 값이 높을수록 밝기가 느리게 변경됩니다 (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">밝기 거리</string>
     <string name="revanced_swipe_brightness_summary_off">전체 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절하지 않습니다</string>
@@ -2615,6 +2663,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_haptic_feedback_title">진동 피드백 활성화하기</string>
     <string name="revanced_swipe_horizontal_zone_summary">속도 및 탐색 스와이프를 위해 플레이어 화면의 상단과 하단 가장자리에 할당할 높이의 비율을 설정할 수 있습니다</string>
     <string name="revanced_swipe_horizontal_zone_title">가로 스와이프 영역</string>
+    <string name="revanced_swipe_left_zone_title">좌측 스와이프 제스처</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">자동</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">전체 화면에서 스와이프하여 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">전체 화면에서 스와이프하여 밝기가 0이 되면 자동 밝기를 활성화합니다</string>
@@ -2644,6 +2693,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_press_to_engage_summary_off">화면을 짧게 탭하여 스와이프 제스처를 사용합니다</string>
     <string name="revanced_swipe_press_to_engage_summary_on">화면을 길게 탭하여 스와이프 제스처를 사용합니다</string>
     <string name="revanced_swipe_press_to_engage_title">길게 탭하여 스와이프 제스처 사용하기</string>
+    <string name="revanced_swipe_right_zone_title">우측 스와이프 제스처</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원하지 않습니다</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원합니다</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">화면 밝기 저장 및 복원하기</string>
@@ -2664,10 +2714,11 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
     <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 설정할 수 있습니다</string>
     <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
+    <string name="revanced_swipe_top_zone_title">상단 스와이프 제스처</string>
     <string name="revanced_swipe_vertical_zone_summary">밝기 및 볼륨 스와이프를 위해 플레이어 화면의 왼쪽과 오른쪽 가장자리에 할당할 너비의 비율을 설정할 수 있습니다</string>
     <string name="revanced_swipe_vertical_zone_title">세로 스와이프 영역</string>
-    <string name="revanced_swipe_volume_distance_summary">스와이프하여 볼륨을 조정할 픽셀의 양을 지정할 수 있습니다. 값이 낮을수록 볼륨이 빠르게 변경되고, 값이 높을수록 볼륨이 느리게 변경됩니다 (1-1000)</string>
-    <string name="revanced_swipe_volume_distance_title">볼륨 거리</string>
+    <string name="revanced_swipe_volume_distance_summary">값이 높을수록 볼륨 단계당 더 많은 스와이프가 필요합니다</string>
+    <string name="revanced_swipe_volume_distance_title">볼륨 스와이프 민감도</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">볼륨 스와이프 민감도는 1-1000 사이어야 합니다</string>
     <string name="revanced_swipe_volume_sensitivity_summary">값이 높을수록 한 번의 스와이프로 변경되는 볼륨 크기가 증가합니다</string>
     <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
@@ -2728,7 +2779,10 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_vot_audio_proxy_summary_on">오디오 스트림을 Worker를 통해 프록시 처리합니다</string>
     <string name="revanced_vot_audio_proxy_title">프록시 오디오 스트림</string>
     <string name="revanced_vot_auth_required">인증이 필요합니다. 설정에서 Yandex 인증 토큰을 추가하세요</string>
-    <string name="revanced_vot_credits_summary">anddea, COOLak, Jav1x, 그리고 sashade8-ship-it가 개발한 Yandex VOT 구현입니다. ilyhalight/voice-over-translation을 기반으로 합니다</string>
+    <string name="revanced_vot_auto_translate_summary_off">번역 버튼을 탭하면 Yandex 번역이 시작됩니다</string>
+    <string name="revanced_vot_auto_translate_summary_on">각 동영상에 대해 Yandex 번역이 자동으로 시작됩니다</string>
+    <string name="revanced_vot_auto_translate_title">동영상 자동 번역하기</string>
+    <string name="revanced_vot_credits_summary">anddea, COOLak, Jav1x, 그리고 sashade8-ship-it이 개발한 Yandex VOT 구현입니다. ilyhalight/voice-over-translation을 기반으로 합니다</string>
     <string name="revanced_vot_enabled_summary_off">Yandex 음성 번역을 비활성화합니다</string>
     <string name="revanced_vot_enabled_summary_on">Yandex 음성 번역을 활성화합니다</string>
     <string name="revanced_vot_enabled_title">음성 번역</string>
@@ -2750,7 +2804,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_vot_original_audio_volume_summary">번역 재생 시 원본 동영상 트랙 볼륨을 0-100 사이에서 지정할 수 있습니다</string>
     <string name="revanced_vot_original_audio_volume_title">원본 오디오 볼륨</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">번역 준비 중에도 동영상이 계속 재생됩니다</string>
-    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">번역된 오디오가 준비될 때까지 비디오가 일시 정지됩니다</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">새 동영상은 일시 정지된 상태로 시작하며, 번역된 오디오가 준비되면 재생을 다시 시작합니다</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_title">번역 준비 중 비디오 일시 정지</string>
     <string name="revanced_vot_playback_error">번역 오디오를 재생할 수 없습니다</string>
     <string name="revanced_vot_proxy_url_fetch_failed">VOT 워커 프록시 호스트를 가져올 수 없습니다</string>
@@ -2836,7 +2890,6 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_yandex_status_processing_minutes_plural">%d 분 남았습니다...</string>
     <string name="revanced_yandex_status_processing_short">처리 중...</string>
     <string name="revanced_yandex_status_requesting_translation">번역을 요청하는 중입니다</string>
-    <string name="revanced_yandex_status_session_ok">세션을 확인하였습니다</string>
     <string name="revanced_yandex_status_subs_found">자막이 발견되었습니다, 가져오는 중입니다...</string>
     <string name="revanced_yandex_status_transcription_delayed">기록이 약간 지연됩니다</string>
     <string name="revanced_yandex_status_youtube_specific">YouTube 오디오 요청 처리 중...</string>

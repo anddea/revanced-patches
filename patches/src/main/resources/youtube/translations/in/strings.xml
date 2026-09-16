@@ -20,6 +20,32 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan"</string>
     <string name="gms_core_settings_summary">Untuk menerima notifikasi di RVX, aktifkan Cloud Messaging</string>
     <string name="gms_core_settings_title">Buka Setelan GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG belum dipasang. Pasang dulu</string>
+    <string name="morphe_aislist_submit_already_blocklisted">Saluran ini sudah ada di daftar blokir AiSList</string>
+    <string name="morphe_aislist_submit_already_warnlisted">Saluran ini sudah ada di daftar peringatan AiSList</string>
+    <string name="morphe_aislist_submit_category_title">Laporkan saluran AI</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Laporkan</string>
+    <string name="morphe_aislist_submit_dialog_message">"Kirim %s ke AiSList, menggunakan video ini sebagai bukti?
+
+Hanya laporkan saluran yang:
+• Menggunakan suara, visual, naskah, atau musik AI sebagai konten utamanya
+• Memproduksi konten secara massal dengan alat AI dan sedikit pekerjaan manusia
+
+Jangan melaporkan saluran yang hanya membahas AI, atau menggunakan AI untuk sebagian video mereka
+
+Laporan bersifat publik dan ditinjau sebelum saluran ditambahkan ke daftar. Penghapusan hanya dapat dilakukan melalui permintaan di GitHub"</string>
+    <string name="morphe_aislist_submit_failed">Laporan gagal, periksa koneksi Anda</string>
+    <string name="morphe_aislist_submit_failed_channel">Tidak dapat menemukan saluran dari video ini</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList tidak dapat menyimpan laporan, coba lagi nanti</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Terlalu banyak laporan yang dikirim, coba lagi nanti</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList menolak laporan ini</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Tambahkan entri ke menu video yang melaporkan saluran video ke AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Tambahkan entri laporan ke menu video</string>
+    <string name="morphe_aislist_submit_no_username">Atur nama pelapor di setelan filter saluran AI untuk melaporkan saluran</string>
+    <string name="morphe_aislist_submit_resolving">Mencari saluran…</string>
+    <string name="morphe_aislist_submit_success">Saluran telah dilaporkan dan menunggu peninjauan</string>
+    <string name="morphe_aislist_submit_title">Laporkan saluran AI</string>
+    <string name="morphe_aislist_submit_username_summary">Nama yang ditampilkan di samping laporan Anda di papan peringkat publik AiSList. Pelaporan tidak tersedia selama kolom ini kosong</string>
+    <string name="morphe_aislist_submit_username_title">Nama pelapor</string>
     <string name="morphe_app_refresh_rate_default">Bawaan</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">Penyegaran layar aplikasi</string>
@@ -63,6 +89,8 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
     <string name="morphe_force_original_audio_title">Paksa bahasa audio asli</string>
     <string name="morphe_fullscreen_large_seekbar_title">Aktifkan bilah geser besar layar penuh</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Sembunyikan tombol skala video di pemutar potret</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Tampilkan hanya dalam layar penuh</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Ketuk untuk mengganti Bawaan, Regangkan, dan Perbesar</string>
     <string name="morphe_fullscreen_video_scale_button_title">Tampilkan tombol skala video</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">Regangkan (isi layar)</string>
@@ -89,12 +117,14 @@ Ketuk di sini untuk membuka AiSlopList.com dan melihat unduhan untuk platform la
 • Total: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Daftar peringatan saluran</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Daftar peringatan: Keyakinan sedang</string>
+    <string name="morphe_hide_auto_dubbed_label_title">Sembunyikan label \'Sulih suara Otomatis\'</string>
     <string name="morphe_hide_courses_menu_title">Sembunyikan menu Kursus</string>
     <string name="morphe_hide_explore_button_title">Sembunyikan tombol Eksplorasi</string>
     <string name="morphe_hide_fashion_menu_title">Sembunyikan menu \'Fashion &amp; Kecantikan\'</string>
     <string name="morphe_hide_gaming_menu_title">Sembunyikan menu Game</string>
     <string name="morphe_hide_get_premium_button_title">Sembunyikan tombol \'Dapatkan Premium\'</string>
     <string name="morphe_hide_hype_menu_title">Sembunyikan menu Beri hype</string>
+    <string name="morphe_hide_hyped_label_title">Sembunyikan label Hype</string>
     <string name="morphe_hide_invite_to_message_card_summary">Menyembunyikan kartu undangan yang ditampilkan di bagian Pesan pada tab Notifikasi</string>
     <string name="morphe_hide_invite_to_message_card_title">Sembunyikan kartu \'Undang lainnya untuk mengirim pesan\'</string>
     <string name="morphe_hide_learning_menu_title">Sembunyikan menu Pembelajaran</string>
@@ -107,6 +137,7 @@ Ketuk di sini untuk membuka AiSlopList.com dan melihat unduhan untuk platform la
     <string name="morphe_hide_player_flyout_audio_track_not_available">"Menu 'Trek Audio' disembunyikan
 
 Untuk menampilkan menu 'Trek Audio', ubah 'Palsukan aliran video' ke klien apa pun selain 'Android Studio' dan 'Android VR Downgraded'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Sembunyikan menu \'Mode perjalanan\'</string>
     <string name="morphe_hide_podcasts_menu_title">Sembunyikan menu Podcast</string>
     <string name="morphe_hide_privacy_tos_footer_title">Sembunyikan footer hukum dan privasi</string>
     <string name="morphe_hide_shopping_menu_title">Sembunyikan menu Belanja</string>
@@ -143,6 +174,7 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_oauth2_toast_reset">Keluar dari Android VR</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Mencegah siaran langsung terbuka saat mengetuk avatar saluran</string>
     <string name="morphe_open_channel_of_live_avatar_title">Buka saluran dari avatar siaran langsung</string>
+    <string name="morphe_open_videos_fullscreen_title">Buka video dalam mode layar penuh</string>
     <string name="morphe_override_youtube_music_buttons_summary">Membuka aplikasi musik pilihan Anda daripada aplikasi bawaan YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Ganti tombol YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Selalu aktif</string>
@@ -163,6 +195,9 @@ Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
     <string name="morphe_reload_video_summary_off">Tombol muat ulang video tidak ditampilkan</string>
     <string name="morphe_reload_video_summary_on">Tombol muat ulang video ditampilkan</string>
     <string name="morphe_reload_video_title">Tampilkan tombol muat ulang video</string>
+    <string name="morphe_remember_livestream_position_summary">Untuk siaran langsung yang sedang berjalan, ini mengingat dan melanjutkan posisi pemutaran Anda daripada melompat ke posisi siaran langsung saat ini</string>
+    <string name="morphe_remember_livestream_position_title">Ingat posisi pemutaran siaran langsung</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">Fitur ini tidak berfungsi dengan siaran langsung 24/7 dan siaran lain yang \'selalu aktif\'</string>
     <string name="morphe_replace_links_with_shortener_summary">Memaksa video untuk menggunakan format pemendek URL youtu.be</string>
     <string name="morphe_replace_links_with_shortener_title">Ubah tautan berbagi ke youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Tautan yang dibagikan menggunakan music.youtube.com</string>
@@ -176,20 +211,21 @@ Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
     <string name="morphe_save_to_watch_later_button_title">Tampilkan tombol Simpan ke Tonton Nanti</string>
     <string name="morphe_save_to_watch_later_error_toast">Tidak dapat menyimpan video ini di daftar tonton nanti</string>
     <string name="morphe_save_to_watch_later_flyout_title">Simpan ke Tonton Nanti</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Memungkinkan penyimpanan video terkait anak-anak di menu melayang \'Tonton Nanti\'</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Memungkinkan Anda menyimpan video terkait anak-anak ke \'Tonton Nanti\' melalui menu flyout</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Tampilkan tombol Simpan ke Tonton Nanti di video anak-anak</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Tombol simpan untuk Shorts</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Memungkinkan Anda menyimpan Shorts ke \'Tonton Nanti\' melalui menu flyout</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Tampilkan tombol Simpan ke Tonton Nanti di flyout Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video berhasil disimpan di daftar tonton nanti</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Paling sering diputar ulang</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Menampilkan thumbnail video saat menggeser bilah geser</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Aktifkan thumbnail pada bilah geser</string>
     <string name="morphe_settings_menu_copy_path">Disalin: %s</string>
-    <string name="morphe_settings_menu_filter_picker_empty">Buka layar pengaturan aplikasi standar sekali untuk mengisi daftar</string>
-    <string name="morphe_settings_menu_filter_screen_summary">Sembunyikan item di layar pengaturan aplikasi standar berdasarkan nama yang terlihat</string>
-    <string name="morphe_settings_menu_filter_screen_title">Filter menu Pengaturan</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Buka layar setelan aplikasi standar sekali untuk mengisi daftar</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Sembunyikan item di layar setelan aplikasi standar berdasarkan nama yang terlihat</string>
+    <string name="morphe_settings_menu_filter_screen_title">Filter menu Setelan</string>
     <string name="morphe_settings_name_custom_item_hint">Masukkan nama</string>
     <string name="morphe_settings_name_empty_warning">Nama tidak boleh kosong</string>
-    <string name="morphe_settings_name_title">Nama pengaturan RVX</string>
+    <string name="morphe_settings_name_title">Nama setelan RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Berwarna</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monokrom</string>
     <string name="morphe_splash_screen_animation_style_title">Gaya layar pembuka</string>
@@ -233,9 +269,9 @@ Untuk masuk, tekan lanjutkan di bawah ini"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Masuk ke Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autentikasi disimpan
 
-• Pengaturan RVX Anda tidak akan mengimpor/mengekspor autentikasi Android VR
+• Setelan RVX Anda tidak akan mengimpor/mengekspor autentikasi Android VR
 • Jika aplikasi ini tidak digunakan selama 6 bulan, Google akan menghapus autentikasi ini
-• Anda perlu masuk kembali jika Anda mengubah kata sandi Google Anda atau menghapus pendaftaran perangkat ini dari pengaturan Google Anda"</string>
+• Anda perlu masuk kembali jika Anda mengubah kata sandi Google Anda atau menghapus pendaftaran perangkat ini dari setelan Google Anda"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Berhasil masuk</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Gagal dalam menghasilkan kode aktivasi</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Klien disembunyikan dalam Informasi statistik</string>
@@ -282,7 +318,7 @@ Batasan: Jika 'Kembalikan bilah tindakan video lama' dinonaktifkan, hamparan 'Vi
     <string name="morphe_theme_entry_white">Putih</string>
     <string name="morphe_theme_settings_summary">Kustomisasi tema aplikasi, tampilan, dan branding</string>
     <string name="morphe_theme_settings_title">Pengaturan Tema</string>
-    <string name="morphe_video_quality_prioritize_dialog">Jika pengaturan ini dimatikan, maka video lama tidak dapat menampilkan pilihan kualitas video</string>
+    <string name="morphe_video_quality_prioritize_dialog">Jika setelan ini dimatikan, maka video lama tidak dapat menampilkan pilihan kualitas video</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritaskan kualitas video tertinggi yang tersedia daripada efisiensi codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioritaskan kualitas video</string>
     <string name="morphe_vot_caption_language_title">Bahasa</string>
@@ -294,7 +330,7 @@ Batasan: Jika 'Kembalikan bilah tindakan video lama' dinonaktifkan, hamparan 'Vi
 Kunci API Anda tidak boleh dibagikan. Siapa pun yang memiliki akses ke kunci tersebut dapat menggunakan kredit OpenRouter Anda"</string>
     <string name="morphe_vot_http_error_message">"Layanan terjemahan mengembalikan kesalahan HTTP %s. Alamat IP Anda kemungkinan telah dibatasi aksesnya hingga 24 jam
 
-Untuk melanjutkan menggunakan terjemahan, ganti ke penyedia terjemahan yang berbeda di pengaturan atau gunakan VPN"</string>
+Untuk melanjutkan menggunakan terjemahan, ganti ke penyedia terjemahan yang berbeda di setelan atau gunakan VPN"</string>
     <string name="morphe_vot_http_error_title">Terjemahan tidak tersedia</string>
     <string name="morphe_vot_max_speech_rate_summary">Pengali kecepatan maksimum saat menyesuaikan ucapan ke dalam slot terjemahan</string>
     <string name="morphe_vot_max_speech_rate_title">Kecepatan bicara maksimal</string>
@@ -304,7 +340,7 @@ Untuk melanjutkan menggunakan terjemahan, ganti ke penyedia terjemahan yang berb
     <string name="morphe_vot_mymemory_info_summary">"API terjemahan gratis, tidak memerlukan kunci API. Hingga 5.000 karakter per hari pada paket gratis, atau hingga 50.000 karakter per hari dengan alamat email
 
 Ketuk di sini untuk membuka MyMemory.translated.net"</string>
-    <string name="morphe_vot_mymemory_quota_message_no_email">Anda telah menggunakan kuota terjemahan MyMemory gratis hari ini (5.000 karakter). Tambahkan email MyMemory di pengaturan untuk meningkatkan batas harian menjadi 50.000 karakter, atau ganti ke layanan terjemahan yang berbeda</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">Anda telah menggunakan kuota terjemahan MyMemory gratis hari ini (5.000 karakter). Tambahkan email MyMemory di setelan untuk meningkatkan batas harian menjadi 50.000 karakter, atau ganti ke layanan terjemahan yang berbeda</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">Anda telah menggunakan kuota terjemahan MyMemory hari ini (50.000 karakter). Ganti ke layanan terjemahan yang berbeda atau coba lagi besok</string>
     <string name="morphe_vot_mymemory_quota_next_available">Tersedia kembali pada %s</string>
     <string name="morphe_vot_mymemory_quota_title">Batas harian MyMemory tercapai</string>
@@ -317,7 +353,7 @@ Ketuk di sini untuk membuka MyMemory.translated.net"</string>
 
 Ketuk di sini untuk membuka OpenRouter.ai"</string>
     <string name="morphe_vot_openrouter_model_title">Model OpenRouter</string>
-    <string name="morphe_vot_openrouter_not_configured_message">Masukkan kunci API OpenRouter Anda di pengaturan sebelum memilih penyedia ini</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Masukkan kunci API OpenRouter Anda di setelan sebelum memilih penyedia ini</string>
     <string name="morphe_vot_openrouter_not_configured_title">OpenRouter belum dikonfigurasi</string>
     <string name="morphe_vot_openrouter_open_website">Buka OpenRouter.ai</string>
     <string name="morphe_vot_original_audio_volume_summary">Volume audio YouTube asli saat terjemahan sedang berbicara</string>
@@ -440,7 +476,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_start_page_entry_history">Riwayat</string>
     <string name="revanced_change_start_page_entry_home">Beranda</string>
     <string name="revanced_change_start_page_entry_hype">Hype</string>
-    <string name="revanced_change_start_page_entry_library">Pustaka</string>
+    <string name="revanced_change_start_page_entry_library">Koleksi</string>
     <string name="revanced_change_start_page_entry_liked_videos">Video yang disukai</string>
     <string name="revanced_change_start_page_entry_live">Siaran langsung</string>
     <string name="revanced_change_start_page_entry_movies">Film</string>
@@ -646,9 +682,6 @@ Catatan:
     <string name="revanced_disable_translucent_navigation_bar_summary_off">Bilah navigasi bersifat transparan</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">Bilah navigasi bersifat buram</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Nonaktifkan bilah navigasi transparan</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Bilah status buram atau transparan</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Bilah status buram</string>
-    <string name="revanced_disable_translucent_status_bar_title">Nonaktifkan bilah status tembus cahaya</string>
     <string name="revanced_disable_video_description_interaction_summary">"Disables the following interactions when the video description is expanded:
 
 • Sentuh untuk scroll
@@ -750,11 +783,6 @@ Tab Anda → Lihat channel → Menu → Setelan"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Kolom pencarian lebar menonaktifkan dan menggunakan ruang header YouTube</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Kolom pencarian lebar diaktifkan bersama dengan header YouTube</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Aktifkan bilah pencarian lebar dengan header</string>
-    <string name="revanced_enter_fullscreen_summary_off">Jangan masuk ke mode layar penuh saat video dimulai</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Masuk ke mode layar penuh saat video dimulai
-
-Keterbatasan: Tidak berfungsi jika pemutar diminimalkan, dalam mode PiP, atau berjalan di latar belakang"</string>
-    <string name="revanced_enter_fullscreen_title">Masuk ke mode layar penuh saat video dimulai</string>
     <string name="revanced_exit_fullscreen_entry_1">Dinonaktifkan</string>
     <string name="revanced_exit_fullscreen_entry_2">Potret saja</string>
     <string name="revanced_exit_fullscreen_entry_3">Lanskap saja</string>
@@ -836,10 +864,10 @@ Batasan:
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Ukuran font terjemahan</string>
     <string name="revanced_gemini_transcription_parse_button">Terjemahan</string>
     <string name="revanced_gms_show_dialog_title">Tampilkan dialog optimalisasi untuk GMSCore</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Masukkan nama menu Pustaka / Anda yang ingin disaring, dipisahkan oleh baris baru</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Penyaring menu bawah Pustaka / Anda</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Masukkan nama menu Koleksi / Anda yang ingin disaring, dipisahkan oleh baris baru</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Penyaring menu bawah Koleksi / Anda</string>
     <string name="revanced_hide_account_menu_filter_type_title">Tipe filter menu akun</string>
-    <string name="revanced_hide_account_menu_title">Aktifkan penyaring menu bawah Pustaka / Anda</string>
+    <string name="revanced_hide_account_menu_title">Aktifkan penyaring menu bawah Koleksi / Anda</string>
     <string name="revanced_hide_action_bar_summary_off">Bilah tindakan ditampilkan</string>
     <string name="revanced_hide_action_bar_summary_on">Bilah tindakan disembunyikan</string>
     <string name="revanced_hide_action_bar_title">Sembunyikan bilah tindakan</string>
@@ -880,6 +908,7 @@ Batasan:
 • Belanja
 • Tonton lagi"</string>
     <string name="revanced_hide_carousel_shelf_title">Sembunyikan rak carousel</string>
+    <string name="revanced_hide_category_bar_in_comments_title">Sembunyikan di komentar</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">Ditunjukkan di halaman utama</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">Disembunyikan di halaman utama</string>
     <string name="revanced_hide_category_bar_in_feed_title">Sembunyikan di halaman utama</string>
@@ -990,13 +1019,13 @@ Toko"</string>
     <string name="revanced_hide_feed_captions_button_on">Tombol teks disembunyikan</string>
     <string name="revanced_hide_feed_captions_button_title">Sembunyikan tombol Teks</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Masukkan nama menu melayang untuk disaring, dipisahkan oleh baris baru</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Penyaring menu feed melayang</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Penyaring menu feed flyout</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Saring jika cocok.&lt;br&gt;&lt;br&gt;Untuk menyembunyikan menu &lt;b&gt;\'Putar berikutnya dalam antrean\'&lt;/b&gt; Anda hanya dapat menggunakan &lt;b&gt;\'Putar berikutnya dalam antrean\'&lt;/b&gt; sebagai kata kunci</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Saring jika berisi.&lt;br&gt;&lt;br&gt;Untuk menyembunyikan menu &lt;b&gt;\'Putar berikutnya dalam antrean\'&lt;/b&gt; Anda dapat menggunakan &lt;b&gt;\'Putar berikutnya\'&lt;/b&gt; atau &lt;b&gt;\'dalam antrean\'&lt;/b&gt; sebagai kata kunci</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Jenis penyaring menu feed flyout</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Penyaring menu umpan flyout dinonaktifkan</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Penyaring menu umpan flyout diaktifkan</string>
-    <string name="revanced_hide_feed_flyout_menu_title">Aktifkan penyaring menu feed melayang</string>
+    <string name="revanced_hide_feed_flyout_menu_title">Aktifkan penyaring menu feed flyout</string>
     <string name="revanced_hide_feed_search_bar_summary_off">Kolom pencarian disembunyikan</string>
     <string name="revanced_hide_feed_search_bar_summary_on">Kolom pencarian disembunyikan</string>
     <string name="revanced_hide_feed_search_bar_title">Sembunyikan kolom pencarian</string>
@@ -1336,10 +1365,11 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Sudutnya membulat</string>
     <string name="revanced_miniplayer_rounded_corners_title">Aktifkan sudut membulat</string>
     <string name="revanced_miniplayer_type_entry_2">Minimal</string>
-    <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
-    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
+    <string name="revanced_miniplayer_type_entry_3">Minimal 2</string>
+    <string name="revanced_miniplayer_type_entry_4">Tablet</string>
+    <string name="revanced_miniplayer_type_entry_5">Modern 1</string>
+    <string name="revanced_miniplayer_type_entry_6">Modern 2</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 3</string>
     <string name="revanced_miniplayer_type_title">Jenis pemutar mini</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Ukuran piksel harus antara %1$s dan %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">Atur ukuran awal di layar, dalam piksel</string>
@@ -1351,7 +1381,7 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
     <string name="revanced_override_playlist_download_button_summary_on_disclaimer">"Tombol unduh daftar putar bawaan, jika ditampilkan, akan membuka aplikasi pengunduh eksternal Anda
 
 Untuk menampilkan tombol unduh daftar putar bawaan, aktifkan opsi 'Palsukan versi aplikasi' dan ubah 'Target versi aplikasi yang dipalsukan' menjadi '19.28.42' atau versi sebelumnya"</string>
-    <string name="revanced_playback_audio_time_stretching_summary">Mengizinkan pengaturan kecepatan dan nada secara terpisah, namun dapat menyebabkan gangguan audio</string>
+    <string name="revanced_playback_audio_time_stretching_summary">Mengizinkan setelan kecepatan dan nada secara terpisah, namun dapat menyebabkan gangguan audio</string>
     <string name="revanced_playback_audio_time_stretching_title">Perpanjangan waktu audio</string>
     <string name="revanced_playback_speed_normal">Biasa</string>
     <string name="revanced_preference_category_animation_feedback">Animasi / Umpan Balik</string>
@@ -1688,7 +1718,7 @@ Sudah ada"</string>
     <string name="revanced_settings_import">Impor</string>
     <string name="revanced_settings_import_copy">Salin</string>
     <string name="revanced_settings_import_reset">Setelan ReVanced diatur ke bawaan</string>
-    <string name="revanced_settings_import_success">%d Pengaturan diimpor</string>
+    <string name="revanced_settings_import_success">%d Setelan diimpor</string>
     <string name="revanced_settings_reset">Setel ulang</string>
     <string name="revanced_settings_reset_color">Setel ulang warna</string>
     <string name="revanced_settings_search_clear_history">Hapus riwayat pencarian</string>
@@ -1697,16 +1727,16 @@ Sudah ada"</string>
     <string name="revanced_settings_search_empty_history_title">Riwayat pencarian kosong</string>
     <string name="revanced_settings_search_history_summary_off">Riwayat pencarian setelan tidak ditampilkan</string>
     <string name="revanced_settings_search_history_summary_on">Riwayat pencarian setelan ditampilkan</string>
-    <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
+    <string name="revanced_settings_search_history_title">Tampilkan setelan riwayat pencarian</string>
     <string name="revanced_settings_search_no_results_summary">Coba kata kunci lain</string>
     <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">Pencarian terbaru</string>
     <string name="revanced_settings_search_remove_message">Hapus dari riwayat pencarian?</string>
-    <string name="revanced_settings_search_tips_summary">"• Ketuk jalur untuk menelusuri ke jalur tersebut
-• Tekan lama pada pengaturan untuk menelusuri ke jalur tersebut
+    <string name="revanced_settings_search_tips_summary">"• Ketuk jalur untuk berpindah ke lokasi tersebut
+• Tekan lama setelan untuk berpindah ke lokasinya
 • Tekan Enter untuk menyimpan kueri pencarian ke riwayat
 • Pencarian mengabaikan huruf besar/kecil dan tanda baca
-• Pengaturan utama muncul di atas pengaturan sampingan yang dinonaktifkan"</string>
+• Setelan induk muncul di atas setelan turunan yang nonaktif"</string>
     <string name="revanced_settings_search_tips_title">Tips Pencarian</string>
     <string name="revanced_settings_search_title">Cari %s</string>
     <string name="revanced_share_copy_url_success">URL disalin ke papan klip</string>
@@ -1719,10 +1749,10 @@ Sudah ada"</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Pemutar reguler layar penuh</string>
     <string name="revanced_shorts_player_type_title">Buka Shorts dengan</string>
     <string name="revanced_show_search_button_title">Tampilkan tombol Pencarian</string>
-    <string name="revanced_show_settings_button_title">Tampilkan tombol Pengaturan</string>
-    <string name="revanced_show_settings_button_type_title">Tindakan tombol pengaturan</string>
-    <string name="revanced_show_toolbar_settings_button_index_title">Posisi tombol Pengaturan</string>
-    <string name="revanced_show_toolbar_settings_button_title">Tampilkan tombol Pengaturan</string>
+    <string name="revanced_show_settings_button_title">Tampilkan tombol Setelan</string>
+    <string name="revanced_show_settings_button_type_title">Tindakan tombol setelan</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Posisi tombol Setelan</string>
+    <string name="revanced_show_toolbar_settings_button_title">Tampilkan tombol Setelan</string>
     <string name="revanced_spoof_app_version_other_item_hint">Masukkan versi aplikasi</string>
     <string name="revanced_spoof_app_version_summary">Mengelabui server agar mengira Anda menggunakan versi aplikasi yang lebih lama untuk mengembalikan fitur UI lama</string>
     <string name="revanced_spoof_app_version_summary_off">Versi asli</string>
@@ -1730,6 +1760,7 @@ Sudah ada"</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Memulihkan fungsi Transkrip</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Kembalikan bilah tindakan video yang tidak terlipat</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Filter pemulihan komponen lama</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - Kembalikan perilaku teks lama</string>
     <string name="revanced_spoof_app_version_target_entry_title">Target versi aplikasi yang dipalsukan</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versi aplikasi palsu tidak sah: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Masukkan target versi aplikasi yang dipalsukan</string>
@@ -1788,6 +1819,7 @@ Di antara klien JavaScript, klien yang direkomendasikan adalah TV Simply"</strin
 Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</string>
     <string name="revanced_swipe_brightness_title">Aktifkan gerakan kecerahan</string>
     <string name="revanced_swipe_haptic_feedback_title">Aktifkan umpan balik getar</string>
+    <string name="revanced_swipe_left_zone_title">Gerakan mengusap ke kiri</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Otomatis</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Mengusap ke bawah ke nilai terendah tidak mengaktifkan kecerahan otomatis</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Mengusap ke bawah ke nilai terendah dari gerakan kecerahan akan menyalakan kecerahan otomatis</string>
@@ -1813,6 +1845,7 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
     <string name="revanced_swipe_press_to_engage_summary_off">Tekan untuk menggeser dinonaktifkan</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Tekan untuk menggeser diaktifkan</string>
     <string name="revanced_swipe_press_to_engage_title">Aktifkan tekan untuk gerakan usap</string>
+    <string name="revanced_swipe_right_zone_title">Gerakan mengusap ke kanan</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Jangan simpan dan pulihkan kecerahan saat keluar atau memasuki layar penuh</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Simpan dan pulihkan kecerahan saat keluar atau memasuki layar penuh</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Simpan dan kembalikan kecerahan</string>
@@ -1821,6 +1854,9 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
     <string name="revanced_swipe_text_overlay_size_title">Ukuran teks lapisan usap</string>
     <string name="revanced_swipe_threshold_summary">Atur jarak usap yang diperlukan agar penyesuaian dimulai</string>
     <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
+    <string name="revanced_swipe_top_zone_title">Gerakan mengusap ke atas</string>
+    <string name="revanced_swipe_volume_distance_summary">Nilai yang lebih tinggi memerlukan lebih banyak gesekan per langkah volume</string>
+    <string name="revanced_swipe_volume_distance_title">Sensitivitas volume usap</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Nilai yang lebih tinggi meningkatkan perubahan volume per usapan</string>
     <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas volume usap</string>
     <string name="revanced_swipe_volume_summary_off">Pengusapan volume layar penuh dinonaktifkan</string>

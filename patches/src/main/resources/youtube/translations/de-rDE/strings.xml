@@ -20,6 +20,32 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="gms_core_settings_summary">Cloud-Nachrichteneinstellungen aktivieren, um Benachrichtigungen zu erhalten</string>
     <string name="gms_core_settings_title">GmsCore öffnen</string>
     <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installieren Sie es</string>
+    <string name="morphe_aislist_submit_already_blocklisted">Dieser Kanal ist bereits auf der AiSList-Blockliste</string>
+    <string name="morphe_aislist_submit_already_warnlisted">Dieser Kanal ist bereits auf der AiSList-Warnliste</string>
+    <string name="morphe_aislist_submit_category_title">KI-Kanäle melden</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Melden</string>
+    <string name="morphe_aislist_submit_dialog_message">"Möchtest du %s an AiSList melden und dieses Video als Beleg verwenden?
+
+Melde nur Kanäle, die:
+• KI-Stimmen, -Bilder, -Skripte oder -Musik als Hauptinhalt verwenden
+• Mit KI-Tools massenhaft Inhalte mit wenig menschlicher Arbeit produzieren
+
+Melde keine Kanäle, die nur über KI sprechen oder KI für einige Teile ihrer Videos verwenden
+
+Meldungen sind öffentlich und werden überprüft, bevor ein Kanal zu einer Liste hinzugefügt wird. Eine Entfernung ist nur durch eine Anfrage auf GitHub möglich"</string>
+    <string name="morphe_aislist_submit_failed">Meldung fehlgeschlagen. Überprüfe deine Verbindung</string>
+    <string name="morphe_aislist_submit_failed_channel">Der Kanal dieses Videos kann nicht gefunden werden</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList konnte die Meldung nicht speichern. Versuche es später erneut</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Zu viele Meldungen wurden gesendet. Versuche es später erneut</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList hat die Meldung abgelehnt</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Fügt dem Videomenü einen Eintrag hinzu, der den Kanal eines Videos an AiSList meldet</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Meldeeintrag zum Videomenü hinzufügen</string>
+    <string name="morphe_aislist_submit_no_username">Lege in den Einstellungen des KI-Kanalfilters einen Namen für den Meldenden fest, um Kanäle zu melden</string>
+    <string name="morphe_aislist_submit_resolving">Kanal wird gesucht …</string>
+    <string name="morphe_aislist_submit_success">Kanal gemeldet und wartet auf Überprüfung</string>
+    <string name="morphe_aislist_submit_title">KI-Kanal melden</string>
+    <string name="morphe_aislist_submit_username_summary">Name, der neben deinen Meldungen auf der öffentlichen AiSList-Bestenliste angezeigt wird. Das Melden ist nicht verfügbar, solange dieses Feld leer ist</string>
+    <string name="morphe_aislist_submit_username_title">Name des Meldenden</string>
     <string name="morphe_app_refresh_rate_default">Standard</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">Bildwiederholrate der App</string>
@@ -54,6 +80,8 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
     <string name="morphe_force_original_audio_title">Original-Audiotrack erzwingen</string>
     <string name="morphe_fullscreen_large_seekbar_title">Große Suchleiste im Vollbildmodus aktivieren</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Videoskalierungs-Schaltfläche im Hochformat-Player ausblenden</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Nur im Vollbild anzeigen</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Tippen, um zwischen Standard, Strecken und Zoomen zu wechseln</string>
     <string name="morphe_fullscreen_video_scale_button_title">Schaltfläche für Video-Skalierung anzeigen</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">Strecken (Bildschirm ausfüllen)</string>
@@ -80,12 +108,14 @@ Tippen Sie hier, um AiSlopList.com zu öffnen und Downloads für andere Plattfor
 • Insgesamt: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Kanäle in der Warnliste</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Warnliste: Moderate Wahrscheinlichkeit</string>
+    <string name="morphe_hide_auto_dubbed_label_title">Hinweis „Automatisch synchronisiert“ ausblenden</string>
     <string name="morphe_hide_courses_menu_title">Eintrag „Kurse“ ausblenden</string>
     <string name="morphe_hide_explore_button_title">Schaltfläche „Entdecken“ ausblenden</string>
     <string name="morphe_hide_fashion_menu_title">Eintrag „Mode &amp; Beauty“ ausblenden</string>
     <string name="morphe_hide_gaming_menu_title">Eintrag „Gaming“ ausblenden</string>
     <string name="morphe_hide_get_premium_button_title">\'Get Premium\'-Button ausblenden</string>
     <string name="morphe_hide_hype_menu_title">Eintrag „Hype“ ausblenden</string>
+    <string name="morphe_hide_hyped_label_title">Verstecke Hyped Label</string>
     <string name="morphe_hide_invite_to_message_card_summary">Blendet die Einladungskarte im Bereich \'Nachrichten\' im Tab \'Benachrichtigungen\' aus</string>
     <string name="morphe_hide_invite_to_message_card_title">\'Andere zum Chat einladen\'-Karte ausblenden</string>
     <string name="morphe_hide_learning_menu_title">Lernmenü ausblenden</string>
@@ -98,6 +128,7 @@ Tippen Sie hier, um AiSlopList.com zu öffnen und Downloads für andere Plattfor
     <string name="morphe_hide_player_flyout_audio_track_not_available">"Das Menü \"Audio-Track\" ist ausgeblendet
 
 Um das Menü anzuzeigen, ändern Sie \"Video-Streams fälschen\" in einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\""</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Menü \'Unterwegs\' ausblenden</string>
     <string name="morphe_hide_podcasts_menu_title">Eintrag „Podcasts“ ausblenden</string>
     <string name="morphe_hide_privacy_tos_footer_title">Rechtliche Hinweise und Datenschutz-Footer ausblenden</string>
     <string name="morphe_hide_shopping_menu_title">Eintrag „Shopping“ ausblenden</string>
@@ -130,6 +161,7 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_oauth2_toast_reset">Von Android VR abgemeldet</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Verhindert, dass der Livestream geöffnet wird, wenn Sie auf das Avatar des Kanals tippen</string>
     <string name="morphe_open_channel_of_live_avatar_title">Kanal vom Live-Avatar aus öffnen</string>
+    <string name="morphe_open_videos_fullscreen_title">Videos im Vollbildmodus öffnen</string>
     <string name="morphe_override_youtube_music_buttons_summary">Öffnet deine bevorzugte Musik-App anstelle der Standard-YouTube-Music-App</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube-Music-Schaltfläche überschreiben</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Immer an</string>
@@ -143,6 +175,9 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_reload_video_summary_off">Schaltfläche „Video wiederholen“ ist ausgeblendet</string>
     <string name="morphe_reload_video_summary_on">Schaltfläche „Video wiederholen“ wird angezeigt</string>
     <string name="morphe_reload_video_title">Video-Wiederholschaltfläche anzeigen</string>
+    <string name="morphe_remember_livestream_position_summary">Für laufende Live-Streams wird die Wiedergabeposition gemerkt und wiederhergestellt, anstatt zur aktuellen Live-Position zu springen</string>
+    <string name="morphe_remember_livestream_position_title">Live-Stream-Wiedergabeposition merken</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">Diese Funktion funktioniert nicht bei 24/7-Live-Streams und anderen Streams, die \'ständig aktiv\' sind</string>
     <string name="morphe_replace_links_with_shortener_summary">Sorgt dafür, dass geteilte Links das kürzere youtu.be URL-Format nutzen</string>
     <string name="morphe_replace_links_with_shortener_title">Freigabe-Links zu youtu.be ändern</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Freigabe-Links verwenden music.youtube.com</string>
@@ -156,8 +191,10 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_save_to_watch_later_button_title">Schaltfläche \'Später ansehen\' anzeigen</string>
     <string name="morphe_save_to_watch_later_error_toast">Dieses Video kann nicht zur Wiedergabeliste \"Später ansehen\" hinzugefügt werden</string>
     <string name="morphe_save_to_watch_later_flyout_title">Später ansehen</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Ermöglicht das Speichern von kinderbezogenen Videos im Flyout-Menü „Später ansehen“</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Ermöglicht das Speichern von kinderbezogenen Videos in \'Später ansehen\' über das Flyout-Menü</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Schaltfläche \'Später ansehen\' in Kinder-Videos anzeigen</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Ermöglicht das Speichern von Shorts in \'Später ansehen\' über das Flyout-Menü</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Zeige die Schaltfläche \'Speichern in Später ansehen\' im Shorts-Flyout</string>
     <string name="morphe_save_to_watch_later_success_toast">Video erfolgreich zur Wiedergabeliste \"Später ansehen\" hinzugefügt</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Am häufigsten wiederholt</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Zeigt ein Vorschaubild beim Ziehen des Fortschrittsbalkens an</string>
@@ -595,9 +632,6 @@ Information:
     <string name="revanced_disable_translucent_navigation_bar_summary_off">Statusleiste ist transluzent</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">Navigationsleiste ist durchsichtig</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Transluzente Statusleiste deaktivieren</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Die Statusleiste ist undurchsichtig oder durchscheinend</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Statusleiste ist undurchsichtig</string>
-    <string name="revanced_disable_translucent_status_bar_title">Transluzente Statusleiste deaktivieren</string>
     <string name="revanced_disable_video_description_interaction_summary">"Deaktiviert die folgenden Interaktionen, wenn die Videobeschreibung erweitert wird:
 
 • Zum Scrollen tippen
@@ -696,11 +730,6 @@ Registerkarte → Kanal → Menü → Einstellungen anzeigen"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Die breite Suchleiste deaktiviert den YouTube-Header und nutzt dessen Platz</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Breite Suchleiste enthält YouTube Header</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Breite Suchleiste mit Header aktivieren</string>
-    <string name="revanced_enter_fullscreen_summary_off">Vollbildmodus nicht aktivieren, wenn das Video startet</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Vollbildmodus aktivieren, wenn das Video gestartet wird
-
-Einschränkung: Funktioniert nicht, wenn der Player minimiert ist, im PiP Modus oder im Hintergrund"</string>
-    <string name="revanced_enter_fullscreen_title">Vollbildmodus aktivieren, wenn das Video startet</string>
     <string name="revanced_exit_fullscreen_entry_1">Deaktiviert</string>
     <string name="revanced_exit_fullscreen_entry_2">Nur Hochformat</string>
     <string name="revanced_exit_fullscreen_entry_3">Nur Querformat</string>
@@ -858,6 +887,7 @@ Info:
 - Shopping
 - Erneut anschauen"</string>
     <string name="revanced_hide_carousel_shelf_title">Karussellregal ausblenden</string>
+    <string name="revanced_hide_category_bar_in_comments_title">In Kommentaren ausblenden</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">In Feed angezeigt</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">In Feed versteckt</string>
     <string name="revanced_hide_category_bar_in_feed_title">Kategorieleiste im Feed ausblenden</string>
@@ -1619,10 +1649,11 @@ Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts 
     <string name="revanced_miniplayer_rounded_corners_summary_on">Ecken sind abgerundet</string>
     <string name="revanced_miniplayer_rounded_corners_title">Abgerundete Ecken aktivieren</string>
     <string name="revanced_miniplayer_type_entry_2">Minimal</string>
-    <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
-    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
+    <string name="revanced_miniplayer_type_entry_3">Minimal 2</string>
+    <string name="revanced_miniplayer_type_entry_4">Tablets</string>
+    <string name="revanced_miniplayer_type_entry_5">Modern 1</string>
+    <string name="revanced_miniplayer_type_entry_6">Modern 2</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 3</string>
     <string name="revanced_miniplayer_type_title">Minispielertyp</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Pixelgröße muss zwischen %1$s und %2$s liegen</string>
     <string name="revanced_miniplayer_width_dip_summary">Legen Sie die Anfangsgröße auf dem Bildschirm in Pixeln fest</string>
@@ -2279,6 +2310,7 @@ Einschränkung: Videotitel verschwindet beim Klicken auf den Bildschirm"</string
     <string name="revanced_spoof_app_version_summary_on">Version gefälscht</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Transkript-Funktion wiederherstellen</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Nicht eingeklappte Video-Aktionsleiste wiederherstellen</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - Altes Untertitelverhalten wiederherstellen</string>
     <string name="revanced_spoof_app_version_target_entry_title">Spoof App Versionsziel</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Ungültige Spoof App Version: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Geben Sie das Spoof App Versionsziel ein</string>
@@ -2354,6 +2386,7 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Wischgesten sind im Sperrbildschirm-Modus aktiviert</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Wischgesten im Sperrbildschirm-Modus</string>
     <string name="revanced_swipe_haptic_feedback_title">Haptisches Feedback aktivieren</string>
+    <string name="revanced_swipe_left_zone_title">Wischgeste nach links</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Wenn man zum niedrigsten Wert wischt, aktiviert man die automatische Helligkeit nicht</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Wische runter auf den niedrigsten Wert der Helligkeitsgeste, um die automatische Helligkeit zu aktivieren</string>
@@ -2381,6 +2414,7 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
     <string name="revanced_swipe_press_to_engage_summary_off">Wischgeste durch Drücken ist deaktiviert</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Wischen durch Drücken ist aktiviert</string>
     <string name="revanced_swipe_press_to_engage_title">Berührungsschutz für Gesten aktivieren</string>
+    <string name="revanced_swipe_right_zone_title">Wischgeste nach rechts</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Helligkeit beim Beenden oder Einschalten des Vollbildes nicht speichern und wiederherstellen</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Helligkeit speichern und wiederherstellen, wenn Vollbild verlassen oder betreten wird</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Helligkeit speichern und wiederherstellen</string>
@@ -2390,6 +2424,9 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
     <string name="revanced_swipe_text_overlay_size_title">Textgröße Gesten-Overlays</string>
     <string name="revanced_swipe_threshold_summary">Legen Sie die erforderliche Wischdistanz fest, bevor eine Anpassung ausgelöst wird</string>
     <string name="revanced_swipe_threshold_title">Wischgrößenschwelle</string>
+    <string name="revanced_swipe_top_zone_title">Wischgeste nach oben</string>
+    <string name="revanced_swipe_volume_distance_summary">Höhere Werte erfordern mehr Wischen pro Lautstärkestufe</string>
+    <string name="revanced_swipe_volume_distance_title">Empfindlichkeit der Lautstärken-Gestensteuerung</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Volume swipe sensitivity must be between 1-1000</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Höhere Werte erhöhen die Lautstärkeveränderung pro Wischbewegung</string>
     <string name="revanced_swipe_volume_sensitivity_title">Empfindlichkeit der Lautstärken-Gestensteuerung</string>

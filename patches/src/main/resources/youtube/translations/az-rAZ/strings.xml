@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Video pleyer üçün əlçatanlıq nəzarətlərini aktivləşdirilsin?</string>
+    <string name="accessibility_settings_edu_opt_out_text">Əlçatanlıq xidməti aktivləşdirildiyi üçün idarəetmə elementləriniz dəyişdirilib</string>
     <string name="gms_core_dialog_continue_text">Davam et</string>
     <string name="gms_core_dialog_dismiss_text">Təkrat göstərmə</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG-nin fonda işləmək icazəsi yoxdur
@@ -16,6 +17,32 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="gms_core_dialog_open_website_text">Veb saytı aç</string>
     <string name="gms_core_dialog_title">Fəaliyyət lazımdır</string>
     <string name="gms_core_toast_not_installed_message">MicroG quraşdırılmayıb. Onu quraşdır</string>
+    <string name="morphe_aislist_submit_already_blocklisted">Bu kanal artıq AiSList bloklama siyahısındadır</string>
+    <string name="morphe_aislist_submit_already_warnlisted">Bu kanal artıq AiSList xəbərdarlıq siyahısındadır</string>
+    <string name="morphe_aislist_submit_category_title">Süni intellekt kanallarını bildir</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Bildir</string>
+    <string name="morphe_aislist_submit_dialog_message">"Bu video sübut kimi istifadə olunaraq %s AiSList-ə təqdim edilsin?
+
+​Yalnız bu kimi kanalları bildirin:
+• Əsas məzmunu kimi Sİ səslərin, görüntülərin, ssenarilərin və ya musiqisin istifadə edənlər
+• Sİ alətləri ilə insan əməyi az olmaqla kütləvi məzmun istehsal edənlər
+
+​Yalnız Sİ-ni müzakirə edən və ya videolarının bəzi hissələrində Sİ istifadə edən kanalları bildirməyin
+
+​Bildirişlər ictimaidir və kanal siyahıya əlavə olunmazdan əvvəl nəzərdən keçirilir. Silinmə yalnız GitHub-da müraciət etməklə mümkündür"</string>
+    <string name="morphe_aislist_submit_failed">Bildirmək olmadı, bağlantınızı yoxlayın</string>
+    <string name="morphe_aislist_submit_failed_channel">Bu videonun kanalı tapılmadı</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList hesabatı saxlaya bilmədi, daha sonra təkrar cəhd et</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Həddindən çox bildiriş göndərildi, daha sonra təkrar cəhd et</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList şikayəti qəbul etmədi</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Video kanalını AiSList-ə bildirmək üçün video menyusuna bənd əlavə et</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Video menyusuna bildir bəndini əlavə et</string>
+    <string name="morphe_aislist_submit_no_username">Kanalları bildirmək üçün Sİ kanal filtri tənzimləmələrində təqdim edən adı təyin et</string>
+    <string name="morphe_aislist_submit_resolving">Kanalı axtarır…</string>
+    <string name="morphe_aislist_submit_success">Kanal bildirildi və baxılmağı gözləyir</string>
+    <string name="morphe_aislist_submit_title">Süni intellekt kanalını bildir</string>
+    <string name="morphe_aislist_submit_username_summary">İctimai AiSList liderlər lövhəsində bildirişlərinizin yanında göstərilən ad. Bu sahə boş olduqda bildiriş göndərmək mümkün olmur</string>
+    <string name="morphe_aislist_submit_username_title">Təqdim edənin adı</string>
     <string name="morphe_app_refresh_rate_default">İlkin</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">Tətbiq yeniləmə sürəti</string>
@@ -50,6 +77,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_force_original_audio_summary_on">Orijinal səs dilini faydalanmaq</string>
     <string name="morphe_force_original_audio_title">Orijinal səs dilini zorla</string>
     <string name="morphe_fullscreen_large_seekbar_title">Tam ekran böyük irəli-geri çəkmə cizgisin aktivləşdir</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Portret oynadıcıda video miqyası düyməsini gizlət</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Yalnız tam ekranda göstər</string>
     <string name="morphe_fullscreen_video_scale_button_summary">İlkin, Uzatma və Yaxınlaşdırma rejiminə keçmək üçün toxun</string>
     <string name="morphe_fullscreen_video_scale_button_title">Video miqyası düyməsini göstər</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">Uzat (ekranı doldur)</string>
@@ -76,12 +105,14 @@ AiSlopList.com 'u açmaq və digər platformalar üçün yükləmələri görmə
 • Ümumi: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Xəbərdarlıq siyahısı kanalları</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Xəbərdarlıq siyahısı: Orta dərəcədə etibarlılıq</string>
+    <string name="morphe_hide_auto_dubbed_label_title">\'Avtomatik dublyaj\' etiketini gizlət</string>
     <string name="morphe_hide_courses_menu_title">Kurslar menyusunu gizlət</string>
     <string name="morphe_hide_explore_button_title">Kəşf edin düyməsini gizlət</string>
     <string name="morphe_hide_fashion_menu_title">\"Moda və Gözəllik\" menyusunu gizlət</string>
     <string name="morphe_hide_gaming_menu_title">Oyunlar menyusunu gizlət</string>
     <string name="morphe_hide_get_premium_button_title">\"Premium əldə edin\" düyməsini gizlət</string>
     <string name="morphe_hide_hype_menu_title">Hayp menyusunu gizlət</string>
+    <string name="morphe_hide_hyped_label_title">Hayp edildi etiketin gizlət</string>
     <string name="morphe_hide_invite_to_message_card_summary">Bildirişlər panelinin Mesajlar bölməsində göstərilən dəvət kartını gizlədir</string>
     <string name="morphe_hide_invite_to_message_card_title">\"Başqalarını mesaja dəvət et\" kartını gizlət</string>
     <string name="morphe_hide_learning_menu_title">Öyrədici menyusunu gizlət</string>
@@ -94,6 +125,7 @@ AiSlopList.com 'u açmaq və digər platformalar üçün yükləmələri görmə
     <string name="morphe_hide_player_flyout_audio_track_not_available">"'Audio Trek' menyusu gizlidir
 
 'Audio Trek' menyusunu göstərmək üçün 'Video yayımların saxtalaşdırı' 'Android Studio' və 'Android VR Downgraded' istisna olmaqla istənilən qəbulediciyə dəyişdir"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">\"Yolda\" menyusunu gizlət</string>
     <string name="morphe_hide_podcasts_menu_title">Podkastlar menyusunu gizlət</string>
     <string name="morphe_hide_privacy_tos_footer_title">Hüquqi və məxfilik alt yazıların gizlət</string>
     <string name="morphe_hide_shopping_menu_title">Alış-veriş menyusunu gizlət</string>
@@ -126,6 +158,7 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_oauth2_toast_reset">Android VR-dan Çıxıldı</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Kanalın profilinə toxunduqda canlı yayımın açılmasın əngəlləyir</string>
     <string name="morphe_open_channel_of_live_avatar_title">Canlı profildən kanalı aç</string>
+    <string name="morphe_open_videos_fullscreen_title">Videoları tam ekran rejimində aç</string>
     <string name="morphe_override_youtube_music_buttons_summary">Əsas YouTube Music tətbiqi əvəzinə üstünlük verdiyiniz musiqi tətbiqini açır</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music düymələrini nəzərə alma</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Həmişə aktiv</string>
@@ -139,6 +172,9 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_reload_video_summary_off">Videonu təkrar yüklə düyməsi görünmür</string>
     <string name="morphe_reload_video_summary_on">Videonu təkrar yüklə düyməsi görünür</string>
     <string name="morphe_reload_video_title">Videonu təkrar yüklə düyməsini göstər</string>
+    <string name="morphe_remember_livestream_position_summary">Cari canlı mövqeyə keçmək əvəzinə, davam edən canlı yayımlar üçün oynatma mövqeyinizi xatırlayır və davam etdirir</string>
+    <string name="morphe_remember_livestream_position_title">Canlı yayımın oynatma mövqeyini xatırla</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">Bu xüsusiyyət 24/7 canlı yayımlar və \"həmişə aktiv\" olan digər yayımlarla işləmir</string>
     <string name="morphe_replace_links_with_shortener_summary">Videoları qısaldılan youtu.be URL formatın istifadə etməyə zorlayır</string>
     <string name="morphe_replace_links_with_shortener_title">Paylaşma keçidlərini youtu.be-yə dəyişdir</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
@@ -152,8 +188,10 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_save_to_watch_later_button_title">Daha sonra İzləmək üçün Saxla düyməsini Göstər</string>
     <string name="morphe_save_to_watch_later_error_toast">Bu videonu sonra izləyin pleylistində saxlamaq olmur</string>
     <string name="morphe_save_to_watch_later_flyout_title">Daha sonra izləmək üçün saxla</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Uşaqlarla əlaqəli videoları \"Sonra izləyin\" açılan menyusunda saxlamağa imkan verir</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Uşaqlarla əlaqəli videoları açılan menyudan \"Sonra izləyin\" bölməsində saxlamağa imkan verir</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Uşaq videolarında Daha sonra İzləmək üçün Saxlanı göstər</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Shorts-ları açılan menyudan \"Sonra izləyin\" bölməsində saxlamağa imkan verir</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Shorts açılan menyusunda \"Daha sonra İzləmək üçün Saxla\" düyməsini göstər</string>
     <string name="morphe_save_to_watch_later_success_toast">Video uğurla sonra izləyin pleylistində saxlanıldı</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Ən çox təkrar oynadılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Çəkmə cizgisin sürükləyərkən video miniatürün göstərir</string>
@@ -448,9 +486,6 @@ Dəyişikliklər ehtiva edir:
     <string name="revanced_disable_signin_to_tv_popup_summary_off">TV ani görüntüyə giriş işləkdir</string>
     <string name="revanced_disable_signin_to_tv_popup_summary_on">TV ani görüntüyə giriş qapadılıb</string>
     <string name="revanced_disable_signin_to_tv_popup_title">TV ani görüntüsü girişin qapat</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Mövqe cizgisi qeyri-şəffaf və ya şəffafdır</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Mövqe cizgisi qeyri-şəffafdır</string>
-    <string name="revanced_disable_translucent_status_bar_title">Yarımşəffaf status cərgəsin qapat</string>
     <string name="revanced_dismiss_player_not_available_toast">Video ID-si əlçatmazdır. Xahiş olunur, videonu əl ilə təkrar yüklə</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Qradiyent yüklənmə ekranı aktivdir</string>
     <string name="revanced_enable_gradient_loading_screen_title">Qradiyent yüklənmə ekranını aktivləşdir</string>
@@ -499,6 +534,7 @@ Məhdudiyyətlər:
     <string name="revanced_hide_autoplay_preview_summary_off">Avtomatik oynatma önizləməsi göstərilir</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Avtomatik oynatma önizləməsi gizlidir</string>
     <string name="revanced_hide_autoplay_preview_title">Avtomatik oynatma önizləməsini gizlət</string>
+    <string name="revanced_hide_category_bar_in_comments_title">Şərhlərdə gizlət</string>
     <string name="revanced_hide_channel_tab_filter_strings_summary">Yeni cərgələrlə ayrılan, çeşidləmək üçün kanal tabel adlarını qeyd et</string>
     <string name="revanced_hide_channel_tab_filter_strings_title">Kanal tabeli filtri</string>
     <string name="revanced_hide_channel_tab_summary_off">Kanal nişanı filtri qeyri-aktivdir</string>
@@ -849,10 +885,11 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Künclər dairəvidir</string>
     <string name="revanced_miniplayer_rounded_corners_title">Dairəvi küncləri aktivləşdir</string>
     <string name="revanced_miniplayer_type_entry_2">Ən kiçik</string>
-    <string name="revanced_miniplayer_type_entry_4">Müasir 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Müasir 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Müasir 3</string>
-    <string name="revanced_miniplayer_type_entry_7">Müasir 4</string>
+    <string name="revanced_miniplayer_type_entry_3">Ən kiçik 2</string>
+    <string name="revanced_miniplayer_type_entry_4">Planşet</string>
+    <string name="revanced_miniplayer_type_entry_5">Müasir 1</string>
+    <string name="revanced_miniplayer_type_entry_6">Müasir 2</string>
+    <string name="revanced_miniplayer_type_entry_7">Müasir 3</string>
     <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Piksel ölçüsü %1$s - %2$s arası olmalıdır</string>
     <string name="revanced_miniplayer_width_dip_summary">​Ekrandakı başlanğıc ölçüsünü piksel olaraq təyin et</string>
@@ -1166,6 +1203,7 @@ Artıq mövcuddur"</string>
     <string name="revanced_spoof_app_version_summary">Köhnə UI xüsusiyyətlərini qaytarmaq üçün serveri daha köhnə tətbiq versiyasını istifadə etdiyinizi düşünməyə inandırır</string>
     <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>
     <string name="revanced_spoof_app_version_summary_on">Versiya saxtalaşdırıldı</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - Köhnə titrlərin davranışını bərpa et</string>
     <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"Tətbiq versiyası köhnə versiyaya saxtalaşdırılacaq
 
@@ -1180,6 +1218,7 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
 Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin"</string>
     <string name="revanced_swipe_brightness_title">Parlaqlıq jestini aktivləşdir</string>
     <string name="revanced_swipe_haptic_feedback_title">Əks-əlaqə reaksiyasını aktivləşdir</string>
+    <string name="revanced_swipe_left_zone_title">Sol sürüşdürmə jesti</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Avtomatik</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Parlaqlığı ən aşağı dəyərə sürüşdürəndə avto-parlaqlıq aktivləşmir</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaqlıq ən aşağı dəyərinə sürüşdürüləndə avto-parlaqlıq aktivləşir</string>
@@ -1205,6 +1244,7 @@ Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin
     <string name="revanced_swipe_press_to_engage_summary_off">Sürüşdürmə üçün sıxma qapalıdır</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Sürüşdürmə üçün sıxma aktivdir</string>
     <string name="revanced_swipe_press_to_engage_title">Sürüşdürmə jesti üçün sıxmanı aktiv et</string>
+    <string name="revanced_swipe_right_zone_title">Sağ sürüşdürmə jesti</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxlama və bərpa etmə</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxla və bərpa et</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Parlaqlığı saxla və bərpa et</string>
@@ -1213,6 +1253,9 @@ Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin
     <string name="revanced_swipe_text_overlay_size_title">Sürüşdürmə örtüyü mətn ölçüsü</string>
     <string name="revanced_swipe_threshold_summary">Nizamlama aktivləşməzdən əvvəl tələb olunan sürüşdürmə məsafəsini təyin et</string>
     <string name="revanced_swipe_threshold_title">Sürüşdürmə böyüklüyü həddi</string>
+    <string name="revanced_swipe_top_zone_title">Yuxarı sürüşdürmə jesti</string>
+    <string name="revanced_swipe_volume_distance_summary">Daha yüksək dəyərlər hər səs pilləsi üzrə daha çox sürüşdürmə tələb edir</string>
+    <string name="revanced_swipe_volume_distance_title">Səs səviyyəsi sürüşdürmə həssaslığı</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Daha yüksək dəyərlər hər sürüşdürmə üzrə səs dəyişikliyini artırır</string>
     <string name="revanced_swipe_volume_sensitivity_title">Səs səviyyəsi sürüşdürmə həssaslığı</string>
     <string name="revanced_swipe_volume_summary_off">Tam ekran səs sürüşdürməsi qapalıdır</string>

@@ -106,20 +106,16 @@ YouTube Music 8.x — pudar silang hanya berfungsi pada versi 9.x dan yang lebih
     <string name="morphe_music_crossfade_session_control_summary">Tekan lama tombol acak untuk menjeda atau melanjutkan pudar silang</string>
     <string name="morphe_music_crossfade_session_control_title">Kontrol sesi</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">Mode video tidak tersedia saat pudar silang diaktifkan</string>
-    <string name="morphe_music_lyrics_about_summary">"Lirik dicari berdasarkan judul trek dan artis, jadi trek dengan metadata yang tidak biasa mungkin tidak menemukan apa pun, atau menemukan versi yang salah
-
-Lirik yang disinkronkan mengikuti pemutaran. Jika lirik melayang, sesuaikan pergeseran waktu
-
-Ketika tidak ada lirik pihak ketiga yang ditemukan, lirik bawaan ditampilkan sebagai gantinya"</string>
+    <string name="morphe_music_lyrics_about_summary">"Lirik dicari berdasarkan judul lagu dan artis, jadi lagu dengan metadata yang tidak biasa mungkin tidak menemukan apa pun, atau menemukan versi yang salah. Anda juga dapat mencoba tombol refresh untuk beralih versi secara manual. Jika tidak ditemukan lirik pihak ketiga, lirik bawaan atau yang disematkan akan ditampilkan sebagai gantinya. Penyedia yang ditandai dengan * memerlukan token untuk diaktifkan. Semua penyedia yang diaktifkan tidak selalu diminta dalam pesanan Anda, tetapi merespons berdasarkan kecepatan mereka"</string>
     <string name="morphe_music_lyrics_about_title">Tentang lirik pihak ketiga</string>
     <string name="morphe_music_lyrics_copied">Disalin ke papan klip</string>
     <string name="morphe_music_lyrics_enabled_summary">Menampilkan lirik dari layanan pihak ketiga, beralih menggunakan lirik bawaan jika tidak ditemukan</string>
     <string name="morphe_music_lyrics_enabled_title">Gunakan lirik pihak ketiga</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">Geser lirik yang disinkronkan maju atau mundur. Gunakan nilai positif jika lirik lebih cepat dari lagu</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">Lirik yang disinkronkan mengikuti pemutaran. Jika tidak selaras, sesuaikan pergeseran waktu. Geser lirik yang disinkronkan ke depan atau ke belakang. Gunakan nilai positif jika lirik mendahului lagu</string>
     <string name="morphe_music_lyrics_offset_ms_title">Pergeseran waktu</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Tampilkan tombol Salin</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Tampilkan tombol Terjemahan</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, lalu KuGou</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, lalu QQ, lalu KuGou, lalu NetEase, lalu BiniLyrics, lalu Unison, lalu AMLL</string>
     <string name="morphe_music_lyrics_source_label">Sumber: %s</string>
     <string name="morphe_music_lyrics_source_title">Layanan lirik</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Mengetuk baris akan melompat ke momen itu di lagu</string>
@@ -127,7 +123,7 @@ Ketika tidak ada lirik pihak ketiga yang ditemukan, lirik bawaan ditampilkan seb
     <string name="morphe_music_lyrics_text_size_summary">Ukuran teks lirik</string>
     <string name="morphe_music_lyrics_text_size_title">Ukuran teks</string>
     <string name="morphe_music_lyrics_translate_failed">Tidak dapat menerjemahkan lirik</string>
-    <string name="morphe_music_lyrics_translate_hide">Tampilkan yang asli</string>
+    <string name="morphe_music_lyrics_translate_hide">Diterjemahkan</string>
     <string name="morphe_music_lyrics_translate_show">Terjemahkan</string>
     <string name="morphe_music_lyrics_translating">Menerjemahkan…</string>
     <string name="morphe_notification_dot_color_summary">Ubah warna dot Notifikasi</string>
@@ -156,12 +152,12 @@ Untuk menggunakan fitur ini, Matikan \'Spoof video streams\'"</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
     <string name="morphe_settings_menu_copy_path">Disalin: %s</string>
-    <string name="morphe_settings_menu_filter_picker_empty">Buka layar pengaturan aplikasi standar sekali untuk mengisi daftar</string>
-    <string name="morphe_settings_menu_filter_screen_summary">Sembunyikan item di layar pengaturan aplikasi standar berdasarkan nama yang terlihat</string>
-    <string name="morphe_settings_menu_filter_screen_title">Filter menu Pengaturan</string>
+    <string name="morphe_settings_menu_filter_picker_empty">Buka layar setelan aplikasi standar sekali untuk mengisi daftar</string>
+    <string name="morphe_settings_menu_filter_screen_summary">Sembunyikan item di layar setelan aplikasi standar berdasarkan nama yang terlihat</string>
+    <string name="morphe_settings_menu_filter_screen_title">Filter menu Setelan</string>
     <string name="morphe_settings_name_custom_item_hint">Masukkan nama</string>
     <string name="morphe_settings_name_empty_warning">Nama tidak boleh kosong</string>
-    <string name="morphe_settings_name_title">Nama pengaturan RVX</string>
+    <string name="morphe_settings_name_title">Nama setelan RVX</string>
     <string name="morphe_spoof_video_streams_client_type_title">Klien bawaan</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Tidak dapat mengambil aliran klien apa pun</string>
     <string name="morphe_spoof_video_streams_screen_summary">Konfigurasikan pemalsuan klien untuk mencegah masalah pemutaran</string>
@@ -184,14 +180,14 @@ Untuk masuk, tekan lanjutkan di bawah ini"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Masuk ke Android VR</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"Autentikasi disimpan
 
-• Pengaturan RVX Anda tidak akan mengimpor/mengekspor autentikasi Android VR
+• Setelan RVX Anda tidak akan mengimpor/mengekspor autentikasi Android VR
 • Jika aplikasi ini tidak digunakan selama 6 bulan, Google akan menghapus autentikasi ini
-• Anda perlu masuk kembali jika Anda mengubah kata sandi Google Anda atau menghapus pendaftaran perangkat ini dari pengaturan Google Anda"</string>
+• Anda perlu masuk kembali jika Anda mengubah kata sandi Google Anda atau menghapus pendaftaran perangkat ini dari setelan Google Anda"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Berhasil masuk</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Gagal dalam menghasilkan kode aktivasi</string>
     <string name="morphe_spoof_video_streams_summary">"Memperbaiki masalah pemutaran untuk sebagian besar pengguna dengan meminta aliran video yang kompatibel
 
-Jika Anda pengguna YouTube Premium, pengaturan ini mungkin tidak diperlukan"</string>
+Jika Anda pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Aliran video tidak dipalsukan
 
 Pemutaran mungkin tidak berfungsi"</string>
@@ -199,7 +195,7 @@ Pemutaran mungkin tidak berfungsi"</string>
 
 Jika Anda adalah pengguna YouTube Premium, pengaturan ini mungkin tidak diperlukan"</string>
     <string name="morphe_spoof_video_streams_title">Palsukan aliran video</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Mematikan setelan ini dapat menyebabkan masalah pemutaran</string>
     <string name="morphe_theme_entry_amoled_black">Hitam Pekat</string>
     <string name="morphe_theme_entry_classic_youtube">Klasik (YouTube Lama)</string>
     <string name="morphe_theme_entry_dark_blue">Biru Gelap</string>
@@ -237,7 +233,7 @@ Jika Anda adalah pengguna YouTube Premium, pengaturan ini mungkin tidak diperluk
     <string name="revanced_change_start_page_entry_episodes_for_later">Episode untuk nanti</string>
     <string name="revanced_change_start_page_entry_explore">Jelajahi</string>
     <string name="revanced_change_start_page_entry_history">Riwayat</string>
-    <string name="revanced_change_start_page_entry_library">Pustaka</string>
+    <string name="revanced_change_start_page_entry_library">Koleksi</string>
     <string name="revanced_change_start_page_entry_liked_music">Musik yang disukai</string>
     <string name="revanced_change_start_page_entry_podcasts">Siniar</string>
     <string name="revanced_change_start_page_entry_samples">Sampel</string>
@@ -347,7 +343,7 @@ Keterbatasan: Segmen SponsorBlock tidak ditampilkan di seekbar"</string>
 • Tidak mengganti tombol Unduh di menu flyout atau tab Pustaka</string>
     <string name="revanced_external_downloader_action_title">Ganti tombol tindakan Unduh</string>
     <string name="revanced_external_downloader_dialog_title">Pengunduh eksternal</string>
-    <string name="revanced_external_downloader_flyout_menu_summary">Menggunakan pengunduh eksternal pilihan Anda, daripada menu melayang Unduh bawaan</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">Menggunakan pengunduh eksternal pilihan Anda daripada menu flyout Unduh bawaan</string>
     <string name="revanced_external_downloader_flyout_menu_title">Gantikan menu Unduh</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s belum terpasang
 Harap unduh %2$s dari website"</string>
@@ -677,8 +673,8 @@ Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_import_export_summary">Impor / Export pengaturan RVX Music</string>
     <string name="revanced_settings_import_export_title">Impor / Ekspor Pengaturan</string>
     <string name="revanced_settings_import_failed">Impor gagal: %s</string>
-    <string name="revanced_settings_import_reset">Pengaturan RVX diatur ke bawaan</string>
-    <string name="revanced_settings_import_success">%d Pengaturan diimpor</string>
+    <string name="revanced_settings_import_reset">Setelan RVX diatur ke bawaan</string>
+    <string name="revanced_settings_import_success">%d Setelan diimpor</string>
     <string name="revanced_settings_reset">Setel ulang</string>
     <string name="revanced_settings_reset_color">Setel ulang warna</string>
     <string name="revanced_settings_search_clear_history">Hapus riwayat pencarian</string>
@@ -687,16 +683,16 @@ Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_search_empty_history_title">Riwayat pencarian kosong</string>
     <string name="revanced_settings_search_history_summary_off">Pengaturan history pencarian tidak ditampilkan</string>
     <string name="revanced_settings_search_history_summary_on">Pengaturan history pencarian ditampilkan</string>
-    <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
+    <string name="revanced_settings_search_history_title">Tampilkan setelan riwayat pencarian</string>
     <string name="revanced_settings_search_no_results_summary">Coba kata kunci lain</string>
     <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">Pencarian terbaru</string>
     <string name="revanced_settings_search_remove_message">Hapus dari riwayat pencarian?</string>
-    <string name="revanced_settings_search_tips_summary">"• Ketuk jalur untuk menelusuri ke jalur tersebut
-• Tekan lama pada pengaturan untuk menelusuri ke jalur tersebut
+    <string name="revanced_settings_search_tips_summary">"• Ketuk jalur untuk berpindah ke lokasi tersebut
+• Tekan lama setelan untuk berpindah ke lokasinya
 • Tekan Enter untuk menyimpan kueri pencarian ke riwayat
 • Pencarian mengabaikan huruf besar/kecil dan tanda baca
-• Pengaturan utama muncul di atas pengaturan sampingan yang dinonaktifkan"</string>
+• Setelan induk muncul di atas setelan turunan yang nonaktif"</string>
     <string name="revanced_settings_search_tips_title">Tips Pencarian</string>
     <string name="revanced_settings_search_title">Cari %s</string>
     <string name="revanced_settings_show_slider_summaries_summary">Menampilkan atau menyembunyikan ringkasan di bawah pengaturan slider</string>

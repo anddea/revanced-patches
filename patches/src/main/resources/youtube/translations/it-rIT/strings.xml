@@ -20,6 +20,32 @@ Clicca \"Continua\" per consentire le modifiche"</string>
     <string name="gms_core_settings_summary">Attiva \"Cloud Messaging\" per ricevere le notifiche di RVX</string>
     <string name="gms_core_settings_title">Apri GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG non è installato. Installalo</string>
+    <string name="morphe_aislist_submit_already_blocklisted">Questo canale è già nella blocklist di AiSList</string>
+    <string name="morphe_aislist_submit_already_warnlisted">Questo canale è già nella warnlist di AiSList</string>
+    <string name="morphe_aislist_submit_category_title">Segnala canali AI</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Segnala</string>
+    <string name="morphe_aislist_submit_dialog_message">"Invia %s ad AiSList, usando questo video come prova?
+
+Segnala solo canali che:
+• Usano voci, elementi visivi, copioni o musica AI come contenuto principale
+• Producono contenuti in serie con strumenti AI e poco lavoro umano
+
+Non segnalare canali che parlano solo di AI o che usano l'AI per alcune parti dei loro video
+
+Le segnalazioni sono pubbliche e vengono esaminate prima che un canale venga aggiunto a un elenco. La rimozione è possibile solo tramite una richiesta su GitHub"</string>
+    <string name="morphe_aislist_submit_failed">Segnalazione non riuscita, controlla la connessione</string>
+    <string name="morphe_aislist_submit_failed_channel">Impossibile trovare il canale di questo video</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList non ha potuto salvare la segnalazione, riprova più tardi</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Sono state inviate troppe segnalazioni, riprova più tardi</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList ha rifiutato la segnalazione</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Aggiungi una voce al menu dei video che segnala il canale di un video ad AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Aggiungi una voce di segnalazione al menu dei video</string>
+    <string name="morphe_aislist_submit_no_username">Imposta un nome del segnalatore nelle impostazioni del filtro dei canali AI per segnalare i canali</string>
+    <string name="morphe_aislist_submit_resolving">Ricerca del canale in corso…</string>
+    <string name="morphe_aislist_submit_success">Canale segnalato e in attesa di revisione</string>
+    <string name="morphe_aislist_submit_title">Segnala canale AI</string>
+    <string name="morphe_aislist_submit_username_summary">Nome mostrato accanto alle tue segnalazioni nella classifica pubblica di AiSList. La segnalazione non è disponibile finché questo campo è vuoto</string>
+    <string name="morphe_aislist_submit_username_title">Nome del segnalatore</string>
     <string name="morphe_app_refresh_rate_default">Predefinita</string>
     <string name="morphe_app_refresh_rate_fps">%s fps</string>
     <string name="morphe_app_refresh_rate_title">Frequenza di aggiornamento dell\'app</string>
@@ -63,6 +89,8 @@ Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client pre
     <string name="morphe_force_original_audio_summary_on">Utilizza la lingua originale dell'audio</string>
     <string name="morphe_force_original_audio_title">Forza la lingua originale dell'audio</string>
     <string name="morphe_fullscreen_large_seekbar_title">Abilita la barra di avanzamento grande a schermo intero</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Nascondi il pulsante di ridimensionamento video nel player verticale</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Mostra solo a schermo intero</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Tocca per passare da Predefinito, Adatta e Zoom</string>
     <string name="morphe_fullscreen_video_scale_button_title">Mostra pulsante scala video</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">Adatta (riempi schermo)</string>
@@ -89,12 +117,14 @@ Tocca qui per aprire AiSlopList.com e visualizzare i download per altre piattafo
 • Totale: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Canali nella warn list</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Warnlist: Affidabilità moderata</string>
+    <string name="morphe_hide_auto_dubbed_label_title">Nascondi l\'etichetta \'Doppiato automaticamente\'</string>
     <string name="morphe_hide_courses_menu_title">Nascondi il menù Corsi</string>
     <string name="morphe_hide_explore_button_title">Nascondi il pulsante Esplora</string>
     <string name="morphe_hide_fashion_menu_title">Nascondi il menù \'Moda e Bellezza\'</string>
     <string name="morphe_hide_gaming_menu_title">Nascondi il menù Gaming</string>
     <string name="morphe_hide_get_premium_button_title">Nascondi il pulsante \'Ottieni Premium\'</string>
     <string name="morphe_hide_hype_menu_title">Nascondi il menù Hype</string>
+    <string name="morphe_hide_hyped_label_title">Nascondi etichetta Hype</string>
     <string name="morphe_hide_invite_to_message_card_summary">Nasconde la scheda invito mostrata nella sezione Messaggi della scheda Notifiche</string>
     <string name="morphe_hide_invite_to_message_card_title">Nascondi la scheda \"Invita altri a messaggiare\"</string>
     <string name="morphe_hide_learning_menu_title">Nascondi il menù di apprendimento</string>
@@ -107,6 +137,7 @@ Tocca qui per aprire AiSlopList.com e visualizzare i download per altre piattafo
     <string name="morphe_hide_player_flyout_audio_track_not_available">"Il menu 'Audio Track' è nascosto
 
 Per mostrare il menu 'Audio Track', cambia 'Falsificazione dei flussi video' in qualsiasi client tranne 'Android Studio' e 'Android VR Downgraded'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Nascondi il menu \'In movimento\'</string>
     <string name="morphe_hide_podcasts_menu_title">Nascondi il menù Podcast</string>
     <string name="morphe_hide_privacy_tos_footer_title">Nascondi piè di pagina legali e sulla privacy</string>
     <string name="morphe_hide_shopping_menu_title">Nascondi il menù Shopping</string>
@@ -143,7 +174,8 @@ Per risolvere il problema, attiva 'Maschera flussi video' e modifica 'Client pre
     <string name="morphe_oauth2_toast_reset">Disconnesso da Android VR</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Impedisce l\'apertura del video in diretta toccando l\'avatar del canale</string>
     <string name="morphe_open_channel_of_live_avatar_title">Apri il canale dall\'avatar in diretta</string>
-    <string name="morphe_override_youtube_music_buttons_summary">Apre l\'app musicale preferita anziché l\'app ufficiale di YouTube Music</string>
+    <string name="morphe_open_videos_fullscreen_title">Apri i video a schermo intero</string>
+    <string name="morphe_override_youtube_music_buttons_summary">Apre l\'app musicale preferita anziché l\'app YouTube Music integrata</string>
     <string name="morphe_override_youtube_music_buttons_title">Sovrascrivi i pulsanti di YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Sempre attivo</string>
     <string name="morphe_playback_in_feeds_entry_off">Disattivato</string>
@@ -163,6 +195,9 @@ Per utilizzare questa funzione, disattiva l'opzione \'Falsificazioneidei flussi 
     <string name="morphe_reload_video_summary_off">Il pulsante ricarica video non è visibile</string>
     <string name="morphe_reload_video_summary_on">Il pulsante ricarica video è visibile</string>
     <string name="morphe_reload_video_title">Mostra il pulsante ricarica video</string>
+    <string name="morphe_remember_livestream_position_summary">Per gli streaming live in corso, ricorda e riprende la posizione di riproduzione invece di saltare alla posizione live attuale</string>
+    <string name="morphe_remember_livestream_position_title">Ricorda la posizione di riproduzione dello streaming live</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">Questa funzione non funziona con gli streaming live 24/7 e altri streaming che sono \'sempre attivi\'</string>
     <string name="morphe_replace_links_with_shortener_summary">Forza i video live e gli Shorts a utilizzare il formato URL abbreviato youtu.be</string>
     <string name="morphe_replace_links_with_shortener_title">Cambia i link di condivisione in youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">I link condivisi usano music.youtube.com</string>
@@ -176,10 +211,10 @@ Per utilizzare questa funzione, disattiva l'opzione \'Falsificazioneidei flussi 
     <string name="morphe_save_to_watch_later_button_title">Mostra il pulsante Salva per guardare più tardi</string>
     <string name="morphe_save_to_watch_later_error_toast">Impossibile salvare questo video nella playlist \"Guardalo più tardi\"</string>
     <string name="morphe_save_to_watch_later_flyout_title">Salva in Guarda più tardi</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Consente di salvare video correlati ai bambini nel menu a comparsa \"Guarda più tardi\"</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Consente di salvare video per bambini in \'Guarda più tardi\' dal menu a comparsa</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Mostra il pulsante Salva per guardare più tardi nei video per bambini</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Consente di salvare gli Shorts nella playlist \'Guarda più tardi\' dal menu a comparsa del feed</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Pulsante Salva per gli Shorts</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Consente di salvare gli Shorts in \'Guarda più tardi\' dal menu a comparsa</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Mostra il pulsante Salva in Guarda più tardi nel menu a comparsa degli Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video salvato con successo nella playlist \"Guarda più tardi\"</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Più riprodotti</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Mostra un\'anteprima in miniatura del video durante il trascinamento della barra di ricerca</string>
@@ -424,7 +459,7 @@ Layout automotive
 • L'impostazione 'Riproduzione nei feed' non è disponibile
 • Il pulsante Remix e il pulsante Audio non sono disponibili negli Short
 • L'overlay 'Altri video' potrebbe non essere disponibile
-• Gli Short si aprono nel lettore normale
+• Gli Shorts si aprono nel lettore normale
 • Viene mostrata la vecchia barra delle azioni del video non compattata"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Levette</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Testi</string>
@@ -578,7 +613,7 @@ Impostazioni → Riproduzione automatica / Riproduzione → Riproduci automatic.
     <string name="revanced_disable_engagement_panel_title">Disattiva il pannello di coinvolgimento</string>
     <string name="revanced_disable_fullscreen_zoom_gesture_summary_off">Il gesto pizzica per ingrandire è abilitato</string>
     <string name="revanced_disable_fullscreen_zoom_gesture_summary_on">Il gesto pizzica per ingrandire è disabilitato</string>
-    <string name="revanced_disable_fullscreen_zoom_gesture_title">Disattiva il gesto di pizzica per zoomare</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">Disattiva il gesto di pizzico per zoomare</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Aptica capitoli abilitata</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Aptica capitoli disabilitata</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Disabilita feedback aptico capitoli</string>
@@ -661,9 +696,6 @@ Note:
     <string name="revanced_disable_translucent_navigation_bar_summary_off">La barra di navigazione è traslucida</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">La barra di navigazione è opaca</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Disattiva la barra di navigazione traslucida</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">La barra di stato è opaca o traslucida</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">La barra di stato è opaca</string>
-    <string name="revanced_disable_translucent_status_bar_title">Disabilita la barra di stato traslucida</string>
     <string name="revanced_disable_video_description_interaction_summary">"Disattiva le seguenti interazioni quando la descrizione dei video viene espansa:
 • Tocca per scorrere
 • Tocca e tieni premuto per selezionare il testo"</string>
@@ -765,11 +797,6 @@ Perciò segui questi percorsi per accedere alle impostazioni:
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">La barra di ricerca estesa con l\'intestazione di YouTube è disattivata</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">La barra di ricerca estesa con l\'intestazione di YouTube è attivata</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Attiva la barra di ricerca estesa con l\'intestazione</string>
-    <string name="revanced_enter_fullscreen_summary_off">Non passa a schermo intero all\'avvio dei video</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Passa a schermo intero all'avvio dei video
-
-Nota: non funziona se il riproduttore è minimizzato, in modalità PiP o in background"</string>
-    <string name="revanced_enter_fullscreen_title">Passa a schermo intero all\'avvio dei video</string>
     <string name="revanced_exit_fullscreen_entry_1">Disabilitato</string>
     <string name="revanced_exit_fullscreen_entry_2">Solo verticale</string>
     <string name="revanced_exit_fullscreen_entry_3">Solo orizzontale</string>
@@ -783,7 +810,7 @@ Per usare questa impostazione, cambia il client predefinito in iOS TV, TV o TV S
 
 Nota: iOS TV non è disponibile in alcune regioni, nel tal caso questa impostazione potrebbe comunque non funzionare"</string>
     <string name="revanced_external_downloader_empty_warning">Il nome del pacchetto non può essere vuoto</string>
-    <string name="revanced_external_downloader_not_found_title">App non installata</string>
+    <string name="revanced_external_downloader_not_found_title">Applicazione non installata</string>
     <string name="revanced_external_downloader_not_installed">Non installato</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s non è installato
 Si prega di scaricare %2$s dal sito web"</string>
@@ -815,12 +842,12 @@ Nota: a volte la sovrapposizione di scorrimento appare prima di passare alla mod
     <string name="revanced_fix_transcript_summary_off">La trascrizione potrebbe non essere disponibile a causa di un errore di controllo delle precondizioni</string>
     <string name="revanced_fix_transcript_summary_on">La trascrizione è disponibile</string>
     <string name="revanced_fix_transcript_title">Correggi trascrizione</string>
-    <string name="revanced_force_hdr_video_summary">Forza l\'app a riconoscere questo dispositivo come compatibile con HDR</string>
+    <string name="revanced_force_hdr_video_summary">Forza app a riconoscere questo dispositivo come compatibile con HDR</string>
     <string name="revanced_force_hdr_video_title">Forza video HDR</string>
     <string name="revanced_force_hdr_video_user_dialog_message">"Usa questa opzione se la decodifica HDR funziona ma YouTube non offre l'HDR, come su alcuni dispositivi HyperOS che nascondono HLG
 
 Limitazioni:
-• I colori potrebbero apparire errati se il display non puo effettivamente mostrare l'HDR
+• I colori potrebbero apparire errati se il display non può effettivamente mostrare l'HDR
 • La riproduzione potrebbe fallire se il decoder non è in grado di gestire l'HDR
 • L'HDR dipende ancora dal client spoofato dei flussi video"</string>
     <string name="revanced_fullscreen_ads_closed_toast">Annunci a schermo intero chiusi</string>
@@ -938,6 +965,7 @@ Note:
 • Shopping
 • Guarda di nuovo"</string>
     <string name="revanced_hide_carousel_shelf_title">Nascondi gli scaffali a carosello</string>
+    <string name="revanced_hide_category_bar_in_comments_title">Nascondi commenti</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">È visibile nelle schede</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">È nascosta nelle schede</string>
     <string name="revanced_hide_category_bar_in_feed_title">Nascondi nelle schede</string>
@@ -1746,10 +1774,11 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_miniplayer_rounded_corners_summary_on">Gli angoli sono arrotondati</string>
     <string name="revanced_miniplayer_rounded_corners_title">Attiva gli angoli arrotondati</string>
     <string name="revanced_miniplayer_type_entry_2">Minimale</string>
-    <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
-    <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
+    <string name="revanced_miniplayer_type_entry_3">Minimale 2</string>
+    <string name="revanced_miniplayer_type_entry_4">Tablet</string>
+    <string name="revanced_miniplayer_type_entry_5">Moderno 1</string>
+    <string name="revanced_miniplayer_type_entry_6">Moderno 2</string>
+    <string name="revanced_miniplayer_type_entry_7">Moderno 3</string>
     <string name="revanced_miniplayer_type_title">Tipo di Lettore minimizzato</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">La dimensione del pixel deve essere compresa tra %1$s e %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">Imposta la dimensione sullo schermo iniziale, in pixel</string>
@@ -2488,6 +2517,7 @@ Nota: il titolo scompare quando lo si tocca"</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Ripristina la trascrizione</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Ripristina la barra delle azioni non compressa dei video</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Ripristina i filtri dei vecchi componenti</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - Ripristina il vecchio comportamento dei sottotitoli</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versione dell\'app da camuffare</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Versione dell\'app da camuffare non valida: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da camuffare</string>
@@ -2585,6 +2615,7 @@ Regola la luminosità scorrendo verticalmente sul lato sinistro dello schermo"</
     <string name="revanced_swipe_haptic_feedback_title">Abilita il feedback aptico</string>
     <string name="revanced_swipe_horizontal_zone_summary">Percentuale dell'altezza del riproduttore riservata ai bordi superiore e inferiore per gli scorrimenti rapidi e di ricerca</string>
     <string name="revanced_swipe_horizontal_zone_title">Area di scorrimento orizzontale</string>
+    <string name="revanced_swipe_left_zone_title">Gesto swipe a sinistra</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatico</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Scorrendo verso il basso, il valore più basso non abilita la luminosità automatica</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Scorri verso il basso fino al valore più basso del gesto luminosità per abilitare la luminosità automatica</string>
@@ -2614,6 +2645,7 @@ Regola la luminosità scorrendo verticalmente sul lato sinistro dello schermo"</
     <string name="revanced_swipe_press_to_engage_summary_off">Pressione per scorrere è disabilitata</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Pressione per scorrere è abilitata</string>
     <string name="revanced_swipe_press_to_engage_title">Abilita gesto di premi per scorrere</string>
+    <string name="revanced_swipe_right_zone_title">Gesto swipe a destra</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Non salvare e ripristinare la luminosità quando esci o entri a schermo intero</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Salva e ripristina la luminosità quando esci o entri a schermo intero</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Salva e ripristina la luminosità</string>
@@ -2638,10 +2670,11 @@ Regola la velocità scorrendo orizzontalmente nella metà inferiore dello scherm
     <string name="revanced_swipe_text_overlay_size_title">Dimensione del testo dello scorrimento in sovrapposizione</string>
     <string name="revanced_swipe_threshold_summary">Imposta la distanza di scorrimento necessaria prima che venga attivata una regolazione</string>
     <string name="revanced_swipe_threshold_title">Ampiezza limite della soglia di scorrimento</string>
+    <string name="revanced_swipe_top_zone_title">Gesto swipe verso l\'alto</string>
     <string name="revanced_swipe_vertical_zone_summary">Percentuale della larghezza del riproduttore riservata ai bordi sinistro e destro per i gesti di regolazione della luminosità e del volume</string>
     <string name="revanced_swipe_vertical_zone_title">Area di scorrimento verticale</string>
-    <string name="revanced_swipe_volume_distance_summary">La quantità di pixel da scorrere per regolare il volume. I valori più bassi rendono la variazione del volume più veloce, i valori più alti lo rendono più lento (1-1000)</string>
-    <string name="revanced_swipe_volume_distance_title">Distanza del volume</string>
+    <string name="revanced_swipe_volume_distance_summary">Valori più alti richiedono più trascinamenti per passo del volume</string>
+    <string name="revanced_swipe_volume_distance_title">Sensibilità allo scorrimento del volume</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">La sensibilità del trascinamento deve essere tra 1 e 1000</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Valori più alti aumentano la variazione di volume per scorrimento</string>
     <string name="revanced_swipe_volume_sensitivity_title">Sensibilità allo scorrimento del volume</string>
@@ -2703,7 +2736,7 @@ Se i server di Yandex non sono disponibili nella tua regione, utilizza l'opzione
     <string name="revanced_vot_audio_proxy_summary_on">La riproduzione del caricamento è stata occulta</string>
     <string name="revanced_vot_audio_proxy_title">Riproduzione proxy dell'audio</string>
     <string name="revanced_vot_auth_required">È richiesta l'autorizzazione. Aggiungi il token OAuth di Yandex nelle impostazioni</string>
-    <string name="revanced_vot_credits_summary">Implementazione del doppiaggio Yandex a cura di Jav1x, sashade8-ship-it e anddea. Basata su ilyhalight/voice-over-translation</string>
+    <string name="revanced_vot_credits_summary">Implementazione del doppiaggio Yandex a cura di anddea, COOLak, Jav1x e sashade8-ship-it. Basata su ilyhalight/voice-over-translation</string>
     <string name="revanced_vot_enabled_summary_off">La traduzione vocale di Yandex è disabilitata</string>
     <string name="revanced_vot_enabled_summary_on">La traduzione vocale di Yandex è abilitata</string>
     <string name="revanced_vot_enabled_title">Traduzione voice over</string>
@@ -2811,7 +2844,6 @@ Se i server di Yandex non sono disponibili nella tua regione, utilizza l'opzione
     <string name="revanced_yandex_status_processing_minutes_plural">%d minuti rimanenti...</string>
     <string name="revanced_yandex_status_processing_short">Elaborazione...</string>
     <string name="revanced_yandex_status_requesting_translation">Richiedendo traduzione</string>
-    <string name="revanced_yandex_status_session_ok">Sessione OK</string>
     <string name="revanced_yandex_status_subs_found">Sottotitoli trovati, recuperando ...</string>
     <string name="revanced_yandex_status_transcription_delayed">La trascrizione è leggermente ritardata</string>
     <string name="revanced_yandex_status_youtube_specific">Gestione delle richieste audio di YouTube...</string>

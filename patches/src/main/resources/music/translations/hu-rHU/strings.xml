@@ -99,18 +99,16 @@ YouTube Music 8.x – a keresztátmenet csak a 9.x és újabb verziókon fut"</s
     <string name="morphe_music_crossfade_session_control_summary">Az áttűnés megállításához vagy indításához tartsd nyomva a véletlenszerű lejátszás gombot</string>
     <string name="morphe_music_crossfade_session_control_title">Lejátszás kezelése</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">Bekapcsolt áttűnés mellett a videómód nem használható</string>
-    <string name="morphe_music_lyrics_about_summary">"A dalszövegeket a szám címe és előadó alapján keresi meg a rendszer, ezért a szokatlan metaadatokkal rendelkező számok nem találnak semmit, vagy a rossz verziót. A szinkronizált dalszövegek követik a lejátszást. Ha elcsúsznak, állítsa be az időeltolódást
-
-Ha nem található harmadik fél által biztosított dalszöveg, a beépített dalszöveg jelenik meg helyette"</string>
+    <string name="morphe_music_lyrics_about_summary">"A dalszövegek keresése az előadó és a cím alapján történik, így egy szokatlan metaadatokkal rendelkező számnál előfordulhat, hogy nincs találat, vagy rossz verzió érkezik. A frissítés gombbal manuálisan is válthatsz a verziók között. Ha nincs harmadik féltől származó dalszöveg, akkor helyette a beépített vagy a fájlba ágyazott dalszöveg jelenik meg. A *-gal jelölt szolgáltatók engedélyezéséhez token szükséges. Az engedélyezett szolgáltatók lekérdezése nem mindig a te sorrendedben történik, hanem a sebességük alapján válaszolnak"</string>
     <string name="morphe_music_lyrics_about_title">A harmadik fél dalszövegeiről</string>
     <string name="morphe_music_lyrics_copied">Másolva a vágólapra</string>
     <string name="morphe_music_lyrics_enabled_summary">Szövegeket jelenít meg egy külső szolgáltatótól, ha nincs találat, akkor a beépített szövegeket használja</string>
     <string name="morphe_music_lyrics_enabled_title">Harmadik féles szöveg használata</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">A szinkronizált dalszöveg előre vagy hátra tolása. Pozitív értéket használjon, ha a dalszöveg megelőzi a zenét</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">A szinkronizált dalszövegek a lejátszást követik. Ha elcsúsznak, módosítsd az időeltolást. A szinkronizált dalszövegeket told előre vagy hátra. Használj pozitív értéket, ha a dalszöveg a szám előtt jár</string>
     <string name="morphe_music_lyrics_offset_ms_title">Időeltolódás</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Másolás gomb megjelenítése</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Fordítás gomb megjelenítése</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, majd a KuGou</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, majd QQ, majd KuGou, majd NetEase, majd BiniLyrics, majd Unison, majd AMLL</string>
     <string name="morphe_music_lyrics_source_label">Forrás: %s</string>
     <string name="morphe_music_lyrics_source_title">Szöveg szolgáltatás</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">A sor megérintése ugrássá teszi a dalban a megfelelő pillanatra</string>
@@ -118,7 +116,7 @@ Ha nem található harmadik fél által biztosított dalszöveg, a beépített d
     <string name="morphe_music_lyrics_text_size_summary">A dalszöveg betűmérete</string>
     <string name="morphe_music_lyrics_text_size_title">Betűméret</string>
     <string name="morphe_music_lyrics_translate_failed">A dalszöveg fordítása sikertelen</string>
-    <string name="morphe_music_lyrics_translate_hide">Eredeti megjelenítése</string>
+    <string name="morphe_music_lyrics_translate_hide">Lefordítva</string>
     <string name="morphe_music_lyrics_translate_show">Fordítás</string>
     <string name="morphe_music_lyrics_translating">Fordítás…</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nem tud bejelentkezni a VR-ba: %s</string>

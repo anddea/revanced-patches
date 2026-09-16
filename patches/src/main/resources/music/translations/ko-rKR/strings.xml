@@ -106,20 +106,16 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_music_crossfade_session_control_summary">셔플 버튼을 길게 탭하여 크로스페이드를 일시 중지하거나 다시 실행할 수 있습니다</string>
     <string name="morphe_music_crossfade_session_control_title">세션 제어</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">크로스페이드가 활성화된 동안에는 동영상 모드를 사용할 수 없습니다</string>
-    <string name="morphe_music_lyrics_about_summary">"가사는 곡 제목과 아티스트 정보를 기준으로 검색됩니다. 메타데이터가 비정상적이거나 정확하지 않으면 가사를 찾지 못하거나 잘못된 가사가 표시될 수 있습니다
-
-동기화된 가사는 재생에 맞춰 표시됩니다. 타이밍이 어긋나면 타이밍 오프셋을 조정하세요
-
-서드파티 가사를 찾을 수 없는 경우에는 내장된 가사가 대신 표시됩니다"</string>
+    <string name="morphe_music_lyrics_about_summary">"가사는 트랙 제목과 아티스트로 검색되므로, 메타데이터가 특이한 트랙은 가사를 찾지 못하거나 잘못된 버전을 찾을 수 있습니다. 새로고침 버튼을 사용해 버전을 직접 전환할 수도 있습니다. 타사 가사가 검색되지 않으면 대신 기본 제공 또는 내장 가사가 표시됩니다. * 표시된 제공자는 활성화하려면 토큰이 필요합니다. 활성화된 모든 제공자가 항상 설정한 순서대로 요청되지는 않으며, 각 제공자의 응답 속도에 따라 표시됩니다"</string>
     <string name="morphe_music_lyrics_about_title">서드파티 가사에 대한 정보</string>
     <string name="morphe_music_lyrics_copied">클립보드에 복사하였습니다</string>
     <string name="morphe_music_lyrics_enabled_summary">서드파티 서비스의 가사를 표시합니다. 가사를 찾을 수 없는 경우에는 내장된 가사를 대신 표시합니다</string>
     <string name="morphe_music_lyrics_enabled_title">서드파티 가사 사용하기</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">동기화된 가사의 타이밍을 앞이나 뒤로 조정합니다. 가사가 노래보다 먼저 표시되면 양수 값을 입력하세요</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">싱크 가사는 재생을 따라갑니다. 가사가 어긋나면 타이밍 오프셋을 조정하세요. 싱크 가사를 앞뒤로 이동합니다. 가사가 노래보다 앞서 나가면 양수 값을 사용하세요</string>
     <string name="morphe_music_lyrics_offset_ms_title">타이밍 오프셋</string>
     <string name="morphe_music_lyrics_show_copy_button_title">복사 버튼 표시하기</string>
     <string name="morphe_music_lyrics_show_translate_button_title">번역 버튼 표시하기</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, 그 다음 KuGou</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, QQ, KuGou, NetEase, BiniLyrics, Unison, AMLL</string>
     <string name="morphe_music_lyrics_source_label">출처: %s</string>
     <string name="morphe_music_lyrics_source_title">가사 서비스</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">가사의 한 줄을 탭하면 노래의 해당 부분으로 바로 이동합니다</string>
@@ -127,7 +123,7 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_music_lyrics_text_size_summary">가사 텍스트 크기</string>
     <string name="morphe_music_lyrics_text_size_title">텍스트 크기</string>
     <string name="morphe_music_lyrics_translate_failed">가사를 번역할 수 없습니다</string>
-    <string name="morphe_music_lyrics_translate_hide">원본 보기</string>
+    <string name="morphe_music_lyrics_translate_hide">번역됨</string>
     <string name="morphe_music_lyrics_translate_show">번역</string>
     <string name="morphe_music_lyrics_translating">번역하는 중…</string>
     <string name="morphe_notification_dot_color_summary">알림 점의 색상을 변경합니다</string>
@@ -194,7 +190,9 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
 YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"</string>
     <string name="morphe_spoof_video_streams_summary_off">"동영상 스트림이 속여지지 않습니다
 
-재생 문제가 발생할 수 있습니다"</string>
+재생 문제가 발생할 수 있습니다
+
+이 기능을 사용하려면, 'PoToken 제공자'를 비활성화하세요"</string>
     <string name="morphe_spoof_video_streams_summary_on">"동영상 스트림이 속여집니다
 
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다"</string>
