@@ -1,11 +1,4 @@
 /*
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
- *
- * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
- */
-
-/*
  * Portions of this file are ported from Morphe:
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
@@ -18,9 +11,11 @@ package app.morphe.patches.youtube.player.fullscreen
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.checkCast
+import app.morphe.patcher.methodCall
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patcher.literal
 import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.appRelatedEndScreenResults
 import app.morphe.patches.youtube.utils.resourceid.fullScreenEngagementPanel
@@ -28,6 +23,37 @@ import app.morphe.patches.youtube.utils.resourceid.playerVideoTitleView
 import app.morphe.patches.youtube.utils.resourceid.quickActionsElementContainer
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+
+/**
+ * 19.46+
+ */
+internal object OpenVideosFullscreenPortraitFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf("L", "Lj$/util/Optional;"),
+    filters = listOf(
+        opcode(Opcode.MOVE_RESULT), // Conditional check to modify.
+        // Open videos fullscreen portrait feature flag.
+        literal(45666112L, location = MatchAfterWithin(5)), // Cannot be more than 5.
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterWithin(10)),
+    )
+)
+
+internal object AdPlayerFullscreenFingerprint : Fingerprint(
+    filters = listOf(
+        string("Ad player fullscreen state entity is null in onSuccess on exit"),
+        methodCall(
+            name = "getFullscreenForced", // Oddly only this method is not obfuscated.
+            returnType = "Ljava/lang/Boolean;",
+            parameters = listOf()
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            parameters = listOf(),
+            returnType = "V",
+            location = MatchAfterWithin(10)
+        )
+    )
+)
 
 internal object BroadcastReceiverFingerprint : Fingerprint(
     returnType = "V",
