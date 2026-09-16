@@ -266,10 +266,10 @@ public final class ThemePatch {
             final String selectedTheme = dark
                     ? Settings.DARK_THEME.get()
                     : Settings.LIGHT_THEME.get();
-            final boolean useCustomSplashAnimation =
-                    !"original".equals(Settings.CUSTOM_BRANDING_ICON.get())
-                            && !isSplashAnimationDisabled();
-            final String splashIconSuffix = useCustomSplashAnimation
+            final boolean hideSplashIcon = Settings.DISABLE_SYSTEM_SPLASH.get()
+                    || (!"original".equals(Settings.CUSTOM_BRANDING_ICON.get())
+                            && !isSplashAnimationDisabled());
+            final String splashIconSuffix = hideSplashIcon
                     ? SPLASH_THEME_NO_ICON_SUFFIX
                     : "";
             String themeName = themePrefix + selectedTheme + splashIconSuffix;
