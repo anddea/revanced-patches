@@ -14,6 +14,7 @@ import static app.morphe.extension.shared.settings.Setting.parentsAny;
 import static app.morphe.extension.shared.settings.Setting.parentsAnyInverted;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType;
+import static app.morphe.extension.youtube.patches.player.OpenVideosFullscreenHookPatch.OpenFullscreenMode;
 import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour.IGNORE;
 import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
 import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
@@ -596,7 +597,7 @@ public class Settings extends SharedYouTubeSettings {
 
     // PreferenceScreen: Player - Fullscreen
     public static final BooleanSetting DISABLE_ENGAGEMENT_PANEL = new BooleanSetting("revanced_disable_engagement_panel", FALSE, true);
-    public static final BooleanSetting ENTER_FULLSCREEN = new BooleanSetting("revanced_enter_fullscreen", FALSE);
+    public static final EnumSetting<OpenFullscreenMode> OPEN_VIDEOS_FULLSCREEN = new EnumSetting<>("morphe_open_videos_fullscreen", OpenFullscreenMode.DISABLED);
     public static final EnumSetting<FullscreenMode> EXIT_FULLSCREEN = new EnumSetting<>("revanced_exit_fullscreen", FullscreenMode.DISABLED);
     public static final BooleanSetting SHOW_VIDEO_TITLE_SECTION = new BooleanSetting("revanced_show_video_title_section", TRUE, true, parent(DISABLE_ENGAGEMENT_PANEL));
     public static final BooleanSetting HIDE_AUTOPLAY_PREVIEW = new BooleanSetting("revanced_hide_autoplay_preview", FALSE, true);

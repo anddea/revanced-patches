@@ -1,4 +1,5 @@
 /*
+ * Portions of this file are ported from Morphe:
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
@@ -45,6 +46,7 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
+import app.morphe.patches.youtube.video.information.onCreateHook
 import app.morphe.patches.youtube.video.information.playerStatusHook
 import app.morphe.patches.youtube.video.information.videoEndMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
@@ -57,6 +59,7 @@ import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
+import app.morphe.util.setExtensionIsPatchIncluded
 import app.morphe.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -70,9 +73,6 @@ private const val EXTENSION_QUICK_ACTIONS_MARGIN_CLASS_DESCRIPTOR =
 
 private const val FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/QuickActionFilter;"
-
-private const val EXTENSION_ENTER_FULLSCREEN_CLASS_DESCRIPTOR =
-    "$PLAYER_PATH/EnterFullscreenPatch;"
 
 private const val EXTENSION_EXIT_FULLSCREEN_CLASS_DESCRIPTOR =
     "$PLAYER_PATH/ExitFullscreenPatch;"
@@ -91,6 +91,7 @@ val fullscreenComponentsPatch = bytecodePatch(
         lithoLayoutPatch,
         mainActivityResolvePatch,
         fullscreenButtonHookPatch,
+        openVideosFullscreenHookPatch,
         videoInformationPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
@@ -140,17 +141,24 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for enter fullscreen
 
-        mapOf(
-            onStartMethod to "onAppForegrounded",
-            onStopMethod to "onAppBackgrounded"
-        ).forEach { (method, name) ->
-            method.addInstruction(
-                0,
-                "invoke-static {}, $EXTENSION_ENTER_FULLSCREEN_CLASS_DESCRIPTOR->$name()V"
-            )
-        }
+        setExtensionIsPatchIncluded(EXTENSION_CLASS)
+        onCreateHook(EXTENSION_CLASS, "initialize")
 
-        hookBackgroundPlayVideoInformation("$EXTENSION_ENTER_FULLSCREEN_CLASS_DESCRIPTOR->enterFullscreen(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+        if (is_21_13_or_greater) {
+            playerStatusHook(EXTENSION_CLASS, "playerStatusChanged")
+        } else {
+            mapOf(
+                onStartMethod to "onAppForegrounded",
+                onStopMethod to "onAppBackgrounded"
+            ).forEach { (method, name) ->
+                method.addInstruction(
+                    0,
+                    "invoke-static {}, $EXTENSION_CLASS->$name()V"
+                )
+            }
+
+            hookBackgroundPlayVideoInformation("$EXTENSION_CLASS->enterFullscreen(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+        }
 
         // endregion
 
