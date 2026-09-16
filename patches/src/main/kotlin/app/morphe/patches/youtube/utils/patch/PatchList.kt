@@ -221,6 +221,10 @@ internal enum class PatchList(
         "Remove background playback restrictions",
         "Removes restrictions on background playback, including for music and kids videos."
     ),
+    REMEMBER_LIVESTREAM_POSITION(
+        "Remember livestream playback position",
+        "Adds an option to remember the playback position of ongoing livestreams and resume from there when reopening a livestream."
+    ),
     REMOVE_VIEWER_DISCRETION_DIALOG(
         "Remove viewer discretion dialog",
         "Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction."
