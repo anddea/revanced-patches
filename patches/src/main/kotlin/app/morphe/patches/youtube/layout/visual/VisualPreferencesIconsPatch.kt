@@ -584,6 +584,7 @@ private val emptyTitles = setOf(
     "morphe_custom_branding_splash_animation_size",
     "morphe_custom_branding_use_as_system_splash",
     "morphe_dark_theme_custom_color",
+    "morphe_disable_system_splash",
     "morphe_fullscreen_video_scale",
     "morphe_fullscreen_video_scale_button_fullscreen_only",
     "morphe_light_theme_custom_color",

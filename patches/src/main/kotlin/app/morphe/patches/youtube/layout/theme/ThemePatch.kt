@@ -787,6 +787,7 @@ val themePatch = resourcePatch(
             "SETTINGS: THEME_SETTINGS",
             "SETTINGS: RUNTIME_THEME",
             "SETTINGS: SPLASH_SCREEN_ANIMATION_STYLE",
+            "SETTINGS: DISABLE_SYSTEM_SPLASH",
         )
         if (is_20_00_or_greater) {
             themeSettings += "SETTINGS: THEME_COLOR_CHANGE_FOREGROUND"
