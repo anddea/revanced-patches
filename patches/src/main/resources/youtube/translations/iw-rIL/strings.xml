@@ -20,6 +20,32 @@
     <string name="gms_core_settings_summary">כדי לקבל התראות ב-RVX, הפעל את Cloud Messaging</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
     <string name="gms_core_toast_not_installed_message">דו׮י טבמ עורמ מדמ. רוריתמ</string>
+    <string name="morphe_aislist_submit_already_blocklisted">הערוץ הזה כבר נמצא ברשימת החסימה של AiSList</string>
+    <string name="morphe_aislist_submit_already_warnlisted">הערוץ הזה כבר נמצא ברשימת האזהרות של AiSList</string>
+    <string name="morphe_aislist_submit_category_title">דווח על ערוצי AI</string>
+    <string name="morphe_aislist_submit_dialog_confirm">דווח</string>
+    <string name="morphe_aislist_submit_dialog_message">"האם להגיש את %s ל-AiSList, באמצעות הסרטון הזה כהוכחה?
+
+יש לדווח רק על ערוצים ש:
+• משתמשים בקולות AI, בוויזואליה AI, בתסריטי AI או במוזיקת AI כתוכן העיקרי שלהם
+• מייצרים תוכן בכמויות המוניות עם כלי AI ומעט עבודה אנושית
+
+אל תדווח על ערוצים שרק דנים ב-AI, או משתמשים ב-AI בחלקים מסוימים של הסרטונים שלהם
+
+הדיווחים הם ציבוריים והם נבדקים לפני שערוץ מתווסף לרשימה. הסרה אפשרית רק באמצעות בקשה ב-GitHub"</string>
+    <string name="morphe_aislist_submit_failed">הדיווח נכשל, בדוק את החיבור</string>
+    <string name="morphe_aislist_submit_failed_channel">לא ניתן למצוא את הערוץ של הסרטון הזה</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList לא הצליחה לשמור את הדיווח, נסה שוב מאוחר יותר</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">נשלחו יותר מדי דיווחים, נסה שוב מאוחר יותר</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList דחתה את הדיווח</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">הוסף פריט לתפריט הסרטון שמדווח על הערוץ של סרטון ל-AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">הוסף פריט דיווח לתפריט הסרטון</string>
+    <string name="morphe_aislist_submit_no_username">הגדר שם מגיש בהגדרות מסנן ערוצי ה-AI כדי לדווח על ערוצים</string>
+    <string name="morphe_aislist_submit_resolving">מחפש את הערוץ…</string>
+    <string name="morphe_aislist_submit_success">הערוץ דווח וממתין לבדיקה</string>
+    <string name="morphe_aislist_submit_title">דווח על ערוץ AI</string>
+    <string name="morphe_aislist_submit_username_summary">השם שמוצג ליד הדיווחים שלך בלוח המובילים הציבורי של AiSList. לא ניתן לדווח כל עוד שדה זה ריק</string>
+    <string name="morphe_aislist_submit_username_title">שם המגיש</string>
     <string name="morphe_app_refresh_rate_default">ברירת מחדל</string>
     <string name="morphe_app_refresh_rate_fps">%s פריימים לשנייה</string>
     <string name="morphe_app_refresh_rate_title">קצב רענון אפליקציה</string>
@@ -54,6 +80,8 @@
     <string name="morphe_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
     <string name="morphe_force_original_audio_title">כפה שפת שמע מקורית</string>
     <string name="morphe_fullscreen_large_seekbar_title">הפעלת סרגל חיפוש גדול במסך מלא</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">הסתר את כפתור קנה המידה של הסרטון בנגן במצב לאורך</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">הצג רק במסך מלא</string>
     <string name="morphe_fullscreen_video_scale_button_summary">הקש כדי לעבור בין ברירת מחדל, מתיחה וזום</string>
     <string name="morphe_fullscreen_video_scale_button_title">הצג כפתור קנה מידה של וידאו</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">מתיחה (מילוי מסך)</string>
@@ -80,12 +108,14 @@
 • סה\"כ: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">ערוצים ברשימת אזהרה</string>
     <string name="morphe_hide_aislist_warnlist_category_title">רשימת אזהרה: ביטחון בינוני</string>
+    <string name="morphe_hide_auto_dubbed_label_title">הסתר תווית \'דיבוב אוטומטי\'</string>
     <string name="morphe_hide_courses_menu_title">הסתר תפריט קורסים</string>
     <string name="morphe_hide_explore_button_title">הסתר כפתור חקור</string>
     <string name="morphe_hide_fashion_menu_title">הסתר תפריט \'אופנה ויופי\'</string>
     <string name="morphe_hide_gaming_menu_title">הסתר תפריט גיימינג</string>
     <string name="morphe_hide_get_premium_button_title">הסתר לחצן \'קבל מנוי פרימיום\'</string>
     <string name="morphe_hide_hype_menu_title">הסתר תפריט הייפ</string>
+    <string name="morphe_hide_hyped_label_title">הסתר תווית \'ויראלי\'</string>
     <string name="morphe_hide_invite_to_message_card_summary">מסתיר את הכרטיס המוצג בחלק ההודעות שבכרטיסייה \"התראות\"</string>
     <string name="morphe_hide_invite_to_message_card_title">הסתר את הכרטיס \"הזמן אחרים להודעה\"</string>
     <string name="morphe_hide_learning_menu_title">הסתר תפריט למידה</string>
@@ -98,6 +128,7 @@
     <string name="morphe_hide_player_flyout_audio_track_not_available">"תפריט 'מסלול שמע' מוסתר
 
 כדי להציג את תפריט 'מסלול שמע', שנה את 'זיוף הזרמי וידאו' לכל לקוח מלבד 'Android Studio' ו-'Android VR Downgraded'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">הסתר את התפריט \'בדרכים\'</string>
     <string name="morphe_hide_podcasts_menu_title">הסתר תפריט פודקאסטים</string>
     <string name="morphe_hide_privacy_tos_footer_title">הסתר כותרות גרורות משפטיות ופרטיות</string>
     <string name="morphe_hide_shopping_menu_title">הסתר תפריט קניות</string>
@@ -130,6 +161,7 @@
     <string name="morphe_oauth2_toast_reset">Вышли из Android VR</string>
     <string name="morphe_open_channel_of_live_avatar_summary">מונע את פתיחת השידור החי בעת הקשה על האווטאר של הערוץ</string>
     <string name="morphe_open_channel_of_live_avatar_title">פתח ערוץ מאווטאר חי</string>
+    <string name="morphe_open_videos_fullscreen_title">פתח סרטונים במצב מסך מלא</string>
     <string name="morphe_override_youtube_music_buttons_summary">פותח את אפליקציית המוזיקה המועדפת עליך במקום אפליקציית YouTube Music הרגילה</string>
     <string name="morphe_override_youtube_music_buttons_title">גמַהת במְירַד הכולַה</string>
     <string name="morphe_playback_in_feeds_entry_always_on">תמיד מופעל</string>
@@ -143,6 +175,9 @@
     <string name="morphe_reload_video_summary_off">לחצן טעינת סרטון אינו מוצג</string>
     <string name="morphe_reload_video_summary_on">לחצן טעינת סרטון מוצג</string>
     <string name="morphe_reload_video_title">הצג לחצן טעינת סרטון</string>
+    <string name="morphe_remember_livestream_position_summary">עבור שידורים חיים פעילים, זוכרת וממשיכה את מיקום ההשמעה שלך במקום לקפוץ למיקום החי הנוכחי</string>
+    <string name="morphe_remember_livestream_position_title">זכור את מיקום ההשמעה בשידור חי</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">תכונה זו אינה פועלת עם שידורים חיים 24/7 ושידורים אחרים שהם \'תמיד פעילים\'</string>
     <string name="morphe_replace_links_with_shortener_summary">כופה על סרטונים להשתמש בפורמט הקיצור youtu.be</string>
     <string name="morphe_replace_links_with_shortener_title">שנה קישורי שיתוף ל-youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
@@ -156,8 +191,10 @@
     <string name="morphe_save_to_watch_later_button_title">הצג כפתור שמירה לצפייה מאוחרת</string>
     <string name="morphe_save_to_watch_later_error_toast">לא ניתן לשמור סרטון זה בפלייליסט \'צפייה מאוחרת\'</string>
     <string name="morphe_save_to_watch_later_flyout_title">שמור לצפייה מאוחרת</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">מאפשר שמירת סרטונים לילדים בתפריט הצף \'צפייה מאוחרת\' %d videos</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">מאפשר לשמור סרטונים הקשורים לילדים ברשימת \'צפה מאוחר יותר\' מהתפריט הנפתח</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">הצג כפתור שמירה לצפייה מאוחרת בסרטוני ילדים</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">מאפשר לשמור סרטונים קצרים ברשימת \'צפה מאוחר יותר\' מהתפריט הנפתח</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">הצג כפתור שמירה ל\'צפה מאוחר יותר\' בתפריט הנפתח של הסרטונים הקצרים</string>
     <string name="morphe_save_to_watch_later_success_toast">הסרטון נשמר בהצלחה בפלייליסט \'צפייה מאוחרת\'</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">הכי הרבה השמעות חוזרות</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">מציג תמונה ממוזערת של הסרטון בזמן גרירת סרגל החיפוש</string>
@@ -511,9 +548,6 @@
     <string name="revanced_disable_signin_to_tv_popup_summary_off">חלון קופץ של כניסה לטלוויזיה מופעל</string>
     <string name="revanced_disable_signin_to_tv_popup_summary_on">חלון קופץ של כניסה לטלוויזיה מושבת</string>
     <string name="revanced_disable_signin_to_tv_popup_title">השבת חלון קופץ של \'כניסה לטלוויזיה\'</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">שורת מצב אטומה או שקופה</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">שורת מצב אטומה</string>
-    <string name="revanced_disable_translucent_status_bar_title">השבת שורת מצב שקופה</string>
     <string name="revanced_dismiss_player_not_available_toast">מזהה הסרטון אינו זמין. נא לטעון מחדש את הסרטון באופן ידני</string>
     <string name="revanced_enable_playback_audio_pitch_controls_title">הפעל בקרות גובה צליל (Pitch) של האודיו</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">הקשה בסרגל החיפוש מושבתת</string>
@@ -564,6 +598,7 @@
     <string name="revanced_hide_autoplay_preview_summary_off">תצוגה מקדימה בהפעלה אוטומטית מוצגת</string>
     <string name="revanced_hide_autoplay_preview_summary_on">תצוגה מקדימה בהפעלה אוטומטית מוסתרת</string>
     <string name="revanced_hide_autoplay_preview_title">הסתר תצוגה מקדימה אוטומטית</string>
+    <string name="revanced_hide_category_bar_in_comments_title">הסתר בתגובות</string>
     <string name="revanced_hide_channel_tab_filter_strings_summary">הזן את שמות הלשוניות של הערוץ לסנן לפי, מופרדים בשורות חדשות</string>
     <string name="revanced_hide_channel_tab_filter_strings_title">טאב ערוץ סינטר</string>
     <string name="revanced_hide_channel_tab_summary_off">מסנן לשוניות ערוץ מושבת</string>
@@ -905,10 +940,11 @@
     <string name="revanced_miniplayer_rounded_corners_summary_on">הפינות מעוגלות</string>
     <string name="revanced_miniplayer_rounded_corners_title">הפעל פינות מעוגלות</string>
     <string name="revanced_miniplayer_type_entry_2">מינימלי</string>
-    <string name="revanced_miniplayer_type_entry_4">מודרני 1</string>
-    <string name="revanced_miniplayer_type_entry_5">מודרני 2</string>
-    <string name="revanced_miniplayer_type_entry_6">מודרני 3</string>
-    <string name="revanced_miniplayer_type_entry_7">מודרני 4</string>
+    <string name="revanced_miniplayer_type_entry_3">מינימלי 2</string>
+    <string name="revanced_miniplayer_type_entry_4">טאבלט</string>
+    <string name="revanced_miniplayer_type_entry_5">מודרני 1</string>
+    <string name="revanced_miniplayer_type_entry_6">מודרני 2</string>
+    <string name="revanced_miniplayer_type_entry_7">מודרני 3</string>
     <string name="revanced_miniplayer_type_title">סוג מיני-נגן</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">גודל פיקסל חייב להיות בין %1$s ו-%2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">הגדר את הגודל הראשוני על המסך, בפיקסלים</string>
@@ -1229,6 +1265,7 @@
     <string name="revanced_spoof_app_version_summary">מרמה את השרת לחשוב שאתה משתמש בגרסת אפליקציה ישנה יותר כדי לשחזר תכונות ממשק משתמש מדור קודם</string>
     <string name="revanced_spoof_app_version_summary_off">גרסה לא מזויפת</string>
     <string name="revanced_spoof_app_version_summary_on">גרסה מזויפת</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - שחזור התנהגות הכתוביות הישנה</string>
     <string name="revanced_spoof_app_version_title">זייף גרסת אפליקציה</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"גרסת האפליקציה תזויף לגרסה ישנה יותר
 
@@ -1243,6 +1280,7 @@
 כוונן את הבהירות על ידי החלקה אנכית בצד השמאלי של המסך"</string>
     <string name="revanced_swipe_brightness_title">הפעל מחוות בהירות</string>
     <string name="revanced_swipe_haptic_feedback_title">הפעל משוב ברטט</string>
+    <string name="revanced_swipe_left_zone_title">מחוות החלקה שמאלה</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">אוטומטי</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">החלקה למטה לערך הנמוך ביותר לא מפעילה בהירות אוטומטית</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">החלקה למטה לערך הנמוך ביותר של מחוות הבהירות מפעילה בהירות אוטומטית</string>
@@ -1268,6 +1306,7 @@
     <string name="revanced_swipe_press_to_engage_summary_off">לחץ כדי להחליק מושבת</string>
     <string name="revanced_swipe_press_to_engage_summary_on">לחץ כדי להחליק מופעל</string>
     <string name="revanced_swipe_press_to_engage_title">הפעל מחוות לחץ כדי להחליק</string>
+    <string name="revanced_swipe_right_zone_title">מחוות החלקה ימינה</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">אל תשמור ותשחזר בהירות בעת יציאה או כניסה למסך מלא</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">שמור ושחזר בהירות בעת יציאה או כניסה למסך מלא</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">שמור ושחזר בהירות</string>
@@ -1276,6 +1315,9 @@
     <string name="revanced_swipe_text_overlay_size_title">גודל טקסט שכבת-על של החלקה</string>
     <string name="revanced_swipe_threshold_summary">הסתר כפתור \'הייפ\'</string>
     <string name="revanced_swipe_threshold_title">סף גודל החלקה</string>
+    <string name="revanced_swipe_top_zone_title">מחוות החלקה למעלה</string>
+    <string name="revanced_swipe_volume_distance_summary">ערכים גבוהים יותר דורשים יותר החלקות לכל שלב עוצמת קול</string>
+    <string name="revanced_swipe_volume_distance_title">רגישות החלקה בעוצמת הקול</string>
     <string name="revanced_swipe_volume_sensitivity_summary">ערכים גבוהים יותר מגדילים את שינוי עוצמת הקול בכל החלקה</string>
     <string name="revanced_swipe_volume_sensitivity_title">רגישות החלקה בעוצמת הקול</string>
     <string name="revanced_swipe_volume_summary_off">החלקת עוצמת קול במסך מלא מושבתת</string>

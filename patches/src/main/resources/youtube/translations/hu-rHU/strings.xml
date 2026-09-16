@@ -20,6 +20,32 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="gms_core_settings_summary">Engedélyezze a felhő alapú üzenetküldést az értesítések fogadásához</string>
     <string name="gms_core_settings_title">GmsCore beállítások megnyitása</string>
     <string name="gms_core_toast_not_installed_message">A MicroG nincs telepítve. Telepítse azt</string>
+    <string name="morphe_aislist_submit_already_blocklisted">Ez a csatorna már szerepel az AiSList tiltólistáján</string>
+    <string name="morphe_aislist_submit_already_warnlisted">Ez a csatorna már szerepel az AiSList figyelmeztetőlistáján</string>
+    <string name="morphe_aislist_submit_category_title">AI-csatornák jelentése</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Jelentés</string>
+    <string name="morphe_aislist_submit_dialog_message">"Küldd el a(z) %s csatornát az AiSListnek, bizonyítékként ezt a videót használva?
+
+Csak azokat a csatornákat jelentsd, amelyek:
+• Fő tartalomként AI-hangokat, AI-vizuális elemeket, AI-forgatókönyveket vagy AI-zenét használnak
+• AI-eszközökkel és kevés emberi munkával tömegesen gyártanak tartalmat
+
+Ne jelents olyan csatornákat, amelyek csak az AI-ról beszélnek, vagy csak a videóik egyes részeihez használnak AI-t
+
+A jelentések nyilvánosak, és felülvizsgálják őket, mielőtt egy csatorna felkerül a listára. Eltávolítás csak GitHubon keresztül lehetséges"</string>
+    <string name="morphe_aislist_submit_failed">A jelentés elküldése nem sikerült, ellenőrizd a kapcsolatot</string>
+    <string name="morphe_aislist_submit_failed_channel">Nem található a videó csatornája</string>
+    <string name="morphe_aislist_submit_failed_conflict">Az AiSList nem tudta elmenteni a jelentést, próbáld újra később</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Túl sok jelentést küldtek, próbáld újra később</string>
+    <string name="morphe_aislist_submit_failed_rejected">Az AiSList elutasította a jelentést</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Menüpont hozzáadása a videómenühöz, amely a videó csatornáját jelenti az AiSListnek</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Jelentés menüpont hozzáadása a videómenühöz</string>
+    <string name="morphe_aislist_submit_no_username">A csatornák jelentéséhez adj meg egy beküldőnevet az AI-csatornaszűrő beállításaiban</string>
+    <string name="morphe_aislist_submit_resolving">Csatorna keresése…</string>
+    <string name="morphe_aislist_submit_success">Csatorna jelentve, felülvizsgálatra vár</string>
+    <string name="morphe_aislist_submit_title">AI-csatorna jelentése</string>
+    <string name="morphe_aislist_submit_username_summary">A nyilvános AiSList-ranglistán a jelentéseid mellett megjelenő név. Amíg ez a mező üres, a jelentésküldés nem érhető el</string>
+    <string name="morphe_aislist_submit_username_title">Beküldő neve</string>
     <string name="morphe_app_refresh_rate_default">Alapértelmezett</string>
     <string name="morphe_app_refresh_rate_fps">%s képkocka/mp</string>
     <string name="morphe_app_refresh_rate_title">Alkalmazás frissítési gyakorisága</string>
@@ -54,6 +80,8 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
     <string name="morphe_force_original_audio_title">Eredeti hang kikényszerítése</string>
     <string name="morphe_fullscreen_large_seekbar_title">Teljes képernyős, nagy méretű keresősáv engedélyezése</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">A videóméretezés-gomb elrejtése az álló módú lejátszóban</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Csak teljes képernyőn jelenjen meg</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Koppintson az Alapértelmezett, Nyújtás és Nagyítás közötti váltáshoz. ,\"key\":\"morphe_fullscreen_video_scale_button_summary\",\"context\":\"morphe_fullscreen_video_scale_button_summary\",\"maxLength\":null,\"terms\":[]}</string>
     <string name="morphe_fullscreen_video_scale_button_title">Videó méret gombjának megjelenítése. ,\"key\":\"morphe_fullscreen_video_scale_button_title\",\"context\":\"morphe_fullscreen_video_scale_button_title\",\"maxLength\":null,\"terms\":[]}</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">Nyújtás (képernyő kitöltése). ,\"key\":\"morphe_fullscreen_video_scale_entry_stretch\",\"context\":\"morphe_fullscreen_video_scale_entry_stretch\",\"maxLength\":null,\"terms\":[]}</string>
@@ -80,12 +108,14 @@ Korlátozások:
 • Összesen: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Figyelmeztetésre került csatornák</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Figyelőlista: Közepes megbízhatóság</string>
+    <string name="morphe_hide_auto_dubbed_label_title">​„Automatikus szinkron” címke elrejtése</string>
     <string name="morphe_hide_courses_menu_title">Kurzusok menü elrejtése</string>
     <string name="morphe_hide_explore_button_title">Felfedezés gomb elrejtése</string>
     <string name="morphe_hide_fashion_menu_title">\"Divat és szépség\" menü elrejtése</string>
     <string name="morphe_hide_gaming_menu_title">Játékok menü elrejtése</string>
     <string name="morphe_hide_get_premium_button_title">\"Prémium előfizetés\" gomb elrejtése</string>
     <string name="morphe_hide_hype_menu_title">Hype menü elrejtése</string>
+    <string name="morphe_hide_hyped_label_title">Hájpolt címke elrejtése</string>
     <string name="morphe_hide_invite_to_message_card_summary">Elrejti a Értesítések lap Üzenetek szekciójában megjelenő meghívókártyát</string>
     <string name="morphe_hide_invite_to_message_card_title">Elrejti az \'Emberek meghívása üzenetküldésre\' kártyát</string>
     <string name="morphe_hide_learning_menu_title">Rejtse el a Tanulás menüt</string>
@@ -98,6 +128,7 @@ Korlátozások:
     <string name="morphe_hide_player_flyout_audio_track_not_available">"'Audio Track' menü el van rejtve
 
 Az 'Audio Track' menü megjelenítéséhez állítsa a 'Videóstream-ek megtévesztése' beállítást bármely olyan kliensre, amely nem az 'Android Studio' és nem az 'Android VR Downgraded'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Az „Útközben” menü elrejtése</string>
     <string name="morphe_hide_podcasts_menu_title">Podcastok menü elrejtése</string>
     <string name="morphe_hide_privacy_tos_footer_title">Rejtse el a jogi és adatvédelmi láblécet</string>
     <string name="morphe_hide_shopping_menu_title">Vásárlás menü elrejtése</string>
@@ -130,6 +161,7 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_oauth2_toast_reset">Kijelentkezett az Android VR-ből</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Megakadályozza, hogy az élő közvetítés megnyíljon a csatorna avatarjára koppintva</string>
     <string name="morphe_open_channel_of_live_avatar_title">Csatorna megnyitása az élő avatarból</string>
+    <string name="morphe_open_videos_fullscreen_title">Videók megnyitása teljes képernyős módban</string>
     <string name="morphe_override_youtube_music_buttons_summary">A kívánt zenealkalmazást nyitja meg az alapértelmezett YouTube Music alkalmazás helyett</string>
     <string name="morphe_override_youtube_music_buttons_title">A YouTube Music gombok felülbírálása</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Mindig bekapcsolva</string>
@@ -143,6 +175,9 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_reload_video_summary_off">A videó újraindítás gomb nem látható</string>
     <string name="morphe_reload_video_summary_on">A videó újraindítás gomb látható</string>
     <string name="morphe_reload_video_title">Videó újraindítás gomb megjelenítése</string>
+    <string name="morphe_remember_livestream_position_summary">A folyamatban lévő élő közvetítéseknél megjegyzi a lejátszási pozíciót, és onnan folytatja a lejátszást ahelyett, hogy a jelenlegi élő pozícióra ugrana</string>
+    <string name="morphe_remember_livestream_position_title">Élő stream lejátszási pozíciójának megjegyzése</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">Ez a funkció nem működik a 24/7-es élő közvetítésekkel és más, „mindig bekapcsolt” közvetítésekkel</string>
     <string name="morphe_replace_links_with_shortener_summary">Erősíti a videók használatát a rövidített youtu.be URL formátummal</string>
     <string name="morphe_replace_links_with_shortener_title">Módosítsa a megosztási linkeket youtu.be-ra</string>
     <string name="morphe_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
@@ -156,8 +191,10 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_save_to_watch_later_button_title">Mentés későbbre gomb megjelenítése</string>
     <string name="morphe_save_to_watch_later_error_toast">A videó nem menthető a „Később megnézem” lejátszási listára</string>
     <string name="morphe_save_to_watch_later_flyout_title">Mentés későbbre</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Lehetővé teszi a gyerekeknek szóló videók mentését a \'Megnézem később\' előugró menüben. ,\"key\":\"morphe_save_to_watch_later_kids_flyout_menu_button_summary\",\"context\":\"morphe_save_to_watch_later_kids_flyout_menu_button_summary\",\"maxLength\":null,\"terms\":[]}</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Lehetővé teszi gyerekeknek szóló videók mentését a \'Watch later\' listába a felugró menüből</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Mentés későbbre gomb megjelenítése a gyerekvideókban</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Lehetővé teszi a Shorts mentését a \'Watch later\' listába a felugró menüből</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">A \'Watch later\' mentése gomb megjelenítése a Shorts felugró menüjében</string>
     <string name="morphe_save_to_watch_later_success_toast">A videó sikeresen mentve a „Később megnézem” lejátszási listára</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Legtöbbször újrajátszott</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Videó bélyegképet jelenít meg a keresősáv húzásakor</string>
@@ -598,9 +635,6 @@ Megjegyzés:
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">A teljes képernyőn történő lefelé lapozás nem léptet ki a teljes képernyős módból</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Teljes képernyős üzemmódból lapozással való kilépés letiltása</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_off">A navigációs sáv átlátszó</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Az állapotsor nem áttetsző vagy áttetsző</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Az állapotsor nem áttetsző</string>
-    <string name="revanced_disable_translucent_status_bar_title">Átlátszó állapotsor letiltása</string>
     <string name="revanced_disable_video_description_interaction_summary">"Letiltja a következő interakciókat, ha a videoleírás ki lett bővítve:
 
 • Koppintás a görgetéshez
@@ -699,11 +733,6 @@ Ebben az esetben előfordulhat, hogy a következő elérési utat kell használn
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">A széles keresősáv elakarja a YouTube fejlécét</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">A széles keresősáv nem takarja el a YouTube fejlécét</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Széles, fejléces keresősáv engedélyezése</string>
-    <string name="revanced_enter_fullscreen_summary_off">Ne lépjen teljes képernyős módba, amikor a videó elindul</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Videó indításakor lépjen be teljes képernyős módba
-
-Korlátozás: Nem működik, ha a lejátszó kicsinyített, PiP módban vagy a háttérben van"</string>
-    <string name="revanced_enter_fullscreen_title">Videó indításakor lépjen be teljes képernyős módba</string>
     <string name="revanced_exit_fullscreen_entry_1">Letiltva</string>
     <string name="revanced_exit_fullscreen_entry_2">Csak portré mód</string>
     <string name="revanced_exit_fullscreen_entry_3">Csak tájkép mód</string>
@@ -867,6 +896,7 @@ Információ:
 • Vásárlás
 • Nézze meg újra"</string>
     <string name="revanced_hide_carousel_shelf_title">Karusszel polcok elrejtése</string>
+    <string name="revanced_hide_category_bar_in_comments_title">Elrejtés a hozzászólásokban</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">Látható a hírfolyamban</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">Elrejtve a hírfolyamban</string>
     <string name="revanced_hide_category_bar_in_feed_title">Elrejtés a hírfolyamban</string>
@@ -1648,10 +1678,11 @@ A minilejátszó jobbra vagy balra húzható a képernyőn"</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">A sarkok lekerekítettek</string>
     <string name="revanced_miniplayer_rounded_corners_title">Lekerekített sarkok engedélyezése</string>
     <string name="revanced_miniplayer_type_entry_2">Minimális</string>
-    <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
-    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
+    <string name="revanced_miniplayer_type_entry_3">Minimál 2</string>
+    <string name="revanced_miniplayer_type_entry_4">Táblagép</string>
+    <string name="revanced_miniplayer_type_entry_5">Modern 1</string>
+    <string name="revanced_miniplayer_type_entry_6">Modern 2</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 3</string>
     <string name="revanced_miniplayer_type_title">Minilejátszó típus</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">A képpont méretének %1$s és %2$s között kell lennie</string>
     <string name="revanced_miniplayer_width_dip_summary">Beállítja a kezdeti képernyőméretet, pixelben</string>
@@ -2335,6 +2366,7 @@ Korlátozás: A videó címe eltűnik, ha rákattint"</string>
     <string name="revanced_spoof_app_version_summary_on">A verzió hamisítva</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Átirat funkció visszaállítása</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Nem összecsukott videós műveletsáv visszaállítása</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - A régi felirat-viselkedés visszaállítása</string>
     <string name="revanced_spoof_app_version_target_entry_title">Hamis alkalmazásverzió</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Érvénytelen hamisított alkalmazásverzió: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Írja be a hamis alkalmazásverziót</string>
@@ -2432,6 +2464,7 @@ A fényerő beállítása a képernyő bal oldalán történő függőleges húz
     <string name="revanced_swipe_gestures_lock_mode_summary_on">A gesztus vezérlések engedélyezettek a képernyő lezárása módban</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Gesztus vezérlések a képernyő lezárása módban</string>
     <string name="revanced_swipe_haptic_feedback_title">Haptikus visszajelzés engedélyezése</string>
+    <string name="revanced_swipe_left_zone_title">Balra törölés gesztus</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatikus</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">A legalacsonyabb értékig csúsztatás nem engedélyezi az auto fényerőt</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">A fényerő kézmozdulat legalacsonyabb értékig csúsztatása engedélyezi az auto fényerőt</string>
@@ -2461,6 +2494,7 @@ A fényerő beállítása a képernyő bal oldalán történő függőleges húz
     <string name="revanced_swipe_press_to_engage_summary_off">A csúsztatáshoz nyomva tartás le van tiltva</string>
     <string name="revanced_swipe_press_to_engage_summary_on">A csúsztatáshoz nyomva tartás engedélyezve</string>
     <string name="revanced_swipe_press_to_engage_title">Csúsztatáshoz nyomva tartás engedélyezése</string>
+    <string name="revanced_swipe_right_zone_title">Jobbra törölés gesztus</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Ne mentse és állítsa vissza a fényerőt, amikor kilép vagy belép a teljes képernyőbe</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">A fényerő mentése és visszaállítása teljes képernyőből való kilépéskor vagy belépéskor</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Fényerő mentése és visszaállítása</string>
@@ -2485,8 +2519,9 @@ Keress a videóban a képernyő felső felén történő vízszintes csúsztatá
     <string name="revanced_swipe_text_overlay_size_title">Áthúzás fedvény szövegmérete</string>
     <string name="revanced_swipe_threshold_summary">Állítsa be a szükséges gesztus távolságot, mielőtt a beállítás érvénybe lép</string>
     <string name="revanced_swipe_threshold_title">A csúsztatás küszöbértéke</string>
-    <string name="revanced_swipe_volume_distance_summary">A hangerő módosításához szükséges csúsztatás hossza pixelben. Az alacsonyabb értékek gyorsabbá, a magasabbak lassabbá teszik a hangerő változását (1-1000)</string>
-    <string name="revanced_swipe_volume_distance_title">Hangerő távolsága</string>
+    <string name="revanced_swipe_top_zone_title">Felfelé törölés gesztus</string>
+    <string name="revanced_swipe_volume_distance_summary">A magasabb értékek több húzást igényelnek hangerőlépésenként</string>
+    <string name="revanced_swipe_volume_distance_title">Hangerő-görgetés érzékenysége</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">A hangerő csúsztatás érzékenységének 1 és 1000 között kell lennie</string>
     <string name="revanced_swipe_volume_sensitivity_summary">A nagyobb értékek növelik a hangerőváltozást egy húzás során</string>
     <string name="revanced_swipe_volume_sensitivity_title">Hangerő-görgetés érzékenysége</string>
@@ -2605,7 +2640,6 @@ Jogi nyilatkozat: A bejelentkezés nélkül kibocsátott sütik érvénytelenek 
     <string name="revanced_yandex_status_processing_minutes_plural">%d perc van hátra...</string>
     <string name="revanced_yandex_status_processing_short">Feldolgozás...</string>
     <string name="revanced_yandex_status_requesting_translation">Fordítás kérése</string>
-    <string name="revanced_yandex_status_session_ok">Munkamenet OK</string>
     <string name="revanced_yandex_status_subs_found">Feliratok találhatók, lekérés...</string>
     <string name="revanced_yandex_status_transcription_delayed">Az átírás kissé késik</string>
     <string name="revanced_yandex_status_youtube_specific">YouTube audiokérés kezelése...</string>

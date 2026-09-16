@@ -20,6 +20,32 @@
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX، قم بتمكين المراسلة السحابية</string>
     <string name="gms_core_settings_title">فتح إعدادات GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG لم يتم تثبيته. قم بتثبيته</string>
+    <string name="morphe_aislist_submit_already_blocklisted">هذه القناة موجودة بالفعل في قائمة حظر AiSList</string>
+    <string name="morphe_aislist_submit_already_warnlisted">هذه القناة موجودة بالفعل في قائمة تحذير AiSList</string>
+    <string name="morphe_aislist_submit_category_title">الإبلاغ عن قنوات الذكاء الاصطناعي</string>
+    <string name="morphe_aislist_submit_dialog_confirm">إبلاغ</string>
+    <string name="morphe_aislist_submit_dialog_message">"إرسال %s إلى AiSList باستخدام هذا الفيديو كدليل؟
+
+أبلغ فقط عن القنوات التي:
+• تستخدم أصوات الذكاء الاصطناعي أو المرئيات أو النصوص أو الموسيقى كمحتواها الرئيسي
+• تنتج المحتوى بكميات كبيرة باستخدام أدوات الذكاء الاصطناعي مع القليل من العمل البشري
+
+لا تُبلغ عن القنوات التي تناقش الذكاء الاصطناعي فقط، أو تستخدمه في بعض أجزاء فيديوهاتها
+
+البلاغات عامة وتتم مراجعتها قبل إضافة القناة إلى القائمة. الإزالة ممكنة فقط عبر طلب على GitHub"</string>
+    <string name="morphe_aislist_submit_failed">فشل الإبلاغ، تحقق من اتصالك</string>
+    <string name="morphe_aislist_submit_failed_channel">تعذّر العثور على قناة هذا الفيديو</string>
+    <string name="morphe_aislist_submit_failed_conflict">تعذّر على AiSList حفظ البلاغ، حاول مرة أخرى لاحقًا</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">تم إرسال عدد كبير جدًا من البلاغات، حاول مرة أخرى لاحقًا</string>
+    <string name="morphe_aislist_submit_failed_rejected">رفض AiSList البلاغ</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">إضافة إدخال إلى قائمة الفيديو للإبلاغ عن قناة الفيديو إلى AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">إضافة إدخال إبلاغ إلى قائمة الفيديو</string>
+    <string name="morphe_aislist_submit_no_username">تعيين اسم المرسل في إعدادات فلتر قنوات الذكاء الاصطناعي للإبلاغ عن القنوات</string>
+    <string name="morphe_aislist_submit_resolving">جارٍ البحث عن القناة…</string>
+    <string name="morphe_aislist_submit_success">تم الإبلاغ عن القناة وهي في انتظار المراجعة</string>
+    <string name="morphe_aislist_submit_title">الإبلاغ عن قناة ذكاء اصطناعي</string>
+    <string name="morphe_aislist_submit_username_summary">الاسم الظاهر بجانب بلاغاتك على لوحة صدارة AiSList العامة. الإبلاغ غير متاح ما دام هذا الحقل فارغًا</string>
+    <string name="morphe_aislist_submit_username_title">اسم المرسل</string>
     <string name="morphe_app_refresh_rate_default">الوضع الافتراضي</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">معدل تحديث التطبيق</string>
@@ -31,7 +57,15 @@
     <string name="morphe_auto_pause_on_screen_lock_always">إيقاف التشغيل دائمًا عند القفل</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">إيقاف التشغيل إلا إذا كان الصوت اللاسلكي متصلًا</string>
     <string name="morphe_auto_pause_on_screen_lock_title">إيقاف التشغيل تلقائيًا عند قفل الجهاز</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">استخدم أيقونة التطبيق المحددة لمدخل إعدادات RVX عند توفرها</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">استخدم الأيقونة في إعدادات RVX</string>
     <string name="morphe_custom_branding_icon_title">أيقونة التطبيق</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">يُحدِّد حجم رسوميات شاشة الترحيب المخصصة</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">حجم رسوميات شاشة البداية</string>
+    <string name="morphe_custom_branding_use_as_system_splash_summary">يستخدم الرسوم المتحركة المحددة كشاشة ترحيب لنظام Android</string>
+    <string name="morphe_custom_branding_use_as_system_splash_title">استخدم كشاشة ترحيب للنظام</string>
+    <string name="morphe_dark_theme_custom_color_summary">يُستخدم عند اختيار "مُخصَّص"</string>
+    <string name="morphe_dark_theme_custom_color_title">لون مخصص للسمة الداكنة</string>
     <string name="morphe_dark_theme_title">مظهر مظلم</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">يبقي شريط التنقل ظاهرًا أثناء التمرير</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">تعطيل إخفاء شريط التنقل تلقائيًا</string>
@@ -55,6 +89,8 @@
     <string name="morphe_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
     <string name="morphe_force_original_audio_title">فرض لغة الصوت الأصلية</string>
     <string name="morphe_fullscreen_large_seekbar_title">تمكين شريط التقدم الكبير بملء الشاشة</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">إخفاء زر ضبط حجم الفيديو في مشغل الوضع الرأسي</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">العرض في وضع ملء الشاشة فقط</string>
     <string name="morphe_fullscreen_video_scale_button_summary">انقر للتنقل بين الوضع الافتراضي، التمديد، والتكبير</string>
     <string name="morphe_fullscreen_video_scale_button_title">عرض زر مقياس الفيديو</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">تمديد (ملء الشاشة)</string>
@@ -81,12 +117,14 @@
 • الإجمالي: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">قنوات قائمة التحذير</string>
     <string name="morphe_hide_aislist_warnlist_category_title">قائمة التحذير: ثقة متوسطة</string>
+    <string name="morphe_hide_auto_dubbed_label_title">إخفاء علامة \'مُدبلج تلقائيًا\'</string>
     <string name="morphe_hide_courses_menu_title">إخفاء قائمة الدورات التدريبية</string>
     <string name="morphe_hide_explore_button_title">إخفاء زر استكشاف</string>
     <string name="morphe_hide_fashion_menu_title">إخفاء قائمة \'الموضة والجمال\'</string>
     <string name="morphe_hide_gaming_menu_title">إخفاء قائمة ألعاب فيديو</string>
     <string name="morphe_hide_get_premium_button_title">إخفاء زر \'الاشتراك في Premium\'</string>
     <string name="morphe_hide_hype_menu_title">إخفاء قائمة التشجيع</string>
+    <string name="morphe_hide_hyped_label_title">إخفاء علامة أكبر تشجيع</string>
     <string name="morphe_hide_invite_to_message_card_summary">يُخفي بطاقة الدعوة الظاهرة في قسم الرسائل ضمن تبويب الإشعارات</string>
     <string name="morphe_hide_invite_to_message_card_title">إخفاء بطاقة \'دعوة الآخرين للمراسلة\'</string>
     <string name="morphe_hide_learning_menu_title">إخفاء قائمة محتوى تعليمي</string>
@@ -99,6 +137,7 @@
     <string name="morphe_hide_player_flyout_audio_track_not_available">"تم إخفاء قائمة 'المقطع الصوتي'
 
 لعرض قائمة 'المقطع الصوتي'، غيّر 'Spoof Video Streams' إلى أي عميل باستثناء 'Android Studio' و 'Android VR Downgraded'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">إخفاء قائمة \'وضع التنقّل\'</string>
     <string name="morphe_hide_podcasts_menu_title">إخفاء قائمة البودكاست</string>
     <string name="morphe_hide_privacy_tos_footer_title">إخفاء نص سياسة الخصوصية • بنود الخدمة</string>
     <string name="morphe_hide_shopping_menu_title">إخفاء قائمة التسوّق</string>
@@ -123,6 +162,8 @@
     <string name="morphe_livestream_dvr_title">تمكين التنقل في البث المباشر</string>
     <string name="morphe_music_package_name_summary">اسم حزمة تطبيق الموسيقى المثبت لديك</string>
     <string name="morphe_music_package_name_title">اسم حزمة تطبيق الموسيقى</string>
+    <string name="morphe_notification_dot_color_summary">يُغيِّر لون نقاط الإشعارات</string>
+    <string name="morphe_notification_dot_color_title">لون نقطة الإشعار</string>
     <string name="morphe_oauth2_connection_failure_auth_error">فشل تسجيل الدخول إلى VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">لا يمكن تسجيل الدخول إلى VR، لم تتم الموافقة على مصادقة الموقع الإلكتروني</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 غير متاح مؤقتًا</string>
@@ -133,6 +174,7 @@
     <string name="morphe_oauth2_toast_reset">تم تسجيل خروج Android VR</string>
     <string name="morphe_open_channel_of_live_avatar_summary">يمنع فتح البث المباشر عند النقر على صورة القناة الرمزية</string>
     <string name="morphe_open_channel_of_live_avatar_title">فتح القناة عبر الصورة الرمزية المباشرة</string>
+    <string name="morphe_open_videos_fullscreen_title">فتح الفيديوهات بوضع ملء الشاشة</string>
     <string name="morphe_override_youtube_music_buttons_summary">يفتح تطبيق الموسيقى المفضل لديك بدلًا من تطبيق YouTube Music الافتراضي</string>
     <string name="morphe_override_youtube_music_buttons_title">تغيير وظيفة أزرار YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">مفعّل دائمًا</string>
@@ -146,6 +188,9 @@
     <string name="morphe_reload_video_summary_off">لا يتم عرض زر إعادة تحميل الفيديو</string>
     <string name="morphe_reload_video_summary_on">يتم عرض زر إعادة تحميل الفيديو</string>
     <string name="morphe_reload_video_title">عرض زر إعادة تحميل الفيديو</string>
+    <string name="morphe_remember_livestream_position_summary">بالنسبة إلى عمليات البث المباشر الجارية، يتم تذكّر موضع التشغيل واستئنافه من عنده بدلًا من الانتقال إلى الموضع المباشر الحالي</string>
+    <string name="morphe_remember_livestream_position_title">تذكّر موضع تشغيل البث المباشر</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">هذه الميزة لا تعمل مع البث المباشر 24/7 والبثوث الأخرى التي تكون \'دائمة التشغيل\'</string>
     <string name="morphe_replace_links_with_shortener_summary">يُلزم استخدام تنسيق رابط youtu.be المختصر للفيديوهات</string>
     <string name="morphe_replace_links_with_shortener_title">تغيير روابط المشاركة إلى youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
@@ -159,8 +204,10 @@
     <string name="morphe_save_to_watch_later_button_title">عرض زر الحفظ في المشاهدة لاحقًا</string>
     <string name="morphe_save_to_watch_later_error_toast">لا يمكن حفظ هذا الفيديو في قائمة المشاهدة لاحقًا</string>
     <string name="morphe_save_to_watch_later_flyout_title">الحفظ في المشاهدة لاحقًا</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">يسمح بحفظ الفيديوهات المتعلقة بالأطفال في قائمة \'المشاهدة لاحقًا\'</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">يتيح حفظ فيديوهات Shorts في قائمة \"المشاهدة لاحقًا\" من القائمة المنبثقة</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">عرض زر الحفظ في المشاهدة لاحقًا بفيديوهات الأطفال</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">يتيح حفظ فيديوهات Shorts في قائمة \"المشاهدة لاحقًا\" من القائمة المنبثقة</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">عرض زر \"الحفظ للمشاهدة لاحقًا\" في قائمة Shorts المنبثقة</string>
     <string name="morphe_save_to_watch_later_success_toast">تم حفظ الفيديو بنجاح في قائمة المشاهدة لاحقًا</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">الأكثر إعادة</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">يعرض صورة مصغرة للفيديو أثناء سحب شريط التقدم</string>
@@ -629,9 +676,6 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_disable_translucent_navigation_bar_summary_off">شريط التنقل الشفاف</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">شريط التنقل معتم</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Enable translucent navigation bar</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">شريط الحالة معتم أو شفاف</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">شريط الحالة غير شفاف</string>
-    <string name="revanced_disable_translucent_status_bar_title">تعطيل شريط الحالة الشفاف</string>
     <string name="revanced_disable_video_description_interaction_summary">"تعطيل التفاعلات التالية عند توسيع وصف الفيديو:
 
 • انقر للتمرير
@@ -731,11 +775,6 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">يؤدي شريط البحث العريض إلى تعطيل مساحة علامة YouTube واستخدامها</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">تم تمكين شريط البحث العريض جنبًا إلى جنب مع علامة YouTube</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">تمكين شريط البحث العريض مع العلامة</string>
-    <string name="revanced_enter_fullscreen_summary_off">لا تدخل وضع ملء الشاشة عند بدء تشغيل الفيديو</string>
-    <string name="revanced_enter_fullscreen_summary_on">"الدخول إلى وضع ملء الشاشة عند بدء تشغيل الفيديو
-
-القيود: لا يعمل إذا تم تصغير المشغل أو في وضع صورة داخل صورة أو في الخلفية"</string>
-    <string name="revanced_enter_fullscreen_title">الدخول إلى وضع ملء الشاشة عند بدء تشغيل الفيديو</string>
     <string name="revanced_exit_fullscreen_entry_1">معطل</string>
     <string name="revanced_exit_fullscreen_entry_2">الوضع الطولي فقط</string>
     <string name="revanced_exit_fullscreen_entry_3">وضع بالعرض فقط</string>
@@ -899,6 +938,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
 • التسوق
 • مشاهده مرة أخرى"</string>
     <string name="revanced_hide_carousel_shelf_title">إخفاء الرفوف الدوارة</string>
+    <string name="revanced_hide_category_bar_in_comments_title">إخفاء في التعليقات</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">يُعرض في الموجز</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">مخفي في الموجز</string>
     <string name="revanced_hide_category_bar_in_feed_title">إخفاء في الموجز</string>
@@ -1692,10 +1732,11 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_miniplayer_rounded_corners_summary_on">الزوايا مستديرة</string>
     <string name="revanced_miniplayer_rounded_corners_title">تمكين الزوايا المستديرة</string>
     <string name="revanced_miniplayer_type_entry_2">بسيط</string>
-    <string name="revanced_miniplayer_type_entry_4">حديث 1</string>
-    <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
-    <string name="revanced_miniplayer_type_entry_6">حديث 3</string>
-    <string name="revanced_miniplayer_type_entry_7">حديث 4</string>
+    <string name="revanced_miniplayer_type_entry_3">بسيط 2</string>
+    <string name="revanced_miniplayer_type_entry_4">الجهاز اللوحي</string>
+    <string name="revanced_miniplayer_type_entry_5">حديث 1</string>
+    <string name="revanced_miniplayer_type_entry_6">حديث 2</string>
+    <string name="revanced_miniplayer_type_entry_7">حديث 3</string>
     <string name="revanced_miniplayer_type_title">نوع المشغل المصغر</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">حجم البكسل يجب أن يكون بين %1$s و %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">تعيين الحجم الأولي على الشاشة، بالبكسل</string>
@@ -2377,6 +2418,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - استعادة وظيفة النسخ</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">\"20.13.41 - استعاده عرض شريط إجراءات الفيديو بالكامل</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - استعادة فلتر المكونات القديمة</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - استعادة سلوك الترجمة القديم</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">إصدار التطبيق الوهمي غير صالح: %s</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي</string>
@@ -2476,6 +2518,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_swipe_gestures_lock_mode_summary_on">تم تمكين إيماءات التمرير في وضع شاشة القفل</string>
     <string name="revanced_swipe_gestures_lock_mode_title">إيماءات التمرير في وضع قفل الشاشة</string>
     <string name="revanced_swipe_haptic_feedback_title">الاهتزاز عند الضغط</string>
+    <string name="revanced_swipe_left_zone_title">إيماءة التمرير لليسار</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">تلقائي</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">لا يؤدي التمرير لأسفل إلى أدنى قيمة إلى تمكين السطوع التلقائي</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">التمرير لأسفل إلى أدنى قيمة للسطوع يمكّن السطوع التلقائي</string>
@@ -2505,6 +2548,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_swipe_press_to_engage_summary_off">تم تعطيل الضغط لتمرير الإيماءة</string>
     <string name="revanced_swipe_press_to_engage_summary_on">تم تمكين الضغط لتمرير الإيماءة</string>
     <string name="revanced_swipe_press_to_engage_title">تمكين الضغط لتمرير الإيماءة</string>
+    <string name="revanced_swipe_right_zone_title">إيماءة التمرير لليمين</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">لا تقم بحفظ السطوع واستعادته عند الخروج أو الدخول إلى وضع ملء الشاشة</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">حفظ واستعادة السطوع عند الخروج أو الدخول إلى وضع ملء الشاشة</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">حفظ واستعادة السطوع</string>
@@ -2529,8 +2573,9 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_swipe_text_overlay_size_title">حجم نص نمط إيماءة التمرير</string>
     <string name="revanced_swipe_threshold_summary">تعيين مسافة التمرير المطلوبة قبل بدء التعديل</string>
     <string name="revanced_swipe_threshold_title">مقدار حد التمرير</string>
-    <string name="revanced_swipe_volume_distance_summary">عدد البكسلات اللازمة للسحب لضبط مستوى الصوت. القيم الأقل تجعل تغيير الصوت أسرع، والقيم الأعلى تجعله أبطأ (1-1000)</string>
-    <string name="revanced_swipe_volume_distance_title">مسافة السحب للصوت</string>
+    <string name="revanced_swipe_top_zone_title">إيماءة التمرير للأعلى</string>
+    <string name="revanced_swipe_volume_distance_summary">تتطلب القيم الأعلى مزيدًا من التمرير لكل درجة مستوى الصوت</string>
+    <string name="revanced_swipe_volume_distance_title">حساسية تمرير مستوى الصوت</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">يجب أن تكون حساسية إيماءة الصوت بين 1-1000</string>
     <string name="revanced_swipe_volume_sensitivity_summary">القيم الأعلى تزيد من تغيُّر مستوى الصوت مع كل تمريرة</string>
     <string name="revanced_swipe_volume_sensitivity_title">حساسية تمرير مستوى الصوت</string>
@@ -2670,7 +2715,6 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_yandex_status_processing_minutes_plural">متبقي %d دقائق...</string>
     <string name="revanced_yandex_status_processing_short">جارِ المعالجة...</string>
     <string name="revanced_yandex_status_requesting_translation">جارِ طلب الترجمة</string>
-    <string name="revanced_yandex_status_session_ok">الجلسة سليمة (OK)</string>
     <string name="revanced_yandex_status_subs_found">تم العثور على ترجمة، جارِ الجلب...</string>
     <string name="revanced_yandex_status_transcription_delayed">التفريغ النصي متأخر قليلاً</string>
     <string name="revanced_yandex_status_youtube_specific">جارِ التعامل مع طلب صوت YouTube...</string>

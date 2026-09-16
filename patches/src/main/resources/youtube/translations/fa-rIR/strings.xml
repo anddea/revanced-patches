@@ -20,6 +20,32 @@
     <string name="gms_core_settings_summary">برای دریافت اعلان‌ها در RVX، پیام‌رسانی ابری را فعال کنید</string>
     <string name="gms_core_settings_title">تنظیمات GmsCore را باز کنید</string>
     <string name="gms_core_toast_not_installed_message">MicroG نصب نیست. آن را نصب کنید</string>
+    <string name="morphe_aislist_submit_already_blocklisted">این کانال از قبل در فهرست مسدودشدهٔ AiSList است</string>
+    <string name="morphe_aislist_submit_already_warnlisted">این کانال از قبل در فهرست هشدار AiSList است</string>
+    <string name="morphe_aislist_submit_category_title">گزارش کانال‌های هوش مصنوعی</string>
+    <string name="morphe_aislist_submit_dialog_confirm">گزارش</string>
+    <string name="morphe_aislist_submit_dialog_message">"%s به AiSList گزارش شود و از این ویدئو به‌عنوان مدرک استفاده شود؟
+
+فقط کانال‌هایی را گزارش کنید که:
+• صداها، تصاویر، متن‌ها یا موسیقی هوش مصنوعی را به‌عنوان محتوای اصلی استفاده می‌کنند
+• با ابزارهای هوش مصنوعی و کار انسانی اندک، محتوا را به‌صورت انبوه تولید می‌کنند
+
+کانال‌هایی را که فقط دربارهٔ هوش مصنوعی صحبت می‌کنند یا برای بخشی از ویدئوهایشان از هوش مصنوعی استفاده می‌کنند گزارش نکنید
+
+گزارش‌ها عمومی‌اند و پیش از افزودن کانال به فهرست بررسی می‌شوند. حذف فقط از طریق درخواست در GitHub ممکن است"</string>
+    <string name="morphe_aislist_submit_failed">گزارش ناموفق بود؛ اتصال خود را بررسی کنید</string>
+    <string name="morphe_aislist_submit_failed_channel">کانال این ویدئو پیدا نشد</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList نتوانست گزارش را ذخیره کند؛ بعداً دوباره تلاش کنید</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">گزارش‌های زیادی ارسال شده است؛ بعداً دوباره تلاش کنید</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList گزارش را رد کرد</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">موردی به منوی ویدئو اضافه می‌کند که کانال ویدئو را به AiSList گزارش می‌دهد</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">افزودن مورد گزارش به منوی ویدئو</string>
+    <string name="morphe_aislist_submit_no_username">برای گزارش کانال‌ها، در تنظیمات فیلتر کانال هوش مصنوعی یک نام گزارش‌دهنده تنظیم کنید</string>
+    <string name="morphe_aislist_submit_resolving">در حال یافتن کانال…</string>
+    <string name="morphe_aislist_submit_success">کانال گزارش شد و در انتظار بررسی است</string>
+    <string name="morphe_aislist_submit_title">گزارش کانال هوش مصنوعی</string>
+    <string name="morphe_aislist_submit_username_summary">نامی که در کنار گزارش‌های شما در جدول رتبه‌بندی عمومی AiSList نمایش داده می‌شود. وقتی خالی باشد، گزارش‌دادن در دسترس نیست</string>
+    <string name="morphe_aislist_submit_username_title">نام گزارش‌دهنده</string>
     <string name="morphe_app_refresh_rate_default">پیش‌فرض</string>
     <string name="morphe_app_refresh_rate_fps">%s فریم‌برثانیه</string>
     <string name="morphe_app_refresh_rate_title">نرخ نوسازی برنامه</string>
@@ -50,6 +76,8 @@
     <string name="morphe_force_original_audio_summary_on">استفاده از زبان صوتی اصلی</string>
     <string name="morphe_force_original_audio_title">اجبار زبان صدای اصلی</string>
     <string name="morphe_fullscreen_large_seekbar_title">فعال‌کردن نوار جست‌وجوی بزرگ در تمام‌صفحه</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">دکمه مقیاس ویدئو را در پخش‌کننده حالت عمودی مخفی کنید</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">فقط در حالت تمام‌صفحه نمایش داده شود</string>
     <string name="morphe_fullscreen_video_scale_button_summary">برای جابه‌جایی بین حالت‌های پیش‌فرض، کشیده و بزرگ‌نمایی ضربه بزنید</string>
     <string name="morphe_fullscreen_video_scale_button_title">نمایش دکمهٔ مقیاس ویدئو</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">کشیده (پرکردن صفحه)</string>
@@ -76,12 +104,14 @@
 • مجموع: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">کانال‌های فهرست هشدار</string>
     <string name="morphe_hide_aislist_warnlist_category_title">فهرست هشدار: اطمینان متوسط</string>
+    <string name="morphe_hide_auto_dubbed_label_title">پنهان‌کردن برچسب «دوبلهٔ خودکار»</string>
     <string name="morphe_hide_courses_menu_title">پنهان‌کردن منوی دوره‌ها</string>
     <string name="morphe_hide_explore_button_title">پنهان‌کردن دکمهٔ کاوش</string>
     <string name="morphe_hide_fashion_menu_title">پنهان‌کردن منوی «مد و زیبایی»</string>
     <string name="morphe_hide_gaming_menu_title">پنهان‌کردن منوی بازی</string>
     <string name="morphe_hide_get_premium_button_title">پنهان‌کردن دکمهٔ «دریافت Premium»</string>
     <string name="morphe_hide_hype_menu_title">پنهان‌کردن منوی Hype</string>
+    <string name="morphe_hide_hyped_label_title">پنهان‌کردن برچسب Hyped</string>
     <string name="morphe_hide_invite_to_message_card_summary">کارت دعوت نمایش‌داده‌شده در بخش پیام‌های برگهٔ اعلان‌ها را پنهان می‌کند</string>
     <string name="morphe_hide_invite_to_message_card_title">پنهان‌کردن کارت «دعوت از دیگران برای پیام‌دادن»</string>
     <string name="morphe_hide_learning_menu_title">پنهان‌کردن منوی یادگیری</string>
@@ -94,6 +124,7 @@
     <string name="morphe_hide_player_flyout_audio_track_not_available">"منوی «مسیر صوتی» پنهان است
 
 برای نمایش منوی «مسیر صوتی»، «جعل جریان‌های ویدئویی» را به هر کلاینتی به‌جز «Android Studio» و «Android VR Downgraded» تغییر دهید"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">پنهان‌کردن منوی «در حال حرکت»</string>
     <string name="morphe_hide_podcasts_menu_title">پنهان‌کردن منوی پادکست‌ها</string>
     <string name="morphe_hide_privacy_tos_footer_title">پنهان‌کردن پاورقی‌های حقوقی و حریم خصوصی</string>
     <string name="morphe_hide_shopping_menu_title">پنهان‌کردن منوی خرید</string>
@@ -119,6 +150,7 @@
     <string name="morphe_oauth2_toast_reset">از Android VR خارج شدید</string>
     <string name="morphe_open_channel_of_live_avatar_summary">هنگام ضربه‌زدن روی آواتار کانال، از بازشدن پخش زنده جلوگیری می‌کند</string>
     <string name="morphe_open_channel_of_live_avatar_title">بازکردن کانال از آواتار زنده</string>
+    <string name="morphe_open_videos_fullscreen_title">بازکردن ویدئوها در حالت تمام‌صفحه</string>
     <string name="morphe_override_youtube_music_buttons_summary">به‌جای برنامهٔ اصلی YouTube Music، برنامهٔ موسیقی دلخواه شما را باز می‌کند</string>
     <string name="morphe_override_youtube_music_buttons_title">جایگزین‌کردن دکمه‌های YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">همیشه روشن</string>
@@ -129,6 +161,9 @@
     <string name="morphe_player_control_buttons_background_opacity_title">شفافیت پس‌زمینهٔ دکمه‌های کنترل</string>
     <string name="morphe_queue_manager_check_failed_auth">وارد نشده‌اید</string>
     <string name="morphe_queue_manager_check_failed_video_id">شناسهٔ ویدئو وجود ندارد</string>
+    <string name="morphe_remember_livestream_position_summary">برای پخش‌های زندهٔ در حال اجرا، موقعیت پخش شما را به‌خاطر می‌سپارد و از همان‌جا ادامه می‌دهد، نه اینکه به موقعیت فعلی پخش زنده برود</string>
+    <string name="morphe_remember_livestream_position_title">به‌خاطر سپردن موقعیت پخش زنده</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">این قابلیت با پخش‌های زندهٔ ۲۴/۷ و پخش‌های دیگری که «همیشه روشن» هستند کار نمی‌کند</string>
     <string name="morphe_replace_links_with_shortener_summary">ویدئوها را مجبور می‌کند از قالب پیوند کوتاه‌شدهٔ youtu.be استفاده کنند</string>
     <string name="morphe_replace_links_with_shortener_title">تغییر پیوندهای اشتراک‌گذاری به youtu.be</string>
     <string name="morphe_replace_music_with_youtube_title">تغییر پیوندهای اشتراک‌گذاری به youtube.com</string>
@@ -378,9 +413,6 @@
 • دکمهٔ تعویض حساب ممکن است در برگهٔ کتابخانه ظاهر نشود"</string>
     <string name="revanced_disable_playlist_autoplay_title">غیرفعال‌کردن پخش خودکار فهرست پخش</string>
     <string name="revanced_disable_rolling_number_animations_title">غیرفعال‌کردن انیمیشن اعداد چرخان</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">نوار وضعیت مات یا شفاف است</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">نوار وضعیت مات است</string>
-    <string name="revanced_disable_translucent_status_bar_title">غیرفعال کردن نوار وضعیت شفاف</string>
     <string name="revanced_dismiss_player_not_available_toast">شناسهٔ ویدئو در دسترس نیست. لطفاً ویدئو را دستی دوباره بارگذاری کنید</string>
     <string name="revanced_enable_playback_audio_pitch_controls_title">فعال‌کردن کنترل‌های زیر و بمی صدا</string>
     <string name="revanced_exit_fullscreen_entry_1">غیرفعال</string>
@@ -416,6 +448,7 @@
     <string name="revanced_hide_autoplay_preview_summary_off">پیش‌نمایش پخش خودکار نمایش داده می‌شود</string>
     <string name="revanced_hide_autoplay_preview_summary_on">پیش‌نمایش پخش خودکار پنهان است</string>
     <string name="revanced_hide_autoplay_preview_title">پنهان‌کردن پیش‌نمایش پخش خودکار</string>
+    <string name="revanced_hide_category_bar_in_comments_title">پنهان‌کردن در دیدگاه‌ها</string>
     <string name="revanced_hide_channel_tab_filter_strings_summary">نام‌های برگهٔ کانال را که باید بر اساس آن‌ها فیلتر شود، هرکدام در خطی جدا وارد کنید</string>
     <string name="revanced_hide_channel_tab_filter_strings_title">فیلتر برگهٔ کانال</string>
     <string name="revanced_hide_channel_tab_summary_off">فیلتر برگه‌ی کانال غیرفعال است</string>
@@ -573,10 +606,11 @@
     <string name="revanced_miniplayer_hide_overlay_buttons_title">پنهان‌کردن دکمه‌های روی‌هم‌افتاده</string>
     <string name="revanced_miniplayer_opacity_title">شفافیت روی‌هم‌افتادگی</string>
     <string name="revanced_miniplayer_type_entry_2">حداقلی</string>
-    <string name="revanced_miniplayer_type_entry_4">مدرن ۱</string>
-    <string name="revanced_miniplayer_type_entry_5">مدرن ۲</string>
-    <string name="revanced_miniplayer_type_entry_6">مدرن ۳</string>
-    <string name="revanced_miniplayer_type_entry_7">مدرن ۴</string>
+    <string name="revanced_miniplayer_type_entry_3">مینیمال ۲</string>
+    <string name="revanced_miniplayer_type_entry_4">تبلت</string>
+    <string name="revanced_miniplayer_type_entry_5">مدرن ۱</string>
+    <string name="revanced_miniplayer_type_entry_6">مدرن ۲</string>
+    <string name="revanced_miniplayer_type_entry_7">مدرن ۳</string>
     <string name="revanced_miniplayer_type_title">نوع مینی‌پخش‌کننده</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">اندازهٔ پیکسل باید بین %1$s و %2$s باشد</string>
     <string name="revanced_miniplayer_width_dip_summary">اندازهٔ آغازین روی صفحه را بر حسب پیکسل تنظیم کنید</string>
@@ -677,6 +711,7 @@
     <string name="revanced_show_toolbar_settings_button_index_title">جایگاه دکمهٔ تنظیمات</string>
     <string name="revanced_show_toolbar_settings_button_title">نمایش دکمهٔ تنظیمات</string>
     <string name="revanced_spoof_app_version_summary">سرور را فریب می‌دهد تا تصور کند از نسخهٔ قدیمی‌تری از برنامه استفاده می‌کنید و قابلیت‌های قدیمی رابط کاربری را بازیابی می‌کند</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 — بازگردانی رفتار قبلی کپشن‌ها</string>
     <string name="revanced_spoof_app_version_title">جعل نسخهٔ برنامه</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"نسخهٔ برنامه به نسخه‌ای قدیمی‌تر جعل می‌شود
 
@@ -686,6 +721,7 @@
     <string name="revanced_spoof_device_dimensions_summary">فعال‌کردن این گزینه می‌تواند کیفیت‌های بالاتر ویدئو را باز کند</string>
     <string name="revanced_spoof_device_dimensions_title">جعل ابعاد دستگاه</string>
     <string name="revanced_swipe_haptic_feedback_title">فعال‌کردن بازخورد لمسی</string>
+    <string name="revanced_swipe_left_zone_title">حرکت کشیدن به چپ</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">خودکار</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">فعال‌کردن حرکت روشنایی خودکار</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">سطح شفافیت را تنظیم کنید (۰ شفاف و ۱۰۰ کدر است)</string>
@@ -707,11 +743,15 @@
     <string name="revanced_swipe_overlay_timeout_summary">مدت‌زمانی بر حسب میلی‌ثانیه که روی‌هم‌افتاده قابل مشاهده است</string>
     <string name="revanced_swipe_overlay_timeout_title">مهلت نمایش روی‌هم‌افتادهٔ کشیدن</string>
     <string name="revanced_swipe_press_to_engage_title">فعال‌کردن حرکت فشردن برای کشیدن</string>
+    <string name="revanced_swipe_right_zone_title">حرکت کشیدن به راست</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">ذخیره و بازیابی روشنایی</string>
     <string name="revanced_swipe_text_overlay_size_summary">اندازهٔ متن روی صفحه را تنظیم کنید (۱ تا ۳۰)</string>
     <string name="revanced_swipe_text_overlay_size_title">اندازهٔ متن روی‌هم‌افتادهٔ کشیدن</string>
     <string name="revanced_swipe_threshold_summary">فاصلهٔ لازم برای کشیدن پیش از فعال‌شدن تنظیم را تعیین کنید</string>
     <string name="revanced_swipe_threshold_title">آستانهٔ اندازهٔ کشیدن</string>
+    <string name="revanced_swipe_top_zone_title">حرکت کشیدن به بالا</string>
+    <string name="revanced_swipe_volume_distance_summary">مقدار‌های بالاتر به ازای هر گام بلندی از صدا، نیاز به کشیدن انگشت بیشتری دارند</string>
+    <string name="revanced_swipe_volume_distance_title">حساسیت کشیدن برای بلندی صدا</string>
     <string name="revanced_swipe_volume_sensitivity_summary">مقادیر بالاتر، تغییر بلندی صدا در هر کشیدن را افزایش می‌دهند</string>
     <string name="revanced_swipe_volume_sensitivity_title">حساسیت کشیدن برای بلندی صدا</string>
     <string name="revanced_swipe_zone_label_brightness">روشنایی</string>

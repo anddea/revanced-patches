@@ -106,20 +106,16 @@ Ekran blokady lub powiadomienie może przez chwilę pokazywać nieaktualny stan 
     <string name="morphe_music_crossfade_session_control_summary">Przytrzymaj przycisk odtwarzania losowego, aby wstrzymać lub wznowić przenikanie</string>
     <string name="morphe_music_crossfade_session_control_title">Kontrola sesji</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">Tryb teledysku niedostępny podczas przenikania</string>
-    <string name="morphe_music_lyrics_about_summary">"Teksty są wyszukiwane na podstawie tytułu utworu i wykonawcy, dlatego dla utworu z nietypowymi metadanymi może nie zostać znalezione nic lub znaleziona zostanie niewłaściwa wersja
-
-Zsynchronizowane teksty podążają za odtwarzaniem. Jeśli się rozjeżdżają, dostosuj przesunięcie czasowe
-
-Gdy nie zostaną znalezione żadne zewnętrzne teksty, zamiast nich wyświetlane są te wbudowane"</string>
+    <string name="morphe_music_lyrics_about_summary">"Teksty są wyszukiwane po tytule i wykonawcy, więc przy nietypowych metadanych aplikacja może nic nie znaleźć lub pobrać złą wersję. Możesz użyć przycisku odświeżania, aby ręcznie zmienić wersję. Gdy brak tekstów zewnętrznych, wyświetlane są te wbudowane lub osadzone. Dostawcy z gwiazdką (*) wymagają tokena. Wszyscy włączeni dostawcy nie zawsze są odpytywani w ustalonej kolejności, a ostateczny wynik zależy od szybkości ich odpowiedzi"</string>
     <string name="morphe_music_lyrics_about_title">O zewnętrznych tekstach</string>
     <string name="morphe_music_lyrics_copied">Skopiowano do schowka</string>
     <string name="morphe_music_lyrics_enabled_summary">Wyświetla teksty z zewnętrznej usługi, przełączając się na wbudowane, gdy nic nie zostanie znalezione</string>
     <string name="morphe_music_lyrics_enabled_title">Używaj zewnętrznych tekstów</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">Przesuń zsynchronizowany tekst do przodu lub do tyłu. Użyj wartości dodatniej, jeśli tekst wyprzedza utwór</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">Zsynchronizowane teksty podążają za odtwarzaniem. Jeśli się rozjeżdżają, dostosuj przesunięcie czasowe do przodu lub do tyłu. Użyj wartości dodatniej, jeśli tekst wyprzedza piosenkę</string>
     <string name="morphe_music_lyrics_offset_ms_title">Przesunięcie czasowe</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Pokaż przycisk Kopiuj</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Pokaż przycisk Przetłumacz</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, następnie KuGou</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, następnie QQ, następnie KuGou, następnie NetEase, następnie BiniLyrics, następnie Unison, następnie AMLL</string>
     <string name="morphe_music_lyrics_source_label">Źródło: %s</string>
     <string name="morphe_music_lyrics_source_title">Usługa z tekstami</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Dotknięcie linijki przeskakuje do tego momentu w utworze</string>
@@ -127,7 +123,7 @@ Gdy nie zostaną znalezione żadne zewnętrzne teksty, zamiast nich wyświetlane
     <string name="morphe_music_lyrics_text_size_summary">Rozmiar tekstu utworu</string>
     <string name="morphe_music_lyrics_text_size_title">Rozmiar tekstu</string>
     <string name="morphe_music_lyrics_translate_failed">Nie udało się przetłumaczyć tekstu</string>
-    <string name="morphe_music_lyrics_translate_hide">Pokaż oryginał</string>
+    <string name="morphe_music_lyrics_translate_hide">Przetłumaczone</string>
     <string name="morphe_music_lyrics_translate_show">Przetłumacz</string>
     <string name="morphe_music_lyrics_translating">Tłumaczenie…</string>
     <string name="morphe_notification_dot_color_summary">Zmienia kolor kropek powiadomień</string>
@@ -192,9 +188,11 @@ Aby się zalogować, naciśnij \"Kontynuuj\" poniżej"</string>
     <string name="morphe_spoof_video_streams_summary">"Naprawia problemy z odtwarzaniem u większości użytkowników, wymuszając zgodny strumień filmów
 
 Jeśli masz YouTube Premium, to ustawienie może nie być wymagane"</string>
-    <string name="morphe_spoof_video_streams_summary_off">"Wyłączone
+    <string name="morphe_spoof_video_streams_summary_off">"Strumienie wideo nie są podrabiane
 
-Odtwarzanie może nie działać"</string>
+Odtwarzanie może nie działać
+
+Aby korzystać z tej funkcji, wyłącz dostawcę PoToken"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Włączone
 
 Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>

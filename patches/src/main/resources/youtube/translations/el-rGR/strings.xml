@@ -20,6 +20,32 @@
     <string name="gms_core_settings_summary">Για να λαμβάνετε ειδοποιήσεις στο RVX, ενεργοποιήστε τις ρυθμίσεις Cloud Messaging</string>
     <string name="gms_core_settings_title">Άνοιγμα ρυθμίσεων του MicroG GmsCore</string>
     <string name="gms_core_toast_not_installed_message">Το MicroG δεν είναι εγκατεστημένο. Εγκαταστήστε το</string>
+    <string name="morphe_aislist_submit_already_blocklisted">Αυτό το κανάλι είναι ήδη στη λίστα αποκλεισμού του AiSList</string>
+    <string name="morphe_aislist_submit_already_warnlisted">Αυτό το κανάλι είναι ήδη στη λίστα προειδοποίησης του AiSList</string>
+    <string name="morphe_aislist_submit_category_title">Αναφορά καναλιών AI</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Αναφορά</string>
+    <string name="morphe_aislist_submit_dialog_message">"Να υποβληθεί το %s στο AiSList, χρησιμοποιώντας αυτό το βίντεο ως απόδειξη;
+
+Να αναφέρετε μόνο κανάλια που:
+• Χρησιμοποιούν φωνές, εικόνες, σενάρια ή μουσική AI ως κύριο περιεχόμενό τους
+• Παράγουν μαζικά περιεχόμενο με εργαλεία AI και λίγη ανθρώπινη εργασία
+
+Μην αναφέρετε κανάλια που απλώς συζητούν για AI ή χρησιμοποιούν AI σε ορισμένα μέρη των βίντεό τους
+
+Οι αναφορές είναι δημόσιες και εξετάζονται πριν προστεθεί ένα κανάλι σε μια λίστα. Η αφαίρεση είναι δυνατή μόνο μέσω αιτήματος στο GitHub"</string>
+    <string name="morphe_aislist_submit_failed">Η αναφορά απέτυχε, ελέγξτε τη σύνδεσή σας</string>
+    <string name="morphe_aislist_submit_failed_channel">Δεν βρέθηκε το κανάλι αυτού του βίντεο</string>
+    <string name="morphe_aislist_submit_failed_conflict">Το AiSList δεν μπόρεσε να αποθηκεύσει την αναφορά, δοκιμάστε ξανά αργότερα</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Στάλθηκαν πάρα πολλές αναφορές, δοκιμάστε ξανά αργότερα</string>
+    <string name="morphe_aislist_submit_failed_rejected">Το AiSList απέρριψε την αναφορά</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Προσθήκη καταχώρισης στο μενού βίντεο που αναφέρει το κανάλι ενός βίντεο στο AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Προσθήκη καταχώρισης αναφοράς στο μενού βίντεο</string>
+    <string name="morphe_aislist_submit_no_username">Ορίστε ένα όνομα χρήστη στις ρυθμίσεις του φίλτρου καναλιών AI για να αναφέρετε κανάλια</string>
+    <string name="morphe_aislist_submit_resolving">Αναζήτηση του καναλιού…</string>
+    <string name="morphe_aislist_submit_success">Το κανάλι αναφέρθηκε και αναμένει έλεγχο</string>
+    <string name="morphe_aislist_submit_title">Αναφορά καναλιού AI</string>
+    <string name="morphe_aislist_submit_username_summary">Το όνομα που εμφανίζεται δίπλα στις αναφορές σας στον δημόσιο πίνακα κατάταξης του AiSList. Η υποβολή αναφορών δεν είναι διαθέσιμη όσο αυτό το πεδίο είναι κενό</string>
+    <string name="morphe_aislist_submit_username_title">Όνομα χρήστη</string>
     <string name="morphe_app_refresh_rate_default">Προεπιλογή</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">Ρυθμός ανανέωσης εφαρμογής</string>
@@ -54,6 +80,8 @@
     <string name="morphe_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
     <string name="morphe_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
     <string name="morphe_fullscreen_large_seekbar_title">Ενεργοποίηση γραμμής αναζήτησης πλήρους οθόνης</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Απόκρυψη του κουμπιού αλλαγής μεγέθους βίντεο στο πρόγραμμα αναπαραγωγής σε κατακόρυφη λειτουργία</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Εμφάνιση μόνο σε πλήρη οθόνη</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Πατήστε για εναλλαγή Προεπιλεγμένο, Τάνυση, και Μεγέθυνση</string>
     <string name="morphe_fullscreen_video_scale_button_title">Εμφάνιση κουμπιού κλίμακας βίντεο</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">Τάνυση (γέμισμα οθόνης)</string>
@@ -80,12 +108,14 @@
 • Σύνολο: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Κανάλια στη λίστα προειδοποιήσεων</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Λίστα προειδοποίησης: Μέτρια βεβαιότητα</string>
+    <string name="morphe_hide_auto_dubbed_label_title">Απόκρυψη ετικέτας \'Αυτόματης μεταγλώττισης\'</string>
     <string name="morphe_hide_courses_menu_title">Απόκρυψη μενού \"Μαθήματα\"</string>
     <string name="morphe_hide_explore_button_title">Απόκρυψη κουμπιού \"Εξερεύνηση\"</string>
     <string name="morphe_hide_fashion_menu_title">Απόκρυψη μενού \"Μόδα &amp; ομορφιά\"</string>
     <string name="morphe_hide_gaming_menu_title">Απόκρυψη μενού \"Gaming\"</string>
     <string name="morphe_hide_get_premium_button_title">Απόκρυψη κουμπιού \"Απόκτηση Premium\"</string>
     <string name="morphe_hide_hype_menu_title">Απόκρυψη μενού \"Hype\"</string>
+    <string name="morphe_hide_hyped_label_title">Απόκρυψη ετικέτας \"Δημοφιλή\"</string>
     <string name="morphe_hide_invite_to_message_card_summary">Απόκρυψη της κάρτας πρόσκλησης που εμφανίζεται στην ενότητα Μηνυμάτων στην καρτέλα Ειδοποιήσεις</string>
     <string name="morphe_hide_invite_to_message_card_title">Απόκρυψη της κάρτας \"Πρόσκληση άλλων σε συνομιλία\"</string>
     <string name="morphe_hide_learning_menu_title">Απόκρυψη μενού Εκμάθησης</string>
@@ -98,6 +128,7 @@
     <string name="morphe_hide_player_flyout_audio_track_not_available">"Το μενού 'Audio Track' είναι κρυφό
 
 Για να εμφανίσετε το μενού 'Audio Track', αλλάξτε την επιλογή 'Πλαστογράφηση ροών βίντεο' σε οποιονδήποτε πελάτη εκτός από 'Android Studio' και 'Android VR Downgraded'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Απόκρυψη μενού \'Εν κινήσει\'</string>
     <string name="morphe_hide_podcasts_menu_title">Απόκρυψη μενού \"Podcast\"</string>
     <string name="morphe_hide_privacy_tos_footer_title">Απόκρυψη υποσέλιδων με νομικές πληροφορίες και απορρήτου</string>
     <string name="morphe_hide_shopping_menu_title">Απόκρυψη μενού \"Αγορές\"</string>
@@ -130,6 +161,7 @@
     <string name="morphe_oauth2_toast_reset">Αποσυνδεθήκατε από το Android VR</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Αποτρέπει το άνοιγμα της ζωντανής ροής όταν πατάτε το avatar του καναλιού</string>
     <string name="morphe_open_channel_of_live_avatar_title">Άνοιγμα καναλιού από ζωντανό avatar</string>
+    <string name="morphe_open_videos_fullscreen_title">Άνοιγμα βίντεο σε πλήρη οθόνη</string>
     <string name="morphe_override_youtube_music_buttons_summary">Ανοίγει την προτιμώμενη εφαρμογή μουσικής αντί για την προεπιλεγμένη εφαρμογή YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Υπέρβαση των κουμπιών YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Πάντα ενεργό</string>
@@ -143,6 +175,9 @@
     <string name="morphe_reload_video_summary_off">Δεν εμφανίζεται το κουμπί επανεξέτασης βίντεο</string>
     <string name="morphe_reload_video_summary_on">Εμφανίζεται το κουμπί επανεξέτασης βίντεο</string>
     <string name="morphe_reload_video_title">Εμφάνιση κουμπιού επανεξέτασης βίντεο</string>
+    <string name="morphe_remember_livestream_position_summary">Για ζωντανές ροές σε εξέλιξη, θυμάται και συνεχίζει τη θέση αναπαραγωγής σας αντί να αναζητά την τρέχουσα ζωντανή θέση</string>
+    <string name="morphe_remember_livestream_position_title">Απομνημόνευση θέσης αναπαραγωγής ζωντανής ροής</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">Αυτή η λειτουργία δεν λειτουργεί με ζωντανές ροές 24/7 και άλλες ροές που είναι \'πάντα ενεργές\'</string>
     <string name="morphe_replace_links_with_shortener_summary">Επιβάλλει τη χρήση της συντομευμένης μορφής URL youtu.be για τα βίντεο</string>
     <string name="morphe_replace_links_with_shortener_title">Αλλαγή συνδέσμων κοινοποίησης σε youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το music.youtube.com</string>
@@ -156,8 +191,10 @@
     <string name="morphe_save_to_watch_later_button_title">Εμφάνιση κουμπιού \'Αποθήκευση για αργότερα\'</string>
     <string name="morphe_save_to_watch_later_error_toast">Δεν είναι δυνατή η αποθήκευση αυτού του βίντεο στη λίστα παρακολούθησης αργότερα</string>
     <string name="morphe_save_to_watch_later_flyout_title">Αποθήκευση στην Παρακολούθηση αργότερα</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Επιτρέπει την αποθήκευση βίντεο που σχετίζονται με παιδιά στο αναδυόμενο μενού \'Παρακολούθηση αργότερα\'</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Επιτρέπει την αποθήκευση βίντεο που αφορούν παιδιά στη λίστα «Παρακολούθηση αργότερα» από το αναδυόμενο μενού</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Εμφάνιση κουμπιού \'Αποθήκευση για αργότερα\' σε παιδικά βίντεο</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Επιτρέπει την αποθήκευση των Shorts στη λίστα «Παρακολούθηση αργότερα» από το αναδυόμενο μενού</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Εμφάνιση του κουμπιού «Αποθήκευση για παρακολούθηση αργότερα» στο αναδυόμενο μενού των Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Το βίντεο αποθηκεύτηκε επιτυχώς στη λίστα παρακολούθησης αργότερα</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Πιο πολυαναπαραγόμενο</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Εμφανίζει μια μικρογραφία βίντεο κατά τη μετακίνηση της γραμμής αναζήτησης</string>
@@ -584,9 +621,6 @@
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Η σάρωση προς τα κάτω θα τερματίζει τη λειτουργία πλήρους οθόνης</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Η σάρωση προς τα κάτω δε θα τερματίζει τη λειτουργία πλήρους οθόνης</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Απενεργοποίηση σάρωσης για έξοδο από πλήρη οθόνη</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Η διαφάνεια της γραμμής κατάστασης ορίζεται αυτόματα</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Η γραμμή κατάστασης δεν είναι διαφανής</string>
-    <string name="revanced_disable_translucent_status_bar_title">Απενεργοποίηση διαφανούς γραμμής κατάστασης</string>
     <string name="revanced_disable_video_description_interaction_summary">"Απενεργοποίηση των ακόλουθων αλληλεπιδράσεων όταν ανοίγεται η περιγραφή του βίντεο:
 
 • Πάτημα για κύλιση
@@ -685,11 +719,6 @@
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Η ευρεία γραμμή αναζήτησης απενεργοποιεί την επικεφαλίδα του YouTube και πιάνει τον χώρο της</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Η ευρεία γραμμή αναζήτησης περιλαμβάνει την επικεφαλίδα του YouTube</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Ευρεία γραμμή αναζήτησης με επικεφαλίδα</string>
-    <string name="revanced_enter_fullscreen_summary_off">Τα βίντεο δεν ανοίγουν αυτόματα σε λειτουργία πλήρους οθόνης</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Τα βίντεο ανοίγουν αυτόματα σε λειτουργία πλήρους οθόνης
-
-Περιορισμός: Δεν ισχύει αν το βίντεο είναι ελαχιστοποιημένο, σε λειτουργία PiP, ή στο παρασκήνιο"</string>
-    <string name="revanced_enter_fullscreen_title">Άνοιγμα των βίντεο σε λειτουργία πλήρους οθόνης</string>
     <string name="revanced_exit_fullscreen_entry_1">Ανενεργό</string>
     <string name="revanced_exit_fullscreen_entry_2">Μόνο κάθετη</string>
     <string name="revanced_exit_fullscreen_entry_3">Μόνο οριζόντια</string>
@@ -851,6 +880,7 @@
 • Αγορές
 • Παρακολουθήστε ξανά"</string>
     <string name="revanced_hide_carousel_shelf_title">Οριζόντιες ενότητες προτάσεων</string>
+    <string name="revanced_hide_category_bar_in_comments_title">Απόκρυψη στα σχόλια</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">Εμφανίζεται</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">Κρυμμένη</string>
     <string name="revanced_hide_category_bar_in_feed_title">Γραμμή κατηγοριών στις ροές</string>
@@ -1638,10 +1668,11 @@ Playlists
     <string name="revanced_miniplayer_rounded_corners_summary_on">Οι γωνίες της ελαχιστοποιημένης οθόνης είναι στρογγυλεμένες</string>
     <string name="revanced_miniplayer_rounded_corners_title">Στρογγυλεμένες γωνίες</string>
     <string name="revanced_miniplayer_type_entry_2">Μινιμαλιστική</string>
-    <string name="revanced_miniplayer_type_entry_4">Μοντέρνος 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Μοντέρνος 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Μοντέρνος 3</string>
-    <string name="revanced_miniplayer_type_entry_7">Μοντέρνος 4</string>
+    <string name="revanced_miniplayer_type_entry_3">Μίνιμαλ 2</string>
+    <string name="revanced_miniplayer_type_entry_4">Ταμπλετ</string>
+    <string name="revanced_miniplayer_type_entry_5">Μοντέρνος 1</string>
+    <string name="revanced_miniplayer_type_entry_6">Μοντέρνος 2</string>
+    <string name="revanced_miniplayer_type_entry_7">Μοντέρνος 3</string>
     <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Τα pixel πρέπει να είναι μεταξύ %1$s και %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">Ορίστε το αρχικό μέγεθος στην οθόνη, σε pixel</string>
@@ -2326,6 +2357,7 @@ Playlists
     <string name="revanced_spoof_app_version_summary_on">Η έκδοση παραποιείται</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Επαναφορά λειτουργικότητας μεταγραφής</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Επαναφορά μη καταρρέουσας γραμμής ενέργειας βίντεο</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - Επαναφορά παλιάς συμπεριφοράς λεζάντων</string>
     <string name="revanced_spoof_app_version_target_entry_title">Έκδοση παραποίησης της εφαρμογής</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Μη έγκυρη έκδοση για παραποίηση: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Πληκτρολογήστε την έκδοση εφαρμογής που θα εφαρμοστεί</string>
@@ -2425,6 +2457,7 @@ Playlists
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Οι χειρονομίες σάρωσης είναι ενεργοποιημένες στη λειτουργία «Οθόνη κλειδώματος»</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Χρήση στη λειτουργία «Οθόνη κλειδώματος»</string>
     <string name="revanced_swipe_haptic_feedback_title">Απόκριση δόνησης</string>
+    <string name="revanced_swipe_left_zone_title">Κίνηση σάρωσης προς τα αριστερά</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Αυτόματη</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Η σάρωση προς τα κάτω στη χαμηλότερη τιμή της χειρονομίας φωτεινότητας δεν ενεργοποιεί την αυτόματη φωτεινότητα</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Η σάρωση προς τα κάτω στη χαμηλότερη τιμή της χειρονομίας φωτεινότητας ενεργοποιεί την αυτόματη φωτεινότητα</string>
@@ -2454,6 +2487,7 @@ Playlists
     <string name="revanced_swipe_press_to_engage_summary_off">Η χειρονομία παρατεταμένου πατήματος για σάρωση είναι απενεργοποιημένη</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Η χειρονομία παρατεταμένου πατήματος για σάρωση είναι ενεργοποιημένη</string>
     <string name="revanced_swipe_press_to_engage_title">Παρατεταμένο πάτημα για σάρωση</string>
+    <string name="revanced_swipe_right_zone_title">Κίνηση σάρωσης προς τα δεξιά</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Η φωτεινότητα δεν αποθηκεύεται ούτε επαναφέρεται κατά την έξοδο ή την είσοδο σε πλήρη οθόνη</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Η φωτεινότητα αποθηκεύεται και επαναφέρεται κατά την έξοδο ή την είσοδο σε πλήρη οθόνη</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Αποθήκευση και επαναφορά φωτεινότητας</string>
@@ -2478,8 +2512,9 @@ Playlists
     <string name="revanced_swipe_text_overlay_size_title">Μέγεθος κειμένου φόντου σάρωσης</string>
     <string name="revanced_swipe_threshold_summary">Ορίστε την απαιτούμενη απόσταση μεταφοράς πριν ενεργοποιηθεί μια ρύθμιση</string>
     <string name="revanced_swipe_threshold_title">Κατώτατο όριο μεγέθους σάρωσης</string>
-    <string name="revanced_swipe_volume_distance_summary">Ο αριθμός των pixel για σάρωση για ρύθμιση της έντασης. Οι χαμηλότερες τιμές κάνουν την αλλαγή έντασης ταχύτερη, οι υψηλότερες την κάνουν πιο αργή (1-1000)</string>
-    <string name="revanced_swipe_volume_distance_title">Απόσταση έντασης</string>
+    <string name="revanced_swipe_top_zone_title">Κίνηση σάρωσης προς τα πάνω</string>
+    <string name="revanced_swipe_volume_distance_summary">Οι υψηλότερες τιμές απαιτούν περισσότερο σύρσιμο ανά βήμα έντασης</string>
+    <string name="revanced_swipe_volume_distance_title">Ευαισθησία σάρωσης έντασης ήχου</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Η ευαισθησία σάρωσης πρέπει να ναι μεταξύ 1-1000</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Υψηλότερες τιμές αυξάνουν την αλλαγή της έντασης ήχου ανά σάρωση</string>
     <string name="revanced_swipe_volume_sensitivity_title">Ευαισθησία σάρωσης έντασης ήχου</string>
@@ -2589,7 +2624,6 @@ Playlists
     <string name="revanced_yandex_status_processing_minutes_plural">Απομένουν %d λεπτά...</string>
     <string name="revanced_yandex_status_processing_short">Επεξεργασία...</string>
     <string name="revanced_yandex_status_requesting_translation">Αίτημα μετάφρασης</string>
-    <string name="revanced_yandex_status_session_ok">Συνεδρία ΟΚ</string>
     <string name="revanced_yandex_status_subs_found">Βρέθηκαν υπότιτλοι, γίνεται λήψη...</string>
     <string name="revanced_yandex_status_transcription_delayed">Η μεταγραφή έχει καθυστερήσει ελαφρώς</string>
     <string name="revanced_yandex_status_youtube_specific">Χειρισμός αιτήματος ήχου YouTube...</string>

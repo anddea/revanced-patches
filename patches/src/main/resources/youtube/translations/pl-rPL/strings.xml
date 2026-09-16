@@ -20,6 +20,32 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX, włącz Cloud Messaging</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG nie jest zainstalowany. Zainstaluj go</string>
+    <string name="morphe_aislist_submit_already_blocklisted">Ten kanał znajduje się już na liście blokad AiSList</string>
+    <string name="morphe_aislist_submit_already_warnlisted">Ten kanał znajduje się już na liście ostrzeżeń AiSList</string>
+    <string name="morphe_aislist_submit_category_title">Zgłaszanie kanałów AI</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Zgłoś</string>
+    <string name="morphe_aislist_submit_dialog_message">"Zgłosić %s do AiSList, używając tego filmu jako dowodu?
+
+Zgłaszaj tylko kanały, które:
+• Używają głosów, obrazów, scenariuszy lub muzyki AI jako głównej treści
+• Masowo tworzą treści narzędziami AI przy znikomym wkładzie człowieka
+
+Nie zgłaszaj kanałów, które jedynie omawiają temat AI lub używają go tylko w wybranych fragmentach filmów
+
+Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do listy. Usunięcie z niej jest możliwe tylko poprzez wniosek na GitHubie"</string>
+    <string name="morphe_aislist_submit_failed">Błąd zgłoszenia, sprawdź połączenie</string>
+    <string name="morphe_aislist_submit_failed_channel">Nie można znaleźć kanału tego filmu</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList nie mogło zapisać zgłoszenia, spróbuj ponownie później</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Wysłano zbyt wiele zgłoszeń, spróbuj ponownie później</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList odrzuciło zgłoszenie</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Dodaje do menu filmu opcję zgłoszenia kanału do AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Dodaj opcję zgłoszenia do menu filmu</string>
+    <string name="morphe_aislist_submit_no_username">Ustaw nazwę zgłaszającego w ustawieniach filtra kanałów AI, aby zgłaszać kanały</string>
+    <string name="morphe_aislist_submit_resolving">Wyszukiwanie kanału…</string>
+    <string name="morphe_aislist_submit_success">Zgłoszono kanał, oczekuje na weryfikację</string>
+    <string name="morphe_aislist_submit_title">Zgłoś kanał AI</string>
+    <string name="morphe_aislist_submit_username_summary">Nazwa wyświetlana obok Twoich zgłoszeń w publicznym rankingu AiSList. Zgłaszanie jest niedostępne, dopóki to pole jest puste</string>
+    <string name="morphe_aislist_submit_username_title">Nazwa zgłaszającego</string>
     <string name="morphe_app_refresh_rate_default">Domyślna</string>
     <string name="morphe_app_refresh_rate_fps">%s kl./s</string>
     <string name="morphe_app_refresh_rate_title">Częstotliwość odświeżania aplikacji</string>
@@ -50,6 +76,8 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="morphe_disable_quic_protocol_summary_on">Wyłączony</string>
     <string name="morphe_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Wyłącz limit prędkości przewijania</string>
+    <string name="morphe_disable_system_splash_summary">Sprawia, że ​​ikona powitalna systemu statycznego staje się przezroczysta</string>
+    <string name="morphe_disable_system_splash_title">Wyłącz powitanie systemowe</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Opcja \"Wydłuż czas przewijania transmisji na żywo\" może być niedostępna
 
 ​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
@@ -63,6 +91,8 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
     <string name="morphe_force_original_audio_title">Wymuś oryginalny język dźwięku</string>
     <string name="morphe_fullscreen_large_seekbar_title">Włącz duży pasek postępu w trybie pełnoekranowym</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Ukryj przycisk skalowania filmu w odtwarzaczu pionowym</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Pokaż tylko na pełnym ekranie</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Dotknij, aby przełączać między trybami: Domyślne, Rozciągnij i Powiększ</string>
     <string name="morphe_fullscreen_video_scale_button_title">Pokaż przycisk skalowania filmu</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">Rozciągnij (wypełnij ekran)</string>
@@ -89,12 +119,14 @@ Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy
 • Łącznie: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Kanały z listy ostrzeżeń</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Lista ostrzeżeń: umiarkowana pewność</string>
+    <string name="morphe_hide_auto_dubbed_label_title">Ukryj etykietę automatycznego dubbingu</string>
     <string name="morphe_hide_courses_menu_title">Ukryj menu Kursy</string>
     <string name="morphe_hide_explore_button_title">Ukryj przycisk Odkrywaj</string>
     <string name="morphe_hide_fashion_menu_title">Ukryj menu \"Moda i uroda\"</string>
     <string name="morphe_hide_gaming_menu_title">Ukryj menu Gry</string>
     <string name="morphe_hide_get_premium_button_title">Ukryj przycisk \"Kup Premium\"</string>
     <string name="morphe_hide_hype_menu_title">Ukryj menu Podbijanie</string>
+    <string name="morphe_hide_hyped_label_title">Ukryj etykietę podbitych filmów</string>
     <string name="morphe_hide_invite_to_message_card_summary">Ukrywa kartę zaproszenia wyświetlaną w zakładce Powiadomienia w sekcji Wiadomości</string>
     <string name="morphe_hide_invite_to_message_card_title">Ukryj kartę \"Zaproś innych do przesyłania wiadomości\"</string>
     <string name="morphe_hide_learning_menu_title">Ukryj menu Nauka</string>
@@ -107,6 +139,7 @@ Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy
     <string name="morphe_hide_player_flyout_audio_track_not_available">"Menu \"Ścieżka dźwiękowa\" jest ukryte
 
 ​Aby wyświetlić menu \"Ścieżka dźwiękowa\", zmień opcję \"Fałszowanie strumieni filmów\" na dowolnego klienta z wyjątkiem \"Android Studio\" i \"Android VR Downgraded\""</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Ukryj menu \"W drodze\"</string>
     <string name="morphe_hide_podcasts_menu_title">Ukryj menu Podcasty</string>
     <string name="morphe_hide_privacy_tos_footer_title">Ukryj stopki z informacjami prawnymi i prywatnością</string>
     <string name="morphe_hide_shopping_menu_title">Ukryj menu Zakupy</string>
@@ -143,6 +176,7 @@ Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy
     <string name="morphe_oauth2_toast_reset">Wylogowano z Android VR</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Zapobiega otwieraniu transmisji na żywo po dotknięciu awatara kanału</string>
     <string name="morphe_open_channel_of_live_avatar_title">Otwieraj kanał awatara transmisji na żywo</string>
+    <string name="morphe_open_videos_fullscreen_title">Otwieraj filmy w trybie pełnoekranowym</string>
     <string name="morphe_override_youtube_music_buttons_summary">Otwiera preferowaną aplikację muzyczną zamiast domyślnej aplikacji YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Zastąp przyciski YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Zawsze włączone</string>
@@ -163,6 +197,9 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_reload_video_summary_off">Ukryty</string>
     <string name="morphe_reload_video_summary_on">Widoczny</string>
     <string name="morphe_reload_video_title">Przycisk Odśwież film</string>
+    <string name="morphe_remember_livestream_position_summary">Dla trwających transmisji na żywo zapamiętuje i wznawia odtwarzanie od ostatniej pozycji, zamiast przeskakiwać do aktualnego momentu na żywo</string>
+    <string name="morphe_remember_livestream_position_title">Zapamiętaj pozycję odtwarzania transmisji na żywo</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">Ta funkcja nie działa w przypadku transmisji 24/7 oraz innych, które są \"zawsze włączone\"</string>
     <string name="morphe_replace_links_with_shortener_summary">Wymusza używanie skróconych linków youtu.be dla filmów</string>
     <string name="morphe_replace_links_with_shortener_title">Zmień linki udostępniania na youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">music.youtube.com</string>
@@ -176,10 +213,10 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_save_to_watch_later_button_title">Pokaż przycisk Zapisz do obejrzenia</string>
     <string name="morphe_save_to_watch_later_error_toast">Nie udało się zapisać na playliście \"Do obejrzenia\"</string>
     <string name="morphe_save_to_watch_later_flyout_title">Zapisz do obejrzenia</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Pozwala zapisywać filmy dla dzieci w wysuwanym menu \"Do obejrzenia\"</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Umożliwia zapisywanie filmów przeznaczonych dla dzieci na liście \"Do obejrzenia\" z poziomu menu</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Pokaż przycisk Zapisz do obejrzenia w filmach dla dzieci</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Umożliwia zapisywanie filmów krótkometrażowych \'Obejrzyj później\' lista odtwarzania z menu podręcznego kanału</string>
-    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Przycisk Zapisz dla filmów krótkometrażowych</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Umożliwia zapisywanie filmów Short na liście \"Do obejrzenia\" z poziomu menu</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Pokaż przycisk \"Zapisz do obejrzenia\" w menu Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Zapisano na playliście \"Do obejrzenia\"</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Najczęściej odtwarzane</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Pokazuje podgląd filmu podczas przeciągania paska postępu</string>
@@ -242,9 +279,11 @@ Aby się zalogować, naciśnij \"Kontynuuj\" poniżej"</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">Ukryta</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">Widoczna</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Pokaż fałszowanie w \"Statystyki dla nerdów\"</string>
-    <string name="morphe_spoof_video_streams_summary_off">"Wyłączone
+    <string name="morphe_spoof_video_streams_summary_off">"Strumienie wideo nie są podrabiane
 
-Odtwarzanie może nie działać"</string>
+Odtwarzanie może nie działać
+
+Aby korzystać z tej funkcji, wyłącz dostawcę PoToken"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Włączone
 
 Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>
@@ -286,6 +325,8 @@ Ograniczenia: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączo
     <string name="morphe_video_quality_prioritize_dialog">Jeśli to ustawienie będzie wyłączone, starsze filmy mogą nie wyświetlać opcji wyboru jakości filmu</string>
     <string name="morphe_video_quality_prioritize_summary">Nadaje priorytet najwyższej dostępnej jakości filmu kosztem wydajności kodeka</string>
     <string name="morphe_video_quality_prioritize_title">Priorytet jakości filmu</string>
+    <string name="morphe_vot_auto_translate_summary_off">Przycisk automatycznego tłumaczenia Google</string>
+    <string name="morphe_vot_auto_translate_summary_on">Przycisk automatycznego tłumaczenia Google dla każdego filmu</string>
     <string name="morphe_vot_caption_language_title">Język</string>
     <string name="morphe_vot_cost_free">Za darmo</string>
     <string name="morphe_vot_cost_per_hour">%s za 100 godzin filmu</string>
@@ -489,16 +530,20 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać"</string>
     <string name="revanced_custom_filter_summary_on">Filtr niestandardowy jest włączony</string>
     <string name="revanced_custom_filter_title">Włącz własny filtr</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Nieprawidłowy własny filtr: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_invalid">Niestandardowe wysokości dźwięku muszą mieścić się pomiędzy %1$sx I %2$sx</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">Nieprawidłowe niestandardowe wysokości dźwięku</string>
+    <string name="revanced_custom_playback_audio_pitches_summary">Dodaj ustawienia wysokości dźwięku, takie jak 0,85x lub 1,3x, rozdzielone spacjami lub nowymi wierszami (od 0,05x do 8x)</string>
+    <string name="revanced_custom_playback_audio_pitches_title">Edytuj niestandardowe ustawienia wysokości dźwięku</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Własne (stare)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Własne (nowoczesne)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Własne (bez motywu)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_youtube_legacy">Stare YouTube</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_off">Nowoczesny</string>
     <string name="revanced_custom_playback_speed_menu_type_title">Wygląd menu od prędkości odtwarzania</string>
-    <string name="revanced_custom_playback_speeds_invalid">Prędkości niestandardowe muszą być mniejsze niż %s</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowe niestandardowe prędkości odtwarzania</string>
+    <string name="revanced_custom_playback_speeds_invalid">Własne prędkości odtwarzania muszą być mniejsze niż %s</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowe własne prędkości odtwarzania</string>
     <string name="revanced_custom_playback_speeds_summary">Wprowadź preferowaną prędkość odtwarzania</string>
-    <string name="revanced_custom_playback_speeds_title">Niestandardowe prędkości odtwarzania</string>
+    <string name="revanced_custom_playback_speeds_title">Własne prędkości odtwarzania</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Przezroczystość nakładki odtwarzacza musi wynosić między 0 a 100</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Wartość przezroczystości musi wynosić między 0 a 100, gdzie 0 oznacza przezroczystość</string>
     <string name="revanced_custom_player_overlay_opacity_title">Niestandardowa przezroczystość nakładki</string>
@@ -661,9 +706,6 @@ Notki:
     <string name="revanced_disable_translucent_navigation_bar_summary_off">Widoczny</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">Ukryty</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Przezroczysty pasek nawigacyjny</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Pasek statusu jest nieprzezroczysty lub półprzezroczysty</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Pasek statusu jest nieprzezroczysty</string>
-    <string name="revanced_disable_translucent_status_bar_title">Wyłącz półprzezroczysty pasek stanu</string>
     <string name="revanced_disable_video_description_interaction_summary">"Wyłącza następujące interakcje, gdy opis filmu jest otworzony:
 
 • Stuknij, by przewijać
@@ -765,11 +807,6 @@ Zakładka Ty → Zobacz kanał → Menu → Ustawienia"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Wyłączony</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Włączony</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Szeroki pasek wyszukiwania z nagłówkiem YouTube</string>
-    <string name="revanced_enter_fullscreen_summary_off">Wyłączony</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Włączony
-
-Ograniczenie: nie działa jeśli odtwarzacz jest zminimalizowany, w trybie PiP lub w tle"</string>
-    <string name="revanced_enter_fullscreen_title">Pełny ekran po rozpoczęciu filmu</string>
     <string name="revanced_exit_fullscreen_entry_1">Wyłączone</string>
     <string name="revanced_exit_fullscreen_entry_2">Tylko w orientacji pionowej</string>
     <string name="revanced_exit_fullscreen_entry_3">Tylko w orientacji poziomej</string>
@@ -932,6 +969,9 @@ Informacje:
 • od kupowania
 • z filmami, które nie zostały obejrzane"</string>
     <string name="revanced_hide_carousel_shelf_title">Półki karuzelowe</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_off">Widoczne w komentarzach</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_on">Ukryte w komentarzach</string>
+    <string name="revanced_hide_category_bar_in_comments_title">Ukryj w komentarzach</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">Widoczny</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">Ukryty</string>
     <string name="revanced_hide_category_bar_in_feed_title">Na stronie głównej</string>
@@ -1749,10 +1789,11 @@ Miniodtwarzacz można przeciągnąć poza ekran w lewo lub prawo"</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Włączone</string>
     <string name="revanced_miniplayer_rounded_corners_title">Zaokrąglone boki</string>
     <string name="revanced_miniplayer_type_entry_2">Minimalny</string>
-    <string name="revanced_miniplayer_type_entry_4">Nowoczesny 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Nowoczesny 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Nowoczesny 3</string>
-    <string name="revanced_miniplayer_type_entry_7">Nowoczesny 4</string>
+    <string name="revanced_miniplayer_type_entry_3">Minimalny 2</string>
+    <string name="revanced_miniplayer_type_entry_4">Tabletowy</string>
+    <string name="revanced_miniplayer_type_entry_5">Nowoczesny 1</string>
+    <string name="revanced_miniplayer_type_entry_6">Nowoczesny 2</string>
+    <string name="revanced_miniplayer_type_entry_7">Nowoczesny 3</string>
     <string name="revanced_miniplayer_type_title">Typ miniodtwarzacza</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Rozmiar musi mieścić się w przedziale od %1$s do %2$s pikseli</string>
     <string name="revanced_miniplayer_width_dip_summary">Ustaw początkowy rozmiar na ekranie w pikselach</string>
@@ -2481,6 +2522,9 @@ Większość błędów nie może być naprawiona w skutek ograniczeń po stronie
     <string name="revanced_show_toolbar_settings_button_summary_off">Przycisk Ustawienia nie jest wyświetlany na pasku narzędzi</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">Przycisk Ustawienia jest wyświetlany na pasku narzędzi</string>
     <string name="revanced_show_toolbar_settings_button_title">Pokaż przycisk Ustawienia</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_off">Przycisk Ustawienia jest zachowany na karcie Ty</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_on">Przycisk Ustawienia jest zastosowany do karty Ty</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_title">Zakładka Aplikuj do Ciebie</string>
     <string name="revanced_show_video_title_section_summary">"Tytuły filmów w trybie pełnoekranowym są widoczne
 
 Ograniczenie: tytuły filmów znikają po stuknięciu w nie"</string>
@@ -2498,6 +2542,7 @@ Ograniczenie: tytuły filmów znikają po stuknięciu w nie"</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Przywraca funkcjonalność transkrypcji</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Przywraca nieskondensowany pasek akcji filmu</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Przywróć stare komponenty filtra</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - Przywraca stare zachowanie napisów</string>
     <string name="revanced_spoof_app_version_target_entry_title">Oszukiwana wersja aplikacji</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Nieprawidłowa oszukiwana wersja aplikacji: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
@@ -2583,6 +2628,10 @@ Warunki: 'Przycisk od odświeżenia filmu' oraz 'Zawsze pokazuj przycisk od odś
 Spośród klientów JavaScript, rekomendowanym klientem jest Uproszczony TV"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kliknij, by zobaczyć jak uzyskać token uwierzytelniający</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">O Android VR z autoryzacją</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Nieprzejrzysty</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Przezroczysty</string>
+    <string name="revanced_status_bar_translucency_title">Przezroczystość paska stanu</string>
+    <string name="revanced_swipe_bottom_zone_title">Gest przesunięcia dołem</string>
     <string name="revanced_swipe_brightness_distance_summary">Ilość pikseli do przesunięcia w celu zmiany jasności. Niższe wartości powodują szybszą zmianę jasności, wyższe sprawiają, że zmiana jest wolniejsza (1–1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Odległość jasności</string>
     <string name="revanced_swipe_brightness_summary_off">Przesuwanie jasności na pełnym ekranie jest wyłączone</string>
@@ -2599,6 +2648,7 @@ Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu"</string>
     <string name="revanced_swipe_haptic_feedback_title">Włącz wibracje</string>
     <string name="revanced_swipe_horizontal_zone_summary">Procent wysokości odtwarzacza zarezerwowany na górnej i dolnej krawędzi na szybkie ruchy i szukanie</string>
     <string name="revanced_swipe_horizontal_zone_title">Obszar przesuwania poziomego</string>
+    <string name="revanced_swipe_left_zone_title">Gest przesunięcia w lewo</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Przesunięcie w dół do najniższej wartości nie włącza automatycznej jasności</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Przesunięcie w dół do najniższej wartości gestu jasności włącza automatyczną jasność</string>
@@ -2628,6 +2678,7 @@ Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu"</string>
     <string name="revanced_swipe_press_to_engage_summary_off">Przesuwanie przez naciśnięcie jest wyłączone</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Przesuwanie przez naciśnięcie jest włączone</string>
     <string name="revanced_swipe_press_to_engage_title">Włącz wymóg przytrzymania dla gestów</string>
+    <string name="revanced_swipe_right_zone_title">Gest przesunięcia w prawo</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Nie zapisuj i nie przywracaj jasności podczas zamykania lub wchodzenia w tryb pełnoekranowy</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Zapisuj i przywracaj jasność podczas zamykania lub wchodzenia w tryb pełnoekranowy</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Zapisuj i przywracaj jasność</string>
@@ -2652,10 +2703,11 @@ Dostosuj prędkość, przesuwając palcem w poziomie na dolnej połowie ekranu"<
     <string name="revanced_swipe_text_overlay_size_title">Rozmiar tekstu nakładki gestów</string>
     <string name="revanced_swipe_threshold_summary">Ustaw wymagany dystans przesunięcia palcem, zanim rozpocznie się regulacja</string>
     <string name="revanced_swipe_threshold_title">Próg aktywacji gestu</string>
+    <string name="revanced_swipe_top_zone_title">Gest przesunięcia w górę</string>
     <string name="revanced_swipe_vertical_zone_summary">Procent szerokości odtwarzacza zarezerwowany na lewej i prawej krawędzi na przesuwanie jasności i głośności</string>
     <string name="revanced_swipe_vertical_zone_title">Obszar przesuwania pionowego</string>
-    <string name="revanced_swipe_volume_distance_summary">Ilość pikseli do przesunięcia w celu zmiany głośności. Niższe wartości powodują szybszą zmianę głośności, wyższe sprawiają, że zmiana jest wolniejsza (1–1000)</string>
-    <string name="revanced_swipe_volume_distance_title">Odległość głośności</string>
+    <string name="revanced_swipe_volume_distance_summary">Wyższe wartości wymagają dłuższego przesunięcia palcem dla każdej zmiany głośności</string>
+    <string name="revanced_swipe_volume_distance_title">Czułość gestu głośności</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Czułość przesuwania gestu głośności musi być pomiędzy 1 a 1000</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Wyższe wartości zwiększają zmianę głośności przy przesunięciu palcem</string>
     <string name="revanced_swipe_volume_sensitivity_title">Czułość gestu głośności</string>
@@ -2717,7 +2769,10 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_vot_audio_proxy_summary_on">Strumień audio jest przesyłany</string>
     <string name="revanced_vot_audio_proxy_title">Proxy strumień audio</string>
     <string name="revanced_vot_auth_required">Wymagana autoryzacja. Dodaj token Yandex OAuth w ustawieniach</string>
-    <string name="revanced_vot_credits_summary">Implementacja Yandex VOT przez Jav1x, sashade8-ship-it, I anddea. Na podstawie ilyhalight/tłumaczenie głosowe</string>
+    <string name="revanced_vot_auto_translate_summary_off">Kliknij przycisk tłumaczenia, aby rozpocząć tłumaczenie Yandex</string>
+    <string name="revanced_vot_auto_translate_summary_on">Tłumaczenie Yandex uruchamia się automatycznie dla każdego filmu</string>
+    <string name="revanced_vot_auto_translate_title">Automatycznie tłumacz filmy</string>
+    <string name="revanced_vot_credits_summary">Implementacja Yandex VOT przez anddea, COOLak, Jav1x i sashade8-ship-it. Na podstawie ilyhalight/tłumaczenie głosowe</string>
     <string name="revanced_vot_enabled_summary_off">Wyłączone</string>
     <string name="revanced_vot_enabled_summary_on">Włączone</string>
     <string name="revanced_vot_enabled_title">Tłumaczenie głosowe</string>
@@ -2739,7 +2794,7 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_vot_original_audio_volume_summary">Głośność oryginalnego dźwięku z YouTube podczas odtwarzania tłumaczenia</string>
     <string name="revanced_vot_original_audio_volume_title">Głośność oryginalnego dźwięku</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">Odtwarzane wideo</string>
-    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Zatrzymane wideo</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Nowe filmy są wstrzymywane i wznawiane, gdy przetłumaczona ścieżka dźwiękowa jest gotowa</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_title">Wstrzymaj wideo podczas przygotowywania tłumaczenia</string>
     <string name="revanced_vot_playback_error">Nie udało się odtworzyć tłumaczenia audio</string>
     <string name="revanced_vot_proxy_url_fetch_failed">Nie udało się pobrać hosta proxy VOT</string>
@@ -2825,7 +2880,6 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_yandex_status_processing_minutes_plural">Pozostało %d min...</string>
     <string name="revanced_yandex_status_processing_short">Przetwarzanie...</string>
     <string name="revanced_yandex_status_requesting_translation">Żądanie tłumaczenia</string>
-    <string name="revanced_yandex_status_session_ok">Sesja działa prawidłowo</string>
     <string name="revanced_yandex_status_subs_found">Znaleziono napisy, pobieranie...</string>
     <string name="revanced_yandex_status_transcription_delayed">Transkrypcja jest lekko opóźniona</string>
     <string name="revanced_yandex_status_youtube_specific">Obsługiwanie żądań dźwięku YouTube...</string>

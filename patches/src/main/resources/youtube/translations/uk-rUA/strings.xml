@@ -9,17 +9,43 @@
 Дотримуйтеся посібника \"Don't kill my app\" для вашого пристрою та застосуйте інструкції до вашого MicroG
 
 Це необхідно для роботи застосунку"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Необхідно вимкнути оптимізацію енергії для MicroG GmsCore, щоб запобігти проблемам
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Необхідно вимкнути оптимізацію енергії для MicroG/GmsCore, щоб запобігти проблемам
 
-Вимкнення оптимізації енергії для MicroG не вплине негативно на час автономної роботи
+Вимкнення оптимізації енергії для MicroG/GmsCore не вплине негативно на час автономної роботи
 
 Натисніть кнопку \"Продовжити\" та вимкніть оптимізацію"</string>
     <string name="gms_core_dialog_open_website_text">Відкрити вебсайт</string>
     <string name="gms_core_dialog_title">Потрібна дія</string>
-    <string name="gms_core_offline_account_login_error">Якщо нещодавно змінили дані входу в обліковий запис, тоді перевстановіть GmsCore</string>
+    <string name="gms_core_offline_account_login_error">Якщо нещодавно змінили дані входу в обліковий запис, тоді перевстановіть MicroG/GmsCore</string>
     <string name="gms_core_settings_summary">Щоб отримувати сповіщення у RVX, увімкніть Хмарні повідомлення</string>
-    <string name="gms_core_settings_title">Відкрити налаштування GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">MicroG не встановлено. Встановіть його</string>
+    <string name="gms_core_settings_title">Відкрити налаштування MicroG/GmsCore</string>
+    <string name="gms_core_toast_not_installed_message">MicroG/GmsCore не встановлено. Встановіть його</string>
+    <string name="morphe_aislist_submit_already_blocklisted">Цей канал вже є в списку блокування AiSList</string>
+    <string name="morphe_aislist_submit_already_warnlisted">Цей канал вже є в списку попереджень AiSList</string>
+    <string name="morphe_aislist_submit_category_title">Повідомити про AI-канали</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Повідомити</string>
+    <string name="morphe_aislist_submit_dialog_message">"Надіслати %s до AiSList, використовуючи це відео як доказ?
+
+Повідомляйте лише про канали, які:
+• Використовують AI-голоси, візуали, сценарії чи музику як основний контент
+• Масово створюють контент за допомогою AI-інструментів з мінімальною людською роботою
+
+Не повідомляйте про канали, які лише обговорюють AI, або використовують AI лише для деяких частин своїх відео
+
+Звіти публічні та розглядаються перед додаванням каналу до списку. Видалення можливе лише через запит на GitHub"</string>
+    <string name="morphe_aislist_submit_failed">Не вдалося надіслати звіт, перевірте з\'єднання</string>
+    <string name="morphe_aislist_submit_failed_channel">Не вдалося знайти канал цього відео</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList не зміг зберегти звіт, спробуйте пізніше</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Надіслано забагато звітів, спробуйте пізніше</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList відхилив звіт</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Додає пункт до меню відео для звітування про канал відео до AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Додати пункт звітування до меню відео</string>
+    <string name="morphe_aislist_submit_no_username">Встановіть ім\'я відправника в налаштуваннях фільтра AI-каналів, щоб повідомляти про канали</string>
+    <string name="morphe_aislist_submit_resolving">Пошук каналу…</string>
+    <string name="morphe_aislist_submit_success">Про канал повідомлено, очікується перевірка</string>
+    <string name="morphe_aislist_submit_title">Повідомити AI-канал</string>
+    <string name="morphe_aislist_submit_username_summary">Ім\'я, що показується поруч із вашими звітами в публічному рейтингу AiSList. Звітування недоступне, поки це поле порожнє</string>
+    <string name="morphe_aislist_submit_username_title">Ім\'я відправника</string>
     <string name="morphe_app_refresh_rate_default">Типова</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">Частота оновлення застосунку</string>
@@ -31,7 +57,16 @@
     <string name="morphe_auto_pause_on_screen_lock_always">Завжди призупиняти при блокуванні</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Призупиняти, якщо не підключено бездротовий звук</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Автоматично призупиняти, коли пристрій заблоковано</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Використовувати вибрану іконку додатка для пункту налаштувань RVX, якщо вона доступна</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Використовувати значок у налаштуваннях RVX</string>
     <string name="morphe_custom_branding_icon_title">Іконка застосунку</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Встановлює розмір власної анімації завантаження</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Розмір анімації завантаження</string>
+    <string name="morphe_custom_branding_use_as_system_splash_summary">Використовувати обрану анімацію як системний екран завантаження Android</string>
+    <string name="morphe_custom_branding_use_as_system_splash_title">Використовувати як системний екран завантаження</string>
+    <string name="morphe_dark_theme_custom_color_summary">Використовується, коли вибрано варіант "Власний"</string>
+    <string name="morphe_dark_theme_custom_color_title">Власний колір темної теми</string>
+    <string name="morphe_dark_theme_title">Темна тема</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Залишає панель навігації видимою під час прокручування</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Вимкнути автоприховування панелі навігації</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудіо DRC увімкнено</string>
@@ -41,6 +76,8 @@
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC вимкнено</string>
     <string name="morphe_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Вимкнути обмеження швидкості прокручування</string>
+    <string name="morphe_disable_system_splash_summary">Робить статичний значок системної заставки прозорим</string>
+    <string name="morphe_disable_system_splash_title">Вимкнути системну заставку</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\"Розширити тривалість DVR прямої трансляції\" може бути недоступним
 
 Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV Simply\" або \"visionOS\""</string>
@@ -54,6 +91,8 @@
     <string name="morphe_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
     <string name="morphe_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
     <string name="morphe_fullscreen_large_seekbar_title">Увімкнути товсту смугу відтворення у повноекранному режимі</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Приховати кнопку масштабу відео в портретному плеєрі</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Показувати лише в повноекранному режимі</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Натисніть, щоб перемикати між \"Типовим\", \"Розтягнутим\" та \"Масштабованим\"</string>
     <string name="morphe_fullscreen_video_scale_button_title">Показувати кнопку масштабу відео</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">Розтягнутий (заповнити екран)</string>
@@ -80,12 +119,14 @@
 • Всього: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Каналів в списку попереджень</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Список попереджень: помірна впевненість</string>
+    <string name="morphe_hide_auto_dubbed_label_title">Приховати мітку \"Дубляж\"</string>
     <string name="morphe_hide_courses_menu_title">Приховати меню \"Навчання\"</string>
     <string name="morphe_hide_explore_button_title">Приховати кнопку \"Навігація\"</string>
     <string name="morphe_hide_fashion_menu_title">Приховати меню \"Мода та Краса\"</string>
     <string name="morphe_hide_gaming_menu_title">Приховати меню \"Ігри\"</string>
     <string name="morphe_hide_get_premium_button_title">Приховати кнопку \"Придбати підписку Premium\"</string>
     <string name="morphe_hide_hype_menu_title">Приховати меню \"Hype\"</string>
+    <string name="morphe_hide_hyped_label_title">Приховати мітку \"У тренді\"</string>
     <string name="morphe_hide_invite_to_message_card_summary">Приховує картку запрошення, показану в розділі \"Повідомлення\" на вкладці \"Сповіщення\"</string>
     <string name="morphe_hide_invite_to_message_card_title">Приховати картку \"Запросити інших до повідомлення\"</string>
     <string name="morphe_hide_learning_menu_title">Приховати меню \"Навчання\"</string>
@@ -98,6 +139,7 @@
     <string name="morphe_hide_player_flyout_audio_track_not_available">"Пункт меню \"Звукова доріжка\" приховано
 
 Для того, щоб пункт меню \"Звукова доріжка\" показувався, змініть клієнт \"Підміни відеопотоків\" на будь-який, окрім \"Android Studio\" або \"Android VR Downgraded\""</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Приховати меню \"У дорозі\"</string>
     <string name="morphe_hide_podcasts_menu_title">Приховати меню \"Подкасти\"</string>
     <string name="morphe_hide_privacy_tos_footer_title">Приховати нижні колонтитули з юридичною інформацією та конфіденційністю</string>
     <string name="morphe_hide_shopping_menu_title">Приховати меню \"Покупки\"</string>
@@ -113,6 +155,8 @@
     <string name="morphe_hide_youtube_premium_menu_title">Приховати меню \"YouTube Premium\"</string>
     <string name="morphe_hide_youtube_studio_menu_title">Приховати меню \"YouTube Studio\"</string>
     <string name="morphe_hide_youtube_works_menu_title">Приховати меню \"Як працює YouTube\"</string>
+    <string name="morphe_light_theme_custom_color_title">Власний колір світлої теми</string>
+    <string name="morphe_light_theme_title">Світла тема</string>
     <string name="morphe_livestream_dvr_not_available">"\"Увімкнути DVR для прямої трансляції\" може бути недоступним
 
 Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV Simply\" або \"visionOS\""</string>
@@ -120,6 +164,8 @@
     <string name="morphe_livestream_dvr_title">Увімкнути DVR для прямої трансляції</string>
     <string name="morphe_music_package_name_summary">Назва пакету встановленого музичного застосунку</string>
     <string name="morphe_music_package_name_title">Назва пакету музичного застосунку</string>
+    <string name="morphe_notification_dot_color_summary">Змінює колір точок сповіщень</string>
+    <string name="morphe_notification_dot_color_title">Колір точки сповіщення</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не вдається ввійти до VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не вдається ввійти у VR, автентифікацію вебсайту не схвалено</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 тимчасово недоступний</string>
@@ -130,6 +176,7 @@
     <string name="morphe_oauth2_toast_reset">Ви вийшли з Android VR</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Запобігає відкриттю трансляції при натисканні на аватар каналу</string>
     <string name="morphe_open_channel_of_live_avatar_title">Відкривати канал через аватар трансляції</string>
+    <string name="morphe_open_videos_fullscreen_title">Відкривати відео у повноекранному режимі</string>
     <string name="morphe_override_youtube_music_buttons_summary">Відкриває вибраний музичний застосунок замість стандартного застосунку YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Перевизначити кнопки YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Завжди ввімкнено</string>
@@ -138,11 +185,18 @@
     <string name="morphe_playback_in_feeds_title">Відтворення в стрічках</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Налаштуйте прозорість фону за кнопками керування плеєром та панеллю часу (0 - невидиме, 100 - суцільне)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Прозорість фону кнопок керування</string>
+    <string name="morphe_potoken_provider_summary">"Виправляє проблеми з відтворенням за допомогою вбудованого провайдера PoToken (Експериментально) / Якщо ви користувач YouTube Premium, це налаштування може не знадобитися"</string>
+    <string name="morphe_potoken_provider_title">Провайдер PoToken</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Виправляє проблеми з відтворенням за допомогою вбудованого провайдера PoToken (Експериментально)
+​Щоб використовувати цю функцію, вимкніть \' Підміна відеопотоків \'"</string>
     <string name="morphe_queue_manager_check_failed_auth">Не увійшли в систему</string>
     <string name="morphe_queue_manager_check_failed_video_id">Немає ID відео</string>
     <string name="morphe_reload_video_summary_off">Кнопка перезавантаження відео не показується</string>
     <string name="morphe_reload_video_summary_on">Кнопка перезавантаження відео показується</string>
     <string name="morphe_reload_video_title">Кнопка перезавантаження відео</string>
+    <string name="morphe_remember_livestream_position_summary">Для активних прямих трансляцій запам\'ятовує та відновлює позицію відтворення замість переходу до поточного моменту трансляції</string>
+    <string name="morphe_remember_livestream_position_title">Запам\'ятовувати позицію відтворення прямої трансляції</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">Ця функція не працює з цілодобовими прямими трансляціями та іншими трансляціями, що завжди активні</string>
     <string name="morphe_replace_links_with_shortener_summary">Примусово використовує скорочений формат URL youtu.be для відео</string>
     <string name="morphe_replace_links_with_shortener_title">Змінити посилання для поширення на youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
@@ -156,8 +210,10 @@
     <string name="morphe_save_to_watch_later_button_title">Показати кнопку \"Зберегти для перегляду пізніше\"</string>
     <string name="morphe_save_to_watch_later_error_toast">Не вдалося зберегти це відео у списку відтворення \"Подивитися пізніше\"</string>
     <string name="morphe_save_to_watch_later_flyout_title">\"Зберегти для перегляду пізніше\"</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Дозволяє зберігати відео для дітей у спливному меню \"Переглянути пізніше\"</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Дозволяє зберегти відео для дітей у \"Дивитися пізніше\" зі спливного меню</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Показувати кнопку \"Зберегти для перегляду пізніше\" у дитячих відео</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Дозволяє зберегти Shorts в \"Дивитися пізніше\" зі спливного меню</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Показувати кнопку \"Зберегти в \'Дивитися пізніше\'\" у спливному меню Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Відео збережено у списку відтворення \"Подивитися пізніше\"</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Найпопулярніші моменти</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Показує мініатюру відео під час перетягування смуги відтворення</string>
@@ -222,7 +278,9 @@
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Показати підміну в \"Статистиці для сисадмінів\"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Відеопотоки не підмінено
 
-Відтворення може не працювати"</string>
+Відтворення може не працювати"
+
+Для використання — вимкніть 'PoToken provider'"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Відеопотоки підмінено
 
 Якщо Ви користуєтеся YouTube Premium, ця опція може бути не потрібна"</string>
@@ -235,9 +293,37 @@
     <string name="morphe_tablet_layout_in_player_title">Увімкнути планшетний макет у плеєрі</string>
     <string name="morphe_theme_color_change_foreground_summary">Використовувати колір теми для тексту та іконок</string>
     <string name="morphe_theme_color_change_foreground_title">Змінити колір тексту</string>
+    <string name="morphe_theme_entry_amoled_black">Чорний AMOLED</string>
+    <string name="morphe_theme_entry_classic_youtube">Класичний (Старий YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Темно-синій</string>
+    <string name="morphe_theme_entry_dark_green">Темно-зелений</string>
+    <string name="morphe_theme_entry_dark_orange">Темно-помаранчевий</string>
+    <string name="morphe_theme_entry_dark_pink">Темно-рожевий</string>
+    <string name="morphe_theme_entry_dark_red">Темно-червоний</string>
+    <string name="morphe_theme_entry_dark_yellow">Темно-жовтий</string>
+    <string name="morphe_theme_entry_light_blue">Світло-синій</string>
+    <string name="morphe_theme_entry_light_green">Світло-зелений</string>
+    <string name="morphe_theme_entry_light_orange">Світло-помаранчевий</string>
+    <string name="morphe_theme_entry_light_pink">Світло-рожевий</string>
+    <string name="morphe_theme_entry_light_red">Світло-червоний</string>
+    <string name="morphe_theme_entry_light_yellow">Світло-жовтий</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Нейтральний)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - Основний</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - Другорядний</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - Третинний</string>
+    <string name="morphe_theme_entry_modern_youtube">Сучасний YouTube</string>
+    <string name="morphe_theme_entry_pale_blue">Блідо-синій</string>
+    <string name="morphe_theme_entry_pale_green">Блідо-зелений</string>
+    <string name="morphe_theme_entry_pale_yellow">Блідо-жовтий</string>
+    <string name="morphe_theme_entry_patch_option">Опція патча</string>
+    <string name="morphe_theme_entry_white">Білий</string>
+    <string name="morphe_theme_settings_summary">Налаштування теми, зовнішнього вигляду та брендування додатка</string>
+    <string name="morphe_theme_settings_title">Налаштування теми</string>
     <string name="morphe_video_quality_prioritize_dialog">Якщо це налаштування вимкнено, старіші відео можуть не показувати параметри якості відео</string>
     <string name="morphe_video_quality_prioritize_summary">Надає пріоритет найвищій доступній якості відео над ефективністю кодека</string>
     <string name="morphe_video_quality_prioritize_title">Пріоритет якості відео</string>
+    <string name="morphe_vot_auto_translate_summary_off">Натисніть кнопку перекладу, щоб розпочати переклад від Google</string>
+    <string name="morphe_vot_auto_translate_summary_on">Переклад від Google запускається автоматично для кожного відео</string>
     <string name="morphe_vot_caption_language_title">Мова</string>
     <string name="morphe_vot_cost_free">Безплатно</string>
     <string name="morphe_vot_cost_per_hour">%s за 100 годин відео</string>
@@ -338,6 +424,8 @@
     <string name="revanced_auto_captions_style_entry_3">Показувати при увімкненому звуці</string>
     <string name="revanced_auto_captions_style_entry_4">Показувати при вимкненому звуці</string>
     <string name="revanced_auto_captions_style_title">Видимість автоматичних субтитрів</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">Натискання кнопки "Назад" прокручує стрічку на самий верх</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">Натискання кнопки "Назад" завжди призводить до виходу зі стрічки/додатка</string>
     <string name="revanced_back_button_always_exits_feed_title">Кнопка \"Назад\" виходить зі стрічки</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Обмеження режиму \"Кінематографічне освітлення\" для режиму економії енергії не ігноруються</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Обмеження режиму \"Кінематографічне освітлення\" для режиму економії енергії ігноруються</string>
@@ -393,10 +481,12 @@
     <string name="revanced_change_start_page_entry_all_subscriptions">Усі підписки</string>
     <string name="revanced_change_start_page_entry_browse">Перегляд каналів</string>
     <string name="revanced_change_start_page_entry_courses">Навчання</string>
+    <string name="revanced_change_start_page_entry_create">Створити</string>
     <string name="revanced_change_start_page_entry_explore">Навігація</string>
     <string name="revanced_change_start_page_entry_fashion">Мода та Краса</string>
     <string name="revanced_change_start_page_entry_gaming">Ігри</string>
     <string name="revanced_change_start_page_entry_history">Історія</string>
+    <string name="revanced_change_start_page_entry_home">Головна</string>
     <string name="revanced_change_start_page_entry_hype">Розголос</string>
     <string name="revanced_change_start_page_entry_library">Вкладка \"Ви\"</string>
     <string name="revanced_change_start_page_entry_liked_videos">Відео, які сподобалися</string>
@@ -408,6 +498,7 @@
     <string name="revanced_change_start_page_entry_playlists">Списки відтворення</string>
     <string name="revanced_change_start_page_entry_podcasts">Подкасти</string>
     <string name="revanced_change_start_page_entry_search">Пошук на YouTube</string>
+    <string name="revanced_change_start_page_entry_settings">Налаштування</string>
     <string name="revanced_change_start_page_entry_shopping">Покупки</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Спорт</string>
@@ -436,6 +527,10 @@
     <string name="revanced_custom_filter_summary_on">Користувацький фільтр увімкнено</string>
     <string name="revanced_custom_filter_title">Увімкнути власний фільтр</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Недійсний власний фільтр: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_invalid">Власні значення висоти тону аудіо мають бути в діапазоні від %1$sx до %2$sx</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">Недійсні власні значення висоти тону аудіо</string>
+    <string name="revanced_custom_playback_audio_pitches_summary">Додайте пресети висоти тону аудіо, наприклад 0.85x або 1.3x, розділені пробілами або новими рядками (від 0.05x до 8x)</string>
+    <string name="revanced_custom_playback_audio_pitches_title">Редагувати власні пресети висоти тону аудіо</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Специфічне (Застаріле)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Специфічне (Новітнє)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Специфічне (Без теми)</string>
@@ -481,6 +576,7 @@
     <string name="revanced_debug_toast_on_error_title">Показати повідомлення про помилку RVX</string>
     <string name="revanced_default_app_settings_summary">Щоб відкривати додаток у зовнішньому перегляді, увімкніть Відкривати всі підтримувані посилання та підтримувані вебадреси</string>
     <string name="revanced_default_app_settings_title">Відкрити налаштування</string>
+    <string name="revanced_default_playback_audio_pitch_title">Стандартна висота звуку під час відтворення</string>
     <string name="revanced_default_playback_speed_shorts_title">Типова швидкість відтворення Shorts</string>
     <string name="revanced_default_playback_speed_title">Типова швидкість відтворення</string>
     <string name="revanced_default_video_quality_mobile_shorts_title">Типова якість Shorts в мобільній мережі</string>
@@ -522,6 +618,8 @@
     <string name="revanced_disable_engagement_panel_summary_off">Панель залучення увімкнено</string>
     <string name="revanced_disable_engagement_panel_summary_on">Панель залучення вимкнено</string>
     <string name="revanced_disable_engagement_panel_title">Вимкнути панель залучення</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_off">Жест зведення пальців для масштабування увімкнено</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_on">Жест зведення пальців для масштабування вимкнено</string>
     <string name="revanced_disable_fullscreen_zoom_gesture_title">Вимкнути жест масштабування щипком</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Вібрацію між розділами ввімкнено</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Вібрацію між розділами вимкнено</string>
@@ -560,6 +658,8 @@
     <string name="revanced_disable_like_dislike_glow_summary_off">Кнопки Подобається та Не подобається відблискуватимуть при згадуванні</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Кнопки Подобається та Не подобається не відблискуватимуть при згадуванні</string>
     <string name="revanced_disable_like_dislike_glow_title">Вимкнути відблиск кнопки Подобається та Не подобається</string>
+    <string name="revanced_disable_playlist_autoplay_summary_off">Списки відтворення автоматично переходять до наступного відео</string>
+    <string name="revanced_disable_playlist_autoplay_summary_on">Спискам відтворення заборонено автоматично переходити до наступного відео</string>
     <string name="revanced_disable_playlist_autoplay_title">Вимкнути автовідтворення списку відтворення</string>
     <string name="revanced_disable_quic_protocol_summary">"Вимкнути протокол CronetEngine's QUIC"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Продовжити перегляд&lt;/b&gt; відновлюватиметься при запуску програми.&lt;br&gt;&lt;br&gt;Інформація:&lt;br&gt;• &lt;b&gt;Продовжити перегляд&lt;/b&gt; це функція YouTube Premium.&lt;br&gt;• Цей параметр не вмикає примусово &lt;b&gt;Продовжити перегляд&lt;/b&gt;</string>
@@ -603,9 +703,6 @@
     <string name="revanced_disable_translucent_navigation_bar_summary_off">Панель навігації напівпрозора</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">Панель навігації непрозора</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Вимкнути напівпрозору панель навігації</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Рядок стану непрозорий або напівпрозорий</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Рядок стану непрозорий</string>
-    <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорість рядка стану</string>
     <string name="revanced_disable_video_description_interaction_summary">"Вимикається такі взаємодії під час розгортання опису відео:
 
 • Натисніть, щоб прокрутити
@@ -649,6 +746,8 @@
     <string name="revanced_enable_narrow_navigation_buttons_title">Увімкнути вузькі кнопки навігації</string>
     <string name="revanced_enable_opus_codec_summary">Вмикає кодек OPUS, якщо відповідь плеєра включає його</string>
     <string name="revanced_enable_opus_codec_title">Увімкнути кодек OPUS</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">Елементи керування висотою звуку вимкнено</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">Елементи керування висотою звуку увімкнено</string>
     <string name="revanced_enable_playback_audio_pitch_controls_title">Увімкнути керування висотою тону звуку</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Натискання на смугу прогресу вимкнено</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Натискання на смугу прогресу увімкнено</string>
@@ -705,11 +804,6 @@
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Широка панель пошуку виключає та використовує місце заголовка YouTube</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Широка панель пошуку включно зі заголовком YouTube</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Увімкнути широку панель пошуку з заголовком</string>
-    <string name="revanced_enter_fullscreen_summary_off">Не переходиться у повноекранний режим при запуску відео</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Переходиться у повноекранний режим при запуску відео
-
-Застереження: Не працюватиме якщо плеєр мінімізовано, у режимі PiP, чи у фоні"</string>
-    <string name="revanced_enter_fullscreen_title">Переходити у повноекранний режим при запуску відео</string>
     <string name="revanced_exit_fullscreen_entry_1">Вимкнено</string>
     <string name="revanced_exit_fullscreen_entry_2">Лише портретний</string>
     <string name="revanced_exit_fullscreen_entry_3">Лише альбомний</string>
@@ -795,8 +889,8 @@
     <string name="revanced_gemini_transcription_parse_button">Субтитри</string>
     <string name="revanced_gemini_transcription_parse_success">Розбір субтитрів виконано успішно</string>
     <string name="revanced_gemini_transcription_result_title">Транскрибування відео Gemini</string>
-    <string name="revanced_gms_show_dialog_summary">Показ діалога оптимізації для GMSCore при кожному запуску програми</string>
-    <string name="revanced_gms_show_dialog_title">Показувати діалог оптимізації для GMSCore</string>
+    <string name="revanced_gms_show_dialog_summary">Показ діалога оптимізації для MicroG/GMSCore при кожному запуску програми</string>
+    <string name="revanced_gms_show_dialog_title">Показувати діалог оптимізації для MicroG/GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_summary">Позиції початку та кінця градієнта з 0 до 1 розділені комою</string>
     <string name="revanced_gradient_seekbar_positions_title">Межі градієнта смуги прогресу</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Введіть назви елементів нижнього меню \"Бібліотека\" / \"Ви\", які потрібно приховати, кожен з нового рядка</string>
@@ -872,6 +966,9 @@
 • Покупки
 • Переглянути ще раз"</string>
     <string name="revanced_hide_carousel_shelf_title">Приховати карусельні полиці</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_off">Відображається в коментарях</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_on">Приховано в коментарях</string>
+    <string name="revanced_hide_category_bar_in_comments_title">Приховати в коментарях</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">Показується у стрічці</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">Приховано у стрічці</string>
     <string name="revanced_hide_category_bar_in_feed_title">Приховати у стрічці</string>
@@ -952,7 +1049,11 @@
     <string name="revanced_hide_connect_button_summary_off">Показано кнопку Connect</string>
     <string name="revanced_hide_connect_button_summary_on">Кнопка Connect прихована</string>
     <string name="revanced_hide_connect_button_title">Приховати кнопку \"Підключити\"</string>
+    <string name="revanced_hide_corrections_section_summary_off">Розділ виправлень відображається</string>
+    <string name="revanced_hide_corrections_section_summary_on">Розділ виправлень приховано</string>
     <string name="revanced_hide_corrections_section_title">Приховати секцію \"Виправлення\"</string>
+    <string name="revanced_hide_course_progress_section_summary_off">Розділ прогресу курсу відображається</string>
+    <string name="revanced_hide_course_progress_section_summary_on">Розділ прогресу курсу приховано</string>
     <string name="revanced_hide_course_progress_section_title">Приховати секцію \"Прогрес курсу\"</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Полиця магазину автора під відеоплеєром показується</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Полицю магазину автора під відеоплеєром приховано</string>
@@ -987,15 +1088,23 @@
     <string name="revanced_hide_expandable_shelf_summary_off">Висувні полиці показується</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Висувні полиці приховано</string>
     <string name="revanced_hide_expandable_shelf_title">Приховати висувні полиці</string>
+    <string name="revanced_hide_explore_course_section_summary_off">Розділ "Ознайомитися з цим курсом" відображається</string>
+    <string name="revanced_hide_explore_course_section_summary_on">Розділ "Ознайомитися з цим курсом" приховано</string>
     <string name="revanced_hide_explore_course_section_title">Приховати секцію \"Послухайте цей курс\"</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">Секція \"Послухайте подкаст\" показується</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Секцію \"Послухайте подкаст\" приховано</string>
     <string name="revanced_hide_explore_podcast_section_title">Приховати секцію \"Послухайте подкаст\"</string>
+    <string name="revanced_hide_explore_section_summary_off">Розділи "Ознайомитися з цим курсом" та "Ознайомитися з подкастом" відображаються</string>
+    <string name="revanced_hide_explore_section_summary_on">Розділи "Ознайомитися з цим курсом" та "Ознайомитися з подкастом" приховано</string>
     <string name="revanced_hide_explore_section_title">Приховати секцію \"Навігація\"</string>
+    <string name="revanced_hide_featured_channels_section_summary_off">Розділ рекомендованих каналів відображається</string>
+    <string name="revanced_hide_featured_channels_section_summary_on">Розділ рекомендованих каналів приховано</string>
     <string name="revanced_hide_featured_channels_section_title">Приховати секцію \"Рекомендовані канали\"</string>
     <string name="revanced_hide_featured_links_section_summary_off">Секція рекомендованих посилань показується</string>
     <string name="revanced_hide_featured_links_section_summary_on">Секцію рекомендованих посилань приховано</string>
     <string name="revanced_hide_featured_links_section_title">Приховати секцію \"Рекомендований контент\"</string>
+    <string name="revanced_hide_featured_playlists_section_summary_off">Розділ рекомендованих списків відтворення відображається</string>
+    <string name="revanced_hide_featured_playlists_section_summary_on">Розділ рекомендованих списків відтворення приховано</string>
     <string name="revanced_hide_featured_playlists_section_title">Приховати розділ \"Рекомендовані списки відтворення\"</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Секція рекомендованих відео показується</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Секцію рекомендованих відео приховано</string>
@@ -1032,6 +1141,8 @@
     <string name="revanced_hide_handle_summary_off">Ідентифікатор показується</string>
     <string name="revanced_hide_handle_summary_on">Ідентифікатор приховано</string>
     <string name="revanced_hide_handle_title">Приховати ідентифікатор</string>
+    <string name="revanced_hide_hashtag_section_summary_off">Розділ хештегів відображається</string>
+    <string name="revanced_hide_hashtag_section_summary_on">Розділ хештегів приховано</string>
     <string name="revanced_hide_hashtag_section_title">Приховати секцію хештегів</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Секція \"Як створювався цей контент\" показується</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Секцію \"Як створювався цей контент\" приховано</string>
@@ -1308,6 +1419,8 @@
     <string name="revanced_hide_search_bar_back_button_summary_off">Відображається кнопка «Назад» у рядку пошуку</string>
     <string name="revanced_hide_search_bar_back_button_summary_on">Кнопка «Назад» у рядку пошуку прихована</string>
     <string name="revanced_hide_search_bar_back_button_title">Сховати кнопку «Назад» у рядку пошуку</string>
+    <string name="revanced_hide_search_inside_this_video_section_summary_off">Розділ пошуку всередині цього відео відображається</string>
+    <string name="revanced_hide_search_inside_this_video_section_summary_on">Розділ пошуку всередині цього відео приховано</string>
     <string name="revanced_hide_search_inside_this_video_section_title">Приховати секцію \"Пошук у цьому відео\"</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Мініатюри в історії пошукового запиту показується</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Мініатюри в історії пошукового запиту приховано</string>
@@ -1502,6 +1615,8 @@
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Приховати відео підписок за переглядами</string>
     <string name="revanced_hide_video_by_view_counts_summary">Приховати рекомендовані відео з меншою за вказану кількість переглядів.\n\nВідома проблема: Відео з 0 переглядами не фільтруються</string>
     <string name="revanced_hide_video_by_view_counts_title">Приховати рекомендовані відео за переглядами</string>
+    <string name="revanced_hide_video_details_section_summary_off">Розділ деталей відео відображається</string>
+    <string name="revanced_hide_video_details_section_summary_on">Розділ деталей відео приховано</string>
     <string name="revanced_hide_video_details_section_title">Приховати секцію \"Інформація про відео\"</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">Мітки \"Інші користувачі також переглядали це відео\" та \"Вам також може сподобатися\" у результатах пошуку показуються</string>
     <string name="revanced_hide_video_recommendation_labels_title">Приховати мітки відеорекомендацій</string>
@@ -1673,16 +1788,20 @@
     <string name="revanced_miniplayer_rounded_corners_summary_on">Кути округлені</string>
     <string name="revanced_miniplayer_rounded_corners_title">Увімкнути округлені кути</string>
     <string name="revanced_miniplayer_type_entry_2">Мінімальний</string>
-    <string name="revanced_miniplayer_type_entry_4">Новітній 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Новітній 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Новітній 3</string>
-    <string name="revanced_miniplayer_type_entry_7">Новітній 4</string>
+    <string name="revanced_miniplayer_type_entry_3">Мінімальний 2</string>
+    <string name="revanced_miniplayer_type_entry_4">Планшетний</string>
+    <string name="revanced_miniplayer_type_entry_5">Новітній 1</string>
+    <string name="revanced_miniplayer_type_entry_6">Новітній 2</string>
+    <string name="revanced_miniplayer_type_entry_7">Новітній 3</string>
     <string name="revanced_miniplayer_type_title">Тип мініплеєра</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Розмір у пікселях повинен бути від %1$s до %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">Встановлює початковий розмір на екрані в пікселях</string>
     <string name="revanced_miniplayer_width_dip_title">Розмір за замовчуванням</string>
     <string name="revanced_navigation_bar_animations_summary">Анімує переходи між вкладками</string>
     <string name="revanced_navigation_bar_animations_title">Увімкнути анімації панелі навігації</string>
+    <string name="revanced_navigation_bar_order_drag_handle">Перетягніть для зміни порядку</string>
+    <string name="revanced_navigation_bar_order_summary">Перетягніть елементи навігації в тому порядку, у якому вони мають з'являтися</string>
+    <string name="revanced_navigation_bar_order_title">Порядок панелі навігації</string>
     <string name="revanced_open_links_externally_summary_off">Посилання відкриваються у браузері додатка</string>
     <string name="revanced_open_links_externally_summary_on">Посилання відкриваються у зовнішньому браузері</string>
     <string name="revanced_open_links_externally_title">Відкривати посилання ззовні</string>
@@ -1718,6 +1837,10 @@
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Спочатку виберіть цикл початок і кінець</string>
     <string name="revanced_overlay_button_loop_segment_enabled_toast">Цикл %1$s - %2$s</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Не можу використати поточний час відтворення</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_summary">Налаштувати розмір маркерів A та B на смузі відтворення</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_title">A &amp; B розмір</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_summary">Показувати діапазон зациклення на смузі відтворення за допомогою маркерів A та B</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_title">Сегмент зациклення</string>
     <string name="revanced_overlay_button_loop_segment_start_toast">Вибрано початок циклу: %s</string>
     <string name="revanced_overlay_button_loop_segment_summary">"Натисніть один раз, щоб вибрати старт, натисніть ще раз, щоб вибрати кінець і зациклити цей сегмент, потім втретє, щоб очистити
 Натисніть і утримуйте, щоб скопіювати URL відео з параметрами початку та кінця.»</string>
@@ -1777,6 +1900,10 @@
     <string name="revanced_patched_date_title">Дата пропатчування</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Виключено</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Включено</font></string>
+    <string name="revanced_playback_audio_pitch_sync">Синхронізація</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_off">Висота звуку не залежить від швидкості відтворення</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_on">Висота звуку синхронізована зі швидкістю відтворення</string>
+    <string name="revanced_playback_audio_pitch_title">Висота звуку</string>
     <string name="revanced_playback_audio_time_stretching_summary">Дозволяє налаштовувати швидкість і висоту тону незалежно, може спричиняти звукові артефакти</string>
     <string name="revanced_playback_audio_time_stretching_title">Розтягування звуку в часі</string>
     <string name="revanced_playback_speed_normal">Стандартна</string>
@@ -2243,7 +2370,9 @@
     <string name="revanced_sb_vote_no_segments">Немає сегментів для голосування</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
     <string name="revanced_sb_vote_upvote">Проголосувати \"за\"</string>
+    <string name="revanced_search_in_channel_no_results">У результатах пошуку не знайдено відео</string>
     <string name="revanced_search_in_channel_query_hint">Пошук у цьому каналі</string>
+    <string name="revanced_search_in_channel_scroll_tip">Прокрутіть униз, щоб завантажити більше відео перед створенням черги</string>
     <string name="revanced_search_in_channel_search_youtube">Пошук на YouTube</string>
     <string name="revanced_search_in_channel_title">Пошук в каналі</string>
     <string name="revanced_search_in_channel_use_webview_summary_off">Пошук в каналі використовує вбудований пошук YouTube. Це призведе до появи деяких нерелевантних результатів</string>
@@ -2295,6 +2424,11 @@
     <string name="revanced_settings_search_clear_history_message">Ви впевнені, що хочете очистити всю історію пошуку?</string>
     <string name="revanced_settings_search_empty_history_summary">Щоб зберегти історію пошуку, введіть пошуковий запит і натисніть Enter</string>
     <string name="revanced_settings_search_empty_history_title">Історія пошуку порожня</string>
+    <string name="revanced_settings_search_gemini_results">Результати Gemini</string>
+    <string name="revanced_settings_search_gemini_searching_title">Пошук за допомогою Gemini...</string>
+    <string name="revanced_settings_search_gemini_summary_off">Gemini не використовується для пошуку в налаштуваннях</string>
+    <string name="revanced_settings_search_gemini_summary_on">Gemini використовується, коли локальний пошук у налаштуваннях не дає результатів</string>
+    <string name="revanced_settings_search_gemini_title">Пошук у налаштуваннях за допомогою Gemini</string>
     <string name="revanced_settings_search_history_summary">Зберігайте нещодавні пошукові запити для показу їх коли рядок пошуку порожній</string>
     <string name="revanced_settings_search_history_summary_off">Історія пошуку налаштувань не показується</string>
     <string name="revanced_settings_search_history_summary_on">Історія пошуку налаштувань показується</string>
@@ -2310,6 +2444,9 @@
 • Батьківські налаштування показуються над вимкненими дочірніми налаштуваннями"</string>
     <string name="revanced_settings_search_tips_title">Поради щодо пошуку</string>
     <string name="revanced_settings_search_title">Пошук %s</string>
+    <string name="revanced_settings_show_slider_summaries_summary_off">Описи під налаштуваннями повзунків приховано</string>
+    <string name="revanced_settings_show_slider_summaries_summary_on">Описи під налаштуваннями повзунків відображаються</string>
+    <string name="revanced_settings_show_slider_summaries_title">Показувати описи для налаштувань повзунків</string>
     <string name="revanced_share_copy_timestamp_success">Мітку часу скопійовано в буфер обміну (%s)</string>
     <string name="revanced_share_copy_url_success">URL-адресу скопійовано до буфера</string>
     <string name="revanced_share_copy_url_timestamp_success">URL-адресу з міткою часу скопійовано до буфера</string>
@@ -2338,7 +2475,7 @@
     <string name="revanced_shorts_custom_actions_gemini_label">Підсумок Gemini</string>
     <string name="revanced_shorts_custom_actions_gemini_summary_off">Меню Підсумок Gemini приховано</string>
     <string name="revanced_shorts_custom_actions_gemini_summary_on">Меню Підсумок Gemini показується</string>
-    <string name="revanced_shorts_custom_actions_gemini_title">Показувати меню Підсумок Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Показувати Gemini в Shorts</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Відкрити відео</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Меню Відкрити відео приховано</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Меню Відкрити відео показується</string>
@@ -2371,6 +2508,7 @@
     <string name="revanced_shorts_player_type_regular_player">Звичайний плеєр</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Звичайний плеєр на весь екран</string>
     <string name="revanced_shorts_player_type_title">Відкривати Shorts через</string>
+    <string name="revanced_show_search_button_summary_off">Кнопка пошуку не відображається</string>
     <string name="revanced_show_search_button_title">Показати кнопку \"Пошук\"</string>
     <string name="revanced_show_settings_button_summary_off">Кнопка налаштувань не відображається</string>
     <string name="revanced_show_settings_button_summary_on">Кнопка налаштувань відображається</string>
@@ -2382,6 +2520,9 @@
     <string name="revanced_show_toolbar_settings_button_summary_off">Кнопка налаштувань не відображається на панелі інструментів</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">Кнопка налаштувань відображається на панелі інструментів</string>
     <string name="revanced_show_toolbar_settings_button_title">Показати кнопку \"Налаштування\"</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_off">Оригінальна дія кнопки налаштувань зберігається на вкладці «Ви»</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_on">Дія кнопки налаштувань застосовується до вкладки «Ви»</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_title">Застосувати до вкладки «Ви»</string>
     <string name="revanced_show_video_title_section_summary">"Показується секцію назви відео в повноекранному режимі
 
 Застереження: Назва відео зникає при натисканні"</string>
@@ -2399,6 +2540,7 @@
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Відновлення функції Транскрипція</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Відновлення не згорнутої панелі дій відео</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Відновлення старого фільтра компонентів</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - Відновити стару поведінку субтитрів</string>
     <string name="revanced_spoof_app_version_target_entry_title">Підробити цільову версію програми</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Недійсне підроблення версії програми: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Введіть цільову версію підробки програми</string>
@@ -2484,6 +2626,10 @@ uBlock Origin знайшов обхідний шлях для вирішення
 Серед клієнтів JavaScript рекомендується Простий TV"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Натисніть, щоб побачити, як отримати токен автентифікації</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Про авторизацію Android VR</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Непрозорий</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Прозорий</string>
+    <string name="revanced_status_bar_translucency_title">Напівпрозорість рядка стану</string>
+    <string name="revanced_swipe_bottom_zone_title">Жест свайпу знизу</string>
     <string name="revanced_swipe_brightness_distance_summary">Кількість пікселів для проведення, щоб змінити яскравість. Чим менше значення, тим яскравість змінюється швидше, чим більше, тим повільніше (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Відстань для яскравості</string>
     <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом в повноекранному режимі вимкнено</string>
@@ -2498,6 +2644,9 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Жести переміщення увімкнено в режимі \'Блокування екрана\'</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Жести переміщення в режимі \'Блокування екрана\'</string>
     <string name="revanced_swipe_haptic_feedback_title">Вібрація при жестах</string>
+    <string name="revanced_swipe_horizontal_zone_summary">Відсоток висоти програвача, зарезервований у верхньому та нижньому краях для жестів швидкості та перемотування</string>
+    <string name="revanced_swipe_horizontal_zone_title">Область горизонтального свайпу</string>
+    <string name="revanced_swipe_left_zone_title">Жест свайпом ліворуч</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Авто</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Проведення вниз до найнижчого значення не вмикає автоматичну яскравість</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Проведення вниз до найнижчого значення яскравості вмикає автоматичну яскравість</string>
@@ -2527,6 +2676,7 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_swipe_press_to_engage_summary_off">Натискання та утримання для жесту вимкнено</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Натискання та утримання для жесту ввімкнено</string>
     <string name="revanced_swipe_press_to_engage_title">Увімкнути натискання для жесту</string>
+    <string name="revanced_swipe_right_zone_title">Жест свайпом праворуч</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Значення яскравості при переході до повноекранного режиму не зберігається та не відновлюється</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Значення яскравості при переході до повноекранного режиму зберігається та відновлюється</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Зберігати та відновлювати яскравість</string>
@@ -2547,8 +2697,11 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_swipe_text_overlay_size_title">Розмір тексту панелі жесту</string>
     <string name="revanced_swipe_threshold_summary">Встановлює мінімальну дистанцію свайпу для спрацювання</string>
     <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
-    <string name="revanced_swipe_volume_distance_summary">Кількість пікселів для проведення, щоб регулювати гучність. Чим менше значення, тим гучність змінюється швидше, чим більше, тим повільніше (1-1000)</string>
-    <string name="revanced_swipe_volume_distance_title">Відстань для гучності</string>
+    <string name="revanced_swipe_top_zone_title">Жест свайпом вгорі</string>
+    <string name="revanced_swipe_vertical_zone_summary">Відсоток ширини програвача, зарезервований у лівому та правому краях для жестів яскравості та гучності</string>
+    <string name="revanced_swipe_vertical_zone_title">Область вертикального свайпу</string>
+    <string name="revanced_swipe_volume_distance_summary">Вищі значення потребують більшого свайпу на один крок гучності</string>
+    <string name="revanced_swipe_volume_distance_title">Чутливість жесту гучності</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Чутливість жесту гучності повинна бути в межах 1-1000</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Вищі значення збільшують зміну гучності за один свайп</string>
     <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>
@@ -2558,6 +2711,7 @@ uBlock Origin знайшов обхідний шлях для вирішення
 Регулюйте гучність, проводячи пальцем вертикально по правій стороні екрана"</string>
     <string name="revanced_swipe_volume_title">Зміна гучності жестом</string>
     <string name="revanced_swipe_zone_label_brightness">Яскравість</string>
+    <string name="revanced_swipe_zone_label_seek">Перемотування</string>
     <string name="revanced_swipe_zone_label_speed">Швидкість</string>
     <string name="revanced_swipe_zone_label_volume">Гучність</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Поміняти місцями кнопку створення та кнопку сповіщення підробленням інформації про пристрій
@@ -2610,6 +2764,10 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_vot_audio_proxy_summary_on">Аудіопотік проксіюється через воркера</string>
     <string name="revanced_vot_audio_proxy_title">Проксі-аудіопотік</string>
     <string name="revanced_vot_auth_required">Потрібна авторизація. Додайте токен Yandex OAuth у налаштуваннях</string>
+    <string name="revanced_vot_auto_translate_summary_off">Натисніть кнопку перекладу, щоб розпочати переклад від Yandex</string>
+    <string name="revanced_vot_auto_translate_summary_on">Переклад від Yandex запускається автоматично для кожного відео</string>
+    <string name="revanced_vot_auto_translate_title">Автоматично перекладати відео</string>
+    <string name="revanced_vot_credits_summary">Реалізація Yandex VOT від anddea, COOLak, JaviX та sashadeB-ship-it. На основі ilyhalight/voice-over-translation</string>
     <string name="revanced_vot_enabled_summary_off">Закадровий переклад Яндекса вимкнено</string>
     <string name="revanced_vot_enabled_summary_on">Яндекс автопереклад звукової доріжки ввімкнено</string>
     <string name="revanced_vot_enabled_title">Голосовий переклад</string>
@@ -2630,7 +2788,14 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_vot_oauth_token_summary">Обов'язково для живих голосів</string>
     <string name="revanced_vot_original_audio_volume_summary">Гучність оригінального звуку YouTube під час озвучення перекладу</string>
     <string name="revanced_vot_original_audio_volume_title">Гучність оригінального звуку</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">Відео продовжує відтворюватися під час підготовки перекладу</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Відео призупиняється до готовності перекладеного аудіо</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_title">Призупиняти відео під час підготовки перекладу</string>
     <string name="revanced_vot_playback_error">Не вдалося програти аудіо доріжку з дубляжом</string>
+    <string name="revanced_vot_proxy_url_fetch_failed">Не вдалося отримати хост робочого проксі-сервера VOT</string>
+    <string name="revanced_vot_proxy_url_fetch_success">Хост робочого проксі-сервера VOT оновлено на %s</string>
+    <string name="revanced_vot_proxy_url_fetch_summary">Отримувати поточний хост робочого проксі-сервера вручну. Він ніколи не оновлюється автоматично</string>
+    <string name="revanced_vot_proxy_url_fetch_title">Отримати останній проксі-сервер</string>
     <string name="revanced_vot_proxy_url_summary">Проксі-хост користувача VOT. За замовчуванням: визначається автоматично</string>
     <string name="revanced_vot_proxy_url_title">Проксі-сервер</string>
     <string name="revanced_vot_source_language_summary">Виберіть мову аудіовідео</string>
@@ -2641,6 +2806,7 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_vot_stream_ready">Переклад готовий, відтворюється</string>
     <string name="revanced_vot_stream_requesting">Запит на переклад для трансляції…</string>
     <string name="revanced_vot_stream_waiting">Зачекайте… ~%s</string>
+    <string name="revanced_vot_stream_waiting_status">Переклад все ще обробляється...</string>
     <string name="revanced_vot_target_language_summary">Виберіть мову для перекладу</string>
     <string name="revanced_vot_target_language_title">Мова перекладу</string>
     <string name="revanced_vot_time_sec">%d сек</string>
@@ -2709,7 +2875,6 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_yandex_status_processing_minutes_plural">%d залишилося кілька хвилин...</string>
     <string name="revanced_yandex_status_processing_short">Опрацювання...</string>
     <string name="revanced_yandex_status_requesting_translation">Запит перекладу</string>
-    <string name="revanced_yandex_status_session_ok">Сеанс OK</string>
     <string name="revanced_yandex_status_subs_found">Субтитри знайдено, отримання...</string>
     <string name="revanced_yandex_status_transcription_delayed">Затримка транскрибування</string>
     <string name="revanced_yandex_status_youtube_specific">Обробка запиту аудіо з YouTube...</string>

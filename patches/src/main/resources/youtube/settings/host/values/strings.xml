@@ -30,7 +30,7 @@ Only report channels that:
 • Use AI voices, visuals, scripts or music as their main content
 • Mass produce content with AI tools and little human work
 
-Do not report channels that only discuss AI, or use AI for some parts of their videos.
+Do not report channels that only discuss AI, or use AI for some parts of their videos
 
 Reports are public and are reviewed before a channel is added to a list. Removal is only possible through a request on GitHub"</string>
     <string name="morphe_aislist_submit_failed">Report failed, check your connection</string>
@@ -140,6 +140,7 @@ Tap here to open AiSlopList.com and see downloads for other platforms"</string>
     <string name="morphe_hide_player_flyout_audio_track_not_available">"\'Audio Track\' menu is hidden
 
 To show the \'Audio Track\' menu, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Hide \'On-the-go\' menu</string>
     <string name="morphe_hide_podcasts_menu_title">Hide Podcasts menu</string>
     <string name="morphe_hide_privacy_tos_footer_title">Hide legal and privacy footers</string>
     <string name="morphe_hide_shopping_menu_title">Hide Shopping menu</string>
@@ -176,6 +177,7 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Prevents the live stream from opening when tapping the channel\'s avatar</string>
     <string name="morphe_open_channel_of_live_avatar_title">Open channel from live avatar</string>
+    <string name="morphe_open_videos_fullscreen_title">Open videos in fullscreen mode</string>
     <string name="morphe_override_youtube_music_buttons_summary">Opens your preferred music app instead of the stock YouTube Music app</string>
     <string name="morphe_override_youtube_music_buttons_title">Override YouTube Music buttons</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Always on</string>
@@ -328,6 +330,8 @@ Limitation: If \'Restore old video action bar\' is turned off, \'More videos\' o
     <string name="morphe_video_quality_prioritize_dialog">If this setting is turned off, then older videos can show no video quality options</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritizes the highest available video quality over codec efficiency</string>
     <string name="morphe_video_quality_prioritize_title">Prioritize video quality</string>
+    <string name="morphe_vot_auto_translate_summary_off">Tap the translation button to start Google translation</string>
+    <string name="morphe_vot_auto_translate_summary_on">Google translation starts automatically for each video</string>
     <string name="morphe_vot_caption_language_title">Language</string>
     <string name="morphe_vot_cost_free">Free</string>
     <string name="morphe_vot_cost_per_hour">%s per 100 video hours</string>
@@ -529,6 +533,10 @@ Limitation: Back button on the toolbar may not work"</string>
     <string name="revanced_custom_filter_summary_on">Custom filter is enabled</string>
     <string name="revanced_custom_filter_title">Enable custom filter</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_invalid">Custom audio pitches must be between %1$sx and %2$sx</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">Invalid custom audio pitches</string>
+    <string name="revanced_custom_playback_audio_pitches_summary">Add audio pitch presets such as 0.85x or 1.3x, separated by spaces or new lines (0.05x to 8x)</string>
+    <string name="revanced_custom_playback_audio_pitches_title">Edit custom audio pitch presets</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Custom (Legacy)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Custom (Modern)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Custom (No theme)</string>
@@ -539,10 +547,6 @@ Limitation: Back button on the toolbar may not work"</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds</string>
     <string name="revanced_custom_playback_speeds_summary">Add or change available playback speeds</string>
     <string name="revanced_custom_playback_speeds_title">Edit custom playback speeds</string>
-    <string name="revanced_custom_playback_audio_pitches_invalid">Custom audio pitches must be between %1$sx and %2$sx</string>
-    <string name="revanced_custom_playback_audio_pitches_parse_exception">Invalid custom audio pitches</string>
-    <string name="revanced_custom_playback_audio_pitches_summary">Add audio pitch presets such as 0.85x or 1.3x, separated by spaces or new lines (0.05x to 8x)</string>
-    <string name="revanced_custom_playback_audio_pitches_title">Edit custom audio pitch presets</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
     <string name="revanced_custom_player_overlay_opacity_title">Custom player overlay opacity</string>
@@ -704,9 +708,6 @@ Note:
     <string name="revanced_disable_translucent_navigation_bar_summary_off">Navigation bar is translucent</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">Navigation bar is opaque</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Disable translucent navigation bar</string>
-    <string name="revanced_status_bar_translucency_entry_opaque">Opaque</string>
-    <string name="revanced_status_bar_translucency_entry_transparent">Transparent</string>
-    <string name="revanced_status_bar_translucency_title">Status bar translucency</string>
     <string name="revanced_disable_video_description_interaction_summary">"Disables the following interactions when the video description is expanded:
 
 • Tap to scroll
@@ -808,10 +809,6 @@ You tab → View channel → Menu → Settings"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Wide search bar disables and uses YouTube header space</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Wide search bar is enabled along with YouTube header</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Enable wide search bar with header</string>
-    <string name="morphe_open_videos_fullscreen_title">Open videos in fullscreen mode</string>
-    <string name="morphe_open_videos_fullscreen_entry_1">Disabled</string>
-    <string name="morphe_open_videos_fullscreen_entry_2">Portrait</string>
-    <string name="morphe_open_videos_fullscreen_entry_3">Landscape</string>
     <string name="revanced_exit_fullscreen_entry_1">Disabled</string>
     <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
     <string name="revanced_exit_fullscreen_entry_3">Landscape</string>
@@ -1331,7 +1328,6 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_flyout_menu_loop_video_summary_off">Loop video menu is shown</string>
     <string name="revanced_hide_player_flyout_menu_loop_video_summary_on">Loop video menu is hidden</string>
     <string name="revanced_hide_player_flyout_menu_loop_video_title">Hide Loop video menu</string>
-    <string name="morphe_hide_player_flyout_on_the_go_title">Hide \'On-the-go\' menu</string>
     <string name="revanced_hide_player_flyout_menu_more_info_summary_off">More information menu is shown</string>
     <string name="revanced_hide_player_flyout_menu_more_info_summary_on">More information menu is hidden</string>
     <string name="revanced_hide_player_flyout_menu_more_info_title">Hide More information menu</string>
@@ -2635,6 +2631,10 @@ This can be easily resolved by clicking the 'Reload video button' in the player 
 Among JavaScript clients, the recommended client is TV Simply"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Click to see how to get an authentication token</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">About Android VR Auth</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Opaque</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Transparent</string>
+    <string name="revanced_status_bar_translucency_title">Status bar translucency</string>
+    <string name="revanced_swipe_bottom_zone_title">Bottom swipe gesture</string>
     <string name="revanced_swipe_brightness_distance_summary">The amount of pixels to swipe to change the brightness. Lower values make the brightness change faster, higher values make it slower (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Brightness distance</string>
     <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe is disabled</string>
@@ -2651,6 +2651,7 @@ Adjust brightness by swiping vertically on the left side of the screen"</string>
     <string name="revanced_swipe_haptic_feedback_title">Enable haptic feedback</string>
     <string name="revanced_swipe_horizontal_zone_summary">Percentage of the player height reserved at the top and bottom edges for configured swipe actions</string>
     <string name="revanced_swipe_horizontal_zone_title">Horizontal swipe area</string>
+    <string name="revanced_swipe_left_zone_title">Left swipe gesture</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Lowest value of the brightness gesture does not activate auto-brightness</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Lowest value of the brightness gesture activates auto-brightness</string>
@@ -2680,6 +2681,7 @@ Adjust brightness by swiping vertically on the left side of the screen"</string>
     <string name="revanced_swipe_press_to_engage_summary_off">Press to swipe is disabled</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Press to swipe is enabled</string>
     <string name="revanced_swipe_press_to_engage_title">Enable press to swipe gesture</string>
+    <string name="revanced_swipe_right_zone_title">Right swipe gesture</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Save and restore brightness</string>
@@ -2704,6 +2706,7 @@ Adjust speed by swiping horizontally on the bottom half of the screen"</string>
     <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
     <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
     <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
+    <string name="revanced_swipe_top_zone_title">Top swipe gesture</string>
     <string name="revanced_swipe_vertical_zone_summary">Percentage of the player width reserved at the left and right edges for configured swipe actions</string>
     <string name="revanced_swipe_vertical_zone_title">Vertical swipe area</string>
     <string name="revanced_swipe_volume_distance_summary">The amount of pixels to swipe to adjust the volume. Lower values make the volume change faster, higher values make it slower (1-1000)</string>
@@ -2716,12 +2719,7 @@ Adjust speed by swiping horizontally on the bottom half of the screen"</string>
 
 Adjust volume by swiping vertically on the right side of the screen"</string>
     <string name="revanced_swipe_volume_title">Enable volume gesture</string>
-    <string name="revanced_swipe_left_zone_title">Left swipe gesture</string>
-    <string name="revanced_swipe_right_zone_title">Right swipe gesture</string>
-    <string name="revanced_swipe_top_zone_title">Top swipe gesture</string>
-    <string name="revanced_swipe_bottom_zone_title">Bottom swipe gesture</string>
     <string name="revanced_swipe_zone_label_brightness">Brightness</string>
-    <string name="revanced_swipe_zone_label_off">Off</string>
     <string name="revanced_swipe_zone_label_seek">Seek</string>
     <string name="revanced_swipe_zone_label_speed">Speed</string>
     <string name="revanced_swipe_zone_label_volume">Volume</string>
@@ -2775,6 +2773,9 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_audio_proxy_summary_on">Audio stream is proxied through the worker</string>
     <string name="revanced_vot_audio_proxy_title">Proxy audio stream</string>
     <string name="revanced_vot_auth_required">Authorization required. Add Yandex OAuth token in settings</string>
+    <string name="revanced_vot_auto_translate_summary_off">Tap the translation button to start Yandex translation</string>
+    <string name="revanced_vot_auto_translate_summary_on">Yandex translation starts automatically for each video</string>
+    <string name="revanced_vot_auto_translate_title">Automatically translate videos</string>
     <string name="revanced_vot_credits_summary">Yandex VOT implementation by anddea, COOLak, Jav1x, and sashade8-ship-it. Based on ilyhalight/voice-over-translation</string>
     <string name="revanced_vot_enabled_summary_off">Yandex voice-over translation is disabled</string>
     <string name="revanced_vot_enabled_summary_on">Yandex voice-over translation is enabled</string>
@@ -2886,7 +2887,6 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_status_processing_minutes_plural">%d minutes left...</string>
     <string name="revanced_yandex_status_processing_short">Processing...</string>
     <string name="revanced_yandex_status_requesting_translation">Requesting translation</string>
-    <string name="revanced_yandex_status_session_ok">Session OK</string>
     <string name="revanced_yandex_status_subs_found">Subtitles found, fetching...</string>
     <string name="revanced_yandex_status_transcription_delayed">The transcription is slightly delayed</string>
     <string name="revanced_yandex_status_youtube_specific">Handling YouTube audio request...</string>
@@ -2894,13 +2894,4 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
-    <string name="revanced_vot_auto_translate_title">Automatically translate videos</string>
-    <string name="revanced_vot_auto_translate_summary_on">Yandex translation starts automatically for each video</string>
-    <string name="revanced_vot_auto_translate_summary_off">Tap the translation button to start Yandex translation</string>
-    <string name="morphe_vot_auto_translate_title">Automatically translate videos</string>
-    <string name="morphe_vot_auto_translate_summary_on">Google translation starts automatically for each video</string>
-    <string name="morphe_vot_auto_translate_summary_off">Tap the translation button to start Google translation</string>
-    <string name="morphe_vot_pause_while_preparing_title">Pause video while preparing translation</string>
-    <string name="morphe_vot_pause_while_preparing_summary_on">New videos start paused and resume when translated audio is ready</string>
-    <string name="morphe_vot_pause_while_preparing_summary_off">Video keeps playing while translation is prepared</string>
 </resources>

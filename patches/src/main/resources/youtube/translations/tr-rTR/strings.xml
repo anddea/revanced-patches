@@ -20,6 +20,32 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin"</string
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin</string>
     <string name="gms_core_settings_title">GmsCore ayarlarını aç</string>
     <string name="gms_core_toast_not_installed_message">MicroG yüklenmemiş. Yükleyin</string>
+    <string name="morphe_aislist_submit_already_blocklisted">Bu kanal zaten AiSList engel listesinde</string>
+    <string name="morphe_aislist_submit_already_warnlisted">Bu kanal zaten AiSList uyarı listesinde</string>
+    <string name="morphe_aislist_submit_category_title">Yapay zekâ kanallarını bildir</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Bildir</string>
+    <string name="morphe_aislist_submit_dialog_message">"%s kanalını, bu videoyu kanıt olarak kullanarak AiSList'e bildirmek istiyor musun?
+
+Yalnızca şu kanalları bildir:
+• Ana içerik olarak yapay zekâ sesleri, görselleri, senaryoları veya müziği kullanıyor
+• Yapay zekâ araçlarıyla ve az insan emeğiyle toplu içerik üretiyor
+
+Yalnızca yapay zekâyı tartışan veya videolarının bazı bölümlerinde yapay zekâ kullanan kanalları bildirme
+
+Raporlar herkese açıktır ve bir kanal listeye eklenmeden önce incelenir. Kaldırma işlemi yalnızca GitHub üzerinden bir istekle mümkündür"</string>
+    <string name="morphe_aislist_submit_failed">Rapor gönderilemedi, bağlantınızı kontrol edin</string>
+    <string name="morphe_aislist_submit_failed_channel">Bu videonun kanalı bulunamadı</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList raporu kaydedemedi, lütfen daha sonra tekrar deneyin</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Çok fazla rapor gönderildi, lütfen daha sonra tekrar deneyin</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList raporu reddetti</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Video menüsüne, bir videonun kanalını AiSList\'e bildiren bir öğe ekle</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Video menüsüne rapor öğesi ekle</string>
+    <string name="morphe_aislist_submit_no_username">Kanalları bildirmek için yapay zekâ kanal filtresi ayarlarında bir gönderen adı belirleyin</string>
+    <string name="morphe_aislist_submit_resolving">Kanal aranıyor…</string>
+    <string name="morphe_aislist_submit_success">Kanal bildirildi ve inceleme bekleniyor</string>
+    <string name="morphe_aislist_submit_title">Yapay zekâ kanalını bildir</string>
+    <string name="morphe_aislist_submit_username_summary">Herkese açık AiSList liderlik tablosunda raporlarınızın yanında görünen ad. Bu alan boşken raporlama kullanılamaz</string>
+    <string name="morphe_aislist_submit_username_title">Gönderen adı</string>
     <string name="morphe_app_refresh_rate_default">Varsayılan</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">Uygulama yenileme hızı</string>
@@ -54,7 +80,9 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
     <string name="morphe_force_original_audio_title">Orijinal ses dilini zorla</string>
-    <string name="morphe_fullscreen_large_seekbar_title">Tam ekran büyük zaman çubuğunu etkinleştir</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Tam ekranda büyük ilerleme çubuğunu etkinleştir</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Dikey oynatıcıda video ölçekleme düğmesini gizle</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Sadece tam ekranda göster</string>
     <string name="morphe_fullscreen_video_scale_button_summary">Varsayılan, Esnet ve Yakınlaştır arasında geçiş yapmak için dokunun</string>
     <string name="morphe_fullscreen_video_scale_button_title">Video ölçeği düğmesini göster</string>
     <string name="morphe_fullscreen_video_scale_entry_stretch">Esnet (ekranı doldur)</string>
@@ -81,12 +109,14 @@ AiSlopList.com'u açmak ve diğer platformlar için indirmeleri görmek için bu
 • Toplam: %s"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Uyarı listesindeki kanallar</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Uyarı Listesi: Orta güven</string>
+    <string name="morphe_hide_auto_dubbed_label_title">\'Dublajlı\' etiketini gizle</string>
     <string name="morphe_hide_courses_menu_title">Dersler menüsünü gizle</string>
     <string name="morphe_hide_explore_button_title">Keşfet düğmesini gizle</string>
     <string name="morphe_hide_fashion_menu_title">\'Moda &amp; Güzellik\' menüsünü gizle</string>
     <string name="morphe_hide_gaming_menu_title">Oyunlar menüsünü gizle</string>
     <string name="morphe_hide_get_premium_button_title">\'Get Premium\' düğmesini gizle</string>
     <string name="morphe_hide_hype_menu_title">Hype menüsünü gizle</string>
+    <string name="morphe_hide_hyped_label_title">Hyped etiketini gizle</string>
     <string name="morphe_hide_invite_to_message_card_summary">Bildirimler sekmesindeki Mesajlar bölümünde görüntülenen davet kartını gizler</string>
     <string name="morphe_hide_invite_to_message_card_title">\'Mesaja başkalarını davet et\' kartını gizle</string>
     <string name="morphe_hide_learning_menu_title">Öğrenme menüsünü gizle</string>
@@ -99,6 +129,7 @@ AiSlopList.com'u açmak ve diğer platformlar için indirmeleri görmek için bu
     <string name="morphe_hide_player_flyout_audio_track_not_available">"'Ses Parçası' menüsü gizli
 
 'Ses Parçası' menüsünü görüntülemek için, 'Video akışlarını taklit et'i 'Android Studio' ve 'Android VR Downgraded' dışındaki herhangi bir istemciye değiştirin"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">\'Hareket halinde\' menüsünü gizle</string>
     <string name="morphe_hide_podcasts_menu_title">Podcast\'ler menüsünü gizle</string>
     <string name="morphe_hide_privacy_tos_footer_title">Yasal ve gizlilik altbilgilerini gizle</string>
     <string name="morphe_hide_shopping_menu_title">Alışveriş menüsünü gizle</string>
@@ -131,6 +162,7 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_oauth2_toast_reset">Android VR oturumu kapatıldı</string>
     <string name="morphe_open_channel_of_live_avatar_summary">Kanal avatarına dokunulduğunda canlı yayının açılmasını engeller</string>
     <string name="morphe_open_channel_of_live_avatar_title">Canlı avatardan kanalı aç</string>
+    <string name="morphe_open_videos_fullscreen_title">Videoları tam ekran modunda aç</string>
     <string name="morphe_override_youtube_music_buttons_summary">Tercih ettiğiniz müzik uygulamasını, yerleşik YouTube Music uygulaması yerine açar</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music düğmelerini değiştir</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Her zaman açık</string>
@@ -144,6 +176,9 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_reload_video_summary_off">Videoyu yeniden yükle düğmesi gösterilmiyor</string>
     <string name="morphe_reload_video_summary_on">Videoyu yeniden yükle düğmesi gösteriliyor</string>
     <string name="morphe_reload_video_title">Videoyu yeniden yükle düğmesini göster</string>
+    <string name="morphe_remember_livestream_position_summary">Devam eden canlı yayınlarda, canlı konuma atlamak yerine oynatma konumunuzu hatırlar ve kaldığı yerden devam eder</string>
+    <string name="morphe_remember_livestream_position_title">Canlı yayın oynatma konumunu hatırla</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">Bu özellik 24/7 canlı yayınlarda ve \'her zaman açık\' olan diğer yayınlarda çalışmaz</string>
     <string name="morphe_replace_links_with_shortener_summary">Videoları kısaltılmış youtu.be URL formatını kullanmaya zorlar</string>
     <string name="morphe_replace_links_with_shortener_title">Paylaşım bağlantılarını youtu.be olarak değiştir</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
@@ -157,12 +192,14 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_save_to_watch_later_button_title">Daha sonra izle düğmesini göster</string>
     <string name="morphe_save_to_watch_later_error_toast">Bu video daha sonra izle listesine kaydedilemiyor</string>
     <string name="morphe_save_to_watch_later_flyout_title">Daha sonra izle</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Çocuklarla ilgili videoları \'Daha Sonra İzle\' açılır menüsünde kaydetmeye izin verir</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Açılır menüden çocuklarla ilgili videoları “Daha sonra izle” bölümüne kaydetmeye olanak tanır</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">Çocuk videolarında daha sonra izle düğmesini göster</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Açılır menüden shorts videolarını “Daha sonra izle” bölümüne kaydetmeye olanak tanır</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">“Daha sonra izle” butonunu shorts açılır menüsünde göster</string>
     <string name="morphe_save_to_watch_later_success_toast">Video, daha sonra izle listesine başarıyla kaydedildi</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">En çok tekrar oynatılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Arama çubuğunu sürüklerken video küçük resmini gösterir</string>
-    <string name="morphe_seekbar_thumbnail_preview_title">Zaman çubuğu küçük resimlerini etkinleştir</string>
+    <string name="morphe_seekbar_thumbnail_preview_title">İlerleme çubuğu küçük resimlerini etkinleştir</string>
     <string name="morphe_settings_menu_copy_path">Kopyalandı: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Listeyi doldurmak için standart uygulama ayarları ekranını bir kez açın</string>
     <string name="morphe_settings_menu_filter_screen_summary">Görünür adlarına göre standart uygulama ayarları ekranındaki öğeleri gizle</string>
@@ -607,9 +644,6 @@ Not: Bu özelliği devre dışı bırakmak, eski arayüzdeki \"Videoyu sarmak i�
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Tam ekranda aşağı kaydırmak tam ekrandan çıkar</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Tam ekranda aşağı kaydırmak tam ekrandan çıkmaz</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Tam ekrandan çıkmak için kaydırmayı devre dışı bırak</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Durum çubuğu opak veya yarı saydam</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Durum çubuğu opak</string>
-    <string name="revanced_disable_translucent_status_bar_title">Yarı saydam durum çubuğunu devre dışı bırak</string>
     <string name="revanced_disable_video_description_interaction_summary">"Video açıklaması genişletildiğinde aşağıdaki etkileşimleri devre dışı bırakır:
 
 • Kaydırmak için dokunun
@@ -709,11 +743,6 @@ Siz sekmesi→ Kanalı görüntüle→ Menü→ Ayarlar"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Geniş arama çubuğu YouTube başlığını içermez</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Geniş arama çubuğu YouTube başlığını içerir</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Geniş araba çubuğunu başlıkla etkinleştir</string>
-    <string name="revanced_enter_fullscreen_summary_off">Video başladığında tam ekran moduna girme</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Video başladığında tam ekran moduna girer
-
-Sınırlama: Oynatıcı küçültülmüşse, PiP modundaysa veya arka plandaysa çalışmaz"</string>
-    <string name="revanced_enter_fullscreen_title">Video başladığında tam ekran moduna gir</string>
     <string name="revanced_exit_fullscreen_entry_1">Devre dışı</string>
     <string name="revanced_exit_fullscreen_entry_2">Sadece dikey mod</string>
     <string name="revanced_exit_fullscreen_entry_3">Sadece yatay mod</string>
@@ -866,6 +895,7 @@ Bilgi:
 • Alışveriş
 • Tekrar izleyin"</string>
     <string name="revanced_hide_carousel_shelf_title">Karosel raflarını gizle</string>
+    <string name="revanced_hide_category_bar_in_comments_title">Yorumlarda gizle</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">Akışta görünür</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">Akışta gizli</string>
     <string name="revanced_hide_category_bar_in_feed_title">Akışta üstteki kategori çubuğunu gizle</string>
@@ -1320,8 +1350,8 @@ Ortasında büyük harf bulunan kelimeler tam olarak eşleşmelidir (örneğin: 
     <string name="revanced_hide_seekbar_summary_on">Video oynatıcısı zaman çubuğu gizli</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Video kapak fotoğrafı zaman çubuğu görünür</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_on">Video kapak fotoğrafı zaman çubuğu gizli</string>
-    <string name="revanced_hide_seekbar_thumbnail_title">Video kapak fotoğrafı zaman çubuğunu gizle</string>
-    <string name="revanced_hide_seekbar_title">Video oynatıcısı zaman çubuğunu gizle</string>
+    <string name="revanced_hide_seekbar_thumbnail_title">Video kapak fotoğrafı ilerleme çubuğunu gizle</string>
+    <string name="revanced_hide_seekbar_title">Video oynatıcısı ilerleme çubuğunu gizle</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">Kanalın kendine sponsor kartları gösteriliyor</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Kanalın kendine sponsor kartları gizli</string>
     <string name="revanced_hide_self_sponsor_cards_title">Kanalın kendi sponsorlu kartlarını gizle</string>
@@ -1656,10 +1686,11 @@ Mini oynatıcı, ekranın dışına sağa veya sola sürüklenebilir"</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Köşeler yuvarlatılmış</string>
     <string name="revanced_miniplayer_rounded_corners_title">Yuvarlatılmış köşeleri etkinleştir</string>
     <string name="revanced_miniplayer_type_entry_2">Minimal</string>
-    <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
-    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
+    <string name="revanced_miniplayer_type_entry_3">Minimal 2</string>
+    <string name="revanced_miniplayer_type_entry_4">Tablet</string>
+    <string name="revanced_miniplayer_type_entry_5">Modern 1</string>
+    <string name="revanced_miniplayer_type_entry_6">Modern 2</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 3</string>
     <string name="revanced_miniplayer_type_title">Mini oynatıcı tipi</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Piksel boyutu %1$s ve %2$s arasında olmalıdır</string>
     <string name="revanced_miniplayer_width_dip_summary">Başlangıç ekran boyutunu piksel cinsinden ayarlayın</string>
@@ -2362,6 +2393,7 @@ Sınırlama: Tıklandığında video başlığı kayboluyor"</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Transkript işlevini geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Daraltılmamış video eylem çubuğunu geri getir</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Restore old components Filter</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - Eski altyazı davranışını geri yükle</string>
     <string name="revanced_spoof_app_version_target_entry_title">Taklit edilecek sürüm</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Geçersiz taklit uygulama sürümü: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini seçin</string>
@@ -2461,6 +2493,7 @@ Ekranın sol tarafında dikey olarak kaydırarak parlaklığı ayarlayın"</stri
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Kaydırma hareketleri \'Kilit ekranı\' modunda etkindir</string>
     <string name="revanced_swipe_gestures_lock_mode_title">\'Kilit ekranı\' modundaki kaydırma hareketleri</string>
     <string name="revanced_swipe_haptic_feedback_title">Titreşimli geri bildirimi etkinleştir</string>
+    <string name="revanced_swipe_left_zone_title">Sola kaydırma hareketi</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Oto</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Parlaklık hareketinin en düşük değerine kaydırma otomatik parlaklığı etkinleştirmez</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaklık hareketinin en düşük değerine kaydırma otomatik parlaklığı etkinleştirir</string>
@@ -2490,6 +2523,7 @@ Ekranın sol tarafında dikey olarak kaydırarak parlaklığı ayarlayın"</stri
     <string name="revanced_swipe_press_to_engage_summary_off">Basılı tutup kaydırma hareketi devre dışı</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Basılı tutup kaydırma hareketi etkin</string>
     <string name="revanced_swipe_press_to_engage_title">Basılı tutup kaydırma hareketini etkinleştir</string>
+    <string name="revanced_swipe_right_zone_title">Sağa kaydırma hareketi</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Tam ekrana girip çıkarken parlaklığı kaydetme ve geri yükleme</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Tam ekrana girip çıkarken parlaklığı kaydet ve geri yükle</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Parlaklığı kaydet ve geri yükle</string>
@@ -2514,8 +2548,9 @@ Ekranın sol tarafında dikey olarak kaydırarak parlaklığı ayarlayın"</stri
     <string name="revanced_swipe_text_overlay_size_title">Kaydırma katmanı metin boyutu</string>
     <string name="revanced_swipe_threshold_summary">Bir ayarlamanın tetiklenmesi için gerekli kaydırma mesafesini ayarlayın</string>
     <string name="revanced_swipe_threshold_title">Kaydırma büyüklük eşiği</string>
-    <string name="revanced_swipe_volume_distance_summary">Ses seviyesini ayarlamak için kaydırılacak piksel miktarı. Düşük değerler ses değişimini hızlandırır, yüksek değerler yavaşlatır (1-1000)</string>
-    <string name="revanced_swipe_volume_distance_title">Ses mesafesi</string>
+    <string name="revanced_swipe_top_zone_title">Yukarı kaydırma hareketi</string>
+    <string name="revanced_swipe_volume_distance_summary">Daha yüksek değerler, ses seviyesi adımı başına daha fazla kaydırma gerektirir</string>
+    <string name="revanced_swipe_volume_distance_title">Ses kaydırma hassasiyeti</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Ses seviyesi kaydırma hassasiyeti 1-1000 (%) arasında olmalıdır</string>
     <string name="revanced_swipe_volume_sensitivity_summary">Daha yüksek değerler, kaydırma başına ses değişiklik miktarını artırır</string>
     <string name="revanced_swipe_volume_sensitivity_title">Ses kaydırma hassasiyeti</string>
@@ -2655,7 +2690,6 @@ Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya 
     <string name="revanced_yandex_status_processing_minutes_plural">%d dakika kaldı...</string>
     <string name="revanced_yandex_status_processing_short">İşleniyor...</string>
     <string name="revanced_yandex_status_requesting_translation">Çeviri isteniyor</string>
-    <string name="revanced_yandex_status_session_ok">Oturum Tamam</string>
     <string name="revanced_yandex_status_subs_found">Altyazılar bulundu, alınıyor...</string>
     <string name="revanced_yandex_status_transcription_delayed">Yazıya dökme işlemi biraz gecikti</string>
     <string name="revanced_yandex_status_youtube_specific">YouTube ses isteği işleniyor...</string>

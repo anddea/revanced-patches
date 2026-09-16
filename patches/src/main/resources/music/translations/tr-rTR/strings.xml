@@ -106,20 +106,16 @@ YouTube Music 8.x — geçiş yalnızca 9.x ve sonraki sürümlerde çalışır"
     <string name="morphe_music_crossfade_session_control_summary">Karıştırma düğmesine uzun basarak geçiş duraklatılır veya devam ettirilir</string>
     <string name="morphe_music_crossfade_session_control_title">Oturum kontrolü</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">Geçiş etkinken video modu kullanılamaz</string>
-    <string name="morphe_music_lyrics_about_summary">"Şarkı sözleri, şarkı adı ve sanatçıya göre aranır; bu nedenle olağan dışı meta verilere sahip bir şarkı hiçbir şey bulamayabilir veya yanlış sürümü bulabilir
-
-Eş zamanlı şarkı sözleri oynatmayı takip eder. Kayıyorsa, zamanlama kaydırmasını ayarlayın
-
-Üçüncü taraf şarkı sözleri bulunamazsa, bunun yerine yerleşik şarkı sözleri gösterilir"</string>
+    <string name="morphe_music_lyrics_about_summary">"Şarkı sözleri parça adına ve sanatçıya göre aranır; bu nedenle olağandışı meta verilere sahip bir parça hiçbir şey bulamayabilir veya yanlış sürümü bulabilir. Ayrıca sürümleri manuel olarak değiştirmek için yenile düğmesini deneyebilirsiniz. Üçüncü taraf şarkı sözü bulunamadığında, bunun yerine yerleşik veya gömülü şarkı sözleri gösterilir. * ile işaretlenen sağlayıcılar etkinleştirmek için bir token gerektirir. Etkin sağlayıcıların tümü her zaman sizin sıranıza göre istenmez, hızlarına göre yanıt verirler"</string>
     <string name="morphe_music_lyrics_about_title">Üçüncü taraf şarkı sözleri hakkında</string>
     <string name="morphe_music_lyrics_copied">Panoya kopyalandı</string>
     <string name="morphe_music_lyrics_enabled_summary">Üçüncü taraf bir servisten şarkı sözleri gösterir, bulunamadığında yerleşik şarkı sözlerine geri döner</string>
     <string name="morphe_music_lyrics_enabled_title">Üçüncü taraf şarkı sözlerini kullan</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">Şarkı sözlerini ileri veya geri kaydırın. Şarkı sözleri şarkının gerisinde kalıyorsa pozitif bir değer kullanın</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">Senkronize şarkı sözleri oynatmayı takip eder. Senkronizasyon kayarsa zamanlama ofsetini ayarlayın. Senkronize şarkı sözlerini ileri veya geri kaydırın. Şarkı sözleri şarkının önünde gidiyorsa pozitif bir değer kullanın</string>
     <string name="morphe_music_lyrics_offset_ms_title">Zamanlama kaydırması</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Kopyala düğmesini göster</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Çevir düğmesini göster</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, ardından KuGou</string>
+    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, ardından QQ, ardından KuGou, ardından NetEase, ardından BiniLyrics, ardından Unison, ardından AMLL</string>
     <string name="morphe_music_lyrics_source_label">Kaynak: %s</string>
     <string name="morphe_music_lyrics_source_title">Şarkı Sözü Servisi</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Bir satıra dokunmak şarkıda o ana atlar</string>
@@ -127,7 +123,7 @@ Eş zamanlı şarkı sözleri oynatmayı takip eder. Kayıyorsa, zamanlama kayd�
     <string name="morphe_music_lyrics_text_size_summary">Şarkı sözü metninin boyutu</string>
     <string name="morphe_music_lyrics_text_size_title">Yazı tipi boyutu</string>
     <string name="morphe_music_lyrics_translate_failed">Şarkı sözleri çevrilemedi</string>
-    <string name="morphe_music_lyrics_translate_hide">Orijinal göster</string>
+    <string name="morphe_music_lyrics_translate_hide">Çevrildi</string>
     <string name="morphe_music_lyrics_translate_show">Çevir</string>
     <string name="morphe_music_lyrics_translating">Çeviriliyor…</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR oturumu açılamadı: %s</string>
