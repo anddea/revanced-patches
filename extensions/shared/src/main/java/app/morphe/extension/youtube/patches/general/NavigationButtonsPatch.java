@@ -53,6 +53,7 @@ import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Buttons;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarItemRenderer;
 import app.morphe.extension.youtube.innertube.IconOuterClass.Icon;
 import app.morphe.extension.youtube.innertube.IconOuterClass.YTIconType;
+import app.morphe.extension.youtube.patches.theme.ThemePatch.StatusBarTranslucency;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
@@ -63,8 +64,8 @@ public final class NavigationButtonsPatch {
     private static final boolean ENABLE_NARROW_NAVIGATION_BUTTONS
             = Settings.ENABLE_NARROW_NAVIGATION_BUTTONS.get();
 
-    private static final boolean DISABLE_TRANSLUCENT_STATUS_BAR
-            = Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get();
+    private static final StatusBarTranslucency STATUS_BAR_TRANSLUCENCY
+            = Settings.STATUS_BAR_TRANSLUCENCY.get();
 
     private static final boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR.get();
@@ -139,7 +140,7 @@ public final class NavigationButtonsPatch {
      * Injection point.
      */
     public static boolean allowCollapsingToolbarLayout(boolean original) {
-        if (DISABLE_TRANSLUCENT_STATUS_BAR) return false;
+        if (STATUS_BAR_TRANSLUCENCY != StatusBarTranslucency.DEFAULT) return false;
         return original;
     }
 

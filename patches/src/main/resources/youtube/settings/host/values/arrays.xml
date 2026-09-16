@@ -754,6 +754,16 @@
         <item>FPS_60_ONE_SECOND</item>
         <item>FPS_60_BLACK_AND_WHITE</item>
     </string-array>
+    <string-array name="revanced_status_bar_translucency_entries">
+        <item>@string/revanced_change_form_factor_entry_1</item>
+        <item>@string/revanced_status_bar_translucency_entry_opaque</item>
+        <item>@string/revanced_status_bar_translucency_entry_transparent</item>
+    </string-array>
+    <string-array name="revanced_status_bar_translucency_entry_values" translatable="false">
+        <item>DEFAULT</item>
+        <item>OPAQUE</item>
+        <item>TRANSPARENT</item>
+    </string-array>
     <string-array name="morphe_dark_theme_entries">
         <item>@string/revanced_icon_default</item>
         <item>@string/morphe_theme_entry_amoled_black</item>

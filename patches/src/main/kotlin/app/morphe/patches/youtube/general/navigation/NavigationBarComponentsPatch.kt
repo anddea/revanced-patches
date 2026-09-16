@@ -157,8 +157,8 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for translucent navigation and status bars
 
         if (is_19_25_or_greater) {
-            // Keep the original translucent resources for player controls and only make the
-            // color result opaque when it is used for the status bar.
+            // Keep the original translucent resources for player controls and apply the selected
+            // status-bar translucency mode only to the status-bar color result.
             StatusBarColorFingerprint.method.apply {
                 val statusBarColorHook =
                     "$THEME_EXTENSION_CLASS_DESCRIPTOR->getStatusBarColor(I)I"
@@ -197,7 +197,7 @@ val navigationBarComponentsPatch = bytecodePatch(
             }
 
             settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
-            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
+            settingArray += "SETTINGS: STATUS_BAR_TRANSLUCENCY"
             settingArray += "SETTINGS: DISABLE_TRANSLUCENT_NAVIGATION_BAR"
         }
 
