@@ -26,6 +26,8 @@
 
             <!-- SETTINGS: SPLASH_SCREEN_ANIMATION_STYLE
             <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/morphe_splash_screen_animation_style_entries" android:title="@string/morphe_splash_screen_animation_style_title" android:key="morphe_splash_screen_animation_style" android:entryValues="@array/morphe_splash_screen_animation_style_entry_values" />SETTINGS: SPLASH_SCREEN_ANIMATION_STYLE -->
+            <!-- SETTINGS: DISABLE_SYSTEM_SPLASH
+            <SwitchPreference android:title="@string/morphe_disable_system_splash_title" android:key="morphe_disable_system_splash" android:summary="@string/morphe_disable_system_splash_summary" />SETTINGS: DISABLE_SYSTEM_SPLASH -->
 
             <!-- SETTINGS: CUSTOM_DPI
             <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_custom_dpi_title" android:key="morphe_custom_dpi" android:summary="@string/revanced_custom_dpi_summary" android:numeric="integer" />SETTINGS: CUSTOM_DPI -->
@@ -310,6 +312,10 @@
             <PreferenceCategory android:title="@string/morphe_hide_aislist_warnlist_category_title" android:key="morphe_hide_aislist_warnlist_category" android:layout="@layout/revanced_settings_preferences_category">
                 <SwitchPreference android:title="@string/morphe_hide_aislist_hide_home_title" android:key="morphe_hide_aislist_warnlist_home" />
                 <SwitchPreference android:title="@string/morphe_hide_aislist_hide_search_title" android:key="morphe_hide_aislist_warnlist_search" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/morphe_aislist_submit_category_title" android:key="morphe_aislist_submit_category" android:layout="@layout/revanced_settings_preferences_category">
+                <SwitchPreference android:title="@string/morphe_aislist_submit_flyout_menu_title" android:key="morphe_aislist_submit_flyout_menu" android:summary="@string/morphe_aislist_submit_flyout_menu_summary" />
+                <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/morphe_aislist_submit_username_title" android:key="morphe_aislist_submit_username" android:summary="@string/morphe_aislist_submit_username_summary" android:dependency="morphe_aislist_submit_flyout_menu" android:inputType="text" />
             </PreferenceCategory>
             <app.morphe.extension.youtube.settings.preference.AiSListStatsPreferenceCategory android:title="@string/revanced_sb_stats" android:key="morphe_hide_aislist_stats_category" android:layout="@layout/revanced_settings_preferences_category" />
             <PreferenceCategory android:title="@string/revanced_ryd_about" android:key="morphe_hide_aislist_about_category" android:layout="@layout/revanced_settings_preferences_category">

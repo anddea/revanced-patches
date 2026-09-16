@@ -317,6 +317,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final LongSetting AISLIST_HIDE_COUNT_HOME = new LongSetting("morphe_aislist_hide_count_home", 0L);
     public static final LongSetting AISLIST_HIDE_COUNT_SEARCH = new LongSetting("morphe_aislist_hide_count_search", 0L);
     public static final StringSetting AISLIST_HIDES_24H = new StringSetting("morphe_aislist_hides_24h", "", false, false);
+    public static final BooleanSetting AISLIST_SUBMIT_FLYOUT_MENU = new BooleanSetting("morphe_aislist_submit_flyout_menu", FALSE);
+    public static final StringSetting AISLIST_SUBMIT_USERNAME = new StringSetting("morphe_aislist_submit_username", "", parent(AISLIST_SUBMIT_FLYOUT_MENU));
 
     public static final BooleanSetting HIDE_VIDEO_BY_VIEW_COUNTS_HOME = new BooleanSetting("revanced_hide_video_by_view_counts_home", FALSE);
     public static final BooleanSetting HIDE_VIDEO_BY_VIEW_COUNTS_SEARCH = new BooleanSetting("revanced_hide_video_by_view_counts_search", FALSE);
@@ -358,6 +360,8 @@ public class Settings extends SharedYouTubeSettings {
             new ChangeStartPagePatch.ChangeStartPageTypeAvailability());
     public static final BooleanSetting DISABLE_SIGNIN_TO_TV_POPUP = new BooleanSetting("revanced_disable_signin_to_tv_popup", FALSE);
     public static final EnumSetting<SplashScreenAnimationStyle> SPLASH_SCREEN_ANIMATION_STYLE = new EnumSetting<>("morphe_splash_screen_animation_style", SplashScreenAnimationStyle.FPS_60_ONE_SECOND, true);
+    /** Makes the static Android starting-window splash icon transparent. */
+    public static final BooleanSetting DISABLE_SYSTEM_SPLASH = new BooleanSetting("morphe_disable_system_splash", FALSE, true);
     public static final BooleanSetting ENABLE_GRADIENT_LOADING_SCREEN = new BooleanSetting("revanced_enable_gradient_loading_screen", FALSE, true);
     public static final BooleanSetting HIDE_FLOATING_MICROPHONE = new BooleanSetting("revanced_hide_floating_microphone", TRUE, true);
     public static final BooleanSetting HIDE_VISUAL_SPACER = new BooleanSetting("revanced_hide_visual_spacer", TRUE, true);
