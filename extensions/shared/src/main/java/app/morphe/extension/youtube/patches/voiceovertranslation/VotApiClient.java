@@ -582,6 +582,21 @@ public class VotApiClient {
         }
     }
 
+    /**
+     * Sends a subtitle protobuf request using the same session and transport as translation.
+     * Subtitle endpoints require Vsubs authentication headers instead of Vtrans headers.
+     * The caller owns subtitle encoding and decoding.
+     */
+    @Nullable
+    public static byte[] requestSubtitles(@NonNull byte[] body) throws IOException {
+        if (!ensureSession()) return null;
+        String path = "/video-subtitles/get-subtitles";
+        Map<String, String> headers = new LinkedHashMap<>();
+        getVtransHeaders(path, body, null).forEach((name, value) ->
+                headers.put(name.replace("Vtrans", "Vsubs"), value));
+        return sendWorkerRequest(path, body, headers, "POST");
+    }
+
     private static TranslationResult requestTranslationInternal(
             String videoUrl, double duration,
             String sourceLang, String targetLang,
@@ -692,17 +707,6 @@ public class VotApiClient {
 
         } catch (Exception e) {
             Logger.printException(() -> "VotApiClient.sendEmptyAudio failed for " + videoUrl, e);
-        }
-    }
-
-    public static boolean sendAudio(String videoUrl, String translationId, String fileId, byte[] audioData) {
-        try {
-            byte[] body = VotProtobuf.encodeAudioRequest(translationId, videoUrl, fileId, audioData);
-
-            return sendAudioRequestBody(body, null);
-        } catch (Exception e) {
-            Logger.printException(() -> "VotApiClient.sendAudio failed for " + videoUrl, e);
-            return false;
         }
     }
 

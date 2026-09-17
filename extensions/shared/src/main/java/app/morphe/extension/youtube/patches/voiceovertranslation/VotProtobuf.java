@@ -46,6 +46,9 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Manual protobuf encoder/decoder that avoids conflicts with YouTube's bundled protobuf version.
@@ -114,6 +117,21 @@ public class VotProtobuf {
             return out.toByteArray();
         } catch (IOException e) {
             throw new RuntimeException("Failed to encode translation request", e);
+        }
+    }
+
+    /**
+     * Encode upstream SubtitlesRequest: url = 1, language = 2 (both strings).
+     * Translation uses different field numbers, but shares these wire-format helpers.
+     */
+    public static byte[] encodeSubtitlesRequest(String url, String language) {
+        try {
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            if (url != null && !url.isEmpty()) writeString(out, 1, url);
+            if (language != null && !language.isEmpty()) writeString(out, 2, language);
+            return out.toByteArray();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to encode subtitles request", e);
         }
     }
 
@@ -322,6 +340,86 @@ public class VotProtobuf {
         return response;
     }
 
+    /** Upstream SubtitlesObject fields consumed by subtitle selection; other fields are skipped. */
+    public static class SubtitleTrack {
+        public String language = "";
+        public String url = "";
+        public String translatedLanguage = "";
+        public String translatedUrl = "";
+    }
+
+    /** Upstream SubtitlesResponse: waiting = 1, repeated SubtitlesObject subtitles = 2. */
+    public static class SubtitlesResponse {
+        public boolean waiting;
+        public final List<SubtitleTrack> subtitles = new ArrayList<>();
+    }
+
+    /** Decodes tracks with the same binary helpers as translation, checking nested message bounds. */
+    public static SubtitlesResponse decodeSubtitlesResponse(byte[] data) {
+        SubtitlesResponse response = new SubtitlesResponse();
+        int pos = 0;
+        while (pos < data.length) {
+            int[] tag = readVarint(data, pos);
+            pos = tag[1];
+            if (tag[0] == 8) {
+                int[] value = readVarint(data, pos);
+                response.waiting = value[0] != 0;
+                pos = value[1];
+            } else if (tag[0] == 18) {
+                int[] length = readVarint(data, pos);
+                pos = length[1];
+                int end = subtitleFieldEnd(data, pos, length[0]);
+                response.subtitles.add(decodeSubtitleTrack(Arrays.copyOfRange(data, pos, end)));
+                pos = end;
+            } else {
+                pos = skipSubtitleField(data, pos, tag[0]);
+            }
+        }
+        return response;
+    }
+
+    private static SubtitleTrack decodeSubtitleTrack(byte[] data) {
+        SubtitleTrack track = new SubtitleTrack();
+        int pos = 0;
+        while (pos < data.length) {
+            int[] tag = readVarint(data, pos);
+            pos = tag[1];
+            if (tag[0] == 10 || tag[0] == 18 || tag[0] == 34 || tag[0] == 42) {
+                int[] length = readVarint(data, pos);
+                pos = length[1];
+                int end = subtitleFieldEnd(data, pos, length[0]);
+                String value = new String(data, pos, length[0], StandardCharsets.UTF_8);
+                switch (tag[0]) {
+                    case 10 -> track.language = value;
+                    case 18 -> track.url = value;
+                    case 34 -> track.translatedLanguage = value;
+                    case 42 -> track.translatedUrl = value;
+                }
+                pos = end;
+            } else {
+                pos = skipSubtitleField(data, pos, tag[0]);
+            }
+        }
+        return track;
+    }
+
+    private static int subtitleFieldEnd(byte[] data, int pos, int length) {
+        if (length < 0 || length > data.length - pos) {
+            throw new IllegalArgumentException("Truncated subtitle protobuf field");
+        }
+        return pos + length;
+    }
+
+    private static int skipSubtitleField(byte[] data, int pos, int tag) {
+        int wireType = tag & 7;
+        if (tag >>> 3 == 0 || (wireType != 0 && wireType != 1 && wireType != 2 && wireType != 5)) {
+            throw new IllegalArgumentException("Invalid subtitle protobuf tag: " + tag);
+        }
+        int end = skipField(data, pos, wireType);
+        subtitleFieldEnd(data, pos, end - pos);
+        return end;
+    }
+
     // ==================== LOW-LEVEL ENCODING ====================
 
     private static void writeTag(ByteArrayOutputStream out, int fieldNumber, int wireType) {
@@ -381,16 +479,14 @@ public class VotProtobuf {
     private static int[] readVarint(byte[] data, int pos) {
         int result = 0;
         int shift = 0;
-        while (pos < data.length) {
-            int b = data[pos] & 0xFF;
-            pos++;
-            result |= (b & 0x7F) << shift;
-            if ((b & 0x80) == 0) {
-                break;
-            }
+        while (pos < data.length && shift < 64) {
+            int b = data[pos++] & 0xFF;
+            // Only the low 32 bits are needed by the API's int32/uint32 fields.
+            if (shift < 32) result |= (b & 0x7F) << shift;
+            if ((b & 0x80) == 0) return new int[]{result, pos};
             shift += 7;
         }
-        return new int[]{result, pos};
+        throw new IllegalArgumentException("Truncated or oversized protobuf varint");
     }
 
     /**
