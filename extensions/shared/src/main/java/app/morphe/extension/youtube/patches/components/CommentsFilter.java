@@ -2,6 +2,9 @@ package app.morphe.extension.youtube.patches.components;
 
 import static app.morphe.extension.youtube.patches.utils.FlyoutUtils.setVideoMarkedAsForKids;
 
+import android.view.View;
+import android.view.ViewGroup;
+
 import java.util.regex.Pattern;
 
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
@@ -17,6 +20,7 @@ import app.morphe.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings("unused")
 public final class CommentsFilter extends Filter {
+    private static final String CHIP_BAR_PATH_PREFIX = "chip_bar.e";
     private static final String COMMENT_COMPOSER_PATH = "comment_composer.e";
     private static final String COMMENT_ENTRY_POINT_TEASER_PATH = "comments_entry_point_teaser";
     private static final Pattern COMMENT_PREVIEW_TEXT_PATTERN = Pattern.compile("comments_entry_point_teaser.+ContainerType");
@@ -24,6 +28,7 @@ public final class CommentsFilter extends Filter {
     private static final String VIDEO_METADATA_CAROUSEL_PATH = "video_metadata_carousel.";
 
     private final StringFilterGroup chipBar;
+    private final StringFilterGroup commentsFilterBar;
     private final ByteArrayFilterGroup aiCommentsSummary;
     private final StringFilterGroup comments;
     private final StringFilterGroup commentComposer;
@@ -48,6 +53,11 @@ public final class CommentsFilter extends Filter {
         chipBar = new StringFilterGroup(
                 Settings.HIDE_AI_COMMENTS_SUMMARY,
                 "chip_bar."
+        );
+
+        commentsFilterBar = new StringFilterGroup(
+                Settings.HIDE_CATEGORY_BAR_IN_COMMENTS,
+                CHIP_BAR_PATH_PREFIX
         );
 
         aiCommentsSummary = new ByteArrayFilterGroup(
@@ -146,6 +156,7 @@ public final class CommentsFilter extends Filter {
         addPathCallbacks(
                 aiChatSummary,
                 chipBar,
+                commentsFilterBar,
                 comments,
                 commentsByMembers,
                 commentComposer,
@@ -184,6 +195,9 @@ public final class CommentsFilter extends Filter {
             // Playlist sort button uses same components and must only filter if the player is opened.
             return PlayerType.getCurrent().isMaximizedOrFullscreen()
                     && aiCommentsSummary.check(buffer).isFiltered();
+        } else if (matchedGroup == commentsFilterBar) {
+            return Settings.HIDE_CATEGORY_BAR_IN_COMMENTS.get()
+                    && PlayerType.getCurrent().isMaximizedOrFullscreen();
         } else if (matchedGroup == comments) {
             if (path.startsWith(FEED_VIDEO_PATH)) {
                 return Settings.HIDE_COMMENTS_SECTION_IN_HOME_FEED.get();
@@ -195,6 +209,24 @@ public final class CommentsFilter extends Filter {
         }
 
         return true;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hideInComments(View view) {
+        if (view == null || !Settings.HIDE_CATEGORY_BAR_IN_COMMENTS.get()) {
+            return;
+        }
+
+        if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+            ViewGroup.LayoutParams lp = view.getLayoutParams();
+            if (lp != null) {
+                lp.height = 0;
+                view.setLayoutParams(lp);
+            }
+            view.setVisibility(View.GONE);
+        }
     }
 
     /**

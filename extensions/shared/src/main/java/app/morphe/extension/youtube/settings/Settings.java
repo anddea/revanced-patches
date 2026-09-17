@@ -269,6 +269,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_CAROUSEL_SHELF_SUBSCRIPTIONS = new BooleanSetting("revanced_hide_carousel_shelf_subscriptions", FALSE);
 
     // PreferenceScreen: Feed - Category bar
+    public static final BooleanSetting HIDE_CATEGORY_BAR_IN_COMMENTS = new BooleanSetting("revanced_hide_category_bar_in_comments", FALSE, true);
     public static final BooleanSetting HIDE_CATEGORY_BAR_IN_FEED = new BooleanSetting("revanced_hide_category_bar_in_feed", FALSE, true);
     public static final BooleanSetting HIDE_CATEGORY_BAR_IN_HISTORY = new BooleanSetting("revanced_hide_category_bar_in_history", FALSE);
     public static final BooleanSetting HIDE_CATEGORY_BAR_IN_PLAYLIST = new BooleanSetting("revanced_hide_category_bar_in_playlist", FALSE);
