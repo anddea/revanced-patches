@@ -1,3 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.components;
 
 import org.apache.commons.lang3.StringUtils;
@@ -12,6 +23,7 @@ import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.EngagementPanel;
 import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
+import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.RootView;
 
 @SuppressWarnings({"unused", "deprecation"})
@@ -119,7 +131,15 @@ public final class ShortsShelfFilter extends Filter {
         );
         if (contentType == FilterContentType.PATH) {
             if (matchedGroup == compactFeedVideoPath) {
-                return hideShelves && compactFeedVideoBuffer.check(buffer).isFiltered();
+                return hideShelves
+                        // When a video is autoplaying in the feed, no new components are drawn on the screen.
+                        // Therefore, filtering is skipped when the current PlayerType is [INLINE_MINIMAL].
+                        && PlayerType.getCurrent() != PlayerType.INLINE_MINIMAL
+                        // The litho path of the feed video is 'video_lockup_with_attachment.e'.
+                        // It appears [shortsCompactFeedVideoBuffer] is used after 20 seconds during autoplay in the feed in YouTube 20.44.38.
+                        // If the Shorts shelf is hidden on the Home feed, the video in the feed will be hidden after 20 seconds have passed since autoplay began in the feed.
+                        // See: https://github.com/MorpheApp/morphe-patches/issues/773.
+                        && compactFeedVideoBuffer.check(buffer).isFiltered();
             } else if (matchedGroup == shelfHeaderPath) {
                 // Shelf header reused in history/channel/etc.
                 // Shorts header is always index 0.
