@@ -20,6 +20,17 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCore の設定を開く</string>
     <string name="gms_core_toast_not_installed_message">GmsCore がインストールされていません。インストールしてください。</string>
+    <string name="morphe_app_refresh_rate_default">デフォルト</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">アプリのリフレッシュレート</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">常時</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">縦画面再生時に適用</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">全画面再生時に適用</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">縦画面 &amp; 全画面再生時に適用</string>
+    <string name="morphe_app_refresh_rate_type_title">リフレッシュレートの上書き</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">常に一時停止</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">ワイヤレスオーディオ機器の接続時を除き一時停止</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">端末の画面ロック時に再生を一時停止</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">利用可能な場合は、RVX 設定の項目に選択されたアプリアイコンを使用します。</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">RVX 設定でアイコンを使用</string>
     <string name="morphe_custom_branding_icon_title">アプリアイコン</string>
@@ -38,6 +49,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="morphe_disable_quic_protocol_summary_off">QUIC プロトコルを無効にします。</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC プロトコルを無効にします。</string>
     <string name="morphe_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">スクロールの速度制限を無効化</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"[ライブ配信の DVR の制限を拡張] をオンにしたときに正常に動作しない可能性があります。
 
 この問題を解決するには、[動画ストリームを偽装] をオンにして [デフォルトのクライアント] を「TV Simply」または「visionOS」に変更してください。"</string>
@@ -137,6 +149,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="morphe_playback_in_feeds_entry_off">オフ</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi のみ</string>
     <string name="morphe_playback_in_feeds_title">フィードで再生</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">動画プレーヤーのコントロール (再生ボタンなど) の背景に表示される、ふちどりのための円形の影の透明度を設定します (0 が透明)。</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">プレーヤーのコントロールの背景の透明度</string>
     <string name="morphe_potoken_provider_summary">"組み込みの PoToken プロバイダー を使用する際の再生の問題を修正します (実験的機能)。
 
 YouTube Premium に加入している場合、この設定は必要ない可能性があります。"</string>
@@ -264,6 +278,51 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_video_quality_prioritize_dialog">この設定をオフにすると、古い動画で画質を手動で選択できなくなる可能性があります。</string>
     <string name="morphe_video_quality_prioritize_summary">コーデックの圧縮効率よりも利用可能な最高画質を優先します。</string>
     <string name="morphe_video_quality_prioritize_title">動画の画質を優先</string>
+    <string name="morphe_vot_caption_language_title">言語</string>
+    <string name="morphe_vot_cost_free">無料</string>
+    <string name="morphe_vot_cost_per_hour">動画再生時間 100 時間あたり %s</string>
+    <string name="morphe_vot_enabled_title">吹き替え翻訳</string>
+    <string name="morphe_vot_export_api_key_warning">"あなたの設定には OpenRouter API キーが含まれています。
+
+API キーは決して共有しないでください。キーにアクセスできる人は誰でも、あなたの OpenRouter クレジットを使用できてしまいます。"</string>
+    <string name="morphe_vot_http_error_message">"翻訳サービスが HTTP エラー %s を返しました。あなたの IP アドレスに対して、最大 24 時間のレート制限が適用された可能性があります。
+
+翻訳機能の利用を続けるには、設定で別の翻訳プロバイダーに切り替えるか、VPN を使用してください。"</string>
+    <string name="morphe_vot_http_error_title">翻訳が利用できません。</string>
+    <string name="morphe_vot_max_speech_rate_summary">吹き替え元の字幕に同期するために吹き替え音声を加速して再生する際の上限値です。</string>
+    <string name="morphe_vot_max_speech_rate_title">吹き替え音声の加速上限</string>
+    <string name="morphe_vot_mymemory_email_summary">これは任意です。MyMemory のメールアドレスを入力すると、1 日の上限を 5,000 文字から 50,000 文字に引き上げることができます。未入力の場合は、未ログインユーザー向けの上限が適用されます。</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory メール</string>
+    <string name="morphe_vot_mymemory_error">MyMemory が翻訳に失敗しました (status %s)。</string>
+    <string name="morphe_vot_mymemory_info_summary">"API キー不要の無料翻訳 APIです。無料プランでは 1 日あたり最大 5,000 文字、メールアドレスを登録すれば最大 50,000 文字まで利用可能です。
+
+ここをタップすると MyMemory.translated.net を開きます。"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">本日の MyMemory 無料翻訳枠 (5,000文字) を使い切りました。設定で MyMemory のメールアドレスを登録して 1 日の上限を 50,000 文字に引き上げるか、別の翻訳サービスに切り替えてください。</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">本日の MyMemory 翻訳割り当て (50,000文字) を使い切りました。別の翻訳サービスに切り替えるか、明日改めてお試しください。</string>
+    <string name="morphe_vot_mymemory_quota_next_available">次は %s に利用可能です。</string>
+    <string name="morphe_vot_mymemory_quota_title">MyMemory の 1 日の上限に達しました。</string>
+    <string name="morphe_vot_openrouter_api_key_summary">OpenRouter API キーです。OpenRouter.ai &gt; Workspace &gt; API Keys でキーを作成してください。</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API キー</string>
+    <string name="morphe_vot_openrouter_credits_message">OpenRouter のクレジット上限に達しました。OpenRouter.ai で残高をチャージするか、API キーの利用上限を引き上げてください。</string>
+    <string name="morphe_vot_openrouter_credits_title">OpenRouter のクレジット上限に達しました。</string>
+    <string name="morphe_vot_openrouter_error">OpenRouter の翻訳に失敗しました (HTTP %s)。</string>
+    <string name="morphe_vot_openrouter_info_summary">"OpenRouter 経由の有料 AI 翻訳です。一度チャージするだけで、数千本の動画を翻訳できます。Mistral Nemo は最も安価な選択肢であり、Gemma 4 は最高品質の翻訳を提供します。
+
+ここをタップすると OpenRouter.ai を開きます。"</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter モデル</string>
+    <string name="morphe_vot_openrouter_not_configured_message">このプロバイダーを選択する前に、設定で OpenRouter API キーを入力してください。</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter が設定されていません。</string>
+    <string name="morphe_vot_openrouter_open_website">OpenRouter.ai を開く</string>
+    <string name="morphe_vot_original_audio_volume_summary">吹き替え音声を再生している際の YouTube 動画の音量です。</string>
+    <string name="morphe_vot_translation_service_title">翻訳プロバイダ</string>
+    <string name="morphe_vot_translation_volume_summary">動画に重ねる吹き替え音声の音量</string>
+    <string name="morphe_vot_tts_sample">It\'s morphing time!</string>
+    <string name="morphe_vot_tts_system">システム</string>
+    <string name="morphe_vot_tts_voice_type">声の性別</string>
+    <string name="morphe_vot_voice_gender_female">女性</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">女性 (多言語)</string>
+    <string name="morphe_vot_voice_gender_male">男性</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">男性 (多言語)</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">画質の詳細設定メニューを表示します。</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">画質の詳細設定メニューを表示します。</string>
     <string name="revanced_advanced_video_quality_menu_title">画質の詳細設定メニューを表示</string>
@@ -1667,7 +1726,6 @@ DeArrow について詳しく知るには、ここをタップしてください
 
 ミニプレーヤーは、画面の左または右へドラッグして画面端に移動できます。"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">水平ドラッグジェスチャーを有効化</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">ミニプレーヤーのオーバーレイの不透明度は0 ~ 100の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_miniplayer_opacity_title">オーバーレイの不透明度</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">ミニプレーヤーの角を丸くします。</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">ミニプレーヤーの角を丸くします。</string>
@@ -1838,7 +1896,6 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_preference_screen_feed_title">フィード</string>
     <string name="revanced_preference_screen_fullscreen_summary">全画面表示に関連するコンポーネントを非表示または変更します。</string>
     <string name="revanced_preference_screen_fullscreen_title">全画面表示</string>
-    <string name="revanced_preference_screen_gemini_title">Gemini</string>
     <string name="revanced_preference_screen_general_title">一般</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">触覚フィードバックを無効または有効にします。</string>
     <string name="revanced_preference_screen_haptic_feedback_title">触覚フィードバック</string>
@@ -2319,7 +2376,6 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_settings_show_slider_summaries_summary_off">スライダー設定の下に概要を表示します。</string>
     <string name="revanced_settings_show_slider_summaries_summary_on">スライダー設定の下に概要を表示します。</string>
     <string name="revanced_settings_show_slider_summaries_title">スライダー設定の概要を表示</string>
-    <string name="revanced_settings_title">RVX</string>
     <string name="revanced_share_copy_timestamp_success">タイムスタンプをクリップボードにコピーしました (%s)。</string>
     <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました。</string>
     <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL をクリップボードにコピーしました。</string>
@@ -2522,7 +2578,6 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">スワイプジェスチャーで明るさを最低値にすると、明るさの自動調節が有効になります。</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">スワイプジェスチャーで明るさを最低値にすると、明るさの自動調節が有効になります。</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">自動明るさ調整ジェスチャーを有効化</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">スワイプの透明度の値は 0 ~ 100 の間でなければなりません。</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">透明度の範囲は 0 ~ 100 で、0 が透明です。</string>
     <string name="revanced_swipe_overlay_background_opacity_title">スワイプオーバーレイの背景の透明度</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">スワイプ中の明るさの現在値を視覚的に表示するグラフの色です。</string>
@@ -2568,7 +2623,6 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">現在の設定:\n上部の領域をスワイプ: シークジェスチャー\n下部の領域をスワイプ: 再生速度ジェスチャー</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">現在の設定:\n上部の領域をスワイプ: 再生速度ジェスチャー\n下部の領域をスワイプ: シークジェスチャー</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">再生速度ジェスチャーとシークジェスチャーを入れ替え</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">テキストサイズは 1 ~ 30 の間でなければなりません。</string>
     <string name="revanced_swipe_text_overlay_size_summary">スワイプオーバーレイのテキストサイズを 1 ~ 30 の間で設定できます。</string>
     <string name="revanced_swipe_text_overlay_size_title">スワイプオーバーレイのテキストサイズ</string>
     <string name="revanced_swipe_threshold_summary">スワイプとして検出する量のしきい値です。</string>
@@ -2639,7 +2693,7 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_vot_audio_proxy_summary_on">現在の設定: 音声ストリームはワーカーを介してプロキシされます</string>
     <string name="revanced_vot_audio_proxy_title">プロキシオーディオストリーム</string>
     <string name="revanced_vot_auth_required">認証が必要です。設定で Yandex OAuth トークンを追加してください。</string>
-    <string name="revanced_vot_credits_summary">Jav1x、sashade8-ship-it、anddea による Yandex VOT の実装です。ilyhalight/voice-over-translation をベースにしています。</string>
+    <string name="revanced_vot_credits_summary">anddea、COOLak、Jav1x、sashade8-ship-it によるYandex VOT の実装です。ilyhalight/voice-over-translation をベースにしています。</string>
     <string name="revanced_vot_enabled_summary_off">Yandex による音声翻訳を有効にします</string>
     <string name="revanced_vot_enabled_summary_on">Yandex による音声翻訳を有効にします</string>
     <string name="revanced_vot_enabled_title">音声翻訳を有効化</string>
@@ -2663,7 +2717,6 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">翻訳された音声の準備ができるまで、動画を一時停止します。</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">翻訳された音声の準備ができるまで、動画を一時停止します。</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_title">翻訳の準備中に動画を一時停止</string>
-    <string name="revanced_vot_percent_value">%d%%</string>
     <string name="revanced_vot_playback_error">翻訳音声を再生できませんでした</string>
     <string name="revanced_vot_proxy_url_fetch_failed">VOT ワーカープロキシホストの取得に失敗しました。</string>
     <string name="revanced_vot_proxy_url_fetch_success">VOT ワーカープロキシホストが %s に更新されました。</string>
