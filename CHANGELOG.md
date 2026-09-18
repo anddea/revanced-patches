@@ -1,3 +1,27 @@
+# [4.3.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.6...v4.3.0-dev.7) (2026-09-18)
+
+
+### Bug Fixes
+
+* **YouTube Music:** `Enable landscape mode` did not work in `v9.15` ([7bbef16](https://github.com/anddea/revanced-patches/commit/7bbef1676682a49b8cc9db0701262f33b86c1710))
+* **YouTube:** Videos playing in feed intermittently disappeared during playback ([f83797a](https://github.com/anddea/revanced-patches/commit/f83797aa03f922bc2bfeb6d9158a0c2ebd9ad9bd))
+
+
+### Features
+
+* **YouTube - Comments components:** Add `Hide category bar in comments` setting ([29f08a4](https://github.com/anddea/revanced-patches/commit/29f08a4e2e7741f3da07f7e1da1fce108b318805))
+* **YouTube - Hide feed components:** Add `Report AI channel` video menu entry ([16fe126](https://github.com/anddea/revanced-patches/commit/16fe126d5ca703d4adae4490c3eb9f6695848ac3))
+* **YouTube - Swipe controls:** Add `Left|Right|Top|Bottom swipe gesture` settings ([f2d85f2](https://github.com/anddea/revanced-patches/commit/f2d85f25d821fbedb2b0163b54ef4034ebe43d55))
+* **YouTube - Theme:** Add `Disable system splash` setting ([7394b74](https://github.com/anddea/revanced-patches/commit/7394b74b2bb5977de4c55b138f3d62c2daa7bfdd))
+* **YouTube - Toolbar components:** Add `Apply settings button action to You tab` setting ([83e6aaf](https://github.com/anddea/revanced-patches/commit/83e6aaf162f0a3c1111325946445c2241e1077de))
+* **YouTube - Video playback:** Add `Edit custom audio pitch presets` setting ([6755742](https://github.com/anddea/revanced-patches/commit/675574296a63cb6967dc2f86db5d69a80f13659c))
+* **YouTube - Voice over translation:** Automatic translation with startup pause ([#1806](https://github.com/anddea/revanced-patches/issues/1806)) ([925b160](https://github.com/anddea/revanced-patches/commit/925b1608051d174c1d694776ba30ce140782834e))
+* **YouTube & YouTube Music - Custom branding:** Bring back `appIcon` patch option ([90b05f3](https://github.com/anddea/revanced-patches/commit/90b05f3af1452b45b8aee07521a333bcd8d4115a))
+* **YouTube & YouTube Music - Theme:** Add `precompileLegacyThemes` patch option ([739a4de](https://github.com/anddea/revanced-patches/commit/739a4de66ea5ab9293aeb4ac05fc6efe83b94483))
+* **YouTube:** Add `Remember livestream playback position` patch ([b544bb2](https://github.com/anddea/revanced-patches/commit/b544bb27a2555329b356598a310e5b8d7ea73219))
+* **YouTube:** Replace `Disable translucent status bar` with `Status bar translucency` setting ([8fe6ef2](https://github.com/anddea/revanced-patches/commit/8fe6ef2e4b4d4741f18d1818ab5d5378408ca23c))
+* **YouTube:** Replace `Enter fullscreen mode when video starts` with `Open videos in fullscreen mode` setting ([57320eb](https://github.com/anddea/revanced-patches/commit/57320ebfe5698eba9219b70c6c0ffd84936539a3))
+
 # [4.3.0-dev.6](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.5...v4.3.0-dev.6) (2026-09-11)
 
 
