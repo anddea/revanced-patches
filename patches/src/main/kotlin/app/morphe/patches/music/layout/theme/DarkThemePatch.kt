@@ -56,6 +56,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.ResourcePatchContext
+import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
@@ -267,6 +268,15 @@ val darkThemePatch = resourcePatch(
         required = true,
     )
 
+    val precompileLegacyThemesOption = booleanOption(
+        key = "precompileLegacyThemes",
+        default = false,
+        title = "Precompile legacy themes (Android 8–10)",
+        description = "Precompile 15 theme palettes into resources for Android 8–10 devices. " +
+                "Required for theme presets on Android 8–10. On Android 11+, leave this disabled to speed up patching and reduce APK size.",
+        required = false,
+    )
+
     dependsOn(darkThemeBytecodePatch)
 
     execute {
@@ -286,23 +296,25 @@ val darkThemePatch = resourcePatch(
         // a synthetic MCC qualifier, then select those concrete resources before inflation. The
         // qualified files override existing app entries because arsclib cannot introduce a new
         // resource-table entry from a qualified-only definition.
-        (listOf("stock") + darkThemeKeys).forEachIndexed { index, key ->
-            val directory = "values-mcc${PRECOMPILED_THEME_QUALIFIER_BASE + index}"
-            // ARSCLib derives the values resource type from the XML filename.
-            val path = "res/$directory/colors.xml"
-            get(path).apply {
-                parentFile?.mkdirs()
-                writeText("<?xml version=\"1.0\" encoding=\"utf-8\"?><resources />")
-            }
-            document(path).use { document ->
-                val selectedColor = if (key == "stock") null else precompiledDarkThemeColors[key]
-                precompiledDarkThemeResources.forEach { (stockName, stockColor) ->
-                    document.documentElement.appendChild(document.createElement("color").apply {
-                        setAttribute("name", stockName)
-                        textContent = selectedColor?.let {
-                            darkThemeColorWithStockAlpha(it, stockColor)
-                        } ?: stockColor
-                    })
+        if (precompileLegacyThemesOption.value == true) {
+            (listOf("stock") + darkThemeKeys).forEachIndexed { index, key ->
+                val directory = "values-mcc${PRECOMPILED_THEME_QUALIFIER_BASE + index}"
+                // ARSCLib derives the values resource type from the XML filename.
+                val path = "res/$directory/colors.xml"
+                get(path).apply {
+                    parentFile?.mkdirs()
+                    writeText("<?xml version=\"1.0\" encoding=\"utf-8\"?><resources />")
+                }
+                document(path).use { document ->
+                    val selectedColor = if (key == "stock") null else precompiledDarkThemeColors[key]
+                    precompiledDarkThemeResources.forEach { (stockName, stockColor) ->
+                        document.documentElement.appendChild(document.createElement("color").apply {
+                            setAttribute("name", stockName)
+                            textContent = selectedColor?.let {
+                                darkThemeColorWithStockAlpha(it, stockColor)
+                            } ?: stockColor
+                        })
+                    }
                 }
             }
         }

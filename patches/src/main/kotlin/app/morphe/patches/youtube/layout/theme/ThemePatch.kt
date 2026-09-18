@@ -57,6 +57,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.ResourcePatchContext
+import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
@@ -524,6 +525,15 @@ val themePatch = resourcePatch(
         required = true,
     )
 
+    val precompileLegacyThemesOption = booleanOption(
+        key = "precompileLegacyThemes",
+        default = false,
+        title = "Precompile legacy themes (Android 8–10)",
+        description = "Precompile all 768 theme permutations into resources for Android 8–10 devices. " +
+                "Required for theme presets on Android 8–10. On Android 11+, leave this disabled to significantly speed up patching and reduce APK size.",
+        required = false,
+    )
+
     dependsOn(
         sharedThemePatch,
         settingsPatch,
@@ -628,59 +638,61 @@ val themePatch = resourcePatch(
         // where the runtime loader remains authoritative. The qualified files override existing
         // app entries because arsclib cannot introduce a new resource-table entry from a
         // qualified-only definition.
-        val precompiledDarkThemeKeys = listOf("stock") + darkThemeKeys + PATCH_OPTION_THEME_KEY
-        val precompiledLightThemeKeys = lightThemeKeys + PATCH_OPTION_THEME_KEY
-        val precompiledThemePairCount =
-            precompiledDarkThemeKeys.size * precompiledLightThemeKeys.size
-        precompiledDarkThemeKeys.forEachIndexed { darkIndex, darkKey ->
-            val selectedDarkColor =
-                when (darkKey) {
-                    "stock" -> null
-                    PATCH_OPTION_THEME_KEY -> customDarkThemeColor
-                    else -> precompiledDarkThemeColors[darkKey]
-                }
-            precompiledLightThemeKeys.forEachIndexed { lightIndex, lightKey ->
-                val selectedLightColor =
-                    if (lightKey == PATCH_OPTION_THEME_KEY) {
-                        customLightThemeColor
-                    } else {
-                        precompiledLightThemeColors[lightKey] ?: DEFAULT_LIGHT_THEME_COLOR
+        if (precompileLegacyThemesOption.value == true) {
+            val precompiledDarkThemeKeys = listOf("stock") + darkThemeKeys + PATCH_OPTION_THEME_KEY
+            val precompiledLightThemeKeys = lightThemeKeys + PATCH_OPTION_THEME_KEY
+            val precompiledThemePairCount =
+                precompiledDarkThemeKeys.size * precompiledLightThemeKeys.size
+            precompiledDarkThemeKeys.forEachIndexed { darkIndex, darkKey ->
+                val selectedDarkColor =
+                    when (darkKey) {
+                        "stock" -> null
+                        PATCH_OPTION_THEME_KEY -> customDarkThemeColor
+                        else -> precompiledDarkThemeColors[darkKey]
                     }
-                val mnc = darkIndex * precompiledLightThemeKeys.size + lightIndex + 1
-                val darkBackgroundMnc = mnc + precompiledThemePairCount
-                val lightBackgroundMnc = mnc + precompiledThemePairCount * 2
+                precompiledLightThemeKeys.forEachIndexed { lightIndex, lightKey ->
+                    val selectedLightColor =
+                        if (lightKey == PATCH_OPTION_THEME_KEY) {
+                            customLightThemeColor
+                        } else {
+                            precompiledLightThemeColors[lightKey] ?: DEFAULT_LIGHT_THEME_COLOR
+                        }
+                    val mnc = darkIndex * precompiledLightThemeKeys.size + lightIndex + 1
+                    val darkBackgroundMnc = mnc + precompiledThemePairCount
+                    val lightBackgroundMnc = mnc + precompiledThemePairCount * 2
 
-                // ARSCLib derives the values resource type from the XML filename.
-                writePrecompiledThemeVariant(
-                    "res/values-mcc$PRECOMPILED_THEME_MCC-" +
-                            "mnc${mnc.toString().padStart(3, '0')}/colors.xml",
-                    precompiledDarkThemeResources,
-                    precompiledLightThemeResources,
-                    selectedDarkColor,
-                    selectedLightColor,
-                    includeDark = true,
-                    includeLight = true,
-                )
-                writePrecompiledThemeVariant(
-                    "res/values-mcc$PRECOMPILED_THEME_MCC-" +
-                            "mnc${darkBackgroundMnc.toString().padStart(3, '0')}/colors.xml",
-                    precompiledDarkThemeResources,
-                    precompiledLightThemeResources,
-                    selectedDarkColor,
-                    selectedLightColor,
-                    includeDark = true,
-                    includeLight = false,
-                )
-                writePrecompiledThemeVariant(
-                    "res/values-mcc$PRECOMPILED_THEME_MCC-" +
-                            "mnc${lightBackgroundMnc.toString().padStart(3, '0')}/colors.xml",
-                    precompiledDarkThemeResources,
-                    precompiledLightThemeResources,
-                    selectedDarkColor,
-                    selectedLightColor,
-                    includeDark = false,
-                    includeLight = true,
-                )
+                    // ARSCLib derives the values resource type from the XML filename.
+                    writePrecompiledThemeVariant(
+                        "res/values-mcc$PRECOMPILED_THEME_MCC-" +
+                                "mnc${mnc.toString().padStart(3, '0')}/colors.xml",
+                        precompiledDarkThemeResources,
+                        precompiledLightThemeResources,
+                        selectedDarkColor,
+                        selectedLightColor,
+                        includeDark = true,
+                        includeLight = true,
+                    )
+                    writePrecompiledThemeVariant(
+                        "res/values-mcc$PRECOMPILED_THEME_MCC-" +
+                                "mnc${darkBackgroundMnc.toString().padStart(3, '0')}/colors.xml",
+                        precompiledDarkThemeResources,
+                        precompiledLightThemeResources,
+                        selectedDarkColor,
+                        selectedLightColor,
+                        includeDark = true,
+                        includeLight = false,
+                    )
+                    writePrecompiledThemeVariant(
+                        "res/values-mcc$PRECOMPILED_THEME_MCC-" +
+                                "mnc${lightBackgroundMnc.toString().padStart(3, '0')}/colors.xml",
+                        precompiledDarkThemeResources,
+                        precompiledLightThemeResources,
+                        selectedDarkColor,
+                        selectedLightColor,
+                        includeDark = false,
+                        includeLight = true,
+                    )
+                }
             }
         }
 
