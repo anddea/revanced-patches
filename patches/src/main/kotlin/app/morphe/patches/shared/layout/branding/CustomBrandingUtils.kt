@@ -271,6 +271,7 @@ internal fun ResourcePatchContext.applyCustomBranding(
     config: CustomBrandingConfig,
     customName: String? = null,
     customIconPath: String? = null,
+    appIcon: String = "original",
 ): Boolean {
     require(config.namePresetLabels.size == 4) {
         "Custom branding expects four preset app names."
@@ -284,14 +285,37 @@ internal fun ResourcePatchContext.applyCustomBranding(
     config.icons.filter { it.hasAdaptiveLayers }.forEach { icon ->
         copyAdaptiveLayers(config, icon)
     }
-    val customIcon = copyCustomIcon(config, customIconPath)
+    // A free-form option value is a custom resource folder. Presets retain every runtime alias.
+    val preset = config.icons.find { it.key == appIcon }
+    val iconPath = if (appIcon == "original" || appIcon == CUSTOM_ICON_KEY || preset != null) {
+        customIconPath
+    } else {
+        appIcon
+    }
+    val customIcon = copyCustomIcon(config, iconPath)
+    val defaultIcon = when {
+        appIcon == "original" -> "original"
+        preset != null -> preset.key
+        customIcon?.hasLauncherResource == true -> CUSTOM_ICON_KEY
+        else -> throw PatchException("The selected custom app icon requires a launcher resource")
+    }
+    val defaultBrandingIcon = preset.takeIf { defaultIcon != "original" }
+        ?: customIcon.takeIf { defaultIcon == CUSTOM_ICON_KEY }
+    customIcon?.takeIf { it.hasLauncherResource }?.let {
+        addCustomIconFallbacks(config)
+        val notification = IconResource.NOTIFICATION.named(CUSTOM_ICON_KEY)
+        if (get("res").walkTopDown().none { it.isFile && it.nameWithoutExtension == notification }) {
+            val source = if (it.hasAdaptiveLayers) IconResource.ADAPTIVE_FOREGROUND else IconResource.LAUNCHER
+            writeBrandingDrawableFallback(notification, "@mipmap/${source.named(CUSTOM_ICON_KEY)}")
+        }
+    }
     copyDynamicBrandingResources(config)
 
     var hasRvxSettingsPreference = false
 
     val originalName = findOriginalAppName(config)
     removeStringsElements(config.applicationNameKeys)
-    addBrandingResources(config, originalName, customName, customIcon != null)
+    addBrandingResources(config, originalName, customName, customIcon != null, defaultIcon)
     val aliasNameLabels = config.namePresetLabels + (customName ?: CUSTOM_ICON_LABEL)
 
     config.settingsPreferencePaths.forEach { path ->
@@ -312,13 +336,20 @@ internal fun ResourcePatchContext.applyCustomBranding(
             "android:label",
             "@string/${BrandingResource.CUSTOM_APP_NAME.resourceName}",
         )
-        if (customIcon?.hasLauncherResource == true) {
-            // The application icon is not runtime-selectable and is used by Android settings,
-            // installers, and some device-specific notification surfaces.
-            application.setAttribute(
-                "android:icon",
-                "@mipmap/${IconResource.LAUNCHER.named(CUSTOM_ICON_KEY)}",
-            )
+        if (defaultBrandingIcon?.hasLauncherResource == true) {
+            // Android-owned surfaces read manifest icons and cannot follow runtime alias changes.
+            val iconReference = "@mipmap/${iconResourceName(config, defaultBrandingIcon)}"
+            application.setAttribute("android:icon", iconReference)
+            application.setAttribute("android:roundIcon", iconReference)
+            listOf("activity", "activity-alias").forEach { tag ->
+                val components = application.getElementsByTagName(tag)
+                for (index in 0 until components.length) {
+                    val component = components.item(index) as Element
+                    if (component.hasAttribute("android:icon")) {
+                        component.setAttribute("android:icon", iconReference)
+                    }
+                }
+            }
         }
 
         val source = document.childNodes.findElementByAttributeValueOrThrow(
@@ -354,7 +385,6 @@ internal fun ResourcePatchContext.applyCustomBranding(
         val runtimeIcons =
             listOf(BrandingIcon("original", "Stock", false)) + config.icons + customAliasIcon
         val nameCount = aliasNameLabels.size
-        val defaultIcon = if (customIcon != null) CUSTOM_ICON_KEY else "original"
         val defaultNameIndex = if (customName != null) nameCount else 1
 
         fun addAlias(icon: BrandingIcon, nameIndex: Int, useSystemSplash: Boolean) {
@@ -716,6 +746,35 @@ $monochromeLayer                </adaptive-icon>
     )
 }
 
+/** Uses the custom launcher on in-app surfaces when the folder has no dedicated artwork. */
+private fun ResourcePatchContext.addCustomIconFallbacks(config: CustomBrandingConfig) {
+    val names = mutableListOf(IconResource.SPLASH.named(CUSTOM_ICON_KEY))
+    config.dynamicHeaderResourceNames.forEach { header ->
+        val base = IconResource.HEADER.named("${CUSTOM_ICON_KEY}_$header")
+        if (config.dynamicHeaderUsesThemes) names.addAll(listOf("${base}_light", "${base}_dark"))
+        else names.add(base)
+    }
+    names.forEach { name ->
+        if (get("res").walkTopDown().any { it.isFile && it.nameWithoutExtension == name }) {
+            return@forEach
+        }
+        writeBrandingDrawableFallback(name, "@mipmap/${IconResource.LAUNCHER.named(CUSTOM_ICON_KEY)}")
+    }
+}
+
+/** Keeps a drawable resource ID for consumers that cannot resolve a mipmap directly. */
+private fun ResourcePatchContext.writeBrandingDrawableFallback(name: String, reference: String) {
+    val target = get("res/drawable/$name.xml")
+    target.parentFile.mkdirs()
+    target.writeText(
+        """<?xml version="1.0" encoding="utf-8"?>
+            <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+                <item android:drawable="$reference" />
+            </layer-list>
+        """.trimIndent(),
+    )
+}
+
 private fun isAndroidResourceDirectory(name: String) =
     name == "drawable" || name.startsWith("drawable-") ||
         name == "mipmap" || name.startsWith("mipmap-")
@@ -850,6 +909,13 @@ private fun ResourcePatchContext.copyAdaptiveLayers(
             sourceMonochromeDirectory,
             "drawable/${config.monochromeFileName}.xml",
             "drawable/${IconResource.NOTIFICATION.named(icon.key)}.xml",
+        )
+    }
+
+    if (!icon.hasMonochromeLayers) {
+        writeBrandingDrawableFallback(
+            IconResource.NOTIFICATION.named(icon.key),
+            "@mipmap/${IconResource.ADAPTIVE_FOREGROUND.named(icon.key)}",
         )
     }
 
@@ -1391,6 +1457,7 @@ private fun ResourcePatchContext.addBrandingResources(
     originalName: String,
     customName: String?,
     hasCustomIcon: Boolean,
+    defaultIcon: String,
 ) {
     val nameLabels = config.namePresetLabels + listOfNotNull(customName?.let { CUSTOM_ICON_LABEL })
     val iconEntries = listOf(BrandingIcon("original", "Stock", false)) + config.icons +
@@ -1415,7 +1482,7 @@ private fun ResourcePatchContext.addBrandingResources(
         addString(
             resources,
             BrandingResource.DEFAULT_ICON.resourceName,
-            if (hasCustomIcon) CUSTOM_ICON_KEY else "original",
+            defaultIcon,
         )
         addString(
             resources,

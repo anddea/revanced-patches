@@ -255,6 +255,17 @@ val customBrandingPatch = resourcePatch(
         title = "App name",
         description = "Custom app name.",
     )
+    val appIconOption = stringOption(
+        key = "appIcon",
+        default = "original",
+        values = mapOf("Stock" to "original") +
+            availableIcon.associate { it.label to it.key } + mapOf("Custom" to "custom"),
+        title = "App icon",
+        description = "Icon used by Android and selected by default in the app. " +
+            "Choose Custom to use the Custom icon folder, or enter a resource folder path. " +
+            "All icons remain available in the app settings.",
+        required = true,
+    )
     val customIconOption = folderOption(
         key = "customIcon",
         title = "Custom icon",
@@ -272,6 +283,7 @@ val customBrandingPatch = resourcePatch(
             brandingConfig,
             customNameOption.value?.trim()?.takeIf { it.isNotEmpty() },
             customIconOption.value?.trim()?.takeIf { it.isNotEmpty() },
+            appIconOption.value ?: "original",
         )
         installYouTubeRvxSettingsIconLayout()
         addPreference(
