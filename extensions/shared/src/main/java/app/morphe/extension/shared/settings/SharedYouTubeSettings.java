@@ -43,7 +43,8 @@ public class SharedYouTubeSettings extends BaseSettings {
             parentInverted(CUSTOM_BRANDING_USE_AS_SYSTEM_SPLASH));
 
     public static final BooleanSetting CUSTOM_BRANDING_APPLY_TO_RVX_SETTINGS = new BooleanSetting(
-            "morphe_custom_branding_apply_to_rvx_settings", FALSE, true);
+            "morphe_custom_branding_apply_to_rvx_settings",
+            !"original".equals(CustomBrandingPatch.getDefaultIconStyle()), true);
 
     public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("morphe_force_original_audio", TRUE, true);
 
