@@ -455,8 +455,7 @@ public final class GoogleVotBottomSheet {
                 Settings.GOOGLE_VOT_USE_NATIVE_TTS.save(false);
                 Settings.GOOGLE_VOT_TTS_VOICE_TYPE.save(value);
             }
-            GoogleVoiceOverTranslationPatch.resetPlaybackState();
-            GoogleVoiceOverTranslationPatch.interruptSpeech();
+            GoogleVoiceOverTranslationPatch.onVoiceChanged();
             GoogleVotBottomSheet.show(context);
             pickerDialog.dismiss();
         });

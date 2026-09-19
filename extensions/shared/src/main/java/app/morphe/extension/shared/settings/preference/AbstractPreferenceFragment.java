@@ -195,10 +195,15 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 refreshSliderSummaries(getPreferenceScreen());
             }
             updatingPreference = false;
+            if (!settingImportInProgress) onSettingChanged(setting);
         } catch (Exception ex) {
             Logger.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
         }
     };
+
+    /** Called after a preference change has reached the setting cache and UI. */
+    protected void onSettingChanged(Setting<?> setting) {
+    }
 
     static void setSliderInteractionInProgress(boolean inProgress) {
         sliderInteractionInProgress = inProgress;
@@ -685,3 +690,5 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         super.onDestroy();
     }
 }
+
+// Modified by COOLak: notify active playback after preference storage and cache synchronization.

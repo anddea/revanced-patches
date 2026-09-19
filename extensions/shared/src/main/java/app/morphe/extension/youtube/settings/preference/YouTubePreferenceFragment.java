@@ -27,6 +27,7 @@ import app.morphe.extension.youtube.patches.general.ChangeFormFactorPatch;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
 import app.morphe.extension.youtube.patches.utils.ReturnYouTubeDislikePatch;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient;
+import app.morphe.extension.youtube.patches.voiceovertranslation.TranslationPlaybackController;
 import app.morphe.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.settings.YouTubeActivityHook;
@@ -120,6 +121,11 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
         }
 
         super.syncSettingWithPreference(pref, setting, applySettingToPreference);
+    }
+
+    @Override
+    protected void onSettingChanged(Setting<?> setting) {
+        TranslationPlaybackController.onSettingChanged(setting.key);
     }
 
     /**

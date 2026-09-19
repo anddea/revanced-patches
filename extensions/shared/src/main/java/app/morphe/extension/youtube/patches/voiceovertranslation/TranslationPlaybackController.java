@@ -4,6 +4,8 @@
  * This file is part of the revanced-patches project:
  * https://github.com/anddea/revanced-patches
  *
+ * Modified by COOLak: preserve translation pause ownership across player recreation.
+ *
  * Original author(s):
  * - COOLak (https://github.com/COOLak)
  *
@@ -79,8 +81,8 @@ public final class TranslationPlaybackController {
     public static void initialize(Object player) {
         nativePlayer = new WeakReference<>(player);
         int provider = configuredProvider();
-        state.reset(provider, pauseEnabled(provider));
-        automaticVideoId = "";
+        state.initialize(provider, pauseEnabled(provider));
+        Logger.printDebug(() -> "Translation player initialized; retaining video: " + state.videoId());
     }
 
     /** Injection point in the current LocalDirector's loadVideo, not response preloading. */
@@ -138,7 +140,8 @@ public final class TranslationPlaybackController {
     static void metadataLoaded(String videoId) {
         if (!state.matchesVideo(videoId)) return;
         Utils.runOnMainThread(() -> {
-            if (!videoId.equals(state.videoId()) || !videoId.equals(VideoInformation.getVideoId())) return;
+            if (!state.matchesVideo(videoId) || !videoId.equals(VideoInformation.getVideoId())) return;
+            if (state.takeDeferredResume()) VideoInformation.setPlayerPlaying(true);
             enforcePause();
             if (videoId.equals(automaticVideoId)) return;
             if (state.provider() == TranslationPlaybackState.YANDEX && Settings.VOT_AUTO_TRANSLATE.get()) {
@@ -150,6 +153,36 @@ public final class TranslationPlaybackController {
                 GoogleVoiceOverTranslationPatch.startAutomaticTranslation();
             }
         });
+    }
+
+    /** Apply translation choices to the current video as well as subsequent videos. */
+    public static void onSettingChanged(String key) {
+        Utils.verifyOnMainThread();
+        if (key.equals(Settings.GOOGLE_VOT_USE_NATIVE_TTS.key)
+                || key.equals(Settings.GOOGLE_VOT_TTS_VOICE_TYPE.key)) {
+            GoogleVoiceOverTranslationPatch.onVoiceChanged();
+            return;
+        }
+        if (key.equals(Settings.GOOGLE_VOT_TRANSLATION_SERVICE.key)
+                || key.equals(Settings.GOOGLE_VOT_CAPTION_LANGUAGE.key)
+                || key.equals(Settings.GOOGLE_VOT_OPENROUTER_MODEL.key)) {
+            GoogleVoiceOverTranslationPatch.reloadTranscript();
+            return;
+        }
+        String id = VideoInformation.getVideoId();
+        if (!state.matchesVideo(id)) return;
+        if (key.equals(Settings.VOT_PAUSE_VIDEO_WHILE_PREPARING_TRANSLATION.key)
+                || key.equals(Settings.GOOGLE_VOT_PAUSE_WHILE_PREPARING.key)) {
+            if (!pauseEnabled(state.provider())) state.cancel(state.provider(), id);
+            return;
+        }
+        if (!key.equals(Settings.VOT_ENABLED.key) && !key.equals(Settings.GOOGLE_VOT_ENABLED.key)
+                && !key.equals(Settings.VOT_AUTO_TRANSLATE.key) && !key.equals(Settings.GOOGLE_VOT_AUTO_TRANSLATE.key)) return;
+        int provider = configuredProvider();
+        if (provider != state.provider()) select(provider, id);
+        if (provider == TranslationPlaybackState.NONE) GoogleVoiceOverTranslationPatch.suspendTranslation();
+        automaticVideoId = "";
+        metadataLoaded(id);
     }
 
     static void select(int provider, String videoId) {

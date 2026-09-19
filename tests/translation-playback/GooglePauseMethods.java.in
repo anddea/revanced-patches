@@ -1,0 +1,150 @@
+package app.morphe.extension.youtube.patches.voiceovertranslation;
+
+import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.shared.VideoInformation;
+
+import app.morphe.extension.shared.utils.Utils;
+
+import java.io.File;
+import java.nio.file.Files;
+import app.morphe.extension.shared.utils.Logger;
+import java.util.*;
+import java.util.function.Supplier;
+
+public class GooglePauseMethods {
+    static final String TTS_ENGINE_SYSTEM = "system";
+    static String currentVideoId = "a", lang = "ru", voice = "edge";
+    static boolean sessionEnabled, ttsReady, isLoading;
+    static long transcriptGeneration, lastVideoTimeMs;
+    static boolean wasExplicitSeek, httpErrorDialogShownThisVideo;
+    static int lastSpokenIndex, stopped, loads, resets, notifications, languages, cacheUpdates;
+    static List<TranscriptSegment> segments = new ArrayList<>();
+    static NativeStartupAudio nativeStartupAudio;
+    static FakeTts tts;
+    static FakeEngine ttsEngine = new FakeEngine();
+
+    static String resolveTargetLang() {
+        return lang;
+    }
+
+    static String resolveVoice(String l) {
+        return voice;
+    }
+
+    static void ensureTts() {
+        if (tts == null) tts = new FakeTts();
+    }
+
+    static void updateTtsLanguage() {
+        languages++;
+    }
+
+    static void stopTts() {
+        stopped++;
+        if (tts != null) tts.stop();
+        ttsEngine.stop();
+        lastSpokenIndex = -1;
+    }
+
+    static void resetPlaybackState() {
+        resets++;
+    }
+
+    static void updateTranslationActiveCache() {
+        cacheUpdates++;
+    }
+
+    static void notifyStateChanged() {
+        notifications++;
+    }
+
+    static void loadTranscript(String id) {
+        loads++;
+        isLoading = true;
+    }
+
+    static void logError(Supplier<String> s, Exception e) {}
+
+    static class NativeStartupAudio {
+        final String videoId, lang, text, utteranceId = "prepare";
+        final int index;
+        final long generation;
+        final File file;
+        byte[] bytes;
+
+        NativeStartupAudio(String id, String l, String t, int i, File f) {
+            videoId = id;
+            lang = l;
+            text = t;
+            index = i;
+            file = f;
+            generation = transcriptGeneration;
+        }
+    }
+
+    static class Bundle {}
+
+    static class TextToSpeech {
+        static final int SUCCESS = 0;
+    }
+
+    static class FakeTts {
+        boolean speaking;
+        int syntheses, result, stops;
+        boolean throwsError;
+        float rate;
+
+        boolean isSpeaking() {
+            return speaking;
+        }
+
+        void setSpeechRate(float r) {
+            rate = r;
+        }
+
+        void stop() {
+            stops++;
+            speaking = false;
+        }
+
+        int synthesizeToFile(String text, Bundle b, File f, String id) {
+            syntheses++;
+            if (b == null
+                    || f == null
+                    || !f.isFile()
+                    || !f.getParentFile().equals(Utils.getContext().getCacheDir()))
+                throw new IllegalArgumentException("invalid synthesis request");
+            if (throwsError) throw new IllegalStateException("synthesis");
+            return result;
+        }
+    }
+
+    static class FakeEngine {
+        int pauses, stops, warmups;
+        void warmConnection() { warmups++; }
+
+        void pause() {
+            pauses++;
+        }
+
+        void stop() {
+            stops++;
+        }
+    }
+
+    static class MediaMetadataRetriever implements AutoCloseable {
+        static final int METADATA_KEY_DURATION = 9;
+        static String duration = "1200";
+        boolean bound;
+        void setDataSource(String path) { if (!new File(path).isFile()) throw new IllegalArgumentException(); bound = true; }
+        String extractMetadata(int key) { if (!bound || key != METADATA_KEY_DURATION) throw new IllegalArgumentException(); return duration; }
+        public void close() {}
+    }
+    enum PlayerType {
+        INLINE_MINIMAL, MAXIMIZED;
+        static PlayerType current = MAXIMIZED;
+        static PlayerType getCurrent() { return current; }
+    }
+
+    // PRODUCTION_METHODS
+}

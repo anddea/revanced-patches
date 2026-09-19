@@ -4,6 +4,8 @@
  * This file is part of the revanced-patches project:
  * https://github.com/anddea/revanced-patches
  *
+ * Modified by COOLak: preserve translation pause ownership across player recreation.
+ *
  * Original author(s):
  * - COOLak (https://github.com/COOLak)
  *
@@ -47,25 +49,50 @@ final class TranslationPlaybackState {
     private int provider;
     private boolean waiting;
     private boolean resume;
+    private boolean awaitingVideo;
+    private int pendingProvider;
+    private boolean pendingPause;
+    private Boolean pendingPlay;
+    private boolean deferredResume;
 
-    synchronized void reset(int provider, boolean pause) {
-        videoId = "";
-        this.provider = provider;
-        waiting = pause && provider != NONE;
-        resume = waiting;
+    /** A new native player may still belong to the same logical video. */
+    synchronized void initialize(int provider, boolean pause) {
+        awaitingVideo = true;
+        pendingProvider = provider;
+        pendingPause = pause && provider != NONE;
+        pendingPlay = null;
     }
 
     synchronized boolean newVideo(String id, int provider, boolean pause) {
-        if (id.isEmpty() || id.equals(videoId)) return false;
-        // Preserve the early constructor pause when the metadata arrives.
-        if (!videoId.isEmpty()) reset(provider, pause);
-        else if (this.provider != provider || (!waiting && pause)) reset(provider, pause);
+        if (id.isEmpty()) return false;
+        if (id.equals(videoId)) {
+            if (awaitingVideo && pendingPlay != null) {
+                if (waiting) resume = pendingPlay;
+                else deferredResume = pendingPlay;
+            }
+            awaitingVideo = false;
+            return false;
+        }
+        this.provider = provider;
+        waiting = pause && provider != NONE;
+        resume = waiting && (!awaitingVideo || pendingPlay == null || pendingPlay);
+        deferredResume = false;
+        awaitingVideo = false;
         videoId = id;
         return true;
     }
 
+    /** Only the confirmed replacement player may consume a deferred play request. */
+    synchronized boolean takeDeferredResume() {
+        if (awaitingVideo || waiting) return false;
+        boolean result = deferredResume;
+        deferredResume = false;
+        return result;
+    }
+
     synchronized void select(String id, int provider, boolean pause, boolean playing) {
         boolean alreadyHeld = waiting && id.equals(videoId);
+        deferredResume = false;
         videoId = id;
         this.provider = provider;
         waiting = pause;
@@ -73,6 +100,11 @@ final class TranslationPlaybackState {
     }
 
     synchronized boolean filterPlay(boolean playing, boolean internalChange) {
+        if (awaitingVideo) {
+            if (!pendingPause) return playing;
+            if (!internalChange) pendingPlay = playing;
+            return false;
+        }
         if (!waiting) return playing;
         if (playing) {
             resume = true;
@@ -86,9 +118,9 @@ final class TranslationPlaybackState {
         return waiting && this.provider == provider && videoId.equals(id);
     }
 
-    synchronized boolean matchesVideo(String id) { return !id.isEmpty() && videoId.equals(id); }
-    synchronized boolean isWaiting() { return waiting; }
-    synchronized int provider() { return provider; }
+    synchronized boolean matchesVideo(String id) { return !awaitingVideo && !id.isEmpty() && videoId.equals(id); }
+    synchronized boolean isWaiting() { return awaitingVideo ? pendingPause : waiting; }
+    synchronized int provider() { return awaitingVideo ? pendingProvider : provider; }
     synchronized String videoId() { return videoId; }
 
     synchronized boolean ready(int provider, String id) {
@@ -96,6 +128,10 @@ final class TranslationPlaybackState {
         boolean shouldResume = resume;
         waiting = false;
         resume = false;
+        if (awaitingVideo) {
+            deferredResume = shouldResume;
+            return false;
+        }
         return shouldResume;
     }
 
@@ -103,6 +139,7 @@ final class TranslationPlaybackState {
         if (this.provider == provider && videoId.equals(id)) {
             waiting = false;
             resume = false;
+            deferredResume = false;
         }
     }
 }

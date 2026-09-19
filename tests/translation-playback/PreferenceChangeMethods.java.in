@@ -1,0 +1,53 @@
+package app.morphe.extension.youtube.patches.voiceovertranslation;
+
+import app.morphe.extension.shared.utils.Logger;
+import java.util.*;
+
+/** Real preference listener with deterministic storage/UI boundaries. */
+public class PreferenceChangeMethods {
+    boolean updatingPreference, sliderInteractionInProgress, settingImportInProgress, showingUserDialogMessage;
+    int uiSyncs, cacheSyncs, dialogs;
+    final Map<String, Setting<?>> settings = new HashMap<>();
+    final Map<String, Preference> preferences = new HashMap<>();
+    interface SharedPreferences {
+        interface OnSharedPreferenceChangeListener { void onChange(Object storage, String key); }
+    }
+    static class Preference {}
+    static class Setting<T> {
+        static PreferenceChangeMethods owner;
+        final String key;
+        boolean rebootApp;
+        Object userDialogMessage;
+        Runnable sync = () -> {};
+        Setting(String key) { this.key = key; }
+        static Setting<?> getSettingFromPath(String key) { return owner.settings.get(key); }
+        static void privateSyncValueFromPreferences(Setting<?> value) {
+            owner.cacheSyncs++;
+            value.sync.run();
+        }
+    }
+    static class SharedYouTubeSettings {
+        static final Setting<?> CUSTOM_BRANDING_ICON = new Setting<>("icon");
+        static final Setting<?> CUSTOM_BRANDING_USE_AS_SYSTEM_SPLASH = new Setting<>("splash");
+    }
+    static class BaseSettings { static final Setting<?> SHOW_SLIDER_SUMMARIES = new Setting<>("sliders"); }
+    static class CustomBrandingPatch { static void updateSystemSplashTheme(Object context) {} }
+    PreferenceChangeMethods() { Setting.owner = this; }
+    Setting<?> add(String key, Runnable sync) {
+        Setting<?> setting = new Setting<>(key); setting.sync = sync;
+        settings.put(key, setting); preferences.put(key, new Preference()); return setting;
+    }
+    void change(String key) { listener.onChange(null, key); }
+    Preference findPreference(String key) { return preferences.get(key); }
+    boolean prefIsSetToDefault(Preference pref, Setting<?> setting) { return false; }
+    void showSettingUserDialogConfirmation(Preference pref, Setting<?> setting) { dialogs++; }
+    void showRestartDialog(Object context) { dialogs++; }
+    Object getActivity() { return null; }
+    Object getPreferenceScreen() { return null; }
+    void updatePreferencesWithKey(Object screen, String key, Setting<?> setting) { uiSyncs++; }
+    void updateUIAvailability() {}
+    void refreshSliderSummaries(Object screen) {}
+
+// PRODUCTION_LISTENER
+// PRODUCTION_CALLBACK
+}
