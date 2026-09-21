@@ -81,10 +81,15 @@ import app.morphe.extension.youtube.utils.VideoUtils;
 public class Whitelist {
     private static final Map<WhitelistType, ArrayList<VideoChannel>> whitelistMap = parseWhitelist();
 
+    private static final WhitelistType whitelistTypeAds = WhitelistType.ADS;
     private static final WhitelistType whitelistTypePlaybackSpeed = WhitelistType.PLAYBACK_SPEED;
     private static final WhitelistType whitelistTypeSponsorBlock = WhitelistType.SPONSOR_BLOCK;
     private static final String whitelistIncluded = str("revanced_whitelist_included");
     private static final String whitelistExcluded = str("revanced_whitelist_excluded");
+
+    public static boolean isChannelWhitelistedAds(String channelId) {
+        return isWhitelisted(whitelistTypeAds, channelId);
+    }
 
     public static boolean isChannelWhitelistedSponsorBlock(String channelId) {
         return isWhitelisted(whitelistTypeSponsorBlock, channelId);
@@ -146,7 +151,11 @@ public class Whitelist {
         }
 
         if (PatchStatus.SponsorBlock()) {
-            appendStringBuilder(sb, whitelistTypeSponsorBlock, channelId, true);
+            appendStringBuilder(sb, whitelistTypeSponsorBlock, channelId, !PatchStatus.HideAds());
+        }
+
+        if (PatchStatus.HideAds()) {
+            appendStringBuilder(sb, whitelistTypeAds, channelId, true);
         }
 
         // Create content container (message) inside a ScrollView.
@@ -208,6 +217,24 @@ public class Whitelist {
             buttons.add(playbackSpeedButton);
             playbackSpeedButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
             buttonWidths.add(playbackSpeedButton.getMeasuredWidth());
+        }
+        if (PatchStatus.HideAds()) {
+            Button adsButton = Utils.addButton(
+                    context,
+                    whitelistTypeAds.friendlyName,
+                    () -> whitelistListener(
+                            context,
+                            whitelistTypeAds,
+                            channelId,
+                            channelName
+                    ),
+                    false,
+                    true,
+                    dialog
+            );
+            buttons.add(adsButton);
+            adsButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+            buttonWidths.add(adsButton.getMeasuredWidth());
         }
         if (PatchStatus.SponsorBlock()) {
             Button sponsorBlockButton = Utils.addButton(
@@ -302,15 +329,8 @@ public class Whitelist {
                 }
                 buttonContainer.addView(rowContainer);
             } else {
-                // Multiple rows: OK, Cancel, Neutral.
-                List<Button> reorderedButtons = new ArrayList<>();
-                // Reorder: OK, Cancel, Neutral.
-                if (PatchStatus.SponsorBlock()) {
-                    reorderedButtons.add(buttons.get(buttons.size() - 1));
-                }
-                if (PatchStatus.VideoPlayback()) {
-                    reorderedButtons.add(buttons.get(0));
-                }
+                // Multiple rows: preserve the same order as the single-row layout.
+                List<Button> reorderedButtons = new ArrayList<>(buttons);
 
                 // Add each button in its own row with spacers.
                 for (int i = 0; i < reorderedButtons.size(); i++) {
@@ -396,9 +416,14 @@ public class Whitelist {
         Map<WhitelistType, ArrayList<VideoChannel>> whitelistMap = new EnumMap<>(WhitelistType.class);
 
         for (WhitelistType whitelistType : whitelistTypes) {
-            String serializedChannels = whitelistType == WhitelistType.PLAYBACK_SPEED
-                    ? Settings.OVERLAY_BUTTON_WHITELIST_PLAYBACK_SPEED.get()
-                    : Settings.OVERLAY_BUTTON_WHITELIST_SPONSORBLOCK.get();
+            String serializedChannels;
+            if (whitelistType == WhitelistType.ADS) {
+                serializedChannels = Settings.ADS_CHANNEL_WHITELIST.get();
+            } else if (whitelistType == WhitelistType.PLAYBACK_SPEED) {
+                serializedChannels = Settings.OVERLAY_BUTTON_WHITELIST_PLAYBACK_SPEED.get();
+            } else {
+                serializedChannels = Settings.OVERLAY_BUTTON_WHITELIST_SPONSORBLOCK.get();
+            }
             ArrayList<VideoChannel> channels = new ArrayList<>();
             if (!serializedChannels.isEmpty()) {
                 try {
@@ -498,7 +523,9 @@ public class Whitelist {
         }
         String serializedString = serialized.toString();
         try {
-            if (whitelistType == WhitelistType.PLAYBACK_SPEED) {
+            if (whitelistType == WhitelistType.ADS) {
+                Settings.ADS_CHANNEL_WHITELIST.save(serializedString);
+            } else if (whitelistType == WhitelistType.PLAYBACK_SPEED) {
                 Settings.OVERLAY_BUTTON_WHITELIST_PLAYBACK_SPEED.save(serializedString);
             } else {
                 Settings.OVERLAY_BUTTON_WHITELIST_SPONSORBLOCK.save(serializedString);
@@ -514,7 +541,18 @@ public class Whitelist {
         return whitelistMap.get(whitelistType);
     }
 
+    /**
+     * Returns whether a whitelist has no channels configured.
+     *
+     * @param whitelistType whitelist category to inspect
+     * @return true when the category is empty
+     */
+    public static boolean isEmpty(WhitelistType whitelistType) {
+        return getWhitelistedChannels(whitelistType).isEmpty();
+    }
+
     public enum WhitelistType {
+        ADS("morphe_ads_channel_whitelist_title"),
         PLAYBACK_SPEED("revanced_preference_category_playback_speed"),
         SPONSOR_BLOCK("revanced_preference_group_sb_title");
 
