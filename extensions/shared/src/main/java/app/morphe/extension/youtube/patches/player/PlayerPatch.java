@@ -55,6 +55,7 @@ import app.morphe.extension.youtube.patches.utils.InitializationPatch;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
 import app.morphe.extension.youtube.patches.video.VideoQualityPatch.VideoQualityInterface;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.settings.YouTubeActivityHook;
 import app.morphe.extension.youtube.shared.EngagementPanel;
 import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.RootView;
@@ -63,6 +64,8 @@ import app.morphe.extension.youtube.utils.VideoUtils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class PlayerPatch {
+    private static final int FULLSCREEN_HIDDEN_Y_OFFSET = 100000;
+
     private static final IntegerSetting quickActionsMarginTopSetting = Settings.QUICK_ACTIONS_TOP_MARGIN;
 
     private static final int CONTROL_BUTTONS_BACKGROUND_OPACITY =
@@ -446,14 +449,29 @@ public class PlayerPatch {
     public static ImageView hideFullscreenButton(ImageView imageView) {
         final boolean hideView = Settings.HIDE_PLAYER_FULLSCREEN_BUTTON.get();
 
-        Utils.hideViewUnderCondition(hideView, imageView);
-        if (!hideView && imageView != null) {
-            Drawable background = imageView.getBackground();
-            if (background != null) {
-                imageView.setBackground(applyControlButtonsBackgroundOpacity(background));
+        if (!hideView) {
+            if (imageView != null) {
+                Drawable background = imageView.getBackground();
+                if (background != null) {
+                    imageView.setBackground(applyControlButtonsBackgroundOpacity(background));
+                }
             }
+            return imageView;
         }
-        return hideView ? null : imageView;
+
+        if (imageView == null) {
+            return null;
+        }
+
+        if (!YouTubeActivityHook.useBoldIcons(true)) {
+            imageView.setVisibility(View.GONE);
+            return null;
+        }
+
+        // Cannot remove the button because the bold overlay player buttons rely on draw updates
+        // to control fade in/out. Move it offscreen instead.
+        imageView.setY(imageView.getY() - FULLSCREEN_HIDDEN_Y_OFFSET);
+        return imageView;
     }
 
     public static boolean hidePreviousNextButton(boolean previousOrNextButtonVisible) {

@@ -102,6 +102,7 @@ import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import app.morphe.util.inputStreamFromBundledResourceOrThrow
 import app.morphe.util.lowerCaseOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -242,6 +243,7 @@ val overlayButtonsPatch = resourcePatch(
         cfBottomUIPatch,
         dismissPlayerHookPatch,
         geminiButton,
+        legacyOverlayButtonsPatch,
         pipStateHookPatch,
         playerControlsPatch,
         playlistPatch,
@@ -336,6 +338,7 @@ val overlayButtonsPatch = resourcePatch(
             "youtube/overlaybuttons/shared",
             ResourceGroup(
                 "drawable",
+                "revanced_overlay_button_background.xml",
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
                 "revanced_gemini_copy.xml",
@@ -411,51 +414,65 @@ val overlayButtonsPatch = resourcePatch(
         )
 
         // Merge XML nodes from the host to their respective XML files.
-        copyXmlNode(
-            "youtube/overlaybuttons/shared/host",
-            "layout/youtube_controls_bottom_ui_container.xml",
-            "android.support.constraint.ConstraintLayout"
+        val overlayButtonsHostLayoutFileName = "layout/youtube_controls_bottom_ui_container.xml"
+        val bottomControlsLayoutFileNames = arrayOf(
+            "youtube_controls_bottom_ui_container.xml",
+            "youtube_video_exploder_controls_bottom_ui_container.xml",
         )
 
-        document("res/layout/youtube_controls_bottom_ui_container.xml").use { document ->
-            document.doRecursively loop@{ node ->
-                if (node !is Element) return@loop
-
-                // Change the relationship between buttons
-                node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
-                    ?.let { attribute ->
-                        if (attribute.textContent == "@id/fullscreen_button") {
-                            attribute.textContent = "@+id/revanced_overlay_buttons_scroll_view"
-                        }
-                    }
+        bottomControlsLayoutFileNames.forEach { xmlFile ->
+            val targetXml = get("res").resolve("layout").resolve(xmlFile)
+            if (targetXml.exists()) {
+                "android.support.constraint.ConstraintLayout".copyXmlNode(
+                    document(
+                        inputStreamFromBundledResourceOrThrow(
+                            "youtube/overlaybuttons/shared/host",
+                            overlayButtonsHostLayoutFileName,
+                        )
+                    ),
+                    document("res/layout/$xmlFile"),
+                ).close()
             }
-
-            // Keep the native fullscreen control last in the bottom-controls container.
-            val fullscreenButton = document.childNodes.findElementByAttributeValue(
-                "android:id",
-                "@id/fullscreen_button",
-            ) ?: document.childNodes.findElementByAttributeValue(
-                "android:id",
-                "@+id/fullscreen_button",
-            )
-            fullscreenButton?.let(document.documentElement::appendChild)
         }
 
-        arrayOf(
-            "youtube_controls_bottom_ui_container.xml",
+        // Fullscreen layouts are shared by both player styles. Give the old container its
+        // own copies so its button can follow patch options without changing modern controls.
+        val legacyFullscreenLayouts = listOf(
             "youtube_controls_fullscreen_button.xml",
-            "youtube_controls_cf_fullscreen_button.xml"
-        ).forEach { xmlFile ->
+            "youtube_controls_cf_fullscreen_button.xml",
+        ).filter { get("res/layout/$it").exists() }.associateWith { "revanced_legacy_$it" }
+        legacyFullscreenLayouts.forEach { (source, target) ->
+            get("res/layout/$source").copyTo(get("res/layout/$target"), overwrite = true)
+        }
+
+        (bottomControlsLayoutFileNames.toList() + legacyFullscreenLayouts.values).forEach { xmlFile ->
             val targetXml = get("res").resolve("layout").resolve(xmlFile)
             if (targetXml.exists()) {
                 document("res/layout/$xmlFile").use { document ->
                     document.doRecursively loop@{ node ->
                         if (node !is Element) return@loop
 
+                        val isLegacyLayout = xmlFile == "youtube_controls_bottom_ui_container.xml" ||
+                            xmlFile in legacyFullscreenLayouts.values
+                        if (xmlFile == "youtube_controls_bottom_ui_container.xml") {
+                            val layout = node.getAttribute("android:layout")
+                            legacyFullscreenLayouts["${layout.removePrefix("@layout/")}.xml"]?.let {
+                                node.setAttribute("android:layout", "@layout/${it.removeSuffix(".xml")}")
+                            }
+                        }
+
+                        val id = node.getAttribute("android:id")
+                        // Only the modern fullscreen control retains YouTube's native dimensions.
+                        val isNativeFullscreenButton = id == "@id/fullscreen_button" ||
+                            id == "@+id/fullscreen_button" ||
+                            id == "@id/youtube_controls_fullscreen_button_stub" ||
+                            id == "@+id/youtube_controls_fullscreen_button_stub"
+
                         // Change the relationship between buttons
                         node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
                             ?.let { attribute ->
-                                if (attribute.textContent == "@id/fullscreen_button") {
+                                if (attribute.textContent == "@id/fullscreen_button" &&
+                                    !isNativeFullscreenButton) {
                                     attribute.textContent =
                                         "@+id/revanced_overlay_buttons_scroll_view"
                                 }
@@ -463,14 +480,14 @@ val overlayButtonsPatch = resourcePatch(
 
                         node.getAttributeNode("yt:layout_constraintBottom_toTopOf")
                             ?.let { attribute ->
-                                if (attribute.textContent == "@id/quick_actions_container") {
+                                if (attribute.textContent == "@id/quick_actions_container" &&
+                                    (!isNativeFullscreenButton || isLegacyLayout)) {
                                     attribute.textContent =
                                         "@+id/revanced_overlay_buttons_bottom_margin"
                                 }
                             }
 
-                        val (id, height, width) = Triple(
-                            node.getAttribute("android:id"),
+                        val (height, width) = Pair(
                             node.getAttribute("android:layout_height"),
                             node.getAttribute("android:layout_width")
                         )
@@ -479,8 +496,19 @@ val overlayButtonsPatch = resourcePatch(
                             width != "0.0dip",
                         )
 
-                        val isButton =
-                            id.endsWith("_button") && id != "@id/multiview_button" || id == "@id/youtube_controls_fullscreen_button_stub"
+                        val isButton = if (isNativeFullscreenButton) {
+                            isLegacyLayout
+                        } else {
+                            id.endsWith("_button") && id != "@id/multiview_button"
+                        }
+                        val isExploderLayout =
+                            xmlFile == "youtube_video_exploder_controls_bottom_ui_container.xml"
+
+                        // Background circles belong only to the modern player layout.
+                        if (!isExploderLayout && node.getAttribute("android:background") ==
+                            "@drawable/revanced_overlay_button_background") {
+                            node.setAttribute("android:background", "@null")
+                        }
 
                         // Adjust TimeBar and Chapter bottom padding
                         val timBarItem = mutableMapOf(
@@ -493,6 +521,12 @@ val overlayButtonsPatch = resourcePatch(
                         else
                             "48.0dip"
 
+                        // The old layout uses the configured spacer and button height. Sharing
+                        // the scroll container also preserves portrait/landscape button limits.
+                        if (!isExploderLayout && id == "@+id/revanced_overlay_buttons_scroll_view") {
+                            node.setAttribute("android:layout_height", layoutHeightWidth)
+                        }
+
                         if (isButton) {
                             node.setAttribute("android:paddingBottom", "12.0dip")
                             node.setAttribute("android:paddingTop", "12.0dip")
@@ -500,9 +534,32 @@ val overlayButtonsPatch = resourcePatch(
                                 node.setAttribute("android:layout_height", layoutHeightWidth)
                                 node.setAttribute("android:layout_width", layoutHeightWidth)
                             }
-                        } else if (timBarItem.containsKey(id)) {
+                        } else if (!isExploderLayout && timBarItem.containsKey(id)) {
                             if (!useWiderButtonsSpace) {
                                 node.setAttribute("android:paddingBottom", timBarItem.getValue(id))
+                            }
+                        }
+
+                        if (isExploderLayout && (id == "@+id/revanced_overlay_buttons_scroll_view" ||
+                                    id == "@id/timestamps_container" ||
+                                    id == "@id/time_bar_chapter_title_container")) {
+                            node.removeAttribute("yt:layout_constraintBottom_toTopOf")
+                            node.setAttribute("yt:layout_constraintTop_toTopOf", "@id/fullscreen_button")
+                            node.setAttribute("yt:layout_constraintBottom_toBottomOf", "@id/fullscreen_button")
+                            node.setAttribute("android:layout_height", "0.0dip")
+                            node.setAttribute("android:paddingTop", "0.0dip")
+                            node.setAttribute("android:paddingBottom", "0.0dip")
+                            node.setAttribute("android:tag", "morphe_modern_overlay")
+                        }
+
+                        if (isExploderLayout) {
+                            when (id) {
+                                "@id/time_bar_entry_point_tap_container" ->
+                                    node.setAttribute("android:paddingTop", "0.0dip")
+                                "@id/time_bar_chapter_title", "@id/time_bar_timeline_title" -> {
+                                    node.setAttribute("android:layout_marginBottom", "0.0dip")
+                                    node.setAttribute("android:layout_gravity", "center_vertical")
+                                }
                             }
                         }
 
@@ -519,6 +576,18 @@ val overlayButtonsPatch = resourcePatch(
                                 "@id/quick_actions_container"
                             )
                         }
+                    }
+
+                    if (xmlFile in bottomControlsLayoutFileNames) {
+                        // Keep the native fullscreen control last in bottom-controls containers.
+                        val fullscreenButton = document.childNodes.findElementByAttributeValue(
+                            "android:id",
+                            "@id/fullscreen_button",
+                        ) ?: document.childNodes.findElementByAttributeValue(
+                            "android:id",
+                            "@+id/fullscreen_button",
+                        )
+                        fullscreenButton?.let(document.documentElement::appendChild)
                     }
                 }
             }
