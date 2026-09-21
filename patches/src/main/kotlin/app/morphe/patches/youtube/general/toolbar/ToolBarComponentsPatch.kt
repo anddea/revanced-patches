@@ -758,6 +758,10 @@ val toolBarComponentsPatch = bytecodePatch(
 
                             invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->createToolbarSettingsButton(Ljava/util/List;)[B
                             move-result-object v$buttonByteRegister
+
+                            # Remove toolbar buttons hidden by the user before layout.
+                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->modifyToolbarButtons(Ljava/util/List;)V
+
                             if-eqz v$buttonByteRegister, :immutable
 
                             sget-object v$protoListFreeRegister, $buttonsClass->a:$buttonsClass
