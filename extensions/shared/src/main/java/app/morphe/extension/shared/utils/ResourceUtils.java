@@ -44,6 +44,10 @@ public class ResourceUtils extends Utils {
         return getIdentifier(str, resourceType, mContext);
     }
 
+    public static int getIdentifier(@NonNull ResourceType resourceType, @NonNull String str) {
+        return getIdentifier(str, resourceType);
+    }
+
     public static int getIdentifier(@NonNull String str, @NonNull ResourceType resourceType,
                                     @NonNull Context context) {
         try {
