@@ -157,6 +157,9 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for translucent navigation and status bars
 
         if (is_19_25_or_greater) {
+            // Apply translucency to the overlay itself without changing edge-to-edge feature flags.
+            addBottomBarContainerHook("$PATCHES_PATH/theme/StatusBarPatch;->apply(Landroid/view/View;)V")
+
             // Keep the original translucent resources for player controls and apply the selected
             // status-bar translucency mode only to the status-bar color result.
             StatusBarColorFingerprint.method.apply {

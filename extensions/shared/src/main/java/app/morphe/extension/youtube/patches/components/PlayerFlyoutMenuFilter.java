@@ -9,11 +9,16 @@ import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.shared.utils.StringTrieSearch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
+import app.morphe.extension.youtube.shared.ShortsPlayerState;
 
 @SuppressWarnings("unused")
 public final class PlayerFlyoutMenuFilter extends Filter {
     private final ByteArrayFilterGroupList flyoutFilterGroupList = new ByteArrayFilterGroupList();
 
+    private final ByteArrayFilterGroup shortsPlayerSettingsCaptionsButton = new ByteArrayFilterGroup(
+            null,
+            "closed_captions"
+    );
     private final ByteArrayFilterGroup flyoutLoopVideoButton;
     private final ByteArrayFilterGroup qualityMenuButton;
     private final ByteArrayFilterGroup byteArrayException;
@@ -159,8 +164,9 @@ public final class PlayerFlyoutMenuFilter extends Filter {
             }
 
             // Shorts also use this player flyout panel
-            if (PlayerType.getCurrent().isNoneOrHidden()) {
-                return false;
+            if (PlayerType.getCurrent().isNoneOrHidden() || ShortsPlayerState.getCurrent().isOpen()) {
+                return Settings.HIDE_PLAYER_FLYOUT_MENU_CAPTIONS.get()
+                        && shortsPlayerSettingsCaptionsButton.check(buffer).isFiltered();
             }
 
             if (IS_20_31_OR_GREATER && pathBuilderException.matches(path)) {

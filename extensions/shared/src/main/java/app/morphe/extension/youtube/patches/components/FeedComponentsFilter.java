@@ -239,6 +239,11 @@ public final class FeedComponentsFilter extends Filter {
                 )
         );
 
+        final StringFilterGroup compactChannelCommunityButton = new StringFilterGroup(
+                Settings.HIDE_COMMUNITY_BUTTON,
+                "compact_channel$FEcommunity"
+        );
+
         final StringFilterGroup membersShelf = new StringFilterGroup(
                 Settings.HIDE_MEMBERS_SHELF,
                 "member_recognition_shelf"
@@ -281,7 +286,8 @@ public final class FeedComponentsFilter extends Filter {
                 Settings.HIDE_SURVEYS,
                 "in_feed_survey",
                 "slimline_survey",
-                "feed_nudge"
+                "feed_nudge",
+                "in_short_survey"
         );
 
         // It appears YouTube no longer uses this keyword.
@@ -397,6 +403,7 @@ public final class FeedComponentsFilter extends Filter {
                 carouselShelves,
                 channelProfile,
                 chipBar,
+                compactChannelCommunityButton,
                 expandableCard,
                 forYouShelf,
                 getPremiumButton,

@@ -23,7 +23,6 @@ import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.youtube.patches.player.MiniplayerPatch;
 import app.morphe.extension.youtube.patches.player.PlayerPatch;
 import app.morphe.extension.youtube.settings.Settings;
-import app.morphe.extension.youtube.settings.YouTubeActivityHook;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings("unused")
@@ -201,6 +200,7 @@ public class PlayerControlsPatch {
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     private static boolean restoreOldPlayerButtons() {
         return Settings.RESTORE_OLD_PLAYER_BUTTONS.get()
-                || !YouTubeActivityHook.useBoldIcons(true);
+                || !ExtendedUtils.IS_20_31_OR_GREATER
+                || ExtendedUtils.isSpoofingToLessThan("20.31.00");
     }
 }

@@ -31,6 +31,8 @@ private object NewPlayerTypeEnumFeatureFlagFingerprint : Fingerprint(
 )
 
 private object NewPlayerOverlaysFeatureFlagFingerprint : Fingerprint(
+    returnType = "Z",
+    parameters = listOf(),
     filters = listOf(
         literal(45752335L)
     )

@@ -99,6 +99,7 @@ import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.addStaticFieldToExtension
 import app.morphe.util.cloneMutable
 import app.morphe.util.findFieldFromToString
+import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findMethodFromToString
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findMutableClassOrThrow
@@ -1031,20 +1032,19 @@ val videoInformationPatch = bytecodePatch(
         Fingerprint(
             classFingerprint = setPlaybackParametersFingerprint,
             name = "<init>",
-            filters = listOf(
-                patcherMethodCall(
-                    opcode = Opcode.INVOKE_DIRECT,
-                    name = "<init>"
-                )
-            )
         ).matchAll().forEach {
-            val firstInstructionMatch = it.instructionMatches.first()
-            val register = firstInstructionMatch.getInstruction<FiveRegisterInstruction>().registerC
-            it.method.addInstruction(
-                firstInstructionMatch.index + 1,
-                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                        "initializeExoPlayerImpl($EXTENSION_EXOPLAYERIMPL_INTERFACE)V"
-            )
+            // The first non-range constructor call can initialize a helper object
+            // instead of this ExoPlayer (YouTube 19.28).
+            // Capture p0 only after initialization, including constructors with many registers.
+            it.method.apply {
+                findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { index ->
+                    addInstructionsAtControlFlowLabel(
+                        index,
+                        "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                                "initializeExoPlayerImpl($EXTENSION_EXOPLAYERIMPL_INTERFACE)V"
+                    )
+                }
+            }
         }
 
         setPlaybackParametersFingerprint.classDef.apply {

@@ -23,6 +23,7 @@ import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.request.buildRequestPatch
 import app.morphe.patches.shared.misc.request.hookBuildRequest
 import app.morphe.patches.shared.misc.spoof.BuildInnerTubeProtoRequestUriFingerprint
+import app.morphe.patches.shared.misc.spoof.addMediaSessionOverride
 import app.morphe.patches.youtube.shared.WatchNextResponseParserFingerprint
 import app.morphe.patches.youtube.utils.auth.authHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -36,20 +37,27 @@ import app.morphe.patches.youtube.utils.fix.hype.hypeButtonIconPatch
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_ACTION_BUTTONS
 import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_39_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
+import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.registersUsed
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -59,6 +67,8 @@ private const val ACTION_BUTTONS_CLASS_DESCRIPTOR =
     "$PLAYER_PATH/ActionButtonsPatch;"
 private const val EXTENSION_CONFIG_INFO_INTERFACE =
     $$"$$GENERAL_PATH/GeneralPatch$ConfigInfoInterface;"
+private const val EXTENSION_REQUEST_INTERFACE =
+    $$"$$GENERAL_PATH/GeneralPatch$RequestInterface;"
 
 private object ModernRelateVideoOverlayFingerprint : Fingerprint(
     filters = listOf(
@@ -114,6 +124,10 @@ internal val restoreOldVideoActionBarPatch = bytecodePatch(
     )
 
     execute {
+        if (is_20_39_or_greater) {
+            addMediaSessionOverride("$GENERAL_CLASS_DESCRIPTOR->useMediaSessionFeatureFlag(Z)Z")
+        }
+
         if (is_20_30_or_greater) {
             addPreference(
                 arrayOf(
@@ -127,6 +141,63 @@ internal val restoreOldVideoActionBarPatch = bytecodePatch(
                 descriptor = "$GENERAL_CLASS_DESCRIPTOR->fixVideoActionBar(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Map;",
                 hookHeader = true,
             )
+
+            // Comment requests use the same 'next' endpoint as watch page requests.
+            // Their config must not be overridden, so find out which requests are for the watch page.
+            BuildInnerTubeProtoRequestUriFingerprint.method.apply {
+                // uri.buildUpon().appendEncodedPath("youtubei/v1").appendEncodedPath(this.request.endpoint)
+                val appendEndpointIndex = indexOfFirstInstructionReversedOrThrow {
+                    getReference<MethodReference>()?.name == "appendEncodedPath"
+                }
+                val endpointRegister = getInstruction<FiveRegisterInstruction>(appendEndpointIndex).registerD
+                val endpointIndex = indexOfFirstInstructionReversedOrThrow(appendEndpointIndex) {
+                    opcode == Opcode.IGET_OBJECT && (this as TwoRegisterInstruction).registerA == endpointRegister
+                }
+                val endpointField = getInstruction<ReferenceInstruction>(endpointIndex).reference as FieldReference
+                val requestRegister = getInstruction<TwoRegisterInstruction>(endpointIndex).registerB
+                val requestIndex = indexOfFirstInstructionReversedOrThrow(endpointIndex) {
+                    opcode == Opcode.IGET_OBJECT && (this as TwoRegisterInstruction).registerA == requestRegister
+                }
+                val requestField = getInstruction<ReferenceInstruction>(requestIndex).reference as FieldReference
+
+                BuildInnerTubeProtoRequestUriFingerprint.classDef.apply {
+                    interfaces.add(EXTENSION_REQUEST_INTERFACE)
+
+                    methods.add(
+                        ImmutableMethod(
+                            type,
+                            "patch_getEndpoint",
+                            listOf(),
+                            "Ljava/lang/String;",
+                            AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                            null,
+                            null,
+                            MutableMethodImplementation(2),
+                        ).toMutable().apply {
+                            addInstructions(
+                                0,
+                                """
+                                    iget-object v0, p0, $requestField
+                                    iget-object v0, v0, $endpointField
+                                    return-object v0
+                                """
+                            )
+                        }
+                    )
+                }
+            }
+
+            BuildInnerTubeProtoRequestBodyFingerprint.method.apply {
+                findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstruction(
+                        index,
+                        "invoke-static { v$register, p0 }, $GENERAL_CLASS_DESCRIPTOR->" +
+                                "onBuildRequestBody(Lcom/google/protobuf/MessageLite;$EXTENSION_REQUEST_INTERFACE)V"
+                    )
+                }
+            }
 
             val configInfoClass = with(BuildInnerTubeProtoRequestBodyFingerprint) {
                 val match = instructionMatches.first()

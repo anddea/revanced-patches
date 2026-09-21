@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
  */
 
@@ -9,6 +13,7 @@ package app.morphe.patches.youtube.player.fullscreen
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.OpcodesFilter.Companion.opcodesToFilters
 import app.morphe.patcher.checkCast
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -19,6 +24,8 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
+import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -33,14 +40,56 @@ private const val EXTENSION_FULLSCREEN_INTERFACE =
     $$"$$PLAYER_PATH/OpenVideosFullscreenHookPatch$FullscreenInterface;"
 
 /**
+ * Pre 19.46.
+ */
+internal object OpenVideosFullscreenPortraitLegacyFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "Lj$/util/Optional;"),
+    filters = opcodesToFilters(
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_EQ,
+        Opcode.IF_EQ,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT
+    )
+)
+
+/**
  * Used by the fullscreen components patch and the Shorts component patch.
  */
 internal val openVideosFullscreenHookPatch = bytecodePatch {
     dependsOn(
-        sharedExtensionPatch
+        sharedExtensionPatch,
+        versionCheckPatch,
     )
 
     execute {
+        if (!is_19_46_or_greater) {
+            OpenVideosFullscreenPortraitLegacyFingerprint.let {
+                val index = it.instructionMatches.last().index
+
+                it.method.apply {
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index + 1,
+                        """
+                            invoke-static { v$register }, $EXTENSION_CLASS->doNotOpenVideoFullscreenPortrait(Z)Z
+                            move-result v$register
+                        """
+                    )
+                }
+            }
+            return@execute
+        }
+
         val fullScreenMethod = AdPlayerFullscreenFingerprint.instructionMatches
             .last().getMethodCalled()
         val fullScreenDefiningClass = fullScreenMethod.definingClass

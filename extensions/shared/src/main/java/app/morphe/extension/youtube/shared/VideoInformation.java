@@ -394,18 +394,22 @@ public final class VideoInformation {
     public static void setVideoInformation(@NonNull String newlyLoadedChannelId, @NonNull String newlyLoadedChannelName,
                                            @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
                                            final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
-        if (videoId.equals(newlyLoadedVideoId))
-            return;
+        final boolean videoChanged = !videoId.equals(newlyLoadedVideoId);
 
-        mainVideoLikeCount = null;
-        isOriginalLikeCountPrecise = false;
-
+        // initialize() clears the duration when the player is recreated, even for the same video.
+        // Always refresh metadata before skipping work that only applies to a different video.
         channelId = newlyLoadedChannelId;
         channelName = newlyLoadedChannelName;
         videoId = newlyLoadedVideoId;
         videoTitle = newlyLoadedVideoTitle;
         videoLength = newlyLoadedVideoLength;
         videoIsLiveStream = newlyLoadedLiveStreamValue;
+
+        if (!videoChanged)
+            return;
+
+        mainVideoLikeCount = null;
+        isOriginalLikeCountPrecise = false;
 
         Logger.printDebug(() ->
                 "channelId='" +

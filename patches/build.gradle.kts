@@ -15,9 +15,13 @@ patches {
 dependencies {
     // Used by JsonGenerator.
     implementation(libs.gson)
+    testImplementation(libs.junit)
 }
 
 tasks {
+    named<JavaCompile>("compileTestJava") {
+        options.release.set(17)
+    }
     jar {
         exclude("app/morphe/generator")
     }

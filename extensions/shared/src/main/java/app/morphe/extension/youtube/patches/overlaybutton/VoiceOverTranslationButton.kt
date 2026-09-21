@@ -52,7 +52,10 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.SystemClock
 import android.view.View
+import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.ToggleButton
 import app.morphe.extension.shared.utils.Logger
+import app.morphe.extension.shared.utils.ResourceUtils
 import app.morphe.extension.youtube.patches.utils.PatchStatus
 import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch
 import app.morphe.extension.youtube.settings.Settings
@@ -83,6 +86,10 @@ object VoiceOverTranslationButton {
                 onLongClickListener = { view: View -> onLongClick(view) },
             )
             buttonIcon = instance?.imageView()?.drawable
+            instance?.imageView()?.let { button ->
+                button.contentDescription = ResourceUtils.getString("revanced_vot_enabled_title")
+                setToggleAccessibilityDelegate(button)
+            }
             instance?.imageView()?.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
                 override fun onViewAttachedToWindow(view: View) = refreshActivatedState()
 
@@ -145,6 +152,21 @@ object VoiceOverTranslationButton {
         val context = RootView.getContext() ?: view.context
         VideoUtils.showVotBottomSheetDialog(context)
         return true
+    }
+
+    /**
+     * Exposes the button to accessibility services as a toggle,
+     * so screen readers announce whether translation is on or off.
+     */
+    private fun setToggleAccessibilityDelegate(button: View) {
+        button.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info.className = ToggleButton::class.java.name
+                info.isCheckable = true
+                info.isChecked = VoiceOverTranslationPatch.isTranslationActive()
+            }
+        }
     }
 
     private fun refreshActivatedState() {

@@ -325,6 +325,7 @@ public class SearchHistoryManager {
 
                 TextView historyText = view.findViewById(ID_HISTORY_TEXT);
                 ImageView deleteIcon = view.findViewById(ID_DELETE_ICON);
+                deleteIcon.setContentDescription(str("revanced_settings_search_remove"));
 
                 historyText.setText(query);
 

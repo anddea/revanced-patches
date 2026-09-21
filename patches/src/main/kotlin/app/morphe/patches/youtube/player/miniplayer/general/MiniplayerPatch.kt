@@ -698,6 +698,10 @@ val miniplayerPatch = bytecodePatch(
             settingArray += "SETTINGS: MINIPLAYER_TYPE_MODERN"
         }
 
+        if (is_20_37_or_greater) {
+            settingArray += "SETTINGS: MINIPLAYER_HIDE_TITLE"
+        }
+
         // region add settings
 
         addPreference(settingArray, MINIPLAYER)

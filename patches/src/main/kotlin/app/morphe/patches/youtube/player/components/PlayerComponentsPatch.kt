@@ -140,14 +140,24 @@ private val speedOverlayPatch = bytecodePatch(
 
         fun MutableMethod.hookRelativeSpeedValue(startIndex: Int) {
             val relativeIndex = indexOfFirstInstructionOrThrow(startIndex, Opcode.CMPL_FLOAT)
-            val relativeRegister = getInstruction<ThreeRegisterInstruction>(relativeIndex).registerB
+            val speedRegister = getInstruction<ThreeRegisterInstruction>(relativeIndex).registerC
+            val endIndex = indexOfFirstInstructionOrThrow(relativeIndex, Opcode.RETURN_VOID)
 
-            addInstructions(
-                relativeIndex, """
+            // Newer players have two speed-setting paths. Override both comparisons so holding
+            // can slow playback down too, while leaving the saved speed intact for release.
+            (relativeIndex until endIndex).filter { index ->
+                val instruction = getInstruction(index)
+                instruction.opcode == Opcode.CMPL_FLOAT &&
+                        (instruction as ThreeRegisterInstruction).registerC == speedRegister
+            }.reversed().forEach { index ->
+                val relativeRegister = getInstruction<ThreeRegisterInstruction>(index).registerB
+                addInstructions(
+                    index, """
                     invoke-static {v$relativeRegister}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayRelativeValue(F)F
                     move-result v$relativeRegister
                     """
-            )
+                )
+            }
         }
 
         if (!is_19_18_or_greater) {
