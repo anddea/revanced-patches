@@ -111,7 +111,14 @@ public class PlayerPatch {
     private static final int DIVIDER_ATTRIBUTES_COLOR_SYSTEM_DEFAULT = -16777216;
 
     public static boolean bypassAmbientModeRestrictions(boolean original) {
-        return (!Settings.BYPASS_AMBIENT_MODE_RESTRICTIONS.get() && original) || Settings.DISABLE_AMBIENT_MODE.get();
+        return !Settings.BYPASS_AMBIENT_MODE_RESTRICTIONS.get() && original;
+    }
+
+    /**
+     * Disable Ambient mode.
+     */
+    public static boolean disableAmbientMode(boolean original) {
+        return !Settings.DISABLE_AMBIENT_MODE.get() && original;
     }
 
     public static boolean disableAmbientModeInFullscreen() {

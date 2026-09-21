@@ -24,7 +24,7 @@ public final class LyricsPanelFilter extends Filter {
 
     public LyricsPanelFilter() {
         addIdentifierCallbacks(new StringFilterGroup(
-                Settings.LYRICS_ENABLED,
+                null,
                 "timed_lyrics"
         ));
     }

@@ -363,6 +363,12 @@ public class CustomDialog {
      * @return The created Button.
      */
     private Button createButton(String text, Runnable onClick, boolean isOkButton, boolean dismissDialog) {
+        return createButton(context, dialog, text, onClick, isOkButton, dismissDialog);
+    }
+
+    public static Button createButton(Context context, @Nullable Dialog dialog,
+                                      CharSequence text, @Nullable Runnable onClick,
+                                      boolean isOkButton, boolean dismissDialog) {
         Button button = new Button(context, null, 0);
         button.setText(text);
         button.setTextSize(14);
@@ -371,12 +377,12 @@ public class CustomDialog {
         button.setEllipsize(TextUtils.TruncateAt.END);
         button.setGravity(Gravity.CENTER);
         // Set internal padding.
-        button.setPadding(dip16, 0, dip16, 0);
+        button.setPadding(Dim.dp16, 0, Dim.dp16, 0);
+        button.setMinWidth(0);
+        button.setMinimumWidth(0);
 
-        // Background color for OK button (inversion).
-        // Background color for Cancel or Neutral buttons.
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(20), null, null));
+                Dim.roundedCorners(20), null, null));
         background.getPaint().setColor(isOkButton
                 ? getOkButtonBackgroundColor()
                 : getCancelOrNeutralButtonBackgroundColor());
@@ -388,7 +394,7 @@ public class CustomDialog {
 
         button.setOnClickListener(v -> {
             if (onClick != null) onClick.run();
-            if (dismissDialog) dialog.dismiss();
+            if (dismissDialog && dialog != null) dialog.dismiss();
         });
 
         return button;

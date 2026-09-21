@@ -308,6 +308,30 @@ public enum ClientType {
             VISIONOS_1_03.requireSABR,
             "visionOS 1.02"
     ),
+    /**
+     * Plain ANDROID client used for caption / transcript fetching.
+     */
+    ANDROID(
+            3,
+            "ANDROID",
+            "com.google.android.youtube",
+            Build.MANUFACTURER,
+            Build.MODEL,
+            "Android",
+            Build.VERSION.RELEASE,
+            String.valueOf(Build.VERSION.SDK_INT),
+            Build.ID,
+            "20.10.38",
+            null,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            true,
+            "Android"
+    ),
     GET_CHANNEL_FROM_ID(
             3,
             "ANDROID",
