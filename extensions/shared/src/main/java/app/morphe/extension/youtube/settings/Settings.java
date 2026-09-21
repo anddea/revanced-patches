@@ -215,6 +215,9 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_SELF_SPONSOR_CARDS = new BooleanSetting("revanced_hide_self_sponsor_cards", TRUE);
     public static final BooleanSetting HIDE_SHOPPING_LINKS = new BooleanSetting("revanced_hide_shopping_links", TRUE);
     public static final BooleanSetting HIDE_VIDEO_ADS = new BooleanSetting("revanced_hide_video_ads", TRUE, true);
+    /** Keeps video ad requests available when individual channels are whitelisted. */
+    public static final StringSetting ADS_CHANNEL_WHITELIST = new StringSetting(
+            "morphe_ads_channel_whitelist", "", false, parent(HIDE_VIDEO_ADS));
     public static final BooleanSetting HIDE_VIEW_PRODUCTS = new BooleanSetting("revanced_hide_view_products", TRUE);
     public static final BooleanSetting HIDE_WEB_SEARCH_RESULTS = new BooleanSetting("revanced_hide_web_search_results", TRUE);
     public static final BooleanSetting HIDE_YOUTUBE_PREMIUM_PROMOTION = new BooleanSetting("revanced_hide_youtube_premium_promotion", TRUE, true);

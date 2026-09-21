@@ -380,7 +380,9 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
     }
 
     private void setWhitelistPreference() {
-        final boolean enabled = PatchStatus.VideoPlayback() || PatchStatus.SponsorBlock();
+        final boolean enabled = PatchStatus.HideAds()
+                || PatchStatus.VideoPlayback()
+                || PatchStatus.SponsorBlock();
         final String[] whitelistKey = {Settings.OVERLAY_BUTTON_WHITELIST.key, "revanced_whitelist_settings"};
 
         for (String key : whitelistKey) {
