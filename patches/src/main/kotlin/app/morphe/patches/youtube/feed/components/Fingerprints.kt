@@ -20,6 +20,7 @@ import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.StringComparisonType
+import app.morphe.patcher.anyInstruction
 import app.morphe.patcher.checkCast
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
@@ -119,6 +120,31 @@ internal val channelTabRendererFingerprint = "channelTabRendererFingerprint" to 
     returnType = "V",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L", "Ljava/util/List;", "I"),
+    filters = listOf(
+        opcode(Opcode.IF_EQ),
+        anyInstruction(
+            methodCall(
+                opcode = Opcode.INVOKE_INTERFACE,
+                returnType = "V",
+                parameters = listOf("I", "Z", "Z", "Z")
+            ),
+            methodCall( // ~21.25
+                opcode = Opcode.INVOKE_INTERFACE,
+                returnType = "V",
+                parameters = listOf("I", "Z", "Z")
+            ),
+            methodCall( // ~21.16 and older
+                opcode = Opcode.INVOKE_INTERFACE,
+                returnType = "V",
+                parameters = listOf("I")
+            ),
+            location = MatchAfterWithin(3)
+        ),
+        opcode(
+            Opcode.RETURN_VOID,
+            MatchAfterImmediately()
+        )
+    ),
     strings = listOf("TabRenderer.content contains SectionListRenderer but the tab does not have a section list controller.")
 )
 

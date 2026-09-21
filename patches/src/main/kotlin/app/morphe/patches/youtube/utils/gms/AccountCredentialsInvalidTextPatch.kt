@@ -7,7 +7,6 @@ import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.resourceid.offlineNoContentBodyTextNotOfflineEligible
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -36,10 +35,10 @@ val accountCredentialsInvalidTextPatch = bytecodePatch(
         // MicroG accounts look almost identical to Google device accounts
         // and it's more foolproof to instead uninstall/reinstall.
         arrayOf(
-            specificNetworkErrorViewControllerFingerprint,
-            loadingFrameLayoutControllerFingerprint
+            SpecificNetworkErrorViewControllerFingerprint,
+            LoadingFrameLayoutControllerFingerprint
         ).forEach { fingerprint ->
-            fingerprint.methodOrThrow().apply {
+            fingerprint.method.apply {
                 val resourceIndex = indexOfFirstLiteralInstructionOrThrow(
                     offlineNoContentBodyTextNotOfflineEligible
                 )

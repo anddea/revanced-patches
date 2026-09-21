@@ -88,6 +88,7 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
                             Toolbar toolbar = new Toolbar(childScreen.getContext());
                             toolbar.setTitle(childScreen.getTitle());
                             toolbar.setNavigationIcon(BaseThemeUtils.getBackButtonDrawable());
+                            toolbar.setNavigationContentDescription(str("revanced_settings_navigate_up"));
                             toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
 
                             final int margin = Utils.dipToPixels(16);

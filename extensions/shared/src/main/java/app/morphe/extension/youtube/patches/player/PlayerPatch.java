@@ -521,6 +521,7 @@ public class PlayerPatch {
             // Each button is an ImageView with a background set to another drawable.
             if (Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
                 forEachImageViewRecursive(rootView, imageView -> imageView.setBackground(null));
+                stylePillBackgrounds(rootView);
             } else if (CONTROL_BUTTONS_BACKGROUND_OPACITY_CHANGED) {
                 forEachImageViewRecursive(rootView, imageView -> {
                     Drawable background = imageView.getBackground();
@@ -587,6 +588,12 @@ public class PlayerPatch {
 
             Drawable background = pill.getBackground();
             if (background == null) return;
+
+            if (Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                pill.setBackground(null);
+                backgroundSnapshot = null;
+                return;
+            }
 
             // A null state cannot be tracked, so fall through and rely on mutate() being idempotent.
             Drawable.ConstantState state = background.getConstantState();

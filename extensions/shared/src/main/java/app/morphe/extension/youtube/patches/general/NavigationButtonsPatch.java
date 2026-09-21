@@ -50,8 +50,10 @@ import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Accessibility;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.AccessibilityData;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonRenderer;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonRendererAccessibilityData;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Buttons;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarItemRenderer;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.RendererAccessibilityData;
 import app.morphe.extension.youtube.innertube.IconOuterClass.Icon;
 import app.morphe.extension.youtube.innertube.IconOuterClass.YTIconType;
 import app.morphe.extension.youtube.patches.theme.ThemePatch.StatusBarTranslucency;
@@ -556,8 +558,18 @@ public final class NavigationButtonsPatch {
                 Buttons buttons = Buttons.parseFrom(message.toByteArray());
                 if (buttons.hasButtonRenderer() && buttons.getButtonRenderer().hasIcon()) {
                     ButtonRenderer.Builder renderer = buttons.getButtonRenderer().toBuilder();
-                    renderer.clearButtonRendererAccessibilityData();
-                    renderer.clearRendererAccessibilityData();
+
+                    // Replace the accessibility label of the copied button.
+                    ButtonRendererAccessibilityData accessibilityData = ButtonRendererAccessibilityData
+                            .newBuilder()
+                            .setLabel(ResourceUtils.getString("revanced_change_start_page_entry_settings"))
+                            .build();
+                    renderer.setButtonRendererAccessibilityData(accessibilityData);
+                    renderer.setRendererAccessibilityData(RendererAccessibilityData.newBuilder()
+                            .setButtonRendererAccessibilityData(accessibilityData)
+                            .build());
+
+                    renderer.clearIcon();
                     renderer.setIcon(
                             Icon.newBuilder()
                                     .setYtIconType(YTIconType.SETTINGS_CAIRO)

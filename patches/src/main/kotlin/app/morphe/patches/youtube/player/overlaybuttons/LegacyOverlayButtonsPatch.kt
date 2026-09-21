@@ -23,11 +23,6 @@ import app.morphe.util.insertLiteralOverride
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "$UTILS_PATH/PlayerControlsPatch;"
 
-/** Feature flag used by the newer player overlay implementation. */
-private object NewPlayerOverlaysFeatureFlagFingerprint : Fingerprint(
-    filters = listOf(literal(45752335L))
-)
-
 /** Feature flag used by the newer top-control layout. */
 private object ModernPlayerTopControlsFeatureFlagFingerprint : Fingerprint(
     filters = listOf(literal(45750838L))
@@ -67,13 +62,6 @@ internal val legacyOverlayButtonsPatch = bytecodePatch(
         if (!restoreOldPlayerButtonsSupported) return@execute
 
         addPreference(arrayOf("SETTINGS: RESTORE_OLD_PLAYER_BUTTONS"))
-
-        NewPlayerOverlaysFeatureFlagFingerprint.matchAll().forEach {
-            it.method.insertLiteralOverride(
-                it.instructionMatches.first().index,
-                "$EXTENSION_CLASS_DESCRIPTOR->useModernPlayerLayout(Z)Z",
-            )
-        }
 
         ModernPlayerTopControlsFeatureFlagFingerprint.matchAll().forEach {
             it.method.insertLiteralOverride(

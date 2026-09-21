@@ -41,7 +41,10 @@
 package app.morphe.extension.youtube.patches.overlaybutton
 
 import android.view.View
+import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.ToggleButton
 import app.morphe.extension.shared.utils.Logger
+import app.morphe.extension.shared.utils.ResourceUtils
 import app.morphe.extension.youtube.patches.utils.PatchStatus
 import app.morphe.extension.youtube.patches.voiceovertranslation.GoogleVoiceOverTranslationPatch
 import app.morphe.extension.youtube.patches.voiceovertranslation.GoogleVotBottomSheet
@@ -68,6 +71,10 @@ object GoogleVoiceOverTranslationButton {
                 onClickListener = { view: View -> onClick(view) },
                 onLongClickListener = { view: View -> onLongClick(view) },
             )
+            instance?.imageView()?.let { button ->
+                button.contentDescription = ResourceUtils.getString("revanced_vot_enabled_title")
+                setToggleAccessibilityDelegate(button)
+            }
         } catch (ex: Exception) {
             Logger.printException({ "GoogleVoiceOverTranslationButton initializeButton failure" }, ex)
         }
@@ -114,6 +121,21 @@ object GoogleVoiceOverTranslationButton {
         val context = RootView.getContext() ?: view.context
         GoogleVotBottomSheet.show(context)
         return true
+    }
+
+    /**
+     * Exposes the button to accessibility services as a toggle,
+     * so screen readers announce whether translation is on or off.
+     */
+    private fun setToggleAccessibilityDelegate(button: View) {
+        button.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info.className = ToggleButton::class.java.name
+                info.isCheckable = true
+                info.isChecked = GoogleVoiceOverTranslationPatch.isSessionEnabled()
+            }
+        }
     }
 
     private fun refreshActivatedState() {

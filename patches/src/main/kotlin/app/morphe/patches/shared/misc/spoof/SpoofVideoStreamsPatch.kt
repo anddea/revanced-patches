@@ -55,6 +55,16 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 internal const val EXTENSION_CLASS =
     "Lapp/morphe/extension/shared/spoof/SpoofVideoStreamsPatch;"
 
+context(patchContext: BytecodePatchContext)
+internal fun addMediaSessionOverride(extension: String) {
+    MediaSessionFeatureFlagFingerprint.matchAll().forEach {
+        it.method.insertLiteralOverride(
+            it.instructionMatches.first().index,
+            extension
+        )
+    }
+}
+
 private val spoofVideoStreamsResourcePatch = resourcePatch {
     execute {
         copyResources(
@@ -384,12 +394,7 @@ internal fun spoofVideoStreamsPatch(
         }
 
         if (fixMediaSessionFeatureFlag()) {
-            MediaSessionFeatureFlagFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS->useMediaSessionFeatureFlag(Z)Z"
-                )
-            }
+            addMediaSessionOverride("$EXTENSION_CLASS->useMediaSessionFeatureFlag(Z)Z")
         }
 
         if (fixReelItemWatchResponseFeatureFlag()) {

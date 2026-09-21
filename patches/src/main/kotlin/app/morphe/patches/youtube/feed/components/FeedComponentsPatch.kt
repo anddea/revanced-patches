@@ -403,6 +403,17 @@ val feedComponentsPatch = bytecodePatch(
 
         channelTabRendererFingerprint.matchOrThrow().let {
             it.method.apply {
+                val channelTabMatch = it.instructionMatches[1]
+                val selectedIndexRegister = channelTabMatch.getInstruction<FiveRegisterInstruction>().registerD
+
+                addInstructions(
+                    channelTabMatch.index,
+                    """
+                        invoke-static { v$selectedIndexRegister }, $FEED_CLASS_DESCRIPTOR->getChannelTabSelectedIndex(I)I
+                        move-result v$selectedIndexRegister
+                    """
+                )
+
                 val iteratorIndex = if (is_21_13_or_greater) {
                     indexOfFirstInstructionReversedOrThrow {
                         getReference<MethodReference>()?.name == "hasNext"
@@ -438,6 +449,18 @@ val feedComponentsPatch = bytecodePatch(
                         :ignore
                         iget-object v${objectInstruction.registerA}, v${objectInstruction.registerB}, $objectReference
                         """, ExternalLabel("next_iterator", getInstruction(iteratorIndex))
+                )
+
+                val addAllIndex = indexOfFirstInstructionOrThrow {
+                    val ref = getReference<MethodReference>()
+                    ref?.name == "addAll" && ref.parameterTypes.size == 1
+                }
+                val addAllInstruction = getInstruction<FiveRegisterInstruction>(addAllIndex)
+
+                addInstruction(
+                    addAllIndex,
+                    "invoke-static { v${addAllInstruction.registerC}, v${addAllInstruction.registerD} }, " +
+                            "$FEED_CLASS_DESCRIPTOR->setChannelTabs(Ljava/util/List;Ljava/util/List;)V"
                 )
             }
         }

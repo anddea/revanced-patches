@@ -1,5 +1,6 @@
 package app.morphe.extension.shared.settings;
 
+import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.getResourceIdentifierOrThrow;
 
 import android.annotation.SuppressLint;
@@ -106,6 +107,7 @@ public abstract class BaseActivityHook extends Activity {
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(getNavigationIcon());
+        toolbar.setNavigationContentDescription(str("revanced_settings_navigate_up"));
         toolbar.setNavigationOnClickListener(getNavigationClickListener(activity));
         toolbar.setTitle(SettingsNamePatch.getSettingsName());
 

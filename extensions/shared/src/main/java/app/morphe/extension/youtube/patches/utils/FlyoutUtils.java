@@ -119,12 +119,19 @@ public final class FlyoutUtils {
                 : ResourceUtils.getDrawable("yt_outline_flag_black_24");
     }
 
-    public static void setVideoMarkedAsForKids(byte[] bytes) {
+    /**
+     * Injection point.
+     * Detect specific elements for videos marked as for kids, displayed
+     * via the video player's comments button.
+     */
+    public static byte[] onCommentsLoaded(byte[] bytes) {
         List<Integer> kidsVideoElementsBytesIndexes = byteIndexesOf(bytes, KIDS_VIDEO_ELEMENTS_BYTES);
         if (!kidsVideoElementsBytesIndexes.isEmpty() &&
                 kidsVideoElementsBytesIndexes.size() == KIDS_VIDEO_ELEMENTS_BYTES.size() - 1) {
             videoMarkedAsForKids = true;
         }
+
+        return bytes;
     }
 
     /**
@@ -162,32 +169,40 @@ public final class FlyoutUtils {
 
             WeakReference<Dialog> dialogRef = new WeakReference<>(dialog);
             ViewTreeObserver viewTreeObserver = window.getDecorView().getViewTreeObserver();
-            viewTreeObserver.addOnGlobalLayoutListener(
-                    new ViewTreeObserver.OnGlobalLayoutListener() {
+            viewTreeObserver.addOnPreDrawListener(
+                    new ViewTreeObserver.OnPreDrawListener() {
                         private boolean alreadyInjectedButton;
 
                         @Override
-                        public void onGlobalLayout() {
+                        public boolean onPreDraw() {
                             try {
                                 Dialog dialog = dialogRef.get();
                                 if (dialog == null) {
                                     Logger.printDebug(() -> "Removing flyout listener");
-                                    viewTreeObserver.removeOnGlobalLayoutListener(this);
-                                    return;
+                                    viewTreeObserver.removeOnPreDrawListener(this);
+                                    return true;
                                 }
 
                                 if (dialog.isShowing()) {
+                                    FlyoutMenuInfo menuInfo = getFlyoutMenuInfo(dialog, 0);
+                                    if (menuInfo == null) {
+                                        return true;
+                                    }
                                     if (!alreadyInjectedButton) {
                                         addFlyoutElements(dialog);
                                         alreadyInjectedButton = true;
                                     }
                                     onFlyoutListBound(dialog);
+                                    // Do not draw the old measurements while custom rows or the
+                                    // native list spacing still require another layout pass.
+                                    return !menuInfo.menuContainer().isLayoutRequested();
                                 } else {
                                     alreadyInjectedButton = false;
                                 }
                             } catch (Exception ex) {
-                                Logger.printException(() -> "setBottomSheetFlyout onGlobalLayout failure", ex);
+                                Logger.printException(() -> "setBottomSheetFlyout onPreDraw failure", ex);
                             }
+                            return true;
                         }
                     }
             );
@@ -309,9 +324,20 @@ public final class FlyoutUtils {
                 return;
             }
 
+            // Some flyouts wrap the actual list, so normalize the containers leading
+            // to it as well. Never descend into the native rows themselves.
+            ViewGroup nativeList = findNativeList(itemList);
             if (!customItemTextRefs.isEmpty()) {
-                removeNativeListTopPadding(itemList);
+                View current = nativeList;
+                while (true) {
+                    removeNativeListTopSpacing(current);
+                    if (current == itemList || !(current.getParent() instanceof View parent)) {
+                        break;
+                    }
+                    current = parent;
+                }
             }
+            itemList = nativeList;
 
             if (itemList.getChildCount() == 0) {
                 return;
@@ -323,17 +349,31 @@ public final class FlyoutUtils {
         }
     }
 
-    private static void removeNativeListTopPadding(ViewGroup itemList) {
-        if (itemList.getPaddingTop() == 0) {
-            return;
+    /**
+     * Both RecyclerView and legacy ListView menus can be hosted inside a fragment wrapper.
+     * Resource IDs keep spacing changes outside the menu rows and their touch targets.
+     */
+    private static ViewGroup findNativeList(ViewGroup container) {
+        for (String name : new String[]{"bottom_sheet_list", "bottom_sheet_list_view"}) {
+            int id = ResourceUtils.getIdentifier(name, ResourceType.ID);
+            if (id != 0 && container.findViewById(id) instanceof ViewGroup list) {
+                return list;
+            }
         }
+        return container;
+    }
 
-        itemList.setPaddingRelative(
-                itemList.getPaddingStart(),
-                0,
-                itemList.getPaddingEnd(),
-                itemList.getPaddingBottom()
-        );
+    /** Removes the native handle inset after custom rows have taken its place. */
+    private static void removeNativeListTopSpacing(View view) {
+        if (view.getPaddingTop() != 0) {
+            view.setPaddingRelative(
+                    view.getPaddingStart(), 0, view.getPaddingEnd(), view.getPaddingBottom());
+        }
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams params
+                && params.topMargin != 0) {
+            params.topMargin = 0;
+            view.setLayoutParams(params);
+        }
     }
 
     /**
@@ -411,6 +451,10 @@ public final class FlyoutUtils {
             View view = isDivider
                     ? createFlyoutDivider(context)
                     : addFlyoutButton(context, menuInfo.menuContainer(), icon, text, clickListener);
+
+            if (index == 0 && view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams marginParams) {
+                marginParams.topMargin = getDragHandleHeight(menuInfo.menuContainer());
+            }
 
             int fixedIndex = menuInfo.adjustedIndex();
             menuInfo.menuContainer().addView(view, fixedIndex);
@@ -546,10 +590,6 @@ public final class FlyoutUtils {
             iconView.setImageTintList(ColorStateList.valueOf(textView != null
                     ? textView.getCurrentTextColor()
                     : ThemeUtils.getAppForegroundColor()));
-        }
-
-        if (customButton.getLayoutParams() instanceof ViewGroup.MarginLayoutParams marginParams) {
-            marginParams.topMargin = getDragHandleHeight(parent);
         }
 
         // The layout reserves space for a secondary icon this item does not have.

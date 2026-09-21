@@ -436,17 +436,29 @@ internal fun ResourcePatchContext.applyCustomBranding(
             }
         }
 
-        // The original launcher entry must stop advertising MAIN/LAUNCHER, otherwise Android
-        // shows both the original component and the selected alias in the launcher.
-        sourceChildren.forEach { child ->
-            if (child !is Element || child.tagName != "intent-filter") return@forEach
+        // Can only be done after adding the new aliases.
+        if (!config.copyAliasIntentFilters) {
+            // Remove the main action from the original alias, otherwise two app icons
+            // can be shown in the launcher.
+            sourceChildren.forEach { child ->
+                if (child !is Element || child.tagName != "intent-filter") return@forEach
 
-            val actions = child.getElementsByTagName("action")
-            for (index in actions.length - 1 downTo 0) {
-                val action = actions.item(index) as? Element ?: continue
-                if (action.getAttribute("android:name") == "android.intent.action.MAIN") {
-                    action.removeFromParent()
+                val actions = child.getElementsByTagName("action")
+                for (index in actions.length - 1 downTo 0) {
+                    val action = actions.item(index) as? Element ?: continue
+                    if (action.getAttribute("android:name") == "android.intent.action.MAIN") {
+                        action.removeFromParent()
+                    }
                 }
+            }
+        } else {
+            // All intent filters were copied to the new aliases. Remove them from the
+            // original alias, otherwise two app icons can be shown in the launcher, and
+            // intents such as the search shortcut match two activities of the app and
+            // Android asks which one to use.
+            val originalIntentFilters = source.getElementsByTagName("intent-filter")
+            for (i in originalIntentFilters.length - 1 downTo 0) {
+                originalIntentFilters.item(i).removeFromParent()
             }
         }
     }
@@ -704,6 +716,9 @@ private fun ResourcePatchContext.copyCustomIcon(
     if (!copiedNotification) {
         monochromeSources.forEach { (directory, source) ->
             copyIconSource(source, directory, customNotification)
+            if (source.extension.equals("xml", ignoreCase = true)) {
+                document("res/$directory/$customNotification.xml").use(::normalizeNotificationIcon)
+            }
             copiedNotification = true
         }
     }
@@ -910,6 +925,11 @@ private fun ResourcePatchContext.copyAdaptiveLayers(
             "drawable/${config.monochromeFileName}.xml",
             "drawable/${IconResource.NOTIFICATION.named(icon.key)}.xml",
         )
+        document("res/drawable/${IconResource.NOTIFICATION.named(icon.key)}.xml").use {
+            check(normalizeNotificationIcon(it)) {
+                "Cannot normalize the bundled notification icon: ${config.resourceRoot}/${icon.key}"
+            }
+        }
     }
 
     if (!icon.hasMonochromeLayers) {

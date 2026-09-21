@@ -63,6 +63,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
@@ -331,6 +332,14 @@ public abstract class BaseSearchViewController {
             }
             return false;
         });
+
+        // Set bold icon if needed.
+        MenuItem search = toolbar.getMenu().findItem(ID_ACTION_SEARCH);
+        search.setIcon(getSearchIconDrawable());
+        search.setContentDescription(String.format(
+                getString("revanced_settings_search_title"),
+                SettingsNamePatch.getSettingsName()
+        ));
     }
 
     /**

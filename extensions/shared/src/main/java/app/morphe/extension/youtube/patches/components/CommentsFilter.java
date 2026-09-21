@@ -1,7 +1,5 @@
 package app.morphe.extension.youtube.patches.components;
 
-import static app.morphe.extension.youtube.patches.utils.FlyoutUtils.setVideoMarkedAsForKids;
-
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -76,7 +74,8 @@ public final class CommentsFilter extends Filter {
         comments = new StringFilterGroup(
                 null,
                 VIDEO_METADATA_CAROUSEL_PATH,
-                "comments_"
+                "_comments",
+                "teaser_carousel_with_controller"
         );
 
         final StringFilterGroup commentsByMembers = new StringFilterGroup(
@@ -130,8 +129,6 @@ public final class CommentsFilter extends Filter {
 
         final StringFilterGroup previewComment = new StringFilterGroup(
                 Settings.HIDE_PREVIEW_COMMENT_OLD_METHOD,
-                "|carousel_item.",
-                "|carousel_listener",
                 COMMENT_ENTRY_POINT_TEASER_PATH,
                 "comments_entry_point_simplebox"
         );
@@ -233,8 +230,6 @@ public final class CommentsFilter extends Filter {
      * Injection point.
      */
     public static byte[] onCommentsLoaded(byte[] bytes) {
-        setVideoMarkedAsForKids(bytes);
-
         if (!Settings.HIDE_COMMENTS_CAROUSEL.get()) {
             return bytes;
         }
