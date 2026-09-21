@@ -37,8 +37,6 @@ class PlayerControlButton(
 
     private val buttonRef: WeakReference<ImageView?>
 
-    private val placeholderExists: Boolean
-
     /**
      * Empty view with the same layout size as the button. Used to fill empty space while the
      * fade out animation runs. Without this the chapter titles overlapping the button when fading out.
@@ -51,17 +49,8 @@ class PlayerControlButton(
     init {
         val imageView =
             Utils.getChildViewByResourceName<ImageView>(controlsViewGroup, imageViewButtonId)
-        imageView.visibility = View.GONE
 
-        val background = imageView.background
-        if (background != null) {
-            if (Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
-                imageView.background = null
-            } else {
-                imageView.background = PlayerPatch.applyControlButtonsBackgroundOpacity(background)
-            }
-        }
-        applyIconShadow(imageView)
+        prepareButton(imageView, onClickListener, onLongClickListener)
 
         var tempPlaceholder: View? = null
         if (hasPlaceholder) {
@@ -72,13 +61,7 @@ class PlayerControlButton(
                 )
             tempPlaceholder.visibility = View.GONE
         }
-        placeholderExists = hasPlaceholder
         placeHolderRef = WeakReference<View?>(tempPlaceholder)
-
-        imageView.setOnClickListener(onClickListener)
-        if (onLongClickListener != null) {
-            imageView.setOnLongClickListener(onLongClickListener)
-        }
 
         visibilityCheck = buttonVisibility
         buttonRef = WeakReference<ImageView?>(imageView)
@@ -108,7 +91,7 @@ class PlayerControlButton(
         }
     }
 
-    fun imageView() = buttonRef.get()
+    fun imageView() = activeButton()
 
     /**
      * Sets the button icon using YouTube's active thin or bold icon style.
@@ -122,7 +105,7 @@ class PlayerControlButton(
         } else {
             iconResourceName
         }
-        val imageView = imageView() ?: return
+        val imageView = activeButton() ?: return
         imageView.setImageResource(
             ResourceUtils.getIdentifierOrThrow(selectedIconResourceName, ResourceType.DRAWABLE)
         )
@@ -138,10 +121,10 @@ class PlayerControlButton(
 
             val shouldBeShown = visibilityCheck.shouldBeShown()
             if (!shouldBeShown) return
-            val button = buttonRef.get() ?: return
+            val button = activeButton() ?: return
             isVisible = false
 
-            val placeholder = placeHolderRef.get()
+            val placeholder = activePlaceholder()
 
             val animate = button.animate()
             animate.cancel()
@@ -189,10 +172,11 @@ class PlayerControlButton(
     private fun privateSetVisibility(visible: Boolean, animated: Boolean) {
         try {
             if (isVisible == visible) return
+
             isVisible = visible
 
-            val button = buttonRef.get() ?: return
-            val placeholder = placeHolderRef.get()
+            val button = activeButton() ?: return
+            val placeholder = activePlaceholder()
             val shouldBeShown = visibilityCheck.shouldBeShown()
 
             if (visible) {
@@ -249,10 +233,10 @@ class PlayerControlButton(
         }
 
         Utils.runOnMainThread {
-            val button = buttonRef.get() ?: return@runOnMainThread
+            val button = activeButton() ?: return@runOnMainThread
 
             button.animate().cancel()
-            val placeholder = placeHolderRef.get()
+            val placeholder = activePlaceholder()
 
             if (visibilityCheck.shouldBeShown()) {
                 if (isVisible) {
@@ -275,14 +259,41 @@ class PlayerControlButton(
         if (!isVisible) return
 
         Utils.verifyOnMainThread()
-        val view = buttonRef.get() ?: return
-        view.animate().cancel()
-        view.visibility = View.GONE
+        buttonRef.get()?.apply {
+            animate().cancel()
+            visibility = View.GONE
+        }
 
-        val placeholder = placeHolderRef.get()
-        placeholder?.visibility = View.GONE
+        placeHolderRef.get()?.visibility = View.GONE
         isVisible = false
     }
+
+    private fun prepareButton(
+        imageView: ImageView,
+        onClickListener: View.OnClickListener,
+        onLongClickListener: View.OnLongClickListener?,
+    ) {
+        imageView.visibility = View.GONE
+
+        val background = imageView.background
+        if (background != null) {
+            if (Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                imageView.background = null
+            } else {
+                imageView.background = PlayerPatch.applyControlButtonsBackgroundOpacity(background)
+            }
+        }
+        applyIconShadow(imageView)
+        imageView.setOnClickListener(onClickListener)
+        if (onLongClickListener != null) {
+            imageView.setOnLongClickListener(onLongClickListener)
+        }
+    }
+
+    // Both player styles share the same scrollable row and animation placeholders.
+    private fun activeButton(): ImageView? = buttonRef.get()
+
+    private fun activePlaceholder(): View? = placeHolderRef.get()
 
     private class ShadowedIconDrawable(icon: Drawable) : DrawableWrapper(icon) {
         private var shadow: Bitmap? = null

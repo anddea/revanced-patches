@@ -26,6 +26,7 @@ import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREAT
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_21_17_OR_GREATER;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -705,6 +706,21 @@ public final class MiniplayerPatch {
         }
 
         return original;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Fixes the fullscreen button tint when the minimal miniplayer type is selected.
+     * The minimal type applies a theme where {@code ytOverlayButtonPrimary} resolves to gray
+     * instead of white, making the fullscreen button appear gray.
+     */
+    public static void fixMinimalMiniplayerFullscreenButtonTint(View view) {
+        if (CURRENT_TYPE != MINIMAL) return;
+
+        if (view instanceof ImageView imageView) {
+            imageView.setImageTintList(ColorStateList.valueOf(0xFFFFFFFF));
+        }
     }
 
     /**

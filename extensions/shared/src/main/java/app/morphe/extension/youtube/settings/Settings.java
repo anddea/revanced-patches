@@ -667,6 +667,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND = new BooleanSetting("revanced_hide_player_control_buttons_background", FALSE, true);
     public static final IntegerSetting PLAYER_CONTROL_BUTTONS_BACKGROUND_OPACITY = new IntegerSetting("morphe_player_control_buttons_background_opacity", 30, true, new SliderConfig(0, 100, 1, "%"), parentInverted(HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND));
     public static final BooleanSetting HIDE_PLAYER_YOUTUBE_MUSIC_BUTTON = new BooleanSetting("revanced_hide_player_youtube_music_button", FALSE);
+    /** Uses the legacy player layout for custom overlay controls on supported versions. */
+    public static final BooleanSetting RESTORE_OLD_PLAYER_BUTTONS = new BooleanSetting("morphe_restore_old_player_buttons", FALSE, true);
 
     public static final BooleanSetting ALWAYS_REPEAT = new BooleanSetting("revanced_always_repeat", FALSE);
     public static final BooleanSetting ALWAYS_REPEAT_PAUSE = new BooleanSetting("revanced_always_repeat_pause", FALSE);
