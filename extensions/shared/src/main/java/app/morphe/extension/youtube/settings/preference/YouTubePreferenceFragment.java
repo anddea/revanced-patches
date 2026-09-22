@@ -1,3 +1,9 @@
+/*
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - COOLak (https://github.com/COOLak)
+ */
+
 package app.morphe.extension.youtube.settings.preference;
 
 import static app.morphe.extension.shared.patches.PatchStatus.PatchVersion;

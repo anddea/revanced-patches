@@ -7,6 +7,7 @@
  * Original author(s):
  * - anddea (https://github.com/anddea)
  * - inotia00 (https://github.com/inotia00)
+ * - COOLak (https://github.com/COOLak)
  *
  * Licensed under the GNU General Public License v3.0.
  *
@@ -690,5 +691,3 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         super.onDestroy();
     }
 }
-
-// Modified by COOLak: notify active playback after preference storage and cache synchronization.

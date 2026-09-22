@@ -4,8 +4,6 @@
  * This file is part of the revanced-patches project:
  * https://github.com/anddea/revanced-patches
  *
- * Modified by COOLak: preserve translation pause ownership across player recreation.
- *
  * Original author(s):
  * - COOLak (https://github.com/COOLak)
  *

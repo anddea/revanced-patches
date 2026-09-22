@@ -2,9 +2,13 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
- * Portions of this file are modified by COOLak:
  * Copyright (C) 2026 anddea
  * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - Morphe (https://github.com/MorpheApp)
+ * - anddea (https://github.com/anddea)
+ * - COOLak (https://github.com/COOLak)
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
  */
