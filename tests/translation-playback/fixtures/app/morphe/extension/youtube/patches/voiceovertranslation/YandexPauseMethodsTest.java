@@ -21,6 +21,8 @@ public class YandexPauseMethodsTest {
         TranslationPlaybackController.initialize(new Object());
         TranslationPlaybackController.newVideoLoaded("a");
         Utils.drain();
+        VideoInformation.setPlayerPlaying(true);
+        TranslationPlaybackController.select(YANDEX, "a");
         YandexPauseMethods.pendingVideoId = "a";
         YandexPauseMethods.translationRequestGeneration.set(1);
         YandexPauseMethods.isTranslating.set(false);

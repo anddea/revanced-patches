@@ -75,11 +75,16 @@ public final class TranslationPlaybackController {
                 && Settings.GOOGLE_VOT_ENABLED.get() && Settings.GOOGLE_VOT_PAUSE_WHILE_PREPARING.get();
     }
 
+    private static boolean pauseOnStartup(int provider) {
+        return pauseEnabled(provider) && (provider == TranslationPlaybackState.YANDEX
+                ? Settings.VOT_AUTO_TRANSLATE.get() : Settings.GOOGLE_VOT_AUTO_TRANSLATE.get());
+    }
+
     /** Injection point, before YouTube has assigned the new video metadata. */
     public static void initialize(Object player) {
         nativePlayer = new WeakReference<>(player);
         int provider = configuredProvider();
-        state.initialize(provider, pauseEnabled(provider));
+        state.initialize(provider, pauseOnStartup(provider));
         Logger.printDebug(() -> "Translation player initialized; retaining video: " + state.videoId());
     }
 
@@ -131,7 +136,7 @@ public final class TranslationPlaybackController {
     /** Injection point using the actual video-ID register, never the cached metadata bridge. */
     public static void newVideoLoaded(String videoId) {
         int provider = configuredProvider();
-        if (state.newVideo(videoId, provider, pauseEnabled(provider))) automaticVideoId = "";
+        if (state.newVideo(videoId, provider, pauseOnStartup(provider))) automaticVideoId = "";
         metadataLoaded(videoId);
     }
 
@@ -177,7 +182,14 @@ public final class TranslationPlaybackController {
         if (!key.equals(Settings.VOT_ENABLED.key) && !key.equals(Settings.GOOGLE_VOT_ENABLED.key)
                 && !key.equals(Settings.VOT_AUTO_TRANSLATE.key) && !key.equals(Settings.GOOGLE_VOT_AUTO_TRANSLATE.key)) return;
         int provider = configuredProvider();
-        if (provider != state.provider()) select(provider, id);
+        if (provider != state.provider()) {
+            state.configure(id, provider, pauseOnStartup(provider), VideoInformation.isPlayerPlaying());
+            suspendOtherProvider(provider);
+            enforcePause();
+        } else if (!state.hasRequest()) {
+            state.configure(id, provider, pauseOnStartup(provider), VideoInformation.isPlayerPlaying());
+            enforcePause();
+        }
         if (provider == TranslationPlaybackState.NONE) GoogleVoiceOverTranslationPatch.suspendTranslation();
         automaticVideoId = "";
         metadataLoaded(id);
@@ -186,9 +198,13 @@ public final class TranslationPlaybackController {
     static void select(int provider, String videoId) {
         Utils.verifyOnMainThread();
         state.select(videoId, provider, pauseEnabled(provider), VideoInformation.isPlayerPlaying());
+        suspendOtherProvider(provider);
+        enforcePause();
+    }
+
+    private static void suspendOtherProvider(int provider) {
         if (provider == TranslationPlaybackState.YANDEX) GoogleVoiceOverTranslationPatch.suspendTranslation();
         else VoiceOverTranslationPatch.suspendTranslation();
-        enforcePause();
     }
 
     static void enforcePause() {

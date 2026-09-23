@@ -46,6 +46,7 @@ final class TranslationPlaybackState {
     private String videoId = "";
     private int provider;
     private boolean waiting;
+    private boolean requested;
     private boolean resume;
     private boolean awaitingVideo;
     private int pendingProvider;
@@ -56,8 +57,9 @@ final class TranslationPlaybackState {
     /** A new native player may still belong to the same logical video. */
     synchronized void initialize(int provider, boolean pause) {
         awaitingVideo = true;
-        pendingProvider = provider;
-        pendingPause = pause && provider != NONE;
+        // Until the video ID is known, a manually requested translation still owns its hold.
+        pendingProvider = pause || !waiting ? provider : this.provider;
+        pendingPause = (pause || waiting) && pendingProvider != NONE;
         pendingPlay = null;
     }
 
@@ -73,8 +75,10 @@ final class TranslationPlaybackState {
         }
         this.provider = provider;
         waiting = pause && provider != NONE;
+        requested = false;
         resume = waiting && (!awaitingVideo || pendingPlay == null || pendingPlay);
-        deferredResume = false;
+        // A provisional hold for the old video may have intercepted this video's autoplay.
+        deferredResume = awaitingVideo && !waiting && Boolean.TRUE.equals(pendingPlay);
         awaitingVideo = false;
         videoId = id;
         return true;
@@ -89,10 +93,16 @@ final class TranslationPlaybackState {
     }
 
     synchronized void select(String id, int provider, boolean pause, boolean playing) {
+        configure(id, provider, pause, playing);
+        requested = true;
+    }
+
+    synchronized void configure(String id, int provider, boolean pause, boolean playing) {
         boolean alreadyHeld = waiting && id.equals(videoId);
         deferredResume = false;
         videoId = id;
         this.provider = provider;
+        requested = false;
         waiting = pause;
         resume = pause && (alreadyHeld ? resume : playing);
     }
@@ -120,6 +130,7 @@ final class TranslationPlaybackState {
     synchronized boolean isWaiting() { return awaitingVideo ? pendingPause : waiting; }
     synchronized int provider() { return awaitingVideo ? pendingProvider : provider; }
     synchronized String videoId() { return videoId; }
+    synchronized boolean hasRequest() { return requested; }
 
     synchronized boolean ready(int provider, String id) {
         if (!isWaiting(provider, id)) return false;

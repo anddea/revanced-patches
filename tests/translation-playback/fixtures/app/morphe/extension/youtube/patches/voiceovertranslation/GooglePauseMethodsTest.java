@@ -24,6 +24,8 @@ public class GooglePauseMethodsTest {
         TranslationPlaybackController.initialize(new Object());
         TranslationPlaybackController.newVideoLoaded("a");
         Utils.drain();
+        VideoInformation.setPlayerPlaying(true);
+        TranslationPlaybackController.select(GOOGLE, "a");
         GooglePauseMethods.currentVideoId = "a";
         GooglePauseMethods.lang = "ru";
         GooglePauseMethods.voice = "edge";

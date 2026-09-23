@@ -220,13 +220,13 @@ public class TranslationPlaybackControllerTest {
     }
 
     @Test
-    public void pauseOnlyModeWaitsForAManualTranslation() {
+    public void pauseOnlyModeAllowsPlaybackUntilTranslationIsRequested() {
         yandex();
         Settings.VOT_AUTO_TRANSLATE.value = false;
         init();
         load("a");
         assertEquals(0, VoiceOverTranslationPatch.starts);
-        assertFalse(
+        assertTrue(
                 TranslationPlaybackController.overridePlayWhenReady(VideoInformation.player, true));
     }
 
@@ -709,13 +709,13 @@ public class TranslationPlaybackControllerTest {
     }
 
     @Test
-    public void manualMetadataHoldPausesAnAlreadyPlayingBackend() {
+    public void manualModeMetadataLeavesPlayingBackendAlone() {
         yandex();
         Settings.VOT_AUTO_TRANSLATE.value = false;
         init();
         VideoInformation.playing = true;
         load("a");
-        assertFalse(VideoInformation.playing);
+        assertTrue(VideoInformation.playing);
     }
 
     @Test
@@ -928,4 +928,291 @@ public class TranslationPlaybackControllerTest {
         TranslationPlaybackController.metadataLoaded("old");
         assertTrue(Utils.queue.isEmpty());
     }
+
+    private void manual(int provider) {
+        if (provider == YANDEX) {
+            yandex();
+            Settings.VOT_AUTO_TRANSLATE.value = false;
+        } else {
+            google();
+            Settings.GOOGLE_VOT_AUTO_TRANSLATE.value = false;
+        }
+    }
+
+    @Test
+    public void manualModeAllowsFirstPlayBeforeMetadataForEitherProvider() throws Exception {
+        for (int provider : new int[] {YANDEX, GOOGLE}) {
+            before();
+            manual(provider);
+            init();
+            VideoInformation.setPlayerPlaying(true);
+            assertTrue(VideoInformation.playing);
+            load("a");
+            assertTrue(VideoInformation.playing);
+            assertFalse(state.isWaiting());
+            assertEquals(0, VoiceOverTranslationPatch.starts + GoogleVoiceOverTranslationPatch.starts);
+        }
+    }
+
+    @Test
+    public void manualRequestPausesAndSurvivesRecreationForEitherProvider() throws Exception {
+        for (int provider : new int[] {YANDEX, GOOGLE}) {
+            before();
+            manual(provider);
+            init();
+            load("a");
+            VideoInformation.setPlayerPlaying(true);
+            TranslationPlaybackController.select(provider, "a");
+            assertFalse(VideoInformation.playing);
+            init();
+            assertFalse(TranslationPlaybackController.overridePlayWhenReady(VideoInformation.player, true));
+            load("a");
+            assertTrue(state.isWaiting(provider, "a"));
+            ready(provider);
+            assertTrue(VideoInformation.playing);
+        }
+    }
+
+    @Test
+    public void manuallySelectedProviderKeepsHoldEvenWhenOtherProviderIsConfigured() {
+        yandex();
+        google();
+        Settings.VOT_AUTO_TRANSLATE.value = false;
+        Settings.GOOGLE_VOT_AUTO_TRANSLATE.value = false;
+        init();
+        load("a");
+        VideoInformation.setPlayerPlaying(true);
+        TranslationPlaybackController.select(GOOGLE, "a");
+        init();
+        assertEquals(GOOGLE, state.provider());
+        assertFalse(TranslationPlaybackController.overridePlayWhenReady(VideoInformation.player, true));
+        load("a");
+        ready(GOOGLE);
+        assertTrue(VideoInformation.playing);
+    }
+
+    @Test
+    public void newManualVideoRecoversPlaySuppressedDuringPreviousRequest() throws Exception {
+        for (int provider : new int[] {YANDEX, GOOGLE}) {
+            before();
+            manual(provider);
+            init();
+            load("a");
+            VideoInformation.setPlayerPlaying(true);
+            TranslationPlaybackController.select(provider, "a");
+            init();
+            VideoInformation.setPlayerPlaying(true);
+            assertFalse(VideoInformation.playing);
+            load("b");
+            assertTrue(VideoInformation.playing);
+            assertFalse(state.isWaiting());
+            assertFalse(TranslationPlaybackController.ready(provider, "a"));
+        }
+    }
+
+    @Test
+    public void newManualVideoPreservesPauseDuringPreviousRequest() {
+        manual(YANDEX);
+        init();
+        load("a");
+        VideoInformation.setPlayerPlaying(true);
+        TranslationPlaybackController.select(YANDEX, "a");
+        init();
+        VideoInformation.setPlayerPlaying(true);
+        VideoInformation.setPlayerPlaying(false);
+        load("b");
+        assertFalse(VideoInformation.playing);
+        assertFalse(state.isWaiting());
+    }
+
+    @Test
+    public void automaticModeBlocksFirstPlayBeforeMetadataForEitherProvider() throws Exception {
+        for (int provider : new int[] {YANDEX, GOOGLE}) {
+            before();
+            if (provider == YANDEX) yandex(); else google();
+            init();
+            VideoInformation.setPlayerPlaying(true);
+            assertFalse(VideoInformation.playing);
+            load("a");
+            assertFalse(VideoInformation.playing);
+            assertEquals(1, VoiceOverTranslationPatch.starts + GoogleVoiceOverTranslationPatch.starts);
+            ready(provider);
+            assertTrue(VideoInformation.playing);
+        }
+    }
+
+    @Test
+    public void switchingToManualProviderDoesNotInventARequest() {
+        yandex();
+        manual(GOOGLE);
+        init();
+        load("a");
+        Settings.VOT_ENABLED.value = false;
+        TranslationPlaybackController.onSettingChanged(Settings.VOT_ENABLED.key);
+        Utils.drain();
+        assertEquals(GOOGLE, state.provider());
+        assertFalse(state.isWaiting());
+        assertEquals(0, GoogleVoiceOverTranslationPatch.starts);
+        assertTrue(TranslationPlaybackController.overridePlayWhenReady(VideoInformation.player, true));
+    }
+
+    @Test
+    public void disablingAutomaticBeforeDispatchReleasesUnrequestedHold() {
+        yandex();
+        init();
+        VideoInformation.id = "a";
+        TranslationPlaybackController.newVideoLoaded("a");
+        Settings.VOT_AUTO_TRANSLATE.value = false;
+        TranslationPlaybackController.onSettingChanged(Settings.VOT_AUTO_TRANSLATE.key);
+        Utils.drain();
+        assertFalse(state.isWaiting());
+        assertEquals(0, VoiceOverTranslationPatch.starts);
+        assertTrue(TranslationPlaybackController.overridePlayWhenReady(VideoInformation.player, true));
+    }
+
+    @Test
+    public void disablingAutomaticDoesNotReleaseAnAlreadyRequestedTranslation() {
+        yandex();
+        init();
+        load("a");
+        Settings.VOT_AUTO_TRANSLATE.value = false;
+        TranslationPlaybackController.onSettingChanged(Settings.VOT_AUTO_TRANSLATE.key);
+        assertTrue(state.isWaiting(YANDEX, "a"));
+        ready(YANDEX);
+        assertTrue(VideoInformation.playing);
+    }
+
+    @Test
+    public void unrelatedAutomaticSettingDoesNotReleaseManualRequest() {
+        manual(YANDEX);
+        init();
+        load("a");
+        VideoInformation.setPlayerPlaying(true);
+        TranslationPlaybackController.select(YANDEX, "a");
+        TranslationPlaybackController.onSettingChanged(Settings.VOT_AUTO_TRANSLATE.key);
+        assertTrue(state.isWaiting(YANDEX, "a"));
+    }
+
+
+    @Test
+    public void enablingAutomaticHoldsImmediatelyBeforeRequestDispatch() throws Exception {
+        for (int provider : new int[] {YANDEX, GOOGLE}) {
+            before();
+            manual(provider);
+            init();
+            load("a");
+            VideoInformation.setPlayerPlaying(true);
+            Settings.Flag automatic = provider == YANDEX
+                    ? Settings.VOT_AUTO_TRANSLATE : Settings.GOOGLE_VOT_AUTO_TRANSLATE;
+            automatic.value = true;
+            TranslationPlaybackController.onSettingChanged(automatic.key);
+            assertTrue(state.isWaiting(provider, "a"));
+            assertFalse(VideoInformation.playing);
+            Utils.drain();
+            ready(provider);
+            assertTrue(VideoInformation.playing);
+        }
+    }
+
+    @Test
+    public void switchingFromPlayingProviderToAutomaticProviderHoldsBeforeDispatch() {
+        manual(YANDEX);
+        google();
+        Settings.GOOGLE_VOT_ENABLED.value = false;
+        init();
+        load("a");
+        VideoInformation.setPlayerPlaying(true);
+        int stopped = VoiceOverTranslationPatch.suspended;
+        Settings.GOOGLE_VOT_ENABLED.value = true;
+        TranslationPlaybackController.onSettingChanged(Settings.GOOGLE_VOT_ENABLED.key);
+        assertTrue(state.isWaiting(GOOGLE, "a"));
+        assertFalse(VideoInformation.playing);
+        assertEquals(stopped + 1, VoiceOverTranslationPatch.suspended);
+        Utils.drain();
+        ready(GOOGLE);
+        assertTrue(VideoInformation.playing);
+    }
+
+    @Test
+    public void preRequestHoldIsEnforcedWhenLateMetadataFindsPlayerAlreadyPlaying() {
+        yandex();
+        init();
+        VideoInformation.id = "a";
+        TranslationPlaybackController.newVideoLoaded("a");
+        VideoInformation.playing = true;
+        Utils.drain();
+        assertFalse(VideoInformation.playing);
+        assertTrue(state.isWaiting(YANDEX, "a"));
+        assertEquals(0, VoiceOverTranslationPatch.starts);
+    }
+
+    @Test
+    public void automaticHoldDoesNotDependOnDisabledPreviousProviderDuringRecreation() {
+        manual(YANDEX);
+        init();
+        load("a");
+        VideoInformation.setPlayerPlaying(true);
+        TranslationPlaybackController.select(YANDEX, "a");
+        Settings.VOT_ENABLED.value = false;
+        google();
+        init();
+        VideoInformation.setPlayerPlaying(true);
+        assertFalse(VideoInformation.playing);
+        load("b");
+        assertTrue(state.isWaiting(GOOGLE, "b"));
+    }
+
+    @Test
+    public void manualGoogleDoesNotBorrowDisabledYandexAutomaticChoice() {
+        manual(GOOGLE);
+        Settings.VOT_AUTO_TRANSLATE.value = true;
+        init();
+        VideoInformation.setPlayerPlaying(true);
+        assertTrue(VideoInformation.playing);
+        load("a");
+        assertFalse(state.isWaiting());
+    }
+
+    @Test
+    public void switchingProviderBeforeAutomaticDispatchClearsPreviousRequestMarker() {
+        yandex();
+        google();
+        init();
+        load("a");
+        Settings.VOT_ENABLED.value = false;
+        TranslationPlaybackController.onSettingChanged(Settings.VOT_ENABLED.key);
+        Settings.GOOGLE_VOT_AUTO_TRANSLATE.value = false;
+        TranslationPlaybackController.onSettingChanged(Settings.GOOGLE_VOT_AUTO_TRANSLATE.key);
+        Utils.drain();
+        assertFalse(state.isWaiting());
+        assertEquals(0, GoogleVoiceOverTranslationPatch.starts);
+    }
+
+    @Test
+    public void newVideoDoesNotInheritPreviousRequestMarker() {
+        yandex();
+        init();
+        load("a");
+        VideoInformation.id = "b";
+        TranslationPlaybackController.newVideoLoaded("b");
+        Settings.VOT_AUTO_TRANSLATE.value = false;
+        TranslationPlaybackController.onSettingChanged(Settings.VOT_AUTO_TRANSLATE.key);
+        Utils.drain();
+        assertFalse(state.isWaiting());
+    }
+
+
+    @Test
+    public void enablingPauseAfterUnheldStartupDoesNotInventAHoldBeforeDispatch() {
+        yandex();
+        Settings.VOT_PAUSE_VIDEO_WHILE_PREPARING_TRANSLATION.value = false;
+        init();
+        VideoInformation.id = "a";
+        TranslationPlaybackController.newVideoLoaded("a");
+        Settings.VOT_PAUSE_VIDEO_WHILE_PREPARING_TRANSLATION.value = true;
+        TranslationPlaybackController.onSettingChanged(Settings.VOT_PAUSE_VIDEO_WHILE_PREPARING_TRANSLATION.key);
+        VideoInformation.setPlayerPlaying(true);
+        assertTrue(VideoInformation.playing);
+    }
+
 }

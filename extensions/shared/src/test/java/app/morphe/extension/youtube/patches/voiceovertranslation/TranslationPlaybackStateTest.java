@@ -472,4 +472,54 @@ public class TranslationPlaybackStateTest {
         state.newVideo("b", GOOGLE, true);
         assertTrue(state.ready(GOOGLE, "b"));
     }
+
+    @Test
+    public void newManualVideoDoesNotReplayOldReadyCallback() {
+        state.newVideo("a", YANDEX, true);
+        state.initialize(YANDEX, false);
+        assertFalse(state.ready(YANDEX, "a"));
+        state.newVideo("b", YANDEX, false);
+        assertFalse(state.takeDeferredResume());
+        assertTrue(state.filterPlay(true, false));
+    }
+
+    @Test
+    public void differentManualVideoResumesOnlyItsSuppressedPlayRequest() {
+        state.newVideo("a", YANDEX, false);
+        state.select("a", YANDEX, true, true);
+        state.initialize(YANDEX, false);
+        assertFalse(state.filterPlay(true, false));
+        state.newVideo("b", YANDEX, false);
+        assertTrue(state.takeDeferredResume());
+        assertFalse(state.takeDeferredResume());
+    }
+
+    @Test
+    public void selectingAnotherVideoDoesNotInheritPreviousResumeIntent() {
+        state.newVideo("a", YANDEX, true);
+        state.select("b", GOOGLE, true, false);
+        assertFalse(state.ready(GOOGLE, "b"));
+    }
+
+
+    @Test
+    public void newVideoWithoutRecreationDoesNotReuseOldSuppressedPlay() {
+        state.initialize(YANDEX, true);
+        state.filterPlay(true, false);
+        state.newVideo("a", YANDEX, true);
+        state.ready(YANDEX, "a");
+        state.newVideo("b", YANDEX, false);
+        assertFalse(state.takeDeferredResume());
+    }
+
+    @Test
+    public void newAutomaticHoldConsumesPendingPlayWithoutLeavingASecondResume() {
+        state.initialize(GOOGLE, true);
+        state.filterPlay(true, false);
+        state.newVideo("a", GOOGLE, true);
+        state.filterPlay(false, false);
+        assertFalse(state.ready(GOOGLE, "a"));
+        assertFalse(state.takeDeferredResume());
+    }
+
 }
