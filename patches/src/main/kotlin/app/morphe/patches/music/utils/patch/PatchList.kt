@@ -61,6 +61,10 @@ internal enum class PatchList(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."
     ),
+    DOWNLOADS(
+        "Downloads",
+        "Adds support to download songs for offline playback inside YouTube Music."
+    ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
         "Adds an option for debugging."

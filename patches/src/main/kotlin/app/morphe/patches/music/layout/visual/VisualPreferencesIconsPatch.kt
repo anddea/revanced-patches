@@ -357,6 +357,7 @@ private val emptyTitles = setOf(
     "morphe_custom_branding_use_as_system_splash",
     "morphe_dark_theme_custom_color",
     "morphe_notification_dot_color",
+    "morphe_music_in_app_downloads",
     "morphe_replace_music_with_youtube",
     "morphe_settings_name",
     "morphe_spoof_video_streams_client_type",

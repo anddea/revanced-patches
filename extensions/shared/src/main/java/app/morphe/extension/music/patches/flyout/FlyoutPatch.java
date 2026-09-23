@@ -56,10 +56,12 @@ import static app.morphe.extension.shared.utils.Utils.clickView;
 import static app.morphe.extension.shared.utils.Utils.runOnMainThreadDelayed;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -73,11 +75,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import app.morphe.extension.music.patches.actionbar.ActionBarPatch;
+import app.morphe.extension.music.settings.ActivityHook;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.music.shared.VideoInformation;
 import app.morphe.extension.music.shared.VideoType;
 import app.morphe.extension.music.utils.ExtendedUtils;
 import app.morphe.extension.music.utils.VideoUtils;
+import app.morphe.extension.shared.settings.BaseActivityHook;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceType;
@@ -110,6 +114,10 @@ public class FlyoutPatch {
 
     private static volatile String cachedFlyoutVideoId = "";
     private static volatile long lastFlyoutDownloadTime;
+    private static volatile long lastLocalDownloadsOpenTime;
+    /** Browse id of the stock offline tab, which the local catalogue replaces. */
+    private static final byte[] OFFLINE_BROWSE_ID =
+            "FEmusic_offline".getBytes(StandardCharsets.US_ASCII);
     private static volatile boolean lastMenuWasDismissQueue = false;
     private static WeakReference<View> touchOutSideViewRef = new WeakReference<>(null);
     private static final ColorFilter cf = new PorterDuffColorFilter(Color.parseColor("#ffffffff"), PorterDuff.Mode.SRC_ATOP);
@@ -135,6 +143,36 @@ public class FlyoutPatch {
     private static void launchExternalDownloader(String videoId) {
         cachedFlyoutVideoId = "";
         VideoUtils.launchExternalDownloader(videoId);
+    }
+
+    private static void openLocalDownloads() {
+        Activity activity = ActivityHook.getActivity();
+        if (activity == null) activity = Utils.getActivity();
+        if (activity == null) return;
+
+        // A single tap on the offline chip resolves its command twice, which would otherwise
+        // stack a second copy of the screen on top of the first.
+        final long now = System.currentTimeMillis();
+        if (now - lastLocalDownloadsOpenTime < IGNORE_DOUBLE_CLICK_DURATION_MS) return;
+        lastLocalDownloadsOpenTime = now;
+        Logger.printDebug(() -> "Offline tab opened, showing the local downloads");
+
+        Intent intent = new Intent();
+        intent.setClassName(activity, "com.google.android.gms.common.api.GoogleApiActivity");
+        intent.setPackage(activity.getPackageName());
+        intent.setData(Uri.parse(BaseActivityHook.MORPHE_DOWNLOADS_INTENT));
+        activity.startActivity(intent);
+    }
+
+    private static boolean isOfflineBrowseCommand(byte[] bytes) {
+        byte[] target = OFFLINE_BROWSE_ID;
+        outer: for (int i = 0; i <= bytes.length - target.length; i++) {
+            for (int j = 0; j < target.length; j++) {
+                if (bytes[i + j] != target[j]) continue outer;
+            }
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -221,6 +259,17 @@ public class FlyoutPatch {
                 return false;
             }
             Utils.verifyOnMainThread();
+
+            if (Settings.IN_APP_DOWNLOADS.get()) {
+                byte[] commandBytes = command.toByteArray();
+                if (commandBytes != null && isOfflineBrowseCommand(commandBytes)) {
+                    openLocalDownloads();
+                    // The local screen is opened on top of the stock one rather than in place of
+                    // it. Consuming the command instead leaves the app with a navigation it never
+                    // finished, which it replays on the next start and cancels again.
+                    return false;
+                }
+            }
 
             if (ActionBarPatch.inAppDownloadButtonOnClick(map)) {
                 cachedFlyoutVideoId = "";

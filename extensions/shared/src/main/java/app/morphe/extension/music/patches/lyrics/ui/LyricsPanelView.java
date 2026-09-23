@@ -9,6 +9,7 @@ package app.morphe.extension.music.patches.lyrics.ui;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
 
+import android.annotation.SuppressLint;
 import android.animation.ArgbEvaluator;
 import android.animation.LayoutTransition;
 import android.animation.ValueAnimator;
@@ -296,6 +297,7 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
         }
     }
 
+    @SuppressLint("AppCompatCustomView")
     private static final class LyricsLineView extends TextView {
         private List<WordTiming> wordTimings = Collections.emptyList();
         private long positionMs = Long.MIN_VALUE;

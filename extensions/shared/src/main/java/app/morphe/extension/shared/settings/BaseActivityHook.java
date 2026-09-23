@@ -48,6 +48,9 @@ public abstract class BaseActivityHook extends Activity {
         }
     }
 
+    public static final String REVANCED_SETTINGS_INTENT = "revanced_settings_intent";
+    public static final String MORPHE_DOWNLOADS_INTENT = "morphe_downloads_intent";
+
     /**
      * Initializes the activity by setting the theme, content view and injecting a PreferenceFragment.
      */
@@ -58,7 +61,8 @@ public abstract class BaseActivityHook extends Activity {
 
             // Sanity check.
             String dataString = activity.getIntent().getDataString();
-            if (!"revanced_settings_intent".equals(dataString)) {
+            if (!REVANCED_SETTINGS_INTENT.equals(dataString)
+                    && !MORPHE_DOWNLOADS_INTENT.equals(dataString)) {
                 Logger.printException(() -> "Unknown intent: " + dataString);
                 return;
             }

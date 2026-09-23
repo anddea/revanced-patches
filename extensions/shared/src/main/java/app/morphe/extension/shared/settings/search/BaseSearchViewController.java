@@ -55,6 +55,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -95,6 +96,7 @@ import app.morphe.extension.shared.settings.preference.NoTitlePreferenceCategory
 import app.morphe.extension.shared.ui.ShimmerTextView;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 
 /**
@@ -133,6 +135,14 @@ public abstract class BaseSearchViewController {
             getDrawableIdentifier("revanced_settings_search_icon");
     protected static final int MENU_REVANCED_SEARCH_MENU =
             getMenuIdentifier("revanced_search_menu");
+
+    public static Drawable getSearchIconDrawable() {
+        Drawable icon = ResourceUtils.getDrawable("revanced_settings_search_icon");
+        if (icon == null) return null;
+        Drawable mutated = icon.mutate();
+        mutated.setTint(BaseThemeUtils.getAppForegroundColor());
+        return mutated;
+    }
 
     /**
      * Constructs a new BaseSearchViewController instance.
