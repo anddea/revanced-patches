@@ -384,6 +384,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting EXTERNAL_DOWNLOADER_ACTION_BUTTON = new BooleanSetting("revanced_external_downloader_action", FALSE, true);
     public static final BooleanSetting EXTERNAL_DOWNLOADER_FLYOUT_MENU = new BooleanSetting("revanced_external_downloader_flyout_menu", FALSE, true, parent(EXTERNAL_DOWNLOADER_ACTION_BUTTON));
     public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME = new StringSetting("revanced_external_downloader_package_name", "com.deniscerri.ytdl");
+    public static final BooleanSetting IN_APP_DOWNLOADS = new BooleanSetting("morphe_music_in_app_downloads", FALSE, false, "morphe_music_in_app_downloads_user_dialog_message", parent(EXTERNAL_DOWNLOADER_ACTION_BUTTON));
+    public static final StringSetting DOWNLOADS_SORT = new StringSetting("morphe_music_downloads_sort", "ARTIST", false, false);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_settings_import_export", FALSE, false);
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT =
             new BooleanSetting("morphe_spoof_video_streams_sign_in_android_vr_about", FALSE, false);

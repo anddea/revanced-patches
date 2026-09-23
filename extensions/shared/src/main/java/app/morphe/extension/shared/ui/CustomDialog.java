@@ -71,8 +71,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
+import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 
 /**
@@ -556,5 +560,83 @@ public class CustomDialog {
                 buttonContainer.addView(spacer);
             }
         }
+    }
+
+    /**
+     * Creates a styled modern search bar with a functional clear button.
+     *
+     * @param context Context used to create the EditText.
+     * @param hint The placeholder text to display.
+     * @param onQueryChanged Callback triggered when the text changes.
+     * @return The configured EditText search bar.
+     */
+    @SuppressLint("ClickableViewAccessibility")
+    public static EditText createSearchBar(Context context, String hint, Consumer<String> onQueryChanged) {
+        EditText searchBar = new EditText(context);
+        searchBar.setTextSize(16);
+        searchBar.setHint(hint);
+        searchBar.setSingleLine(true);
+        searchBar.setTextColor(getAppForegroundColor());
+        searchBar.setHapticFeedbackEnabled(false);
+        searchBar.setPadding(Dim.dp12, Dim.dp8, Dim.dp12, Dim.dp8);
+        searchBar.setCompoundDrawablePadding(Dim.dp8);
+        searchBar.setBackground(createRoundedBackground(20, getEditTextBackground()));
+
+        int searchIconResId = ResourceUtils.getDrawableIdentifier("revanced_settings_search_icon");
+        int clearIconResId = ResourceUtils.getDrawableIdentifier("revanced_settings_search_remove");
+
+        Drawable searchIcon = context.getDrawable(searchIconResId);
+        if (searchIcon != null) {
+            searchIcon.setBounds(0, 0, Dim.dp20, Dim.dp20);
+            searchIcon.setTint(getAppForegroundColor());
+        }
+
+        Drawable clearIcon = context.getDrawable(clearIconResId);
+        if (clearIcon != null) {
+            clearIcon.setBounds(0, 0, Dim.dp20, Dim.dp20);
+            clearIcon.setTint(getAppForegroundColor());
+        }
+
+        searchBar.setCompoundDrawables(searchIcon, null, null, null);
+
+        searchBar.addTextChangedListener(new android.text.TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                searchBar.setCompoundDrawables(searchIcon, null,
+                        TextUtils.isEmpty(s) ? null : clearIcon, null);
+                if (onQueryChanged != null) {
+                    onQueryChanged.accept(s.toString());
+                }
+            }
+            @Override public void afterTextChanged(android.text.Editable s) {}
+        });
+
+        searchBar.setOnTouchListener((v, event) -> {
+            if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                Drawable[] drawables = searchBar.getCompoundDrawables();
+                if (drawables[2] != null && event.getRawX() >=
+                        (searchBar.getRight() - drawables[2].getBounds().width() - searchBar.getPaddingRight())) {
+                    searchBar.setText("");
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        return searchBar;
+    }
+
+    /**
+     * Creates a rounded solid color background drawable.
+     *
+     * @param radiusDp The corner radius in dp.
+     * @param color The solid color for the background.
+     * @return The configured ShapeDrawable.
+     */
+    public static ShapeDrawable createRoundedBackground(int radiusDp, int color) {
+        ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
+                Dim.roundedCorners(radiusDp), null, null));
+        background.getPaint().setColor(color);
+        return background;
     }
 }

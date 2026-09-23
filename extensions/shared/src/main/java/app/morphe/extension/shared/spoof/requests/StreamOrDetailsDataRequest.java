@@ -75,6 +75,14 @@ public class StreamOrDetailsDataRequest {
                     .toArray(ClientType[]::new);
 
     public static void setClientOrderToUse(List<ClientType> availableClients, ClientType preferredClient) {
+        List<ClientType> orderToUse = buildClientOrder(availableClients, preferredClient);
+
+        clientStreamOrderToUse = orderToUse.toArray(new ClientType[0]);
+        Logger.printDebug(() -> "Available spoof clients: " + orderToUse);
+    }
+
+    private static List<ClientType> buildClientOrder(List<ClientType> availableClients,
+                                                     ClientType preferredClient) {
         Objects.requireNonNull(preferredClient);
 
         List<ClientType> orderToUse = new ArrayList<>(availableClients.size());
@@ -91,8 +99,7 @@ public class StreamOrDetailsDataRequest {
             }
         }
 
-        clientStreamOrderToUse = orderToUse.toArray(new ClientType[0]);
-        Logger.printDebug(() -> "Available spoof clients: " + orderToUse);
+        return orderToUse;
     }
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
@@ -112,6 +119,7 @@ public class StreamOrDetailsDataRequest {
     private static volatile ClientType lastSpoofedClientType;
     private static volatile boolean fallbackWithTVDash;
     private static volatile boolean authHeadersOverrides;
+    private static volatile Map<String, String> lastPlayerHeaders = Collections.emptyMap();
 
     public static String getLastSpoofedClientName() {
         ClientType client = lastSpoofedClientType;
@@ -133,12 +141,19 @@ public class StreamOrDetailsDataRequest {
 
     private StreamOrDetailsDataRequest(@Nullable Route.CompiledRoute endpoint,
                                        String videoId, boolean isInline, Map<String, String> playerHeaders) {
-        this(endpoint, videoId, isInline, playerHeaders, null);
+        this(endpoint, videoId, isInline, playerHeaders, null, false);
     }
 
     private StreamOrDetailsDataRequest(@Nullable Route.CompiledRoute endpoint,
                                        String videoId, boolean isInline, Map<String, String> playerHeaders,
                                        @Nullable ClientType[] clientStreamOrderOverride) {
+        this(endpoint, videoId, isInline, playerHeaders, clientStreamOrderOverride, false);
+    }
+
+    private StreamOrDetailsDataRequest(@Nullable Route.CompiledRoute endpoint,
+                                       String videoId, boolean isInline, Map<String, String> playerHeaders,
+                                       @Nullable ClientType[] clientStreamOrderOverride,
+                                       boolean forDownload) {
         if (endpoint == null) {
             Objects.requireNonNull(playerHeaders);
         }
@@ -146,7 +161,7 @@ public class StreamOrDetailsDataRequest {
         this.isInline = isInline;
 
         this.future = submitOnBackgroundThread(() ->
-                fetch(endpoint, videoId, isInline, playerHeaders, clientStreamOrderOverride));
+                fetch(endpoint, videoId, isInline, playerHeaders, clientStreamOrderOverride, forDownload));
     }
 
     /**
@@ -170,11 +185,14 @@ public class StreamOrDetailsDataRequest {
     }
 
     public static void fetchStreamRequest(String videoId, boolean isInline, Map<String, String> fetchHeaders) {
-        streamCache.put(videoId, new StreamOrDetailsDataRequest(null, videoId, isInline, fetchHeaders));
+        fetchStreamRequest(videoId, isInline, fetchHeaders, (ClientType[]) null);
     }
 
     public static void fetchStreamRequest(String videoId, boolean isInline, Map<String, String> fetchHeaders,
-                                          ClientType... clientStreamOrderOverride) {
+                                          @Nullable ClientType... clientStreamOrderOverride) {
+        if (fetchHeaders != null && !fetchHeaders.isEmpty()) {
+            lastPlayerHeaders = fetchHeaders;
+        }
         streamCache.put(videoId, new StreamOrDetailsDataRequest(
                 null,
                 videoId,
@@ -184,9 +202,30 @@ public class StreamOrDetailsDataRequest {
         ));
     }
 
+    /**
+     * Resolves a video that the app never opened, using the latest player headers.
+     * Deliberately not cached, so downloads cannot evict the streams of videos being watched.
+     * <p>
+     * The clients are given by the caller instead of taken from the playback order, which stays at
+     * the enum default while spoofing is off and then begins with a SABR client that has no urls.
+     */
+    public static StreamOrDetailsDataRequest fetchRequestForDownload(String videoId,
+                                                                     List<ClientType> downloadClients,
+                                                                     ClientType preferredClient) {
+        ClientType[] clientOrder = buildClientOrder(downloadClients, preferredClient)
+                .toArray(new ClientType[0]);
+        // The video details name the saved file, so the download asks for them as well.
+        return new StreamOrDetailsDataRequest(null, videoId, false, lastPlayerHeaders, clientOrder, true);
+    }
+
     @Nullable
     public static StreamOrDetailsDataRequest getStreamRequestForVideoId(String videoId) {
         return streamCache.get(videoId);
+    }
+
+    @Nullable
+    public static StreamOrDetailsDataRequest getRequestForVideoId(String videoId) {
+        return getStreamRequestForVideoId(videoId);
     }
 
     public static StreamOrDetailsDataRequest getDetailsRequest(Route.CompiledRoute videoDetailsEndpoint,
@@ -226,7 +265,7 @@ public class StreamOrDetailsDataRequest {
         final boolean isStream = clientType != ClientType.GET_CHANNEL_FROM_ID && clientType != ClientType.SAVE_TO_WATCH_LATER;
 
         try {
-            HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(clientType);
+            HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(clientType, forDownload);
             connection.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 
@@ -457,34 +496,48 @@ public class StreamOrDetailsDataRequest {
 
     private static Object fetch(@Nullable Route.CompiledRoute videoDetailsEndpoint,
                                 String videoId, boolean isInline, Map<String, String> playerHeaders) {
-        return fetch(videoDetailsEndpoint, videoId, isInline, playerHeaders, null);
+        return fetch(videoDetailsEndpoint, videoId, isInline, playerHeaders, null, false);
     }
 
     private static Object fetch(@Nullable Route.CompiledRoute videoDetailsEndpoint,
                                 String videoId, boolean isInline, Map<String, String> playerHeaders,
                                 @Nullable ClientType[] clientStreamOrderOverride) {
+        return fetch(videoDetailsEndpoint, videoId, isInline, playerHeaders, clientStreamOrderOverride, false);
+    }
+
+    private static Object fetch(@Nullable Route.CompiledRoute videoDetailsEndpoint,
+                                String videoId, boolean isInline, Map<String, String> playerHeaders,
+                                @Nullable ClientType[] clientStreamOrderOverride,
+                                boolean isDownload) {
         if (videoDetailsEndpoint == null) {
             final boolean debugEnabled = BaseSettings.DEBUG.get();
             ClientType[] clientOrderToUse = clientStreamOrderOverride == null || clientStreamOrderOverride.length == 0
-                    ? clientStreamOrderToUse
+                    ? StreamOrDetailsDataRequest.clientStreamOrderToUse
                     : clientStreamOrderOverride;
             int i = 0;
             for (ClientType clientTypeStream : clientOrderToUse) {
-                final boolean showErrorToast = (++i == clientOrderToUse.length) || debugEnabled;
-                HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast);
-                Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection, videoId, isInline);
+                final boolean showErrorToast = ((++i == clientOrderToUse.length) || debugEnabled) && !isDownload;
+                HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast, isDownload);
+                Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection, videoId, isInline, isDownload);
 
                 if (clientTypeStream == ClientType.TV_SABR && fallbackWithTVDash) {
                     fallbackWithTVDash = false;
                     clientTypeStream = ClientType.TV_DASH;
-                    HttpURLConnection fallBackConnection = send(clientTypeStream, videoId, playerHeaders, showErrorToast);
-                    playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, fallBackConnection, videoId, isInline);
+                    HttpURLConnection fallBackConnection = send(clientTypeStream, videoId, playerHeaders, showErrorToast, isDownload);
+                    playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, fallBackConnection, videoId, isInline, isDownload);
                 }
 
                 if (playerResponseBuffer != null) {
-                    lastSpoofedClientType = clientTypeStream;
+                    if (!isDownload) {
+                        lastSpoofedClientType = clientTypeStream;
+                    }
                     return playerResponseBuffer;
                 }
+            }
+
+            if (isDownload) {
+                Logger.printDebug(() -> "No client could resolve the download: " + videoId);
+                return null;
             }
 
             lastSpoofedClientType = null;
@@ -521,6 +574,12 @@ public class StreamOrDetailsDataRequest {
             future.cancel(true);
         }
         return null;
+    }
+
+    @Nullable
+    public StreamData getStream() {
+        Object details = getStreamDetails();
+        return details instanceof StreamData ? (StreamData) details : null;
     }
 
     @NonNull
