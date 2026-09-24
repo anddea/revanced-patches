@@ -7,6 +7,7 @@
  * Original author(s):
  * - anddea (https://github.com/anddea)
  * - inotia00 (https://github.com/inotia00)
+ * - COOLak (https://github.com/COOLak)
  *
  * Licensed under the GNU General Public License v3.0.
  *
@@ -195,10 +196,15 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 refreshSliderSummaries(getPreferenceScreen());
             }
             updatingPreference = false;
+            if (!settingImportInProgress) onSettingChanged(setting);
         } catch (Exception ex) {
             Logger.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
         }
     };
+
+    /** Called after a preference change has reached the setting cache and UI. */
+    protected void onSettingChanged(Setting<?> setting) {
+    }
 
     static void setSliderInteractionInProgress(boolean inProgress) {
         sliderInteractionInProgress = inProgress;

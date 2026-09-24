@@ -75,12 +75,17 @@ public final class TranslationPlaybackController {
                 && Settings.GOOGLE_VOT_ENABLED.get() && Settings.GOOGLE_VOT_PAUSE_WHILE_PREPARING.get();
     }
 
+    private static boolean pauseOnStartup(int provider) {
+        return pauseEnabled(provider) && (provider == TranslationPlaybackState.YANDEX
+                ? Settings.VOT_AUTO_TRANSLATE.get() : Settings.GOOGLE_VOT_AUTO_TRANSLATE.get());
+    }
+
     /** Injection point, before YouTube has assigned the new video metadata. */
     public static void initialize(Object player) {
         nativePlayer = new WeakReference<>(player);
         int provider = configuredProvider();
-        state.reset(provider, pauseEnabled(provider));
-        automaticVideoId = "";
+        state.initialize(provider, pauseOnStartup(provider));
+        Logger.printDebug(() -> "Translation player initialized; retaining video: " + state.videoId());
     }
 
     /** Injection point in the current LocalDirector's loadVideo, not response preloading. */
@@ -131,14 +136,15 @@ public final class TranslationPlaybackController {
     /** Injection point using the actual video-ID register, never the cached metadata bridge. */
     public static void newVideoLoaded(String videoId) {
         int provider = configuredProvider();
-        if (state.newVideo(videoId, provider, pauseEnabled(provider))) automaticVideoId = "";
+        if (state.newVideo(videoId, provider, pauseOnStartup(provider))) automaticVideoId = "";
         metadataLoaded(videoId);
     }
 
     static void metadataLoaded(String videoId) {
         if (!state.matchesVideo(videoId)) return;
         Utils.runOnMainThread(() -> {
-            if (!videoId.equals(state.videoId()) || !videoId.equals(VideoInformation.getVideoId())) return;
+            if (!state.matchesVideo(videoId) || !videoId.equals(VideoInformation.getVideoId())) return;
+            if (state.takeDeferredResume()) VideoInformation.setPlayerPlaying(true);
             enforcePause();
             if (videoId.equals(automaticVideoId)) return;
             if (state.provider() == TranslationPlaybackState.YANDEX && Settings.VOT_AUTO_TRANSLATE.get()) {
@@ -152,12 +158,53 @@ public final class TranslationPlaybackController {
         });
     }
 
+    /** Apply translation choices to the current video as well as subsequent videos. */
+    public static void onSettingChanged(String key) {
+        Utils.verifyOnMainThread();
+        if (key.equals(Settings.GOOGLE_VOT_USE_NATIVE_TTS.key)
+                || key.equals(Settings.GOOGLE_VOT_TTS_VOICE_TYPE.key)) {
+            GoogleVoiceOverTranslationPatch.onVoiceChanged();
+            return;
+        }
+        if (key.equals(Settings.GOOGLE_VOT_TRANSLATION_SERVICE.key)
+                || key.equals(Settings.GOOGLE_VOT_CAPTION_LANGUAGE.key)
+                || key.equals(Settings.GOOGLE_VOT_OPENROUTER_MODEL.key)) {
+            GoogleVoiceOverTranslationPatch.reloadTranscript();
+            return;
+        }
+        String id = VideoInformation.getVideoId();
+        if (!state.matchesVideo(id)) return;
+        if (key.equals(Settings.VOT_PAUSE_VIDEO_WHILE_PREPARING_TRANSLATION.key)
+                || key.equals(Settings.GOOGLE_VOT_PAUSE_WHILE_PREPARING.key)) {
+            if (!pauseEnabled(state.provider())) state.cancel(state.provider(), id);
+            return;
+        }
+        if (!key.equals(Settings.VOT_ENABLED.key) && !key.equals(Settings.GOOGLE_VOT_ENABLED.key)
+                && !key.equals(Settings.VOT_AUTO_TRANSLATE.key) && !key.equals(Settings.GOOGLE_VOT_AUTO_TRANSLATE.key)) return;
+        int provider = configuredProvider();
+        if (provider != state.provider()) {
+            state.configure(id, provider, pauseOnStartup(provider), VideoInformation.isPlayerPlaying());
+            suspendOtherProvider(provider);
+            enforcePause();
+        } else if (!state.hasRequest()) {
+            state.configure(id, provider, pauseOnStartup(provider), VideoInformation.isPlayerPlaying());
+            enforcePause();
+        }
+        if (provider == TranslationPlaybackState.NONE) GoogleVoiceOverTranslationPatch.suspendTranslation();
+        automaticVideoId = "";
+        metadataLoaded(id);
+    }
+
     static void select(int provider, String videoId) {
         Utils.verifyOnMainThread();
         state.select(videoId, provider, pauseEnabled(provider), VideoInformation.isPlayerPlaying());
+        suspendOtherProvider(provider);
+        enforcePause();
+    }
+
+    private static void suspendOtherProvider(int provider) {
         if (provider == TranslationPlaybackState.YANDEX) GoogleVoiceOverTranslationPatch.suspendTranslation();
         else VoiceOverTranslationPatch.suspendTranslation();
-        enforcePause();
     }
 
     static void enforcePause() {
