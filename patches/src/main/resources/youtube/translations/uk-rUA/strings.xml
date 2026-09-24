@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">Щоб отримувати сповіщення у RVX, увімкніть Хмарні повідомлення</string>
     <string name="gms_core_settings_title">Відкрити налаштування MicroG/GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG/GmsCore не встановлено. Встановіть його</string>
+    <string name="morphe_ads_channel_whitelist_title">Білий список каналів для реклами</string>
     <string name="morphe_aislist_submit_already_blocklisted">Цей канал вже є в списку блокування AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Цей канал вже є в списку попереджень AiSList</string>
     <string name="morphe_aislist_submit_category_title">Повідомити про AI-канали</string>
@@ -202,6 +203,8 @@
     <string name="morphe_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Змінити посилання для поширення на youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Повертає жирні елементи керування відеоплеєра до старішого, тоншого стилю</string>
+    <string name="morphe_restore_old_player_buttons_title">Відновити старий стиль кнопок плеєра</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_title">Очищувати посилання для поширення</string>
@@ -226,8 +229,9 @@
     <string name="morphe_settings_name_empty_warning">Назва не може бути порожньою</string>
     <string name="morphe_settings_name_title">Назва налаштувань RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Кольорова</string>
-    <string name="morphe_splash_screen_animation_style_entry_3">Монохромний</string>
-    <string name="morphe_splash_screen_animation_style_title">Стиль заставки</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Монохромна</string>
+    <string name="morphe_splash_screen_animation_style_title">Анімація запуску</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Відтворення може завершитися на 1 секунду раніше</string>
     <string name="morphe_spoof_video_streams_about_js">• Якщо деобфускація не вдається, відтворення може завершитися невдачею</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'Пункт меню \"Звукова доріжка\" відсутній</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Відеокодек AV1 відсутній</string>
@@ -1778,6 +1782,7 @@
     <string name="revanced_miniplayer_hide_subtext_summary_off">Підтексти в мініплеєрі показуються</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Підтексти в мініплеєрі приховано</string>
     <string name="revanced_miniplayer_hide_subtext_title">Приховати підтексти</string>
+    <string name="revanced_miniplayer_hide_title_title">Приховати назву та канал</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетягування вимкнено</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Жест горизонтального перетягування увімкнено
 
@@ -2103,7 +2108,7 @@
     <string name="revanced_restart_first_run">Перезавантажте, щоб завершити налаштування</string>
     <string name="revanced_restart_title">Потрібно перезапустити</string>
     <string name="revanced_restore_old_settings_menus_title">Відновити старий екран налаштувань YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Виправляє відсутність лайків/дизлайків та неможливість приховати кнопки дій відео
+    <string name="revanced_restore_old_video_action_bar_summary">"Виправляє неможливість приховати кнопки дій відео
 
 Обмеження: повертає старий стиль накладки \"Інші відео\""</string>
     <string name="revanced_restore_old_video_action_bar_title">Відновити стару панель дій відео</string>
@@ -2418,6 +2423,7 @@
     <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
     <string name="revanced_settings_import_summary">Імпортувати налаштування зі збереженого файлу</string>
     <string name="revanced_settings_import_title">Імпорт налаштувань</string>
+    <string name="revanced_settings_navigate_up">Перейти вгору</string>
     <string name="revanced_settings_reset">Скинути</string>
     <string name="revanced_settings_reset_color">Скинути колір</string>
     <string name="revanced_settings_search_clear_history">Очистити історію пошуку</string>
@@ -2436,6 +2442,7 @@
     <string name="revanced_settings_search_no_results_summary">Спробуйте інше ключове слово</string>
     <string name="revanced_settings_search_no_results_title">За запитом \'%s\' нічого не знайдено</string>
     <string name="revanced_settings_search_recent_searches">Нещодавні пошуки</string>
+    <string name="revanced_settings_search_remove">Видалити з історії пошуку</string>
     <string name="revanced_settings_search_remove_message">Видалити з історії пошуку?</string>
     <string name="revanced_settings_search_tips_summary">"• Натисніть на шлях, щоб відкрити його
 • Натисніть і утримуйте налаштування, щоб перейти до нього

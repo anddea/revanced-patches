@@ -20,6 +20,7 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin"</string
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin</string>
     <string name="gms_core_settings_title">GmsCore ayarlarını aç</string>
     <string name="gms_core_toast_not_installed_message">MicroG yüklenmemiş. Yükleyin</string>
+    <string name="morphe_ads_channel_whitelist_title">Kanal reklam beyaz listesi</string>
     <string name="morphe_aislist_submit_already_blocklisted">Bu kanal zaten AiSList engel listesinde</string>
     <string name="morphe_aislist_submit_already_warnlisted">Bu kanal zaten AiSList uyarı listesinde</string>
     <string name="morphe_aislist_submit_category_title">Yapay zekâ kanallarını bildir</string>
@@ -184,6 +185,8 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
     <string name="morphe_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
+    <string name="morphe_restore_old_player_buttons_summary">Kalın video oynatıcı kontrollerini eski, daha ince görünüme geri döndürür</string>
+    <string name="morphe_restore_old_player_buttons_title">Eski oynatıcı düğmesi stilini geri getir</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
@@ -209,7 +212,8 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_settings_name_title">RVX ayarları adı</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Renkli</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Tek renk</string>
-    <string name="morphe_splash_screen_animation_style_title">Açılış ekranı stili</string>
+    <string name="morphe_splash_screen_animation_style_title">Başlangıç animasyonu</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Oynatma 1 saniye erken sona erebilir</string>
     <string name="morphe_spoof_video_streams_about_js">• Eşleştirme başarısız olursa oynatma da başarısız olabilir</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'Ses Parçası menüsü eksik</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
@@ -1676,6 +1680,7 @@ Genişletmek veya kapatmak için kaydırın"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Alt metinler görünür</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Alt metinler gizli</string>
     <string name="revanced_miniplayer_hide_subtext_title">Alt metinleri gizle</string>
+    <string name="revanced_miniplayer_hide_title_title">Başlığı ve kanalı gizle</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Yatay sürükleme hareketi devre dışı</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Yatay sürükleme hareketi etkin
 
@@ -1986,9 +1991,9 @@ Tıklayıp basılı tutarak YouTube ayarlarını aç"</string>
     <string name="revanced_restart_first_run">Kurulumu tamamlamak için yeniden başlatın</string>
     <string name="revanced_restart_title">Yeniden başlatma gerekli</string>
     <string name="revanced_restore_old_settings_menus_title">Eski YouTube ayarlar ekranını geri yükle</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Beğenmemelerin görünmemesi ve video eylem düğmelerinin gizlenememesi sorunlarını düzeltir
+    <string name="revanced_restore_old_video_action_bar_summary">"Video eylem düğmelerinin gizlenememesi sorununu düzeltir
 
-Sınırlamalar: Eski 'Daha fazla video' katmanı görünümüne geri döner"</string>
+Sınırlama: Eski stil 'Diğer videolar' katmanına geri döner"</string>
     <string name="revanced_restore_old_video_action_bar_title">Eski video eylem çubuğunu geri yükle</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Eski oynatıcı düzeni kullanılmıyor</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Eski oynatıcı düzeni kullanılıyor
@@ -2293,6 +2298,7 @@ Aynısı mevcut"</string>
     <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
     <string name="revanced_settings_import_summary">Kaydedilmiş bir dosyadan ayarları içe aktarın</string>
     <string name="revanced_settings_import_title">Ayarları içe aktar</string>
+    <string name="revanced_settings_navigate_up">Yukarı git</string>
     <string name="revanced_settings_reset">Sıfırla</string>
     <string name="revanced_settings_reset_color">Rengi sıfırla</string>
     <string name="revanced_settings_search_clear_history">Arama geçmişini temizle</string>
@@ -2306,6 +2312,7 @@ Aynısı mevcut"</string>
     <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin</string>
     <string name="revanced_settings_search_no_results_title">\'%s\' için sonuç bulunamadı</string>
     <string name="revanced_settings_search_recent_searches">Son aramalar</string>
+    <string name="revanced_settings_search_remove">Arama geçmişinden kaldırılsın mı</string>
     <string name="revanced_settings_search_remove_message">Arama geçmişinden kaldırılsın mı?</string>
     <string name="revanced_settings_search_tips_summary">"• Bir yola gitmek için ona dokunun
 • Bir ayara gitmek için üzerine uzun basın

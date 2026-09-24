@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX، قم بتمكين المراسلة السحابية</string>
     <string name="gms_core_settings_title">فتح إعدادات GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG لم يتم تثبيته. قم بتثبيته</string>
+    <string name="morphe_ads_channel_whitelist_title">القائمة المسموح بها لإعلانات القناة</string>
     <string name="morphe_aislist_submit_already_blocklisted">هذه القناة موجودة بالفعل في قائمة حظر AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">هذه القناة موجودة بالفعل في قائمة تحذير AiSList</string>
     <string name="morphe_aislist_submit_category_title">الإبلاغ عن قنوات الذكاء الاصطناعي</string>
@@ -76,6 +77,8 @@
     <string name="morphe_disable_quic_protocol_summary_on">تم تعطيل بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">تعطيل تحديد سرعة التمرير</string>
+    <string name="morphe_disable_system_splash_summary">يجعل أيقونة بدء تشغيل النظام الثابتة شفافة</string>
+    <string name="morphe_disable_system_splash_title">تعطيل شاشة بدء تشغيل النظام</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"قد لا يكون 'زيادة مدة رجوع البث المباشر' متاحًا
 
 لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV Simply' أو 'visionOS'"</string>
@@ -183,6 +186,13 @@
     <string name="morphe_playback_in_feeds_title">التشغيل في الخلاصات</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">ضبط شفافية الخلفية خلف أزرار تحكم المشغل وشريط الوقت (0 غير مرئية، 100 معتمة)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">شفافية خلفية أزرار التحكم</string>
+    <string name="morphe_potoken_provider_summary">"يُصلح هذا التحديث مشاكل التشغيل باستخدام موفر PoToken المدمج (تجريبي)
+
+إذا كنتَ مشتركًا في YouTube Premium، فقد لا تحتاج إلى هذا الإعداد. "</string>
+    <string name="morphe_potoken_provider_title">موفر رمز PoToken</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"يُصلح مشاكل التشغيل باستخدام موفر PoToken المدمج (تجريبي) 
+
+لاستخدام هذه الميزة، قم بإيقاف تشغيل  \'بث فيديو ساخر \'"</string>
     <string name="morphe_queue_manager_check_failed_auth">تسجيل الدخول غير ممكن</string>
     <string name="morphe_queue_manager_check_failed_video_id">لا يوجد معرّف فيديو</string>
     <string name="morphe_reload_video_summary_off">لا يتم عرض زر إعادة تحميل الفيديو</string>
@@ -196,6 +206,8 @@
     <string name="morphe_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">تستخدم روابط المشاركة youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">يعيد أزرار مشغل الفيديو السميكة إلى النمط المرئي القديم الأقل سُمكًا</string>
+    <string name="morphe_restore_old_player_buttons_title">استعادة نمط أزرار المشغل القديم</string>
     <string name="morphe_sanitize_sharing_links_summary_off">لم تتم إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_summary_on">تمت إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_title">تنظيف روابط المشاركة</string>
@@ -221,7 +233,8 @@
     <string name="morphe_settings_name_title">اسم إعدادات RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">اللون</string>
     <string name="morphe_splash_screen_animation_style_entry_3">أحادية اللون</string>
-    <string name="morphe_splash_screen_animation_style_title">نمط الشاشة الترحيبية</string>
+    <string name="morphe_splash_screen_animation_style_title">تأثير حركة بدء التشغيل</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• قد ينتهي التشغيل قبل ثانية واحدة</string>
     <string name="morphe_spoof_video_streams_about_js">• إذا فشل فك التشفير، قد يفشل التشغيل</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• قائمة \'المقطع الصوتي\' مفقودة</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
@@ -302,13 +315,20 @@
     <string name="morphe_theme_entry_material_you_neutral">محايد مخصص</string>
     <string name="morphe_theme_entry_material_you_primary">محايد رئسي</string>
     <string name="morphe_theme_entry_material_you_secondary">مخصص ثانوي</string>
+    <string name="morphe_theme_entry_material_you_tertiary">أنت المادة - المرحلة الثالثة</string>
     <string name="morphe_theme_entry_modern_youtube">الأحدث</string>
     <string name="morphe_theme_entry_pale_blue">ازرق خفيف</string>
     <string name="morphe_theme_entry_pale_green">اخضر خفيف</string>
+    <string name="morphe_theme_entry_pale_yellow">أصفر باهت</string>
+    <string name="morphe_theme_entry_patch_option">خيار التصحيح</string>
     <string name="morphe_theme_entry_white">ابيض</string>
+    <string name="morphe_theme_settings_summary">قم بتخصيص مظهر التطبيق وشكله وعلامته التجارية</string>
+    <string name="morphe_theme_settings_title">إعدادات المظهر</string>
     <string name="morphe_video_quality_prioritize_dialog">إذا تم إيقاف هذا الإعداد، فقد لا تعرض الفيديوهات القديمة خيارات جودة الفيديو</string>
     <string name="morphe_video_quality_prioritize_summary">يُعطي الأولوية لأعلى جودة فيديو متاحة على حساب كفاءة الترميز</string>
     <string name="morphe_video_quality_prioritize_title">إعطاء الأولوية لجودة فيديو</string>
+    <string name="morphe_vot_auto_translate_summary_off">انقر على زر الترجمة لبدء ترجمة جوجل</string>
+    <string name="morphe_vot_auto_translate_summary_on">تبدأ ترجمة جوجل تلقائيًا لكل فيديو</string>
     <string name="morphe_vot_caption_language_title">اللغة</string>
     <string name="morphe_vot_cost_free">مجاني</string>
     <string name="morphe_vot_cost_per_hour">‎%s لكل 100 ساعة فيديو‎</string>
@@ -412,6 +432,8 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_auto_captions_style_entry_3">عرضها عندما يكون الصوت غير مكتوم</string>
     <string name="revanced_auto_captions_style_entry_4">عرضها عند كتم الصوت</string>
     <string name="revanced_auto_captions_style_title">إمكانية رؤية الترجمة التلقائية</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">يؤدي الضغط على زر الرجوع إلى التمرير إلى أعلى صفحة الخلاصة</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">يؤدي الضغط على زر الرجوع دائمًا إلى الخروج من صفحة الخلاصة/التطبيق</string>
     <string name="revanced_back_button_always_exits_feed_title">زر الرجوع يخرج من الخلاصة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">لم يتم تجاوز قيود وضع الإضاءة السينمائية لتوفير الطاقة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">تم تجاوز قيود وضع الإضاءة السينمائية لتوفير الطاقة</string>
@@ -467,10 +489,12 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_change_start_page_entry_all_subscriptions">كلّ الاشتراكات</string>
     <string name="revanced_change_start_page_entry_browse">تصفح القنوات</string>
     <string name="revanced_change_start_page_entry_courses">محتوى تعليمي</string>
+    <string name="revanced_change_start_page_entry_create">خلق</string>
     <string name="revanced_change_start_page_entry_explore">استكشف</string>
     <string name="revanced_change_start_page_entry_fashion">الموضة والجمال</string>
     <string name="revanced_change_start_page_entry_gaming">Gaming</string>
     <string name="revanced_change_start_page_entry_history">السجلّ</string>
+    <string name="revanced_change_start_page_entry_home">بيت</string>
     <string name="revanced_change_start_page_entry_hype">التشجيع</string>
     <string name="revanced_change_start_page_entry_library">المكتبة</string>
     <string name="revanced_change_start_page_entry_liked_videos">فيديوهات أعجبتك</string>
@@ -503,12 +527,18 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_confirm_user_dialog_title">هل انت متاكد انك تريد المتابعة؟</string>
     <string name="revanced_copy_error">فشل نسخ النص</string>
     <string name="revanced_credits_title">الشكر</string>
+    <string name="revanced_custom_dpi_summary">كثافة العرض الإجبارية بالنقاط لكل بوصة لهذا التطبيق فقط  (0 = الإعدادات الافتراضية للنظام )</string>
+    <string name="revanced_custom_dpi_title">دقة عرض مخصصة</string>
     <string name="revanced_custom_filter_strings_summary">قائمة بسلاسل بناء مسار المكونات المراد تصفيتها، مفصولة بأسطر جديدة</string>
     <string name="revanced_custom_filter_strings_title">فلتر مخصص</string>
     <string name="revanced_custom_filter_summary_off">تم تعطيل الفلتر المخصص</string>
     <string name="revanced_custom_filter_summary_on">تم تمكين الفلتر المخصص</string>
     <string name="revanced_custom_filter_title">تمكين الفلتر المخصص</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">فلتر مخصص غير صالح: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_invalid">يجب أن تكون درجات الصوت المخصصة بين  %1$sx و  %2$sx</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">نغمات صوتية مخصصة غير صالحة</string>
+    <string name="revanced_custom_playback_audio_pitches_summary">أضف إعدادات مسبقة لدرجة الصوت مثل 0.85x أو 1.3x، مفصولة بمسافات أو أسطر جديدة (من 0.05x إلى 8x)</string>
+    <string name="revanced_custom_playback_audio_pitches_title">قم بتحرير إعدادات درجة الصوت المخصصة</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">مخصص (Legacy)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">مخصص (حديث)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">مخصص (بدون ثيم)</string>
@@ -554,6 +584,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_debug_toast_on_error_title">عرض ملاحظة عند وجود خطأ في RVX</string>
     <string name="revanced_default_app_settings_summary">لفتح روابط YouTube في RVX، قم بتمكين خيار فتح الروابط المدعومة وتمكين جميع عناوين الويب المدعومة</string>
     <string name="revanced_default_app_settings_title">فتح إعدادات التطبيق الافتراضية</string>
+    <string name="revanced_default_playback_audio_pitch_title">درجة صوت التشغيل الافتراضية</string>
     <string name="revanced_default_playback_speed_shorts_title">سرعة التشغيل الافتراضية على فيديوهات Shorts</string>
     <string name="revanced_default_playback_speed_title">سرعة التشغيل الافتراضية</string>
     <string name="revanced_default_video_quality_mobile_shorts_title">جودة فيديوهات Shorts الافتراضية على شبكة الجوَّال</string>
@@ -595,6 +626,8 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_disable_engagement_panel_summary_off">تم تمكين لوحة المشاركة</string>
     <string name="revanced_disable_engagement_panel_summary_on">تم تعطيل لوحة المشاركة</string>
     <string name="revanced_disable_engagement_panel_title">تعطيل لوحة المشاركة</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_off">تم تفعيل إيماءة التكبير والتصغير بالضغط</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_on">تم تعطيل إيماءة التكبير والتصغير بالضغط</string>
     <string name="revanced_disable_fullscreen_zoom_gesture_title">تعطيل إيماءة التكبير بالإصبع</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">تم تمكين الاهتزاز للفصول</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">تم تعطيل الاهتزاز للفصول</string>
@@ -633,6 +666,8 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_disable_like_dislike_glow_summary_off">ستتوهج أزرار أعجبني و لم يعجبني عند ذكرها</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">لن تتوهج أزرار أعجبني و لم يعجبني عند ذكرها</string>
     <string name="revanced_disable_like_dislike_glow_title">تعطيل توهج أزرار أعجبني ولم يعجبني</string>
+    <string name="revanced_disable_playlist_autoplay_summary_off">تنتقل قوائم التشغيل تلقائيًا إلى الفيديو التالي</string>
+    <string name="revanced_disable_playlist_autoplay_summary_on">يتم منع قوائم التشغيل من الانتقال تلقائيًا إلى الفيديو التالي</string>
     <string name="revanced_disable_playlist_autoplay_title">تعطيل تشغيل قوائم التشغيل تلقائيًا</string>
     <string name="revanced_disable_quic_protocol_summary">"يُعطل بروتوكول QUIC الخاص بـ CronetEngine"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">سيتم استئناف ميزة &lt;b&gt;متابعة المشاهدة&lt;/b&gt; عند بدء تشغيل التطبيق.&lt;br&gt;&lt;br&gt;معلومات:&lt;br&gt;• &lt;b&gt;متابعة المشاهدة&lt;/b&gt; هي ميزة YouTube Premium.&lt;br&gt;• لا يفرض هذا الإعداد تمكين ميزة &lt;b&gt;متابعة المشاهدة.&lt;/b&gt;</string>
@@ -719,6 +754,8 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_enable_narrow_navigation_buttons_title">تمكين أزرار التنقل الضيقة</string>
     <string name="revanced_enable_opus_codec_summary">يقوم بتمكين ترميز OPUS إذا كانت استجابة المشغل تتضمن برنامج ترميز OPUS</string>
     <string name="revanced_enable_opus_codec_title">تمكين ترميز OPUS</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">تم تعطيل عناصر التحكم في درجة الصوت</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">تم تفعيل عناصر التحكم في درجة الصوت</string>
     <string name="revanced_enable_playback_audio_pitch_controls_title">تمكين التحكم في طبقة الصوت</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">تم تعطيل النقر على شريط الوقت (شريط تقدم الفيديو)</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">تم تمكين النقر على شريط الوقت (شريط تقدم الفيديو)</string>
@@ -1722,6 +1759,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_miniplayer_hide_subtext_summary_off">يتم عرض النصوص الفرعية</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">تم إخفاء النصوص الفرعية</string>
     <string name="revanced_miniplayer_hide_subtext_title">إخفاء النصوص الفرعية</string>
+    <string name="revanced_miniplayer_hide_title_title">إخفاء العنوان والقناة</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">تم تعطيل إيماءة السحب الأفقية</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"تم تمكين إيماءة السحب الأفقية
 
@@ -2006,7 +2044,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_restart_first_run">إعادة التشغيل لإنهاء الإعداد</string>
     <string name="revanced_restart_title">يلزم إعادة التشغيل</string>
     <string name="revanced_restore_old_settings_menus_title">استعادة شاشة إعدادات YouTube القديمة</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"يُصلح عدم ظهور لم يعجبني وعدم إمكانية إخفاء أزرار إجراءات الفيديو
+    <string name="revanced_restore_old_video_action_bar_summary">"يُصلح مشكلة عدم إمكانية إخفاء أزرار إجراءات الفيديو
 
 القيود: يعود إلى نمط 'المزيد من الفيديوهات' القديم"</string>
     <string name="revanced_restore_old_video_action_bar_title">استعادة شريط إجراءات الفيديو القديم</string>
@@ -2315,6 +2353,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_settings_import_success">تم استيراد %d إعدادات</string>
     <string name="revanced_settings_import_summary">استيراد الإعدادات من ملف محفوظ</string>
     <string name="revanced_settings_import_title">استيراد الإعدادات</string>
+    <string name="revanced_settings_navigate_up">الانتقال لأعلى</string>
     <string name="revanced_settings_reset">إعادة التعيين</string>
     <string name="revanced_settings_reset_color">إعادة تعيين اللون</string>
     <string name="revanced_settings_search_clear_history">مسح سجل البحث</string>
@@ -2328,6 +2367,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_settings_search_no_results_summary">جرّب كلمة مفتاحية أخرى</string>
     <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \"%s\"</string>
     <string name="revanced_settings_search_recent_searches">عمليات البحث الأخيرة</string>
+    <string name="revanced_settings_search_remove">إزالة من سجل البحث</string>
     <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
     <string name="revanced_settings_search_tips_summary">"• انقر على مسار للانتقال إليه
 • اضغط مطولًا على إعداد للانتقال إليه

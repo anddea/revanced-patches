@@ -20,6 +20,7 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
     <string name="gms_core_settings_summary">Engedélyezze a felhő alapú üzenetküldést az értesítések fogadásához</string>
     <string name="gms_core_settings_title">GmsCore beállítások megnyitása</string>
     <string name="gms_core_toast_not_installed_message">A MicroG nincs telepítve. Telepítse azt</string>
+    <string name="morphe_ads_channel_whitelist_title">Csatorna hirdetési fehérlistája</string>
     <string name="morphe_aislist_submit_already_blocklisted">Ez a csatorna már szerepel az AiSList tiltólistáján</string>
     <string name="morphe_aislist_submit_already_warnlisted">Ez a csatorna már szerepel az AiSList figyelmeztetőlistáján</string>
     <string name="morphe_aislist_submit_category_title">AI-csatornák jelentése</string>
@@ -183,6 +184,8 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
     <string name="morphe_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
     <string name="morphe_replace_music_with_youtube_title">Módosítsa a megosztási linkeket youtube.com-ra</string>
+    <string name="morphe_restore_old_player_buttons_summary">A videólejátszó vezérlőgombok régi, keskenyebb stílusához való visszatérés</string>
+    <string name="morphe_restore_old_player_buttons_title">Régi lejátszó gomb stílusának visszaállítása</string>
     <string name="morphe_sanitize_sharing_links_summary_off">A követési lekérdezési paraméter nem kerül eltávolításra a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
@@ -208,7 +211,8 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_settings_name_title">RVX-beállításnév</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Színes</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monokróm</string>
-    <string name="morphe_splash_screen_animation_style_title">Üdvözlőképernyő stílusa</string>
+    <string name="morphe_splash_screen_animation_style_title">Indítási animáció</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• A lejátszás 1 másodperccel korábban érhet véget</string>
     <string name="morphe_spoof_video_streams_about_js">• Ha a deobfuszkálás sikertelen, a lejátszás is megbomolhat</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Hiányzik a „Hangsáv” menü</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
@@ -1668,6 +1672,7 @@ Csúsztassa a kibontáshoz vagy bezáráshoz"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Az alfeliratok meg vannak jelenítve</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Az alfeliratok el vannak rejtve</string>
     <string name="revanced_miniplayer_hide_subtext_title">Alszövegek elrejtése</string>
+    <string name="revanced_miniplayer_hide_title_title">Cím és csatorna elrejtése</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">A vízszintes húzás le van tiltva</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"A vízszintes húzás engedélyezett
 
@@ -1964,9 +1969,9 @@ Infó:
     <string name="revanced_restart_first_run">Indíts újra a beállítások befejezéséhez</string>
     <string name="revanced_restart_title">Újraindítás szükséges</string>
     <string name="revanced_restore_old_settings_menus_title">Régi YouTube beállításképernyő visszaállítása</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Javítja a nem megjelenő nemtetszéseket és a videós eszköztárak elrejtésének problémáját
+    <string name="revanced_restore_old_video_action_bar_summary">"Javítja azt a problémát, hogy a videó műveletgombjai nem rejthetők el
 
-Korlátozás: Visszatér a régi stílusú „További videók” réteghez"</string>
+Korlátozás: Visszaáll a régi stílusú 'További videók' átfedésre"</string>
     <string name="revanced_restore_old_video_action_bar_title">Régi videós eszköztár visszaállítása</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">A régi lejátszó felülete nincs használatban</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"A régi lejátszó felület van használva
@@ -2269,6 +2274,7 @@ A következő esetekben esetleg nem működik:
     <string name="revanced_settings_import_success">%d beállítás importálva</string>
     <string name="revanced_settings_import_summary">Beállítások importálása mentett fájlból</string>
     <string name="revanced_settings_import_title">Beállítások importálása</string>
+    <string name="revanced_settings_navigate_up">Feljebb navigálás</string>
     <string name="revanced_settings_reset">Visszaállítás</string>
     <string name="revanced_settings_reset_color">Szín alaphelyzetbe állítása</string>
     <string name="revanced_settings_search_clear_history">Keresési előzmények törlése</string>
@@ -2282,6 +2288,7 @@ A következő esetekben esetleg nem működik:
     <string name="revanced_settings_search_no_results_summary">Próbáljon ki egy másik kulcsszót</string>
     <string name="revanced_settings_search_no_results_title">Nincs találat erre: „%s”</string>
     <string name="revanced_settings_search_recent_searches">Legutóbbi keresések</string>
+    <string name="revanced_settings_search_remove">Eltávolítja a keresési előzményekből</string>
     <string name="revanced_settings_search_remove_message">Eltávolítja a keresési előzményekből?</string>
     <string name="revanced_settings_search_tips_summary">"• Érintse meg az útvonalat az oda navigáláshoz
 • Hosszan nyomja meg a beállítást az oda navigáláshoz

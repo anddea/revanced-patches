@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">כדי לקבל התראות ב-RVX, הפעל את Cloud Messaging</string>
     <string name="gms_core_settings_title">פתח הגדרות GmsCore</string>
     <string name="gms_core_toast_not_installed_message">דו׮י טבמ עורמ מדמ. רוריתמ</string>
+    <string name="morphe_ads_channel_whitelist_title">רשימת היתרים למודעות בערוץ</string>
     <string name="morphe_aislist_submit_already_blocklisted">הערוץ הזה כבר נמצא ברשימת החסימה של AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">הערוץ הזה כבר נמצא ברשימת האזהרות של AiSList</string>
     <string name="morphe_aislist_submit_category_title">דווח על ערוצי AI</string>
@@ -183,6 +184,8 @@
     <string name="morphe_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">קישורים משותפים משתמשים ב-youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">שנה קישורי שיתוף ל-youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">מחזיר את כפתורי הנגן של הסרטון לסגנון הוויזואלי הישן והדק יותר</string>
+    <string name="morphe_restore_old_player_buttons_title">שחזור סגנון כפתורי נגן ישן</string>
     <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
@@ -207,8 +210,9 @@
     <string name="morphe_settings_name_empty_warning">השם לא יכול להיות ריק</string>
     <string name="morphe_settings_name_title">שם ההגדרות של RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">צבע</string>
-    <string name="morphe_splash_screen_animation_style_entry_3">חד גווני</string>
-    <string name="morphe_splash_screen_animation_style_title">סגנון מסך פתיחה</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">מונוכרום</string>
+    <string name="morphe_splash_screen_animation_style_title">אנימציית אתחול</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• ההשמעה עשויה להסתיים שנייה אחת מוקדם</string>
     <string name="morphe_spoof_video_streams_about_js">• אם הדהוד נכשל, ייתכן שהפלייבק יהיה כושל</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• תפריט \'ערוץ השמע\' חסר</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
@@ -930,6 +934,7 @@
     <string name="revanced_miniplayer_hide_subtext_summary_off">תת-טקסטים מוצגים</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">תת-טקסטים מוסתרים</string>
     <string name="revanced_miniplayer_hide_subtext_title">הסתר תת-טקסטים</string>
+    <string name="revanced_miniplayer_hide_title_title">הסתר כותרת וערוץ</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">מחוות גרירה אופקית מושבתת</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"מחוות גרירה אופקית מופעלת
 
@@ -998,9 +1003,9 @@
     <string name="revanced_remove_viewer_discretion_dialog_title">הסר את תיבת הדו\"ה לגבי התאמת התוכן לצופה</string>
     <string name="revanced_restart_first_run">הפעל מחדש כדי לסיים את ההגדרות</string>
     <string name="revanced_restore_old_settings_menus_title">שחזר את מסך הגדרות YouTube הישן</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"מתקן תצוגה לא נכונה של 'לא אהבתי' ומונע הסתרה של כפתורי הפעולה של הסרטון
+    <string name="revanced_restore_old_video_action_bar_summary">"מתקן בעיה שכפתורי פעולה של סרטון לא ניתנים להסתרה
 
-מגבלה: חוזר לסגנון ישן של 'עוד סרטונים'"</string>
+מגבלה: חוזר לסגנון הישן של שכבת 'עוד סרטונים'"</string>
     <string name="revanced_restore_old_video_action_bar_title">שחזור סרגל פעולות וידאו ישן</string>
     <string name="revanced_ryd_attribution_summary">"הנתונים מסופקים על ידי ה-Return YouTube Dislike API
 
@@ -1230,6 +1235,7 @@
     <string name="revanced_settings_import_copy">העתק</string>
     <string name="revanced_settings_import_reset">הגדרות RVX אופסו לברירת מחדל</string>
     <string name="revanced_settings_import_success">%d הגדרות יובאו</string>
+    <string name="revanced_settings_navigate_up">ניווט למעלה</string>
     <string name="revanced_settings_reset">איפוס</string>
     <string name="revanced_settings_reset_color">אפס צבע</string>
     <string name="revanced_settings_search_clear_history">נקה היסטוריית חיפושים</string>
@@ -1242,6 +1248,7 @@
     <string name="revanced_settings_search_no_results_summary">נסה מילת מפתח אחרת</string>
     <string name="revanced_settings_search_no_results_title">לא נמצאו תוצאות עבור \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">חיפושים אחרונים</string>
+    <string name="revanced_settings_search_remove">להסיר מהיסטוריית חיפוש</string>
     <string name="revanced_settings_search_remove_message">להסיר מהיסטוריית חיפוש?</string>
     <string name="revanced_settings_search_tips_summary">"• הקש על נתיב כדי לנווט אליו
 • לחיצה ארוכה על הגדרה כדי לנווט אליה

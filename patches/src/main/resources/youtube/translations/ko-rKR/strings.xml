@@ -2,7 +2,7 @@
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">플레이어에서 접근성 컨트롤을 표시하시겠습니까?</string>
     <string name="accessibility_settings_edu_opt_out_text">접근성 서비스가 활성화되어 있기 때문에 플레이어 컨트롤을 변경합니다</string>
-    <string name="gms_core_dialog_continue_text">계속하기</string>
+    <string name="gms_core_dialog_continue_text">계속</string>
     <string name="gms_core_dialog_dismiss_text">다시 보지 않기</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG에는 백그라운드에서 실행할 수 있는 권한이 없습니다
 
@@ -13,13 +13,14 @@
 
 MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배터리 사용량에 부정적인 영향을 미치지 않습니다
 
-앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속하기' 버튼을 탭하세요"</string>
+앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속' 버튼을 탭하세요"</string>
     <string name="gms_core_dialog_open_website_text">웹사이트 열기</string>
     <string name="gms_core_dialog_title">필수 조치</string>
     <string name="gms_core_offline_account_login_error">최근에 계정 로그인 정보를 변경한 경우에는 GmsCore를 제거했다가 다시 설치하세요</string>
     <string name="gms_core_settings_summary">RVX 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">MicroG가 설치되어 있지 않습니다. 설치하세요</string>
+    <string name="morphe_ads_channel_whitelist_title">채널 광고 화이트리스트</string>
     <string name="morphe_aislist_submit_already_blocklisted">이 채널은 이미 AiSList 차단 목록에 있습니다</string>
     <string name="morphe_aislist_submit_already_warnlisted">이 채널은 이미 AiSList 경고 목록에 있습니다</string>
     <string name="morphe_aislist_submit_category_title">AI 채널 신고하기</string>
@@ -205,6 +206,8 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_replace_music_with_youtube_summary_off">공유 링크를 \'music.youtube.com\'으로 사용합니다</string>
     <string name="morphe_replace_music_with_youtube_summary_on">공유 링크를 \'youtube.com\'으로 사용합니다</string>
     <string name="morphe_replace_music_with_youtube_title">공유 링크를 \'youtube.com\'으로 변경하기</string>
+    <string name="morphe_restore_old_player_buttons_summary">굵은 동영상 플레이어 컨트롤을 이전의 얇은 스타일로 되돌립니다</string>
+    <string name="morphe_restore_old_player_buttons_title">이전 플레이어 버튼 스타일 복원하기</string>
     <string name="morphe_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거하지 않습니다</string>
     <string name="morphe_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거합니다</string>
     <string name="morphe_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
@@ -230,7 +233,8 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_settings_name_title">RVX 설정 이름</string>
     <string name="morphe_splash_screen_animation_style_entry_2">컬러</string>
     <string name="morphe_splash_screen_animation_style_entry_3">흑백</string>
-    <string name="morphe_splash_screen_animation_style_title">스플래시 애니메이션 스타일</string>
+    <string name="morphe_splash_screen_animation_style_title">앱 시작 애니메이션</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• 재생이 1초 일찍 종료될 수 있습니다</string>
     <string name="morphe_spoof_video_streams_about_js">• 복호화에 실패하면 재생이 실패할 수 있습니다</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'오디오 트랙\' 메뉴가 표시되지 않습니다</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
@@ -266,7 +270,7 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">설명서</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR에 로그인하면 일부 사용자의 재생 문제가 해결될 수 있습니다
 
-로그인하려면 아래에 있는 '계속하기'를 탭하세요"</string>
+로그인하려면 아래에 있는 '계속' 버튼을 탭하세요"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">로그아웃</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_title">Android VR에 로그인하기</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_message">"인증을 저장하였습니다
@@ -1794,6 +1798,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_miniplayer_hide_subtext_summary_off">서브텍스트가 표시됩니다</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">서브텍스트가 숨겨집니다</string>
     <string name="revanced_miniplayer_hide_subtext_title">서브텍스트 숨기기</string>
+    <string name="revanced_miniplayer_hide_title_title">제목 및 채널 숨기기</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">수평 드래그 제스처를 비활성화합니다</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"수평 드래그 제스처를 활성화합니다
 
@@ -2120,9 +2125,9 @@ Gemini API Key를 발급받으려면 여기를 탭하세요"</string>
     <string name="revanced_restart_first_run">설정을 완료하려면 다시 시작하세요</string>
     <string name="revanced_restart_title">앱을 다시 시작하세요</string>
     <string name="revanced_restore_old_settings_menus_title">이전 YouTube 설정 메뉴 복원하기</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"싫어요 수가 표시되지 않거나 동영상 작업 버튼을 숨길 수 없는 문제를 수정합니다
+    <string name="revanced_restore_old_video_action_bar_summary">"동영상 작업 버튼을 숨길 수 없는 문제를 수정합니다
 
-제한 사항: 이전 '동영상 더보기' 오버레이가 복원됩니다"</string>
+제한 사항: 이전 스타일의 '동영상 더보기' 오버레이로 되돌아갑니다"</string>
     <string name="revanced_restore_old_video_action_bar_title">이전 동영상 작업 버튼바 복원하기</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">이전 플레이어 레이아웃을 사용하지 않습니다</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"이전 플레이어 레이아웃을 사용합니다
@@ -2435,6 +2440,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_settings_import_success">%d 개의 설정을 가져왔습니다</string>
     <string name="revanced_settings_import_summary">설정을 저장된 파일에서 가져올 수 있습니다</string>
     <string name="revanced_settings_import_title">설정 가져오기</string>
+    <string name="revanced_settings_navigate_up">위로 이동</string>
     <string name="revanced_settings_reset">초기화</string>
     <string name="revanced_settings_reset_color">색상 초기화</string>
     <string name="revanced_settings_search_clear_history">검색 기록 지우기</string>
@@ -2453,6 +2459,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_settings_search_no_results_summary">다른 키워드를 검색해 보세요</string>
     <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다</string>
     <string name="revanced_settings_search_recent_searches">최근 검색어</string>
+    <string name="revanced_settings_search_remove">검색 기록에서 제거</string>
     <string name="revanced_settings_search_remove_message">검색 기록에서 제거하시겠습니까?</string>
     <string name="revanced_settings_search_tips_summary">"• 경로를 탭하여 설정 카테고리로 이동할 수 있습니다
 • 설정을 길게 탭하여 설정 위치로 이동할 수 있습니다
@@ -2804,7 +2811,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_vot_original_audio_volume_summary">번역 재생 시 원본 동영상 트랙 볼륨을 0-100 사이에서 지정할 수 있습니다</string>
     <string name="revanced_vot_original_audio_volume_title">원본 오디오 볼륨</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">번역 준비 중에도 동영상이 계속 재생됩니다</string>
-    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">새 동영상은 일시 정지된 상태로 시작하며, 번역된 오디오가 준비되면 재생을 다시 시작합니다</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">번역을 요청하면 동영상이 일시 정지되고, 번역된 음성이 준비되면 다시 재생됩니다</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_title">번역 준비 중 비디오 일시 정지</string>
     <string name="revanced_vot_playback_error">번역 오디오를 재생할 수 없습니다</string>
     <string name="revanced_vot_proxy_url_fetch_failed">VOT 워커 프록시 호스트를 가져올 수 없습니다</string>
