@@ -20,6 +20,7 @@ Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX, włącz Cloud Messaging</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG nie jest zainstalowany. Zainstaluj go</string>
+    <string name="morphe_ads_channel_whitelist_title">Biała lista reklam kanału</string>
     <string name="morphe_aislist_submit_already_blocklisted">Ten kanał znajduje się już na liście blokad AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Ten kanał znajduje się już na liście ostrzeżeń AiSList</string>
     <string name="morphe_aislist_submit_category_title">Zgłaszanie kanałów AI</string>
@@ -205,6 +206,8 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_replace_music_with_youtube_summary_off">music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Zmień linki udostępniania na youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Przywraca pogrubione elementy sterujące odtwarzaczem do starszego, cieńszego stylu wizualnego</string>
+    <string name="morphe_restore_old_player_buttons_title">Przywróć stary styl przycisków odtwarzacza</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Pozostawia parametry śledzące w linkach</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Usuwa parametry śledzące z linków</string>
     <string name="morphe_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
@@ -228,9 +231,10 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_settings_name_custom_item_hint">Wprowadź nazwę</string>
     <string name="morphe_settings_name_empty_warning">Nazwa nie może być pusta</string>
     <string name="morphe_settings_name_title">Nazwa ustawień RVX</string>
-    <string name="morphe_splash_screen_animation_style_entry_2">Kolorowy</string>
-    <string name="morphe_splash_screen_animation_style_entry_3">Monochromatyczny</string>
-    <string name="morphe_splash_screen_animation_style_title">Styl ekranu powitalnego</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">Kolorowa</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Monochromatyczna</string>
+    <string name="morphe_splash_screen_animation_style_title">Animacja startowa</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Odtwarzanie może zakończyć się sekundę wcześniej</string>
     <string name="morphe_spoof_video_streams_about_js">• Jeśli odszyfrowywanie zawiedzie, odtwarzanie może nie działać</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Brakuje menu \"Ścieżka dźwiękowa\"</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Brak kodeka filmu AV1</string>
@@ -292,7 +296,7 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="morphe_swap_save_and_queue_actions_title">Zamień akcje Zapisz i Kolejka</string>
     <string name="morphe_tablet_layout_in_player_summary">"Przywraca stary układ odtwarzacza
 
-Ograniczenia: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączona, nakładka \"Więcej filmów\" może być niedostępna"</string>
+Ograniczenie: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączona, nakładka \"Więcej filmów\" może być niedostępna"</string>
     <string name="morphe_tablet_layout_in_player_title">Włącz układ tabletowy w odtwarzaczu</string>
     <string name="morphe_theme_color_change_foreground_summary">Użyj koloru motywu dla tekstu i ikon</string>
     <string name="morphe_theme_color_change_foreground_title">Zmień kolor pierwszego planu</string>
@@ -1779,6 +1783,7 @@ Przesuń, aby rozwinąć lub zamknąć"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Podteksty są widoczne</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Podteksty są ukryte</string>
     <string name="revanced_miniplayer_hide_subtext_title">Ukryj dodatkowe teksty</string>
+    <string name="revanced_miniplayer_hide_title_title">Ukryj tytuł i kanał</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Wyłączony</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Włączony
 
@@ -2105,9 +2110,9 @@ Stuknij i przytrzymaj, by otworzyć ustawienia YouTube"</string>
     <string name="revanced_restart_first_run">Uruchom ponownie, aby dokończyć konfigurację</string>
     <string name="revanced_restart_title">Wymagane ponowne uruchomienie</string>
     <string name="revanced_restore_old_settings_menus_title">Przywróć stary ekran ustawień YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Naprawia problem z niewidocznymi łapkami w dół i brakiem możliwości ukrycia przycisków akcji
+    <string name="revanced_restore_old_video_action_bar_summary">"Naprawia błąd uniemożliwiający ukrycie przycisków akcji filmu
 
-Ograniczenia: Przywraca stary wygląd nakładki \"Więcej filmów\""</string>
+Ograniczenie: Przywraca stary wygląd nakładki \"Więcej filmów\""</string>
     <string name="revanced_restore_old_video_action_bar_title">Przywróć stary pasek akcji filmu</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Wyłączone</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Włączone"</string>
@@ -2420,6 +2425,7 @@ Może to nie działać, jeśli:
     <string name="revanced_settings_import_success">Zaimportowano %d ustawień</string>
     <string name="revanced_settings_import_summary">Importuje ustawienia z zapisanego pliku</string>
     <string name="revanced_settings_import_title">Zaimportuj ustawienia</string>
+    <string name="revanced_settings_navigate_up">Przejdź w górę</string>
     <string name="revanced_settings_reset">Zresetuj</string>
     <string name="revanced_settings_reset_color">Zresetuj kolor</string>
     <string name="revanced_settings_search_clear_history">Wyczyść historię wyszukiwania</string>
@@ -2438,6 +2444,7 @@ Może to nie działać, jeśli:
     <string name="revanced_settings_search_no_results_summary">Spróbuj innego słowa</string>
     <string name="revanced_settings_search_no_results_title">Brak wyników dla \"%s\"</string>
     <string name="revanced_settings_search_recent_searches">Ostatnie wyszukiwania</string>
+    <string name="revanced_settings_search_remove">Usuń z historii wyszukiwania</string>
     <string name="revanced_settings_search_remove_message">Usunąć z historii wyszukiwania?</string>
     <string name="revanced_settings_search_tips_summary">"• Dotknij ścieżkę, aby do niej przejść
 • Przytrzymaj ustawienie, aby do niego przejść
@@ -2794,7 +2801,7 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_vot_original_audio_volume_summary">Głośność oryginalnego dźwięku z YouTube podczas odtwarzania tłumaczenia</string>
     <string name="revanced_vot_original_audio_volume_title">Głośność oryginalnego dźwięku</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">Odtwarzane wideo</string>
-    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Nowe filmy są wstrzymywane i wznawiane, gdy przetłumaczona ścieżka dźwiękowa jest gotowa</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Wideo zostaje wstrzymane, gdy żądane jest tłumaczenie, i wznowione, gdy przetłumaczona ścieżka dźwiękowa jest gotowa</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_title">Wstrzymaj wideo podczas przygotowywania tłumaczenia</string>
     <string name="revanced_vot_playback_error">Nie udało się odtworzyć tłumaczenia audio</string>
     <string name="revanced_vot_proxy_url_fetch_failed">Nie udało się pobrać hosta proxy VOT</string>

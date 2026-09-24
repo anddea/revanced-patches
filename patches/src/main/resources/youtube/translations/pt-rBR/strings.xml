@@ -20,6 +20,7 @@ Toque no botão continuar e permita as mudanças de otimização"</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX, ative o Cloud Messaging</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG não está instalado. Instale-o</string>
+    <string name="morphe_ads_channel_whitelist_title">Lista de permissões de anúncios do canal</string>
     <string name="morphe_aislist_submit_already_blocklisted">Este canal já está na lista de bloqueio do AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Este canal já está na lista de avisos do AiSList</string>
     <string name="morphe_aislist_submit_category_title">Denunciar canais de IA</string>
@@ -76,6 +77,8 @@ As denúncias são públicas e passam por revisão antes de um canal ser adicion
     <string name="morphe_disable_quic_protocol_summary_on">Protocolo QUIC desativado</string>
     <string name="morphe_disable_quic_protocol_title">Desativar protocolo QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Desativar limite de velocidade de rolagem</string>
+    <string name="morphe_disable_system_splash_summary">Torna transparente o ícone estático da tela de inicialização do sistema</string>
+    <string name="morphe_disable_system_splash_title">Desativar tela de inicialização do sistema</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Expandir a duração do DVR em lives' pode não estar disponível
 
 Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrão' para 'TV Simply' ou 'visionOS'"</string>
@@ -203,6 +206,8 @@ Para usar este recurso, desative 'Falsificar fluxos de vídeo'"</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Links compartilhados usam music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Links compartilhados usam youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Alterar links de compartilhamento para youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Restaura os controles de vídeo em negrito para o estilo visual mais antigo e fino</string>
+    <string name="morphe_restore_old_player_buttons_title">Restaurar estilo antigo dos botões do player</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Parâmetro de consulta de rastreamento não é removido dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parâmetro de consulta de rastreamento é removido dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_title">Limpar links de compartilhamento</string>
@@ -228,7 +233,8 @@ Para usar este recurso, desative 'Falsificar fluxos de vídeo'"</string>
     <string name="morphe_settings_name_title">Nome das configurações do RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Cor</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monocromático</string>
-    <string name="morphe_splash_screen_animation_style_title">Estilo da tela inicial</string>
+    <string name="morphe_splash_screen_animation_style_title">Animação de inicialização</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• A reprodução pode terminar 1 segundo antes</string>
     <string name="morphe_spoof_video_streams_about_js">• Se a desobfuscação falhar, a reprodução pode falhar</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• O menu da faixa de áudio não é exibido</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Sem codec de vídeo AV1</string>
@@ -277,9 +283,11 @@ Para fazer login, pressione continuar abaixo"</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">O cliente está oculto em Estatísticas para nerds</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">O tipo de cliente é mostrado em Estatísticas para nerds</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Mostrar cliente simulado nas \'Estatísticas para nerds\'</string>
-    <string name="morphe_spoof_video_streams_summary_off">"Os dados de transmissão não estão sendo falsificados
+    <string name="morphe_spoof_video_streams_summary_off">"Os fluxos de vídeo não estão sendo mascarados
 
-A reprodução pode não funcionar"</string>
+A reprodução pode não funcionar
+
+Para usar este recurso, desative o 'Provedor do PoToken'"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Os dados de transmissão estão sendo falsificados
 
 Se você é um usuário do YouTube Premium, esta configuração pode não ser necessária"</string>
@@ -321,6 +329,8 @@ Limitação: Se 'Restaurar barra de ações de vídeo antiga' estiver desativado
     <string name="morphe_video_quality_prioritize_dialog">Se esta configuração estiver desativada, vídeos antigos podem não mostrar opções de qualidade de vídeo</string>
     <string name="morphe_video_quality_prioritize_summary">Prioriza a maior qualidade de vídeo disponível em vez da eficiência do codec</string>
     <string name="morphe_video_quality_prioritize_title">Priorizar a qualidade do vídeo</string>
+    <string name="morphe_vot_auto_translate_summary_off">Toque no botão de tradução para iniciar a tradução pelo Google</string>
+    <string name="morphe_vot_auto_translate_summary_on">A tradução pelo Google é iniciada automaticamente para cada vídeo</string>
     <string name="morphe_vot_caption_language_title">Idioma</string>
     <string name="morphe_vot_cost_free">Gratuito</string>
     <string name="morphe_vot_cost_per_hour">%s por 100 horas de vídeo</string>
@@ -522,6 +532,10 @@ Limitação: O botão voltar na barra de ferramentas pode não funcionar"</strin
     <string name="revanced_custom_filter_summary_on">Filtro personalizado está ativado</string>
     <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado inválido: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_invalid">O tom de áudio personalizado deve estar entre %1$sx e %2$sx</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">Tom de áudio personalizado inválido</string>
+    <string name="revanced_custom_playback_audio_pitches_summary">Adicione predefinições de tom de áudio como 0.85x ou 1.3x, separadas por espaços ou quebras de linha (0.05x a 8x)</string>
+    <string name="revanced_custom_playback_audio_pitches_title">Editar predefinições personalizadas de tom de áudio</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Personalizado (Legado)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Personalizado (Moderno)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Personalizado (Sem tema)</string>
@@ -951,6 +965,8 @@ Informação:
 • Compras
 • Assistir novamente"</string>
     <string name="revanced_hide_carousel_shelf_title">Ocultar painel de carrossel</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_off">Exibido nos comentários</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_on">Oculto nos comentários</string>
     <string name="revanced_hide_category_bar_in_comments_title">Ocultar nos comentários</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">Exibido no feed</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">Oculto no feed</string>
@@ -1749,6 +1765,7 @@ Deslize para expandir ou fechar"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Subtextos são exibidos</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Subtextos estão ocultos</string>
     <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
+    <string name="revanced_miniplayer_hide_title_title">Ocultar título e canal</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastar horizontalmente desativado</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Gesto de arrastar horizontalmente ativado
 
@@ -2075,9 +2092,9 @@ Toque e segure para abrir as Configurações do YouTube"</string>
     <string name="revanced_restart_first_run">Reinicie para finalizar a configuração</string>
     <string name="revanced_restart_title">Reinicialização necessária</string>
     <string name="revanced_restore_old_settings_menus_title">Restaurar menus de configurações antigos</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Restaura a exibição do botão 'Não gostei' e permite ocultar os botões de ação do vídeo
+    <string name="revanced_restore_old_video_action_bar_summary">"Corrige o problema em que os botões de ação do vídeo não podem ser ocultados
 
-Limitação: Retorna à sobreposição 'Mais vídeos' no estilo antigo"</string>
+Limitação: Reverte para o estilo antigo da sobreposição 'Mais vídeos'"</string>
     <string name="revanced_restore_old_video_action_bar_title">Restaurar barra de ações de vídeo antiga</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">O layout antigo do player não é utilizado</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"O layout antigo do player é utilizado
@@ -2390,6 +2407,7 @@ Isso pode não funcionar se:
     <string name="revanced_settings_import_success">Configurações %d importadas</string>
     <string name="revanced_settings_import_summary">Importar configurações de um arquivo salvo</string>
     <string name="revanced_settings_import_title">Importar configurações</string>
+    <string name="revanced_settings_navigate_up">Navegar para cima</string>
     <string name="revanced_settings_reset">Resetar</string>
     <string name="revanced_settings_reset_color">Redefinir cor</string>
     <string name="revanced_settings_search_clear_history">Limpar histórico de pesquisa</string>
@@ -2408,6 +2426,7 @@ Isso pode não funcionar se:
     <string name="revanced_settings_search_no_results_summary">Tente outra palavra-chave</string>
     <string name="revanced_settings_search_no_results_title">Nenhum resultado encontrado para \",%s\"</string>
     <string name="revanced_settings_search_recent_searches">Pesquisas recentes</string>
+    <string name="revanced_settings_search_remove">Remover do histórico de pesquisa</string>
     <string name="revanced_settings_search_remove_message">Remover do histórico de pesquisa?</string>
     <string name="revanced_settings_search_tips_summary">"• Toque em um caminho para navegar até ele
 • Mantenha pressionada uma configuração para navegar até ela
@@ -2492,6 +2511,9 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_show_toolbar_settings_button_summary_off">O botão de configurações não é exibido na barra de ferramentas</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">O botão Configurações é exibido na barra de ferramentas</string>
     <string name="revanced_show_toolbar_settings_button_title">Mostrar botão Configurações</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_off">A ação original do botão de Configurações é mantida na aba "Você"</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_on">A ação do botão de configurações é aplicada à aba "Você"</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_title">Aplicar à aba "Você"</string>
     <string name="revanced_show_video_title_section_summary">"Exibe a seção de título do vídeo em tela cheia
 
 Limitação: Título do vídeo desaparece quando clicado"</string>
@@ -2601,6 +2623,10 @@ Isto pode ser facilmente resolvido clicando no 'botão recarregar vídeo' no pla
 Entre os clientes JavaScript, o cliente recomendado é TV Simples"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Clique para ver como obter um token de autenticação</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Sobre o Android VR Autenticação</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Opaco</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Transparente</string>
+    <string name="revanced_status_bar_translucency_title">Translucidez da barra de status</string>
+    <string name="revanced_swipe_bottom_zone_title">Gesto de deslizar na parte inferior</string>
     <string name="revanced_swipe_brightness_distance_summary">A quantidade de pixels para deslizar para alterar o brilho. Valores mais baixos tornam a mudança de brilho mais rápida, valores mais altos a tornam mais lenta (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Distância do brilho</string>
     <string name="revanced_swipe_brightness_summary_off">O gesto de brilho em tela cheia está desativado</string>
@@ -2741,6 +2767,9 @@ O fluxo de áudio é encaminhado por meio do worker.m</string>
     <string name="revanced_vot_audio_proxy_title">Proxy audio stream
 Fluxo de áudio proxy</string>
     <string name="revanced_vot_auth_required">É necessária autorização. Adicione o token OAuth do Yandex nas configurações</string>
+    <string name="revanced_vot_auto_translate_summary_off">Toque no botão de tradução para iniciar a tradução pelo Yandex</string>
+    <string name="revanced_vot_auto_translate_summary_on">A tradução pelo Yandex é iniciada automaticamente para cada vídeo</string>
+    <string name="revanced_vot_auto_translate_title">Traduzir vídeos automaticamente</string>
     <string name="revanced_vot_credits_summary">Implementação do Yandex VOT por anddea, COOLak, Jav1x e sashade8-ship-it. Baseado em ilyhalight/voice-over-translation</string>
     <string name="revanced_vot_enabled_summary_off">A tradução de voz do Yandex está desativada</string>
     <string name="revanced_vot_enabled_summary_on">A tradução por voz do Yandex está ativada</string>
@@ -2763,7 +2792,7 @@ Fluxo de áudio proxy</string>
     <string name="revanced_vot_original_audio_volume_summary">Volume do áudio original do YouTube enquanto a tradução está sendo reproduzida</string>
     <string name="revanced_vot_original_audio_volume_title">Volume do áudio original</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">O vídeo continua sendo reproduzido enquanto a tradução é preparada</string>
-    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">O vídeo pausa até que o áudio traduzido esteja pronto</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Os novos vídeos começam pausados e são retomados quando o áudio traduzido estiver pronto</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_title">Pause o vídeo enquanto prepara a tradução</string>
     <string name="revanced_vot_playback_error">Falha ao reproduzir áudio traduzido</string>
     <string name="revanced_vot_proxy_url_fetch_failed">Falha ao obter o host proxy do worker VOT</string>

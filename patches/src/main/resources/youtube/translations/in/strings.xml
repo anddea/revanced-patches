@@ -20,6 +20,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan"</string>
     <string name="gms_core_settings_summary">Untuk menerima notifikasi di RVX, aktifkan Cloud Messaging</string>
     <string name="gms_core_settings_title">Buka Setelan GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG belum dipasang. Pasang dulu</string>
+    <string name="morphe_ads_channel_whitelist_title">Daftar putih iklan saluran</string>
     <string name="morphe_aislist_submit_already_blocklisted">Saluran ini sudah ada di daftar blokir AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Saluran ini sudah ada di daftar peringatan AiSList</string>
     <string name="morphe_aislist_submit_category_title">Laporkan saluran AI</string>
@@ -203,6 +204,8 @@ Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Tautan yang dibagikan menggunakan music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Tautan yang dibagikan menggunakan youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Ubah tautan berbagi ke youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Mengembalikan tampilan tombol pemutar video yang tebal ke gaya visual yang lebih lama, lebih ramping</string>
+    <string name="morphe_restore_old_player_buttons_title">Kembalikan gaya tombol pemutar lama</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
@@ -216,7 +219,7 @@ Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Memungkinkan Anda menyimpan Shorts ke \'Tonton Nanti\' melalui menu flyout</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Tampilkan tombol Simpan ke Tonton Nanti di flyout Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video berhasil disimpan di daftar tonton nanti</string>
-    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Paling sering diputar ulang</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Paling sering di-replay</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Menampilkan thumbnail video saat menggeser bilah geser</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Aktifkan thumbnail pada bilah geser</string>
     <string name="morphe_settings_menu_copy_path">Disalin: %s</string>
@@ -228,7 +231,8 @@ Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_title">Nama setelan RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Berwarna</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monokrom</string>
-    <string name="morphe_splash_screen_animation_style_title">Gaya layar pembuka</string>
+    <string name="morphe_splash_screen_animation_style_title">Animasi startup</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Pemutaran mungkin berakhir 1 detik lebih awal</string>
     <string name="morphe_spoof_video_streams_about_js">• Jika proses pembukaan kode terenkripsi gagal, pemutaran mungkin gagal</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Menu \'Trek Audio\' hilang</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
@@ -485,7 +489,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_start_page_entry_notifications">Notifikasi</string>
     <string name="revanced_change_start_page_entry_playlists">Daftar Putar</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
-    <string name="revanced_change_start_page_entry_search">Pencarian</string>
+    <string name="revanced_change_start_page_entry_search">Telusuri</string>
     <string name="revanced_change_start_page_entry_settings">Pengaturan</string>
     <string name="revanced_change_start_page_entry_shopping">Belanja</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
@@ -1276,7 +1280,7 @@ Batasan: Semua tombol hamparan mungkin akan disembunyikan setelah video berakhir
     <string name="revanced_hide_timed_reactions_title">Sembunyikan reaksi terjadwal</string>
     <string name="revanced_hide_toolbar_search_button_summary_off">Tombol pencarian ditampilkan</string>
     <string name="revanced_hide_toolbar_search_button_summary_on">Tombol pencarian disembunyikan</string>
-    <string name="revanced_hide_toolbar_search_button_title">Sembunyikan tombol Pencarian</string>
+    <string name="revanced_hide_toolbar_search_button_title">Sembunyikan tombol Telusuri</string>
     <string name="revanced_hide_transcript_section_summary_off">Bagian transkrip ditampilkan</string>
     <string name="revanced_hide_transcript_section_summary_on">Bagian transkrip disembunyikan</string>
     <string name="revanced_hide_transcript_section_title">Sembunyikan bagian Transkrip</string>
@@ -1355,6 +1359,7 @@ Seret untuk memperluas atau menutup"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Subteks ditampilkan</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Subteks disembunyikan</string>
     <string name="revanced_miniplayer_hide_subtext_title">Sembunyikan subteks</string>
+    <string name="revanced_miniplayer_hide_title_title">Sembunyikan judul dan saluran</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Gerakan seret horizontal dinonaktifkan</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Gerakan seret horizontal diaktifkan
 
@@ -1466,7 +1471,7 @@ Deskripsi
     <string name="revanced_remember_playback_speed_last_selected_title">Ingat kecepatan pemutaran</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Pesan timbul tidak ditampilkan ketika kecepatan pemutaran bawaan diubah</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Pesan timbul ditampilkan saat kecepatan pemutaran bawaan diubah</string>
-    <string name="revanced_remember_playback_speed_last_selected_toast_title">Pemberitahuan perubahan kecepatan</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Notifikasi perubahan kecepatan</string>
     <string name="revanced_remember_playback_speed_toast">Mengubah kecepatan bawaan menjadi: %s</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Perubahan kualitas hanya diatur di video saat ini</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Perubahan kualitas diatur ke semua video</string>
@@ -1485,7 +1490,7 @@ Deskripsi
     <string name="revanced_restart_first_run">Mulai ulang untuk menyelesaikan penyiapan</string>
     <string name="revanced_restart_title">Diperlukan mulai ulang</string>
     <string name="revanced_restore_old_settings_menus_title">Pulihkan menu setelan lama YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Memperbaiki masalah Tidak Suka tidak ditampilkan dan tombol tindakan video yang tidak dapat disembunyikan
+    <string name="revanced_restore_old_video_action_bar_summary">"Memperbaiki masalah tombol tindakan video yang tidak dapat disembunyikan
 
 Batasan: Mengembalikan tampilan hamparan 'Video lainnya' ke gaya lama"</string>
     <string name="revanced_restore_old_video_action_bar_title">Kembalikan bilah tindakan video lama</string>
@@ -1719,6 +1724,7 @@ Sudah ada"</string>
     <string name="revanced_settings_import_copy">Salin</string>
     <string name="revanced_settings_import_reset">Setelan ReVanced diatur ke bawaan</string>
     <string name="revanced_settings_import_success">%d Setelan diimpor</string>
+    <string name="revanced_settings_navigate_up">Navigasi ke atas</string>
     <string name="revanced_settings_reset">Setel ulang</string>
     <string name="revanced_settings_reset_color">Setel ulang warna</string>
     <string name="revanced_settings_search_clear_history">Hapus riwayat pencarian</string>
@@ -1731,6 +1737,7 @@ Sudah ada"</string>
     <string name="revanced_settings_search_no_results_summary">Coba kata kunci lain</string>
     <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">Pencarian terbaru</string>
+    <string name="revanced_settings_search_remove">Hapus dari riwayat pencarian</string>
     <string name="revanced_settings_search_remove_message">Hapus dari riwayat pencarian?</string>
     <string name="revanced_settings_search_tips_summary">"• Ketuk jalur untuk berpindah ke lokasi tersebut
 • Tekan lama setelan untuk berpindah ke lokasinya
@@ -1748,7 +1755,7 @@ Sudah ada"</string>
     <string name="revanced_shorts_player_type_regular_player">Pemutar reguler</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Pemutar reguler layar penuh</string>
     <string name="revanced_shorts_player_type_title">Buka Shorts dengan</string>
-    <string name="revanced_show_search_button_title">Tampilkan tombol Pencarian</string>
+    <string name="revanced_show_search_button_title">Tampilkan tombol Telusuri</string>
     <string name="revanced_show_settings_button_title">Tampilkan tombol Setelan</string>
     <string name="revanced_show_settings_button_type_title">Tindakan tombol setelan</string>
     <string name="revanced_show_toolbar_settings_button_index_title">Posisi tombol Setelan</string>

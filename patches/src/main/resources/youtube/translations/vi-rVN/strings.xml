@@ -12,6 +12,7 @@
     <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và bật Cloud Messaging để nhận thông báo đẩy</string>
     <string name="gms_core_settings_title">Cài đặt GmsCore</string>
     <string name="gms_core_toast_not_installed_message">microG chưa được cài đặt. Hãy cài đặt nó đi</string>
+    <string name="morphe_ads_channel_whitelist_title">Danh sách trắng quảng cáo cho kênh</string>
     <string name="morphe_aislist_submit_already_blocklisted">Kênh này đã có trong danh sách chặn của AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Kênh này đã có trong danh sách cảnh báo của AiSList</string>
     <string name="morphe_aislist_submit_category_title">Báo cáo các kênh AI</string>
@@ -122,7 +123,7 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
 Để hiển thị menu 'Bản âm thanh', hãy thay đổi 'Giả mạo luồng phát video' sang bất kỳ máy khách nào trừ 'Android Studio' và 'Android VR Downgraded'"</string>
     <string name="morphe_hide_player_flyout_on_the_go_title">Ẩn menu \'Đang di chuyển\'</string>
     <string name="morphe_hide_podcasts_menu_title">Ẩn menu Podcast</string>
-    <string name="morphe_hide_privacy_tos_footer_title">Ẩn chân trang pháp lý và quyền riêng tư</string>
+    <string name="morphe_hide_privacy_tos_footer_title">Ẩn chính sách quyền riêng tư và điều khoản dịch vụ</string>
     <string name="morphe_hide_shopping_menu_title">Ẩn menu Mua sắm</string>
     <string name="morphe_hide_sports_menu_title">Ẩn menu Thể thao</string>
     <string name="morphe_hide_stats_hidden_24h_reset_title">Đặt lại bộ đếm 24 giờ?</string>
@@ -175,6 +176,8 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
     <string name="morphe_replace_music_with_youtube_summary_off">Liên kết chia sẻ bắt đầu bằng music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Liên kết chia sẻ bắt đầu bằng youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Đổi liên kết chia sẻ thành youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Khôi phục giao diện điều khiển trình phát kiểu cũ, mỏng hơn</string>
+    <string name="morphe_restore_old_player_buttons_title">Khôi phục kiểu nút trình phát cũ</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tham số truy vấn theo dõi không bị loại bỏ khỏi các liên kết được chia sẻ</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi bị loại bỏ khỏi các liên kết được chia sẻ</string>
     <string name="morphe_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>
@@ -200,7 +203,8 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
     <string name="morphe_settings_name_title">Tên cài đặt RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Màu</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Đơn sắc</string>
-    <string name="morphe_splash_screen_animation_style_title">Kiểu màn hình chờ</string>
+    <string name="morphe_splash_screen_animation_style_title">Hoạt ảnh khởi động</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Phát lại có thể kết thúc sớm 1 giây</string>
     <string name="morphe_spoof_video_streams_about_js">• Nếu giải mã thất bại, video có thể không phát được</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'Menu bản âm thanh\' bị thiếu</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
@@ -1702,6 +1706,7 @@ Vuốt để mở rộng hoặc đóng"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Văn bản phụ được hiển thị</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Văn bản phụ đã bị ẩn</string>
     <string name="revanced_miniplayer_hide_subtext_title">Ẩn văn bản phụ</string>
+    <string name="revanced_miniplayer_hide_title_title">Ẩn tiêu đề và kênh</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Cử chỉ kéo ngang đã tắt</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Cử chỉ kéo ngang được bật
 
@@ -2002,7 +2007,7 @@ Chi tiết:
     <string name="revanced_remember_video_quality_wifi">wifi</string>
     <string name="revanced_remix_button_index_title">Vị trí nút Phối lại</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">Tuỳ chọn này chỉ tự động đồng ý chứ không bỏ qua giới hạn về độ tuổi</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">Loại bỏ hộp thoại cảnh báo trước khi xem</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Ẩn hộp thoại cảnh báo nội dung</string>
     <string name="revanced_replace_channel_handle_summary_off">Tên hiển thị của kênh (@handle) đang được áp dụng</string>
     <string name="revanced_replace_channel_handle_summary_on">Tên kênh đang được áp dụng</string>
     <string name="revanced_replace_channel_handle_title">Thay thế tên hiển thị của kênh</string>
@@ -2020,9 +2025,9 @@ Nhấn và giữ để mở cài đặt YouTube"</string>
     <string name="revanced_restart_first_run">Khởi động lại để hoàn tất thiết lập</string>
     <string name="revanced_restart_title">Yêu cầu khởi động lại</string>
     <string name="revanced_restore_old_settings_menus_title">Khôi phục màn hình cài đặt YouTube cũ</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Sửa lỗi không hiển thị số lượt không thích và không ẩn được các nút thao tác của video
+    <string name="revanced_restore_old_video_action_bar_summary">"Khắc phục lỗi không thể ẩn các nút hành động video
 
-Hạn chế: Khôi phục giao diện lớp phủ \"Thêm video\" cũ"</string>
+Hạn chế: Trở về lớp phủ 'Xem thêm video' kiểu cũ"</string>
     <string name="revanced_restore_old_video_action_bar_title">Khôi phục thanh thao tác video cũ</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Bố cục trình phát kiểu cũ không được sử dụng</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Bố cục trình phát kiểu cũ được sử dụng
@@ -2333,6 +2338,7 @@ Lưu ý: Cookie không phải giải pháp tuyệt đối. Nó có thể không 
     <string name="revanced_settings_import_success">Đã nhập %d cài đặt</string>
     <string name="revanced_settings_import_summary">Nhập toàn bộ cài đặt của bạn từ tệp đã lưu trước đó</string>
     <string name="revanced_settings_import_title">Nhập cài đặt</string>
+    <string name="revanced_settings_navigate_up">Điều hướng lên</string>
     <string name="revanced_settings_reset">Đặt lại</string>
     <string name="revanced_settings_reset_color">Đặt lại màu</string>
     <string name="revanced_settings_search_clear_history">Xóa lịch sử tìm kiếm</string>
@@ -2346,6 +2352,7 @@ Lưu ý: Cookie không phải giải pháp tuyệt đối. Nó có thể không 
     <string name="revanced_settings_search_no_results_summary">Hãy thử từ khóa khác</string>
     <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \"%s\"</string>
     <string name="revanced_settings_search_recent_searches">Tìm kiếm gần đây</string>
+    <string name="revanced_settings_search_remove">Xóa khỏi lịch sử tìm kiếm</string>
     <string name="revanced_settings_search_remove_message">Xóa khỏi lịch sử tìm kiếm?</string>
     <string name="revanced_settings_search_tips_summary">"• Bấm vào một đường dẫn để đi đến đó
 • Bấm giữ một cài đặt để đi đến đó

@@ -20,6 +20,7 @@ Tap the continue button and allow optimization changes"</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX, enable Cloud Messaging</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it</string>
+    <string name="morphe_ads_channel_whitelist_title">Channel ad whitelist</string>
     <string name="morphe_aislist_submit_already_blocklisted">This channel is already on the AiSList blocklist</string>
     <string name="morphe_aislist_submit_already_warnlisted">This channel is already on the AiSList warnlist</string>
     <string name="morphe_aislist_submit_category_title">Report AI channels</string>
@@ -186,8 +187,6 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_playback_in_feeds_title">Playback in feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Adjust the opacity of the background behind the player control buttons and the time bar (0 is invisible, 100 is solid)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Control buttons background opacity</string>
-    <string name="morphe_restore_old_player_buttons_summary">Uses the older video player layout for custom overlay buttons</string>
-    <string name="morphe_restore_old_player_buttons_title">Restore old player button style</string>
     <string name="morphe_potoken_provider_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 If you are a YouTube Premium user, this setting may not be required"</string>
@@ -208,6 +207,8 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Change share links to youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Uses the older video player layout for custom overlay buttons</string>
+    <string name="morphe_restore_old_player_buttons_title">Restore old player button style</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking query parameter is removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_title">Sanitize sharing links</string>
@@ -238,13 +239,13 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Color</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monochrome</string>
     <string name="morphe_splash_screen_animation_style_title">Splash screen style</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Playback may end 1 second early</string>
     <string name="morphe_spoof_video_streams_about_js">• If deobfuscation fails, playback may fail</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Audio track menu is missing</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Force original audio is not available</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersive mode is not available</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Stable volume is not available</string>
-    <string name="morphe_spoof_video_streams_about_end_early">• Playback may end 1 second early</string>
     <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Sign in to Android VR is required</string>
     <string name="morphe_spoof_video_streams_about_title">Spoofing side effects</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Video codec is AVC (H.264) or VP9</string>
@@ -1613,7 +1614,6 @@ This setting may not work if the wide search bar is enabled"</string>
     <string name="revanced_hide_video_ads_summary_off">Video ads are shown</string>
     <string name="revanced_hide_video_ads_summary_on">Video ads are hidden</string>
     <string name="revanced_hide_video_ads_title">Hide video ads</string>
-    <string name="morphe_ads_channel_whitelist_title">Channel ad whitelist</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"Home / Subscriptions / Search results are filtered to hide videos with views less or greater than a specified number
 
 Limitations: 

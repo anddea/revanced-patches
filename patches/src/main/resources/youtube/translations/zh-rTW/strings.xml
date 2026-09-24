@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
     <string name="gms_core_toast_not_installed_message">MicroG 尚未安裝。請安裝它。</string>
+    <string name="morphe_ads_channel_whitelist_title">頻道廣告白名單</string>
     <string name="morphe_aislist_submit_already_blocklisted">此頻道已在 AiSList 封鎖清單中</string>
     <string name="morphe_aislist_submit_already_warnlisted">此頻道已在 AiSList 警告清單中</string>
     <string name="morphe_aislist_submit_category_title">檢舉 AI 頻道</string>
@@ -183,6 +184,8 @@
     <string name="morphe_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">欺騙伺服器以提供更高品質的選項，方法是偽造裝置尺寸</string>
+    <string name="morphe_restore_old_player_buttons_title">還原舊播放器按鈕樣式</string>
     <string name="morphe_sanitize_sharing_links_summary_off">未從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_summary_on">已從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_title">清理分享連結</string>
@@ -208,7 +211,8 @@
     <string name="morphe_settings_name_title">RVX 設定名稱</string>
     <string name="morphe_splash_screen_animation_style_entry_2">顏色</string>
     <string name="morphe_splash_screen_animation_style_entry_3">單色</string>
-    <string name="morphe_splash_screen_animation_style_title">啟動畫面樣式</string>
+    <string name="morphe_splash_screen_animation_style_title">啟動動畫</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• 播放可能會提早 1 秒結束</string>
     <string name="morphe_spoof_video_streams_about_js">• 如果解密失敗，播放可能會失敗</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• 「音軌」選單遺失</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
@@ -1681,6 +1685,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">已顯示字幕</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">已隱藏字幕</string>
     <string name="revanced_miniplayer_hide_subtext_title">隱藏字幕</string>
+    <string name="revanced_miniplayer_hide_title_title">隱藏標題與頻道</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">水平拖曳手勢已停用。</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"啟用水平拖曳手勢。
 
@@ -1988,9 +1993,9 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_restart_first_run">重新啟動以完成設定</string>
     <string name="revanced_restart_title">需要重新啟動</string>
     <string name="revanced_restore_old_settings_menus_title">還原舊版設定選單</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"修正無法顯示不喜歡和隱藏影片動作按鈕的問題
+    <string name="revanced_restore_old_video_action_bar_summary">"修正影片操作按鈕無法隱藏的問題
 
-限制：復原為舊式「更多影片」疊加層"</string>
+限制：還原為舊式「更多影片」覆蓋畫面"</string>
     <string name="revanced_restore_old_video_action_bar_title">還原舊版影片動作列</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">未使用舊版播放器介面。</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"正在使用舊版播放器介面。
@@ -2299,6 +2304,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
     <string name="revanced_settings_import_summary">從已儲存的檔案匯入設定。</string>
     <string name="revanced_settings_import_title">匯入設定</string>
+    <string name="revanced_settings_navigate_up">向上瀏覽</string>
     <string name="revanced_settings_reset">重設</string>
     <string name="revanced_settings_reset_color">重設顏色</string>
     <string name="revanced_settings_search_clear_history">清除搜尋記錄</string>
@@ -2312,6 +2318,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_settings_search_no_results_summary">嘗試其他關鍵字</string>
     <string name="revanced_settings_search_no_results_title">沒有找到「%s」的結果</string>
     <string name="revanced_settings_search_recent_searches">最近搜尋</string>
+    <string name="revanced_settings_search_remove">從搜尋記錄中移除</string>
     <string name="revanced_settings_search_remove_message">要從搜尋記錄中移除嗎？</string>
     <string name="revanced_settings_search_tips_summary">"• 輕觸路徑即可前往
 • 長按設定即可前往

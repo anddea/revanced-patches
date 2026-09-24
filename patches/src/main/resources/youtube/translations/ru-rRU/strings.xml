@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">Для получения уведомлений в RVX, включите \"Облачные уведомления\" сообщениями</string>
     <string name="gms_core_settings_title">Открыть GmsCore или MicroG</string>
     <string name="gms_core_toast_not_installed_message">MicroG не установлен. Установите его</string>
+    <string name="morphe_ads_channel_whitelist_title">Белый список каналов для рекламы</string>
     <string name="morphe_aislist_submit_already_blocklisted">Этот канал уже находится в блок-списке AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Этот канал уже находится в списке предупреждений AiSList</string>
     <string name="morphe_aislist_submit_category_title">Пожаловаться на AI-каналы</string>
@@ -199,6 +200,8 @@
     <string name="morphe_replace_music_with_youtube_summary_off">Общие ссылки используют music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Общие ссылки используют youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Изменить ссылки для обмена на youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Возвращает смелые элементы управления видеоплеером к старому, более тонкому визуальному стилю</string>
+    <string name="morphe_restore_old_player_buttons_title">Восстановить старый стиль кнопок плеера</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Параметр отслеживания запросов не удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметр отслеживания запросов удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_title">Очищать ссылки для обмена</string>
@@ -223,8 +226,9 @@
     <string name="morphe_settings_name_empty_warning">Поле имени не может быть пустым</string>
     <string name="morphe_settings_name_title">Настройки RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Цветной</string>
-    <string name="morphe_splash_screen_animation_style_entry_3">Монохромный</string>
-    <string name="morphe_splash_screen_animation_style_title">Стиль экрана заставки</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Монохромная</string>
+    <string name="morphe_splash_screen_animation_style_title">Анимация запуска</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Воспроизведение может закончиться на 1 секунду раньше</string>
     <string name="morphe_spoof_video_streams_about_js">• Если деобфускация провалится, воспроизведение может провалиться</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">Меню \"Звуковая дорожка\" отсутствует</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Отсутствует видеокодек AV1</string>
@@ -1745,6 +1749,7 @@ Shorts
     <string name="revanced_miniplayer_hide_subtext_summary_off">Подтексты в миниплеере показаны</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Подтексты в миниплеере скрыты</string>
     <string name="revanced_miniplayer_hide_subtext_title">Скрыть подтексты</string>
+    <string name="revanced_miniplayer_hide_title_title">Скрыть название и канал</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетаскивания отключен</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Жест горизонтального перетаскивания включен
 
@@ -2062,9 +2067,9 @@ Shorts
     <string name="revanced_restart_first_run">Перезагрузите для завершения настройки</string>
     <string name="revanced_restart_title">Требуется перезапуск</string>
     <string name="revanced_restore_old_settings_menus_title">Восстановить старое меню настроек YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Исправляет проблему с не отображением отметки «Не нравится» и невозможностью скрыть кнопки управления видео
+    <string name="revanced_restore_old_video_action_bar_summary">"Исправляет проблему, из-за которой кнопки действий видео невозможно скрыть
 
-Ограничение: Возвращается к старому стилю наложения «Ещё видео»"</string>
+Ограничение: возвращает старый стиль оверлея «More videos»"</string>
     <string name="revanced_restore_old_video_action_bar_title">Восстановить старую панель действий видео</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Старый интерфейс плеера отключен</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старый макет плеера используется
@@ -2377,6 +2382,7 @@ Shorts
     <string name="revanced_settings_import_success">Импортировано %d настроек</string>
     <string name="revanced_settings_import_summary">Импорт настроек из файла</string>
     <string name="revanced_settings_import_title">Импорт настроек</string>
+    <string name="revanced_settings_navigate_up">Перейти вверх</string>
     <string name="revanced_settings_reset">Сбросить</string>
     <string name="revanced_settings_reset_color">Сбросить цвет</string>
     <string name="revanced_settings_search_clear_history">Очистить историю поиска</string>
@@ -2395,6 +2401,7 @@ Shorts
     <string name="revanced_settings_search_no_results_summary">Попробуйте другое ключевое слово</string>
     <string name="revanced_settings_search_no_results_title">По запросу \"%s\" ничего не найдено</string>
     <string name="revanced_settings_search_recent_searches">Недавние поиски</string>
+    <string name="revanced_settings_search_remove">Удалить из истории поиска</string>
     <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
     <string name="revanced_settings_search_tips_summary">"• Нажмите на путь, чтобы перейти к нему
 • Длительно нажмите на настройку, чтобы перейти к ней

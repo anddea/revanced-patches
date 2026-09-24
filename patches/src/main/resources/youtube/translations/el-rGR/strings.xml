@@ -20,6 +20,7 @@
     <string name="gms_core_settings_summary">Για να λαμβάνετε ειδοποιήσεις στο RVX, ενεργοποιήστε τις ρυθμίσεις Cloud Messaging</string>
     <string name="gms_core_settings_title">Άνοιγμα ρυθμίσεων του MicroG GmsCore</string>
     <string name="gms_core_toast_not_installed_message">Το MicroG δεν είναι εγκατεστημένο. Εγκαταστήστε το</string>
+    <string name="morphe_ads_channel_whitelist_title">Λίστα επιτρεπόμενων καναλιών για διαφημίσεις</string>
     <string name="morphe_aislist_submit_already_blocklisted">Αυτό το κανάλι είναι ήδη στη λίστα αποκλεισμού του AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Αυτό το κανάλι είναι ήδη στη λίστα προειδοποίησης του AiSList</string>
     <string name="morphe_aislist_submit_category_title">Αναφορά καναλιών AI</string>
@@ -183,6 +184,8 @@
     <string name="morphe_replace_music_with_youtube_summary_off">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινοποίησης σε youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Επαναφέρει τα έντονα χειριστήρια αναπαραγωγής βίντεο στο παλαιότερο, λεπτότερο οπτικό στυλ</string>
+    <string name="morphe_restore_old_player_buttons_title">Επαναφορά στυλ κουμπιών παλαιού αναπαραγωγού</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Οι παράμετροι παρακολούθησης δεν αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Οι παράμετροι παρακολούθησης αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κατά την κοινοποίηση</string>
@@ -208,7 +211,8 @@
     <string name="morphe_settings_name_title">Όνομα ρυθμίσεων RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Χρωματιστή</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Μονόχρωμο</string>
-    <string name="morphe_splash_screen_animation_style_title">Στυλ οθόνης εκκίνησης</string>
+    <string name="morphe_splash_screen_animation_style_title">Κινούμενο σχέδιο εκκίνησης</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Η αναπαραγωγή ενδέχεται να τελειώσει 1 δευτερόλεπτο νωρίτερα</string>
     <string name="morphe_spoof_video_streams_about_js">• Εάν η αποπερικοπή αποτύχει, η αναπαραγωγή μπορεί να αποτύχει</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Το μενού «Κομμάτι ήχου» λείπει</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
@@ -1658,6 +1662,7 @@ Playlists
     <string name="revanced_miniplayer_hide_subtext_summary_off">Εμφανίζονται</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Κρυμμένα</string>
     <string name="revanced_miniplayer_hide_subtext_title">Κείμενα οθόνης αναπαραγωγής</string>
+    <string name="revanced_miniplayer_hide_title_title">Απόκρυψη τίτλου και καναλιού</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Η χειρονομία οριζόντιας σύρσης είναι απενεργοποιημένη</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Η χειρονομία οριζόντιας σύρσης είναι ενεργοποιημένη
 
@@ -1955,9 +1960,9 @@ Playlists
     <string name="revanced_restart_first_run">Επανεκκινήστε για να ολοκληρωθεί η διαδικασία</string>
     <string name="revanced_restart_title">Απαιτείται επανεκκίνηση</string>
     <string name="revanced_restore_old_settings_menus_title">Επαναφορά του παλιού μενού ρυθμίσεων YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Διορθώνει την εμφάνιση των μη εμφανιζόμενων απορρίψεων και η γραμμή εργαλείων βίντεο δεν μπορεί να κρυφτεί
+    <string name="revanced_restore_old_video_action_bar_summary">"Διορθώνει το πρόβλημα με τα κουμπιά ενεργειών βίντεο που δεν μπορούν να αποκρυφθούν
 
-Περιορισμός: Επιστρέφει στην παλιά στυλ επικάλυψης 'Περισσότερα βίντεο'"</string>
+Περιορισμός: Επαναφέρει το παλιό στυλ επικάλυψης 'Περισσότερα βίντεο'"</string>
     <string name="revanced_restore_old_video_action_bar_title">Επαναφορά γραμμής ενεργειών βίντεο παλαιού τύπου</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Η παλιά εμφάνιση της οθόνης αναπαραγωγής είναι απενεργοποιημένη</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Η παλιά εμφάνιση της οθόνης αναπαραγωγής είναι ενεργοποιημένη
@@ -2260,6 +2265,7 @@ Playlists
     <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
     <string name="revanced_settings_import_summary">Εισαγωγή ρυθμίσεων από αποθηκευμένο αρχείο</string>
     <string name="revanced_settings_import_title">Εισαγωγή ρυθμίσεων</string>
+    <string name="revanced_settings_navigate_up">Μετάβαση προς τα πάνω</string>
     <string name="revanced_settings_reset">Επαναφορά</string>
     <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
     <string name="revanced_settings_search_clear_history">Εκκαθάριση ιστορικού αναζήτησης</string>
@@ -2273,6 +2279,7 @@ Playlists
     <string name="revanced_settings_search_no_results_summary">Δοκιμάστε άλλη λέξη-κλειδί</string>
     <string name="revanced_settings_search_no_results_title">Δε βρέθηκαν αποτελέσματα για \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">Πρόσφατες αναζητήσεις</string>
+    <string name="revanced_settings_search_remove">Αφαίρεση από το ιστορικό αναζήτησης</string>
     <string name="revanced_settings_search_remove_message">Κατάργηση από το ιστορικό αναζήτησης;</string>
     <string name="revanced_settings_search_tips_summary">"• Πατήστε μια διαδρομή για να μεταβείτε σε αυτήν
 • Πατήστε παρατεταμένα μια ρύθμιση για να μεταβείτε σε αυτήν

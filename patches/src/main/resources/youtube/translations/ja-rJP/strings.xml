@@ -20,6 +20,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCore の設定を開く</string>
     <string name="gms_core_toast_not_installed_message">GmsCore がインストールされていません。インストールしてください。</string>
+    <string name="morphe_ads_channel_whitelist_title">広告のチャンネル ホワイトリスト</string>
     <string name="morphe_aislist_submit_already_blocklisted">このチャンネルはすでに AiSList のブロックリストに登録されています。</string>
     <string name="morphe_aislist_submit_already_warnlisted">このチャンネルはすでに AiSList の警告リストに登録されています。</string>
     <string name="morphe_aislist_submit_category_title">AI チャンネルを報告</string>
@@ -205,6 +206,8 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_replace_music_with_youtube_summary_off">共有リンクを music.youtube.com に変更します。</string>
     <string name="morphe_replace_music_with_youtube_summary_on">共有リンクを youtube.com に変更します。</string>
     <string name="morphe_replace_music_with_youtube_title">共有リンクを youtube.com に変更</string>
+    <string name="morphe_restore_old_player_buttons_summary">動画プレーヤーのコントロールのデザインを、現在の太字デザインから以前の細字デザインに戻します</string>
+    <string name="morphe_restore_old_player_buttons_title">以前のプレーヤーボタンのデザインに戻す</string>
     <string name="morphe_sanitize_sharing_links_summary_off">共有リンクから追跡パラメータを削除します。</string>
     <string name="morphe_sanitize_sharing_links_summary_on">共有リンクから追跡パラメータを削除します。</string>
     <string name="morphe_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
@@ -231,6 +234,7 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_splash_screen_animation_style_entry_2">色</string>
     <string name="morphe_splash_screen_animation_style_entry_3">白黒</string>
     <string name="morphe_splash_screen_animation_style_title">スプラッシュ画面のスタイル</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• 再生が 1 秒早く終了する場合がある</string>
     <string name="morphe_spoof_video_streams_about_js">・難読化の解除に失敗した場合、再生に失敗する可能性があります。</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">・[音声トラック] メニューは表示されません。</string>
     <string name="morphe_spoof_video_streams_about_no_av1">・AV1 コーデックは利用できません。</string>
@@ -667,7 +671,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_disable_signin_to_tv_popup_title">「テレビでログイン」ポップアップを無効化</string>
     <string name="revanced_disable_speed_overlay_summary">"画面を長押しして 2 倍速で再生する機能を無効にします。
 
-注意: 
+注意:
 ・倍速再生オーバーレイを無効にすると、以前のレイアウトの「スライドしてシーク」動作が復元されます。
 ・この設定を無効にしても、倍速再生オーバーレイが強制的に有効になるわけではありません。"</string>
     <string name="revanced_disable_speed_overlay_title">倍速再生オーバーレイを無効化</string>
@@ -691,7 +695,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_disable_vp9_codec_summary_off">VP9 コーデックを無効にします。\n\n注意: \n・最大解像度は 1080p です。\n・動画を再生する際には VP9 コーデックよりも多くの通信量を消費します。\n・HDR 動画では引き続き VP9 コーデックが使用されます。</string>
     <string name="revanced_disable_vp9_codec_summary_on">"VP9 コーデックを無効にします。
 
-注意: 
+注意:
 ・最大解像度は 1080p です。
 ・動画を再生する際には VP9 コーデックよりも多くの通信量を消費します。
 ・HDR 動画では引き続き VP9 コーデックが使用されます。"</string>
@@ -883,7 +887,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_action_button_index_summary_off">"アクションボタンを識別子フィルターによって非表示にします。\n\n注意: 対応しているアクションボタンは空白を残さずに削除されます。"</string>
     <string name="revanced_hide_action_button_index_summary_on">"アクションボタンをインデックスで非表示にします。
 
-注意: 
+注意:
 ・間違ったアクションボタンが非表示になったり、アクションボタンが非表示にならない可能性があります。
 ・アクションボタンを非表示にすると空きスペースがなくなります。"</string>
     <string name="revanced_hide_action_button_index_title">インデックスでアクションボタンを非表示</string>
@@ -989,7 +993,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_comments_carousel_filter_strings_summary">コメント欄を左右にスクロールした際のカルーセル (「質問する」、「YouTube Music で聴く」など) を非表示にします。</string>
     <string name="revanced_hide_comments_carousel_filter_strings_title">改行で区切って入力してください。</string>
     <string name="revanced_hide_comments_carousel_title">コメント欄カルーセルのフィルターを有効化</string>
-    <string name="revanced_hide_comments_carousel_user_dialog_message">"注意: 
+    <string name="revanced_hide_comments_carousel_user_dialog_message">"注意:
 ・カルーセルの正確な名前を入力してください (例:「質問する」、「この動画をハイプする」、「YouTube Music で聴く」など)。
 ・カルーセルを非表示にすると、予期せぬ副作用が発生する可能性があります。
 ・すべてのカルーセルを非表示にすると、コメント欄ごと非表示になります。"</string>
@@ -1583,7 +1587,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_hide_video_ads_title">動画広告を非表示</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"ホーム/登録チャンネル/検索結果はフィルタリングされ、設定した値よりも少ないまたは多い再生回数の動画を非表示にします。
 
-注意: 
+注意:
 ・ライブ配信やショート動画は非表示にできません。
 ・再生回数が 0 の動画はフィルタリングされません。"</string>
     <string name="revanced_hide_video_by_view_counts_about_title">再生回数のフィルタリングについて</string>
@@ -1759,6 +1763,7 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_miniplayer_hide_subtext_summary_off">ミニプレーヤーに表示される「プロモーションを含みます」などの文章を非表示にします。</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">ミニプレーヤーに表示される「プロモーションを含みます」などの文章を非表示にします。</string>
     <string name="revanced_miniplayer_hide_subtext_title">サブテキストを非表示</string>
+    <string name="revanced_miniplayer_hide_title_title">タイトルとチャンネル名を非表示</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">水平ドラッグジェスチャーを有効にします。\n\nミニプレーヤーは、画面の左または右へドラッグして画面端に移動できます。</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"水平ドラッグジェスチャーを有効にします。
 
@@ -2063,7 +2068,7 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_remember_video_quality_toast_shorts">現在のショート動画の画質 (%1$s) を %2$s に変更しました。</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">[リミックス] ボタンのインデックス</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"年齢制限ダイアログを削除します。 
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"年齢制限ダイアログを削除します。
 
 注意: 年齢制限を回避することはできませんが、自動的に同意します。"</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">年齢制限ダイアログを削除</string>
@@ -2246,7 +2251,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_segments_outro">終了画面 / クレジット (アウトロ)</string>
     <string name="revanced_sb_segments_outro_sum">クレジットや動画の終了画面が表示されている場面です。情報を含む結論は含まれません。</string>
     <string name="revanced_sb_segments_preview">予告 / 要約</string>
-    <string name="revanced_sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画/シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。 </string>
+    <string name="revanced_sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画/シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。</string>
     <string name="revanced_sb_segments_selfpromo">無報酬の宣伝 / 自己宣伝</string>
     <string name="revanced_sb_segments_selfpromo_sum">無報酬のプロモーションあるいはセルフプロモーションであるという点を除いては「スポンサー」と同様です。商品、寄付、コラボした人に関する内容を含みます。</string>
     <string name="revanced_sb_segments_sponsor">スポンサー</string>
@@ -2386,6 +2391,7 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_settings_import_success">設定をインポートしました。</string>
     <string name="revanced_settings_import_summary">設定をファイルからインポートします。</string>
     <string name="revanced_settings_import_title">設定をインポート</string>
+    <string name="revanced_settings_navigate_up">上へ移動</string>
     <string name="revanced_settings_reset">リセット</string>
     <string name="revanced_settings_reset_color">色をリセット</string>
     <string name="revanced_settings_search_clear_history">検索履歴を消去</string>
@@ -2404,6 +2410,7 @@ Cookie の使用は万能薬ではありません。
     <string name="revanced_settings_search_no_results_summary">別のキーワードを試してみてください。</string>
     <string name="revanced_settings_search_no_results_title">「%s」に一致する検索結果は見つかりませんでした。</string>
     <string name="revanced_settings_search_recent_searches">検索履歴</string>
+    <string name="revanced_settings_search_remove">検索履歴から削除</string>
     <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
     <string name="revanced_settings_search_tips_summary">"・カテゴリをタップするとそのカテゴリの設定メニューに移動します。
 ・設定を長押しすると、その設定に移動できます。

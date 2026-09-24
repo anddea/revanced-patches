@@ -19,6 +19,7 @@
     <string name="gms_core_offline_account_login_error">หากคุณเพิ่งเปลี่ยนรายละเอียดการเข้าสู่ระบบบัญชีของคุณ โปรดถอนการติดตั้งและติดตั้ง GmsCore ใหม่</string>
     <string name="gms_core_settings_summary">หากต้องการรับการแจ้งเตือนใน RVX โปรดเปิดใช้งานการส่งข้อความบนคลาวด์</string>
     <string name="gms_core_toast_not_installed_message">MicroG ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
+    <string name="morphe_ads_channel_whitelist_title">รายการช่องที่อนุญาตให้แสดงโฆษณา</string>
     <string name="morphe_aislist_submit_already_blocklisted">ช่องนี้อยู่ในรายการบล็อก AiSList แล้ว</string>
     <string name="morphe_aislist_submit_already_warnlisted">ช่องนี้อยู่ในรายการเตือน AiSList แล้ว</string>
     <string name="morphe_aislist_submit_category_title">รายงานช่อง AI</string>
@@ -184,6 +185,8 @@
     <string name="morphe_replace_music_with_youtube_summary_off">ลิงก์ที่แชร์ใช้ music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">ลิงก์ที่แชร์ใช้ youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">เปลี่ยนลิงก์การแชร์เป็น youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">คืนค่ารูปลักษณ์ตัวควบคุมเครื่องเล่นวิดีโอแบบหนาให้เป็นสไตล์ที่เก่ากว่าและบางกว่า</string>
+    <string name="morphe_restore_old_player_buttons_title">คืนค่าสไตล์ปุ่มของผู้เล่นแบบเก่า</string>
     <string name="morphe_sanitize_sharing_links_summary_off">พารามิเตอร์การติดตามไม่ได้ถูกลบออกจากลิงก์ที่แชร์</string>
     <string name="morphe_sanitize_sharing_links_summary_on">พารามิเตอร์การติดตามจะถูกลบออกจากลิงก์ที่แชร์</string>
     <string name="morphe_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>
@@ -208,8 +211,9 @@
     <string name="morphe_settings_name_empty_warning">ชื่อต้องไม่ว่างเปล่า</string>
     <string name="morphe_settings_name_title">ชื่อการตั้งค่า RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">สี</string>
-    <string name="morphe_splash_screen_animation_style_entry_3">ขาวดำ</string>
-    <string name="morphe_splash_screen_animation_style_title">รูปแบบหน้าจอ Splash</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">โมโนโครม</string>
+    <string name="morphe_splash_screen_animation_style_title">แอนิเมชันเริ่มต้น</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Playback may end 1 second early</string>
     <string name="morphe_spoof_video_streams_about_js">• ถ้า Deobfuscation ล้มเหลว การเล่นอาจล้มเหลว</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• เมนู \'แทร็กเสียง\' หายไป</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
@@ -872,6 +876,7 @@
     <string name="revanced_miniplayer_hide_subtext_summary_off">ข้อความย่อยแสดงอยู่</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">ข้อความย่อยถูกซ่อน</string>
     <string name="revanced_miniplayer_hide_subtext_title">ซ่อนข้อความย่อย</string>
+    <string name="revanced_miniplayer_hide_title_title">ซ่อนชื่อและช่อง</string>
     <string name="revanced_miniplayer_opacity_title">ความทึบแสงของโอเวอร์เลย์</string>
     <string name="revanced_miniplayer_type_entry_2">น้อยที่สุด</string>
     <string name="revanced_miniplayer_type_entry_3">มินิมอล 2</string>
@@ -933,9 +938,9 @@
     <string name="revanced_remove_viewer_discretion_dialog_title">ลบกล่องโต้ตอบการพิจารณาของผู้ชม</string>
     <string name="revanced_restart_first_run">รีสตาร์ทเพื่อดำเนินการตั้งค่าให้เสร็จสิ้น</string>
     <string name="revanced_restore_old_settings_menus_title">กู้คืนเมนูการตั้งค่าแบบเก่า</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"แก้ไขปัญหาการไม่แสดงผลการไม่ชอบ และปุ่มการทำงานของวิดีโอไม่สามารถซ่อนได้
+    <string name="revanced_restore_old_video_action_bar_summary">"แก้ไขปัญหาที่ปุ่มการทำงานของวิดีโอไม่สามารถซ่อนได้
 
-ข้อจำกัด: กลับไปใช้การแสดงผล 'วิดีโอเพิ่มเติม' แบบเก่า"</string>
+ข้อจำกัด: ย้อนกลับไปใช้รูปแบบโอเวอร์เลย์ 'More videos' แบบเก่า"</string>
     <string name="revanced_restore_old_video_action_bar_title">กู้คืนแถบการทำงานของวิดีโอแบบเดิม</string>
     <string name="revanced_ryd_attribution_summary">"ข้อมูลนี้จัดทำโดย Return YouTube Dislike API
 
@@ -1166,6 +1171,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_settings_import_copy">คัดลอก</string>
     <string name="revanced_settings_import_reset">การตั้งค่า RVX ถูกตั้งค่าเป็นค่าเริ่มต้น</string>
     <string name="revanced_settings_import_success">นำเข้าการตั้งค่า %d</string>
+    <string name="revanced_settings_navigate_up">นำทางขึ้น</string>
     <string name="revanced_settings_reset">รีเซ็ต</string>
     <string name="revanced_settings_reset_color">รีเซ็ตสี</string>
     <string name="revanced_settings_search_clear_history">ล้างประวัติการค้นหา</string>
@@ -1178,6 +1184,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_settings_search_no_results_summary">ลองใช้คำหลักอื่น</string>
     <string name="revanced_settings_search_no_results_title">ไม่พบผลลัพธ์สำหรับ \"%s\"</string>
     <string name="revanced_settings_search_recent_searches">การค้นหาล่าสุด</string>
+    <string name="revanced_settings_search_remove">ลบออกจากประวัติการค้นหา</string>
     <string name="revanced_settings_search_remove_message">นำออกจากประวัติการค้นหาหรือไม่?</string>
     <string name="revanced_settings_search_tips_summary">"• แตะเส้นทางเพื่อไปยังเส้นทางนั้น
 • กดค้างที่การตั้งค่าเพื่อไปยังการตั้งค่า

@@ -59,6 +59,17 @@ Pulsa el botón Continuar y permite los cambios de optimización"</string>
     <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
     <string name="morphe_force_original_audio_summary_on">Usar el idioma de audio original</string>
     <string name="morphe_force_original_audio_title">Forzar idioma original del audio</string>
+    <string name="morphe_music_apple_music_token_dialog_instruction">"Pega la cookie media-user-token de music.apple.com
+
+Pasos:
+1. Inicia sesión en music.apple.com como usuario miembro
+2. Abre DevTools → Aplicación → Cookies → music.apple.com
+3. Copia el valor de \"media-user-token\""</string>
+    <string name="morphe_music_apple_music_token_title">Media-user-token de Apple Music</string>
+    <string name="morphe_music_apple_music_token_toast_cleared">Apple Music: media-user-token borrado</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: media-user-token no válido. Compruébalo e inténtalo de nuevo</string>
+    <string name="morphe_music_apple_music_token_toast_saved">Apple Music: media-user-token guardado</string>
+    <string name="morphe_music_apple_token_optional_hint">El token de Apple Music es opcional. Sin él, se usará Lyrically como alternativa</string>
     <string name="morphe_music_crossfade_about_best_summary">La reproducción normal de canción a canción y el avance automático, la repetición de una canción (la canción se funde consigo misma) y el audio local (altavoz del teléfono, auriculares con cable, Bluetooth o USB)</string>
     <string name="morphe_music_crossfade_about_best_title">Funciona mejor con</string>
     <string name="morphe_music_crossfade_about_credit_summary">Característica de fundido entre canciones por VazerOG</string>
@@ -106,26 +117,166 @@ YouTube Music 8.x: el fundido entre canciones solo funciona en la versión 9.x y
     <string name="morphe_music_crossfade_session_control_summary">Mantén pulsado el botón de reproducción aleatoria para pausar o reanudar el fundido entre canciones</string>
     <string name="morphe_music_crossfade_session_control_title">Control de sesión</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">El modo de vídeo no está disponible mientras el fundido entre canciones está activado</string>
-    <string name="morphe_music_lyrics_about_summary">"Las letras se buscan por título de pista y artista, por lo que una pista con metadatos inusuales puede no encontrar nada o encontrar la versión incorrecta. También puedes probar el botón 'Actualizar' para cambiar de versión manualmente. Cuando no se encuentran letras de terceros, se muestran las letras integradas o incrustadas en su lugar. Los proveedores marcados con * requieren un token para activarse. No siempre se consultan todos los proveedores activados en el orden que establezcas, sino que responden según su velocidad"</string>
+    <string name="morphe_music_deezer_arl_dialog_instruction">"Pega la cookie arl de Deezer
+
+Pasos:
+1. Inicia sesión en deezer.com
+2. Abre DevTools → Aplicación → Cookies → deezer.com
+3. Copia el valor de \"arl\""</string>
+    <string name="morphe_music_deezer_arl_title">ARL de Deezer</string>
+    <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl borrado</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: arl no válido. Compruébalo e inténtalo de nuevo</string>
+    <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl guardado</string>
+    <string name="morphe_music_downloads_actions_for">Acciones para %s</string>
+    <string name="morphe_music_downloads_all_deleted">Descargas eliminadas</string>
+    <string name="morphe_music_downloads_already_running">Ya hay una descarga en curso</string>
+    <string name="morphe_music_downloads_already_saved">Ya descargada</string>
+    <string name="morphe_music_downloads_close">Cerrar</string>
+    <string name="morphe_music_downloads_complete">Descarga completada</string>
+    <string name="morphe_music_downloads_delete">Eliminar</string>
+    <string name="morphe_music_downloads_delete_all">Eliminar todas las descargas</string>
+    <string name="morphe_music_downloads_delete_all_message">Todas las pistas descargadas se eliminarán de este dispositivo</string>
+    <string name="morphe_music_downloads_delete_all_title">¿Eliminar todas las descargas?</string>
+    <string name="morphe_music_downloads_delete_track">Eliminar descarga</string>
+    <string name="morphe_music_downloads_delete_track_message">%s se eliminará de este dispositivo</string>
+    <string name="morphe_music_downloads_delete_track_title">¿Eliminar descarga?</string>
+    <string name="morphe_music_downloads_empty">"No hay descargas
+Las pistas descargadas aparecen aquí"</string>
+    <string name="morphe_music_downloads_failed">Descarga fallida</string>
+    <string name="morphe_music_downloads_next">Siguiente</string>
+    <string name="morphe_music_downloads_nothing_found">No se encontró nada</string>
+    <string name="morphe_music_downloads_notification_channel">Descargas de audio</string>
+    <string name="morphe_music_downloads_pause">Pausar</string>
+    <string name="morphe_music_downloads_play">Reproducir</string>
+    <string name="morphe_music_downloads_play_failed">No se pudo reproducir la descarga</string>
+    <string name="morphe_music_downloads_play_pause">Reproducir o pausar</string>
+    <string name="morphe_music_downloads_playback_channel">Reproducción sin conexión</string>
+    <string name="morphe_music_downloads_previous">Anterior</string>
+    <string name="morphe_music_downloads_progress">Descargando %s%%</string>
+    <string name="morphe_music_downloads_screen_title">Descargas</string>
+    <string name="morphe_music_downloads_search_hint">Buscar descargas</string>
+    <string name="morphe_music_downloads_sort">Ordenar</string>
+    <string name="morphe_music_downloads_sort_artist">Ordenar por artista</string>
+    <string name="morphe_music_downloads_sort_size">Ordenar por tamaño</string>
+    <string name="morphe_music_downloads_sort_title">Ordenar por título</string>
+    <string name="morphe_music_downloads_started">Descarga iniciada</string>
+    <string name="morphe_music_downloads_starting">Iniciando descarga…</string>
+    <string name="morphe_music_downloads_summary">%1$s pistas • %2$s MB</string>
+    <string name="morphe_music_downloads_track_delete_failed">No se pudo eliminar la descarga</string>
+    <string name="morphe_music_downloads_track_deleted">Descarga eliminada</string>
+    <string name="morphe_music_downloads_track_subtitle">%1$s • %2$s • %3$s MB</string>
+    <string name="morphe_music_downloads_unknown_track">No se pudo identificar la pista que descargar</string>
+    <string name="morphe_music_in_app_downloads_summary">Descarga el audio dentro de YouTube Music en lugar de abrir la aplicación de descarga externa</string>
+    <string name="morphe_music_in_app_downloads_title">Descargar en la aplicación</string>
+    <string name="morphe_music_in_app_downloads_user_dialog_message">"Las canciones se guardan en el almacenamiento privado de la aplicación y se eliminan si se desinstala YouTube Music
+
+Mientras esta opción esté activada, la pestaña Descargas muestra estas canciones en lugar de la biblioteca sin conexión de Music Premium. Al desactivarla, la pestaña vuelve a aparecer y las descargas Premium nunca se ven afectadas"</string>
+    <string name="morphe_music_lyrics_about_summary">"Las letras se buscan por título y artista; unos metadatos inusuales pueden no encontrar nada o encontrar la versión incorrecta. Usa Actualizar para cambiar de versión. Los proveedores marcados con * requieren un token. No siempre se consultan todos los proveedores activados en el orden que establezcas, sino que responden según su velocidad"</string>
     <string name="morphe_music_lyrics_about_title">Acerca de las letras de terceros</string>
+    <string name="morphe_music_lyrics_ai_config_api_token_hint">Clave API (dejar en blanco para acceso anónimo)</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_hint">URL del punto de conexión de la API (p. ej., https://text.pollinations.ai/openai)</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configura el punto de conexión de la API compatible con OpenAI para la traducción y romanización de letras con IA</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">Ajustes de traducción con IA</string>
+    <string name="morphe_music_lyrics_ai_config_model_hint">Nombre del modelo (p. ej., openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_status_configured">Configurado</string>
+    <string name="morphe_music_lyrics_ai_config_status_empty_model">El nombre del modelo no puede estar vacío</string>
+    <string name="morphe_music_lyrics_ai_config_status_empty_url">La URL base no puede estar vacía</string>
+    <string name="morphe_music_lyrics_ai_config_status_invalid_url">La URL base debe empezar por http:// o https://</string>
+    <string name="morphe_music_lyrics_ai_config_status_not_configured">Pulsa para configurar</string>
+    <string name="morphe_music_lyrics_ai_config_status_validating">Validando la conexión…</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">No se pudo conectar con el punto de conexión de la IA. Comprueba tus ajustes</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">Ajustes de traducción con IA restablecidos</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">Ajustes de traducción con IA guardados</string>
     <string name="morphe_music_lyrics_copied">Copiado al portapapeles</string>
+    <string name="morphe_music_lyrics_credit_line_regex_summary">Si las letras se filtran incorrectamente al final, ajusta o borra esto. Marcadores separados por comas: las líneas que contienen un marcador seguido de dos puntos se muestran como información de créditos al final. Déjalo vacío para desactivarlo</string>
+    <string name="morphe_music_lyrics_credit_line_regex_title">Marcadores de línea de información</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Expresión regular aplicada a títulos, artistas y álbumes antes de buscar las letras. Déjala vacía para desactivarla. La predeterminada elimina términos comunes como \"Vídeo oficial\", \"Remasterizado\" y \"- Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_title">Regex de metadatos</string>
+    <string name="morphe_music_lyrics_display_artist_first_summary">Alterna el orden de visualización de artista y título en el reproductor en miniatura y MediaSession. Activado: \"Artista - Título\"; desactivado: \"Título - Artista\". No afecta a la búsqueda de letras</string>
+    <string name="morphe_music_lyrics_display_artist_first_title">Orden de visualización de artista y título</string>
     <string name="morphe_music_lyrics_enabled_summary">Muestra letras de un servicio de terceros, recurriendo a las letras integradas cuando no se encuentran</string>
     <string name="morphe_music_lyrics_enabled_title">Usar letras de terceros</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">Las letras sincronizadas siguen la reproducción. Si se desvían, ajusta el desfase de tiempo. Desplaza las letras sincronizadas hacia adelante o hacia atrás. Usa un valor positivo si las letras van por delante de la canción</string>
+    <string name="morphe_music_lyrics_hide_info_summary">Oculta la línea de créditos que se muestra debajo de las letras</string>
+    <string name="morphe_music_lyrics_hide_info_title">Ocultar línea de créditos</string>
+    <string name="morphe_music_lyrics_hide_played_summary">Oculta las líneas de letra por encima de la línea que se está reproduciendo</string>
+    <string name="morphe_music_lyrics_hide_played_title">Ocultar letras ya reproducidas</string>
+    <string name="morphe_music_lyrics_hide_unplayed_summary">Oculta las líneas de letra por debajo de la línea que se está reproduciendo</string>
+    <string name="morphe_music_lyrics_hide_unplayed_title">Ocultar letras no reproducidas</string>
+    <string name="morphe_music_lyrics_keep_screen_on_summary">Evita que la pantalla se apague mientras el panel de letras está abierto</string>
+    <string name="morphe_music_lyrics_keep_screen_on_title">Mantener pantalla encendida mientras se ven las letras</string>
+    <string name="morphe_music_lyrics_mediasession_title">Mostrar letras de MediaSession en la pantalla de bloqueo</string>
+    <string name="morphe_music_lyrics_miniplayer_title">Mostrar letras en el reproductor en miniatura</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">Las letras sincronizadas siguen a la reproducción. Si se desvían, ajusta el desfase de tiempo. Desplaza las letras sincronizadas hacia adelante o hacia atrás. Usa un valor positivo si la letra va por delante de la canción</string>
     <string name="morphe_music_lyrics_offset_ms_title">Desfase de tiempo</string>
+    <string name="morphe_music_lyrics_refreshed">Actualizado</string>
+    <string name="morphe_music_lyrics_refreshing">Actualizando</string>
+    <string name="morphe_music_lyrics_romanize_failed">No se pudieron romanizar las letras</string>
+    <string name="morphe_music_lyrics_romanize_hide">Romanizado</string>
+    <string name="morphe_music_lyrics_romanized_by_ai">Romanizado por %s</string>
+    <string name="morphe_music_lyrics_romanized_by_google">Romanizado por Google</string>
+    <string name="morphe_music_lyrics_romanizing">Romanizando…</string>
+    <string name="morphe_music_lyrics_saved">Guardado</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">Pulsa para copiar las letras originales como texto sin formato; mantén pulsado para guardar el archivo de letras sin procesar en Descargas</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Mostrar botón Copiar</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Pulsa para cambiar a la siguiente letra candidata; mantén pulsado para desactivar temporalmente las letras de terceros y mostrar las nativas</string>
+    <string name="morphe_music_lyrics_show_refresh_button_title">Mostrar botón Actualizar</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Romaniza las letras usando la romanización del proveedor, Google Translate o una API compatible con OpenAI</string>
+    <string name="morphe_music_lyrics_show_romanize_button_title">Mostrar botón Romanizar</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Traduce las letras usando las traducciones del proveedor, Google Translate o una API compatible con OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Mostrar botón Traducir</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, luego QQ, luego KuGou, luego NetEase, luego BiniLyrics, luego Unison, luego AMLL</string>
+    <string name="morphe_music_lyrics_source_all_disabled">Todos los proveedores desactivados: letras integradas y letras incrustadas</string>
     <string name="morphe_music_lyrics_source_label">Fuente: %s</string>
+    <string name="morphe_music_lyrics_source_reset_message">Restaura los proveedores al orden de prioridad predeterminado</string>
+    <string name="morphe_music_lyrics_source_reset_title">¿Restablecer orden de proveedores?</string>
     <string name="morphe_music_lyrics_source_title">Servicio de letras</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">Activado coloca la romanización debajo de las letras y la traducción arriba; desactivado mantiene la romanización arriba y la traducción abajo</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_title">Intercambiar traducción y romanización</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Pulsar una línea salta a ese momento de la canción</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">Pulsa una línea para buscar</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Pulsar una línea para saltar</string>
+    <string name="morphe_music_lyrics_text_filter_summary">Expresión regular aplicada solo al texto original de las letras (no a traducciones ni romanizaciones). Déjala vacía para desactivarla</string>
+    <string name="morphe_music_lyrics_text_filter_title">Regex de filtro de letras</string>
     <string name="morphe_music_lyrics_text_size_summary">Tamaño del texto de las letras</string>
     <string name="morphe_music_lyrics_text_size_title">Tamaño del texto</string>
     <string name="morphe_music_lyrics_translate_failed">No se pudieron traducir las letras</string>
     <string name="morphe_music_lyrics_translate_hide">Traducido</string>
-    <string name="morphe_music_lyrics_translate_show">Traducir</string>
+    <string name="morphe_music_lyrics_translated_by_ai">Traducido por %s</string>
+    <string name="morphe_music_lyrics_translated_by_google">Traducido por Google</string>
     <string name="morphe_music_lyrics_translating">Traduciendo…</string>
+    <string name="morphe_music_lyrics_translation_language_title">Idioma de traducción</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">Utiliza una API personalizada compatible con OpenAI para la traducción y romanización en lugar de Google Translate</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">Traducción compatible con OpenAI</string>
+    <string name="morphe_music_lyrics_word_sync_summary">Prioriza las letras palabra por palabra cuando estén disponibles. Cuando las letras incluyen tiempos por palabra, resalta cada palabra o sílaba al ritmo de la música</string>
+    <string name="morphe_music_lyrics_word_sync_title">Resaltar palabras o sílabas sincronizadas</string>
+    <string name="morphe_music_musixmatch_token_dialog_hint">token de usuario</string>
+    <string name="morphe_music_musixmatch_token_dialog_instruction">Añade un token solo para usar tu propia cuenta. Tiene que provenir de la aplicación de Musixmatch para Android: los tokens copiados de musixmatch.com pertenecen al cliente de escritorio que ya no está disponible y la API los rechaza</string>
+    <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch funciona sin token, así que este campo puede quedarse vacío</string>
+    <string name="morphe_music_musixmatch_token_title">Token de Musixmatch</string>
+    <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: token de usuario borrado</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: token de usuario no válido. Compruébalo e inténtalo de nuevo</string>
+    <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: token de usuario guardado</string>
+    <string name="morphe_music_spotify_token_dialog_instruction">"Pega la cookie sp_dc de Spotify
+
+Pasos:
+1. Inicia sesión en open.spotify.com
+2. Abre DevTools → Aplicación → Cookies → open.spotify.com
+3. Copia el valor de \"sp_dc\""</string>
+    <string name="morphe_music_spotify_token_title">SpDc de Spotify</string>
+    <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc borrado</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify: sp_dc no válido. Compruébalo e inténtalo de nuevo</string>
+    <string name="morphe_music_spotify_token_toast_saved">Spotify: sp_dc guardado</string>
+    <string name="morphe_music_token_dialog_get_token">Obtener token</string>
+    <string name="morphe_music_youtube_cookies_dialog_instruction">"Pega tus cookies de YouTube para consultar subtítulos y texto sincronizado de YouTube
+
+Pasos:
+1. Abre youtube.com en un navegador e inicia sesión
+2. Abre DevTools (F12) → Aplicación → Cookies → youtube.com
+3. Copia la cadena completa de cookies (pares clave=valor separados por punto y coma)
+
+Cookies requeridas: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID, LOGIN_INFO"</string>
+    <string name="morphe_music_youtube_cookies_title">Cookies de YouTube</string>
+    <string name="morphe_music_youtube_cookies_toast_cleared">YouTube: cookies borradas</string>
+    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: cookies no válidas. Compruébalas e inténtalo de nuevo</string>
+    <string name="morphe_music_youtube_cookies_toast_saved">YouTube: cookies guardadas</string>
     <string name="morphe_notification_dot_color_summary">Cambia el color de los puntos de notificación</string>
     <string name="morphe_notification_dot_color_title">Color de punto de notificación</string>
     <string name="morphe_oauth2_connection_failure_auth_error">No se puede iniciar sesión en VR: %s</string>
@@ -659,6 +810,7 @@ Pulsa aquí para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_import_failed">Error de importación: %s</string>
     <string name="revanced_settings_import_reset">Ajustes de RVX restablecidos a los valores predeterminados</string>
     <string name="revanced_settings_import_success">Ajustes importados: %d</string>
+    <string name="revanced_settings_navigate_up">Navegar hacia arriba</string>
     <string name="revanced_settings_reset">Restablecer</string>
     <string name="revanced_settings_reset_color">Restablecer color</string>
     <string name="revanced_settings_search_clear_history">Borrar historial de búsqueda</string>
@@ -671,6 +823,7 @@ Pulsa aquí para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_search_no_results_summary">Prueba con otra palabra clave</string>
     <string name="revanced_settings_search_no_results_title">No se encontraron resultados para «%s»</string>
     <string name="revanced_settings_search_recent_searches">Búsquedas recientes</string>
+    <string name="revanced_settings_search_remove">Eliminar del historial de búsqueda</string>
     <string name="revanced_settings_search_remove_message">¿Eliminar del historial de búsqueda?</string>
     <string name="revanced_settings_search_tips_summary">"• Pulsa una ruta para navegar a ella
 • Mantén pulsado un ajuste para navegar a él

@@ -20,6 +20,7 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="gms_core_settings_summary">Cloud-Nachrichteneinstellungen aktivieren, um Benachrichtigungen zu erhalten</string>
     <string name="gms_core_settings_title">GmsCore öffnen</string>
     <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installieren Sie es</string>
+    <string name="morphe_ads_channel_whitelist_title">Werbe-Whitelist für Kanäle</string>
     <string name="morphe_aislist_submit_already_blocklisted">Dieser Kanal ist bereits auf der AiSList-Blockliste</string>
     <string name="morphe_aislist_submit_already_warnlisted">Dieser Kanal ist bereits auf der AiSList-Warnliste</string>
     <string name="morphe_aislist_submit_category_title">KI-Kanäle melden</string>
@@ -183,6 +184,8 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_replace_music_with_youtube_summary_off">Freigabe-Links verwenden music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Freigabe-Links verwenden youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Freigabe-Links zu youtube.com ändern</string>
+    <string name="morphe_restore_old_player_buttons_summary">Stellt die fettgedruckten Videoplayer-Schaltflächen in den älteren, dünneren visuellen Stil zurück</string>
+    <string name="morphe_restore_old_player_buttons_title">Alten Player-Button-Stil wiederherstellen</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_title">Freigabelinks bereinigen</string>
@@ -207,8 +210,9 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_settings_name_empty_warning">Name darf nicht leer sein</string>
     <string name="morphe_settings_name_title">RVX-Einstellungsname</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Farbe</string>
-    <string name="morphe_splash_screen_animation_style_entry_3">Monochrom</string>
-    <string name="morphe_splash_screen_animation_style_title">Art des Begrüßungsbildschirms</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Einfarbig</string>
+    <string name="morphe_splash_screen_animation_style_title">Startanimation</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Die Wiedergabe endet möglicherweise 1 Sekunde früher</string>
     <string name="morphe_spoof_video_streams_about_js">• Wenn die Deobfuskation fehlschlägt, kann die Wiedergabe fehlschlagen</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Menü „Audiotrack“ fehlt</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
@@ -1639,6 +1643,7 @@ Wischen, um zu erweitern oder zu schließen"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Untertexte werden angezeigt</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexte sind ausgeblendet</string>
     <string name="revanced_miniplayer_hide_subtext_title">Untertexte ausblenden</string>
+    <string name="revanced_miniplayer_hide_title_title">Titel und Kanal ausblenden</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontale Drag Geste deaktiviert</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontale Ziehgeste aktiviert
 
@@ -1923,9 +1928,9 @@ Tippe und halte zum Öffnen der YouTube-Einstellungen"</string>
     <string name="revanced_restart_first_run">Starte die App neu, um die Einrichtung abzuschließen</string>
     <string name="revanced_restart_title">Neustart erforderlich</string>
     <string name="revanced_restore_old_settings_menus_title">Alte YouTube-Einstellungen wiederherstellen</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Behebt fehlende Dislikes und das Nichtausblenden der Video-Aktionsschaltfläche
+    <string name="revanced_restore_old_video_action_bar_summary">"Behebt, dass Video-Aktionsschaltflächen nicht ausgeblendet werden können
 
-Einschränkung: Zurück zum alten „Mehr Videos“-Overlay"</string>
+Einschränkung: Kehrt zum alten Overlay 'Weitere Videos' zurück"</string>
     <string name="revanced_restore_old_video_action_bar_title">Alte Video-Aktionsleiste wiederherstellen</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Altes Player-Layout wird nicht verwendet</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Altes Spielerlayout wird verwendet
@@ -2223,6 +2228,7 @@ Dies kann nicht funktionieren, wenn:
     <string name="revanced_settings_import_success">%d Einstellungen importiert</string>
     <string name="revanced_settings_import_summary">Import settings from a saved file</string>
     <string name="revanced_settings_import_title">Import settings</string>
+    <string name="revanced_settings_navigate_up">Nach oben navigieren</string>
     <string name="revanced_settings_reset">Zurücksetzen</string>
     <string name="revanced_settings_reset_color">Farbe zurücksetzen</string>
     <string name="revanced_settings_search_clear_history">Suchverlauf löschen</string>
@@ -2235,6 +2241,7 @@ Dies kann nicht funktionieren, wenn:
     <string name="revanced_settings_search_no_results_summary">Versuchen Sie ein anderes Schlüsselwort</string>
     <string name="revanced_settings_search_no_results_title">Keine Ergebnisse für „%s“ gefunden</string>
     <string name="revanced_settings_search_recent_searches">Kürzliche Suchen</string>
+    <string name="revanced_settings_search_remove">Aus Suchverlauf entfernen</string>
     <string name="revanced_settings_search_remove_message">Aus Suchverlauf entfernen?</string>
     <string name="revanced_settings_search_tips_summary">"• Tippen Sie auf einen Pfad, um dorthin zu navigieren
 • Halten Sie eine Einstellung gedrückt, um dorthin zu navigieren

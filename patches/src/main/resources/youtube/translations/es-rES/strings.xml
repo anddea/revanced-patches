@@ -20,6 +20,7 @@ Toca el botón \"Continuar\" y permite los cambios en las optimizaciones"</strin
     <string name="gms_core_settings_summary">Activa la mensajería en la nube para recibir notificaciones</string>
     <string name="gms_core_settings_title">Abrir los ajustes de GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore no está instalado. Instálalo</string>
+    <string name="morphe_ads_channel_whitelist_title">Lista de excepción para anuncios</string>
     <string name="morphe_aislist_submit_already_blocklisted">Este canal ya está en la lista de bloqueo de AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Este canal ya está en la lista de advertencias de AiSList</string>
     <string name="morphe_aislist_submit_category_title">Reportar canales de IA</string>
@@ -205,6 +206,8 @@ Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Los enlaces compartidos usan music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Los enlaces compartidos usan youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Cambiar enlaces compartidos a youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Restaura los controles de reproductor en negrita al estilo visual anterior y más delgado</string>
+    <string name="morphe_restore_old_player_buttons_title">Restaurar estilo antiguo de los botones del reproductor</string>
     <string name="morphe_sanitize_sharing_links_summary_off">El parámetro de consulta de seguimiento no se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_summary_on">El parámetro de consulta de seguimiento se elimina de los enlaces compartidos</string>
     <string name="morphe_sanitize_sharing_links_title">Limpiar enlaces compartidos</string>
@@ -229,8 +232,9 @@ Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_settings_name_empty_warning">El nombre no puede estar vacío</string>
     <string name="morphe_settings_name_title">Nombre de los ajustes de RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Color</string>
-    <string name="morphe_splash_screen_animation_style_entry_3">Monocromo</string>
-    <string name="morphe_splash_screen_animation_style_title">Estilo de pantalla de bienvenida</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Monocromático</string>
+    <string name="morphe_splash_screen_animation_style_title">Animación de inicio</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• La reproducción puede terminar 1 segundo antes</string>
     <string name="morphe_spoof_video_streams_about_js">• Si la desofuscación falla, la reproducción puede fallar</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Falta el menú \'Pista de audio\'</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Sin códec de vídeo AV1</string>
@@ -590,8 +594,8 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_disable_auto_captions_summary_off">Los subtítulos automáticos están activados</string>
     <string name="revanced_disable_auto_captions_summary_on">Los subtítulos automáticos están desactivados</string>
     <string name="revanced_disable_auto_captions_title">Desactivar subtítulos automáticos</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_off">Los paneles emergentes del reproductor automático están desactivados</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_on">Los paneles emergentes del reproductor automático están activados</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_off">Los paneles emergentes del reproductor automático están activados</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_on">Los paneles emergentes del reproductor automático están desactivados</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Desactivar paneles emergentes del reproductor</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"El cambio automático de listas de reproducción Mix está activado cuando la reproducción automática está activada
 
@@ -1050,7 +1054,7 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_course_progress_section_title">Ocultar sección \'Progreso del curso\'</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">La estantería de la tienda del creador debajo del reproductor de vídeo es visible</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">La estantería de la tienda del creador debajo del reproductor de vídeo está oculta</string>
-    <string name="revanced_hide_creator_store_shelf_title">Ocultar sección de tienda del creador</string>
+    <string name="revanced_hide_creator_store_shelf_title">Ocultar estantería de tienda del creador</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">La caja de Crowdfunding es visible</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">La caja de Crowdfunding está oculta</string>
     <string name="revanced_hide_crowdfunding_box_title">Ocultar caja de Crowdfunding</string>
@@ -1073,8 +1077,8 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_end_screen_suggested_video_summary_on">El vídeo sugerido en la pantalla final está oculto</string>
     <string name="revanced_hide_end_screen_suggested_video_title">Ocultar vídeo sugerido en pantalla final</string>
     <string name="revanced_hide_expandable_card_entry_1">Mostrar todo</string>
-    <string name="revanced_hide_expandable_card_entry_2">Ocultar solo la tarjeta de resumen</string>
-    <string name="revanced_hide_expandable_card_entry_3">Ocultar todo</string>
+    <string name="revanced_hide_expandable_card_entry_2">Ocultar solo la tarjeta del producto</string>
+    <string name="revanced_hide_expandable_card_entry_3">Ocultar solo la tarjeta de resumen</string>
     <string name="revanced_hide_expandable_card_entry_4">Ocultar tarjetas de producto y resumen</string>
     <string name="revanced_hide_expandable_card_entry_5">Ocultar todo</string>
     <string name="revanced_hide_expandable_card_title">Tarjetas expandibles debajo de los vídeos</string>
@@ -1154,7 +1158,7 @@ Limitación: Es posible que algunos enlaces de búsqueda resaltados que no tenga
     <string name="revanced_hide_image_search_button_title">Ocultar botón de búsqueda de imágenes</string>
     <string name="revanced_hide_image_shelf_summary_off">La estantería de imágenes en los resultados de búsqueda es visible</string>
     <string name="revanced_hide_image_shelf_summary_on">La estantería de imágenes en los resultados de búsqueda está oculta</string>
-    <string name="revanced_hide_image_shelf_title">Ocultar sección de imágenes</string>
+    <string name="revanced_hide_image_shelf_title">Ocultar estantería de imágenes</string>
     <string name="revanced_hide_info_cards_section_summary_off">Se muestra la sección de tarjetas de información</string>
     <string name="revanced_hide_info_cards_section_summary_on">La sección de tarjetas de información está oculta</string>
     <string name="revanced_hide_info_cards_section_title">Ocultar sección \'Tarjetas de información\'</string>
@@ -1231,7 +1235,7 @@ Las palabras que contengan letras mayúsculas en medio deben coincidir exactamen
     <string name="revanced_hide_medical_panel_title">Ocultar paneles médicos</string>
     <string name="revanced_hide_members_shelf_summary_off">La estantería de miembros se muestra</string>
     <string name="revanced_hide_members_shelf_summary_on">La estantería de miembros está oculta</string>
-    <string name="revanced_hide_members_shelf_title">Ocultar sección de miembros</string>
+    <string name="revanced_hide_members_shelf_title">Ocultar estantería de miembros</string>
     <string name="revanced_hide_merchandise_shelf_summary_off">Los estantes de mercancía están visibles</string>
     <string name="revanced_hide_merchandise_shelf_summary_on">Los estantes de mercancía están ocultos</string>
     <string name="revanced_hide_merchandise_shelf_title">Ocultar estantes de mercancía</string>
@@ -1529,7 +1533,7 @@ Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocu
     <string name="revanced_hide_shorts_stickers_title">Ocultar stickers</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_off">Se muestra el botón de suscripción</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_on">El botón de suscripción está oculto</string>
-    <string name="revanced_hide_shorts_subscribe_button_title">Ocultar botón Suscribirme</string>
+    <string name="revanced_hide_shorts_subscribe_button_title">Ocultar botón Suscribirse</string>
     <string name="revanced_hide_shorts_tagged_products_summary_off">Los productos etiquetados se muestran</string>
     <string name="revanced_hide_shorts_tagged_products_summary_on">Los productos etiquetados están ocultos</string>
     <string name="revanced_hide_shorts_tagged_products_title">Ocultar productos etiquetados</string>
@@ -1577,7 +1581,7 @@ Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocu
     <string name="revanced_hide_surveys_title">Ocultar encuestas</string>
     <string name="revanced_hide_ticket_shelf_summary_off">La estantería de tickets es visible</string>
     <string name="revanced_hide_ticket_shelf_summary_on">La estantería de tickets está oculta</string>
-    <string name="revanced_hide_ticket_shelf_title">Ocultar sección de tickets</string>
+    <string name="revanced_hide_ticket_shelf_title">Ocultar estantería de tickets</string>
     <string name="revanced_hide_time_stamp_summary_off">La marca de tiempo está visible</string>
     <string name="revanced_hide_time_stamp_summary_on">La marca de tiempo está oculta</string>
     <string name="revanced_hide_time_stamp_title">Ocultar marca de tiempo</string>
@@ -1767,6 +1771,7 @@ Deslizar para expandir o cerrar"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Los subtextos se muestran</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Los subtextos están ocultos</string>
     <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
+    <string name="revanced_miniplayer_hide_title_title">Ocultar título y canal</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastre horizontal desactivado</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Gesto de arrastre horizontal habilitado
 
@@ -1864,7 +1869,7 @@ Mantén pulsado para establecer la velocidad de reproducción en 1.0x"</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostrar botón de diálogo de velocidad</string>
     <string name="revanced_overlay_button_speed_dialog_type_title">Tipo de diálogo de velocidad</string>
     <string name="revanced_overlay_button_vot_summary">Mostrar botón de superposición para alternar la traducción de voz en el video actual</string>
-    <string name="revanced_overlay_button_vot_title">Traductor De Voz activado</string>
+    <string name="revanced_overlay_button_vot_title">Traductor De Voz</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Toque para abrir el diálogo de la lista blanca
 Toque y mantenga presionado para abrir el diálogo de configuración de la lista blanca</string>
     <string name="revanced_overlay_button_whitelist_title">Mostrar botón de lista blanca</string>
@@ -2092,9 +2097,9 @@ Mantén pulsado para abrir la configuración de YouTube"</string>
     <string name="revanced_restart_first_run">Reiniciar para cargar la configuración</string>
     <string name="revanced_restart_title">Reinicio requerido</string>
     <string name="revanced_restore_old_settings_menus_title">Restaurar antigua pantalla de configuración de YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Corrige que no se muestren los 'No me gusta' y que no se puedan ocultar los botones de acción de vídeo
+    <string name="revanced_restore_old_video_action_bar_summary">"Corrige que no se puedan ocultar los botones de acción de vídeo
 
-Limitaciones: Vuelve al antiguo estilo de superposición de 'Más vídeos'"</string>
+Limitación: Vuelve al antiguo estilo de superposición de 'Más vídeos'"</string>
     <string name="revanced_restore_old_video_action_bar_title">Restaurar antigua barra de acciones de vídeo</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">No se utiliza el antiguo diseño del reproductor</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Se utiliza el antiguo diseño del reproductor
@@ -2407,6 +2412,7 @@ Puede que no funcione si:
     <string name="revanced_settings_import_success">Ajustes importados: %d</string>
     <string name="revanced_settings_import_summary">Importa los ajustes desde un archivo guardado</string>
     <string name="revanced_settings_import_title">Importar ajustes</string>
+    <string name="revanced_settings_navigate_up">Navegar hacia arriba</string>
     <string name="revanced_settings_reset">Restablecer</string>
     <string name="revanced_settings_reset_color">Restablecer color</string>
     <string name="revanced_settings_search_clear_history">Borrar historial de búsqueda</string>
@@ -2425,6 +2431,7 @@ Puede que no funcione si:
     <string name="revanced_settings_search_no_results_summary">Prueba con otra palabra clave</string>
     <string name="revanced_settings_search_no_results_title">No se encontraron resultados para «%s»</string>
     <string name="revanced_settings_search_recent_searches">Búsquedas recientes</string>
+    <string name="revanced_settings_search_remove">Eliminar del historial de búsqueda</string>
     <string name="revanced_settings_search_remove_message">¿Eliminar del historial de búsqueda?</string>
     <string name="revanced_settings_search_tips_summary">"• Pulsa una ruta para navegar a ella
 • Mantén pulsado un ajuste para navegar a él
@@ -2779,7 +2786,7 @@ Se requiere autorización para solicitar la traducción con voces en vivo para l
     <string name="revanced_vot_original_audio_volume_summary">Volumen del audio original de YouTube mientras se reproduce la traducción</string>
     <string name="revanced_vot_original_audio_volume_title">Volumen de audio original</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">El vídeo sigue reproduciéndose mientras se prepara la traducción</string>
-    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Los vídeos nuevos empiezan en pausa y se reanudan cuando el audio traducido está listo</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">El vídeo se pausa cuando se solicita la traducción y se reanuda cuando el audio traducido está listo</string>
     <string name="revanced_vot_pause_video_while_preparing_translation_title">Pausa el vídeo mientras preparas la traducción</string>
     <string name="revanced_vot_playback_error">No se pudo reproducir el audio de traducción</string>
     <string name="revanced_vot_proxy_url_fetch_failed">No se ha conseguido recuperar el host proxy de trabajadores VOT</string>

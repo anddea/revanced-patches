@@ -17,6 +17,7 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="gms_core_dialog_open_website_text">Veb saytı aç</string>
     <string name="gms_core_dialog_title">Fəaliyyət lazımdır</string>
     <string name="gms_core_toast_not_installed_message">MicroG quraşdırılmayıb. Onu quraşdır</string>
+    <string name="morphe_ads_channel_whitelist_title">Kanal reklamı ağ siyahısı</string>
     <string name="morphe_aislist_submit_already_blocklisted">Bu kanal artıq AiSList bloklama siyahısındadır</string>
     <string name="morphe_aislist_submit_already_warnlisted">Bu kanal artıq AiSList xəbərdarlıq siyahısındadır</string>
     <string name="morphe_aislist_submit_category_title">Süni intellekt kanallarını bildir</string>
@@ -180,6 +181,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com istifadə edir</string>
     <string name="morphe_replace_music_with_youtube_title">Paylaşma keçidlərini youtube.com-a dəyişdir</string>
+    <string name="morphe_restore_old_player_buttons_summary">Qalın video oynadıcı tənzimləyicilərin köhnə, daha nazik görüntü üslubuna qaytarır</string>
+    <string name="morphe_restore_old_player_buttons_title">Köhnə oynadıcı düymə üslubunu bərpa et</string>
     <string name="morphe_sanitize_sharing_links_summary_off">İzlənmə sorğusu faktoru paylaşılan linklərdən silinmir</string>
     <string name="morphe_sanitize_sharing_links_summary_on">İzlənmə sorğusu faktoru paylaşılan linklərdən silinir</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım keçidlərin təmizlə</string>
@@ -205,7 +208,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_settings_name_title">RVX tənzimləmələrinin adı</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Rəng</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Saya</string>
-    <string name="morphe_splash_screen_animation_style_title">Sıçrama ekranı üslubu</string>
+    <string name="morphe_splash_screen_animation_style_title">Başlanğıc animasiyası</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Oynatma 1 saniyə tez bitə bilər</string>
     <string name="morphe_spoof_video_streams_about_js">• Deobfuscation pozularsa, oynatma uğursuz ola bilər</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'Audio Trek\' menyusu çatışmır</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
@@ -875,6 +879,7 @@ Genişləndirmək və ya bağlamaq üçün sürüşdürün"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Alt mətnlər göstərilir</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Alt mətnlər gizlədilir</string>
     <string name="revanced_miniplayer_hide_subtext_title">Alt mətnləri gizlət</string>
+    <string name="revanced_miniplayer_hide_title_title">Başlığı və kanalı gizlət</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Üfüqi sürükləmə jesti qapatıldı</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Üfüqi sürükləmə jesti aktivdir
 
@@ -943,9 +948,9 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">İzləyici ehtiyat pəncərəsin çıxart</string>
     <string name="revanced_restart_first_run">Tənzimləməni bitirmək üçün yenidən başlat</string>
     <string name="revanced_restore_old_settings_menus_title">Köhnə YouTube ayarları görünüşün bərpa et</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Bəyənməmələrin görünməməsini və video fəaliyyət düymələrinin gizlədilə bilməməsini düzəldir
+    <string name="revanced_restore_old_video_action_bar_summary">"Video fəaliyyət düymələrinin gizlədilə bilməməsini düzəldir
 
-Məhdudiyyət: \"Daha çox video\" örtüyünü köhnə üsluba qaytarır"</string>
+Məhdudiyyət: Köhnə üslub üçün \"Daha çox video\" örtüyünə qayıdır"</string>
     <string name="revanced_restore_old_video_action_bar_title">Köhnə video fəaliyyət cizgisin bərpa et</string>
     <string name="revanced_ryd_attribution_summary">"Məlumat Return YouTube Dislike API tərəfindən təmin olunur
 
@@ -1168,6 +1173,7 @@ Artıq mövcuddur"</string>
     <string name="revanced_settings_import_copy">Köçür</string>
     <string name="revanced_settings_import_reset">RVX tənzimləmələr standarta təyin olundu</string>
     <string name="revanced_settings_import_success">%d tənzimləmə idxal olundu</string>
+    <string name="revanced_settings_navigate_up">Yuxarı keç</string>
     <string name="revanced_settings_reset">Sıfırla</string>
     <string name="revanced_settings_reset_color">Rəngi sıfırla</string>
     <string name="revanced_settings_search_clear_history">Axtarış tarixçəsini təmizlə</string>
@@ -1180,6 +1186,7 @@ Artıq mövcuddur"</string>
     <string name="revanced_settings_search_no_results_summary">Başqa açar sözü yoxla</string>
     <string name="revanced_settings_search_no_results_title">‘%s’ üçün nəticə tapılmadı</string>
     <string name="revanced_settings_search_recent_searches">Son axtarışlar</string>
+    <string name="revanced_settings_search_remove">Axtarış tarixçəsindən sil</string>
     <string name="revanced_settings_search_remove_message">Axtarış tarixçəsindən silinsin?</string>
     <string name="revanced_settings_search_tips_summary">"• Onu tənzimləmək üçün keçidə toxun
 • Ona keçmək üçün tənzimləməni uzun basın

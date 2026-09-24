@@ -20,6 +20,7 @@ Appuyez sur le bouton 'Continuer' et autorisez la modification des optimisations
     <string name="gms_core_settings_summary">Pour recevoir les notifications de RVX, activez la messagerie cloud</string>
     <string name="gms_core_settings_title">Ouvrir les paramètres GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG n\'est pas installé. Installez-le</string>
+    <string name="morphe_ads_channel_whitelist_title">Liste blanche des publicités des chaînes</string>
     <string name="morphe_aislist_submit_already_blocklisted">Cette chaîne est déjà sur la liste de blocage d\'AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Cette chaîne est déjà sur la liste d\'avertissement d\'AiSList</string>
     <string name="morphe_aislist_submit_category_title">Signaler les chaînes IA</string>
@@ -203,6 +204,8 @@ Pour utiliser cette fonctionnalité, désactivez l'option \'Flux vidéo fictifs�
     <string name="morphe_replace_music_with_youtube_summary_off">Les liens partagés utilisent music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Les liens partagés utilisent youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Changer les liens de partage vers youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Rétablit les commandes du lecteur vidéo en gras vers l\'ancien style visuel plus fin</string>
+    <string name="morphe_restore_old_player_buttons_title">Restaurer l\'ancien style de bouton du lecteur</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Le paramètre de suivi n\'est pas supprimé des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Le paramètre de suivi est supprimé des liens partagés</string>
     <string name="morphe_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
@@ -228,7 +231,8 @@ Pour utiliser cette fonctionnalité, désactivez l'option \'Flux vidéo fictifs�
     <string name="morphe_settings_name_title">Nom des paramètres de RVX</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Coloré</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monochrome</string>
-    <string name="morphe_splash_screen_animation_style_title">Style de l\'écran de lancement</string>
+    <string name="morphe_splash_screen_animation_style_title">Animation de démarrage</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• La lecture peut se terminer 1 seconde plus tôt</string>
     <string name="morphe_spoof_video_streams_about_js">• Si la désobfuscation échoue, la lecture peut échouer</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Le menu \'Piste Audio\' est manquant</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Aucun codec vidéo AV1</string>
@@ -380,8 +384,8 @@ Si activé, les URL des vidéos seront envoyées au serveur de l'API, et aucune 
 Appuyez ici pour ouvrir DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL de l\'API DeArrow invalide</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">L\'URL du point de connexion au cache des miniatures DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_title">Point de connexion à l\'API DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_summary">L\'URL du point de terminaison au cache des miniatures DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_title">Point de terminaison à l\'API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Message toast non affiché si DeArrow n\'est pas disponible</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Message toast affiché si DeArrow n\'est pas disponible</string>
     <string name="revanced_alt_thumbnail_dearrow_error">DeArrow est temporairement indisponible (statut : %s)</string>
@@ -1764,6 +1768,7 @@ Balayez pour développer ou fermer"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Les sous-textes sont affichés</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Les sous-textes sont masqués</string>
     <string name="revanced_miniplayer_hide_subtext_title">Masquer les sous-textes</string>
+    <string name="revanced_miniplayer_hide_title_title">Masquer le titre et la chaîne</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Le geste de glissement horizontal est désactivé</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Le geste de glissement horizontal est activé
 
@@ -2091,9 +2096,9 @@ Appuyez longuement pour ouvrir les paramètres YouTube"</string>
     <string name="revanced_restart_first_run">Redémarrez pour terminer la configuration</string>
     <string name="revanced_restart_title">Redémarrage requis</string>
     <string name="revanced_restore_old_settings_menus_title">Restaurer les anciens menus de paramètres de YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"Corrige le problème des je n'aime pas non affichés et des boutons d'actions de la vidéo qui ne peuvent pas être masqués
+    <string name="revanced_restore_old_video_action_bar_summary">"Corrige l'impossibilité de masquer les boutons d'action vidéo
 
-Limitation : Rétablit l'ancien style d'overlay 'Plus de vidéos'"</string>
+Limitation : Rétablit l'ancien style de l'overlay 'Plus de vidéos'"</string>
     <string name="revanced_restore_old_video_action_bar_title">Restaurer l\'ancienne barre d\'actions vidéo</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">L\'ancienne mise en page du lecteur n\'est pas utilisée</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"L'ancienne mise en page du lecteur est utilisée
@@ -2406,6 +2411,7 @@ Elle peut ne pas fonctionner dans les cas suivants :
     <string name="revanced_settings_import_success">%d paramètres importés</string>
     <string name="revanced_settings_import_summary">Importer les paramètres depuis un fichier enregistré</string>
     <string name="revanced_settings_import_title">Importer les paramètres</string>
+    <string name="revanced_settings_navigate_up">Revenir en haut</string>
     <string name="revanced_settings_reset">Réinitialiser</string>
     <string name="revanced_settings_reset_color">Réinitialiser la couleur</string>
     <string name="revanced_settings_search_clear_history">Effacer l\'historique de recherche</string>
@@ -2424,6 +2430,7 @@ Elle peut ne pas fonctionner dans les cas suivants :
     <string name="revanced_settings_search_no_results_summary">Essayez un autre mot-clé</string>
     <string name="revanced_settings_search_no_results_title">Aucun résultat trouvé pour \"%s\"</string>
     <string name="revanced_settings_search_recent_searches">Recherches récentes</string>
+    <string name="revanced_settings_search_remove">Supprimer de l\'historique de recherche</string>
     <string name="revanced_settings_search_remove_message">Supprimer de l\'historique de recherche ?</string>
     <string name="revanced_settings_search_tips_summary">"• Appuyez sur un chemin pour y naviguer
 • Maintenez un paramètre enfoncé pour l'ouvrir
