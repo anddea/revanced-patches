@@ -1,0 +1,64 @@
+package app.morphe.extension.youtube.patches.voiceovertranslation;
+
+import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.shared.VideoInformation;
+import app.morphe.extension.shared.utils.Utils;
+
+import java.util.concurrent.atomic.*;
+
+class YandexPauseBoundaries {
+    static String pendingVideoId = "a";
+    static AtomicLong translationRequestGeneration = new AtomicLong(1);
+    static AtomicBoolean isTranslating = new AtomicBoolean();
+    static boolean shortsPlaybackPaused, active;
+    static int clears, notified, requests, toggles;
+    static long requestGeneration;
+
+    static void clearTranslationRequestProgress() {
+        clears++;
+    }
+
+    static void notifyTranslationStateChanged() {
+        notified++;
+    }
+
+    static void requestTranslation(
+            String id,
+            String title,
+            String source,
+            String target,
+            double duration,
+            long generation,
+            VotAudioUploadState state) {
+        if (state == null) throw new AssertionError("Missing request state");
+        requests++;
+        requestGeneration = generation;
+    }
+
+    static boolean isTranslationActive() {
+        return active;
+    }
+
+    static boolean isTranslationRequestInProgress() {
+        return isTranslating.get();
+    }
+
+    static void toggleTranslation() {
+        toggles++;
+    }
+
+    static class VotAudioUploadState {}
+
+    static class RootView {
+        static boolean shorts;
+
+        static boolean isShortsActive() {
+            return shorts;
+        }
+    }
+
+}
+
+public class YandexPauseMethods extends YandexPauseBoundaries {
+    // PRODUCTION_METHODS
+}

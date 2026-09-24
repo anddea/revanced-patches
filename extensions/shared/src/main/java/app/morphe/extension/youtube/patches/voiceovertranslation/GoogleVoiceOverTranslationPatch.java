@@ -2,9 +2,13 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
- * Portions of this file are modified by COOLak:
  * Copyright (C) 2026 anddea
  * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - Morphe (https://github.com/MorpheApp)
+ * - anddea (https://github.com/anddea)
+ * - COOLak (https://github.com/COOLak)
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
  */
@@ -388,6 +392,7 @@ public class GoogleVoiceOverTranslationPatch {
 
         if (!Settings.GOOGLE_VOT_ENABLED.get() || !sessionEnabled) return;
         if (PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL) return;
+        TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, videoId);
         TtsPrefetcher.updateVideo(videoId, segments);
         loadTranscript(videoId);
 
@@ -563,6 +568,21 @@ public class GoogleVoiceOverTranslationPatch {
         }
     }
 
+    /** Re-prepare the selected engine at the current position without reopening the video. */
+    public static void onVoiceChanged() {
+        Utils.verifyOnMainThread();
+        clearNativeStartupAudio();
+        stopTts();
+        lastSpokenIndex = -1;
+        resetPlaybackState();
+        if (!sessionEnabled || currentVideoId.isEmpty()) return;
+        TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
+        TtsPrefetcher.updateVideo(currentVideoId, segments);
+        TtsPrefetcher.updateTime(Math.max(0, VideoInformation.getVideoTime()));
+        checkStartupReady();
+        notifyStateChanged();
+    }
+
     /** Stops any in-progress TTS without changing session state. */
     public static void interruptSpeech() {
         Utils.verifyOnMainThread();
@@ -601,16 +621,21 @@ public class GoogleVoiceOverTranslationPatch {
     public static void reloadTranscript() {
         Utils.verifyOnMainThread();
         if (currentVideoId.isEmpty()) return;
+        transcriptGeneration++;
+        clearNativeStartupAudio();
         stopTts();
+        TtsPrefetcher.clear();
+        if (sessionEnabled) TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
         segments = new ArrayList<>();
         updateTranslationActiveCache();
         lastSpokenIndex = -1;
         // Without this, in-flight onUpdate callbacks for the old language would restore
         // stale segments after we cleared them.
         TranscriptTranslator.requestAbort();
-        if (!isLoading) {
+        if (sessionEnabled && !isLoading) {
             loadTranscript(currentVideoId);
         }
+        notifyStateChanged();
     }
 
     /** Registers a callback fired whenever toggle/load state changes (used by the player button UI). */

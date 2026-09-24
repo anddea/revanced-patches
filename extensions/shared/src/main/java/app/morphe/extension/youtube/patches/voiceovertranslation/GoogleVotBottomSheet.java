@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Original author(s):
+ * - Morphe (https://github.com/MorpheApp)
+ * - COOLak (https://github.com/COOLak)
+ *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
  */
 
@@ -455,8 +459,7 @@ public final class GoogleVotBottomSheet {
                 Settings.GOOGLE_VOT_USE_NATIVE_TTS.save(false);
                 Settings.GOOGLE_VOT_TTS_VOICE_TYPE.save(value);
             }
-            GoogleVoiceOverTranslationPatch.resetPlaybackState();
-            GoogleVoiceOverTranslationPatch.interruptSpeech();
+            GoogleVoiceOverTranslationPatch.onVoiceChanged();
             GoogleVotBottomSheet.show(context);
             pickerDialog.dismiss();
         });
