@@ -69,8 +69,14 @@ internal fun injectOnBackPressedMethodCall(classDescriptor: String, methodDescri
         onBackPressedMethodIndex
     )
 
+/**
+ * Injects into the current onCreate method.
+ *
+ * Some patches rebuild the main activity method list while changing its class hierarchy, which
+ * invalidates the method reference captured by [baseMainActivityResolvePatch].
+ */
 internal fun injectOnCreateMethodCall(classDescriptor: String, methodDescriptor: String) =
-    onCreateMethod.injectMethodCall(classDescriptor, methodDescriptor)
+    getMainActivityMethod("onCreate").injectMethodCall(classDescriptor, methodDescriptor)
 
 internal fun getMainActivityMethod(methodDescriptor: String) =
     mainActivityMutableClass.methods.find { method -> method.name == methodDescriptor }

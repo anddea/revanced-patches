@@ -5,6 +5,7 @@ import static app.morphe.extension.music.utils.ExtendedUtils.getLayoutParams;
 import static app.morphe.extension.shared.utils.StringRef.str;
 
 import android.app.Activity;
+import android.text.InputType;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.utils.Logger;
 
@@ -21,6 +23,11 @@ public class ResettableEditTextPreference {
         try {
             final EditText textView = new EditText(mActivity);
             textView.setText(setting.get());
+            if (setting.equals(Settings.HIDE_ACCOUNT_MENU_FILTER_STRINGS)
+                    || setting.equals(Settings.CUSTOM_FILTER_STRINGS)
+                    || setting.equals(Settings.CUSTOM_PLAYBACK_SPEEDS)) {
+                textView.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+            }
 
             TextInputLayout textInputLayout = new TextInputLayout(mActivity);
             textInputLayout.setLayoutParams(getLayoutParams());

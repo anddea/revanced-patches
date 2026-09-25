@@ -1,3 +1,44 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ * - inotia00 (https://github.com/inotia00)
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.music.patches.general;
 
 import static app.morphe.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
@@ -14,8 +55,10 @@ import android.widget.LinearLayout;
 import org.apache.commons.lang3.StringUtils;
 
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.music.utils.ExtendedUtils;
+import app.morphe.extension.shared.patches.CustomBrandingPatch;
 import app.morphe.extension.shared.utils.PackageUtils;
-import app.morphe.extension.shared.utils.ResourceUtils;
+import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class GeneralPatch {
@@ -25,7 +68,8 @@ public class GeneralPatch {
             Settings.SPOOF_APP_VERSION_TARGET.get();
     private static final boolean SPOOF_APP_VERSION_WATCH_NEXT_ENDPOINT =
             SPOOF_APP_VERSION &&
-                    PackageUtils.isVersionToLessThan(SPOOF_APP_VERSION_TARGET, "7.17.00");
+                    (!ExtendedUtils.IS_8_00_OR_GREATER ||
+                            PackageUtils.isVersionToLessThan(SPOOF_APP_VERSION_TARGET, "7.17.00"));
     private static final boolean SPOOF_APP_VERSION_FOR_LYRICS =
             Settings.SPOOF_APP_VERSION_FOR_LYRICS.get();
     private static final String SPOOF_APP_VERSION_FOR_LYRICS_TARGET =
@@ -38,11 +82,7 @@ public class GeneralPatch {
     // region [Change header] patch
 
     public static int getHeaderDrawableId(int original) {
-        final int headerId = ResourceUtils.getDrawableIdentifier("action_bar_logo");
-
-        return headerId == 0
-                ? original
-                : headerId;
+        return CustomBrandingPatch.getMusicHeaderDrawableId(original);
     }
 
     // endregion
@@ -57,8 +97,13 @@ public class GeneralPatch {
 
     // region [Enable landscape mode] patch
 
+    /**
+     * Overrides form-factor checks only while the current activity is in landscape orientation.
+     * Keeping the original result in portrait prevents the landscape layout from changing the
+     * vertical player layout and clipping the queue section below it.
+     */
     public static boolean enableLandScapeMode(boolean original) {
-        return Settings.ENABLE_LANDSCAPE_MODE.get() || original;
+        return original || (Settings.ENABLE_LANDSCAPE_MODE.get() && Utils.isLandscapeOrientation());
     }
 
     // endregion
@@ -161,7 +206,7 @@ public class GeneralPatch {
         }
 
         // This method is called after AlertDialog#show(),
-        // So we need to hide the AlertDialog before pressing the possitive button.
+        // So we need to hide the AlertDialog before pressing the positive button.
         final Window window = dialog.getWindow();
         final Button button = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
         if (window != null && button != null) {
@@ -209,6 +254,16 @@ public class GeneralPatch {
                 : version;
     }
 
+    public static String getBrowseVersionOverride(String browseId) {
+        if (spoofLyricsAppVersionEnabled(browseId)) {
+            return SPOOF_APP_VERSION_FOR_LYRICS_TARGET;
+        }
+        if (SPOOF_APP_VERSION) {
+            return SPOOF_APP_VERSION_TARGET;
+        }
+        return null;
+    }
+
     private static boolean spoofLyricsAppVersionEnabled(String browseId) {
         return SPOOF_APP_VERSION_FOR_LYRICS &&
                 StringUtils.isNotEmpty(browseId) &&
@@ -218,7 +273,7 @@ public class GeneralPatch {
     public static String getLyricsVersionOverride(String browseId) {
         return spoofLyricsAppVersionEnabled(browseId)
                 ? SPOOF_APP_VERSION_FOR_LYRICS_TARGET
-                : PackageUtils.getAppVersionName();
+                : null;
     }
 
     // endregion

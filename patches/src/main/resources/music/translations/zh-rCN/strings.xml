@@ -17,6 +17,14 @@
     <string name="gms_core_settings_summary">要在 RVX Music 中接收通知，请启用云消息传递。</string>
     <string name="gms_core_settings_title">打开 GmsCore 设置</string>
     <string name="gms_core_toast_not_installed_message">MicroG 未安装。请先安装。</string>
+    <string name="morphe_app_refresh_rate_default">默认</string>
+    <string name="morphe_app_refresh_rate_fps">%s 帧/秒</string>
+    <string name="morphe_app_refresh_rate_title">应用刷新率</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">始终</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">竖屏播放</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">全屏播放</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">竖屏和全屏播放</string>
+    <string name="morphe_app_refresh_rate_type_title">覆盖刷新率</string>
     <string name="morphe_crossfade_duration_10000ms">10 秒</string>
     <string name="morphe_crossfade_duration_1000ms">1 秒</string>
     <string name="morphe_crossfade_duration_11000ms">11 秒</string>
@@ -32,15 +40,29 @@
     <string name="morphe_crossfade_duration_750ms">750 毫秒</string>
     <string name="morphe_crossfade_duration_8000ms">8 秒</string>
     <string name="morphe_crossfade_duration_9000ms">9 秒</string>
+    <string name="morphe_custom_branding_icon_title">应用图标</string>
+    <string name="morphe_custom_branding_name_title">应用名称</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC 音频已启用</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC 音频已禁用</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC协议已启用</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC协议已禁用</string>
-    <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除 Android Studio 之外的任何客户端</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">如果不起作用，请尝试强制关闭 MicroG</string>
+    <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除“Android Studio”和“Android VR 降级”之外的任何客户端</string>
     <string name="morphe_force_original_audio_summary">始终播放视频的原始音频轨道，而不是配音版本</string>
     <string name="morphe_force_original_audio_summary_off">正在使用默认音频</string>
     <string name="morphe_force_original_audio_summary_on">使用原始音频语言</string>
     <string name="morphe_force_original_audio_title">强制使用原始音频语言</string>
+    <string name="morphe_music_apple_music_token_dialog_instruction">"粘贴来自 music.apple.com 的 media-user-token cookie
+
+步骤：
+1. 在 music.apple.com 以会员用户身份登录
+2. 打开 DevTools → 应用程序 → Cookie → music.apple.com
+3. 复制 \"media-user-token\" 的值"</string>
+    <string name="morphe_music_apple_music_token_title">Apple Music 媒体用户令牌</string>
+    <string name="morphe_music_apple_music_token_toast_cleared">Apple Music：media-user-token 已清除</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music：media-user-token 无效——请检查后重试</string>
+    <string name="morphe_music_apple_music_token_toast_saved">Apple Music：media-user-token 已保存</string>
+    <string name="morphe_music_apple_token_optional_hint">Apple Music 令牌是可选的。没有它时，将使用 Lyrically 作为后备方案。</string>
     <string name="morphe_music_crossfade_about_best_summary">正常的歌曲播放和自动前进、单曲循环（歌曲淡入淡出到自身）、本地音频——手机扬声器、有线耳机、蓝牙或 USB。</string>
     <string name="morphe_music_crossfade_about_best_title">最佳使用场景</string>
     <string name="morphe_music_crossfade_about_credit_summary">交叉淡入功能由 VazerOG 提供</string>
@@ -88,30 +110,166 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_music_crossfade_session_control_summary">长按播放列表按钮可暂停或恢复淡入淡出效果</string>
     <string name="morphe_music_crossfade_session_control_title">会话控制</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">启用交叉淡入时，视频模式不可用</string>
-    <string name="morphe_music_lyrics_about_summary">"歌词通过曲目标题和艺术家查找，因此元数据不寻常的曲目可能找不到任何内容，或者找到错误的版本
+    <string name="morphe_music_deezer_arl_dialog_instruction">"粘贴来自 Deezer 的 arl cookie。
 
-同步歌词跟随播放。如果它们漂移，请调整时间偏移
+步骤：
+1. 在 deezer.com 登录
+2. 打开 DevTools → 应用程序 → Cookie → deezer.com
+3. 复制 \"arl\" 的值"</string>
+    <string name="morphe_music_deezer_arl_title">Deezer ARL</string>
+    <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl 已清除</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer：arl 无效——请检查后重试</string>
+    <string name="morphe_music_deezer_arl_toast_saved">Deezer：arl 已保存</string>
+    <string name="morphe_music_downloads_actions_for">%s 的操作</string>
+    <string name="morphe_music_downloads_all_deleted">下载已删除</string>
+    <string name="morphe_music_downloads_already_running">下载已在进行中</string>
+    <string name="morphe_music_downloads_already_saved">已下载</string>
+    <string name="morphe_music_downloads_close">关闭</string>
+    <string name="morphe_music_downloads_complete">下载完成</string>
+    <string name="morphe_music_downloads_delete">删除</string>
+    <string name="morphe_music_downloads_delete_all">删除所有下载</string>
+    <string name="morphe_music_downloads_delete_all_message">所有下载的曲目将从本设备删除</string>
+    <string name="morphe_music_downloads_delete_all_title">删除所有下载？</string>
+    <string name="morphe_music_downloads_delete_track">删除下载</string>
+    <string name="morphe_music_downloads_delete_track_message">%s 将从本设备删除</string>
+    <string name="morphe_music_downloads_delete_track_title">删除下载？</string>
+    <string name="morphe_music_downloads_empty">"没有下载
+下载的曲目将显示在此处"</string>
+    <string name="morphe_music_downloads_failed">下载失败</string>
+    <string name="morphe_music_downloads_next">下一步</string>
+    <string name="morphe_music_downloads_nothing_found">未找到任何内容</string>
+    <string name="morphe_music_downloads_notification_channel">音频下载</string>
+    <string name="morphe_music_downloads_pause">暂停</string>
+    <string name="morphe_music_downloads_play">播放</string>
+    <string name="morphe_music_downloads_play_failed">无法播放下载</string>
+    <string name="morphe_music_downloads_play_pause">播放或暂停</string>
+    <string name="morphe_music_downloads_playback_channel">离线播放</string>
+    <string name="morphe_music_downloads_previous">上一个</string>
+    <string name="morphe_music_downloads_progress">正在下载 %s%%</string>
+    <string name="morphe_music_downloads_screen_title">下载</string>
+    <string name="morphe_music_downloads_search_hint">搜索下载</string>
+    <string name="morphe_music_downloads_sort">排序</string>
+    <string name="morphe_music_downloads_sort_artist">按艺术家排序</string>
+    <string name="morphe_music_downloads_sort_size">按大小排序</string>
+    <string name="morphe_music_downloads_sort_title">按标题排序</string>
+    <string name="morphe_music_downloads_started">下载已开始</string>
+    <string name="morphe_music_downloads_starting">正在开始下载…</string>
+    <string name="morphe_music_downloads_summary">%1$s 首曲目 • %2$s MB</string>
+    <string name="morphe_music_downloads_track_delete_failed">无法删除下载</string>
+    <string name="morphe_music_downloads_track_deleted">下载已删除</string>
+    <string name="morphe_music_downloads_track_subtitle">%1$s • %2$s • %3$s MB</string>
+    <string name="morphe_music_downloads_unknown_track">无法识别要下载的曲目</string>
+    <string name="morphe_music_in_app_downloads_summary">在 YouTube Music 内下载音频，而不是打开外部下载应用</string>
+    <string name="morphe_music_in_app_downloads_title">在应用内下载</string>
+    <string name="morphe_music_in_app_downloads_user_dialog_message">"曲目保存在应用的私有存储中，如果卸载 YouTube Music，这些曲目将被删除。
 
-如果没有找到第三方歌词，则会显示内置歌词"</string>
+开启此选项后，“下载”标签页将列出这些曲目，而不是 Music Premium 离线曲库。关闭此选项可恢复该标签页，Premium 下载内容绝不会受到影响。"</string>
+    <string name="morphe_music_lyrics_about_summary">"歌词根据标题和艺术家进行匹配，异常的元数据可能导致找不到结果或匹配到错误的版本。使用刷新以切换版本。标有 * 的提供程序需要令牌。并非所有已启用的提供程序都会按您的顺序被请求，而是根据其速度进行响应。"</string>
     <string name="morphe_music_lyrics_about_title">关于第三方歌词</string>
+    <string name="morphe_music_lyrics_ai_config_api_token_hint">API 密钥（留空以匿名访问）</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_hint">API 端点 URL（例如 https://text.pollinations.ai/openai）</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">配置用于 AI 歌词翻译和音译的 OpenAI 兼容 API 端点。</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">AI 翻译设置</string>
+    <string name="morphe_music_lyrics_ai_config_model_hint">模型名称（例如 openai-fast、gpt-4o-mini）</string>
+    <string name="morphe_music_lyrics_ai_config_status_configured">已配置</string>
+    <string name="morphe_music_lyrics_ai_config_status_empty_model">模型名称不能为空</string>
+    <string name="morphe_music_lyrics_ai_config_status_empty_url">基础 URL 不能为空</string>
+    <string name="morphe_music_lyrics_ai_config_status_invalid_url">基础 URL 必须以 http:// 或 https:// 开头</string>
+    <string name="morphe_music_lyrics_ai_config_status_not_configured">点击配置</string>
+    <string name="morphe_music_lyrics_ai_config_status_validating">正在验证连接…</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">无法连接到 AI 端点。请检查您的设置。</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">AI 翻译设置已重置</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">AI 翻译设置已保存</string>
     <string name="morphe_music_lyrics_copied">复制到剪贴板</string>
+    <string name="morphe_music_lyrics_credit_line_regex_summary">如果歌词被错误地过滤到底部，请调整或清除此项。以逗号分隔的标记：包含标记且后跟冒号的行会作为署名信息显示在底部。留空以禁用</string>
+    <string name="morphe_music_lyrics_credit_line_regex_title">信息行标记</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">在查找歌词之前应用于曲目标题、艺人和专辑的正则表达式。留空以禁用。默认会移除常见干扰内容，如 \"Official Video\"、\"Remaster\" 和 \"- Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_title">元数据正则表达式</string>
+    <string name="morphe_music_lyrics_display_artist_first_summary">在迷你播放器和媒体通知卡片中切换艺术家和标题的显示顺序。ON“艺术家-标题”和OFF“标题-艺术家”不影响歌词搜索</string>
+    <string name="morphe_music_lyrics_display_artist_first_title">艺术家和标题显示顺序</string>
     <string name="morphe_music_lyrics_enabled_summary">从第三方服务获取歌词，如果找不到则回退到内置歌词</string>
     <string name="morphe_music_lyrics_enabled_title">使用第三方歌词</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">将同步歌词向前或向后移动。如果歌词超前于歌曲，请使用正值</string>
+    <string name="morphe_music_lyrics_hide_info_summary">隐藏显示在歌词下方的署名行</string>
+    <string name="morphe_music_lyrics_hide_info_title">隐藏署名行</string>
+    <string name="morphe_music_lyrics_hide_played_summary">隐藏当前播放行之上的歌词行</string>
+    <string name="morphe_music_lyrics_hide_played_title">隐藏已播歌词</string>
+    <string name="morphe_music_lyrics_hide_unplayed_summary">隐藏当前播放行之下的歌词行</string>
+    <string name="morphe_music_lyrics_hide_unplayed_title">隐藏未播歌词</string>
+    <string name="morphe_music_lyrics_keep_screen_on_summary">防止在歌词面板打开时屏幕关闭</string>
+    <string name="morphe_music_lyrics_keep_screen_on_title">查看歌词时保持屏幕常亮</string>
+    <string name="morphe_music_lyrics_mediasession_title">在锁屏上显示媒体通知卡片歌词</string>
+    <string name="morphe_music_lyrics_miniplayer_title">显示迷你播放器歌词</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">同步歌词会跟随播放。如果出现偏移，请调整时间偏移。将同步歌词向前或向后移动。如果歌词比歌曲超前，请使用正值</string>
     <string name="morphe_music_lyrics_offset_ms_title">时间偏移</string>
+    <string name="morphe_music_lyrics_refreshed">已刷新</string>
+    <string name="morphe_music_lyrics_refreshing">正在刷新</string>
+    <string name="morphe_music_lyrics_romanize_failed">无法为歌词生成音译</string>
+    <string name="morphe_music_lyrics_romanize_hide">已音译</string>
+    <string name="morphe_music_lyrics_romanized_by_ai">由 %s 音译</string>
+    <string name="morphe_music_lyrics_romanized_by_google">由 Google 提供音译</string>
+    <string name="morphe_music_lyrics_romanizing">正在音译…</string>
+    <string name="morphe_music_lyrics_saved">已保存</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">点按以纯文本形式复制原始歌词；长按将原始歌词源文件保存到“下载”文件夹</string>
     <string name="morphe_music_lyrics_show_copy_button_title">显示复制按钮</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">点按可切换至下一个歌词候选项；长按可暂时禁用第三方歌词并显示原生歌词</string>
+    <string name="morphe_music_lyrics_show_refresh_button_title">显示刷新按钮</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">使用提供商音译、Google 翻译或兼容 OpenAI 的 API 将歌词音译</string>
+    <string name="morphe_music_lyrics_show_romanize_button_title">显示音译按钮</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">使用提供商翻译、Google 翻译或兼容 OpenAI 的 API 翻译歌词</string>
     <string name="morphe_music_lyrics_show_translate_button_title">显示翻译按钮</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB，然后是酷狗</string>
+    <string name="morphe_music_lyrics_source_all_disabled">所有提供程序均已禁用 — 内置歌词与内嵌歌词</string>
     <string name="morphe_music_lyrics_source_label">来源：%s</string>
+    <string name="morphe_music_lyrics_source_reset_message">将提供程序恢复为默认优先级顺序</string>
+    <string name="morphe_music_lyrics_source_reset_title">重置提供程序顺序？</string>
     <string name="morphe_music_lyrics_source_title">歌词服务</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">开启时，音译在歌词下方、翻译在歌词上方；关闭时，音译在歌词上方、翻译在歌词下方</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_title">交换翻译和音译</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">点击一行将跳到歌曲的该时刻</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">点击歌词行以跳转</string>
+    <string name="morphe_music_lyrics_text_filter_summary">仅应用于原始歌词文本的正则表达式（不应用于翻译或音译）。留空以禁用</string>
+    <string name="morphe_music_lyrics_text_filter_title">歌词过滤正则表达式</string>
     <string name="morphe_music_lyrics_text_size_summary">歌词文本的大小</string>
     <string name="morphe_music_lyrics_text_size_title">文本大小</string>
     <string name="morphe_music_lyrics_translate_failed">无法翻译歌词</string>
-    <string name="morphe_music_lyrics_translate_hide">显示原始歌词</string>
-    <string name="morphe_music_lyrics_translate_show">翻译</string>
+    <string name="morphe_music_lyrics_translate_hide">翻译</string>
+    <string name="morphe_music_lyrics_translated_by_ai">由 %s 翻译</string>
+    <string name="morphe_music_lyrics_translated_by_google">由 Google 翻译</string>
     <string name="morphe_music_lyrics_translating">正在翻译…</string>
+    <string name="morphe_music_lyrics_translation_language_title">翻译目标语言</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">使用自定义的 OpenAI 兼容 API 进行翻译和音译，而不是 Google 翻译</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">OpenAI 兼容翻译</string>
+    <string name="morphe_music_lyrics_word_sync_summary">优先考虑可用逐字歌词。当歌词带有时间标志，随着音乐及时高亮每个单词或音节</string>
+    <string name="morphe_music_lyrics_word_sync_title">高亮显示同步的单词或音节</string>
+    <string name="morphe_music_musixmatch_token_dialog_hint">用户令牌</string>
+    <string name="morphe_music_musixmatch_token_dialog_instruction">仅当使用您自己的帐户时才添加令牌。它必须来自 Musixmatch Android 应用：从 musixmatch.com 复制的令牌属于已停用的桌面客户端，API 会拒绝它们</string>
+    <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch 无需令牌即可使用，因此此字段可以留空</string>
+    <string name="morphe_music_musixmatch_token_title">Musixmatch 令牌</string>
+    <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch：用户 token 已清除</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch：用户 token 无效——请检查后重试</string>
+    <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch：用户 token 已保存</string>
+    <string name="morphe_music_spotify_token_dialog_instruction">"粘贴来自 Spotify 的 sp_dc cookie。
+
+步骤：
+1. 在 open.spotify.com 登录
+2. 打开 DevTools → 应用程序 → Cookie → open.spotify.com
+3. 复制 \"sp_dc\" 的值"</string>
+    <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
+    <string name="morphe_music_spotify_token_toast_cleared">Spotify：sp_dc 已清除</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify：sp_dc 无效——请检查后重试</string>
+    <string name="morphe_music_spotify_token_toast_saved">Spotify：sp_dc 已保存</string>
+    <string name="morphe_music_token_dialog_get_token">获取令牌</string>
+    <string name="morphe_music_youtube_cookies_dialog_instruction">"粘贴你的 YouTube Cookie，以从 YouTube 查询字幕和时间文本。
+
+步骤：
+1. 在浏览器中打开 youtube.com 并登录
+2. 打开开发者工具（F12）→ 应用程序 → Cookie → youtube.com
+3. 复制完整的 Cookie 字符串（用分号分隔的 key=value 对）
+
+所需 Cookie：SID、HSID、SSID、SAPISID、__Secure-3PAPISID、__Secure-1PAPISID、LOGIN_INFO"</string>
+    <string name="morphe_music_youtube_cookies_title">YouTube Cookie</string>
+    <string name="morphe_music_youtube_cookies_toast_cleared">YouTube：Cookie 已清除</string>
+    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube：Cookie 无效 — 请检查后重试</string>
+    <string name="morphe_music_youtube_cookies_toast_saved">YouTube：Cookie 已保存</string>
     <string name="morphe_oauth2_connection_failure_auth_error">无法登录 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">无法登录VR，网站认证未批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暂时不可用</string>
@@ -132,6 +290,9 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_settings_menu_filter_picker_empty">打开标准应用设置屏幕一次以填充列表</string>
     <string name="morphe_settings_menu_filter_screen_summary">通过可见名称隐藏标准应用设置屏幕上的项目</string>
     <string name="morphe_settings_menu_filter_screen_title">设置菜单筛选</string>
+    <string name="morphe_settings_name_custom_item_hint">输入名称</string>
+    <string name="morphe_settings_name_empty_warning">名称不能为空</string>
+    <string name="morphe_settings_name_title">RVX 设置名称</string>
     <string name="morphe_spoof_video_streams_client_type_title">默认客户端</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">无法获取任何客户端流</string>
     <string name="morphe_spoof_video_streams_screen_summary">配置客户端欺骗以防止播放问题</string>
@@ -201,6 +362,7 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
     <string name="revanced_change_start_page_summary">选择打开应用显示的页面</string>
     <string name="revanced_change_start_page_title">开始页面</string>
+    <string name="revanced_confirm_user_dialog_title">你确定要继续吗？</string>
     <string name="revanced_credits_title">Credits</string>
     <string name="revanced_custom_filter_strings_summary">用于过滤的组件路径生成器字符串列表，按换行符分隔</string>
     <string name="revanced_custom_filter_strings_title">自定义过滤器</string>
@@ -282,6 +444,8 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
 • 不覆盖弹出菜单或库选项卡中的下载按钮。"</string>
     <string name="revanced_external_downloader_action_title">覆盖下载操作按钮</string>
     <string name="revanced_external_downloader_dialog_title">外部下载器</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">使用您选择的外部下载器代替系统默认的「下载」弹出菜单</string>
+    <string name="revanced_external_downloader_flyout_menu_title">覆盖「下载」菜单</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安装。
 请从网站下载 %2$s。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
@@ -415,6 +579,9 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_hide_terms_container_title">隐藏条款栏</string>
     <string name="revanced_hide_voice_search_button_summary">隐藏搜索栏中的语音搜索按钮</string>
     <string name="revanced_hide_voice_search_button_title">隐藏语音搜索按钮</string>
+    <string name="revanced_icon_custom">自定义</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">使导航栏颜色与全屏播放器匹配</string>
+    <string name="revanced_music_change_navigation_bar_color_title">更改导航栏颜色</string>
     <string name="revanced_preference_screen_account_title">账号</string>
     <string name="revanced_preference_screen_action_bar_title">操作栏</string>
     <string name="revanced_preference_screen_ads_title">广告</string>
@@ -566,6 +733,7 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_settings_import_export_as_text">将设置导入/导出为文本。</string>
     <string name="revanced_settings_import_reset">RVX 设置重置为默认</string>
     <string name="revanced_settings_import_success">导入 %d 个设置</string>
+    <string name="revanced_settings_navigate_up">向上导航</string>
     <string name="revanced_settings_reset">重置</string>
     <string name="revanced_settings_reset_color">重置颜色</string>
     <string name="revanced_settings_search_clear_history">清除搜索历史</string>
@@ -578,6 +746,7 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_settings_search_no_results_summary">尝试其他关键字</string>
     <string name="revanced_settings_search_no_results_title">未找到“%s”的结果</string>
     <string name="revanced_settings_search_recent_searches">最近搜索</string>
+    <string name="revanced_settings_search_remove">从搜索历史记录中移除</string>
     <string name="revanced_settings_search_remove_message">从搜索历史记录中删除？</string>
     <string name="revanced_settings_search_tips_summary">"• 点击路径以导航到该位置
 • 长按设置以导航到该位置

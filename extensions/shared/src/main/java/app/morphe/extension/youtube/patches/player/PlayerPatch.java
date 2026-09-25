@@ -6,7 +6,12 @@ import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.validateValue;
 
 import android.content.Context;
-import android.os.Build;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableWrapper;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.v7.widget.RecyclerView;
@@ -21,14 +26,18 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import java.util.function.Consumer;
 
 import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -37,13 +46,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.IntegerSetting;
+import app.morphe.extension.shared.settings.preference.SeekBarPreference;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.innertube.NextResponseOuterClass.NewElement;
 import app.morphe.extension.youtube.patches.utils.InitializationPatch;
 import app.morphe.extension.youtube.patches.utils.PatchStatus;
+import app.morphe.extension.youtube.patches.video.VideoQualityPatch.VideoQualityInterface;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.settings.YouTubeActivityHook;
 import app.morphe.extension.youtube.shared.EngagementPanel;
 import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.RootView;
@@ -52,7 +64,17 @@ import app.morphe.extension.youtube.utils.VideoUtils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class PlayerPatch {
+    private static final int FULLSCREEN_HIDDEN_Y_OFFSET = 100000;
+
     private static final IntegerSetting quickActionsMarginTopSetting = Settings.QUICK_ACTIONS_TOP_MARGIN;
+
+    private static final int CONTROL_BUTTONS_BACKGROUND_OPACITY =
+            SeekBarPreference.clampToRange(Settings.PLAYER_CONTROL_BUTTONS_BACKGROUND_OPACITY);
+
+    /** At the app default the drawables are left untouched, so the stock look stays exact. */
+    private static final boolean CONTROL_BUTTONS_BACKGROUND_OPACITY_CHANGED =
+            CONTROL_BUTTONS_BACKGROUND_OPACITY
+                    != Settings.PLAYER_CONTROL_BUTTONS_BACKGROUND_OPACITY.defaultValue;
 
     private static final int PLAYER_OVERLAY_OPACITY_LEVEL;
     private static final int QUICK_ACTIONS_MARGIN_TOP;
@@ -92,7 +114,14 @@ public class PlayerPatch {
     private static final int DIVIDER_ATTRIBUTES_COLOR_SYSTEM_DEFAULT = -16777216;
 
     public static boolean bypassAmbientModeRestrictions(boolean original) {
-        return (!Settings.BYPASS_AMBIENT_MODE_RESTRICTIONS.get() && original) || Settings.DISABLE_AMBIENT_MODE.get();
+        return !Settings.BYPASS_AMBIENT_MODE_RESTRICTIONS.get() && original;
+    }
+
+    /**
+     * Disable Ambient mode.
+     */
+    public static boolean disableAmbientMode(boolean original) {
+        return !Settings.DISABLE_AMBIENT_MODE.get() && original;
     }
 
     public static boolean disableAmbientModeInFullscreen() {
@@ -244,7 +273,6 @@ public class PlayerPatch {
         return Settings.DISABLE_HAPTIC_FEEDBACK_ZOOM.get();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void vibrate(Vibrator vibrator, VibrationEffect vibrationEffect) {
         if (disableVibrate()) return;
         vibrator.vibrate(vibrationEffect);
@@ -421,41 +449,57 @@ public class PlayerPatch {
     public static ImageView hideFullscreenButton(ImageView imageView) {
         final boolean hideView = Settings.HIDE_PLAYER_FULLSCREEN_BUTTON.get();
 
-        Utils.hideViewUnderCondition(hideView, imageView);
-        return hideView ? null : imageView;
+        if (!hideView) {
+            if (imageView != null) {
+                Drawable background = imageView.getBackground();
+                if (background != null) {
+                    imageView.setBackground(applyControlButtonsBackgroundOpacity(background));
+                }
+            }
+            return imageView;
+        }
+
+        if (imageView == null) {
+            return null;
+        }
+
+        if (!YouTubeActivityHook.useBoldIcons(true)) {
+            imageView.setVisibility(View.GONE);
+            return null;
+        }
+
+        // Cannot remove the button because the bold overlay player buttons rely on draw updates
+        // to control fade in/out. Move it offscreen instead.
+        imageView.setY(imageView.getY() - FULLSCREEN_HIDDEN_Y_OFFSET);
+        return imageView;
     }
 
     public static boolean hidePreviousNextButton(boolean previousOrNextButtonVisible) {
         return !Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTON.get() && previousOrNextButtonVisible;
     }
 
-    private static final int playerControlPreviousButtonTouchAreaId =
-            ResourceUtils.getIdIdentifier("player_control_previous_button_touch_area");
-    private static final int playerControlNextButtonTouchAreaId =
-            ResourceUtils.getIdIdentifier("player_control_next_button_touch_area");
-
     public static void hidePreviousNextButtons(View parentView) {
         if (!Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTON.get()) {
             return;
         }
 
-        // Must use a deferred call to main thread to hide the button.
-        // Otherwise the layout crashes if set to hidden now.
-        Utils.runOnMainThread(() -> {
-            hideView(parentView, playerControlPreviousButtonTouchAreaId);
-            hideView(parentView, playerControlNextButtonTouchAreaId);
-        });
+        hideView(parentView, "player_control_previous_button_touch_area");
+        hideView(parentView, "player_control_next_button_touch_area");
     }
 
-    private static void hideView(View parentView, int resourceId) {
-        View nextPreviousButton = parentView.findViewById(resourceId);
+    private static void hideView(View parentView, String name) {
+        int resourceId = ResourceUtils.getIdIdentifier(name);
 
-        if (nextPreviousButton == null) {
-            Logger.printException(() -> "Could not find player previous / next button");
-            return;
-        }
+        // Must use a deferred call to the main thread; hiding immediately crashes the layout.
+        Utils.runOnMainThread(() -> {
+            View targetView = parentView.findViewById(resourceId);
+            if (targetView == null) {
+                Logger.printException(() -> "Could not find player button: R.id." + name);
+                return;
+            }
 
-        Utils.hideViewByRemovingFromParentUnderCondition(true, nextPreviousButton);
+            Utils.hideViewByRemovingFromParentUnderCondition(true, targetView);
+        });
     }
 
     public static boolean hideMusicButton() {
@@ -466,26 +510,185 @@ public class PlayerPatch {
      * Injection point.
      */
     public static void hidePlayerControlButtonsBackground(View rootView) {
+        styleControlButtonsBackground(rootView);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void styleControlButtonsBackground(View rootView) {
         try {
-            if (!Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+            // Each button is an ImageView with a background set to another drawable.
+            if (Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                forEachImageViewRecursive(rootView, imageView -> imageView.setBackground(null));
+                stylePillBackgrounds(rootView);
+            } else if (CONTROL_BUTTONS_BACKGROUND_OPACITY_CHANGED) {
+                forEachImageViewRecursive(rootView, imageView -> {
+                    Drawable background = imageView.getBackground();
+                    if (background != null) {
+                        imageView.setBackground(applyControlButtonsBackgroundOpacity(background));
+                    }
+                });
+
+                stylePillBackgrounds(rootView);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "styleControlButtonsBackground failure", ex);
+        }
+
+    }
+
+    /**
+     * Bottom overlay views that carry the same background as the control buttons,
+     * but drawn as a pill instead of a circle.
+     */
+    private static final String[] PILL_BACKGROUND_RESOURCE_NAMES = {
+            "timestamps_container", // Current time and duration.
+            "time_bar_chapter_title",
+            "time_bar_timeline_title",
+    };
+
+    private static class PillBackground {
+        private final int id;
+        private WeakReference<View> viewRef = new WeakReference<>(null);
+        /** ConstantState of the background the opacity was last applied to. */
+        @Nullable
+        private Drawable.ConstantState backgroundSnapshot;
+
+        PillBackground(String resourceName) {
+            id = ResourceUtils.getIdIdentifier(resourceName);
+        }
+
+        /**
+         * The timestamps pill is a container nested inside the one carrying the id,
+         * and older app targets leave that inner container unnamed.
+         */
+        private static View pillOf(View view) {
+            if (view instanceof ViewGroup group && group.getChildCount() > 0) {
+                View first = group.getChildAt(0);
+                if (first instanceof ViewGroup inner) {
+                    return inner;
+                }
+            }
+            return view;
+        }
+
+        void update(View rootView) {
+            if (id == 0) return;
+
+            View pill = viewRef.get();
+            if (pill == null || !pill.isAttachedToWindow()) {
+                View container = rootView.findViewById(id);
+                if (container == null) return;
+
+                pill = pillOf(container);
+                viewRef = new WeakReference<>(pill);
+                backgroundSnapshot = null;
+            }
+
+            Drawable background = pill.getBackground();
+            if (background == null) return;
+
+            if (Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                pill.setBackground(null);
+                backgroundSnapshot = null;
                 return;
             }
 
-            // Each button is an ImageView with a background set to another drawable.
-            removeImageViewsBackgroundRecursive(rootView);
-        } catch (Exception ex) {
-            Logger.printException(() -> "removePlayerControlButtonsBackground failure", ex);
+            // A null state cannot be tracked, so fall through and rely on mutate() being idempotent.
+            Drawable.ConstantState state = background.getConstantState();
+            if (state != null && state == backgroundSnapshot) return;
+
+            Drawable styled = applyControlButtonsBackgroundOpacity(background);
+            if (styled != background) {
+                pill.setBackground(styled);
+            }
+            backgroundSnapshot = styled.getConstantState();
         }
     }
 
-    private static void removeImageViewsBackgroundRecursive(View currentView) {
+    /**
+     * The pills live in the bottom overlay container, which is inflated from a stub of its own
+     * and can appear after the control buttons, so they are resolved on a draw pass instead.
+     */
+    private static void stylePillBackgrounds(View controlsView) {
+        // The buttons and the bottom overlay are inflated into the same controls layout,
+        // so the pills are searched for from the shared parent and not from the buttons.
+        if (!(controlsView.getParent() instanceof ViewGroup controlsLayout)) {
+            Logger.printDebug(() -> "Unknown control buttons parent: " + controlsView.getParent());
+            return;
+        }
+
+        PillBackground[] pills = new PillBackground[PILL_BACKGROUND_RESOURCE_NAMES.length];
+        for (int i = 0, length = pills.length; i < length; i++) {
+            pills[i] = new PillBackground(PILL_BACKGROUND_RESOURCE_NAMES[i]);
+        }
+
+        controlsView.getViewTreeObserver().addOnPreDrawListener(() -> {
+            try {
+                for (PillBackground pill : pills) {
+                    pill.update(controlsLayout);
+                }
+            } catch (Exception ex) {
+                Logger.printDebug(() -> "Could not style player overlay pill background", ex);
+            }
+            return true;
+        });
+    }
+
+    /**
+     * Also used for the bottom overlay buttons, which copy their background from the
+     * fullscreen button instead of declaring one in a layout.
+     *
+     * @return the drawable to use, unchanged if the opacity is left at the app default.
+     */
+    public static Drawable applyControlButtonsBackgroundOpacity(Drawable background) {
+        if (background != null
+                && CONTROL_BUTTONS_BACKGROUND_OPACITY_CHANGED
+                && !Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+            // Mutate so the color does not leak into the same drawable used elsewhere.
+            background = background.mutate();
+            setSolidColorOpacityRecursive(background);
+        }
+
+        return background;
+    }
+
+    /**
+     * The circle's transparency is baked into its solid color, so the color is replaced.
+     * setAlpha() only scales what is already there and can never exceed the app default.
+     */
+    private static void setSolidColorOpacityRecursive(Drawable drawable) {
+        if (drawable instanceof GradientDrawable gradient) {
+            ColorStateList color = gradient.getColor();
+            if (color != null) {
+                final int rgb = color.getDefaultColor();
+                // Replacing the alpha rather than scaling it keeps this safe to apply twice.
+                gradient.setColor(Color.argb(
+                        CONTROL_BUTTONS_BACKGROUND_OPACITY * 255 / 100,
+                        Color.red(rgb),
+                        Color.green(rgb),
+                        Color.blue(rgb)));
+            }
+        } else if (drawable instanceof LayerDrawable layers) {
+            for (int i = 0, count = layers.getNumberOfLayers(); i < count; i++) {
+                setSolidColorOpacityRecursive(layers.getDrawable(i));
+            }
+        } else if (drawable instanceof DrawableWrapper wrapper) {
+            // The bottom buttons get the circle wrapped in an InsetDrawable, which is not a
+            // LayerDrawable and would otherwise be skipped.
+            setSolidColorOpacityRecursive(wrapper.getDrawable());
+        }
+    }
+
+    private static void forEachImageViewRecursive(View currentView, Consumer<ImageView> action) {
         if (currentView instanceof ImageView imageView) {
-            imageView.setBackground(null);
+            action.accept(imageView);
         }
 
         if (currentView instanceof ViewGroup viewGroup) {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                removeImageViewsBackgroundRecursive(viewGroup.getChildAt(i));
+                forEachImageViewRecursive(viewGroup.getChildAt(i), action);
             }
         }
     }
@@ -494,8 +697,33 @@ public class PlayerPatch {
 
     // region [Player components] patch
 
-    public static void changeOpacity(ImageView imageView) {
-        imageView.setImageAlpha(PLAYER_OVERLAY_OPACITY_LEVEL);
+    public static void changeOpacity(ImageView scrimOverlay) {
+        scrimOverlay.setImageAlpha(PLAYER_OVERLAY_OPACITY_LEVEL);
+
+        // The top and bottom gradient scrims are siblings of the full screen scrim.
+        if (scrimOverlay.getParent() instanceof View parent) {
+            applyGradientScrimOpacity(parent, "top_gradient_scrim_overlay");
+            applyGradientScrimOpacity(parent, "bottom_gradient_scrim_overlay");
+        }
+    }
+
+    private static void applyGradientScrimOpacity(View parent, String resourceName) {
+        int resourceId = ResourceUtils.getIdIdentifier(resourceName);
+        if (resourceId == 0) return;
+
+        View gradient = parent.findViewById(resourceId);
+        if (gradient == null) {
+            Logger.printDebug(() -> "Could not find player scrim: R.id." + resourceName);
+            return;
+        }
+
+        // The gradients are set as a background rather than an image, so setImageAlpha
+        // does nothing for them.
+        Drawable background = gradient.getBackground();
+        if (background != null) {
+            // Mutate so the alpha does not leak into the same drawable used elsewhere.
+            background.mutate().setAlpha(PLAYER_OVERLAY_OPACITY_LEVEL);
+        }
     }
 
     /**
@@ -726,6 +954,29 @@ public class PlayerPatch {
                 return Arrays.stream(videoQualities)
                         .filter(quality -> !StringUtils.contains(quality.patch_getQualityName(), "Premium"))
                         .toArray(VideoQuality[]::new);
+            } catch (Exception ex) {
+                Logger.printException(() -> "hidePlayerFlyoutMenuEnhancedBitrate failure", ex);
+            }
+        }
+
+        return videoQualities;
+    }
+
+    /**
+     * Injection point for modern YouTube (21.04+).
+     */
+    public static Object[] hidePlayerFlyoutMenuEnhancedBitrate(VideoQualityInterface[] videoQualities) {
+        if (Settings.HIDE_PLAYER_FLYOUT_MENU_ENHANCED_BITRATE.get() &&
+                ArrayUtils.isNotEmpty(videoQualities)) {
+            try {
+                List<VideoQualityInterface> filtered = new ArrayList<>();
+                for (VideoQualityInterface quality : videoQualities) {
+                    if (quality != null && !StringUtils.contains(quality.patch_getQualityName(), "Premium")) {
+                        filtered.add(quality);
+                    }
+                }
+                Object[] result = (Object[]) Array.newInstance(Objects.requireNonNull(videoQualities.getClass().getComponentType()), filtered.size());
+                return filtered.toArray(result);
             } catch (Exception ex) {
                 Logger.printException(() -> "hidePlayerFlyoutMenuEnhancedBitrate failure", ex);
             }
@@ -989,6 +1240,13 @@ public class PlayerPatch {
 
     public static boolean hideSeekbar() {
         return Settings.HIDE_SEEKBAR.get();
+    }
+
+    /**
+     * Injection point for the fullscreen large seekbar feature flag.
+     */
+    public static boolean useFullscreenLargeSeekbar(boolean original) {
+        return Settings.FULLSCREEN_LARGE_SEEKBAR.get();
     }
 
     public static boolean disableSeekbarChapters() {

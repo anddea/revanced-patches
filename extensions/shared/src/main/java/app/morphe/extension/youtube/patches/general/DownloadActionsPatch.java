@@ -58,11 +58,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Pair;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import androidx.annotation.Nullable;
-
-import com.facebook.litho.ComponentHost;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -75,6 +74,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.patches.utils.FlyoutUtils;
 import app.morphe.extension.youtube.patches.utils.PlaylistPatch;
 import app.morphe.extension.youtube.settings.Settings;
 
@@ -93,6 +93,10 @@ public final class DownloadActionsPatch {
      */
     public interface FlyoutMenuVideoIdInterface {
         String patch_getVideoId();
+    }
+
+    public static String getFlyoutVideoId() {
+        return flyoutVideoId;
     }
 
     private static final boolean OVERRIDE_PLAY_NEXT_IN_QUEUE =
@@ -132,6 +136,7 @@ public final class DownloadActionsPatch {
         }
 
         queueBottomSheetFlyout = dialog;
+        FlyoutUtils.setBottomSheetFlyout(dialog);
         Handler visibilityHandler = new Handler(Looper.getMainLooper());
         visibilityHandler.post(new Runnable() {
             @Override
@@ -145,6 +150,10 @@ public final class DownloadActionsPatch {
         });
     }
 
+    public static void clearFlyoutVideoId() {
+        flyoutVideoId = "";
+    }
+
     private static void dismissQueueBottomSheetFlyout() {
         if (queueBottomSheetFlyout != null) {
             queueBottomSheetFlyout.dismiss();
@@ -152,9 +161,10 @@ public final class DownloadActionsPatch {
     }
 
     /**
-     * Injection point. Extracts the sender view and protocol-buffer holder for feed flyouts.
+     * Injection point. Extracts the sender view and protocol-buffer holder for feed flyout.
      */
     public static void extractFlyoutVideoId(@Nullable Map<?, ?> map) {
+        FlyoutUtils.setVideoMarkedAsShorts(null);
         if (map == null) {
             return;
         }
@@ -170,6 +180,8 @@ public final class DownloadActionsPatch {
      */
     public static void extractFlyoutVideoId(@Nullable Object bufferObject) {
         try {
+            FlyoutUtils.setVideoMarkedAsShorts(null);
+
             if (bufferObject instanceof FlyoutMenuVideoIdInterface videoIdInterface) {
                 String videoId = videoIdInterface.patch_getVideoId();
                 if (videoId != null) {
@@ -194,8 +206,8 @@ public final class DownloadActionsPatch {
                 View senderView = senderViewRef.get();
                 ViewParent parent = senderView == null ? null : senderView.getParent();
                 while (parent != null) {
-                    if (parent instanceof ComponentHost componentHost) {
-                        CharSequence description = componentHost.getContentDescription();
+                    if (parent instanceof ViewGroup viewGroupParent) {
+                        CharSequence description = viewGroupParent.getContentDescription();
                         if (description != null) {
                             flyoutBuffer = getTrimmedHorizontalShelfBuffer(
                                     flyoutBuffer,
@@ -206,6 +218,8 @@ public final class DownloadActionsPatch {
                     parent = parent.getParent();
                 }
             }
+
+            FlyoutUtils.setVideoMarkedAsShorts(flyoutBuffer);
 
             for (byte[] prefix : VIDEO_ID_PREFIXES_BYTES) {
                 int index = indexOf(flyoutBuffer, prefix);
@@ -378,7 +392,7 @@ public final class DownloadActionsPatch {
     /**
      * Injection point.
      * <p>
-     * Called from the in app download hook,
+     * Called from the in-app download hook,
      * for both the player action button (below the video)
      * and the 'Download video' flyout option for feed videos.
      * <p>
@@ -405,7 +419,7 @@ public final class DownloadActionsPatch {
     /**
      * Injection point.
      * <p>
-     * Called from the in app playlist download hook.
+     * Called from the in-app playlist download hook.
      * <p>
      * Appears to always be called from the main thread.
      */

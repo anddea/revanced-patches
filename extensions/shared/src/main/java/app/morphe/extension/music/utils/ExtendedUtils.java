@@ -9,6 +9,7 @@ import app.morphe.extension.shared.utils.ResourceUtils;
 public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_6_27_OR_GREATER = isVersionOrGreater("6.27.00");
     public static final boolean IS_7_25_OR_GREATER = isVersionOrGreater("7.25.00");
+    public static final boolean IS_8_00_OR_GREATER = isVersionOrGreater("8.00.00");
     public static final boolean IS_9_00_OR_GREATER = isVersionOrGreater("9.00.00");
 
     private static final String SETTINGS_CLASS_DESCRIPTOR = "com.google.android.apps.youtube.music.settings.SettingsCompatActivity";

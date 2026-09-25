@@ -56,81 +56,49 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.security.GeneralSecurityException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.UUID;
+import java.util.stream.Collectors;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.Collectors;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VotProtobuf;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VotProtobuf.SubtitleTrack;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VotProtobuf.SubtitlesResponse;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VotAudioUploadState;
+
+import static app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient.STATUS_FAILED;
+import static app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient.STATUS_FINISHED;
+import static app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient.STATUS_WAITING;
+import static app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient.STATUS_LONG_WAITING;
+import static app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient.STATUS_PART_CONTENT;
+import static app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient.STATUS_AUDIO_REQUESTED;
+import static app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient.STATUS_SESSION_REQUIRED;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.Headers;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 /**
  * Utility class for interacting with Yandex API to fetch and process video subtitles.
+ * Translation, authentication, transport and audio uploads are delegated to VOT.
+ * Subtitle polling stays here because subtitle readiness does not require an audio URL.
  */
 public class YandexVotUtils {
     // --- Constants ---
-    private static final String YANDEX_HOST = "api.browser.yandex.ru";
-    private static final String BASE_URL = "https://" + YANDEX_HOST;
-    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 YaBrowser/25.4.0.0 Safari/537.36";
-    private static final String HMAC_KEY = "bt8xH3VOlb4mqf0nqAibnDOoiPlXsisf";
-    private static final String COMPONENT_VERSION = "25.4.3.870";
-    private static final String SESSION_MODULE = "video-translation";
-    private static final String SEC_CH_UA = "\"Chromium\";v=\"134\", \"YaBrowser\";v=\"" + COMPONENT_VERSION.substring(0, COMPONENT_VERSION.indexOf('.')) + "\", \"Not?A_Brand\";v=\"24\", \"Yowser\";v=\"2.5\"";
-    private static final String SEC_CH_UA_FULL = "\"Chromium\";v=\"134.0.6998.1973\", \"YaBrowser\";v=\"" + COMPONENT_VERSION + "\", \"Not?A_Brand\";v=\"24.0.0.0\", \"Yowser\";v=\"2.5\"";
-
-    // API Paths
-    private static final String PATH_SESSION_CREATE = "/session/create";
-    private static final String PATH_TRANSLATE = "/video-translation/translate";
-    private static final String PATH_GET_SUBTITLES = "/video-subtitles/get-subtitles";
-    private static final String PATH_FAIL_AUDIO_JS = "/video-translation/fail-audio-js";
-    private static final String PATH_SEND_AUDIO = "/video-translation/audio";
-
-    // Header Prefixes
-    private static final String VSUBS_PREFIX = "Vsubs";
-    private static final String VTRANS_PREFIX = "Vtrans";
-
-    // API Status Codes (from ManualVideoTranslationResponse)
-    private static final int STATUS_FAILED = 0;             // Translation failed or cannot be translated
-    private static final int STATUS_SUCCESS = 1;            // Translation completed successfully or already exists
-    private static final int STATUS_PROCESSING = 2;         // Translation is in progress (short wait expected)
-    private static final int STATUS_LONG_PROCESSING = 3;    // Translation is in progress (long wait expected)
-    private static final int STATUS_PART_CONTENT = 5;       // Often means finished audio/subs available
-    private static final int STATUS_AUDIO_REQUESTED = 6;    // YouTube specific, treat as processing
-
-    // File ID for YouTube Status 6 audio request
-    private static final String FILE_ID_YOUTUBE_STATUS_6 = "web_api_get_all_generating_urls_data_from_iframe";
-
-    // Configuration
-    private static final long DEFAULT_VIDEO_DURATION_SECONDS = 343; // Default, but request uses actual if available
     private static final int MIN_POLLING_INTERVAL_MS = 5000;  // Poll at least every 5 seconds
     private static final int MAX_POLLING_INTERVAL_MS = 60000; // Poll at most every 60 seconds
     private static final int POLLING_TIME_BUFFER_MS = 2000; // Add 2-second buffer to remainingTime
@@ -139,114 +107,17 @@ public class YandexVotUtils {
     private static final int MAX_STUCK_POLLS = 3;
     private static final String YANDEX_ERROR_SERVER_TRY_AGAIN = "Возникла ошибка при переводе, попробуйте позже";
 
-    private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray();
-
-    // --- State & Utilities ---
     private static final OkHttpClient httpClient = new OkHttpClient.Builder()
             .connectTimeout(20, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)
             .writeTimeout(20, TimeUnit.SECONDS)
             .build();
-    private static final ReentrantLock sessionLock = new ReentrantLock();
     private static final Map<String, AtomicBoolean> urlCancellationFlags = new ConcurrentHashMap<>();
     private static final Map<String, AtomicBoolean> urlWorkflowLocks = new ConcurrentHashMap<>();
     private static final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
-    private static volatile SessionInfo currentSession = null;
 
     private static final ExecutorService workflowExecutor = Executors.newCachedThreadPool();
     private static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-
-    // region Session Management
-
-    /**
-     * Ensures a valid Yandex API session exists, creating a new one if necessary.
-     * Thread-safe.
-     *
-     * @return A valid {@link SessionInfo} object.
-     * @throws IOException              If a network error occurs during session creation.
-     * @throws GeneralSecurityException If a security error occurs during signature calculation.
-     */
-    private static SessionInfo ensureSession() throws IOException, GeneralSecurityException {
-        SessionInfo session = currentSession;
-        if (session != null && session.isValid()) {
-            Logger.printDebug(() -> "VOT: Using existing valid session.");
-            return session;
-        }
-        sessionLock.lock();
-        try {
-            session = currentSession;
-            if (session != null && session.isValid()) {
-                Logger.printDebug(() -> "VOT: Using existing valid session after lock.");
-                return session;
-            }
-            Logger.printInfo(() -> "VOT: Creating new Yandex session...");
-            currentSession = createNewSession();
-            Logger.printInfo(() -> "VOT: New Yandex session created successfully.");
-            return currentSession;
-        } finally {
-            sessionLock.unlock();
-        }
-    }
-
-    /**
-     * Creates a new Yandex API session.
-     * <p>
-     * HTTP Method: POST
-     * <br>
-     * Endpoint: /session/create (PATH_SESSION_CREATE)
-     *
-     * @return The newly created {@link SessionInfo}.
-     * @throws IOException              If a network error occurs or the response is invalid.
-     * @throws GeneralSecurityException If a security error occurs during signature calculation.
-     */
-    private static SessionInfo createNewSession() throws IOException, GeneralSecurityException {
-        String uuid = UUID.randomUUID().toString().replace("-", "");
-        Logger.printDebug(() -> "VOT: Creating session with module: " + SESSION_MODULE);
-
-        ManualYandexSessionRequest requestProto = new ManualYandexSessionRequest();
-        requestProto.uuid = uuid;
-        requestProto.module = SESSION_MODULE;
-
-        byte[] requestBodyBytes = requestProto.toByteArray();
-        String signature = calculateSignature(requestBodyBytes);
-        Headers headers = new Headers.Builder()
-                .add("User-Agent", USER_AGENT)
-                .add("Accept", "application/x-protobuf")
-                .add("Content-Type", "application/x-protobuf")
-                .add("Pragma", "no-cache")
-                .add("Cache-Control", "no-cache")
-                .add("Vtrans-Signature", signature)
-                .add("sec-ch-ua", SEC_CH_UA)
-                .add("sec-ch-ua-full-version-list", SEC_CH_UA_FULL)
-                .add("Sec-Fetch-Mode", "no-cors")
-                .build();
-
-        Request request = new Request.Builder()
-                .url(BASE_URL + PATH_SESSION_CREATE)
-                .headers(headers)
-                .post(RequestBody.create(requestBodyBytes, MediaType.parse("application/x-protobuf")))
-                .build();
-
-        try (Response response = httpClient.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                assert response.body() != null;
-                String bodyString = response.body().string();
-                Logger.printException(() -> "VOT: Failed to create session: " + response.code() + " " + response.message() + ", Body: " + bodyString);
-                throw new IOException("Failed to create session: " + response.code());
-            }
-            assert response.body() != null;
-            byte[] responseBytes = response.body().bytes();
-            ManualYandexSessionResponse sessionResponse = ManualYandexSessionResponse.parseFrom(responseBytes);
-            if (TextUtils.isEmpty(sessionResponse.secretKey)) {
-                Logger.printException(() -> "VOT: Invalid session response (missing key)");
-                throw new IOException("Invalid session response (missing key)");
-            }
-            Logger.printDebug(() -> "VOT: Parsed session - SecretKey: " + sessionResponse.secretKey.substring(0, Math.min(sessionResponse.secretKey.length(), 10)) + "... , Expires: " + sessionResponse.expires + "s");
-            return new SessionInfo(uuid, sessionResponse.secretKey, sessionResponse.expires);
-        }
-    }
-
-    // endregion Session Management
 
     // region API Calls
 
@@ -337,16 +208,13 @@ public class YandexVotUtils {
      */
     private static void startWorkflow(WorkflowState state) {
         try {
-            Logger.printInfo(() -> "VOT: Step 1/3 - Ensuring session...");
             if (state.isCancelled.get()) throw new InterruptedException("Workflow cancelled before start");
-            SessionInfo session = ensureSession();
-            postToMainThread(() -> state.callback.onProcessingStarted(str("revanced_yandex_status_session_ok")));
 
             Logger.printInfo(() -> "VOT: Step 2/3 - Checking existing subtitles for lang: " + state.yandexTargetLang);
             if (state.isCancelled.get()) throw new InterruptedException("Workflow cancelled during subtitle check");
-            ManualSubtitlesResponse subsResponse = getFinalSubtitleTracks(state.videoUrl, session);
+            SubtitlesResponse subsResponse = getFinalSubtitleTracks(state.videoUrl);
             if (subsResponse != null && !subsResponse.waiting) {
-                ManualSubtitlesObject chosenSub = findBestSubtitleForLanguage(subsResponse.subtitles, state.yandexTargetLang);
+                SubtitleTrack chosenSub = findBestSubtitleForLanguage(subsResponse.subtitles, state.yandexTargetLang);
                 String subtitleUrl = chosenSub != null ? determineSubtitleUrl(chosenSub, state.yandexTargetLang) : null;
                 if (chosenSub != null && !TextUtils.isEmpty(subtitleUrl)) {
                     Logger.printInfo(() -> "VOT: Found existing subtitles for " + state.yandexTargetLang + ". Skipping translation.");
@@ -366,7 +234,7 @@ public class YandexVotUtils {
             postToMainThread(() -> state.callback.onFinalFailure(str("revanced_gemini_cancelled")));
         } catch (Exception e) {
             Logger.printException(() -> "VOT: Workflow failed during initialization: " + e.getMessage(), e);
-            String userMessage = (e instanceof IOException || e instanceof GeneralSecurityException)
+            String userMessage = (e instanceof IOException)
                     ? (e.getMessage() != null ? e.getMessage() : str("revanced_yandex_error_network_generic"))
                     : str("revanced_yandex_error_unknown") + (e.getMessage() != null ? ": " + e.getMessage() : "");
             postToMainThread(() -> state.callback.onFinalFailure(userMessage));
@@ -386,19 +254,28 @@ public class YandexVotUtils {
                     throw new IOException("Workflow timeout after " + (WORKFLOW_TIMEOUT_MS / 1000) + "s");
                 }
 
-                SessionInfo session = ensureSession();
-                String videoTitle = getVideoTitle();
-                ManualVideoTranslationResponse transResponse = requestTranslation(state.videoUrl, state.yandexTargetLang, session, state.durationSeconds, videoTitle);
+                VotApiClient.TranslationResult transResponse = VotApiClient.requestTranslation(
+                        state.videoUrl, state.durationSeconds, "auto", state.yandexTargetLang,
+                        state.videoTitle, state.firstRequest);
+                state.firstRequest = false;
+                if (transResponse == null) {
+                    scheduler.schedule(() -> pollForTranslation(state), 5, TimeUnit.SECONDS);
+                    return;
+                }
 
-                Logger.printInfo(() -> "VOT: Poll - Status: " + transResponse.status +
-                        ", RemainingTime: " + transResponse.remainingTime + "s, Message: " + transResponse.message);
+                Logger.printInfo(() -> "VOT: Poll - Status: " + transResponse.status() +
+                        ", RemainingTime: " + transResponse.remainingTime() + "s, Message: " + transResponse.message());
 
-                switch (transResponse.status) {
-                    case STATUS_SUCCESS:
-                    case STATUS_PART_CONTENT:
+                switch (transResponse.status()) {
+                    case STATUS_FINISHED:
                         Logger.printInfo(() -> "VOT: Translation completed for " + state.yandexTargetLang);
                         if (state.isCancelled.get()) throw new InterruptedException("Workflow cancelled");
-                        ManualSubtitlesResponse subsResponse = getFinalSubtitleTracks(state.videoUrl, session);
+                        SubtitlesResponse subsResponse = getFinalSubtitleTracks(state.videoUrl);
+                        // Subtitle generation may finish after the translation result is cached.
+                        if (subsResponse == null || subsResponse.waiting) {
+                            scheduler.schedule(() -> pollForTranslation(state), 5, TimeUnit.SECONDS);
+                            return;
+                        }
                         processAndFetchFinalSubtitles(subsResponse, state.originalTargetLang, state.yandexTargetLang, state.callback);
                         return; // Workflow complete
 
@@ -406,22 +283,21 @@ public class YandexVotUtils {
                         Logger.printInfo(() -> "VOT: Handling STATUS_AUDIO_REQUESTED for YouTube");
                         postToMainThread(() -> state.callback.onProcessingStarted(str("revanced_yandex_status_youtube_specific")));
                         if (state.isCancelled.get()) throw new InterruptedException("Workflow cancelled");
-                        sendFailAudioJsRequest(state.videoUrl);
-                        if (state.isCancelled.get()) throw new InterruptedException("Workflow cancelled");
-                        sendAudioRequest(state.videoUrl, transResponse.translationId, session);
+                        state.audioUploadState.upload(state.videoId, state.videoUrl, transResponse.translationId());
                         // Schedule next poll after a short delay
                         scheduler.schedule(() -> pollForTranslation(state), 1, TimeUnit.SECONDS);
                         break;
 
-                    case STATUS_PROCESSING:
-                    case STATUS_LONG_PROCESSING:
+                    case STATUS_WAITING:
+                    case STATUS_PART_CONTENT:
+                    case STATUS_LONG_WAITING:
                         if (!state.isStuck) {
-                            if (transResponse.remainingTime > 0 && transResponse.remainingTime == state.lastRemainingTime) {
+                            if (transResponse.remainingTime() > 0 && transResponse.remainingTime() == state.lastRemainingTime) {
                                 state.stuckPollCount++;
                             } else {
                                 state.stuckPollCount = 0; // Reset counter if time changes
                             }
-                            state.lastRemainingTime = transResponse.remainingTime;
+                            state.lastRemainingTime = transResponse.remainingTime();
 
                             if (state.stuckPollCount >= MAX_STUCK_POLLS) {
                                 Logger.printInfo(() -> "VOT: Poll is now considered stuck. Setting persistent delayed state.");
@@ -432,19 +308,22 @@ public class YandexVotUtils {
                         if (state.isStuck) {
                             postToMainThread(() -> state.callback.onProcessingStarted(str("revanced_yandex_status_transcription_delayed")));
                         } else {
-                            String waitMsg = secsToStrTime(transResponse.remainingTime);
+                            String waitMsg = secsToStrTime(transResponse.remainingTime());
                             postToMainThread(() -> state.callback.onProcessingStarted(waitMsg));
                         }
 
-                        long delayMs = calculateSleepTime(transResponse.remainingTime);
+                        long delayMs = calculateSleepTime(transResponse.remainingTime());
                         Logger.printDebug(() -> "VOT: Scheduling next poll in " + (delayMs / 1000.0) + "s");
                         scheduler.schedule(() -> pollForTranslation(state), delayMs, TimeUnit.MILLISECONDS);
                         break;
 
+                    case STATUS_SESSION_REQUIRED:
+                        throw new IOException(str("revanced_vot_auth_required"));
+
                     case STATUS_FAILED:
                     default:
                         String errMsg = str("revanced_yandex_error_translation_failed") +
-                                (TextUtils.isEmpty(transResponse.message) ? "" : ": " + translateServerMessage(transResponse.message));
+                                (TextUtils.isEmpty(transResponse.message()) ? "" : ": " + translateServerMessage(transResponse.message()));
                         throw new IOException(errMsg);
                 }
             } catch (InterruptedException e) {
@@ -452,7 +331,7 @@ public class YandexVotUtils {
                 postToMainThread(() -> state.callback.onFinalFailure(str("revanced_gemini_cancelled")));
             } catch (Exception e) {
                 Logger.printException(() -> "VOT: Polling failed: " + e.getMessage(), e);
-                String userMessage = (e instanceof IOException || e instanceof GeneralSecurityException)
+                String userMessage = (e instanceof IOException)
                         ? (e.getMessage() != null ? e.getMessage() : str("revanced_yandex_error_network_generic"))
                         : str("revanced_yandex_error_unknown") + (e.getMessage() != null ? ": " + translateServerMessage(e.getMessage()) : "");
                 postToMainThread(() -> state.callback.onFinalFailure(userMessage));
@@ -472,12 +351,20 @@ public class YandexVotUtils {
         final AtomicBoolean isCancelled;
         final long startTime = System.currentTimeMillis();
 
+        // Queue once. Subsequent calls only check the existing translation.
+        boolean firstRequest = true;
+        final VotAudioUploadState audioUploadState = new VotAudioUploadState();
+        final String videoId;
+        final String videoTitle = getVideoTitle();
         int lastRemainingTime = -1;
         int stuckPollCount = 0;
         boolean isStuck = false;
 
         WorkflowState(String videoUrl, double durationSeconds, String originalTargetLang, String yandexTargetLang, SubtitleWorkflowCallback callback, AtomicBoolean isCancelled) {
             this.videoUrl = videoUrl;
+            android.net.Uri uri = android.net.Uri.parse(videoUrl);
+            this.videoId = "youtu.be".equalsIgnoreCase(uri.getHost())
+                    ? uri.getLastPathSegment() : uri.getQueryParameter("v");
             this.durationSeconds = durationSeconds;
             this.originalTargetLang = originalTargetLang;
             this.yandexTargetLang = yandexTargetLang;
@@ -496,190 +383,12 @@ public class YandexVotUtils {
         Logger.printDebug(() -> "VOT: Cleaned up workflow resources for " + videoUrl);
     }
 
-    /**
-     * Requests video translation from Yandex API, either initiating or polling status.
-     *
-     * @param videoUrl         The video URL.
-     * @param yandexTargetLang The Yandex target language ('en', 'ru', 'kk').
-     * @param session          The current session information.
-     * @param durationSeconds  The video duration in seconds.
-     * @return The parsed {@link ManualVideoTranslationResponse}.
-     * @throws IOException              If a network error occurs.
-     * @throws GeneralSecurityException If a crypto error occurs.
-     */
-    private static ManualVideoTranslationResponse requestTranslation(
-            String videoUrl, String yandexTargetLang, SessionInfo session, double durationSeconds, String videoTitle
-    ) throws IOException, GeneralSecurityException {
-        ManualVideoTranslationRequest requestProto = new ManualVideoTranslationRequest();
-        requestProto.url = videoUrl;
-        requestProto.duration = durationSeconds > 0 ? durationSeconds : DEFAULT_VIDEO_DURATION_SECONDS;
-        requestProto.language = "auto";
-        requestProto.responseLanguage = yandexTargetLang;
-        requestProto.firstRequest = true;
-        requestProto.videoTitle = videoTitle;
-
-        byte[] requestBodyBytes = requestProto.toByteArray();
-        Logger.printDebug(() -> "VOT: Translation request body: " + Arrays.toString(requestBodyBytes));
-        Headers headers = buildRequestHeaders(session, requestBodyBytes, PATH_TRANSLATE, VTRANS_PREFIX);
-
-        StringBuilder headersLog = new StringBuilder("VOT: HTTP Headers for translation request:\n");
-        headers.toMultimap().forEach((key, values) -> {
-            String value = String.join(", ", values);
-            headersLog.append("  ").append(key).append(": ").append(value).append("\n");
-        });
-        Logger.printInfo(headersLog::toString);
-
-        Request request = new Request.Builder()
-                .url(BASE_URL + PATH_TRANSLATE)
-                .headers(headers)
-                .post(RequestBody.create(requestBodyBytes, MediaType.parse("application/x-protobuf")))
-                .build();
-
-        try (Response response = httpClient.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                assert response.body() != null;
-                String bodyString = response.body().string();
-                Logger.printException(() -> "VOT: Translation request failed: " + response.code() + " " + response.message() + ", Body: " + bodyString);
-                throw new IOException("API Error: " + response.code());
-            }
-            assert response.body() != null;
-            byte[] responseBytes = response.body().bytes();
-            Logger.printDebug(() -> "VOT: Translation response body: " + Arrays.toString(responseBytes));
-            return ManualVideoTranslationResponse.parseFrom(responseBytes);
-        }
+    /** Fetches subtitle tracks using VOT's shared transport and protobuf codec. */
+    private static SubtitlesResponse getFinalSubtitleTracks(String videoUrl) throws IOException {
+        byte[] response = VotApiClient.requestSubtitles(
+                VotProtobuf.encodeSubtitlesRequest(videoUrl, "auto"));
+        return response == null ? null : VotProtobuf.decodeSubtitlesResponse(response);
     }
-
-    /**
-     * Fetches subtitle tracks after translation or for initial check.
-     *
-     * @param videoUrl The video URL.
-     * @param session  The current valid {@link SessionInfo}.
-     * @return A {@link ManualSubtitlesResponse} or null if the request fails.
-     * @throws IOException              If a network error occurs or the response cannot be parsed.
-     * @throws GeneralSecurityException If a security error occurs during header generation.
-     */
-    @Nullable
-    private static ManualSubtitlesResponse getFinalSubtitleTracks(String videoUrl, SessionInfo session) throws IOException, GeneralSecurityException {
-        ManualSubtitlesRequest requestProto = new ManualSubtitlesRequest();
-        requestProto.url = videoUrl;
-        requestProto.language = "auto";
-
-        byte[] requestBodyBytes = requestProto.toByteArray();
-        Headers headers = buildRequestHeaders(session, requestBodyBytes, PATH_GET_SUBTITLES, VSUBS_PREFIX);
-        Request request = new Request.Builder()
-                .url(BASE_URL + PATH_GET_SUBTITLES)
-                .headers(headers)
-                .post(RequestBody.create(requestBodyBytes, MediaType.parse("application/x-protobuf")))
-                .build();
-
-        try (Response response = httpClient.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                assert response.body() != null;
-                String bodyString = response.body().string();
-                Logger.printException(() -> "VOT: Failed to get subtitle tracks: " + response.code() + " " + response.message() + ", Body: " + bodyString);
-                return null;
-            }
-            assert response.body() != null;
-            ManualSubtitlesResponse subResponse = ManualSubtitlesResponse.parseFrom(response.body().bytes());
-            String availableSubsLog = subResponse.subtitles != null && !subResponse.subtitles.isEmpty()
-                    ? subResponse.subtitles.stream()
-                    .map(s -> (s.translatedLanguage != null ? s.language + "->" + s.translatedLanguage : s.language)
-                            + (TextUtils.isEmpty(s.url) && TextUtils.isEmpty(s.translatedUrl) ? "(X)" : ""))
-                    .collect(Collectors.joining(", "))
-                    : "None";
-            Logger.printInfo(() -> "VOT: Subtitle tracks response - Waiting: " + subResponse.waiting + ", Subtitles: [" + availableSubsLog + "]");
-            return subResponse;
-        }
-    }
-
-    /**
-     * Sends a PUT request to /video-translation/fail-audio-js for YouTube status 6 handling.
-     *
-     * @param videoUrl The video URL.
-     */
-    private static void sendFailAudioJsRequest(String videoUrl) {
-        JSONObject jsonBody = new JSONObject();
-        try {
-            jsonBody.put("video_url", videoUrl);
-        } catch (JSONException e) {
-            Logger.printException(() -> "VOT: Failed to create JSON body for fail-audio-js", e);
-            return;
-        }
-
-        Headers headers = new Headers.Builder()
-                .add("User-Agent", USER_AGENT)
-                .add("Accept", "*/*")
-                .add("Content-Type", "application/json")
-                .add("Origin", BASE_URL)
-                .add("Referer", BASE_URL + "/")
-                .add("sec-ch-ua", SEC_CH_UA)
-                .add("sec-ch-ua-mobile", "?0")
-                .add("sec-ch-ua-platform", "\"Windows\"")
-                .add("Sec-Fetch-Mode", "cors")
-                .add("Sec-Fetch-Dest", "empty")
-                .add("Sec-Fetch-Site", "cross-site")
-                .build();
-
-        Request request = new Request.Builder()
-                .url(BASE_URL + PATH_FAIL_AUDIO_JS)
-                .headers(headers)
-                .put(RequestBody.create(jsonBody.toString(), MediaType.parse("application/json; charset=utf-8")))
-                .build();
-
-        try (Response response = httpClient.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                assert response.body() != null;
-                String bodyString = response.body().string();
-                Logger.printException(() -> "VOT: Failed fail-audio-js request: " + response.code() + " " + response.message() + ", Body: " + bodyString);
-            } else {
-                Logger.printDebug(() -> "VOT: Successfully sent fail-audio-js request: " + response.code());
-            }
-        } catch (IOException e) {
-            Logger.printException(() -> "VOT: Network error in fail-audio-js request", e);
-        }
-    }
-
-    /**
-     * Sends a PUT request to /video-translation/audio for YouTube status 6 handling.
-     *
-     * @param videoUrl      The video URL.
-     * @param translationId The translation ID from the status 6 response.
-     * @param session       The current valid {@link SessionInfo}.
-     */
-    private static void sendAudioRequest(String videoUrl, String translationId, SessionInfo session) {
-        ManualVideoTranslationAudioRequest requestProto = new ManualVideoTranslationAudioRequest();
-        requestProto.url = videoUrl;
-        requestProto.translationId = translationId != null ? translationId : "";
-        requestProto.audioInfo = new ManualAudioBufferObject();
-        requestProto.audioInfo.fileId = FILE_ID_YOUTUBE_STATUS_6;
-        requestProto.audioInfo.audioFile = new byte[0];
-
-        try {
-            byte[] requestBodyBytes = requestProto.toByteArray();
-            Headers headers = buildRequestHeaders(session, requestBodyBytes, PATH_SEND_AUDIO, VTRANS_PREFIX);
-            Request request = new Request.Builder()
-                    .url(BASE_URL + PATH_SEND_AUDIO)
-                    .headers(headers)
-                    .put(RequestBody.create(requestBodyBytes, MediaType.parse("application/x-protobuf")))
-                    .build();
-
-            try (Response response = httpClient.newCall(request).execute()) {
-                if (!response.isSuccessful()) {
-                    assert response.body() != null;
-                    String bodyString = response.body().string();
-                    Logger.printException(() -> "VOT: Failed /audio request: " + response.code() + " " + response.message() + ", Body: " + bodyString);
-                } else {
-                    Logger.printDebug(() -> "VOT: Successfully sent /audio request: " + response.code());
-                }
-            }
-        } catch (IOException | GeneralSecurityException e) {
-            Logger.printException(() -> "VOT: Error in /audio request", e);
-        }
-    }
-
-    // endregion API Calls
-
-    // region Utils
 
     /**
      * Calculates the polling delay based on remaining time.
@@ -697,13 +406,13 @@ public class YandexVotUtils {
     /**
      * Processes and fetches final subtitle content, selecting the best track and downloading it.
      *
-     * @param response           The {@link ManualSubtitlesResponse} from the API.
+     * @param response           The {@link SubtitlesResponse} from the API.
      * @param originalTargetLang The user's desired language.
      * @param yandexTargetLang   The Yandex requested language.
      * @param callback           The callback for results or errors.
      */
     private static void processAndFetchFinalSubtitles(
-            @Nullable ManualSubtitlesResponse response,
+            @Nullable SubtitlesResponse response,
             String originalTargetLang,
             String yandexTargetLang,
             SubtitleWorkflowCallback callback
@@ -720,8 +429,8 @@ public class YandexVotUtils {
             return;
         }
 
-        List<ManualSubtitlesObject> availableSubs = response.subtitles;
-        if (availableSubs == null || availableSubs.isEmpty()) {
+        List<SubtitleTrack> availableSubs = response.subtitles;
+        if (availableSubs.isEmpty()) {
             Logger.printInfo(() -> "VOT: No subtitle tracks returned");
             postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_no_subs_returned")));
             return;
@@ -733,7 +442,7 @@ public class YandexVotUtils {
                 .collect(Collectors.joining(", "));
         Logger.printInfo(() -> "VOT: Processing tracks - OriginalTarget: " + originalTargetLang + ", YandexTarget: " + yandexTargetLang + ", Available: [" + log + "]");
 
-        ManualSubtitlesObject chosenSub = findBestSubtitleForLanguage(availableSubs, yandexTargetLang);
+        SubtitleTrack chosenSub = findBestSubtitleForLanguage(availableSubs, yandexTargetLang);
         if (chosenSub == null) {
             Logger.printInfo(() -> "VOT: No suitable track for " + yandexTargetLang);
             postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_no_subs_for_language", yandexTargetLang)));
@@ -756,14 +465,14 @@ public class YandexVotUtils {
      *
      * @param subs       The list of available subtitle tracks.
      * @param targetLang The desired target language.
-     * @return The best matching {@link ManualSubtitlesObject} or null.
+     * @return The best matching {@link SubtitleTrack} or null.
      */
     @Nullable
-    private static ManualSubtitlesObject findBestSubtitleForLanguage(List<ManualSubtitlesObject> subs, String targetLang) {
+    private static SubtitleTrack findBestSubtitleForLanguage(List<SubtitleTrack> subs, String targetLang) {
         if (subs == null || subs.isEmpty()) return null;
 
-        ManualSubtitlesObject translatedMatch = null;
-        for (ManualSubtitlesObject sub : subs) {
+        SubtitleTrack translatedMatch = null;
+        for (SubtitleTrack sub : subs) {
             if (targetLang.equals(sub.translatedLanguage) && !TextUtils.isEmpty(sub.translatedUrl)) {
                 translatedMatch = sub;
                 break;
@@ -775,7 +484,7 @@ public class YandexVotUtils {
             return translatedMatch;
         }
 
-        for (ManualSubtitlesObject sub : subs) {
+        for (SubtitleTrack sub : subs) {
             if (targetLang.equals(sub.language) && !TextUtils.isEmpty(sub.url)) {
                 Logger.printInfo(() -> "VOT: Selected original track for " + targetLang);
                 return sub;
@@ -794,7 +503,7 @@ public class YandexVotUtils {
      * @return The subtitle URL or null if invalid.
      */
     @Nullable
-    private static String determineSubtitleUrl(@NonNull ManualSubtitlesObject chosenSub, @NonNull String targetLang) {
+    private static String determineSubtitleUrl(@NonNull SubtitleTrack chosenSub, @NonNull String targetLang) {
         if (targetLang.equals(chosenSub.translatedLanguage) && !TextUtils.isEmpty(chosenSub.translatedUrl)) {
             Logger.printDebug(() -> "VOT: Using translated URL: " + chosenSub.translatedUrl);
             return chosenSub.translatedUrl;
@@ -1155,70 +864,6 @@ public class YandexVotUtils {
     }
 
     /**
-     * Builds HTTP headers for Yandex API requests with authentication.
-     *
-     * @param session      The current session.
-     * @param bodyBytes    The request body bytes for signature.
-     * @param path         The API endpoint path.
-     * @param modulePrefix The header prefix ("Vtrans" or "Vsubs").
-     * @return The constructed {@link Headers}.
-     * @throws GeneralSecurityException If a cryptographic error occurs.
-     */
-    private static Headers buildRequestHeaders(SessionInfo session, byte[] bodyBytes, String path, String modulePrefix) throws GeneralSecurityException {
-        String bodySignature = calculateSignature(bodyBytes != null ? bodyBytes : new byte[0]);
-        String tokenPart = session.uuid + ":" + path + ":" + COMPONENT_VERSION;
-        String tokenSignature = calculateSignature(tokenPart.getBytes(StandardCharsets.UTF_8));
-        if (TextUtils.isEmpty(tokenSignature)) {
-            throw new GeneralSecurityException("Empty token signature");
-        }
-        String secToken = tokenSignature + ":" + tokenPart;
-
-        return new Headers.Builder()
-                .add("User-Agent", USER_AGENT)
-                .add("Accept", "application/x-protobuf")
-                .add("Content-Type", "application/x-protobuf")
-                .add("Pragma", "no-cache")
-                .add("Cache-Control", "no-cache")
-                .add(modulePrefix + "-Signature", bodySignature)
-                .add("Sec-" + modulePrefix + "-Sk", session.secretKey)
-                .add("Sec-" + modulePrefix + "-Token", secToken)
-                .add("sec-ch-ua", SEC_CH_UA)
-                .add("sec-ch-ua-full-version-list", SEC_CH_UA_FULL)
-                .add("Sec-Fetch-Mode", "no-cors")
-                .build();
-    }
-
-    /**
-     * Calculates HMAC-SHA256 signature for data.
-     *
-     * @param data The data to sign.
-     * @return The hexadecimal signature.
-     * @throws GeneralSecurityException If a cryptographic error occurs.
-     */
-    private static String calculateSignature(byte[] data) throws GeneralSecurityException {
-        Mac mac = Mac.getInstance("HmacSHA256");
-        mac.init(new SecretKeySpec(HMAC_KEY.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
-        return bytesToHex(mac.doFinal(data != null ? data : new byte[0]));
-    }
-
-    /**
-     * Converts bytes to a hexadecimal string.
-     *
-     * @param bytes The byte array.
-     * @return The hex string.
-     */
-    public static String bytesToHex(byte[] bytes) {
-        if (bytes == null) return "";
-        char[] hex = new char[bytes.length * 2];
-        for (int i = 0; i < bytes.length; i++) {
-            int v = bytes[i] & 0xFF;
-            hex[i * 2] = HEX_ARRAY[v >>> 4];
-            hex[i * 2 + 1] = HEX_ARRAY[v & 0x0F];
-        }
-        return new String(hex);
-    }
-
-    /**
      * Converts seconds to a user-friendly time string.
      *
      * @param secs The duration in seconds.
@@ -1346,463 +991,6 @@ public class YandexVotUtils {
         void onProcessingStarted(String statusMessage);
     }
 
-    /**
-     * Represents an active Yandex API session.
-     */
-    private static class SessionInfo {
-        final String uuid;
-        final String secretKey;
-        final long expiresAtMillis;
-
-        SessionInfo(String uuid, String secretKey, int expires) {
-            this.uuid = uuid;
-            this.secretKey = secretKey;
-            long durationMillis = expires > 0 ? TimeUnit.SECONDS.toMillis(expires) : TimeUnit.HOURS.toMillis(1);
-            this.expiresAtMillis = System.currentTimeMillis() + durationMillis - TimeUnit.MINUTES.toMillis(1);
-            Logger.printDebug(() -> "VOT: Session created, expires in " + (expiresAtMillis - System.currentTimeMillis()) + "ms");
-        }
-
-        boolean isValid() {
-            return System.currentTimeMillis() < (expiresAtMillis - 30000);
-        }
-    }
-
     // endregion Interfaces and Inner Classes
 
-    // region Protobuf Manual Classes
-
-    public static class ManualYandexSessionRequest {
-        String uuid;
-        String module;
-
-        byte[] toByteArray() throws IOException {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            try (DataOutputStream data = new DataOutputStream(out)) {
-                if (!TextUtils.isEmpty(uuid)) ProtoWriter.writeString(data, 1, uuid);
-                if (!TextUtils.isEmpty(module)) ProtoWriter.writeString(data, 2, module);
-            }
-            return out.toByteArray();
-        }
-    }
-
-    public static class ManualYandexSessionResponse {
-        String secretKey;
-        int expires;
-
-        static ManualYandexSessionResponse parseFrom(byte[] data) throws IOException {
-            ManualYandexSessionResponse response = new ManualYandexSessionResponse();
-            try (DataInputStream input = new DataInputStream(new ByteArrayInputStream(data))) {
-                while (input.available() > 0) {
-                    int tag = ProtoReader.readVarint32(input);
-                    int field = tag >>> 3;
-                    int wireType = tag & 7;
-                    switch (field) {
-                        case 1:
-                            if (wireType != 2) throw new IOException("Invalid wire type for secretKey: " + wireType);
-                            response.secretKey = ProtoReader.readString(input);
-                            break;
-                        case 2:
-                            if (wireType != 0) throw new IOException("Invalid wire type for expires: " + wireType);
-                            response.expires = ProtoReader.readVarint32(input);
-                            break;
-                        default:
-                            ProtoReader.skipField(input, tag);
-                            break;
-                    }
-                }
-            }
-            return response;
-        }
-    }
-
-    public static class ManualSubtitlesRequest {
-        String url;
-        String language;
-
-        byte[] toByteArray() throws IOException {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            try (DataOutputStream data = new DataOutputStream(out)) {
-                if (!TextUtils.isEmpty(url)) ProtoWriter.writeString(data, 1, url);
-                if (!TextUtils.isEmpty(language)) ProtoWriter.writeString(data, 2, language);
-            }
-            return out.toByteArray();
-        }
-    }
-
-    public static class ManualSubtitlesObject {
-        String language;
-        String url;
-        String translatedLanguage;
-        String translatedUrl;
-
-        static ManualSubtitlesObject parseFrom(DataInputStream input) throws IOException {
-            ManualSubtitlesObject obj = new ManualSubtitlesObject();
-            int length = ProtoReader.readVarint32(input);
-            if (length < 0 || length > 1024 * 1024) {
-                Logger.printException(() -> "VOT: Invalid subtitle object length: " + length);
-                input.skipBytes(input.available());
-                return obj;
-            }
-            if (length == 0) return obj;
-
-            byte[] message = new byte[length];
-            input.readFully(message);
-            try (DataInputStream nested = new DataInputStream(new ByteArrayInputStream(message))) {
-                while (nested.available() > 0) {
-                    int tag = ProtoReader.readVarint32(nested);
-                    int field = tag >>> 3;
-                    int wireType = tag & 7;
-                    switch (field) {
-                        case 1:
-                            if (wireType != 2) throw new IOException("Invalid wire type for language: " + wireType);
-                            obj.language = ProtoReader.readString(nested);
-                            break;
-                        case 2:
-                            if (wireType != 2) throw new IOException("Invalid wire type for url: " + wireType);
-                            obj.url = ProtoReader.readString(nested);
-                            break;
-                        case 4:
-                            if (wireType != 2) throw new IOException("Invalid wire type for translatedLanguage: " + wireType);
-                            obj.translatedLanguage = ProtoReader.readString(nested);
-                            break;
-                        case 5:
-                            if (wireType != 2) throw new IOException("Invalid wire type for translatedUrl: " + wireType);
-                            obj.translatedUrl = ProtoReader.readString(nested);
-                            break;
-                        default:
-                            ProtoReader.skipField(nested, tag);
-                            break;
-                    }
-                }
-            }
-            return obj;
-        }
-    }
-
-    public static class ManualSubtitlesResponse {
-        boolean waiting;
-        List<ManualSubtitlesObject> subtitles = new ArrayList<>();
-
-        static ManualSubtitlesResponse parseFrom(byte[] data) throws IOException {
-            ManualSubtitlesResponse response = new ManualSubtitlesResponse();
-            try (DataInputStream input = new DataInputStream(new ByteArrayInputStream(data))) {
-                while (input.available() > 0) {
-                    int tag = ProtoReader.readVarint32(input);
-                    int field = tag >>> 3;
-                    int wireType = tag & 7;
-                    switch (field) {
-                        case 1:
-                            if (wireType != 0) throw new IOException("Invalid wire type for waiting: " + wireType);
-                            response.waiting = ProtoReader.readBool(input);
-                            break;
-                        case 2:
-                            if (wireType != 2) throw new IOException("Invalid wire type for subtitles: " + wireType);
-                            response.subtitles.add(ManualSubtitlesObject.parseFrom(input));
-                            break;
-                        default:
-                            ProtoReader.skipField(input, tag);
-                            break;
-                    }
-                }
-            }
-            return response;
-        }
-    }
-
-    public static class ManualVideoTranslationRequest {
-        String url;                     // 3
-        boolean firstRequest = true;    // 5
-        double duration;                // 6
-        int unknown7 = 1;               // 7
-        String language;                // 8
-        String responseLanguage;        // 14
-        int unknown15 = 1;              // 15
-        int unknown16 = 2;              // 16
-        String videoTitle;              // 19
-
-        byte[] toByteArray() throws IOException {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            try (DataOutputStream data = new DataOutputStream(out)) {
-                if (!TextUtils.isEmpty(url)) ProtoWriter.writeString(data, 3, url);
-                ProtoWriter.writeBool(data, 5, firstRequest);
-                if (duration > 0) ProtoWriter.writeDouble(data, 6, duration);
-                ProtoWriter.writeInt32(data, 7, unknown7);
-                if (!TextUtils.isEmpty(language)) ProtoWriter.writeString(data, 8, language);
-                if (!TextUtils.isEmpty(responseLanguage)) ProtoWriter.writeString(data, 14, responseLanguage);
-                ProtoWriter.writeInt32(data, 15, unknown15);
-                ProtoWriter.writeInt32(data, 16, unknown16);
-                if (!TextUtils.isEmpty(videoTitle)) ProtoWriter.writeString(data, 19, videoTitle);
-            }
-            return out.toByteArray();
-        }
-    }
-
-    public static class ManualVideoTranslationResponse {
-        String url;
-        double duration;
-        int status;
-        int remainingTime;
-        String translationId;
-        String language;
-        String message;
-        int unknown0;
-        boolean isLivelyVoice;
-        int unknown2;
-
-        static ManualVideoTranslationResponse parseFrom(byte[] data) throws IOException {
-            ManualVideoTranslationResponse response = new ManualVideoTranslationResponse();
-            try (DataInputStream input = new DataInputStream(new ByteArrayInputStream(data))) {
-                while (input.available() > 0) {
-                    int tag = ProtoReader.readVarint32(input);
-                    int field = tag >>> 3;
-                    int wireType = tag & 7;
-                    switch (field) {
-                        case 1:
-                            if (wireType != 2) throw new IOException("Invalid wire type for url: " + wireType);
-                            response.url = ProtoReader.readString(input);
-                            break;
-                        case 2:
-                            if (wireType != 1) throw new IOException("Invalid wire type for duration: " + wireType);
-                            response.duration = ProtoReader.readDouble(input);
-                            break;
-                        case 4:
-                            if (wireType != 0) throw new IOException("Invalid wire type for status: " + wireType);
-                            response.status = ProtoReader.readVarint32(input);
-                            break;
-                        case 5:
-                            if (wireType != 0) throw new IOException("Invalid wire type for remainingTime: " + wireType);
-                            response.remainingTime = ProtoReader.readVarint32(input);
-                            break;
-                        case 6:
-                            if (wireType != 0) throw new IOException("Invalid wire type for unknown0: " + wireType);
-                            response.unknown0 = ProtoReader.readVarint32(input);
-                            break;
-                        case 7:
-                            if (wireType != 2) throw new IOException("Invalid wire type for translationId: " + wireType);
-                            response.translationId = ProtoReader.readString(input);
-                            break;
-                        case 8:
-                            if (wireType != 2) throw new IOException("Invalid wire type for language: " + wireType);
-                            response.language = ProtoReader.readString(input);
-                            break;
-                        case 9:
-                            if (wireType != 2) throw new IOException("Invalid wire type for message: " + wireType);
-                            response.message = ProtoReader.readString(input);
-                            break;
-                        case 10:
-                            if (wireType != 0) throw new IOException("Invalid wire type for isLivelyVoice: " + wireType);
-                            response.isLivelyVoice = ProtoReader.readBool(input);
-                            break;
-                        case 11:
-                            if (wireType != 0) throw new IOException("Invalid wire type for unknown2: " + wireType);
-                            response.unknown2 = ProtoReader.readVarint32(input);
-                            break;
-                        default:
-                            ProtoReader.skipField(input, tag);
-                            break;
-                    }
-                }
-            }
-            return response;
-        }
-    }
-
-    public static class ManualAudioBufferObject {
-        String fileId;
-        byte[] audioFile;
-
-        byte[] toByteArray() throws IOException {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            try (DataOutputStream data = new DataOutputStream(out)) {
-                if (!TextUtils.isEmpty(fileId)) ProtoWriter.writeString(data, 1, fileId);
-                if (audioFile != null && audioFile.length > 0) ProtoWriter.writeBytes(data, 2, audioFile);
-            }
-            return out.toByteArray();
-        }
-    }
-
-    public static class ManualChunkAudioObject {
-        int audioPartsLength;
-        ManualAudioBufferObject audioBuffer;
-        String fileId;
-        int unknown0;
-
-        byte[] toByteArray() throws IOException {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            try (DataOutputStream data = new DataOutputStream(out)) {
-                if (audioBuffer != null) {
-                    byte[] msgBytes = audioBuffer.toByteArray();
-                    ProtoWriter.writeTag(data, 1, 2);
-                    ProtoWriter.writeVarint32(data, msgBytes.length);
-                    data.write(msgBytes);
-                }
-                if (audioPartsLength != 0) ProtoWriter.writeInt32(data, 2, audioPartsLength);
-                if (!TextUtils.isEmpty(fileId)) ProtoWriter.writeString(data, 3, fileId);
-                if (unknown0 != 0) ProtoWriter.writeInt32(data, 4, unknown0);
-            }
-            return out.toByteArray();
-        }
-    }
-
-    public static class ManualVideoTranslationAudioRequest {
-        String translationId;
-        String url;
-        ManualChunkAudioObject partialAudioInfo;
-        ManualAudioBufferObject audioInfo;
-
-        byte[] toByteArray() throws IOException {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            try (DataOutputStream data = new DataOutputStream(out)) {
-                if (!TextUtils.isEmpty(translationId)) ProtoWriter.writeString(data, 1, translationId);
-                if (!TextUtils.isEmpty(url)) ProtoWriter.writeString(data, 2, url);
-                if (partialAudioInfo != null) {
-                    byte[] msgBytes = partialAudioInfo.toByteArray();
-                    ProtoWriter.writeTag(data, 4, 2);
-                    ProtoWriter.writeVarint32(data, msgBytes.length);
-                    data.write(msgBytes);
-                }
-                if (audioInfo != null) {
-                    byte[] msgBytes = audioInfo.toByteArray();
-                    ProtoWriter.writeTag(data, 6, 2);
-                    ProtoWriter.writeVarint32(data, msgBytes.length);
-                    data.write(msgBytes);
-                }
-            }
-            return out.toByteArray();
-        }
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private static class ProtoWriter {
-        static void writeTag(DataOutputStream data, int field, int wireType) throws IOException {
-            ProtoWriter.writeVarint32(data, (field << 3) | wireType);
-        }
-
-        static void writeVarint32(DataOutputStream data, int value) throws IOException {
-            while (true) {
-                if ((value & ~0x7F) == 0) {
-                    data.writeByte(value);
-                    return;
-                }
-                data.writeByte((value & 0x7F) | 0x80);
-                value >>>= 7;
-            }
-        }
-
-        static void writeBytes(DataOutputStream data, int field, byte[] value) throws IOException {
-            writeTag(data, field, 2);
-            writeVarint32(data, value.length);
-            data.write(value);
-        }
-
-        static void writeString(DataOutputStream data, int field, String value) throws IOException {
-            writeBytes(data, field, value.getBytes(StandardCharsets.UTF_8));
-        }
-
-        static void writeDouble(DataOutputStream data, int field, double value) throws IOException {
-            writeTag(data, field, 1);
-            data.writeLong(Long.reverseBytes(Double.doubleToRawLongBits(value)));
-        }
-
-        static void writeInt32(DataOutputStream data, int field, int value) throws IOException {
-            writeTag(data, field, 0);
-            writeVarint32(data, value);
-        }
-
-        static void writeBool(DataOutputStream data, int field, boolean value) throws IOException {
-            writeTag(data, field, 0);
-            data.writeByte(value ? 1 : 0);
-        }
-    }
-
-    private static class ProtoReader {
-        private static final int MAX_VARINT_BYTES = 10;
-        private static final int MAX_LENGTH_LIMIT = 50 * 1024 * 1024;
-
-        static int readVarint32(DataInputStream input) throws IOException {
-            int result = 0;
-            int shift = 0;
-            for (int i = 0; i < MAX_VARINT_BYTES; i++) {
-                byte b = input.readByte();
-                result |= (b & 0x7F) << shift;
-                if ((b & 0x80) == 0) return result;
-                shift += 7;
-                if (shift >= 32 && (b & 0x80) != 0) {
-                    while (i + 1 < MAX_VARINT_BYTES && (input.readByte() & 0x80) != 0) {
-                        i++;
-                    }
-                    throw new IOException("Varint32 too large");
-                }
-            }
-            throw new IOException("Varint too long");
-        }
-
-        static byte[] readBytes(DataInputStream input) throws IOException {
-            int length = readVarint32(input);
-            if (length < 0) throw new IOException("Negative length: " + length);
-            if (length > MAX_LENGTH_LIMIT) throw new IOException("Length too large: " + length);
-            if (length > input.available()) throw new IOException("Length exceeds available: " + length);
-            byte[] data = new byte[length];
-            input.readFully(data);
-            return data;
-        }
-
-        static String readString(DataInputStream input) throws IOException {
-            return new String(readBytes(input), StandardCharsets.UTF_8);
-        }
-
-        static double readDouble(DataInputStream input) throws IOException {
-            return Double.longBitsToDouble(Long.reverseBytes(input.readLong()));
-        }
-
-        static boolean readBool(DataInputStream input) throws IOException {
-            return readVarint32(input) != 0;
-        }
-
-        static void skipField(DataInputStream input, int tag) throws IOException {
-            int wireType = tag & 7;
-            switch (wireType) {
-                case 0:
-                    readVarint32(input);
-                    break;
-                case 1:
-                    if (input.available() < 8) throw new EOFException("Insufficient data for 64-bit");
-                    input.skipBytes(8);
-                    break;
-                case 2:
-                    int length = readVarint32(input);
-                    if (length < 0 || length > MAX_LENGTH_LIMIT || length > input.available()) {
-                        throw new IOException("Invalid length for wire type 2: " + length);
-                    }
-                    input.skipBytes(length);
-                    break;
-                case 5:
-                    if (input.available() < 4) throw new EOFException("Insufficient data for 32-bit");
-                    input.skipBytes(4);
-                    break;
-                case 3:
-                    int fieldNo = tag >>> 3;
-                    int depth = 1;
-                    while (depth > 0) {
-                        if (input.available() <= 0) throw new EOFException("Unexpected end in group");
-                        int nextTag = readVarint32(input);
-                        int nextWireType = nextTag & 7;
-                        int nextFieldNo = nextTag >>> 3;
-                        if (nextWireType == 4) {
-                            if (nextFieldNo != fieldNo) throw new IOException("Mismatched EndGroup: " + nextFieldNo);
-                            depth--;
-                        } else if (nextWireType == 3) {
-                            depth++;
-                        } else {
-                            skipField(input, nextTag);
-                        }
-                    }
-                    break;
-                default:
-                    throw new IOException("Unknown wire type: " + wireType);
-            }
-        }
-    }
-
-    // endregion Protobuf Manual Classes
 }

@@ -68,7 +68,12 @@ public class StringRef extends Utils {
      */
     @NonNull
     public static String str(@NonNull String id, Object... args) {
-        return String.format(str(id), args);
+        try {
+            return String.format(str(id), args);
+        } catch (Exception ex) {
+            Logger.printException(() -> "Error formatting string resource: " + id, ex);
+            return str(id);
+        }
     }
 
     // Dynamic string

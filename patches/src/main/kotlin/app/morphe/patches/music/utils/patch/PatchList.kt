@@ -5,6 +5,10 @@ internal enum class PatchList(
     val summary: String,
     var included: Boolean? = false
 ) {
+    APP_REFRESH_RATE(
+        "App refresh rate",
+        "Adds an option to change the app refresh rate."
+    ),
     BITRATE_DEFAULT_VALUE(
         "Bitrate default value",
         "Sets the audio quality to 'Always High' when you first install the app."
@@ -25,20 +29,12 @@ internal enum class PatchList(
         "Change start page",
         "Adds an option to set which page the app opens in instead of the homepage."
     ),
-    CUSTOM_BRANDING_ICON_FOR_YOUTUBE_MUSIC(
-        "Custom branding icon for YouTube Music",
-        "Changes the YouTube Music app icon to the icon specified in patch options."
-    ),
-    CUSTOM_BRANDING_NAME_FOR_YOUTUBE_MUSIC(
-        "Custom branding name for YouTube Music",
-        "Changes the YouTube Music app name to the name specified in patch options."
-    ),
-    CUSTOM_HEADER_FOR_YOUTUBE_MUSIC(
-        "Custom header for YouTube Music",
-        "Applies a custom header in the top left corner within the app."
+    CUSTOM_BRANDING_FOR_YOUTUBE_MUSIC(
+        "Custom branding for YouTube Music",
+        "Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection."
     ),
     DARK_THEME(
-        "Dark theme",
+        "Theme",
         "Changes the app's dark theme to the values specified in patch options."
     ),
     DISABLE_CAIRO_SPLASH_ANIMATION(
@@ -64,6 +60,10 @@ internal enum class PatchList(
     DISABLE_QUIC_PROTOCOL(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."
+    ),
+    DOWNLOADS(
+        "Downloads",
+        "Adds support to download songs for offline playback inside YouTube Music."
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
@@ -112,6 +112,10 @@ internal enum class PatchList(
     PLAYER_COMPONENTS(
         "Player components",
         "Adds options to hide or change components related to the player."
+    ),
+    POTOKEN_PROVIDER(
+        "PoToken provider",
+        "Adds option to get PoToken using the built-in PoToken provider."
     ),
     REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS(
         "Remove background playback restrictions",

@@ -11,7 +11,7 @@
         android:layout_marginEnd="4dp"
         android:layout_toStartOf="@id/music_app_deeplink_button"
         android:padding="@dimen/controls_overlay_action_button_padding"
-        android:src="@drawable/revanced_sb_logo" />
+        android:src="@drawable/revanced_sb_logo_bold" />
 
     <com.google.android.libraries.youtube.common.ui.TouchImageView
         android:contentDescription="@string/revanced_sb_enable_voting"
@@ -25,5 +25,5 @@
         android:layout_marginEnd="4dp"
         android:layout_toStartOf="@+id/revanced_sb_create_segment_button"
         android:padding="@dimen/controls_overlay_action_button_padding"
-        android:src="@drawable/revanced_sb_voting" />
+        android:src="@drawable/revanced_sb_voting_bold" />
 </RelativeLayout>

@@ -12,12 +12,18 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patches.shared.CLIENT_INFO_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
-import app.morphe.patches.youtube.general.updates.cronetHeaderFingerprint
+import app.morphe.patches.shared.misc.request.buildRequestPatch
+import app.morphe.patches.shared.misc.request.hookBuildRequest
+import app.morphe.patches.shared.misc.spoof.BuildInnerTubeProtoRequestUriFingerprint
+import app.morphe.patches.shared.misc.spoof.addMediaSessionOverride
 import app.morphe.patches.youtube.shared.WatchNextResponseParserFingerprint
 import app.morphe.patches.youtube.utils.auth.authHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -25,26 +31,44 @@ import app.morphe.patches.youtube.utils.componentlist.hookElementList
 import app.morphe.patches.youtube.utils.componentlist.lazilyConvertedElementHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.morphe.patches.youtube.utils.fix.hype.hypeButtonIconPatch
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_ACTION_BUTTONS
-import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
-import app.morphe.patches.youtube.utils.request.buildRequestPatch
-import app.morphe.patches.youtube.utils.request.hookBuildRequest
+import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_39_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
-import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
+import app.morphe.util.registersUsed
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/ActionButtonsFilter;"
 private const val ACTION_BUTTONS_CLASS_DESCRIPTOR =
     "$PLAYER_PATH/ActionButtonsPatch;"
+private const val EXTENSION_CONFIG_INFO_INTERFACE =
+    $$"$$GENERAL_PATH/GeneralPatch$ConfigInfoInterface;"
+private const val EXTENSION_REQUEST_INTERFACE =
+    $$"$$GENERAL_PATH/GeneralPatch$RequestInterface;"
 
 private object ModernRelateVideoOverlayFingerprint : Fingerprint(
     filters = listOf(
@@ -58,6 +82,37 @@ private object RelateVideoOverlayLayoutParamFingerprint : Fingerprint(
     )
 )
 
+private object BuildInnerTubeProtoRequestBodyFingerprint : Fingerprint(
+    classFingerprint = BuildInnerTubeProtoRequestUriFingerprint,
+    parameters = listOf("L"),
+    returnType = "Lcom/google/protobuf/MessageLite;",
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = CLIENT_INFO_CLASS_DESCRIPTOR
+        )
+    )
+)
+
+private fun getConfigInfoFingerprint(configInfoClass: String) = object : Fingerprint(
+    definingClass = configInfoClass,
+    name = "<init>",
+    parameters = listOf(),
+    returnType = "V",
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = "this",
+            type = "Ljava/lang/String;"
+        ),
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = "this",
+            type = "Ljava/lang/String;"
+        )
+    )
+) {}
+
 internal val restoreOldVideoActionBarPatch = bytecodePatch(
     description = "restoreOldVideoActionBarPatch"
 ) {
@@ -65,10 +120,15 @@ internal val restoreOldVideoActionBarPatch = bytecodePatch(
         settingsPatch,
         buildRequestPatch,
         fixProtoLibraryPatch,
+        versionCheckPatch,
     )
 
     execute {
-        if (is_20_21_or_greater) {
+        if (is_20_39_or_greater) {
+            addMediaSessionOverride("$GENERAL_CLASS_DESCRIPTOR->useMediaSessionFeatureFlag(Z)Z")
+        }
+
+        if (is_20_30_or_greater) {
             addPreference(
                 arrayOf(
                     "PREFERENCE_SCREEN: PLAYER",
@@ -77,19 +137,114 @@ internal val restoreOldVideoActionBarPatch = bytecodePatch(
                 )
             )
 
-            hookBuildRequest("$GENERAL_CLASS_DESCRIPTOR->fetchRequest(Ljava/lang/String;Ljava/util/Map;)V")
+            hookBuildRequest(
+                descriptor = "$GENERAL_CLASS_DESCRIPTOR->fixVideoActionBar(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Map;",
+                hookHeader = true,
+            )
 
-            cronetHeaderFingerprint.matchOrThrow().let {
-                it.method.apply {
-                    val index = it.stringMatches.first().index
+            // Comment requests use the same 'next' endpoint as watch page requests.
+            // Their config must not be overridden, so find out which requests are for the watch page.
+            BuildInnerTubeProtoRequestUriFingerprint.method.apply {
+                // uri.buildUpon().appendEncodedPath("youtubei/v1").appendEncodedPath(this.request.endpoint)
+                val appendEndpointIndex = indexOfFirstInstructionReversedOrThrow {
+                    getReference<MethodReference>()?.name == "appendEncodedPath"
+                }
+                val endpointRegister = getInstruction<FiveRegisterInstruction>(appendEndpointIndex).registerD
+                val endpointIndex = indexOfFirstInstructionReversedOrThrow(appendEndpointIndex) {
+                    opcode == Opcode.IGET_OBJECT && (this as TwoRegisterInstruction).registerA == endpointRegister
+                }
+                val endpointField = getInstruction<ReferenceInstruction>(endpointIndex).reference as FieldReference
+                val requestRegister = getInstruction<TwoRegisterInstruction>(endpointIndex).registerB
+                val requestIndex = indexOfFirstInstructionReversedOrThrow(endpointIndex) {
+                    opcode == Opcode.IGET_OBJECT && (this as TwoRegisterInstruction).registerA == requestRegister
+                }
+                val requestField = getInstruction<ReferenceInstruction>(requestIndex).reference as FieldReference
 
-                    addInstructions(
-                        index,
-                        """
-                        invoke-static {p1, p2}, $GENERAL_CLASS_DESCRIPTOR->fixVideoActionBar(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object p2
-                    """
+                BuildInnerTubeProtoRequestUriFingerprint.classDef.apply {
+                    interfaces.add(EXTENSION_REQUEST_INTERFACE)
+
+                    methods.add(
+                        ImmutableMethod(
+                            type,
+                            "patch_getEndpoint",
+                            listOf(),
+                            "Ljava/lang/String;",
+                            AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                            null,
+                            null,
+                            MutableMethodImplementation(2),
+                        ).toMutable().apply {
+                            addInstructions(
+                                0,
+                                """
+                                    iget-object v0, p0, $requestField
+                                    iget-object v0, v0, $endpointField
+                                    return-object v0
+                                """
+                            )
+                        }
                     )
+                }
+            }
+
+            BuildInnerTubeProtoRequestBodyFingerprint.method.apply {
+                findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstruction(
+                        index,
+                        "invoke-static { v$register, p0 }, $GENERAL_CLASS_DESCRIPTOR->" +
+                                "onBuildRequestBody(Lcom/google/protobuf/MessageLite;$EXTENSION_REQUEST_INTERFACE)V"
+                    )
+                }
+            }
+
+            val configInfoClass = with(BuildInnerTubeProtoRequestBodyFingerprint) {
+                val match = instructionMatches.first()
+                val index = match.index
+                val instruction = match.instruction
+                val register = instruction.registersUsed[0]
+
+                method.addInstructions(
+                    index,
+                    "invoke-static { v$register }, $GENERAL_CLASS_DESCRIPTOR->fixVideoActionBar($EXTENSION_CONFIG_INFO_INTERFACE)V"
+                )
+
+                instruction.getReference<FieldReference>()!!.type
+            }
+
+            getConfigInfoFingerprint(configInfoClass).let {
+                it.classDef.apply {
+                    interfaces.add(EXTENSION_CONFIG_INFO_INTERFACE)
+
+                    mapOf(
+                        0 to "patch_setColdConfigData",
+                        1 to "patch_setColdHashData",
+                    ).forEach { (matchIndex, interfaceMethodName) ->
+                        val coldDataField = it.instructionMatches[matchIndex]
+                            .instruction.getReference<FieldReference>()!!
+
+                        methods.add(
+                            ImmutableMethod(
+                                type,
+                                interfaceMethodName,
+                                listOf(ImmutableMethodParameter("Ljava/lang/String;", null, null)),
+                                "V",
+                                AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                                null,
+                                null,
+                                MutableMethodImplementation(3),
+                            ).toMutable().apply {
+                                addInstructions(
+                                    0,
+                                    """
+                                        iput-object p1, p0, $coldDataField
+                                        return-void
+                                    """
+                                )
+                            }
+                        )
+                    }
                 }
             }
 
@@ -97,7 +252,8 @@ internal val restoreOldVideoActionBarPatch = bytecodePatch(
                 ModernRelateVideoOverlayFingerprint,
                 RelateVideoOverlayLayoutParamFingerprint
             ).forEach { fingerprint ->
-                fingerprint.let {
+                fingerprint.clearMatch()
+                fingerprint.matchAll().forEach {
                     it.method.insertLiteralOverride(
                         it.instructionMatches.first().index,
                         "$GENERAL_CLASS_DESCRIPTOR->fixRelatedVideoOverlay(Z)Z"

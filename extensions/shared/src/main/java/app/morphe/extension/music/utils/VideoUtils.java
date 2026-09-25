@@ -10,6 +10,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import app.morphe.extension.music.patches.downloads.LocalDownloadManager;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.music.shared.VideoInformation;
 import app.morphe.extension.shared.settings.StringSetting;
@@ -27,6 +28,11 @@ public class VideoUtils extends IntentUtils {
 
     public static void launchExternalDownloader(@NonNull String videoId) {
         try {
+            if (Settings.IN_APP_DOWNLOADS.get()) {
+                LocalDownloadManager.enqueue(videoId);
+                return;
+            }
+
             String downloaderPackageName = externalDownloaderPackageName.get().trim();
 
             if (downloaderPackageName.isEmpty()) {

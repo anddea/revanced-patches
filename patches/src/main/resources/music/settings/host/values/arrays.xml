@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="morphe_settings_name_entries">
+        <item>@string/revanced_change_start_page_entry_default</item>
+        <item>@string/morphe_settings_name_entry_1</item>
+        <item>@string/morphe_settings_name_entry_2</item>
+        <item>@string/morphe_settings_name_entry_3</item>
+        <item>@string/morphe_settings_name_entry_4</item>
+        <item>@string/revanced_icon_custom</item>
+    </string-array>
+    <string-array name="morphe_settings_name_entry_values">
+        <item>DEFAULT</item>
+        <item>PREMIUM</item>
+        <item>EXTRAS</item>
+        <item>TWEAKS</item>
+        <item>MORPHING_TIME</item>
+        <item>CUSTOM</item>
+    </string-array>
     <string-array name="revanced_change_start_page_entries">
         <item>@string/revanced_change_start_page_entry_default</item>
         <item>@string/revanced_change_start_page_entry_charts</item>
@@ -122,7 +138,7 @@
     <string-array name="morphe_spoof_video_streams_client_type_entries">
         <item>Android Music Reel</item>
         <item>Android Music No SDK</item>
-        <item>Android VR</item>
+        <item>Android VR Downgraded</item>
         <item>TV</item>
         <item>TV Simply</item>
         <item>visionOS</item>
@@ -130,7 +146,7 @@
     <string-array name="morphe_spoof_video_streams_client_type_entry_values">
         <item>ANDROID_MUSIC_REEL</item>
         <item>ANDROID_MUSIC_NO_SDK</item>
-        <item>ANDROID_VR</item>
+        <item>ANDROID_VR_DASH</item>
         <item>TV_SABR</item>
         <item>TV_SIMPLY</item>
         <item>VISIONOS_1_02</item>
@@ -145,14 +161,196 @@
         <item>REPLACE</item>
         <item>BLOCK</item>
     </string-array>
-    <string-array name="morphe_music_lyrics_source_entries">
-        <item>@string/morphe_music_lyrics_source_entry_lrclib_then_kugou</item>
-        <item>@string/morphe_music_lyrics_source_entry_lrclib</item>
-        <item>@string/morphe_music_lyrics_source_entry_kugou</item>
+    <string-array name="morphe_dark_theme_entries">
+        <item>@string/revanced_change_start_page_entry_default</item>
+        <item>@string/morphe_theme_entry_amoled_black</item>
+        <item>@string/morphe_theme_entry_material_you_neutral</item>
+        <item>@string/morphe_theme_entry_material_you_primary</item>
+        <item>@string/morphe_theme_entry_material_you_secondary</item>
+        <item>@string/morphe_theme_entry_material_you_tertiary</item>
+        <item>@string/morphe_theme_entry_modern_youtube</item>
+        <item>@string/morphe_theme_entry_classic_youtube</item>
+        <item>Catppuccin (Mocha)</item>
+        <item>@string/morphe_theme_entry_dark_pink</item>
+        <item>@string/morphe_theme_entry_dark_blue</item>
+        <item>@string/morphe_theme_entry_dark_green</item>
+        <item>@string/morphe_theme_entry_dark_yellow</item>
+        <item>@string/morphe_theme_entry_dark_orange</item>
+        <item>@string/morphe_theme_entry_dark_red</item>
+        <item>@string/revanced_icon_custom</item>
     </string-array>
-    <string-array name="morphe_music_lyrics_source_entry_values">
-        <item>LRCLIB_THEN_KUGOU</item>
-        <item>LRCLIB</item>
-        <item>KUGOU</item>
+    <string-array name="morphe_dark_theme_entry_values">
+        <item>stock</item>
+        <item>amoled_black</item>
+        <item>material_you_neutral</item>
+        <item>material_you_primary</item>
+        <item>material_you_secondary</item>
+        <item>material_you_tertiary</item>
+        <item>modern_youtube</item>
+        <item>classic_youtube</item>
+        <item>catppuccin_mocha</item>
+        <item>dark_pink</item>
+        <item>dark_blue</item>
+        <item>dark_green</item>
+        <item>dark_yellow</item>
+        <item>dark_orange</item>
+        <item>dark_red</item>
+        <item>custom</item>
+    </string-array>
+    <string-array name="morphe_language_entries">
+        <item>@string/revanced_change_start_page_entry_default</item>
+        <item>Afrikaans</item>
+        <item>አማርኛ</item>
+        <item>العربية</item>
+        <item>অসমীয়া</item>
+        <item>Azərbaycanca</item>
+        <item>Беларуская</item>
+        <item>Български</item>
+        <item>বাংলা</item>
+        <item>Bosanski</item>
+        <item>Català</item>
+        <item>Čeština</item>
+        <item>Dansk</item>
+        <item>Deutsch</item>
+        <item>Ελληνικά</item>
+        <item>English</item>
+        <item>Español</item>
+        <item>Eesti</item>
+        <item>Euskara</item>
+        <item>فارسی</item>
+        <item>Suomi</item>
+        <item>Français</item>
+        <item>Gaeilge</item>
+        <item>Galego</item>
+        <item>ગુજરાતી</item>
+        <item>עברית</item>
+        <item>हिन्दी</item>
+        <item>Hrvatski</item>
+        <item>Magyar</item>
+        <item>Հայերեն</item>
+        <item>Bahasa Indonesia</item>
+        <item>Íslenska</item>
+        <item>Italiano</item>
+        <item>日本語</item>
+        <item>ქართული</item>
+        <item>Қазақ тілі</item>
+        <item>ភាសាខ្មែរ</item>
+        <item>ಕನ್ನಡ</item>
+        <item>한국어</item>
+        <item>Кыргызча</item>
+        <item>ລາວ</item>
+        <item>Lietuvių</item>
+        <item>Latviešu</item>
+        <item>Македонски</item>
+        <item>മലയാളം</item>
+        <item>Монгол</item>
+        <item>मराठी</item>
+        <item>Bahasa Melayu</item>
+        <item>မြန်မာစာ</item>
+        <item>Norsk bokmål</item>
+        <item>नेपाली</item>
+        <item>Nederlands</item>
+        <item>ଓଡ଼ିଆ</item>
+        <item>ਪੰਜਾਬੀ</item>
+        <item>Polski</item>
+        <item>Português</item>
+        <item>Română</item>
+        <item>Русский</item>
+        <item>සිංහල</item>
+        <item>Slovenčina</item>
+        <item>Slovenščina</item>
+        <item>Shqip</item>
+        <item>Српски</item>
+        <item>Svenska</item>
+        <item>Kiswahili</item>
+        <item>தமிழ்</item>
+        <item>తెలుగు</item>
+        <item>ไทย</item>
+        <item>Tagalog</item>
+        <item>Türkçe</item>
+        <item>Українська</item>
+        <item>اردو</item>
+        <item>Oʻzbekcha</item>
+        <item>Tiếng Việt</item>
+        <item>中文</item>
+        <item>isiZulu</item>
+    </string-array>
+    <string-array name="morphe_language_entry_values">
+        <item>DEFAULT</item>
+        <item>AF</item>
+        <item>AM</item>
+        <item>AR</item>
+        <item>AS</item>
+        <item>AZ</item>
+        <item>BE</item>
+        <item>BG</item>
+        <item>BN</item>
+        <item>BS</item>
+        <item>CA</item>
+        <item>CS</item>
+        <item>DA</item>
+        <item>DE</item>
+        <item>EL</item>
+        <item>EN</item>
+        <item>ES</item>
+        <item>ET</item>
+        <item>EU</item>
+        <item>FA</item>
+        <item>FI</item>
+        <item>FR</item>
+        <item>GA</item>
+        <item>GL</item>
+        <item>GU</item>
+        <item>HE</item>
+        <item>HI</item>
+        <item>HR</item>
+        <item>HU</item>
+        <item>HY</item>
+        <item>ID</item>
+        <item>IS</item>
+        <item>IT</item>
+        <item>JA</item>
+        <item>KA</item>
+        <item>KK</item>
+        <item>KM</item>
+        <item>KN</item>
+        <item>KO</item>
+        <item>KY</item>
+        <item>LO</item>
+        <item>LT</item>
+        <item>LV</item>
+        <item>MK</item>
+        <item>ML</item>
+        <item>MN</item>
+        <item>MR</item>
+        <item>MS</item>
+        <item>MY</item>
+        <item>NB</item>
+        <item>NE</item>
+        <item>NL</item>
+        <item>OR</item>
+        <item>PA</item>
+        <item>PL</item>
+        <item>PT</item>
+        <item>RO</item>
+        <item>RU</item>
+        <item>SI</item>
+        <item>SK</item>
+        <item>SL</item>
+        <item>SQ</item>
+        <item>SR</item>
+        <item>SV</item>
+        <item>SW</item>
+        <item>TA</item>
+        <item>TE</item>
+        <item>TH</item>
+        <item>TL</item>
+        <item>TR</item>
+        <item>UK</item>
+        <item>UR</item>
+        <item>UZ</item>
+        <item>VI</item>
+        <item>ZH</item>
+        <item>ZU</item>
     </string-array>
 </resources>

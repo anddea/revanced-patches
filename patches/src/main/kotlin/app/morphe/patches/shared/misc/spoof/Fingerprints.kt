@@ -2,6 +2,9 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
  */
 
@@ -12,20 +15,25 @@ import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.anyInstruction
+import app.morphe.patcher.checkCast
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
-import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val STREAMING_DATA_OUTER_CLASS =
     $$"Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass$StreamingData;"
+
+internal object CuepointListFingerprint : Fingerprint(
+    definingClass = $$"Lcom/google/android/apps/youtube/proto/streaming/CuepointListOuterClass$CuepointList;",
+    name = "<clinit>",
+    filters = listOf(
+        methodCall(name = "registerDefaultInstance")
+    )
+)
 
 internal object BuildInitPlaybackRequestFingerprint : Fingerprint(
     returnType = $$"Lorg/chromium/net/UrlRequest$Builder;",
@@ -39,47 +47,23 @@ internal object BuildInitPlaybackRequestFingerprint : Fingerprint(
     )
 )
 
-internal object BuildPlayerRequestURIBuilderFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
-    returnType = $$"Landroid/net/Uri$Builder;",
+internal object BuildInnerTubeProtoRequestUriFingerprint : Fingerprint(
     parameters = listOf(),
     filters = listOf(
         string("key"),
         string("asig"),
+        checkCast("Ljava/lang/String;"),
         methodCall($$"Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;"),
-        opcode(Opcode.RETURN_OBJECT)
+        anyInstruction(
+            // YT 21.20, YTM 9.18
+            methodCall($$"Landroid/net/Uri$Builder;->build()Landroid/net/Uri;"),
+            // YT 21.21+, YTM 9.19+
+            opcode(
+                opcode = Opcode.RETURN_OBJECT,
+                location = MatchAfterWithin(5)
+            )
+        )
     )
-)
-
-internal object BuildPlayerRequestURIFingerprint : Fingerprint(
-    returnType = "Ljava/lang/String;",
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.MONITOR_EXIT,
-        Opcode.RETURN_OBJECT,
-    ),
-    strings = listOf(
-        "key",
-        "asig",
-    )
-)
-
-internal object BuildRequestFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
-    returnType = "Lorg/chromium/net/UrlRequest",
-    filters = listOf(
-        methodCall(name = "newUrlRequestBuilder")
-    ),
-    custom = { methodDef, _ ->
-        val parameterTypes = methodDef.parameterTypes
-        val parameterTypesSize = parameterTypes.size
-        (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
-                parameterTypes[1] == "Ljava/util/Map;"
-                && indexOfNewUrlRequestBuilderInstruction(methodDef) >= 0
-    }
 )
 
 private object CreateStreamingDataParentFingerprint : Fingerprint(
@@ -137,6 +121,10 @@ internal fun abrStateDataFingerprint(playerConfigClass: String) = object : Finge
             opcode = Opcode.IGET_OBJECT,
             definingClass = playerConfigClass,
             location = MatchAfterImmediately()
+        ),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            location = MatchAfterWithin(5)
         ),
         string("/videoplayback"),
         string("AbrStateDataSpec: Unexpected http body.")
@@ -299,13 +287,3 @@ internal object ReelItemWatchResponseFeatureFlagFingerprint : Fingerprint(
         literal(45638126L)
     )
 )
-
-internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.indexOfFirstInstruction {
-    val reference = getReference<MethodReference>()
-    opcode == Opcode.INVOKE_VIRTUAL && reference?.definingClass == "Lorg/chromium/net/CronetEngine;"
-            && reference.name == "newUrlRequestBuilder"
-            && reference.parameterTypes.size == 3
-            && reference.parameterTypes[0] == "Ljava/lang/String;"
-            && reference.parameterTypes[1] == $$"Lorg/chromium/net/UrlRequest$Callback;"
-            && reference.parameterTypes[2] == "Ljava/util/concurrent/Executor;"
-}

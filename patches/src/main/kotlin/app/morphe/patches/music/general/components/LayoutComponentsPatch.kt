@@ -69,6 +69,7 @@ import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addTextPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
+import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
@@ -332,7 +333,8 @@ val layoutComponentsPatch = bytecodePatch(
         addTextPreference(
             CategoryType.GENERAL,
             "revanced_custom_filter_strings",
-            "revanced_custom_filter"
+            "revanced_custom_filter",
+            inputType = InputType.TEXT_MULTI_LINE,
         )
         addSwitchPreference(
             CategoryType.GENERAL,

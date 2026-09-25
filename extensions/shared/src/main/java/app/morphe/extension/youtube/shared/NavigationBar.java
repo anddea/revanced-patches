@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * Original hard forked code:
  * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
@@ -441,5 +445,26 @@ public final class NavigationBar {
         NavigationButton(String... ytEnumNames) {
             this.ytEnumNames = Arrays.asList(ytEnumNames);
         }
+    }
+
+    /**
+     * Returns the navigation items shown by the order editor.
+     *
+     * <p>Some of these items are optional in YouTube (for example, Explore and Search), but
+     * keeping them in the saved order lets the same preference work across layouts and accounts.
+     * Items that are not present in a particular guide response are ignored by the patch.</p>
+     */
+    public static List<NavigationButton> getDefaultNavigationButtonOrder() {
+        return Arrays.asList(
+                NavigationButton.HOME,
+                NavigationButton.SHORTS,
+                NavigationButton.CREATE,
+                NavigationButton.SUBSCRIPTIONS,
+                NavigationButton.NOTIFICATIONS,
+                NavigationButton.LIBRARY,
+                NavigationButton.EXPLORE,
+                NavigationButton.SEARCH,
+                NavigationButton.SETTINGS
+        );
     }
 }

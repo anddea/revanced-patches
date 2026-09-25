@@ -61,6 +61,7 @@ public class FullscreenAdsPatch {
      * @param customDialog Custom dialog which bound by litho
      *                     Can be cast as {@link Dialog} or {@link DialogInterface}
      */
+    @SuppressWarnings("deprecation")
     public static void dismissDialog(Object customDialog) {
         if (isFullscreenAds && customDialog instanceof Dialog dialog) {
             Window window = dialog.getWindow();

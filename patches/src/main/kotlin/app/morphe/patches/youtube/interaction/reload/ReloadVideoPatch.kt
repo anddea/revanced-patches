@@ -58,6 +58,7 @@ private val reloadVideoResourcePatch = resourcePatch {
                 ResourceGroup(
                     resourceDirectoryName = "drawable",
                     "morphe_reload_video.xml",
+                    "morphe_reload_video_bold.xml",
                 ),
             )
         }

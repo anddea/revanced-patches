@@ -2,7 +2,6 @@ package app.morphe.extension.shared.settings;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getIdIdentifier;
 import static app.morphe.extension.shared.utils.ResourceUtils.getLayoutIdentifier;
-import static app.morphe.extension.shared.utils.ResourceUtils.getStringIdentifier;
 import static app.morphe.extension.shared.utils.Utils.isSDKAbove;
 
 import android.annotation.SuppressLint;
@@ -17,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import app.morphe.extension.shared.patches.SettingsNamePatch;
 import app.morphe.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
@@ -33,8 +33,6 @@ public abstract class BaseHostActivity extends Activity {
             getIdIdentifier("revanced_toolbar_parent");
     public static final int LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR =
             getLayoutIdentifier("revanced_settings_with_toolbar");
-    private static final int STRING_REVANCED_SETTINGS_TITLE =
-            getStringIdentifier("revanced_settings_title");
 
     /**
      * Layout parameters for the toolbar, extracted from the dummy toolbar.
@@ -107,7 +105,7 @@ public abstract class BaseHostActivity extends Activity {
         toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(getNavigationIcon());
         toolbar.setNavigationOnClickListener(getNavigationClickListener(this));
-        toolbar.setTitle(STRING_REVANCED_SETTINGS_TITLE);
+        toolbar.setTitle(SettingsNamePatch.getSettingsName());
 
         if (isSDKAbove(24)) {
             final int margin = Utils.dipToPixels(16);

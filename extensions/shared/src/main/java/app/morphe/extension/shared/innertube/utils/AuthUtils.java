@@ -39,12 +39,6 @@ public class AuthUtils {
 
             if (StringUtils.isNotEmpty(newlyLoadedAuthorization) &&
                     StringUtils.isNotEmpty(newlyLoadedVisitorId)) {
-                // if (!authorization.equals(newlyLoadedAuthorization)) {
-                //     Logger.printDebug(() -> "new Authorization loaded: " + newlyLoadedAuthorization);
-                // }
-                // if (!visitorId.equals(newlyLoadedVisitorId)) {
-                //     Logger.printDebug(() -> "new VisitorId loaded: " + newlyLoadedVisitorId);
-                // }
                 authorization = newlyLoadedAuthorization;
                 visitorId = newlyLoadedVisitorId;
             }
@@ -56,12 +50,24 @@ public class AuthUtils {
      */
     public static void setAccountIdentity(@Nullable String newlyLoadedPageId,
                                           boolean newlyLoadedIncognitoStatus) {
-        if (StringUtils.isEmpty(newlyLoadedPageId)) {
-            pageId = "";
-        } else if (!pageId.equals(newlyLoadedPageId)) {
+        setPageId(newlyLoadedPageId == null ? "" : newlyLoadedPageId);
+        setIncognitoStatus(newlyLoadedIncognitoStatus);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setPageId(@Nullable String newlyLoadedPageId) {
+        if (newlyLoadedPageId != null && !pageId.equals(newlyLoadedPageId)) {
             pageId = newlyLoadedPageId;
             Logger.printDebug(() -> "new PageId loaded: " + newlyLoadedPageId);
         }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setIncognitoStatus(boolean newlyLoadedIncognitoStatus) {
         incognitoStatus = newlyLoadedIncognitoStatus;
     }
 
@@ -71,6 +77,16 @@ public class AuthUtils {
             put(VISITOR_ID_HEADER, visitorId);
             put(PAGE_ID_HEADER, pageId);
         }};
+    }
+
+    @NonNull
+    public static String getAuthorization() {
+        return authorization;
+    }
+
+    @NonNull
+    public static String getVisitorId() {
+        return visitorId;
     }
 
     public static boolean isNotLoggedIn() {

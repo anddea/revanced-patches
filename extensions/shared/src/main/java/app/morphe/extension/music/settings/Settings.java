@@ -7,14 +7,19 @@ import static app.morphe.extension.music.sponsorblock.objects.CategoryBehaviour.
 import static app.morphe.extension.shared.settings.Setting.parent;
 import static app.morphe.extension.shared.utils.StringRef.str;
 
+import android.os.Build;
+
 import androidx.annotation.NonNull;
+
+import java.util.Collections;
+import java.util.List;
 
 import app.morphe.extension.music.patches.CrossfadeManager.CrossFadeDuration;
 import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
 import app.morphe.extension.music.patches.general.ChangeStartPagePatch.StartPage;
-import app.morphe.extension.music.patches.lyrics.LyricsSource;
 import app.morphe.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
 import app.morphe.extension.music.patches.utils.PatchStatus;
+import app.morphe.extension.music.patches.utils.DrawableColorPatch;
 import app.morphe.extension.music.sponsorblock.SponsorBlockSettings;
 import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.settings.EnumSetting;
@@ -24,21 +29,34 @@ import app.morphe.extension.shared.settings.LongSetting;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
 import app.morphe.extension.shared.settings.StringSetting;
-import app.morphe.extension.shared.settings.preference.SeekBarPreference;
-import app.morphe.extension.shared.settings.preference.SeekBarPreference.SeekBarConfig;
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {
+    /** Enables the notification-dot picker for every theme except Material You. */
+    private static Setting.Availability notificationDotColorAvailability() {
+        return new Setting.Availability() {
+            @Override
+            public boolean isAvailable() {
+                return !DARK_THEME.get().startsWith("material_you_");
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.singletonList(DARK_THEME);
+            }
+        };
+    }
+
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE =
             new EnumSetting<>("morphe_spoof_video_streams_client_type",
                     ClientType.VISIONOS_1_02, true, parent(SPOOF_VIDEO_STREAMS));
 
     // PreferenceScreen: Account
     public static final BooleanSetting HIDE_ACCOUNT_MENU = new BooleanSetting("revanced_hide_account_menu", FALSE);
-    public static final StringSetting HIDE_ACCOUNT_MENU_FILTER_STRINGS = new StringSetting("revanced_hide_account_menu_filter_strings", "");
+    public static final StringSetting HIDE_ACCOUNT_MENU_FILTER_STRINGS = new StringSetting("revanced_hide_account_menu_filter_strings", "", true);
     public static final BooleanSetting HIDE_ACCOUNT_MENU_EMPTY_COMPONENT = new BooleanSetting("revanced_hide_account_menu_empty_component", FALSE);
     public static final BooleanSetting HIDE_HANDLE = new BooleanSetting("revanced_hide_handle", TRUE, true);
     public static final BooleanSetting HIDE_TERMS_CONTAINER = new BooleanSetting("revanced_hide_terms_container", FALSE);
@@ -58,8 +76,6 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_ACTION_BUTTON_RADIO = new BooleanSetting("revanced_hide_action_button_radio", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_DISABLED = new BooleanSetting("revanced_hide_action_button_disabled", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_LABEL = new BooleanSetting("revanced_hide_action_button_label", FALSE, true);
-    public static final BooleanSetting EXTERNAL_DOWNLOADER_ACTION_BUTTON = new BooleanSetting("revanced_external_downloader_action", FALSE, true);
-    public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME = new StringSetting("revanced_external_downloader_package_name", "com.deniscerri.ytdl");
     public static final BooleanSetting REPLACE_ACTION_BUTTON_LIKE = new BooleanSetting("revanced_replace_action_button_like", FALSE, true);
     public static final BooleanSetting REPLACE_ACTION_BUTTON_LIKE_TYPE = new BooleanSetting("revanced_replace_action_button_like_type", FALSE, true);
 
@@ -112,7 +128,38 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting REPLACE_FLYOUT_MENU_REPORT_ONLY_PLAYER = new BooleanSetting("revanced_replace_flyout_menu_report_only_player", TRUE);
 
 
-    // PreferenceScreen: General
+    /** Precompiled presets work on Android 8+, while arbitrary colors require Android 11+. */
+    public static final StringSetting DARK_THEME = new StringSetting(
+            "morphe_dark_theme", DrawableColorPatch.DEFAULT_DARK_THEME, true);
+    /** Arbitrary runtime color, enabled for the Custom selector on Android 11+. */
+    public static final StringSetting DARK_THEME_CUSTOM_COLOR = new StringSetting(
+            "morphe_dark_theme_custom_color",
+            DrawableColorPatch.DEFAULT_DARK_THEME_CUSTOM_COLOR,
+            true,
+            new Setting.Availability() {
+                @Override
+                public boolean isAvailable() {
+                    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                            && DARK_THEME.isAvailable()
+                            && "custom".equals(DARK_THEME.get());
+                }
+
+                @Override
+                public boolean isVisible() {
+                    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                            && DARK_THEME.isVisible();
+                }
+
+                @Override
+                public List<Setting<?>> getParentSettings() {
+                    return Collections.singletonList(DARK_THEME);
+                }
+            });
+    public static final StringSetting NOTIFICATION_DOT_COLOR = new StringSetting(
+            "morphe_notification_dot_color",
+            DrawableColorPatch.DEFAULT_NOTIFICATION_DOT_COLOR,
+            true,
+            notificationDotColorAvailability());
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.DEFAULT, true);
     public static final BooleanSetting DISABLE_CAIRO_SPLASH_ANIMATION = new BooleanSetting("revanced_disable_cairo_splash_animation", FALSE, true);
     public static final BooleanSetting DISABLE_DISLIKE_REDIRECTION = new BooleanSetting("revanced_disable_dislike_redirection", FALSE);
@@ -138,7 +185,8 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting HIDE_VOICE_SEARCH_BUTTON = new BooleanSetting("revanced_hide_voice_search_button", FALSE, true);
     public static final BooleanSetting REMOVE_VIEWER_DISCRETION_DIALOG = new BooleanSetting("revanced_remove_viewer_discretion_dialog", FALSE);
     public static final BooleanSetting RESTORE_OLD_STYLE_LIBRARY_SHELF = new BooleanSetting("revanced_restore_old_style_library_shelf", FALSE, true);
-    public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true);
+    public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version",
+            PatchStatus.SpoofAppVersionDefaultBoolean(), true);
     public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target",
             PatchStatus.SpoofAppVersionDefaultString(), true);
     public static final BooleanSetting SPOOF_APP_VERSION_FOR_LYRICS = new BooleanSetting("revanced_spoof_app_version_for_lyrics", FALSE, true);
@@ -164,7 +212,8 @@ public class Settings extends SharedYouTubeSettings {
     // PreferenceScreen: Player
     public static final BooleanSetting ADD_MINIPLAYER_NEXT_BUTTON = new BooleanSetting("revanced_add_miniplayer_next_button", TRUE, true);
     public static final BooleanSetting ADD_MINIPLAYER_PREVIOUS_BUTTON = new BooleanSetting("revanced_add_miniplayer_previous_button", TRUE, true);
-    public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_change_miniplayer_color", TRUE);
+    public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_change_miniplayer_color", FALSE);
+    public static final BooleanSetting CHANGE_NAVIGATION_BAR_COLOR = new BooleanSetting("revanced_music_change_navigation_bar_color", FALSE, true, parent(CHANGE_MINIPLAYER_COLOR));
     public static final BooleanSetting CHANGE_PLAYER_BACKGROUND_COLOR = new BooleanSetting("revanced_change_player_background_color", FALSE, true);
     public static final BooleanSetting CROSSFADE_ENABLED = new BooleanSetting("morphe_music_crossfade_enabled", FALSE, true);
     public static final EnumSetting<FadeCurve> CROSSFADE_CURVE = new EnumSetting<>("morphe_music_crossfade_curve", FadeCurve.EQUAL_POWER);
@@ -198,13 +247,124 @@ public class Settings extends SharedYouTubeSettings {
 
     // PreferenceScreen: Lyrics
     public static final BooleanSetting LYRICS_ENABLED = new BooleanSetting("morphe_music_lyrics_enabled", FALSE, true);
-    public static final EnumSetting<LyricsSource> LYRICS_SOURCE = new EnumSetting<>("morphe_music_lyrics_source", LyricsSource.LRCLIB_THEN_KUGOU, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_KEEP_SCREEN_ON = new BooleanSetting("morphe_music_lyrics_keep_screen_on", FALSE, true);
+    public static final String DEFAULT_LYRICS_ORDER =
+            "YTMusic,-Captions,Apple,LRCLIB,QQ,NetEase,KuGou,Luna,-PetitLyrics,-bLyrics,-BiniLyrics,-Unison,-SimpMusic,-AMLL,-LunaBeat,-Lyricify,-Spotify,-Musixmatch,-Deezer,";
+    public static final StringSetting LYRICS_SOURCE = new StringSetting("morphe_music_lyrics_source", DEFAULT_LYRICS_ORDER, true, parent(LYRICS_ENABLED));
+    public static final StringSetting APPLE_MUSIC_TOKEN = new StringSetting("morphe_music_apple_music_token", "", true, parent(LYRICS_ENABLED));
+    public static final StringSetting SPOTIFY_TOKEN = new StringSetting("morphe_music_spotify_token", "", true, parent(LYRICS_ENABLED));
+    public static final StringSetting DEEZER_ARL = new StringSetting("morphe_music_deezer_arl", "", true, parent(LYRICS_ENABLED));
+    public static final StringSetting MUSIXMATCH_TOKEN = new StringSetting("morphe_music_musixmatch_token", "", true, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_TRANSLATE = new BooleanSetting("morphe_music_lyrics_translate", FALSE, true, parent(LYRICS_ENABLED));
+    public static final StringSetting LYRICS_TRANSLATION_LANGUAGE = new StringSetting("morphe_music_lyrics_translation_language", "DEFAULT", true, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_TAP_TO_SEEK = new BooleanSetting("morphe_music_lyrics_tap_to_seek", TRUE, true, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_SHOW_COPY_BUTTON = new BooleanSetting("morphe_music_lyrics_show_copy_button", TRUE, true, parent(LYRICS_ENABLED));
     public static final BooleanSetting LYRICS_SHOW_TRANSLATE_BUTTON = new BooleanSetting("morphe_music_lyrics_show_translate_button", TRUE, true, parent(LYRICS_ENABLED));
-    public static final IntegerSetting LYRICS_TEXT_SIZE = new IntegerSetting("morphe_music_lyrics_text_size", 24, true, parent(LYRICS_ENABLED));
-    public static final IntegerSetting LYRICS_OFFSET_MS = new IntegerSetting("morphe_music_lyrics_offset_ms", 0, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_USE_AI_TRANSLATION = new BooleanSetting("morphe_music_lyrics_use_ai_translation", FALSE, true, parent(LYRICS_ENABLED));
+    public static final StringSetting LYRICS_AI_BASE_URL = new StringSetting("morphe_music_lyrics_ai_base_url", "https://text.pollinations.ai/openai", true, parent(LYRICS_USE_AI_TRANSLATION));
+    public static final StringSetting LYRICS_AI_API_TOKEN = new StringSetting("morphe_music_lyrics_ai_api_token", "", true, parent(LYRICS_USE_AI_TRANSLATION));
+    public static final StringSetting LYRICS_AI_MODEL = new StringSetting("morphe_music_lyrics_ai_model", "openai-fast", true, parent(LYRICS_USE_AI_TRANSLATION));
+    public static final BooleanSetting LYRICS_SHOW_ROMANIZE_BUTTON = new BooleanSetting("morphe_music_lyrics_show_romanize_button", TRUE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_SHOW_REFRESH_BUTTON = new BooleanSetting("morphe_music_lyrics_show_refresh_button", TRUE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_HIDE_INFO = new BooleanSetting("morphe_music_lyrics_hide_info", FALSE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_SWAP_TRANS_ROMA = new BooleanSetting("morphe_music_lyrics_swap_trans_roma", FALSE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_ROMANIZE = new BooleanSetting("morphe_music_lyrics_romanize", FALSE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_WORD_SYNC = new BooleanSetting("morphe_music_lyrics_word_sync", TRUE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_HIDE_PLAYED = new BooleanSetting("morphe_music_lyrics_hide_played", FALSE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_HIDE_UNPLAYED = new BooleanSetting("morphe_music_lyrics_hide_unplayed", FALSE, true, parent(LYRICS_ENABLED));
+    public static final IntegerSetting LYRICS_TEXT_SIZE = new IntegerSetting(
+            "morphe_music_lyrics_text_size", 24, true,
+            new Setting.SliderConfig(14, 40, 1, "sp"), parent(LYRICS_ENABLED));
+    public static final IntegerSetting LYRICS_OFFSET_MS = new IntegerSetting(
+            "morphe_music_lyrics_offset_ms", 0, true,
+            new Setting.SliderConfig(-2_000, 2_000, 1, "ms"), parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_MEDIASESSION = new BooleanSetting("morphe_music_lyrics_mediasession", FALSE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_MINIPLAYER = new BooleanSetting("morphe_music_lyrics_miniplayer", FALSE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_DISPLAY_ARTIST_FIRST = new BooleanSetting("morphe_music_lyrics_display_artist_first", FALSE, true, parent(LYRICS_ENABLED));
+    public static final BooleanSetting LYRICS_USE_EMBEDDED = new BooleanSetting("morphe_music_lyrics_use_embedded", TRUE, true, parent(LYRICS_ENABLED));
+    public static final StringSetting LYRICS_CAPTION_COOKIES = new StringSetting("morphe_music_lyrics_caption_cookies", "", true, parent(LYRICS_ENABLED));
+    public static final String DEFAULT_LYRICS_REGEX =
+            "(?i)\\s*[（(\\[]((official\\s+)?(video|audio|music\\s+video|lyrics?\\s+video|visualizer|mv))[）)\\]]"
+            + "|(?i)\\s*[（(\\[]((\\d{4}\\s+)?remaster(ed)?(\\s+\\d{4})?)[）)\\]]"
+            + "|(?i)\\s*[（(\\[](mono|stereo|hq|hd|4k|8k)[）)\\]]"
+            + "|[（(][^）)]*(?:主题曲|片尾曲|插曲|片头曲|广告曲|推广曲)[^）)]*[）)]"
+            + "|[（(][^）)]*[\\uff1a:][^）)]*[）)]"
+            + "|(?i)\\s*-\\s*topic$";
+    public static final StringSetting LYRICS_CUSTOM_REGEX = new StringSetting("morphe_music_lyrics_custom_regex", DEFAULT_LYRICS_REGEX, true, parent(LYRICS_ENABLED));
+    public static final String DEFAULT_LYRICS_TEXT_FILTER =
+            ".*?(?:"
+            + "未经.*?(?:不得|禁止)"
+            + "|本作品声明.*?著作权权利保留.*?不得"
+            + "|本字幕由TME AI技术生成"
+            + "|部分素材源自网络"
+            + "|酷我音乐.*?特别出品"
+            + "|酷狗.*?星曜计划"
+            + "|酷狗.*?国潮"
+            + "|酷狗音乐.*?就是歌多"
+            + "|听国潮.*?酷狗"
+            + "|未经许可.*?(?:翻唱|盗版)"
+            + "|本作品.*?授权"
+            + "|已获得.*?授权"
+            + "|星曜计划.*?企划|黑胶复刻"
+            + "|此歌曲为没有填词的纯音乐"
+            + "|纯音乐，请欣赏"
+            + "|此歌曲由Vemus未音APP\\.制作 音乐创作如此简单！"
+            + "|酷狗音乐『万物皆可dj』企划"
+            + "|『听dj, 到中国酷狗』"
+            + "|本歌曲来自〖飓风计划〗"
+            + "|10亿现金激励，千亿流量扶持！"
+            + "|版权所有\\s*未经\\s*许可\\s*请勿\\s*使用"
+            + "|想听的歌在评\\s*论区"
+            + ").*";
+    public static final StringSetting LYRICS_TEXT_FILTER = new StringSetting("morphe_music_lyrics_text_filter", DEFAULT_LYRICS_TEXT_FILTER, true, parent(LYRICS_ENABLED));
+    public static final String DEFAULT_LYRICS_CREDIT_LINE_REGEX =
+           "A&R,A.Guita,AU,Additional Drums Engineering,Administer,Administered,Administered By,Administering,Administers,"
+            + "Agency,Album,All Instruments,Arranged,Arranged By,Arranger,Arrangers,Arranging,"
+            + "Artist,Artists,Assistant Engineer,Assistant Engineers,Assistant Mix Engineer,"
+            + "Assistant Mix Engineers,Author,Authoring,Authors,Autotune,Backed,Background,"
+            + "Background Vocal,Background Vocals,Backing,Bass,Bass Guitar,COS,CV,Child,Child Choir,"
+            + "Child Choir Instruction,Child Lead,Children,Composed By,Composer,Composers,"
+            + "Composing,Copyright,Cover,Credit,DJ,Digital Edited,Digital Edited By,"
+            + "Digital Editing,Directed,Directed By,Directing,Director,Directors,Drum,Drums,"
+            + "Duration,E.Guitar,Edited,Edited By,Editing Engineer,Editing Engineers,Editor,"
+            + "Editors,Engineer,Engineered,Engineered By,Engineering,Engineers,Executed,Executing,"
+            + "Executive,Guitar,Group,Harmony,ISRC,Keyboard,LA,Lang,Language,Lead,Leader,Leaders,"
+            + "Length,Lyric,Lyricist,Lyricists,Lyrics,Lyrics By,MV,Main Sample,Manufactory,"
+            + "Manufactured,Manufactured By,Manufacturing,Master,Mastered,Mastered By,Mastering,"
+            + "Mastering Engineer,Mastering Engineers,Masters,Mix Engineer,Mix Engineered by,Mixed,"
+            + "Mixed By,Mixer,Mixers,Mixing,Mixing Engineer,Mixing Studio,Music,OA,OC,OP,OT,Original Lyrics by,"
+            + "Original Title,Original Publisher,Original Writer,PGM,PV,Percussion,Performed,"
+            + "Performed By,Performer,Performers,Performing,Pro-Tools Editing,Produced,Produced By,"
+            + "Producer,Producers,Producing,Program,Programming by,Published,Published By,Publisher,"
+            + "Publishers,Publishing,Publishing Group,Publishing Group Administered By,QQ,RE,Rap,"
+            + "Record,Recorded,Recorded At,Recorded By,Recorder,Recorders,Recording,Recording Engineer,Recordings,"
+            + "Records,SP,Sample,Sampled,Samples,Sampling,Singer,Singers,Singing,Song,Strings,"
+            + "Studio,Sub,Sub Publisher,Subs,Subscribe,Subscribed,Subscriber,Subscribers,Surround,"
+            + "Synthesizer,Synthesizers,TA,Title,VE,Ver,Version,Vocal,Vocal Arrangement,"
+            + "Vocal Directed,Vocal Directed By,Vocal Director,Vocal Engineer,Vocal Engineering,"
+            + "Vocal Produced,Vocal Produced By,Vocal Producer,Vocal Producers,Vocals,"
+            + "Vocals Arrangement,Voice,Written,Written By,Writter,"
+            + "专辑,业务联系,业务邮箱,中提,中提琴,中提琴手,中文,中文词SA,主催,主唱,乐器,乐团,乐队,书法,竖琴吉他,二胡,人声,"
+            + "企业宣传,企划,企宣,伴唱,伴奏,伴舞,低音提琴,低音吉他,作曲,作画,作者,作词,修音,修音师,公司,出品,出品人,创作,"
+            + "创作者,指挥,创意,制作,制作人,前置混音,剧情,剪纸艺术家,助力推广,助理,协力,厂牌,原唱,原曲,原歌名,"
+            + "原版,原画,原编曲,原翻,原著,原词,原词曲,发型,发布,发布者,发行,口琴,口风琴,古筝,合作,合作伙伴,合作者,"
+            + "合声,合成,合成器,合音,合唱,吉他,后期,吟唱,和声,和音,唢呐,商务,团队,图,图片,图画,地址,场景,场景提供,"
+            + "填词,声乐,声音,处理,大提,大提琴,大提琴手,女声,妆造,官方,官方指定音乐合作伙伴,宣传,宣发,宣推,"
+            + "富鲁格,导演,封设,封面,小号,小提,小提琴,小提琴手,第一小提琴,第二小提琴,工作室,工程,工程师,平面设计,平台,弦乐,弦乐团,录音,"
+            + "录音室,录音师,录音棚,录制,微信,微博,快手,念白,总企划,总监,总监制,总策划,总顾问,手碟,手风琴,打击乐,"
+            + "执行,抖音,短视频平台总统筹,短视频平台宣推,短视频宣推,短视频统筹,拍摄,指定音乐合作伙伴,指导,指导老师,推广,摄影,改编,改编词,文案,时长,曲,曲Composer,"
+            + "曲Music,曲名,曲绘,曲编,曲协力,木吉他,木管,杜比全景声,板胡,校准,次中音萨克斯,歌名,歌声,歌手,歌曲,"
+            + "歌词改编,歌唱指导,母带,海外配唱执行,海报,混缩,混缩室,混音,混音室,混音师,混音棚,滤镜,演唱,演奏,"
+            + "漫画,灯光,版本,版权,版权归属,特别鸣谢,班卓琴,琵琶,电吉他,电脑工程,电钢琴,男声,画,画师,监制,监唱,私人,"
+            + "童声,笛,笛子,笛萧,策划,管乐,管弦,管弦乐,箫,粤语,经纪,统筹,编,编写,编剧,编唱,编导,编曲,编舞,"
+            + "编舞师,编著,编辑,缩混,网易音乐人商务合作,美工,美术,美术设计,翻唱,翻译,翻译者,联合,联系,联系方式,"
+            + "舞台,舞团,舞曲,舞蹈,艺人制作统筹,艺人经纪,艺人经纪公司,艺人统筹,艺术家,艺术指导,艺术指导老师,"
+            + "艺统,花脸,英文,营销,萧笛,萨克斯,视觉,记,设计,词,词Lyricist,词Lyrics,词曲作者,词曲提供,词协力,译者,"
+            + "语言,语言代码,说唱,说唱词,调校,调音,谱曲,贝斯,贴唱,造型,邮件,邮箱地址,配唱,采样,钢琴,铜管,键盘,"
+            + "键盘手,长号,长笛,队长,附加,音乐,音乐人,音准调校,音响,音效,音编,音频,项目企划,项目协力,"
+            + "项目总企划,项目总监,项目统筹,项目营销,顾问,领唱,领舞,题字,题记,飓风计划商务合作,马头琴,鸣谢,"
+            + "鼓,鼓手,鼓录音,鼓录音室,鼓录制,鼓机,鼓组编程Drums Arrangement,鼓组音频编辑,运营";
+    public static final StringSetting LYRICS_CREDIT_LINE_REGEX = new StringSetting("morphe_music_lyrics_credit_line_regex", DEFAULT_LYRICS_CREDIT_LINE_REGEX, true, parent(LYRICS_ENABLED));
 
     // PreferenceScreen: Video
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds", "0.5\n0.8\n1.0\n1.2\n1.5\n1.8\n2.0", true);
@@ -221,6 +381,11 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting CHANGE_SHARE_SHEET = new BooleanSetting("revanced_change_share_sheet", FALSE, true);
     public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
+    public static final BooleanSetting EXTERNAL_DOWNLOADER_ACTION_BUTTON = new BooleanSetting("revanced_external_downloader_action", FALSE, true);
+    public static final BooleanSetting EXTERNAL_DOWNLOADER_FLYOUT_MENU = new BooleanSetting("revanced_external_downloader_flyout_menu", FALSE, true, parent(EXTERNAL_DOWNLOADER_ACTION_BUTTON));
+    public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME = new StringSetting("revanced_external_downloader_package_name", "com.deniscerri.ytdl");
+    public static final BooleanSetting IN_APP_DOWNLOADS = new BooleanSetting("morphe_music_in_app_downloads", FALSE, false, "morphe_music_in_app_downloads_user_dialog_message", parent(EXTERNAL_DOWNLOADER_ACTION_BUTTON));
+    public static final StringSetting DOWNLOADS_SORT = new StringSetting("morphe_music_downloads_sort", "ARTIST", false, false);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_settings_import_export", FALSE, false);
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_SIGN_IN_ANDROID_VR_ABOUT =
             new BooleanSetting("morphe_spoof_video_streams_sign_in_android_vr_about", FALSE, false);
@@ -295,14 +460,6 @@ public class Settings extends SharedYouTubeSettings {
 
         // endregion
 
-        // region SeekBar preference registrations
-
-        SeekBarPreference.register(new SeekBarConfig(LYRICS_TEXT_SIZE,
-                14, 40, 2, "sp"));
-        SeekBarPreference.register(new SeekBarConfig(LYRICS_OFFSET_MS,
-                -2000, 2000, 100, "ms"));
-
-        // endregion
     }
 
     public static final String OPEN_DEFAULT_APP_SETTINGS = "revanced_default_app_settings";

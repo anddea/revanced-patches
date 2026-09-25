@@ -71,3 +71,13 @@ internal object PlaybackStartDescriptorToStringFingerprint : Fingerprint(
     )
 )
 
+internal object ModernShortsPlaybackStartIntentFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "Ljava/util/Map;", "J", "Ljava/lang/String;"),
+    filters = listOf(
+        string("com.google.android.apps.youtube.app.endpoint.flags"),
+        string("ReelWatchFragmentArgs"),
+        string("reels_fragment_descriptor"),
+    ),
+)

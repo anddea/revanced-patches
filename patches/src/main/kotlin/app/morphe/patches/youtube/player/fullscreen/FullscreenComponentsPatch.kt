@@ -1,3 +1,11 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.player.fullscreen
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -27,6 +35,8 @@ import app.morphe.patches.youtube.utils.patch.PatchList.FULLSCREEN_COMPONENTS
 import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_18_42_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_41_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.autoNavPreviewStub
 import app.morphe.patches.youtube.utils.resourceid.fullScreenEngagementPanel
@@ -36,17 +46,20 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
+import app.morphe.patches.youtube.video.information.onCreateHook
+import app.morphe.patches.youtube.video.information.playerStatusHook
 import app.morphe.patches.youtube.video.information.videoEndMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
+import app.morphe.util.setExtensionIsPatchIncluded
 import app.morphe.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -55,11 +68,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+private const val EXTENSION_QUICK_ACTIONS_MARGIN_CLASS_DESCRIPTOR =
+    "Lapp/morphe/extension/youtube/patches/QuickActionsMarginPatch;"
+
 private const val FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/QuickActionFilter;"
-
-private const val EXTENSION_ENTER_FULLSCREEN_CLASS_DESCRIPTOR =
-    "$PLAYER_PATH/EnterFullscreenPatch;"
 
 private const val EXTENSION_EXIT_FULLSCREEN_CLASS_DESCRIPTOR =
     "$PLAYER_PATH/ExitFullscreenPatch;"
@@ -78,6 +91,7 @@ val fullscreenComponentsPatch = bytecodePatch(
         lithoLayoutPatch,
         mainActivityResolvePatch,
         fullscreenButtonHookPatch,
+        openVideosFullscreenHookPatch,
         videoInformationPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
@@ -92,7 +106,7 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for disable engagement panel
 
-        fullScreenEngagementPanelFingerprint.methodOrThrow().apply {
+        FullScreenEngagementPanelFingerprint.method.apply {
             val literalIndex =
                 indexOfFirstLiteralInstructionOrThrow(fullScreenEngagementPanel)
             val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.CHECK_CAST)
@@ -105,7 +119,7 @@ val fullscreenComponentsPatch = bytecodePatch(
             )
         }
 
-        playerTitleViewFingerprint.methodOrThrow().apply {
+        PlayerTitleViewFingerprint.method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                         getReference<MethodReference>()?.name == "addView"
@@ -127,23 +141,32 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for enter fullscreen
 
-        mapOf(
-            onStartMethod to "onAppForegrounded",
-            onStopMethod to "onAppBackgrounded"
-        ).forEach { (method, name) ->
-            method.addInstruction(
-                0,
-                "invoke-static {}, $EXTENSION_ENTER_FULLSCREEN_CLASS_DESCRIPTOR->$name()V"
-            )
-        }
+        setExtensionIsPatchIncluded(EXTENSION_CLASS)
+        onCreateHook(EXTENSION_CLASS, "initialize")
 
-        hookBackgroundPlayVideoInformation("$EXTENSION_ENTER_FULLSCREEN_CLASS_DESCRIPTOR->enterFullscreen(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+        if (is_21_13_or_greater) {
+            playerStatusHook(EXTENSION_CLASS, "playerStatusChanged")
+        } else {
+            mapOf(
+                onStartMethod to "onAppForegrounded",
+                onStopMethod to "onAppBackgrounded"
+            ).forEach { (method, name) ->
+                method.addInstruction(
+                    0,
+                    "invoke-static {}, $EXTENSION_CLASS->$name()V"
+                )
+            }
+
+            hookBackgroundPlayVideoInformation("$EXTENSION_CLASS->enterFullscreen(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+        }
 
         // endregion
 
         // region patch for exit fullscreen
 
-        videoEndMethod.apply {
+        if (is_21_13_or_greater) {
+            playerStatusHook(EXTENSION_EXIT_FULLSCREEN_CLASS_DESCRIPTOR, "endOfVideoReached")
+        } else videoEndMethod.apply {
             addInstructionsAtControlFlowLabel(
                 implementation!!.instructions.lastIndex,
                 "invoke-static {}, $EXTENSION_EXIT_FULLSCREEN_CLASS_DESCRIPTOR->endOfVideoReached()V",
@@ -173,7 +196,7 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for hide related video overlay
 
-        relatedEndScreenResultsFingerprint.mutableClassOrThrow().let {
+        RelatedEndScreenResultsFingerprint.classDef.let {
             it.methods.find { method -> method.parameters == listOf("I", "Z", "I") }
                 ?.apply {
                     addInstructionsWithLabels(
@@ -191,7 +214,19 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for quick actions
 
-        quickActionsElementSyntheticFingerprint.methodOrThrow().apply {
+        if (is_21_13_or_greater) {
+            QuickActionsElementSyntheticFingerprint.let {
+                it.method.apply {
+                    val checkCastIndex = it.instructionMatches.last().index
+                    val insertRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+
+                    addInstruction(
+                        checkCastIndex + 1,
+                        "invoke-static { v$insertRegister }, $EXTENSION_QUICK_ACTIONS_MARGIN_CLASS_DESCRIPTOR->setQuickActionsMargin(Landroid/view/View;)V"
+                    )
+                }
+            }
+        } else LegacyQuickActionsElementSyntheticFingerprint.method.apply {
             val containerCalls = implementation!!.instructions.withIndex()
                 .filter { instruction ->
                     (instruction.value as? WideLiteralInstruction)?.wideLiteral == quickActionsElementContainer
@@ -247,41 +282,45 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for disable landscape mode
 
-        onConfigurationChangedMethod.apply {
-            val walkerIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.parameterTypes == listOf("Landroid/content/res/Configuration;") &&
-                        reference.returnType == "V" &&
-                        reference.name != "onConfigurationChanged"
-            }
-
-            val walkerMethod = getWalkerMethod(walkerIndex)
-            val constructorMethod =
-                findMethodOrThrow(walkerMethod.definingClass) {
-                    name == "<init>" &&
-                            parameterTypes == listOf("Landroid/app/Activity;")
+        if (!is_21_04_or_greater) {
+            onConfigurationChangedMethod.apply {
+                val walkerIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    reference?.parameterTypes == listOf("Landroid/content/res/Configuration;") &&
+                            reference.returnType == "V" &&
+                            reference.name != "onConfigurationChanged"
                 }
 
-            arrayOf(
-                walkerMethod,
-                constructorMethod
-            ).forEach { method ->
-                method.apply {
-                    val index = indexOfFirstInstructionOrThrow {
-                        val reference = getReference<MethodReference>()
-                        reference?.parameterTypes == listOf("Landroid/content/Context;") &&
-                                reference.returnType == "Z"
-                    } + 1
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                val walkerMethod = getWalkerMethod(walkerIndex)
+                val constructorMethod =
+                    findMethodOrThrow(walkerMethod.definingClass) {
+                        name == "<init>" &&
+                                parameterTypes == listOf("Landroid/app/Activity;")
+                    }
 
-                    addInstructions(
-                        index + 1, """
-                            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->disableLandScapeMode(Z)Z
-                            move-result v$register
-                            """
-                    )
+                arrayOf(
+                    walkerMethod,
+                    constructorMethod
+                ).forEach { method ->
+                    method.apply {
+                        val index = indexOfFirstInstructionOrThrow {
+                            val reference = getReference<MethodReference>()
+                            reference?.parameterTypes == listOf("Landroid/content/Context;") &&
+                                    reference.returnType == "Z"
+                        } + 1
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                        addInstructions(
+                            index + 1, """
+                                invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->disableLandScapeMode(Z)Z
+                                move-result v$register
+                                """
+                        )
+                    }
                 }
             }
+        } else {
+            printWarn("\"Disable landscape mode\" is not supported in this version. Use YouTube versions up to 20.51.")
         }
 
         // endregion
@@ -289,7 +328,7 @@ val fullscreenComponentsPatch = bytecodePatch(
         // region patch for keep landscape mode
 
         if (is_18_42_or_greater && !is_19_41_or_greater) {
-            landScapeModeConfigFingerprint.methodOrThrow().apply {
+            LandScapeModeConfigFingerprint.method.apply {
                 val insertIndex = implementation!!.instructions.lastIndex
                 val insertRegister =
                     getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -301,7 +340,7 @@ val fullscreenComponentsPatch = bytecodePatch(
                         """
                 )
             }
-            broadcastReceiverFingerprint.methodOrThrow().apply {
+            BroadcastReceiverFingerprint.method.apply {
                 val stringIndex =
                     indexOfFirstStringInstructionOrThrow("android.intent.action.SCREEN_ON")
                 val insertIndex =

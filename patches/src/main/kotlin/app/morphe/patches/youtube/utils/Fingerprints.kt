@@ -1,7 +1,7 @@
 package app.morphe.patches.youtube.utils
 
 import app.morphe.patcher.Fingerprint
-import app.morphe.patcher.fingerprint
+import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.literal
 import app.morphe.patcher.opcode
 import app.morphe.patches.youtube.player.components.playerComponentsPatch
@@ -22,17 +22,13 @@ import app.morphe.patches.youtube.utils.resourceid.videoQualityBottomSheet
 import app.morphe.patches.youtube.utils.resourceid.youTubeControlsButtonGroupLayoutStub
 import app.morphe.patches.youtube.utils.sponsorblock.sponsorBlockBytecodePatch
 import app.morphe.util.containsLiteralInstruction
-import app.morphe.util.fingerprint.legacyFingerprint
+import app.morphe.util.containsStringInstruction
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.literal
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import kotlin.collections.emptyList
 
 internal const val YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE =
     "Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"
@@ -43,17 +39,16 @@ internal const val YOUTUBE_PIVOT_BAR_CLASS_TYPE =
 internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE =
     "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
 
-internal val bottomSheetMenuItemBuilderFingerprint = legacyFingerprint(
-    name = "bottomSheetMenuItemBuilderFingerprint",
+internal val bottomSheetMenuItemBuilderFingerprint = "bottomSheetMenuItemBuilderFingerprint" to Fingerprint(
     returnType = "L",
     parameters = listOf("L"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IGET,
         Opcode.AND_INT_LIT16,
         Opcode.IF_EQZ,
     ),
     strings = listOf("Text missing for BottomSheetMenuItem."),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         indexOfSpannedCharSequenceInstruction(method) >= 0
     }
 )
@@ -74,18 +69,21 @@ fun indexOfSpannedCharSequenceInstruction(method: Method) =
  */
 internal const val CAIRO_FRAGMENT_FEATURE_FLAG = 45532100L
 
-internal val cairoFragmentConfigFingerprint = legacyFingerprint(
-    name = "cairoFragmentConfigFingerprint",
+internal val cairoFragmentConfigFingerprint = "cairoFragmentConfigFingerprint" to Fingerprint(
     returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    literals = listOf(CAIRO_FRAGMENT_FEATURE_FLAG),
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(CAIRO_FRAGMENT_FEATURE_FLAG)
+    },
 )
 
-internal val layoutConstructorFingerprint = legacyFingerprint(
-    name = "layoutConstructorFingerprint",
+internal val layoutConstructorFingerprint = "layoutConstructorFingerprint" to Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    literals = listOf(playerControlPreviousButtonTouchArea, playerControlNextButtonTouchArea),
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(playerControlPreviousButtonTouchArea) &&
+                method.containsLiteralInstruction(playerControlNextButtonTouchArea)
+    },
 )
 
 internal val inflateControlsGroupLayoutStubFingerprint = Fingerprint(
@@ -95,29 +93,30 @@ internal val inflateControlsGroupLayoutStubFingerprint = Fingerprint(
     filters = listOf(literal(youTubeControlsButtonGroupLayoutStub))
 )
 
-internal val playbackRateBottomSheetBuilderFingerprint = legacyFingerprint(
-    name = "playbackRateBottomSheetBuilderFingerprint",
+internal val playbackRateBottomSheetBuilderFingerprint = "playbackRateBottomSheetBuilderFingerprint" to Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IGET_BOOLEAN,
         Opcode.IF_EQZ,
     ),
-    literals = listOf(varispeedUnavailableTitle),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(varispeedUnavailableTitle)
+    },
 )
 
-internal val playerButtonsResourcesFingerprint = legacyFingerprint(
-    name = "playerButtonsResourcesFingerprint",
+internal val playerButtonsResourcesFingerprint = "playerButtonsResourcesFingerprint" to Fingerprint(
     returnType = "I",
     parameters = listOf("Landroid/content/res/Resources;"),
-    literals = listOf(17694721L),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(17694721L)
+    },
 )
 
-internal val playerButtonsVisibilityFingerprint = legacyFingerprint(
-    name = "playerButtonsVisibilityFingerprint",
+internal val playerButtonsVisibilityFingerprint = "playerButtonsVisibilityFingerprint" to Fingerprint(
     returnType = "V",
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE
@@ -125,22 +124,20 @@ internal val playerButtonsVisibilityFingerprint = legacyFingerprint(
     parameters = listOf("Z", "Z")
 )
 
-internal val playerSeekbarColorFingerprint = legacyFingerprint(
-    name = "playerSeekbarColorFingerprint",
+internal val playerSeekbarColorFingerprint = "playerSeekbarColorFingerprint" to Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(
-        inlineTimeBarColorizedBarPlayedColorDark,
-        inlineTimeBarPlayedNotHighlightedColor
-    ),
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(inlineTimeBarColorizedBarPlayedColorDark) &&
+                method.containsLiteralInstruction(inlineTimeBarPlayedNotHighlightedColor)
+    },
 )
 
-internal val qualityMenuViewInflateFingerprint = legacyFingerprint(
-    name = "qualityMenuViewInflateFingerprint",
+internal val qualityMenuViewInflateFingerprint = "qualityMenuViewInflateFingerprint" to Fingerprint(
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L", "L", "L"),
-    customFingerprint = custom@{ method, _ ->
+    custom = custom@{ method, _ ->
         if (!method.containsLiteralInstruction(videoQualityBottomSheet)) {
             return@custom false
         }
@@ -160,12 +157,11 @@ internal fun indexOfAddHeaderViewInstruction(method: Method) =
                 getReference<MethodReference>()?.name == "addHeaderView"
     }
 
-internal val rollingNumberTextViewAnimationUpdateFingerprint = legacyFingerprint(
-    name = "rollingNumberTextViewAnimationUpdateFingerprint",
+internal val rollingNumberTextViewAnimationUpdateFingerprint = "rollingNumberTextViewAnimationUpdateFingerprint" to Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Landroid/graphics/Bitmap;"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.NEW_INSTANCE, // bitmap ImageSpan
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
@@ -175,12 +171,11 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint = legacyFingerprint
 /**
  * This fingerprint is compatible with YouTube v18.32.39+
  */
-internal val rollingNumberTextViewFingerprint = legacyFingerprint(
-    name = "rollingNumberTextViewFingerprint",
+internal val rollingNumberTextViewFingerprint = "rollingNumberTextViewFingerprint" to Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L", "F", "F"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IPUT,
         null,   // invoke-direct or invoke-virtual
         Opcode.IPUT_OBJECT,
@@ -188,17 +183,16 @@ internal val rollingNumberTextViewFingerprint = legacyFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = custom@{ _, classDef ->
+    custom = custom@{ _, classDef ->
         classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;"
                 || classDef.superclass == "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 )
 
-internal val scrollTopParentFingerprint = legacyFingerprint(
-    name = "scrollTopParentFingerprint",
+internal val scrollTopParentFingerprint = "scrollTopParentFingerprint" to Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IPUT_OBJECT,
         Opcode.IPUT_OBJECT,
         Opcode.IPUT_OBJECT,
@@ -210,18 +204,16 @@ internal val scrollTopParentFingerprint = legacyFingerprint(
         Opcode.IPUT_OBJECT,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { method, _ -> method.name == "<init>" }
+    custom = { method, _ -> method.name == "<init>" }
 )
 
-internal val seekbarFingerprint = legacyFingerprint(
-    name = "seekbarFingerprint",
+internal val seekbarFingerprint = "seekbarFingerprint" to Fingerprint(
     returnType = "V",
     strings = listOf("timed_markers_width")
 )
 
-internal val seekbarOnDrawFingerprint = legacyFingerprint(
-    name = "seekbarOnDrawFingerprint",
-    customFingerprint = { method, _ -> method.name == "onDraw" }
+internal val seekbarOnDrawFingerprint = "seekbarOnDrawFingerprint" to Fingerprint(
+    custom = { method, _ -> method.name == "onDraw" }
 )
 
 internal fun indexOfGetDrawableInstruction(method: Method) =
@@ -256,16 +248,18 @@ internal val toolBarButtonFingerprint = "toolBarButtonFingerprint" to Fingerprin
     }
 )
 
-internal val totalTimeFingerprint = legacyFingerprint(
-    name = "totalTimeFingerprint",
+internal val totalTimeFingerprint = "totalTimeFingerprint" to Fingerprint(
     returnType = "V",
-    literals = listOf(totalTime),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(totalTime)
+    },
 )
 
-internal val videoEndFingerprint = legacyFingerprint(
-    name = "videoEndFingerprint",
+internal val videoEndFingerprint = "videoEndFingerprint" to Fingerprint(
     strings = listOf("Attempting to seek during an ad"),
-    literals = listOf(45368273L),
+    custom = { method, _ ->
+        method.containsLiteralInstruction(45368273L)
+    },
 )
 
 /**
@@ -273,26 +267,22 @@ internal val videoEndFingerprint = legacyFingerprint(
  * This method is invoked only in Shorts.
  * Accurate video information is invoked even when the user moves Shorts upward or downward.
  */
-internal val videoIdFingerprintShorts = legacyFingerprint(
-    name = "videoIdFingerprintShorts",
+internal val videoIdFingerprintShorts = "videoIdFingerprintShorts" to Fingerprint(
     returnType = "V",
-    parameters = listOf(PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR),
-    opcodes = listOf(
+    // PlayerResponseModel is an obfuscated interface from 21.04 onward.
+    parameters = listOf("L"),
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = custom@{ method, _ ->
-        if (method.containsLiteralInstruction(45365621L))
-            return@custom true
-
-        method.indexOfFirstInstruction {
-            opcode == Opcode.INVOKE_STATIC &&
-                    getReference<MethodReference>()?.toString() == "Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;"
-        } >= 0
-
-        // method.indexOfFirstInstruction {
-            // getReference<FieldReference>()?.name == "reelWatchEndpoint"
-        // } >= 0
+    custom = { method, classDef ->
+        val isPlayerResponse = method.parameterTypes.first() == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR ||
+                classDef.methods.any { it.containsStringInstruction("\$ReelSequenceControllerStateKey") }
+        isPlayerResponse && (method.containsLiteralInstruction(45365621L) ||
+                method.indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_STATIC &&
+                            getReference<MethodReference>()?.toString() == "Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;"
+                } >= 0)
     }
 )
 
@@ -305,19 +295,18 @@ internal val videoIdFingerprintShorts = legacyFingerprint(
  * - [playerComponentsPatch] uses [fadeDurationFast], [scrimOverlay] and [seekUndoEduOverlayStub].
  * - [sponsorBlockBytecodePatch] uses [insetOverlayViewLayout].
  */
-internal val youtubeControlsOverlayFingerprint = legacyFingerprint(
-    name = "youtubeControlsOverlayFingerprint",
-    literals = listOf(
-        // Removed in YouTube 20.09.40+
-        // eduOverlayStub,
-        // fadeDurationFast,
-        insetOverlayViewLayout,
-        scrimOverlay,
-        // Removed in YouTube 20.02.38+
-        // seekUndoEduOverlayStub
-    ),
-    customFingerprint = { method, _ ->
-        indexOfFocusableInTouchModeInstruction(method) >= 0
+internal val youtubeControlsOverlayFingerprint = "youtubeControlsOverlayFingerprint" to Fingerprint(
+    custom = { method, _ ->
+        listOf(
+            // Removed in YouTube 20.09.40+
+            // eduOverlayStub,
+            // fadeDurationFast,
+            insetOverlayViewLayout,
+            scrimOverlay,
+            // Removed in YouTube 20.02.38+
+            // seekUndoEduOverlayStub
+        ).all { method.containsLiteralInstruction(it) } &&
+                indexOfFocusableInTouchModeInstruction(method) >= 0
     }
 )
 

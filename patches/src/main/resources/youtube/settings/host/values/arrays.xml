@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="morphe_auto_pause_on_screen_lock_entries">
+        <item>@string/morphe_playback_in_feeds_entry_off</item>
+        <item>@string/morphe_auto_pause_on_screen_lock_always</item>
+        <item>@string/morphe_auto_pause_on_screen_lock_except_wireless</item>
+    </string-array>
+    <string-array name="morphe_auto_pause_on_screen_lock_entry_values" translatable="false">
+        <item>OFF</item>
+        <item>ALWAYS</item>
+        <item>EXCEPT_WIRELESS_AUDIO</item>
+    </string-array>
+    <string-array name="morphe_settings_name_entries">
+        <item>@string/revanced_change_form_factor_entry_1</item>
+        <item>@string/morphe_settings_name_entry_1</item>
+        <item>@string/morphe_settings_name_entry_2</item>
+        <item>@string/morphe_settings_name_entry_3</item>
+        <item>@string/morphe_settings_name_entry_4</item>
+        <item>@string/revanced_icon_custom</item>
+    </string-array>
+    <string-array name="morphe_settings_name_entry_values">
+        <item>DEFAULT</item>
+        <item>PREMIUM</item>
+        <item>EXTRAS</item>
+        <item>TWEAKS</item>
+        <item>MORPHING_TIME</item>
+        <item>CUSTOM</item>
+    </string-array>
     <string-array name="revanced_auto_captions_style_entries">
         <item>@string/revanced_auto_captions_style_entry_1</item>
         <item>@string/revanced_auto_captions_style_entry_2</item>
@@ -185,6 +211,16 @@
         <item>PORTRAIT</item>
         <item>LANDSCAPE</item>
         <item>PORTRAIT_LANDSCAPE</item>
+    </string-array>
+    <string-array name="morphe_open_videos_fullscreen_entries">
+        <item>@string/revanced_exit_fullscreen_entry_1</item>
+        <item>@string/revanced_exit_fullscreen_entry_2</item>
+        <item>@string/revanced_exit_fullscreen_entry_3</item>
+    </string-array>
+    <string-array name="morphe_open_videos_fullscreen_entry_values">
+        <item>DISABLED</item>
+        <item>PORTRAIT</item>
+        <item>LANDSCAPE</item>
     </string-array>
     <string-array name="revanced_external_downloader_video_label">
         <item>NewPipe</item>
@@ -401,6 +437,39 @@
         <item>MODERN_3</item>
         <item>MODERN_4</item>
     </string-array>
+    <string-array name="revanced_miniplayer_type_20_37_entries">
+        <item>@string/revanced_exit_fullscreen_entry_1</item>
+        <item>@string/revanced_change_form_factor_entry_1</item>
+        <item>@string/revanced_miniplayer_type_entry_2</item>
+        <item>@string/revanced_miniplayer_type_entry_3</item>
+        <!-- YT legacy tablet code is partially removed in 20.37+ -->
+        <item>@string/revanced_miniplayer_type_entry_4</item>
+        <item>@string/revanced_miniplayer_type_entry_5</item>
+        <item>@string/revanced_miniplayer_type_entry_6</item>
+        <item>@string/revanced_miniplayer_type_entry_7</item>
+    </string-array>
+    <string-array name="revanced_miniplayer_type_20_37_entry_values">
+        <item>DISABLED</item>
+        <item>DEFAULT</item>
+        <item>MINIMAL</item>
+        <item>MINIMAL_BAR_2</item>
+        <item>MODERN_1</item>
+        <item>MODERN_2</item>
+        <item>MODERN_3</item>
+        <item>MODERN_4</item>
+    </string-array>
+    <string-array name="revanced_miniplayer_type_21_29_entries">
+        <item>@string/revanced_exit_fullscreen_entry_1</item>
+        <item>@string/revanced_change_form_factor_entry_1</item>
+        <item>@string/revanced_miniplayer_type_entry_2</item>
+        <item>@string/revanced_miniplayer_type_entry_3</item>
+    </string-array>
+    <string-array name="revanced_miniplayer_type_21_29_entry_values">
+        <item>DISABLED</item>
+        <item>MODERN_4</item>
+        <item>MINIMAL_BAR</item>
+        <item>MINIMAL_BAR_2</item>
+    </string-array>
     <string-array name="revanced_miniplayer_type_19_43_entries">
         <item>@string/revanced_exit_fullscreen_entry_1</item>
         <item>@string/revanced_change_form_factor_entry_1</item>
@@ -444,34 +513,6 @@
         <item>DEFAULT</item>
         <item>MINIMAL</item>
         <item>TABLET</item>
-    </string-array>
-    <string-array name="revanced_replace_navigation_button_target_entries">
-        <item>@string/revanced_replace_navigation_button_target_entry_home</item>
-        <item>@string/revanced_change_start_page_entry_shorts</item>
-        <item>@string/revanced_change_start_page_entry_subscriptions</item>
-        <item>@string/revanced_change_start_page_entry_notifications</item>
-    </string-array>
-    <string-array name="revanced_replace_navigation_button_target_entry_values">
-        <item>HOME</item>
-        <item>SHORTS</item>
-        <item>SUBSCRIPTIONS</item>
-        <item>NOTIFICATIONS</item>
-    </string-array>
-    <string-array name="revanced_show_settings_button_index_entries">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
-    <string-array name="revanced_show_settings_button_index_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
     </string-array>
     <string-array name="revanced_show_toolbar_settings_button_index_entries">
         <item>1</item>
@@ -560,13 +601,15 @@
     <string-array name="morphe_spoof_video_streams_client_type_entries">
         <item>Android Studio</item>
         <item>Android VR</item>
+        <item>Android VR Downgraded</item>
         <item>TV</item>
         <item>TV Simply</item>
         <item>visionOS</item>
     </string-array>
     <string-array name="morphe_spoof_video_streams_client_type_entry_values">
         <item>ANDROID_CREATOR</item>
-        <item>ANDROID_VR</item>
+        <item>ANDROID_VR_SABR</item>
+        <item>ANDROID_VR_DASH</item>
         <item>TV_SABR</item>
         <item>TV_SIMPLY</item>
         <item>VISIONOS_1_02</item>
@@ -606,6 +649,20 @@
         <item>CIRCULAR_MINIMAL</item>
         <item>VERTICAL</item>
         <item>VERTICAL_MINIMAL</item>
+    </string-array>
+    <string-array name="revanced_swipe_zone_action_entries">
+        <item>@string/morphe_playback_in_feeds_entry_off</item>
+        <item>@string/revanced_swipe_zone_label_volume</item>
+        <item>@string/revanced_swipe_zone_label_brightness</item>
+        <item>@string/revanced_swipe_zone_label_speed</item>
+        <item>@string/revanced_swipe_zone_label_seek</item>
+    </string-array>
+    <string-array name="revanced_swipe_zone_action_entry_values">
+        <item>OFF</item>
+        <item>VOLUME</item>
+        <item>BRIGHTNESS</item>
+        <item>SPEED</item>
+        <item>SEEK</item>
     </string-array>
     <string-array name="revanced_remix_button_index_entries">
         <item>3</item>
@@ -667,6 +724,16 @@
         <item>en</item>
         <item>kk</item>
     </string-array>
+    <string-array name="morphe_fullscreen_video_scale_entries">
+        <item>@string/revanced_change_form_factor_entry_1</item>
+        <item>@string/morphe_fullscreen_video_scale_entry_stretch</item>
+        <item>@string/morphe_fullscreen_video_scale_entry_zoom</item>
+    </string-array>
+    <string-array name="morphe_fullscreen_video_scale_entry_values">
+        <item>DEFAULT</item>
+        <item>STRETCH</item>
+        <item>ZOOM</item>
+    </string-array>
     <string-array name="morphe_playback_in_feeds_entries">
         <item>@string/morphe_playback_in_feeds_entry_always_on</item>
         <item>@string/morphe_playback_in_feeds_entry_wifi_only</item>
@@ -676,5 +743,277 @@
         <item>2</item>
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="morphe_splash_screen_animation_style_entries">
+        <item>@string/revanced_exit_fullscreen_entry_1</item>
+        <item>@string/morphe_splash_screen_animation_style_entry_2</item>
+        <item>@string/morphe_splash_screen_animation_style_entry_3</item>
+    </string-array>
+    <string-array name="morphe_splash_screen_animation_style_entry_values">
+        <item>DISABLED</item>
+        <item>FPS_60_ONE_SECOND</item>
+        <item>FPS_60_BLACK_AND_WHITE</item>
+    </string-array>
+    <string-array name="revanced_status_bar_translucency_entries">
+        <item>@string/revanced_change_form_factor_entry_1</item>
+        <item>@string/revanced_status_bar_translucency_entry_opaque</item>
+        <item>@string/revanced_status_bar_translucency_entry_transparent</item>
+    </string-array>
+    <string-array name="revanced_status_bar_translucency_entry_values" translatable="false">
+        <item>DEFAULT</item>
+        <item>OPAQUE</item>
+        <item>TRANSPARENT</item>
+    </string-array>
+    <string-array name="morphe_dark_theme_entries">
+        <item>@string/revanced_icon_default</item>
+        <item>@string/morphe_theme_entry_amoled_black</item>
+        <item>@string/morphe_theme_entry_material_you_neutral</item>
+        <item>@string/morphe_theme_entry_material_you_primary</item>
+        <item>@string/morphe_theme_entry_material_you_secondary</item>
+        <item>@string/morphe_theme_entry_material_you_tertiary</item>
+        <item>@string/morphe_theme_entry_modern_youtube</item>
+        <item>@string/morphe_theme_entry_classic_youtube</item>
+        <item>Catppuccin (Mocha)</item>
+        <item>@string/morphe_theme_entry_dark_pink</item>
+        <item>@string/morphe_theme_entry_dark_blue</item>
+        <item>@string/morphe_theme_entry_dark_green</item>
+        <item>@string/morphe_theme_entry_dark_yellow</item>
+        <item>@string/morphe_theme_entry_dark_orange</item>
+        <item>@string/morphe_theme_entry_dark_red</item>
+        <item>@string/revanced_icon_custom</item>
+    </string-array>
+    <string-array name="morphe_dark_theme_entry_values">
+        <item>stock</item>
+        <item>amoled_black</item>
+        <item>material_you_neutral</item>
+        <item>material_you_primary</item>
+        <item>material_you_secondary</item>
+        <item>material_you_tertiary</item>
+        <item>modern_youtube</item>
+        <item>classic_youtube</item>
+        <item>catppuccin_mocha</item>
+        <item>dark_pink</item>
+        <item>dark_blue</item>
+        <item>dark_green</item>
+        <item>dark_yellow</item>
+        <item>dark_orange</item>
+        <item>dark_red</item>
+        <item>custom</item>
+    </string-array>
+    <string-array name="morphe_light_theme_entries">
+        <item>@string/morphe_theme_entry_white</item>
+        <item>@string/morphe_theme_entry_material_you_neutral</item>
+        <item>@string/morphe_theme_entry_material_you_primary</item>
+        <item>@string/morphe_theme_entry_material_you_secondary</item>
+        <item>@string/morphe_theme_entry_material_you_tertiary</item>
+        <item>Catppuccin (Latte)</item>
+        <item>@string/morphe_theme_entry_light_pink</item>
+        <item>@string/morphe_theme_entry_light_blue</item>
+        <item>@string/morphe_theme_entry_light_green</item>
+        <item>@string/morphe_theme_entry_light_yellow</item>
+        <item>@string/morphe_theme_entry_light_orange</item>
+        <item>@string/morphe_theme_entry_light_red</item>
+        <item>@string/morphe_theme_entry_pale_blue</item>
+        <item>@string/morphe_theme_entry_pale_green</item>
+        <item>@string/morphe_theme_entry_pale_yellow</item>
+        <item>@string/revanced_icon_custom</item>
+    </string-array>
+    <string-array name="morphe_light_theme_entry_values">
+        <item>white</item>
+        <item>material_you_neutral</item>
+        <item>material_you_primary</item>
+        <item>material_you_secondary</item>
+        <item>material_you_tertiary</item>
+        <item>catppuccin_latte</item>
+        <item>light_pink</item>
+        <item>light_blue</item>
+        <item>light_green</item>
+        <item>light_yellow</item>
+        <item>light_orange</item>
+        <item>light_red</item>
+        <item>pale_blue</item>
+        <item>pale_green</item>
+        <item>pale_yellow</item>
+        <item>custom</item>
+    </string-array>
+    <string-array name="morphe_app_refresh_rate_type_entries">
+        <item>@string/morphe_app_refresh_rate_type_entry_1</item>
+        <item>@string/morphe_app_refresh_rate_type_entry_2</item>
+        <item>@string/morphe_app_refresh_rate_type_entry_3</item>
+        <item>@string/morphe_app_refresh_rate_type_entry_4</item>
+    </string-array>
+    <string-array name="morphe_app_refresh_rate_type_entry_values">
+        <item>ALWAYS</item>
+        <item>PORTRAIT</item>
+        <item>FULLSCREEN</item>
+        <item>PORTRAIT_FULLSCREEN</item>
+    </string-array>
+    <string-array name="morphe_vot_caption_language_entries">
+        <item>@string/revanced_language_DEFAULT</item>
+        <item>Afrikaans</item>
+        <item>Azərbaycan</item>
+        <item>Bahasa Melayu</item>
+        <item>Basa Jawa</item>
+        <item>Basa Sunda</item>
+        <item>Bokmål</item>
+        <item>Български</item>
+        <item>Bosanski</item>
+        <item>Català</item>
+        <item>Čeština</item>
+        <item>Српски</item>
+        <item>Cymraeg</item>
+        <item>Dansk</item>
+        <item>Deutsch</item>
+        <item>Eesti</item>
+        <item>Ελληνικά</item>
+        <item>English</item>
+        <item>Español</item>
+        <item>Filipino</item>
+        <item>Français</item>
+        <item>Gaeilge</item>
+        <item>Galego</item>
+        <item>Hrvatski</item>
+        <item>Indonesia</item>
+        <item>isiZulu</item>
+        <item>Íslenska</item>
+        <item>Italiano</item>
+        <item>Kiswahili</item>
+        <item>Қазақша</item>
+        <item>Latviešu</item>
+        <item>Lietuvių</item>
+        <item>Македонски</item>
+        <item>Magyar</item>
+        <item>Malti</item>
+        <item>Монгол</item>
+        <item>Nederlands</item>
+        <item>Oʻzbekcha</item>
+        <item>Polski</item>
+        <item>Português (Brasil)</item>
+        <item>Português (Portugal)</item>
+        <item>Română</item>
+        <item>Shqip</item>
+        <item>Slovenčina</item>
+        <item>Slovenščina</item>
+        <item>Soomaali</item>
+        <item>Suomi</item>
+        <item>Svenska</item>
+        <item>Tiếng Việt</item>
+        <item>Türkçe</item>
+        <item>Русский</item>
+        <item>Українська</item>
+        <item>አማርኛ</item>
+        <item>العربية</item>
+        <item>বাংলা</item>
+        <item>فارسی</item>
+        <item>ગુજરાતી</item>
+        <item>עברית</item>
+        <item>हिन्दी</item>
+        <item>ᐃᓄᒃᑎᑐᑦ</item>
+        <item>ქართული</item>
+        <item>ភាសាខ្មែរ</item>
+        <item>ಕನ್ನಡ</item>
+        <item>ລາວ</item>
+        <item>മലയാളം</item>
+        <item>मराठी</item>
+        <item>မြန်မာစာ</item>
+        <item>नेपाली</item>
+        <item>پښتو</item>
+        <item>සිංහල</item>
+        <item>தமிழ்</item>
+        <item>తెలుగు</item>
+        <item>ไทย</item>
+        <item>اردو</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>中文</item>
+    </string-array>
+    <string-array name="morphe_vot_caption_language_entry_values">
+        <item>app</item>
+        <item>af-ZA</item>
+        <item>az-AZ</item>
+        <item>ms-MY</item>
+        <item>jv-ID</item>
+        <item>su-ID</item>
+        <item>nb-NO</item>
+        <item>bg-BG</item>
+        <item>bs-BA</item>
+        <item>ca-ES</item>
+        <item>cs-CZ</item>
+        <item>sr-RS</item>
+        <item>cy-GB</item>
+        <item>da-DK</item>
+        <item>de-DE</item>
+        <item>et-EE</item>
+        <item>el-GR</item>
+        <item>en-US</item>
+        <item>es-ES</item>
+        <item>fil-PH</item>
+        <item>fr-FR</item>
+        <item>ga-IE</item>
+        <item>gl-ES</item>
+        <item>hr-HR</item>
+        <item>id-ID</item>
+        <item>zu-ZA</item>
+        <item>is-IS</item>
+        <item>it-IT</item>
+        <item>sw-TZ</item>
+        <item>kk-KZ</item>
+        <item>lv-LV</item>
+        <item>lt-LT</item>
+        <item>mk-MK</item>
+        <item>hu-HU</item>
+        <item>mt-MT</item>
+        <item>mn-MN</item>
+        <item>nl-NL</item>
+        <item>uz-UZ</item>
+        <item>pl-PL</item>
+        <item>pt-BR</item>
+        <item>pt-PT</item>
+        <item>ro-RO</item>
+        <item>sq-AL</item>
+        <item>sk-SK</item>
+        <item>sl-SI</item>
+        <item>so-SO</item>
+        <item>fi-FI</item>
+        <item>sv-SE</item>
+        <item>vi-VN</item>
+        <item>tr-TR</item>
+        <item>ru-RU</item>
+        <item>uk-UA</item>
+        <item>am-ET</item>
+        <item>ar-EG</item>
+        <item>bn-BD</item>
+        <item>fa-IR</item>
+        <item>gu-IN</item>
+        <item>he-IL</item>
+        <item>hi-IN</item>
+        <item>iu-CA</item>
+        <item>ka-GE</item>
+        <item>km-KH</item>
+        <item>kn-IN</item>
+        <item>lo-LA</item>
+        <item>ml-IN</item>
+        <item>mr-IN</item>
+        <item>my-MM</item>
+        <item>ne-NP</item>
+        <item>ps-AF</item>
+        <item>si-LK</item>
+        <item>ta-IN</item>
+        <item>te-IN</item>
+        <item>th-TH</item>
+        <item>ur-PK</item>
+        <item>ja-JP</item>
+        <item>ko-KR</item>
+        <item>zh-CN</item>
+    </string-array>
+    <string-array name="morphe_vot_translation_service_entries">
+        <item>@string/morphe_vot_service_google</item>
+        <item>@string/morphe_vot_service_openrouter</item>
+        <item>@string/morphe_vot_service_mymemory</item>
+    </string-array>
+    <string-array name="morphe_vot_translation_service_entry_values">
+        <item>google</item>
+        <item>openrouter</item>
+        <item>mymemory</item>
     </string-array>
 </resources>

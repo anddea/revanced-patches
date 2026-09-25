@@ -246,8 +246,10 @@ val sponsorBlockPatch = resourcePatch(
                 "revanced_sb_edit.xml",
                 "revanced_sb_forward.xml",
                 "revanced_sb_logo.xml",
+                "revanced_sb_logo_bold.xml",
                 "revanced_sb_publish.xml",
-                "revanced_sb_voting.xml"
+                "revanced_sb_voting.xml",
+                "revanced_sb_voting_bold.xml",
             )
         ).forEach { resourceGroup ->
             copyResources("youtube/sponsorblock/outline", resourceGroup)

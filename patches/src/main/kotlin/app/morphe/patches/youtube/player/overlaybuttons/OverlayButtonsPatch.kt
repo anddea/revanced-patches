@@ -1,4 +1,14 @@
 /*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
+/*
  * Copyright (C) 2022-2026 anddea
  *
  * This file is part of the revanced-patches project:
@@ -45,6 +55,7 @@
 
 package app.morphe.patches.youtube.player.overlaybuttons
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -65,11 +76,16 @@ import app.morphe.patches.youtube.utils.pip.pipStateHookPatch
 import app.morphe.patches.youtube.utils.playercontrols.injectControl
 import app.morphe.patches.youtube.utils.playercontrols.playerControlsPatch
 import app.morphe.patches.youtube.utils.playlist.playlistPatch
+import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.morphe.patches.youtube.utils.seekbarFingerprint
+import app.morphe.patches.youtube.utils.seekbarOnDrawFingerprint
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.patches.youtube.utils.sponsorblock.rectangleFieldInvalidatorFingerprint
 import app.morphe.patches.youtube.general.startpage.IntentActionFingerprint
 import app.morphe.patches.youtube.general.startpage.IntentResolverFingerprint
+import app.morphe.patches.youtube.video.information.playerStatusMethodRef
 import app.morphe.patches.youtube.video.information.videoEndMethod
 import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.videoInformationPatch
@@ -79,8 +95,21 @@ import app.morphe.util.Utils.printWarn
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
 import app.morphe.util.doRecursively
+import app.morphe.util.findElementByAttributeValue
 import app.morphe.util.findFreeRegister
+import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversed
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import app.morphe.util.inputStreamFromBundledResourceOrThrow
 import app.morphe.util.lowerCaseOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 
 private const val EXTENSION_ALWAYS_REPEAT_CLASS_DESCRIPTOR =
@@ -100,7 +129,7 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
 
         // region patch for always repeat
 
-        videoEndMethod.apply {
+        if (!is_21_13_or_greater) videoEndMethod.apply {
             addInstructionsWithLabels(
                 0, """
                     invoke-static {}, $EXTENSION_ALWAYS_REPEAT_CLASS_DESCRIPTOR->alwaysRepeat()Z
@@ -119,7 +148,11 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
         hookDismissObserver("$EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->onPlayerDismissed(I)V")
         videoTimeHook(EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR, "videoTimeChanged")
 
-        videoEndMethod.apply {
+        if (is_21_13_or_greater) {
+            // Preserve the legacy priority: an active segment loops before whole-video repeat.
+            hookLoopPlayerStatus(EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR, "videoEnded")
+            hookLoopPlayerStatus(EXTENSION_ALWAYS_REPEAT_CLASS_DESCRIPTOR, "alwaysRepeat")
+        } else videoEndMethod.apply {
             addInstructionsWithLabels(
                 0, """
                     invoke-static {}, $EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->videoEnded()Z
@@ -132,6 +165,50 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
 
         IntentActionFingerprint.method.addHandleIntentHook()
         IntentResolverFingerprint.method.addHandleIntentHook()
+
+        // Mark the active loop segment on the seekbar.
+        val seekbarOnDrawMethod = seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint)
+        val rectangleFieldMethod = rectangleFieldInvalidatorFingerprint.methodOrThrow(seekbarFingerprint)
+        val invalidateIndex = rectangleFieldMethod.indexOfFirstInstructionReversed {
+            getReference<MethodReference>()?.name == "invalidate"
+        }
+        val rectangleIndex = rectangleFieldMethod.indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
+            getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+        }
+        val rectangleFieldReference = rectangleFieldMethod
+            .getInstruction<ReferenceInstruction>(rectangleIndex)
+            .reference
+
+        seekbarOnDrawMethod.addInstructions(
+            0,
+            """
+                move-object/from16 v0, p0
+                iget-object v1, v0, $rectangleFieldReference
+                invoke-static { v1 }, $EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->setLoopBarRect(Landroid/graphics/Rect;)V
+            """
+        )
+
+        val roundIndex = seekbarOnDrawMethod.indexOfFirstInstructionOrThrow {
+            getReference<MethodReference>()?.name == "round"
+        } + 1
+        val roundRegister = seekbarOnDrawMethod
+            .getInstruction<OneRegisterInstruction>(roundIndex)
+            .registerA
+        seekbarOnDrawMethod.addInstruction(
+            roundIndex + 1,
+            "invoke-static {v$roundRegister}, $EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->setLoopBarThickness(I)V"
+        )
+
+        val drawCircleIndex = seekbarOnDrawMethod.indexOfFirstInstructionReversedOrThrow {
+            getReference<MethodReference>()?.name == "drawCircle"
+        }
+        val drawCircleInstruction = seekbarOnDrawMethod
+            .getInstruction<FiveRegisterInstruction>(drawCircleIndex)
+        seekbarOnDrawMethod.addInstruction(
+            drawCircleIndex,
+            "invoke-static {v${drawCircleInstruction.registerC}, v${drawCircleInstruction.registerE}}, " +
+                    "$EXTENSION_LOOP_SEGMENT_CLASS_DESCRIPTOR->drawLoopTimeBars(Landroid/graphics/Canvas;F)V"
+        )
 
         // endregion
 
@@ -166,6 +243,7 @@ val overlayButtonsPatch = resourcePatch(
         cfBottomUIPatch,
         dismissPlayerHookPatch,
         geminiButton,
+        legacyOverlayButtonsPatch,
         pipStateHookPatch,
         playerControlsPatch,
         playlistPatch,
@@ -244,6 +322,7 @@ val overlayButtonsPatch = resourcePatch(
             "CopyVideoUrlTimestampButton",
             "ExternalDownloadButton",
             "GeminiButton",
+            "GoogleVoiceOverTranslationButton",
             "LoopSegmentButton",
             "MuteVolumeButton",
             "PlayAllButton",
@@ -259,10 +338,12 @@ val overlayButtonsPatch = resourcePatch(
             "youtube/overlaybuttons/shared",
             ResourceGroup(
                 "drawable",
+                "revanced_overlay_button_background.xml",
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
                 "revanced_gemini_copy.xml",
                 "revanced_gemini_send.xml",
+                "revanced_google_vot_button.xml",
                 "revanced_mute_volume_button.xml",
                 "revanced_loop_segment_button.xml",
                 "revanced_repeat_button.xml",
@@ -308,6 +389,11 @@ val overlayButtonsPatch = resourcePatch(
                 ),
                 ResourceGroup(
                     "drawable",
+                    "revanced_fullscreen_video_scale_fit.xml",
+                    "revanced_fullscreen_video_scale_stretch.xml",
+                    "revanced_fullscreen_video_scale_zoom.xml",
+                    "revanced_google_vot_button_icon.xml",
+                    "revanced_google_vot_button_activated_icon.xml",
                     "revanced_loop_segment_button_icon.xml",
                     "revanced_loop_segment_button_start_icon.xml",
                     "revanced_loop_segment_button_active_icon.xml",
@@ -328,41 +414,65 @@ val overlayButtonsPatch = resourcePatch(
         )
 
         // Merge XML nodes from the host to their respective XML files.
-        copyXmlNode(
-            "youtube/overlaybuttons/shared/host",
-            "layout/youtube_controls_bottom_ui_container.xml",
-            "android.support.constraint.ConstraintLayout"
+        val overlayButtonsHostLayoutFileName = "layout/youtube_controls_bottom_ui_container.xml"
+        val bottomControlsLayoutFileNames = arrayOf(
+            "youtube_controls_bottom_ui_container.xml",
+            "youtube_video_exploder_controls_bottom_ui_container.xml",
         )
 
-        document("res/layout/youtube_controls_bottom_ui_container.xml").use { document ->
-            document.doRecursively loop@{ node ->
-                if (node !is Element) return@loop
-
-                // Change the relationship between buttons
-                node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
-                    ?.let { attribute ->
-                        if (attribute.textContent == "@id/fullscreen_button") {
-                            attribute.textContent = "@+id/revanced_overlay_buttons_scroll_view"
-                        }
-                    }
+        bottomControlsLayoutFileNames.forEach { xmlFile ->
+            val targetXml = get("res").resolve("layout").resolve(xmlFile)
+            if (targetXml.exists()) {
+                "android.support.constraint.ConstraintLayout".copyXmlNode(
+                    document(
+                        inputStreamFromBundledResourceOrThrow(
+                            "youtube/overlaybuttons/shared/host",
+                            overlayButtonsHostLayoutFileName,
+                        )
+                    ),
+                    document("res/layout/$xmlFile"),
+                ).close()
             }
         }
 
-        arrayOf(
-            "youtube_controls_bottom_ui_container.xml",
+        // Fullscreen layouts are shared by both player styles. Give the old container its
+        // own copies so its button can follow patch options without changing modern controls.
+        val legacyFullscreenLayouts = listOf(
             "youtube_controls_fullscreen_button.xml",
-            "youtube_controls_cf_fullscreen_button.xml"
-        ).forEach { xmlFile ->
+            "youtube_controls_cf_fullscreen_button.xml",
+        ).filter { get("res/layout/$it").exists() }.associateWith { "revanced_legacy_$it" }
+        legacyFullscreenLayouts.forEach { (source, target) ->
+            get("res/layout/$source").copyTo(get("res/layout/$target"), overwrite = true)
+        }
+
+        (bottomControlsLayoutFileNames.toList() + legacyFullscreenLayouts.values).forEach { xmlFile ->
             val targetXml = get("res").resolve("layout").resolve(xmlFile)
             if (targetXml.exists()) {
                 document("res/layout/$xmlFile").use { document ->
                     document.doRecursively loop@{ node ->
                         if (node !is Element) return@loop
 
+                        val isLegacyLayout = xmlFile == "youtube_controls_bottom_ui_container.xml" ||
+                            xmlFile in legacyFullscreenLayouts.values
+                        if (xmlFile == "youtube_controls_bottom_ui_container.xml") {
+                            val layout = node.getAttribute("android:layout")
+                            legacyFullscreenLayouts["${layout.removePrefix("@layout/")}.xml"]?.let {
+                                node.setAttribute("android:layout", "@layout/${it.removeSuffix(".xml")}")
+                            }
+                        }
+
+                        val id = node.getAttribute("android:id")
+                        // Only the modern fullscreen control retains YouTube's native dimensions.
+                        val isNativeFullscreenButton = id == "@id/fullscreen_button" ||
+                            id == "@+id/fullscreen_button" ||
+                            id == "@id/youtube_controls_fullscreen_button_stub" ||
+                            id == "@+id/youtube_controls_fullscreen_button_stub"
+
                         // Change the relationship between buttons
                         node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
                             ?.let { attribute ->
-                                if (attribute.textContent == "@id/fullscreen_button") {
+                                if (attribute.textContent == "@id/fullscreen_button" &&
+                                    !isNativeFullscreenButton) {
                                     attribute.textContent =
                                         "@+id/revanced_overlay_buttons_scroll_view"
                                 }
@@ -370,14 +480,14 @@ val overlayButtonsPatch = resourcePatch(
 
                         node.getAttributeNode("yt:layout_constraintBottom_toTopOf")
                             ?.let { attribute ->
-                                if (attribute.textContent == "@id/quick_actions_container") {
+                                if (attribute.textContent == "@id/quick_actions_container" &&
+                                    (!isNativeFullscreenButton || isLegacyLayout)) {
                                     attribute.textContent =
                                         "@+id/revanced_overlay_buttons_bottom_margin"
                                 }
                             }
 
-                        val (id, height, width) = Triple(
-                            node.getAttribute("android:id"),
+                        val (height, width) = Pair(
                             node.getAttribute("android:layout_height"),
                             node.getAttribute("android:layout_width")
                         )
@@ -386,8 +496,19 @@ val overlayButtonsPatch = resourcePatch(
                             width != "0.0dip",
                         )
 
-                        val isButton =
-                            id.endsWith("_button") && id != "@id/multiview_button" || id == "@id/youtube_controls_fullscreen_button_stub"
+                        val isButton = if (isNativeFullscreenButton) {
+                            isLegacyLayout
+                        } else {
+                            id.endsWith("_button") && id != "@id/multiview_button"
+                        }
+                        val isExploderLayout =
+                            xmlFile == "youtube_video_exploder_controls_bottom_ui_container.xml"
+
+                        // Background circles belong only to the modern player layout.
+                        if (!isExploderLayout && node.getAttribute("android:background") ==
+                            "@drawable/revanced_overlay_button_background") {
+                            node.setAttribute("android:background", "@null")
+                        }
 
                         // Adjust TimeBar and Chapter bottom padding
                         val timBarItem = mutableMapOf(
@@ -400,6 +521,12 @@ val overlayButtonsPatch = resourcePatch(
                         else
                             "48.0dip"
 
+                        // The old layout uses the configured spacer and button height. Sharing
+                        // the scroll container also preserves portrait/landscape button limits.
+                        if (!isExploderLayout && id == "@+id/revanced_overlay_buttons_scroll_view") {
+                            node.setAttribute("android:layout_height", layoutHeightWidth)
+                        }
+
                         if (isButton) {
                             node.setAttribute("android:paddingBottom", "12.0dip")
                             node.setAttribute("android:paddingTop", "12.0dip")
@@ -407,9 +534,32 @@ val overlayButtonsPatch = resourcePatch(
                                 node.setAttribute("android:layout_height", layoutHeightWidth)
                                 node.setAttribute("android:layout_width", layoutHeightWidth)
                             }
-                        } else if (timBarItem.containsKey(id)) {
+                        } else if (!isExploderLayout && timBarItem.containsKey(id)) {
                             if (!useWiderButtonsSpace) {
                                 node.setAttribute("android:paddingBottom", timBarItem.getValue(id))
+                            }
+                        }
+
+                        if (isExploderLayout && (id == "@+id/revanced_overlay_buttons_scroll_view" ||
+                                    id == "@id/timestamps_container" ||
+                                    id == "@id/time_bar_chapter_title_container")) {
+                            node.removeAttribute("yt:layout_constraintBottom_toTopOf")
+                            node.setAttribute("yt:layout_constraintTop_toTopOf", "@id/fullscreen_button")
+                            node.setAttribute("yt:layout_constraintBottom_toBottomOf", "@id/fullscreen_button")
+                            node.setAttribute("android:layout_height", "0.0dip")
+                            node.setAttribute("android:paddingTop", "0.0dip")
+                            node.setAttribute("android:paddingBottom", "0.0dip")
+                            node.setAttribute("android:tag", "morphe_modern_overlay")
+                        }
+
+                        if (isExploderLayout) {
+                            when (id) {
+                                "@id/time_bar_entry_point_tap_container" ->
+                                    node.setAttribute("android:paddingTop", "0.0dip")
+                                "@id/time_bar_chapter_title", "@id/time_bar_timeline_title" -> {
+                                    node.setAttribute("android:layout_marginBottom", "0.0dip")
+                                    node.setAttribute("android:layout_gravity", "center_vertical")
+                                }
                             }
                         }
 
@@ -426,6 +576,18 @@ val overlayButtonsPatch = resourcePatch(
                                 "@id/quick_actions_container"
                             )
                         }
+                    }
+
+                    if (xmlFile in bottomControlsLayoutFileNames) {
+                        // Keep the native fullscreen control last in bottom-controls containers.
+                        val fullscreenButton = document.childNodes.findElementByAttributeValue(
+                            "android:id",
+                            "@id/fullscreen_button",
+                        ) ?: document.childNodes.findElementByAttributeValue(
+                            "android:id",
+                            "@+id/fullscreen_button",
+                        )
+                        fullscreenButton?.let(document.documentElement::appendChild)
                     }
                 }
             }
@@ -467,5 +629,32 @@ val overlayButtonsPatch = resourcePatch(
 
         // endregion
 
+    }
+}
+
+private fun hookLoopPlayerStatus(extensionClass: String, methodName: String) {
+    playerStatusMethodRef.get()!!.apply {
+        // Add call to start playback again, but must not allow exit fullscreen patch call
+        // to be reached if the video is looped.
+        val insertIndex =
+            indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
+        // Since instructions are added just above Opcode.SGET_OBJECT, instead of calling findFreeRegister(),
+        // a register from Opcode.SGET_OBJECT is used.
+        val freeRegister =
+            getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+        // Since 'videoInformationPatch' is used as a dependency of this patch,
+        // the loop is implemented through 'VideoInformation.seekTo(0)'.
+        addInstructionsWithLabels(
+            insertIndex,
+            """
+                invoke-static/range { p1 .. p1 }, $extensionClass->$methodName(Ljava/lang/Enum;)Z
+                move-result v$freeRegister
+                if-eqz v$freeRegister, :do_not_loop
+                return-void
+                :do_not_loop
+                nop
+            """
+        )
     }
 }

@@ -1,6 +1,8 @@
 package app.morphe.extension.youtube.swipecontrols
 
 import android.graphics.Color
+import app.morphe.extension.shared.settings.Setting
+import app.morphe.extension.shared.settings.preference.SeekBarPreference
 import app.morphe.extension.shared.utils.Utils.validateColor
 import app.morphe.extension.shared.utils.Utils.validateValue
 import app.morphe.extension.youtube.settings.Settings
@@ -8,10 +10,74 @@ import app.morphe.extension.youtube.shared.LockModeState
 import app.morphe.extension.youtube.shared.PlayerType
 
 /**
- * Provides configuration settings for volume and brightness swipe controls in the YouTube player.
- * Manages enabling/disabling gestures, overlay appearance, and behavior preferences.
+ * Provides configuration settings for edge-assigned swipe controls in the YouTube player.
+ * Manages action assignments, enabling/disabling gestures, overlay appearance, and behavior
+ * preferences.
  */
 class SwipeControlsConfigurationProvider {
+
+    /** Action assigned to one of the four swipe zones. */
+    enum class SwipeZoneAction {
+        OFF,
+        VOLUME,
+        BRIGHTNESS,
+        SPEED,
+        SEEK,
+    }
+
+    /** Makes a setting available when at least one edge has an assigned action. */
+    class AnySwipeZoneAvailability : Setting.Availability {
+        override fun isAvailable() =
+            Settings.SWIPE_LEFT_ZONE.get() != SwipeZoneAction.OFF ||
+                Settings.SWIPE_RIGHT_ZONE.get() != SwipeZoneAction.OFF ||
+                Settings.SWIPE_TOP_ZONE.get() != SwipeZoneAction.OFF ||
+                Settings.SWIPE_BOTTOM_ZONE.get() != SwipeZoneAction.OFF
+
+        override fun getParentSettings(): List<Setting<*>> =
+            listOf(
+                Settings.SWIPE_LEFT_ZONE,
+                Settings.SWIPE_RIGHT_ZONE,
+                Settings.SWIPE_TOP_ZONE,
+                Settings.SWIPE_BOTTOM_ZONE,
+            )
+    }
+
+    /** Makes a setting available when a side zone has an assigned action. */
+    class SideSwipeZonesAvailability : Setting.Availability {
+        override fun isAvailable() =
+            Settings.SWIPE_LEFT_ZONE.get() != SwipeZoneAction.OFF ||
+                Settings.SWIPE_RIGHT_ZONE.get() != SwipeZoneAction.OFF
+
+        override fun getParentSettings(): List<Setting<*>> =
+            listOf(Settings.SWIPE_LEFT_ZONE, Settings.SWIPE_RIGHT_ZONE)
+    }
+
+    /** Makes a setting available when a top or bottom zone has an assigned action. */
+    class HorizontalSwipeZonesAvailability : Setting.Availability {
+        override fun isAvailable() =
+            Settings.SWIPE_TOP_ZONE.get() != SwipeZoneAction.OFF ||
+                Settings.SWIPE_BOTTOM_ZONE.get() != SwipeZoneAction.OFF
+
+        override fun getParentSettings(): List<Setting<*>> =
+            listOf(Settings.SWIPE_TOP_ZONE, Settings.SWIPE_BOTTOM_ZONE)
+    }
+
+    /** Makes a setting available when any edge is assigned the requested action. */
+    class SwipeActionAvailability(private val action: SwipeZoneAction) : Setting.Availability {
+        override fun isAvailable() =
+            Settings.SWIPE_LEFT_ZONE.get() == action ||
+                Settings.SWIPE_RIGHT_ZONE.get() == action ||
+                Settings.SWIPE_TOP_ZONE.get() == action ||
+                Settings.SWIPE_BOTTOM_ZONE.get() == action
+
+        override fun getParentSettings(): List<Setting<*>> =
+            listOf(
+                Settings.SWIPE_LEFT_ZONE,
+                Settings.SWIPE_RIGHT_ZONE,
+                Settings.SWIPE_TOP_ZONE,
+                Settings.SWIPE_BOTTOM_ZONE,
+            )
+    }
 
     // region swipe enable
 
@@ -24,24 +90,58 @@ class SwipeControlsConfigurationProvider {
                 isFullscreenVideo
 
     /**
+     * The action assigned to the left swipe zone.
+     */
+    val leftZoneAction: SwipeZoneAction
+        get() = Settings.SWIPE_LEFT_ZONE.get()
+
+    /**
+     * The action assigned to the right swipe zone.
+     */
+    val rightZoneAction: SwipeZoneAction
+        get() = Settings.SWIPE_RIGHT_ZONE.get()
+
+    /**
+     * The action assigned to the top swipe zone.
+     */
+    val topZoneAction: SwipeZoneAction
+        get() = Settings.SWIPE_TOP_ZONE.get()
+
+    /**
+     * The action assigned to the bottom swipe zone.
+     */
+    val bottomZoneAction: SwipeZoneAction
+        get() = Settings.SWIPE_BOTTOM_ZONE.get()
+
+    /**
      * Indicates whether swipe controls for adjusting volume are enabled.
      */
-    val enableVolumeControls = Settings.SWIPE_VOLUME.get()
+    val enableVolumeControls: Boolean
+        get() = isActionAssigned(SwipeZoneAction.VOLUME)
 
     /**
      * Indicates whether swipe controls for adjusting brightness are enabled.
      */
-    val enableBrightnessControl = Settings.SWIPE_BRIGHTNESS.get()
+    val enableBrightnessControl: Boolean
+        get() = isActionAssigned(SwipeZoneAction.BRIGHTNESS)
 
     /**
      * Indicates whether swipe controls for adjusting playback speed are enabled.
      */
-    val enableSpeedControl = Settings.SWIPE_SPEED.get()
+    val enableSpeedControl: Boolean
+        get() = isActionAssigned(SwipeZoneAction.SPEED)
 
     /**
      * Indicates whether swipe controls for seeking are enabled.
      */
-    val enableSeekControl = Settings.SWIPE_SEEK.get()
+    val enableSeekControl: Boolean
+        get() = isActionAssigned(SwipeZoneAction.SEEK)
+
+    private fun isActionAssigned(action: SwipeZoneAction) =
+        leftZoneAction == action ||
+            rightZoneAction == action ||
+            topZoneAction == action ||
+            bottomZoneAction == action
 
     /**
      * Fix https://github.com/inotia00/ReVanced_Extended/issues/3052.
@@ -169,17 +269,9 @@ class SwipeControlsConfigurationProvider {
 
     /**
      * The background opacity of the overlay, converted from a percentage (0-100) to an alpha value (0-255).
-     * Resets to default and shows a toast if the value is out of range.
      */
     val overlayBackgroundOpacity: Int by lazy {
-        var opacity = validateValue(
-            Settings.SWIPE_OVERLAY_OPACITY,
-            0,
-            100,
-            "revanced_swipe_overlay_background_opacity_invalid_toast"
-        )
-
-        opacity = opacity * 255 / 100
+        val opacity = SeekBarPreference.clampToRange(Settings.SWIPE_OVERLAY_OPACITY) * 255 / 100
         Color.argb(opacity, 0, 0, 0)
     }
 
@@ -228,23 +320,28 @@ class SwipeControlsConfigurationProvider {
 
     /**
      * The text size in the overlay, in density-independent pixels (dp).
-     * Must be between 1 and 30 dp; resets to default and shows a toast if invalid.
      */
-    val overlayTextSize: Int by lazy {
+    val overlayTextSize: Int
+        get() = SeekBarPreference.clampToRange(Settings.SWIPE_OVERLAY_TEXT_SIZE)
+
+    /**
+     * Percentage of the effective player width reserved at both sides for vertical swipes.
+     */
+    val verticalSwipeZoneSize: Int by lazy {
         validateValue(
-            Settings.SWIPE_OVERLAY_TEXT_SIZE,
-            1,
-            30,
-            "revanced_swipe_text_overlay_size_invalid_toast"
+            Settings.SWIPE_VERTICAL_ZONE,
+            0,
+            50,
+            "revanced_swipe_overlay_rect_size_invalid_toast"
         )
     }
 
     /**
-     * Percentage of swipeable screen area.
+     * Percentage of the effective player height reserved at the top and bottom for horizontal swipes.
      */
-    val overlayRectSize: Int by lazy {
+    val horizontalSwipeZoneSize: Int by lazy {
         validateValue(
-            Settings.SWIPE_OVERLAY_RECT_SIZE,
+            Settings.SWIPE_HORIZONTAL_ZONE,
             0,
             50,
             "revanced_swipe_overlay_rect_size_invalid_toast"

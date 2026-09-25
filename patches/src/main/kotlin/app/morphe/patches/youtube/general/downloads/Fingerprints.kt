@@ -52,6 +52,7 @@ package app.morphe.patches.youtube.general.downloads
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
@@ -59,10 +60,8 @@ import app.morphe.patcher.opcode
 import app.morphe.patcher.string
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
-import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
 import app.morphe.util.parametersEqual
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -82,6 +81,20 @@ internal object FeedBottomSheetFlyoutFingerprint : Fingerprint(
     parameters = listOf("Landroid/os/Bundle;"),
 )
 
+internal object ModernFeedBottomSheetFlyoutFingerprint : Fingerprint(
+    classFingerprint = Fingerprint(
+        parameters = listOf("Landroid/os/Bundle;"),
+        filters = listOf(
+            string("BaseBottomSheetDialogFragment.useNewUi"),
+            string("BaseBottomSheetDialogFragment.peekHeightEnabled"),
+            string("BaseBottomSheetDialogFragment.largeFormWidthDp"),
+        ),
+    ),
+    accessFlags = listOf(AccessFlags.PUBLIC),
+    returnType = "Landroid/app/Dialog;",
+    parameters = listOf("Landroid/os/Bundle;"),
+)
+
 internal object FeedFlyoutBufferObjectFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
@@ -89,6 +102,7 @@ internal object FeedFlyoutBufferObjectFingerprint : Fingerprint(
     strings = listOf(
         "com.google.android.libraries.youtube.rendering.elements.sender_view",
         "com.google.android.libraries.youtube.innertube.endpoint.tag",
+        "com.google.android.libraries.youtube.innertube.bundle",
         "com.google.android.libraries.youtube.logging.interaction_logger",
     ),
 )
@@ -179,14 +193,13 @@ internal object SingularGeneratedExtensionFingerprint : Fingerprint(
 private val ENDS_WITH_PARAMETER_LIST = listOf(
     "Lcom/google/android/apps/youtube/app/offline/ui/OfflineArrowView;",
     "I",
-    "Landroid/view/View${'$'}OnClickListener;"
+    $$"Landroid/view/View$OnClickListener;"
 )
 
-internal val accessibilityOfflineButtonSyncFingerprint = legacyFingerprint(
-    name = "accessibilityOfflineButtonSyncFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+internal val accessibilityOfflineButtonSyncFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
     returnType = "V",
-    customFingerprint = custom@{ method, _ ->
+    custom = custom@{ method, _ ->
         if (!MethodUtil.isConstructor(method)) {
             return@custom false
         }
@@ -198,17 +211,16 @@ internal val accessibilityOfflineButtonSyncFingerprint = legacyFingerprint(
 
         val endsWithMethodParameterList = parameterTypes.slice(parameterSize - 3..<parameterSize)
         parametersEqual(ENDS_WITH_PARAMETER_LIST, endsWithMethodParameterList)
-    }
+    },
 )
 
-internal val downloadPlaylistButtonOnClickFingerprint = legacyFingerprint(
-    name = "downloadPlaylistButtonOnClickFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val downloadPlaylistButtonOnClickFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    opcodes = listOf(Opcode.INVOKE_VIRTUAL_RANGE),
-    customFingerprint = { method, _ ->
+    filters = OpcodesFilter.opcodesToFilters(Opcode.INVOKE_VIRTUAL_RANGE),
+    custom = { method, _ ->
         indexOfPlaylistDownloadActionInvokeInstruction(method) >= 0
-    }
+    },
 )
 
 internal fun indexOfPlaylistDownloadActionInvokeInstruction(method: Method) =
@@ -219,37 +231,34 @@ internal fun indexOfPlaylistDownloadActionInvokeInstruction(method: Method) =
                     "Ljava/lang/String;",
                     "Lcom/google/android/apps/youtube/app/offline/ui/OfflineArrowView;",
                     "I",
-                    "Landroid/view/View${'$'}OnClickListener;"
+                    $$"Landroid/view/View$OnClickListener;"
                 )
     }
 
-internal val offlinePlaylistEndpointFingerprint = legacyFingerprint(
-    name = "offlinePlaylistEndpointFingerprint",
+internal val offlinePlaylistEndpointFingerprint = Fingerprint(
     returnType = "V",
-    strings = listOf("Object is not an offlineable playlist: ")
+    strings = listOf("Object is not an offlineable playlist: "),
 )
 
-internal val offlineVideoEndpointFingerprint = legacyFingerprint(
-    name = "offlineVideoEndpointFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val offlineVideoEndpointFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = listOf(
         "Ljava/util/Map;",
         "L",
-        "Ljava/lang/String", // VideoId
+        "Ljava/lang/String;", // VideoId
         "L"
     ),
-    strings = listOf("Object is not an offlineable video: ")
+    strings = listOf("Object is not an offlineable video: "),
 )
 
-internal val setPlaylistDownloadButtonVisibilityFingerprint = legacyFingerprint(
-    name = "setPlaylistDownloadButtonVisibilityFingerprint",
+internal val setPlaylistDownloadButtonVisibilityFingerprint = Fingerprint(
     returnType = "V",
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
         Opcode.IGET,
         Opcode.CONST_4
-    )
+    ),
 )

@@ -10,7 +10,6 @@ package app.morphe.extension.shared.spoof.requests;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,6 +21,8 @@ import java.time.ZoneOffset;
 import java.util.HashMap;
 import java.util.Map;
 
+import app.morphe.extension.shared.innertube.utils.AuthUtils;
+import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
@@ -32,7 +33,7 @@ import app.morphe.extension.shared.utils.Utils;
 public final class VisitorIdRequester {
 
     private record VisitorData(String visitorId, long fetchedTime) {
-        private static final long VISITOR_ID_EXPIRATION_MS = 2L * 365 * 24 * 60 * 60 * 1000; // 2 years
+        private static final long VISITOR_ID_EXPIRATION_MS = 30L * 24 * 60 * 60 * 1000; // 30 days
 
         boolean isNotExpired() {
             return Utils.isNotEmpty(visitorId) && System.currentTimeMillis()
@@ -78,8 +79,8 @@ public final class VisitorIdRequester {
                         }
                         // Don't log visitor id and use UTC timezone to not leak device timezone.
                         Logger.printDebug(() -> (isNotExpired ? "Loaded visitorId" : "Ignoring expired")
-                                + " clientType: " + clientType
-                                + " fetchedTime: " + visitor.getFetchedTimeFormatted());
+                                .concat(" clientType: ").concat(clientType.name())
+                                .concat(" fetchedTime: ").concat(visitor.getFetchedTimeFormatted()));
                     }
                 }
             }
@@ -90,7 +91,7 @@ public final class VisitorIdRequester {
     }
 
     private static void saveVisitorId(ClientType clientType, String visitorId, boolean updatedByPlayer) {
-        Logger.printDebug(() -> "Updating visitorId for clientType: " + clientType + " updated by player: " + updatedByPlayer);
+        Logger.printDebug(() -> "Save visitorId for clientType: " + clientType + " updated by player: " + updatedByPlayer);
 
         synchronized (cache) {
             cache.put(clientType, new VisitorData(visitorId, System.currentTimeMillis()));
@@ -98,14 +99,13 @@ public final class VisitorIdRequester {
             try {
                 for (Map.Entry<ClientType, VisitorData> entry : cache.entrySet()) {
                     VisitorData visitor = entry.getValue();
-                    JSONObject data = new JSONObject()
-                            .put("visitorId", visitor.visitorId)
-                            .put("fetchedTime", visitor.fetchedTime);
-                    json.put(entry.getKey().name(), data);
+                    json.put(entry.getKey().name(), new JSONObject()
+                            .put("visitorId", visitor.visitorId())
+                            .put("fetchedTime", visitor.fetchedTime()));
                 }
                 SharedYouTubeSettings.SPOOF_VIDEO_STREAMS_CLIENT_IDS.save(json.toString());
             } catch (JSONException ex) {
-                Logger.printException(() -> "Failed to save visitor IDs", ex);
+                Logger.printException(() -> "Failed to update visitor IDs", ex);
             }
         }
     }
@@ -159,10 +159,7 @@ public final class VisitorIdRequester {
             client.put("utcOffsetMinutes", 0);
             context.put("client", client);
 
-            JSONArray internalExperimentFlags = new JSONArray();
-
             JSONObject request = new JSONObject();
-            request.put("internalExperimentFlags", internalExperimentFlags);
             request.put("useSsl", true);
             context.put("request", request);
 
@@ -193,6 +190,19 @@ public final class VisitorIdRequester {
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Accept-Language", "en-GB, en;q=0.9");
             connection.setRequestProperty("Content-Type", "application/json");
+            if (clientType.canLogin) {
+                if (!AuthUtils.isNotLoggedIn()) {
+                    String authorization = AuthUtils.getAuthorization();
+                    if (Utils.isNotEmpty(authorization)) {
+                        connection.setRequestProperty("Authorization", authorization);
+                    }
+                }
+            } else if (clientType.supportsOAuth2) {
+                String oauth2Authorization = OAuth2Requester.getAndUpdateAccessTokenIfNeeded();
+                if (!AuthUtils.isNotLoggedIn() && Utils.isNotEmpty(oauth2Authorization)) {
+                    connection.setRequestProperty("Authorization", oauth2Authorization);
+                }
+            }
             connection.setRequestProperty("User-Agent", clientType.userAgent);
             connection.setRequestProperty("X-YouTube-Client-Name", String.valueOf(clientType.id));
             connection.setRequestProperty("X-YouTube-Client-Version", clientType.clientVersion);
@@ -206,8 +216,7 @@ public final class VisitorIdRequester {
 
             final int responseCode = connection.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
-                // Parse but do not disconnect because connection may be reused in the near future.
-                JSONObject response = Requester.parseJSONObject(connection);
+                JSONObject response = Requester.parseJSONObjectAndDisconnect(connection);
                 return response.getJSONObject("responseContext").getString("visitorData");
             }
 
@@ -221,6 +230,8 @@ public final class VisitorIdRequester {
                     Logger.printDebug(logMessage);
                 }
             }
+
+            connection.disconnect();
         } catch (IOException ex) {
             Logger.printException(() -> "Failed to fetch visitor data", ex);
         } catch (JSONException ex) {

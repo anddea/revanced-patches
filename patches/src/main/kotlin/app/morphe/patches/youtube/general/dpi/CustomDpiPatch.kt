@@ -89,6 +89,7 @@ val customDpiPatch = bytecodePatch(
         addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: GENERAL",
+                "SETTINGS: THEME_SETTINGS",
                 "PREFERENCE_CATEGORY: GENERAL_LAYOUT",
                 "SETTINGS: CUSTOM_DPI"
             ),

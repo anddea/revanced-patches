@@ -18,6 +18,19 @@ public class PatchStatus {
         return false;
     }
 
+    // Modified by a patch. Do not touch.
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    public static boolean GmsCoreSupport() {
+        // Replace this with true if the 'GmsCore support' patch succeeds.
+        return false;
+    }
+
+    // Modified by a patch. Do not touch.
+    public static boolean PoTokenProvider() {
+        // Replace this with true if the 'PoToken provider' patch succeeds.
+        return false;
+    }
+
     public static String PatchVersion() {
         return "Unknown";
     }

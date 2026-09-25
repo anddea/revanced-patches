@@ -52,6 +52,8 @@
 
 package app.morphe.patches.shared.audiotracks
 
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -92,6 +94,8 @@ internal fun audioTracksPatch(
     executeBlock: BytecodePatchContext.() -> Unit = {},
     fixUseLocalizedAudioTrackFlag: BytecodePatchContext.() -> Boolean,
     forcedServerAdaptiveStreaming: BytecodePatchContext.() -> Boolean,
+    mainActivityOnCreateFingerprint: Fingerprint,
+    subclassExtensionClassDescriptor: String,
 ) = bytecodePatch(
     name = "Force original audio",
     description = "Adds an option to disable audio tracks from being automatically enabled.",
@@ -298,6 +302,11 @@ internal fun audioTracksPatch(
                 }
             }
         }
+
+        mainActivityOnCreateFingerprint.method.addInstruction(
+            0,
+            "invoke-static { }, $subclassExtensionClassDescriptor->setEnabled()V"
+        )
 
         executeBlock()
     }

@@ -1,11 +1,24 @@
 package app.morphe.extension.youtube.shared
 
+import android.graphics.Bitmap
+import android.graphics.BlurMaskFilter
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Rect
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.DrawableWrapper
 import android.view.View
 import android.widget.ImageView
 import app.morphe.extension.shared.utils.Logger
+import app.morphe.extension.shared.utils.ResourceType
 import app.morphe.extension.shared.utils.ResourceUtils
 import app.morphe.extension.shared.utils.Utils
+import app.morphe.extension.youtube.patches.player.PlayerPatch
+import app.morphe.extension.youtube.settings.Settings
+import app.morphe.extension.youtube.settings.YouTubeActivityHook
 import java.lang.ref.WeakReference
+import androidx.core.graphics.createBitmap
 
 class PlayerControlButton(
     controlsViewGroup: View,
@@ -24,8 +37,6 @@ class PlayerControlButton(
 
     private val buttonRef: WeakReference<ImageView?>
 
-    private val placeholderExists: Boolean
-
     /**
      * Empty view with the same layout size as the button. Used to fill empty space while the
      * fade out animation runs. Without this the chapter titles overlapping the button when fading out.
@@ -38,7 +49,8 @@ class PlayerControlButton(
     init {
         val imageView =
             Utils.getChildViewByResourceName<ImageView>(controlsViewGroup, imageViewButtonId)
-        imageView.visibility = View.GONE
+
+        prepareButton(imageView, onClickListener, onLongClickListener)
 
         var tempPlaceholder: View? = null
         if (hasPlaceholder) {
@@ -49,13 +61,7 @@ class PlayerControlButton(
                 )
             tempPlaceholder.visibility = View.GONE
         }
-        placeholderExists = hasPlaceholder
         placeHolderRef = WeakReference<View?>(tempPlaceholder)
-
-        imageView.setOnClickListener(onClickListener)
-        if (onLongClickListener != null) {
-            imageView.setOnLongClickListener(onLongClickListener)
-        }
 
         visibilityCheck = buttonVisibility
         buttonRef = WeakReference<ImageView?>(imageView)
@@ -85,7 +91,26 @@ class PlayerControlButton(
         }
     }
 
-    fun imageView() = buttonRef.get()
+    fun imageView() = activeButton()
+
+    /**
+     * Sets the button icon using YouTube's active thin or bold icon style.
+     *
+     * @param iconResourceName the drawable name without the optional `_bold` suffix.
+     */
+    fun setIcon(iconResourceName: String) {
+        Utils.verifyOnMainThread()
+        val selectedIconResourceName = if (YouTubeActivityHook.USE_BOLD_ICONS) {
+            "${iconResourceName}_bold"
+        } else {
+            iconResourceName
+        }
+        val imageView = activeButton() ?: return
+        imageView.setImageResource(
+            ResourceUtils.getIdentifierOrThrow(selectedIconResourceName, ResourceType.DRAWABLE)
+        )
+        applyIconShadow(imageView)
+    }
 
     fun setVisibilityNegatedImmediate() {
         try {
@@ -96,10 +121,10 @@ class PlayerControlButton(
 
             val shouldBeShown = visibilityCheck.shouldBeShown()
             if (!shouldBeShown) return
-            val button = buttonRef.get() ?: return
+            val button = activeButton() ?: return
             isVisible = false
 
-            val placeholder = placeHolderRef.get()
+            val placeholder = activePlaceholder()
 
             val animate = button.animate()
             animate.cancel()
@@ -147,10 +172,11 @@ class PlayerControlButton(
     private fun privateSetVisibility(visible: Boolean, animated: Boolean) {
         try {
             if (isVisible == visible) return
+
             isVisible = visible
 
-            val button = buttonRef.get() ?: return
-            val placeholder = placeHolderRef.get()
+            val button = activeButton() ?: return
+            val placeholder = activePlaceholder()
             val shouldBeShown = visibilityCheck.shouldBeShown()
 
             if (visible) {
@@ -170,6 +196,7 @@ class PlayerControlButton(
                 } else {
                     button.alpha = 1f
                 }
+                applyIconShadow(button)
 
                 placeholder?.visibility = View.GONE
             } else {
@@ -206,15 +233,16 @@ class PlayerControlButton(
         }
 
         Utils.runOnMainThread {
-            val button = buttonRef.get() ?: return@runOnMainThread
+            val button = activeButton() ?: return@runOnMainThread
 
             button.animate().cancel()
-            val placeholder = placeHolderRef.get()
+            val placeholder = activePlaceholder()
 
             if (visibilityCheck.shouldBeShown()) {
                 if (isVisible) {
                     button.visibility = View.VISIBLE
                     button.alpha = 1f
+                    applyIconShadow(button)
                     placeholder?.visibility = View.GONE
                 } else {
                     button.visibility = View.GONE
@@ -231,17 +259,135 @@ class PlayerControlButton(
         if (!isVisible) return
 
         Utils.verifyOnMainThread()
-        val view = buttonRef.get() ?: return
-        view.animate().cancel()
-        view.visibility = View.GONE
+        buttonRef.get()?.apply {
+            animate().cancel()
+            visibility = View.GONE
+        }
 
-        val placeholder = placeHolderRef.get()
-        placeholder?.visibility = View.GONE
+        placeHolderRef.get()?.visibility = View.GONE
         isVisible = false
+    }
+
+    private fun prepareButton(
+        imageView: ImageView,
+        onClickListener: View.OnClickListener,
+        onLongClickListener: View.OnLongClickListener?,
+    ) {
+        imageView.visibility = View.GONE
+
+        val background = imageView.background
+        if (background != null) {
+            if (Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                imageView.background = null
+            } else {
+                imageView.background = PlayerPatch.applyControlButtonsBackgroundOpacity(background)
+            }
+        }
+        applyIconShadow(imageView)
+        imageView.setOnClickListener(onClickListener)
+        if (onLongClickListener != null) {
+            imageView.setOnLongClickListener(onLongClickListener)
+        }
+    }
+
+    // Both player styles share the same scrollable row and animation placeholders.
+    private fun activeButton(): ImageView? = buttonRef.get()
+
+    private fun activePlaceholder(): View? = placeHolderRef.get()
+
+    private class ShadowedIconDrawable(icon: Drawable) : DrawableWrapper(icon) {
+        private var shadow: Bitmap? = null
+
+        override fun onBoundsChange(bounds: Rect) {
+            super.onBoundsChange(bounds)
+            shadow = null
+        }
+
+        override fun draw(canvas: Canvas) {
+            if (shadow == null) {
+                buildShadow()
+            }
+            shadow?.let {
+                val bounds = bounds
+                canvas.drawBitmap(it, bounds.left.toFloat(), bounds.top.toFloat(), null)
+            }
+            super.draw(canvas)
+        }
+
+        private fun buildShadow() {
+            val icon = drawable ?: return
+            val bounds = bounds
+            if (bounds.isEmpty) return
+
+            val width = bounds.width()
+            val height = bounds.height()
+
+            try {
+                val rendered = createBitmap(width, height)
+                val iconBounds = Rect(icon.bounds)
+                icon.setBounds(0, 0, width, height)
+                icon.draw(Canvas(rendered))
+                icon.bounds = iconBounds
+
+                val mask = rendered.extractAlpha()
+                rendered.recycle()
+
+                val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = iconShadowColor
+                    maskFilter = BlurMaskFilter(iconShadowBlurRadius.toFloat(), BlurMaskFilter.Blur.NORMAL)
+                }
+
+                val blurred = createBitmap(width, height)
+                Canvas(blurred).drawBitmap(
+                    mask,
+                    iconShadowOffsetX.toFloat(),
+                    iconShadowOffsetY.toFloat(),
+                    paint
+                )
+                mask.recycle()
+
+                shadow = blurred
+            } catch (ex: Exception) {
+                Logger.printException({ "Could not build player icon shadow" }, ex)
+            }
+        }
     }
 
     companion object {
         private val fadeInDuration: Int = ResourceUtils.getInteger("fade_duration_fast")
         private val fadeOutDuration: Int = ResourceUtils.getInteger("fade_duration_scheduled")
+
+        private val iconShadowOffsetX: Int
+        private val iconShadowOffsetY: Int
+        private val iconShadowBlurRadius: Int
+        private val iconShadowColor: Int
+
+        init {
+            var offsetX = 0
+            var offsetY = 0
+            var blurRadius = 0
+            var color = Color.TRANSPARENT
+            try {
+                offsetX = ResourceUtils.getInteger("shadow_icon_offset_x")
+                offsetY = ResourceUtils.getInteger("shadow_icon_offset_y")
+                blurRadius = ResourceUtils.getInteger("shadow_icon_size")
+                color = Color.argb(ResourceUtils.getInteger("shadow_icon_alpha"), 0, 0, 0)
+            } catch (ex: Exception) {
+                Logger.printException({ "Could not resolve player icon shadow resources" }, ex)
+            }
+            iconShadowOffsetX = offsetX
+            iconShadowOffsetY = offsetY
+            iconShadowBlurRadius = blurRadius
+            iconShadowColor = color
+        }
+
+        @JvmStatic
+        fun applyIconShadow(imageView: ImageView?) {
+            if (iconShadowBlurRadius <= 0 || imageView == null) return
+            val icon = imageView.drawable
+            if (icon != null && icon !is ShadowedIconDrawable) {
+                imageView.setImageDrawable(ShadowedIconDrawable(icon))
+            }
+        }
     }
 }

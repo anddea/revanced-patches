@@ -536,12 +536,12 @@ val actionBarComponentsPatch = bytecodePatch(
             )
         }
         addSwitchPreference(
-            CategoryType.ACTION_BAR,
+            CategoryType.MISC,
             "revanced_external_downloader_action",
             "false"
         )
         addPreferenceWithIntent(
-            CategoryType.ACTION_BAR,
+            CategoryType.MISC,
             "revanced_external_downloader_package_name",
             "revanced_external_downloader_action"
         )

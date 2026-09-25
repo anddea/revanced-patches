@@ -94,7 +94,6 @@ def _get_default_key_only_check() -> list[str]:
         "revanced_hide_player_youtube_music_button",
         "revanced_overlay_button_external_downloader_queue_manager",
         "revanced_override_video_download_button_queue_manager",
-        "revanced_override_youtube_music_button_about_prerequisite",
         "revanced_swipe_volume_sensitivity",
         "revanced_whitelist_settings",
     ]

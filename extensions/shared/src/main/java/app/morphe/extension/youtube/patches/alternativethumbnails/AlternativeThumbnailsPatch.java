@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
+import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -354,7 +355,7 @@ public final class AlternativeThumbnailsPatch {
                 return;
             }
             final int statusCode = responseInfo.getHttpStatusCode();
-            if (statusCode == 200) {
+            if (statusCode == Requester.HTTP_STATUS_CODE_SUCCESS) {
                 return;
             }
 

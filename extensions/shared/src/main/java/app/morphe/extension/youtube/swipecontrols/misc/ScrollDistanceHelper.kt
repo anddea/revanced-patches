@@ -10,9 +10,16 @@ import kotlin.math.sign
  * @param callback callback function for when unit distance is reached
  */
 class ScrollDistanceHelper(
-    private val unitDistance: Int,
+    unitDistance: Int,
     private val callback: (oldDistance: Double, newDistance: Double, direction: Int) -> Unit,
 ) {
+
+    /**
+     * Distance settings are converted from dp to pixels before reaching this helper. Very small
+     * values can be truncated to zero, and corrupted values can be negative. Either case would
+     * make the loop in [add] unable to make progress, so fall back to one pixel.
+     */
+    private val unitDistance = unitDistance.coerceAtLeast(1)
 
     /**
      * total distance scrolled
@@ -26,7 +33,18 @@ class ScrollDistanceHelper(
      * @param distance the distance to add
      */
     fun add(distance: Double) {
+        // A non-finite delta would make the loop below run forever because subtracting a finite
+        // unit from infinity never changes its magnitude.
+        if (!distance.isFinite()) {
+            reset()
+            return
+        }
+
         scrolledDistance += distance
+        if (!scrolledDistance.isFinite()) {
+            reset()
+            return
+        }
 
         // invoke the callback if we scrolled far enough
         while (abs(scrolledDistance) >= unitDistance) {

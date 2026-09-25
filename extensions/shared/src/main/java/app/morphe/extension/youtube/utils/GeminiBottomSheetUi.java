@@ -44,13 +44,9 @@ import static app.morphe.extension.shared.utils.ResourceUtils.getDrawable;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.dipToPixels;
 
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RenderEffect;
 import android.graphics.RenderNode;
@@ -72,7 +68,6 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowManager;
-import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -90,6 +85,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.morphe.extension.shared.ui.SheetBottomDialog;
+import app.morphe.extension.shared.ui.ShimmerTextView;
 import app.morphe.extension.shared.utils.Utils;
 
 final class GeminiBottomSheetUi {
@@ -1761,76 +1757,6 @@ final class GeminiBottomSheetUi {
             if (scrollPositionChangedListener != null) {
                 scrollPositionChangedListener.onScrollPositionChanged();
             }
-        }
-    }
-
-    @SuppressLint("AppCompatCustomView")
-    private static final class ShimmerTextView extends TextView {
-        @Nullable
-        private ValueAnimator shimmerAnimator;
-        @Nullable
-        private LinearGradient shimmerGradient;
-        private final Matrix shimmerMatrix = new Matrix();
-
-        private ShimmerTextView(@NonNull Context context) {
-            super(context);
-        }
-
-        void startShimmer() {
-            if (shimmerAnimator != null) {
-                return;
-            }
-            shimmerAnimator = ValueAnimator.ofFloat(-1f, 2f);
-            shimmerAnimator.setDuration(1300L);
-            shimmerAnimator.setInterpolator(new LinearInterpolator());
-            shimmerAnimator.setRepeatCount(ValueAnimator.INFINITE);
-            shimmerAnimator.addUpdateListener(animation -> {
-                if (shimmerGradient == null || getWidth() <= 0) {
-                    return;
-                }
-                float animatedFraction = (float) animation.getAnimatedValue();
-                shimmerMatrix.setTranslate(getWidth() * animatedFraction, 0f);
-                shimmerGradient.setLocalMatrix(shimmerMatrix);
-                invalidate();
-            });
-            rebuildShader();
-            shimmerAnimator.start();
-        }
-
-        void stopShimmer() {
-            if (shimmerAnimator != null) {
-                shimmerAnimator.cancel();
-                shimmerAnimator = null;
-            }
-            getPaint().setShader(null);
-            invalidate();
-        }
-
-        @Override
-        protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-            super.onSizeChanged(w, h, oldw, oldh);
-            rebuildShader();
-        }
-
-        private void rebuildShader() {
-            if (getWidth() <= 0) {
-                return;
-            }
-
-            int baseColor = getCurrentTextColor();
-            int dimColor = withAlpha(baseColor, 105);
-            int brightColor = withAlpha(baseColor, 255);
-            shimmerGradient = new LinearGradient(
-                    -getWidth(),
-                    0f,
-                    0f,
-                    0f,
-                    new int[]{dimColor, brightColor, dimColor},
-                    new float[]{0f, 0.5f, 1f},
-                    Shader.TileMode.CLAMP
-            );
-            getPaint().setShader(shimmerGradient);
-            invalidate();
         }
     }
 

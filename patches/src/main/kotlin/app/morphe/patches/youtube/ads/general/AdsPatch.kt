@@ -19,6 +19,7 @@ import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.ADS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
+import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.fix.litho.lithoLayoutPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_ADS
 import app.morphe.patches.youtube.utils.playservice.is_20_06_or_greater
@@ -33,6 +34,7 @@ import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.injectHideViewCall
+import app.morphe.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -233,6 +235,8 @@ val adsPatch = adsPatch(
             ),
             HIDE_ADS
         )
+
+        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "HideAds")
 
         // endregion
     }

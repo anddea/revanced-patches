@@ -7,6 +7,8 @@
 
 package app.morphe.extension.shared.spoof.requests;
 
+import android.text.TextUtils;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,10 +19,10 @@ import java.util.Locale;
 
 import app.morphe.extension.shared.requests.Requester;
 import app.morphe.extension.shared.requests.Route;
-import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.spoof.ClientType;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.js.JavaScriptManager;
+import app.morphe.extension.shared.spoof.potoken.PoTokenManager;
 import app.morphe.extension.shared.utils.Logger;
 
 public final class PlayerRoutes {
@@ -35,14 +37,24 @@ public final class PlayerRoutes {
     public static final Route.CompiledRoute GET_PLAYER_STREAMING_DATA = new Route(
             Route.Method.POST,
             "player" +
-                    "?fields=responseContext.visitorData,playabilityStatus,streamingData,playerConfig.mediaCommonConfig" +
+                    "?fields=responseContext.visitorData,playabilityStatus,streamingData,playerConfig" +
                     "&alt=proto"
     ).compile();
+
+    /**
+     * Playback never needs the video details, so they are only asked for by downloads,
+     * which name the saved file after them.
+     */
+    private static final Route.CompiledRoute GET_PLAYER_STREAMING_DATA_WITH_DETAILS = new Route(
+            Route.Method.POST,
+            "player?alt=proto"
+    ).compile();
+
 
     public static final Route.CompiledRoute GET_REEL_STREAMING_DATA = new Route(
             Route.Method.POST,
             "reel/reel_item_watch" +
-                    "?fields=responseContext.visitorData,playerResponse.playabilityStatus,playerResponse.streamingData,playerResponse.playerConfig.mediaCommonConfig" +
+                    "?fields=responseContext.visitorData,playerResponse.playabilityStatus,playerResponse.streamingData,playerResponse.playerConfig" +
                     "&alt=proto"
     ).compile();
 
@@ -64,12 +76,6 @@ public final class PlayerRoutes {
 
         try {
             JSONObject context = new JSONObject();
-
-            AppLanguage language = SpoofVideoStreamsPatch.getLanguageOverride();
-            if (language == null) {
-                language = AppLanguage.DEFAULT;
-            }
-            Locale streamLocale = language.getLocale();
 
             JSONObject client = new JSONObject();
             client.put("clientName", clientType.clientName);
@@ -94,6 +100,7 @@ public final class PlayerRoutes {
 
             JSONObject user = new JSONObject();
             user.put("lockedSafetyMode", false);
+            Locale streamLocale = SpoofVideoStreamsPatch.getLocaleOverride();
             client.put("hl", streamLocale.getLanguage());
             client.put("gl", streamLocale.getCountry());
             context.put("client", client);
@@ -153,6 +160,15 @@ public final class PlayerRoutes {
                 innerTubeBody.put("playbackContext", playbackContext);
             }
 
+            if (clientType.requirePoToken) {
+                String poToken = PoTokenManager.getPlayerPoToken(clientType, videoId);
+                if (!TextUtils.isEmpty(poToken)) {
+                    JSONObject serviceIntegrityDimensions = new JSONObject();
+                    serviceIntegrityDimensions.put("poToken", poToken);
+                    innerTubeBody.put("serviceIntegrityDimensions", serviceIntegrityDimensions);
+                }
+            }
+
             innerTubeBody.put("context", context);
         } catch (JSONException e) {
             Logger.printException(() -> "Failed to create innerTubeBody", e);
@@ -162,9 +178,19 @@ public final class PlayerRoutes {
     }
 
     static HttpURLConnection getPlayerResponseConnectionFromRoute(ClientType clientType) throws IOException {
-        Route.CompiledRoute route = clientType.usePlayerEndpoint
-                ? GET_PLAYER_STREAMING_DATA
-                : GET_REEL_STREAMING_DATA;
+        return getPlayerResponseConnectionFromRoute(clientType, false);
+    }
+
+    static HttpURLConnection getPlayerResponseConnectionFromRoute(ClientType clientType,
+                                                                  boolean includeVideoDetails) throws IOException {
+        Route.CompiledRoute route;
+        if (!clientType.usePlayerEndpoint) {
+            route = GET_REEL_STREAMING_DATA;
+        } else {
+            route = includeVideoDetails
+                    ? GET_PLAYER_STREAMING_DATA_WITH_DETAILS
+                    : GET_PLAYER_STREAMING_DATA;
+        }
         var connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, route);
 
         connection.setRequestProperty("Content-Type", "application/json");

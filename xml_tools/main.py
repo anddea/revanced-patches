@@ -79,6 +79,14 @@ class CLIConfig:
     help="Create updated_strings.xml from keys listed in the specified file.",
 )
 @click.option(
+    "--copy-file",
+    type=click.Path(exists=True, dir_okay=False, readable=True, path_type=Path),
+    help=(
+        "Copy keys from the selected app to the other app's host strings.xml and matching translations. "
+        "Use --youtube for YouTube -> Music or --music for Music -> YouTube."
+    ),
+)
+@click.option(
     "--update-from-diff",
     is_flag=True,
     help="Check git diff and create updated_strings.xml for forced strings.",
@@ -133,6 +141,7 @@ def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:
         "prefs",
         "reverse",
         "update_file",
+        "copy_file",
         "update_from_diff",
         "icons",
         "dot",
@@ -282,7 +291,7 @@ def _run_operation(
             )
         return
 
-    if operation.key == "update_file" and operation.args[1] is None:
+    if operation.key in {"update_file", "copy_file"} and operation.args[1] is None:
         config.logger.warning(
             "Skipping '%s': Input file path is missing.",
             operation.name,
@@ -316,6 +325,12 @@ def handle_individual_operations(
         ("prefs", "Check Preferences", check_prefs.process, (app, base_dir)),
         ("reverse", "Check Preferences (Reverse)", check_prefs_reverse.process, (app, base_dir)),
         ("update_file", "Update Strings from File", update_strings.process, (app, options.get("update_file"))),
+        (
+            "copy_file",
+            "Copy Strings to Other App",
+            update_strings.copy_between_apps,
+            (app, options.get("copy_file")),
+        ),
         ("update_from_diff", "Update Forced Strings from Git Diff", update_from_diff.process, (app,)),
         ("icons", "Check Icon Preferences", check_icons.process, (app,)),
         ("dot", "Remove Unwanted Dots", dot_games.process, ()),

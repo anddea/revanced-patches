@@ -5,9 +5,17 @@ import java.util.List;
 import app.morphe.extension.shared.settings.Setting;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider.SwipeZoneAction;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class SwipeControlsPatch {
+    private static boolean isActionAssigned(SwipeZoneAction action) {
+        return Settings.SWIPE_LEFT_ZONE.get() == action
+                || Settings.SWIPE_RIGHT_ZONE.get() == action
+                || Settings.SWIPE_TOP_ZONE.get() == action
+                || Settings.SWIPE_BOTTOM_ZONE.get() == action;
+    }
+
     /**
      * Injection point.
      */
@@ -27,8 +35,12 @@ public class SwipeControlsPatch {
      */
     public static boolean disableSwipeToEnterFullscreenModeBelowThePlayer(String nextGestureType) {
         Logger.printDebug(() -> "The next player gesture will be: " + nextGestureType);
-        return "MAXIMIZED_TO_FULLSCREEN_SLIDING".equals(nextGestureType) &&
-                Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER.get();
+        return ("MAXIMIZED_TO_FULLSCREEN_SLIDING".equals(nextGestureType) &&
+                Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER.get()) ||
+                ("MAXIMIZED_PULLED_UP".equals(nextGestureType) &&
+                Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_IN_THE_PLAYER.get()) ||
+                ("FULLSCREEN_DRAGGED_DOWN".equals(nextGestureType) &&
+                Settings.DISABLE_SWIPE_TO_EXIT_FULLSCREEN_MODE.get());
     }
 
     /**
@@ -48,6 +60,13 @@ public class SwipeControlsPatch {
     /**
      * Injection point.
      */
+    public static boolean disableZoomGesture() {
+        return Settings.DISABLE_FULLSCREEN_ZOOM_GESTURE.get();
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean enableSwipeToSwitchVideo() {
         return Settings.ENABLE_SWIPE_TO_SWITCH_VIDEO.get();
     }
@@ -55,52 +74,76 @@ public class SwipeControlsPatch {
     public static final class SwipeOverlayBrightnessColorAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return Settings.SWIPE_BRIGHTNESS.get() &&
+            return isActionAssigned(SwipeZoneAction.BRIGHTNESS) &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
         }
 
         @Override
         public List<Setting<?>> getParentSettings() {
-            return List.of(Settings.SWIPE_BRIGHTNESS, Settings.SWIPE_OVERLAY_STYLE);
+            return List.of(
+                    Settings.SWIPE_LEFT_ZONE,
+                    Settings.SWIPE_RIGHT_ZONE,
+                    Settings.SWIPE_TOP_ZONE,
+                    Settings.SWIPE_BOTTOM_ZONE,
+                    Settings.SWIPE_OVERLAY_STYLE
+            );
         }
     }
 
     public static final class SwipeOverlayVolumeColorAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return Settings.SWIPE_VOLUME.get() &&
+            return isActionAssigned(SwipeZoneAction.VOLUME) &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
         }
 
         @Override
         public List<Setting<?>> getParentSettings() {
-            return List.of(Settings.SWIPE_VOLUME, Settings.SWIPE_OVERLAY_STYLE);
+            return List.of(
+                    Settings.SWIPE_LEFT_ZONE,
+                    Settings.SWIPE_RIGHT_ZONE,
+                    Settings.SWIPE_TOP_ZONE,
+                    Settings.SWIPE_BOTTOM_ZONE,
+                    Settings.SWIPE_OVERLAY_STYLE
+            );
         }
     }
 
     public static final class SwipeOverlaySpeedColorAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return Settings.SWIPE_SPEED.get() &&
+            return isActionAssigned(SwipeZoneAction.SPEED) &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
         }
 
         @Override
         public List<Setting<?>> getParentSettings() {
-            return List.of(Settings.SWIPE_SPEED, Settings.SWIPE_OVERLAY_STYLE);
+            return List.of(
+                    Settings.SWIPE_LEFT_ZONE,
+                    Settings.SWIPE_RIGHT_ZONE,
+                    Settings.SWIPE_TOP_ZONE,
+                    Settings.SWIPE_BOTTOM_ZONE,
+                    Settings.SWIPE_OVERLAY_STYLE
+            );
         }
     }
 
     public static final class SwipeOverlaySeekColorAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return Settings.SWIPE_SEEK.get() &&
+            return isActionAssigned(SwipeZoneAction.SEEK) &&
                     !Settings.SWIPE_OVERLAY_STYLE.get().isLegacy();
         }
 
         @Override
         public List<Setting<?>> getParentSettings() {
-            return List.of(Settings.SWIPE_SEEK, Settings.SWIPE_OVERLAY_STYLE);
+            return List.of(
+                    Settings.SWIPE_LEFT_ZONE,
+                    Settings.SWIPE_RIGHT_ZONE,
+                    Settings.SWIPE_TOP_ZONE,
+                    Settings.SWIPE_BOTTOM_ZONE,
+                    Settings.SWIPE_OVERLAY_STYLE
+            );
         }
     }
 }

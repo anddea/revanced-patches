@@ -254,6 +254,14 @@ object InnerTubeRequestBody {
     @JvmStatic
     fun createPlaylistRequestBody(
         videoId: String,
+    ): ByteArray = createPlaylistRequestBody(listOf(videoId))
+
+    /**
+     * Builds the queue playlist request with all initial videos in display order.
+     */
+    @JvmStatic
+    fun createPlaylistRequestBody(
+        videoIds: List<String>,
     ): ByteArray {
         val innerTubeBody = playlistInnerTubeBody()
 
@@ -262,9 +270,9 @@ object InnerTubeRequestBody {
             // TODO: Implement an AlertDialog that allows changing the title of the playlist.
             innerTubeBody.put("title", str("revanced_queue_manager_queue"))
 
-            val videoIds = JSONArray()
-            videoIds.put(0, videoId)
-            innerTubeBody.put("videoIds", videoIds)
+            val videoIdsJson = JSONArray()
+            videoIds.forEach { videoIdsJson.put(it) }
+            innerTubeBody.put("videoIds", videoIdsJson)
         } catch (e: JSONException) {
             Logger.printException({ "Failed to create create/playlist innerTubeBody" }, e)
         }

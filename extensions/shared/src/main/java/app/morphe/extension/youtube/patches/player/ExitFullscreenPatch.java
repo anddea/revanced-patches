@@ -19,6 +19,16 @@ public class ExitFullscreenPatch {
     /**
      * Injection point.
      */
+    public static void endOfVideoReached(Enum<?> status) {
+        if (status == null || !"ENDED".equals(status.name())) {
+            return;
+        }
+        endOfVideoReached();
+    }
+
+    /**
+     * Injection point for targets below 21.13.
+     */
     public static void endOfVideoReached() {
         try {
             FullscreenMode mode = Settings.EXIT_FULLSCREEN.get();

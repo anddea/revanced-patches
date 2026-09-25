@@ -15,9 +15,22 @@ import app.morphe.patches.shared.translations.baseTranslationsPatch
 
 // Array of supported translations, each represented by its language code.
 private val SUPPORTED_TRANSLATIONS = setOf(
-    "bg-rBG", "bn", "cs-rCZ", "el-rGR", "es-rES", "fr-rFR", "hu-rHU", "id-rID", "in", "it-rIT",
-    "ja-rJP", "ko-rKR", "nl-rNL", "pl-rPL", "pt-rBR", "ro-rRO", "ru-rRU", "ta-rIN", "tr-rTR", "uk-rUA",
-    "vi-rVN", "zh-rCN", "zh-rTW"
+    "ar",
+    "de-rDE",
+    "es-rES",
+    "fr-rFR",
+    "hu-rHU",
+    "in",
+    "it-rIT",
+    "ja-rJP",
+    "ko-rKR",
+    "pl-rPL",
+    "pt-rBR",
+    "ru-rRU",
+    "tr-rTR",
+    "uk-rUA",
+    "zh-rCN",
+    "zh-rTW",
 )
 
 @Suppress("unused")

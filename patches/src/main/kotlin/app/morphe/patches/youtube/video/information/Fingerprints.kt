@@ -1,32 +1,45 @@
-package app.morphe.patches.youtube.video.information
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
 
-import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-import app.morphe.patches.youtube.utils.YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
-import app.morphe.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
-import app.morphe.patches.youtube.utils.resourceid.notificationBigPictureIconWidth
-import app.morphe.patches.youtube.utils.resourceid.qualityAuto
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+package app.morphe.patches.youtube.video.information
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.InstructionLocation.MatchFirst
 import app.morphe.patcher.OpcodesFilter
-import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.anyInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
+import app.morphe.patches.youtube.utils.YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
+import app.morphe.patches.youtube.utils.YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+import app.morphe.patches.youtube.utils.resourceid.notificationBigPictureIconWidth
+import app.morphe.patches.youtube.utils.resourceid.qualityAuto
+import app.morphe.util.containsLiteralInstruction
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import app.morphe.patcher.methodCall as patcherMethodCall
 
 internal object VideoQualityChangedFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
@@ -40,7 +53,7 @@ internal object VideoQualityChangedFingerprint : Fingerprint(
 
         opcode(Opcode.IGET_OBJECT, location = MatchAfterWithin(6)),
         opcode(Opcode.CHECK_CAST),
-        fieldAccess(type = "I", opcode = Opcode.IGET, location = MatchAfterImmediately()), // Video resolution (human readable).
+        fieldAccess(type = "I", opcode = Opcode.IGET, location = MatchAfterImmediately()), // Video resolution (human-readable).
     )
 )
 
@@ -48,6 +61,13 @@ internal object CreateVideoPlayerSeekbarFingerprint : Fingerprint(
     returnType = "V",
     filters = listOf(
         string("timed_markers_width"),
+    )
+)
+
+internal object InitializePlaybackSpeedValuesFingerprint : Fingerprint(
+    parameters = listOf("[L", "I"),
+    filters = listOf(
+        string("menu_item_playback_speed"),
     )
 )
 
@@ -72,41 +92,9 @@ internal object OnPlaybackSpeedItemClickParentFingerprint : Fingerprint(
     }
 )
 
-/**
- * Resolves using the method found in [OnPlaybackSpeedItemClickParentFingerprint].
- */
-internal object OnPlaybackSpeedItemClickFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "V",
-    parameters = listOf("L", "L", "I", "J"),
-    custom = { method, _ ->
-        method.name == "onItemClick"
-    }
-)
-
-internal object PlayerControllerSetTimeReferenceFingerprint : Fingerprint(
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.INVOKE_DIRECT_RANGE, Opcode.IGET_OBJECT),
-    strings = listOf("Media progress reported outside media playback: ")
-)
-
 internal object PlayerInitFingerprint : Fingerprint(
     filters = listOf(
         string("playVideo called on player response with no videoStreamingData."),
-    )
-)
-
-internal object PlayerStatusEnumFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR),
-    strings = listOf(
-        "NEW",
-        "PLAYBACK_PENDING",
-        "PLAYBACK_LOADED",
-        "PLAYBACK_INTERRUPTED",
-        "INTERSTITIAL_REQUESTED",
-        "INTERSTITIAL_PLAYING",
-        "VIDEO_PLAYING",
-        "ENDED",
     )
 )
 
@@ -142,45 +130,6 @@ internal object VideoLengthFingerprint : Fingerprint(
 )
 
 /**
- * Matches using class found in [MdxPlayerDirectorSetVideoStageFingerprint].
- */
-internal object MdxSeekFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Z",
-    parameters = listOf("J", "L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.RETURN,
-    ),
-    custom = { methodDef, _ ->
-        // The instruction count is necessary here to avoid matching the relative version
-        // of the seek method we're after, which has the same function signature as the
-        // regular one, is in the same class, and even has the exact same 3 opcodes pattern.
-        methodDef.implementation!!.instructions.count() == 3
-    }
-)
-
-internal object MdxPlayerDirectorSetVideoStageFingerprint : Fingerprint(
-    filters = listOf(
-        string("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "),
-    )
-)
-
-/**
- * Matches using class found in [MdxPlayerDirectorSetVideoStageFingerprint].
- */
-internal object MdxSeekRelativeFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    // Return type is boolean up to 19.39, and void with 19.39+.
-    parameters = listOf("J", "L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-    )
-)
-
-/**
  * Matches using class found in [PlayerInitFingerprint].
  */
 internal object SeekRelativeFingerprint : Fingerprint(
@@ -191,58 +140,6 @@ internal object SeekRelativeFingerprint : Fingerprint(
         Opcode.ADD_LONG_2ADDR,
         Opcode.INVOKE_VIRTUAL,
     )
-)
-
-/**
- * Resolves with the class found in [VideoQualityChangedFingerprint].
- */
-internal object PlaybackSpeedMenuSpeedChangedFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "L",
-    parameters = listOf("L"),
-    filters = listOf(
-        fieldAccess(opcode = Opcode.IGET, type = "F")
-    )
-)
-
-internal object PlaybackSpeedClassFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
-    returnType = "L",
-    parameters = listOf("L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.RETURN_OBJECT
-    ),
-    strings = listOf("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
-)
-
-/**
- * YouTube 20.19 and lower.
- */
-internal object VideoQualityLegacyFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
-    parameters = listOf(
-        "I", // Resolution.
-        "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
-        "Z",
-        "L"
-    ),
-    custom = { _, classDef ->
-        classDef.type == "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
-    }
-)
-
-internal object PlaybackStartDescriptorToStringFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Ljava/lang/String;",
-    filters = listOf(
-        methodCall(smali = "Ljava/util/Locale;->getDefault()Ljava/util/Locale;"),
-        // First method call after Locale is the video id.
-        methodCall(returnType = "Ljava/lang/String;", parameters = listOf()),
-        string("PlaybackStartDescriptor:", comparison = StringComparisonType.STARTS_WITH)
-    ),
-    custom = { method, _ ->
-        method.name == "toString"
-    }
 )
 
 // Class name is un-obfuscated in targets before 21.01
@@ -271,31 +168,16 @@ internal object VideoQualitySetterFingerprint : Fingerprint(
     strings = listOf("menu_item_video_quality")
 )
 
-/**
- * Matches with the class found in [VideoQualitySetterFingerprint].
- */
-internal object SetVideoQualityFingerprint : Fingerprint(
+internal val channelIdFingerprint = Fingerprint(
     returnType = "V",
-    parameters = listOf("L"),
-    filters = OpcodesFilter.opcodesToFilters(
-        Opcode.IGET_OBJECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET_OBJECT,
-    )
-)
-
-internal val channelIdFingerprint = legacyFingerprint(
-    name = "channelIdFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("Ljava/lang/Object;"),
     strings = listOf("com.google.android.apps.youtube.mdx.watch.LAST_MEALBAR_PROMOTED_LIVE_FEED_CHANNELS")
 )
 
-internal val channelNameFingerprint = legacyFingerprint(
-    name = "channelNameFingerprint",
+internal val channelNameFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
     strings = listOf(
         "setMetadata may only be called once",
@@ -303,12 +185,11 @@ internal val channelNameFingerprint = legacyFingerprint(
     )
 )
 
-internal val onPlaybackSpeedItemClickFingerprint = legacyFingerprint(
-    name = "onPlaybackSpeedItemClickFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val onPlaybackSpeedItemClickFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = listOf("Landroid/widget/AdapterView;", "Landroid/view/View;", "I", "J"),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.name == "onItemClick" &&
                 method.indexOfFirstInstruction {
                     opcode == Opcode.IGET_OBJECT &&
@@ -317,13 +198,12 @@ internal val onPlaybackSpeedItemClickFingerprint = legacyFingerprint(
     }
 )
 
-internal val playbackInitializationFingerprint = legacyFingerprint(
-    name = "playbackInitializationFingerprint",
+internal val playbackInitializationFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
     strings = listOf("play() called when the player wasn\'t loaded."),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         indexOfPlayerResponseModelDirectInstruction(method) >= 0
     }
 )
@@ -334,40 +214,36 @@ internal fun indexOfPlayerResponseModelDirectInstruction(method: Method) =
                 getReference<MethodReference>()?.returnType == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
     }
 
-internal val playbackSpeedClassFingerprint = legacyFingerprint(
-    name = "playbackSpeedClassFingerprint",
+internal val playbackSpeedClassFingerprint = Fingerprint(
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
     parameters = listOf("L"),
-    opcodes = listOf(Opcode.RETURN_OBJECT),
+    filters = OpcodesFilter.opcodesToFilters(Opcode.RETURN_OBJECT),
     strings = listOf("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
 )
 
-internal val playerControllerSetTimeReferenceFingerprint = legacyFingerprint(
-    name = "playerControllerSetTimeReferenceFingerprint",
-    opcodes = listOf(
+internal val playerControllerSetTimeReferenceFingerprint = Fingerprint(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_DIRECT_RANGE,
         Opcode.IGET_OBJECT
     ),
     strings = listOf("Media progress reported outside media playback: ")
 )
 
-internal val seekRelativeFingerprint = legacyFingerprint(
-    name = "seekRelativeFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val seekRelativeFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     // returnType = "Z", ~ YouTube 19.39.39
     // returnType = "V", YouTube 19.40.xx ~
     parameters = listOf("J", "L"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.ADD_LONG_2ADDR,
         Opcode.INVOKE_VIRTUAL,
     )
 )
 
-internal val videoIdFingerprint = legacyFingerprint(
-    name = "videoIdFingerprint",
+internal val videoIdFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
     strings = listOf("Failed to download video (IllegalStateException): %s")
 )
@@ -375,12 +251,11 @@ internal val videoIdFingerprint = legacyFingerprint(
 /**
  * Renamed from VideoIdWithoutShortsFingerprint
  */
-internal val videoIdFingerprintBackgroundPlay = legacyFingerprint(
-    name = "videoIdFingerprintBackgroundPlay",
+internal val videoIdFingerprintBackgroundPlay = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.DECLARED_SYNCHRONIZED,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.DECLARED_SYNCHRONIZED),
     parameters = listOf("L"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT,
@@ -389,7 +264,7 @@ internal val videoIdFingerprintBackgroundPlay = legacyFingerprint(
         Opcode.MONITOR_EXIT,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { method, classDef ->
+    custom = { method, classDef ->
         method.implementation != null &&
                 (classDef.methods.count() == 17 || classDef.methods.count() == 16) &&
                 indexOfPlayerResponseModelInterfaceInstruction(method) >= 0
@@ -402,24 +277,22 @@ fun indexOfPlayerResponseModelInterfaceInstruction(method: Method) =
                 getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
     }
 
-internal val videoTitleFingerprint = legacyFingerprint(
-    name = "videoTitleFingerprint",
+internal val videoTitleFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
-    literals = listOf(notificationBigPictureIconWidth),
+    filters = listOf(literal(notificationBigPictureIconWidth)),
 )
 
-internal val videoQualityFingerprint = legacyFingerprint(
-    name = "videoQualityFingerprint",
+internal val videoQualityFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    opcodes = listOf(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IPUT_BOOLEAN,
         Opcode.IPUT_OBJECT,
         Opcode.RETURN_VOID,
     ),
-    customFingerprint = { method, classDef ->
+    custom = { method, classDef ->
         classDef.type == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE &&
                 method.parameterTypes.size > 3 &&
                 indexOfVideoQualityNameFieldInstruction(method) >= 0 &&
@@ -443,12 +316,11 @@ fun indexOfVideoQualityResolutionFieldInstruction(method: Method) =
                 reference.definingClass == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
     }
 
-internal val videoQualitySetterFingerprint = legacyFingerprint(
-    name = "videoQualitySetterFingerprint",
+internal val videoQualitySetterFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("[L", "I", "Z"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.IF_GE,
         Opcode.AGET_OBJECT,
         Opcode.IGET_OBJECT,
@@ -456,56 +328,58 @@ internal val videoQualitySetterFingerprint = legacyFingerprint(
     strings = listOf("menu_item_video_quality")
 )
 
-internal val videoQualityListFingerprint = legacyFingerprint(
-    name = "videoQualityListFingerprint",
+/**
+ * Match the quality update call directly. quality_auto precedes it in v20.05,
+ * so the resource check must not depend on the instruction filter order.
+ */
+internal val videoQualityListFingerprint = Fingerprint(
     returnType = "V",
     parameters = listOf("L"),
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_INTERFACE,
+            parameters = listOf("[$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE", "I", "Z"),
+            returnType = "V",
+        ),
+        opcode(Opcode.RETURN_VOID, location = MatchAfterImmediately()),
     ),
-    literals = listOf(qualityAuto),
+    custom = { method, _ -> method.containsLiteralInstruction(qualityAuto) },
 )
 
-internal val availableVideoFormatsFingerprint = legacyFingerprint(
-    name = "availableVideoFormatsFingerprint",
+internal val availableVideoFormatsFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.STATIC),
     parameters = listOf("Ljava/util/List;", "I"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT
     ),
 )
 
-internal val formatStreamModelBuilderFingerprint = legacyFingerprint(
-    name = "formatStreamModelBuilderFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val formatStreamModelBuilderFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "L",
     strings = listOf("vprng")
 )
 
-internal val formatStreamingModelQualityLabelBuilderFingerprint = legacyFingerprint(
-    name = "formatStreamingModelQualityLabelBuilderFingerprint",
+internal val formatStreamingModelQualityLabelBuilderFingerprint = Fingerprint(
     returnType = "Ljava/lang/String;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = emptyList(),
     strings = listOf("60")
 )
 
-internal val initFormatStreamParentFingerprint = legacyFingerprint(
-    name = "initFormatStreamParentFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+internal val initFormatStreamParentFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
     returnType = "V",
     strings = listOf("noopytm")
 )
 
-internal val initFormatStreamFingerprint = legacyFingerprint(
-    name = "initFormatStreamFingerprint",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+internal val initFormatStreamFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     returnType = "V",
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         indexOfPreferredFormatStreamInstruction(method) >= 0
     }
 )
@@ -516,10 +390,128 @@ internal fun indexOfPreferredFormatStreamInstruction(method: Method) =
                 getReference<FieldReference>()?.type == YOUTUBE_FORMAT_STREAM_MODEL_CLASS_TYPE
     }
 
-internal val videoQualityArrayFingerprint = legacyFingerprint(
-    name = "videoQualityArrayFingerprint",
+internal val videoQualityArrayFingerprint = Fingerprint(
     returnType = "Ljava/util/List;",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL),
     parameters = listOf("Ljava/util/List;", "L"),
-    opcodes = listOf(Opcode.RETURN_OBJECT)
+    filters = OpcodesFilter.opcodesToFilters(Opcode.RETURN_OBJECT)
+)
+
+/**
+ * Matches method {androidx.media3.exoplayer.ExoPlayerImpl.setPlaybackParameters(PlaybackParameters p1)}
+ *
+ * @param playbackParametersType The PlaybackParameters type, obtained from [PlaybackParametersToStringFingerprint].
+ */
+internal fun getPlaybackParametersSetterFingerprint(playbackParametersType: String) = object : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf(playbackParametersType),
+    custom = { methodDef, classDef ->
+        methodDef.implementation != null
+            && classDef.interfaces.contains("Landroidx/media3/exoplayer/ExoPlayer;")
+    }
+) {}
+
+/**
+ * Matches method {androidx.media3.common.PlaybackParameters}.toString()
+ */
+internal object PlaybackParametersToStringFingerprint : Fingerprint(
+    name = "toString",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Ljava/lang/String;",
+    parameters = listOf(),
+    filters = listOf(
+        fieldAccess(definingClass = "this", opcode = Opcode.IGET, type = "F"),
+        string("PlaybackParameters(speed=%.2f, pitch=%.2f)")
+    )
+)
+
+internal object ModernChannelInformationFingerprint : Fingerprint(
+    classFingerprint = PlayerInitFingerprint,
+    filters = listOf(
+        string("loadVideo() called on LocalDirector in wrong state"),
+    ),
+)
+
+internal fun getModernChannelIdFingerprint(playerResponseType: String) = object : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Ljava/lang/Object;"),
+    filters = listOf(
+        patcherMethodCall(
+            definingClass = playerResponseType,
+            returnType = "Ljava/lang/String;",
+        ),
+        string(
+            string = "com.google.android.apps.youtube.mdx.watch.LAST_MEALBAR_PROMOTED_LIVE_FEED_CHANNELS",
+            location = MatchAfterWithin(20),
+        ),
+    ),
+) {}
+
+internal fun getModernChannelNameFingerprint(playerResponseType: String) = object : Fingerprint(
+    filters = listOf(
+        string("setMetadata may only be called once"),
+        patcherMethodCall(
+            definingClass = playerResponseType,
+            returnType = "Ljava/lang/String;",
+            location = MatchAfterWithin(30),
+        ),
+    ),
+) {}
+
+internal fun getVideoTitleFingerprint(playerResponseType: String) = object : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    returnType = "Ljava/lang/String;",
+    parameters = listOf(playerResponseType),
+    filters = listOf(
+        patcherMethodCall(
+            definingClass = playerResponseType,
+            returnType = "Ljava/lang/String;"
+        ),
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        opcode(Opcode.IF_NEZ, MatchAfterImmediately()),
+        string("", location = MatchAfterImmediately())
+    )
+) {}
+
+internal object ModernPlaybackSpeedOnItemClickFingerprint : Fingerprint(
+    classFingerprint = OnPlaybackSpeedItemClickParentFingerprint,
+    name = "onItemClick",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "L", "I", "J"),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IGET,
+            type = "F",
+        ),
+        patcherMethodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            parameters = listOf("F"),
+            returnType = "V",
+        ),
+    ),
+)
+
+internal object ModernSetVideoQualityFingerprint : Fingerprint(
+    classFingerprint = VideoQualitySetterFingerprint,
+    returnType = "V",
+    parameters = listOf("L"),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            location = MatchFirst(),
+        ),
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            location = MatchAfterImmediately(),
+        ),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            location = MatchAfterImmediately(),
+        ),
+    ),
 )

@@ -6,6 +6,8 @@ import app.morphe.extension.music.settings.Settings;
 public class CairoSplashAnimationPatch {
 
     public static boolean disableCairoSplashAnimation(boolean original) {
-        return !Settings.DISABLE_CAIRO_SPLASH_ANIMATION.get() && original;
+        return original
+                && !Settings.DISABLE_CAIRO_SPLASH_ANIMATION.get()
+                && "original".equals(Settings.CUSTOM_BRANDING_ICON.get());
     }
 }

@@ -8,6 +8,7 @@ import app.morphe.patches.shared.conversionContextFingerprintToString2
 import app.morphe.patches.shared.litho.componentContextSubParserFingerprint2
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.*
 import app.morphe.util.fingerprint.matchOrThrow
@@ -34,6 +35,41 @@ val lazilyConvertedElementHookPatch = bytecodePatch(
     )
 
     execute {
+        mutableClassDefBy { it.type == EXTENSION_CLASS_DESCRIPTOR }.methods.let { methods ->
+            lazilyConvertedElementMethod = methods.single { it.name == "hookElementList" }
+            componentElementMethod = methods.single { it.name == "hookComponentList" }
+        }
+
+        if (is_21_04_or_greater) {
+            val conversionContextMatch = conversionContextFingerprintToString2.matchOrThrow()
+            val conversionContextClass = conversionContextMatch.originalClassDef
+            val identifierReference = conversionContextMatch.method
+                .findFieldFromToString("identifierProperty=")
+            val pathBuilderReference = conversionContextClass.fields
+                .single { field -> field.type == "Ljava/lang/StringBuilder;" }
+
+            TreeNodeResultListFingerprint.method.apply {
+                val listIndex = implementation!!.instructions.lastIndex
+                val listRegister = getInstruction<OneRegisterInstruction>(listIndex).registerA
+                val registerProvider = getFreeRegisterProvider(listIndex, 2, listRegister)
+                val identifierRegister = registerProvider.getFreeRegister()
+                val pathBuilderRegister = registerProvider.getFreeRegister()
+
+                addInstructionsAtControlFlowLabel(
+                    listIndex,
+                    """
+                        move-object/from16 v$identifierRegister, p2
+                        iget-object v$identifierRegister, v$identifierRegister, $identifierReference
+                        move-object/from16 v$pathBuilderRegister, p2
+                        iget-object v$pathBuilderRegister, v$pathBuilderRegister, $pathBuilderReference
+                        invoke-static {v$listRegister, v$identifierRegister, v$pathBuilderRegister}, $EXTENSION_CLASS_DESCRIPTOR->hookElements(Ljava/util/List;Ljava/lang/String;Ljava/lang/StringBuilder;)V
+                    """
+                )
+            }
+
+            return@execute
+        }
+
         val componentContextClass = componentContextSubParserFingerprint2.matchOrThrow().classDef
 
         ComponentListFingerprint.match(componentContextClass).method.apply {
@@ -62,11 +98,6 @@ val lazilyConvertedElementHookPatch = bytecodePatch(
             val listIndex = implementation!!.instructions.lastIndex
             val listRegister = getInstruction<OneRegisterInstruction>(listIndex).registerA
 
-            mutableClassDefBy { it.type == EXTENSION_CLASS_DESCRIPTOR }.methods.let { methods ->
-                lazilyConvertedElementMethod = methods.single { it.name == "hookElementList" }
-                componentElementMethod = methods.single { it.name == "hookComponentList" }
-            }
-
             val pathBuilderReference = classDefBy(conversionContextMethod.definingClass)
                 .fields
                 .single { field -> field.type == "Ljava/lang/StringBuilder;" }
@@ -87,14 +118,20 @@ val lazilyConvertedElementHookPatch = bytecodePatch(
     }
 }
 
-internal fun hookComponentList(descriptor: String) =
-    componentElementMethod.addInstruction(
-        0,
-        "invoke-static {p0, p1}, $descriptor(Ljava/lang/String;Ljava/util/List;)V"
-    )
+internal fun hookComponentList(descriptor: String) {
+    if (::componentElementMethod.isInitialized) {
+        componentElementMethod.addInstruction(
+            0,
+            "invoke-static {p0, p1}, $descriptor(Ljava/lang/String;Ljava/util/List;)V"
+        )
+    }
+}
 
-internal fun hookElementList(descriptor: String) =
-    lazilyConvertedElementMethod.addInstruction(
-        0,
-        "invoke-static {p0, p1}, $descriptor(Ljava/util/List;Ljava/lang/String;)V"
-    )
+internal fun hookElementList(descriptor: String) {
+    if (::lazilyConvertedElementMethod.isInitialized) {
+        lazilyConvertedElementMethod.addInstruction(
+            0,
+            "invoke-static {p0, p1}, $descriptor(Ljava/util/List;Ljava/lang/String;)V"
+        )
+    }
+}

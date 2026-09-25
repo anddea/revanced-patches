@@ -17,6 +17,14 @@ Tap the continue button and allow optimization changes"</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX Music, enable Cloud Messaging</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it</string>
+    <string name="morphe_app_refresh_rate_default">Default</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">App refresh rate</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Always</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Playback portrait</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Playback fullscreen</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Playback portrait and fullscreen</string>
+    <string name="morphe_app_refresh_rate_type_title">Override refresh rate</string>
     <string name="morphe_crossfade_duration_10000ms">10 seconds</string>
     <string name="morphe_crossfade_duration_1000ms">1 second</string>
     <string name="morphe_crossfade_duration_11000ms">11 seconds</string>
@@ -32,15 +40,32 @@ Tap the continue button and allow optimization changes"</string>
     <string name="morphe_crossfade_duration_750ms">750 milliseconds</string>
     <string name="morphe_crossfade_duration_8000ms">8 seconds</string>
     <string name="morphe_crossfade_duration_9000ms">9 seconds</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
+    <string name="morphe_custom_branding_icon_title">App icon</string>
+    <string name="morphe_custom_branding_name_title">App name</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Sets the size of the custom splash animation</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Splash animation size</string>
+    <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
+    <string name="morphe_dark_theme_custom_color_title">Custom theme color</string>
+    <string name="morphe_dark_theme_title">App theme</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
-    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to Android Reel or TV</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">If it does not work, try force-closing MicroG</string>
+    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary">Always plays the video\'s original audio track instead of a dubbed version</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
     <string name="morphe_force_original_audio_title">Force original audio language</string>
+    <string name="morphe_music_apple_music_token_dialog_hint" translatable="false">media-user-token</string>
+    <string name="morphe_music_apple_music_token_dialog_instruction">"Paste the media-user-token cookie from music.apple.com\n\nSteps:\n1. Sign in at music.apple.com as a member user\n2. Open DevTools → Application → Cookies → music.apple.com\n3. Copy the value of \"media-user-token\""</string>
+    <string name="morphe_music_apple_music_token_title">Apple Music Media-user-token</string>
+    <string name="morphe_music_apple_music_token_toast_cleared">Apple Music: media-user-token cleared</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: invalid media-user-token — please check and try again</string>
+    <string name="morphe_music_apple_music_token_toast_saved">Apple Music: media-user-token saved</string>
+    <string name="morphe_music_apple_token_optional_hint">Apple Music token is optional. Without it, Lyrically will be used as fallback</string>
     <string name="morphe_music_crossfade_about_banner_title" translatable="false" />
     <string name="morphe_music_crossfade_about_best_summary">Normal song-to-song playback and auto-advance, repeat-one (the song crossfades into itself), and local audio - phone speaker, wired headphones, Bluetooth, or USB</string>
     <string name="morphe_music_crossfade_about_best_title">Works best with</string>
@@ -90,32 +115,154 @@ YouTube Music 8.x - crossfade only runs on 9.x and newer"</string>
     <string name="morphe_music_crossfade_session_control_summary">Long-press the shuffle button to pause or resume crossfade</string>
     <string name="morphe_music_crossfade_session_control_title">Session control</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">Video mode is not available while crossfade is enabled</string>
-    <string name="morphe_music_lyrics_about_summary">"Lyrics are looked up by track title and artist, so a track with unusual metadata may find nothing, or find the wrong version
+    <string name="morphe_music_deezer_arl_dialog_hint" translatable="false">arl</string>
+    <string name="morphe_music_deezer_arl_dialog_instruction">"Paste the arl cookie from Deezer.\n\nSteps:\n1. Sign in at deezer.com\n2. Open DevTools → Application → Cookies → deezer.com\n3. Copy the value of \"arl\""</string>
+    <string name="morphe_music_deezer_arl_title">Deezer ARL</string>
+    <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl cleared</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: invalid arl — please check and try again</string>
+    <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl saved</string>
+    <string name="morphe_music_downloads_actions_for">Actions for %s</string>
+    <string name="morphe_music_downloads_all_deleted">Downloads deleted</string>
+    <string name="morphe_music_downloads_already_running">Download already in progress</string>
+    <string name="morphe_music_downloads_already_saved">Already downloaded</string>
+    <string name="morphe_music_downloads_close">Close</string>
+    <string name="morphe_music_downloads_complete">Download complete</string>
+    <string name="morphe_music_downloads_delete">Delete</string>
+    <string name="morphe_music_downloads_delete_all">Delete all downloads</string>
+    <string name="morphe_music_downloads_delete_all_message">All downloaded tracks will be deleted from this device</string>
+    <string name="morphe_music_downloads_delete_all_title">Delete all downloads?</string>
+    <string name="morphe_music_downloads_delete_track">Delete download</string>
+    <string name="morphe_music_downloads_delete_track_message">%s will be deleted from this device</string>
+    <string name="morphe_music_downloads_delete_track_title">Delete download?</string>
+    <string name="morphe_music_downloads_empty">"No downloads
+Downloaded tracks appear here"</string>
+    <string name="morphe_music_downloads_failed">Download failed</string>
+    <string name="morphe_music_downloads_next">Next</string>
+    <string name="morphe_music_downloads_nothing_found">Nothing found</string>
+    <string name="morphe_music_downloads_notification_channel">Audio downloads</string>
+    <string name="morphe_music_downloads_pause">Pause</string>
+    <string name="morphe_music_downloads_play">Play</string>
+    <string name="morphe_music_downloads_play_failed">Could not play the download</string>
+    <string name="morphe_music_downloads_play_pause">Play or pause</string>
+    <string name="morphe_music_downloads_playback_channel">Offline playback</string>
+    <string name="morphe_music_downloads_previous">Previous</string>
+    <string name="morphe_music_downloads_progress">Downloading %s%%</string>
+    <string name="morphe_music_downloads_screen_title">Downloads</string>
+    <string name="morphe_music_downloads_search_hint">Search downloads</string>
+    <string name="morphe_music_downloads_sort">Sort</string>
+    <string name="morphe_music_downloads_sort_artist">Sort by artist</string>
+    <string name="morphe_music_downloads_sort_size">Sort by size</string>
+    <string name="morphe_music_downloads_sort_title">Sort by title</string>
+    <string name="morphe_music_downloads_started">Download started</string>
+    <string name="morphe_music_downloads_starting">Starting download…</string>
+    <string name="morphe_music_downloads_summary">%1$s tracks • %2$s MB</string>
+    <string name="morphe_music_downloads_track_delete_failed">Could not delete the download</string>
+    <string name="morphe_music_downloads_track_deleted">Download deleted</string>
+    <string name="morphe_music_downloads_track_subtitle">%1$s • %2$s • %3$s MB</string>
+    <string name="morphe_music_downloads_unknown_track">Could not identify the track to download</string>
+    <string name="morphe_music_in_app_downloads_summary">Downloads audio inside YouTube Music instead of opening the external downloader app</string>
+    <string name="morphe_music_in_app_downloads_title">Download in app</string>
+    <string name="morphe_music_in_app_downloads_user_dialog_message">"Tracks are saved to the private storage of the app and are deleted if YouTube Music is uninstalled
 
-Synced lyrics follow playback. If they drift, adjust the timing offset
-
-When no third-party lyrics are found, the built-in lyrics are shown instead"</string>
+While this is on, the Downloads tab lists these tracks instead of the Music Premium offline library. Turning it off restores the tab, and Premium downloads are never touched"</string>
+    <string name="morphe_music_lyrics_about_summary">"Lyrics are matched by title and artist, unusual metadata may find nothing or the wrong version. Use refresh to switch versions. Providers marked * require a token. All enabled providers are not always requested in your order, but respond based on their speed"</string>
     <string name="morphe_music_lyrics_about_title">About third-party lyrics</string>
+    <string name="morphe_music_lyrics_ai_config_api_token_hint">API key (leave empty for anonymous access)</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_hint">API endpoint URL (e.g. https://text.pollinations.ai/openai)</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configure the OpenAI-compatible API endpoint for AI-powered lyrics translation and romanization</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">AI Translation Settings</string>
+    <string name="morphe_music_lyrics_ai_config_model_hint">Model name (e.g. openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_status_configured">Configured</string>
+    <string name="morphe_music_lyrics_ai_config_status_empty_model">Model name cannot be empty</string>
+    <string name="morphe_music_lyrics_ai_config_status_empty_url">Base URL cannot be empty</string>
+    <string name="morphe_music_lyrics_ai_config_status_invalid_url">Base URL must start with http:// or https://</string>
+    <string name="morphe_music_lyrics_ai_config_status_not_configured">Tap to configure</string>
+    <string name="morphe_music_lyrics_ai_config_status_validating">Validating connection…</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">Could not connect to AI endpoint. Please check your settings</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">AI translation settings reset</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">AI translation settings saved</string>
     <string name="morphe_music_lyrics_copied">Copied to clipboard</string>
+    <string name="morphe_music_lyrics_credit_line_regex_summary">If lyrics are incorrectly filtered to the bottom, adjust or clear this. Comma-separated markers: lines containing a marker followed by a colon are shown as credit info at the bottom. Leave empty to disable</string>
+    <string name="morphe_music_lyrics_credit_line_regex_title">Info line markers</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Regular expression applied to titles, artists, and albums before looking up lyrics. Leave empty to disable. The default removes common clutter like \"Official Video\", \"Remaster\", and \"- Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_title">Metadata regex</string>
+    <string name="morphe_music_lyrics_display_artist_first_summary">Toggle the display order of Artist and Title in the Miniplayer and MediaSession. ON \"Artist - Title\" and OFF \"Title - Artist\" Does not affect lyrics search</string>
+    <string name="morphe_music_lyrics_display_artist_first_title">Artist and Title display order</string>
     <string name="morphe_music_lyrics_enabled_summary">Shows lyrics from a third-party service, falling back to the built-in lyrics when none are found</string>
     <string name="morphe_music_lyrics_enabled_title">Use third-party lyrics</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">Shift synced lyrics forwards or backwards. Use a positive value if the lyrics run ahead of the song</string>
+    <string name="morphe_music_lyrics_hide_info_summary">Hide the credit line shown below the lyrics</string>
+    <string name="morphe_music_lyrics_hide_info_title">Hide credit line</string>
+    <string name="morphe_music_lyrics_hide_played_summary">Hide lyrics lines above the currently playing line</string>
+    <string name="morphe_music_lyrics_hide_played_title">Hide played lyrics</string>
+    <string name="morphe_music_lyrics_hide_unplayed_summary">Hide lyrics lines below the currently playing line</string>
+    <string name="morphe_music_lyrics_hide_unplayed_title">Hide unplayed lyrics</string>
+    <string name="morphe_music_lyrics_keep_screen_on_summary">Prevents the display from turning off while the lyrics panel is open</string>
+    <string name="morphe_music_lyrics_keep_screen_on_title">Keep screen on while viewing lyrics</string>
+    <string name="morphe_music_lyrics_mediasession_title">Show MediaSession Lyrics on lock screen</string>
+    <string name="morphe_music_lyrics_miniplayer_title">Show Miniplayer Lyrics</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">Synced lyrics follow playback. If they drift, adjust the timing offset. Shift synced lyrics forwards or backwards. Use a positive value if the lyrics run ahead of the song</string>
     <string name="morphe_music_lyrics_offset_ms_title">Timing offset</string>
+    <string name="morphe_music_lyrics_refreshed">Refreshed</string>
+    <string name="morphe_music_lyrics_refreshing">Refreshing</string>
+    <string name="morphe_music_lyrics_romanize_failed">Could not romanize the lyrics</string>
+    <string name="morphe_music_lyrics_romanize_hide">Romanized</string>
+    <string name="morphe_music_lyrics_romanized_by_ai">Romanized by %s</string>
+    <string name="morphe_music_lyrics_romanized_by_google">Romanized by Google</string>
+    <string name="morphe_music_lyrics_romanizing">Romanizing…</string>
+    <string name="morphe_music_lyrics_saved">Saved</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">Tap to copy original lyrics as plain text; long press to save raw lyrics source file to Downloads</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Show Copy button</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Tap to switch to next lyrics candidate; long press to temporarily disable third-party lyrics and show native lyrics</string>
+    <string name="morphe_music_lyrics_show_refresh_button_title">Show Refresh button</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Romanize lyrics using provider romanization, Google Translate, or an OpenAI-compatible API</string>
+    <string name="morphe_music_lyrics_show_romanize_button_title">Show Romanize button</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Translate lyrics using provider translations, Google Translate, or an OpenAI-compatible API</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Show Translate button</string>
-    <string name="morphe_music_lyrics_source_entry_kugou" translatable="false">KuGou</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib" translatable="false">LRCLIB</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB, then KuGou</string>
+    <string name="morphe_music_lyrics_source_all_disabled">All providers disabled — built-in lyrics and embedded lyrics</string>
     <string name="morphe_music_lyrics_source_label">Source: %s</string>
+    <string name="morphe_music_lyrics_source_reset_message">Restore providers to the default priority order</string>
+    <string name="morphe_music_lyrics_source_reset_title">Reset provider order?</string>
     <string name="morphe_music_lyrics_source_title">Lyrics service</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">ON puts romanization below lyrics and translation above; OFF keeps romanization above and translation below</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_title">Swap translation and romanization</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Tapping a line jumps to that moment in the song</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">Tap a line to seek</string>
+    <string name="morphe_music_lyrics_text_filter_summary">Regular expression applied to the original lyrics text only (not translations or romanizations). Leave empty to disable</string>
+    <string name="morphe_music_lyrics_text_filter_title">Lyrics filter regex</string>
     <string name="morphe_music_lyrics_text_size_summary">Size of the lyrics text</string>
     <string name="morphe_music_lyrics_text_size_title">Text size</string>
     <string name="morphe_music_lyrics_translate_failed">Could not translate the lyrics</string>
-    <string name="morphe_music_lyrics_translate_hide">Show original</string>
-    <string name="morphe_music_lyrics_translate_show">Translate</string>
+    <string name="morphe_music_lyrics_translate_hide">Translated</string>
+    <string name="morphe_music_lyrics_translated_by_ai">Translated by %s</string>
+    <string name="morphe_music_lyrics_translated_by_google">Translated by Google</string>
     <string name="morphe_music_lyrics_translating">Translating…</string>
+    <string name="morphe_music_lyrics_translation_language_title">Translation language</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">Use a custom OpenAI-compatible API for translation and romanization instead of Google Translate</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">OpenAI-compatible Translation</string>
+    <string name="morphe_music_lyrics_word_sync_summary">Prioritize word-by-word lyrics when available. When lyrics carry word timing, highlights each word or syllable in time with the music</string>
+    <string name="morphe_music_lyrics_word_sync_title">Highlight synced words or syllables</string>
+    <string name="morphe_music_musixmatch_token_dialog_hint">user token</string>
+    <string name="morphe_music_musixmatch_token_dialog_instruction">Add a token only to use your own account. It has to come from the Musixmatch Android app: tokens copied from musixmatch.com belong to the retired desktop client and the API refuses them</string>
+    <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch works without a token, so this field can stay empty</string>
+    <string name="morphe_music_musixmatch_token_title">Musixmatch Token</string>
+    <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: user token cleared</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: invalid user token — please check and try again</string>
+    <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: user token saved</string>
+    <string name="morphe_music_spotify_token_dialog_hint" translatable="false">sp_dc</string>
+    <string name="morphe_music_spotify_token_dialog_instruction">"Paste the sp_dc cookie from Spotify.\n\nSteps:\n1. Sign in at open.spotify.com\n2. Open DevTools → Application → Cookies → open.spotify.com\n3. Copy the value of \"sp_dc\""</string>
+    <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
+    <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc cleared</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify: invalid sp_dc — please check and try again</string>
+    <string name="morphe_music_spotify_token_toast_saved">Spotify: sp_dc saved</string>
+    <string name="morphe_music_token_dialog_get_token">Get token</string>
+    <string name="morphe_music_youtube_cookies_dialog_hint" translatable="false">SID=...; HSID=...; SSID=...; SAPISID=...</string>
+    <string name="morphe_music_youtube_cookies_dialog_instruction">"Paste your YouTube cookies to query captions and timetext from YouTube.\n\nSteps:\n1. Open youtube.com in a browser and sign in\n2. Open DevTools (F12) → Application → Cookies → youtube.com\n3. Copy the full cookie string (key=value pairs separated by semicolons)\n\nRequired cookies: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID, LOGIN_INFO"</string>
+    <string name="morphe_music_youtube_cookies_title">YouTube Cookies</string>
+    <string name="morphe_music_youtube_cookies_toast_cleared">YouTube: cookies cleared</string>
+    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: invalid cookies — please check and try again</string>
+    <string name="morphe_music_youtube_cookies_toast_saved">YouTube: cookies saved</string>
+    <string name="morphe_notification_dot_color_summary">Changes the color of notification dots</string>
+    <string name="morphe_notification_dot_color_title">Notification dot color</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Cannot sign in to VR, website authentication was not approved</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 is temporarily not available</string>
@@ -124,6 +271,13 @@ When no third-party lyrics are found, the built-in lyrics are shown instead"</st
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
     <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
+    <string name="morphe_potoken_provider_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
+
+If you are a YouTube Premium user, this setting may not be required"</string>
+    <string name="morphe_potoken_provider_title">PoToken provider</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
+
+To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_replace_music_with_youtube_summary">Shared links use youtube.com instead of music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
@@ -136,6 +290,13 @@ When no third-party lyrics are found, the built-in lyrics are shown instead"</st
     <string name="morphe_settings_menu_filter_picker_empty">Open the standard app settings screen once to populate the list</string>
     <string name="morphe_settings_menu_filter_screen_summary">Hide items on the standard app settings screen by their visible name</string>
     <string name="morphe_settings_menu_filter_screen_title">Settings menu filter</string>
+    <string name="morphe_settings_name_custom_item_hint">Enter a name</string>
+    <string name="morphe_settings_name_empty_warning">Name cannot be empty</string>
+    <string name="morphe_settings_name_entry_1" translatable="false">ReVanced Extended</string>
+    <string name="morphe_settings_name_entry_2" translatable="false">Extras</string>
+    <string name="morphe_settings_name_entry_3" translatable="false">Tweaks</string>
+    <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
+    <string name="morphe_settings_name_title">RVX settings name</string>
     <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
     <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
@@ -168,17 +329,32 @@ To sign in, press continue below"</string>
 If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video streams are not spoofed
 
-Playback may not work"</string>
+Playback may not work
+
+To use this feature, turn off 'PoToken provider'"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Video streams are spoofed
 
 If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="morphe_spoof_video_streams_title">Spoof video streams</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues</string>
+    <string name="morphe_theme_entry_amoled_black">Amoled Black</string>
+    <string name="morphe_theme_entry_classic_youtube">Classic (Old YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Dark Blue</string>
+    <string name="morphe_theme_entry_dark_green">Dark Green</string>
+    <string name="morphe_theme_entry_dark_orange">Dark Orange</string>
+    <string name="morphe_theme_entry_dark_pink">Dark Pink</string>
+    <string name="morphe_theme_entry_dark_red">Dark Red</string>
+    <string name="morphe_theme_entry_dark_yellow">Dark Yellow</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Neutral)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - Primary</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - Secondary</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - Tertiary</string>
+    <string name="morphe_theme_entry_modern_youtube">Modern YouTube</string>
     <string name="revanced_add_miniplayer_next_button_summary">Adds a next track button to the miniplayer</string>
     <string name="revanced_add_miniplayer_next_button_title">Add miniplayer next button</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adds a previous track button to the miniplayer</string>
     <string name="revanced_add_miniplayer_previous_button_title">Add miniplayer previous button</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;App name&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;App version&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;RVX Patches&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Patched date&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_summary">Click to check the app name, app version, patch version, and patched date</string>
     <string name="revanced_app_info_title">App info</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bypasses the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received</string>
@@ -206,6 +382,7 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_summary">Select which page the app opens in</string>
     <string name="revanced_change_start_page_title">Change start page</string>
+    <string name="revanced_confirm_user_dialog_title">Are you sure you want to proceed?</string>
     <string name="revanced_credits_title">Credits</string>
     <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter, separated by new lines</string>
     <string name="revanced_custom_filter_strings_title">Custom filter</string>
@@ -301,12 +478,11 @@ Limitations: SponsorBlock segments are not shown in the seekbar"</string>
     <string name="revanced_enable_zen_mode_podcast_title">Enable Zen mode in podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Enables a light grey color for the player background to reduce eye strain</string>
     <string name="revanced_enable_zen_mode_title">Enable Zen mode</string>
-    <string name="revanced_external_downloader_action_summary">"Download button opens your external downloader
-
-• Only overrides the Download action button in the player
-• Does not override the Download button in the flyout menu or Library tab"</string>
+    <string name="revanced_external_downloader_action_summary">Download action button opens your external downloader</string>
     <string name="revanced_external_downloader_action_title">Override Download action button</string>
     <string name="revanced_external_downloader_dialog_title">External downloader</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">Uses your chosen external downloader instead of the stock Download flyout menu</string>
+    <string name="revanced_external_downloader_flyout_menu_title">Override Download menu</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s is not installed
 Please download %2$s from the website"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warning</string>
@@ -451,6 +627,9 @@ Please download %2$s from the website"</string>
     <string name="revanced_hide_terms_container_title">Hide terms container</string>
     <string name="revanced_hide_voice_search_button_summary">Hides the voice search button in the search bar</string>
     <string name="revanced_hide_voice_search_button_title">Hide voice search button</string>
+    <string name="revanced_icon_custom">Custom</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">Matches the navigation bar color to the fullscreen player</string>
+    <string name="revanced_music_change_navigation_bar_color_title">Change navigation bar color</string>
     <string name="revanced_preference_screen_account_title">Account</string>
     <string name="revanced_preference_screen_action_bar_title">Action bar</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>
@@ -629,6 +808,7 @@ Click to see how to issue an API key"</string>
     <string name="revanced_settings_import_failed">Import failed: %s</string>
     <string name="revanced_settings_import_reset">Settings reset to default</string>
     <string name="revanced_settings_import_success">Imported %d settings</string>
+    <string name="revanced_settings_navigate_up">Navigate up</string>
     <string name="revanced_settings_reset">Reset</string>
     <string name="revanced_settings_reset_color">Reset color</string>
     <string name="revanced_settings_search_clear_history">Clear search history</string>
@@ -641,6 +821,7 @@ Click to see how to issue an API key"</string>
     <string name="revanced_settings_search_no_results_summary">Try another keyword</string>
     <string name="revanced_settings_search_no_results_title">No results found for \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">Recent searches</string>
+    <string name="revanced_settings_search_remove">Remove from search history</string>
     <string name="revanced_settings_search_remove_message">Remove from search history?</string>
     <string name="revanced_settings_search_tips_summary">"• Tap a path to navigate to it
 • Long-press a setting to navigate to it
@@ -649,7 +830,9 @@ Click to see how to issue an API key"</string>
 • Parent settings appear above disabled child settings"</string>
     <string name="revanced_settings_search_tips_title">Search Tips</string>
     <string name="revanced_settings_search_title">Search %s</string>
-    <string name="revanced_settings_title">RVX</string>
+    <string name="revanced_settings_show_slider_summaries_summary">Shows or hides summaries below slider settings</string>
+    <string name="revanced_settings_show_slider_summaries_title">Show summaries for slider settings</string>
+    <string name="revanced_settings_title" translatable="false">RVX</string>
     <string name="revanced_share_copy_settings_success">Settings copied to clipboard</string>
     <string name="revanced_spoof_app_version_for_lyrics_summary">Spoofs the client version used in the lyrics to an older version</string>
     <string name="revanced_spoof_app_version_for_lyrics_target_entry_6_42_55">6.42.55 - No real-time lyrics</string>
@@ -670,6 +853,7 @@ Click to see how to issue an API key"</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Disable real-time lyrics</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restore old action bar</string>
     <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Comments section does not appear in home feed</string>
+    <string name="revanced_spoof_app_version_target_entry_8_05_50">8.05.50 - Fix update app screen</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Invalid spoof app version: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Select the spoof app version target</string>
     <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>

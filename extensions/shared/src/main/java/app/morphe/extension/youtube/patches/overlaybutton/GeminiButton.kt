@@ -42,6 +42,7 @@ package app.morphe.extension.youtube.patches.overlaybutton
 
 import android.view.View
 import app.morphe.extension.shared.utils.Logger
+import app.morphe.extension.youtube.patches.utils.PatchStatus
 import app.morphe.extension.youtube.settings.Settings
 import app.morphe.extension.youtube.shared.PlayerControlButton
 import app.morphe.extension.youtube.shared.RootView.isAdProgressTextVisible
@@ -98,7 +99,8 @@ object GeminiButton {
     }
 
     private fun isButtonEnabled(): Boolean {
-        return Settings.OVERLAY_BUTTON_GEMINI.get()
+        return PatchStatus.Gemini()
+                && Settings.OVERLAY_BUTTON_GEMINI.get()
                 && !isAdProgressTextVisible()
     }
 

@@ -56,32 +56,30 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.string
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patches.shared.startVideoInformerFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.HOOK_DOWNLOAD_ACTIONS
-import app.morphe.patches.youtube.utils.pip.pipStateHookPatch
-import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_05_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
-import app.morphe.patches.youtube.utils.playlist.playlistPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
-import app.morphe.patches.youtube.utils.settings.settingsPatch
-import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findFreeRegister
 import app.morphe.util.findInstructionIndicesReversedOrThrow
-import app.morphe.util.fingerprint.matchOrNull
-import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -96,13 +94,27 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/DownloadActionsPatch;"
 
 private const val EXTENSION_FLYOUT_MENU_VIDEO_ID_INTERFACE =
-    "Lapp/morphe/extension/youtube/patches/general/DownloadActionsPatch${'$'}FlyoutMenuVideoIdInterface;"
+    $$"Lapp/morphe/extension/youtube/patches/general/DownloadActionsPatch$FlyoutMenuVideoIdInterface;"
 
 private const val EXTENSION_PROTOCOL_BUFFER_INTERFACE =
-    "Lapp/morphe/extension/youtube/patches/general/DownloadActionsPatch${'$'}ProtocolBufferFieldInterface;"
+    $$"Lapp/morphe/extension/youtube/patches/general/DownloadActionsPatch$ProtocolBufferFieldInterface;"
+
+private const val EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR = "Lapp/morphe/extension/youtube/patches/utils/FlyoutUtils;"
 
 private const val OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR =
-    "Lcom/google/protos/youtube/api/innertube/OfflinePlaylistEndpointOuterClass${'$'}OfflinePlaylistEndpoint;"
+    $$"Lcom/google/protos/youtube/api/innertube/OfflinePlaylistEndpointOuterClass$OfflinePlaylistEndpoint;"
+
+private object FeedPopupWindowFlyoutFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            smali = $$"Landroid/widget/PopupWindow;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V",
+        ),
+    ),
+)
 
 @Suppress("unused")
 val downloadActionsPatch = bytecodePatch(
@@ -113,9 +125,42 @@ val downloadActionsPatch = bytecodePatch(
 
     dependsOn(
         sharedResourceIdPatch,
+        versionCheckPatch,
     )
 
     execute {
+        fun addDownloadActionsSettings() {
+            try {
+                val settings = mutableListOf(
+                    "PREFERENCE_SCREEN: GENERAL",
+                    "SETTINGS: HOOK_BUTTONS",
+                    "SETTINGS: HOOK_DOWNLOAD_ACTIONS",
+                    "SETTINGS: OVERRIDE_PLAY_NEXT_IN_QUEUE",
+                )
+                addPreference(
+                    settings.toTypedArray(),
+                    HOOK_DOWNLOAD_ACTIONS
+                )
+            } catch (e: Throwable) {
+                // Settings not initialized (e.g. on v19.28)
+            }
+        }
+
+        // The modern endpoint handles download actions on 21.04+. Flyout hooks below are still
+        // required on modern targets because Save to Watch later uses the flyout lifecycle.
+        if (is_21_04_or_greater) {
+            offlineVideoEndpointFingerprint.method.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static/range { p1 .. p3 }, $EXTENSION_CLASS_DESCRIPTOR->inAppVideoDownloadButtonOnClick(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/String;)Z
+                    move-result v0
+                    if-eqz v0, :show_native_downloader
+                    return-void
+                    :show_native_downloader
+                    nop
+                """
+            )
+        }
 
         // region patch Play next in queue flyout action
 
@@ -198,7 +243,7 @@ val downloadActionsPatch = bytecodePatch(
             }
         }
 
-        // Playlists in the You tab use a separate generated message on 20.21+.
+        // Playlists in the "You" tab use a separate generated message on 20.21+.
         SingularGeneratedExtensionFingerprint.let { fingerprint ->
             val match = fingerprint.matchOrNull()
             if (match != null) {
@@ -260,7 +305,8 @@ val downloadActionsPatch = bytecodePatch(
                 // Removes the right-side native queue badge
                 instructions.withIndex()
                     .filter { (_, instruction) ->
-                        instruction.opcode == Opcode.INVOKE_DIRECT &&
+                        (instruction.opcode == Opcode.INVOKE_DIRECT ||
+                                instruction.opcode == Opcode.INVOKE_STATIC) &&
                                 instruction.getReference<MethodReference>()?.returnType ==
                                 "Landroid/graphics/drawable/Drawable;"
                     }
@@ -279,19 +325,25 @@ val downloadActionsPatch = bytecodePatch(
             }
         }
 
-        FeedFlyoutButtonsInitializerOnItemClickFingerprint.method.addInstructionsWithLabels(
-            0,
-            """
-                invoke-static {p3}, $EXTENSION_CLASS_DESCRIPTOR->replaceQueueOnItemClick(I)Z
-                move-result p2
-                if-eqz p2, :original_click
-                return-void
-                :original_click
-                nop
-            """,
-        )
+        if (!is_21_05_or_greater) {
+            FeedFlyoutButtonsInitializerOnItemClickFingerprint.method.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static {p3}, $EXTENSION_CLASS_DESCRIPTOR->replaceQueueOnItemClick(I)Z
+                    move-result p2
+                    if-eqz p2, :original_click
+                    return-void
+                    :original_click
+                    nop
+                """,
+            )
+        }
 
-        FeedBottomSheetFlyoutFingerprint.method.apply {
+        val feedBottomSheetFlyoutFingerprint =
+            if (is_21_04_or_greater) ModernFeedBottomSheetFlyoutFingerprint
+            else FeedBottomSheetFlyoutFingerprint
+
+        feedBottomSheetFlyoutFingerprint.method.apply {
             findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
                 addInstruction(
@@ -301,138 +353,145 @@ val downloadActionsPatch = bytecodePatch(
             }
         }
 
-        // endregion
+        FeedPopupWindowFlyoutFingerprint.matchAll(2..4).forEach {
+            it.method.apply {
+                val instructionIndex = it.instructionMatches.last().index
+                val instructionRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
 
-        // region patch for hook download actions (video action bar and flyout panel)
-
-        offlineVideoEndpointFingerprint.methodOrThrow().apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static/range {p1 .. p3}, $EXTENSION_CLASS_DESCRIPTOR->inAppVideoDownloadButtonOnClick(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/String;)Z
-                    move-result v0
-                    if-eqz v0, :show_native_downloader
-                    return-void
-                    """, ExternalLabel("show_native_downloader", getInstruction(0))
-            )
+                addInstruction(
+                    instructionIndex,
+                    "invoke-static { v$instructionRegister }, $EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR->" +
+                            "setPopupWindowFlyout(Landroid/widget/PopupWindow;)V",
+                )
+            }
         }
 
+        startVideoInformerFingerprint.methodOrThrow().addInstruction(
+            0,
+            "invoke-static { }, $EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR->setVideoMarkedAsForKids()V",
+        )
+
         // endregion
 
-        // region patch for hook download actions (playlist)
+        if (!is_21_04_or_greater) {
+            // region patch for hook download actions (video action bar and flyout panel)
 
-        val onClickListenerClass =
-            downloadPlaylistButtonOnClickFingerprint.methodOrThrow().let {
-                val playlistDownloadActionInvokeIndex =
-                    indexOfPlaylistDownloadActionInvokeInstruction(it)
-
-                it.instructions.subList(
-                    playlistDownloadActionInvokeIndex - 10,
-                    playlistDownloadActionInvokeIndex,
-                ).find { instruction ->
-                    instruction.opcode == Opcode.INVOKE_VIRTUAL_RANGE
-                            && instruction.getReference<MethodReference>()?.parameterTypes?.first() == "Ljava/lang/String;"
-                }?.getReference<MethodReference>()?.returnType
-                    ?: throw PatchException("Could not find onClickListenerClass")
-            }
-
-        findMethodOrThrow(onClickListenerClass) {
-            name == "onClick"
-        }.apply {
-            val insertIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_STATIC &&
-                        getReference<MethodReference>()?.name == "isEmpty"
-            }
-            val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-
-            addInstructions(
-                insertIndex, """
-                    invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->inAppPlaylistDownloadButtonOnClick(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$insertRegister
-                    """
-            )
-        }
-
-        offlinePlaylistEndpointFingerprint.methodOrThrow().apply {
-            val playlistIdParameter = parameterTypes.indexOf("Ljava/lang/String;") + 1
-            if (playlistIdParameter > 0) {
+            offlineVideoEndpointFingerprint.method.apply {
                 addInstructionsWithLabels(
                     0, """
-                        invoke-static {p$playlistIdParameter}, $EXTENSION_CLASS_DESCRIPTOR->inAppPlaylistDownloadMenuOnClick(Ljava/lang/String;)Z
+                        invoke-static/range {p1 .. p3}, $EXTENSION_CLASS_DESCRIPTOR->inAppVideoDownloadButtonOnClick(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/String;)Z
                         move-result v0
                         if-eqz v0, :show_native_downloader
                         return-void
                         """, ExternalLabel("show_native_downloader", getInstruction(0))
                 )
-            } else {
-                val freeRegister = implementation!!.registerCount - parameters.size - 2
+            }
 
-                val playlistIdIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<FieldReference>()
-                    opcode == Opcode.IGET_OBJECT &&
-                            reference?.definingClass == OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR &&
-                            reference.type == "Ljava/lang/String;"
+            // endregion
+
+            // region patch for hook download actions (playlist)
+
+            val onClickListenerClass =
+                downloadPlaylistButtonOnClickFingerprint.method.let {
+                    val playlistDownloadActionInvokeIndex =
+                        indexOfPlaylistDownloadActionInvokeInstruction(it)
+
+                    it.instructions.subList(
+                        playlistDownloadActionInvokeIndex - 10,
+                        playlistDownloadActionInvokeIndex,
+                    ).find { instruction ->
+                        instruction.opcode == Opcode.INVOKE_VIRTUAL_RANGE
+                                && instruction.getReference<MethodReference>()?.parameterTypes?.first() == "Ljava/lang/String;"
+                    }?.getReference<MethodReference>()?.returnType
+                        ?: throw PatchException("Could not find onClickListenerClass")
                 }
-                val playlistIdReference =
-                    getInstruction<ReferenceInstruction>(playlistIdIndex).reference
 
-                val targetIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.CHECK_CAST &&
-                            (this as? ReferenceInstruction)?.reference?.toString() == OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR
+            findMethodOrThrow(onClickListenerClass) {
+                name == "onClick"
+            }.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_STATIC &&
+                            getReference<MethodReference>()?.name == "isEmpty"
                 }
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
-                addInstructionsWithLabels(
-                    targetIndex + 1,
-                    """
-                        iget-object v$freeRegister, v$targetRegister, $playlistIdReference
-                        invoke-static {v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->inAppPlaylistDownloadMenuOnClick(Ljava/lang/String;)Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :show_native_downloader
-                        return-void
-                        """,
-                    ExternalLabel("show_native_downloader", getInstruction(targetIndex + 1))
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->inAppPlaylistDownloadButtonOnClick(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$insertRegister
+                        """
                 )
             }
-        }
 
-        // endregion
+            offlinePlaylistEndpointFingerprint.method.apply {
+                val playlistIdParameter = parameterTypes.indexOf("Ljava/lang/String;") + 1
+                if (playlistIdParameter > 0) {
+                    addInstructionsWithLabels(
+                        0, """
+                            invoke-static {p$playlistIdParameter}, $EXTENSION_CLASS_DESCRIPTOR->inAppPlaylistDownloadMenuOnClick(Ljava/lang/String;)Z
+                            move-result v0
+                            if-eqz v0, :show_native_downloader
+                            return-void
+                            """, ExternalLabel("show_native_downloader", getInstruction(0))
+                    )
+                } else {
+                    val freeRegister = implementation!!.registerCount - parameters.size - 2
 
-        // region patch for show the playlist download button
+                    val playlistIdIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<FieldReference>()
+                        opcode == Opcode.IGET_OBJECT &&
+                                reference?.definingClass == OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR &&
+                                reference.type == "Ljava/lang/String;"
+                    }
+                    val playlistIdReference =
+                        getInstruction<ReferenceInstruction>(playlistIdIndex).reference
 
-        setPlaylistDownloadButtonVisibilityFingerprint
-            .matchOrThrow(accessibilityOfflineButtonSyncFingerprint).let {
-                it.method.apply {
-                    val insertIndex = it.instructionMatches.first().index + 2
-                    val insertRegister =
-                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val targetIndex = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.CHECK_CAST &&
+                                (this as? ReferenceInstruction)?.reference?.toString() == OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR
+                    }
+                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                    addInstructions(
-                        insertIndex, """
-                            invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->overridePlaylistDownloadButtonVisibility(Z)Z
-                            move-result v$insertRegister
-                            """
+                    addInstructionsWithLabels(
+                        targetIndex + 1,
+                        """
+                            iget-object v$freeRegister, v$targetRegister, $playlistIdReference
+                            invoke-static {v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->inAppPlaylistDownloadMenuOnClick(Ljava/lang/String;)Z
+                            move-result v$freeRegister
+                            if-eqz v$freeRegister, :show_native_downloader
+                            return-void
+                            """,
+                        ExternalLabel("show_native_downloader", getInstruction(targetIndex + 1))
                     )
                 }
             }
 
-        // endregion
+            // endregion
+
+            // region patch for show the playlist download button
+
+            setPlaylistDownloadButtonVisibilityFingerprint
+                .match(accessibilityOfflineButtonSyncFingerprint.classDef).let {
+                    it.method.apply {
+                        val insertIndex = it.instructionMatches.first().index + 2
+                        val insertRegister =
+                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                        addInstructions(
+                            insertIndex, """
+                                invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->overridePlaylistDownloadButtonVisibility(Z)Z
+                                move-result v$insertRegister
+                                """
+                        )
+                    }
+                }
+
+            // endregion
+        }
 
         // region add settings
 
-        try {
-            val settings = mutableListOf(
-                "PREFERENCE_SCREEN: GENERAL",
-                "SETTINGS: HOOK_BUTTONS",
-                "SETTINGS: HOOK_DOWNLOAD_ACTIONS",
-                "SETTINGS: OVERRIDE_PLAY_NEXT_IN_QUEUE",
-            )
-            addPreference(
-                settings.toTypedArray(),
-                HOOK_DOWNLOAD_ACTIONS
-            )
-        } catch (e: Throwable) {
-            // Settings not initialized (e.g. on v19.28)
-        }
+        addDownloadActionsSettings()
 
         // endregion
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">ن</string>
+    <string name="accessibility_settings_edu_opt_in_text">تفعيل إعدادات إمكانية الوصول؟</string>
     <string name="accessibility_settings_edu_opt_out_text">تم تعديل عناصر التحكم الخاصة بك لأن خدمة إمكانية الوصول قيد التشغيل</string>
     <string name="gms_core_dialog_continue_text">متابعة</string>
     <string name="gms_core_dialog_dismiss_text">لا اريد مشاهدة هذا مجددا</string>
@@ -20,6 +20,54 @@
     <string name="gms_core_settings_summary">لتلقي الإشعارات في RVX، قم بتمكين المراسلة السحابية</string>
     <string name="gms_core_settings_title">فتح إعدادات GmsCore</string>
     <string name="gms_core_toast_not_installed_message">MicroG لم يتم تثبيته. قم بتثبيته</string>
+    <string name="morphe_ads_channel_whitelist_title">القائمة المسموح بها لإعلانات القناة</string>
+    <string name="morphe_aislist_submit_already_blocklisted">هذه القناة موجودة بالفعل في قائمة حظر AiSList</string>
+    <string name="morphe_aislist_submit_already_warnlisted">هذه القناة موجودة بالفعل في قائمة تحذير AiSList</string>
+    <string name="morphe_aislist_submit_category_title">الإبلاغ عن قنوات الذكاء الاصطناعي</string>
+    <string name="morphe_aislist_submit_dialog_confirm">إبلاغ</string>
+    <string name="morphe_aislist_submit_dialog_message">"إرسال %s إلى AiSList باستخدام هذا الفيديو كدليل؟
+
+أبلغ فقط عن القنوات التي:
+• تستخدم أصوات الذكاء الاصطناعي أو المرئيات أو النصوص أو الموسيقى كمحتواها الرئيسي
+• تنتج المحتوى بكميات كبيرة باستخدام أدوات الذكاء الاصطناعي مع القليل من العمل البشري
+
+لا تُبلغ عن القنوات التي تناقش الذكاء الاصطناعي فقط، أو تستخدمه في بعض أجزاء فيديوهاتها
+
+البلاغات عامة وتتم مراجعتها قبل إضافة القناة إلى القائمة. الإزالة ممكنة فقط عبر طلب على GitHub"</string>
+    <string name="morphe_aislist_submit_failed">فشل الإبلاغ، تحقق من اتصالك</string>
+    <string name="morphe_aislist_submit_failed_channel">تعذّر العثور على قناة هذا الفيديو</string>
+    <string name="morphe_aislist_submit_failed_conflict">تعذّر على AiSList حفظ البلاغ، حاول مرة أخرى لاحقًا</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">تم إرسال عدد كبير جدًا من البلاغات، حاول مرة أخرى لاحقًا</string>
+    <string name="morphe_aislist_submit_failed_rejected">رفض AiSList البلاغ</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">إضافة إدخال إلى قائمة الفيديو للإبلاغ عن قناة الفيديو إلى AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">إضافة إدخال إبلاغ إلى قائمة الفيديو</string>
+    <string name="morphe_aislist_submit_no_username">تعيين اسم المرسل في إعدادات فلتر قنوات الذكاء الاصطناعي للإبلاغ عن القنوات</string>
+    <string name="morphe_aislist_submit_resolving">جارٍ البحث عن القناة…</string>
+    <string name="morphe_aislist_submit_success">تم الإبلاغ عن القناة وهي في انتظار المراجعة</string>
+    <string name="morphe_aislist_submit_title">الإبلاغ عن قناة ذكاء اصطناعي</string>
+    <string name="morphe_aislist_submit_username_summary">الاسم الظاهر بجانب بلاغاتك على لوحة صدارة AiSList العامة. الإبلاغ غير متاح ما دام هذا الحقل فارغًا</string>
+    <string name="morphe_aislist_submit_username_title">اسم المرسل</string>
+    <string name="morphe_app_refresh_rate_default">الوضع الافتراضي</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">معدل تحديث التطبيق</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">دائمًا</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">التشغيل بالوضع الطولي</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">التشغيل بوضع ملء الشاشة</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">التشغيل بالوضع الطولي ووضع ملء الشاشة</string>
+    <string name="morphe_app_refresh_rate_type_title">تجاوز معدل التحديث</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">إيقاف التشغيل دائمًا عند القفل</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">إيقاف التشغيل إلا إذا كان الصوت اللاسلكي متصلًا</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">إيقاف التشغيل تلقائيًا عند قفل الجهاز</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">استخدم أيقونة التطبيق المحددة لمدخل إعدادات RVX عند توفرها</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">استخدم الأيقونة في إعدادات RVX</string>
+    <string name="morphe_custom_branding_icon_title">أيقونة التطبيق</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">يُحدِّد حجم رسوميات شاشة الترحيب المخصصة</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">حجم رسوميات شاشة البداية</string>
+    <string name="morphe_custom_branding_use_as_system_splash_summary">يستخدم الرسوم المتحركة المحددة كشاشة ترحيب لنظام Android</string>
+    <string name="morphe_custom_branding_use_as_system_splash_title">استخدم كشاشة ترحيب للنظام</string>
+    <string name="morphe_dark_theme_custom_color_summary">يُستخدم عند اختيار "مُخصَّص"</string>
+    <string name="morphe_dark_theme_custom_color_title">لون مخصص للسمة الداكنة</string>
+    <string name="morphe_dark_theme_title">مظهر مظلم</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">يبقي شريط التنقل ظاهرًا أثناء التمرير</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">تعطيل إخفاء شريط التنقل تلقائيًا</string>
     <string name="morphe_disable_drc_audio_summary_off">تم تمكين صوت DRC</string>
@@ -28,6 +76,9 @@
     <string name="morphe_disable_quic_protocol_summary_off">تم تمكين بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_summary_on">تم تعطيل بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">تعطيل تحديد سرعة التمرير</string>
+    <string name="morphe_disable_system_splash_summary">يجعل أيقونة بدء تشغيل النظام الثابتة شفافة</string>
+    <string name="morphe_disable_system_splash_title">تعطيل شاشة بدء تشغيل النظام</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"قد لا يكون 'زيادة مدة رجوع البث المباشر' متاحًا
 
 لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV Simply' أو 'visionOS'"</string>
@@ -35,29 +86,69 @@
     <string name="morphe_expand_livestream_dvr_duration_title">زيادة مدة رجوع البث المباشر</string>
     <string name="morphe_explore_menu_screen_summary">اختر المكونات التي تظهر في قائمة استكشاف</string>
     <string name="morphe_explore_menu_screen_title">قائمة استكشاف</string>
-    <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\'</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">إذا لم ينجح الأمر، جرّب إيقاف MicroG إجباريًا</string>
+    <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\' و \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
     <string name="morphe_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
     <string name="morphe_force_original_audio_title">فرض لغة الصوت الأصلية</string>
+    <string name="morphe_fullscreen_large_seekbar_title">تمكين شريط التقدم الكبير بملء الشاشة</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">إخفاء زر ضبط حجم الفيديو في مشغل الوضع الرأسي</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">العرض في وضع ملء الشاشة فقط</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">انقر للتنقل بين الوضع الافتراضي، التمديد، والتكبير</string>
+    <string name="morphe_fullscreen_video_scale_button_title">عرض زر مقياس الفيديو</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">تمديد (ملء الشاشة)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">تكبير (قص لملء الفراغ)</string>
+    <string name="morphe_fullscreen_video_scale_title">مقياس الفيديو بملء الشاشة</string>
+    <string name="morphe_hide_aislist_about_summary">"يتم تصفية نتائج الصفحة الرئيسية والبحث لإخفاء الفيديوهات من القنوات التي تم تصنيفها بواسطة AiSList
+
+القيود:
+• قد تظهر فيديوهات Shorts التي تم تصفيتها كمساحة فارغة
+• قد يستمر عرض بعض الفيديوهات التي تم إنشاؤها بواسطة الذكاء الاصطناعي"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"يتم توفير البيانات بواسطة AiSList
+
+انقر هنا لفتح AiSlopList.com والاطلاع على التنزيلات للمنصات الأخرى"</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">القائمة السوداء: ثقة عالية</string>
+    <string name="morphe_hide_aislist_hide_home_title">إخفاء الفيديوهات في الصفحة الرئيسية</string>
+    <string name="morphe_hide_aislist_hide_search_title">إخفاء الفيديوهات في البحث</string>
+    <string name="morphe_hide_aislist_screen_summary">إخفاء الفيديوهات من القنوات التي تم تصنيفها على أنها محتوى تم إنشاؤه بواسطة الذكاء الاصطناعي بواسطة قائمة مجتمع AiSList</string>
+    <string name="morphe_hide_aislist_screen_title">تصفية قنوات الذكاء الاصطناعي</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">قنوات القائمة المحظورة</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">تمكين فلتر لتحميل القنوات</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">جارٍ تحميل القنوات…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• الصفحة الرئيسية: %s
+• البحث: %s
+• الإجمالي: %s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">قنوات قائمة التحذير</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">قائمة التحذير: ثقة متوسطة</string>
+    <string name="morphe_hide_auto_dubbed_label_title">إخفاء علامة \'مُدبلج تلقائيًا\'</string>
     <string name="morphe_hide_courses_menu_title">إخفاء قائمة الدورات التدريبية</string>
     <string name="morphe_hide_explore_button_title">إخفاء زر استكشاف</string>
     <string name="morphe_hide_fashion_menu_title">إخفاء قائمة \'الموضة والجمال\'</string>
     <string name="morphe_hide_gaming_menu_title">إخفاء قائمة ألعاب فيديو</string>
     <string name="morphe_hide_get_premium_button_title">إخفاء زر \'الاشتراك في Premium\'</string>
     <string name="morphe_hide_hype_menu_title">إخفاء قائمة التشجيع</string>
+    <string name="morphe_hide_hyped_label_title">إخفاء علامة أكبر تشجيع</string>
     <string name="morphe_hide_invite_to_message_card_summary">يُخفي بطاقة الدعوة الظاهرة في قسم الرسائل ضمن تبويب الإشعارات</string>
     <string name="morphe_hide_invite_to_message_card_title">إخفاء بطاقة \'دعوة الآخرين للمراسلة\'</string>
     <string name="morphe_hide_learning_menu_title">إخفاء قائمة محتوى تعليمي</string>
     <string name="morphe_hide_live_menu_title">إخفاء قائمة بث مباشر</string>
     <string name="morphe_hide_memberships_menu_title">إخفاء قائمة العضويات</string>
-    <string name="morphe_hide_movies_menu_title">إخفاء قائمة الأفلام</string>
-    <string name="morphe_hide_music_menu_title">إخفاء قائمة \'الموسيقى والتلفزيون\'</string>
+    <string name="morphe_hide_movies_menu_title">إخفاء قائمة \'الأفلام &amp; التلفزيون\'</string>
+    <string name="morphe_hide_music_menu_title">إخفاء قائمة الموسيقى</string>
     <string name="morphe_hide_news_menu_title">إخفاء قائمة الأخبار</string>
     <string name="morphe_hide_playables_menu_title">إخفاء قائمة هيّا نلعب</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"تم إخفاء قائمة 'المقطع الصوتي'
+
+لعرض قائمة 'المقطع الصوتي'، غيّر 'Spoof Video Streams' إلى أي عميل باستثناء 'Android Studio' و 'Android VR Downgraded'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">إخفاء قائمة \'وضع التنقّل\'</string>
     <string name="morphe_hide_podcasts_menu_title">إخفاء قائمة البودكاست</string>
     <string name="morphe_hide_privacy_tos_footer_title">إخفاء نص سياسة الخصوصية • بنود الخدمة</string>
     <string name="morphe_hide_shopping_menu_title">إخفاء قائمة التسوّق</string>
     <string name="morphe_hide_sports_menu_title">إخفاء قائمة رياضة</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">إعادة تعيين عداد آخر 24 ساعة؟</string>
+    <string name="morphe_hide_stats_hidden_24h_title">الفيديوهات المخفية، آخر 24 ساعة</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">هل تريد إعادة تعيين عداد الوقت بالكامل؟</string>
+    <string name="morphe_hide_stats_hidden_all_title">الفيديوهات المخفية، طوال الوقت</string>
     <string name="morphe_hide_sync_button_title">إخفاء زر \'مزامنة مع الفيديو\'</string>
     <string name="morphe_hide_youtube_create_menu_title">إخفاء قائمة YouTube Create</string>
     <string name="morphe_hide_youtube_kids_menu_title">إخفاء قائمة YouTube Kids</string>
@@ -65,11 +156,17 @@
     <string name="morphe_hide_youtube_premium_menu_title">إخفاء قائمة YouTube Premium</string>
     <string name="morphe_hide_youtube_studio_menu_title">إخفاء قائمة استديو YouTube</string>
     <string name="morphe_hide_youtube_works_menu_title">إخفاء قائمة \'كيف يعمل YouTube\'</string>
+    <string name="morphe_light_theme_custom_color_title">لون مظهر فاتح مخصص</string>
+    <string name="morphe_light_theme_title">لون مظهر فاتح</string>
     <string name="morphe_livestream_dvr_not_available">"قد لا يكون 'تمكين التنقل في البث المباشر' متاحًا
 
 لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV Simply' أو 'visionOS'"</string>
     <string name="morphe_livestream_dvr_summary">يسمح بالتنقل في كل البثوث المباشرة، حتى تلك التي تفرض قيودًا عليها عادةً</string>
     <string name="morphe_livestream_dvr_title">تمكين التنقل في البث المباشر</string>
+    <string name="morphe_music_package_name_summary">اسم حزمة تطبيق الموسيقى المثبت لديك</string>
+    <string name="morphe_music_package_name_title">اسم حزمة تطبيق الموسيقى</string>
+    <string name="morphe_notification_dot_color_summary">يُغيِّر لون نقاط الإشعارات</string>
+    <string name="morphe_notification_dot_color_title">لون نقطة الإشعار</string>
     <string name="morphe_oauth2_connection_failure_auth_error">فشل تسجيل الدخول إلى VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">لا يمكن تسجيل الدخول إلى VR، لم تتم الموافقة على مصادقة الموقع الإلكتروني</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 غير متاح مؤقتًا</string>
@@ -78,37 +175,73 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="morphe_oauth2_toast_invalid">رمز تسجيل الدخول إلى VR غير صالح، حاول تسجيل الدخول مرة أخرى إلى VR</string>
     <string name="morphe_oauth2_toast_reset">تم تسجيل خروج Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"يُصلح مشكلة عدم تطبيق جودة الفيديو الافتراضية فور بدء تشغيل الفيديو
-
-ملاحظة: قد لا يعمل التشغيل على بعض الأجهزة إذا تم ضبط 'Spoof Video Streams' على 'Android VR' مع تمكين 'فرض برنامج ترميز AVC (H264)'"</string>
-    <string name="morphe_override_initial_video_quality_title">تطبيق جودة الفيديو تلقائيًا عند التشغيل</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">يمنع فتح البث المباشر عند النقر على صورة القناة الرمزية</string>
+    <string name="morphe_open_channel_of_live_avatar_title">فتح القناة عبر الصورة الرمزية المباشرة</string>
+    <string name="morphe_open_videos_fullscreen_title">فتح الفيديوهات بوضع ملء الشاشة</string>
+    <string name="morphe_override_youtube_music_buttons_summary">يفتح تطبيق الموسيقى المفضل لديك بدلًا من تطبيق YouTube Music الافتراضي</string>
+    <string name="morphe_override_youtube_music_buttons_title">تغيير وظيفة أزرار YouTube Music</string>
     <string name="morphe_playback_in_feeds_entry_always_on">مفعّل دائمًا</string>
     <string name="morphe_playback_in_feeds_entry_off">متوقف</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">فقط Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">التشغيل في الخلاصات</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">ضبط شفافية الخلفية خلف أزرار تحكم المشغل وشريط الوقت (0 غير مرئية، 100 معتمة)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">شفافية خلفية أزرار التحكم</string>
+    <string name="morphe_potoken_provider_summary">"يُصلح هذا التحديث مشاكل التشغيل باستخدام موفر PoToken المدمج (تجريبي)
+
+إذا كنتَ مشتركًا في YouTube Premium، فقد لا تحتاج إلى هذا الإعداد. "</string>
+    <string name="morphe_potoken_provider_title">موفر رمز PoToken</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"يُصلح مشاكل التشغيل باستخدام موفر PoToken المدمج (تجريبي) 
+
+لاستخدام هذه الميزة، قم بإيقاف تشغيل  \'بث فيديو ساخر \'"</string>
+    <string name="morphe_queue_manager_check_failed_auth">تسجيل الدخول غير ممكن</string>
+    <string name="morphe_queue_manager_check_failed_video_id">لا يوجد معرّف فيديو</string>
     <string name="morphe_reload_video_summary_off">لا يتم عرض زر إعادة تحميل الفيديو</string>
     <string name="morphe_reload_video_summary_on">يتم عرض زر إعادة تحميل الفيديو</string>
     <string name="morphe_reload_video_title">عرض زر إعادة تحميل الفيديو</string>
+    <string name="morphe_remember_livestream_position_summary">بالنسبة إلى عمليات البث المباشر الجارية، يتم تذكّر موضع التشغيل واستئنافه من عنده بدلًا من الانتقال إلى الموضع المباشر الحالي</string>
+    <string name="morphe_remember_livestream_position_title">تذكّر موضع تشغيل البث المباشر</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">هذه الميزة لا تعمل مع البث المباشر 24/7 والبثوث الأخرى التي تكون \'دائمة التشغيل\'</string>
     <string name="morphe_replace_links_with_shortener_summary">يُلزم استخدام تنسيق رابط youtu.be المختصر للفيديوهات</string>
     <string name="morphe_replace_links_with_shortener_title">تغيير روابط المشاركة إلى youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">تستخدم روابط المشاركة youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">يعيد أزرار مشغل الفيديو السميكة إلى النمط المرئي القديم الأقل سُمكًا</string>
+    <string name="morphe_restore_old_player_buttons_title">استعادة نمط أزرار المشغل القديم</string>
     <string name="morphe_sanitize_sharing_links_summary_off">لم تتم إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_summary_on">تمت إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_title">تنظيف روابط المشاركة</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">هذا الفيديو محفوظ بالفعل في قائمة المشاهدة لاحقًا</string>
+    <string name="morphe_save_to_watch_later_button_summary">انقر للحفظ في المشاهدة لاحقًا، واضغط مع الاستمرار لخيارات قائمة الانتظار</string>
+    <string name="morphe_save_to_watch_later_button_title">عرض زر الحفظ في المشاهدة لاحقًا</string>
+    <string name="morphe_save_to_watch_later_error_toast">لا يمكن حفظ هذا الفيديو في قائمة المشاهدة لاحقًا</string>
+    <string name="morphe_save_to_watch_later_flyout_title">الحفظ في المشاهدة لاحقًا</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">يتيح حفظ فيديوهات Shorts في قائمة \"المشاهدة لاحقًا\" من القائمة المنبثقة</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">عرض زر الحفظ في المشاهدة لاحقًا بفيديوهات الأطفال</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">يتيح حفظ فيديوهات Shorts في قائمة \"المشاهدة لاحقًا\" من القائمة المنبثقة</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">عرض زر \"الحفظ للمشاهدة لاحقًا\" في قائمة Shorts المنبثقة</string>
+    <string name="morphe_save_to_watch_later_success_toast">تم حفظ الفيديو بنجاح في قائمة المشاهدة لاحقًا</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">الأكثر إعادة</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">يعرض صورة مصغرة للفيديو أثناء سحب شريط التقدم</string>
     <string name="morphe_seekbar_thumbnail_preview_title">تمكين مصغرات شريط التقدم</string>
     <string name="morphe_settings_menu_copy_path">تم نسخ: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">افتح شاشة إعدادات التطبيق القياسية مرة واحدة لتعبئة القائمة</string>
     <string name="morphe_settings_menu_filter_screen_summary">إخفاء العناصر في شاشة إعدادات التطبيق القياسية بالاسم المرئي</string>
     <string name="morphe_settings_menu_filter_screen_title">تصفية قائمة الإعدادات</string>
+    <string name="morphe_settings_name_custom_item_hint">أدخل اسم</string>
+    <string name="morphe_settings_name_empty_warning">خانة الاسم لايمكن ان تكون فارغه</string>
+    <string name="morphe_settings_name_title">اسم إعدادات RVX</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">اللون</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">أحادية اللون</string>
+    <string name="morphe_splash_screen_animation_style_title">تأثير حركة بدء التشغيل</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• قد ينتهي التشغيل قبل ثانية واحدة</string>
     <string name="morphe_spoof_video_streams_about_js">• إذا فشل فك التشفير، قد يفشل التشغيل</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• قائمة \'المقطع الصوتي\' مفقودة</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• فرض الصوت الأصلي غير متاح</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• وضع 360° VR immersive غير متوفر</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• مستوى الصوت الثابت غير متاح</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• يلزم تسجيل الدخول إلى Android VR</string>
     <string name="morphe_spoof_video_streams_about_title">الآثار المترتبة على التمويه</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">برنامج ترميز الفيديو هو AVC (H.264) أو VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"برنامج ترميز الفيديو هو AVC (H.264)، VP9، أو AV1
@@ -157,9 +290,93 @@
 
 إذا كنت مستخدمًا لـ YouTube Premium، فقد لا يكون هذا الإعداد مطلوبًا"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">قد يؤدي إيقاف تشغيل هذا الإعداد إلى مشكلات في التشغيل</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">انقر لخيارات قائمة الانتظار، واضغط مع الاستمرار للحفظ في المشاهدة لاحقًا</string>
+    <string name="morphe_swap_save_and_queue_actions_title">تبديل إجراءات حفظ وإضافة إلى قائمة الانتظار</string>
+    <string name="morphe_tablet_layout_in_player_summary">"استعادة تخطيط المشغل القديم
+
+القيود: إذا تم إيقاف تشغيل 'استعادة شريط إجراءات الفيديو القديم'، فقد لا يتوفر عنصر 'المزيد من الفيديوهات'"</string>
+    <string name="morphe_tablet_layout_in_player_title">تمكين تخطيط الجهاز اللوحي في المشغل</string>
+    <string name="morphe_theme_color_change_foreground_summary">استخدام لون المظهر للنص والأيقونات</string>
+    <string name="morphe_theme_color_change_foreground_title">تغيير لون المقدمة</string>
+    <string name="morphe_theme_entry_amoled_black">غامق لامع</string>
+    <string name="morphe_theme_entry_classic_youtube">غامق مطفي</string>
+    <string name="morphe_theme_entry_dark_blue">ازرق مظلم</string>
+    <string name="morphe_theme_entry_dark_green">اخضر مظلم</string>
+    <string name="morphe_theme_entry_dark_orange">برتقالي مظلم</string>
+    <string name="morphe_theme_entry_dark_pink">وردي مظلم</string>
+    <string name="morphe_theme_entry_dark_red">احمر مظلم</string>
+    <string name="morphe_theme_entry_dark_yellow">اصفر مظلم</string>
+    <string name="morphe_theme_entry_light_blue">ازرق فاتح</string>
+    <string name="morphe_theme_entry_light_green">اخضر فاتح</string>
+    <string name="morphe_theme_entry_light_orange">برتقالي فاتح</string>
+    <string name="morphe_theme_entry_light_pink">وردي فاتح</string>
+    <string name="morphe_theme_entry_light_red">احمر فاتح</string>
+    <string name="morphe_theme_entry_light_yellow">اصفر فاتح</string>
+    <string name="morphe_theme_entry_material_you_neutral">محايد مخصص</string>
+    <string name="morphe_theme_entry_material_you_primary">محايد رئسي</string>
+    <string name="morphe_theme_entry_material_you_secondary">مخصص ثانوي</string>
+    <string name="morphe_theme_entry_material_you_tertiary">أنت المادة - المرحلة الثالثة</string>
+    <string name="morphe_theme_entry_modern_youtube">الأحدث</string>
+    <string name="morphe_theme_entry_pale_blue">ازرق خفيف</string>
+    <string name="morphe_theme_entry_pale_green">اخضر خفيف</string>
+    <string name="morphe_theme_entry_pale_yellow">أصفر باهت</string>
+    <string name="morphe_theme_entry_patch_option">خيار التصحيح</string>
+    <string name="morphe_theme_entry_white">ابيض</string>
+    <string name="morphe_theme_settings_summary">قم بتخصيص مظهر التطبيق وشكله وعلامته التجارية</string>
+    <string name="morphe_theme_settings_title">إعدادات المظهر</string>
     <string name="morphe_video_quality_prioritize_dialog">إذا تم إيقاف هذا الإعداد، فقد لا تعرض الفيديوهات القديمة خيارات جودة الفيديو</string>
     <string name="morphe_video_quality_prioritize_summary">يُعطي الأولوية لأعلى جودة فيديو متاحة على حساب كفاءة الترميز</string>
     <string name="morphe_video_quality_prioritize_title">إعطاء الأولوية لجودة فيديو</string>
+    <string name="morphe_vot_auto_translate_summary_off">انقر على زر الترجمة لبدء ترجمة جوجل</string>
+    <string name="morphe_vot_auto_translate_summary_on">تبدأ ترجمة جوجل تلقائيًا لكل فيديو</string>
+    <string name="morphe_vot_caption_language_title">اللغة</string>
+    <string name="morphe_vot_cost_free">مجاني</string>
+    <string name="morphe_vot_cost_per_hour">‎%s لكل 100 ساعة فيديو‎</string>
+    <string name="morphe_vot_enabled_title">الترجمة الصوتية</string>
+    <string name="morphe_vot_export_api_key_warning">"تحتوي إعداداتك على مفتاح OpenRouter API
+
+يجب ألا تتم مشاركة مفتاح API الخاص بك أبدًا. يمكن لأي شخص لديه حق الوصول إليه استخدام أرصدة OpenRouter الخاصة بك"</string>
+    <string name="morphe_vot_http_error_message">"خدمة الترجمة أعادت خطأ HTTP ‏%s
+يبدو أن عنوان IP الخاص بك قد خضع لتقييد مؤقت لمدة تصل إلى 24 ساعة
+
+لمتابعة استخدام الترجمات، بدّل إلى مزود ترجمة آخر من الإعدادات أو استخدم VPN"</string>
+    <string name="morphe_vot_http_error_title">الترجمة غير متوفرة</string>
+    <string name="morphe_vot_max_speech_rate_summary">أقصى سرعة تُستخدم عند ضبط الكلام ليتناسب مع خانة الترجمة</string>
+    <string name="morphe_vot_max_speech_rate_title">الحد الأقصى لسرعة النطق</string>
+    <string name="morphe_vot_mymemory_email_summary">اختياري. أدخل بريدك الإلكتروني في MyMemory لزيادة الحد اليومي من 5000 إلى 50000 حرف. اتركه فارغًا لاستخدام الحد غير المسجّل</string>
+    <string name="morphe_vot_mymemory_email_title">بريد MyMemory الإلكتروني</string>
+    <string name="morphe_vot_mymemory_error">فشلت ترجمة MyMemory (الحالة %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"واجهة برمجة تطبيقات ترجمة مجانية، لا يلزم مفتاح API. حتى 5000 حرف يوميًا في الخطة المجانية، أو حتى 50000 حرف يوميًا عند استخدام عنوان بريد إلكتروني
+
+انقر هنا لفتح MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">لقد استخدمت حصة الترجمة المجانية اليومية لـ MyMemory (5000 حرف). أضف بريدًا إلكترونيًا لـ MyMemory في الإعدادات لرفع الحد اليومي إلى 50000 حرف، أو قم بالتبديل إلى خدمة ترجمة مختلفة</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">لقد استخدمت حصة ترجمة MyMemory اليومية (50000 حرف). قم بالتبديل إلى خدمة ترجمة مختلفة أو حاول مرة أخرى غدًا</string>
+    <string name="morphe_vot_mymemory_quota_next_available">متاح مرة أخرى في %s</string>
+    <string name="morphe_vot_mymemory_quota_title">تم الوصول إلى الحد اليومي لـ MyMemory</string>
+    <string name="morphe_vot_openrouter_api_key_summary">مفتاح OpenRouter API الخاص بك. قم بإنشاء مفتاح على OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">مفتاح OpenRouter API</string>
+    <string name="morphe_vot_openrouter_credits_message">لقد وصل رصيد OpenRouter الخاص بك إلى الحد المسموح به. أضف رصيدًا أو ارفع حد الإنفاق الخاص بمفتاحك على OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">تم الوصول إلى حد رصيد OpenRouter</string>
+    <string name="morphe_vot_openrouter_error">فشلت ترجمة OpenRouter (HTTP ‏%s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"ترجمة مدفوعة بالذكاء الاصطناعي عبر OpenRouter
+أضف رصيدًا مرة واحدة لترجمة آلاف الفيديوهات
+Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعلى جودة
+
+انقر هنا لفتح OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_title">نموذج OpenRouter</string>
+    <string name="morphe_vot_openrouter_not_configured_message">أدخل مفتاح OpenRouter API الخاص بك في الإعدادات قبل تحديد هذا المزود</string>
+    <string name="morphe_vot_openrouter_not_configured_title">لم يتم تكوين OpenRouter</string>
+    <string name="morphe_vot_openrouter_open_website">فتح OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">مستوى صوت الصوت الأصلي في YouTube أثناء نطق الترجمة</string>
+    <string name="morphe_vot_translation_service_title">مزوّد الترجمة</string>
+    <string name="morphe_vot_translation_volume_summary">مستوى صوت الترجمة المدبلجة</string>
+    <string name="morphe_vot_tts_sample">حان وقت التحول!</string>
+    <string name="morphe_vot_tts_system">النظام</string>
+    <string name="morphe_vot_tts_voice_type">الصوت</string>
+    <string name="morphe_vot_voice_gender_female">أنثى</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">أنثى متعددة اللغات</string>
+    <string name="morphe_vot_voice_gender_male">ذكر</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">ذكر متعدد اللغات</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو المتقدمة</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو المتقدمة</string>
     <string name="revanced_advanced_video_quality_menu_title">فتح قائمة \'الجودة المتقدمة\'</string>
@@ -215,6 +432,9 @@
     <string name="revanced_auto_captions_style_entry_3">عرضها عندما يكون الصوت غير مكتوم</string>
     <string name="revanced_auto_captions_style_entry_4">عرضها عند كتم الصوت</string>
     <string name="revanced_auto_captions_style_title">إمكانية رؤية الترجمة التلقائية</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">يؤدي الضغط على زر الرجوع إلى التمرير إلى أعلى صفحة الخلاصة</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">يؤدي الضغط على زر الرجوع دائمًا إلى الخروج من صفحة الخلاصة/التطبيق</string>
+    <string name="revanced_back_button_always_exits_feed_title">زر الرجوع يخرج من الخلاصة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">لم يتم تجاوز قيود وضع الإضاءة السينمائية لتوفير الطاقة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">تم تجاوز قيود وضع الإضاءة السينمائية لتوفير الطاقة</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">تجاوز قيود وضع الإضاءة السينمائية</string>
@@ -242,12 +462,14 @@
 • يتم إخفاء مشاركات المجتمع
 • إعداد التشغيل في الخلاصات غير متوفر
 • زر ريمكس وزر الصوت غير متوفرين في Shorts
+• قد لا تتوفر واجهة 'المزيد من الفيديوهات'
 • شريط إجراءات الفيديو غير مطوي
 
 تصميم Automotive
 • الخلاصة مُنظمة حسب المواضيع والقنوات
 • إعداد التشغيل في الخلاصات غير متوفر
 • زر ريمكس وزر الصوت غير متوفرين في Shorts
+• قد لا تتوفر واجهة 'المزيد من الفيديوهات'
 • فيديوهات Shorts تفتح في المشغل العادي
 • شريط إجراءات الفيديو غير مطوي"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">يتم استخدام مفتاح التبديل</string>
@@ -267,10 +489,12 @@
     <string name="revanced_change_start_page_entry_all_subscriptions">كلّ الاشتراكات</string>
     <string name="revanced_change_start_page_entry_browse">تصفح القنوات</string>
     <string name="revanced_change_start_page_entry_courses">محتوى تعليمي</string>
+    <string name="revanced_change_start_page_entry_create">خلق</string>
     <string name="revanced_change_start_page_entry_explore">استكشف</string>
     <string name="revanced_change_start_page_entry_fashion">الموضة والجمال</string>
     <string name="revanced_change_start_page_entry_gaming">Gaming</string>
     <string name="revanced_change_start_page_entry_history">السجلّ</string>
+    <string name="revanced_change_start_page_entry_home">بيت</string>
     <string name="revanced_change_start_page_entry_hype">التشجيع</string>
     <string name="revanced_change_start_page_entry_library">المكتبة</string>
     <string name="revanced_change_start_page_entry_liked_videos">فيديوهات أعجبتك</string>
@@ -282,6 +506,7 @@
     <string name="revanced_change_start_page_entry_playlists">قوائم التشغيل</string>
     <string name="revanced_change_start_page_entry_podcasts">البودكاست</string>
     <string name="revanced_change_start_page_entry_search">البحث</string>
+    <string name="revanced_change_start_page_entry_settings">الإعدادات</string>
     <string name="revanced_change_start_page_entry_shopping">التسوّق</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">رياضة</string>
@@ -302,12 +527,18 @@
     <string name="revanced_confirm_user_dialog_title">هل انت متاكد انك تريد المتابعة؟</string>
     <string name="revanced_copy_error">فشل نسخ النص</string>
     <string name="revanced_credits_title">الشكر</string>
+    <string name="revanced_custom_dpi_summary">كثافة العرض الإجبارية بالنقاط لكل بوصة لهذا التطبيق فقط  (0 = الإعدادات الافتراضية للنظام )</string>
+    <string name="revanced_custom_dpi_title">دقة عرض مخصصة</string>
     <string name="revanced_custom_filter_strings_summary">قائمة بسلاسل بناء مسار المكونات المراد تصفيتها، مفصولة بأسطر جديدة</string>
     <string name="revanced_custom_filter_strings_title">فلتر مخصص</string>
     <string name="revanced_custom_filter_summary_off">تم تعطيل الفلتر المخصص</string>
     <string name="revanced_custom_filter_summary_on">تم تمكين الفلتر المخصص</string>
     <string name="revanced_custom_filter_title">تمكين الفلتر المخصص</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">فلتر مخصص غير صالح: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_invalid">يجب أن تكون درجات الصوت المخصصة بين  %1$sx و  %2$sx</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">نغمات صوتية مخصصة غير صالحة</string>
+    <string name="revanced_custom_playback_audio_pitches_summary">أضف إعدادات مسبقة لدرجة الصوت مثل 0.85x أو 1.3x، مفصولة بمسافات أو أسطر جديدة (من 0.05x إلى 8x)</string>
+    <string name="revanced_custom_playback_audio_pitches_title">قم بتحرير إعدادات درجة الصوت المخصصة</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">مخصص (Legacy)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">مخصص (حديث)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">مخصص (بدون ثيم)</string>
@@ -353,6 +584,7 @@
     <string name="revanced_debug_toast_on_error_title">عرض ملاحظة عند وجود خطأ في RVX</string>
     <string name="revanced_default_app_settings_summary">لفتح روابط YouTube في RVX، قم بتمكين خيار فتح الروابط المدعومة وتمكين جميع عناوين الويب المدعومة</string>
     <string name="revanced_default_app_settings_title">فتح إعدادات التطبيق الافتراضية</string>
+    <string name="revanced_default_playback_audio_pitch_title">درجة صوت التشغيل الافتراضية</string>
     <string name="revanced_default_playback_speed_shorts_title">سرعة التشغيل الافتراضية على فيديوهات Shorts</string>
     <string name="revanced_default_playback_speed_title">سرعة التشغيل الافتراضية</string>
     <string name="revanced_default_video_quality_mobile_shorts_title">جودة فيديوهات Shorts الافتراضية على شبكة الجوَّال</string>
@@ -394,6 +626,9 @@
     <string name="revanced_disable_engagement_panel_summary_off">تم تمكين لوحة المشاركة</string>
     <string name="revanced_disable_engagement_panel_summary_on">تم تعطيل لوحة المشاركة</string>
     <string name="revanced_disable_engagement_panel_title">تعطيل لوحة المشاركة</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_off">تم تفعيل إيماءة التكبير والتصغير بالضغط</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_on">تم تعطيل إيماءة التكبير والتصغير بالضغط</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">تعطيل إيماءة التكبير بالإصبع</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">تم تمكين الاهتزاز للفصول</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">تم تعطيل الاهتزاز للفصول</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">تعطيل الاهتزاز للفصول</string>
@@ -431,6 +666,9 @@
     <string name="revanced_disable_like_dislike_glow_summary_off">ستتوهج أزرار أعجبني و لم يعجبني عند ذكرها</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">لن تتوهج أزرار أعجبني و لم يعجبني عند ذكرها</string>
     <string name="revanced_disable_like_dislike_glow_title">تعطيل توهج أزرار أعجبني ولم يعجبني</string>
+    <string name="revanced_disable_playlist_autoplay_summary_off">تنتقل قوائم التشغيل تلقائيًا إلى الفيديو التالي</string>
+    <string name="revanced_disable_playlist_autoplay_summary_on">يتم منع قوائم التشغيل من الانتقال تلقائيًا إلى الفيديو التالي</string>
+    <string name="revanced_disable_playlist_autoplay_title">تعطيل تشغيل قوائم التشغيل تلقائيًا</string>
     <string name="revanced_disable_quic_protocol_summary">"يُعطل بروتوكول QUIC الخاص بـ CronetEngine"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">سيتم استئناف ميزة &lt;b&gt;متابعة المشاهدة&lt;/b&gt; عند بدء تشغيل التطبيق.&lt;br&gt;&lt;br&gt;معلومات:&lt;br&gt;• &lt;b&gt;متابعة المشاهدة&lt;/b&gt; هي ميزة YouTube Premium.&lt;br&gt;• لا يفرض هذا الإعداد تمكين ميزة &lt;b&gt;متابعة المشاهدة.&lt;/b&gt;</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">لن يتم استئناف &lt;b&gt;متابعة المشاهدة&lt;/b&gt; عند بدء تشغيل التطبيق</string>
@@ -461,9 +699,6 @@
 • يؤدي تعطيل نمط السرعة إلى استعادة سلوك \"التمرير للتقديم أو الترجيع\" للتخطيط القديم
  • لا يؤدي تعطيل هذا الإعداد إلى فرض تمكين نمط السرعة بالقوة"</string>
     <string name="revanced_disable_speed_overlay_title">تعطيل نمط السرعة</string>
-    <string name="revanced_disable_splash_animation_summary_off">تم تمكين تأثيرات الحركة</string>
-    <string name="revanced_disable_splash_animation_summary_on">تم تعطيل تأثيرات الحركة</string>
-    <string name="revanced_disable_splash_animation_title">تعطيل تأثيرات الحركة</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">سيؤدي التمرير لأسفل أسفل المشغل إلى الدخول إلى وضع ملء الشاشة</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">لن يؤدي التمرير لأسفل أسفل المشغل إلى الدخول إلى وضع ملء الشاشة</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">تعطيل التمرير للدخول إلى وضع ملء الشاشة (أسفل المشغل)</string>
@@ -476,9 +711,6 @@
     <string name="revanced_disable_translucent_navigation_bar_summary_off">شريط التنقل الشفاف</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">شريط التنقل معتم</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Enable translucent navigation bar</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">شريط الحالة معتم أو شفاف</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">شريط الحالة غير شفاف</string>
-    <string name="revanced_disable_translucent_status_bar_title">تعطيل شريط الحالة الشفاف</string>
     <string name="revanced_disable_video_description_interaction_summary">"تعطيل التفاعلات التالية عند توسيع وصف الفيديو:
 
 • انقر للتمرير
@@ -522,6 +754,9 @@
     <string name="revanced_enable_narrow_navigation_buttons_title">تمكين أزرار التنقل الضيقة</string>
     <string name="revanced_enable_opus_codec_summary">يقوم بتمكين ترميز OPUS إذا كانت استجابة المشغل تتضمن برنامج ترميز OPUS</string>
     <string name="revanced_enable_opus_codec_title">تمكين ترميز OPUS</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">تم تعطيل عناصر التحكم في درجة الصوت</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">تم تفعيل عناصر التحكم في درجة الصوت</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">تمكين التحكم في طبقة الصوت</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">تم تعطيل النقر على شريط الوقت (شريط تقدم الفيديو)</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">تم تمكين النقر على شريط الوقت (شريط تقدم الفيديو)</string>
     <string name="revanced_enable_seekbar_tapping_title">تمكين النقر على شريط التقدم</string>
@@ -577,11 +812,6 @@
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">يؤدي شريط البحث العريض إلى تعطيل مساحة علامة YouTube واستخدامها</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">تم تمكين شريط البحث العريض جنبًا إلى جنب مع علامة YouTube</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">تمكين شريط البحث العريض مع العلامة</string>
-    <string name="revanced_enter_fullscreen_summary_off">لا تدخل وضع ملء الشاشة عند بدء تشغيل الفيديو</string>
-    <string name="revanced_enter_fullscreen_summary_on">"الدخول إلى وضع ملء الشاشة عند بدء تشغيل الفيديو
-
-القيود: لا يعمل إذا تم تصغير المشغل أو في وضع صورة داخل صورة أو في الخلفية"</string>
-    <string name="revanced_enter_fullscreen_title">الدخول إلى وضع ملء الشاشة عند بدء تشغيل الفيديو</string>
     <string name="revanced_exit_fullscreen_entry_1">معطل</string>
     <string name="revanced_exit_fullscreen_entry_2">الوضع الطولي فقط</string>
     <string name="revanced_exit_fullscreen_entry_3">وضع بالعرض فقط</string>
@@ -630,6 +860,14 @@
     <string name="revanced_fix_transcript_summary_off">قد لا يتوفر النص بسبب فشل في التحقق من الشروط المسبقة</string>
     <string name="revanced_fix_transcript_summary_on">النص متاح</string>
     <string name="revanced_fix_transcript_title">إصلاح النصوص</string>
+    <string name="revanced_force_hdr_video_summary">إجبار التطبيق على التعرف على هذا الجهاز بأنه يدعم تقنية HDR</string>
+    <string name="revanced_force_hdr_video_title">فرض فيديو HDR</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"استخدم هذا الخيار إذا كان فك ترميز HDR يعمل، لكن تطبيق YouTube لا يتيح خيار HDR، كما في بعض أجهزة HyperOS التي تُخفي دعم HLG
+
+القيود:
+• قد تظهر الألوان غير دقيقة إذا كانت الشاشة لا تدعم عرض محتوى HDR فعليًا
+• قد يفشل التشغيل إذا تعذّر على وحدة فك الترميز معالجة محتوى HDR
+• يظل تشغيل HDR معتمدًا على عميل Spoof Video Streams"</string>
     <string name="revanced_fullscreen_ads_closed_toast">تم إغلاق الإعلانات على كامل الشاشة</string>
     <string name="revanced_gemini_cancelled">تم الالغاء</string>
     <string name="revanced_gemini_chat_input_hint">اسأل عن هذا الفيديو</string>
@@ -737,6 +975,7 @@
 • التسوق
 • مشاهده مرة أخرى"</string>
     <string name="revanced_hide_carousel_shelf_title">إخفاء الرفوف الدوارة</string>
+    <string name="revanced_hide_category_bar_in_comments_title">إخفاء في التعليقات</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">يُعرض في الموجز</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">مخفي في الموجز</string>
     <string name="revanced_hide_category_bar_in_feed_title">إخفاء في الموجز</string>
@@ -817,6 +1056,9 @@
     <string name="revanced_hide_connect_button_summary_off">العربية</string>
     <string name="revanced_hide_connect_button_summary_on">Connect button is shown</string>
     <string name="revanced_hide_connect_button_title">إخفاء زر الاتصال</string>
+    <string name="revanced_hide_corrections_section_title">إخفاء قسم التصحيحات</string>
+    <string name="revanced_hide_course_progress_section_summary_on">Kannada English</string>
+    <string name="revanced_hide_course_progress_section_title">إخفاء قسم تقدّم الدورة التدريبية</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">يتم عرض رف متجر المنشئ أسفل مشغل الفيديو</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">تم إخفاء رف متجر المنشئ أسفل مشغل الفيديو</string>
     <string name="revanced_hide_creator_store_shelf_title">إخفاء رف متجر المنشئ</string>
@@ -825,7 +1067,7 @@
     <string name="revanced_hide_crowdfunding_box_title">إخفاء مربع التمويل الجماعي</string>
     <string name="revanced_hide_dislike_button_summary_off">تم إظهار زر عدم الإعجاب</string>
     <string name="revanced_hide_dislike_button_summary_on">تم إخفاء زر عدم الإعجاب</string>
-    <string name="revanced_hide_dislike_button_title">إخفاء زر عدم الإعجاب </string>
+    <string name="revanced_hide_dislike_button_title">إخفاء زر عدم الإعجاب</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">يتم عرض فلتر واجهة النقر المزدوج</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">تم إخفاء فلتر واجهة النقر المزدوج</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">إخفاء فلتر واجهة النقر المزدوج</string>
@@ -850,12 +1092,16 @@
     <string name="revanced_hide_expandable_shelf_summary_off">يتم عرض الرفوف القابلة للتوسع</string>
     <string name="revanced_hide_expandable_shelf_summary_on">تم إخفاء الرفوف القابلة للتوسع</string>
     <string name="revanced_hide_expandable_shelf_title">إخفاء الرفوف القابلة للتوسع</string>
+    <string name="revanced_hide_explore_course_section_title">إخفاء قسم \'استكشاف هذه الدورة التدريبية\'</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">يتم عرض قسم استكشاف البودكاست</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">تم إخفاء قسم استكشاف البودكاست</string>
     <string name="revanced_hide_explore_podcast_section_title">إخفاء قسم \'استكشاف البودكاست\'</string>
+    <string name="revanced_hide_explore_section_title">إخفاء قسم استكشاف</string>
+    <string name="revanced_hide_featured_channels_section_title">إخفاء قسم القنوات المميّزة</string>
     <string name="revanced_hide_featured_links_section_summary_off">يتم عرض قسم الروابط المميزة</string>
     <string name="revanced_hide_featured_links_section_summary_on">تم إخفاء قسم الروابط المميزة</string>
     <string name="revanced_hide_featured_links_section_title">إخفاء قسم الروابط المميزة</string>
+    <string name="revanced_hide_featured_playlists_section_title">إخفاء قسم  قوائم التشغيل المميزة</string>
     <string name="revanced_hide_featured_videos_section_summary_off">يتم عرض قسم الفيديوهات المميزة</string>
     <string name="revanced_hide_featured_videos_section_summary_on">تم إخفاء قسم الفيديوهات المميزة</string>
     <string name="revanced_hide_featured_videos_section_title">إخفاء قسم الفيديوهات المميزة</string>
@@ -891,8 +1137,9 @@
     <string name="revanced_hide_handle_summary_off">يتم عرض الاسم المعرِّف</string>
     <string name="revanced_hide_handle_summary_on">تم إخفاء الاسم المعرِّف</string>
     <string name="revanced_hide_handle_title">إخفاء الاسم المعرِّف</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_off">يتم عرض قسم كيف تم إنشاء هذا المحتوى</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_on">تم إخفاء قسم كيف تم إنشاء هذا المحتوى</string>
+    <string name="revanced_hide_hashtag_section_title">إخفاء قسم الهاشتاغ</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">يتم عرض قسم \'طريقة صناعة هذا المحتوى\'</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">تم إخفاء قسم \'طريقة صناعة هذا المحتوى\'</string>
     <string name="revanced_hide_how_this_was_made_section_title">إخفاء قسم \'طريقة صناعة هذا المحتوى\'</string>
     <string name="revanced_hide_hype_button_summary_off">يتم عرض زر التشجيع</string>
     <string name="revanced_hide_hype_button_summary_on">تم إخفاء زر التشجيع</string>
@@ -966,7 +1213,7 @@
     <string name="revanced_hide_latest_videos_button_summary_on">تم إخفاء زر أحدث مقاطع الفيديو</string>
     <string name="revanced_hide_latest_videos_button_title">إخفاء زر \'أحدث الفيديوهات\'</string>
     <string name="revanced_hide_like_button_summary_off">تم إظهار زر الإعجاب</string>
-    <string name="revanced_hide_like_button_summary_on">تم إخفاء زر الإعجاب </string>
+    <string name="revanced_hide_like_button_summary_on">تم إخفاء زر الإعجاب</string>
     <string name="revanced_hide_like_button_title">إخفاء زر الإعجاب</string>
     <string name="revanced_hide_like_dislike_button_summary_off">يتم عرض أزرار أعجبني ولم يعجبني</string>
     <string name="revanced_hide_like_dislike_button_summary_on">تم إخفاء أزرار أعجبني ولم يعجبني</string>
@@ -1161,6 +1408,8 @@
     <string name="revanced_hide_rewards_button_summary_off">يتم عرض زر المكافآت</string>
     <string name="revanced_hide_rewards_button_summary_on">تم إخفاء زر المكافآت</string>
     <string name="revanced_hide_rewards_button_title">إخفاء زر المكافآت</string>
+    <string name="revanced_hide_search_bar_back_button_title">KANNADA English</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">إخفاء قسم \'البحث داخل هذا الفيديو\'</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">يتم عرض المصغرات في سجل مصطلحات البحث</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">تم إخفاء المصغرات في سجل مصطلحات البحث</string>
     <string name="revanced_hide_search_term_thumbnail_title">إخفاء مصغرات مصطلحات البحث</string>
@@ -1353,6 +1602,7 @@
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">إخفاء فيديوهات الاشتراكات حسب عدد المشاهدات</string>
     <string name="revanced_hide_video_by_view_counts_summary">إخفاء الفيديوهات الموصى بها التي حصلت على عدد أقل من عدد معين من المشاهدات.\n\nمشكلة معروفة: لا يتم تصفية الفيديوهات التي حصلت على 0 مشاهدة</string>
     <string name="revanced_hide_video_by_view_counts_title">إخفاء الفيديوهات الموصى بها عن طريق المشاهدات</string>
+    <string name="revanced_hide_video_details_section_title">إخفاء قسم \'تفاصيل الفيديو\'</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">يتم عرض تسميات \'شاهد المستخدمون أيضًا\' و\'قد يعجبك أيضًا\' في نتائج البحث</string>
     <string name="revanced_hide_video_recommendation_labels_title">إخفاء تسميات توصيات الفيديو</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">سيتم إخفاء الفيديوهات التي تزيد مشاهداتها عن هذا الرقم</string>
@@ -1509,21 +1759,22 @@
     <string name="revanced_miniplayer_hide_subtext_summary_off">يتم عرض النصوص الفرعية</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">تم إخفاء النصوص الفرعية</string>
     <string name="revanced_miniplayer_hide_subtext_title">إخفاء النصوص الفرعية</string>
+    <string name="revanced_miniplayer_hide_title_title">إخفاء العنوان والقناة</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">تم تعطيل إيماءة السحب الأفقية</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"تم تمكين إيماءة السحب الأفقية
 
 يمكن سحب المشغل المصغر خارج الشاشة إلى اليمين أو اليسار"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">تمكين إيماءة السحب الأفقية</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">شفافية واجهة المشغل المصغر يجب أن تكون بين 0-100</string>
     <string name="revanced_miniplayer_opacity_title">شفافية الواجهة</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">الزوايا مربعة</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">الزوايا مستديرة</string>
     <string name="revanced_miniplayer_rounded_corners_title">تمكين الزوايا المستديرة</string>
     <string name="revanced_miniplayer_type_entry_2">بسيط</string>
-    <string name="revanced_miniplayer_type_entry_4">حديث 1</string>
-    <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
-    <string name="revanced_miniplayer_type_entry_6">حديث 3</string>
-    <string name="revanced_miniplayer_type_entry_7">حديث 4</string>
+    <string name="revanced_miniplayer_type_entry_3">بسيط 2</string>
+    <string name="revanced_miniplayer_type_entry_4">الجهاز اللوحي</string>
+    <string name="revanced_miniplayer_type_entry_5">حديث 1</string>
+    <string name="revanced_miniplayer_type_entry_6">حديث 2</string>
+    <string name="revanced_miniplayer_type_entry_7">حديث 3</string>
     <string name="revanced_miniplayer_type_title">نوع المشغل المصغر</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">حجم البكسل يجب أن يكون بين %1$s و %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">تعيين الحجم الأولي على الشاشة، بالبكسل</string>
@@ -1560,6 +1811,7 @@
 
 يتم حفظ نتائج التلخيص والتفريغ ما لم تقم بإغلاق التطبيق أو استخدام Gemini على فيديو آخر. اضغط على الزر مرة أخرى لعرض النتائج"</string>
     <string name="revanced_overlay_button_gemini_summarize_title">إظهار زر Gemini</string>
+    <string name="revanced_overlay_button_loop_segment_copy_toast">Mrluffy2k1@gmail.com</string>
     <string name="revanced_overlay_button_loop_segment_title">إظهار زر تكرار المقطع</string>
     <string name="revanced_overlay_button_mute_volume_summary">انقر لكتم صوت الفيديو الحالي. انقر مرة أخرى لإلغاء الكتم</string>
     <string name="revanced_overlay_button_mute_volume_title">عرض زر كتم الصوت</string>
@@ -1606,14 +1858,11 @@
     <string name="revanced_override_video_download_button_queue_manager_summary_on">يفتح زر تنزيل الفيديو الأصلي مدير قائمة الانتظار</string>
     <string name="revanced_override_video_download_button_summary_off">يفتح زر تنزيل الفيديو أداة التنزيل الأصلية داخل التطبيق</string>
     <string name="revanced_override_video_download_button_title">تجاوز زر تنزيل الفيديو</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">موسيقى YouTube مطلوبًا لتجاوز إجراء الزر. انقر هنا لتنزيل موسيقى YouTube</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_title">متطلب أساسي</string>
-    <string name="revanced_override_youtube_music_button_summary_off">زر موسيقى YouTube يفتح التطبيق الأصلي</string>
-    <string name="revanced_override_youtube_music_button_summary_on">زر YouTube Music يفتح تطبيق الموسيقى المستهدف</string>
-    <string name="revanced_override_youtube_music_button_title">تجاوز زر YouTube Music</string>
     <string name="revanced_patched_date_title">تاريخ التعديل</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">مستبعد</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">مضمن</font></string>
+    <string name="revanced_playback_audio_time_stretching_summary">يتيح ضبط السرعة وطبقة الصوت بشكل مستقل، وقد يسبب تشوهات في الصوت</string>
+    <string name="revanced_playback_audio_time_stretching_title">تمديد زمن الصوت</string>
     <string name="revanced_playback_speed_normal">عادي</string>
     <string name="revanced_preference_category_action_buttons">أزرار الإجراء</string>
     <string name="revanced_preference_category_additional_settings">إعدادات إضافية</string>
@@ -1622,7 +1871,6 @@
     <string name="revanced_preference_category_app_info">معلومات التطبيق</string>
     <string name="revanced_preference_category_codec">الترميز</string>
     <string name="revanced_preference_category_custom_actions">الإجراءات المخصصة</string>
-    <string name="revanced_preference_category_download_button">زر التنزيل</string>
     <string name="revanced_preference_category_experimental_flag">تعديلات تجريبية</string>
     <string name="revanced_preference_category_image_region_restrictions">قيود منطقة الصورة</string>
     <string name="revanced_preference_category_import_export_as_file">استيراد / تصدير كملف</string>
@@ -1743,6 +1991,7 @@
     <string name="revanced_quick_actions_top_margin_invalid_toast">يجب أن يكون الهامش العلوي للإجراءات السريعة بين 0-32</string>
     <string name="revanced_quick_actions_top_margin_summary">ضبط إزاحة شريط الإجراءات السريعة للأعلى (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">إزاحة الإجراءات السريعة للأعلى</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">تم تغيير طبقة الصوت الافتراضية إلى: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">تطبيق تغييرات سرعة التشغيل فقط على الفيديو الحالي</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">تطبيق تغييرات سرعة التشغيل على جميع الفيديوهات</string>
     <string name="revanced_remember_playback_speed_last_selected_title">تذكر سرعة التشغيل</string>
@@ -1781,14 +2030,9 @@
     <string name="revanced_replace_channel_handle_summary_off">يتم استخدام الاسم المعرِّف</string>
     <string name="revanced_replace_channel_handle_summary_on">يتم استخدام اسم القناة</string>
     <string name="revanced_replace_channel_handle_title">استبدال معالج القناة</string>
-    <string name="revanced_replace_navigation_button_summary">تبديل زر التنقل بزر البحث</string>
-    <string name="revanced_replace_navigation_button_target_entry_home">الصفحة الرئيسية</string>
-    <string name="revanced_replace_navigation_button_target_title">تغيير زر التنقل</string>
     <string name="revanced_replace_time_stamp_action_summary_off">انقر لعرض الوقت المتبقي</string>
     <string name="revanced_replace_time_stamp_action_summary_on">انقر لفتح القائمة المنبثقة لسرعة التشغيل أو جودة الفيديو</string>
     <string name="revanced_replace_time_stamp_action_title">استبدال إجراء الطابع الزمني</string>
-    <string name="revanced_replace_toolbar_create_button_summary">استبدال زر الإنشاء بزر الإعدادات</string>
-    <string name="revanced_replace_toolbar_create_button_title">استبدال زر الإنشاء</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"اضغط لفتح إعدادات YouTube
 اضغط مع الاستمرار لفتح إعدادات RVX"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"اضغط لفتح إعدادات RVX
@@ -1800,7 +2044,7 @@
     <string name="revanced_restart_first_run">إعادة التشغيل لإنهاء الإعداد</string>
     <string name="revanced_restart_title">يلزم إعادة التشغيل</string>
     <string name="revanced_restore_old_settings_menus_title">استعادة شاشة إعدادات YouTube القديمة</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"يُصلح عدم ظهور لم يعجبني وعدم إمكانية إخفاء أزرار إجراءات الفيديو
+    <string name="revanced_restore_old_video_action_bar_summary">"يُصلح مشكلة عدم إمكانية إخفاء أزرار إجراءات الفيديو
 
 القيود: يعود إلى نمط 'المزيد من الفيديوهات' القديم"</string>
     <string name="revanced_restore_old_video_action_bar_title">استعادة شريط إجراءات الفيديو القديم</string>
@@ -2109,6 +2353,7 @@
     <string name="revanced_settings_import_success">تم استيراد %d إعدادات</string>
     <string name="revanced_settings_import_summary">استيراد الإعدادات من ملف محفوظ</string>
     <string name="revanced_settings_import_title">استيراد الإعدادات</string>
+    <string name="revanced_settings_navigate_up">الانتقال لأعلى</string>
     <string name="revanced_settings_reset">إعادة التعيين</string>
     <string name="revanced_settings_reset_color">إعادة تعيين اللون</string>
     <string name="revanced_settings_search_clear_history">مسح سجل البحث</string>
@@ -2122,6 +2367,7 @@
     <string name="revanced_settings_search_no_results_summary">جرّب كلمة مفتاحية أخرى</string>
     <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \"%s\"</string>
     <string name="revanced_settings_search_recent_searches">عمليات البحث الأخيرة</string>
+    <string name="revanced_settings_search_remove">إزالة من سجل البحث</string>
     <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
     <string name="revanced_settings_search_tips_summary">"• انقر على مسار للانتقال إليه
 • اضغط مطولًا على إعداد للانتقال إليه
@@ -2157,7 +2403,7 @@
     <string name="revanced_shorts_custom_actions_external_downloader_title">عرض قائمة التنزيل الخارجي</string>
     <string name="revanced_shorts_custom_actions_gemini_label">تلخيص Gemini</string>
     <string name="revanced_shorts_custom_actions_gemini_summary_off">قائمة تلخيص Gemini مخفية</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">قائمة تلخيص Gemini ظاهرة</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">قائمة تلخيص Gemini ظاهرة في قائمة الافعال المخصصه</string>
     <string name="revanced_shorts_custom_actions_gemini_title">إظهار قائمة تلخيص Gemini</string>
     <string name="revanced_shorts_custom_actions_open_video_label">فتح الفيديو</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">تم إخفاء قائمة فتح الفيديو</string>
@@ -2190,9 +2436,10 @@
     <string name="revanced_shorts_player_type_regular_player">المشغل العادي</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">المشغل العادي في وضع ملء الشاشة</string>
     <string name="revanced_shorts_player_type_title">فتح فيديوهات Shorts باستخدام</string>
-    <string name="revanced_show_settings_button_index_title">موضع زر الإعدادات</string>
+    <string name="revanced_show_search_button_title">عرض زر البحث</string>
     <string name="revanced_show_settings_button_title">عرض زر الإعدادات</string>
     <string name="revanced_show_settings_button_type_title">إجراء زر الإعدادات</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">موضع زر الإعدادات</string>
     <string name="revanced_show_toolbar_settings_button_title">عرض زر الإعدادات</string>
     <string name="revanced_show_video_title_section_summary">"يعرض قسم عنوان الفيديو في وضع ملء الشاشة
 
@@ -2211,6 +2458,7 @@
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - استعادة وظيفة النسخ</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">\"20.13.41 - استعاده عرض شريط إجراءات الفيديو بالكامل</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - استعادة فلتر المكونات القديمة</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - استعادة سلوك الترجمة القديم</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">إصدار التطبيق الوهمي غير صالح: %s</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي</string>
@@ -2310,11 +2558,11 @@
     <string name="revanced_swipe_gestures_lock_mode_summary_on">تم تمكين إيماءات التمرير في وضع شاشة القفل</string>
     <string name="revanced_swipe_gestures_lock_mode_title">إيماءات التمرير في وضع قفل الشاشة</string>
     <string name="revanced_swipe_haptic_feedback_title">الاهتزاز عند الضغط</string>
+    <string name="revanced_swipe_left_zone_title">إيماءة التمرير لليسار</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">تلقائي</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">لا يؤدي التمرير لأسفل إلى أدنى قيمة إلى تمكين السطوع التلقائي</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">التمرير لأسفل إلى أدنى قيمة للسطوع يمكّن السطوع التلقائي</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">تمكين إيماءة السطوع التلقائي</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">يجب أن تكون شفافية التمرير بين 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">ضبط مستوى الشفافية (0 شفاف ، 100 معتم)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">تعتيم خلفية واجهة التمرير</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">تعيين لون شريط تقدم عناصر التحكم في مستوى السطوع</string>
@@ -2326,8 +2574,6 @@
     <string name="revanced_swipe_overlay_progress_volume_color_summary">تعيين لون شريط تقدم عناصر التحكم في مستوى الصوت</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">لون نمط إيماءة الصوت</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">لا يمكن أن يزيد حجم المنطقة القابلة للتمرير عن 50</string>
-    <string name="revanced_swipe_overlay_rect_size_summary">النسبة المئوية لمساحة الشاشة القابلة للتمرير.\n\nملاحظة: سيؤدي هذا أيضًا إلى تغيير حجم مساحة الشاشة لإيماءة النقر المزدوج للتقديم أو التأخير</string>
-    <string name="revanced_swipe_overlay_rect_size_title">حجم واجهة إيماءة التمرير</string>
     <string name="revanced_swipe_overlay_style_entry_0">النمط القديم</string>
     <string name="revanced_swipe_overlay_style_entry_1">النمط الافقي</string>
     <string name="revanced_swipe_overlay_style_entry_2">النمط الأفقي (بسيط - أعلى الشاشة)</string>
@@ -2342,6 +2588,7 @@
     <string name="revanced_swipe_press_to_engage_summary_off">تم تعطيل الضغط لتمرير الإيماءة</string>
     <string name="revanced_swipe_press_to_engage_summary_on">تم تمكين الضغط لتمرير الإيماءة</string>
     <string name="revanced_swipe_press_to_engage_title">تمكين الضغط لتمرير الإيماءة</string>
+    <string name="revanced_swipe_right_zone_title">إيماءة التمرير لليمين</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">لا تقم بحفظ السطوع واستعادته عند الخروج أو الدخول إلى وضع ملء الشاشة</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">حفظ واستعادة السطوع عند الخروج أو الدخول إلى وضع ملء الشاشة</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">حفظ واستعادة السطوع</string>
@@ -2362,13 +2609,13 @@
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">منطقة إيماءة سحب التمرير في الأعلى، ومنطقة السرعة في الأسفل</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">منطقة إيماءة سحب السرعة في الأعلى، ومنطقة التمرير في الأسفل</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">تبديل أماكن إيماءات السرعة والتمرير</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">يجب أن يكون حجم النص بين 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">ضبط حجم النص على الشاشة (1-30)</string>
     <string name="revanced_swipe_text_overlay_size_title">حجم نص نمط إيماءة التمرير</string>
     <string name="revanced_swipe_threshold_summary">تعيين مسافة التمرير المطلوبة قبل بدء التعديل</string>
     <string name="revanced_swipe_threshold_title">مقدار حد التمرير</string>
-    <string name="revanced_swipe_volume_distance_summary">عدد البكسلات اللازمة للسحب لضبط مستوى الصوت. القيم الأقل تجعل تغيير الصوت أسرع، والقيم الأعلى تجعله أبطأ (1-1000)</string>
-    <string name="revanced_swipe_volume_distance_title">مسافة السحب للصوت</string>
+    <string name="revanced_swipe_top_zone_title">إيماءة التمرير للأعلى</string>
+    <string name="revanced_swipe_volume_distance_summary">تتطلب القيم الأعلى مزيدًا من التمرير لكل درجة مستوى الصوت</string>
+    <string name="revanced_swipe_volume_distance_title">حساسية تمرير مستوى الصوت</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">يجب أن تكون حساسية إيماءة الصوت بين 1-1000</string>
     <string name="revanced_swipe_volume_sensitivity_summary">القيم الأعلى تزيد من تغيُّر مستوى الصوت مع كل تمريرة</string>
     <string name="revanced_swipe_volume_sensitivity_title">حساسية تمرير مستوى الصوت</string>
@@ -2377,6 +2624,9 @@
 
 اضبط مستوى الصوت عن طريق التمرير عموديًا على الجانب الأيمن من الشاشة"</string>
     <string name="revanced_swipe_volume_title">تمكين إيماءة الصوت</string>
+    <string name="revanced_swipe_zone_label_brightness">السطوع</string>
+    <string name="revanced_swipe_zone_label_speed">السرعة</string>
+    <string name="revanced_swipe_zone_label_volume">الصوت</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"لتبديل مواضع زر الإنشاء و زر الإشعارات عن طريق إيهام معلومات الجهاز
 
 • قد يحتاج الجهاز إلى إعادة التشغيل حتى يسري تغيير هذا الإعداد
@@ -2386,9 +2636,6 @@
     <string name="revanced_switch_create_with_notifications_button_summary_on">يتم تبديل زر الإنشاء بزر الإشعارات</string>
     <string name="revanced_switch_create_with_notifications_button_title">تبديل الإنشاء بالإشعارات</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">إذا لم يسري تغيير هذا الإعداد، فحاول التبديل إلى وضع التصفح المتخفي</string>
-    <string name="revanced_third_party_youtube_music_dialog_title">موسيقى RVX</string>
-    <string name="revanced_third_party_youtube_music_package_name_summary">اسم الحزمة لموسيقى RVX المثبتة</string>
-    <string name="revanced_third_party_youtube_music_package_name_title">اسم حزمة موسيقى RVX</string>
     <string name="revanced_transcript_cookies_about_summary">انقر لمعرفة كيفية الحصول على ملفات تعريف الارتباط</string>
     <string name="revanced_transcript_cookies_about_title">لمحة عن ملفات تعريف ارتباط Transcript</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">المصادقة</string>
@@ -2442,7 +2689,6 @@
     <string name="revanced_vot_stream_waiting">انتظر...~%s</string>
     <string name="revanced_vot_target_language_summary">اختار لغة الترجمة التي تريد الترجمة اليها</string>
     <string name="revanced_vot_target_language_title">اللغه الهدف</string>
-    <string name="revanced_vot_time_min">الحد الأدنى %d</string>
     <string name="revanced_vot_time_sec">ث %d</string>
     <string name="revanced_vot_translation_volume_summary">مستوى صوت الترجمة المدبلجة</string>
     <string name="revanced_vot_translation_volume_title">مستوى صوت الترجمة</string>
@@ -2509,7 +2755,6 @@
     <string name="revanced_yandex_status_processing_minutes_plural">متبقي %d دقائق...</string>
     <string name="revanced_yandex_status_processing_short">جارِ المعالجة...</string>
     <string name="revanced_yandex_status_requesting_translation">جارِ طلب الترجمة</string>
-    <string name="revanced_yandex_status_session_ok">الجلسة سليمة (OK)</string>
     <string name="revanced_yandex_status_subs_found">تم العثور على ترجمة، جارِ الجلب...</string>
     <string name="revanced_yandex_status_transcription_delayed">التفريغ النصي متأخر قليلاً</string>
     <string name="revanced_yandex_status_youtube_specific">جارِ التعامل مع طلب صوت YouTube...</string>

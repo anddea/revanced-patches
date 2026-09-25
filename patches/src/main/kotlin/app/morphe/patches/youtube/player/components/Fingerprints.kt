@@ -11,8 +11,10 @@
 package app.morphe.patches.youtube.player.components
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
@@ -151,7 +153,7 @@ internal val doubleTapInfoConstructorFingerprint = legacyFingerprint(
         "Landroid/view/MotionEvent;",
         "I",
         "Z",
-        "Lj\$/time/Duration;"
+        "Lj$/time/Duration;"
     )
 )
 
@@ -361,7 +363,7 @@ internal val engagementPanelPlaylistSyntheticFingerprint = legacyFingerprint(
     name = "engagementPanelPlaylistSyntheticFingerprint",
     strings = listOf("engagement-panel-playlist"),
     customFingerprint = { _, classDef ->
-        classDef.interfaces.contains("Landroid/view/View${'$'}OnClickListener;")
+        classDef.interfaces.contains($$"Landroid/view/View$OnClickListener;")
     }
 )
 
@@ -441,4 +443,31 @@ internal val watermarkParentFingerprint = legacyFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     strings = listOf("player_overlay_in_video_programming")
+)
+
+internal object ModernEndScreenPlayerResponseFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf("L"),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            type = "Ljava/lang/String;",
+        ),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            type = "Ljava/lang/String;",
+            location = MatchAfterImmediately(),
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            name = "ordinal",
+            location = MatchAfterWithin(7),
+        ),
+        literal(5),
+        literal(8),
+        literal(9),
+    ),
+    custom = { method, classDef ->
+        classDef.methods.count() == 5 && AccessFlags.FINAL.isSet(method.accessFlags)
+    },
 )

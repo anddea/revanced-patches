@@ -62,6 +62,16 @@ public final class VideoInformation {
         return videoId;
     }
 
+    public interface VideoIdListener {
+        void newVideoId(String videoId);
+    }
+
+    private static final java.util.List<VideoIdListener> videoIdListeners = new java.util.concurrent.CopyOnWriteArrayList<>();
+
+    public static void addVideoIdListener(@NonNull VideoIdListener listener) {
+        videoIdListeners.add(listener);
+    }
+
     /**
      * Injection point.
      *
@@ -73,6 +83,14 @@ public final class VideoInformation {
         }
         Logger.printDebug(() -> "New video id: " + newlyLoadedVideoId);
         videoId = newlyLoadedVideoId;
+
+        for (VideoIdListener listener : videoIdListeners) {
+            try {
+                listener.newVideoId(newlyLoadedVideoId);
+            } catch (Exception ex) {
+                Logger.printException(() -> "newVideoId failure", ex);
+            }
+        }
     }
 
     /**
@@ -152,7 +170,12 @@ public final class VideoInformation {
             Logger.printDebug(() -> "Seeking to: " + getFormattedTimeStamp(adjustedSeekTime));
 
             // Try regular playback controller first, and it will not succeed if casting.
-            if (overrideVideoTime(adjustedSeekTime)) return true;
+            if (overrideVideoTime(adjustedSeekTime)) {
+                if (seekTime > 0) {
+                    VideoInformation.videoTime = seekTime;
+                }
+                return true;
+            }
             Logger.printDebug(() -> "seekTo did not succeeded. Trying MXD.");
             // Else the video is loading or changing videos, or video is casting to a different device.
 

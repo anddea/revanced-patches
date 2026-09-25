@@ -4,6 +4,7 @@ package app.morphe.util
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.FingerprintBuilder
+import app.morphe.patcher.InstructionFilter
 import app.morphe.patcher.Match
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -879,6 +880,28 @@ fun Method.findInstructionIndicesReversedOrThrow(filter: Instruction.() -> Boole
 }
 
 /**
+ * @return A list of indices of the instructions in reverse order.
+ * _Returns an empty list if no indices are found_
+ */
+fun Method.findInstructionIndicesReversed(filter: InstructionFilter): List<Int> {
+    val method = this
+    return findInstructionIndicesReversed {
+        filter.matches(method, this)
+    }
+}
+
+/**
+ * @return A list of indices of the instructions in reverse order.
+ * @throws PatchException if no matching indices are found.
+ */
+fun Method.findInstructionIndicesReversedOrThrow(filter: InstructionFilter): List<Int> {
+    val indexes = findInstructionIndicesReversed(filter)
+    if (indexes.isEmpty()) throw PatchException("No matching instructions found in: $this")
+
+    return indexes
+}
+
+/**
  * @return An immutable list of indices of the opcode in reverse order.
  *  _Returns an empty list if no indices are found_
  * @see findInstructionIndicesReversedOrThrow
@@ -1130,10 +1153,17 @@ fun Method.cloneMutableAndPreserveParameters(
     return clonedMethod
 }
 
+/**
+ * Clone this method, optionally changing the class that owns the cloned method.
+ *
+ * The owner must be overridden when a clone is inserted into a different class,
+ * otherwise the generated DEX class data can refer to the original class.
+ */
 fun Method.cloneMutable(
     registerCount: Int = implementation?.registerCount ?: 0,
     clearImplementation: Boolean = false,
     name: String = this.name,
+    definingClass: String = this.definingClass,
     accessFlags: Int = this.accessFlags,
     parameters: List<MethodParameter> = this.parameters,
     returnType: String = this.returnType,

@@ -34,6 +34,17 @@ context(_: BytecodePatchContext)
 internal fun Pair<String, Fingerprint>.matchOrThrow(): Match =
     second.match(mutableClassOrThrow())
 
+/**
+ * Resolves a fingerprint only when it matches exactly one method.
+ *
+ * The regular [Fingerprint.method] accessor selects the first match. Requiring a single match
+ * prevents a patch from silently modifying the wrong method when obfuscated targets contain
+ * multiple candidates.
+ */
+context(_: BytecodePatchContext)
+internal fun Fingerprint.matchSingle(): Match =
+    matchAll(1..1).first()
+
 context(_: BytecodePatchContext)
 internal fun Pair<String, Fingerprint>.matchOrThrow(parentFingerprint: Pair<String, Fingerprint>): Match {
     val parentClassDef = parentFingerprint.second.classDefOrNull
