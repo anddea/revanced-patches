@@ -1,5 +1,5 @@
 {
-  "version": "4.3.0-dev.7",
+  "version": "4.3.0-dev.8",
   "patches": [
     {
       "name": "Alternative thumbnails",
@@ -767,6 +767,27 @@
       "options": []
     },
     {
+      "name": "Downloads",
+      "description": "Adds support to download songs for offline playback inside YouTube Music.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.apps.youtube.music": [
+          "8.12.54",
+          "8.28.54",
+          "8.30.54",
+          "9.15.51"
+        ]
+      },
+      "options": []
+    },
+    {
       "name": "Enable debug logging",
       "description": "Adds an option for debugging.",
       "use": true,
@@ -1043,6 +1064,7 @@
       "use": true,
       "dependencies": [
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -1604,6 +1626,7 @@
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
@@ -2700,7 +2723,7 @@
     },
     {
       "name": "Third-party lyrics",
-      "description": "Adds an option to show synced lyrics from LRCLIB or KuGou in the lyrics panel.",
+      "description": "Adds an option to show synced lyrics with experience enhancement from 15+ providers in the lyrics panel.",
       "use": true,
       "dependencies": [
         "BytecodePatch",

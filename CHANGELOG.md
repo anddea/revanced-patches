@@ -1,3 +1,20 @@
+# [4.3.0-dev.8](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.7...v4.3.0-dev.8) (2026-09-25)
+
+
+### Bug Fixes
+
+* **YouTube - Override YouTube Music buttons:** App can crash on devices with an OEM media route provider ([81f043d](https://github.com/anddea/revanced-patches/commit/81f043df512abdd5224ea3baad5739e83d2963e8))
+* **YouTube - Voice over translation:** Fix translation pausing and background playback ([#1817](https://github.com/anddea/revanced-patches/issues/1817)) ([b750077](https://github.com/anddea/revanced-patches/commit/b750077be6207002a8141ea29cb9e268af6440aa))
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add `Channel ad whitelist` ([b217f6b](https://github.com/anddea/revanced-patches/commit/b217f6bcc00396982f0366039b92834296966bc0))
+* **YouTube - Overlay buttons:** Add support for new player style, and add `Restore old player button style` setting ([f17c455](https://github.com/anddea/revanced-patches/commit/f17c4555e9ff301adadb58b39ef51a1bbdd99683))
+* **YouTube - Toolbar components:** Hide search button everywhere when `Hide search button` is enabled ([e6900bd](https://github.com/anddea/revanced-patches/commit/e6900bd35d3649b2377424ae3031e829ff88f331))
+* **YouTube Music - Third-party lyrics:** Add syllable lyrics, new providers, romanized lyrics, mediasession lyrics, miniplayer lyrics ([926b0f2](https://github.com/anddea/revanced-patches/commit/926b0f269b4cb1b5401e1b07baee6480410f9665))
+* **YouTube Music:** Add offline audio downloads ([b262096](https://github.com/anddea/revanced-patches/commit/b262096b243584374c7bcfd2fd8451a7418c4ee6))
+
 # [4.3.0-dev.7](https://github.com/anddea/revanced-patches/compare/v4.3.0-dev.6...v4.3.0-dev.7) (2026-09-18)
 
 
