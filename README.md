@@ -110,6 +110,7 @@
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 8.12.54 ~ 9.15.51 |
 | `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 8.12.54 ~ 9.15.51 |
 | `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 8.12.54 ~ 9.15.51 |
+| `Downloads` | Adds support to download songs for offline playback inside YouTube Music. | 8.12.54 ~ 9.15.51 |
 | `Enable debug logging` | Adds an option for debugging. | 8.12.54 ~ 9.15.51 |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 8.12.54 ~ 9.15.51 |
 | `Flyout menu components` | Adds options to hide or change flyout menu components. | 8.12.54 ~ 9.15.51 |
@@ -137,7 +138,7 @@
 | `Spoof app version for lyrics` | Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI. | 8.12.54 ~ 9.15.51 |
 | `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 8.12.54 ~ 9.15.51 |
 | `Theme` | Changes the app's dark theme to the values specified in patch options. | 8.12.54 ~ 9.15.51 |
-| `Third-party lyrics` | Adds an option to show synced lyrics from LRCLIB or KuGou in the lyrics panel. | 9.15.51 |
+| `Third-party lyrics` | Adds an option to show synced lyrics with experience enhancement from 15+ providers in the lyrics panel. | 9.15.51 |
 | `Track crossfade` | Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op. | 8.12.54 ~ 9.15.51 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 8.12.54 ~ 9.15.51 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 8.12.54 ~ 9.15.51 |
