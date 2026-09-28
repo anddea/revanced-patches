@@ -24,6 +24,8 @@ DEPENDENCIES = [
     ('org/apache/commons/commons-lang3/3.20.0/commons-lang3-3.20.0.jar', '69e5c9fa35da7a51a5fd2099dfe56a2d8d32cf233e2f6d770e796146440263f4'),
 ]
 EXTRACTED = {
+    'NativePlaybackMethods': ('../../shared/VideoInformation', ['isPlayerPlaying']),
+    'TtsPlaybackMethods': ('TtsEngine', ['pause', 'resume', 'startPlayer', 'setPlaybackRate', 'startPreparedPlayback']),
     'GooglePauseMethods': ('GoogleVoiceOverTranslationPatch', [
         'startAutomaticTranslation', 'clearNativeStartupAudio', 'checkStartupReady',
         'onPlaybackPaused', 'onVoiceChanged', 'reloadTranscript', 'suspendTranslation',
@@ -34,6 +36,7 @@ EXTRACTED = {
         'isCurrentTranslationRequestGeneration', 'pauseVideoForTranslation',
         'resumeVideoAfterTranslationReady', 'startTranslationRequest',
         'shouldPlayTranslationAudio', 'startAutomaticTranslation',
+        'resumeAudio', 'pauseAudio',
     ]),
 }
 # Only deterministic stand-ins and the two logging lambdas are excluded. Production pause
@@ -65,7 +68,7 @@ def extract_method(source, name):
         elif source[end] == '}':
             depth -= 1
         end += 1
-    return source[start:end].replace('private static', 'static')
+    return source[start:end].replace('private static', 'static').replace('private void', 'void')
 
 
 def main():
@@ -94,6 +97,12 @@ def main():
     for target, (origin, methods) in EXTRACTED.items():
         source = (MAIN / RELATIVE_PACKAGE / f'{origin}.java').read_text()
         body = '\n'.join(extract_method(source, method) for method in methods)
+        if target == 'YandexPauseMethods':
+            callbacks = re.findall(r'mp.setOnPreparedListener\(player -> Utils.runOnMainThread\(\(\) -> \{(.*?)\n            \}\)\);', source, re.S)
+            if len(callbacks) != 2:
+                raise ValueError('Expected both Yandex preparation callbacks')
+            for name, callback in zip(('filePrepared', 'directPrepared'), callbacks):
+                body += '\n    static void ' + name + '(MediaPlayer player, MediaPlayer mp, long requestId, String videoId) {' + callback + '\n    }'
         template = (HERE / f'{target}.java.in').read_text()
         (generated / f'{target}.java').write_text(template.replace('// PRODUCTION_METHODS', body))
     preference = (MAIN / 'app/morphe/extension/shared/settings/preference/AbstractPreferenceFragment.java').read_text()

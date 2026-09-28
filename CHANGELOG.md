@@ -1,3 +1,10 @@
+## [4.3.1-dev.1](https://github.com/anddea/revanced-patches/compare/v4.3.0...v4.3.1-dev.1) (2026-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - Voice over translation:** Prevent translated audio from starting while video is paused ([#1832](https://github.com/anddea/revanced-patches/issues/1832)) ([7522fe2](https://github.com/anddea/revanced-patches/commit/7522fe2dbb20474b210048a97940ebf123a04e4a))
+
 # [4.3.0](https://github.com/anddea/revanced-patches/compare/v4.2.0...v4.3.0) (2026-09-28)
 
 

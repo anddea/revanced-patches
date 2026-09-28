@@ -1,0 +1,36 @@
+package app.morphe.extension.youtube.patches.voiceovertranslation;
+
+import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.shared.VideoInformation;
+
+class TtsPlaybackBoundaries {
+    MediaPlayer currentPlayer;
+    float currentPlaybackRate = 1.0f;
+    boolean currentPlaybackFollowsVideo;
+
+    static class PlaybackParams {
+        float speed;
+        PlaybackParams setSpeed(float value) { speed = value; return this; }
+    }
+    static class MediaPlayer {
+        boolean playing, fail;
+        int starts, pauses, rateChanges, position, seeks;
+        float rate = 1.0f;
+        boolean isPlaying() {
+            if (fail) throw new IllegalStateException("released audio");
+            return playing;
+        }
+        void start() { starts++; playing = true; }
+        void pause() { pauses++; playing = false; }
+        void seekTo(int time) { seeks++; position = time; }
+        void setPlaybackParams(PlaybackParams params) {
+            rateChanges++;
+            rate = params.speed;
+            playing = true;
+        }
+    }
+}
+
+public class TtsPlaybackMethods extends TtsPlaybackBoundaries {
+    // PRODUCTION_METHODS
+}

@@ -13,6 +13,7 @@ The normal Android unit suite also runs `TranslationPlaybackStateTest` through `
 
 - Compile the actual `TranslationPlaybackState` and `TranslationPlaybackController` sources against deterministic Android/player/provider boundaries.
 - Extract the actual Yandex and Google pause-related method bodies from the current checkout on every run. The generated classes change only the enclosing class and private method visibility; the bodies are not maintained as test copies.
+- Extract both Yandex prepared-audio callbacks, the native playback-state reader, and the shared Google audio player's start/resume/speed methods. Model an accepted play command that leaves the video idle, delayed speech preparation, stale callbacks, and Android's implicit start when playback parameters change. Voice previews remain independent of video playback.
 - Exercise automatic-only startup holds, unselected manual playback, manual-request recreation, pre-request settings changes, suppressed autoplay recovery on a new manual-mode video, metadata ownership, manual play/pause, completion during player recreation, duplicate metadata, provider switching, cancellation/failure, automatic dispatch, watch-page loading, both Google speech engines, voice changes, transcript replacement, native synthesis completion, stale audio reads, and same/new-video transitions.
 - Exercise the actual preference listener and YouTube callback against storage/UI stand-ins, including cache synchronization before dispatch. These 11 integration tests are outside the PIT pause-method target set.
 - Mutate all compiled pause methods with PIT's `ALL` operators. Exclude only test-boundary implementations and two logging lambdas, listed explicitly in `run.py`.
@@ -21,7 +22,7 @@ The fixtures control scheduling, synthesis completion, cached audio, player stat
 
 ## Baseline result
 
-239 tests passed. Two additional seeded preference-integration mutations (missing playback dispatch and stale setting cache) are killed by assertions. PIT generated 1,095 mutations: 1,076 killed, 19 survived, none uncovered. Reports are generated at `build/translation-playback-tests/mutation-report/`.
+258 tests passed. Two additional seeded preference-integration mutations (missing playback dispatch and stale setting cache) are killed by assertions. PIT generated 1,272 mutations: 1,244 killed, 28 survived, none uncovered. Reports are generated at `build/translation-playback-tests/mutation-report/`.
 
 The surviving mutations were reviewed, not hidden by a percentage threshold:
 
@@ -32,5 +33,7 @@ The surviving mutations were reviewed, not hidden by a percentage threshold:
 | Google null checks | 5 | The receiver is already required by a preceding access or null guard. A missing duration still reaches the same caught failure when the explicit null check is removed. |
 | Google main-thread checks | 3 | Calls deeper in the same operation enforce the main-thread requirement as well. |
 | Google error logging | 2 | Removing the log does not change the failed-request release. |
+| Native/audio null guards | 6 | Removing the guard reaches an access inside an existing exception handler and leaves playback stopped. The native reader still returns false. |
+| Audio error logging | 3 | Removing a diagnostic does not change the handling of a released audio player. |
 
 A surviving mutation is not proof of correctness. Keep these limits visible, and re-review the XML report when the implementation or fixtures change.

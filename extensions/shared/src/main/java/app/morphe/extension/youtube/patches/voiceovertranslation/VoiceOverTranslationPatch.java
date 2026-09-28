@@ -142,7 +142,7 @@ public class VoiceOverTranslationPatch {
         VideoInformation.addOnPlaybackSpeedChangeListener(() -> mainHandler.post(() -> {
             if (!shouldPlayTranslationAudio()) return;
             MediaPlayer p = mediaPlayer.get();
-            if (p != null) applyPlaybackSpeedToPlayer(p);
+            if (p != null && p.isPlaying()) applyPlaybackSpeedToPlayer(p);
         }));
     }
 
@@ -799,8 +799,8 @@ public class VoiceOverTranslationPatch {
                 player.setVolume(vol, vol);
                 long videoTime = VideoInformation.getVideoTime();
                 if (videoTime > 0) player.seekTo((int) videoTime);
-                boolean videoResumed = resumeVideoAfterTranslationReady(videoId, requestId);
-                if (shouldPlayTranslationAudio() || videoResumed) {
+                resumeVideoAfterTranslationReady(videoId, requestId);
+                if (shouldPlayTranslationAudio()) {
                     applyPlaybackSpeedToPlayer(player);
                     player.start();
                 } else {
@@ -867,8 +867,8 @@ public class VoiceOverTranslationPatch {
                 long videoTime = VideoInformation.getVideoTime();
                 if (videoTime > 0) player.seekTo((int) videoTime);
 
-                boolean videoResumed = resumeVideoAfterTranslationReady(videoId, requestId);
-                if (shouldPlayTranslationAudio() || videoResumed) {
+                resumeVideoAfterTranslationReady(videoId, requestId);
+                if (shouldPlayTranslationAudio()) {
                     applyPlaybackSpeedToPlayer(player);
                     player.start();
                 } else {

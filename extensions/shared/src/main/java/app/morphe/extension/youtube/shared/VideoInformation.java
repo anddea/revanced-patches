@@ -742,7 +742,7 @@ public final class VideoInformation {
             try { return player.patch_isPlaying(); }
             catch (Exception ex) { Logger.printDebug(() -> "Cannot read playback state: " + ex); }
         }
-        return VideoState.getCurrent() == VideoState.PLAYING;
+        return false;
     }
 
     /**
