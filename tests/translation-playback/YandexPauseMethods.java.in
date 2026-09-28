@@ -13,6 +13,34 @@ class YandexPauseBoundaries {
     static boolean shortsPlaybackPaused, active;
     static int clears, notified, requests, toggles;
     static long requestGeneration;
+    static AtomicReference<MediaPlayer> mediaPlayer = new AtomicReference<>();
+    static boolean isPaused;
+    static Handler mainHandler = new Handler();
+    static Runnable proxyPrepareTimeoutRunnable = () -> {};
+
+    static class Handler {
+        int removed;
+        void removeCallbacks(Runnable r) { removed++; }
+    }
+
+    static class MediaPlayer {
+        boolean playing;
+        int starts, pauses, position, speedUpdates, seeks;
+        float volume;
+        boolean isPlaying() { return playing; }
+        void start() { starts++; playing = true; }
+        void pause() { pauses++; playing = false; }
+        void seekTo(int time) { seeks++; position = time; }
+        void setVolume(float left, float right) { volume = left; }
+    }
+
+    static void applyPlaybackSpeedToPlayer(MediaPlayer player) {
+        player.speedUpdates++;
+        // Android setPlaybackParams can start a prepared or paused MediaPlayer.
+        player.playing = true;
+    }
+
+    static void stopAudioPlayback() { mediaPlayer.set(null); }
 
     static void clearTranslationRequestProgress() {
         clears++;

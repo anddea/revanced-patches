@@ -1,6 +1,10 @@
 package app.morphe.extension.youtube.settings;
 
 public class Settings {
+    public static final Volume VOT_TRANSLATION_VOLUME = new Volume();
+    public static class Volume {
+        public int get() { return 100; }
+    }
     public static final Flag GOOGLE_VOT_SESSION_ENABLED = new Flag("session");
 
     public static class Flag {

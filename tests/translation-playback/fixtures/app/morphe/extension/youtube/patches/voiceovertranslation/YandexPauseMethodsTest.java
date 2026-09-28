@@ -32,10 +32,138 @@ public class YandexPauseMethodsTest {
                 YandexPauseMethods.notified =
                         YandexPauseMethods.requests = YandexPauseMethods.toggles = 0;
         YandexPauseMethods.requestGeneration = 0;
+        YandexPauseMethods.mediaPlayer.set(null);
+        YandexPauseMethods.isPaused = false;
+        YandexPauseMethods.mainHandler.removed = 0;
+        VideoInformation.time = 0;
     }
 
     private boolean held() {
         return TranslationPlaybackController.isWaiting(YANDEX, "a");
+    }
+
+    @Test
+    public void restoredMiniplayerDoesNotPlaySpeechWhenPlayCommandSucceedsButVideoStaysIdle() throws Exception {
+        for (boolean file : new boolean[] {false, true}) {
+            before();
+            VideoInformation.deferPlay = true;
+            VideoInformation.time = 658000;
+            var audio = new YandexPauseMethods.MediaPlayer();
+            YandexPauseMethods.mediaPlayer.set(audio);
+            if (file) YandexPauseMethods.filePrepared(audio, audio, 1, "a");
+            else YandexPauseMethods.directPrepared(audio, audio, 1, "a");
+            assertFalse(held());
+            assertFalse(VideoInformation.playing);
+            assertFalse("Speech started without video; file=" + file, audio.playing);
+            assertEquals(0, audio.speedUpdates);
+            assertEquals(0, audio.starts);
+            VideoInformation.playing = true;
+            YandexPauseMethods.resumeAudio(-1);
+            assertTrue(audio.playing);
+            assertEquals(658000, audio.position);
+            assertEquals(1, audio.starts);
+            YandexPauseMethods.pauseAudio();
+            VideoInformation.playing = false;
+            YandexPauseMethods.resumeAudio(659000);
+            assertFalse(audio.playing);
+            assertEquals(1, audio.starts);
+            assertEquals(1, audio.speedUpdates);
+            assertEquals(1.0f, audio.volume, 0);
+            assertTrue(YandexPauseMethods.isPaused);
+        }
+    }
+
+    private void prepare(boolean file, YandexPauseMethods.MediaPlayer audio) {
+        if (file) YandexPauseMethods.filePrepared(audio, audio, 1, "a");
+        else YandexPauseMethods.directPrepared(audio, audio, 1, "a");
+    }
+
+    @Test
+    public void preparedSpeechPreservesManualPauseAndSeeksBeforeAnyPlayback() throws Exception {
+        for (boolean file : new boolean[] {false, true}) {
+            before();
+            TranslationPlaybackController.overridePlayWhenReady(VideoInformation.player, false);
+            var audio = new YandexPauseMethods.MediaPlayer();
+            YandexPauseMethods.mediaPlayer.set(audio);
+            VideoInformation.time = 1;
+            prepare(file, audio);
+            assertFalse(audio.playing);
+            assertTrue(YandexPauseMethods.isPaused);
+            assertEquals(1, audio.position);
+            assertEquals(1, audio.seeks);
+            assertEquals(1.0f, audio.volume, 0);
+            assertEquals(file ? 0 : 1, YandexPauseMethods.mainHandler.removed);
+            VideoInformation.playing = true;
+            YandexPauseMethods.resumeAudio(0);
+            assertEquals(0, audio.position);
+            assertEquals(1, audio.speedUpdates);
+            assertFalse(YandexPauseMethods.isPaused);
+            YandexPauseMethods.resumeAudio(2000);
+            assertEquals(1, audio.starts);
+            assertEquals(0, audio.position);
+            YandexPauseMethods.pauseAudio();
+            assertTrue(YandexPauseMethods.isPaused);
+            YandexPauseMethods.pauseAudio();
+            assertEquals(1, audio.pauses);
+            YandexPauseMethods.resumeAudio(4000);
+            assertEquals(4000, audio.position);
+            assertEquals(2, audio.starts);
+        }
+    }
+
+    @Test
+    public void obsoletePreparationCannotStartOrReplaceCurrentAudio() throws Exception {
+        for (boolean file : new boolean[] {false, true}) {
+            before();
+            var old = new YandexPauseMethods.MediaPlayer();
+            var replacement = new YandexPauseMethods.MediaPlayer();
+            YandexPauseMethods.mediaPlayer.set(replacement);
+            prepare(file, old);
+            assertSame(replacement, YandexPauseMethods.mediaPlayer.get());
+            assertEquals(0, old.starts);
+            assertTrue(held());
+            YandexPauseMethods.mediaPlayer.set(old);
+            YandexPauseMethods.translationRequestGeneration.incrementAndGet();
+            prepare(file, old);
+            assertNull(YandexPauseMethods.mediaPlayer.get());
+            assertEquals(0, old.starts);
+            assertTrue(held());
+        }
+    }
+
+    @Test
+    public void uninitializedPositionDoesNotSeekAndAudioControlsTolerateMissingPlayer() throws Exception {
+        for (boolean file : new boolean[] {false, true}) {
+            before();
+            TranslationPlaybackController.overridePlayWhenReady(VideoInformation.player, false);
+            var audio = new YandexPauseMethods.MediaPlayer();
+            YandexPauseMethods.mediaPlayer.set(audio);
+            VideoInformation.time = -1;
+            prepare(file, audio);
+            assertEquals(0, audio.seeks);
+            assertFalse(audio.playing);
+            YandexPauseMethods.mediaPlayer.set(null);
+            VideoInformation.playing = true;
+            YandexPauseMethods.resumeAudio(0);
+            YandexPauseMethods.pauseAudio();
+            assertTrue(YandexPauseMethods.isPaused);
+        }
+    }
+
+    @Test
+    public void alreadyPlayingVideoStartsPreparedSpeech() throws Exception {
+        for (boolean file : new boolean[] {false, true}) {
+            before();
+            var audio = new YandexPauseMethods.MediaPlayer();
+            YandexPauseMethods.mediaPlayer.set(audio);
+            if (file) YandexPauseMethods.filePrepared(audio, audio, 1, "a");
+            else YandexPauseMethods.directPrepared(audio, audio, 1, "a");
+            assertTrue(VideoInformation.playing);
+            assertTrue(audio.playing);
+            assertEquals(1, audio.starts);
+            assertEquals(1, audio.speedUpdates);
+            assertEquals(0, audio.seeks);
+        }
     }
 
     @Test
