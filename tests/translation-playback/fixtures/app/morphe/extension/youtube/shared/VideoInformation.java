@@ -15,6 +15,7 @@ public class VideoInformation {
     public static Object player;
     public static String id = "";
     public static boolean playing, fail, available = true;
+    public static boolean deferPlay;
     public static int playCalls, pauseCalls;
 
     public static boolean isCurrentPlayer(Object p) {
@@ -34,7 +35,8 @@ public class VideoInformation {
         if (!available) return false;
         if (value) playCalls++;
         else pauseCalls++;
-        playing = TranslationPlaybackController.overridePlayWhenReady(player, value);
+        boolean requested = TranslationPlaybackController.overridePlayWhenReady(player, value);
+        playing = requested && !deferPlay;
         return true;
     }
 

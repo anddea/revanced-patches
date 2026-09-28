@@ -21,7 +21,8 @@ public class TranslationPlaybackControllerTest {
 
     @Before
     public void before() throws Exception {
-        for (Field f : Settings.class.getFields()) ((Settings.Flag) f.get(null)).value = false;
+        for (Field f : Settings.class.getFields())
+            if (f.get(null) instanceof Settings.Flag flag) flag.value = false;
         Field f = TranslationPlaybackController.class.getDeclaredField("state");
         f.setAccessible(true);
         state = (TranslationPlaybackState) f.get(null);
@@ -42,6 +43,7 @@ public class TranslationPlaybackControllerTest {
         VideoInformation.player = new Object();
         VideoInformation.playing = false;
         VideoInformation.fail = false;
+        VideoInformation.deferPlay = false;
         VideoInformation.available = true;
         VideoInformation.playCalls = VideoInformation.pauseCalls = 0;
         VoiceOverTranslationPatch.pending = "";
