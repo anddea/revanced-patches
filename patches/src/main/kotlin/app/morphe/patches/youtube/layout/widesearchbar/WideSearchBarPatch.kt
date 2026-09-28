@@ -17,6 +17,7 @@ import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YO
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.patch.PatchList.WIDE_SEARCH_BAR
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_02_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -30,8 +31,8 @@ private const val EXTENSION_CLASS = "Lapp/morphe/extension/youtube/patches/WideS
 
 @Suppress("unused")
 val wideSearchBarPatch = bytecodePatch(
-    name = WIDE_SEARCH_BAR.title,
-    description = WIDE_SEARCH_BAR.summary,
+    WIDE_SEARCH_BAR.title,
+    WIDE_SEARCH_BAR.summary,
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -77,6 +78,8 @@ val wideSearchBarPatch = bytecodePatch(
             }
         }
 
-        applyYouTabWideSearchBar2031()
+        if (is_21_02_or_greater) {
+            applyYouTabWideSearchBar2031()
+        }
     }
 }

@@ -1,6 +1,6 @@
 # Copyright (C) 2026 anddea
 
-"""Create updated_strings.xml files based on a list of keys from an input text file."""
+"""Update translation overlays and copy selected strings between app resources."""
 
 from __future__ import annotations
 
@@ -18,6 +18,11 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 logger = logging.getLogger("xml_tools")
+
+OTHER_APP: dict[str, str] = {
+    "youtube": "music",
+    "music": "youtube",
+}
 
 
 def replace_element(existing_elem: ET.Element, new_elem: ET.Element) -> None:
@@ -72,6 +77,53 @@ def append_new_strings(root: ET.Element, new_elements: dict[str, ET.Element]) ->
     return added_count
 
 
+def merge_strings_file(
+    target_path: Path,
+    strings_to_merge: dict[str, dict[str, str]],
+) -> tuple[int, int]:
+    """Merge selected string elements into a destination XML file.
+
+    Existing elements are replaced in place and missing elements are appended. A
+    new ``resources`` document is created when the destination file does not yet
+    exist. Invalid existing XML is never overwritten.
+
+    Args:
+        target_path: Destination XML file.
+        strings_to_merge: String data keyed by resource name.
+
+    Returns:
+        A tuple containing the number of replaced and appended elements.
+
+    """
+    if not strings_to_merge:
+        return 0, 0
+
+    try:
+        new_elements = parse_string_elements(strings_to_merge)
+        if not new_elements:
+            logger.warning("No valid string elements could be merged into %s.", target_path)
+            return 0, 0
+
+        if not target_path.exists() or target_path.stat().st_size == 0:
+            root = ET.Element("resources")
+        else:
+            _, root, _ = XMLProcessor.parse_file(target_path)
+            if root is None:
+                logger.error("Failed to parse existing destination file: %s", target_path)
+                return 0, 0
+
+        updated_count = update_existing_strings(root, new_elements)
+        added_count = append_new_strings(root, new_elements)
+        if updated_count or added_count:
+            XMLProcessor.write_file(target_path, root)
+
+    except Exception:
+        logger.exception("Failed to merge strings into %s", target_path)
+        return 0, 0
+    else:
+        return updated_count, added_count
+
+
 def get_keys_from_xml(file_path: Path) -> set[str]:
     """Parse an XML file and return the set of keys ('name' attributes).
 
@@ -106,8 +158,8 @@ def extract_keys_from_file(input_file_path: Path) -> set[str]:
 
     """
     keys_found: set[str] = set()
-    # Regex to find name="key_here" patterns, capturing the key
-    key_pattern = re.compile(r'name="(\w+)"')
+    # Match name attributes in XML snippets or lines copied from a diff.
+    key_pattern = re.compile(r"""\bname\s*=\s*["']([^"']+)["']""")
 
     try:
         with input_file_path.open("r", encoding="utf-8") as f:
@@ -285,3 +337,115 @@ def process(app: str, input_file_path: Path) -> None:
 
     except Exception:
         logger.exception("An error occurred while processing translation directories for app '%s'", app)
+
+
+def _copy_translation_directory(
+    source_lang_dir: Path,
+    target_lang_dir: Path,
+    keys_to_copy: set[str],
+) -> tuple[int, int]:
+    """Copy requested translated strings between matching language directories."""
+    source_path = source_lang_dir / "strings.xml"
+    target_path = target_lang_dir / "strings.xml"
+
+    if not source_path.is_file():
+        logger.debug("Skipping %s because %s does not exist.", target_lang_dir.name, source_path)
+        return 0, 0
+
+    _, _, source_strings = XMLProcessor.parse_file(source_path)
+    strings_to_copy = {key: source_strings[key] for key in keys_to_copy if key in source_strings}
+    if not strings_to_copy:
+        logger.debug("No requested strings found in source translation %s.", source_path)
+        return 0, 0
+
+    return merge_strings_file(target_path, strings_to_copy)
+
+
+def copy_between_apps(source_app: str, input_file_path: Path) -> None:
+    """Copy requested host strings and translations to the other app.
+
+    The input file is parsed in the same way as :func:`process`: every
+    ``name`` attribute found in it is treated as a requested resource key. The
+    source host file is the authority for which keys are eligible. Matching
+    translated entries are then copied into language directories present in
+    both applications.
+
+    Args:
+        source_app: Source application (``youtube`` or ``music``).
+        input_file_path: File containing XML ``name`` attributes to copy.
+
+    """
+    target_app = OTHER_APP.get(source_app)
+    if target_app is None:
+        logger.error("Unsupported source application '%s'.", source_app)
+        return
+
+    settings = Settings()
+    keys_from_input = extract_keys_from_file(input_file_path)
+    if not keys_from_input:
+        logger.error("No keys extracted from the input file. Aborting copy process.")
+        return
+
+    source_host_path = settings.get_resource_path(source_app, "settings") / "host/values/strings.xml"
+    _, _, source_host_strings = XMLProcessor.parse_file(source_host_path)
+    if not source_host_strings:
+        logger.error("Could not parse source strings from %s. Aborting.", source_host_path)
+        return
+
+    strings_to_copy = filter_host_strings(keys_from_input, source_host_strings, source_host_path)
+    if not strings_to_copy:
+        logger.error("None of the requested keys were found in the source host file. Aborting copy process.")
+        return
+
+    target_host_path = settings.get_resource_path(target_app, "settings") / "host/values/strings.xml"
+    host_updated, host_added = merge_strings_file(target_host_path, strings_to_copy)
+    logger.info(
+        "Copied %d host string(s) from %s to %s (%d replaced, %d appended).",
+        len(strings_to_copy),
+        source_app,
+        target_app,
+        host_updated,
+        host_added,
+    )
+
+    source_translations_dir = settings.get_resource_path(source_app, "translations")
+    target_translations_dir = settings.get_resource_path(target_app, "translations")
+    if not source_translations_dir.is_dir():
+        logger.warning("Source translations directory not found: %s", source_translations_dir)
+        return
+    if not target_translations_dir.is_dir():
+        logger.warning("Target translations directory not found: %s", target_translations_dir)
+        return
+
+    source_languages = {path.name for path in source_translations_dir.iterdir() if path.is_dir()}
+    target_languages = {path.name for path in target_translations_dir.iterdir() if path.is_dir()}
+    matching_languages = sorted(source_languages & target_languages)
+
+    total_updated = 0
+    total_added = 0
+    for language in matching_languages:
+        updated_count, added_count = _copy_translation_directory(
+            source_translations_dir / language,
+            target_translations_dir / language,
+            set(strings_to_copy),
+        )
+        total_updated += updated_count
+        total_added += added_count
+
+    skipped_languages = sorted(source_languages - target_languages)
+    if skipped_languages:
+        logger.info(
+            "Skipped %d source translation language(s) not present in %s: %s",
+            len(skipped_languages),
+            target_app,
+            ", ".join(skipped_languages),
+        )
+
+    logger.info(
+        "Copied requested translations from %s to %s across %d matching language(s) (%d replaced, %d appended).",
+        source_app,
+        target_app,
+        len(matching_languages),
+        total_updated,
+        total_added,
+    )

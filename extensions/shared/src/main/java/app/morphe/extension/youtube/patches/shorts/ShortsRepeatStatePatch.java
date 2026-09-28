@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
+import java.util.Objects;
 
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.settings.Settings;
@@ -71,6 +72,16 @@ public class ShortsRepeatStatePatch {
      * Injection point.
      */
     public static void setYTShortsRepeatEnum(Enum<?> ytEnum) {
+        try {
+            for (Enum<?> ytBehavior : Objects.requireNonNull(ytEnum.getClass().getEnumConstants())) {
+                ShortsLoopBehavior.setYTEnumValue(ytBehavior);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "setYTShortsRepeatEnum failure", ex);
+        }
+    }
+
+    public static void setYTShortsRepeatEnumLegacy(Enum<?> ytEnum) {
         try {
             ShortsLoopBehavior.setYTEnumValue(ytEnum);
         } catch (Exception ex) {

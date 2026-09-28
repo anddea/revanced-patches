@@ -20,6 +20,54 @@ Tap the continue button and allow optimization changes"</string>
     <string name="gms_core_settings_summary">To receive notifications in RVX, enable Cloud Messaging</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it</string>
+    <string name="morphe_ads_channel_whitelist_title">Channel ad whitelist</string>
+    <string name="morphe_aislist_submit_already_blocklisted">This channel is already on the AiSList blocklist</string>
+    <string name="morphe_aislist_submit_already_warnlisted">This channel is already on the AiSList warnlist</string>
+    <string name="morphe_aislist_submit_category_title">Report AI channels</string>
+    <string name="morphe_aislist_submit_dialog_confirm">Report</string>
+    <string name="morphe_aislist_submit_dialog_message">"Submit %s to AiSList, using this video as evidence?
+
+Only report channels that:
+• Use AI voices, visuals, scripts or music as their main content
+• Mass produce content with AI tools and little human work
+
+Do not report channels that only discuss AI, or use AI for some parts of their videos
+
+Reports are public and are reviewed before a channel is added to a list. Removal is only possible through a request on GitHub"</string>
+    <string name="morphe_aislist_submit_failed">Report failed, check your connection</string>
+    <string name="morphe_aislist_submit_failed_channel">Cannot find the channel of this video</string>
+    <string name="morphe_aislist_submit_failed_conflict">AiSList could not save the report, try again later</string>
+    <string name="morphe_aislist_submit_failed_rate_limit">Too many reports were sent, try again later</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList rejected the report</string>
+    <string name="morphe_aislist_submit_flyout_menu_summary">Add an entry to the video menu that reports the channel of a video to AiSList</string>
+    <string name="morphe_aislist_submit_flyout_menu_title">Add report entry to video menu</string>
+    <string name="morphe_aislist_submit_no_username">Set a submitter name in the AI channel filter settings to report channels</string>
+    <string name="morphe_aislist_submit_resolving">Looking up the channel…</string>
+    <string name="morphe_aislist_submit_success">Channel reported and awaiting review</string>
+    <string name="morphe_aislist_submit_title">Report AI channel</string>
+    <string name="morphe_aislist_submit_username_summary">Name shown next to your reports on the public AiSList leaderboard. Reporting is unavailable while this is empty</string>
+    <string name="morphe_aislist_submit_username_title">Submitter name</string>
+    <string name="morphe_app_refresh_rate_default">Default</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">App refresh rate</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">Always</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">Playback portrait</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">Playback fullscreen</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">Playback portrait and fullscreen</string>
+    <string name="morphe_app_refresh_rate_type_title">Override refresh rate</string>
+    <string name="morphe_auto_pause_on_screen_lock_always">Always pause when locked</string>
+    <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pause unless wireless audio is connected</string>
+    <string name="morphe_auto_pause_on_screen_lock_title">Auto pause when device is locked</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
+    <string name="morphe_custom_branding_icon_title">App icon</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Sets the size of the custom splash animation</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Splash animation size</string>
+    <string name="morphe_custom_branding_use_as_system_splash_summary">Uses the selected animation as Android's system splash</string>
+    <string name="morphe_custom_branding_use_as_system_splash_title">Use as system splash</string>
+    <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
+    <string name="morphe_dark_theme_custom_color_title">Custom dark theme color</string>
+    <string name="morphe_dark_theme_title">Dark theme</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Keeps the navigation bar visible while scrolling</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Disable auto-hiding navigation bar</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
@@ -28,6 +76,9 @@ Tap the continue button and allow optimization changes"</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
     <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
+    <string name="morphe_disable_scrolling_speed_limit_title">Disable scrolling speed limit</string>
+    <string name="morphe_disable_system_splash_summary">Makes the static system splash icon transparent</string>
+    <string name="morphe_disable_system_splash_title">Disable system splash</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Expand livestream DVR duration\' may not be available
 
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV Simply\' or \'visionOS\'"</string>
@@ -35,16 +86,49 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_expand_livestream_dvr_duration_title">Expand livestream DVR duration</string>
     <string name="morphe_explore_menu_screen_summary">Choose which components appear in the explore menu</string>
     <string name="morphe_explore_menu_screen_title">Explore menu</string>
-    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\'</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">If it does not work, try force-closing MicroG</string>
+    <string name="morphe_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Using default audio</string>
     <string name="morphe_force_original_audio_summary_on">Using original audio language</string>
     <string name="morphe_force_original_audio_title">Force original audio language</string>
+    <string name="morphe_fullscreen_large_seekbar_title">Enable fullscreen large seekbar</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">Hide the video scale button in the portrait player</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">Show only in fullscreen</string>
+    <string name="morphe_fullscreen_video_scale_button_summary">Tap to cycle Default, Stretch, and Zoom</string>
+    <string name="morphe_fullscreen_video_scale_button_title">Show video scale button</string>
+    <string name="morphe_fullscreen_video_scale_entry_stretch">Stretch (fill screen)</string>
+    <string name="morphe_fullscreen_video_scale_entry_zoom">Zoom (crop to fill)</string>
+    <string name="morphe_fullscreen_video_scale_title">Fullscreen video scale</string>
+    <string name="morphe_hide_aislist_about_summary">"Home and search results are filtered to hide videos from channels flagged by AiSList
+
+Limitations:
+• Filtered AI Shorts may show as an empty space
+• Some AI videos may still show"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"Data is provided by AiSList
+
+Tap here to open AiSlopList.com and see downloads for other platforms"</string>
+    <string name="morphe_hide_aislist_attribution_title" translatable="false">AiSList</string>
+    <string name="morphe_hide_aislist_blocklist_category_title">Blocklist: High confidence</string>
+    <string name="morphe_hide_aislist_hide_home_title">Hide videos in Home</string>
+    <string name="morphe_hide_aislist_hide_search_title">Hide videos in search</string>
+    <string name="morphe_hide_aislist_screen_summary">Hide videos from channels flagged as AI-generated content by the AiSList community list</string>
+    <string name="morphe_hide_aislist_screen_title">AI channel filter</string>
+    <string name="morphe_hide_aislist_stats_blocklist_channels_title">Blocklist channels</string>
+    <string name="morphe_hide_aislist_stats_channels_disabled_summary">Enable a filter to load channels</string>
+    <string name="morphe_hide_aislist_stats_channels_loading_summary">Loading channels…</string>
+    <string name="morphe_hide_aislist_stats_hidden_breakdown">"• Home: %s
+• Search: %s
+• Total: %s"</string>
+    <string name="morphe_hide_aislist_stats_warnlist_channels_title">Warnlist channels</string>
+    <string name="morphe_hide_aislist_warnlist_category_title">Warnlist: Moderate confidence</string>
+    <string name="morphe_hide_auto_dubbed_label_title">Hide \'Auto-dubbed\' label</string>
     <string name="morphe_hide_courses_menu_title">Hide Courses menu</string>
     <string name="morphe_hide_explore_button_title">Hide Explore button</string>
     <string name="morphe_hide_fashion_menu_title">Hide \'Fashion &amp; Beauty\' menu</string>
     <string name="morphe_hide_gaming_menu_title">Hide Gaming menu</string>
     <string name="morphe_hide_get_premium_button_title">Hide \'Get Premium\' button</string>
     <string name="morphe_hide_hype_menu_title">Hide Hype menu</string>
+    <string name="morphe_hide_hyped_label_title">Hide Hyped label</string>
     <string name="morphe_hide_invite_to_message_card_summary">Hides the invite card shown in the Notifications tab Messages section</string>
     <string name="morphe_hide_invite_to_message_card_title">Hide \'Invite others to message\' card</string>
     <string name="morphe_hide_learning_menu_title">Hide Learning menu</string>
@@ -54,10 +138,18 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_hide_music_menu_title">Hide \'Music &amp; TV\' menu</string>
     <string name="morphe_hide_news_menu_title">Hide News menu</string>
     <string name="morphe_hide_playables_menu_title">Hide Playables menu</string>
+    <string name="morphe_hide_player_flyout_audio_track_not_available">"\'Audio Track\' menu is hidden
+
+To show the \'Audio Track\' menu, change \'Spoof video streams\' to any client except \'Android Studio\' and \'Android VR Downgraded\'"</string>
+    <string name="morphe_hide_player_flyout_on_the_go_title">Hide \'On-the-go\' menu</string>
     <string name="morphe_hide_podcasts_menu_title">Hide Podcasts menu</string>
     <string name="morphe_hide_privacy_tos_footer_title">Hide legal and privacy footers</string>
     <string name="morphe_hide_shopping_menu_title">Hide Shopping menu</string>
     <string name="morphe_hide_sports_menu_title">Hide Sports menu</string>
+    <string name="morphe_hide_stats_hidden_24h_reset_title">Reset last 24 hours counter?</string>
+    <string name="morphe_hide_stats_hidden_24h_title">Videos hidden, last 24 hours</string>
+    <string name="morphe_hide_stats_hidden_all_reset_title">Reset all time counter?</string>
+    <string name="morphe_hide_stats_hidden_all_title">Videos hidden, all time</string>
     <string name="morphe_hide_sync_button_title">Hide \'Sync to video\' button</string>
     <string name="morphe_hide_youtube_create_menu_title">Hide YouTube Create menu</string>
     <string name="morphe_hide_youtube_kids_menu_title">Hide YouTube Kids menu</string>
@@ -65,11 +157,17 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_hide_youtube_premium_menu_title">Hide YouTube Premium menu</string>
     <string name="morphe_hide_youtube_studio_menu_title">Hide YouTube Studio menu</string>
     <string name="morphe_hide_youtube_works_menu_title">Hide \'How YouTube works\' menu</string>
+    <string name="morphe_light_theme_custom_color_title">Custom light theme color</string>
+    <string name="morphe_light_theme_title">Light theme</string>
     <string name="morphe_livestream_dvr_not_available">"\'Enable livestream DVR\' may not be available
 
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV Simply\' or \'visionOS\'"</string>
     <string name="morphe_livestream_dvr_summary">Allows seeking on all livestreams, even those that normally restrict it</string>
     <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
+    <string name="morphe_music_package_name_summary">Package name of your installed music app</string>
+    <string name="morphe_music_package_name_title">Music app package name</string>
+    <string name="morphe_notification_dot_color_summary">Changes the color of notification dots</string>
+    <string name="morphe_notification_dot_color_title">Notification dot color</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Cannot sign in to VR, website authentication was not approved</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 is temporarily not available</string>
@@ -78,37 +176,77 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
     <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
-    <string name="morphe_override_initial_video_quality_summary">"Fixes an issue where the default video quality is not applied immediately after the video starts
-
-Limitation: Playback may not work on some devices if 'Spoof video streams' is set to 'Android VR' and 'Force AVC (H.264) codec' is enabled"</string>
-    <string name="morphe_override_initial_video_quality_title">Override initial video quality</string>
+    <string name="morphe_open_channel_of_live_avatar_summary">Prevents the live stream from opening when tapping the channel\'s avatar</string>
+    <string name="morphe_open_channel_of_live_avatar_title">Open channel from live avatar</string>
+    <string name="morphe_open_videos_fullscreen_title">Open videos in fullscreen mode</string>
+    <string name="morphe_override_youtube_music_buttons_summary">Opens your preferred music app instead of the stock YouTube Music app</string>
+    <string name="morphe_override_youtube_music_buttons_title">Override YouTube Music buttons</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Always on</string>
     <string name="morphe_playback_in_feeds_entry_off">Off</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi only</string>
     <string name="morphe_playback_in_feeds_title">Playback in feeds</string>
+    <string name="morphe_player_control_buttons_background_opacity_summary">Adjust the opacity of the background behind the player control buttons and the time bar (0 is invisible, 100 is solid)</string>
+    <string name="morphe_player_control_buttons_background_opacity_title">Control buttons background opacity</string>
+    <string name="morphe_potoken_provider_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
+
+If you are a YouTube Premium user, this setting may not be required"</string>
+    <string name="morphe_potoken_provider_title">PoToken provider</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
+
+To use this feature, turn off \'Spoof video streams\'"</string>
+    <string name="morphe_queue_manager_check_failed_auth">Not logged in</string>
+    <string name="morphe_queue_manager_check_failed_video_id">No video ID</string>
     <string name="morphe_reload_video_summary_off">Reload video button is hidden</string>
     <string name="morphe_reload_video_summary_on">Reload video button is shown</string>
     <string name="morphe_reload_video_title">Show reload video button</string>
+    <string name="morphe_remember_livestream_position_summary">For ongoing livestreams, remembers and resumes your playback position instead of seeking to the current live position</string>
+    <string name="morphe_remember_livestream_position_title">Remember livestream playback position</string>
+    <string name="morphe_remember_livestream_position_user_dialog_message">This feature does not work with 24/7 livestreams and other streams that are \'always on\'</string>
     <string name="morphe_replace_links_with_shortener_summary">Forces live streams and Shorts to use the shortened youtu.be URL format</string>
     <string name="morphe_replace_links_with_shortener_title">Change share links to youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Change share links to youtube.com</string>
+    <string name="morphe_restore_old_player_buttons_summary">Uses the older video player layout for custom overlay buttons</string>
+    <string name="morphe_restore_old_player_buttons_title">Restore old player button style</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking query parameter is removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_title">Sanitize sharing links</string>
+    <string name="morphe_save_to_watch_later_already_exists_toast">This video is already saved in watch later playlist</string>
+    <string name="morphe_save_to_watch_later_button_summary">Tap to save to Watch later, tap and hold for queue options</string>
+    <string name="morphe_save_to_watch_later_button_title">Show Save to Watch later button</string>
+    <string name="morphe_save_to_watch_later_error_toast">Cannot save this video in watch later playlist</string>
+    <string name="morphe_save_to_watch_later_flyout_title">Save to Watch later</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">Allows saving kid related videos in the \'Watch later\' flyout menu</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_title">Show Save to Watch later button in kids videos</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Allows saving Shorts to the \'Watch later\' playlist from the feed flyout menu</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Save button for Shorts</string>
+    <string name="morphe_save_to_watch_later_success_toast">Video successfully saved in watch later playlist</string>
+    <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Most replayed</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Shows a video thumbnail while dragging the seekbar</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Enable seekbar thumbnails</string>
     <string name="morphe_settings_menu_copy_path">Copied: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Open the standard app settings screen once to populate the list</string>
     <string name="morphe_settings_menu_filter_screen_summary">Hide items on the standard app settings screen by their visible name</string>
     <string name="morphe_settings_menu_filter_screen_title">Settings menu filter</string>
+    <string name="morphe_settings_name_custom_item_hint">Enter a name</string>
+    <string name="morphe_settings_name_empty_warning">Name cannot be empty</string>
+    <string name="morphe_settings_name_entry_1" translatable="false">ReVanced Extended</string>
+    <string name="morphe_settings_name_entry_2" translatable="false">Extras</string>
+    <string name="morphe_settings_name_entry_3" translatable="false">Tweaks</string>
+    <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
+    <string name="morphe_settings_name_title">RVX settings name</string>
+    <string name="morphe_splash_screen_animation_style_entry_2">Color</string>
+    <string name="morphe_splash_screen_animation_style_entry_3">Monochrome</string>
+    <string name="morphe_splash_screen_animation_style_title">Splash screen style</string>
+    <string name="morphe_spoof_video_streams_about_end_early">• Playback may end 1 second early</string>
     <string name="morphe_spoof_video_streams_about_js">• If deobfuscation fails, playback may fail</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Audio track menu is missing</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Force original audio is not available</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• 360° VR immersive mode is not available</string>
     <string name="morphe_spoof_video_streams_about_no_stable_volume">• Stable volume is not available</string>
+    <string name="morphe_spoof_video_streams_about_sign_in_to_vr_required">• Sign in to Android VR is required</string>
     <string name="morphe_spoof_video_streams_about_title">Spoofing side effects</string>
     <string name="morphe_spoof_video_streams_av1_summary_off">Video codec is AVC (H.264) or VP9</string>
     <string name="morphe_spoof_video_streams_av1_summary_on">"Video codec is AVC (H.264), VP9, or AV1
@@ -152,14 +290,104 @@ To sign in, press continue below"</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="morphe_spoof_video_streams_summary_off">"Video streams are not spoofed
 
-Playback may not work"</string>
+Playback may not work
+
+To use this feature, turn off 'PoToken provider'"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Video streams are spoofed
 
 If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">Tap for queue options, tap and hold to save to Watch later</string>
+    <string name="morphe_swap_save_and_queue_actions_title">Swap Save and Queue actions</string>
+    <string name="morphe_tablet_layout_in_player_summary">"Restores the old player layout
+
+Limitation: If \'Restore old video action bar\' is turned off, \'More videos\' overlay may not be available"</string>
+    <string name="morphe_tablet_layout_in_player_title">Enable tablet layout in player</string>
+    <string name="morphe_theme_color_change_foreground_summary">Use the theme color for text and icons</string>
+    <string name="morphe_theme_color_change_foreground_title">Change foreground color</string>
+    <string name="morphe_theme_entry_amoled_black">Amoled Black</string>
+    <string name="morphe_theme_entry_classic_youtube">Classic (Old YouTube)</string>
+    <string name="morphe_theme_entry_dark_blue">Dark Blue</string>
+    <string name="morphe_theme_entry_dark_green">Dark Green</string>
+    <string name="morphe_theme_entry_dark_orange">Dark Orange</string>
+    <string name="morphe_theme_entry_dark_pink">Dark Pink</string>
+    <string name="morphe_theme_entry_dark_red">Dark Red</string>
+    <string name="morphe_theme_entry_dark_yellow">Dark Yellow</string>
+    <string name="morphe_theme_entry_light_blue">Light Blue</string>
+    <string name="morphe_theme_entry_light_green">Light Green</string>
+    <string name="morphe_theme_entry_light_orange">Light Orange</string>
+    <string name="morphe_theme_entry_light_pink">Light Pink</string>
+    <string name="morphe_theme_entry_light_red">Light Red</string>
+    <string name="morphe_theme_entry_light_yellow">Light Yellow</string>
+    <string name="morphe_theme_entry_material_you_neutral">Material You (Neutral)</string>
+    <string name="morphe_theme_entry_material_you_primary">Material You - Primary</string>
+    <string name="morphe_theme_entry_material_you_secondary">Material You - Secondary</string>
+    <string name="morphe_theme_entry_material_you_tertiary">Material You - Tertiary</string>
+    <string name="morphe_theme_entry_modern_youtube">Modern YouTube</string>
+    <string name="morphe_theme_entry_pale_blue">Pale Blue</string>
+    <string name="morphe_theme_entry_pale_green">Pale Green</string>
+    <string name="morphe_theme_entry_pale_yellow">Pale Yellow</string>
+    <string name="morphe_theme_entry_patch_option">Patch option</string>
+    <string name="morphe_theme_entry_white">White</string>
+    <string name="morphe_theme_settings_summary">Customize the app theme, appearance, and branding</string>
+    <string name="morphe_theme_settings_title">Theme settings</string>
     <string name="morphe_video_quality_prioritize_dialog">If this setting is turned off, then older videos can show no video quality options</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritizes the highest available video quality over codec efficiency</string>
     <string name="morphe_video_quality_prioritize_title">Prioritize video quality</string>
+    <string name="morphe_vot_auto_translate_summary_off">Tap the translation button to start Google translation</string>
+    <string name="morphe_vot_auto_translate_summary_on">Google translation starts automatically for each video</string>
+    <string name="morphe_vot_caption_language_title">Language</string>
+    <string name="morphe_vot_cost_free">Free</string>
+    <string name="morphe_vot_cost_per_hour">%s per 100 video hours</string>
+    <string name="morphe_vot_enabled_title">Voice over translation</string>
+    <string name="morphe_vot_export_api_key_warning">"Your settings contain an OpenRouter API key
+
+Your API key should never be shared. Anyone with access to it can use your OpenRouter credits"</string>
+    <string name="morphe_vot_http_error_message">"The translation service returned HTTP error %s. Your IP address has likely been rate-limited for up to 24 hours
+
+To continue using translations, switch to a different translation provider in settings or use a VPN"</string>
+    <string name="morphe_vot_http_error_title">Translation unavailable</string>
+    <string name="morphe_vot_max_speech_rate_summary">Maximum speed multiplier when fitting speech into a subtitle slot</string>
+    <string name="morphe_vot_max_speech_rate_title">Max speech rate</string>
+    <string name="morphe_vot_mymemory_email_summary">Optional. Enter your MyMemory email address to increase the daily limit from 5,000 to 50,000 characters. Leave empty to use the anonymous limit</string>
+    <string name="morphe_vot_mymemory_email_title">MyMemory email</string>
+    <string name="morphe_vot_mymemory_error">MyMemory translation failed (status %s)</string>
+    <string name="morphe_vot_mymemory_info_summary">"Free translation API, no API key required. Up to 5,000 characters per day on the free tier, or up to 50,000 characters per day with an email address
+
+Tap here to open MyMemory.translated.net"</string>
+    <string name="morphe_vot_mymemory_quota_message_no_email">You\'ve used today\'s free MyMemory translation quota (5,000 characters). Add a MyMemory email in settings to raise the daily limit to 50,000 characters, or switch to a different translation service</string>
+    <string name="morphe_vot_mymemory_quota_message_with_email">You\'ve used today\'s MyMemory translation quota (50,000 characters). Switch to a different translation service or try again tomorrow</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Next available at %s</string>
+    <string name="morphe_vot_mymemory_quota_title">MyMemory daily limit reached</string>
+    <string name="morphe_vot_openrouter_api_key_summary">Your OpenRouter API key. Create a key at OpenRouter.ai &gt; Workspace &gt; API Keys</string>
+    <string name="morphe_vot_openrouter_api_key_title">OpenRouter API key</string>
+    <string name="morphe_vot_openrouter_credits_message">Your OpenRouter credit limit has been reached. Top up your balance or increase your key spending limit at OpenRouter.ai</string>
+    <string name="morphe_vot_openrouter_credits_title">OpenRouter credit limit reached</string>
+    <string name="morphe_vot_openrouter_error">OpenRouter translation failed (HTTP %s)</string>
+    <string name="morphe_vot_openrouter_info_summary">"Paid AI translation via OpenRouter. Top up once and translate thousands of videos. Mistral Nemo is the cheapest option, Gemma 4 offers the highest quality
+
+Tap here to open OpenRouter.ai"</string>
+    <string name="morphe_vot_openrouter_model_deepseek_flash_v4" translatable="false">DeepSeek V4 Flash</string>
+    <string name="morphe_vot_openrouter_model_gemma4_26b_a4b" translatable="false">Gemma 4</string>
+    <string name="morphe_vot_openrouter_model_hint" translatable="false">e.g. qwen/qwen3.5-flash-02-23</string>
+    <string name="morphe_vot_openrouter_model_mistral_nemo" translatable="false">Mistral Nemo</string>
+    <string name="morphe_vot_openrouter_model_title">OpenRouter Model</string>
+    <string name="morphe_vot_openrouter_not_configured_message">Enter your OpenRouter API key in settings before selecting this provider</string>
+    <string name="morphe_vot_openrouter_not_configured_title">OpenRouter not configured</string>
+    <string name="morphe_vot_openrouter_open_website">Open OpenRouter.ai</string>
+    <string name="morphe_vot_original_audio_volume_summary">Volume of the original YouTube audio while the translation is speaking</string>
+    <string name="morphe_vot_service_google" translatable="false">Google Translate</string>
+    <string name="morphe_vot_service_mymemory" translatable="false">MyMemory</string>
+    <string name="morphe_vot_service_openrouter" translatable="false">OpenRouter</string>
+    <string name="morphe_vot_translation_service_title">Translation provider</string>
+    <string name="morphe_vot_translation_volume_summary">Volume of the dubbed translation voice</string>
+    <string name="morphe_vot_tts_sample">It\'s morphing time!</string>
+    <string name="morphe_vot_tts_system">System</string>
+    <string name="morphe_vot_tts_voice_type">Voice</string>
+    <string name="morphe_vot_voice_gender_female">Female</string>
+    <string name="morphe_vot_voice_gender_female_multilingual">Multilingual female</string>
+    <string name="morphe_vot_voice_gender_male">Male</string>
+    <string name="morphe_vot_voice_gender_male_multilingual">Multilingual male</string>
     <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown</string>
     <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown</string>
     <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
@@ -215,6 +443,9 @@ Tap and hold to toggle the appended information type"</string>
     <string name="revanced_auto_captions_style_entry_3">Show when unmuted</string>
     <string name="revanced_auto_captions_style_entry_4">Show when muted</string>
     <string name="revanced_auto_captions_style_title">Auto captions visibility</string>
+    <string name="revanced_back_button_always_exits_feed_summary_off">Pressing back scrolls to the top of the feed</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">Pressing back always exits the feed/app</string>
+    <string name="revanced_back_button_always_exits_feed_title">Back press in feed</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ambient mode is disabled in battery saver mode</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Ambient mode is enabled in battery saver mode</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Bypass Ambient mode restrictions</string>
@@ -260,10 +491,12 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_change_start_page_entry_all_subscriptions">All subscriptions</string>
     <string name="revanced_change_start_page_entry_browse">Browse channels</string>
     <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
+    <string name="revanced_change_start_page_entry_create">Create</string>
     <string name="revanced_change_start_page_entry_explore">Explore</string>
     <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Beauty</string>
     <string name="revanced_change_start_page_entry_gaming">Gaming</string>
     <string name="revanced_change_start_page_entry_history">History</string>
+    <string name="revanced_change_start_page_entry_home">Home</string>
     <string name="revanced_change_start_page_entry_hype">Hype</string>
     <string name="revanced_change_start_page_entry_library">Library</string>
     <string name="revanced_change_start_page_entry_liked_videos">Liked videos</string>
@@ -275,6 +508,7 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_change_start_page_entry_playlists">Playlists</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_search">Search</string>
+    <string name="revanced_change_start_page_entry_settings">Settings</string>
     <string name="revanced_change_start_page_entry_shopping">Shopping</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Sports</string>
@@ -303,6 +537,10 @@ Limitation: Back button on the toolbar may not work"</string>
     <string name="revanced_custom_filter_summary_on">Custom filter is enabled</string>
     <string name="revanced_custom_filter_title">Enable custom filter</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_invalid">Custom audio pitches must be between %1$sx and %2$sx</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">Invalid custom audio pitches</string>
+    <string name="revanced_custom_playback_audio_pitches_summary">Add audio pitch presets such as 0.85x or 1.3x, separated by spaces or new lines (0.05x to 8x)</string>
+    <string name="revanced_custom_playback_audio_pitches_title">Edit custom audio pitch presets</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Custom (Legacy)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Custom (Modern)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Custom (No theme)</string>
@@ -332,7 +570,7 @@ Limitation: Back button on the toolbar may not work"</string>
     <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
     <string name="revanced_debug_logs_export_success">Logs were successfully exported</string>
     <string name="revanced_debug_logs_failed_to_copy_to_clipboard">Logs are too large to copy</string>
-    <string name="revanced_debug_logs_failed_to_export">Failed to export logs: $s</string>
+    <string name="revanced_debug_logs_failed_to_export">Failed to export logs: %s</string>
     <string name="revanced_debug_logs_none_found">No logs found</string>
     <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
     <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
@@ -348,6 +586,7 @@ Limitation: Back button on the toolbar may not work"</string>
     <string name="revanced_debug_toast_on_error_title">Show toast on RVX error</string>
     <string name="revanced_default_app_settings_summary">To open YouTube links in RVX, enable Open supported links and enable all the Supported web addresses</string>
     <string name="revanced_default_app_settings_title">Open default app settings</string>
+    <string name="revanced_default_playback_audio_pitch_title">Default playback audio pitch</string>
     <string name="revanced_default_playback_speed_shorts_title">Default playback speed on Shorts</string>
     <string name="revanced_default_playback_speed_title">Default playback speed</string>
     <string name="revanced_default_video_quality_mobile_shorts_title">Default Shorts quality on mobile network</string>
@@ -389,6 +628,9 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_disable_engagement_panel_summary_off">Engagement panel is enabled</string>
     <string name="revanced_disable_engagement_panel_summary_on">Engagement panel is disabled</string>
     <string name="revanced_disable_engagement_panel_title">Disable engagement panel</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_off">Pinch-to-zoom gesture is enabled</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_on">Pinch-to-zoom gesture is disabled</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_title">Disable pinch-to-zoom gesture</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptic feedback is enabled</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptic feedback is disabled</string>
     <string name="revanced_disable_haptic_feedback_chapters_title">Disable chapters haptic feedback</string>
@@ -425,6 +667,9 @@ Changes include:
     <string name="revanced_disable_like_dislike_glow_summary_off">Like and Dislike buttons will glow when mentioned</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Like and Dislike buttons will not glow when mentioned</string>
     <string name="revanced_disable_like_dislike_glow_title">Disable Like and Dislike buttons glow</string>
+    <string name="revanced_disable_playlist_autoplay_summary_off">Playlists automatically advance to the next video</string>
+    <string name="revanced_disable_playlist_autoplay_summary_on">Playlists are prevented from automatically advancing to the next video</string>
+    <string name="revanced_disable_playlist_autoplay_title">Disable playlist autoplay</string>
     <string name="revanced_disable_quic_protocol_summary">"Disables CronetEngine's QUIC protocol"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continue watching&lt;/b&gt; will resume on app startup.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Continue watching&lt;/b&gt; is the YouTube Premium feature&lt;br&gt;• This setting does not force &lt;b&gt;Continue watching&lt;/b&gt; to be enabled</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continue watching&lt;/b&gt; will not resume on app startup</string>
@@ -455,9 +700,6 @@ Note:
 • Disabling the speed overlay restores the Slide to seek behavior of the old layout
 • Disabling this setting does not forcefully enable the speed overlay"</string>
     <string name="revanced_disable_speed_overlay_title">Disable speed overlay</string>
-    <string name="revanced_disable_splash_animation_summary_off">Splash animation is enabled</string>
-    <string name="revanced_disable_splash_animation_summary_on">Splash animation is disabled</string>
-    <string name="revanced_disable_splash_animation_title">Disable splash animation</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Swiping down below the player will enter fullscreen mode</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Swiping down below the player will not enter fullscreen mode</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Disable swipe to enter fullscreen mode (below the player)</string>
@@ -470,9 +712,6 @@ Note:
     <string name="revanced_disable_translucent_navigation_bar_summary_off">Navigation bar is translucent</string>
     <string name="revanced_disable_translucent_navigation_bar_summary_on">Navigation bar is opaque</string>
     <string name="revanced_disable_translucent_navigation_bar_title">Disable translucent navigation bar</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque</string>
-    <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
     <string name="revanced_disable_video_description_interaction_summary">"Disables the following interactions when the video description is expanded:
 
 • Tap to scroll
@@ -516,6 +755,9 @@ Limitations:
     <string name="revanced_enable_narrow_navigation_buttons_title">Enable narrow navigation buttons</string>
     <string name="revanced_enable_opus_codec_summary">Enables the OPUS codec if the player response includes it</string>
     <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_off">Audio pitch controls disabled</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_summary_on">Audio pitch controls enabled</string>
+    <string name="revanced_enable_playback_audio_pitch_controls_title">Enable audio pitch controls</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Seekbar tapping is disabled</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Seekbar tapping is enabled</string>
     <string name="revanced_enable_seekbar_tapping_title">Enable seekbar tapping</string>
@@ -571,11 +813,6 @@ You tab → View channel → Menu → Settings"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Wide search bar disables and uses YouTube header space</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Wide search bar is enabled along with YouTube header</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Enable wide search bar with header</string>
-    <string name="revanced_enter_fullscreen_summary_off">Do not enter fullscreen mode when the video starts</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Enter fullscreen mode when the video starts
-
-Limitation: Does not work if the player is minimized, in PiP mode, or in background"</string>
-    <string name="revanced_enter_fullscreen_title">Enter fullscreen mode when video starts</string>
     <string name="revanced_exit_fullscreen_entry_1">Disabled</string>
     <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
     <string name="revanced_exit_fullscreen_entry_3">Landscape</string>
@@ -621,6 +858,14 @@ Known issue: Sometimes the swipe overlay appears before switching to fullscreen 
     <string name="revanced_fix_transcript_summary_off">Transcript may not be available due to a precondition check failure</string>
     <string name="revanced_fix_transcript_summary_on">Transcript is available</string>
     <string name="revanced_fix_transcript_title">Fix transcript</string>
+    <string name="revanced_force_hdr_video_summary">Forces app to recognize this device as HDR‑capable</string>
+    <string name="revanced_force_hdr_video_title">Force HDR video</string>
+    <string name="revanced_force_hdr_video_user_dialog_message">"Use this if HDR decoding works but YouTube does not offer HDR, such as some HyperOS devices that hide HLG
+
+Limitations:
+• Colors may look wrong if the display cannot actually show HDR
+• Playback may fail if the decoder cannot handle HDR
+• HDR still depends on the spoof video streams client"</string>
     <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed</string>
     <string name="revanced_gemini_cancelled">Canceled</string>
     <string name="revanced_gemini_chat_input_hint">Ask about this video</string>
@@ -727,6 +972,9 @@ Info:
 • Shopping
 • Watch it again"</string>
     <string name="revanced_hide_carousel_shelf_title">Hide carousel shelves</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_off">Shown in comments</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_on">Hidden in comments</string>
+    <string name="revanced_hide_category_bar_in_comments_title">Hide in comments</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">Shown in feeds</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">Hidden in feeds</string>
     <string name="revanced_hide_category_bar_in_feed_title">Hide in feeds</string>
@@ -807,6 +1055,12 @@ Limitation: Some highlighted search links that do not have a default text style 
     <string name="revanced_hide_connect_button_summary_off">Connect button is shown</string>
     <string name="revanced_hide_connect_button_summary_on">Connect button is hidden</string>
     <string name="revanced_hide_connect_button_title">Hide Connect button</string>
+    <string name="revanced_hide_corrections_section_summary_off">Corrections section is shown</string>
+    <string name="revanced_hide_corrections_section_summary_on">Corrections section is hidden</string>
+    <string name="revanced_hide_corrections_section_title">Hide Corrections section</string>
+    <string name="revanced_hide_course_progress_section_summary_off">Course progress section is shown</string>
+    <string name="revanced_hide_course_progress_section_summary_on">Course progress section is hidden</string>
+    <string name="revanced_hide_course_progress_section_title">Hide Course progress section</string>
     <string name="revanced_hide_creator_store_shelf_summary_off">Creator store shelf under videos is shown</string>
     <string name="revanced_hide_creator_store_shelf_summary_on">Creator store shelf under videos is hidden</string>
     <string name="revanced_hide_creator_store_shelf_title">Hide creator store shelf</string>
@@ -843,12 +1097,24 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Expandable shelves are shown</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Expandable shelves are hidden</string>
     <string name="revanced_hide_expandable_shelf_title">Hide expandable shelves</string>
+    <string name="revanced_hide_explore_course_section_summary_off">Explore this course section is shown</string>
+    <string name="revanced_hide_explore_course_section_summary_on">Explore this course section is hidden</string>
+    <string name="revanced_hide_explore_course_section_title">Hide Explore this course section</string>
     <string name="revanced_hide_explore_podcast_section_summary_off">Explore the podcast section is shown</string>
     <string name="revanced_hide_explore_podcast_section_summary_on">Explore the podcast section is hidden</string>
     <string name="revanced_hide_explore_podcast_section_title">Hide Explore the podcast section</string>
+    <string name="revanced_hide_explore_section_summary_off">Explore this course and Explore the podcast sections are shown</string>
+    <string name="revanced_hide_explore_section_summary_on">Explore this course and Explore the podcast sections are hidden</string>
+    <string name="revanced_hide_explore_section_title">Hide Explore section</string>
+    <string name="revanced_hide_featured_channels_section_summary_off">Featured channels section is shown</string>
+    <string name="revanced_hide_featured_channels_section_summary_on">Featured channels section is hidden</string>
+    <string name="revanced_hide_featured_channels_section_title">Hide Featured channels section</string>
     <string name="revanced_hide_featured_links_section_summary_off">Featured links section is shown</string>
     <string name="revanced_hide_featured_links_section_summary_on">Featured links section is hidden</string>
     <string name="revanced_hide_featured_links_section_title">Hide Featured links section</string>
+    <string name="revanced_hide_featured_playlists_section_summary_off">Featured playlists section is shown</string>
+    <string name="revanced_hide_featured_playlists_section_summary_on">Featured playlists section is hidden</string>
+    <string name="revanced_hide_featured_playlists_section_title">Hide Featured playlists section</string>
     <string name="revanced_hide_featured_videos_section_summary_off">Featured videos section is shown</string>
     <string name="revanced_hide_featured_videos_section_summary_on">Featured videos section is hidden</string>
     <string name="revanced_hide_featured_videos_section_title">Hide Featured videos section</string>
@@ -884,9 +1150,12 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_handle_summary_off">Handle is shown</string>
     <string name="revanced_hide_handle_summary_on">Handle is hidden</string>
     <string name="revanced_hide_handle_title">Hide handle</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
-    <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
-    <string name="revanced_hide_how_this_was_made_section_title">Hide How this content was made section</string>
+    <string name="revanced_hide_hashtag_section_summary_off">Hashtag section is shown</string>
+    <string name="revanced_hide_hashtag_section_summary_on">Hashtag section is hidden</string>
+    <string name="revanced_hide_hashtag_section_title">Hide Hashtag section</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_off">\'How this was made\' section is shown</string>
+    <string name="revanced_hide_how_this_was_made_section_summary_on">\'How this was made\' section is hidden</string>
+    <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this was made\' section</string>
     <string name="revanced_hide_hype_button_summary_off">Hype button is shown</string>
     <string name="revanced_hide_hype_button_summary_on">Hype button is hidden</string>
     <string name="revanced_hide_hype_button_title">Hide Hype button</string>
@@ -1159,6 +1428,9 @@ Limitation: All overlay buttons may be hidden after the video ends"</string>
     <string name="revanced_hide_search_bar_back_button_summary_off">Search bar back button is shown</string>
     <string name="revanced_hide_search_bar_back_button_summary_on">Search bar back button is hidden</string>
     <string name="revanced_hide_search_bar_back_button_title">Hide search bar back button</string>
+    <string name="revanced_hide_search_inside_this_video_section_summary_off">Search inside this video section is shown</string>
+    <string name="revanced_hide_search_inside_this_video_section_summary_on">Search inside this video section is hidden</string>
+    <string name="revanced_hide_search_inside_this_video_section_title">Hide Search inside this video section</string>
     <string name="revanced_hide_search_term_thumbnail_summary_off">Thumbnails in search term history are shown</string>
     <string name="revanced_hide_search_term_thumbnail_summary_on">Thumbnails in search term history are hidden</string>
     <string name="revanced_hide_search_term_thumbnail_title">Hide search term thumbnails</string>
@@ -1353,6 +1625,9 @@ Limitations:
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Hide Subscriptions videos by views</string>
     <string name="revanced_hide_video_by_view_counts_summary">Hide recommended videos with less than a specified number of views\n\nKnown issue: Videos with 0 views are not filtered</string>
     <string name="revanced_hide_video_by_view_counts_title">Hide recommended videos by views</string>
+    <string name="revanced_hide_video_details_section_summary_off">Video details section is shown</string>
+    <string name="revanced_hide_video_details_section_summary_on">Video details section is hidden</string>
+    <string name="revanced_hide_video_details_section_title">Hide Video details section</string>
     <string name="revanced_hide_video_recommendation_labels_summary_off">"Thumbnail labels - such as 'People also watched' and 'You might also like' - are hidden"</string>
     <string name="revanced_hide_video_recommendation_labels_title">Hide video recommendation labels</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Videos with views greater than this number will be hidden</string>
@@ -1515,17 +1790,18 @@ Swipe to expand or close"</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexts are shown</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden</string>
     <string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
+    <string name="revanced_miniplayer_hide_title_title">Hide title and channel</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontal drag gesture disabled</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontal drag gesture enabled
 
 Miniplayer can be dragged off-screen to the left or right"</string>
     <string name="revanced_miniplayer_horizontal_drag_title">Enable horizontal drag gesture</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
     <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
     <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
     <string name="revanced_miniplayer_type_entry_2">Minimal</string>
+    <string name="revanced_miniplayer_type_entry_3">Minimal 2</string>
     <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
     <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
     <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
@@ -1536,6 +1812,9 @@ Miniplayer can be dragged off-screen to the left or right"</string>
     <string name="revanced_miniplayer_width_dip_title">Initial size</string>
     <string name="revanced_navigation_bar_animations_summary">Animates transitions when switching between tabs</string>
     <string name="revanced_navigation_bar_animations_title">Enable navigation bar animations</string>
+    <string name="revanced_navigation_bar_order_drag_handle">Drag to reorder</string>
+    <string name="revanced_navigation_bar_order_summary">Drag navigation items into the order in which they should appear</string>
+    <string name="revanced_navigation_bar_order_title">Navigation bar order</string>
     <string name="revanced_open_links_externally_summary_off">Opens links in in-app browser</string>
     <string name="revanced_open_links_externally_summary_on">Opens links in external browser</string>
     <string name="revanced_open_links_externally_title">Open links externally</string>
@@ -1571,6 +1850,10 @@ Summarized and transcribed results are saved unless you closed the app or used G
     <string name="revanced_overlay_button_loop_segment_copy_unavailable_toast">Select loop start and end first</string>
     <string name="revanced_overlay_button_loop_segment_enabled_toast">Looping %1$s - %2$s</string>
     <string name="revanced_overlay_button_loop_segment_invalid_time_toast">Unable to use the current playback time</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_summary">Adjust the size of the A and B seekbar markers</string>
+    <string name="revanced_overlay_button_loop_segment_marker_size_title">A &amp; B size</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_summary">Show the loop range on the seekbar with A and B markers</string>
+    <string name="revanced_overlay_button_loop_segment_seekbar_title">Loop segment</string>
     <string name="revanced_overlay_button_loop_segment_start_toast">Loop start selected: %s</string>
     <string name="revanced_overlay_button_loop_segment_summary">"Tap once to select start, tap again to select end and loop that segment, tap a third time to clear
 Tap and hold to copy a video URL with start and end parameters"</string>
@@ -1627,14 +1910,15 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Native video download button opens the queue manager</string>
     <string name="revanced_override_video_download_button_summary_off">Native video download button opens the native in-app downloader</string>
     <string name="revanced_override_video_download_button_title">Override video download button</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">YouTube Music is required to override button action. Tap here to download YouTube Music</string>
-    <string name="revanced_override_youtube_music_button_about_prerequisite_title">Prerequisite</string>
-    <string name="revanced_override_youtube_music_button_summary_off">YouTube Music button opens the native app</string>
-    <string name="revanced_override_youtube_music_button_summary_on">YouTube Music button opens the RVX Music</string>
-    <string name="revanced_override_youtube_music_button_title">Override YouTube Music button</string>
     <string name="revanced_patched_date_title">Patched date</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Excluded</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Included</font></string>
+    <string name="revanced_playback_audio_pitch_sync">Sync</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_off">Audio pitch is independent of playback speed</string>
+    <string name="revanced_playback_audio_pitch_sync_summary_on">Audio pitch is synced with playback speed</string>
+    <string name="revanced_playback_audio_pitch_title">Audio pitch</string>
+    <string name="revanced_playback_audio_time_stretching_summary">Allows setting speed and pitch independently, may cause audio artifacts</string>
+    <string name="revanced_playback_audio_time_stretching_title">Audio time stretching</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Action buttons</string>
     <string name="revanced_preference_category_additional_settings">Additional settings</string>
@@ -1643,7 +1927,6 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_category_app_info">App info</string>
     <string name="revanced_preference_category_codec">Codec</string>
     <string name="revanced_preference_category_custom_actions">Custom actions</string>
-    <string name="revanced_preference_category_download_button">Download button</string>
     <string name="revanced_preference_category_experimental_flag">Experimental flags</string>
     <string name="revanced_preference_category_image_region_restrictions">Image region restrictions</string>
     <string name="revanced_preference_category_import_export_as_file">Import / Export as file</string>
@@ -1686,6 +1969,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_feed_title">Feed</string>
     <string name="revanced_preference_screen_fullscreen_summary">Hide or change fullscreen related components</string>
     <string name="revanced_preference_screen_fullscreen_title">Fullscreen</string>
+    <string name="revanced_preference_screen_gemini_title" translatable="false">Gemini</string>
     <string name="revanced_preference_screen_general_title">General</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">Disable or enable haptic feedback</string>
     <string name="revanced_preference_screen_haptic_feedback_title">Haptic feedback</string>
@@ -1780,6 +2064,7 @@ Description
     <string name="revanced_quick_actions_top_margin_invalid_toast">Quick actions top margin must be between 0-32</string>
     <string name="revanced_quick_actions_top_margin_summary">Configure the spacing from the seekbar to the quick action container, between 0-32</string>
     <string name="revanced_quick_actions_top_margin_title">Quick actions top margin</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Changed default audio pitch to: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply to the current video</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Playback speed changes apply to all videos</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
@@ -1819,14 +2104,9 @@ This does not bypass the age restriction. It just accepts it automatically"</str
     <string name="revanced_replace_channel_handle_summary_off">Channel handle is used</string>
     <string name="revanced_replace_channel_handle_summary_on">Channel name is used</string>
     <string name="revanced_replace_channel_handle_title">Replace channel handle</string>
-    <string name="revanced_replace_navigation_button_summary">Replaces the navigation button with the Search button</string>
-    <string name="revanced_replace_navigation_button_target_entry_home">Home</string>
-    <string name="revanced_replace_navigation_button_target_title">Replace navigation button</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Tap to show the remaining time</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Tap to open playback speed or video quality flyout menu</string>
     <string name="revanced_replace_time_stamp_action_title">Replace timestamp action</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Replaces the Create button with the Settings button</string>
-    <string name="revanced_replace_toolbar_create_button_title">Replace Create button</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Tap to open YouTube settings
 Tap and hold to open RVX settings"</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Tap to open RVX settings
@@ -2092,7 +2372,9 @@ If you\'re not submitting a highlight, tap Cancel and mark the second location"<
     <string name="revanced_sb_vote_no_segments">There are no segments to vote for</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s to %2$s</string>
     <string name="revanced_sb_vote_upvote">Upvote</string>
+    <string name="revanced_search_in_channel_no_results">No videos found in search results</string>
     <string name="revanced_search_in_channel_query_hint">Search this channel</string>
+    <string name="revanced_search_in_channel_scroll_tip">Scroll down to load more videos before creating a queue</string>
     <string name="revanced_search_in_channel_search_youtube">Search YouTube</string>
     <string name="revanced_search_in_channel_title">Search channel</string>
     <string name="revanced_search_in_channel_use_webview_summary_off">Channel search uses native YouTube search. This will show some irrelevant results</string>
@@ -2138,12 +2420,18 @@ This may not work if:
     <string name="revanced_settings_import_success">Settings were successfully imported</string>
     <string name="revanced_settings_import_summary">Import settings from a saved file</string>
     <string name="revanced_settings_import_title">Import settings</string>
+    <string name="revanced_settings_navigate_up">Navigate up</string>
     <string name="revanced_settings_reset">Reset</string>
     <string name="revanced_settings_reset_color">Reset color</string>
     <string name="revanced_settings_search_clear_history">Clear search history</string>
     <string name="revanced_settings_search_clear_history_message">Are you sure you want to clear all search history?</string>
     <string name="revanced_settings_search_empty_history_summary">To save search history, type a search query and press Enter</string>
     <string name="revanced_settings_search_empty_history_title">Search history is empty</string>
+    <string name="revanced_settings_search_gemini_results">Gemini results</string>
+    <string name="revanced_settings_search_gemini_searching_title">Searching with Gemini…</string>
+    <string name="revanced_settings_search_gemini_summary_off">Gemini is not used for settings search</string>
+    <string name="revanced_settings_search_gemini_summary_on">Gemini is used when local settings search finds no results</string>
+    <string name="revanced_settings_search_gemini_title">Search settings with Gemini</string>
     <string name="revanced_settings_search_history_summary">Save recent search queries to show them when the search bar is empty</string>
     <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
     <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
@@ -2151,6 +2439,7 @@ This may not work if:
     <string name="revanced_settings_search_no_results_summary">Try another keyword</string>
     <string name="revanced_settings_search_no_results_title">No results found for \'%s\'</string>
     <string name="revanced_settings_search_recent_searches">Recent searches</string>
+    <string name="revanced_settings_search_remove">Remove from search history</string>
     <string name="revanced_settings_search_remove_message">Remove from search history?</string>
     <string name="revanced_settings_search_tips_summary">"• Tap a path to navigate to it
 • Long-press a setting to navigate to it
@@ -2159,7 +2448,10 @@ This may not work if:
 • Parent settings appear above disabled child settings"</string>
     <string name="revanced_settings_search_tips_title">Search Tips</string>
     <string name="revanced_settings_search_title">Search %s</string>
-    <string name="revanced_settings_title">RVX</string>
+    <string name="revanced_settings_show_slider_summaries_summary_off">Summaries below slider settings are hidden</string>
+    <string name="revanced_settings_show_slider_summaries_summary_on">Summaries below slider settings are shown</string>
+    <string name="revanced_settings_show_slider_summaries_title">Show summaries for slider settings</string>
+    <string name="revanced_settings_title" translatable="false">RVX</string>
     <string name="revanced_share_copy_timestamp_success">Timestamp copied to clipboard (%s)</string>
     <string name="revanced_share_copy_url_success">URL copied to clipboard</string>
     <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied to clipboard</string>
@@ -2186,9 +2478,9 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">External downloader menu is shown</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Show external downloader menu</string>
     <string name="revanced_shorts_custom_actions_gemini_label">Gemini summary</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_off">Gemini summary menu is hidden</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">Gemini summary menu is shown</string>
-    <string name="revanced_shorts_custom_actions_gemini_title">Show Gemini summary menu</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">The Gemini summary action is hidden from the Shorts custom actions menu</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">The Gemini summary action is shown in the Shorts custom actions menu</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Show Gemini in Shorts</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Open video</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Open video menu is hidden</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Open video menu is shown</string>
@@ -2221,16 +2513,21 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_shorts_player_type_regular_player">Regular player</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
     <string name="revanced_shorts_player_type_title">Open Shorts with</string>
-    <string name="revanced_show_settings_button_index_title">Settings button index</string>
+    <string name="revanced_show_search_button_summary_off">Search button is not shown</string>
+    <string name="revanced_show_search_button_title">Show Search</string>
     <string name="revanced_show_settings_button_summary_off">Settings button is not shown</string>
     <string name="revanced_show_settings_button_summary_on">Settings button is shown</string>
     <string name="revanced_show_settings_button_title">Show Settings</string>
     <string name="revanced_show_settings_button_type_summary_off">Tap to open YouTube settings</string>
     <string name="revanced_show_settings_button_type_summary_on">Tap to open RVX settings</string>
     <string name="revanced_show_settings_button_type_title">Settings button action</string>
+    <string name="revanced_show_toolbar_settings_button_index_title">Toolbar Settings button index</string>
     <string name="revanced_show_toolbar_settings_button_summary_off">Settings button is not shown in the toolbar</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">Settings button is shown in the toolbar</string>
     <string name="revanced_show_toolbar_settings_button_title">Show Settings in toolbar</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_off">Original Settings button action is preserved in the You tab</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_on">Settings button action is applied to the You tab</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_title">Apply to You tab</string>
     <string name="revanced_show_video_title_section_summary">"Shows the video title section in fullscreen
 
 Limitation: Video title disappears when clicked"</string>
@@ -2251,6 +2548,7 @@ Limitation: Video title disappears when clicked"</string>
     <string name="revanced_spoof_app_version_target_entry_20_05_46">20.05.46 - Restore Transcript functionality</string>
     <string name="revanced_spoof_app_version_target_entry_20_13_41">20.13.41 - Restore non collapsed video action bar</string>
     <string name="revanced_spoof_app_version_target_entry_20_20_42">20.20.42 - Restore old components filter</string>
+    <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - Restore old captions behavior</string>
     <string name="revanced_spoof_app_version_target_entry_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Invalid spoof app version: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Type the spoof app version target</string>
@@ -2340,6 +2638,10 @@ This can be easily resolved by clicking the 'Reload video button' in the player 
 Among JavaScript clients, the recommended client is TV Simply"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Click to see how to get an authentication token</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">About Android VR Auth</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Opaque</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Transparent</string>
+    <string name="revanced_status_bar_translucency_title">Status bar translucency</string>
+    <string name="revanced_swipe_bottom_zone_title">Bottom swipe gesture</string>
     <string name="revanced_swipe_brightness_distance_summary">The amount of pixels to swipe to change the brightness. Lower values make the brightness change faster, higher values make it slower (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Brightness distance</string>
     <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe is disabled</string>
@@ -2354,11 +2656,13 @@ Adjust brightness by swiping vertically on the left side of the screen"</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Swipe gestures are enabled in Lock screen mode</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Swipe gestures in Lock screen mode</string>
     <string name="revanced_swipe_haptic_feedback_title">Enable haptic feedback</string>
+    <string name="revanced_swipe_horizontal_zone_summary">Percentage of the player height reserved at the top and bottom edges for configured swipe actions</string>
+    <string name="revanced_swipe_horizontal_zone_title">Horizontal swipe area</string>
+    <string name="revanced_swipe_left_zone_title">Left swipe gesture</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Lowest value of the brightness gesture does not activate auto-brightness</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Lowest value of the brightness gesture activates auto-brightness</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Enable auto-brightness gesture</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">The color of the progress bar for brightness controls</string>
@@ -2370,8 +2674,6 @@ Adjust brightness by swiping vertically on the left side of the screen"</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">The color of the progress bar for volume controls</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">Swipe overlay volume color</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Swipeable area size cannot be more than 50</string>
-    <string name="revanced_swipe_overlay_rect_size_summary">Percentage of swipeable screen area\n\nNote: This will also change the size of the screen area for the double-tap-to-seek gesture</string>
-    <string name="revanced_swipe_overlay_rect_size_title">Swipe overlay screen size</string>
     <string name="revanced_swipe_overlay_style_entry_0">Legacy overlay</string>
     <string name="revanced_swipe_overlay_style_entry_1">Horizontal overlay</string>
     <string name="revanced_swipe_overlay_style_entry_2">Horizontal overlay (minimal - top)</string>
@@ -2386,6 +2688,7 @@ Adjust brightness by swiping vertically on the left side of the screen"</string>
     <string name="revanced_swipe_press_to_engage_summary_off">Press to swipe is disabled</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Press to swipe is enabled</string>
     <string name="revanced_swipe_press_to_engage_title">Enable press to swipe gesture</string>
+    <string name="revanced_swipe_right_zone_title">Right swipe gesture</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Save and restore brightness</string>
@@ -2406,11 +2709,13 @@ Adjust speed by swiping horizontally on the bottom half of the screen"</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">The seek swipe gesture zone is at the top, the speed zone is at the bottom</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">The speed swipe gesture zone is at the top, the seek zone is at the bottom</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Switch speed and seek gestures</string>
-    <string name="revanced_swipe_text_overlay_size_invalid_toast">The text size must be between 1-30</string>
     <string name="revanced_swipe_text_overlay_size_summary">The text size for swipe overlay between 1-30</string>
     <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
     <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
     <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
+    <string name="revanced_swipe_top_zone_title">Top swipe gesture</string>
+    <string name="revanced_swipe_vertical_zone_summary">Percentage of the player width reserved at the left and right edges for configured swipe actions</string>
+    <string name="revanced_swipe_vertical_zone_title">Vertical swipe area</string>
     <string name="revanced_swipe_volume_distance_summary">The amount of pixels to swipe to adjust the volume. Lower values make the volume change faster, higher values make it slower (1-1000)</string>
     <string name="revanced_swipe_volume_distance_title">Volume distance</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Volume swipe sensitivity must be between 1-1000</string>
@@ -2421,6 +2726,10 @@ Adjust speed by swiping horizontally on the bottom half of the screen"</string>
 
 Adjust volume by swiping vertically on the right side of the screen"</string>
     <string name="revanced_swipe_volume_title">Enable volume gesture</string>
+    <string name="revanced_swipe_zone_label_brightness">Brightness</string>
+    <string name="revanced_swipe_zone_label_seek">Seek</string>
+    <string name="revanced_swipe_zone_label_speed">Speed</string>
+    <string name="revanced_swipe_zone_label_volume">Volume</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Swaps the positions of the Create button with the Notifications button by spoofing device information
 
 • The device may need to be rebooted for a change of this setting to take effect
@@ -2430,9 +2739,6 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
     <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button</string>
     <string name="revanced_switch_create_with_notifications_button_title">Swap Create and Notifications buttons</string>
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">If this setting do not take effect, try switching to Incognito mode</string>
-    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_summary">Package name of installed RVX Music</string>
-    <string name="revanced_third_party_youtube_music_package_name_title">RVX Music package name</string>
     <string name="revanced_transcript_cookies_about_summary">Click to see how to get Cookies</string>
     <string name="revanced_transcript_cookies_about_title">About Transcript Cookies</string>
     <string name="revanced_transcript_cookies_dialog_auth_text">Auth</string>
@@ -2474,9 +2780,14 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_audio_proxy_summary_on">Audio stream is proxied through the worker</string>
     <string name="revanced_vot_audio_proxy_title">Proxy audio stream</string>
     <string name="revanced_vot_auth_required">Authorization required. Add Yandex OAuth token in settings</string>
+    <string name="revanced_vot_auto_translate_summary_off">Tap the translation button to start Yandex translation</string>
+    <string name="revanced_vot_auto_translate_summary_on">Yandex translation starts automatically for each video</string>
+    <string name="revanced_vot_auto_translate_title">Automatically translate videos</string>
+    <string name="revanced_vot_credits_summary">Yandex VOT implementation by anddea, COOLak, Jav1x, and sashade8-ship-it. Based on ilyhalight/voice-over-translation</string>
     <string name="revanced_vot_enabled_summary_off">Yandex voice-over translation is disabled</string>
     <string name="revanced_vot_enabled_summary_on">Yandex voice-over translation is enabled</string>
     <string name="revanced_vot_enabled_title">Enable voice-over translation</string>
+    <string name="revanced_vot_google_title" translatable="false">Google</string>
     <string name="revanced_vot_lang_auto">Auto-detect</string>
     <string name="revanced_vot_live_voices_unavailable">Live voices unavailable, using standard</string>
     <string name="revanced_vot_oauth_account_management_title">Yandex OAuth token</string>
@@ -2494,9 +2805,16 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_oauth_token_summary">Required for live voices</string>
     <string name="revanced_vot_original_audio_volume_summary">Volume of the original video track when translation is playing (0-100). Default: 20</string>
     <string name="revanced_vot_original_audio_volume_title">Original audio volume</string>
-    <string name="revanced_vot_percent_value">%d%%</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">Video keeps playing while translation is prepared</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Video pauses when translation is requested and resumes when translated audio is ready</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_title">Pause video while preparing translation</string>
+    <string name="revanced_vot_percent_value" translatable="false">%d%%</string>
     <string name="revanced_vot_playback_error">Failed to play translation audio</string>
-    <string name="revanced_vot_proxy_url_summary">VOT worker proxy host. Default: auto-detected</string>
+    <string name="revanced_vot_proxy_url_fetch_failed">Failed to fetch the VOT worker proxy host</string>
+    <string name="revanced_vot_proxy_url_fetch_success">VOT worker proxy host updated to %s</string>
+    <string name="revanced_vot_proxy_url_fetch_summary">Fetch the current proxy worker host manually. It is never updated automatically</string>
+    <string name="revanced_vot_proxy_url_fetch_title">Fetch latest proxy server</string>
+    <string name="revanced_vot_proxy_url_summary">VOT worker proxy host. Default: vot-worker.eu.cc</string>
     <string name="revanced_vot_proxy_url_title">Proxy server</string>
     <string name="revanced_vot_source_language_summary">Select the language of the video audio</string>
     <string name="revanced_vot_source_language_title">Source language</string>
@@ -2506,9 +2824,9 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_stream_ready">Translation ready, playing</string>
     <string name="revanced_vot_stream_requesting">Requesting translation for stream…</string>
     <string name="revanced_vot_stream_waiting">Waiting… ~%s</string>
+    <string name="revanced_vot_stream_waiting_status">Translation is still being processed…</string>
     <string name="revanced_vot_target_language_summary">Select the language to translate to</string>
     <string name="revanced_vot_target_language_title">Target language</string>
-    <string name="revanced_vot_time_min">%d min</string>
     <string name="revanced_vot_time_sec">%d sec</string>
     <string name="revanced_vot_translation_volume_summary">Volume of the translated audio track (0-100). Default: 100</string>
     <string name="revanced_vot_translation_volume_title">Translation volume</string>
@@ -2520,6 +2838,7 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_vot_voice_style_live_summary_on">Natural-sounding voices from Yandex</string>
     <string name="revanced_vot_voice_style_standard">Standard voices</string>
     <string name="revanced_vot_voice_style_title">Voice-over style</string>
+    <string name="revanced_vot_yandex_title" translatable="false">Yandex</string>
     <string name="revanced_watch_history_about_status_blocked">• Watch history is blocked</string>
     <string name="revanced_watch_history_about_status_original">"• Follows the watch history settings of Google account
 • Watch history may not work due to DNS or VPN"</string>
@@ -2575,7 +2894,6 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_status_processing_minutes_plural">%d minutes left...</string>
     <string name="revanced_yandex_status_processing_short">Processing...</string>
     <string name="revanced_yandex_status_requesting_translation">Requesting translation</string>
-    <string name="revanced_yandex_status_session_ok">Session OK</string>
     <string name="revanced_yandex_status_subs_found">Subtitles found, fetching...</string>
     <string name="revanced_yandex_status_transcription_delayed">The transcription is slightly delayed</string>
     <string name="revanced_yandex_status_youtube_specific">Handling YouTube audio request...</string>

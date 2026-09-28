@@ -1,3 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.youtube.utils.fix.litho
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
@@ -62,10 +73,12 @@ val lithoLayoutPatch = bytecodePatch(
                 )
             }
 
-            backToRefreshFeatureFlagFingerprint.method.insertLiteralOverride(
-                backToRefreshFeatureFlagFingerprint.instructionMatches.first().index,
-                false
-            )
+            backToRefreshFeatureFlagFingerprint.matchAll().forEach {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_DOUBLE_BACK_TO_CLOSE_CLASS_DESCRIPTOR->allowBackButtonToScrollToTopOfFeed(Z)Z"
+                )
+            }
         }
 
         // endregion

@@ -28,6 +28,7 @@ public class ReloadVideoButton {
                     v -> ReloadVideoPatch.reloadVideo(),
                     null
             );
+            instance.setIcon("morphe_reload_video");
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }

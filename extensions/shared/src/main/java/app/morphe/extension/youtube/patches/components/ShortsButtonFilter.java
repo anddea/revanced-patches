@@ -55,6 +55,7 @@ public final class ShortsButtonFilter extends Filter {
 
         pausedOverlayButtons = new StringFilterGroup(
                 null,
+                "lens_paused_state",
                 "shorts_paused_state"
         );
 
@@ -123,6 +124,11 @@ public final class ShortsButtonFilter extends Filter {
                 "reel_like_toggled_button."
         );
 
+        StringFilterGroup saveButton = new StringFilterGroup(
+                Settings.HIDE_SHORTS_SAVE_BUTTON,
+                "reel_save_button.e"
+        );
+
         autoDubbedLabel = new StringFilterGroup(
                 Settings.HIDE_SHORTS_AUTO_DUBBED_LABEL,
                 "badge."
@@ -184,7 +190,7 @@ public final class ShortsButtonFilter extends Filter {
                     suggestedAction, joinButton, subscribeButton, metaPanelButton,
                     pausedOverlayButtons, autoDubbedLabel, channelBar, videoLinkLabel,
                     videoTitle, reelSoundMetadata, infoPanel, liveHeader, livePreview,
-                    previewComment, soundButton, stickers, likeButton, shortsCommentsPanel,
+                    previewComment, soundButton, stickers, likeButton, saveButton, shortsCommentsPanel,
                     likeFountain, shortsActionBar
             );
         } else {
@@ -192,7 +198,7 @@ public final class ShortsButtonFilter extends Filter {
                     suggestedAction, actionButton, joinButton, subscribeButton, metaPanelButton,
                     pausedOverlayButtons, autoDubbedLabel, channelBar, videoLinkLabel,
                     videoTitle, reelSoundMetadata, infoPanel, liveHeader, livePreview,
-                    previewComment, soundButton, stickers, likeButton, shortsCommentsPanel,
+                    previewComment, soundButton, stickers, likeButton, saveButton, shortsCommentsPanel,
                     likeFountain, shortsActionBar
             );
         }

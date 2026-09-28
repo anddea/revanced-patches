@@ -75,24 +75,30 @@ public class GeminiUtils {
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
 
     /**
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">gemini-3.8-flash</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash">gemini-3.7-flash</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash">gemini-3.6-flash</a>
-     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite">gemini-3.5-flash-lite</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash">gemini-3.5-flash</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite">gemini-3.5-flash-lite</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite">gemini-3.1-flash-lite</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview">gemini-3-flash-preview</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview">gemini-3.1-pro-preview</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash">gemini-2.5-flash</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite">gemini-2.5-flash-lite</a>
+     * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro">gemini-2.5-pro</a>
      */
     private static final String[] GEMINI_MODELS = {
+            "gemini-3.8-flash",
+            "gemini-3.7-flash",
             "gemini-3.6-flash",
-            "gemini-3.5-flash-lite",
             "gemini-3.5-flash",
+            "gemini-3.5-flash-lite",
             "gemini-3.1-flash-lite",
             "gemini-3-flash-preview",
             "gemini-3.1-pro-preview",
             "gemini-2.5-flash",
             "gemini-2.5-flash-lite",
+            "gemini-2.5-pro",
     };
 
     private static final String GENERATE_ACTION = ":generateContent?key=";
@@ -159,6 +165,24 @@ public class GeminiUtils {
         String prompt = "Translate ONLY the string values associated with the \"text\" keys within the following JSON subtitle data to " + targetLangName + ". Preserve the exact JSON structure, including all keys (like \"startMs\", \"endMs\", \"durationMs\") and their original numeric values. Output ONLY the fully translated JSON data, without any introductory text, explanations, comments, or markdown formatting (like ```json ... ```).\n\nInput JSON:\n" + yandexJson;
 
         Logger.printDebug(() -> "GeminiUtils (JSON TRANSLATE): Sending Translation Prompt for target '" + targetLangName + "'.");
+        return executeRequest(RequestSpec.forPrompt(null, prompt, null, false, true), apiKeys, callback);
+    }
+
+    /**
+     * Initiates an asynchronous text-only request that must return JSON.
+     * This reuses the configured model and API-key fallback behavior used by video requests.
+     *
+     * @param prompt   The complete instruction and input data for Gemini.
+     * @param apiKeys  Gemini API keys, checked top-to-bottom for each model.
+     * @param callback Callback receiving sanitized JSON or an error.
+     * @return The running request future.
+     */
+    @Nullable
+    public static Future<?> generateJson(
+            @NonNull String prompt,
+            @NonNull List<String> apiKeys,
+            @NonNull Callback callback
+    ) {
         return executeRequest(RequestSpec.forPrompt(null, prompt, null, false, true), apiKeys, callback);
     }
 
@@ -247,13 +271,13 @@ public class GeminiUtils {
                             return;
 
                         case RETRY:
+                            if (requestSpec.streaming) {
+                                // Replace the failed attempt's preview before trying another key or model.
+                                postPartial(callback, "", "", attempt.model);
+                            }
                             lastError = result.errorMessage;
                             logRetry(attempt, normalizedApiKeys, modelIndex, result.errorMessage);
                             continue;
-
-                        case FAILURE:
-                            postFailure(callback, result.errorMessage);
-                            return;
 
                         case CANCELLED:
                             postFailure(callback, "Operation cancelled.");
@@ -368,7 +392,8 @@ public class GeminiUtils {
             @NonNull AttemptState attempt,
             @NonNull Callback callback
     ) {
-        boolean emittedPartial = false;
+        // EOF alone does not mean generation completed: the server must report STOP.
+        boolean completed = false;
         StringBuilder accumulatedText = new StringBuilder();
         String lastFailureMessage = "Stream ended before returning text.";
 
@@ -393,9 +418,9 @@ public class GeminiUtils {
                     if (line.isEmpty()) {
                         if (eventData.length() > 0) {
                             StreamEventResult eventResult = processStreamEvent(eventData.toString(), accumulatedText, attempt, callback);
-                            emittedPartial |= eventResult.emittedPartial;
+                            completed |= eventResult.completed;
                             if (eventResult.failureMessage != null) {
-                                lastFailureMessage = eventResult.failureMessage;
+                                return AttemptResult.retry(eventResult.failureMessage);
                             }
                             eventData.setLength(0);
                         }
@@ -409,32 +434,26 @@ public class GeminiUtils {
 
                 if (eventData.length() > 0) {
                     StreamEventResult eventResult = processStreamEvent(eventData.toString(), accumulatedText, attempt, callback);
-                    emittedPartial |= eventResult.emittedPartial;
+                    completed |= eventResult.completed;
                     if (eventResult.failureMessage != null) {
-                        lastFailureMessage = eventResult.failureMessage;
+                        return AttemptResult.retry(eventResult.failureMessage);
                     }
                 }
             }
 
-            if (accumulatedText.length() > 0) {
+            if (completed && accumulatedText.length() > 0) {
                 return AttemptResult.success(accumulatedText.toString());
             }
-            return AttemptResult.retry(lastFailureMessage);
+            return AttemptResult.retry(completed ? lastFailureMessage : "Stream ended without a STOP finish reason.");
         } catch (InterruptedException e) {
             Logger.printInfo(() -> "Gemini task explicitly cancelled.");
             Thread.currentThread().interrupt();
             return AttemptResult.cancelled();
         } catch (IOException e) {
             Logger.printException(() -> "Gemini streamed request IO failed (" + describeAttempt(attempt) + ")", e);
-            if (emittedPartial) {
-                return AttemptResult.failure();
-            }
             return AttemptResult.retry(e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error");
         } catch (JSONException e) {
             Logger.printException(() -> "Gemini streamed response parsing failed (" + describeAttempt(attempt) + ")", e);
-            if (emittedPartial) {
-                return AttemptResult.failure();
-            }
             return AttemptResult.retry("Failed to parse streamed response.");
         }
     }
@@ -458,6 +477,9 @@ public class GeminiUtils {
 
         JSONArray candidates = jsonResponse.optJSONArray("candidates");
         if (candidates == null || candidates.length() == 0) {
+            if (jsonResponse.has("usageMetadata")) {
+                return StreamEventResult.empty();
+            }
             String blockReason = extractBlockReason(jsonResponse);
             return StreamEventResult.failure(blockReason != null ? "Content blocked: " + blockReason : "API response missing valid streamed candidates.");
         }
@@ -471,6 +493,9 @@ public class GeminiUtils {
                 for (int i = 0; i < parts.length(); i++) {
                     JSONObject part = parts.optJSONObject(i);
                     if (part != null) {
+                        if (part.optBoolean("thought", false)) {
+                            continue;
+                        }
                         String text = part.optString("text", "");
                         if (!text.isEmpty()) {
                             deltaText.append(text);
@@ -483,12 +508,15 @@ public class GeminiUtils {
         if (deltaText.length() > 0) {
             accumulatedText.append(deltaText);
             postPartial(callback, deltaText.toString(), accumulatedText.toString(), attempt.model);
-            return StreamEventResult.partial();
         }
 
         if (firstCandidate.has("finishReason")) {
             String finishReason = firstCandidate.optString("finishReason", "");
-            if (!TextUtils.isEmpty(finishReason) && !"STOP".equals(finishReason) && !"MAX_TOKENS".equals(finishReason)) {
+            Logger.printInfo(() -> "GeminiUtils: Stream finish reason (" + describeAttempt(attempt) + "): " + finishReason);
+            if ("STOP".equals(finishReason)) {
+                return StreamEventResult.complete();
+            }
+            if (!TextUtils.isEmpty(finishReason)) {
                 String blockReason = extractBlockReason(jsonResponse);
                 return StreamEventResult.failure(blockReason != null ? "Content blocked: " + blockReason : finishReason);
             }
@@ -510,7 +538,7 @@ public class GeminiUtils {
         JSONObject thinkingConfig;
         if (model.startsWith("gemini-3")) {
             thinkingConfig = new JSONObject()
-                    .put("thinkingLevel", "minimal")
+                    .put("thinkingLevel", getThinkingLevel(model))
                     .put("includeThoughts", false);
         } else {
             thinkingConfig = new JSONObject().put("thinkingBudget", 0);
@@ -518,6 +546,22 @@ public class GeminiUtils {
         generationConfig.put("thinkingConfig", thinkingConfig);
         requestBody.put("generationConfig", generationConfig);
         return requestBody;
+    }
+
+    /**
+     * Returns the lowest supported thinking level for the given Gemini 3 model.
+     * Gemini 3.7 Flash and Gemini 3.1 Pro do not support {@code minimal}.
+     */
+    @NonNull
+    private static String getThinkingLevel(@NonNull String model) {
+        if (
+                "gemini-3.8-flash".equals(model) ||
+                "gemini-3.7-flash".equals(model) ||
+                "gemini-3.1-pro-preview".equals(model)
+        ) {
+            return "low";
+        }
+        return "minimal";
     }
 
     @NonNull
@@ -550,12 +594,12 @@ public class GeminiUtils {
         JSONArray partsArray = new JSONArray();
 
         if (requestSpec.videoUrl != null) {
-            Logger.printDebug(() -> "GeminiUtils: Constructing payload WITH video part.");
+            Logger.printDebug(() -> "GeminiUtils: Constructing payload with video part.");
             partsArray.put(new JSONObject().put("fileData", new JSONObject()
                     .put("mimeType", "video/mp4")
                     .put("fileUri", requestSpec.videoUrl)));
         } else {
-            Logger.printDebug(() -> "GeminiUtils: Constructing payload with ONLY text part.");
+            Logger.printDebug(() -> "GeminiUtils: Constructing payload with only text part.");
         }
 
         if (!TextUtils.isEmpty(effectivePrompt)) {
@@ -666,6 +710,9 @@ public class GeminiUtils {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < parts.length(); i++) {
             JSONObject part = parts.getJSONObject(i);
+            if (part.optBoolean("thought", false)) {
+                continue;
+            }
             if (part.has("text")) {
                 result.append(part.getString("text"));
             }
@@ -960,7 +1007,6 @@ public class GeminiUtils {
     private enum AttemptStatus {
         SUCCESS,
         RETRY,
-        FAILURE,
         CANCELLED
     }
 
@@ -978,19 +1024,15 @@ public class GeminiUtils {
             }
 
             @NonNull
-            private static AttemptResult failure() {
-                return new AttemptResult(AttemptStatus.FAILURE, null, "Stream interrupted after partial response.");
-            }
-
-            @NonNull
             private static AttemptResult cancelled() {
                 return new AttemptResult(AttemptStatus.CANCELLED, null, "Operation cancelled.");
             }
         }
 
-    private record StreamEventResult(boolean emittedPartial, @Nullable String failureMessage) {
+    /** Tracks terminal status independently of text, since the final chunk can contain both. */
+    private record StreamEventResult(boolean completed, @Nullable String failureMessage) {
         @NonNull
-            private static StreamEventResult partial() {
+            private static StreamEventResult complete() {
                 return new StreamEventResult(true, null);
             }
 
@@ -1019,6 +1061,8 @@ public class GeminiUtils {
 
         /**
          * Called when the Gemini API emits a streamed text chunk.
+         * <p>
+         * Empty text and accumulated text reset the preview when a streamed attempt is retried.
          *
          * @param partialText     The newly received delta text.
          * @param accumulatedText The full text accumulated so far.

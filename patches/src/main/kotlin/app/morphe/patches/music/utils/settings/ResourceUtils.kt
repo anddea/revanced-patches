@@ -46,10 +46,10 @@ package app.morphe.patches.music.utils.settings
 import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
 import app.morphe.patches.music.utils.patch.PatchList
+import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.util.adoptChild
 import app.morphe.util.cloneNodes
 import app.morphe.util.doRecursively
-import app.morphe.util.findElementByAttributeValueOrThrow
 import app.morphe.util.insertNode
 import org.w3c.dom.Element
 import javax.xml.parsers.DocumentBuilderFactory
@@ -57,6 +57,23 @@ import javax.xml.transform.OutputKeys
 import javax.xml.transform.TransformerFactory
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
+
+/**
+ * Shared order for the high-priority General preferences added by the branding and theme patches.
+ * The settings patch applies this order after all dependent patches have added their preferences;
+ * missing keys are ignored by [ResourceUtils.movePreferencesToTop].
+ */
+internal val GENERAL_PREFERENCE_ORDER = listOf(
+    "morphe_custom_branding_name",
+    "morphe_settings_name",
+    "morphe_custom_branding_icon",
+    "morphe_custom_branding_splash_animation_size",
+    "morphe_custom_branding_use_as_system_splash",
+    "morphe_custom_branding_apply_to_rvx_settings",
+    "morphe_dark_theme",
+    "morphe_dark_theme_custom_color",
+    "morphe_notification_dot_color",
+)
 
 internal object ResourceUtils {
     private lateinit var context: ResourcePatchContext
@@ -89,13 +106,6 @@ internal object ResourceUtils {
 
     var gmsCorePackageName = "app.revanced.android.gms"
     var musicPackageName = YOUTUBE_MUSIC_PACKAGE_NAME
-
-    private var iconType = "default"
-    fun getIconType() = iconType
-
-    fun setIconType(iconName: String) {
-        iconType = iconName
-    }
 
     private fun isIncludedCategory(category: String): Boolean {
         CategoryType.entries.forEach { preference ->
@@ -171,6 +181,18 @@ internal object ResourceUtils {
         }
     }
 
+    /** Moves existing controls to the top of a generated category in the requested order. */
+    fun movePreferencesToTop(category: String, preferenceKeys: List<String>) {
+        editPreferenceCategory(category) {
+            val preferences = List(childNodes.length) { childNodes.item(it) }
+                .filterIsInstance<Element>()
+                .associateBy { it.getAttribute("android:key") }
+            preferenceKeys.asReversed().forEach { key ->
+                preferences[key]?.let { insertBefore(it, firstChild) }
+            }
+        }
+    }
+
     /**
      * Adds a nested category and optionally reuses another title resource for duplicate labels.
      */
@@ -239,84 +261,10 @@ internal object ResourceUtils {
         }
     }
 
-    fun addPreferenceFragment(
-        key: String,
-        insertKey: String,
-        targetClass: String,
-    ) = context.apply {
-        document(SETTINGS_HEADER_PATH).use { document ->
-            with(document) {
-                val processedKeys = mutableSetOf<String>() // To track processed keys
-
-                doRecursively loop@{ node ->
-                    if (node !is Element) return@loop // Skip if not an element
-
-                    val attributeNode = node.getAttributeNode("android:key")
-                        ?: return@loop // Skip if no key attribute
-                    val currentKey = attributeNode.textContent
-
-                    // Check if the current key has already been processed
-                    if (processedKeys.contains(currentKey)) {
-                        return@loop // Skip if already processed
-                    } else {
-                        processedKeys.add(currentKey) // Add the current key to processedKeys
-                    }
-
-                    when (currentKey) {
-                        insertKey -> {
-                            node.insertNode("Preference", node) {
-                                setAttribute("android:key", "${key}_key")
-                                setAttribute("android:title", "@string/${key}_title")
-                                this.appendChild(
-                                    ownerDocument.createElement("intent").also { intentNode ->
-                                        intentNode.setAttribute(
-                                            "android:targetPackage",
-                                            "com.google.android.apps.youtube.music"
-                                        )
-                                        intentNode.setAttribute("android:data", key + "_intent")
-                                        intentNode.setAttribute("android:targetClass", targetClass)
-                                    }
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        // Modify the manifest to enhance TargetActivity behavior:
-        // 1. Add a data intent filter with MIME type "text/plain".
-        //    Some devices crash if undeclared data is passed to an intent,
-        //    and this change appears to fix the issue.
-        // 2. Add android:configChanges="orientation|screenSize|keyboardHidden".
-        //    This prevents the activity from being recreated on configuration changes
-        //    (e.g., screen rotation), preserving its current state and fragment.
-        document("AndroidManifest.xml").use { document ->
-            val activityElement = document.childNodes.findElementByAttributeValueOrThrow(
-                "android:name",
-                targetClass,
-            )
-
-            if (!activityElement.hasAttribute("android:configChanges")) {
-                activityElement.setAttribute(
-                    "android:configChanges",
-                    "keyboardHidden|orientation|screenSize"
-                )
-            }
-
-            val mimeType = document.createElement("data")
-            mimeType.setAttribute("android:mimeType", "text/plain")
-
-            val intentFilter = document.createElement("intent-filter")
-            intentFilter.appendChild(mimeType)
-
-            activityElement.appendChild(intentFilter)
-        }
-    }
-
     /**
      * Adds a switch preference. Optional title and summary resource names keep the storage key
-     * stable when two generated settings intentionally share the same visible text.
+     * stable when two generated settings intentionally share the same visible text. State-specific
+     * summary keys can be supplied for switches whose summary changes with their checked state.
      */
     fun addSwitchPreference(
         category: String,
@@ -326,6 +274,8 @@ internal object ResourceUtils {
         setSummary: Boolean,
         titleKey: String = "${key}_title",
         summaryKey: String = "${key}_summary",
+        summaryOnKey: String? = null,
+        summaryOffKey: String? = null,
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -337,7 +287,12 @@ internal object ResourceUtils {
                     it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
                         setAttribute("android:title", "@string/$titleKey")
                         if (setSummary) {
-                            setAttribute("android:summary", "@string/$summaryKey")
+                            if (summaryOnKey != null && summaryOffKey != null) {
+                                setAttribute("android:summaryOn", "@string/$summaryOnKey")
+                                setAttribute("android:summaryOff", "@string/$summaryOffKey")
+                            } else {
+                                setAttribute("android:summary", "@string/$summaryKey")
+                            }
                         }
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)
@@ -424,6 +379,8 @@ internal object ResourceUtils {
         dependencyKey: String = "",
         setSummary: Boolean = true,
         insertBeforeKey: String = "",
+        entriesArrayKey: String = "",
+        entryValuesArrayKey: String = "",
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -439,6 +396,12 @@ internal object ResourceUtils {
                         }
                         setAttribute("android:key", key)
                         setAttribute("android:selectable", "true")
+                        if (entriesArrayKey.isNotEmpty()) {
+                            setAttribute("android:entries", "@array/$entriesArrayKey")
+                        }
+                        if (entryValuesArrayKey.isNotEmpty()) {
+                            setAttribute("android:entryValues", "@array/$entryValuesArrayKey")
+                        }
                         if (dependencyKey.isNotEmpty()) {
                             setAttribute("android:dependency", dependencyKey)
                         }
@@ -470,6 +433,8 @@ internal object ResourceUtils {
         key: String,
         dependencyKey: String,
         setSummary: Boolean,
+        entriesKey: String = "${key}_entries",
+        entryValuesKey: String = "${key}_entry_values",
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -484,8 +449,8 @@ internal object ResourceUtils {
                             setAttribute("android:summary", "@string/${key}_summary")
                         }
                         setAttribute("android:key", key)
-                        setAttribute("android:entries", "@array/${key}_entries")
-                        setAttribute("android:entryValues", "@array/${key}_entry_values")
+                        setAttribute("android:entries", "@array/$entriesKey")
+                        setAttribute("android:entryValues", "@array/$entryValuesKey")
                         if (dependencyKey.isNotEmpty()) {
                             setAttribute("android:dependency", dependencyKey)
                         }
@@ -500,6 +465,7 @@ internal object ResourceUtils {
         key: String,
         dependencyKey: String,
         setSummary: Boolean,
+        inputType: InputType = InputType.TEXT,
     ) {
         context.document(SETTINGS_HEADER_PATH).use { document ->
             val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -514,7 +480,7 @@ internal object ResourceUtils {
                             setAttribute("android:summary", "@string/${key}_summary")
                         }
                         setAttribute("android:key", key)
-                        setAttribute("android:inputType", "text")
+                        setAttribute("android:inputType", inputType.type)
                         if (dependencyKey.isNotEmpty()) {
                             setAttribute("android:dependency", dependencyKey)
                         }
@@ -598,7 +564,7 @@ internal object ResourceUtils {
                 }
                 .transform(
                     DOMSource(searchDocument),
-                    StreamResult(context.get(RVX_PREFERENCE_PATH))
+                    StreamResult(context[RVX_PREFERENCE_PATH])
                 )
 
             // Clear child elements of sourceElement in settings_headers.xml to prevent AndroidX preference inflation crash.

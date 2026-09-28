@@ -4,11 +4,10 @@ import static app.morphe.extension.shared.utils.Utils.hideViewBy0dpUnderConditio
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
 
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.facebook.litho.ComponentHost;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -102,8 +101,8 @@ public class ActionBarPatch {
             if (EXTERNAL_DOWNLOADER_ACTION_BUTTON &&
                     !downloadButtonLabel.isEmpty() &&
                     map != null &&
-                    map.get(ELEMENTS_SENDER_VIEW) instanceof ComponentHost componentHost &&
-                    downloadButtonLabel.equals(componentHost.getContentDescription() + "")
+                    map.get(ELEMENTS_SENDER_VIEW) instanceof ViewGroup senderViewGroup &&
+                    downloadButtonLabel.equals(senderViewGroup.getContentDescription() + "")
             ) {
                 if (!map.containsKey(EXTERNAL_DOWNLOADER_LAUNCHED)) {
                     map.put(EXTERNAL_DOWNLOADER_LAUNCHED, Boolean.TRUE);
@@ -128,6 +127,10 @@ public class ActionBarPatch {
         }
 
         return original;
+    }
+
+    public static String getDownloadButtonLabel() {
+        return downloadButtonLabel;
     }
 
     public static void setButtonType(@NonNull Object obj) {

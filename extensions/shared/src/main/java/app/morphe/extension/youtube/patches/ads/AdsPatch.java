@@ -11,7 +11,10 @@ import java.util.List;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
+import app.morphe.extension.youtube.whitelist.Whitelist;
+import app.morphe.extension.youtube.whitelist.Whitelist.WhitelistType;
 
 @SuppressWarnings("unused")
 public class AdsPatch {
@@ -75,9 +78,12 @@ public class AdsPatch {
 
     /**
      * Injection point.
+     *
+     * Requests are built before their channel is known. Keep them available when
+     * an ad whitelist exists so hideVideoAds() can filter ads per channel.
      */
     public static boolean hideShortsAds(boolean original) {
-        return HIDE_VIDEO_ADS || original;
+        return (HIDE_VIDEO_ADS && Whitelist.isEmpty(WhitelistType.ADS)) || original;
     }
 
     /**
@@ -106,7 +112,15 @@ public class AdsPatch {
      * Injection point.
      */
     public static boolean hideVideoAds() {
-        return HIDE_VIDEO_ADS;
+        if (!HIDE_VIDEO_ADS) {
+            return false;
+        }
+
+        final String channelId = VideoInformation.getChannelId();
+        final boolean whitelisted = Whitelist.isChannelWhitelistedAds(channelId);
+        Logger.printDebug(() -> (whitelisted ? "Allowing" : "Hiding")
+                + " video ads of channel: " + channelId);
+        return !whitelisted;
     }
 
     /**
@@ -116,7 +130,7 @@ public class AdsPatch {
      * It is presumed to have been deprecated, and if it is confirmed that it is no longer used, remove it.
      */
     public static boolean hideVideoAds(boolean original) {
-        return !HIDE_VIDEO_ADS && original;
+        return !hideVideoAds() && original;
     }
 
     /**

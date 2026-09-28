@@ -45,6 +45,7 @@ public class SpoofAppVersionPreference extends CustomDialogListPreference {
      * Enum representing supported YouTube Music app with their display names, package names.
      */
     private enum AppVersion {
+        YT_21_11_484(),
         YT_20_20_42(),
         YT_20_13_41(),
         YT_20_05_46(),

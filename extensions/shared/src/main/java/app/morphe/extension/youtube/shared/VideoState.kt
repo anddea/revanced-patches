@@ -1,5 +1,6 @@
 package app.morphe.extension.youtube.shared
 
+import app.morphe.extension.shared.utils.Event
 import app.morphe.extension.shared.utils.Logger
 import java.util.concurrent.CopyOnWriteArrayList
 
@@ -17,6 +18,9 @@ enum class VideoState {
     companion object {
 
         private val nameToVideoState = entries.associateBy { it.name }
+
+        @JvmStatic
+        val onChange = Event<VideoState>()
 
         private val onPlayingListeners = CopyOnWriteArrayList<Runnable>()
         private val onNotPlayingListeners = CopyOnWriteArrayList<Runnable>()
@@ -50,6 +54,9 @@ enum class VideoState {
                 if (currentVideoState != type) {
                     Logger.printDebug { "Changed to: $type" }
                     currentVideoState = type
+                    if (type != null) {
+                        onChange(type)
+                    }
                     if (type == PLAYING) {
                         for (listener in onPlayingListeners) {
                             try {

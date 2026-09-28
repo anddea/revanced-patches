@@ -6,6 +6,7 @@
  *
  * Original author(s):
  * - anddea (https://github.com/anddea)
+ * - COOLak (https://github.com/COOLak)
  * - Jav1x (https://github.com/Jav1x)
  *
  * Licensed under the GNU General Public License v3.0.
@@ -41,6 +42,29 @@
 
 package app.morphe.patches.youtube.video.voiceovertranslation
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.morphe.patches.shared.misc.spoof.CreateStreamingDataFingerprint
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
+import app.morphe.patches.shared.WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING
+import app.morphe.patches.shared.playbackStartParametersToStringFingerprint
+import app.morphe.patches.youtube.misc.debugging.currentWatchNextResponseParentFingerprint
+import app.morphe.patches.youtube.utils.auth.authHookPatch
+import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.getReference
+import app.morphe.util.findFieldFromToString
+import app.morphe.util.fingerprint.mutableClassOrThrow
+import app.morphe.util.fingerprint.originalMethodOrThrow
+import app.morphe.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -50,10 +74,19 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.player.overlaybuttons.overlayButtonsPatch
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
+import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.video.information.ModernChannelInformationFingerprint
+import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
+import app.morphe.patches.youtube.video.information.hookPlayWhenReady
 import app.morphe.patches.youtube.video.information.hookVideoInformation
 import app.morphe.patches.youtube.video.information.onCreateHook
+import app.morphe.patches.youtube.video.information.onCreateHookWithPlayer
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.information.videoTimeHook
+import app.morphe.patches.youtube.video.videoid.hookBackgroundPlayVideoId
+import app.morphe.patches.youtube.video.videoid.hookVideoId
+import app.morphe.patches.youtube.video.videoid.videoIdPatch
 import app.morphe.util.updatePatchStatus
 
 private const val EXTENSION_VOT_PATH =
@@ -62,33 +95,157 @@ private const val EXTENSION_VOT_PATH =
 private const val EXTENSION_VOT_CLASS_DESCRIPTOR =
     "$EXTENSION_VOT_PATH/VoiceOverTranslationPatch;"
 
+private const val EXTENSION_GOOGLE_VOT_CLASS_DESCRIPTOR =
+    "$EXTENSION_VOT_PATH/GoogleVoiceOverTranslationPatch;"
+
 val voiceOverTranslationBytecodePatch = bytecodePatch(
     description = "voiceOverTranslationBytecodePatch"
 ) {
     dependsOn(
         videoInformationPatch,
+        videoIdPatch,
+        playerTypeHookPatch,
+        fixProtoLibraryPatch,
+        authHookPatch,
     )
 
     execute {
+        onCreateHookWithPlayer("$EXTENSION_VOT_PATH/TranslationPlaybackController;", "initialize")
+        hookPlayWhenReady("$EXTENSION_VOT_PATH/TranslationPlaybackController;->overridePlayWhenReady(Ljava/lang/Object;Z)Z")
+
+        // The visible/background UI callbacks can both be absent when switching tracks
+        // from a settings screen. LocalDirector.loadVideo receives the selected response
+        // independently of the UI. Do not use response construction (which also preloads).
+        if (is_21_04_or_greater) {
+            val detailsField = CreateStreamingDataFingerprint.instructionMatches[2]
+                .instruction.getReference<FieldReference>()!!
+            val matches = ModernChannelInformationFingerprint.matchAll(2..3)
+            val responseType = matches.first().method.parameterTypes.first().toString()
+            val responseGetter = classDefBy(responseType).methods.single {
+                it.parameterTypes.isEmpty() && it.returnType == detailsField.definingClass
+            }
+            val playerClass = ModernChannelInformationFingerprint.classDef
+            val helper = ImmutableMethod(
+                playerClass.type,
+                "patch_translationVideoLoaded",
+                listOf(ImmutableMethodParameter(responseType, null, null)),
+                "V",
+                AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                null,
+                null,
+                MutableMethodImplementation(3),
+            ).toMutable().apply {
+                addInstructions(0, """
+                    if-eqz p1, :done
+                    invoke-interface { p1 }, $responseGetter
+                    move-result-object v0
+                    if-eqz v0, :done
+                    iget-object v0, v0, $detailsField
+                    invoke-static { p0, v0 }, $EXTENSION_VOT_PATH/TranslationPlaybackController;->nativeVideoLoaded(Ljava/lang/Object;Ljava/lang/Object;)V
+                    :done
+                    return-void
+                """)
+            }
+            playerClass.methods.add(helper)
+            matches.forEach { match ->
+                match.method.addInstruction(0, "invoke-direct { p0, p1 }, $helper")
+            }
+        }
+
+        // The watch page normally waits for playback or a timeout. A translation hold
+        // must not leave details/comments blank. Override the consumed delay, after
+        // any debugging override in PlaybackStartParameters' constructor.
+        val watchNextDelayField = playbackStartParametersToStringFingerprint.originalMethodOrThrow()
+            .findFieldFromToString(WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING)
+        currentWatchNextResponseParentFingerprint.mutableClassOrThrow().methods.single { method ->
+            method.implementation?.instructions?.any {
+                it.opcode == Opcode.IGET && it.getReference<FieldReference>() == watchNextDelayField
+            } == true
+        }.apply {
+            val index = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.IGET && getReference<FieldReference>() == watchNextDelayField
+            }
+            val register = getInstruction<TwoRegisterInstruction>(index).registerA
+            addInstructions(index + 1, """
+                invoke-static/range { v$register .. v$register }, $EXTENSION_VOT_PATH/TranslationPlaybackController;->overrideWatchNextProcessingDelay(I)I
+                move-result v$register
+            """)
+        }
+
+        // Read the final native fields after optional stream spoofing has completed.
+        // The response's VideoDetails identifies the source even during preloading.
+        CreateStreamingDataFingerprint.let {
+            val streamField = it.instructionMatches[1].instruction.getReference<FieldReference>()!!
+            val detailsField = it.instructionMatches[5].instruction.getReference<FieldReference>()!!
+            val helper = ImmutableMethod(
+                it.classDef.type,
+                "patch_cacheVotAudioSources",
+                emptyList(),
+                "V",
+                AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                null,
+                null,
+                MutableMethodImplementation(3),
+            ).toMutable().apply {
+                addInstructions(
+                    0,
+                    """
+                        iget-object v0, p0, $streamField
+                        iget-object v1, p0, $detailsField
+                        invoke-static { v0, v1 }, $EXTENSION_VOT_CLASS_DESCRIPTOR->cacheAudioSources(Ljava/lang/Object;Ljava/lang/Object;)V
+                        return-void
+                    """
+                )
+            }
+            it.classDef.methods.add(helper)
+            it.classDef.methods.filter { method -> method.name == "<init>" }.forEach { method ->
+                method.apply {
+                    findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { index ->
+                        addInstruction(index, "invoke-direct/range { p0 .. p0 }, $helper")
+                    }
+                }
+            }
+        }
+
         // Hook video time updates for audio sync
         videoTimeHook(
             EXTENSION_VOT_CLASS_DESCRIPTOR,
             "setVideoTime"
         )
 
-        // Hook player initialization
+        // Hook player initialization (Yandex)
         onCreateHook(
             EXTENSION_VOT_CLASS_DESCRIPTOR,
             "initialize"
         )
 
-        // Hook new video started event to trigger translation
+        // Hook new video started event to trigger translation (Yandex)
         hookVideoInformation(
             "$EXTENSION_VOT_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V"
         )
+        hookBackgroundPlayVideoInformation(
+            "$EXTENSION_VOT_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V"
+        )
 
-        // Update the patch status to enabled for the extension
+        // Update the patch status to enabled for the extension (Yandex)
         updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "VoiceOverTranslation")
+
+        // Hook video time updates for TTS synchronization (Google)
+        videoTimeHook(
+            EXTENSION_GOOGLE_VOT_CLASS_DESCRIPTOR,
+            "videoTimeChanged"
+        )
+
+        // The metadata bridge can still contain the previous video's ID during a transition.
+        // Raw foreground/background IDs also cover the older player implementation.
+        hookVideoId("$EXTENSION_VOT_PATH/TranslationPlaybackController;->newVideoLoaded(Ljava/lang/String;)V")
+        hookBackgroundPlayVideoId("$EXTENSION_VOT_PATH/TranslationPlaybackController;->newVideoLoaded(Ljava/lang/String;)V")
+
+        // Hook new video loaded event to load transcript (Google)
+        hookVideoId("$EXTENSION_GOOGLE_VOT_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
+
+        // Update the patch status to enabled for the extension (Google)
+        updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "GoogleVoiceOverTranslation")
     }
 }
 

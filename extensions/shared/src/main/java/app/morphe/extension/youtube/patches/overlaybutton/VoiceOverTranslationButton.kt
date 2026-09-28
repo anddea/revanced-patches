@@ -41,8 +41,21 @@
 
 package app.morphe.extension.youtube.patches.overlaybutton
 
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.ColorFilter
+import android.graphics.Paint
+import android.graphics.PixelFormat
+import android.graphics.Rect
+import android.graphics.RectF
+import android.graphics.Typeface
+import android.graphics.drawable.Drawable
+import android.os.SystemClock
 import android.view.View
+import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.ToggleButton
 import app.morphe.extension.shared.utils.Logger
+import app.morphe.extension.shared.utils.ResourceUtils
 import app.morphe.extension.youtube.patches.utils.PatchStatus
 import app.morphe.extension.youtube.patches.voiceovertranslation.VoiceOverTranslationPatch
 import app.morphe.extension.youtube.settings.Settings
@@ -54,6 +67,8 @@ import app.morphe.extension.youtube.utils.VideoUtils
 @Suppress("DEPRECATION", "unused")
 object VoiceOverTranslationButton {
     private var instance: PlayerControlButton? = null
+    private var buttonIcon: Drawable? = null
+    private val updateWaitingIndicator = Runnable { refreshActivatedState() }
 
     /**
      * Injection point.
@@ -61,6 +76,7 @@ object VoiceOverTranslationButton {
     @JvmStatic
     fun initializeButton(controlsView: View) {
         try {
+            instance?.imageView()?.removeCallbacks(updateWaitingIndicator)
             VoiceOverTranslationPatch.setOnTranslationStateChangeCallback { refreshActivatedState() }
             instance = PlayerControlButton(
                 controlsViewGroup = controlsView,
@@ -69,6 +85,19 @@ object VoiceOverTranslationButton {
                 onClickListener = { view: View -> onClick(view) },
                 onLongClickListener = { view: View -> onLongClick(view) },
             )
+            buttonIcon = instance?.imageView()?.drawable
+            instance?.imageView()?.let { button ->
+                button.contentDescription = ResourceUtils.getString("revanced_vot_enabled_title")
+                setToggleAccessibilityDelegate(button)
+            }
+            instance?.imageView()?.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
+                override fun onViewAttachedToWindow(view: View) = refreshActivatedState()
+
+                override fun onViewDetachedFromWindow(view: View) {
+                    view.removeCallbacks(updateWaitingIndicator)
+                }
+            })
+            refreshActivatedState()
         } catch (ex: Exception) {
             Logger.printException({ "VoiceOverTranslationButton initializeButton failure" }, ex)
         }
@@ -125,8 +154,104 @@ object VoiceOverTranslationButton {
         return true
     }
 
+    /**
+     * Exposes the button to accessibility services as a toggle,
+     * so screen readers announce whether translation is on or off.
+     */
+    private fun setToggleAccessibilityDelegate(button: View) {
+        button.accessibilityDelegate = object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                info.className = ToggleButton::class.java.name
+                info.isCheckable = true
+                info.isChecked = VoiceOverTranslationPatch.isTranslationActive()
+            }
+        }
+    }
+
     private fun refreshActivatedState() {
         instance?.setActivated()
+        val button = instance?.imageView() ?: return
+        button.removeCallbacks(updateWaitingIndicator)
+        val waiting = VoiceOverTranslationPatch.isTranslationRequestInProgress()
+        if (waiting) {
+            // Remove the drawable so its cached player-button shadow also disappears.
+            if (button.drawable != null) {
+                buttonIcon = button.drawable
+                button.setImageDrawable(null)
+            }
+            if (button.foreground !is WaitingIndicator) {
+                button.foreground = WaitingIndicator(button.resources.displayMetrics.density)
+            }
+            button.foreground.invalidateSelf()
+            if (button.isAttachedToWindow) button.postDelayed(updateWaitingIndicator, 50)
+        } else {
+            if (button.drawable == null) button.setImageDrawable(buttonIcon)
+            button.foreground = null
+        }
+    }
+
+    /**
+     * Uses the same deadline as the bottom sheet. An expired or missing estimate shows a
+     * spinner and an ellipsis, rather than displaying a fabricated remaining time.
+     * The foreground surrounds the whole button independently of its icon padding.
+     */
+    private class WaitingIndicator(private val density: Float) : Drawable() {
+        private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val arc = RectF()
+        private val pill = RectF()
+        private val textBounds = Rect()
+
+        override fun draw(canvas: Canvas) {
+            val cx = bounds.exactCenterX()
+            val cy = bounds.exactCenterY()
+            val radius = minOf(bounds.width(), bounds.height()) / 2f - 3 * density
+            if (radius <= 0) return
+            arc.set(cx - radius, cy - radius, cx + radius, cy + radius)
+            paint.style = Paint.Style.STROKE
+            paint.strokeWidth = 2 * density
+            paint.strokeCap = Paint.Cap.ROUND
+            paint.color = Color.rgb(255, 219, 77) // Matches the activated Yandex icon (#FFDB4D).
+            paint.alpha = 48
+            canvas.drawArc(arc, -90f, 360f, false, paint)
+            paint.alpha = 255
+            val progress = VoiceOverTranslationPatch.getTranslationRequestProgressFraction()
+            if (progress >= 0) {
+                canvas.drawArc(arc, -90f, 360f * progress, false, paint)
+            } else {
+                canvas.drawArc(arc, (SystemClock.uptimeMillis() % 1080) / 3f - 90f, 100f, false, paint)
+            }
+
+            val seconds = VoiceOverTranslationPatch.getTranslationRequestRemainingSeconds()
+            val label = if (seconds > 0) seconds.toString() else "…"
+            paint.style = Paint.Style.FILL
+            paint.typeface = Typeface.DEFAULT_BOLD
+            paint.textAlign = Paint.Align.CENTER
+            paint.textSize = 11 * density
+            val maxTextWidth = (radius * 2 - 8 * density).coerceAtLeast(density)
+            if (paint.measureText(label) > maxTextWidth) {
+                paint.textSize *= maxTextWidth / paint.measureText(label)
+            }
+            val halfWidth = paint.measureText(label) / 2 + 3 * density
+            val halfHeight = (paint.descent() - paint.ascent()) / 2 + 2 * density
+            pill.set(cx - halfWidth, cy - halfHeight, cx + halfWidth, cy + halfHeight)
+            paint.color = Color.argb(153, 0, 0, 0) // Same black pill as seekbar preview labels.
+            canvas.drawRoundRect(pill, halfHeight, halfHeight, paint)
+            paint.color = Color.WHITE
+            val baseline = if (seconds > 0) {
+                cy - (paint.ascent() + paint.descent()) / 2
+            } else {
+                // Center the visible dots, which sit below the font's vertical midpoint.
+                paint.getTextBounds(label, 0, label.length, textBounds)
+                cy - textBounds.exactCenterY()
+            }
+            canvas.drawText(label, cx, baseline, paint)
+        }
+
+        override fun setAlpha(alpha: Int) = Unit
+        override fun setColorFilter(colorFilter: ColorFilter?) = Unit
+        @Deprecated("Deprecated in Android")
+        override fun getOpacity(): Int = PixelFormat.TRANSLUCENT
     }
 
     private fun PlayerControlButton.setActivated() {

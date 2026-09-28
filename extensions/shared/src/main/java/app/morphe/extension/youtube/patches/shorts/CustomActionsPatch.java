@@ -46,6 +46,7 @@ import static app.morphe.extension.shared.utils.ResourceUtils.getString;
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.youtube.patches.components.ShortsCustomActionsFilter.isShortsFlyoutMenuVisible;
 import static app.morphe.extension.youtube.shared.RootView.isShortsActive;
+import static app.morphe.extension.youtube.settings.YouTubeActivityHook.USE_BOLD_ICONS;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
 import android.content.Context;
@@ -144,6 +145,7 @@ public final class CustomActionsPatch {
         ExtendedUtils.showBottomSheetDialog(mContext, mainLayout, actionsMap);
     }
 
+    @SuppressWarnings("deprecation")
     private static boolean isMoreButton(String enumString) {
         return StringUtils.equalsAny(
                 enumString,
@@ -153,16 +155,22 @@ public final class CustomActionsPatch {
     }
 
     /**
-     * Injection point.
+     * Injection point. Stores only a normal menu item as the template for custom actions.
+     *
+     * <p>The modern Shorts flyout renderer has a separate path for element-transformer items.
+     * Such an item may look like the native Captions row, but it cannot be rebuilt with a custom
+     * label and icon. A server-side menu change can make that item the first supported entry, so
+     * it must not become the template for cloned custom-action rows.</p>
      */
-    public static void setFlyoutMenuObject(Object bottomSheetMenuObject) {
+    public static void setFlyoutMenuObject(Object bottomSheetMenuObject,
+                                           boolean isElementTransformer) {
         if (!SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED) {
             return;
         }
         if (!isShortsActive()) {
             return;
         }
-        if (bottomSheetMenuObject == null) {
+        if (isElementTransformer || bottomSheetMenuObject == null) {
             return;
         }
         for (CustomAction customAction : CustomAction.values()) {
@@ -527,7 +535,7 @@ public final class CustomActionsPatch {
                      @NonNull Runnable onClickAction,
                      @Nullable Runnable onLongClickAction
         ) {
-            String selectedIcon = Utils.appIsUsingBoldIcons() ? boldIcon : icon;
+            String selectedIcon = USE_BOLD_ICONS ? boldIcon : icon;
             Drawable drawable = ResourceUtils.getDrawable(selectedIcon);
             if (drawable == null && !selectedIcon.equals(icon)) {
                 // Bold resource names differ between supported YouTube versions. Use the normal
@@ -544,6 +552,9 @@ public final class CustomActionsPatch {
         }
 
         public boolean isAvailable() {
+            if (this == GEMINI) {
+                return PatchStatus.Gemini() && settings.get();
+            }
             if (this == VOICE_OVER_TRANSLATION) {
                 return PatchStatus.VoiceOverTranslation() && settings.get();
             }

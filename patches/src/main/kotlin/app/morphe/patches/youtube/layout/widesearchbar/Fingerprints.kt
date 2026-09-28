@@ -66,7 +66,8 @@ internal object YouActionBarViewFingerprint2031 : Fingerprint(
     classFingerprint = ActionbarRingoViewFingerprint,
     accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     returnType = "V",
-    parameters = listOf("Lcom/google/android/apps/youtube/app/common/ui/navigation/PaneDescriptor;"),
+    parameters = listOf("L"),
+    strings = listOf("FElibrary"),
     filters = listOf(
         opcode(Opcode.IF_NEZ)
     )

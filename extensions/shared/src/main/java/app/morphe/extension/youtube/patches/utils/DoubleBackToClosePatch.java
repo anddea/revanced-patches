@@ -1,3 +1,14 @@
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.utils;
 
 import android.app.Activity;
@@ -14,6 +25,8 @@ public class DoubleBackToClosePatch {
      * Time between two back button presses
      */
     private static final long PRESSED_TIMEOUT_MILLISECONDS = Settings.DOUBLE_BACK_TO_CLOSE_TIMEOUT.get();
+
+    private static final Boolean BACK_BUTTON_ALWAYS_EXITS_FEED = Settings.BACK_BUTTON_ALWAYS_EXITS_FEED.get();
 
     /**
      * Last time back button was pressed
@@ -44,6 +57,16 @@ public class DoubleBackToClosePatch {
             activity.finish();
         else
             lastTimeBackPressed = currentTime;
+    }
+
+    /**
+     * Override back button scrolling to the top of the home/subscription feed.
+     */
+    public static boolean allowBackButtonToScrollToTopOfFeed(boolean original) {
+        if (BACK_BUTTON_ALWAYS_EXITS_FEED) {
+            return false;
+        }
+        return original;
     }
 
     /**

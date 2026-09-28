@@ -56,7 +56,10 @@ import app.morphe.patches.shared.boldIconsFeatureFlagMethodFingerprint
 import app.morphe.patches.shared.extension.Constants.EXTENSION_THEME_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.mainactivity.injectConstructorMethodCall
+import app.morphe.patches.shared.misc.settings.YOUTUBE_SETTINGS_ENTRY_KEY
+import app.morphe.patches.shared.misc.settings.customSettingsNameInstructions
 import app.morphe.patches.shared.settings.baseSettingsPatch
+import app.morphe.patches.youtube.layout.hide.settingsmenu.PreferenceScreenSyntheticFingerprint
 import app.morphe.patches.youtube.utils.CAIRO_FRAGMENT_FEATURE_FLAG
 import app.morphe.patches.youtube.utils.cairoFragmentConfigFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -72,6 +75,7 @@ import app.morphe.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.morphe.patches.youtube.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE
 import app.morphe.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_31_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_12_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.settingsFragment
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -86,6 +90,7 @@ import app.morphe.util.findElementByAttributeValueOrThrow
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.fingerprint.methodCall
 import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -96,7 +101,9 @@ import app.morphe.util.valueOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -115,8 +122,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 private lateinit var bytecodeContext: BytecodePatchContext
 
-internal fun getBytecodeContext() = bytecodeContext
-
+@Suppress("DEPRECATION")
 private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
 ) {
@@ -196,7 +202,7 @@ private val settingsBytecodePatch = bytecodePatch(
             }
         }
 
-        if (is_20_31_or_greater) {
+        if (is_20_31_or_greater && !is_21_12_or_greater) {
             boldIconsFeatureFlagMethodFingerprint.method.insertLiteralOverride(
                 BOLD_ICONS_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useBoldIcons(Z)Z"
@@ -295,6 +301,39 @@ private val settingsBytecodePatch = bytecodePatch(
                     """
                 )
             }.let(methods::add)
+        }
+
+        PreferenceScreenSyntheticFingerprint.let {
+            it.method.apply {
+                // Reuse the method's own getPreferenceScreen call.
+                val getPreferenceScreenIndex = it.instructionMatches[1].index
+                val fragmentRegister =
+                    getInstruction<FiveRegisterInstruction>(getPreferenceScreenIndex).registerC
+                val getPreferenceScreenReference =
+                    getInstruction<ReferenceInstruction>(getPreferenceScreenIndex).reference
+
+                // fragmentRegister must survive, because the settings menu filter patch
+                // adds its own call on it after these instructions.
+                val insertIndex = it.instructionMatches.last().index
+                val registerProvider = getFreeRegisterProvider(insertIndex, 3, fragmentRegister)
+                val screenRegister = registerProvider.getFreeRegister()
+                val preferenceRegister = registerProvider.getFreeRegister()
+                val nameRegister = registerProvider.getFreeRegister()
+
+                addInstructionsAtControlFlowLabel(
+                    insertIndex,
+                    customSettingsNameInstructions(
+                        preferenceKey = YOUTUBE_SETTINGS_ENTRY_KEY,
+                        getPreferenceScreen = """
+                            invoke-virtual { v$fragmentRegister }, $getPreferenceScreenReference
+                            move-result-object v$screenRegister
+                        """,
+                        screenRegister = screenRegister,
+                        preferenceRegister = preferenceRegister,
+                        nameRegister = nameRegister
+                    )
+                )
+            }
         }
     }
 }
@@ -409,6 +448,8 @@ val settingsPatch = resourcePatch(
                 "revanced_preference_search_result_group_header.xml",
                 "revanced_preference_search_result_list.xml",
                 "revanced_preference_search_result_regular.xml",
+                "revanced_preference_search_result_range_slider.xml",
+                "revanced_preference_search_result_slider.xml",
                 "revanced_preference_search_result_switch.xml",
                 "revanced_settings_preferences_category.xml",
                 "revanced_settings_with_toolbar.xml",
@@ -435,10 +476,11 @@ val settingsPatch = resourcePatch(
 
         val generalExperimentalSettings = mutableListOf(
             "PREFERENCE_SCREEN: GENERAL",
+            "SETTINGS: THEME_SETTINGS",
             "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
             "SETTINGS: RESTORE_OLD_SETTINGS_MENUS",
         )
-        if (is_20_31_or_greater) {
+        if (is_20_31_or_greater && !is_21_12_or_greater) {
             generalExperimentalSettings += "SETTINGS: DISABLE_BOLD_ICONS"
         }
         ResourceUtils.addPreference(

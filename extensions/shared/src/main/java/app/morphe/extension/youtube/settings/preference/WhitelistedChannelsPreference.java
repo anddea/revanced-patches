@@ -71,15 +71,18 @@ import app.morphe.extension.youtube.whitelist.Whitelist.WhitelistType;
 @SuppressWarnings({"unused", "deprecation"})
 public class WhitelistedChannelsPreference extends Preference implements Preference.OnPreferenceClickListener {
 
+    private static final WhitelistType whitelistTypeAds = WhitelistType.ADS;
     private static final WhitelistType whitelistTypePlaybackSpeed = WhitelistType.PLAYBACK_SPEED;
     private static final WhitelistType whitelistTypeSponsorBlock = WhitelistType.SPONSOR_BLOCK;
+    private static final boolean adsIncluded = PatchStatus.HideAds();
     private static final boolean playbackSpeedIncluded = PatchStatus.VideoPlayback();
     private static final boolean sponsorBlockIncluded = PatchStatus.SponsorBlock();
     private static String[] mEntries;
     private static WhitelistType[] mEntryValues;
 
     static {
-        final int entrySize = BooleanUtils.toInteger(playbackSpeedIncluded)
+        final int entrySize = BooleanUtils.toInteger(adsIncluded)
+                + BooleanUtils.toInteger(playbackSpeedIncluded)
                 + BooleanUtils.toInteger(sponsorBlockIncluded);
 
         if (entrySize != 0) {
@@ -87,6 +90,11 @@ public class WhitelistedChannelsPreference extends Preference implements Prefere
             mEntryValues = new WhitelistType[entrySize];
 
             int index = 0;
+            if (adsIncluded) {
+                mEntries[index] = "  " + whitelistTypeAds.getFriendlyName() + "  ";
+                mEntryValues[index] = whitelistTypeAds;
+                index++;
+            }
             if (playbackSpeedIncluded) {
                 mEntries[index] = "  " + whitelistTypePlaybackSpeed.getFriendlyName() + "  ";
                 mEntryValues[index] = whitelistTypePlaybackSpeed;

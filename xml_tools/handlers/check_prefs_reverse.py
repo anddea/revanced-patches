@@ -52,7 +52,6 @@ BLACKLIST: set[str] = {
     "revanced_swipe_speed",
     "revanced_swipe_speed_distance",
     "revanced_swipe_speed_sensitivity",
-    "revanced_swipe_switch_speed_and_seek",
     "revanced_swipe_volume_distance",
     "revanced_transcript_cookies_about",
     "revanced_translations",

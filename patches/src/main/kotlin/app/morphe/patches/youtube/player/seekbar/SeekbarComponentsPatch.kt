@@ -13,15 +13,19 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.drawable.addDrawableColorHook
 import app.morphe.patches.shared.drawable.drawableColorHookPatch
 import app.morphe.patches.shared.mainactivity.onCreateMethod
 import app.morphe.patches.shared.mapping.resourceMappingPatch
 import app.morphe.patches.youtube.misc.chapters.chaptersHookPatch
+import app.morphe.patches.youtube.misc.chapters.getTimelineMarkersArrayFingerprint
+import app.morphe.patches.youtube.misc.chapters.TimelineMarkerFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_PATH
@@ -33,10 +37,11 @@ import app.morphe.patches.youtube.utils.playerButtonsVisibilityFingerprint
 import app.morphe.patches.youtube.utils.playerSeekbarColorFingerprint
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_49_or_greater
-import app.morphe.patches.youtube.utils.playservice.is_20_30_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_28_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_37_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_02_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_12_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
@@ -48,15 +53,13 @@ import app.morphe.patches.youtube.utils.resourceid.ytStaticBrandRed
 import app.morphe.patches.youtube.utils.seekbarFingerprint
 import app.morphe.patches.youtube.utils.seekbarOnDrawFingerprint
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
-import app.morphe.patches.youtube.utils.settings.ResourceUtils.getContext
-import app.morphe.patches.youtube.utils.settings.ResourceUtils.restoreOldSplashAnimationIncluded
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.totalTimeFingerprint
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
-import app.morphe.util.copyXmlNode
-import app.morphe.util.findElementByAttributeValueOrThrow
+import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
+import app.morphe.util.findFreeRegister
 import app.morphe.util.findMethodsOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
@@ -65,9 +68,12 @@ import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
-import app.morphe.util.inputStreamFromBundledResource
 import app.morphe.util.insertLiteralOverride
+import app.morphe.util.numberOfParameterRegisters
+import app.morphe.util.numberOfParameterRegistersLogical
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -75,44 +81,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import org.w3c.dom.Element
-import java.io.ByteArrayInputStream
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-internal const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
-
-/**
- * Generate a style XML with all combinations of 9-bit colors.
- */
-private fun create9BitSeekbarColorStyles(): String = StringBuilder().apply {
-    append("<?xml version=\"1.0\" encoding=\"utf-8\"?>")
-    append("<resources>\n")
-
-    for (red in 0..7) {
-        for (green in 0..7) {
-            for (blue in 0..7) {
-                val name = "${red}_${green}_${blue}"
-
-                fun roundTo3BitHex(channel8Bits: Int) =
-                    (channel8Bits * 255 / 7).toString(16).padStart(2, '0')
-
-                val r = roundTo3BitHex(red)
-                val g = roundTo3BitHex(green)
-                val b = roundTo3BitHex(blue)
-                val color = "#ff$r$g$b"
-
-                append(
-                    """
-                        <style name="splash_seekbar_color_style_$name">
-                            <item name="$splashSeekbarColorAttributeName">$color</item>
-                        </style>
-                    """
-                )
-            }
-        }
-    }
-
-    append("</resources>")
-}.toString()
 
 private const val EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR =
     "$PLAYER_PATH/SeekbarColorPatch;"
@@ -145,71 +116,113 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // region patch for enable seekbar tapping patch
 
-        SeekbarTappingFingerprint.method.apply {
-            val pointIndex = indexOfPointInstruction(this)
-            val pointInstruction = getInstruction<FiveRegisterInstruction>(pointIndex)
-            val freeRegister = pointInstruction.registerE
-            val xAxisRegister = pointInstruction.registerD
+        if (is_21_04_or_greater) {
+            val tapToSeekMethods = ModernOnTouchEventHandlerFingerprint.let {
+                fun getReference(index: Int) = it.method.getInstruction<ReferenceInstruction>(index)
+                    .reference as MethodReference
 
-            val tapSeekIndex = indexOfFirstInstructionOrThrow(pointIndex) {
-                val reference = getReference<MethodReference>()
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        reference?.returnType == "V" &&
-                        reference.parameterTypes.isEmpty()
-            }
-            val thisInstanceRegister =
-                getInstruction<FiveRegisterInstruction>(tapSeekIndex).registerC
-
-            val tapSeekClass = getInstruction(tapSeekIndex)
-                .getReference<MethodReference>()!!
-                .definingClass
-
-            val tapSeekMethods = findMethodsOrThrow(tapSeekClass)
-            var pMethodCall = ""
-            var oMethodCall = ""
-
-            for (method in tapSeekMethods) {
-                if (method.implementation == null)
-                    continue
-
-                val instructions = method.implementation!!.instructions
-                // here we make sure we actually find the method because it has more than 7 instructions
-                if (instructions.count() != 10)
-                    continue
-
-                // we know that the 7th instruction has the opcode CONST_4
-                val instruction = instructions.elementAt(6)
-                if (instruction.opcode != Opcode.CONST_4)
-                    continue
-
-                // the literal for this instruction has to be either 1 or 2
-                val literal = (instruction as NarrowLiteralInstruction).narrowLiteral
-
-                // method founds
-                if (literal == 1)
-                    pMethodCall = "${method.definingClass}->${method.name}(I)V"
-                else if (literal == 2)
-                    oMethodCall = "${method.definingClass}->${method.name}(I)V"
+                listOf(
+                    getReference(it.instructionMatches.first().index),
+                    getReference(it.instructionMatches.last().index),
+                )
             }
 
-            if (pMethodCall.isEmpty()) {
-                throw PatchException("pMethod not found")
-            }
-            if (oMethodCall.isEmpty()) {
-                throw PatchException("oMethod not found")
-            }
+            ModernTapToSeekFingerprint.let {
+                val insertIndex = it.instructionMatches.last().index + 1
 
-            val insertIndex = tapSeekIndex + 1
+                it.method.apply {
+                    val thisInstanceRegister = getInstruction<FiveRegisterInstruction>(
+                        insertIndex - 1
+                    ).registerC
+                    val xAxisRegister = getInstruction<FiveRegisterInstruction>(
+                        it.instructionMatches[2].index
+                    ).registerD
+                    val freeRegister = findFreeRegister(
+                        insertIndex, thisInstanceRegister, xAxisRegister
+                    )
+                    val oMethod = tapToSeekMethods[0]
+                    val nMethod = tapToSeekMethods[1]
 
-            addInstructionsWithLabels(
-                insertIndex, """
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSeekbarTapping()Z
-                    move-result v$freeRegister
-                    if-eqz v$freeRegister, :disabled
-                    invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $pMethodCall
-                    invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethodCall
-                    """, ExternalLabel("disabled", getInstruction(insertIndex))
-            )
+                    addInstructionsWithLabels(
+                        insertIndex,
+                        """
+                            invoke-static { }, $PLAYER_CLASS_DESCRIPTOR->enableSeekbarTapping()Z
+                            move-result v$freeRegister
+                            if-eqz v$freeRegister, :disabled
+                            invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethod
+                            invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $nMethod
+                        """,
+                        ExternalLabel("disabled", getInstruction(insertIndex)),
+                    )
+                }
+            }
+        } else {
+            SeekbarTappingFingerprint.method.apply {
+                val pointIndex = indexOfPointInstruction(this)
+                val pointInstruction = getInstruction<FiveRegisterInstruction>(pointIndex)
+                val freeRegister = pointInstruction.registerE
+                val xAxisRegister = pointInstruction.registerD
+
+                val tapSeekIndex = indexOfFirstInstructionOrThrow(pointIndex) {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.returnType == "V" &&
+                            reference.parameterTypes.isEmpty()
+                }
+                val thisInstanceRegister =
+                    getInstruction<FiveRegisterInstruction>(tapSeekIndex).registerC
+
+                val tapSeekClass = getInstruction(tapSeekIndex)
+                    .getReference<MethodReference>()!!
+                    .definingClass
+
+                val tapSeekMethods = findMethodsOrThrow(tapSeekClass)
+                var pMethodCall = ""
+                var oMethodCall = ""
+
+                for (method in tapSeekMethods) {
+                    if (method.implementation == null)
+                        continue
+
+                    val instructions = method.implementation!!.instructions
+                    // here we make sure we actually find the method because it has more than 7 instructions
+                    if (instructions.count() != 10)
+                        continue
+
+                    // we know that the 7th instruction has the opcode CONST_4
+                    val instruction = instructions.elementAt(6)
+                    if (instruction.opcode != Opcode.CONST_4)
+                        continue
+
+                    // the literal for this instruction has to be either 1 or 2
+                    val literal = (instruction as NarrowLiteralInstruction).narrowLiteral
+
+                    // method founds
+                    if (literal == 1)
+                        pMethodCall = "${method.definingClass}->${method.name}(I)V"
+                    else if (literal == 2)
+                        oMethodCall = "${method.definingClass}->${method.name}(I)V"
+                }
+
+                if (pMethodCall.isEmpty()) {
+                    throw PatchException("pMethod not found")
+                }
+                if (oMethodCall.isEmpty()) {
+                    throw PatchException("oMethod not found")
+                }
+
+                val insertIndex = tapSeekIndex + 1
+
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSeekbarTapping()Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :disabled
+                        invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $pMethodCall
+                        invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethodCall
+                        """, ExternalLabel("disabled", getInstruction(insertIndex))
+                )
+            }
         }
 
         // endregion
@@ -415,159 +428,137 @@ val seekbarComponentsPatch = bytecodePatch(
 
             settingArray += "SETTINGS: CUSTOM_SEEKBAR_COLOR_ACCENT"
 
-            if (!restoreOldSplashAnimationIncluded) {
-                // Don't use the Lottie splash screen layout if using custom seekbar.
-                arrayOf(
-                    LaunchScreenLayoutTypeFingerprint.method,
-                    onCreateMethod
-                ).forEach { method ->
-                    method.apply {
-                        val literalIndex =
-                            indexOfFirstLiteralInstructionOrThrow(
-                                if (is_20_30_or_greater) {
-                                    launchScreenLayoutTypeLotteFeatureFlag
-                                } else {
-                                    launchScreenLayoutTypeLotteFeatureLegacyFlag
-                                }
-                            )
-                        val resultIndex =
-                            indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-                        val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+            // region apply seekbar custom color to splash screen animation.
 
+            // Hook the splash animation to set the seekbar color.
+            onCreateMethod.apply {
+                val setAnimationIntMethodName =
+                    LottieAnimationViewSetAnimationIntFingerprint.originalMethod.name
+
+                findInstructionIndicesReversedOrThrow {
+                    val reference = getReference<MethodReference>()
+                    reference?.definingClass == LOTTIE_ANIMATION_VIEW_CLASS_TYPE && reference.name == setAnimationIntMethodName
+                }.forEach { index ->
+                    val instruction = getInstruction<FiveRegisterInstruction>(index)
+
+                    replaceInstruction(
+                        index,
+                        "invoke-static { v${instruction.registerC}, v${instruction.registerD} }, " +
+                            "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSplashAnimationLottie(Lcom/airbnb/lottie/LottieAnimationView;I)V"
+                    )
+                }
+            }
+
+            // Add non obfuscated method aliases for `setAnimation(int)`
+            // and `setAnimation(InputStream, String)` so extension code can call them.
+            LottieAnimationViewSetAnimationIntFingerprint.classDef.methods.apply {
+                val addedMethodName = "patch_setAnimation"
+                val setAnimationIntName = LottieAnimationViewSetAnimationIntFingerprint
+                    .originalMethod.name
+
+                add(
+                    ImmutableMethod(
+                        LOTTIE_ANIMATION_VIEW_CLASS_TYPE,
+                        addedMethodName,
+                        listOf(ImmutableMethodParameter("I", null, null)),
+                        "V",
+                        AccessFlags.PUBLIC.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
                         addInstructions(
-                            resultIndex + 1,
+                            0,
                             """
-                            invoke-static { v$register }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z
-                            move-result v$register
+                                invoke-virtual { p0, p1 }, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationIntName(I)V
+                                return-void
                             """
                         )
                     }
-                }
-            }
-
-            // Hook the splash animation drawable to set the seekbar color theme.
-            onCreateMethod.apply {
-                val drawableIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<MethodReference>()
-                    reference?.definingClass == "Landroid/widget/ImageView;" &&
-                            reference.name == "getDrawable"
-                }
-                val checkCastIndex =
-                    indexOfFirstInstructionOrThrow(drawableIndex, Opcode.CHECK_CAST)
-                val drawableRegister =
-                    getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
-
-                addInstruction(
-                    checkCastIndex + 1,
-                    "invoke-static { v$drawableRegister }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->" +
-                            "setSplashAnimationDrawableTheme(Landroid/graphics/drawable/AnimatedVectorDrawable;)V"
                 )
-            }
-        }
 
-        val context = getContext()
-
-        context.document("res/drawable/resume_playback_progressbar_drawable.xml")
-            .use { document ->
-                val layerList = document.getElementsByTagName("layer-list").item(0) as Element
-                val progressNode = layerList.getElementsByTagName("item").item(1) as Element
-                if (!progressNode.getAttributeNode("android:id").value.endsWith("progress")) {
-                    throw PatchException("Could not find progress bar")
+                val factoryStreamClass: String
+                val factoryStreamName: String
+                val factoryStreamReturnType: String
+                LottieCompositionFactoryFromJsonInputStreamFingerprint.originalMethod.apply {
+                    factoryStreamClass = definingClass
+                    factoryStreamName = name
+                    factoryStreamReturnType = returnType
                 }
-                val scaleNode = progressNode.getElementsByTagName("scale").item(0) as Element
-                val shapeNode = scaleNode.getElementsByTagName("shape").item(0) as Element
-                val replacementNode = document.createElement(
-                    "app.morphe.extension.youtube.patches.utils.ProgressBarDrawable"
-                )
-                scaleNode.replaceChild(replacementNode, shapeNode)
-            }
+                val setAnimationStreamName = Fingerprint(
+                    classFingerprint = LottieAnimationViewSetAnimationIntFingerprint,
+                    returnType = "V",
+                    parameters = listOf(factoryStreamReturnType)
+                ).method.name
 
-        if (is_19_25_or_greater) {
-            // Add attribute and styles for splash screen custom color.
-            // Using a style is the only way to selectively change just the seekbar fill color.
-            //
-            // Because the style colors must be hard coded for all color possibilities,
-            // instead of allowing 24 bit color the style is restricted to 9-bit (3 bits per color channel)
-            // and the style color closest to the users custom color is used for the splash screen.
-            arrayOf(
-                inputStreamFromBundledResource(
-                    "youtube/seekbar/values",
-                    "attrs.xml"
-                )!! to "res/values/attrs.xml",
-                ByteArrayInputStream(create9BitSeekbarColorStyles().toByteArray()) to "res/values/styles.xml"
-            ).forEach { (source, destination) ->
-                "resources".copyXmlNode(
-                    context.document(source),
-                    context.document(destination),
-                ).close()
-            }
+                add(
+                    ImmutableMethod(
+                        LOTTIE_ANIMATION_VIEW_CLASS_TYPE,
+                        addedMethodName,
+                        listOf(
+                            ImmutableMethodParameter("Ljava/io/InputStream;", null, null),
+                            ImmutableMethodParameter("Ljava/lang/String;", null, null)
+                        ),
+                        "V",
+                        AccessFlags.PUBLIC.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(4)
+                    ).toMutable().apply {
+                        // 21.02+ method is private. Cannot easily change the access flags to public
+                        // because that breaks unrelated opcode that uses invoke-direct and not invoke-virtual.
+                        val methodOpcode = if (is_21_02_or_greater) "invoke-direct" else "invoke-virtual"
 
-            fun setSplashDrawablePathFillColor(
-                xmlFileNames: Iterable<String>,
-                vararg resourceNames: String
-            ) {
-                xmlFileNames.forEach { xmlFileName ->
-                    context.document(xmlFileName).use { document ->
-                        resourceNames.forEach { elementId ->
-                            val element = document.childNodes.findElementByAttributeValueOrThrow(
-                                "android:name",
-                                elementId
-                            )
-
-                            val attribute = "android:fillColor"
-                            if (!element.hasAttribute(attribute)) {
-                                throw PatchException("Could not find $attribute for $elementId")
-                            }
-
-                            element.setAttribute(
-                                attribute,
-                                "?attr/$splashSeekbarColorAttributeName"
-                            )
-                        }
+                        addInstructions(
+                            0,
+                            """
+                                invoke-static { p1, p2 }, $factoryStreamClass->$factoryStreamName(Ljava/io/InputStream;Ljava/lang/String;)$factoryStreamReturnType
+                                move-result-object v0
+                                $methodOpcode { p0, v0}, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationStreamName($factoryStreamReturnType)V
+                                return-void
+                            """
+                        )
                     }
-                }
-            }
-
-            try {
-                setSplashDrawablePathFillColor(
-                    listOf(
-                        $$"res/drawable/$startup_animation_light__0.xml",
-                        $$"res/drawable/$startup_animation_dark__0.xml"
-                    ),
-                    "_R_G_L_10_G_D_0_P_0"
-                )
-            } catch (_: Exception) {
-                // Do nothing
-            }
-
-            if (!is_19_46_or_greater) {
-                // Resources removed in 19.46+
-                setSplashDrawablePathFillColor(
-                    listOf(
-                        $$"res/drawable/$buenos_aires_animation_light__0.xml",
-                        $$"res/drawable/$buenos_aires_animation_dark__0.xml"
-                    ),
-                    "_R_G_L_8_G_D_0_P_0"
                 )
             }
+
+            // endregion
         }
-
-        // endregion
 
 
         // region patch for hide chapter
 
-        TimelineMarkerArrayFingerprint.method.apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableSeekbarChapters()Z
-                    move-result v0
-                    if-eqz v0, :show
-                    const/4 v0, 0x0
-                    new-array v0, v0, [Lcom/google/android/libraries/youtube/player/features/overlay/timebar/TimelineMarker;
-                    return-object v0
-                    """, ExternalLabel("show", getInstruction(0))
-            )
+        if (is_21_04_or_greater) {
+            val timelineMarkerClassType = TimelineMarkerFingerprint.classDef.type
+            getTimelineMarkersArrayFingerprint(timelineMarkerClassType).let { match ->
+                val method = match.method.cloneMutableAndPreserveParameters(match.classDef)
+                val featureFlagRegister = method.implementation!!.registerCount - method.numberOfParameterRegisters
+                val insertIndex = method.numberOfParameterRegistersLogical
+
+                method.addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableSeekbarChapters()Z
+                        move-result v$featureFlagRegister
+                        if-eqz v$featureFlagRegister, :show
+                        const/4 v$featureFlagRegister, 0x0
+                        new-array v$featureFlagRegister, v$featureFlagRegister, [$timelineMarkerClassType
+                        return-object v$featureFlagRegister
+                        """, ExternalLabel("show", method.getInstruction(insertIndex))
+                )
+            }
+        } else {
+            TimelineMarkerArrayFingerprint.method.apply {
+                addInstructionsWithLabels(
+                    0, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableSeekbarChapters()Z
+                        move-result v0
+                        if-eqz v0, :show
+                        const/4 v0, 0x0
+                        new-array v0, v0, [Lcom/google/android/libraries/youtube/player/features/overlay/timebar/TimelineMarker;
+                        return-object v0
+                        """, ExternalLabel("show", getInstruction(0))
+                )
+            }
         }
 
         playerButtonsVisibilityFingerprint.methodOrThrow(playerButtonsResourcesFingerprint).apply {
@@ -598,6 +589,19 @@ val seekbarComponentsPatch = bytecodePatch(
                     return-void
                     """, ExternalLabel("show", getInstruction(0))
             )
+        }
+
+        // endregion
+
+        // region patch for fullscreen large seekbar
+
+        if (is_20_28_or_greater) {
+            FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll().forEach {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$PLAYER_CLASS_DESCRIPTOR->useFullscreenLargeSeekbar(Z)Z"
+                )
+            }
         }
 
         // endregion

@@ -30,6 +30,7 @@ import java.util.Locale;
 
 import app.morphe.extension.music.patches.CrossfadeManager.FadeCurve;
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.shared.utils.Logger;
 
 /**
  * Custom preference that renders a live preview of the selected crossfade curve.
@@ -122,7 +123,9 @@ public final class CrossfadeCurvePreference extends Preference
             if (prefs != null) {
                 prefs.registerOnSharedPreferenceChangeListener(this);
             }
-        } catch (Exception ignored) {}
+        } catch (Exception ex) {
+            Logger.printDebug(() -> "onAttachedToHierarchy failure", ex);
+        }
     }
 
     @Override

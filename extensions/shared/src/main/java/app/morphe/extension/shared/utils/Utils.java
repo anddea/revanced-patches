@@ -427,6 +427,9 @@ public class Utils {
 
         // Must initially set context to check the app language.
         context = appContext;
+        if (appContext instanceof Activity activity) {
+            setActivity(activity);
+        }
         Logger.printInfo(() -> "Set context: " + appContext);
 
         BaseThemeUtils.setThemeColor();

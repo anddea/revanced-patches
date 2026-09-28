@@ -23,11 +23,20 @@ public class ResourceUtils extends Utils {
     private ResourceUtils() {
     } // utility class
 
+    public static boolean useActivityContextIfAvailable = true;
+
+    public static Context getActivityOrContext() {
+        if (useActivityContextIfAvailable) {
+            Activity activity = getActivity();
+            if (activity != null) {
+                return activity;
+            }
+        }
+        return getContext();
+    }
+
     public static int getIdentifier(@NonNull String str, @NonNull ResourceType resourceType) {
-        Activity mActivity = getActivity();
-        Context mContext = mActivity != null
-                ? mActivity
-                : getContext();
+        Context mContext = getActivityOrContext();
         if (mContext == null) {
             handleException(str, resourceType);
             return 0;
@@ -35,10 +44,23 @@ public class ResourceUtils extends Utils {
         return getIdentifier(str, resourceType, mContext);
     }
 
+    public static int getIdentifier(@NonNull ResourceType resourceType, @NonNull String str) {
+        return getIdentifier(str, resourceType);
+    }
+
     public static int getIdentifier(@NonNull String str, @NonNull ResourceType resourceType,
                                     @NonNull Context context) {
         try {
-            return context.getResources().getIdentifier(str, resourceType.getType(), context.getPackageName());
+            String name = str;
+            if (name.startsWith("@")) {
+                int slash = name.indexOf('/');
+                if (slash != -1) {
+                    name = name.substring(slash + 1);
+                } else {
+                    name = name.substring(1);
+                }
+            }
+            return context.getResources().getIdentifier(name, resourceType.getType(), context.getPackageName());
         } catch (Exception ex) {
             handleException(str, resourceType);
         }
@@ -170,7 +192,18 @@ public class ResourceUtils extends Utils {
             handleException(str, ResourceType.DRAWABLE);
             return null;
         }
-        return getResources().getDrawable(identifier);
+        Context context = getActivityOrContext();
+        if (context != null) {
+            try {
+                return context.getDrawable(identifier);
+            } catch (Exception ignored) {
+            }
+        }
+        try {
+            return getResources().getDrawable(identifier);
+        } catch (Exception ignored) {
+        }
+        return null;
     }
 
     public static String getString(@NonNull String str) {
@@ -178,6 +211,25 @@ public class ResourceUtils extends Utils {
         if (identifier == 0) {
             handleException(str, ResourceType.STRING);
             return str;
+        }
+        return getResources().getString(identifier);
+    }
+
+    public static String getStringByLocale(@NonNull String str, @NonNull java.util.Locale locale) {
+        final int identifier = getStringIdentifier(str);
+        if (identifier == 0) {
+            handleException(str, ResourceType.STRING);
+            return str;
+        }
+        try {
+            Context context = getContext();
+            if (context != null) {
+                android.content.res.Configuration config =
+                        new android.content.res.Configuration(context.getResources().getConfiguration());
+                config.setLocale(locale);
+                return context.createConfigurationContext(config).getResources().getString(identifier);
+            }
+        } catch (Exception ignored) {
         }
         return getResources().getString(identifier);
     }
