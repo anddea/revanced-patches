@@ -75,7 +75,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 internal val actionBarRingoBackgroundFingerprint = legacyFingerprint(
@@ -334,6 +333,13 @@ internal object SearchBarBackButtonOnResumeFingerprint : Fingerprint(
     }
 )
 
+internal object SearchResultsBackButtonOnResumeFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = emptyList(),
+    strings = listOf("suggest"),
+)
+
 internal object AppCompatToolbarNavigationIconSetterFingerprint : Fingerprint(
     definingClass = "Landroid/support/v7/widget/Toolbar;",
     accessFlags = listOf(AccessFlags.PUBLIC),
@@ -362,7 +368,13 @@ internal fun indexOfShowAsActionInstruction(method: Method) =
         getReference<MethodReference>()?.name == "setShowAsAction"
     }
 
+private object SearchRequestLoaderParentFingerprint : Fingerprint(
+    name = "<init>",
+    strings = listOf("search_cache_key", "from_sound_search"),
+)
+
 internal object SearchRequestLoaderFingerprint : Fingerprint(
+    classFingerprint = SearchRequestLoaderParentFingerprint,
     returnType = "V",
     accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     custom = { method, _ ->
@@ -373,11 +385,6 @@ internal object SearchRequestLoaderFingerprint : Fingerprint(
                 parameterTypes[1] == "Z" &&
                 parameterTypes[2].startsWith("L") &&
                 parameterTypes[3].startsWith("L") &&
-                method.indexOfFirstInstruction {
-                    opcode == Opcode.NEW_INSTANCE &&
-                            getReference<TypeReference>()?.type ==
-                            "Lcom/google/android/libraries/youtube/innertube/model/SearchResponseModel;"
-                } >= 0 &&
                 method.indexOfFirstInstruction {
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             getReference<MethodReference>()?.toString() ==

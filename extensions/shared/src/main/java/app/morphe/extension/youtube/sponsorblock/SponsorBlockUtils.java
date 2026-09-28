@@ -29,6 +29,7 @@ import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.VideoInformation;
+import app.morphe.extension.youtube.shared.VideoState;
 import app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour;
 import app.morphe.extension.youtube.sponsorblock.objects.SegmentCategory;
 import app.morphe.extension.youtube.sponsorblock.objects.SponsorSegment;
@@ -60,8 +61,13 @@ public class SponsorBlockUtils {
                 case DialogInterface.BUTTON_NEGATIVE ->
                         newSponsorSegmentStartMillis = newSponsorSegmentDialogShownMillis;
                 // End.
-                case DialogInterface.BUTTON_POSITIVE ->
-                        newSponsorSegmentEndMillis = newSponsorSegmentDialogShownMillis;
+                case DialogInterface.BUTTON_POSITIVE -> {
+                    final long videoLength = VideoInformation.getVideoLength();
+                    newSponsorSegmentEndMillis =
+                            VideoState.getCurrent() == VideoState.ENDED && videoLength > 0
+                                    ? videoLength
+                                    : newSponsorSegmentDialogShownMillis;
+                }
             }
             dialog.dismiss();
         }

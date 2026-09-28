@@ -14,6 +14,15 @@ public class AlwaysRepeatPatch extends Utils {
      *
      * @return video is repeated.
      */
+    public static boolean alwaysRepeat(Enum<?> status) {
+        return status != null && "ENDED".equals(status.name()) && alwaysRepeat();
+    }
+
+    /**
+     * Injection point for targets below 21.13.
+     *
+     * @return video is repeated.
+     */
     public static boolean alwaysRepeat() {
         return alwaysRepeatEnabled() && VideoInformation.overrideVideoTime(0);
     }

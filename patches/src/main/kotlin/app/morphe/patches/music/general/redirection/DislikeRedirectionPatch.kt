@@ -51,6 +51,7 @@ import app.morphe.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPT
 import app.morphe.patches.music.utils.patch.PatchList.DISABLE_DISLIKE_REDIRECTION
 import app.morphe.patches.music.utils.playservice.is_7_29_or_greater
 import app.morphe.patches.music.utils.playservice.is_8_51_or_greater
+import app.morphe.patches.music.utils.playservice.is_9_35_or_greater
 import app.morphe.patches.music.utils.playservice.versionCheckPatch
 import app.morphe.patches.music.utils.settings.CategoryType
 import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -96,7 +97,13 @@ val dislikeRedirectionPatch = bytecodePatch(
             disableDislikeRedirection(onClickIndex)
         }
 
-        if (is_7_29_or_greater) {
+        if (is_9_35_or_greater) {
+            // Skips to the next track in more than one place (dislike command handler
+            // and, on 9.36+, the like button click listener).
+            DislikeSkipToNextFingerprint.matchAll().forEach { match ->
+                match.method.disableDislikeRedirection(match.instructionMatches.last().index)
+            }
+        } else if (is_7_29_or_greater) {
             DislikeButtonOnClickListenerFingerprint.method
                 .disableDislikeRedirection()
         } else {

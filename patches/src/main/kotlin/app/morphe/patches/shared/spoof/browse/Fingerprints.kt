@@ -1,34 +1,31 @@
 package app.morphe.patches.shared.spoof.browse
 
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
-import app.morphe.util.indexOfFirstInstructionReversed
-import app.morphe.util.or
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val browseEndpointConstructorFingerprint = legacyFingerprint(
-    name = "browseEndpointConstructorFingerprint",
-    returnType = "V",
-    strings = listOf("browse"),
-    customFingerprint = { method, _ ->
-        method.name == "<init>" &&
-                method.indexOfFirstInstructionReversed {
-                    opcode == Opcode.INVOKE_STATIC &&
-                            getReference<MethodReference>()?.toString() == "Ljava/util/Locale;->getDefault()Ljava/util/Locale;"
-                } >= 0
-    }
-)
-
-internal val browseEndpointRequestBodyFingerprint = legacyFingerprint(
-    name = "browseEndpointRequestBodyFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
+internal val browseEndpointFingerprint = Fingerprint(
+    returnType = "Ljava/lang/String;",
     parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
+    filters = listOf(
+        string("browseId"),
+        string("musicBrowseRequestDeepLinkUrl"),
     ),
 )
 
+internal val browseEndpointRequestBodyFingerprint = Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL),
+    parameters = emptyList(),
+    filters = listOf(
+        fieldAccess(opcode = Opcode.IGET_OBJECT, type = "Ljava/lang/String;"),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            type = "Ljava/lang/String;",
+            location = MatchAfterWithin(3),
+        ),
+    ),
+)

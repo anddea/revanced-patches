@@ -10,7 +10,6 @@ import app.morphe.patches.shared.authenticationChangeListenerFingerprint
 import app.morphe.patches.shared.clientTypeFingerprint
 import app.morphe.patches.shared.indexOfClientInfoInstruction
 import app.morphe.patches.shared.indexOfMessageLiteBuilderReference
-import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -55,7 +54,7 @@ val spoofClientBrowseEndpointPatch = bytecodePatch(
         }
 
         browseEndpointRequestBodyFingerprint
-            .matchOrThrow(browseEndpointConstructorFingerprint)
+            .match(browseEndpointFingerprint.classDef)
             .let {
                 it.method.apply {
                     val browseIdIndex = it.instructionMatches.first().index

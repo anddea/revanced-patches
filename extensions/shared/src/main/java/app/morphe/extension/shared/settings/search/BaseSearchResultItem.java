@@ -1,3 +1,45 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - anddea (https://github.com/anddea)
+ *
+ * This file is the product of multiple backports between ReVanced and RVX.
+ *
+ * Licensed under the GNU General Public License v3.0.
+ *
+ * ------------------------------------------------------------------------
+ * GPLv3 Section 7 – Additional Terms & Attribution Requirements
+ * ------------------------------------------------------------------------
+ *
+ * This file contains substantial original work by the author(s) listed above.
+ *
+ * In accordance with Section 7 of the GNU General Public License v3.0,
+ * the following additional terms apply to this file:
+ *
+ * 1. Source Credit Preservation (Section 7(b)): This specific copyright notice
+ *    and the list of original authors above must be preserved in any copy
+ *    or derivative work. You may add your own copyright notice below it,
+ *    but you may not remove the original one.
+ *
+ * 2. Origin & Modification Marking (Section 7(c)): Modified versions must be
+ *    clearly marked as such (e.g., by adding a "Modified by" line or a new
+ *    copyright notice) and must not be misrepresented as the original work.
+ *
+ * 3. Version Control Attribution (Section 7(b)): Any ports or substantial
+ *    modifications must retain historical authorship credit in version control
+ *    systems (e.g., Git), listing original author(s) appropriately and
+ *    modifiers as committers or co-authors.
+ *
+ * 4. User Interface Attribution (Section 7(b)): Any works containing or
+ *    derived from this material must maintain a visible credit or
+ *    acknowledgment to the original author(s) within the application's
+ *    user interface (e.g., in an "About" or "Credits" section).
+ */
+
 package app.morphe.extension.shared.settings.search;
 
 import android.graphics.Color;
@@ -18,6 +60,8 @@ import java.util.regex.Pattern;
 
 import app.morphe.extension.shared.settings.preference.ColorPickerPreference;
 import app.morphe.extension.shared.settings.preference.CustomDialogListPreference;
+import app.morphe.extension.shared.settings.preference.RangeSliderPreference;
+import app.morphe.extension.shared.settings.preference.SliderPreference;
 import app.morphe.extension.shared.settings.preference.UrlLinkPreference;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.ResourceUtils;
@@ -30,6 +74,8 @@ public abstract class BaseSearchResultItem {
     // Enum to represent view types.
     public enum ViewType {
         REGULAR,
+        SLIDER,
+        RANGE_SLIDER,
         SWITCH,
         LIST,
         COLOR_PICKER,
@@ -42,6 +88,9 @@ public abstract class BaseSearchResultItem {
             return switch (this) {
                 case REGULAR, URL_LINK ->
                         getResourceIdentifier("revanced_preference_search_result_regular");
+                case SLIDER -> getResourceIdentifier("revanced_preference_search_result_slider");
+                case RANGE_SLIDER ->
+                        getResourceIdentifier("revanced_preference_search_result_range_slider");
                 case SWITCH -> getResourceIdentifier("revanced_preference_search_result_switch");
                 case LIST -> getResourceIdentifier("revanced_preference_search_result_list");
                 case COLOR_PICKER ->
@@ -131,6 +180,7 @@ public abstract class BaseSearchResultItem {
     public static class PreferenceSearchItem extends BaseSearchResultItem {
         public final Preference preference;
         final String searchableText;
+        final String semanticSearchText;
         final CharSequence originalTitle;
         final CharSequence originalSummary;
         final CharSequence originalSummaryOn;
@@ -163,6 +213,7 @@ public abstract class BaseSearchResultItem {
 
             // Build searchable text.
             this.searchableText = buildSearchableText(pref);
+            this.semanticSearchText = buildSemanticSearchText();
         }
 
         private static class FieldInitializationResult {
@@ -172,6 +223,8 @@ public abstract class BaseSearchResultItem {
         }
 
         private static ViewType determineType(Preference pref) {
+            if (pref instanceof RangeSliderPreference) return ViewType.RANGE_SLIDER;
+            if (pref instanceof SliderPreference) return ViewType.SLIDER;
             if (pref instanceof SwitchPreference) return ViewType.SWITCH;
             if (pref instanceof ListPreference) return ViewType.LIST;
             if (pref instanceof ColorPickerPreference) return ViewType.COLOR_PICKER;
@@ -201,26 +254,25 @@ public abstract class BaseSearchResultItem {
             return result;
         }
 
+        /**
+         * Builds the searchable text from preference content while excluding its internal key.
+         */
         private String buildSearchableText(Preference pref) {
             StringBuilder searchBuilder = new StringBuilder();
-            String key = pref.getKey();
-            String normalizedKey = "";
-            if (key != null) {
-                // Normalize preference key by removing the common "revanced_" prefix
-                // so that users can search by the meaningful part only.
-                normalizedKey = key.startsWith("revanced_")
-                        ? key.substring("revanced_".length())
-                        : key;
-            }
-            appendText(searchBuilder, normalizedKey);
             appendText(searchBuilder, originalTitle);
             appendText(searchBuilder, originalSummary);
 
             // Add type-specific searchable content.
-            if (pref instanceof ListPreference) {
+            if (pref instanceof ListPreference listPref) {
                 if (originalEntries != null) {
                     for (CharSequence entry : originalEntries) {
                         appendText(searchBuilder, entry);
+                    }
+                }
+                CharSequence[] entryValues = listPref.getEntryValues();
+                if (entryValues != null) {
+                    for (CharSequence entryValue : entryValues) {
+                        appendText(searchBuilder, entryValue);
                     }
                 }
             } else if (pref instanceof SwitchPreference) {
@@ -233,6 +285,22 @@ public abstract class BaseSearchResultItem {
             // Include navigation path in searchable text.
             appendText(searchBuilder, navigationPath);
 
+            return searchBuilder.toString();
+        }
+
+        /** Builds semantic-search input from visible labels without saved or internal values. */
+        private String buildSemanticSearchText() {
+            StringBuilder searchBuilder = new StringBuilder();
+            appendText(searchBuilder, originalTitle);
+            appendText(searchBuilder, originalSummary);
+            appendText(searchBuilder, originalSummaryOn);
+            appendText(searchBuilder, originalSummaryOff);
+            if (originalEntries != null) {
+                for (CharSequence entry : originalEntries) {
+                    appendText(searchBuilder, entry);
+                }
+            }
+            appendText(searchBuilder, navigationPath);
             return searchBuilder.toString();
         }
 
@@ -289,6 +357,14 @@ public abstract class BaseSearchResultItem {
         @Override
         boolean matchesQuery(String query) {
             return searchableText.contains(Utils.normalizeTextToLowercase(query));
+        }
+
+        /**
+         * Returns normalized, user-visible preference content for semantic fallback matching.
+         * Internal preference keys and saved values are intentionally excluded.
+         */
+        public String getSemanticSearchText() {
+            return semanticSearchText;
         }
 
         /**

@@ -196,11 +196,13 @@ val playerButtonsPatch = bytecodePatch(
 
                 val viewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
-                addInstruction(
+                addInstructions(
                     insertIndex,
-                    "invoke-static { v$viewRegister }, $PLAYER_CLASS_DESCRIPTOR" +
-                            "->hidePreviousNextButtons(Landroid/view/View;)V",
-            )
+                    """
+                        invoke-static { v$viewRegister }, $PLAYER_CAST_BUTTON_CLASS_DESCRIPTOR->hideCastButton(Landroid/view/View;)V
+                        invoke-static { v$viewRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePreviousNextButtons(Landroid/view/View;)V
+                    """
+                )
             }
         } else {
             PlayerControlsVisibilityModelFingerprint.method.apply {

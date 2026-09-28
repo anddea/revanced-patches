@@ -24,11 +24,15 @@ import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.fingerprint.methodOrThrow
+import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val COMMENTS_FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/CommentsFilter;"
@@ -86,6 +90,31 @@ val commentsComponentPatch = bytecodePatch(
                         invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->disableEmojiPickerOnClickListener(Ljava/lang/Object;)Ljava/lang/Object;
                         move-result-object v$insertRegister
                         """
+                )
+            }
+        }
+
+        // endregion
+
+        // region hide category bar in comments
+
+        PanelSubheaderFingerprint.let {
+            it.method.apply {
+                val removeAllViewsIndex = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "removeAllViews"
+                }
+
+                val setVisibilityIndex = indexOfFirstInstructionOrThrow(removeAllViewsIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setVisibility"
+                }
+
+                val subheaderRegister = getInstruction<FiveRegisterInstruction>(setVisibilityIndex).registerC
+
+                addInstruction(
+                    setVisibilityIndex + 1,
+                    "invoke-static { v$subheaderRegister }, $COMMENTS_FILTER_CLASS_DESCRIPTOR->hideInComments(Landroid/view/View;)V"
                 )
             }
         }

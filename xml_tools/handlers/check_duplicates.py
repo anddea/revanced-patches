@@ -17,6 +17,10 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger("xml_tools")
 
+BLACKLIST: frozenset[str] = frozenset({
+    "morphe_app_refresh_rate_default",
+})
+
 
 def extract_string_texts(path: Path) -> dict[str, str]:
     """Extract string names and their text content from an XML file."""
@@ -46,7 +50,11 @@ def find_duplicate_strings(path: Path) -> dict[str, list[str]]:
     for name, text in extract_string_texts(path).items():
         names_by_text[text].append(name)
 
-    return {text: names for text, names in names_by_text.items() if len(names) > 1}
+    return {
+        text: names
+        for text, names in names_by_text.items()
+        if len([n for n in names if n not in BLACKLIST]) > 1
+    }
 
 
 def _get_strings_path(app: str) -> Path:

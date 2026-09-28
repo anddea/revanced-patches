@@ -20,6 +20,21 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger("xml_tools")
 
+MORPHE_STRING_NAME_REPLACEMENTS: tuple[tuple[str, str], ...] = (
+    ("morphe_hide_filter_bar_in_comments_", "revanced_hide_category_bar_in_comments_"),
+    ("morphe_remember_live_stream_", "morphe_remember_livestream_"),
+    ("morphe_spoof_app_version_target_entry_21_11", "revanced_spoof_app_version_target_entry_21_11_484"),
+)
+
+
+def _normalize_morphe_string_name(name: str) -> str:
+    """Normalize Morphe string names to the naming used by this project."""
+    for source_prefix, target_prefix in MORPHE_STRING_NAME_REPLACEMENTS:
+        if name.startswith(source_prefix):
+            return target_prefix + name[len(source_prefix) :]
+
+    return name
+
 
 def _replace_morphe_brand_text(element: ET.Element) -> bool:
     """Replace Morphe branding only inside string text nodes."""
@@ -104,6 +119,10 @@ def update_strings(
 
     """
     blacklist: set[str] = {
+        "morphe_settings_name_entry_1",
+        "morphe_settings_name_entry_2",
+        "morphe_settings_name_entry_3",
+        "morphe_settings_name_entry_4",
         "revanced_enable_swipe_brightness_summary_off",
         "revanced_enable_swipe_brightness_summary_on",
         "revanced_enable_swipe_volume_summary_off",
@@ -127,11 +146,12 @@ def update_strings(
 
         # Update existing strings or add new ones
         for original_name, data in source_strings.items():
-            names_to_process = [original_name]
+            normalized_name = _normalize_morphe_string_name(original_name)
+            names_to_process = [normalized_name]
 
             # Always add a copy of the string renamed to 'revanced' if applicable
-            if original_name.startswith("morphe_"):
-                names_to_process.append("revanced_" + original_name[7:])
+            if normalized_name.startswith("morphe_"):
+                names_to_process.append("revanced_" + normalized_name[7:])
 
             # Skip if any of the derived names are blacklisted
             if any(name in blacklist for name in names_to_process):

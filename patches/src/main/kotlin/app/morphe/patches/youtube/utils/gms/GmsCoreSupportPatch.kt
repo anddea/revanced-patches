@@ -22,6 +22,8 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
+    dependsOn(deviceComplianceCheckPatch)
+
     compatibleWith(COMPATIBILITY_YOUTUBE)
 }
 

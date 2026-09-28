@@ -133,7 +133,6 @@ public class SegmentPlaybackController {
 
     @NonNull
     private static String videoId = "";
-    private static long videoLength = 0;
 
     @Nullable
     private static SponsorSegment[] segments;
@@ -306,7 +305,6 @@ public class SegmentPlaybackController {
      */
     public static void clearData() {
         videoId = "";
-        videoLength = 0;
         segments = null;
         highlightSegment = null;
         highlightSegmentInitialShowEndTime = 0;
@@ -363,7 +361,6 @@ public class SegmentPlaybackController {
             }
 
             videoId = newlyLoadedVideoId;
-            videoLength = newlyLoadedVideoLength;
             Logger.printDebug(() -> "newVideoStarted: " + newlyLoadedVideoId);
 
             if (Whitelist.isChannelWhitelistedSponsorBlock(newlyLoadedChannelId)) {
@@ -398,9 +395,11 @@ public class SegmentPlaybackController {
      * @return The length of the video in milliseconds.
      * If the video is not yet loaded, or if the video is playing in the background with no video visible,
      * then this returns zero.
+     * The value is read from {@link VideoInformation} because YouTube may publish the final duration
+     * after the early video-start callback.
      */
     public static long getVideoLength() {
-        return videoLength;
+        return VideoInformation.getVideoLength();
     }
 
     /**
@@ -1104,6 +1103,7 @@ public class SegmentPlaybackController {
 
     @SuppressLint("DefaultLocale")
     private static void calculateTimeWithoutSegments() {
+        final long videoLength = getVideoLength();
         if (!Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get() || videoLength <= 0
                 || segments == null || segments.length == 0) {
             timeWithoutSegments = null;
@@ -1151,6 +1151,7 @@ public class SegmentPlaybackController {
      */
     public static void drawSponsorTimeBars(final Canvas canvas, final float posY) {
         try {
+            final long videoLength = getVideoLength();
             if (!Settings.SB_ENABLED.get()
                     || segments == null
                     || videoLength <= 0

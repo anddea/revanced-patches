@@ -58,6 +58,7 @@ import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodCall
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.injectLiteralInstructionViewCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -115,36 +116,58 @@ val commentsPanelPatch = bytecodePatch(
         engagementPanelRecyclerViewFingerprint.let { result ->
             result.method.apply {
                 val setRecyclerViewMethodName = "patch_setRecyclerView"
-                val insertIndex = indexOfIfPresentInstruction(this) + 1
-
                 val engagementPanelMessageRegister = parameterTypes
                     .indexOfFirst { it.toString() == engagementPanelMessageClass }
                     .takeIf { it >= 0 }
                     ?.let { "p${it + 1}" }
-                    ?: run {
-                        // Older versions keep the engagement panel message in a local register.
-                        val engagementPanelMessageIndex = indexOfFirstInstructionOrThrow(insertIndex) {
-                            getReference<MethodReference>()?.parameterTypes?.firstOrNull() == engagementPanelMessageClass
-                        }
-                        getInstruction<FiveRegisterInstruction>(engagementPanelMessageIndex).let { instruction ->
-                            val register = if (getInstruction(engagementPanelMessageIndex).opcode == Opcode.INVOKE_STATIC)
-                                instruction.registerC
-                            else // YouTube Music 6.20.51
-                                instruction.registerD
 
-                            "v$register"
+                val (insertIndex, setRecyclerViewInstructions) =
+                    if (engagementPanelMessageRegister == "p1") {
+                        val recyclerViewCheckCastIndex = indexOfRecyclerViewInstruction(this)
+                        val recyclerViewOptionalPresentIndex = indexOfFirstInstructionReversedOrThrow(
+                            recyclerViewCheckCastIndex
+                        ) {
+                            opcode == Opcode.INVOKE_VIRTUAL &&
+                                    getReference<MethodReference>()?.name == "isPresent"
                         }
+                        val insertIndex = indexOfFirstInstructionOrThrow(recyclerViewOptionalPresentIndex) {
+                            opcode == Opcode.IF_EQZ
+                        }
+
+                        insertIndex to
+                                "invoke-direct/range { p0 .. p1 }, $definingClass->$setRecyclerViewMethodName($engagementPanelMessageClass)V"
+                    } else {
+                        val insertIndex = indexOfIfPresentInstruction(this) + 1
+
+                        val messageRegister = engagementPanelMessageRegister ?: run {
+                            // Older versions keep the engagement panel message in a local register.
+                            val engagementPanelMessageIndex = indexOfFirstInstructionOrThrow(insertIndex) {
+                                getReference<MethodReference>()?.parameterTypes?.firstOrNull() == engagementPanelMessageClass
+                            }
+                            getInstruction<FiveRegisterInstruction>(engagementPanelMessageIndex).let { instruction ->
+                                val register = if (getInstruction(engagementPanelMessageIndex).opcode == Opcode.INVOKE_STATIC)
+                                    instruction.registerC
+                                else // YouTube Music 6.20.51
+                                    instruction.registerD
+
+                                "v$register"
+                            }
+                        }
+
+                        val freeRegisters = getFreeRegisterProvider(insertIndex, 2)
+                        val thisRegister = freeRegisters.getFreeRegister()
+                        val engagementPanelMessageFreeRegister = freeRegisters.getFreeRegister()
+
+                        insertIndex to """
+                            move-object/from16 v$thisRegister, p0
+                            move-object/from16 v$engagementPanelMessageFreeRegister, $messageRegister
+                            invoke-direct { v$thisRegister, v$engagementPanelMessageFreeRegister }, $definingClass->$setRecyclerViewMethodName($engagementPanelMessageClass)V
+                            """
                     }
-                val freeRegisters = getFreeRegisterProvider(insertIndex, 2)
-                val thisRegister = freeRegisters.getFreeRegister()
-                val engagementPanelMessageFreeRegister = freeRegisters.getFreeRegister()
 
                 addInstructionsAtControlFlowLabel(
-                    insertIndex, """
-                        move-object/from16 v$thisRegister, p0
-                        move-object/from16 v$engagementPanelMessageFreeRegister, $engagementPanelMessageRegister
-                        invoke-direct { v$thisRegister, v$engagementPanelMessageFreeRegister }, $definingClass->$setRecyclerViewMethodName($engagementPanelMessageClass)V
-                        """
+                    insertIndex,
+                    setRecyclerViewInstructions
                 )
 
                 result.classDef.methods.add(

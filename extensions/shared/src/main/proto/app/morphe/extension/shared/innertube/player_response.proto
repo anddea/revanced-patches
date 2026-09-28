@@ -11,8 +11,31 @@ message PlayerResponse {
   optional ResponseContext responseContext = 1;
   optional PlayabilityStatus playabilityStatus = 2;
   optional StreamingData streamingData = 4;
+  optional VideoDetails videoDetails = 11;
   optional PlayerConfig playerConfig = 15;
 }
+
+// Field numbers read off a real player response, since asking for "videoDetails"
+// in the fields mask returns nothing.
+message VideoDetails {
+  optional string videoId = 1;
+  optional string title = 15;
+  optional int32 lengthSeconds = 16;
+  optional string channelId = 19;
+  optional ThumbnailList thumbnail = 25;
+  optional string ownerChannelName = 33;
+}
+
+message ThumbnailList {
+  repeated ThumbnailEntry thumbnails = 1;
+}
+
+message ThumbnailEntry {
+  optional string url = 1;
+  optional int32 width = 2;
+  optional int32 height = 3;
+}
+
 
 message PlayabilityStatus {
   optional Status status = 1;
@@ -39,14 +62,39 @@ message StreamingData {
 }
 
 message Format {
+  optional int32 itag = 1;
+  optional int32 bitrate = 6;
+  optional int32 averageBitrate = 31;
+  optional int32 audioChannels = 46;
+  optional int64 approxDurationMs = 44;
+  optional int64 audioSampleRate = 45;
+  optional int64 contentLength = 12;
+  optional string mimeType = 5;
   optional string url = 2;
   optional string signatureCipher = 48;
 }
 
 message PlayerConfig {
-  optional MediaCommonConfig mediaCommonConfig = 215771584;
+  optional AudioConfig audioConfig = 55405814;
+  optional AndroidMedialibConfig androidMedialibConfig = 78958444;
+  optional PlayerGestureConfig playerGestureConfig = 262192541;
+  optional InlinePlaybackConfig inlinePlaybackConfig = 399288314;
 }
 
-message MediaCommonConfig {
-  optional bool usePlatypus = 18;
+message AudioConfig {
+  optional bool muteOnStart = 4;
+}
+
+message AndroidMedialibConfig {
+  optional bool isItag18MainProfile = 3;
+}
+
+message PlayerGestureConfig {
+  optional bool downAndOutPortraitAllowed = 1;
+  optional bool downAndOutLandscapeAllowed = 2;
+}
+
+message InlinePlaybackConfig {
+  optional bool showScrubbingControls = 1;
+  optional bool showAudioControls = 2;
 }

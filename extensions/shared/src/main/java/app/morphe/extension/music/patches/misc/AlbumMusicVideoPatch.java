@@ -4,11 +4,13 @@ import android.view.View;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import app.morphe.extension.music.patches.misc.requests.PlaylistRequest;
+import app.morphe.extension.music.patches.lyrics.LyricsManager;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.music.shared.VideoInformation;
 import app.morphe.extension.music.utils.VideoUtils;
@@ -47,6 +49,17 @@ public class AlbumMusicVideoPatch {
 
     @GuardedBy("itself")
     private static final Map<String, String> lastVideoIds = new LinkedHashMap<>() {
+        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 10;
+
+        @Override
+        protected boolean removeEldestEntry(Map.Entry eldest) {
+            return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
+        }
+    };
+
+    /** Album metadata keyed by the music-video id the player exposes. */
+    @GuardedBy("itself")
+    private static final Map<String, PlaylistRequest.Song> lastSongs = new LinkedHashMap<>() {
         private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 10;
 
         @Override
@@ -97,21 +110,41 @@ public class AlbumMusicVideoPatch {
             if (request == null) {
                 return;
             }
-            String songId = request.getSongId();
-            if (songId.isEmpty()) {
+            PlaylistRequest.Song song = request.getSong();
+            if (song == null || song.getVideoId().isEmpty()) {
                 Logger.printDebug(() -> "Official song not found, videoId: " + videoId);
                 return;
             }
+            String songId = song.getVideoId();
+            boolean firstSeen;
             synchronized (lastVideoIds) {
-                if (lastVideoIds.put(videoId, songId) == null) {
-                    Logger.printDebug(() -> "Official song found, videoId: " + videoId + ", songId: " + songId);
-                    if (REDIRECT) {
-                        openMusic(songId);
-                    }
+                firstSeen = lastVideoIds.put(videoId, songId) == null;
+            }
+            synchronized (lastSongs) {
+                lastSongs.put(videoId, song);
+            }
+            LyricsManager.onAlbumSongResolved(videoId);
+            if (firstSeen) {
+                Logger.printDebug(() -> "Official song found, videoId: " + videoId + ", songId: " + songId);
+                if (REDIRECT) {
+                    openMusic(songId);
                 }
             }
         } catch (Exception ex) {
             Logger.printException(() -> "check failure", ex);
+        }
+    }
+
+    /**
+     * Returns album metadata already resolved for a music-video id.
+     *
+     * <p>The lyrics manager uses this non-blocking accessor on the main thread. The request itself
+     * is resolved by {@link #checkVideo(String)} before this method is called.
+     */
+    @Nullable
+    public static PlaylistRequest.Song getSong(@NonNull String videoId) {
+        synchronized (lastSongs) {
+            return lastSongs.get(videoId);
         }
     }
 

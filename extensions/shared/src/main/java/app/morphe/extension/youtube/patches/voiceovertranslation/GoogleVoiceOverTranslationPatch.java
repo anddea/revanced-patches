@@ -1,0 +1,1311 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
+ * Original author(s):
+ * - Morphe (https://github.com/MorpheApp)
+ * - anddea (https://github.com/anddea)
+ * - COOLak (https://github.com/COOLak)
+ *
+ * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ */
+
+package app.morphe.extension.youtube.patches.voiceovertranslation;
+
+import static app.morphe.extension.shared.utils.StringRef.str;
+import static app.morphe.extension.shared.settings.BaseSettings.DEBUG;
+import static app.morphe.extension.youtube.patches.voiceovertranslation.TranscriptTranslator.TRANSLATION_SERVICE_MY_MEMORY;
+import static app.morphe.extension.youtube.patches.voiceovertranslation.TranscriptTranslator.TRANSLATION_SERVICE_OPENROUTER;
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.media.AudioAttributes;
+import android.net.Uri;
+import android.os.Bundle;
+import android.media.MediaMetadataRetriever;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
+import android.util.Pair;
+import android.widget.LinearLayout;
+
+import androidx.annotation.Nullable;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.function.Consumer;
+
+import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceUtils;
+import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.shared.settings.Setting;
+import app.morphe.extension.shared.ui.CustomDialog;
+import app.morphe.extension.youtube.shared.VideoInformation;
+import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.shared.PlayerType;
+import app.morphe.extension.youtube.shared.VideoState;
+
+/**
+ * Orchestrator for the voice-over translation feature: reacts to video time/state changes,
+ * fetches and translates captions, prefetches TTS audio, and dispatches each segment to
+ * either the Edge or System TTS engine.
+ *
+ * <p>Collaborators:
+ * <ul>
+ *   <li>{@link TranscriptFetcher} / {@link TranscriptTranslator} - caption pipeline</li>
+ *   <li>{@link TtsPrefetcher} - background synthesis into {@link TtsCache}</li>
+ *   <li>{@link TtsEngine} - Edge TTS WebSocket + MediaPlayer playback</li>
+ *   <li>{@link GoogleVotOriginalVolumePatch} - ducks the original audio while TTS speaks</li>
+ * </ul>
+ *
+ * <p>State is touched only on the main thread; the few cross-thread reads use volatile fields.
+ */
+@SuppressWarnings({"unused", "deprecation", "RedundantSuppression", "ResultOfMethodCallIgnored"})
+public class GoogleVoiceOverTranslationPatch {
+
+    public static final Setting.ImportExportCallback VOT_IMPORT_EXPORT_CALLBACK = new Setting.ImportExportCallback() {
+        @Override
+        public void settingsImported(@Nullable Context context) {}
+
+        @Override
+        public void settingsExported(@Nullable Context context) {
+            Activity activity = context instanceof Activity ? (Activity) context : Utils.getActivity();
+            showExportWarningIfNeeded(activity);
+        }
+    };
+
+    private static void showExportWarningIfNeeded(@Nullable Activity activity) {
+        Utils.verifyOnMainThread();
+        if (activity == null) return;
+        if (Settings.GOOGLE_VOT_OPENROUTER_API_KEY.get().trim().isEmpty()) return;
+        if (Settings.GOOGLE_VOT_HIDE_EXPORT_WARNING.get()) return;
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
+                activity,
+                null,
+                str("morphe_vot_export_api_key_warning"),
+                null,
+                null,
+                () -> {},
+                null,
+                str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"),
+                () -> Settings.GOOGLE_VOT_HIDE_EXPORT_WARNING.save(true),
+                true
+        );
+        Utils.showDialog(activity, dialogPair.first, false, null);
+    }
+
+    public static class MyMemoryServiceAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.GOOGLE_VOT_TRANSLATION_SERVICE.get().equals(TRANSLATION_SERVICE_MY_MEMORY);
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.GOOGLE_VOT_TRANSLATION_SERVICE);
+        }
+    }
+
+    public static class OpenRouterServiceAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.GOOGLE_VOT_TRANSLATION_SERVICE.get().equals(TRANSLATION_SERVICE_OPENROUTER);
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.GOOGLE_VOT_TRANSLATION_SERVICE);
+        }
+    }
+
+    // Tick-over-tick time jump above this triggers seek handling.
+    private static final long SEEK_JUMP_THRESHOLD_MS = 2_900;
+
+    // Minimum time into a segment to justify seeking within the audio instead of
+    // playing from the start. Prevents tiny pops on small adjustments.
+    private static final long SEEK_INTO_THRESHOLD_MS = 1_000;
+
+    // Floor on the calculated speech rate; never slow speech below natural speed.
+    private static final float MIN_SPEECH_RATE = 1.0f;
+
+    public static final String TTS_ENGINE_SYSTEM = "system";
+    private static final String VOT_ID_PREFIX = "vot_";
+    private static final String VOT_TEST_ID_PREFIX = "vot_test_";
+    private static final String TEST_VIDEO_ID = "test";
+    private static final int TEST_SEGMENT_INDEX = -1;
+    private static final long TEST_PREFETCH_WAIT = 500;
+
+    static volatile long lastVideoTimeMs;
+    // Tracks the latest known position even when paused, unlike lastVideoTimeMs which only
+    // updates during PLAYING. Used by translate() to pick the right initial batch when a video
+    // starts mid-position (PAUSED setVideoTime calls arrive before newVideoLoaded and before
+    // lastVideoTimeMs is ever set for the new video).
+    static volatile long videoPositionHint;
+    // Estimated video timestamp when the currently-playing TTS audio finishes.
+    // Duck is held until this time so TTS that extends into the gap before the
+    // next segment does not prematurely restore the original audio volume.
+    private static long ttsEndVideoTimeMs;
+    // Deduplicates lookahead wake-ups so a tight tick loop does not flood the main looper.
+    private static long scheduledCheckForSegmentStartMs = -1;
+    // Tracks slot-fit rate and the playback speed in effect when the active utterance
+    // started, so a mid-utterance video speed change can be re-applied to MediaPlayer.
+    // lastAppliedPlaybackSpeed = -1 means nothing is playing.
+    private static float currentTtsBaseRate = 1.0f;
+    private static float lastAppliedPlaybackSpeed = -1f;
+
+    private static List<TranscriptSegment> segments = new ArrayList<>();
+    // Volatile so background threads can read the active segment without
+    // taking a lock. Writes still happen only on the main thread.
+    private static volatile int lastSpokenIndex = -1;
+
+    /** @return Index of the segment whose audio is mid-playback, or -1. Safe off-main-thread. */
+    static int getLastSpokenIndex() {
+        return lastSpokenIndex;
+    }
+    private static String currentVideoId = "";
+    private static boolean isLoading;
+    private static long transcriptGeneration;
+    private static NativeStartupAudio nativeStartupAudio;
+
+    private static final class NativeStartupAudio {
+        final String videoId, lang, text, utteranceId;
+        final int index;
+        final long generation;
+        final File file;
+        byte[] bytes;
+        NativeStartupAudio(String videoId, String lang, String text, int index, File file) {
+            this.videoId = videoId; this.lang = lang; this.text = text; this.index = index; this.file = file;
+            generation = transcriptGeneration;
+            utteranceId = "vot_prepare_" + System.nanoTime();
+        }
+    }
+
+    static void suspendTranslation() {
+        sessionEnabled = false;
+        Settings.GOOGLE_VOT_SESSION_ENABLED.save(false);
+        TranscriptTranslator.requestAbort();
+        transcriptGeneration++;
+        clearNativeStartupAudio();
+        stopTts();
+        TtsPrefetcher.clear();
+        TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+        notifyStateChanged();
+    }
+
+    static void startAutomaticTranslation() {
+        if (!Settings.GOOGLE_VOT_ENABLED.get()) return;
+        sessionEnabled = true;
+        Settings.GOOGLE_VOT_SESSION_ENABLED.save(true);
+        TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
+        if (segments.isEmpty() && !isLoading) loadTranscript(currentVideoId);
+        checkStartupReady();
+        notifyStateChanged();
+    }
+
+    private static void clearNativeStartupAudio() {
+        NativeStartupAudio old = nativeStartupAudio;
+        nativeStartupAudio = null;
+        if (old != null) old.file.delete();
+    }
+
+    /** Called by transcript updates and successful synthesis, even while video time is stopped. */
+    static void checkStartupReady() {
+        Utils.verifyOnMainThread();
+        if (!sessionEnabled || !TranslationPlaybackController.isWaiting(TranslationPlaybackState.GOOGLE, currentVideoId)) return;
+        long position = Math.max(0, VideoInformation.getVideoTime());
+        TtsPrefetcher.updateTime(position);
+        String lang = resolveTargetLang();
+        String voice = resolveVoice(lang);
+        if (voice == null) {
+            TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+            return;
+        }
+        for (int i = 0; i < segments.size(); i++) {
+            TranscriptSegment seg = segments.get(i);
+            if (seg.playbackEndMs <= position) continue;
+            if (TranscriptFetcher.isSpokenLanguageDifferent(lang, seg.lang)
+                    || TranscriptTranslator.isAwaitingTranslationAt(i, seg.startMs, seg.text)) {
+                if (!isLoading) TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                return;
+            }
+            if (TTS_ENGINE_SYSTEM.equals(voice)) {
+                ensureTts();
+                if (!ttsReady) return;
+                NativeStartupAudio prepared = nativeStartupAudio;
+                if (prepared != null && prepared.generation == transcriptGeneration && prepared.index == i
+                        && prepared.lang.equals(lang) && prepared.text.equals(seg.text)) {
+                    if (prepared.bytes != null) TranslationPlaybackController.ready(TranslationPlaybackState.GOOGLE, currentVideoId);
+                    return;
+                }
+                clearNativeStartupAudio();
+                try {
+                    File file = File.createTempFile("vot_startup_", ".wav", Utils.getContext().getCacheDir());
+                    prepared = new NativeStartupAudio(currentVideoId, lang, seg.text, i, file);
+                    nativeStartupAudio = prepared;
+                    updateTtsLanguage();
+                    tts.setSpeechRate(1.0f);
+                    if (tts.synthesizeToFile(seg.text, new Bundle(), file, prepared.utteranceId) != TextToSpeech.SUCCESS) {
+                        clearNativeStartupAudio();
+                        TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                    }
+                } catch (Exception ex) {
+                    clearNativeStartupAudio();
+                    TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                    logError(() -> "Native startup synthesis failed", ex);
+                }
+            } else if (TtsCache.get(currentVideoId, i, voice, lang, seg.text) != null) {
+                TranslationPlaybackController.ready(TranslationPlaybackState.GOOGLE, currentVideoId);
+            }
+            return;
+        }
+        if (!isLoading) TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+    }
+
+    private static void nativeStartupFinished(String utteranceId, boolean success) {
+        Utils.runOnMainThread(() -> {
+            NativeStartupAudio prepared = nativeStartupAudio;
+            if (prepared == null || !prepared.utteranceId.equals(utteranceId)) return;
+            if (!success || prepared.generation != transcriptGeneration || !prepared.videoId.equals(currentVideoId)) {
+                clearNativeStartupAudio();
+                TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, prepared.videoId);
+                return;
+            }
+            Utils.runOnBackgroundThread(() -> {
+                byte[] bytes = null;
+                long duration = -1;
+                try (MediaMetadataRetriever metadata = new MediaMetadataRetriever()) {
+                    bytes = Files.readAllBytes(prepared.file.toPath());
+                    metadata.setDataSource(prepared.file.getAbsolutePath());
+                    duration = Long.parseLong(Objects.requireNonNull(metadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)));
+                } catch (Exception ex) { logError(() -> "Native startup audio read failed", ex); }
+                prepared.file.delete();
+                final byte[] data = bytes;
+                final long durationMs = duration;
+                Utils.runOnMainThread(() -> {
+                    if (nativeStartupAudio != prepared || prepared.generation != transcriptGeneration) return;
+                    if (data == null || data.length == 0) {
+                        clearNativeStartupAudio();
+                        TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, prepared.videoId);
+                    } else {
+                        prepared.bytes = data;
+                        if (prepared.index < segments.size()) segments.get(prepared.index).durationMs = durationMs;
+                        checkStartupReady();
+                    }
+                });
+            });
+        });
+    }
+    private static volatile boolean sessionEnabled = Settings.GOOGLE_VOT_SESSION_ENABLED.get();
+    // Cached result of isTranslationActive() for safe off-main-thread reads.
+    // Updated on the main thread whenever any of its constituent state changes.
+    private static volatile boolean translationActiveCache;
+    private static boolean wasExplicitSeek;
+    private static volatile boolean httpErrorDialogShownThisVideo;
+
+    private static Runnable onStateChangeCallback;
+
+    private static TextToSpeech tts;
+    private static boolean ttsReady;
+
+    private static boolean isTestSpeaking;
+    private static long currentTestId;
+    private static long currentPreloadId;
+    private static String lastTestVoiceId = "";
+
+    private static final TtsEngine ttsEngine = TtsEngine.INSTANCE;
+
+    static {
+        PlayerType.getOnChange().addObserver(playerType -> {
+            if (!playerType.isMaximizedOrFullscreen()
+                    && playerType != PlayerType.WATCH_WHILE_MINIMIZED
+                    && playerType != PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE
+                    && playerType != PlayerType.WATCH_WHILE_SLIDING_MINIMIZED_MAXIMIZED) {
+                Logger.printDebug(() -> "Stopping TTS for player type: " + playerType);
+                stopTts();
+                if (playerType == PlayerType.NONE) {
+                    currentVideoId = "";
+                    segments = new ArrayList<>();
+                    updateTranslationActiveCache();
+                    TtsPrefetcher.clear();
+                }
+            }
+            return kotlin.Unit.INSTANCE;
+        });
+
+        VideoState.getOnChange().addObserver(state -> {
+            if (state == VideoState.PAUSED) {
+                onPlaybackPaused();
+            } else if (state == VideoState.PLAYING) {
+                TranslationPlaybackController.enforcePause();
+                if (!TranslationPlaybackController.isWaiting(TranslationPlaybackState.GOOGLE, currentVideoId)) ttsEngine.resume();
+            } else if (state == VideoState.ENDED) {
+                Logger.printDebug(() -> "Stopping TTS prefetch and abandoning ducking: " + state);
+                // Do not stop TTS to allow any currently playing TTS to finish.
+                GoogleVotOriginalVolumePatch.clearAudioMultiplier();
+                TtsPrefetcher.clear();
+            }
+            return kotlin.Unit.INSTANCE;
+        });
+    }
+
+    static void onPlaybackPaused() {
+        Utils.verifyOnMainThread();
+        // File synthesis is silent preparation and must survive a pause request.
+        if (tts != null && tts.isSpeaking()
+                && (nativeStartupAudio == null || nativeStartupAudio.bytes != null)) stopTts();
+        else ttsEngine.pause();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void newVideoLoaded(String videoId) {
+        // Always reset so seek detection fires correctly on the first videoTimeChanged
+        // and so the first segment at the new position is spoken even when the same
+        // video is reopened at a different timestamp (e.g. chapter links, continue watching).
+        lastVideoTimeMs = 0;
+        lastSpokenIndex = -1;
+        wasExplicitSeek = false;
+        TranslationPlaybackController.metadataLoaded(videoId);
+        if (videoId.equals(currentVideoId)) return;
+        transcriptGeneration++;
+        clearNativeStartupAudio();
+        sessionEnabled = Settings.GOOGLE_VOT_AUTO_TRANSLATE.get() && TranslationPlaybackController.usesGoogle();
+        Settings.GOOGLE_VOT_SESSION_ENABLED.save(sessionEnabled);
+
+        Logger.printDebug(() -> "preloadTranslations newVideoLoaded");
+        TranscriptTranslator.requestAbort();
+        stopTts();
+        currentVideoId = videoId;
+        segments = new ArrayList<>();
+        updateTranslationActiveCache();
+        httpErrorDialogShownThisVideo = false;
+
+        if (!Settings.GOOGLE_VOT_ENABLED.get() || !sessionEnabled) return;
+        if (PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL) return;
+        TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, videoId);
+        TtsPrefetcher.updateVideo(videoId, segments);
+        loadTranscript(videoId);
+
+        // Open the Edge socket in parallel so the first synthesis doesn't pay handshake cost.
+        if (!Settings.GOOGLE_VOT_USE_NATIVE_TTS.get()) {
+            Utils.runOnBackgroundThread(() -> {
+                try {
+                    ttsEngine.warmConnection();
+                } catch (Exception ex) {
+                    Logger.printDebug(() -> "Edge warm-up failed: " + ex);
+                }
+            });
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void videoTimeChanged(long timeMs) {
+        if (!Settings.GOOGLE_VOT_ENABLED.get() || !sessionEnabled) {
+            GoogleVotOriginalVolumePatch.clearAudioMultiplier();
+            return; // Feature or session disabled.
+        }
+        Utils.verifyOnMainThread();
+
+        propagatePlaybackSpeedIfChanged();
+
+        PlayerType currentPlayerType = PlayerType.getCurrent();
+        if (!currentPlayerType.isMaximizedOrFullscreen()
+                && currentPlayerType != PlayerType.WATCH_WHILE_MINIMIZED
+                && currentPlayerType != PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
+            Logger.printDebug(() -> "Ignoring TTS for player type: " + currentPlayerType);
+            return;
+        }
+        VideoState state = VideoState.getCurrent();
+        // Capture position before the PAUSED early return so translate() can pick the right
+        // initial batch even when the first setVideoTime ticks arrive before play begins.
+        videoPositionHint = timeMs;
+        // Video state can be null until the overlay is activated the first time.
+        if (!VideoInformation.isPlayerPlaying()) {
+            Logger.printDebug(() -> "Ignoring TTS for video state: " + state);
+            return; // paused, ended, or loading
+        }
+
+        ttsEngine.resume();
+        TtsPrefetcher.updateTime(timeMs);
+
+        final long prevVideoTimeMs = lastVideoTimeMs;
+        lastVideoTimeMs = timeMs;
+
+        if (segments.isEmpty()) return;
+
+        if (prevVideoTimeMs > 0) {
+            final long timeSinceLastUpdate = Math.abs(timeMs - prevVideoTimeMs);
+            // Scale by playback speed so at high speeds a normal tick (which spans a
+            // larger in-video gap) isn't mistaken for a user seek.
+            final long jumpThreshold = (long) (SEEK_JUMP_THRESHOLD_MS
+                    * Math.max(1.0f, VideoInformation.getPlaybackSpeed()));
+            if (timeSinceLastUpdate > jumpThreshold) {
+                // Small jumps within the same segment are handled by speak()'s startTime logic.
+                Logger.printDebug(() -> "videoTimeChanged jump detected: " + timeSinceLastUpdate + "ms");
+                wasExplicitSeek = true;
+                stopTtsPreservingMultiplier();
+                lastSpokenIndex = -1;
+                // Re-target translation at the new position so a seek into an untranslated region
+                // is translated next instead of waiting for the sequential dispatch to reach it.
+                TranscriptTranslator.onSeek(timeMs);
+            }
+        }
+
+        // Amount of time to look ahead for the next segment to schedule it.
+        final long lookaheadMs = 900;
+        // Small delay added to scheduled segments to ensure the video time has definitely
+        // reached the segment start time before the check runs.
+        final long schedulingDelayMs = 10;
+
+        for (int i = 0, size = segments.size(); i < size; i++) {
+            TranscriptSegment seg = segments.get(i);
+            final long segPlaybackStartMs = seg.playbackStartMs;
+            if (timeMs >= segPlaybackStartMs) {
+                if (timeMs < seg.playbackEndMs) {
+                    if (i != lastSpokenIndex) {
+                        if (TranscriptTranslator.isAwaitingTranslationAt(i, seg.startMs, seg.text)) {
+                            final int segIdx = i;
+                            Logger.printDebug(() -> "Waiting for translation at segment: " + segIdx);
+                            break;
+                        }
+                        // isAwaitingTranslationAt returns false once a batch is marked done, even if
+                        // translation failed and the segment kept its source-language text. Check lang
+                        // so a permanently untranslated segment is never spoken.
+                        if (TranscriptFetcher.isSpokenLanguageDifferent(resolveTargetLang(), seg.lang)) {
+                            final int segIdx = i;
+                            Logger.printDebug(() -> "Skipping untranslated segment: " + segIdx);
+                            break;
+                        }
+                        if (!ttsEngine.isSpeaking() || wasExplicitSeek) {
+                            lastSpokenIndex = i;
+                            Logger.printDebug(() -> "Found segment: " + lastSpokenIndex
+                                    + " videoTime: " + timeMs);
+                            speak(seg, i);
+                        }
+                    }
+                    break;
+                }
+            } else if (i > lastSpokenIndex && segPlaybackStartMs <= timeMs + lookaheadMs) {
+                // Next segment starts between now and the next update to this method.
+                // Schedule a call to recheck TTS playback when the segment will start.
+                if (segPlaybackStartMs != scheduledCheckForSegmentStartMs) {
+                    final float speed = Math.max(0.1f, VideoInformation.getPlaybackSpeed());
+                    final long delayMs = (long) ((segPlaybackStartMs - timeMs + schedulingDelayMs) / speed);
+                    Logger.printDebug(() -> "Scheduling next segment check in " + delayMs + "ms");
+                    scheduledCheckForSegmentStartMs = segPlaybackStartMs;
+                    Utils.runOnMainThreadDelayed(() -> {
+                        scheduledCheckForSegmentStartMs = -1;
+                        videoTimeChanged(VideoInformation.getVideoTime());
+                    }, delayMs);
+                }
+                break;
+            }
+        }
+        // ttsEndVideoTimeMs keeps the duck alive while TTS speaks into the gap before the next
+        // segment, preventing a brief volume flicker mid-utterance.
+        if (ttsEngine.isSpeaking() || isTestSpeaking || timeMs < ttsEndVideoTimeMs) {
+            GoogleVotOriginalVolumePatch.setAudioMultiplier(Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME.get() / 100.0f);
+        } else {
+            GoogleVotOriginalVolumePatch.clearAudioMultiplier();
+        }
+    }
+
+    /**
+     * Updates the volatile cache used by {@link #isTranslationActive()}.
+     * Must be called on the main thread whenever enabled/session/segments state changes.
+     */
+    private static void updateTranslationActiveCache() {
+        translationActiveCache = Settings.GOOGLE_VOT_ENABLED.get() && sessionEnabled && !segments.isEmpty();
+    }
+
+    /**
+     * @return true when VoT is enabled, the session is on, and a transcript is loaded.
+     * Safe to call from any thread. Reads the volatile {@code translationActiveCache} updated
+     * on the main thread so a stale-by-one-tick read is the worst case (never a crash).
+     */
+    public static boolean isTranslationActive() {
+        return translationActiveCache;
+    }
+
+    /** @return Per-session enabled flag (toggleable via the player button) - not the global setting. */
+    public static boolean isSessionEnabled() {
+        return sessionEnabled;
+    }
+
+    /** Flips the session enabled flag and either stops TTS or kicks off transcript loading. */
+    @SuppressWarnings("NonAtomicOperationOnVolatileField")
+    public static void toggleTranslation() {
+        Utils.verifyOnMainThread();
+        if (Settings.GOOGLE_VOT_ENABLED.get()) {
+            sessionEnabled = !sessionEnabled;
+            Settings.GOOGLE_VOT_SESSION_ENABLED.save(sessionEnabled);
+            if (!sessionEnabled) {
+                TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                clearNativeStartupAudio();
+                stopTts();
+                lastSpokenIndex = -1;
+            } else {
+                TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
+                if (!currentVideoId.isEmpty() && segments.isEmpty() && !isLoading) {
+                    loadTranscript(currentVideoId);
+                }
+                TtsPrefetcher.updateVideo(currentVideoId, segments);
+                checkStartupReady();
+            }
+            notifyStateChanged();
+        }
+    }
+
+    /** Re-prepare the selected engine at the current position without reopening the video. */
+    public static void onVoiceChanged() {
+        Utils.verifyOnMainThread();
+        clearNativeStartupAudio();
+        stopTts();
+        lastSpokenIndex = -1;
+        resetPlaybackState();
+        if (!sessionEnabled || currentVideoId.isEmpty()) return;
+        TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
+        TtsPrefetcher.updateVideo(currentVideoId, segments);
+        TtsPrefetcher.updateTime(Math.max(0, VideoInformation.getVideoTime()));
+        checkStartupReady();
+        notifyStateChanged();
+    }
+
+    /** Stops any in-progress TTS without changing session state. */
+    public static void interruptSpeech() {
+        Utils.verifyOnMainThread();
+        stopTts();
+    }
+
+    /**
+     * Resets every segment's playback window to its original caption timing and asks the
+     * prefetcher to re-evaluate. Used by the bottom-sheet "reset" action.
+     */
+    public static void resetPlaybackState() {
+        Utils.verifyOnMainThread();
+        for (TranscriptSegment seg : segments) {
+            seg.playbackStartMs = seg.startMs;
+            seg.playbackEndMs = seg.endMs;
+            seg.durationMs = -1;
+        }
+        TtsPrefetcher.triggerRescan();
+    }
+
+    /** Applies the current voice volume setting to the active playback. */
+    public static void updatePlaybackVolume() {
+        Utils.verifyOnMainThread();
+        ttsEngine.setVolume(Settings.GOOGLE_VOT_TRANSLATION_VOLUME.get() / 100.0f);
+    }
+
+    /** Re-applies the ducking multiplier so a Settings change takes effect immediately. */
+    public static void updateOriginalAudioMultiplier() {
+        Utils.verifyOnMainThread();
+        if (ttsEngine.isSpeaking() || isTestSpeaking) {
+            GoogleVotOriginalVolumePatch.setAudioMultiplier(Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME.get() / 100.0f);
+        }
+    }
+
+    /** Discards the current transcript and TTS state and re-fetches for the current video. */
+    public static void reloadTranscript() {
+        Utils.verifyOnMainThread();
+        if (currentVideoId.isEmpty()) return;
+        transcriptGeneration++;
+        clearNativeStartupAudio();
+        stopTts();
+        TtsPrefetcher.clear();
+        if (sessionEnabled) TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
+        segments = new ArrayList<>();
+        updateTranslationActiveCache();
+        lastSpokenIndex = -1;
+        // Without this, in-flight onUpdate callbacks for the old language would restore
+        // stale segments after we cleared them.
+        TranscriptTranslator.requestAbort();
+        if (sessionEnabled && !isLoading) {
+            loadTranscript(currentVideoId);
+        }
+        notifyStateChanged();
+    }
+
+    /** Registers a callback fired whenever toggle/load state changes (used by the player button UI). */
+    public static void setOnTranslationStateChangeCallback(Runnable callback) {
+        Utils.verifyOnMainThread();
+        onStateChangeCallback = callback;
+    }
+
+    private static void notifyStateChanged() {
+        Logger.printDebug(() -> "notifyStateChanged");
+        Utils.verifyOnMainThread();
+        updateTranslationActiveCache();
+        if (onStateChangeCallback != null) onStateChangeCallback.run();
+    }
+
+    private static void loadTranscript(String videoId) {
+        Logger.printDebug(() -> "loadTranscript: " + videoId);
+        Utils.verifyOnMainThread();
+        if (isLoading) return;
+        isLoading = true;
+        final long loadGeneration = transcriptGeneration;
+        final String loadLang = resolveTargetLang();
+        final String loadService = Settings.GOOGLE_VOT_TRANSLATION_SERVICE.get();
+
+        Utils.runOnBackgroundThread(() -> {
+            try {
+                // Later translation batches arrive asynchronously; swap the list in only
+                // while the same video is still playing. Timings and size are identical
+                // across updates, so lastSpokenIndex stays valid.
+                List<TranscriptSegment> fetched = TranscriptFetcher.fetch(
+                        videoId,
+                        updated -> {
+                            Utils.verifyOnMainThread();
+                            if (loadGeneration == transcriptGeneration && videoId.equals(currentVideoId) && loadLang.equals(resolveTargetLang())) {
+                                // If the segment we last started speaking had its text replaced
+                                // by a freshly-arrived translation, stop and let videoTimeChanged
+                                // re-speak it with the translated text on the next tick.
+                                if (lastSpokenIndex >= 0
+                                        && lastSpokenIndex < segments.size()
+                                        && lastSpokenIndex < updated.size() && !segments.get(lastSpokenIndex).text
+                                        .equals(updated.get(lastSpokenIndex).text)) {
+                                    stopTts();
+                                }
+                                segments = updated;
+                                updateTranslationActiveCache();
+                                TtsPrefetcher.updateVideo(videoId, segments);
+                                checkStartupReady();
+                            }
+                        },
+                        () -> {
+                            Utils.verifyOnMainThread();
+                            return loadGeneration != transcriptGeneration || !videoId.equals(currentVideoId)
+                                    || VideoState.getCurrent() == VideoState.ENDED;
+                        });
+
+                Utils.runOnMainThread(() -> {
+                    if (loadGeneration == transcriptGeneration && videoId.equals(currentVideoId) && loadLang.equals(resolveTargetLang())) {
+                        // With sequential batch execution, cancelCheck.get() ensures every
+                        // onUpdate fires before translate() returns, so segments is already
+                        // fully translated by the time we arrive here. Only fall back to the
+                        // batch-0 snapshot (fetched) if onUpdate never ran (single batch or
+                        // no translation needed).
+                        if (segments.isEmpty()) segments = fetched;
+                        TtsPrefetcher.updateVideo(videoId, segments);
+                        Logger.printDebug(() -> "Loaded: " + fetched.size() + " segments for :" + videoId);
+                        checkStartupReady();
+                        notifyStateChanged();
+                    }
+                });
+            } catch (Exception ex) {
+                logError(() -> "Transcript fetch failed", ex);
+                Utils.runOnMainThread(() -> {
+                    if (loadGeneration == transcriptGeneration) TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, videoId);
+                });
+            } finally {
+                Utils.runOnMainThread(() -> {
+                    isLoading = false;
+                    // Restart before checking readiness, so a retired fetch cannot release the new video's pause.
+                    if (!currentVideoId.isEmpty() && sessionEnabled && Settings.GOOGLE_VOT_ENABLED.get()
+                            && (loadGeneration != transcriptGeneration || !currentVideoId.equals(videoId)
+                            || !loadLang.equals(resolveTargetLang())
+                            || !loadService.equals(Settings.GOOGLE_VOT_TRANSLATION_SERVICE.get()))) {
+                        loadTranscript(currentVideoId);
+                    }
+                    checkStartupReady();
+                });
+            }
+        });
+    }
+    /** Lazily creates the System TTS instance and wires its completion listener. Idempotent. */
+    public static void ensureTts() {
+        Utils.verifyOnMainThread();
+        if (tts != null) return;
+        Logger.printDebug(() -> "ensureTts creating tts");
+
+        tts = new TextToSpeech(Utils.getContext(), status -> Utils.runOnMainThreadNowOrLater(() -> {
+            if (status != TextToSpeech.SUCCESS) {
+                Logger.printDebug(() -> "TTS initialization failed: " + status);
+                TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                return;
+            }
+            updateTtsLanguage();
+
+            // USAGE_ASSISTANCE_NAVIGATION_GUIDANCE plays TTS on a dedicated audio usage
+            // so its volume is controlled independently of YouTube's media stream.
+            tts.setAudioAttributes(new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                    .build());
+
+            tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                @Override
+                public void onStart(String utteranceId) {
+                }
+
+                @Override
+                public void onDone(String utteranceId) {
+                    if (utteranceId != null && utteranceId.startsWith("vot_prepare_")) {
+                        nativeStartupFinished(utteranceId, true);
+                        return;
+                    }
+                    Utils.runOnMainThreadNowOrLater(() -> {
+                        try {
+                            if (utteranceId == null) return;
+                            if (utteranceId.startsWith(VOT_TEST_ID_PREFIX)) {
+                                String suffix = utteranceId.substring(VOT_TEST_ID_PREFIX.length());
+                                String[] parts = suffix.split("_");
+                                final long tId = Long.parseLong(parts[0]);
+                                final long pId = Long.parseLong(parts[1]);
+                                ttsEngine.clearBusy(pId);
+                                if (tId == currentTestId) isTestSpeaking = false;
+                            } else if (utteranceId.startsWith(VOT_ID_PREFIX)) {
+                                long id = Long.parseLong(utteranceId.substring(VOT_ID_PREFIX.length()));
+                                if (id == ttsEngine.getPlaybackId()) {
+                                    ttsEngine.clearBusy(id);
+                                    triggerNextSegmentCheck();
+                                }
+                            }
+                        } catch (Exception ex) {
+                            logError(() -> "Utterance listener onDone failure", ex);
+                        }
+                    });
+                }
+
+                @Override
+                public void onError(String utteranceId) {
+                    if (utteranceId != null && utteranceId.startsWith("vot_prepare_")) {
+                        nativeStartupFinished(utteranceId, false);
+                        return;
+                    }
+                    onDone(utteranceId);
+                }
+            });
+
+            ttsReady = true;
+            checkStartupReady();
+        }));
+    }
+
+    private static void updateTtsLanguage() {
+        Utils.verifyOnMainThread();
+        if (tts == null) return;
+        Locale locale = Locale.forLanguageTag(resolveTargetLang());
+        final int result = tts.setLanguage(locale);
+        if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+            tts.setLanguage(Locale.ENGLISH);
+        }
+    }
+
+    private static void speak(TranscriptSegment seg, int index) {
+        Utils.verifyOnMainThread();
+        Logger.printDebug(() -> "Speak: " + seg);
+        String lang = resolveTargetLang();
+        final float volume = Settings.GOOGLE_VOT_TRANSLATION_VOLUME.get() / 100.0f;
+
+        String voice = resolveVoice(lang);
+        if (voice == null) return;
+
+        final long speakFromMs = Math.max(lastVideoTimeMs, seg.playbackStartMs);
+        final long availableMs = seg.playbackEndMs - speakFromMs;
+
+        // Exact if cached, otherwise estimated from char count.
+        final long speechDurationMs = getSpeechDurationMs(seg, index, voice, lang);
+
+        // Calculate if we should seek into the audio (e.g. after a short seek within segment).
+        long startTimeMs = 0;
+        if (wasExplicitSeek) {
+            final long timeIntoSegment = lastVideoTimeMs - seg.playbackStartMs;
+            if (timeIntoSegment > SEEK_INTO_THRESHOLD_MS) {
+                // Approximate audio position assuming natural speed. The TTS clip is usually
+                // shorter than the video segment, so clamp to its length to avoid seeking past
+                // the end.
+                startTimeMs = Math.min(timeIntoSegment, speechDurationMs);
+            }
+            final long startTimeMsFinal = startTimeMs;
+            Logger.printDebug(() -> "Explicit seek resume. timeIntoSegment: " + timeIntoSegment
+                    + "ms, startTimeMs: " + startTimeMsFinal + "ms");
+            // Reset the flag so future segments at normal playback start from the beginning.
+            wasExplicitSeek = false;
+        }
+
+        // Rate must be based on the audio that will actually play, not the full clip.
+        final long remainingSpeechMs = Math.max(0, speechDurationMs - startTimeMs);
+        final float rate = calculateSpeechRate(remainingSpeechMs, availableMs);
+        ttsEndVideoTimeMs = speakFromMs + (long) (remainingSpeechMs / rate);
+        currentTtsBaseRate = rate;
+        lastAppliedPlaybackSpeed = VideoInformation.getPlaybackSpeed();
+
+        if (TTS_ENGINE_SYSTEM.equals(voice)) {
+            NativeStartupAudio prepared = nativeStartupAudio;
+            if (prepared != null && prepared.bytes != null && prepared.generation == transcriptGeneration
+                    && prepared.videoId.equals(currentVideoId) && prepared.index == index
+                    && prepared.lang.equals(lang) && prepared.text.equals(seg.text)) {
+                GoogleVotOriginalVolumePatch.setAudioMultiplier(Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME.get() / 100.0f);
+                long playbackId = ttsEngine.markBusy();
+                ttsEngine.play(prepared.bytes, volume, rate * VideoInformation.getPlaybackSpeed(), startTimeMs,
+                        playbackId, GoogleVoiceOverTranslationPatch::triggerNextSegmentCheck);
+                return;
+            }
+            ensureTts();
+            if (!ttsReady) {
+                Logger.printDebug(() -> "Native TTS not ready, skipping segment");
+                return;
+            }
+            updateTtsLanguage();
+            GoogleVotOriginalVolumePatch.setAudioMultiplier(Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME.get() / 100.0f);
+            tts.setSpeechRate(rate * VideoInformation.getPlaybackSpeed());
+            Bundle params = new Bundle();
+            params.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, volume);
+            final long id = ttsEngine.markBusy();
+            // System TTS doesn't support seekTo, so it will always play from the start.
+            tts.speak(seg.text, TextToSpeech.QUEUE_FLUSH, params, VOT_ID_PREFIX + id);
+            return;
+        }
+
+        GoogleVotOriginalVolumePatch.setAudioMultiplier(Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME.get() / 100.0f);
+        // Multiply by playback speed so TTS keeps pace with non-1.0x video.
+        final float playbackRate = rate * VideoInformation.getPlaybackSpeed();
+        byte[] cached = TtsCache.get(currentVideoId, index, voice, lang, seg.text);
+        if (cached != null) {
+            final long playbackId = ttsEngine.markBusy();
+            ttsEngine.play(cached, volume, playbackRate, startTimeMs, playbackId,
+                    GoogleVoiceOverTranslationPatch::triggerNextSegmentCheck);
+            return;
+        }
+
+        // Synthesize at natural speed so the result can be cached and reused at any rate;
+        // playback rate is applied by MediaPlayer instead.
+        final long playbackId = ttsEngine.markBusy();
+        final String videoIdSnapshot = currentVideoId;
+        final long startTimeMsSnapshot = startTimeMs;
+        Utils.runOnBackgroundThread(() -> {
+            byte[] data;
+            try {
+                data = ttsEngine.prefetch(seg.text, voice, lang);
+            } catch (Exception ex) {
+                logError(() -> "On-demand synthesis failed for segment " + index, ex);
+                Utils.runOnMainThread(GoogleVoiceOverTranslationPatch::triggerNextSegmentCheck);
+                return;
+            }
+            if (data.length > 0) {
+                TtsCache.put(videoIdSnapshot, index, voice, lang, seg.text, data);
+            }
+            final byte[] finalData = data;
+            Utils.runOnMainThread(() -> {
+                if (finalData.length > 0 && playbackId == ttsEngine.getPlaybackId()) {
+                    // Re-read playback speed in case it changed during synthesis.
+                    final float playbackRateNow = rate * VideoInformation.getPlaybackSpeed();
+                    ttsEngine.play(finalData, volume, playbackRateNow, startTimeMsSnapshot, playbackId,
+                            GoogleVoiceOverTranslationPatch::triggerNextSegmentCheck);
+                } else {
+                    triggerNextSegmentCheck();
+                }
+            });
+        });
+    }
+
+    private static void triggerNextSegmentCheck() {
+        Utils.runOnMainThreadNowOrLater(() -> {
+            if (VideoInformation.isPlayerPlaying()) {
+                videoTimeChanged(VideoInformation.getVideoTime());
+            }
+        });
+    }
+
+    /**
+     * Pushes a new MediaPlayer rate when video speed changes mid-utterance so the listener
+     * doesn't wait for the current one to finish. No-op for System TTS (Android TextToSpeech
+     * cannot change rate in-flight; the next utterance picks up the new value).
+     */
+    private static void propagatePlaybackSpeedIfChanged() {
+        if (lastAppliedPlaybackSpeed < 0) return;
+        final float current = VideoInformation.getPlaybackSpeed();
+        if (current == lastAppliedPlaybackSpeed) return;
+        lastAppliedPlaybackSpeed = current;
+        ttsEngine.setPlaybackRate(currentTtsBaseRate * current);
+    }
+
+    /**
+     * Returns a speech rate multiplier that fits {@code speechDurationMs} into {@code availableMs}.
+     * Never slows below normal speed and is capped by the user-configured max rate.
+     */
+    private static float calculateSpeechRate(long speechDurationMs, long availableMs) {
+        final float maxRate = Settings.GOOGLE_VOT_MAX_SPEECH_RATE.get();
+        if (availableMs <= 0) return maxRate;
+        return Math.max(MIN_SPEECH_RATE, Math.min(maxRate, speechDurationMs / (float) availableMs));
+    }
+
+    private static long getSpeechDurationMs(TranscriptSegment seg, int index, String voice, String lang) {
+        long duration = seg.durationMs;
+        if (duration <= 0) {
+            duration = TtsCache.getDuration(currentVideoId, index, voice, lang, seg.text);
+            if (duration > 0) seg.durationMs = duration;
+        }
+        return duration > 0 ? duration : (long) seg.text.length() * TtsEngine.ESTIMATED_MS_PER_CHAR;
+    }
+
+    /**
+     * Estimates natural speech duration from character count and delegates to
+     * {@link #calculateSpeechRate(long, long)}. Used when exact duration is not yet known.
+     */
+    private static float calculateSpeechRate(String text, long availableMs) {
+        return calculateSpeechRate((long) text.length() * TtsEngine.ESTIMATED_MS_PER_CHAR, availableMs);
+    }
+
+    /**
+     * Called when the video position is programmatically seeked (e.g. SponsorBlock).
+     * Stops any in-progress TTS immediately, regardless of how short the jump was,
+     * so stale audio never plays over the new video position.
+     */
+    public static void onVideoSeeked() {
+        Logger.printDebug(() -> "onVideoSeeked");
+        Utils.verifyOnMainThread();
+        wasExplicitSeek = true;
+
+        // If no segment is mid-playback there is nothing to stop or preserve. This also
+        // skips the redundant work when videoTimeChanged's jump detection just handled
+        // this same seek (it resets lastSpokenIndex to -1).
+        if (lastSpokenIndex < 0) return;
+
+        // Check if the seek was within the current segment. If so, let videoTimeChanged
+        // handle the restart/seek-into logic to avoid a jarring stop and restart.
+        boolean insideSameSegment = false;
+        if (lastSpokenIndex < segments.size()) {
+            TranscriptSegment seg = segments.get(lastSpokenIndex);
+            if (lastVideoTimeMs >= seg.playbackStartMs && lastVideoTimeMs < seg.playbackEndMs) {
+                insideSameSegment = true;
+            }
+        }
+
+        if (!insideSameSegment) {
+            stopTtsPreservingMultiplier();
+            lastSpokenIndex = -1;
+        }
+    }
+
+    /** @return Short sample sentence in the current target language; used by voice preview. */
+    public static String getTestString() {
+        Locale locale = Locale.forLanguageTag(resolveTargetLang());
+        return ResourceUtils.getStringByLocale("morphe_vot_tts_sample", locale);
+    }
+
+    /**
+     * Synthesizes and plays a short test phrase with the given voice.
+     * If the engine is already speaking the same voice, stops it.
+     */
+    static void testSpeak(String voiceId) {
+        Logger.printDebug(() -> "testSpeak: " + voiceId);
+        Utils.verifyOnMainThread();
+
+        final boolean wasSameVoice = isTestSpeaking && voiceId.equals(lastTestVoiceId);
+        stopTts();
+        if (wasSameVoice) return;
+
+        final long testId = ++currentTestId;
+        isTestSpeaking = true;
+        lastTestVoiceId = voiceId;
+
+        final float volume = Settings.GOOGLE_VOT_TRANSLATION_VOLUME.get() / 100.0f;
+
+        if (TTS_ENGINE_SYSTEM.equals(voiceId)) {
+            ensureTts();
+            if (!ttsReady) {
+                isTestSpeaking = false;
+                return;
+            }
+            updateTtsLanguage();
+            GoogleVotOriginalVolumePatch.setAudioMultiplier(Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME.get() / 100.0f);
+            Bundle params = new Bundle();
+            params.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, volume);
+            tts.setSpeechRate(1.0f);
+            final long pId = ttsEngine.markBusy();
+            tts.speak(getTestString(), TextToSpeech.QUEUE_FLUSH, params,
+                    VOT_TEST_ID_PREFIX + testId + "_" + pId);
+            return;
+        }
+
+        final String lang = resolveTargetLang();
+        byte[] cached = TtsCache.get(TEST_VIDEO_ID, TEST_SEGMENT_INDEX, voiceId, lang, getTestString());
+        if (cached != null) {
+            GoogleVotOriginalVolumePatch.setAudioMultiplier(Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME.get() / 100.0f);
+            final long id = ttsEngine.markBusy();
+            ttsEngine.play(cached, volume, id, () -> updateIsTestSpeaking(testId));
+            return;
+        }
+
+        GoogleVotOriginalVolumePatch.setAudioMultiplier(Settings.GOOGLE_VOT_ORIGINAL_AUDIO_VOLUME.get() / 100.0f);
+        ttsEngine.speak(getTestString(), voiceId, resolveTargetLang(), volume, () -> updateIsTestSpeaking(testId));
+    }
+
+    private static void updateIsTestSpeaking(long testId) {
+        Utils.verifyOnMainThread();
+        if (testId == currentTestId) isTestSpeaking = false;
+    }
+
+    /**
+     * Preloads test phrases for all Edge TTS voices in the current target language.
+     */
+    static void preloadTestVoices() {
+        Utils.verifyOnMainThread();
+        final long preloadId = ++currentPreloadId;
+
+        String lang = resolveTargetLang();
+        List<VoiceCatalog.Voice> voices = VoiceCatalog.getVoicesForLang(lang);
+        if (voices == null || voices.isEmpty()) return;
+
+        Utils.runOnBackgroundThread(() -> {
+            String testString = getTestString();
+            for (VoiceCatalog.Voice voice : voices) {
+                if (preloadId != currentPreloadId) {
+                    Logger.printDebug(() -> "Aborting stale preload request: " + preloadId);
+                    return;
+                }
+
+                if (TtsCache.get(TEST_VIDEO_ID, TEST_SEGMENT_INDEX, voice.id, lang, testString) != null) {
+                    continue;
+                }
+
+                byte[] diskData = TtsCache.getTestSampleFromDisk(voice.id, lang);
+                if (diskData != null) {
+                    TtsCache.put(TEST_VIDEO_ID, TEST_SEGMENT_INDEX, voice.id, lang, testString, diskData);
+                    continue;
+                }
+
+                try {
+                    Logger.printDebug(() -> "Prefetching test phrase for: " + voice.id);
+                    byte[] data = ttsEngine.prefetch(testString, voice.id, lang);
+                    if (data.length > 0) {
+                        TtsCache.put(TEST_VIDEO_ID, TEST_SEGMENT_INDEX, voice.id, lang, testString, data);
+                        TtsCache.putTestSampleToDisk(voice.id, lang, data);
+                    }
+                    Thread.sleep(TEST_PREFETCH_WAIT);
+
+                } catch (Exception ex) {
+                    logError(() -> "preloadTestVoices failure: " + voice, ex);
+                    return;
+                }
+            }
+        });
+    }
+
+    private static void stopTts() {
+        stopTtsInternal();
+        GoogleVotOriginalVolumePatch.clearAudioMultiplier();
+    }
+
+    /**
+     * Stops TTS while keeping the current ducking multiplier. Seek handlers use this so the
+     * old AudioTrack (still draining buffered samples) is not briefly pushed to 100% between
+     * the multiplier clear and the next speak() reapplying it - audible as a click.
+     */
+    private static void stopTtsPreservingMultiplier() {
+        stopTtsInternal();
+    }
+
+    private static void stopTtsInternal() {
+        Utils.verifyOnMainThread();
+        Logger.printDebug(() -> "stopTts");
+        isTestSpeaking = false;
+        ttsEngine.stop();
+        if (tts != null) tts.stop();
+        lastSpokenIndex = -1;
+        ttsEndVideoTimeMs = 0;
+        scheduledCheckForSegmentStartMs = -1;
+        currentTtsBaseRate = 1.0f;
+        lastAppliedPlaybackSpeed = -1f;
+    }
+
+    /**
+     * @return BCP-47 language code(pt-BR, pt-PT, en-US, etc).
+     */
+    static String resolveTargetLang() {
+        return Settings.GOOGLE_VOT_CAPTION_LANGUAGE.isSetToDefault()
+                ? Locale.getDefault().toLanguageTag()
+                : Settings.GOOGLE_VOT_CAPTION_LANGUAGE.get();
+    }
+
+    /**
+     * @param lang ISO 639 (pt) or BCP 47 (pt-BR).
+     */
+    private static String resolveVoice(String lang) {
+        return Settings.GOOGLE_VOT_USE_NATIVE_TTS.get()
+                ? TTS_ENGINE_SYSTEM
+                : VoiceCatalog.resolve(lang, Settings.GOOGLE_VOT_TTS_VOICE_TYPE.get());
+    }
+
+    static void notifyHttpError(int statusCode) {
+        if (statusCode < 400 || statusCode >= 500) return;
+        if (!Settings.GOOGLE_VOT_SHOW_HTTP_ERROR_DIALOG.get()) return;
+        if (httpErrorDialogShownThisVideo) return;
+        httpErrorDialogShownThisVideo = true;
+        Utils.runOnMainThread(() -> {
+            Activity activity = Utils.getActivity();
+            if (activity == null || activity.isFinishing() || activity.isDestroyed()) return;
+            showHttpErrorDialog(activity, statusCode);
+        });
+    }
+
+    static void notifyOpenRouterError(int httpCode, String errorBody) {
+        if (httpErrorDialogShownThisVideo) return;
+        httpErrorDialogShownThisVideo = true;
+        if (TranscriptTranslator.isOpenRouterCreditsError(httpCode, errorBody)) {
+            Utils.runOnMainThread(() -> {
+                Activity activity = Utils.getActivity();
+                if (activity == null || activity.isFinishing() || activity.isDestroyed()) return;
+                showOpenRouterCreditsDialog(activity);
+            });
+        } else {
+            Utils.showToastLong(str("morphe_vot_openrouter_error", httpCode));
+        }
+    }
+
+    private static void showOpenRouterCreditsDialog(Activity activity) {
+        Utils.verifyOnMainThread();
+        try {
+            Pair<Dialog, LinearLayout> pair = CustomDialog.create(
+                    activity,
+                    str("morphe_vot_openrouter_credits_title"),
+                    str("morphe_vot_openrouter_credits_message"),
+                    null,
+                    null,
+                    () -> {},
+                    null,
+                    str("morphe_vot_openrouter_open_website"),
+                    () -> {
+                        try {
+                            activity.startActivity(
+                                    new Intent(Intent.ACTION_VIEW, Uri.parse("https://openrouter.ai/credits"))
+                                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        } catch (Exception ex) {
+                            logError(() -> "Failed to open openrouter.ai", ex);
+                        }
+                    },
+                    true
+            );
+            pair.first.show();
+        } catch (Exception ex) {
+            logError(() -> "showOpenRouterCreditsDialog failure", ex);
+        }
+    }
+
+    static void notifyMyMemoryError(int responseStatus, @Nullable String details) {
+        if (httpErrorDialogShownThisVideo) return;
+        httpErrorDialogShownThisVideo = true;
+        if (TranscriptTranslator.isMyMemoryQuotaError(responseStatus, details)) {
+            final String nextAvailableAt = formatNextAvailableClockTime(
+                    TranscriptTranslator.parseMyMemoryNextAvailableMinutes(details));
+            Utils.runOnMainThread(() -> {
+                Activity activity = Utils.getActivity();
+                if (activity == null || activity.isFinishing() || activity.isDestroyed()) return;
+                showMyMemoryQuotaDialog(activity, nextAvailableAt);
+            });
+        } else {
+            Utils.showToastLong(str("morphe_vot_mymemory_error", responseStatus));
+        }
+    }
+
+    /**
+     * Converts a wait duration to the wall-clock time the quota will reset, formatted as
+     * {@code HH:mm} in the device locale. Returns null when the duration is unknown so the
+     * dialog can omit the "next available at" line.
+     */
+    @Nullable
+    private static String formatNextAvailableClockTime(@Nullable Long waitMinutes) {
+        if (waitMinutes == null) return null;
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.MINUTE, waitMinutes.intValue());
+        return String.format(Locale.getDefault(), "%02d:%02d",
+                c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
+    }
+
+    private static void showMyMemoryQuotaDialog(Activity activity, @Nullable String nextAvailableAt) {
+        Utils.verifyOnMainThread();
+        try {
+            // Show a different body depending on whether the user already gets the 10x
+            // limit via an email - otherwise we'd suggest adding what's already there.
+            final boolean emailSet = !Settings.GOOGLE_VOT_MYMEMORY_EMAIL.get().trim().isEmpty();
+            String message = emailSet
+                    ? str("morphe_vot_mymemory_quota_message_with_email")
+                    : str("morphe_vot_mymemory_quota_message_no_email");
+            if (nextAvailableAt != null) {
+                message = str("morphe_vot_mymemory_quota_next_available", nextAvailableAt)
+                        + "\n\n" + message;
+            }
+            Pair<Dialog, LinearLayout> pair = CustomDialog.create(
+                    activity,
+                    str("morphe_vot_mymemory_quota_title"),
+                    message,
+                    null,
+                    null,
+                    () -> {},
+                    null,
+                    null,
+                    null,
+                    true
+            );
+            pair.first.show();
+        } catch (Exception ex) {
+            logError(() -> "showMyMemoryQuotaDialog failure", ex);
+        }
+    }
+
+    private static void showHttpErrorDialog(Activity activity, int statusCode) {
+        Utils.verifyOnMainThread();
+        try {
+            Pair<Dialog, LinearLayout> pair = CustomDialog.create(
+                    activity,
+                    str("morphe_vot_http_error_title"),
+                    str("morphe_vot_http_error_message", statusCode),
+                    null,
+                    null,
+                    () -> { },
+                    null,
+                    str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"),
+                    () -> Settings.GOOGLE_VOT_SHOW_HTTP_ERROR_DIALOG.save(false),
+                    true
+            );
+            pair.first.show();
+        } catch (Exception ex) {
+            logError(() -> "showHttpErrorDialog failure", ex);
+        }
+    }
+
+    public static void fetchOpenRouterModelCost(String model, Consumer<Float> onResult) {
+        TranscriptTranslator.fetchOpenRouterModelCost(model, onResult);
+    }
+
+    public static String formatOpenRouterCostPerHundredHours(float cost) {
+        if (cost == 0) {
+            return str("morphe_vot_cost_free");
+        }
+
+        String costString;
+        if (cost < 0.001f) {
+            costString = "< $0.001";
+        } else {
+            String format;
+            if (cost < 0.01f) {
+                format = "$%.3f";
+            } else {
+                format = "$%.2f";
+            }
+            costString = String.format(Locale.US, format, cost);
+        }
+
+        return str("morphe_vot_cost_per_hour", costString);
+    }
+
+    static void logError(Logger.LogMessage message, @Nullable Exception ex) {
+        if (DEBUG.get()) Logger.printException(message, ex);
+        else Logger.printInfo(message, ex);
+    }
+}

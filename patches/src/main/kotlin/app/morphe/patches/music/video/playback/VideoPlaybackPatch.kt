@@ -61,6 +61,7 @@ import app.morphe.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.morphe.patches.music.utils.settings.addTextPreference
 import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
+import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.patches.music.video.information.onCreateHook
 import app.morphe.patches.music.video.information.videoInformationPatch
 import app.morphe.patches.shared.FIXED_RESOLUTION_STRING
@@ -280,7 +281,8 @@ val videoPlaybackPatch = bytecodePatch(
         )
         addTextPreference(
             CategoryType.VIDEO,
-            "revanced_custom_playback_speeds"
+            "revanced_custom_playback_speeds",
+            inputType = InputType.TEXT_MULTI_LINE,
         )
         addSwitchPreference(
             CategoryType.VIDEO,

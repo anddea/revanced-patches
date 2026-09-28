@@ -13,6 +13,8 @@ import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.util.cloneMutable
 
+private var elementprotoParserInsertIndexStep = 2
+private var elementprotoParserInsertIndex = elementprotoParserInsertIndexStep
 private lateinit var elementProtoParserMethod: MutableMethod
 
 val elementProtoParserHookPatch = bytecodePatch(
@@ -24,6 +26,7 @@ val elementProtoParserHookPatch = bytecodePatch(
     )
 
     execute {
+        elementprotoParserInsertIndex = elementprotoParserInsertIndexStep
         val protoStuffClassDef = protoStuffReflectionFingerprint.match().classDef
 
         newElementProtoParserFingerprint.match(protoStuffClassDef).let { match ->
@@ -47,11 +50,14 @@ val elementProtoParserHookPatch = bytecodePatch(
     }
 }
 
-fun hookElement(methodDescriptor: String) =
+fun hookElement(methodDescriptor: String) {
     elementProtoParserMethod.addInstructions(
-        2,
+        elementprotoParserInsertIndex,
         """
             invoke-static { p0 }, $methodDescriptor
             move-result-object p0
         """
     )
+
+    elementprotoParserInsertIndex += elementprotoParserInsertIndexStep
+}

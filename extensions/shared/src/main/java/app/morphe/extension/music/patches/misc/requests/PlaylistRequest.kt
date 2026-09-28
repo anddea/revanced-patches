@@ -26,10 +26,23 @@ class PlaylistRequest private constructor(
     private val playlistIndex: Int,
 ) {
     /**
+     * The song listed by the album for a video track.
+     *
+     * <p>The player metadata still describes an album song as its music video, so lyrics need
+     * the album title and duration when the album-song substitution is enabled.
+     */
+    data class Song(
+        val videoId: String,
+        val title: String,
+        val artist: String,
+        val durationSeconds: Int,
+    )
+
+    /**
      * Time this instance and the fetch future was created.
      */
     private val timeFetched = System.currentTimeMillis()
-    private val future: Future<String> = Utils.submitOnBackgroundThread {
+    private val future: Future<Song?> = Utils.submitOnBackgroundThread {
         fetch(
             videoId,
             playlistId,
@@ -54,29 +67,40 @@ class PlaylistRequest private constructor(
         return future.isDone
     }
 
+    /**
+     * Waits for the album lookup and returns its song metadata.
+     *
+     * <p>This is used by the existing album redirect patch, which already waits for the same
+     * request before opening the song version.
+     */
+    fun getSong(): Song? {
+        return try {
+            future[MAX_MILLISECONDS_TO_WAIT_FOR_FETCH, TimeUnit.MILLISECONDS]
+        } catch (ex: TimeoutException) {
+            Logger.printInfo(
+                { "getSong timed out" },
+                ex
+            )
+            null
+        } catch (ex: InterruptedException) {
+            Logger.printException(
+                { "getSong interrupted" },
+                ex
+            )
+            Thread.currentThread().interrupt()
+            null
+        } catch (ex: ExecutionException) {
+            Logger.printException(
+                { "getSong failure" },
+                ex
+            )
+            null
+        }
+    }
+
     val songId: String
         get() {
-            try {
-                return future[MAX_MILLISECONDS_TO_WAIT_FOR_FETCH, TimeUnit.MILLISECONDS]
-            } catch (ex: TimeoutException) {
-                Logger.printInfo(
-                    { "getSongId timed out" },
-                    ex
-                )
-            } catch (ex: InterruptedException) {
-                Logger.printException(
-                    { "getSongId interrupted" },
-                    ex
-                )
-                Thread.currentThread().interrupt() // Restore interrupt status flag.
-            } catch (ex: ExecutionException) {
-                Logger.printException(
-                    { "getSongId failure" },
-                    ex
-                )
-            }
-
-            return ""
+            return getSong()?.videoId ?: ""
         }
 
     companion object {
@@ -197,7 +221,7 @@ class PlaylistRequest private constructor(
             return null
         }
 
-        private fun parseResponse(playlistJson: JSONObject, playlistIndex: Int): String {
+        private fun parseResponse(playlistJson: JSONObject, playlistIndex: Int): Song? {
             try {
                 val singleColumnWatchNextResultsJsonObject: JSONObject =
                     playlistJson
@@ -219,13 +243,19 @@ class PlaylistRequest private constructor(
                             ?.get(playlistIndex)
 
                         if (currentStreamJsonObject is JSONObject) {
-                            val watchEndpointJsonObject: JSONObject? =
-                                currentStreamJsonObject
-                                    .getJSONObject("playlistPanelVideoRenderer")
-                                    .getJSONObject("navigationEndpoint")
-                                    .getJSONObject("watchEndpoint")
-
-                            return watchEndpointJsonObject?.getString("videoId") + ""
+                            val renderer = currentStreamJsonObject.optJSONObject("playlistPanelVideoRenderer")
+                            val watchEndpointJsonObject = renderer
+                                ?.optJSONObject("navigationEndpoint")
+                                ?.optJSONObject("watchEndpoint")
+                            val songId = watchEndpointJsonObject?.optString("videoId", "").orEmpty()
+                            if (renderer != null && songId.isNotEmpty()) {
+                                return Song(
+                                    songId,
+                                    parseRuns(renderer, "title"),
+                                    parseRuns(renderer, "longBylineText"),
+                                    parseDuration(parseRuns(renderer, "lengthText")),
+                                )
+                            }
                         }
                     }
                 }
@@ -236,14 +266,32 @@ class PlaylistRequest private constructor(
                 )
             }
 
-            return ""
+            return null
+        }
+
+        private fun parseRuns(renderer: JSONObject, name: String): String {
+            val runs = renderer.optJSONObject(name)?.optJSONArray("runs")
+            return runs?.optJSONObject(0)?.optString("text", "").orEmpty()
+        }
+
+        /** @return Seconds in an {@code m:ss} or {@code h:mm:ss} duration, or zero if invalid. */
+        private fun parseDuration(lengthText: String): Int {
+            var seconds = 0
+            for (part in lengthText.split(":")) {
+                seconds = try {
+                    seconds * 60 + part.trim().toInt()
+                } catch (_: NumberFormatException) {
+                    return 0
+                }
+            }
+            return seconds
         }
 
         private fun fetch(
             videoId: String,
             playlistId: String,
             playlistIndex: Int,
-        ): String {
+        ): Song? {
             val playlistJson = sendRequest(
                 videoId,
                 playlistId,
@@ -252,7 +300,7 @@ class PlaylistRequest private constructor(
                 return parseResponse(playlistJson, playlistIndex)
             }
 
-            return ""
+            return null
         }
     }
 }

@@ -1,5 +1,6 @@
 package app.morphe.extension.shared.settings;
 
+import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.getResourceIdentifierOrThrow;
 
 import android.annotation.SuppressLint;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import app.morphe.extension.shared.patches.SettingsNamePatch;
 import app.morphe.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
@@ -32,8 +34,6 @@ public abstract class BaseActivityHook extends Activity {
             getResourceIdentifierOrThrow("revanced_toolbar_parent", "id");
     public static final int LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR =
             getResourceIdentifierOrThrow("revanced_settings_with_toolbar", "layout");
-    private static final int STRING_REVANCED_SETTINGS_TITLE =
-            getResourceIdentifierOrThrow("revanced_settings_title", "string");
 
     /**
      * Layout parameters for the toolbar, extracted from the dummy toolbar.
@@ -49,6 +49,9 @@ public abstract class BaseActivityHook extends Activity {
         }
     }
 
+    public static final String REVANCED_SETTINGS_INTENT = "revanced_settings_intent";
+    public static final String MORPHE_DOWNLOADS_INTENT = "morphe_downloads_intent";
+
     /**
      * Initializes the activity by setting the theme, content view and injecting a PreferenceFragment.
      */
@@ -59,7 +62,8 @@ public abstract class BaseActivityHook extends Activity {
 
             // Sanity check.
             String dataString = activity.getIntent().getDataString();
-            if (!"revanced_settings_intent".equals(dataString)) {
+            if (!REVANCED_SETTINGS_INTENT.equals(dataString)
+                    && !MORPHE_DOWNLOADS_INTENT.equals(dataString)) {
                 Logger.printException(() -> "Unknown intent: " + dataString);
                 return;
             }
@@ -103,8 +107,9 @@ public abstract class BaseActivityHook extends Activity {
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(getNavigationIcon());
+        toolbar.setNavigationContentDescription(str("revanced_settings_navigate_up"));
         toolbar.setNavigationOnClickListener(getNavigationClickListener(activity));
-        toolbar.setTitle(STRING_REVANCED_SETTINGS_TITLE);
+        toolbar.setTitle(SettingsNamePatch.getSettingsName());
 
         final int margin = Utils.dipToPixels(16);
         toolbar.setTitleMarginStart(margin);

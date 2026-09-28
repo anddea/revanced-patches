@@ -121,7 +121,7 @@ public abstract class BaseSettingsMenuFilter {
      */
     private static Set<String> reservedNeedles() {
         Set<String> result = new HashSet<>();
-        addLoweredIfPresent(result, ResourceUtils.getString("revanced_settings_title"));
+        addLoweredIfPresent(result, SettingsNamePatch.getSettingsName());
         return result;
     }
 

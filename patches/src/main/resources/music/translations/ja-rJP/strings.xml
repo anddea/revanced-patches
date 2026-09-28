@@ -17,6 +17,14 @@ MicroG に対して電池の最適化を無効にしても、バッテリー消�
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging 設定を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCoreを開く</string>
     <string name="gms_core_toast_not_installed_message">MicroG がインストールされていません。インストールしてください。</string>
+    <string name="morphe_app_refresh_rate_default">デフォルト</string>
+    <string name="morphe_app_refresh_rate_fps">%s FPS</string>
+    <string name="morphe_app_refresh_rate_title">アプリのリフレッシュ レート</string>
+    <string name="morphe_app_refresh_rate_type_entry_1">常に適用</string>
+    <string name="morphe_app_refresh_rate_type_entry_2">縦画面再生時に適用</string>
+    <string name="morphe_app_refresh_rate_type_entry_3">全画面再生時に適用</string>
+    <string name="morphe_app_refresh_rate_type_entry_4">縦画面 &amp; 全画面再生時に適用</string>
+    <string name="morphe_app_refresh_rate_type_title">リフレッシュ レートの上書き</string>
     <string name="morphe_crossfade_duration_10000ms">10 秒</string>
     <string name="morphe_crossfade_duration_1000ms">1 秒</string>
     <string name="morphe_crossfade_duration_11000ms">11 秒</string>
@@ -32,15 +40,29 @@ MicroG に対して電池の最適化を無効にしても、バッテリー消�
     <string name="morphe_crossfade_duration_750ms">750 ミリ秒</string>
     <string name="morphe_crossfade_duration_8000ms">8 秒</string>
     <string name="morphe_crossfade_duration_9000ms">9 秒</string>
+    <string name="morphe_custom_branding_icon_title">アプリアイコン</string>
+    <string name="morphe_custom_branding_name_title">アプリ名</string>
     <string name="morphe_disable_drc_audio_summary_off">オーディオ DRC は有効です</string>
     <string name="morphe_disable_drc_audio_summary_on">オーディオ DRC は無効です</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC プロトコルは有効です</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC プロトコルは無効です</string>
-    <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを「Android Studio」以外に変更してください</string>
+    <string name="morphe_external_potoken_provider_user_dialog_message">正常に動作しない場合は、MicroG の強制停止をお試しください</string>
+    <string name="morphe_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを「Android Studio」および「Android VR Downgraded」を除く任意のクライアントに設定してください</string>
     <string name="morphe_force_original_audio_summary">常にオリジナルの音声トラック (言語) を再生します。オートダビングを含む吹き替えの音声トラックは再生されなくなります</string>
     <string name="morphe_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックが使用される場合があります</string>
     <string name="morphe_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用されません</string>
-    <string name="morphe_force_original_audio_title">オリジナルの音声を強制的に使用</string>
+    <string name="morphe_force_original_audio_title">オリジナルの音声を常に使用</string>
+    <string name="morphe_music_apple_music_token_dialog_instruction">"music.apple.com の media-user-token Cookie を貼り付けてください。
+
+手順:
+1. サブスクリプションに登録中のアカウントで music.apple.com にサインイン
+2. DevTools → Application → Cookies → music.apple.com の順に開く
+3.「media-user-token」の値をコピー"</string>
+    <string name="morphe_music_apple_music_token_title">Apple Music media-user-token</string>
+    <string name="morphe_music_apple_music_token_toast_cleared">Apple Music: media-user-token を消去しました</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: 無効な media-user-token です。確認して再度お試しください</string>
+    <string name="morphe_music_apple_music_token_toast_saved">Apple Music: media-user-token を保存しました</string>
+    <string name="morphe_music_apple_token_optional_hint">Apple Music のトークンは必須ではありません。このトークンがない場合は、代替として Lyrically を使用します</string>
     <string name="morphe_music_crossfade_about_best_summary">通常の曲から曲への再生、自動スキップ、リピート再生（曲が自分自身にクロスフェード）、およびローカルオーディオ（電話スピーカー、有線ヘッドホン、Bluetooth、またはUSB）で最適に動作します。</string>
     <string name="morphe_music_crossfade_about_best_title">最適な動作環境</string>
     <string name="morphe_music_crossfade_about_credit_summary">Crossfade機能はVazerOGによるものです</string>
@@ -88,30 +110,159 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
     <string name="morphe_music_crossfade_session_control_summary">シャッフル ボタンを長押しすると、再生中のセッション (プレイリストなど) 内でのクロスフェードを一時的に停止 / 再開します</string>
     <string name="morphe_music_crossfade_session_control_title">クロスフェードのセッション制御</string>
     <string name="morphe_music_crossfade_video_mode_disabled_toast">クロスフェードが有効になっている間は、動画モードは利用できません</string>
-    <string name="morphe_music_lyrics_about_summary">"曲名とアーティスト名で歌詞を検索するため、特殊な曲名やアーティスト名を持つ曲の場合、歌詞が見つからなかったり、違うバージョンの歌詞が表示されたりする場合があります
+    <string name="morphe_music_deezer_arl_dialog_instruction">"Deezer の arl Cookie を貼り付けてください。
 
-同期歌詞では、歌詞が楽曲の再生に同期します。歌詞と楽曲がズレる場合は、[歌詞の遅延] を設定して調整してください
+手順:
+1. deezer.com にサインインします
+2. DevTools → Application → Cookies → deezer.com を開きます
+3. 「arl」の値をコピーします"</string>
+    <string name="morphe_music_deezer_arl_title">Deezer […] \"arl\" の値をコピーしてください</string>
+    <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl が無効です。もう一度お試しください</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: arl が無効です。値を確認してもう一度お試しください</string>
+    <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl を保存しました</string>
+    <string name="morphe_music_downloads_actions_for">%s の操作</string>
+    <string name="morphe_music_downloads_all_deleted">ダウンロードを削除しました</string>
+    <string name="morphe_music_downloads_already_running">ダウンロードはすでに進行中です</string>
+    <string name="morphe_music_downloads_already_saved">すでにダウンロード済みです</string>
+    <string name="morphe_music_downloads_close">閉じる</string>
+    <string name="morphe_music_downloads_complete">ダウンロード完了</string>
+    <string name="morphe_music_downloads_delete">削除</string>
+    <string name="morphe_music_downloads_delete_all">すべてのダウンロードを削除</string>
+    <string name="morphe_music_downloads_delete_all_message">ダウンロードしたすべての楽曲がこのデバイスから削除されます</string>
+    <string name="morphe_music_downloads_delete_all_title">すべてのダウンロードを削除しますか？</string>
+    <string name="morphe_music_downloads_delete_track">ダウンロードを削除</string>
+    <string name="morphe_music_downloads_delete_track_message">このデバイスから %s が削除されます</string>
+    <string name="morphe_music_downloads_delete_track_title">ダウンロードを削除しますか？</string>
+    <string name="morphe_music_downloads_empty">"まだダウンロードしていません
+ダウンロードした楽曲がここに表示されます"</string>
+    <string name="morphe_music_downloads_failed">ダウンロードに失敗しました</string>
+    <string name="morphe_music_downloads_next">次の曲</string>
+    <string name="morphe_music_downloads_nothing_found">見つかりませんでした</string>
+    <string name="morphe_music_downloads_notification_channel">音声ダウンロード</string>
+    <string name="morphe_music_downloads_pause">一時停止</string>
+    <string name="morphe_music_downloads_play">再生</string>
+    <string name="morphe_music_downloads_play_failed">ダウンロードを再生できませんでした</string>
+    <string name="morphe_music_downloads_play_pause">再生 / 一時停止</string>
+    <string name="morphe_music_downloads_playback_channel">オフライン再生</string>
+    <string name="morphe_music_downloads_previous">前の曲</string>
+    <string name="morphe_music_downloads_progress">ダウンロード中: %s%%</string>
+    <string name="morphe_music_downloads_screen_title">ダウンロード一覧</string>
+    <string name="morphe_music_downloads_search_hint">ダウンロードを検索</string>
+    <string name="morphe_music_downloads_sort">並べ替え</string>
+    <string name="morphe_music_downloads_sort_artist">アーティスト順</string>
+    <string name="morphe_music_downloads_sort_size">サイズ順</string>
+    <string name="morphe_music_downloads_sort_title">タイトル順</string>
+    <string name="morphe_music_downloads_started">ダウンロードを開始しました</string>
+    <string name="morphe_music_downloads_starting">ダウンロードを開始しています…</string>
+    <string name="morphe_music_downloads_summary">%1$s 曲 • %2$s MB</string>
+    <string name="morphe_music_downloads_track_delete_failed">ダウンロードを削除できませんでした</string>
+    <string name="morphe_music_downloads_track_deleted">ダウンロードを削除しました</string>
+    <string name="morphe_music_downloads_track_subtitle">%1$s • %2$s • %3$s MB</string>
+    <string name="morphe_music_downloads_unknown_track">ダウンロードする楽曲を特定できませんでした</string>
+    <string name="morphe_music_in_app_downloads_summary">外部ダウンロード アプリを開くことなく、YouTube Music 内に音声をダウンロードします</string>
+    <string name="morphe_music_in_app_downloads_title">アプリ内ダウンロード</string>
+    <string name="morphe_music_in_app_downloads_user_dialog_message">"ダウンロードした楽曲は、YouTube Music の非公開ストレージ領域に保存されるため、YouTube Music をアンインストールすると削除されます。
 
-外部サービスで歌詞が見つからない場合は、アプリの歌詞を表示します"</string>
+この機能をオンにしている間は、Premium 機能でダウンロードした楽曲の代わりに、この機能でダウンロードした楽曲を、オフラインのコンテンツとしてライブラリタブに表示します。オフにすると元に戻ります。この機能が Premium 機能でダウンロードした楽曲に影響を及ぼすことはありません。"</string>
+    <string name="morphe_music_lyrics_about_summary">"歌詞はタイトルとアーティストで照合されます。通常とは異なるメタデータでは、何も見つからないか、間違ったバージョンが見つかる可能性があります。更新を使用してバージョンを切り替えてください。* が付いているプロバイダーはトークンが必要です。有効なすべてのプロバイダーが常に指定された順序で要求されるわけではなく、応答速度に基づいて応答します。"</string>
     <string name="morphe_music_lyrics_about_title">外部サービスの歌詞について</string>
+    <string name="morphe_music_lyrics_ai_config_api_token_hint">API キー (認証なしの場合は空欄)</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_hint">API エンドポイント URL (例: https://text.pollinations.ai/openai)</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">AI による歌詞の翻訳とローマ字表記に使用する OpenAI 互換 API のエンドポイントを設定します。</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">AI 翻訳の設定</string>
+    <string name="morphe_music_lyrics_ai_config_model_hint">モデル名 (例: openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_status_configured">設定済み</string>
+    <string name="morphe_music_lyrics_ai_config_status_empty_model">モデル名は空欄にはできません</string>
+    <string name="morphe_music_lyrics_ai_config_status_empty_url">ベース URL は空欄にはできません</string>
+    <string name="morphe_music_lyrics_ai_config_status_invalid_url">ベース URL は http:// または https:// で始まる必要があります</string>
+    <string name="morphe_music_lyrics_ai_config_status_not_configured">タップして設定</string>
+    <string name="morphe_music_lyrics_ai_config_status_validating">接続を確認中…</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">AI エンドポイントに接続できませんでした。設定を確認してください。</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">AI 翻訳の設定をリセットしました</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">AI 翻訳の設定を保存しました</string>
     <string name="morphe_music_lyrics_copied">クリップボードにコピーしました</string>
+    <string name="morphe_music_lyrics_credit_line_regex_summary">歌詞フィルターの正規表現</string>
+    <string name="morphe_music_lyrics_credit_line_regex_title">歌詞フィルターで正規表現を使用する</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">歌詞を検索する前に、曲名、アーティスト名、アルバム名に適用される正規表現です。無効にするには空のままにしてください。デフォルトでは、「Official Video」「Remaster」「- Topic」などのよくある不要な文字列を削除します。</string>
+    <string name="morphe_music_lyrics_custom_regex_title">歌詞フィルターの正規表現</string>
+    <string name="morphe_music_lyrics_display_artist_first_summary">Miniplayer と MediaSession で、アーティスト名とタイトルの表示順を切り替えます。ON「アーティスト - タイトル」、OFF「タイトル - アーティスト」。歌詞検索には影響しません。</string>
+    <string name="morphe_music_lyrics_display_artist_first_title">メディアセッションでアーティスト名とタイトルを表示[…] ON = \"アーティスト - タイトル\"、OFF = \"タイトル - アーティスト\" この設定は歌詞検索には影響しません</string>
     <string name="morphe_music_lyrics_enabled_summary">外部の歌詞配信サービスから歌詞を取得して表示します。見つからない場合は、アプリの歌詞を表示します</string>
     <string name="morphe_music_lyrics_enabled_title">外部サービスの歌詞を使用</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">同期歌詞の歌詞と楽曲のズレを修正します。歌詞が楽曲よりも早い場合は正の値を、遅い場合は負の値を設定してください</string>
+    <string name="morphe_music_lyrics_hide_info_summary">この歌詞を編集</string>
+    <string name="morphe_music_lyrics_hide_info_title">この歌詞を編集</string>
+    <string name="morphe_music_lyrics_hide_played_summary">現在再生中の行より上の歌詞行を非表示にする</string>
+    <string name="morphe_music_lyrics_hide_played_title">再生済み […] 行を非表示</string>
+    <string name="morphe_music_lyrics_hide_unplayed_summary">現在再生中の […] 画面より下の歌詞行を非表示</string>
+    <string name="morphe_music_lyrics_hide_unplayed_title">未再生の歌詞を非表示</string>
+    <string name="morphe_music_lyrics_keep_screen_on_summary">歌詞欄が表示されている間は、画面の消灯機能を無効にします</string>
+    <string name="morphe_music_lyrics_keep_screen_on_title">歌詞表示中は画面を常にオン</string>
+    <string name="morphe_music_lyrics_mediasession_title">ロック画面に MediaSession の歌詞を表示する</string>
+    <string name="morphe_music_lyrics_miniplayer_title">ミニプレイヤーの歌詞を表示</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">再生中に現在の行をハイライトする</string>
     <string name="morphe_music_lyrics_offset_ms_title">歌詞の遅延</string>
+    <string name="morphe_music_lyrics_refreshed">更新済み</string>
+    <string name="morphe_music_lyrics_refreshing">更新中</string>
+    <string name="morphe_music_lyrics_romanize_failed">[…] をローマ字化できませんでした</string>
+    <string name="morphe_music_lyrics_romanize_hide">歌詞が見つかりません</string>
+    <string name="morphe_music_lyrics_romanized_by_ai">ローマ字: %s</string>
+    <string name="morphe_music_lyrics_romanized_by_google">未保存</string>
+    <string name="morphe_music_lyrics_romanizing">ロード中</string>
+    <string name="morphe_music_lyrics_saved">保存しました</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">オフにした行をハイライトする</string>
     <string name="morphe_music_lyrics_show_copy_button_title">コピーボタンを表示</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">タップすると次の歌詞候補に切り替わります; \"Saved\"</string>
+    <string name="morphe_music_lyrics_show_refresh_button_title">更新ボタンを表示</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">プロバイダーのローマ字表記、Google 翻訳、または OpenAI 互換 API を使用して歌詞をローマ字化します</string>
+    <string name="morphe_music_lyrics_show_romanize_button_title">ローマ字化ボタンを表示</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">プロバイダーの翻訳、Google 翻訳、または OpenAI 互換 API を使用して歌詞を翻訳します</string>
     <string name="morphe_music_lyrics_show_translate_button_title">翻訳ボタンを表示</string>
-    <string name="morphe_music_lyrics_source_entry_lrclib_then_kugou">LRCLIB を優先的に使用し、見つからない場合に KuGou を使用します</string>
+    <string name="morphe_music_lyrics_source_all_disabled">すべてのプロバイダーが無効です — 内蔵歌詞と埋め込み歌詞</string>
     <string name="morphe_music_lyrics_source_label">提供: %s</string>
+    <string name="morphe_music_lyrics_source_reset_message">プロバイダーを既定の優先順位に戻します</string>
+    <string name="morphe_music_lyrics_source_reset_title">プロバイダーの順序をリセットしますか？</string>
     <string name="morphe_music_lyrics_source_title">歌詞配信サービス</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">この歌詞を編集</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_title">この歌詞を編集</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">タップした行の再生位置に移動します</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">タップした行の再生位置に移動</string>
+    <string name="morphe_music_lyrics_text_filter_summary">歌詞フィルターで正規表現を使用する</string>
+    <string name="morphe_music_lyrics_text_filter_title">歌詞フィルターの正規表現</string>
     <string name="morphe_music_lyrics_text_size_summary">歌詞の文字サイズ</string>
     <string name="morphe_music_lyrics_text_size_title">文字サイズ</string>
     <string name="morphe_music_lyrics_translate_failed">歌詞を翻訳できませんでした</string>
-    <string name="morphe_music_lyrics_translate_hide">原文を表示</string>
-    <string name="morphe_music_lyrics_translate_show">翻訳</string>
+    <string name="morphe_music_lyrics_translate_hide">歌詞が見つかりません</string>
+    <string name="morphe_music_lyrics_translated_by_ai">翻訳: %s</string>
+    <string name="morphe_music_lyrics_translated_by_google">保存済み</string>
     <string name="morphe_music_lyrics_translating">翻訳中…</string>
+    <string name="morphe_music_lyrics_translation_language_title">翻訳言語</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">Google 翻訳の代わりに、設定した OpenAI 互換 API を翻訳とローマ字表記に使用します</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">OpenAI 互換の翻訳</string>
+    <string name="morphe_music_lyrics_word_sync_summary">利用可能な場合は単語ごとの歌詞を優先します。歌詞に単語タイミングがある場合、音楽に合わせて各単語または音節をハイライトします</string>
+    <string name="morphe_music_lyrics_word_sync_title">同期された単語または音節をハイライト</string>
+    <string name="morphe_music_musixmatch_token_dialog_hint">ユーザートークンが無効です。もう一度お試しください</string>
+    <string name="morphe_music_musixmatch_token_dialog_instruction">トークンを追加するのは、自分のアカウントを使用する場合のみです。これは Musixmatch Android アプリから取得する必要があります: musixmatch.com からコピーしたトークンは廃止されたデスクトップクライアント用であり、API はそれらを拒否します</string>
+    <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch はトークンなしでも動作するため、このフィールドは空のままで構いません</string>
+    <string name="morphe_music_musixmatch_token_title">Musixmatch […] ユーザートークンの値をコピーしてください</string>
+    <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: user token 削除済み</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: user token が無効です。値を確認してもう一度お試しください</string>
+    <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: user token 保存済み</string>
+    <string name="morphe_music_spotify_token_dialog_instruction">"Spotify の sp_dc Cookie を貼り付けてください。
+
+手順:
+1. open.spotify.com にサインインします
+2. DevTools → Application → Cookies → open.spotify.com を開きます
+3. 「sp_dc」の値をコピーします"</string>
+    <string name="morphe_music_spotify_token_title">Spotify […] \"sp_dc\" の値をコピーしてください</string>
+    <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc […] これがない場合、Lyrically がフォールバックとして使用されます</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify: sp_dc が無効です。値を確認してもう一度お試しください</string>
+    <string name="morphe_music_spotify_token_toast_saved">Spotify: sp_dc を保存しました</string>
+    <string name="morphe_music_token_dialog_get_token">トークンを取得</string>
+    <string name="morphe_music_youtube_cookies_dialog_instruction">"YouTube の値をコピーしてください"</string>
+    <string name="morphe_music_youtube_cookies_title">YouTube</string>
+    <string name="morphe_music_youtube_cookies_toast_cleared">YouTube</string>
+    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube が無効です。もう一度お試しください</string>
+    <string name="morphe_music_youtube_cookies_toast_saved">YouTube を保存しました</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR にログインできません: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR にログインできません。ウェブサイトの認証が承認されませんでした</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 は一時的に利用できません</string>
@@ -132,9 +283,12 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
     <string name="morphe_settings_menu_filter_picker_empty">項目の一覧を取得するため、アプリ側の設定メニューを一度開いてください</string>
     <string name="morphe_settings_menu_filter_screen_summary">アプリ側の設定メニューの項目を、表示される項目名で指定して非表示にします</string>
     <string name="morphe_settings_menu_filter_screen_title">設定メニューのフィルタ</string>
+    <string name="morphe_settings_name_custom_item_hint">表示名を入力してください</string>
+    <string name="morphe_settings_name_empty_warning">表示名は空欄にはできません</string>
+    <string name="morphe_settings_name_title">RVX の設定の表示名</string>
     <string name="morphe_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">クライアントの動画ストリームを取得できませんでした</string>
-    <string name="morphe_spoof_video_streams_screen_summary">動画再生の失敗を回避するために、偽装するクライアントを設定します</string>
+    <string name="morphe_spoof_video_streams_screen_summary">動画の再生が止まる問題を回避するために、偽装するクライアントを設定します</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Android VR にログインしていません。ログインするには、ここをタップしてください</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">この機能を使用するには、[デフォルトのクライアント] を Android VR に変更してください</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_signed_in">現在、Android VR にログインしています</string>
@@ -147,7 +301,7 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
 4. [許可] をタップして YouTube VR へのアクセスを許可する
 5. 「デバイスを接続しました」というメッセージが表示された後にこのアプリに戻る"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">操作手順</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR にログインすると、一部のユーザーの再生に関する問題が解決する場合があります。
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"Android VR にログインすると、動画の再生が止まる問題が一部のユーザーで解決する場合があります。
 
 ログインするには、[続行] をタップしてください"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">ログアウト</string>
@@ -159,9 +313,9 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
 • Google アカウントのパスワードを変更した場合、または Google アカウントの設定からこのデバイスの登録を解除した場合は、再度ログインする必要があります"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">ログインに成功しました</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">アクティベーション コードの発行に失敗しました</string>
-    <string name="morphe_spoof_video_streams_summary">"互換性のある動画ストリームを取得することにより、多くの環境で再生不能問題を解消します
+    <string name="morphe_spoof_video_streams_summary">"互換性のある動画ストリームを取得することによって、動画の再生が止まる問題を多くの環境で解決します
 
-YouTube Premiumのユーザーの場合、この設定は必要ない場合があります。"</string>
+YouTube Premium を利用している場合、この設定は必要ない場合があります"</string>
     <string name="morphe_spoof_video_streams_summary_off">"動画ストリームは偽装されていません
 
 再生に失敗する可能性があります"</string>
@@ -169,12 +323,12 @@ YouTube Premiumのユーザーの場合、この設定は必要ない場合が�
 
 YouTube Premium ユーザーの場合、この設定は必要ない可能性があります"</string>
     <string name="morphe_spoof_video_streams_title">動画ストリームを偽装</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">この設定をオフにすると、動画の再生に失敗するようになる可能性があります。</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">この設定をオフにすると、動画の再生が止まる問題が発生する可能性があります。</string>
     <string name="revanced_add_miniplayer_next_button_summary">ミニプレイヤーに「次の曲に進むボタン」を表示します。</string>
     <string name="revanced_add_miniplayer_next_button_title">「次の曲に進むボタン」を表示</string>
     <string name="revanced_add_miniplayer_previous_button_summary">ミニプレイヤーに「前の曲に戻るボタン」を表示します。</string>
     <string name="revanced_add_miniplayer_previous_button_title">「前の曲に戻るボタン」を表示</string>
-    <string name="revanced_app_info_dialog_message">&lt;b&gt;アプリ名&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;アプリのバージョン&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ReVanced パッチ&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;パッチの適用日&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
+    <string name="revanced_app_info_dialog_message">&lt;b&gt;アプリ名&lt;/b&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;アプリのバージョン&lt;/b&gt;&lt;br&gt;&lt;small&gt;%2$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;RVX パッチ&lt;/b&gt;&lt;br&gt;&lt;small&gt;%3$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;パッチの適用日&lt;/b&gt;&lt;br&gt;&lt;small&gt;%4$s&lt;/small&gt;</string>
     <string name="revanced_app_info_summary">タップしてアプリ名、アプリのバージョン、パッチのバージョン、およびパッチの適用日を確認できます。</string>
     <string name="revanced_app_info_title">アプリ情報</string>
     <string name="revanced_bypass_image_region_restrictions_summary">プレイリストのサムネイルやチャンネルアバターなどを受信できるように、一部の地域でブロックされているドメインを置き換えます。</string>
@@ -202,6 +356,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
     <string name="revanced_change_start_page_summary">アプリのスタートページを変更します。</string>
     <string name="revanced_change_start_page_title">スタート画面</string>
+    <string name="revanced_confirm_user_dialog_title">続行しますか？</string>
     <string name="revanced_credits_title">クレジット</string>
     <string name="revanced_custom_filter_strings_summary">非表示にするコンポーネントの path builder string のリスト (改行区切り)</string>
     <string name="revanced_custom_filter_strings_title">カスタム フィルタ</string>
@@ -303,6 +458,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
 • フライアウトメニューまたはライブラリのダウンロードボタンは置き換えません。"</string>
     <string name="revanced_external_downloader_action_title">ダウンロードボタンを置き換える</string>
     <string name="revanced_external_downloader_dialog_title">外部ダウンローダーを選択</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">フライアウト メニューの「オフラインに一時保存」の呼び出し先を、「純正アプリ内蔵のダウンロード機能」から「設定した外部ダウンローダー」に変更します</string>
+    <string name="revanced_external_downloader_flyout_menu_title">「オフラインに一時保存」の動作を上書き</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s はインストールされていません。
 ウェブサイトから %2$s をダウンロードしてください。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
@@ -440,6 +597,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_hide_terms_container_title">利用規約を非表示</string>
     <string name="revanced_hide_voice_search_button_summary">検索バーのボイスサーチボタンを非表示にします。</string>
     <string name="revanced_hide_voice_search_button_title">ボイスサーチボタンを非表示</string>
+    <string name="revanced_icon_custom">カスタム</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">ナビゲーション バーの色をフルスクリーン プレーヤーの色に合わせます</string>
+    <string name="revanced_music_change_navigation_bar_color_title">ナビゲーション バーの色を変更</string>
     <string name="revanced_preference_screen_account_title">アカウント</string>
     <string name="revanced_preference_screen_action_bar_title">アクションバー</string>
     <string name="revanced_preference_screen_ads_title">広告</string>
@@ -606,6 +766,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_settings_import_export_as_text">設定をテキストとしてインポートまたはエクスポートします。</string>
     <string name="revanced_settings_import_reset">RVX の設定をデフォルトにリセットしました</string>
     <string name="revanced_settings_import_success">%d 個の設定をインポートしました</string>
+    <string name="revanced_settings_navigate_up">上へ移動</string>
     <string name="revanced_settings_reset">リセット</string>
     <string name="revanced_settings_reset_color">色を初期化</string>
     <string name="revanced_settings_search_clear_history">検索履歴を消去</string>
@@ -616,8 +777,9 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_settings_search_history_summary_on">設定の検索履歴を表示します。</string>
     <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
     <string name="revanced_settings_search_no_results_summary">別のキーワードを試してください</string>
-    <string name="revanced_settings_search_no_results_title">「%s」に対する検索結果は見つかりませんでした</string>
+    <string name="revanced_settings_search_no_results_title">「%s」に対する検索結果が見つかりませんでした</string>
     <string name="revanced_settings_search_recent_searches">最近の検索</string>
+    <string name="revanced_settings_search_remove">検索履歴から削除</string>
     <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
     <string name="revanced_settings_search_tips_summary">"• カテゴリをタップするとそのカテゴリの設定メニューに移動する
 • 設定を長押しすると設定メニューに移動しその設定までスクロールする

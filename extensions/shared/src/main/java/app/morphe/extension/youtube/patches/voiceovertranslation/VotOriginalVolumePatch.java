@@ -53,14 +53,17 @@ public final class VotOriginalVolumePatch {
     private static volatile float lastBaseVolume = 1.0f;
 
     private static float applyMultiplier(float volume) {
-        if (!VoiceOverTranslationPatch.isTranslationActive()) {
-            return volume;
+        if (VoiceOverTranslationPatch.isTranslationActive()) {
+            int percent = Settings.VOT_ORIGINAL_AUDIO_VOLUME.get();
+            float mult = percent / 100.0f;
+            float result = volume * mult;
+            if (Float.isNaN(result) || result < 0f) return 0f;
+            return Math.min(result, 1f);
         }
-        int percent = Settings.VOT_ORIGINAL_AUDIO_VOLUME.get();
-        float mult = percent / 100.0f;
-        float result = volume * mult;
-        if (Float.isNaN(result) || result < 0f) return 0f;
-        return Math.min(result, 1f);
+        if (GoogleVoiceOverTranslationPatch.isTranslationActive()) {
+            return GoogleVotOriginalVolumePatch.getAudioMultiplier(volume);
+        }
+        return volume;
     }
 
     /**
@@ -76,6 +79,7 @@ public final class VotOriginalVolumePatch {
     public static float applyVolumeMultiplier(AudioTrack audioTrack, float volume) {
         if (audioTrack != null) {
             lastAudioTrackRef = new WeakReference<>(audioTrack);
+            GoogleVotOriginalVolumePatch.setAudioTrack(audioTrack);
         }
         if (!Float.isNaN(volume)) {
             if (volume < 0f) {
