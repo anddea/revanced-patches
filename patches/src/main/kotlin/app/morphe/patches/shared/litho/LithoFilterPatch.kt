@@ -469,7 +469,9 @@ val lithoFilterPatch = bytecodePatch(
             // FlatBuffer-backed elements at runtime, and forcing the FlatBuffer converter can
             // recreate stateful components such as the timed lyrics background during updates.
             if (!isYouTubeMusic) {
-                LithoConverterBufferUpbFeatureFlagFingerprint.let {
+                // YouTube 21.39 removed this flag (Upb is always on); the Upb buffer hook
+                // above handles that path (modified by lavinhoque33, 2026-10-04).
+                LithoConverterBufferUpbFeatureFlagFingerprint.matchOrNull()?.let {
                     // 20.22 the flag is still enabled in one location, but what it does is not known.
                     // Disable it anyway.
                     it.method.insertLiteralOverride(

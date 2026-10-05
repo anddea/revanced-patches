@@ -93,7 +93,6 @@ import app.morphe.patches.youtube.video.information.videoTimeHook
 import app.morphe.util.ResourceGroup
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.copyResources
-import app.morphe.util.copyXmlNode
 import app.morphe.util.doRecursively
 import app.morphe.util.findElementByAttributeValue
 import app.morphe.util.findFreeRegister
@@ -423,15 +422,24 @@ val overlayButtonsPatch = resourcePatch(
         bottomControlsLayoutFileNames.forEach { xmlFile ->
             val targetXml = get("res").resolve("layout").resolve(xmlFile)
             if (targetXml.exists()) {
-                "android.support.constraint.ConstraintLayout".copyXmlNode(
-                    document(
-                        inputStreamFromBundledResourceOrThrow(
-                            "youtube/overlaybuttons/shared/host",
-                            overlayButtonsHostLayoutFileName,
-                        )
-                    ),
-                    document("res/layout/$xmlFile"),
-                ).close()
+                // modified by lavinhoque33, 2026-10-04
+                // YouTube 21.39 migrated these layouts to androidx.constraintlayout.widget.ConstraintLayout,
+                // so merge into the target's root element whatever its tag is.
+                document(
+                    inputStreamFromBundledResourceOrThrow(
+                        "youtube/overlaybuttons/shared/host",
+                        overlayButtonsHostLayoutFileName,
+                    )
+                ).use { hostDocument ->
+                    document("res/layout/$xmlFile").use { targetDocument ->
+                        val hostNodes = hostDocument.documentElement.childNodes
+                        for (index in 0 until hostNodes.length) {
+                            val node = hostNodes.item(index).cloneNode(true)
+                            targetDocument.adoptNode(node)
+                            targetDocument.documentElement.appendChild(node)
+                        }
+                    }
+                }
             }
         }
 

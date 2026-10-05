@@ -54,9 +54,12 @@ import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findFreeRegister
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
+import app.morphe.util.fingerprint.matchOrNull
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
+import app.morphe.util.fingerprint.resolvable
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
 import app.morphe.util.indexOfFirstInstruction
@@ -215,7 +218,16 @@ val miniplayerPatch = bytecodePatch(
 
         // region Enable modern miniplayer
 
-        miniplayerModernConstructorFingerprint.mutableClassOrThrow().methods.forEach {
+        // modified by lavinhoque33, 2026-10-04
+        // 21.39: the modern miniplayer is always on and its config constructor (literal 45623000) with all the
+        // miniplayer feature flags was removed, so the flag/type overrides have nothing to hook.
+        val hasModernConstructor = miniplayerModernConstructorFingerprint.resolvable()
+        if (!hasModernConstructor) {
+            printWarn("Miniplayer: modern miniplayer config class not found (YouTube 21.39+), " +
+                    "feature flag/type overrides are skipped")
+        }
+
+        if (hasModernConstructor) miniplayerModernConstructorFingerprint.mutableClassOrThrow().methods.forEach {
             it.apply {
                 if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
                     val iPutIndex = indexOfFirstInstructionOrThrow {
@@ -234,7 +246,7 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        if (is_19_23_or_greater) {
+        if (is_19_23_or_greater && hasModernConstructor) {
             miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
                 MINIPLAYER_DRAG_DROP_FEATURE_KEY,
                 "$EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDragAndDrop(Z)Z"
@@ -243,20 +255,22 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_25_or_greater) {
-            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
-                MINIPLAYER_MODERN_FEATURE_LEGACY_KEY,
-                "$EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverride(Z)Z"
-            )
+            if (hasModernConstructor) {
+                miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                    MINIPLAYER_MODERN_FEATURE_LEGACY_KEY,
+                    "$EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverride(Z)Z"
+                )
 
-            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
-                MINIPLAYER_MODERN_FEATURE_KEY,
-                "$EXTENSION_CLASS_DESCRIPTOR->getModernFeatureFlagsActiveOverride(Z)Z"
-            )
+                miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                    MINIPLAYER_MODERN_FEATURE_KEY,
+                    "$EXTENSION_CLASS_DESCRIPTOR->getModernFeatureFlagsActiveOverride(Z)Z"
+                )
 
-            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
-                MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
-                "$EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDoubleTapAction(Z)Z"
-            )
+                miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                    MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
+                    "$EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDoubleTapAction(Z)Z"
+                )
+            }
 
             if (!is_19_29_or_greater) {
                 settingArray += "SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION"
@@ -316,7 +330,7 @@ val miniplayerPatch = bytecodePatch(
             settingArray += "SETTINGS: MINIPLAYER_REWIND_FORWARD"
         }
 
-        if (is_19_36_or_greater) {
+        if (is_19_36_or_greater && hasModernConstructor) {
             miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
                 MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
                 "$EXTENSION_CLASS_DESCRIPTOR->getRoundedCorners(Z)Z"
@@ -331,10 +345,12 @@ val miniplayerPatch = bytecodePatch(
                 "$EXTENSION_CLASS_DESCRIPTOR->getMiniplayerOnCloseHandler(Z)Z"
             )
 
-            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
-                MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
-                "$EXTENSION_CLASS_DESCRIPTOR->getHorizontalDrag(Z)Z"
-            )
+            if (hasModernConstructor) {
+                miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                    MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
+                    "$EXTENSION_CLASS_DESCRIPTOR->getHorizontalDrag(Z)Z"
+                )
+            }
 
             val horizontalDragPlaybackCallbackClass = MiniplayerHorizontalDragPlaybackFingerprint
                 .instructionMatches[2].instruction.getReference<MethodReference>()!!.definingClass
@@ -368,7 +384,9 @@ val miniplayerPatch = bytecodePatch(
                 )
             }
 
-            MiniplayerOffscreenHandlerFingerprint.let {
+            // modified by lavinhoque33, 2026-10-04: in 21.39 horizontal drag is not behind a patchable flag,
+            // so the offscreen handler must stay untouched, as the hook disables it unless the flag is forced on.
+            if (hasModernConstructor) MiniplayerOffscreenHandlerFingerprint.let {
                 it.method.apply {
                     val index = it.instructionMatches.last().index
                     val register = findFreeRegister(index)
@@ -393,13 +411,16 @@ val miniplayerPatch = bytecodePatch(
                         "enableOffScreenMiniplayerButtonPressed(Landroid/view/MotionEvent;)V"
             )
 
-            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
-                MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY,
-                "$EXTENSION_CLASS_DESCRIPTOR->getMaximizeAnimation(Z)Z"
-            )
+            // modified by lavinhoque33, 2026-10-04: 21.39 has no miniplayer config constructor, so these flags are gone.
+            if (hasModernConstructor) {
+                miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                    MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY,
+                    "$EXTENSION_CLASS_DESCRIPTOR->getMaximizeAnimation(Z)Z"
+                )
 
-            settingArray += "SETTINGS: MINIPLAYER_HORIZONTAL_DRAG"
-            settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_DRAG_PLAYBACK"
+                settingArray += "SETTINGS: MINIPLAYER_HORIZONTAL_DRAG"
+                settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_DRAG_PLAYBACK"
+            }
             settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_REPOSITION"
         }
 
@@ -473,13 +494,35 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        miniplayerModernAddViewListenerFingerprint.methodOrThrow(
-            miniplayerModernViewParentFingerprint
-        ).addInstruction(
-            0,
-            "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                    "hideMiniplayerSubTexts(Landroid/view/View;)V",
-        )
+        // modified by lavinhoque33, 2026-10-04
+        // 21.39: the lazily created miniplayer views are wrapped by the controls class, and the (View)V
+        // listener that received every view is gone. Only the old listener is hooked if it still exists,
+        // otherwise the subtitle TextView is hooked where it is looked up.
+        val addViewListenerMethod = miniplayerModernAddViewListenerFingerprint
+            .matchOrNull(miniplayerModernViewParentFingerprint)?.method
+            ?.takeIf { it.name != "onViewAttachedToWindow" && it.name != "onViewDetachedFromWindow" }
+
+        if (addViewListenerMethod != null) {
+            addViewListenerMethod.addInstruction(
+                0,
+                "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "hideMiniplayerSubTexts(Landroid/view/View;)V",
+            )
+        } else {
+            val subtitleMatch = runCatching { MiniplayerModernSubtitleTextFingerprint.match() }.getOrNull()
+            if (subtitleMatch != null) {
+                val index = subtitleMatch.instructionMatches.last().index
+                val register = subtitleMatch.method.getInstruction<OneRegisterInstruction>(index).registerA
+
+                subtitleMatch.method.addInstruction(
+                    index + 1,
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                            "hideMiniplayerSubTexts(Landroid/view/View;)V",
+                )
+            } else {
+                printWarn("Miniplayer: subtext view hook not found, hide subtext setting will have no effect")
+            }
+        }
 
         // Modern 2 has a broken overlay subtitle view that is always present.
         // Modern 2 uses the same overlay controls as the regular video player,

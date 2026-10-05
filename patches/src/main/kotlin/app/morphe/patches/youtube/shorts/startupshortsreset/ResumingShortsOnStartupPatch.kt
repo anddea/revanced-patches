@@ -19,6 +19,9 @@ import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.Utils.printWarn
+import app.morphe.util.forEachInlinedFeatureFlagSite
+import app.morphe.util.insertLiteralOverride
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -124,18 +127,34 @@ val resumingShortsOnStartupPatch = bytecodePatch(
             }
         }
 
-        UserWasInShortsConfigFingerprint.method.addInstructions(
-            0,
-            """
-                invoke-static {}, $SHORTS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
-                move-result v0
-                if-eqz v0, :show
-                const/4 v0, 0x0
-                return v0
-                :show
-                nop
-            """
-        )
+        // modified by lavinhoque33, 2026-10-04
+        // 21.39: the feature flag getter (flag 45358360) is inlined into its callers, so the
+        // config method no longer exists. Override the inlined flag result instead.
+        val configMethod = runCatching { UserWasInShortsConfigFingerprint.method }.getOrNull()
+        if (configMethod != null) {
+            configMethod.addInstructions(
+                0,
+                """
+                    invoke-static {}, $SHORTS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    const/4 v0, 0x0
+                    return v0
+                    :show
+                    nop
+                """
+            )
+        } else {
+            val sites = forEachInlinedFeatureFlagSite(45358360L) { literalIndex ->
+                insertLiteralOverride(
+                    literalIndex,
+                    "$SHORTS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z"
+                )
+            }
+            if (sites == 0) {
+                printWarn("Could not find the user was in shorts feature flag. Disable resuming shorts on startup may not work.")
+            }
+        }
 
         // region add settings
 

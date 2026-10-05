@@ -997,6 +997,51 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
     }
 }
 
+/**
+ * Newer YouTube builds inline feature flag getters into every caller:
+ * `const-wide` flag, `invoke-* (…J…)Z` flag check, `move-result`.
+ * Calls [block] with the literal index for every such site, bottom-up within each method so
+ * earlier indices stay valid. Returns the number of sites found.
+ *
+ * Added by lavinhoque33 (2026-10-04) for experimental YouTube 21.39 support.
+ */
+fun BytecodePatchContext.forEachInlinedFeatureFlagSite(
+    literal: Long,
+    block: MutableMethod.(literalIndex: Int) -> Unit,
+): Int {
+    fun Method.inlinedFlagSiteIndices(): List<Int> {
+        val instructions = implementation?.instructions?.toList() ?: return emptyList()
+        return instructions.indices.filter { index ->
+            if ((instructions[index] as? WideLiteralInstruction)?.wideLiteral != literal) {
+                return@filter false
+            }
+            // The flag check call must follow shortly after, return boolean and take a long.
+            val invokeIndex = (index + 1..minOf(index + 3, instructions.lastIndex)).firstOrNull {
+                (instructions[it] as? ReferenceInstruction)?.reference is MethodReference
+            } ?: return@filter false
+            val reference = (instructions[invokeIndex] as ReferenceInstruction).reference as MethodReference
+            reference.returnType == "Z" &&
+                    reference.parameterTypes.any { it.toString() == "J" } &&
+                    instructions.getOrNull(invokeIndex + 1)?.opcode == MOVE_RESULT
+        }
+    }
+
+    // Collect first, mutate afterwards: mutating while iterating the class pool is unsafe.
+    val targets = buildList {
+        classDefForEach { classDef ->
+            classDef.methods.forEach { method ->
+                val indices = method.inlinedFlagSiteIndices()
+                if (indices.isNotEmpty()) add(Triple(classDef, method, indices))
+            }
+        }
+    }
+    targets.forEach { (classDef, method, indices) ->
+        val mutableMethod = mutableClassDefBy(classDef).findMutableMethodOf(method)
+        indices.asReversed().forEach { index -> mutableMethod.block(index) }
+    }
+    return targets.sumOf { it.third.size }
+}
+
 context(_: BytecodePatchContext)
 fun Match.getWalkerMethod(offset: Int) =
     method.getWalkerMethod(offset)

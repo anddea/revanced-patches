@@ -351,3 +351,13 @@ internal object ModernMiniplayerMinimumSizeFingerprint : Fingerprint(
         ),
     ),
 )
+
+// modified by lavinhoque33, 2026-10-04
+// 21.39: the miniplayer subtitle TextView is looked up lazily by the modern controls class,
+// replacing the old (View)V view listener used for hiding subtexts.
+internal object MiniplayerModernSubtitleTextFingerprint : Fingerprint(
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "modern_miniplayer_subtitle_text"),
+        checkCast("Landroid/widget/TextView;")
+    )
+)

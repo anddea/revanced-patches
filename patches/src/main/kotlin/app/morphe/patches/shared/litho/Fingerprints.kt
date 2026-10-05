@@ -294,12 +294,9 @@ internal object ProtobufBufferReferenceLegacyFingerprint : Fingerprint(
         Opcode.SUB_INT_2ADDR,
     ),
     custom = { _, classDef ->
-        classDef.fields.any { field ->
-            field.type != "Ljava/nio/ByteBuffer;" &&
-            field.type.startsWith("L") &&
-            !field.type.startsWith("Ljava/") &&
-            !field.type.startsWith("Landroid/")
-        }
+        // YouTube 21.39 dropped the extra object field from this class, so identify it by
+        // its own ByteBuffer field instead (modified by lavinhoque33, 2026-10-04).
+        classDef.fields.any { field -> field.type == "Ljava/nio/ByteBuffer;" }
     }
 )
 

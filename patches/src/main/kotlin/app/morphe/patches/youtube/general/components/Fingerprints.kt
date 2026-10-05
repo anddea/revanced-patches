@@ -13,6 +13,8 @@ package app.morphe.patches.youtube.general.components
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.string
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
@@ -31,6 +33,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val accountListFingerprint = legacyFingerprint(
     name = "accountListFingerprint",
@@ -138,3 +141,26 @@ internal object IncognitoSearchPaddingFeatureFlagFingerprint : Fingerprint(
         literal(45724388)
     )
 )
+
+// modified by lavinhoque33, 2026-10-04
+// 21.39: the floating microphone hook (reads the "is backing from other activity" boolean) moved to a
+// different Runnable switch case that no longer references the `fab` resource id.
+// Locate the boolean field via the "IS_BACKING_FROM_OTHER_ACTIVITY" bundle key, then find the code that uses it.
+internal object BackingFromOtherActivityFingerprint : Fingerprint(
+    returnType = "V",
+    filters = listOf(
+        fieldAccess(opcode = Opcode.IGET_BOOLEAN),
+        string("IS_BACKING_FROM_OTHER_ACTIVITY", location = MatchAfterImmediately()),
+    )
+)
+
+internal fun floatingMicrophoneBackingFingerprint(backingField: FieldReference) = object : Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf(),
+    filters = listOf(
+        fieldAccess(opcode = Opcode.IGET_BOOLEAN, reference = backingField),
+        fieldAccess(opcode = Opcode.IPUT_BOOLEAN, location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IPUT_BOOLEAN, reference = backingField, location = MatchAfterImmediately()),
+    )
+) {}

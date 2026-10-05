@@ -71,6 +71,7 @@ import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.numberOfParameterRegisters
 import app.morphe.util.numberOfParameterRegistersLogical
+import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -596,7 +597,18 @@ val seekbarComponentsPatch = bytecodePatch(
         // region patch for fullscreen large seekbar
 
         if (is_20_28_or_greater) {
-            FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll().forEach {
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39: the feature flag (45691569) no longer exists in the app (the behavior was
+            // removed/hardcoded), so there is nothing to hook. Skip instead of failing the patch.
+            val largeSeekbarMatches = runCatching {
+                FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll()
+            }.getOrNull().orEmpty()
+
+            if (largeSeekbarMatches.isEmpty()) {
+                printWarn("Fullscreen large seekbar feature flag not found in this version, skipping.")
+            }
+
+            largeSeekbarMatches.forEach {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$PLAYER_CLASS_DESCRIPTOR->useFullscreenLargeSeekbar(Z)Z"
