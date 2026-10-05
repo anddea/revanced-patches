@@ -114,9 +114,12 @@ private val stockDarkThemeColors = linkedMapOf(
 private val runtimeDarkThemeResources =
     stockDarkThemeColors.keys.associateWith { name -> "morphe_runtime_dark_theme_${name.removePrefix("yt_")}" }
 
-private val runtimeThemeResourceIds = runtimeDarkThemeResources.values
+// modified by lavinhoque33, 2026-10-04
+// 9.40 change: stock 9.40.51 already uses 0x7f060f00..0x7f060f84, so the hard-coded 0x7f060f00 base
+// collided. The base is now max(0xf00, highest existing 0x7f06 id + 1); 9.15 (max 0xed7) is unchanged.
+private fun buildRuntimeThemeResourceIds(firstFreeColorIndex: Int) = runtimeDarkThemeResources.values
     .mapIndexed { index, name ->
-        name to "0x7f06${(0xf00 + index).toString(16).padStart(4, '0')}"
+        name to "0x7f06${(firstFreeColorIndex + index).toString(16).padStart(4, '0')}"
     }
     .toMap()
 
@@ -320,8 +323,18 @@ val darkThemePatch = resourcePatch(
         }
 
         document("res/values/public.xml").use { document ->
-            val reservedIds = runtimeThemeResourceIds.values.toSet()
+            // modified by lavinhoque33, 2026-10-04
+            // 9.40 change: pick the id range from the table instead of a fixed 0x7f060f00 base.
             val publicNodes = document.getElementsByTagName("public")
+            val highestUsedColorIndex = (0 until publicNodes.length)
+                .map { publicNodes.item(it) as Element }
+                .mapNotNull { node ->
+                    node.getAttribute("id").takeIf { it.startsWith("0x7f06") && it.length == 10 }
+                        ?.substring(6)?.toIntOrNull(16)
+                }
+                .maxOrNull() ?: -1
+            val runtimeThemeResourceIds = buildRuntimeThemeResourceIds(maxOf(0xf00, highestUsedColorIndex + 1))
+            val reservedIds = runtimeThemeResourceIds.values.toSet()
             if ((0 until publicNodes.length)
                     .map { publicNodes.item(it) as Element }
                     .any { it.getAttribute("id") in reservedIds }) {
