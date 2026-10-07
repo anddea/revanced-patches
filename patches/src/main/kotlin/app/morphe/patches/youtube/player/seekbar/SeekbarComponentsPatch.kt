@@ -60,6 +60,7 @@ import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findFreeRegister
+import app.morphe.util.findMutableMethodOf
 import app.morphe.util.findMethodsOrThrow
 import app.morphe.util.findMutableMethodOf // modified by lavinhoque33, 2026-10-07: 21.39 large seekbar reader hook
 import app.morphe.util.fingerprint.matchOrThrow
@@ -79,6 +80,7 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -230,6 +232,49 @@ val seekbarComponentsPatch = bytecodePatch(
         // endregion
 
         // region patch for append time stamps information
+
+        // The native timestamp listener is assigned by callers of the time counter.
+        // Wrap their listeners, only the timestamp container enables the menu behavior.
+        val timeCounterClass = totalTimeFingerprint.methodOrThrow().definingClass
+        var timestampListenerCount = 0
+        classDefForEach { classDef ->
+            classDef.methods.forEach { method ->
+                val instructions = method.implementation?.instructions?.toList()
+                    ?: return@forEach
+
+                if (instructions.none { instruction ->
+                        instruction.getReference<FieldReference>()?.definingClass == timeCounterClass
+                    }) return@forEach
+
+                val listenerIndices = instructions.withIndex().filter { (_, instruction) ->
+                    instruction.getReference<MethodReference>()?.let {
+                        it.name == "setOnClickListener" &&
+                            it.parameterTypes == listOf($$"Landroid/view/View$OnClickListener;")
+                    } == true
+                }
+
+                if (listenerIndices.isEmpty()) return@forEach
+                val mutableMethod = mutableClassDefBy(classDef).findMutableMethodOf(method)
+
+                listenerIndices.forEach { (index, instruction) ->
+                    timestampListenerCount++
+                    val call = $$"$$PLAYER_CLASS_DESCRIPTOR->setTimestampClickListener(Landroid/view/View;Landroid/view/View$OnClickListener;)V"
+
+                    val replacement = if (instruction is RegisterRangeInstruction) {
+                        "invoke-static/range {v${instruction.startRegister} .. v${instruction.startRegister + 1}}, $call"
+                    } else {
+                        val registers = instruction as FiveRegisterInstruction
+                        "invoke-static {v${registers.registerC}, v${registers.registerD}}, $call"
+                    }
+
+                    mutableMethod.replaceInstruction(index, replacement)
+                }
+            }
+        }
+
+        if (timestampListenerCount == 0) {
+            throw PatchException("Timestamp click listener not found")
+        }
 
         totalTimeFingerprint.methodOrThrow().apply {
             val charSequenceIndex = indexOfFirstInstructionOrThrow {
