@@ -16,6 +16,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.youtube.utils.patch.PatchList.AMBIENT_MODE_CONTROL
+import app.morphe.util.findMethodsOrThrow
 import app.morphe.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_19_41_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
@@ -48,31 +49,39 @@ val ambientModeSwitchPatch = bytecodePatch(
     execute {
         // region patch for bypass ambient mode restrictions
 
-        var syntheticClassList = emptyArray<String>()
+        // modified by lavinhoque33, 2026-10-04
+        // 21.39: there are two matching BroadcastReceivers (each with its own synthetic Consumer),
+        // and the "(Object)V" fingerprint now matches an unrelated method whose nearest invoke-direct
+        // class has no `accept`. Patch every receiver match and skip classes without `accept`.
+        val syntheticClassList = mutableListOf<String>()
 
-        mapOf(
-            powerSaveModeBroadcastReceiverFingerprint to false,
-            powerSaveModeSyntheticFingerprint to true
-        ).forEach { (fingerprint, reversed) ->
-            fingerprint.method.apply {
-                val stringIndex =
-                    indexOfFirstStringInstructionOrThrow("android.os.action.POWER_SAVE_MODE_CHANGED")
-                val targetIndex =
-                    if (reversed)
-                        indexOfFirstInstructionReversedOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
-                    else
-                        indexOfFirstInstructionOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
-                val targetClass =
-                    (getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference).definingClass
+        val fingerprintMatches = buildList {
+            runCatching { powerSaveModeBroadcastReceiverFingerprint.matchAll() }.getOrNull()
+                ?.forEach { add(it.method to false) }
+            runCatching { powerSaveModeSyntheticFingerprint.match() }.getOrNull()
+                ?.let { add(it.method to true) }
+        }
 
-                syntheticClassList += targetClass
+        fingerprintMatches.forEach { (method, reversed) ->
+            runCatching {
+                method.apply {
+                    val stringIndex =
+                        indexOfFirstStringInstructionOrThrow("android.os.action.POWER_SAVE_MODE_CHANGED")
+                    val targetIndex =
+                        if (reversed)
+                            indexOfFirstInstructionReversedOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
+                        else
+                            indexOfFirstInstructionOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
+                    val targetClass =
+                        (getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference).definingClass
+
+                    syntheticClassList += targetClass
+                }
             }
         }
 
         syntheticClassList.distinct().forEach { className ->
-            findMethodOrThrow(className) {
-                name == "accept"
-            }.apply {
+            (findMethodsOrThrow(className).firstOrNull { it.name == "accept" } ?: return@forEach).apply {
                 implementation!!.instructions
                     .withIndex()
                     .filter { (_, instruction) ->

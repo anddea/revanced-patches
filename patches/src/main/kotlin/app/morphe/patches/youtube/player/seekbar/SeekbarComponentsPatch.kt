@@ -61,6 +61,7 @@ import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findFreeRegister
 import app.morphe.util.findMethodsOrThrow
+import app.morphe.util.findMutableMethodOf // modified by lavinhoque33, 2026-10-07: 21.39 large seekbar reader hook
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -71,6 +72,7 @@ import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.numberOfParameterRegisters
 import app.morphe.util.numberOfParameterRegistersLogical
+import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -596,7 +598,70 @@ val seekbarComponentsPatch = bytecodePatch(
         // region patch for fullscreen large seekbar
 
         if (is_20_28_or_greater) {
-            FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll().forEach {
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39: the feature flag (45691569) no longer exists in the app (the behavior was
+            // removed/hardcoded), so there is nothing to hook. Skip instead of failing the patch.
+            val largeSeekbarMatches = runCatching {
+                FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll()
+            }.getOrNull().orEmpty()
+
+            if (largeSeekbarMatches.isEmpty()) {
+                // modified by lavinhoque33, 2026-10-07
+                // 21.39: flag removed; the large style is a boolean field on the seekbar state class
+                // (Larco;->B), written by FullscreenLargeSeekbarStateWriterFingerprint. It is true only in
+                // fullscreen, so every reader keeps it only when the setting is on.
+                val stateWriter = runCatching {
+                    FullscreenLargeSeekbarStateWriterFingerprint.matchAll()
+                }.getOrNull().orEmpty().singleOrNull()
+
+                if (stateWriter == null) {
+                    printWarn("Fullscreen large seekbar feature flag and state field not found in this version, skipping.")
+                } else {
+                    val stateFieldReference = stateWriter.method.getInstruction<ReferenceInstruction>(
+                        stateWriter.instructionMatches[9].index
+                    ).reference.toString()
+
+                    val readers = mutableListOf<Pair<com.android.tools.smali.dexlib2.iface.ClassDef, com.android.tools.smali.dexlib2.iface.Method>>()
+                    classDefForEach { classDef ->
+                        classDef.methods.forEach { method ->
+                            if (method.implementation?.instructions?.any {
+                                    it.opcode == Opcode.IGET_BOOLEAN &&
+                                            it.getReference<FieldReference>()?.toString() == stateFieldReference
+                                } == true
+                            ) {
+                                readers += classDef to method
+                            }
+                        }
+                    }
+
+                    if (readers.isEmpty()) {
+                        printWarn("Fullscreen large seekbar state readers not found, skipping.")
+                    }
+
+                    readers.forEach { (classDef, method) ->
+                        mutableClassDefBy(classDef).findMutableMethodOf(method).apply {
+                            val readerIndices = implementation!!.instructions.withIndex().filter { (_, instruction) ->
+                                instruction.opcode == Opcode.IGET_BOOLEAN &&
+                                        instruction.getReference<FieldReference>()?.toString() == stateFieldReference
+                            }.map { it.index }
+
+                            // Reverse order so earlier indices stay valid.
+                            readerIndices.asReversed().forEach { index ->
+                                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+                                addInstructions(
+                                    index + 1,
+                                    """
+                                        invoke-static/range { v$register .. v$register }, $PLAYER_CLASS_DESCRIPTOR->useFullscreenLargeSeekbarState(Z)Z
+                                        move-result v$register
+                                    """
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
+            largeSeekbarMatches.forEach {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$PLAYER_CLASS_DESCRIPTOR->useFullscreenLargeSeekbar(Z)Z"

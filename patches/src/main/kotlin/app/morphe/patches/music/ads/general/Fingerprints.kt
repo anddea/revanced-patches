@@ -77,6 +77,25 @@ internal val getPremiumTextViewFingerprint = legacyFingerprint(
     strings = listOf("FEmusic_history")
 )
 
+// modified by lavinhoque33, 2026-10-04
+// 9.40: the visibility constant after the "get premium" flag is `const/16` instead of `const/4`.
+internal val getPremiumTextViewV940Fingerprint = legacyFingerprint(
+    name = "getPremiumTextViewV940Fingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    opcodes = listOf(
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_16,
+        Opcode.IF_EQZ,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_STATIC
+    ),
+    strings = listOf("FEmusic_history")
+)
+
 internal val notifierShelfFingerprint = legacyFingerprint(
     name = "notifierShelfFingerprint",
     returnType = "V",

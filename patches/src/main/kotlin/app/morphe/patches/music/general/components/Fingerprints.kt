@@ -123,6 +123,24 @@ internal object HistoryMenuItemOfflineTabFingerprint : Fingerprint(
     )
 )
 
+// modified by lavinhoque33, 2026-10-04
+// 9.40: the offline-tab menu method (gmn.b) looks up three menu items and calls setVisible
+// on each non-null item (offline settings, offline fallback, history), so the history
+// setVisible is the third call before return-void.
+internal object HistoryMenuItemOfflineTabV940Fingerprint : Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("Landroid/view/Menu;"),
+    filters = listOf(
+        resourceLiteral(ResourceType.ID, "offline_settings_menu_item"),
+        resourceLiteral(ResourceType.ID, "history_menu_item"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
+        methodCall(smali = "Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;"),
+        opcode(Opcode.RETURN_VOID, MatchAfterImmediately())
+    )
+)
+
 internal val mediaRouteButtonFingerprint = legacyFingerprint(
     name = "mediaRouteButtonFingerprint",
     returnType = "Z",
@@ -214,6 +232,19 @@ internal val tasteBuilderSyntheticFingerprint = legacyFingerprint(
     name = "tasteBuilderSyntheticFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
+    parameters = listOf("L", "Ljava/lang/Object;"),
+    opcodes = listOf(
+        Opcode.IF_NEZ,
+        Opcode.IGET_OBJECT
+    )
+)
+
+// modified by lavinhoque33, 2026-10-04
+// 9.40: the taste builder bind method (jdo.d) is now "public final bridge synthetic" instead of "public final synthetic".
+internal val tasteBuilderSyntheticV940Fingerprint = legacyFingerprint(
+    name = "tasteBuilderSyntheticV940Fingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.BRIDGE or AccessFlags.SYNTHETIC,
     parameters = listOf("L", "Ljava/lang/Object;"),
     opcodes = listOf(
         Opcode.IF_NEZ,

@@ -235,19 +235,32 @@ val playerButtonsPatch = bytecodePatch(
                     getReference<MethodReference>()?.name == "inflate"
                 }
 
-            val freeRegister = findFreeRegister(inflateControlsGroupLayoutStubIndex)
             val hidePlayerControlButtonsBackgroundDescriptor =
                 "$PLAYER_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V"
 
-            addInstructions(
-                inflateControlsGroupLayoutStubIndex + 1,
-                """
-                   # Move the inflated layout to a temporary register.
-                   # The result of the inflate method is by default not moved to a register after the method is called.
-                   move-result-object v$freeRegister
-                   invoke-static { v$freeRegister }, $hidePlayerControlButtonsBackgroundDescriptor
-                """
-            )
+            // modified by lavinhoque33, 2026-10-04
+            // YouTube 21.39 keeps the inflated view (move-result-object right after inflate).
+            // Inserting a second move-result there leaves the original one orphaned (VerifyError),
+            // so hook after the existing move-result and reuse its register.
+            val nextInstruction = getInstruction(inflateControlsGroupLayoutStubIndex + 1)
+            if (nextInstruction.opcode == Opcode.MOVE_RESULT_OBJECT) {
+                val viewRegister = (nextInstruction as OneRegisterInstruction).registerA
+                addInstruction(
+                    inflateControlsGroupLayoutStubIndex + 2,
+                    "invoke-static { v$viewRegister }, $hidePlayerControlButtonsBackgroundDescriptor"
+                )
+            } else {
+                val freeRegister = findFreeRegister(inflateControlsGroupLayoutStubIndex)
+                addInstructions(
+                    inflateControlsGroupLayoutStubIndex + 1,
+                    """
+                       # Move the inflated layout to a temporary register.
+                       # The result of the inflate method is by default not moved to a register after the method is called.
+                       move-result-object v$freeRegister
+                       invoke-static { v$freeRegister }, $hidePlayerControlButtonsBackgroundDescriptor
+                    """
+                )
+            }
         }
 
         // endregion

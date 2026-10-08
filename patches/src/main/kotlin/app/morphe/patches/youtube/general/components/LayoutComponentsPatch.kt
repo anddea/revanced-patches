@@ -48,6 +48,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -162,15 +163,40 @@ val layoutComponentsPatch = bytecodePatch(
 
         floatingMicrophoneFingerprint.methodOrThrow().apply {
             val literalIndex = indexOfFirstLiteralInstructionOrThrow(fab)
-            val booleanIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.IGET_BOOLEAN)
-            val insertRegister = getInstruction<TwoRegisterInstruction>(booleanIndex).registerA
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39: no IGET_BOOLEAN follows the `fab` literal anymore; the hook moved to another method.
+            val booleanIndex = implementation!!.instructions.withIndex().firstOrNull { (index, instruction) ->
+                index > literalIndex && instruction.opcode == Opcode.IGET_BOOLEAN
+            }?.index
 
-            addInstructions(
-                booleanIndex + 1, """
-                    invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
-                    move-result v$insertRegister
-                    """
-            )
+            if (booleanIndex != null) {
+                val insertRegister = getInstruction<TwoRegisterInstruction>(booleanIndex).registerA
+
+                addInstructions(
+                    booleanIndex + 1, """
+                        invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
+                        move-result v$insertRegister
+                        """
+                )
+            } else {
+                val backingField = BackingFromOtherActivityFingerprint.let {
+                    it.match().instructionMatches.first().getInstruction<ReferenceInstruction>().reference
+                } as FieldReference
+
+                floatingMicrophoneBackingFingerprint(backingField).match().let {
+                    it.method.apply {
+                        val getIndex = it.instructionMatches.first().index
+                        val insertRegister = getInstruction<TwoRegisterInstruction>(getIndex).registerA
+
+                        addInstructions(
+                            getIndex + 1, """
+                                invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
+                                move-result v$insertRegister
+                                """
+                        )
+                    }
+                }
+            }
         }
 
         // endregion
@@ -200,15 +226,22 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for hide tooltip content
 
-        tooltipContentFullscreenFingerprint.methodOrThrow().apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(45384061L)
-            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+        // modified by lavinhoque33, 2026-10-04
+        // YouTube 21.39 removed feature flag 45384061 (fullscreen tooltip) entirely; skip this hook if the method is gone.
+        val tooltipFullscreenMethod = runCatching { tooltipContentFullscreenFingerprint.methodOrThrow() }.getOrNull()
+        if (tooltipFullscreenMethod != null) {
+            tooltipFullscreenMethod.apply {
+                val literalIndex = indexOfFirstLiteralInstructionOrThrow(45384061L)
+                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            addInstruction(
-                targetIndex + 1,
-                "const/4 v$targetRegister, 0x0"
-            )
+                addInstruction(
+                    targetIndex + 1,
+                    "const/4 v$targetRegister, 0x0"
+                )
+            }
+        } else {
+            printWarn("Fullscreen tooltip flag not found in this version, skipping.")
         }
 
         tooltipContentViewFingerprint.methodOrThrow().addInstruction(

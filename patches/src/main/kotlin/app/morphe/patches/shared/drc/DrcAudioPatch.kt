@@ -10,7 +10,9 @@ import app.morphe.patches.shared.extension.Constants.PATCHES_PATH
 import app.morphe.patches.shared.formatStreamModelConstructorFingerprint
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.fingerprint.methodOrNull
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -88,9 +90,31 @@ fun drcAudioPatch(
             }
         }
 
-        volumeNormalizationConfigFingerprint.injectLiteralInstructionBooleanCall(
+        // modified by lavinhoque33, 2026-10-07: when the flag is gone (YouTube 21.39 / YT Music 9.40),
+        // null the first argument of the unconditional loudness method so it returns a neutral result.
+        val flagHooked = volumeNormalizationConfigFingerprint.injectLiteralInstructionBooleanCall(
             VOLUME_NORMALIZATION_EXPERIMENTAL_FEATURE_FLAG,
-            "$EXTENSION_CLASS_DESCRIPTOR->disableDrcAudioFeatureFlag(Z)Z"
+            "$EXTENSION_CLASS_DESCRIPTOR->disableDrcAudioFeatureFlag(Z)Z",
+            warnIfMissing = false
         )
+
+        if (!flagHooked) {
+            val method = volumeNormalizationMethodFingerprint.methodOrNull()
+            if (method == null) {
+                printWarn("volumeNormalizationMethodFingerprint: volume normalization method not found. Skipping.")
+            } else {
+                method.addInstructionsWithLabels(
+                    3,
+                    """
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableDrcAudio()Z
+                    move-result v0
+                    if-eqz v0, :patch_drc_skip
+                    const/4 v1, 0x0
+                    :patch_drc_skip
+                    nop
+                    """,
+                )
+            }
+        }
     }
 }
