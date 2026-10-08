@@ -89,10 +89,27 @@ internal val motionEventFingerprint = legacyFingerprint(
     }
 )
 
-internal fun indexOfTranslationInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
+/**
+ * Up to YouTube 21.13 the "hide controls immediately" branch calls setTranslationY inline.
+ * YouTube 21.39 moved that block into a no-arg helper, so fall back to the last such call
+ * (modified by lavinhoque33, 2026-10-04).
+ */
+internal fun indexOfTranslationInstruction(method: Method): Int {
+    val translationIndex = method.indexOfFirstInstructionReversed {
         getReference<MethodReference>()?.name == "setTranslationY"
     }
+    if (translationIndex >= 0) return translationIndex
+
+    return method.indexOfFirstInstructionReversed {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                reference != null &&
+                reference.parameterTypes.isEmpty() &&
+                reference.returnType == "V" &&
+                !reference.definingClass.startsWith("Landroid/") &&
+                !reference.definingClass.startsWith("Ljava/")
+    }
+}
 
 internal const val PLAYER_BOTTOM_CONTROLS_EXPLODER_FEATURE_FLAG = 45643739L
 

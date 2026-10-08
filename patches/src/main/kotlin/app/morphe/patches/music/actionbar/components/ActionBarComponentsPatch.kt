@@ -48,6 +48,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -85,7 +86,9 @@ import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
+import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -98,6 +101,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import com.android.tools.smali.dexlib2.util.MethodUtil
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import kotlin.math.min
 
@@ -147,14 +151,18 @@ val actionBarComponentsPatch = bytecodePatch(
 
             var lazyCallbackClassType: String? = null
             var lazyCallbackElementType: String? = null
+            var lazyCallbackElementField: FieldReference? = null
 
             ComponentListFingerprint.method.apply {
                 val conversionContextMatch = conversionContextFingerprintToString2.matchOrThrow()
                 val conversionContextMethod = conversionContextMatch.method
                 val identifierReference =
                     conversionContextMethod.findFieldFromToString("identifierProperty=")
+                // modified by lavinhoque33, 2026-10-04
+                // YouTube Music 9.40 inlined the identifier getter (callers read the public field directly),
+                // so fall back to reading the field, as the YouTube hook does.
                 val identifierGetterName = conversionContextMatch.originalClassDef.methods
-                    .first { method ->
+                    .firstOrNull { method ->
                         method.name != "toString" &&
                                 method.parameters.isEmpty() &&
                                 method.returnType == "Ljava/lang/String;" &&
@@ -163,7 +171,7 @@ val actionBarComponentsPatch = bytecodePatch(
                                             it.getReference<FieldReference>()?.toString() ==
                                             identifierReference.toString()
                                 } == true
-                    }.name
+                    }?.name
                 val conversionContextType = parameters[1].type
                 val elementType = parameters[2].type
 
@@ -172,11 +180,22 @@ val actionBarComponentsPatch = bytecodePatch(
                 val identifierRegister = getFreeRegisterProvider(listIndex, 1, listRegister)
                     .getFreeRegister()
 
+                val readIdentifierSmali = if (identifierGetterName != null) {
+                    """
+                        invoke-virtual {v$identifierRegister}, $conversionContextType->$identifierGetterName()Ljava/lang/String;
+                        move-result-object v$identifierRegister
+                    """
+                } else {
+                    if (conversionContextType != identifierReference.definingClass) {
+                        throw PatchException("Conversion context type $conversionContextType does not declare $identifierReference")
+                    }
+                    "iget-object v$identifierRegister, v$identifierRegister, $identifierReference"
+                }
+
                 addInstructionsAtControlFlowLabel(
                     listIndex, """
                         move-object/from16 v$identifierRegister, p2
-                        invoke-virtual {v$identifierRegister}, $conversionContextType->$identifierGetterName()Ljava/lang/String;
-                        move-result-object v$identifierRegister
+                        $readIdentifierSmali
                         invoke-static {v$listRegister, v$identifierRegister}, $FILTER_CLASS_DESCRIPTOR->onLazilyConvertedElementLoaded(Ljava/util/List;Ljava/lang/String;)V
                         """
                 )
@@ -190,7 +209,7 @@ val actionBarComponentsPatch = bytecodePatch(
                                         reference.parameterTypes.first().toString() == "I"
                             } == true
                 }
-                val lazyCallbackIndex = indexOfFirstInstructionOrThrow(childElementIndex) {
+                val typedLazyCallbackIndex = indexOfFirstInstruction(childElementIndex) {
                     opcode == Opcode.NEW_INSTANCE &&
                             getReference<TypeReference>()?.type?.let { type ->
                                 try {
@@ -202,9 +221,43 @@ val actionBarComponentsPatch = bytecodePatch(
                                 }
                             } == true
                 }
-                lazyCallbackClassType =
-                    (getInstruction<ReferenceInstruction>(lazyCallbackIndex).reference as TypeReference).type
-                lazyCallbackElementType = elementType
+                if (typedLazyCallbackIndex >= 0) {
+                    lazyCallbackClassType =
+                        (getInstruction<ReferenceInstruction>(typedLazyCallbackIndex).reference as TypeReference).type
+                    lazyCallbackElementType = elementType
+                } else {
+                    // modified by lavinhoque33, 2026-10-04
+                    // YouTube Music 9.40: R8 merged the lazy callback into a shared synthetic lambda class
+                    // (`adwo`) whose fields are all Object-typed. Use the constructor called right after
+                    // the new-instance and take the field it stores the element parameter into.
+                    val constructorCallIndex = indexOfFirstInstructionOrThrow(childElementIndex) {
+                        (opcode == Opcode.INVOKE_DIRECT || opcode == Opcode.INVOKE_DIRECT_RANGE) &&
+                                getReference<MethodReference>()?.let { reference ->
+                                    reference.name == "<init>" &&
+                                            reference.parameterTypes.any { it.toString() == elementType }
+                                } == true
+                    }
+                    val constructorReference =
+                        getInstruction<ReferenceInstruction>(constructorCallIndex).getReference<MethodReference>()!!
+                    val constructor = classDefBy(constructorReference.definingClass).methods.first {
+                        MethodUtil.methodSignaturesMatch(it, constructorReference)
+                    }
+                    val parameterTypes = constructorReference.parameterTypes.map { it.toString() }
+                    val elementParameterIndex = parameterTypes.indexOf(elementType)
+                    val parameterWords = parameterTypes.sumOf { if (it == "J" || it == "D") 2 else 1 }
+                    val elementRegister = constructor.implementation!!.registerCount - parameterWords +
+                            parameterTypes.take(elementParameterIndex).sumOf { if (it == "J" || it == "D") 2 else 1 }
+                    lazyCallbackElementField = constructor.implementation!!.instructions.firstNotNullOf { instruction ->
+                        if (instruction.opcode == Opcode.IPUT_OBJECT &&
+                            (instruction as TwoRegisterInstruction).registerA == elementRegister
+                        ) {
+                            (instruction as ReferenceInstruction).reference as FieldReference
+                        } else {
+                            null
+                        }
+                    }
+                    lazyCallbackClassType = constructorReference.definingClass
+                }
             }
 
             ButtonProtoBufferGetterFingerprint.let {
@@ -275,22 +328,33 @@ val actionBarComponentsPatch = bytecodePatch(
                 addLithoContainerInterface(it.classDef, field)
             }
 
-            TreeNodeListHelperConstructorFingerprint.let {
-                val p2Register = it.method.implementation!!.registerCount - it.method.parameters.size + 1
-                val index = it.method.indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IPUT_OBJECT && (this as TwoRegisterInstruction).registerA == p2Register
-                }
-                val field = it.method.getInstruction<ReferenceInstruction>(index)
-                    .reference as FieldReference
+            // modified by lavinhoque33, 2026-10-04
+            // On 9.15 this helper is the same class as the lazy callback (`wev`). On 9.40 it is the merged
+            // lambda `adwo` (one method per variant, switch on a field), so this fingerprint no longer
+            // matches; the lazy-callback fallback above already exposes its element field.
+            val treeNodeListHelperMatch =
+                runCatching { TreeNodeListHelperConstructorFingerprint.match() }.getOrNull()
+            if (treeNodeListHelperMatch != null) {
+                treeNodeListHelperMatch.let {
+                    val p2Register = it.method.implementation!!.registerCount - it.method.parameters.size + 1
+                    val index = it.method.indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.IPUT_OBJECT && (this as TwoRegisterInstruction).registerA == p2Register
+                    }
+                    val field = it.method.getInstruction<ReferenceInstruction>(index)
+                        .reference as FieldReference
 
-                addLithoContainerInterface(it.classDef, field)
+                    addLithoContainerInterface(it.classDef, field)
+                }
+            } else if (lazyCallbackElementField == null) {
+                throw PatchException("TreeNodeListHelperConstructorFingerprint not found and no merged lazy callback")
             }
 
             // v8.30 lazy list entries wrap the real button element in the synthetic conversion
             // callback. Expose that captured element so the list hook can remove the whole cell.
             lazyCallbackClassType?.let { callbackClassType ->
                 val callbackClass = mutableClassDefBy(callbackClassType)
-                val elementField = callbackClass.fields.single {
+                // modified by lavinhoque33, 2026-10-04: 9.40 element field comes from the constructor (see above).
+                val elementField = lazyCallbackElementField ?: callbackClass.fields.single {
                     it.type == checkNotNull(lazyCallbackElementType)
                 }
                 addLithoContainerInterface(callbackClass, elementField)
@@ -424,13 +488,32 @@ val actionBarComponentsPatch = bytecodePatch(
             with (lottieAnimationViewTagFingerprint.methodOrThrow()) {
                 val literalIndex =
                     indexOfFirstLiteralInstructionOrThrow(elementsLottieAnimationViewTagId)
-                val lottieAnimationUrlIndex =
-                    indexOfFirstInstructionReversedOrThrow(literalIndex) {
+                // modified by lavinhoque33, 2026-10-04
+                // YouTube Music 9.40 hoists the tag id constant above the URL getter, and the getter is an
+                // invoke-interface/range. Fall back to the getter right before the first getTag(I) call.
+                val legacyLottieAnimationUrlIndex =
+                    indexOfFirstInstructionReversed(literalIndex) {
                         val reference = getReference<MethodReference>()
                         opcode == Opcode.INVOKE_INTERFACE &&
                                 reference?.returnType == "Ljava/lang/String;" &&
                                 reference.parameterTypes.isEmpty()
                     }
+                val lottieAnimationUrlIndex = if (legacyLottieAnimationUrlIndex >= 0) {
+                    legacyLottieAnimationUrlIndex
+                } else {
+                    val getTagIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.let {
+                                    it.name == "getTag" && it.parameterTypes.map { type -> type.toString() } == listOf("I")
+                                } == true
+                    }
+                    indexOfFirstInstructionReversedOrThrow(getTagIndex) {
+                        val reference = getReference<MethodReference>()
+                        (opcode == Opcode.INVOKE_INTERFACE || opcode == Opcode.INVOKE_INTERFACE_RANGE) &&
+                                reference?.returnType == "Ljava/lang/String;" &&
+                                reference.parameterTypes.isEmpty()
+                    }
+                }
 
                 val lottieAnimationUrlMethodReference =
                     getInstruction<ReferenceInstruction>(lottieAnimationUrlIndex).reference as MethodReference

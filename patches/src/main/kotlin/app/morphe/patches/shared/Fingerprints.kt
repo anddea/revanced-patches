@@ -63,6 +63,7 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
 internal const val CLIENT_INFO_CLASS_DESCRIPTOR =
@@ -72,11 +73,33 @@ internal val authenticationChangeListenerFingerprint = legacyFingerprint(
     name = "authenticationChangeListenerFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    strings = listOf("Authentication changed while request was being made"),
     customFingerprint = { method, _ ->
-        indexOfMessageLiteBuilderReference(method) >= 0
+        indexOfMessageLiteBuilderReference(method) >= 0 &&
+                (hasAuthenticationChangedString(method) ||
+                        isAuthenticationChangeListenerWithoutString(method))
     }
 )
+
+// modified by lavinhoque33, 2026-10-04: string-less detection used by YouTube 21.39+.
+private fun isAuthenticationChangeListenerWithoutString(method: Method) =
+    method.parameterTypes.size == 1 &&
+            method.indexOfFirstInstruction {
+                opcode == Opcode.CHECK_CAST &&
+                        getReference<TypeReference>()?.type ==
+                        "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$InnerTubeContext;"
+            } >= 0 &&
+            method.indexOfFirstInstruction {
+                getReference<MethodReference>()?.let {
+                    it.definingClass == "Ljava/util/Set;" && it.name == "iterator"
+                } == true
+            } >= 0 &&
+            indexOfMessageLiteBuilderReference(method) >= 0
+
+private fun hasAuthenticationChangedString(method: Method) =
+    method.indexOfFirstInstruction {
+        getReference<StringReference>()?.string == "Authentication changed while request was being made"
+    } >= 0
+
 
 internal fun indexOfMessageLiteBuilderReference(method: Method, type: String = "L") =
     method.indexOfFirstInstruction {

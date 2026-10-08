@@ -40,6 +40,7 @@ import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.registersUsed
 import app.morphe.util.setExtensionIsPatchIncluded
+import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -289,19 +290,26 @@ internal fun spoofVideoStreamsPatch(
             val targetIndex =
                 indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
 
+            // modified by lavinhoque33, 2026-10-04
+            // YouTube 21.39: constructor has an extra String parameter, fields are now
+            // a (uri), d (http method), e (post data). Older: a, c, d.
+            val isNewShape = parameterTypes.size == 11
+            val httpMethodField = if (isNewShape) "d" else "c"
+            val postDataField = if (isNewShape) "e" else "d"
+
             addInstructions(
                 targetIndex,
                 """
                     # Field a: Stream uri.
-                    # Field c: Http method.
-                    # Field d: Post data.
+                    # Field c/d: Http method.
+                    # Field d/e: Post data.
                     move-object v0, p0
                     iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
-                    iget v2, v0, $definingClass->c:I
-                    iget-object v3, v0, $definingClass->d:[B
+                    iget v2, v0, $definingClass->$httpMethodField:I
+                    iget-object v3, v0, $definingClass->$postDataField:[B
                     invoke-static { v1, v2, v3 }, $EXTENSION_CLASS->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
                     move-result-object v1
-                    iput-object v1, v0, $definingClass->d:[B
+                    iput-object v1, v0, $definingClass->$postDataField:[B
                 """
             )
         }
@@ -385,11 +393,18 @@ internal fun spoofVideoStreamsPatch(
         }
 
         if (fixParsePlaybackResponseFeatureFlag()) {
-            PlaybackStartDescriptorFeatureFlagFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
+            // modified by lavinhoque33, 2026-10-04
+            // YouTube Music 9.40 removed feature flag 45665455 entirely; the fingerprint is only that
+            // literal, so a failed match means the flag is gone. Skip the override with a warning.
+            val playbackStartMatch =
+                runCatching { PlaybackStartDescriptorFeatureFlagFingerprint.match() }.getOrNull()
+            if (playbackStartMatch != null) {
+                playbackStartMatch.method.insertLiteralOverride(
+                    playbackStartMatch.instructionMatches.first().index,
                     "$EXTENSION_CLASS->usePlaybackStartFeatureFlag(Z)Z"
                 )
+            } else {
+                printWarn("PlaybackStartDescriptorFeatureFlagFingerprint: feature flag 45665455 no longer exists in this app version. Skipping.")
             }
         }
 

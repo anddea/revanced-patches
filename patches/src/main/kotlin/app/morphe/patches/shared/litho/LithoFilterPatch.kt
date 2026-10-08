@@ -189,11 +189,16 @@ val lithoFilterPatch = bytecodePatch(
                 }
             }
 
+            // modified by lavinhoque33, 2026-10-07: the looser ByteBuffer-field shape is only a fallback for
+            // YouTube 21.39 / YouTube Music 9.40; on older versions it also matches unrelated classes.
+            val protobufBufferLegacyMatch = ProtobufBufferReferenceLegacyFingerprint.matchOrNull()
+                ?: ProtobufBufferReferenceLegacyByteBufferFingerprint.match()
+
             if (!isYouTubeMusic) {
                 // Legacy non-native buffer. Supported YT Music versions use the native Upb encode
                 // path exposed at component creation, so the old ByteBuffer hook is only needed
                 // for YouTube's hybrid runtime.
-                ProtobufBufferReferenceLegacyFingerprint.method.addInstruction(
+                protobufBufferLegacyMatch.method.addInstruction(
                     0,
                     "invoke-static { p2 }, $EXTENSION_LITHO_FILTER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
                 )
@@ -203,7 +208,7 @@ val lithoFilterPatch = bytecodePatch(
 
             val flatBufferElementReferences = if (isYouTubeMusic) {
                 val elementInterface = ComponentCreateFingerprint.method.parameterTypes[2].toString()
-                val flatBufferBaseClass = ProtobufBufferReferenceLegacyFingerprint.classDef
+                val flatBufferBaseClass = protobufBufferLegacyMatch.classDef
                 val byteBufferField = flatBufferBaseClass.fields.single {
                     it.type == "Ljava/nio/ByteBuffer;"
                 }
@@ -469,7 +474,9 @@ val lithoFilterPatch = bytecodePatch(
             // FlatBuffer-backed elements at runtime, and forcing the FlatBuffer converter can
             // recreate stateful components such as the timed lyrics background during updates.
             if (!isYouTubeMusic) {
-                LithoConverterBufferUpbFeatureFlagFingerprint.let {
+                // YouTube 21.39 removed this flag (Upb is always on); the Upb buffer hook
+                // above handles that path (modified by lavinhoque33, 2026-10-04).
+                LithoConverterBufferUpbFeatureFlagFingerprint.matchOrNull()?.let {
                     // 20.22 the flag is still enabled in one location, but what it does is not known.
                     // Disable it anyway.
                     it.method.insertLiteralOverride(

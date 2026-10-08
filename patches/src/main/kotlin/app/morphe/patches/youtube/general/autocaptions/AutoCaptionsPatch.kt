@@ -11,6 +11,11 @@ package app.morphe.patches.youtube.general.autocaptions
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.literal
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.patch.PatchException
+import app.morphe.util.forEachInlinedFeatureFlagSite
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.shared.captions.baseAutoCaptionsPatch
@@ -33,11 +38,13 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 /**
  * YouTube 20.26+ feature flag that enables automatic captions while muted.
  */
+private const val NO_VOLUME_CAPTIONS_FEATURE_FLAG = 45692436L
+
 internal object NoVolumeCaptionsFeatureFlagFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "Z",
     filters = listOf(
-        literal(45692436L),
+        literal(NO_VOLUME_CAPTIONS_FEATURE_FLAG),
     ),
 )
 
@@ -70,15 +77,36 @@ val autoCaptionsPatch = bytecodePatch(
                 )
             }
 
-            NoVolumeCaptionsFeatureFlagFingerprint.method.addInstructions(
-                0,
-                """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableMuteAutoCaptions()Z
-                    move-result v0
-                    return v0
-                    nop
-                """,
-            )
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39 inlines the flag getter into its callers, so the dedicated getter method
+            // no longer exists. Fall back to overriding every inlined flag read.
+            val flagGetter = runCatching { NoVolumeCaptionsFeatureFlagFingerprint.match() }.getOrNull()
+            if (flagGetter != null) {
+                flagGetter.method.addInstructions(
+                    0,
+                    """
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableMuteAutoCaptions()Z
+                        move-result v0
+                        return v0
+                        nop
+                    """,
+                )
+            } else {
+                val patched = forEachInlinedFeatureFlagSite(NO_VOLUME_CAPTIONS_FEATURE_FLAG) { literalIndex ->
+                    val moveResultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                    val register = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
+                    addInstructions(
+                        moveResultIndex + 1,
+                        """
+                            invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableMuteAutoCaptions()Z
+                            move-result v$register
+                        """,
+                    )
+                }
+                if (patched == 0) {
+                    throw PatchException("NoVolumeCaptionsFeatureFlag: no flag read found")
+                }
+            }
         }
 
         // region add settings

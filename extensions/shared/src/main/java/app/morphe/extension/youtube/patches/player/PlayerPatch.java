@@ -1249,6 +1249,15 @@ public class PlayerPatch {
         return Settings.FULLSCREEN_LARGE_SEEKBAR.get();
     }
 
+    /**
+     * Injection point for the large-seekbar state of YouTube 21.39+, where the feature flag is gone
+     * and {@code original} is true only in the fullscreen player.
+     * modified by lavinhoque33, 2026-10-07
+     */
+    public static boolean useFullscreenLargeSeekbarState(boolean original) {
+        return original && Settings.FULLSCREEN_LARGE_SEEKBAR.get();
+    }
+
     public static boolean disableSeekbarChapters() {
         return Settings.DISABLE_SEEKBAR_CHAPTERS.get();
     }

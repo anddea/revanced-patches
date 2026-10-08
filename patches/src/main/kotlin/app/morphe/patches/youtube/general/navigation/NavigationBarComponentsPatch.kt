@@ -56,6 +56,8 @@ import app.morphe.util.ResourceGroup
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
+import app.morphe.util.Utils.printWarn
+import app.morphe.util.forEachInlinedFeatureFlagSite
 import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -182,11 +184,25 @@ val navigationBarComponentsPatch = bytecodePatch(
                 )
             }
 
-            TranslucentNavigationButtonsSystemFeatureFlagFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
+            // modified by lavinhoque33, 2026-10-04
+            // YouTube 21.39 inlines the flag getter into its callers, so the dedicated getter method
+            // no longer exists. Override every inlined flag check instead.
+            val systemFlagMatch = TranslucentNavigationButtonsSystemFeatureFlagFingerprint.matchOrNull()
+            if (systemFlagMatch != null) {
+                systemFlagMatch.method.insertLiteralOverride(
+                    systemFlagMatch.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
                 )
+            } else {
+                val patched = forEachInlinedFeatureFlagSite(45632194L) { literalIndex ->
+                    insertLiteralOverride(
+                        literalIndex,
+                        "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+                    )
+                }
+                if (patched == 0) {
+                    printWarn("TranslucentNavigationButtonsSystemFeatureFlagFingerprint: flag not found. Skipping.")
+                }
             }
 
             if (is_20_46_or_greater && !is_20_31_or_greater) {
@@ -209,10 +225,23 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for enable animations for navigation bar
 
         if (is_20_21_or_greater) {
-            AnimatedNavigationTabsFeatureFlagFingerprint.method.insertLiteralOverride(
-                AnimatedNavigationTabsFeatureFlagFingerprint.instructionMatches.first().index,
-                "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
-            )
+            // modified by lavinhoque33, 2026-10-04
+            // YouTube 21.39 inlines the flag getter into its callers; override each inlined check.
+            val animatedTabsMatch = AnimatedNavigationTabsFeatureFlagFingerprint.matchOrNull()
+            if (animatedTabsMatch != null) {
+                animatedTabsMatch.method.insertLiteralOverride(
+                    animatedTabsMatch.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
+                )
+            } else if (forEachInlinedFeatureFlagSite(45680008L) { literalIndex ->
+                    insertLiteralOverride(
+                        literalIndex,
+                        "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
+                    )
+                } == 0
+            ) {
+                printWarn("AnimatedNavigationTabsFeatureFlagFingerprint: flag not found. Skipping.")
+            }
 
             settingArray += "SETTINGS: ANIMATED_NAVIGATION_BAR"
         }

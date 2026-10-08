@@ -77,6 +77,33 @@ internal object VideoIdFingerprint : Fingerprint(
     )
 )
 
+/**
+ * YouTube 21.39 moved the `Map.put(videoId, …)` into a helper of the same class
+ * (`q(Ljava/lang/String;L…;)V`), so the video id is now followed by one more
+ * interface call and the call to that helper.
+ *
+ * Added by lavinhoque33 (2026-10-04) for experimental YouTube 21.39 support.
+ */
+internal object VideoIdHelperPutFingerprint : Fingerprint(
+    classFingerprint = VideoIdParentFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L"),
+    filters = listOf(
+        methodCall(opcode = Opcode.INVOKE_INTERFACE, returnType = "Ljava/lang/String;"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()), // videoId
+        opcode(Opcode.INVOKE_INTERFACE, location = MatchAfterImmediately()),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            definingClass = "this",
+            returnType = "V",
+            location = MatchAfterImmediately()
+        ),
+        opcode(Opcode.RETURN_VOID, location = MatchAfterImmediately())
+    )
+)
+
 internal object VideoIdBackgroundPlayFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.DECLARED_SYNCHRONIZED, AccessFlags.FINAL, AccessFlags.PUBLIC),
     returnType = "V",

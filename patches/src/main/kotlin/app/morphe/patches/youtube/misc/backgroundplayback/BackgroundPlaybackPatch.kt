@@ -34,6 +34,7 @@ import app.morphe.util.fingerprint.matchSingle
 import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.returnEarly
+import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -97,29 +98,56 @@ val backgroundPlaybackPatch = bytecodePatch(
 
         // Fix PiP mode issue.
         if (is_19_34_or_greater) {
-            arrayOf(
-                BackgroundPlaybackManagerCairoFragmentPrimaryFingerprint,
-                BackgroundPlaybackManagerCairoFragmentSecondaryFingerprint,
-            ).forEach { fingerprint ->
-                fingerprint.match(BackgroundPlaybackManagerCairoFragmentParentFingerprint.originalClassDef)
-                    .let {
-                        it.method.apply {
-                            val insertIndex = it.instructionMatches.first().index + 4
-                            val insertRegister =
-                                getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39 inlines the flag getter into the two fragment lifecycle methods.
+            // Force the flag to false in each of them; otherwise use the legacy fingerprints.
+            val inlinedFlagMatches = runCatching {
+                BackgroundPlaybackManagerCairoFragmentInlinedFlagFingerprint.matchAll(
+                    BackgroundPlaybackManagerCairoFragmentParentFingerprint.originalClassDef
+                )
+            }.getOrNull().orEmpty()
 
-                            addInstruction(
-                                insertIndex,
-                                "const/4 v$insertRegister, 0x0"
-                            )
+            if (inlinedFlagMatches.isNotEmpty()) {
+                inlinedFlagMatches.forEach {
+                    it.method.insertLiteralOverride(
+                        it.instructionMatches.last().index,
+                        false
+                    )
+                }
+            } else {
+                arrayOf(
+                    BackgroundPlaybackManagerCairoFragmentPrimaryFingerprint,
+                    BackgroundPlaybackManagerCairoFragmentSecondaryFingerprint,
+                ).forEach { fingerprint ->
+                    fingerprint.match(BackgroundPlaybackManagerCairoFragmentParentFingerprint.originalClassDef)
+                        .let {
+                            it.method.apply {
+                                val insertIndex = it.instructionMatches.first().index + 4
+                                val insertRegister =
+                                    getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                                addInstruction(
+                                    insertIndex,
+                                    "const/4 v$insertRegister, 0x0"
+                                )
+                            }
                         }
-                    }
+                }
             }
 
-            PipInputConsumerFeatureFlagFingerprint.matchSingle().method.insertLiteralOverride(
-                PIP_INPUT_CONSUMER_FEATURE_FLAG,
-                false,
-            )
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39: pip_input_consumer feature flag was removed; skip when absent.
+            val pipInputConsumerMethod = runCatching {
+                PipInputConsumerFeatureFlagFingerprint.matchSingle().method
+            }.getOrNull()
+            if (pipInputConsumerMethod != null) {
+                pipInputConsumerMethod.insertLiteralOverride(
+                    PIP_INPUT_CONSUMER_FEATURE_FLAG,
+                    false,
+                )
+            } else {
+                printWarn("PiP input consumer feature flag not found in this version, skipping.")
+            }
         }
 
         // Prevents playback from resuming if it was interrupted from the notification

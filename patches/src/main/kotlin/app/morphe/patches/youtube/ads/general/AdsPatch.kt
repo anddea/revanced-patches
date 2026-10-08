@@ -35,6 +35,9 @@ import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.injectHideViewCall
 import app.morphe.util.updatePatchStatus
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -133,16 +136,41 @@ val adsPatch = adsPatch(
 
         // This can be hidden with a regular Litho filter, but an empty space remains.
         if (is_20_21_or_greater) {
-            PlayerOverlayTimelyShelfFingerprint.method.addInstructionsWithLabels(
-                0, """
-                invoke-static {}, $ADS_CLASS_DESCRIPTOR->hideAds()Z
-                move-result v0
-                if-eqz v0, :show
-                return-void
-                :show
-                nop
-                """
-            )
+            // modified by lavinhoque33, 2026-10-04
+            // YouTube 21.39 moved the timely shelf check into a switch-lambda; hook inside the case instead.
+            val timelyShelfMethod = runCatching { PlayerOverlayTimelyShelfFingerprint.method }.getOrNull()
+            if (timelyShelfMethod != null) {
+                timelyShelfMethod.addInstructionsWithLabels(
+                    0, """
+                    invoke-static {}, $ADS_CLASS_DESCRIPTOR->hideAds()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    return-void
+                    :show
+                    nop
+                    """
+                )
+            } else {
+                playerOverlayTimelyShelfSwitchFingerprint.methodOrThrow().apply {
+                    val stringIndex = indexOfFirstStringInstructionOrThrow("player_overlay_timely_shelf")
+                    val optionalGetIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.toString()
+                                    ?.endsWith("Optional;->get()Ljava/lang/Object;") == true
+                    }
+                    // invoke Optional.get, move-result-object, check-cast
+                    addInstructionsWithLabels(
+                        optionalGetIndex + 3, """
+                        invoke-static {}, $ADS_CLASS_DESCRIPTOR->hideAds()Z
+                        move-result v0
+                        if-eqz v0, :show
+                        return-void
+                        :show
+                        nop
+                        """
+                    )
+                }
+            }
         }
 
         // endregion

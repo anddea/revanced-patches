@@ -125,7 +125,12 @@ val navigationBarComponentsPatch = bytecodePatch(
         /**
          * Hook theme class constructor to dynamically override mappings
          */
-        val themeMethod = ThemeMapConstructorFingerprint.method
+        // modified by lavinhoque33, 2026-10-04
+        // 9.40: constructor no longer holds the drawable literals; fall back to the class of the helper that does.
+        val themeMethod = runCatching { ThemeMapConstructorFingerprint.method }.getOrNull()
+            ?: findMutableClassOrThrow(ThemeMapHelperFingerprint.method.definingClass).methods.first {
+                it.name == "<init>"
+            }
         findMutableClassOrThrow(themeMethod.definingClass).findMutableMethodOf(themeMethod).apply {
             val returnIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID)
             addInstruction(
@@ -209,13 +214,28 @@ val navigationBarComponentsPatch = bytecodePatch(
                     } else {
                         -1
                     }
-                    val navigationItemIndex = if (replacementEnabled) {
+                    // modified by lavinhoque33, 2026-10-04
+                    // 9.40: item class is obfuscated differently (Laoio;); derive it from the
+                    // check-cast after Iterator.next() instead of hardcoding Lbxjp;.
+                    val iteratorNextIndex = if (replacementEnabled) {
                         indexOfFirstInstructionReversedOrThrow(labelIndex) {
-                            opcode == Opcode.CHECK_CAST &&
-                                    getReference<TypeReference>()?.type == "Lbxjp;"
+                            opcode == Opcode.INVOKE_INTERFACE &&
+                                    getReference<MethodReference>()?.toString() ==
+                                    "Ljava/util/Iterator;->next()Ljava/lang/Object;"
                         }
                     } else {
                         -1
+                    }
+                    val navigationItemIndex = if (replacementEnabled) {
+                        indexOfFirstInstructionOrThrow(iteratorNextIndex, Opcode.CHECK_CAST)
+                    } else {
+                        -1
+                    }
+                    val navigationItemType = if (replacementEnabled) {
+                        getInstruction<ReferenceInstruction>(navigationItemIndex)
+                            .reference.let { (it as TypeReference).type }
+                    } else {
+                        ""
                     }
                     val navigationItemRegister = if (replacementEnabled) {
                         getInstruction<OneRegisterInstruction>(navigationItemIndex).registerA
@@ -226,7 +246,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                         indexOfFirstInstructionOrThrow(navigationItemIndex) {
                             opcode == Opcode.IGET_OBJECT &&
                                     getReference<FieldReference>()?.let { field ->
-                                        field.definingClass == "Lbxjp;" &&
+                                        field.definingClass == navigationItemType &&
                                                 field.type == "Ljava/lang/String;"
                                     } == true
                         }
