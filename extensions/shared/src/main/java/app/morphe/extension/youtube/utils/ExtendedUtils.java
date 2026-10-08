@@ -64,6 +64,8 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_21_17_OR_GREATER = isVersionOrGreater("21.17.00");
     public static final boolean IS_21_21_OR_GREATER = isVersionOrGreater("21.21.00");
     public static final boolean IS_21_29_OR_GREATER = isVersionOrGreater("21.29.00");
+    // modified by lavinhoque33, 2026-10-07: miniplayer horizontal drag is on by default in stock 21.39.
+    public static final boolean IS_21_39_OR_GREATER = isVersionOrGreater("21.39.00");
 
     public static final boolean IS_ARC = hasSystemFeature("org.chromium.arc");
     public static final boolean IS_AUTOMOTIVE = hasSystemFeature("android.hardware.type.automotive");

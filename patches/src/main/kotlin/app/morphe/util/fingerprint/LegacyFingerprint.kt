@@ -113,10 +113,12 @@ internal fun MutableMethod.methodCall(): String {
  * nothing to override and a warning is printed instead of failing.
  */
 context(context: BytecodePatchContext)
+// modified by lavinhoque33, 2026-10-07: returns whether the flag was hooked; optional missing-flag warning
 fun Pair<String, Fingerprint>.injectLiteralInstructionBooleanCall(
     literal: Long,
-    descriptor: String
-) {
+    descriptor: String,
+    warnIfMissing: Boolean = true
+): Boolean {
     fun MutableMethod.inject(literalIndex: Int) {
         val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
         val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -143,10 +145,10 @@ fun Pair<String, Fingerprint>.injectLiteralInstructionBooleanCall(
     val method = second.methodOrNull
     if (method != null) {
         method.inject(method.indexOfFirstLiteralInstruction(literal))
-        return
+        return true
     }
 
-    if (context.forEachInlinedFeatureFlagSite(literal) { inject(it) } > 0) return
+    if (context.forEachInlinedFeatureFlagSite(literal) { inject(it) } > 0) return true
 
     var literalExists = false
     context.classDefForEach { classDef ->
@@ -156,7 +158,10 @@ fun Pair<String, Fingerprint>.injectLiteralInstructionBooleanCall(
     }
     if (literalExists) throw first.exception
 
-    printWarn("${first}: feature flag $literal no longer exists in this app version. Skipping.")
+    if (warnIfMissing) {
+        printWarn("${first}: feature flag $literal no longer exists in this app version. Skipping.")
+    }
+    return false
 }
 
 context(_: BytecodePatchContext)

@@ -8,6 +8,12 @@ package app.morphe.patches.music.interaction.crossfade
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+// modified by lavinhoque33, 2026-10-07: imports for 9.40 suppressCwhU release-post guard
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.util.smali.ExternalLabel
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.literal
@@ -1639,7 +1645,73 @@ val crossfadePatch = bytecodePatch(
                 )
                 log.fine { "9.x: injected suppressCwhU into cwh.U()V (lctrType=$cwhLctrType, cgdType=$cgdType)" }
             } catch (e: Exception) {
-                log.warning("9.x: suppressCwhU injection failed: ${e.message}")
+                // modified by lavinhoque33, 2026-10-07: YT Music 9.40.51 removed collector U()V;
+                // the release is inlined into ExoPlayerImpl release (posts new Runnable(collector, 9)
+                // to the collector handler). Guard that post with suppressCwhU instead.
+                try {
+                    val releaseMethod = exoPlayerImplClass.methods.first { m ->
+                        m.returnType == "V" && m.parameters.isEmpty() &&
+                            !AccessFlags.STATIC.isSet(m.accessFlags) &&
+                            m.implementation?.instructions?.any { insn ->
+                                insn.opcode == Opcode.CONST_STRING &&
+                                    ((insn as ReferenceInstruction).reference as? StringReference)
+                                        ?.string == "Release "
+                            } == true
+                    }
+                    val insns = releaseMethod.implementation!!.instructions.toList()
+                    // iget-object vX, <collector>, Lcollector;->handler:Lh;  ...  invoke-interface {vX, vR}, Lh;->d(Runnable)V
+                    var guardIndex = -1
+                    var afterIndex = -1
+                    for (i in insns.indices) {
+                        val iget = insns[i]
+                        if (iget.opcode != Opcode.IGET_OBJECT) continue
+                        val fieldRef = (iget as ReferenceInstruction).getReference<FieldReference>() ?: continue
+                        if (fieldRef.definingClass != cwhLctrType) continue
+                        for (j in i + 1..minOf(i + 8, insns.size - 1)) {
+                            val call = insns[j]
+                            if (call.opcode != Opcode.INVOKE_INTERFACE) continue
+                            val callRef = (call as ReferenceInstruction).getReference<MethodReference>() ?: continue
+                            if (callRef.definingClass == fieldRef.type &&
+                                callRef.parameterTypes.size == 1 &&
+                                callRef.parameterTypes[0] == "Ljava/lang/Runnable;" &&
+                                callRef.returnType == "V"
+                            ) {
+                                // Require a new-instance + invoke-direct <init>(Object;I) between (Runnable post)
+                                val between = insns.subList(i + 1, j)
+                                if (between.any { it.opcode == Opcode.NEW_INSTANCE } &&
+                                    between.any { b ->
+                                        b.opcode == Opcode.INVOKE_DIRECT &&
+                                            (b as ReferenceInstruction).getReference<MethodReference>()?.let {
+                                                it.name == "<init>" && it.parameterTypes == listOf("Ljava/lang/Object;", "I")
+                                            } == true
+                                    }
+                                ) {
+                                    guardIndex = i
+                                    afterIndex = j + 1
+                                }
+                                break
+                            }
+                        }
+                        if (guardIndex >= 0) break
+                    }
+                    if (guardIndex < 0 || afterIndex >= insns.size) {
+                        error("collector handler post not found in ${releaseMethod.definingClass}->${releaseMethod.name}")
+                    }
+                    // The iget's destination register is overwritten immediately by the iget itself,
+                    // so it is dead before the guard and free to use as scratch.
+                    val scratch = (insns[guardIndex] as TwoRegisterInstruction).registerA
+                    releaseMethod.addInstructionsWithLabels(
+                        guardIndex,
+                        """
+                            sget-boolean v$scratch, $EXTENSION_CLASS->suppressCwhU:Z
+                            if-nez v$scratch, :skip_collector_release
+                        """,
+                        ExternalLabel("skip_collector_release", releaseMethod.getInstruction(afterIndex)),
+                    )
+                    log.fine { "9.x: injected suppressCwhU guard into ${releaseMethod.definingClass}->${releaseMethod.name} (collector=$cwhLctrType)" }
+                } catch (e2: Exception) {
+                    log.warning("9.x: suppressCwhU injection failed: ${e.message}; fallback: ${e2.message}")
+                }
             }
         }
 

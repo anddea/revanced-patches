@@ -252,6 +252,29 @@ val miniplayerPatch = bytecodePatch(
                 "$EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDragAndDrop(Z)Z"
             )
             settingArray += "SETTINGS: MINIPLAYER_DRAG_AND_DROP"
+        } else if (is_19_23_or_greater) {
+            // modified by lavinhoque33, 2026-10-07
+            // 21.39: the drag and drop flag is gone, the drag recogniser is always registered.
+            // Disable it by consuming no touch events at the start of its touch handler.
+            val dragMatch = runCatching { MiniplayerDragRecognizerFingerprint.match() }.getOrNull()
+            if (dragMatch == null) {
+                printWarn("Miniplayer: drag recogniser not found, drag and drop setting is skipped")
+            } else {
+                dragMatch.method.addInstructionsWithLabels(
+                    0,
+                    """
+                        const/4 v0, 0x1
+                        invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDragAndDrop(Z)Z
+                        move-result v0
+                        if-nez v0, :miniplayer_drag_enabled
+                        const/4 v0, 0x0
+                        return v0
+                        :miniplayer_drag_enabled
+                        nop
+                    """
+                )
+                settingArray += "SETTINGS: MINIPLAYER_DRAG_AND_DROP"
+            }
         }
 
         if (is_19_25_or_greater) {
@@ -320,6 +343,35 @@ val miniplayerPatch = bytecodePatch(
                 }
 
                 settingArray += "SETTINGS: MINIPLAYER_WIDTH_DIP"
+            } else if (!hasModernConstructor) {
+                // modified by lavinhoque33, 2026-10-07
+                // 21.39: the miniplayer config class holding the initial size flag is gone, so the default
+                // size is hooked in the bounds controller constructor. The same const register is reused for the
+                // minimum size (first DisplayMetrics call) and the initial width (second DisplayMetrics call),
+                // so the minimum is lowered to 170 and 192 is reloaded for the initial width, which is then overridden.
+                val sizeMatch = runCatching { ModernMiniplayerMinimumSizeFingerprint.match() }.getOrNull()
+                if (sizeMatch == null) {
+                    printWarn("Miniplayer: default size hook not found, width setting is skipped")
+                } else sizeMatch.method.apply {
+                    val minimumIndex = sizeMatch.instructionMatches[1].index
+                    val register = getInstruction<OneRegisterInstruction>(minimumIndex).registerA
+                    val minimumCallIndex = indexOfFirstInstructionOrThrow(minimumIndex + 1, Opcode.INVOKE_STATIC)
+                    val initialCallIndex = indexOfFirstInstructionOrThrow(minimumCallIndex + 1, Opcode.INVOKE_STATIC)
+
+                    // Must be done first, as it does not shift the indexes.
+                    replaceInstruction(minimumIndex, "const/16 v$register, 170")
+
+                    addInstructions(
+                        initialCallIndex,
+                        """
+                            const/16 v$register, 192
+                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
+                            move-result v$register
+                        """
+                    )
+
+                    settingArray += "SETTINGS: MINIPLAYER_WIDTH_DIP"
+                }
             }
 
             if (!is_21_29_or_greater) {
@@ -337,6 +389,40 @@ val miniplayerPatch = bytecodePatch(
             )
 
             settingArray += "SETTINGS: MINIPLAYER_ROUNDED_CORNERS"
+        } else if (is_19_36_or_greater) {
+            // modified by lavinhoque33, 2026-10-07
+            // 21.39: the rounded corners flag is gone. The outline provider is chosen in a method of the
+            // corner applier class, so the non-rounded provider is used when the setting is off.
+            val roundedMatch = runCatching { MiniplayerRoundedCornersFingerprint.match() }.getOrNull()
+            if (roundedMatch == null) {
+                printWarn("Miniplayer: rounded corners outline hook not found, rounded corners setting is skipped")
+            } else {
+                val outlineIndex = roundedMatch.instructionMatches[1].index
+                // The static non-rounded provider (view background outline) field has an obfuscated name.
+                val defaultOutlineField = roundedMatch.method.let { method ->
+                    method.getInstruction(
+                        method.indexOfFirstInstructionOrThrow {
+                            opcode == Opcode.SGET_OBJECT &&
+                                    getReference<FieldReference>()?.type == "Landroid/view/ViewOutlineProvider;"
+                        }
+                    ).getReference<FieldReference>()!!
+                }
+                roundedMatch.method.addInstructionsAtControlFlowLabel(
+                    outlineIndex,
+                    """
+                        const/4 v0, 0x1
+                        invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->getRoundedCorners(Z)Z
+                        move-result v0
+                        if-nez v0, :miniplayer_rounded_corners
+                        const/4 v0, 0x0
+                        invoke-virtual { p1, v0 }, Landroid/view/View;->setClipToOutline(Z)V
+                        sget-object p0, $defaultOutlineField
+                        :miniplayer_rounded_corners
+                        nop
+                    """
+                )
+                settingArray += "SETTINGS: MINIPLAYER_ROUNDED_CORNERS"
+            }
         }
 
         if (is_20_05_or_greater) {
@@ -384,9 +470,9 @@ val miniplayerPatch = bytecodePatch(
                 )
             }
 
-            // modified by lavinhoque33, 2026-10-04: in 21.39 horizontal drag is not behind a patchable flag,
-            // so the offscreen handler must stay untouched, as the hook disables it unless the flag is forced on.
-            if (hasModernConstructor) MiniplayerOffscreenHandlerFingerprint.let {
+            // modified by lavinhoque33, 2026-10-07: the horizontal drag flag is gone in 21.39 and YouTube's
+            // built-in behaviour is on, so this hook is the only switch, and is always applied.
+            MiniplayerOffscreenHandlerFingerprint.let {
                 it.method.apply {
                     val index = it.instructionMatches.last().index
                     val register = findFreeRegister(index)
@@ -411,16 +497,17 @@ val miniplayerPatch = bytecodePatch(
                         "enableOffScreenMiniplayerButtonPressed(Landroid/view/MotionEvent;)V"
             )
 
-            // modified by lavinhoque33, 2026-10-04: 21.39 has no miniplayer config constructor, so these flags are gone.
+            // modified by lavinhoque33, 2026-10-07: 21.39 has no miniplayer config constructor, so the
+            // maximize animation flag is gone, but horizontal drag is controlled by the offscreen handler hook above.
             if (hasModernConstructor) {
                 miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
                     MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY,
                     "$EXTENSION_CLASS_DESCRIPTOR->getMaximizeAnimation(Z)Z"
                 )
-
-                settingArray += "SETTINGS: MINIPLAYER_HORIZONTAL_DRAG"
-                settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_DRAG_PLAYBACK"
             }
+
+            settingArray += "SETTINGS: MINIPLAYER_HORIZONTAL_DRAG"
+            settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_DRAG_PLAYBACK"
             settingArray += "SETTINGS: MINIPLAYER_DISABLE_HORIZONTAL_REPOSITION"
         }
 

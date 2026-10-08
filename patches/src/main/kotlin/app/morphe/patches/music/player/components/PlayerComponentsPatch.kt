@@ -1399,39 +1399,48 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for hide song video toggle
 
-        audioVideoSwitchToggleFingerprint.methodOrThrow().apply {
-            implementation!!.instructions
-                .withIndex()
-                .filter { (_, instruction) ->
-                    val reference = (instruction as? ReferenceInstruction)?.reference
-                    instruction.opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference is MethodReference &&
-                            reference.toString().endsWith(AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY)
-                }
-                .map { (index, _) -> index }
-                .reversed()
-                .forEach { index ->
-                    val instruction = getInstruction<FiveRegisterInstruction>(index)
+        // modified by lavinhoque33, 2026-10-07
+        // 9.40: the presenter class has several methods (g/e/f) calling AudioVideoSwitcherToggleView.setVisibility,
+        // so rewrite every call in the matched class instead of only the method picked by the fingerprint.
+        // Flag 45671274 no longer exists in 9.40; the feature works through the setVisibility hook alone.
+        var songVideoToggleVisibilityHooked = false
+        if (audioVideoSwitchToggleFingerprint.resolvable()) {
+            audioVideoSwitchToggleFingerprint.mutableClassOrThrow().methods.forEach { toggleMethod ->
+                val toggleImplementation = toggleMethod.implementation ?: return@forEach
+                toggleImplementation.instructions
+                    .withIndex()
+                    .filter { (_, instruction) ->
+                        val reference = (instruction as? ReferenceInstruction)?.reference
+                        instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                                reference is MethodReference &&
+                                reference.toString().endsWith(AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY)
+                    }
+                    .map { (index, _) -> index }
+                    .reversed()
+                    .forEach { index ->
+                        val instruction = toggleMethod.getInstruction<FiveRegisterInstruction>(index)
 
-                    replaceInstruction(
-                        index,
-                        "invoke-static {v${instruction.registerC}, v${instruction.registerD}}," +
-                                "$PLAYER_CLASS_DESCRIPTOR->hideSongVideoToggle(Landroid/view/View;I)V"
-                    )
-                }
+                        toggleMethod.replaceInstruction(
+                            index,
+                            "invoke-static {v${instruction.registerC}, v${instruction.registerD}}," +
+                                    "$PLAYER_CLASS_DESCRIPTOR->hideSongVideoToggle(Landroid/view/View;I)V"
+                        )
+                        songVideoToggleVisibilityHooked = true
+                    }
+            }
         }
 
-        // modified by lavinhoque33, 2026-10-04
-        // 9.40: feature flag 45671274 no longer exists, so only the setVisibility hook above applies.
-        if (is_8_05_or_greater) {
-            if (audioVideoSwitchToggleFeatureFlagsFingerprint.resolvable()) {
-                audioVideoSwitchToggleFeatureFlagsFingerprint.injectLiteralInstructionBooleanCall(
-                    AUDIO_VIDEO_SWITCH_TOGGLE_FEATURE_FLAG,
-                    "$PLAYER_CLASS_DESCRIPTOR->hideSongVideoToggle(Z)Z"
-                )
-            } else {
-                printWarn("\"Hide song/video toggle\": feature flag hook is not available in this version.")
-            }
+        var songVideoToggleFlagHooked = false
+        if (is_8_05_or_greater && audioVideoSwitchToggleFeatureFlagsFingerprint.resolvable()) {
+            audioVideoSwitchToggleFeatureFlagsFingerprint.injectLiteralInstructionBooleanCall(
+                AUDIO_VIDEO_SWITCH_TOGGLE_FEATURE_FLAG,
+                "$PLAYER_CLASS_DESCRIPTOR->hideSongVideoToggle(Z)Z"
+            )
+            songVideoToggleFlagHooked = true
+        }
+
+        if (!songVideoToggleVisibilityHooked && !songVideoToggleFlagHooked) {
+            printWarn("\"Hide song/video toggle\": no hook is available in this version.")
         }
 
         addSwitchPreference(
