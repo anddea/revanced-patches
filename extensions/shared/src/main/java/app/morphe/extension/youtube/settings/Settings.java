@@ -94,6 +94,7 @@ import app.morphe.extension.youtube.swipecontrols.SwipeControlsConfigurationProv
 
 @SuppressWarnings("unused")
 public class Settings extends SharedYouTubeSettings {
+    public static final BooleanSetting RESTORE_ORIGINAL_TITLES = new BooleanSetting("morphe_restore_original_titles", FALSE, true);
     /** Enables arbitrary runtime colors only when the API 30 resource overlay is available. */
     private static Setting.Availability customThemeAvailability(StringSetting selector) {
         return new Setting.Availability() {

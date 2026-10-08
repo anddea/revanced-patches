@@ -229,6 +229,10 @@ internal enum class PatchList(
         "Remove viewer discretion dialog",
         "Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction."
     ),
+    RESTORE_ORIGINAL_TITLES(
+        "Restore original titles",
+        "Adds an option to show the original video titles and descriptions instead of the auto-translated ones."
+    ),
     RETURN_YOUTUBE_DISLIKE(
         "Return YouTube Dislike",
         "Adds an option to show the dislike count of videos using the Return YouTube Dislike API."
