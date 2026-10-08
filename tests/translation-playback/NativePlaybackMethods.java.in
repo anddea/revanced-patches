@@ -1,0 +1,22 @@
+package app.morphe.extension.youtube.patches.voiceovertranslation;
+
+import java.lang.ref.WeakReference;
+import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.shared.utils.Logger;
+
+public class NativePlaybackMethods {
+    static WeakReference<ExoPlayerImpl> exoPlayerImplRef = new WeakReference<>(null);
+    static class ExoPlayerImpl {
+        boolean playing, fail;
+        boolean patch_isPlaying() {
+            if (fail) throw new IllegalStateException("retired player");
+            return playing;
+        }
+    }
+    enum VideoState {
+        PLAYING, PAUSED;
+        static VideoState current = PLAYING;
+        static VideoState getCurrent() { return current; }
+    }
+    // PRODUCTION_METHODS
+}

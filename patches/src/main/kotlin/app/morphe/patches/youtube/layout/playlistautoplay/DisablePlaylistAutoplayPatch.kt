@@ -63,7 +63,11 @@ val disablePlaylistAutoplayPatch = bytecodePatch(
             }
         ).matchAll().forEach { match ->
             val method = match.method
-            val freeRegister = method.findFreeRegister(0)
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39 adds a match that only delegates to another matched handler (p0 and p1 both live, no free register).
+            // The delegate target is patched itself, so skip this one.
+            val freeRegister = runCatching { method.findFreeRegister(0) }.getOrNull()
+                ?: return@forEach
 
             method.addInstructionsWithLabels(
                 0,

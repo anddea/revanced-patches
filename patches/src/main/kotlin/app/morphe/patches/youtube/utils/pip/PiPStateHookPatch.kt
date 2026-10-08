@@ -47,6 +47,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
+import app.morphe.util.fingerprint.resolvable
 import app.morphe.util.fingerprint.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -59,9 +60,13 @@ val pipStateHookPatch = bytecodePatch(
     dependsOn(versionCheckPatch)
 
     execute {
+        // modified by lavinhoque33, 2026-10-04
+        // YouTube 21.39: PiP entry method signature changed (returns Z); use the V2 fingerprint.
         val pipFingerprint =
-            if (is_21_04_or_greater) pipPlaybackModernFingerprint
-            else pipPlaybackFingerprint
+            if (is_21_04_or_greater) {
+                if (pipPlaybackModernFingerprint.resolvable()) pipPlaybackModernFingerprint
+                else pipPlaybackModernV2Fingerprint
+            } else pipPlaybackFingerprint
 
         pipFingerprint.matchOrThrow().let {
             it.method.apply {

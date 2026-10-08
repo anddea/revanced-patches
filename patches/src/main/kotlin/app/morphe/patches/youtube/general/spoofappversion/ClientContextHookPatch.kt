@@ -16,6 +16,7 @@ import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playservice.is_21_05_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -93,6 +94,14 @@ internal val clientContextHookPatch = bytecodePatch(
 
         Endpoint.entries.filter { it.smaliInstructions.isNotEmpty() }.forEach { endpoint ->
             endpoint.parentFingerprints.forEach { parentFingerprint ->
+                // modified by lavinhoque33, 2026-10-04: YouTube 21.39 removed the "reel/create_reel_items"
+                // endpoint class, so a parent that no longer matches is skipped instead of failing.
+                val endpointClassDef = runCatching { parentFingerprint.originalClassDef }.getOrNull()
+                if (endpointClassDef == null) {
+                    printWarn("Client context hook: endpoint class not found, skipping")
+                    return@forEach
+                }
+
                 // Use a local fingerprint because Fingerprint caches its match.
                 val endpointRequestBodyFingerprint = Fingerprint(
                     classFingerprint = parentFingerprint,
@@ -101,7 +110,7 @@ internal val clientContextHookPatch = bytecodePatch(
                     parameters = emptyList(),
                 )
 
-                endpointRequestBodyFingerprint.match(parentFingerprint.originalClassDef).let { match ->
+                endpointRequestBodyFingerprint.match(endpointClassDef).let { match ->
                     // 21.05+ clobbers the p0 register while building the request body.
                     match.method.cloneMutableAndPreserveParameters(match.classDef).apply {
                         match.classDef.methods.add(

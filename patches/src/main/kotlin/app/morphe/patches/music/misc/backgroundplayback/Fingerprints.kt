@@ -108,13 +108,18 @@ internal object KidsBackgroundPlaybackPolicyControllerFingerprint : Fingerprint(
     )
 )
 
+// modified by lavinhoque33, 2026-10-04
+// 9.40: getRoot() is now (String, int, Bundle) instead of (String, Bundle); both shapes are accepted.
 internal object MusicBrowserServiceFingerprint : Fingerprint(
     returnType = "L",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    parameters = listOf("Ljava/lang/String;", "Landroid/os/Bundle;"),
     strings = listOf("android.service.media.extra.RECENT"),
     custom = { method, _ ->
-        method.definingClass.endsWith("/MusicBrowserService;")
+        method.definingClass.endsWith("/MusicBrowserService;") &&
+                method.parameterTypes.map { it.toString() }.let { params ->
+                    params == listOf("Ljava/lang/String;", "Landroid/os/Bundle;") ||
+                            params == listOf("Ljava/lang/String;", "I", "Landroid/os/Bundle;")
+                }
     },
 )
 

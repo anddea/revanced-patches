@@ -52,6 +52,7 @@ import app.morphe.patches.youtube.video.information.videoEndMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.addInstructionsAtControlFlowLabel
+import app.morphe.util.findFreeRegister
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -183,13 +184,37 @@ val fullscreenComponentsPatch = bytecodePatch(
             val jumpIndex =
                 indexOfFirstInstructionOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
 
-            addInstructionsWithLabels(
-                constIndex, """
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideAutoPlayPreview()Z
-                    move-result v$constRegister
-                    if-nez v$constRegister, :hidden
-                    """, ExternalLabel("hidden", getInstruction(jumpIndex))
-            )
+            // modified by lavinhoque33, 2026-10-04
+            // YouTube 21.39 sets up a register (move/from16) between the stub lookup and the
+            // inflate call, and that register is used after it. Jumping from the const over the
+            // move leaves it uninitialized (VerifyError), so then only the invoke is skipped.
+            val hasMoveBeforeInvoke = (constIndex + 1 until jumpIndex - 1).any {
+                getInstruction(it).opcode.name.startsWith("move") &&
+                        !getInstruction(it).opcode.name.startsWith("move-result")
+            }
+            if (hasMoveBeforeInvoke) {
+                val invokeIndex = jumpIndex - 1
+                val invokeRegisters = getInstruction<FiveRegisterInstruction>(invokeIndex).let {
+                    listOf(it.registerC, it.registerD, it.registerE, it.registerF, it.registerG)
+                        .take(it.registerCount)
+                }
+                val freeRegister = findFreeRegister(invokeIndex, invokeRegisters)
+                addInstructionsWithLabels(
+                    invokeIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideAutoPlayPreview()Z
+                        move-result v$freeRegister
+                        if-nez v$freeRegister, :hidden
+                        """, ExternalLabel("hidden", getInstruction(jumpIndex))
+                )
+            } else {
+                addInstructionsWithLabels(
+                    constIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideAutoPlayPreview()Z
+                        move-result v$constRegister
+                        if-nez v$constRegister, :hidden
+                        """, ExternalLabel("hidden", getInstruction(jumpIndex))
+                )
+            }
         }
 
         // endregion
