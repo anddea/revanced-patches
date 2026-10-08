@@ -197,6 +197,10 @@ internal enum class PatchList(
         "Overlay buttons",
         "Adds options to display useful overlay buttons in the video player."
     ),
+    PLAYBACK_BUFFER(
+        "Playback buffer",
+        "Adds an option to change the video playback buffer size."
+    ),
     PLAYBACK_IN_FEEDS(
         "Playback in feeds",
         "Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it."
