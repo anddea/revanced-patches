@@ -82,9 +82,12 @@ private val returnYouTubeDislikeBytecodePatch = bytecodePatch(
                 )
             }
         } else {
+            // modified by lavinhoque33, 2026-10-08: no warning when the flag is gone (YouTube Music 9.40),
+            // the flag value is only used to size the separators.
             actionBarPositionFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
                 ACTION_BAR_POSITION_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->actionBarFeatureFlagLoaded(Z)Z"
+                "$EXTENSION_CLASS_DESCRIPTOR->actionBarFeatureFlagLoaded(Z)Z",
+                warnIfMissing = false
             )
         }
 

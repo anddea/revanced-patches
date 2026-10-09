@@ -24,6 +24,7 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.insertLiteralOverride
+import app.morphe.util.insertLiteralOverrideAtInlinedSites
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -117,6 +118,13 @@ val ambientModeSwitchPatch = bytecodePatch(
                 "$PLAYER_CLASS_DESCRIPTOR->disableAmbientMode(Z)Z"
             )
         }
+
+        // modified by lavinhoque33, 2026-10-08
+        // YouTube 21.39 also reads the flag a second time in one of the matched methods.
+        insertLiteralOverrideAtInlinedSites(
+            45376186L,
+            "$PLAYER_CLASS_DESCRIPTOR->disableAmbientMode(Z)Z"
+        )
 
         // region patch for disable ambient mode in fullscreen
 

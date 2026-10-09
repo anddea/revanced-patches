@@ -34,6 +34,7 @@ import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
+import app.morphe.util.insertLiteralOverrideAtInlinedSites
 import app.morphe.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -120,6 +121,18 @@ val playerButtonsPatch = bytecodePatch(
             ).forEach { fingerprint ->
                 fingerprint.method.insertLiteralOverride(
                     fingerprint.instructionMatches.first().index,
+                    "$PLAYER_CAST_BUTTON_CLASS_DESCRIPTOR->getCastButtonOverride(Z)Z",
+                )
+            }
+
+            // modified by lavinhoque33, 2026-10-08
+            // YouTube 21.39 also inlines both flags into the cast button callers.
+            arrayOf(
+                CAST_BUTTON_PLAYER_FEATURE_FLAG,
+                CAST_BUTTON_ACTION_FEATURE_FLAG,
+            ).forEach { literal ->
+                insertLiteralOverrideAtInlinedSites(
+                    literal,
                     "$PLAYER_CAST_BUTTON_CLASS_DESCRIPTOR->getCastButtonOverride(Z)Z",
                 )
             }

@@ -201,7 +201,8 @@ val navigationBarComponentsPatch = bytecodePatch(
                     )
                 }
                 if (patched == 0) {
-                    printWarn("TranslucentNavigationButtonsSystemFeatureFlagFingerprint: flag not found. Skipping.")
+                    // modified by lavinhoque33, 2026-10-08: user-facing wording.
+                    printWarn("\"Disable translucent navigation bar\" is not fully supported in this version. Use YouTube versions up to 21.39.")
                 }
             }
 
@@ -227,6 +228,7 @@ val navigationBarComponentsPatch = bytecodePatch(
         if (is_20_21_or_greater) {
             // modified by lavinhoque33, 2026-10-04
             // YouTube 21.39 inlines the flag getter into its callers; override each inlined check.
+            var animatedTabsHooked = true
             val animatedTabsMatch = AnimatedNavigationTabsFeatureFlagFingerprint.matchOrNull()
             if (animatedTabsMatch != null) {
                 animatedTabsMatch.method.insertLiteralOverride(
@@ -240,10 +242,13 @@ val navigationBarComponentsPatch = bytecodePatch(
                     )
                 } == 0
             ) {
-                printWarn("AnimatedNavigationTabsFeatureFlagFingerprint: flag not found. Skipping.")
+                // modified by lavinhoque33, 2026-10-08: user-facing wording, and the setting is not
+                // shown when it has no effect.
+                printWarn("\"Enable navigation bar animations\" is not supported in this version. Use YouTube versions up to 21.39.")
+                animatedTabsHooked = false
             }
 
-            settingArray += "SETTINGS: ANIMATED_NAVIGATION_BAR"
+            if (animatedTabsHooked) settingArray += "SETTINGS: ANIMATED_NAVIGATION_BAR"
         }
 
         // endregion

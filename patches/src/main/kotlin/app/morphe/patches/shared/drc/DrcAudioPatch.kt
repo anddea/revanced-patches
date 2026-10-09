@@ -101,7 +101,8 @@ fun drcAudioPatch(
         if (!flagHooked) {
             val method = volumeNormalizationMethodFingerprint.methodOrNull()
             if (method == null) {
-                printWarn("volumeNormalizationMethodFingerprint: volume normalization method not found. Skipping.")
+                // modified by lavinhoque33, 2026-10-08: user-facing wording.
+                printWarn("\"Disable DRC audio\" is not supported in this version. Use YouTube versions up to 21.39 or YouTube Music versions up to 9.40.")
             } else {
                 method.addInstructionsWithLabels(
                     3,

@@ -16,7 +16,6 @@ import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playservice.is_21_05_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
-import app.morphe.util.Utils.printWarn
 import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -96,11 +95,10 @@ internal val clientContextHookPatch = bytecodePatch(
             endpoint.parentFingerprints.forEach { parentFingerprint ->
                 // modified by lavinhoque33, 2026-10-04: YouTube 21.39 removed the "reel/create_reel_items"
                 // endpoint class, so a parent that no longer matches is skipped instead of failing.
+                // modified by lavinhoque33, 2026-10-08: skipped silently, as the app no longer sends
+                // that request and the remaining Shorts endpoints are still hooked.
                 val endpointClassDef = runCatching { parentFingerprint.originalClassDef }.getOrNull()
-                if (endpointClassDef == null) {
-                    printWarn("Client context hook: endpoint class not found, skipping")
-                    return@forEach
-                }
+                    ?: return@forEach
 
                 // Use a local fingerprint because Fingerprint caches its match.
                 val endpointRequestBodyFingerprint = Fingerprint(

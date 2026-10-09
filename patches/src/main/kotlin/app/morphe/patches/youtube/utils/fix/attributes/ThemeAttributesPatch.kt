@@ -11,6 +11,7 @@ import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.insertLiteralOverrideAtInlinedSites
 import app.morphe.util.referenceMatchesOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -77,6 +78,10 @@ val themeAttributesPatch = bytecodePatch(
                 STATS_FOR_NERDS_FEATURE_FLAG,
                 "0x0"
             )
+
+            // modified by lavinhoque33, 2026-10-08
+            // YouTube 21.39 also inlines the flag into the stats for nerds text builder.
+            insertLiteralOverrideAtInlinedSites(STATS_FOR_NERDS_FEATURE_FLAG, false)
         }
 
     }

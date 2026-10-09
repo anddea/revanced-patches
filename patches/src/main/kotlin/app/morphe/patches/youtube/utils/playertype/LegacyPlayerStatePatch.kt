@@ -20,6 +20,7 @@ import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.insertLiteralOverride
+import app.morphe.util.insertLiteralOverrideAtInlinedSites
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/PlayerControlsPatch;"
@@ -74,6 +75,10 @@ internal val legacyPlayerStatePatch = bytecodePatch(
                     false
                 )
             }
+
+            // modified by lavinhoque33, 2026-10-08
+            // YouTube 21.39 also inlines the flag into a method that is not a flag getter.
+            insertLiteralOverrideAtInlinedSites(45752335L, false)
         }
     }
 }
