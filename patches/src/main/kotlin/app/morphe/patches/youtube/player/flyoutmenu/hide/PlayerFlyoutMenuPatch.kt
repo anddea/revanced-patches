@@ -29,6 +29,7 @@ import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.util.getFiveRegisters
 import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
+import app.morphe.util.insertLiteralOverrideAtInlinedSites
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -149,6 +150,13 @@ val playerFlyoutMenuPatch = bytecodePatch(
         // region patch for hide pip mode menu
 
         PipModeConfigFingerprint.method.insertLiteralOverride(
+            45427407L,
+            "$PLAYER_CLASS_DESCRIPTOR->hidePiPModeMenu(Z)Z"
+        )
+
+        // modified by lavinhoque33, 2026-10-08
+        // YouTube 21.39 inlines the flag into more callers than the matched config method.
+        insertLiteralOverrideAtInlinedSites(
             45427407L,
             "$PLAYER_CLASS_DESCRIPTOR->hidePiPModeMenu(Z)Z"
         )
