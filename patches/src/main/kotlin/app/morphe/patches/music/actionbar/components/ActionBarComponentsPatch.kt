@@ -79,6 +79,7 @@ import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.textcomponent.hookSpannableString
 import app.morphe.patches.shared.textcomponent.textComponentPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findFieldFromToString
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
@@ -361,16 +362,23 @@ val actionBarComponentsPatch = bytecodePatch(
             }
 
             if (is_7_25_or_greater) {
-                actionBarPositionFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
-                    ACTION_BAR_POSITION_FEATURE_FLAG,
-                    "$ACTIONBAR_CLASS_DESCRIPTOR->changeActionBarPosition(Z)Z"
-                )
-
-                addSwitchPreference(
-                    CategoryType.ACTION_BAR,
-                    "revanced_change_action_bar_position",
-                    "false"
-                )
+                // modified by lavinhoque33, 2026-10-08
+                // YouTube Music 9.40 removed the flag and the alternative layout it switched to,
+                // so the setting is only offered when the flag can be overridden.
+                if (actionBarPositionFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                        ACTION_BAR_POSITION_FEATURE_FLAG,
+                        "$ACTIONBAR_CLASS_DESCRIPTOR->changeActionBarPosition(Z)Z",
+                        warnIfMissing = false
+                    )
+                ) {
+                    addSwitchPreference(
+                        CategoryType.ACTION_BAR,
+                        "revanced_change_action_bar_position",
+                        "false"
+                    )
+                } else {
+                    printWarn("\"Change action bar position\" is not supported in this version. Use YouTube Music versions up to 9.15.")
+                }
             }
         }
 

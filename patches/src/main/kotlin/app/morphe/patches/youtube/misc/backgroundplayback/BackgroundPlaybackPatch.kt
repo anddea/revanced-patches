@@ -34,7 +34,6 @@ import app.morphe.util.fingerprint.matchSingle
 import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.returnEarly
-import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -137,17 +136,13 @@ val backgroundPlaybackPatch = bytecodePatch(
 
             // modified by lavinhoque33, 2026-10-04
             // 21.39: pip_input_consumer feature flag was removed; skip when absent.
-            val pipInputConsumerMethod = runCatching {
+            // modified by lavinhoque33, 2026-10-08: no warning, as the flag no longer exists there is nothing to override.
+            runCatching {
                 PipInputConsumerFeatureFlagFingerprint.matchSingle().method
-            }.getOrNull()
-            if (pipInputConsumerMethod != null) {
-                pipInputConsumerMethod.insertLiteralOverride(
-                    PIP_INPUT_CONSUMER_FEATURE_FLAG,
-                    false,
-                )
-            } else {
-                printWarn("PiP input consumer feature flag not found in this version, skipping.")
-            }
+            }.getOrNull()?.insertLiteralOverride(
+                PIP_INPUT_CONSUMER_FEATURE_FLAG,
+                false,
+            )
         }
 
         // Prevents playback from resuming if it was interrupted from the notification

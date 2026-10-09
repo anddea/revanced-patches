@@ -614,8 +614,9 @@ val seekbarComponentsPatch = bytecodePatch(
                     FullscreenLargeSeekbarStateWriterFingerprint.matchAll()
                 }.getOrNull().orEmpty().singleOrNull()
 
+                // modified by lavinhoque33, 2026-10-08: user-facing wording.
                 if (stateWriter == null) {
-                    printWarn("Fullscreen large seekbar feature flag and state field not found in this version, skipping.")
+                    printWarn("\"Enable fullscreen large seekbar\" is not supported in this version. Use YouTube versions up to 21.39.")
                 } else {
                     val stateFieldReference = stateWriter.method.getInstruction<ReferenceInstruction>(
                         stateWriter.instructionMatches[9].index
@@ -635,7 +636,7 @@ val seekbarComponentsPatch = bytecodePatch(
                     }
 
                     if (readers.isEmpty()) {
-                        printWarn("Fullscreen large seekbar state readers not found, skipping.")
+                        printWarn("\"Enable fullscreen large seekbar\" is not supported in this version. Use YouTube versions up to 21.39.")
                     }
 
                     readers.forEach { (classDef, method) ->

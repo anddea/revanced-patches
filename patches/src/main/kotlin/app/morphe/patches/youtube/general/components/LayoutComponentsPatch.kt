@@ -228,20 +228,17 @@ val layoutComponentsPatch = bytecodePatch(
 
         // modified by lavinhoque33, 2026-10-04
         // YouTube 21.39 removed feature flag 45384061 (fullscreen tooltip) entirely; skip this hook if the method is gone.
-        val tooltipFullscreenMethod = runCatching { tooltipContentFullscreenFingerprint.methodOrThrow() }.getOrNull()
-        if (tooltipFullscreenMethod != null) {
-            tooltipFullscreenMethod.apply {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(45384061L)
-                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+        // modified by lavinhoque33, 2026-10-08: no warning, the fullscreen tooltip code path is gone
+        // in 21.39 and the remaining tooltips are still hidden below.
+        runCatching { tooltipContentFullscreenFingerprint.methodOrThrow() }.getOrNull()?.apply {
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(45384061L)
+            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                addInstruction(
-                    targetIndex + 1,
-                    "const/4 v$targetRegister, 0x0"
-                )
-            }
-        } else {
-            printWarn("Fullscreen tooltip flag not found in this version, skipping.")
+            addInstruction(
+                targetIndex + 1,
+                "const/4 v$targetRegister, 0x0"
+            )
         }
 
         tooltipContentViewFingerprint.methodOrThrow().addInstruction(

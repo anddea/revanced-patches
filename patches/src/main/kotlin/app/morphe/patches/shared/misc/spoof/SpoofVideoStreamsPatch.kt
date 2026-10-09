@@ -40,7 +40,6 @@ import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.registersUsed
 import app.morphe.util.setExtensionIsPatchIncluded
-import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -395,16 +394,13 @@ internal fun spoofVideoStreamsPatch(
         if (fixParsePlaybackResponseFeatureFlag()) {
             // modified by lavinhoque33, 2026-10-04
             // YouTube Music 9.40 removed feature flag 45665455 entirely; the fingerprint is only that
-            // literal, so a failed match means the flag is gone. Skip the override with a warning.
-            val playbackStartMatch =
-                runCatching { PlaybackStartDescriptorFeatureFlagFingerprint.match() }.getOrNull()
-            if (playbackStartMatch != null) {
-                playbackStartMatch.method.insertLiteralOverride(
-                    playbackStartMatch.instructionMatches.first().index,
+            // literal, so a failed match means the flag is gone and there is nothing to override.
+            // modified by lavinhoque33, 2026-10-08: skipped without a warning.
+            runCatching { PlaybackStartDescriptorFeatureFlagFingerprint.match() }.getOrNull()?.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
                     "$EXTENSION_CLASS->usePlaybackStartFeatureFlag(Z)Z"
                 )
-            } else {
-                printWarn("PlaybackStartDescriptorFeatureFlagFingerprint: feature flag 45665455 no longer exists in this app version. Skipping.")
             }
         }
 
