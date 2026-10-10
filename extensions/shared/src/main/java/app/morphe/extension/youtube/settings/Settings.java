@@ -716,7 +716,7 @@ public class Settings extends SharedYouTubeSettings {
             parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
     public static final StringSetting YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE = new StringSetting("revanced_yandex_transcribe_subtitles_language", "app", true,
             parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
-    public static final BooleanSetting GEMINI_HIGHLIGHT_WORDS = new BooleanSetting("revanced_gemini_highlight_words", FALSE,
+    public static final BooleanSetting GEMINI_HIGHLIGHT_WORDS = new BooleanSetting("revanced_gemini_highlight_words", TRUE,
             parentsAny(OVERLAY_BUTTON_GEMINI, SHORTS_CUSTOM_ACTIONS_GEMINI));
 
     // PreferenceScreen: Player - Seekbar
