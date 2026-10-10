@@ -53,6 +53,7 @@ import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.VideoState;
+import app.morphe.extension.youtube.utils.GeminiManager;
 
 /**
  * Orchestrator for the voice-over translation feature: reacts to video time/state changes,
@@ -192,6 +193,7 @@ public class GoogleVoiceOverTranslationPatch {
     static void suspendTranslation() {
         sessionEnabled = false;
         Settings.GOOGLE_VOT_SESSION_ENABLED.save(false);
+        GeminiManager.getInstance().hideVotSubtitles(currentVideoId);
         TranscriptTranslator.requestAbort();
         transcriptGeneration++;
         clearNativeStartupAudio();
@@ -208,6 +210,7 @@ public class GoogleVoiceOverTranslationPatch {
         TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
         if (segments.isEmpty() && !isLoading) loadTranscript(currentVideoId);
         checkStartupReady();
+        pushVotSubtitles();
         notifyStateChanged();
     }
 
@@ -332,6 +335,7 @@ public class GoogleVoiceOverTranslationPatch {
                 Logger.printDebug(() -> "Stopping TTS for player type: " + playerType);
                 stopTts();
                 if (playerType == PlayerType.NONE) {
+                    GeminiManager.getInstance().hideAllSubtitles();
                     currentVideoId = "";
                     segments = new ArrayList<>();
                     updateTranslationActiveCache();
@@ -376,6 +380,7 @@ public class GoogleVoiceOverTranslationPatch {
         lastSpokenIndex = -1;
         wasExplicitSeek = false;
         TranslationPlaybackController.metadataLoaded(videoId);
+        GeminiManager.getInstance().hideVotSubtitles(currentVideoId);
         if (videoId.equals(currentVideoId)) return;
         transcriptGeneration++;
         clearNativeStartupAudio();
@@ -539,6 +544,32 @@ public class GoogleVoiceOverTranslationPatch {
         return translationActiveCache;
     }
 
+    /**
+     * Snapshot of the current segments for the subtitle overlay. Segments still awaiting
+     * translation keep empty text so the overlay stays silent until their speech is ready,
+     * mirroring {@link #speak(TranscriptSegment, int)}.
+     */
+    private static List<TranscriptSegment> votSubtitleSnapshot(List<TranscriptSegment> source) {
+        List<TranscriptSegment> snapshot = new ArrayList<>(source.size());
+        for (int i = 0; i < source.size(); i++) {
+            TranscriptSegment seg = source.get(i);
+            String text = TranscriptTranslator.isAwaitingTranslationAt(i, seg.startMs, seg.text)
+                    ? "" : seg.text;
+            TranscriptSegment copy = new TranscriptSegment(seg.startMs, seg.endMs, text, seg.lang);
+            copy.playbackStartMs = seg.playbackStartMs;
+            copy.playbackEndMs = seg.playbackEndMs;
+            copy.durationMs = seg.durationMs;
+            snapshot.add(copy);
+        }
+        return snapshot;
+    }
+
+    private static void pushVotSubtitles() {
+        if (currentVideoId.isEmpty() || segments.isEmpty()) return;
+        GeminiManager.getInstance().showOrRefreshVotSubtitles(
+                currentVideoId, votSubtitleSnapshot(segments));
+    }
+
     /** @return Per-session enabled flag (toggleable via the player button) - not the global setting. */
     public static boolean isSessionEnabled() {
         return sessionEnabled;
@@ -553,6 +584,7 @@ public class GoogleVoiceOverTranslationPatch {
             Settings.GOOGLE_VOT_SESSION_ENABLED.save(sessionEnabled);
             if (!sessionEnabled) {
                 TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
+                GeminiManager.getInstance().hideVotSubtitles(currentVideoId);
                 clearNativeStartupAudio();
                 stopTts();
                 lastSpokenIndex = -1;
@@ -563,6 +595,7 @@ public class GoogleVoiceOverTranslationPatch {
                 }
                 TtsPrefetcher.updateVideo(currentVideoId, segments);
                 checkStartupReady();
+                pushVotSubtitles();
             }
             notifyStateChanged();
         }
@@ -580,6 +613,7 @@ public class GoogleVoiceOverTranslationPatch {
         TtsPrefetcher.updateVideo(currentVideoId, segments);
         TtsPrefetcher.updateTime(Math.max(0, VideoInformation.getVideoTime()));
         checkStartupReady();
+        pushVotSubtitles();
         notifyStateChanged();
     }
 
@@ -683,6 +717,7 @@ public class GoogleVoiceOverTranslationPatch {
                                 updateTranslationActiveCache();
                                 TtsPrefetcher.updateVideo(videoId, segments);
                                 checkStartupReady();
+                                pushVotSubtitles();
                             }
                         },
                         () -> {

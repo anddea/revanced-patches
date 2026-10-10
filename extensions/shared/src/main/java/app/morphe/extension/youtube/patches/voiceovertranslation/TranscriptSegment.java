@@ -9,6 +9,7 @@ package app.morphe.extension.youtube.patches.voiceovertranslation;
 
 import androidx.annotation.NonNull;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -33,6 +34,13 @@ public final class TranscriptSegment {
     public volatile long playbackEndMs;
     /** Actual TTS audio duration in ms; -1 until the audio has been synthesized. */
     public volatile long durationMs;
+
+    /**
+     * Word-level timings from the Yandex subtitles API ({@code tokens} array).
+     * Null (or empty) means words are interpolated proportionally by
+     * {@link VotWordHighlighter}.
+     */
+    public volatile List<VotWordHighlighter.Word> timedWords;
 
     public TranscriptSegment(long startMs, long endMs, String text, String lang) {
         this.startMs = startMs;
