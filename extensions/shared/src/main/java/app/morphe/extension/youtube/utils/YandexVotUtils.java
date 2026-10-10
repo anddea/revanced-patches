@@ -59,6 +59,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -72,10 +73,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.patches.voiceovertranslation.TranscriptSegment;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotProtobuf;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotProtobuf.SubtitleTrack;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotProtobuf.SubtitlesResponse;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VotWordHighlighter;
 import app.morphe.extension.youtube.patches.voiceovertranslation.VotAudioUploadState;
 
 import static app.morphe.extension.youtube.patches.voiceovertranslation.VotApiClient.STATUS_FAILED;
@@ -158,11 +161,12 @@ public class YandexVotUtils {
             private final AtomicBoolean finalCalled = new AtomicBoolean(false);
 
             @Override
-            public void onFinalSuccess(TreeMap<Long, Pair<Long, String>> parsedSubtitles) {
+            public void onFinalSuccess(TreeMap<Long, Pair<Long, String>> parsedSubtitles,
+                                       @Nullable List<TranscriptSegment> timedLines) {
                 if (finalCalled.compareAndSet(false, true)) {
                     Logger.printDebug(() -> "VOT: Final success for " + videoUrl + ". Releasing lock.");
                     try {
-                        callback.onFinalSuccess(parsedSubtitles);
+                        callback.onFinalSuccess(parsedSubtitles, timedLines);
                     } finally {
                         cleanupWorkflow(videoUrl);
                     }
@@ -391,6 +395,101 @@ public class YandexVotUtils {
     }
 
     /**
+     * Blocking fetch of the translated subtitle lines with Yandex word timings
+     * (the {@code tokens} array the original extension highlights from).
+     * Must be called off the main thread. Returns null when unavailable.
+     */
+    @Nullable
+    public static List<TranscriptSegment> fetchTimedLines(String videoUrl, String targetLang) {
+        try {
+            SubtitlesResponse tracks = getFinalSubtitleTracks(videoUrl);
+            if (tracks == null || tracks.waiting || tracks.subtitles.isEmpty()) return null;
+            SubtitleTrack chosen = findBestSubtitleForLanguage(tracks.subtitles, targetLang);
+            if (chosen == null) return null;
+            String url = determineSubtitleUrl(chosen, targetLang);
+            if (TextUtils.isEmpty(url)) return null;
+            Request request = new Request.Builder().url(url).get().build();
+            try (Response response = httpClient.newCall(request).execute()) {
+                ResponseBody body = response.body();
+                if (!response.isSuccessful() || body == null) return null;
+                List<TranscriptSegment> lines = parseYandexTimedLines(body.string());
+                return lines.isEmpty() ? null : lines;
+            }
+        } catch (Exception e) {
+            Logger.printDebug(() -> "VOT: timed lines fetch failed", e);
+            return null;
+        }
+    }
+
+    /**
+     * Parses Yandex subtitle JSON into timed lines, preserving per-word token timings
+     * for highlighting. Same entry validation as {@link #parseYandexJsonSubtitles}.
+     */
+    static List<TranscriptSegment> parseYandexTimedLines(String jsonContent) throws JSONException {
+        List<TranscriptSegment> lines = new ArrayList<>();
+        if (TextUtils.isEmpty(jsonContent)) return lines;
+
+        JSONArray subsArray = null;
+        try {
+            JSONObject root = new JSONObject(jsonContent);
+            if (root.has("subtitles")) {
+                subsArray = root.getJSONArray("subtitles");
+            }
+        } catch (JSONException e) {
+            if (jsonContent.trim().startsWith("[")) {
+                subsArray = new JSONArray(jsonContent);
+            }
+        }
+        if (subsArray == null) return lines;
+
+        for (int i = 0; i < subsArray.length(); i++) {
+            try {
+                JSONObject subObj = subsArray.getJSONObject(i);
+                double startMsDouble = subObj.optDouble("startMs", -1.0);
+                double endMsDouble = subObj.optDouble("endMs", -1.0);
+                double durationMsDouble = endMsDouble < 0 ? subObj.optDouble("durationMs", -1.0) : -1.0;
+                if (startMsDouble < 0) continue;
+
+                long startMs = Math.round(startMsDouble);
+                long endMs = endMsDouble >= 0 ? Math.round(endMsDouble) : startMs + Math.round(durationMsDouble);
+                if (endMs <= startMs) continue;
+
+                String text = subObj.optString("text", "").trim();
+                TranscriptSegment line = new TranscriptSegment(startMs, endMs, text, "");
+                line.timedWords = parseYandexTokens(subObj);
+                lines.add(line);
+            } catch (JSONException e) {
+                int finalI = i;
+                Logger.printException(() -> "VOT: Error parsing timed subtitle entry #" + finalI, e);
+            }
+        }
+        return lines;
+    }
+
+    /**
+     * Reads the {@code tokens} array ({@code text}/{@code startMs} per token, same keys
+     * as the original extension). Returns null when tokens are absent or unusable so the
+     * caller falls back to proportional interpolation.
+     */
+    @Nullable
+    private static List<VotWordHighlighter.Word> parseYandexTokens(JSONObject subObj) {
+        JSONArray tokens = subObj.optJSONArray("tokens");
+        if (tokens == null || tokens.length() == 0) return null;
+        List<VotWordHighlighter.Word> words = new ArrayList<>(tokens.length());
+        for (int i = 0; i < tokens.length(); i++) {
+            JSONObject token = tokens.optJSONObject(i);
+            if (token == null) continue;
+            String text = token.optString("text", "");
+            if (text.trim().isEmpty()) continue;
+            if (!token.has("startMs")) return null;
+            double start = token.optDouble("startMs", -1.0);
+            if (start < 0) return null;
+            words.add(new VotWordHighlighter.Word(text, Math.round(start)));
+        }
+        return words.isEmpty() ? null : Collections.unmodifiableList(words);
+    }
+
+    /**
      * Calculates the polling delay based on remaining time.
      *
      * @param remainingTimeSecs The estimated remaining time from the API response (in seconds).
@@ -562,8 +661,16 @@ public class YandexVotUtils {
                             postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_subs_parsing_failed")));
                             return;
                         }
+                        List<TranscriptSegment> timedLines = null;
+                        try {
+                            timedLines = parseYandexTimedLines(subtitleText);
+                            if (timedLines.isEmpty()) timedLines = null;
+                        } catch (Exception e) {
+                            Logger.printDebug(() -> "VOT: timed lines parse failed, highlighting falls back", e);
+                        }
+                        final List<TranscriptSegment> timedFinal = timedLines;
                         Logger.printInfo(() -> "VOT: Parsed " + parsedData.size() + " subtitle entries for " + originalTargetLang);
-                        postToMainThread(() -> callback.onFinalSuccess(parsedData));
+                        postToMainThread(() -> callback.onFinalSuccess(parsedData, timedFinal));
                     }
                 } catch (Exception e) {
                     Logger.printException(() -> "VOT: Error processing subtitle content: " + url, e);
@@ -982,7 +1089,8 @@ public class YandexVotUtils {
      * Callback interface for the Yandex subtitle workflow.
      */
     public interface SubtitleWorkflowCallback {
-        void onFinalSuccess(TreeMap<Long, Pair<Long, String>> parsedSubtitles);
+        void onFinalSuccess(TreeMap<Long, Pair<Long, String>> parsedSubtitles,
+                            @Nullable List<TranscriptSegment> timedLines);
 
         void onIntermediateSuccess(String rawIntermediateJson, String intermediateLang);
 

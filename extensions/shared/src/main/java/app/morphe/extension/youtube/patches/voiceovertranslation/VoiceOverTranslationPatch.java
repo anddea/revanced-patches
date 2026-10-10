@@ -60,6 +60,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
@@ -70,6 +71,8 @@ import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.shared.VideoState;
+import app.morphe.extension.youtube.utils.GeminiManager;
+import app.morphe.extension.youtube.utils.YandexVotUtils;
 
 @SuppressWarnings("unused")
 public class VoiceOverTranslationPatch {
@@ -87,6 +90,12 @@ public class VoiceOverTranslationPatch {
     private static final AtomicBoolean isTranslating = new AtomicBoolean(false);
     private static final AtomicLong translationRequestGeneration = new AtomicLong();
     private static final AtomicReference<String> currentTranslatedVideoId = new AtomicReference<>("");
+    /**
+     * Target language pinned when translation is requested. A live settings read would
+     * desync subtitles from the audio if the user changes the language mid-flight.
+     */
+    private static volatile String highlightTargetLang = "";
+    private static final AtomicReference<String> highlightVideoId = new AtomicReference<>("");
     private static volatile long translationWaitStartedAtMs = 0L;
     private static volatile long translationWaitDurationMs = 0L;
     private static volatile boolean isPaused = false;
@@ -219,6 +228,7 @@ public class VoiceOverTranslationPatch {
         final String videoId = pendingVideoId;
         final String videoTitle = pendingVideoTitle;
         final double durationSeconds = pendingVideoLength / 1000.0;
+        highlightTargetLang = targetLang;
         if (!startTranslationRequest(videoId, videoTitle, sourceLang, targetLang, durationSeconds, true)) return;
         showToastShort(str("revanced_vot_started"));
     }
@@ -416,6 +426,7 @@ public class VoiceOverTranslationPatch {
         invalidateTranslationRequest();
         stopAudioPlayback();
         double durationSeconds = pendingVideoLength / 1000.0;
+        highlightTargetLang = targetLang;
         startTranslationRequest(videoId, pendingVideoTitle, sourceLang, targetLang, durationSeconds, true);
     }
 
@@ -680,6 +691,7 @@ public class VoiceOverTranslationPatch {
     private static void startAudioPlayback(long requestId, String videoId, String audioUrl, String fallbackUrl) {
         if (!isCurrentTranslationRequest(requestId, videoId)) return;
         stopAudioPlayback();
+        refreshHighlightLines(videoId);
         mainHandler.removeCallbacks(proxyPrepareTimeoutRunnable);
         if (audioUrl.contains("/audio-proxy/")) {
             Context ctx = RootView.getContext();
@@ -921,9 +933,44 @@ public class VoiceOverTranslationPatch {
         }
     }
 
+    /**
+     * Loads Yandex subtitle lines with word timings for highlighting, in the background.
+     * The translated audio carries no timings, so the token array from the subtitle file
+     * is the only real source - same as the original extension.
+     */
+    private static void refreshHighlightLines(String videoId) {
+        highlightVideoId.set("");
+        if (!Settings.VOT_ENABLED.get()) return;
+        if (videoId == null || videoId.isEmpty()) return;
+        final String targetLang = highlightTargetLang;
+        if (targetLang == null || targetLang.isEmpty()) return;
+        final String url = "https://youtu.be/" + videoId;
+        Logger.printInfo(() -> "VOT loading timed lines for highlight: video=" + videoId
+                + " lang=" + targetLang);
+        Utils.runOnBackgroundThread(() -> {
+            List<TranscriptSegment> lines = YandexVotUtils.fetchTimedLines(url, targetLang);
+            if (lines == null) {
+                Logger.printInfo(() -> "VOT no timed lines for highlight: video=" + videoId);
+                return;
+            }
+            if (!videoId.equals(currentTranslatedVideoId.get())) return;
+            int words = 0;
+            for (TranscriptSegment line : lines) {
+                if (line.timedWords != null) words += line.timedWords.size();
+            }
+            final int lineCount = lines.size();
+            final int wordCount = words;
+            Logger.printInfo(() -> "VOT timed lines ready: video=" + videoId
+                    + " lines=" + lineCount + " timedWords=" + wordCount);
+            highlightVideoId.set(videoId);
+            GeminiManager.getInstance().showOrRefreshVotSubtitles(videoId, lines);
+        });
+    }
+
     public static void stopAudioPlayback() {
         mainHandler.removeCallbacks(pauseCheckRunnable);
         mainHandler.removeCallbacks(proxyPrepareTimeoutRunnable);
+        GeminiManager.getInstance().hideVotSubtitles(highlightVideoId.getAndSet(""));
         boolean wasActive = isTranslationActive();
         deleteTempProxyFile();
         MediaPlayer mp = mediaPlayer.getAndSet(null);
