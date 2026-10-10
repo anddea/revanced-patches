@@ -50,6 +50,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.SystemClock;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -91,6 +92,9 @@ import app.morphe.extension.shared.settings.AppLanguage;
 import app.morphe.extension.shared.ui.SheetBottomDialog;
 import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.youtube.patches.voiceovertranslation.TranscriptSegment;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VotHighlightTracker;
+import app.morphe.extension.youtube.patches.voiceovertranslation.VotWordHighlighter;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.VideoInformation;
 
@@ -124,14 +128,20 @@ public final class GeminiManager {
     private static final Pattern VIDEO_ID_PATTERN = Pattern.compile("(?<=v=|/)([0-9A-Za-z_-]{11})(?![0-9A-Za-z_-])");
 
     /**
-     * Interval for updating subtitles in milliseconds.
+     * Interval for updating subtitles in milliseconds. Kept near the video-time hook
+     * cadence (~100ms) so word highlighting does not visibly trail the speech.
      */
-    private static final long SUBTITLE_UPDATE_INTERVAL_MS = 250;
+    private static final long SUBTITLE_UPDATE_INTERVAL_MS = 100;
 
     /**
      * Placeholder text for empty subtitles.
      */
     private static final String EMPTY_SUBTITLE_PLACEHOLDER = "...";
+
+    /**
+     * Passed-word color, same as the original extension's --vot-subtitles-passed-color.
+     */
+    private static final int HIGHLIGHT_PASSED_COLOR = android.graphics.Color.rgb(139, 180, 245);
 
     /**
      * Key for using app language in Yandex settings.
@@ -305,6 +315,50 @@ public final class GeminiManager {
      * Cache for parsed transcriptions.
      */
     private final Map<String, TreeMap<Long, Pair<Long, String>>> transcriptionCache = new ConcurrentHashMap<>();
+
+    /**
+     * Cache for timed subtitle lines used by word highlighting. Filled from Yandex token
+     * timings when available, otherwise converted from {@link #transcriptionCache} entries
+     * (words are then interpolated proportionally).
+     */
+    private final Map<String, List<TranscriptSegment>> transcriptionTimedCache = new ConcurrentHashMap<>();
+
+    /**
+     * Video ID whose overlay was opened by a VOT dub flow (rather than transcription).
+     * Null when the overlay is transcription-owned or hidden.
+     */
+    @Nullable
+    private volatile String votOverlayVideoId = null;
+
+    /**
+     * Last observed video-time hook value and the monotonic clock at that moment.
+     * Backs {@link #estimatedVideoTimeMs()}.
+     */
+    private long lastHookVideoTimeMs = -1;
+    private long lastHookElapsedMs = 0;
+
+    /**
+     * Current playback position estimate. The raw hook value lags behind reality, which
+     * visibly delays word highlighting behind the heard speech; extrapolating from the
+     * last hook arrival removes the inter-tick component of that lag.
+     * Must be called on the Main Thread (reads player state).
+     */
+    private long estimatedVideoTimeMs() {
+        long hook = VideoInformation.getVideoTime();
+        long now = SystemClock.elapsedRealtime();
+        if (hook != lastHookVideoTimeMs) {
+            lastHookVideoTimeMs = hook;
+            lastHookElapsedMs = now;
+        }
+        boolean playing;
+        try {
+            playing = VideoInformation.isPlayerPlaying();
+        } catch (Exception e) {
+            playing = false;
+        }
+        return VotWordHighlighter.extrapolateVideoTime(
+                hook, lastHookElapsedMs, now, VideoInformation.getPlaybackSpeed(), playing);
+    }
 
     /**
      * Cache for raw transcriptions.
@@ -684,14 +738,15 @@ public final class GeminiManager {
                     }
 
                     @Override
-                    public void onFinalSuccess(TreeMap<Long, Pair<Long, String>> parsedData) {
+                    public void onFinalSuccess(TreeMap<Long, Pair<Long, String>> parsedData,
+                                               @Nullable List<TranscriptSegment> timedLines) {
                         ensureMainThread(() -> {
                             if (!activeTasks.containsKey(taskKey)) {
                                 Logger.printDebug(() -> "Yandex final success ignored - task was cancelled: " + taskKey);
                                 return;
                             }
                             activeTasks.remove(taskKey);
-                            handleYandexDirectSuccess(videoUrl, parsedData);
+                            handleYandexDirectSuccess(videoUrl, parsedData, timedLines);
                         });
                     }
 
@@ -781,6 +836,7 @@ public final class GeminiManager {
                 }
 
                 transcriptionCache.put(videoId, finalParsedData);
+                transcriptionTimedCache.put(videoId, timedSegmentsFromMap(finalParsedData));
                 int time = calculateElapsedTimeSeconds(videoId, OperationType.TRANSCRIBE);
                 taskStartTimes.remove(taskKey);
                 transcriptionTimeCache.put(videoId, Math.max(time, 0));
@@ -844,7 +900,8 @@ public final class GeminiManager {
      * @param parsedData The successfully parsed subtitle data in the final language.
      */
     @MainThread
-    private void handleYandexDirectSuccess(@NonNull String videoUrl, @Nullable TreeMap<Long, Pair<Long, String>> parsedData) {
+    private void handleYandexDirectSuccess(@NonNull String videoUrl, @Nullable TreeMap<Long, Pair<Long, String>> parsedData,
+                                           @Nullable List<TranscriptSegment> timedLines) {
         ensureMainThread(() -> {
             String videoId = getVideoIdFromUrl(videoUrl);
 
@@ -863,6 +920,11 @@ public final class GeminiManager {
             Logger.printInfo(() -> "Yandex Workflow SUCCEEDED directly for " + videoId);
 
             transcriptionCache.put(videoId, parsedData);
+            if (timedLines != null && !timedLines.isEmpty()) {
+                transcriptionTimedCache.put(videoId, timedLines);
+            } else {
+                transcriptionTimedCache.put(videoId, timedSegmentsFromMap(parsedData));
+            }
             int time = calculateElapsedTimeSeconds(videoId, OperationType.TRANSCRIBE);
             taskStartTimes.remove(getTaskKey(videoId, OperationType.TRANSCRIBE));
             transcriptionTimeCache.put(videoId, Math.max(time, 0));
@@ -1229,6 +1291,14 @@ public final class GeminiManager {
     }
 
     /**
+     * Hides any subtitle overlay (transcription- or VOT-owned), e.g. when the player closes.
+     * Safe to call when nothing is showing.
+     */
+    public void hideAllSubtitles() {
+        ensureMainThread(this::hideTranscriptionOverlayInternal);
+    }
+
+    /**
      * Hides the transcription overlay.
      * Must be called on the Main Thread.
      */
@@ -1236,6 +1306,7 @@ public final class GeminiManager {
     private void hideTranscriptionOverlayInternal() {
         ensureMainThread(() -> {
             stopSubtitleUpdaterInternal();
+            votOverlayVideoId = null;
 
             SubtitleOverlay overlayInstance = (subtitleOverlayRef != null) ? subtitleOverlayRef.get() : null;
 
@@ -1961,6 +2032,181 @@ public final class GeminiManager {
      * @param videoUrl The video URL.
      * @return True if displayed successfully, false otherwise.
      */
+    /**
+     * Renders a highlight snapshot: passed words in {@link #HIGHLIGHT_PASSED_COLOR},
+     * the rest keeps the overlay's own text color.
+     */
+    private static SpannableStringBuilder buildHighlightedText(VotWordHighlighter.Highlight highlight) {
+        SpannableStringBuilder sb = new SpannableStringBuilder();
+        List<VotWordHighlighter.Word> words = highlight.words();
+        int passedEnd = 0;
+        for (int i = 0; i < words.size(); i++) {
+            if (i > 0) sb.append(' ');
+            sb.append(words.get(i).text());
+            if (i < highlight.passedWords()) passedEnd = sb.length();
+        }
+        if (passedEnd > 0) {
+            sb.setSpan(new android.text.style.ForegroundColorSpan(HIGHLIGHT_PASSED_COLOR),
+                    0, passedEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        return sb;
+    }
+
+    /**
+     * Converts parsed transcription entries to timed lines for highlighting.
+     * Without token timings the words are interpolated proportionally at render time.
+     */
+    private static List<TranscriptSegment> timedSegmentsFromMap(
+            TreeMap<Long, Pair<Long, String>> data) {
+        List<TranscriptSegment> lines = new ArrayList<>(data.size());
+        for (Map.Entry<Long, Pair<Long, String>> entry : data.entrySet()) {
+            Pair<Long, String> value = entry.getValue();
+            if (value == null) continue;
+            String text = value.second != null ? value.second : "";
+            lines.add(new TranscriptSegment(entry.getKey(), value.first, text, ""));
+        }
+        return lines;
+    }
+
+    /**
+     * Shows or refreshes timed subtitle lines pushed by a VOT dub flow (voice translation).
+     * Takes ownership only when the overlay is hidden; a visible transcription overlay is
+     * never stolen. Refresh path (already owned) just swaps the cached lines.
+     */
+    public void showOrRefreshVotSubtitles(@NonNull String videoId, @NonNull List<TranscriptSegment> lines) {
+        ensureMainThread(() -> {
+            if (videoId.equals(votOverlayVideoId)) {
+                transcriptionTimedCache.put(videoId, new ArrayList<>(lines));
+                return;
+            }
+            if (lines.isEmpty()) return;
+            if (isSubtitleOverlayShowing) return;
+            if (!videoId.equals(VideoInformation.getVideoId())) return;
+            transcriptionTimedCache.put(videoId, new ArrayList<>(lines));
+            displayTimedOverlayInternal(videoId);
+            votOverlayVideoId = videoId;
+        });
+    }
+
+    /**
+     * Hides a VOT-owned overlay. Never touches a transcription-owned one.
+     */
+    public void hideVotSubtitles(@NonNull String videoId) {
+        ensureMainThread(() -> {
+            if (!videoId.equals(votOverlayVideoId)) return;
+            votOverlayVideoId = null;
+            transcriptionTimedCache.remove(videoId);
+            hideTranscriptionOverlayInternal();
+        });
+    }
+
+    /**
+     * Overlay text for timed lines at a video timestamp: highlighted words when the
+     * universal highlight switch is on, plain line text otherwise, placeholder when
+     * nothing is audible.
+     */
+    private static CharSequence overlayTextFor(List<TranscriptSegment> lines, String videoId, long timeMs) {
+        VotWordHighlighter.Highlight highlight = VotWordHighlighter.highlightAt(lines, timeMs);
+        if (highlight == null) return EMPTY_SUBTITLE_PLACEHOLDER;
+        return renderHighlight(highlight);
+    }
+
+    private static CharSequence renderHighlight(VotWordHighlighter.Highlight highlight) {
+        return Settings.GEMINI_HIGHLIGHT_WORDS.get()
+                ? buildHighlightedText(highlight)
+                : VotWordHighlighter.plainText(highlight);
+    }
+
+    /**
+     * Displays the overlay for timed lines without a parsed transcription map
+     * (VOT dub flows). Mirrors {@link #displayTranscriptionOverlayInternal(String)}.
+     */
+    @MainThread
+    private void displayTimedOverlayInternal(String videoId) {
+        List<TranscriptSegment> timed = transcriptionTimedCache.get(videoId);
+        if (timed == null || timed.isEmpty()) return;
+
+        hideTranscriptionOverlayInternal();
+
+        try {
+            SubtitleOverlay overlay = new SubtitleOverlay();
+
+            long currentTime = VideoInformation.getVideoTime();
+            overlay.updateText(overlayTextFor(timed, videoId, currentTime));
+
+            overlay.show();
+            subtitleOverlayRef = new WeakReference<>(overlay);
+
+            isSubtitleOverlayShowing = true;
+            Logger.printInfo(() -> "VOT subtitle overlay displayed successfully.");
+
+            startHighlightUpdaterInternal(timed, videoId);
+        } catch (Exception e) {
+            Logger.printException(() -> "CRITICAL - Failed during VOT subtitle overlay creation or show()", e);
+            hideTranscriptionOverlayInternal();
+        }
+    }
+
+    /**
+     * Starts the periodic runnable that re-renders the overlay with word highlighting.
+     * Must be called on the Main Thread.
+     */
+    @MainThread
+    private void startHighlightUpdaterInternal(List<TranscriptSegment> lines, String videoId) {
+        stopSubtitleUpdaterInternal();
+
+        subtitleUpdateRunnable = new Runnable() {
+            private String lastHighlightKey = null;
+            private final VotHighlightTracker tracker = new VotHighlightTracker();
+
+            @Override
+            public void run() {
+                SubtitleOverlay currentOverlay = subtitleOverlayRef.get();
+
+                if (!isSubtitleOverlayShowing || currentOverlay == null) {
+                    subtitleUpdateRunnable = null;
+                    return;
+                }
+
+                long currentTime = estimatedVideoTimeMs();
+                if (currentTime < 0) {
+                    if (isSubtitleOverlayShowing) {
+                        subtitleUpdateHandler.postDelayed(this, SUBTITLE_UPDATE_INTERVAL_MS);
+                    } else {
+                        subtitleUpdateRunnable = null;
+                    }
+                    return;
+                }
+
+                VotWordHighlighter.Highlight highlight =
+                        tracker.next(videoId, VotWordHighlighter.highlightAt(lines, currentTime), currentTime);
+                String key = highlight == null
+                        ? null : VotWordHighlighter.renderKey(highlight, videoId)
+                        + '|' + Settings.GEMINI_HIGHLIGHT_WORDS.get();
+
+                if (!Objects.equals(key, lastHighlightKey)) {
+                    try {
+                        currentOverlay.updateText(highlight == null
+                                ? EMPTY_SUBTITLE_PLACEHOLDER
+                                : renderHighlight(highlight));
+                        lastHighlightKey = key;
+                    } catch (Exception e) {
+                        hideTranscriptionOverlayInternal();
+                        return;
+                    }
+                }
+
+                if (isSubtitleOverlayShowing) {
+                    subtitleUpdateHandler.postDelayed(this, SUBTITLE_UPDATE_INTERVAL_MS);
+                } else {
+                    subtitleUpdateRunnable = null;
+                }
+            }
+        };
+
+        subtitleUpdateHandler.post(subtitleUpdateRunnable);
+    }
+
     @MainThread
     private boolean displayTranscriptionOverlayInternal(String videoUrl) {
         Logger.printDebug(() -> "Attempting display transcription overlay...");
@@ -1988,7 +2234,12 @@ public final class GeminiManager {
             isSubtitleOverlayShowing = true;
             Logger.printInfo(() -> "Subtitle overlay displayed successfully.");
 
-            startSubtitleUpdaterInternal(data);
+            List<TranscriptSegment> timed = transcriptionTimedCache.get(videoId);
+            if (timed != null && !timed.isEmpty()) {
+                startHighlightUpdaterInternal(timed, videoId);
+            } else {
+                startSubtitleUpdaterInternal(data);
+            }
             return true;
         } catch (Exception e) {
             Logger.printException(() -> "CRITICAL - Failed during SubtitleOverlay creation or show()", e);
@@ -2030,7 +2281,7 @@ public final class GeminiManager {
                     return;
                 }
 
-                long currentTime = VideoInformation.getVideoTime();
+                long currentTime = estimatedVideoTimeMs();
                 if (currentTime < 0) {
                     if (isSubtitleOverlayShowing) {
                         subtitleUpdateHandler.postDelayed(this, SUBTITLE_UPDATE_INTERVAL_MS);

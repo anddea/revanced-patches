@@ -16,6 +16,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -492,9 +493,9 @@ public class SubtitleOverlay {
     /**
      * Updates the text displayed in the subtitle overlay.
      *
-     * @param text The text to display, or null/empty to hide the TextView.
+     * @param text The text to display (plain or highlighted), or null/empty to hide the TextView.
      */
-    public void updateText(@Nullable final String text) {
+    public void updateText(@Nullable final CharSequence text) {
         mainHandler.post(() -> {
             if (!isShowing || subtitleTextView == null || overlayView == null) return;
 
@@ -502,7 +503,7 @@ public class SubtitleOverlay {
             int oldHeight = overlayView.getHeight();
 
             // Update text and visibility
-            if (text == null || text.isEmpty()) {
+            if (TextUtils.isEmpty(text)) {
                 subtitleTextView.setVisibility(View.INVISIBLE);
             } else {
                 subtitleTextView.setText(text);
