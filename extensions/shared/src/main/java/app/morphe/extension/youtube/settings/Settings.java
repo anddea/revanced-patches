@@ -941,6 +941,7 @@ public class Settings extends SharedYouTubeSettings {
             true, new SliderConfig(1, 1_000, 1, ""), new SwipeActionAvailability(SwipeZoneAction.VOLUME));
     public static final FloatSetting SWIPE_BRIGHTNESS_VALUE = new FloatSetting("revanced_swipe_brightness_value", -1f);
 
+    public static final BooleanSetting VOLUME_BOOST = new BooleanSetting("morphe_volume_boost", FALSE, new SwipeActionAvailability(SwipeZoneAction.VOLUME));
     public static final IntegerSetting SWIPE_VOLUME_DISTANCE = new IntegerSetting("revanced_swipe_volume_distance", 100,
             true, new SliderConfig(1, 1_000, 1, "px"), new SwipeActionAvailability(SwipeZoneAction.VOLUME));
     public static final IntegerSetting SWIPE_BRIGHTNESS_DISTANCE = new IntegerSetting("revanced_swipe_brightness_distance", 100,

@@ -961,8 +961,12 @@
 
         <app.morphe.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference android:title="@string/revanced_swipe_overlay_progress_volume_color_title" android:key="revanced_swipe_overlay_progress_volume_color" android:summary="@string/revanced_swipe_overlay_progress_volume_color_summary" android:inputType="textCapCharacters" />
         <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_swipe_volume_distance_title" android:key="revanced_swipe_volume_distance" android:summary="@string/revanced_swipe_volume_distance_summary" android:inputType="number" />
-        <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_swipe_volume_sensitivity_title" android:key="revanced_swipe_volumes_sensitivity" android:summary="@string/revanced_swipe_volume_sensitivity_summary" android:inputType="number" />
+        <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_swipe_volume_sensitivity_title" android:key="revanced_swipe_volumes_sensitivity" android:summary="@string/revanced_swipe_volume_sensitivity_summary" android:inputType="number" />PREFERENCE_SCREEN: SWIPE_CONTROLS -->
 
+        <!-- SETTINGS: VOLUME_BOOST
+        <SwitchPreference android:title="@string/morphe_volume_boost_title" android:key="morphe_volume_boost" android:summary="@string/morphe_volume_boost_summary" />SETTINGS: VOLUME_BOOST -->
+
+        <!-- PREFERENCE_SCREEN: SWIPE_CONTROLS
         <app.morphe.extension.shared.settings.preference.ColorPickerPreference android:title="@string/revanced_swipe_overlay_progress_speed_color_title" android:key="revanced_swipe_overlay_progress_speed_color" android:summary="@string/revanced_swipe_overlay_progress_speed_color_summary" />
         <app.morphe.extension.shared.settings.preference.SliderPreference android:title="@string/revanced_swipe_speed_distance_title" android:key="revanced_swipe_speed_distance" android:summary="@string/revanced_swipe_speed_distance_summary" android:inputType="number" />
 
