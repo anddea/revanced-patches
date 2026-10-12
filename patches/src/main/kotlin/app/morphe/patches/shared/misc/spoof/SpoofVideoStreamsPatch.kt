@@ -93,6 +93,7 @@ internal fun spoofVideoStreamsPatch(
     hookAccountIdentity: BytecodePatchBuilder.() -> Boolean = { false },
     restoreMissingCuepointMethod: BytecodePatchBuilder.() -> Boolean = { false },
     block: BytecodePatchBuilder.() -> Unit,
+    applicationInitFingerprint: Fingerprint? = null, // modified by lavinhoque33, 2026-10-11
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = SPOOF_VIDEO_STREAMS.title,
@@ -112,6 +113,14 @@ internal fun spoofVideoStreamsPatch(
             """
                 invoke-static { }, $extensionClass->setClientOrderToUse()V   
             """
+        )
+
+        // modified by lavinhoque33, 2026-10-11: Also set the client order on Application init (Morphe a60a3b6),
+        // so playback started without the main activity (widgets, etc.) uses the right clients.
+        // Insert after the shared extension hook that sets the extension context at index 0.
+        applicationInitFingerprint?.method?.addInstruction(
+            1,
+            "invoke-static { }, $extensionClass->setClientOrderToUse()V"
         )
 
         setExtensionIsPatchIncluded(EXTENSION_CLASS)

@@ -12,7 +12,7 @@ public class SpoofVideoStreamsPatch {
     /** Default YouTube fallback order shared by playback spoofing and VOT audio downloads. */
     public static final List<ClientType> AVAILABLE_CLIENTS = List.of(
             ClientType.TV_SIMPLY,
-            ClientType.VISIONOS_1_02,
+            // modified by lavinhoque33, 2026-10-11: visionOS removed from automatic fallback (Morphe 1438ba62).
             ClientType.ANDROID_CREATOR
             // If not signed in to Android VR, there may be playback issues.
             // Only use it if the user has selected it.
@@ -52,6 +52,8 @@ public class SpoofVideoStreamsPatch {
             }
         }
 
+        // modified by lavinhoque33, 2026-10-11: Pass Force AVC so VP9 formats are stripped (Morphe bb3e3ff0).
+        app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.setForceAVC(Settings.FORCE_AVC_CODEC.get());
         app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.setClientsToUse(
                 AVAILABLE_CLIENTS, client);
     }
