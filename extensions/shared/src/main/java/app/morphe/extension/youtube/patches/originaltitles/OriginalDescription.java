@@ -1,6 +1,7 @@
 /*
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches/pull/3384
+ * https://github.com/MorpheApp/morphe-patches/pull/3447
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
@@ -33,13 +34,19 @@ import app.morphe.extension.youtube.patches.utils.ProtoNode;
 final class OriginalDescription {
 
     /**
-     * Field numbers from the root message to the segments, as of YouTube 21.39.
+     * Field of the segments in the message that lists them. The path to that message
+     * depends on the app version, so the message is found by the segments it includes.
      */
-    private static final int[] SEGMENT_PATH = {1597, 1};
+    private static final int SEGMENT_FIELD = 1;
     private static final int SEGMENT_TEXT_FIELD = 1;
-    private static final int TEXT_CONTENT_FIELD = 1;
+    static final int TEXT_CONTENT_FIELD = 1;
     private static final int RANGE_START_FIELD = 1;
     private static final int RANGE_LENGTH_FIELD = 2;
+
+    /**
+     * State id of the description body of the description element.
+     */
+    private static final String BODY_STATE_ID = "structured-description-body-state-id";
 
     private OriginalDescription() {
     }
@@ -66,10 +73,34 @@ final class OriginalDescription {
      * @return If the description was replaced.
      */
     static boolean restore(List<ProtoNode> root, String originalDescription) {
-        List<ProtoNode> segments = ProtoNode.findMessages(root, SEGMENT_PATH);
+        // The segments are listed by the description body, which is marked with its state id.
+        List<ProtoNode> segments = findBodySegments(root);
+        if (segments == null) {
+            Logger.printDebug(() -> "Description body not found");
+            return false;
+        }
         List<String> originalTexts = splitAtAttachments(segments, originalDescription);
         if (originalTexts == null) {
-            return false;
+            // The shown description is not a translation of the original description,
+            // such as a description localized by the uploader with other attachments.
+            // The original description replaces the first text, and the other segments are removed.
+            ProtoNode firstText = null;
+            for (ProtoNode segment : segments) {
+                ProtoNode text = ProtoNode.field(segment.children, SEGMENT_TEXT_FIELD);
+                if (firstText == null && text != null && text.children != null) {
+                    firstText = text;
+                }
+            }
+            if (firstText == null || !restoreText(firstText.children, originalDescription)) {
+                return false;
+            }
+            for (ProtoNode segment : segments) {
+                if (firstText.getParent() != segment) {
+                    segment.remove();
+                }
+            }
+            Logger.printDebug(() -> "Restored description that does not match the original attachments");
+            return true;
         }
 
         boolean modified = false;
@@ -89,6 +120,65 @@ final class OriginalDescription {
             Logger.printDebug(() -> "Restored description");
         }
         return modified;
+    }
+
+    /**
+     * The description body is the message whose state id is {@link #BODY_STATE_ID}, and its segments
+     * are its fields. Other messages of the element can include the state id, such as the state
+     * of the element, but do not have segments with a text.
+     *
+     * @return The segments of the description body, or null if the body is not found.
+     */
+    @Nullable
+    private static List<ProtoNode> findBodySegments(List<ProtoNode> message) {
+        boolean isBody = false;
+        List<ProtoNode> segments = new ArrayList<>();
+        boolean hasText = false;
+        for (ProtoNode field : message) {
+            if (field.isText() && BODY_STATE_ID.equals(field.getText())) {
+                isBody = true;
+            } else if (field.getFieldNumber() == SEGMENT_FIELD && field.children != null) {
+                segments.add(field);
+                // Content with line breaks is not parsed as text, so the content is any field
+                // that decodes as text, and not a message of other fields.
+                ProtoNode segmentText = ProtoNode.field(field.children, SEGMENT_TEXT_FIELD);
+                ProtoNode content = segmentText == null || segmentText.children == null
+                        ? null
+                        : ProtoNode.field(segmentText.children, TEXT_CONTENT_FIELD);
+                if (content != null && content.getVarint() == null) {
+                    String decoded = decodeText(content);
+                    hasText |= decoded != null && !decoded.isEmpty();
+                }
+            }
+        }
+        if (isBody && hasText) {
+            return segments;
+        }
+
+        for (ProtoNode field : message) {
+            if (field.children != null) {
+                List<ProtoNode> bodySegments = findBodySegments(field.children);
+                if (bodySegments != null) {
+                    return bodySegments;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @return The field decoded as text, or null if the field is not a text, such as bytes of other data.
+     */
+    @Nullable
+    static String decodeText(ProtoNode field) {
+        String decoded = field.decodeUtf8();
+        for (int i = 0, length = decoded.length(); i < length; i++) {
+            final char c = decoded.charAt(i);
+            if (c == '\uFFFD' || (Character.isISOControl(c) && c != '\n' && c != '\r' && c != '\t')) {
+                return null;
+            }
+        }
+        return decoded;
     }
 
     /**
@@ -149,7 +239,11 @@ final class OriginalDescription {
                  index = description.indexOf(text, index + 1)) {
                 final int end = index + textLength;
                 final int start = tokenStart(description, index, from);
-                if (isLinkPart(description, start, index, end)) {
+                // The text is a whole part of a link, such as a path segment or a query value.
+                if (index > start
+                        && description.lastIndexOf('/', index - 1) >= start
+                        && !isNameCharacter(description.codePointBefore(index))
+                        && (end == description.length() || !isNameCharacter(description.codePointAt(end)))) {
                     linkStart = start;
                     linkEnd = tokenEnd(description, end);
                     break;
@@ -159,18 +253,22 @@ final class OriginalDescription {
         return linkEnd < 0 ? null : new int[]{linkStart, linkEnd};
     }
 
-    /**
-     * @return If the text is a whole part of a link, such as a path segment or a query value.
-     */
-    private static boolean isLinkPart(String description, int linkStart, int start, int end) {
-        return start > linkStart
-                && description.lastIndexOf('/', start - 1) >= linkStart
-                && !isNameCharacter(description.codePointBefore(start))
-                && (end == description.length() || !isNameCharacter(description.codePointAt(end)));
-    }
-
     private static boolean isNameCharacter(int codePoint) {
         return RestoreOriginalTitlesPatch.isWordCodePoint(codePoint) || codePoint == '_' || codePoint == '-' || codePoint == '.';
+    }
+
+    /**
+     * Replaces a text that is not part of the description element, such as the channel description.
+     * If the text is the content of an attributed string, the runs (links, styles) are moved too.
+     */
+    static void restore(ProtoNode content, String originalText) {
+        ProtoNode parent = content.getParent();
+        List<ProtoNode> text = parent == null ? null : parent.children;
+        if (text != null && ProtoNode.field(text, TEXT_CONTENT_FIELD) == content) {
+            restoreText(text, originalText);
+        } else {
+            content.setText(originalText);
+        }
     }
 
     /**
@@ -233,12 +331,21 @@ final class OriginalDescription {
             if (run == content || runFields == null) {
                 continue;
             }
-            int[] range = getRange(runFields);
-            if (range == null) {
+            // The range of the run is the start and length fields of the run or of the closest sub message.
+            List<ProtoNode> rangeMessage = findRangeMessage(runFields);
+            if (rangeMessage == null) {
                 continue; // Not a run.
             }
-            final int start = range[0];
-            final int end = range[1];
+            ProtoNode startNode = ProtoNode.field(rangeMessage, RANGE_START_FIELD);
+            ProtoNode lengthNode = ProtoNode.field(rangeMessage, RANGE_LENGTH_FIELD);
+            Long rangeStart = startNode == null ? null : startNode.getVarint();
+            Long rangeLength = lengthNode == null ? Long.valueOf(0) : lengthNode.getVarint();
+            if (rangeStart == null || rangeLength == null
+                    || rangeStart > Integer.MAX_VALUE || rangeLength > Integer.MAX_VALUE) {
+                continue; // Not a run.
+            }
+            final int start = rangeStart.intValue();
+            final int end = (int) (rangeStart + rangeLength);
             if (start < 0 || end < start || end > textLength) {
                 run.remove();
                 continue;
@@ -365,22 +472,6 @@ final class OriginalDescription {
      * @return The range of the run, which is the start and length fields of the run
      *         or of the closest sub message. Null if the run has no range.
      */
-    @Nullable
-    private static int[] getRange(List<ProtoNode> run) {
-        List<ProtoNode> rangeMessage = findRangeMessage(run);
-        if (rangeMessage == null) {
-            return null;
-        }
-        ProtoNode startNode = ProtoNode.field(rangeMessage, RANGE_START_FIELD);
-        ProtoNode lengthNode = ProtoNode.field(rangeMessage, RANGE_LENGTH_FIELD);
-        Long start = startNode == null ? null : startNode.getVarint();
-        Long length = lengthNode == null ? Long.valueOf(0) : lengthNode.getVarint();
-        if (start == null || length == null || start > Integer.MAX_VALUE || length > Integer.MAX_VALUE) {
-            return null;
-        }
-        return new int[]{start.intValue(), (int) (start + length)};
-    }
-
     @Nullable
     private static List<ProtoNode> findRangeMessage(List<ProtoNode> run) {
         Queue<List<ProtoNode>> messages = new ArrayDeque<>();

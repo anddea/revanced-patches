@@ -17,6 +17,8 @@ import static app.morphe.extension.shared.spoof.js.JavaScriptManager.getDeobfusc
 import static app.morphe.extension.shared.utils.StringRef.str;
 import static app.morphe.extension.shared.utils.Utils.submitOnBackgroundThread;
 
+import app.morphe.extension.shared.spoof.js.JavaScriptManager;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -56,6 +58,7 @@ import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.spoof.ClientType;
+import app.morphe.extension.shared.spoof.PreferredClientCheck;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.potoken.PoTokenManager;
 import app.morphe.extension.shared.utils.Logger;
@@ -554,6 +557,11 @@ public class StreamOrDetailsDataRequest {
             int i = 0;
             for (ClientType clientTypeStream : clientOrderToUse) {
                 final boolean showErrorToast = ((++i == clientOrderToUse.length) || debugEnabled) && !isDownload;
+
+                if (clientTypeStream.requireJS) {
+                    JavaScriptManager.warmUpInBackground();
+                }
+
                 HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast, isDownload);
                 Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection, videoId, isInline, isDownload);
 
@@ -569,6 +577,8 @@ public class StreamOrDetailsDataRequest {
                 if (playerResponseBuffer != null) {
                     if (!isDownload) {
                         lastSpoofedClientType = clientTypeStream;
+                        // The first attempt is with the default client.
+                        PreferredClientCheck.onStreamsFetched(videoId, i == 1, clientTypeStream);
                     }
                     return playerResponseBuffer;
                 }

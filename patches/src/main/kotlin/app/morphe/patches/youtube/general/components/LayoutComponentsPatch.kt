@@ -27,9 +27,11 @@ import app.morphe.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
 import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_07_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_11_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_25_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_26_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
-import app.morphe.patches.youtube.utils.resourceid.fab
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.resourceid.ytCallToAction
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -48,7 +50,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -161,41 +162,26 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for hide floating microphone
 
-        floatingMicrophoneFingerprint.methodOrThrow().apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(fab)
-            // modified by lavinhoque33, 2026-10-04
-            // 21.39: no IGET_BOOLEAN follows the `fab` literal anymore; the hook moved to another method.
-            val booleanIndex = implementation!!.instructions.withIndex().firstOrNull { (index, instruction) ->
-                index > literalIndex && instruction.opcode == Opcode.IGET_BOOLEAN
-            }?.index
+        val showFloatingMicrophoneButtonFingerprints = mutableListOf(
+            if (is_21_11_or_greater) ShowFloatingMicrophoneButtonFingerprint
+            else ShowFloatingMicrophoneButtonLegacyFingerprint
+        )
+        if (is_21_25_or_greater) {
+            showFloatingMicrophoneButtonFingerprints += ShowFloatingMicrophoneButtonStubFingerprint
+        }
 
-            if (booleanIndex != null) {
-                val insertRegister = getInstruction<TwoRegisterInstruction>(booleanIndex).registerA
+        showFloatingMicrophoneButtonFingerprints.forEach {
+            it.method.apply {
+                val index = it.instructionMatches.last().index
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(
-                    booleanIndex + 1, """
-                        invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
-                        move-result v$insertRegister
-                        """
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
+                        move-result v$register
+                    """
                 )
-            } else {
-                val backingField = BackingFromOtherActivityFingerprint.let {
-                    it.match().instructionMatches.first().getInstruction<ReferenceInstruction>().reference
-                } as FieldReference
-
-                floatingMicrophoneBackingFingerprint(backingField).match().let {
-                    it.method.apply {
-                        val getIndex = it.instructionMatches.first().index
-                        val insertRegister = getInstruction<TwoRegisterInstruction>(getIndex).registerA
-
-                        addInstructions(
-                            getIndex + 1, """
-                                invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
-                                move-result v$insertRegister
-                                """
-                        )
-                    }
-                }
             }
         }
 
@@ -278,6 +264,23 @@ val layoutComponentsPatch = bytecodePatch(
                         "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->disableUIPaddingFeatureFlags(Z)Z"
                     )
                 }
+            }
+        }
+
+        // endregion
+
+        // region fix live chat text field behind the navigation bar
+
+        // https://github.com/MorpheApp/morphe-patches/issues/3453
+        // The flag is read by different layouts, and each must use the same value,
+        // otherwise other panels such as the comments show the bottom padding twice.
+        // Flag was removed in 21.26+.
+        if (is_21_11_or_greater && !is_21_26_or_greater) {
+            EngagementPanelEdgeToEdgeFeatureFlagFingerprint.matchAll().forEach {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    false
+                )
             }
         }
 

@@ -32,9 +32,9 @@ internal object ShouldContinueLoadingFingerprint : Fingerprint(
  * The player load control's onTracksSelected, where the memory limit is calculated.
  */
 internal object TracksSelectedFingerprint : Fingerprint(
+    classFingerprint = ShouldContinueLoadingFingerprint,
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    parameters = listOf("L", "[L"),
     filters = listOf(
         literal(389),
         literal(38),

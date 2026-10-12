@@ -38,12 +38,12 @@ val disableRenderNextPatch = bytecodePatch(
             RenderNextPresentContextFeatureFlagFingerprint
         } else {
             RenderNextFeatureFlagFingerprint
-        }).let {
+        }).matchOrNull()?.let {
             it.method.insertLiteralOverride(
                 it.instructionMatches.first().index,
                 false
             )
-        }
+        } ?: return@execute
 
         // Do not present elements with RenderNext, even if the server enables it.
         // An element is RenderNext if the enablement check of its proto

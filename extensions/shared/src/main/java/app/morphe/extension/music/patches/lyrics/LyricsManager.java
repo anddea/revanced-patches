@@ -107,6 +107,34 @@ public final class LyricsManager {
 
     private final ExecutorService fetchExecutor = Executors.newFixedThreadPool(16);
 
+    private final Set<Future<?>> activeFetches = ConcurrentHashMap.newKeySet();
+
+    private <T> Future<T> submitFetch(int id, CompletionService<T> service,
+                                       java.util.concurrent.Callable<T> fetch) {
+        Future<T> future = service.submit(() -> id == requestId ? fetch.call() : null);
+        activeFetches.add(future);
+        // A track can change between submission and registration.
+        if (id != requestId) {
+            future.cancel(true);
+            activeFetches.remove(future);
+        }
+        return future;
+    }
+
+    private void cancelPendingFetches() {
+        for (Future<?> future : activeFetches) {
+            future.cancel(true);
+            activeFetches.remove(future);
+        }
+    }
+
+    private void finishFetches(List<? extends Future<?>> futures) {
+        for (Future<?> future : futures) {
+            if (!future.isDone()) future.cancel(true);
+            activeFetches.remove(future);
+        }
+    }
+
     private final List<Listener> listeners = new ArrayList<>(2);
 
     private static final int MAX_ARTIST_SONG_LINE_LENGTH = 80;
@@ -395,7 +423,6 @@ public final class LyricsManager {
 
         String videoId = VideoInformation.getVideoId();
         if (track.equals(currentTrack) && videoId.equals(currentVideoId)) {
-            resetPosition();
             return;
         }
 
@@ -479,6 +506,7 @@ public final class LyricsManager {
 
     private void load(TrackInfo track) {
         final int id = ++requestId;
+        cancelPendingFetches();
         setState(State.LOADING, null);
 
         synchronized (candidateQueue) {
@@ -592,7 +620,7 @@ public final class LyricsManager {
             if (!provider.hasCandidates()) {
                 continue;
             }
-            futures.add(cs.submit(() -> {
+            futures.add(submitFetch(id, cs, () -> {
                 try {
                     return provider.fetchCandidates(track);
                 } catch (Exception ex) {
@@ -627,11 +655,7 @@ public final class LyricsManager {
             processCandidateFuture(f, id, track, existing);
         }
 
-        for (Future<List<Lyrics.ScoredLyrics>> f : futures) {
-            if (!f.isDone()) {
-                f.cancel(true);
-            }
-        }
+        finishFetches(futures);
     }
 
     private void processCandidateFuture(Future<List<Lyrics.ScoredLyrics>> f, int id,
@@ -902,6 +926,7 @@ public final class LyricsManager {
         }
 
         final int id = ++requestId;
+        cancelPendingFetches();
         preferenceVideoId = VideoInformation.getVideoId();
         setState(State.LOADING, currentLyrics);
         suppressForRequest = -1;
@@ -947,8 +972,8 @@ public final class LyricsManager {
 
             Tiers tiers = buildTiers(queryTrack, null, currentRawTitle, defaultTerms);
             boolean[] failed = {false};
-            LookupResult fetchResult = fetchFromProviders(tiers.original(), tiers.derived(),
-                    failed, providers, true);
+            LookupResult fetchResult = fetchFromProviders(id, tiers.original(), tiers.derived(),
+                    failed, providers, !defaultTerms);
             Lyrics result = fetchResult.best;
             boolean validResult = isValidLyrics(result, track);
 
@@ -970,6 +995,7 @@ public final class LyricsManager {
     }
 
     private void runProviderLookup(int id, TrackInfo track, @Nullable TrackInfo innertubeTrack) {
+        if (id != requestId) return;
         final boolean suppressed = applyRememberedPreference(id, track);
 
         // Local files take priority: read embedded LYRICS/LYRIC tags before hitting providers.
@@ -1053,8 +1079,9 @@ public final class LyricsManager {
                 ? buildTiers(queryTrack, null, null, false)
                 : buildTiers(track, innertubeTrack, currentRawTitle, true);
 
-        LookupResult fetchResult = fetchFromProviders(tiers.original(), tiers.derived(),
+        LookupResult fetchResult = fetchFromProviders(id, tiers.original(), tiers.derived(),
                 failed, providers, false);
+        if (id != requestId) return;
         result = fetchResult.best;
 
         boolean validResult = isValidLyrics(result, track);
@@ -1146,7 +1173,7 @@ public final class LyricsManager {
                 if (!seenPairs.add(pair)) {
                     continue;
                 }
-                futures.add(cs.submit(() -> fetchOne(provider, vq, attempted, withResults,
+                futures.add(submitFetch(id, cs, () -> fetchOne(provider, vq, attempted, withResults,
                         failedSet, threadFailed)));
             }
         }
@@ -1187,11 +1214,7 @@ public final class LyricsManager {
             } catch (Exception ignored) {
             }
         }
-        for (Future<ProviderFetch> f : futures) {
-            if (!f.isDone()) {
-                f.cancel(true);
-            }
-        }
+        finishFetches(futures);
 
         if (collected.isEmpty() || id != requestId) {
             return;
@@ -1298,7 +1321,7 @@ public final class LyricsManager {
                                 boolean queueFillPending) {}
 
     @Nullable
-    private LookupResult fetchFromProviders(List<VariantQuery> originalTier,
+    private LookupResult fetchFromProviders(int id, List<VariantQuery> originalTier,
                                             List<VariantQuery> derivedTier,
                                             boolean[] failed,
                                             List<LyricsProvider> providers,
@@ -1335,7 +1358,7 @@ public final class LyricsManager {
 
         for (VariantQuery vq : originalTier) {
             for (LyricsProvider provider : stage1Providers) {
-                futures.add(cs.submit(() -> fetchOne(provider, vq, providersAttempted,
+                futures.add(submitFetch(id, cs, () -> fetchOne(provider, vq, providersAttempted,
                         providersWithResults, providersFailed, threadFailed)));
             }
         }
@@ -1345,40 +1368,40 @@ public final class LyricsManager {
         boolean stage3Submitted = false;
         long endgameAt = start + 5_000;
 
-        completed = pollStage(cs, futures, completed, stage1Deadline, display, scoreCandidates,
+        completed = pollStage(id, cs, futures, completed, stage1Deadline, display, scoreCandidates,
                 endgameAt, true);
 
-        if (!display.windowClosed && !stage2Providers.isEmpty()) {
+        if (id == requestId && !display.windowClosed && !stage2Providers.isEmpty()) {
             stage2Submitted = true;
             for (VariantQuery vq : originalTier) {
                 for (LyricsProvider provider : stage2Providers) {
-                    futures.add(cs.submit(() -> fetchOne(provider, vq, providersAttempted,
+                    futures.add(submitFetch(id, cs, () -> fetchOne(provider, vq, providersAttempted,
                             providersWithResults, providersFailed, threadFailed)));
                 }
             }
-            completed = pollStage(cs, futures, completed, stage2Deadline, display,
+            completed = pollStage(id, cs, futures, completed, stage2Deadline, display,
                     scoreCandidates, endgameAt, true);
         }
 
-        if (!display.windowClosed) {
+        if (id == requestId && !display.windowClosed) {
             stage3Submitted = true;
             for (VariantQuery vq : derivedTier) {
                 for (LyricsProvider provider : nonBlind) {
-                    futures.add(cs.submit(() -> fetchOne(provider, vq, providersAttempted,
+                    futures.add(submitFetch(id, cs, () -> fetchOne(provider, vq, providersAttempted,
                             providersWithResults, providersFailed, threadFailed)));
                 }
                 for (LyricsProvider provider : blind) {
-                    futures.add(cs.submit(() -> fetchOne(provider, vq, providersAttempted,
+                    futures.add(submitFetch(id, cs, () -> fetchOne(provider, vq, providersAttempted,
                             providersWithResults, providersFailed, threadFailed)));
                 }
             }
             for (VariantQuery vq : originalTier) {
                 for (LyricsProvider provider : blind) {
-                    futures.add(cs.submit(() -> fetchOne(provider, vq, providersAttempted,
+                    futures.add(submitFetch(id, cs, () -> fetchOne(provider, vq, providersAttempted,
                             providersWithResults, providersFailed, threadFailed)));
                 }
             }
-            completed = pollStage(cs, futures, completed, stage3Deadline, display,
+            completed = pollStage(id, cs, futures, completed, stage3Deadline, display,
                     scoreCandidates, endgameAt, false);
         }
 
@@ -1393,11 +1416,7 @@ public final class LyricsManager {
         }
 
         failed[0] = threadFailed.get();
-        for (Future<ProviderFetch> f : futures) {
-            if (!f.isDone()) {
-                f.cancel(true);
-            }
-        }
+        finishFetches(futures);
 
         Lyrics bestResult = display.bestResult;
         if (bestResult == null && display.bestFallback != null) {
@@ -1422,7 +1441,7 @@ public final class LyricsManager {
                 providersWithResults, providersFailed, providersAttempted, queueFillPending);
     }
 
-    private int pollStage(CompletionService<ProviderFetch> cs,
+    private int pollStage(int id, CompletionService<ProviderFetch> cs,
                           List<Future<ProviderFetch>> futures,
                           int completed,
                           long deadline,
@@ -1431,6 +1450,10 @@ public final class LyricsManager {
                           long endgameAt,
                           boolean stage12) {
         while (completed < futures.size()) {
+            if (id != requestId || Thread.currentThread().isInterrupted()) {
+                display.windowClosed = true;
+                return completed;
+            }
             long now = SystemClock.uptimeMillis();
             if (!display.exhaustive && now >= endgameAt && display.bestResult == null
                     && display.bestFallback != null) {
@@ -1445,7 +1468,9 @@ public final class LyricsManager {
             long wait = now < endgameAt ? Math.min(remaining, endgameAt - now) : remaining;
             Future<ProviderFetch> f;
             try {
-                f = cs.poll(wait, TimeUnit.MILLISECONDS);
+                // Recheck stale requests every 100 ms, trading about 10 idle wakeups/s for prompt cancellation.
+                // Completed results wake poll immediately; provider timeouts and stage deadlines are unchanged.
+                f = cs.poll(Math.min(wait, 100), TimeUnit.MILLISECONDS);
             } catch (InterruptedException ex) {
                 Logger.printDebug(() -> "Interrupted polling provider futures", ex);
                 Thread.currentThread().interrupt();
@@ -1474,7 +1499,15 @@ public final class LyricsManager {
             }
             completed++;
             try {
-                if (display.accept(f.get(), scoreCandidates, stage12)) {
+                boolean complete = display.accept(f.get(), scoreCandidates, stage12);
+                Lyrics available = display.bestResult != null
+                        ? display.bestResult : display.bestFallback;
+                // Word timing is an upgrade, not a reason to leave a usable lyric blank.
+                if (!display.exhaustive && available != null && available != display.published) {
+                    display.published = available;
+                    publishFromLookup(id, available);
+                }
+                if (complete) {
                     display.windowClosed = true;
                     return completed;
                 }
@@ -1492,6 +1525,7 @@ public final class LyricsManager {
          * for every stage so that the best result of the whole run is the one that shows.
          */
         final boolean exhaustive;
+        @Nullable Lyrics published;
         @Nullable Lyrics bestResult;
         int bestDisplayRank;
         @Nullable Lyrics bestFallback;
@@ -1508,7 +1542,7 @@ public final class LyricsManager {
 
         boolean accept(@Nullable ProviderFetch pf, List<ScoredCandidate> scoreCandidates,
                        boolean stage12) {
-            if (pf == null) {
+            if (pf == null || !pf.highMatch()) {
                 return false;
             }
             Lyrics fetched = pf.lyrics();
@@ -1519,10 +1553,6 @@ public final class LyricsManager {
             final int rank = LyricsRequests.syncRank(fetched);
             final int composite = LyricsRequests.composite(match, fetched, pf.penalty());
             scoreCandidates.add(new ScoredCandidate(composite, rank, fetched));
-
-            if (!pf.highMatch()) {
-                return false;
-            }
 
             if (rank > bestFallbackRank) {
                 bestFallback = fetched;
@@ -1602,6 +1632,15 @@ public final class LyricsManager {
         Utils.runOnMainThread(() -> {
             if (remember && id == requestId) {
                 persistOnPublish = true;
+            }
+            if (id == requestId && state == State.LOADED
+                    && currentLyrics != null && prepared != null
+                    && fingerprint(currentLyrics).equals(fingerprint(prepared))) {
+                if (remember) {
+                    persistOnPublish = false;
+                    rememberPreference(currentLyrics);
+                }
+                return;
             }
             publish(id, raw, prepared);
         });

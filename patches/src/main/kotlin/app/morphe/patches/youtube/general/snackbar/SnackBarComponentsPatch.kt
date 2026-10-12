@@ -68,8 +68,6 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.findElementByAttributeValueOrThrow
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.fingerprint.matchOrThrow
-import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getNode
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -99,19 +97,18 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
     )
 
     execute {
-        bottomUiContainerFingerprint.methodOrThrow().apply {
+        BottomUiContainerFingerprint.method.apply {
             addInstructionsWithLabels(
                 0, """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideSnackBar()Z
+                    invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->hideSnackBar(Landroid/view/View;)Z
                     move-result v0
                     if-eqz v0, :show
                     return-void
-                    invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->setLithoSnackBarView(Landroid/view/View;)V
                     """, ExternalLabel("show", getInstruction(0))
             )
         }
 
-        bottomUiContainerThemeFingerprint.matchOrThrow().let {
+        BottomUiContainerThemeFingerprint.let {
             it.method.apply {
                 val darkThemeIndex = it.instructionMatches.first().index + 2
                 val darkThemeReference =
@@ -149,7 +146,7 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
                 "invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->setLithoSnackBarBackground(Landroid/view/View;)V"
             )
 
-        lithoSnackBarFingerprint.methodOrThrow().apply {
+        LithoSnackBarFingerprint.method.apply {
             addInstruction(
                 0,
                 "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->enterLithoSnackBarCreation()V"

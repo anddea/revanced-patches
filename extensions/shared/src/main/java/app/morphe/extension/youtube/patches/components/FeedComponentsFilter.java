@@ -62,6 +62,7 @@ public final class FeedComponentsFilter extends Filter {
     private final StringFilterGroup carouselShelves;
     private final StringFilterGroup chipBar;
     private final StringFilterGroup chipsShelf;
+    private final StringFilterGroup compactChannel;
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup expandableCard;
     private final ByteArrayFilterGroup productCardBuffer;
@@ -231,9 +232,9 @@ public final class FeedComponentsFilter extends Filter {
                 "button.e"
         );
 
-        final StringFilterGroup compactChannelCommunityButton = new StringFilterGroup(
-                Settings.HIDE_COMMUNITY_BUTTON,
-                "compact_channel$FEcommunity"
+        compactChannel = new StringFilterGroup(
+                Settings.HIDE_CHANNEL_BUTTONS,
+                "compact_channel.e"
         );
 
         final StringFilterGroup membersShelf = new StringFilterGroup(
@@ -385,7 +386,7 @@ public final class FeedComponentsFilter extends Filter {
                 carouselShelves,
                 channelProfileSubscribeButton,
                 chipBar,
-                compactChannelCommunityButton,
+                compactChannel,
                 expandableCard,
                 forYouShelf,
                 imageShelf,
@@ -566,6 +567,10 @@ public final class FeedComponentsFilter extends Filter {
             return NavigationButton.getSelectedNavigationButton() != NavigationButton.LIBRARY;
         }
 
+        if (matchedGroup == compactChannel) {
+            return StringUtils.contains(path, "button.e");
+        }
+
         if (matchedGroup == communityPosts) {
             // Channel Pages (Deep navigation logic)
             // When back button is visible, we are likely on a channel page.
@@ -732,13 +737,15 @@ public final class FeedComponentsFilter extends Filter {
                         // The header keeps the space of the subscribe button if it's removed,
                         // so it's hidden by the Litho filter.
                         hasHiddenSubscribeButton = Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE.get();
-                    } else if (ProtoNode.field(fields, BUTTON_VIEW_MODEL_FIELD) == null) {
-                        continue;
-                    } else if (isPageHeaderButtonHidden(fields)) {
-                        button.remove();
-                        modified = true;
                     } else {
-                        visibleButtons++;
+                        if (ProtoNode.field(fields, BUTTON_VIEW_MODEL_FIELD) != null) {
+                            if (isPageHeaderButtonHidden(fields)) {
+                                button.remove();
+                                modified = true;
+                            } else {
+                                visibleButtons++;
+                            }
+                        }
                     }
                 }
 

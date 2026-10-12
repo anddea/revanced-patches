@@ -18,6 +18,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.InterruptedIOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -104,6 +105,10 @@ public final class LyricsRequests {
      * User-Agent header, and rate limits requests that do not.
      */
     static HttpURLConnection openConnection(String url) throws IOException {
+        // A cancelled provider may finish one blocking request and try the next one.
+        if (Thread.currentThread().isInterrupted()) {
+            throw new InterruptedIOException("Lyrics lookup cancelled");
+        }
         HttpURLConnection connection = Requester.openConnection(url);
         connection.setRequestMethod("GET");
         connection.setConnectTimeout(CONNECT_TIMEOUT_MILLISECONDS);
@@ -117,6 +122,10 @@ public final class LyricsRequests {
      */
     static HttpURLConnection openConnection(String url, int connectTimeoutMs,
             int readTimeoutMs, Map<String, String> headers) throws IOException {
+        // A cancelled provider may finish one blocking request and try the next one.
+        if (Thread.currentThread().isInterrupted()) {
+            throw new InterruptedIOException("Lyrics lookup cancelled");
+        }
         HttpURLConnection connection = Requester.openConnection(url);
         connection.setRequestMethod("GET");
         connection.setConnectTimeout(connectTimeoutMs);
@@ -159,6 +168,10 @@ public final class LyricsRequests {
 
     private static HttpURLConnection postConnection(String url, String body, String contentType,
                                                    Map<String, String> headers) throws IOException {
+        // A cancelled provider may finish one blocking request and try the next one.
+        if (Thread.currentThread().isInterrupted()) {
+            throw new InterruptedIOException("Lyrics lookup cancelled");
+        }
         HttpURLConnection connection = Requester.openConnection(url);
         connection.setRequestMethod("POST");
         connection.setConnectTimeout(CONNECT_TIMEOUT_MILLISECONDS);
@@ -545,7 +558,7 @@ public final class LyricsRequests {
     }
 
     /**
-     * Normalizes a string for matching: NFKC, lowercase, decoration strip,
+     * Normalizes a string for matching: NFKC, lowercase, canonical Chinese spelling, decoration strip,
      * fullwidth punctuation fold and whitespace collapse. Semantic decorations
      * (years, part numbers, live/acoustic/feat, …) are kept so that distinct
      * versions do not collapse into a false EQUAL.
@@ -560,6 +573,9 @@ public final class LyricsRequests {
         }
         s = java.text.Normalizer.normalize(s, java.text.Normalizer.Form.NFKC);
         s = s.toLowerCase(Locale.ROOT);
+        // Compare metadata across Traditional/Simplified spellings used by different providers.
+        // ICU does not map 妳 to 你, so fold this observed title variant explicitly for matching.
+        s = CharactersConverter.toSimplified(s).replace('妳', '你');
         s = stripDecorations(s);
         s = foldPunctuation(s);
         s = s.replaceAll("\\s+", " ").trim();
@@ -713,12 +729,15 @@ public final class LyricsRequests {
 
     public static int scoreTrackCandidate(String title, String artist, long durationSec,
                                           TrackInfo track) {
-        return prepare(track).evaluate(title, artist, durationSec, null).score();
+        return scoreTrackCandidate(title, artist, durationSec, null, track);
     }
 
     public static int scoreTrackCandidate(String title, String artist, long durationSec,
                                           @Nullable String album, TrackInfo track) {
-        return prepare(track).evaluate(title, artist, durationSec, album).score();
+        // Reject counter-evidence before adapters replace candidate metadata with the
+        // query metadata in FetchResult.of(lyrics, track).
+        MatchVerdict verdict = prepare(track).evaluate(title, artist, durationSec, album);
+        return isHighMatch(verdict) ? verdict.score() : -1;
     }
 
     public static int syncRank(Lyrics lyrics) {
@@ -732,7 +751,8 @@ public final class LyricsRequests {
 
     public static int scoreLyricsCandidate(String title, String artist, long durationSec,
                                      Lyrics lyrics, TrackInfo track) {
-        return scoreTrackCandidate(title, artist, durationSec, track) + syncRank(lyrics);
+        int score = scoreTrackCandidate(title, artist, durationSec, track);
+        return score < 0 ? score : score + syncRank(lyrics);
     }
 
     /**

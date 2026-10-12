@@ -7,7 +7,12 @@
 
 package app.morphe.extension.shared.patches;
 
+import androidx.annotation.Nullable;
+
+import java.nio.ByteBuffer;
+
 import app.morphe.extension.shared.settings.SharedYouTubeSettings;
+import app.morphe.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public final class SkipSilencePatch {
@@ -37,6 +42,38 @@ public final class SkipSilencePatch {
     private static final short SILENCE_THRESHOLD_LEVEL = 512;
 
     /**
+     * Quiet audio, such as an audio recorded with a low volume, needs a lower threshold,
+     * so silence is still skipped. A threshold too low skips also quiet words, and a threshold
+     * too high keeps pauses that have a background noise.
+     * The threshold is the audio peak divided by {@link #AUDIO_PEAK_TO_THRESHOLD_RATIO},
+     * or the noise floor multiplied by {@link #NOISE_FLOOR_TO_THRESHOLD_RATIO} if there is background noise,
+     * between {@link #MINIMUM_SILENCE_THRESHOLD_LEVEL} and {@link #SILENCE_THRESHOLD_LEVEL}.
+     */
+    private static final int AUDIO_PEAK_TO_THRESHOLD_RATIO = 25;
+    private static final int NOISE_FLOOR_TO_THRESHOLD_RATIO = 3;
+    private static final short MINIMUM_SILENCE_THRESHOLD_LEVEL = 64;
+    /**
+     * Levels are measured in blocks of 20 ms of 48 kHz stereo audio, independent of the buffer size.
+     * The peak falls 1 dB per second, so it follows the level of the whole audio and not of a quiet passage,
+     * and recovers within a minute from a loud intro. The noise floor is the quietest block,
+     * and rises 1 dB per second so it follows a noise that becomes louder.
+     */
+    private static final int AUDIO_BLOCK_BYTES = 960 * 2 * 2;
+    private static final float AUDIO_PEAK_DECAY_PER_BLOCK = (float) Math.pow(10, -1.0 / 20 * 0.02);
+    private static final float NOISE_FLOOR_RISE_PER_BLOCK = (float) Math.pow(10, 1.0 / 20 * 0.02);
+
+    /**
+     * Fields are only used by the audio playback thread.
+     */
+    private static float audioPeak;
+    private static float noiseFloor = Float.MAX_VALUE;
+    private static short currentSilenceThresholdLevel = SILENCE_THRESHOLD_LEVEL;
+    @Nullable
+    private static ByteBuffer lastAudioInput;
+    private static int lastAudioInputPosition;
+    private static int lastAudioInputLimit;
+
+    /**
      * Injection point.
      */
     public static boolean isSkipSilenceEnabled(boolean original) {
@@ -62,5 +99,58 @@ public final class SkipSilencePatch {
      */
     public static short silenceThresholdLevel(short original) {
         return (short) Math.min(original, SILENCE_THRESHOLD_LEVEL);
+    }
+
+    /**
+     * Injection point.
+     * Called with each buffer of 16-bit little endian audio, before silence is searched in it.
+     * A buffer is given again while it is not fully consumed, and is then not measured again.
+     */
+    public static void updateSilenceThresholdLevel(ByteBuffer input) {
+        final int position = input.position();
+        final int limit = input.limit();
+        final boolean alreadyMeasured = input == lastAudioInput
+                && limit == lastAudioInputLimit && position > lastAudioInputPosition;
+        lastAudioInput = input;
+        lastAudioInputPosition = position;
+        lastAudioInputLimit = limit;
+        if (alreadyMeasured) {
+            return;
+        }
+
+        for (int blockStart = position; blockStart < limit; blockStart += AUDIO_BLOCK_BYTES) {
+            final int blockEnd = Math.min(limit, blockStart + AUDIO_BLOCK_BYTES);
+            int blockPeak = 0;
+            for (int i = blockStart + 1; i < blockEnd; i += 2) {
+                blockPeak = Math.max(blockPeak, Math.abs((input.get(i) << 8) | (input.get(i - 1) & 0xFF)));
+            }
+
+            audioPeak = Math.max(blockPeak, audioPeak * AUDIO_PEAK_DECAY_PER_BLOCK);
+            noiseFloor = Math.min(blockPeak, noiseFloor * NOISE_FLOOR_RISE_PER_BLOCK);
+        }
+
+        final float threshold = Math.max(audioPeak / AUDIO_PEAK_TO_THRESHOLD_RATIO,
+                noiseFloor * NOISE_FLOOR_TO_THRESHOLD_RATIO);
+        currentSilenceThresholdLevel = (short) Utils.clamp((int) threshold,
+                MINIMUM_SILENCE_THRESHOLD_LEVEL, SILENCE_THRESHOLD_LEVEL);
+    }
+
+    /**
+     * Injection point.
+     * Called when the audio is flushed, such as after seeking or when another video starts.
+     */
+    public static void resetSilenceThresholdLevel() {
+        audioPeak = 0;
+        noiseFloor = Float.MAX_VALUE;
+        currentSilenceThresholdLevel = MINIMUM_SILENCE_THRESHOLD_LEVEL;
+        lastAudioInput = null;
+    }
+
+    /**
+     * Injection point.
+     * Called for each audio sample that is compared to the threshold.
+     */
+    public static short adaptiveSilenceThresholdLevel(short original) {
+        return (short) Math.min(original, currentSilenceThresholdLevel);
     }
 }

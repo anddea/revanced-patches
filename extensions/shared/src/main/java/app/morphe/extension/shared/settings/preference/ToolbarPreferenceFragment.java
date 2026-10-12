@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.settings.preference;
 
 import static app.morphe.extension.shared.patches.PatchStatus.PatchVersion;
@@ -80,7 +90,16 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
                                 rootView.setOnApplyWindowInsetsListener((v, insets) -> {
                                     Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
                                     Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
-                                    v.setPadding(0, statusInsets.top, 0, navInsets.bottom);
+                                    Insets cutoutInsets = insets.getInsets(WindowInsets.Type.displayCutout());
+
+                                    // Apply padding for display cutout in landscape,
+                                    // and in portrait if the status bar is hidden.
+                                    int leftPadding = cutoutInsets.left;
+                                    int rightPadding = cutoutInsets.right;
+                                    int topPadding = Math.max(statusInsets.top, cutoutInsets.top);
+                                    int bottomPadding = navInsets.bottom;
+
+                                    v.setPadding(leftPadding, topPadding, rightPadding, bottomPadding);
                                     return insets;
                                 });
                             }

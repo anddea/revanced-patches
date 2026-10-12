@@ -17,6 +17,7 @@ import app.morphe.extension.shared.utils.PackageUtils;
 @SuppressWarnings("unused")
 public class Requester {
     public static final int HTTP_STATUS_CODE_SUCCESS = 200;
+    public static final int HTTP_STATUS_CODE_TOO_MANY_REQUESTS = 429;
 
     private Requester() {
     }

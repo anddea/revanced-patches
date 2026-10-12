@@ -70,6 +70,8 @@ Reports are public and are reviewed before a channel is added to a list. Removal
     <string name="morphe_dark_theme_title">Dark theme</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Keeps the navigation bar visible while scrolling</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Disable auto-hiding navigation bar</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Disable navigation buttons without labels</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Shows the navigation buttons with labels, if YouTube sends them without labels</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
     <string name="morphe_disable_drc_audio_title">Disable DRC audio</string>
@@ -122,6 +124,8 @@ Tap here to open AiSlopList.com and see downloads for other platforms"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Warnlist channels</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Warnlist: Moderate confidence</string>
     <string name="morphe_hide_auto_dubbed_label_title">Hide \'Auto-dubbed\' label</string>
+    <string name="morphe_hide_channel_buttons_title">Hide channel buttons</string>
+    <string name="morphe_hide_channel_buttons_summary">Hides buttons such as Subscribe, View Channel, Community, and YouTube Music from channel profiles in search results</string>
     <string name="morphe_hide_courses_menu_title">Hide Courses menu</string>
     <string name="morphe_hide_explore_button_title">Hide Explore button</string>
     <string name="morphe_hide_fashion_menu_title">Hide \'Fashion &amp; Beauty\' menu</string>
@@ -196,6 +200,11 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="morphe_potoken_provider_unavailable_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 To use this feature, turn off \'Spoof video streams\'"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">PoToken provider no longer works</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"The token built into this version of PoToken provider no longer works
+
+Turn on \'Spoof video streams\' to fix playback"</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Turn on</string>
     <string name="morphe_queue_manager_check_failed_auth">Not logged in</string>
     <string name="morphe_queue_manager_check_failed_video_id">No video ID</string>
     <string name="morphe_reload_video_summary_off">Reload video button is hidden</string>
@@ -260,6 +269,11 @@ Playback may stutter or drop frames"</string>
 Video playback with AV1 may stutter or drop frames"</string>
     <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Default client does not work</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s did not work several times in a row, but %2$s did.
+
+Make %2$s the default client?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Switch</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Player JavaScript variant</string>
     <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
     <string name="morphe_spoof_video_streams_screen_title">Spoof video streams</string>
@@ -419,9 +433,6 @@ Tap here to learn more about DeArrow"</string>
     <string name="revanced_alt_thumbnail_search_title">Search results</string>
     <string name="revanced_alt_thumbnail_stills">Still video captures</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning, middle, or end of each video. These images are built into YouTube and no external API is used</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
@@ -1951,7 +1962,7 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_account_menu_title">Account menu</string>
     <string name="revanced_preference_screen_action_buttons_summary">Hide or show action buttons under videos</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Alternative thumbnails</string>
+    <string name="revanced_preference_screen_alt_thumbnails_title">DeArrow</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Disable Ambient mode or bypass Ambient mode restrictions</string>
     <string name="revanced_preference_screen_ambient_mode_title">Ambient mode</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Hide or show carousel shelf in home, search results, and subscriptions</string>
@@ -2907,7 +2918,7 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
     <string name="morphe_restore_original_titles_title">Restore original titles</string>
-    <string name="morphe_restore_original_titles_summary">Shows the original video titles and descriptions instead of the auto-translated ones</string>
+    <string name="morphe_restore_original_titles_summary">Shows the original video titles, video descriptions and channel descriptions instead of the auto-translated ones</string>
     <string name="morphe_restore_original_titles_loading">Loading title…</string>
     <string name="morphe_playback_buffer_size_title">Playback buffer size</string>
     <string name="morphe_playback_buffer_size_entry_default">Default</string>
@@ -2922,4 +2933,40 @@ Authorization is required to request translation with live voices for videos tha
     <string name="morphe_skip_silence_summary">Automatically skips silent pauses in video audio</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
+    <string name="morphe_dearrow_titles_title">DeArrow titles</string>
+    <string name="morphe_dearrow_titles_summary">Replaces video titles with the crowdsourced titles submitted to DeArrow</string>
+    <string name="morphe_dearrow_thumbnail_home_title">For Home tab</string>
+    <string name="morphe_dearrow_thumbnail_subscription_title">For Subscriptions tab</string>
+    <string name="morphe_dearrow_thumbnail_library_title">For You tab</string>
+    <string name="morphe_dearrow_thumbnail_player_title">For player playlists &amp; recommendations</string>
+    <string name="morphe_dearrow_thumbnail_search_title">For search results</string>
+    <string name="morphe_dearrow_thumbnail_options_entry_1">Original thumbnails</string>
+    <string name="morphe_dearrow_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
+    <string name="morphe_dearrow_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
+    <string name="morphe_dearrow_thumbnail_options_entry_4">Still captures</string>
+    <string name="morphe_dearrow_about_title" translatable="false">DeArrow</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow provides crowdsourced titles and thumbnails for YouTube videos. These are often more relevant than those provided by YouTube
+
+If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
+
+Tap here to open DeArrow.ajay.app"</string>
+    <string name="morphe_dearrow_connection_toast_title">Show connection error alerts</string>
+    <string name="morphe_dearrow_connection_toast_summary">Shows a notification when the DeArrow server is unavailable</string>
+    <string name="morphe_dearrow_api_url_title">DeArrow API endpoint</string>
+    <string name="morphe_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
+    <string name="morphe_dearrow_thumbnail_stills_about_title">Still video captures</string>
+    <string name="morphe_dearrow_thumbnail_stills_about_summary">Still captures are taken from the beginning / middle / end of each video. These images are built into YouTube and no external API is used</string>
+    <string name="morphe_dearrow_thumbnail_stills_time_title">Extract video frame from</string>
+    <string name="morphe_dearrow_thumbnail_stills_time_entry_1">Beginning</string>
+    <string name="morphe_dearrow_thumbnail_stills_time_entry_2">Middle</string>
+    <string name="morphe_dearrow_thumbnail_stills_time_entry_3">End</string>
+    <string name="morphe_dearrow_error">DeArrow is temporarily not available (status code: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow is temporarily not available</string>
+    <string name="morphe_dearrow_screen_title" translatable="false">DeArrow</string>
+    <string name="morphe_dearrow_titles_icon_title">Show DeArrow icon</string>
+    <string name="morphe_dearrow_titles_icon_summary">Shows the DeArrow icon on crowdsourced video titles</string>
+    <string name="morphe_dearrow_casual_mode_title">Casual mode</string>
+    <string name="morphe_dearrow_casual_mode_summary">Shows the original title instead of the DeArrow title if DeArrow users voted they like the original title</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Minimum casual votes to show original title</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">The number of casual votes in a single category, such as funny or creative, needed to show the original title</string>
 </resources>

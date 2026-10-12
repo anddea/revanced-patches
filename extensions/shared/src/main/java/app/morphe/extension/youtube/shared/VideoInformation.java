@@ -871,8 +871,11 @@ public final class VideoInformation {
      *
      * @return The title of the video.
      */
+    /**
+     * @return The title of the video, or the title restored by {@link app.morphe.extension.youtube.patches.originaltitles.RestoreOriginalTitlesPatch} if enabled.
+     */
     public static String getVideoTitle() {
-        return videoTitle;
+        return app.morphe.extension.youtube.patches.originaltitles.RestoreOriginalTitlesPatch.getTitle(getVideoId(), videoTitle);
     }
 
     /**

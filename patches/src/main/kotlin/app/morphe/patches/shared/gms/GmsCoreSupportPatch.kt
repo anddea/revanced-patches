@@ -37,7 +37,6 @@ import app.morphe.patches.shared.gms.Constants.PERMISSIONS_LEGACY
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.Utils.trimIndentMultiline
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.fingerprint.matchSingle
 import app.morphe.util.fingerprint.methodOrNull
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
@@ -426,7 +425,7 @@ fun gmsCoreSupportPatch(
         updatePatchStatus("$PATCHES_PATH/PatchStatus;", "GmsCoreSupport")
 
         // GNP expects the original Google package even when the installed app is renamed.
-        GnpRegistrationTargetFingerprint.matchSingle().let { match ->
+        GnpRegistrationTargetFingerprint.matchOrNull()?.let { match ->
             val result = match.instructionMatches[1]
             match.method.replaceInstruction(
                 result.index,

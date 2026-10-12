@@ -13,8 +13,9 @@ package app.morphe.patches.youtube.general.components
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
-import app.morphe.patcher.fieldAccess
-import app.morphe.patcher.string
+import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.OpcodesFilter.Companion.opcodesToFilters
+import app.morphe.patcher.checkCast
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
@@ -24,7 +25,6 @@ import app.morphe.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.morphe.patches.youtube.utils.resourceid.compactLink
 import app.morphe.patches.youtube.utils.resourceid.compactListItem
 import app.morphe.patches.youtube.utils.resourceid.editSettingsAction
-import app.morphe.patches.youtube.utils.resourceid.fab
 import app.morphe.patches.youtube.utils.resourceid.toolTipContentView
 import app.morphe.patches.youtube.utils.resourceid.ytCallToAction
 import app.morphe.util.fingerprint.legacyFingerprint
@@ -33,7 +33,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val accountListFingerprint = legacyFingerprint(
     name = "accountListFingerprint",
@@ -83,17 +82,6 @@ internal val appBlockingCheckResultToStringFingerprint = legacyFingerprint(
     strings = listOf("AppBlockingCheckResult{intent=")
 )
 
-internal val floatingMicrophoneFingerprint = legacyFingerprint(
-    name = "floatingMicrophoneFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_EQZ,
-    ),
-    literals = listOf(fab),
-)
 
 internal val pipNotificationFingerprint = legacyFingerprint(
     name = "pipNotificationFingerprint",
@@ -142,25 +130,66 @@ internal object IncognitoSearchPaddingFeatureFlagFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
-// 21.39: the floating microphone hook (reads the "is backing from other activity" boolean) moved to a
-// different Runnable switch case that no longer references the `fab` resource id.
-// Locate the boolean field via the "IS_BACKING_FROM_OTHER_ACTIVITY" bundle key, then find the code that uses it.
-internal object BackingFromOtherActivityFingerprint : Fingerprint(
-    returnType = "V",
+/**
+ * Makes the engagement panels extend behind the navigation bar, which hides the bottom
+ * of the panels that do not add the bottom padding themselves, such as the live chat.
+ */
+internal object EngagementPanelEdgeToEdgeFeatureFlagFingerprint : Fingerprint(
     filters = listOf(
-        fieldAccess(opcode = Opcode.IGET_BOOLEAN),
-        string("IS_BACKING_FROM_OTHER_ACTIVITY", location = MatchAfterImmediately()),
+        literal(45744676)
     )
 )
 
-internal fun floatingMicrophoneBackingFingerprint(backingField: FieldReference) = object : Fingerprint(
-    returnType = "V",
+/**
+ * 21.11+
+ *
+ * Resolves using the method found in [ShowFloatingMicrophoneButtonParentFingerprint]
+ */
+internal object ShowFloatingMicrophoneButtonFingerprint : Fingerprint(
+    classFingerprint = ShowFloatingMicrophoneButtonParentFingerprint,
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Landroid/view/View;", "Lcom/google/android/libraries/quantum/fab/FloatingActionButton;", "Landroid/view/ViewStub;"),
+    filters = opcodesToFilters(Opcode.IGET_BOOLEAN)
+)
+
+/**
+ * 21.25+
+ *
+ * Same as [ShowFloatingMicrophoneButtonFingerprint], but the button is inflated later from a ViewStub.
+ * Used instead of [ShowFloatingMicrophoneButtonFingerprint] with some server layout experiments.
+ */
+internal object ShowFloatingMicrophoneButtonStubFingerprint : Fingerprint(
+    classFingerprint = ShowFloatingMicrophoneButtonParentFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Landroid/view/View;", "Landroid/view/ViewStub;", "Landroid/view/ViewStub;"),
+    filters = opcodesToFilters(Opcode.IGET_BOOLEAN)
+)
+
+/**
+ * 21.11+
+ */
+internal object ShowFloatingMicrophoneButtonParentFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Z"),
+    strings = listOf("Current FAB View Wrapper does not support this operation. Text: "),
+    custom = { _, classDef ->
+        !classDef.interfaces.contains($$"Landroid/view/View$OnClickListener;")
+    }
+)
+
+/**
+ * ~ 21.10
+ */
+internal object ShowFloatingMicrophoneButtonLegacyFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
     parameters = listOf(),
     filters = listOf(
-        fieldAccess(opcode = Opcode.IGET_BOOLEAN, reference = backingField),
-        fieldAccess(opcode = Opcode.IPUT_BOOLEAN, location = MatchAfterImmediately()),
-        fieldAccess(opcode = Opcode.IPUT_BOOLEAN, reference = backingField, location = MatchAfterImmediately()),
+        resourceLiteral(ResourceType.ID, "fab"),
+        checkCast("/FloatingActionButton;", location = MatchAfterWithin(10)),
+        opcode(Opcode.IGET_BOOLEAN, location = MatchAfterWithin(15))
     )
-) {}
+)

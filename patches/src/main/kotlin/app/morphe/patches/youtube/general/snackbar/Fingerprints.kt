@@ -1,11 +1,13 @@
 package app.morphe.patches.youtube.general.snackbar
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
+import app.morphe.patcher.opcode
 import app.morphe.patches.youtube.utils.resourceid.insetElementsWrapper
-import app.morphe.util.fingerprint.legacyFingerprint
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
@@ -14,35 +16,31 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val BOTTOM_UI_CONTAINER_CLASS_DESCRIPTOR =
     "Lcom/google/android/apps/youtube/app/common/ui/bottomui/BottomUiContainer;"
 
-internal val bottomUiContainerFingerprint = legacyFingerprint(
-    name = "bottomUiContainerFingerprint",
+internal object BottomUiContainerFingerprint : Fingerprint(
+    definingClass = BOTTOM_UI_CONTAINER_CLASS_DESCRIPTOR,
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L", "L"),
-    customFingerprint = { _, classDef ->
-        classDef.type == BOTTOM_UI_CONTAINER_CLASS_DESCRIPTOR
-    }
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("Landroid/view/View;", "L"),
+    filters = listOf(methodCall(name = "addView", parameters = listOf("Landroid/view/View;")))
 )
 
-internal val bottomUiContainerThemeFingerprint = legacyFingerprint(
-    name = "bottomUiContainerThemeFingerprint",
+internal object BottomUiContainerThemeFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf(BOTTOM_UI_CONTAINER_CLASS_DESCRIPTOR),
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.SGET_OBJECT,
-        Opcode.IF_NE,
-        Opcode.CONST,
+    filters = listOf(
+        opcode(Opcode.INVOKE_VIRTUAL),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        opcode(Opcode.SGET_OBJECT, location = MatchAfterImmediately()),
+        opcode(Opcode.IF_NE, location = MatchAfterImmediately()),
+        opcode(Opcode.CONST, location = MatchAfterImmediately()),
     ),
 )
 
-internal val lithoSnackBarFingerprint = legacyFingerprint(
-    name = "lithoSnackBarFingerprint",
+internal object LithoSnackBarFingerprint : Fingerprint(
     returnType = "Landroid/view/View;",
-    literals = listOf(insetElementsWrapper),
-    customFingerprint = { method, _ ->
+    filters = listOf(literal(literal = { insetElementsWrapper })),
+    custom = { method, _ ->
         indexOfBackGroundColor(method) >= 0
     }
 )

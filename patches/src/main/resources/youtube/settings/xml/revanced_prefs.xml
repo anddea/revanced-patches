@@ -121,7 +121,8 @@
             <SwitchPreference android:title="@string/revanced_show_search_button_title" android:key="revanced_show_search_button" android:summaryOn="@string/revanced_hide_toolbar_search_button_summary_off" android:summaryOff="@string/revanced_show_search_button_summary_off" />SETTINGS: SHOW_SEARCH_BUTTON -->
 
             <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
-            <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
+            <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>
+            <SwitchPreference android:title="@string/morphe_disable_icon_only_navigation_buttons_title" android:key="morphe_disable_icon_only_navigation_buttons" android:summary="@string/morphe_disable_icon_only_navigation_buttons_summary" />SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
             <!-- SETTINGS: STATUS_BAR_TRANSLUCENCY
             <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_status_bar_translucency_entries" android:title="@string/revanced_status_bar_translucency_title" android:key="revanced_status_bar_translucency" android:entryValues="@array/revanced_status_bar_translucency_entry_values" />SETTINGS: STATUS_BAR_TRANSLUCENCY -->
@@ -277,28 +278,31 @@
     </PreferenceScreen>PREFERENCE_SCREEN: ADS -->
 
 
-    <!-- PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS
-    <PreferenceScreen android:title="@string/revanced_preference_screen_alt_thumbnails_title" android:key="revanced_preference_screen_alt_thumbnails">PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS -->
+    <!-- PREFERENCE_SCREEN: DEARROW
+    <PreferenceScreen android:title="@string/morphe_dearrow_screen_title" android:key="revanced_preference_screen_alt_thumbnails">PREFERENCE_SCREEN: DEARROW -->
 
-        <!-- SETTINGS: ALTERNATIVE_THUMBNAILS
+        <!-- SETTINGS: DEARROW
+        <SwitchPreference android:title="@string/morphe_dearrow_titles_title" android:key="morphe_dearrow_titles" android:summary="@string/morphe_dearrow_titles_summary" />
+        <SwitchPreference android:title="@string/morphe_dearrow_titles_icon_title" android:key="morphe_dearrow_titles_icon" android:summary="@string/morphe_dearrow_titles_icon_summary" android:dependency="morphe_dearrow_titles" />
+        <SwitchPreference android:title="@string/morphe_dearrow_casual_mode_title" android:key="morphe_dearrow_casual_mode" android:summary="@string/morphe_dearrow_casual_mode_summary" android:dependency="morphe_dearrow_titles" />
+        <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/morphe_dearrow_casual_mode_min_votes_title" android:key="morphe_dearrow_casual_mode_min_votes" android:summary="@string/morphe_dearrow_casual_mode_min_votes_summary" android:dependency="morphe_dearrow_casual_mode" android:defaultValue="2" android:inputType="number" />
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_home_title" android:key="revanced_alt_thumbnail_home" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_player_title" android:key="revanced_alt_thumbnail_player" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_search_title" android:key="revanced_alt_thumbnail_search" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_subscriptions_title" android:key="revanced_alt_thumbnail_subscriptions" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_library_title" android:key="revanced_alt_thumbnail_library" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
-        <app.morphe.extension.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference android:title="@string/revanced_alt_thumbnail_dearrow_about_title" android:selectable="true" android:summary="@string/revanced_alt_thumbnail_dearrow_about_summary" />
+        <app.morphe.extension.youtube.settings.preference.DeArrowAboutPreference android:title="@string/morphe_dearrow_about_title" android:selectable="true" android:summary="@string/morphe_dearrow_about_summary" />
         <SwitchPreference android:title="@string/revanced_sb_toast_on_connection_error" android:key="revanced_alt_thumbnail_dearrow_connection_toast" android:summaryOn="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_off" />
         <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_alt_thumbnail_dearrow_api_url_title" android:key="revanced_alt_thumbnail_dearrow_api_url" android:summary="@string/revanced_alt_thumbnail_dearrow_api_url_summary" android:inputType="text" />
         <Preference android:title="@string/revanced_alt_thumbnail_stills" android:selectable="false" android:summary="@string/revanced_alt_thumbnail_stills_about_summary" />
-        <SwitchPreference android:title="@string/revanced_alt_thumbnail_stills_fast_title" android:key="revanced_alt_thumbnail_stills_fast" android:summaryOn="@string/revanced_alt_thumbnail_stills_fast_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_stills_fast_summary_off" />
-        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_alt_thumbnail_stills_time_entries" android:title="@string/revanced_alt_thumbnail_stills_time_title" android:key="revanced_alt_thumbnail_stills_time" android:entryValues="@array/revanced_alt_thumbnail_stills_time_entry_values" />SETTINGS: ALTERNATIVE_THUMBNAILS -->
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_alt_thumbnail_stills_time_entries" android:title="@string/revanced_alt_thumbnail_stills_time_title" android:key="revanced_alt_thumbnail_stills_time" android:entryValues="@array/revanced_alt_thumbnail_stills_time_entry_values" />SETTINGS: DEARROW -->
 
         <!-- SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS
         <PreferenceCategory android:title="@string/revanced_preference_category_image_region_restrictions" android:layout="@layout/revanced_settings_preferences_category"/>
         <SwitchPreference android:title="@string/revanced_bypass_image_region_restrictions_title" android:key="revanced_bypass_image_region_restrictions" android:summaryOn="@string/revanced_bypass_image_region_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_image_region_restrictions_summary_off" />SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS -->
 
-    <!-- PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS
-    </PreferenceScreen>PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS -->
+    <!-- PREFERENCE_SCREEN: DEARROW
+    </PreferenceScreen>PREFERENCE_SCREEN: DEARROW -->
 
 
     <!-- PREFERENCE_SCREEN: FEED
@@ -383,11 +387,11 @@
             </PreferenceCategory>
         </PreferenceScreen>SETTINGS: HIDE_FEED_COMPONENTS -->
 
-        <!-- SETTINGS: DISABLE_AUTO_FEED_REFRESH
-        <SwitchPreference android:title="@string/morphe_disable_auto_feed_refresh_title" android:key="morphe_disable_auto_feed_refresh" android:summary="@string/morphe_disable_auto_feed_refresh_summary" />SETTINGS: DISABLE_AUTO_FEED_REFRESH -->
-
         <!-- SETTINGS: PLAYBACK_IN_FEEDS
         <app.morphe.extension.youtube.settings.preference.PlaybackInFeedsListPreference android:title="@string/morphe_playback_in_feeds_title" android:key="morphe_playback_in_feeds" android:entries="@array/morphe_playback_in_feeds_entries" android:entryValues="@array/morphe_playback_in_feeds_entry_values" />SETTINGS: PLAYBACK_IN_FEEDS -->
+
+        <!-- SETTINGS: DISABLE_AUTO_FEED_REFRESH
+        <SwitchPreference android:title="@string/morphe_disable_auto_feed_refresh_title" android:key="morphe_disable_auto_feed_refresh" android:summary="@string/morphe_disable_auto_feed_refresh_summary" />SETTINGS: DISABLE_AUTO_FEED_REFRESH -->
 
         <!-- SETTINGS: HIDE_FEED_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />
@@ -395,6 +399,7 @@
         <SwitchPreference android:title="@string/revanced_hide_floating_button_title" android:key="revanced_hide_floating_button" android:summaryOn="@string/revanced_hide_floating_button_summary_on" android:summaryOff="@string/revanced_hide_floating_button_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_image_shelf_title" android:key="revanced_hide_image_shelf" android:summaryOn="@string/revanced_hide_image_shelf_summary_on" android:summaryOff="@string/revanced_hide_image_shelf_summary_off" />
         <SwitchPreference android:title="@string/morphe_hide_auto_dubbed_label_title" android:key="morphe_hide_auto_dubbed_label" />
+        <SwitchPreference android:title="@string/morphe_hide_channel_buttons_title" android:key="morphe_hide_channel_buttons" android:summary="@string/morphe_hide_channel_buttons_summary" />
         <SwitchPreference android:title="@string/morphe_hide_hyped_label_title" android:key="morphe_hide_hyped_label" />
         <SwitchPreference android:title="@string/morphe_hide_invite_to_message_card_title" android:key="morphe_hide_invite_to_message_card" android:summary="@string/morphe_hide_invite_to_message_card_summary" />
         <SwitchPreference android:title="@string/revanced_hide_chips_shelf_title" android:key="revanced_hide_chips_shelf" android:summaryOn="@string/revanced_hide_chips_shelf_on" android:summaryOff="@string/revanced_hide_chips_shelf_off" />SETTINGS: HIDE_FEED_COMPONENTS -->
@@ -1263,8 +1268,8 @@
                 <Preference android:title="Hide ads" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>
 
-            <PreferenceCategory android:title="@string/revanced_preference_screen_alt_thumbnails_title" android:layout="@layout/revanced_settings_preferences_category">
-                <Preference android:title="Alternative thumbnails" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <PreferenceCategory android:title="@string/morphe_dearrow_screen_title" android:layout="@layout/revanced_settings_preferences_category">
+                <Preference android:title="DeArrow" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Bypass image region restrictions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>
 

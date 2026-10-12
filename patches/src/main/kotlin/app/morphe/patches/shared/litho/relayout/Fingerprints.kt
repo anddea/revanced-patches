@@ -52,6 +52,30 @@ internal object LithoViewOnMeasureFingerprint : Fingerprint(
 )
 
 /**
+ * Unmounts all mounted content of the Litho view. The content is mounted again by the next layout.
+ */
+internal object LithoViewUnmountAllItemsFingerprint : Fingerprint(
+    classFingerprint = LithoViewOnMeasureFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf(),
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            smali = "Landroid/graphics/Rect;->setEmpty()V"
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            smali = "Landroid/graphics/Rect;->setEmpty()V"
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            smali = "Landroid/graphics/Rect;->setEmpty()V"
+        )
+    )
+)
+
+/**
  * Mounts a Litho text. The text layout and the text are set on the text drawable,
  * which is a drawable that implements TextContent.
  */

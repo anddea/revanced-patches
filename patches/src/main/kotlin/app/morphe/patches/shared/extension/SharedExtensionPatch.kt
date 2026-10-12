@@ -17,12 +17,27 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue
 import java.util.jar.Manifest
 
+/** Merge all secondary DEX files before shared extension hooks execute. */
+private val secondarySharedExtensionPatches by lazy {
+    val classLoader = object {}.javaClass.classLoader
+    generateSequence(2) { it + 1 }
+        .map { "extensions/shared$it.mpe" }
+        .takeWhile { classLoader.getResource(it) != null }
+        .map { resource ->
+            bytecodePatch(description = "Shared extension: $resource") {
+                extendWith(resource)
+            }
+        }
+        .toList()
+}
+
 fun sharedExtensionPatch(
     vararg hooks: ExtensionHook,
 ) = bytecodePatch(
     description = "sharedExtensionPatch"
 ) {
     extendWith("extensions/shared.mpe")
+    dependsOn(*secondarySharedExtensionPatches.toTypedArray())
 
     execute {
         if (classDefByOrNull { EXTENSION_UTILS_CLASS_DESCRIPTOR == it.type } == null) {

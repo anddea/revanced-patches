@@ -7,7 +7,6 @@
 
 package app.morphe.patches.shared.litho.relayout
 
-import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -47,21 +46,6 @@ val lithoRelayoutPatch = bytecodePatch(
                 throw PatchException("Unexpected fields, read: $readFlag clear: $clearFlag")
             }
 
-            // Check the views again when attached again without mounting the texts.
-            mapOf(
-                "onAttachedToWindow" to "onLithoViewAttached",
-                "onDetachedFromWindow" to "onLithoViewDetached"
-            ).forEach { (methodName, hookName) ->
-                Fingerprint(
-                    definingClass = it.classDef.toString(),
-                    name = methodName,
-                    parameters = listOf()
-                ).method.addInstructions(
-                    0,
-                    "invoke-static { p0 }, $EXTENSION_CLASS->$hookName(Landroid/view/View;)V"
-                )
-            }
-
             it.classDef.apply {
                 interfaces.add(EXTENSION_LITHO_VIEW_INTERFACE)
                 methods.add(
@@ -86,10 +70,41 @@ val lithoRelayoutPatch = bytecodePatch(
                         )
                     }
                 )
+
+                // Unmounting all content mounts it again with the next layout,
+                // which loads the images again.
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_forceRemount",
+                        listOf(),
+                        "V",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(1),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
+                                invoke-virtual { p0 }, $type->${LithoViewUnmountAllItemsFingerprint.method.name}()V
+                                invoke-virtual { p0 }, $type->requestLayout()V
+                                return-void
+                            """
+                        )
+                    }
+                )
             }
+
+            // Remember the Litho views, so all shown views can be mounted again.
+            it.method.addInstruction(
+                0,
+                "invoke-static/range { p0 .. p0 }, " +
+                        "$EXTENSION_CLASS->onLithoViewMeasured(Landroid/view/View;)V"
+            )
         }
 
-        // Check the texts mounted later, such as texts scrolled into view.
+        // Remember the mounted texts that are laid out again when outdated.
         LithoTextMountFingerprint.let {
             it.method.apply {
                 val textIndex = it.instructionMatches.last().index

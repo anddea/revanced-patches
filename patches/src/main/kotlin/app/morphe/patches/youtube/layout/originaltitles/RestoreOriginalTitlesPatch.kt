@@ -11,6 +11,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patches.shared.litho.context.conversionContextPatch
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.litho.relayout.lithoRelayoutPatch
 import app.morphe.patches.shared.mapping.resourceMappingPatch
@@ -25,7 +26,10 @@ import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.video.videoid.hookVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
+import app.morphe.patches.shared.misc.media.MediaSessionSetMetadataFingerprint
 import app.morphe.util.findFreeRegister
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val EXTENSION_CLASS =
@@ -40,6 +44,7 @@ val restoreOriginalTitlesPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         lithoFilterPatch,
+        conversionContextPatch,
         resourceMappingPatch,
         elementProtoParserHookPatch,
         textComponentPatch,
@@ -66,6 +71,24 @@ val restoreOriginalTitlesPatch = bytecodePatch(
         // and replaced when the description panel is opened.
         hookVideoId("$EXTENSION_CLASS->newVideoLoaded(Ljava/lang/String;)V")
 
+        // The title of the media notification.
+        MediaSessionSetMetadataFingerprint.let {
+            it.method.apply {
+                val index = it.instructionMatches.first().index
+                val instruction = getInstruction<FiveRegisterInstruction>(index)
+                val sessionRegister = instruction.registerC
+                val metadataRegister = instruction.registerD
+
+                addInstructions(
+                    index,
+                    """
+                        invoke-static { v$sessionRegister, v$metadataRegister }, $EXTENSION_CLASS->restoreMediaMetadataTitle(Landroid/media/session/MediaSession;Landroid/media/MediaMetadata;)Landroid/media/MediaMetadata;
+                        move-result-object v$metadataRegister
+                    """
+                )
+            }
+        }
+
         // The playlist panel on the watch page does not use Litho.
         PlaylistPanelVideoBindFingerprint.matchAll().forEach {
             it.method.apply {
@@ -84,6 +107,33 @@ val restoreOriginalTitlesPatch = bytecodePatch(
                         iget-object v$titleViewRegister, v$viewHolderRegister, $titleViewField
                         invoke-static { v$titleViewRegister, v$videoIdRegister }, $EXTENSION_CLASS->restoreOriginalTitle(Landroid/widget/TextView;Ljava/lang/String;)V
                     """
+                )
+            }
+        }
+
+        // The video information shown while the video is loading shows the title of the element that opened the video,
+        // which can be marked with the video id.
+        LoadingVideoInformationBindFingerprint.matchOrNull()?.let {
+            it.method.apply {
+                val index = it.instructionMatches[4].index
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstruction(
+                    index + 1,
+                    "invoke-static { v$register }, $EXTENSION_CLASS->restoreKnownTitles(Landroid/widget/TextView;)V"
+                )
+            }
+        }
+
+        // The fullscreen engagement overlay shows the title of the opened video without the video id.
+        FullscreenEngagementOverlayFingerprint.let {
+            it.method.apply {
+                val index = it.instructionMatches.last().index
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                addInstruction(
+                    index + 1,
+                    "invoke-static { v$register }, $EXTENSION_CLASS->restorePlayerTitle(Landroid/widget/TextView;)V"
                 )
             }
         }
