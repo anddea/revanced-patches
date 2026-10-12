@@ -916,4 +916,8 @@ Side effect (Block request):
     <string name="morphe_music_lyrics_ai_config_prompt_hint">Prompt template (variables: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_translate_only">Translated only</string>
     <string name="morphe_music_lyrics_romanize_only">Romanized only</string>
+    <string name="morphe_skip_silence_title">Skip silence</string>
+    <string name="morphe_skip_silence_summary">Automatically skips silent pauses in video audio</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
 </resources>

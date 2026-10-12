@@ -2918,4 +2918,8 @@ Authorization is required to request translation with live voices for videos tha
     <string name="morphe_disable_auto_feed_refresh_summary">Prevents feeds from refreshing automatically after they become outdated</string>
     <string name="morphe_volume_boost_title">Volume boost</string>
     <string name="morphe_volume_boost_summary">Swiping up past maximum volume boosts it, which can distort loud audio</string>
+    <string name="morphe_skip_silence_title">Skip silence</string>
+    <string name="morphe_skip_silence_summary">Automatically skips silent pauses in video audio</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
 </resources>

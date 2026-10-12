@@ -1054,6 +1054,10 @@
         <!-- SETTINGS: PLAYBACK_BUFFER
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_playback_buffer_size_title" android:key="morphe_playback_buffer_size" android:entries="@array/morphe_playback_buffer_size_entries" android:entryValues="@array/morphe_playback_buffer_size_entry_values" android:defaultValue="DEFAULT" />SETTINGS: PLAYBACK_BUFFER -->
 
+        <!-- SETTINGS: SKIP_SILENCE
+        <SwitchPreference android:title="@string/morphe_skip_silence_title" android:key="morphe_skip_silence" android:summary="@string/morphe_skip_silence_summary" />
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_skip_silence_minimum_pause_title" android:key="morphe_skip_silence_minimum_pause" android:summary="@string/morphe_skip_silence_minimum_pause_summary" android:entries="@array/morphe_skip_silence_minimum_pause_entries" android:entryValues="@array/morphe_skip_silence_minimum_pause_entry_values" android:dependency="morphe_skip_silence" />SETTINGS: SKIP_SILENCE -->
+
     <!-- PREFERENCE_SCREEN: VIDEO
     </PreferenceScreen>PREFERENCE_SCREEN: VIDEO -->
 
@@ -1269,6 +1273,7 @@
                 <Preference android:title="Hide feed components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide feed flyout menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Playback in feeds" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Skip silence" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>
 
             <PreferenceCategory android:title="@string/revanced_preference_screen_general_title" android:layout="@layout/revanced_settings_preferences_category">

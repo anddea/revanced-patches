@@ -7,6 +7,7 @@ import static app.morphe.extension.shared.settings.Setting.parent;
 import static app.morphe.extension.shared.settings.Setting.parentInverted;
 
 import app.morphe.extension.shared.patches.PatchStatus;
+import app.morphe.extension.shared.patches.SkipSilencePatch.MinimumPause;
 import app.morphe.extension.shared.patches.PoTokenProviderPatch.PoTokenProviderAvailability;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.SpoofVideoStreamsAvailability;
@@ -46,6 +47,9 @@ public class SharedYouTubeSettings extends BaseSettings {
     public static final BooleanSetting CUSTOM_BRANDING_APPLY_TO_RVX_SETTINGS = new BooleanSetting(
             "morphe_custom_branding_apply_to_rvx_settings",
             !"original".equals(CustomBrandingPatch.getDefaultIconStyle()), true);
+
+    public static final BooleanSetting SKIP_SILENCE = new BooleanSetting("morphe_skip_silence", FALSE, true);
+    public static final EnumSetting<MinimumPause> SKIP_SILENCE_MINIMUM_PAUSE = new EnumSetting<>("morphe_skip_silence_minimum_pause", MinimumPause.MS_700, true, parent(SKIP_SILENCE));
 
     public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("morphe_force_original_audio", TRUE, true);
 
