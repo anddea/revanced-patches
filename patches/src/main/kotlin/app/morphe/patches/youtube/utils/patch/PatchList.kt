@@ -61,6 +61,10 @@ internal enum class PatchList(
         "Description components",
         "Adds options to hide and disable description components."
     ),
+    DISABLE_AUTO_FEED_REFRESH(
+        "Disable auto feed refresh",
+        "Adds an option to stop feeds from refreshing automatically after they become outdated."
+    ),
     DISABLE_QUIC_PROTOCOL(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."

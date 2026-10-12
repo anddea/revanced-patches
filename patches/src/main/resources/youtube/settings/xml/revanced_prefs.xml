@@ -383,6 +383,9 @@
             </PreferenceCategory>
         </PreferenceScreen>SETTINGS: HIDE_FEED_COMPONENTS -->
 
+        <!-- SETTINGS: DISABLE_AUTO_FEED_REFRESH
+        <SwitchPreference android:title="@string/morphe_disable_auto_feed_refresh_title" android:key="morphe_disable_auto_feed_refresh" android:summary="@string/morphe_disable_auto_feed_refresh_summary" />SETTINGS: DISABLE_AUTO_FEED_REFRESH -->
+
         <!-- SETTINGS: PLAYBACK_IN_FEEDS
         <app.morphe.extension.youtube.settings.preference.PlaybackInFeedsListPreference android:title="@string/morphe_playback_in_feeds_title" android:key="morphe_playback_in_feeds" android:entries="@array/morphe_playback_in_feeds_entries" android:entryValues="@array/morphe_playback_in_feeds_entry_values" />SETTINGS: PLAYBACK_IN_FEEDS -->
 
@@ -1258,6 +1261,7 @@
             </PreferenceCategory>
 
             <PreferenceCategory android:title="@string/revanced_preference_screen_feed_title" android:layout="@layout/revanced_settings_preferences_category">
+                <Preference android:title="Disable auto feed refresh" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide feed components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide feed flyout menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Playback in feeds" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
