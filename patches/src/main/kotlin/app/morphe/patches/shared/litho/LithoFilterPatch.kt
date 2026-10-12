@@ -50,6 +50,7 @@ import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACK
 import app.morphe.patches.music.utils.playservice.is_7_25_or_greater
 import app.morphe.patches.shared.conversionContextFingerprintToString2
 import app.morphe.patches.shared.extension.Constants.COMPONENTS_PATH
+import app.morphe.patches.youtube.utils.litho.rendernext.disableRenderNextPatch
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_05_or_greater
@@ -109,6 +110,7 @@ val lithoFilterPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         versionCheckPatch,
+        disableRenderNextPatch,
     )
 
     var filterCount = 0
