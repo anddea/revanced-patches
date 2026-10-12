@@ -6,6 +6,7 @@
  *
  * Original author(s):
  * - COOLak (https://github.com/COOLak)
+ * - kondratjev (https://github.com/kondratjev)
  *
  * Licensed under the GNU General Public License v3.0.
  *
@@ -230,6 +231,15 @@ public final class TranslationPlaybackController {
     /** A failed/canceled translation leaves the video paused, with manual playback available. */
     static void failed(int provider, String videoId) {
         state.cancel(provider, videoId);
+    }
+
+    /**
+     * Releases the startup hold after translation proves unavailable (ongoing livestream,
+     * overlong video, same language, failed request) and restores playback when the video
+     * was playing. Unlike {@link #failed}, the video keeps playing instead of staying paused.
+     */
+    static void cancelAndResume(int provider, String videoId) {
+        ready(provider, videoId);
     }
 
     static boolean usesGoogle() { return state.provider() == TranslationPlaybackState.GOOGLE; }
