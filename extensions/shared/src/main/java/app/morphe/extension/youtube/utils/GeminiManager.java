@@ -325,13 +325,6 @@ public final class GeminiManager {
     private final Map<String, List<TranscriptSegment>> transcriptionTimedCache = new ConcurrentHashMap<>();
 
     /**
-     * Video ID whose overlay was opened by a VOT dub flow (rather than transcription).
-     * Null when the overlay is transcription-owned or hidden.
-     */
-    @Nullable
-    private volatile String votOverlayVideoId = null;
-
-    /**
      * Last observed video-time hook value and the monotonic clock at that moment.
      * Backs {@link #estimatedVideoTimeMs()}.
      */
@@ -1307,7 +1300,6 @@ public final class GeminiManager {
     private void hideTranscriptionOverlayInternal() {
         ensureMainThread(() -> {
             stopSubtitleUpdaterInternal();
-            votOverlayVideoId = null;
 
             SubtitleOverlay overlayInstance = (subtitleOverlayRef != null) ? subtitleOverlayRef.get() : null;
 
@@ -2027,13 +2019,6 @@ public final class GeminiManager {
     }
 
     /**
-     * Displays the transcription overlay.
-     * Must be called on the Main Thread.
-     *
-     * @param videoUrl The video URL.
-     * @return True if displayed successfully, false otherwise.
-     */
-    /**
      * Renders a highlight snapshot: passed words in {@link #HIGHLIGHT_PASSED_COLOR},
      * the rest keeps the overlay's own text color.
      */
@@ -2070,38 +2055,6 @@ public final class GeminiManager {
     }
 
     /**
-     * Shows or refreshes timed subtitle lines pushed by a VOT dub flow (voice translation).
-     * Takes ownership only when the overlay is hidden; a visible transcription overlay is
-     * never stolen. Refresh path (already owned) just swaps the cached lines.
-     */
-    public void showOrRefreshVotSubtitles(@NonNull String videoId, @NonNull List<TranscriptSegment> lines) {
-        ensureMainThread(() -> {
-            if (videoId.equals(votOverlayVideoId)) {
-                transcriptionTimedCache.put(videoId, new ArrayList<>(lines));
-                return;
-            }
-            if (lines.isEmpty()) return;
-            if (isSubtitleOverlayShowing) return;
-            if (!videoId.equals(VideoInformation.getVideoId())) return;
-            transcriptionTimedCache.put(videoId, new ArrayList<>(lines));
-            displayTimedOverlayInternal(videoId);
-            votOverlayVideoId = videoId;
-        });
-    }
-
-    /**
-     * Hides a VOT-owned overlay. Never touches a transcription-owned one.
-     */
-    public void hideVotSubtitles(@NonNull String videoId) {
-        ensureMainThread(() -> {
-            if (!videoId.equals(votOverlayVideoId)) return;
-            votOverlayVideoId = null;
-            transcriptionTimedCache.remove(videoId);
-            hideTranscriptionOverlayInternal();
-        });
-    }
-
-    /**
      * Overlay text for timed lines at a video timestamp: highlighted words when the
      * universal highlight switch is on, plain line text otherwise, placeholder when
      * nothing is audible.
@@ -2116,36 +2069,6 @@ public final class GeminiManager {
         return Settings.GEMINI_HIGHLIGHT_WORDS.get()
                 ? buildHighlightedText(highlight)
                 : VotWordHighlighter.plainText(highlight);
-    }
-
-    /**
-     * Displays the overlay for timed lines without a parsed transcription map
-     * (VOT dub flows). Mirrors {@link #displayTranscriptionOverlayInternal(String)}.
-     */
-    @MainThread
-    private void displayTimedOverlayInternal(String videoId) {
-        List<TranscriptSegment> timed = transcriptionTimedCache.get(videoId);
-        if (timed == null || timed.isEmpty()) return;
-
-        hideTranscriptionOverlayInternal();
-
-        try {
-            SubtitleOverlay overlay = new SubtitleOverlay();
-
-            long currentTime = VideoInformation.getVideoTime();
-            overlay.updateText(overlayTextFor(timed, videoId, currentTime));
-
-            overlay.show();
-            subtitleOverlayRef = new WeakReference<>(overlay);
-
-            isSubtitleOverlayShowing = true;
-            Logger.printInfo(() -> "VOT subtitle overlay displayed successfully.");
-
-            startHighlightUpdaterInternal(timed, videoId);
-        } catch (Exception e) {
-            Logger.printException(() -> "CRITICAL - Failed during VOT subtitle overlay creation or show()", e);
-            hideTranscriptionOverlayInternal();
-        }
     }
 
     /**
@@ -2208,6 +2131,13 @@ public final class GeminiManager {
         subtitleUpdateHandler.post(subtitleUpdateRunnable);
     }
 
+    /**
+     * Displays the transcription overlay.
+     * Must be called on the Main Thread.
+     *
+     * @param videoUrl The video URL.
+     * @return True if displayed successfully, false otherwise.
+     */
     @MainThread
     private boolean displayTranscriptionOverlayInternal(String videoUrl) {
         Logger.printDebug(() -> "Attempting display transcription overlay...");

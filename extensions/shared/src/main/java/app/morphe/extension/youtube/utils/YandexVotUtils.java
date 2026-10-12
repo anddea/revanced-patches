@@ -396,33 +396,6 @@ public class YandexVotUtils {
     }
 
     /**
-     * Blocking fetch of the translated subtitle lines with Yandex word timings
-     * (the {@code tokens} array the original extension highlights from).
-     * Must be called off the main thread. Returns null when unavailable.
-     */
-    @Nullable
-    public static List<TranscriptSegment> fetchTimedLines(String videoUrl, String targetLang) {
-        try {
-            SubtitlesResponse tracks = getFinalSubtitleTracks(videoUrl);
-            if (tracks == null || tracks.waiting || tracks.subtitles.isEmpty()) return null;
-            SubtitleTrack chosen = findBestSubtitleForLanguage(tracks.subtitles, targetLang);
-            if (chosen == null) return null;
-            String url = determineSubtitleUrl(chosen, targetLang);
-            if (TextUtils.isEmpty(url)) return null;
-            Request request = new Request.Builder().url(url).get().build();
-            try (Response response = httpClient.newCall(request).execute()) {
-                ResponseBody body = response.body();
-                if (!response.isSuccessful() || body == null) return null;
-                List<TranscriptSegment> lines = parseYandexTimedLines(body.string());
-                return lines.isEmpty() ? null : lines;
-            }
-        } catch (Exception e) {
-            Logger.printDebug(() -> "VOT: timed lines fetch failed", e);
-            return null;
-        }
-    }
-
-    /**
      * Parses Yandex subtitle JSON into timed lines, preserving per-word token timings
      * for highlighting. Same entry validation as {@link #parseYandexJsonSubtitles}.
      */
