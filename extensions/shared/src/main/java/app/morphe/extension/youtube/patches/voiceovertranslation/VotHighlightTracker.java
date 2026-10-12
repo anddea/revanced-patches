@@ -1,6 +1,6 @@
 /*
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * Copyright 2026 kondratjev.
+ * https://github.com/kondratjev/revanced-patches
  *
  * Original author(s):
  * - kondratjev (https://github.com/kondratjev)

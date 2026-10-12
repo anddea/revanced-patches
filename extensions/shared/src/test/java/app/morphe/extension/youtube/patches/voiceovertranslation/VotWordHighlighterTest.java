@@ -1,6 +1,6 @@
 /*
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * Copyright 2026 kondratjev.
+ * https://github.com/kondratjev/revanced-patches
  *
  * Original author(s):
  * - kondratjev (https://github.com/kondratjev)
@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import org.junit.Test;
 
@@ -195,35 +196,35 @@ public class VotWordHighlighterTest {
     @Test
     public void trackerPassesProgressThrough() {
         VotHighlightTracker tracker = new VotHighlightTracker();
-        assertEquals(1, tracker.next("v", highlightAt(1), 500).passedWords());
-        assertEquals(2, tracker.next("v", highlightAt(2), 1500).passedWords());
+        assertEquals(1, Objects.requireNonNull(tracker.next("v", highlightAt(1), 500)).passedWords());
+        assertEquals(2, Objects.requireNonNull(tracker.next("v", highlightAt(2), 1500)).passedWords());
     }
 
     @Test
     public void trackerClampsPauseJitter() {
         VotHighlightTracker tracker = new VotHighlightTracker();
-        assertEquals(2, tracker.next("v", highlightAt(2), 1500).passedWords());
+        assertEquals(2, Objects.requireNonNull(tracker.next("v", highlightAt(2), 1500)).passedWords());
         // Clock snapped slightly back (pause): already-spoken words stay painted.
-        assertEquals(2, tracker.next("v", highlightAt(1), 1200).passedWords());
+        assertEquals(2, Objects.requireNonNull(tracker.next("v", highlightAt(1), 1200)).passedWords());
     }
 
     @Test
     public void trackerHonorsRealSeekBack() {
         VotHighlightTracker tracker = new VotHighlightTracker();
-        assertEquals(3, tracker.next("v", highlightAt(3), 5000).passedWords());
+        assertEquals(3, Objects.requireNonNull(tracker.next("v", highlightAt(3), 5000)).passedWords());
         // Large backward jump is a seek, not jitter: highlight follows back.
-        assertEquals(1, tracker.next("v", highlightAt(1), 500).passedWords());
+        assertEquals(1, Objects.requireNonNull(tracker.next("v", highlightAt(1), 500)).passedWords());
     }
 
     @Test
     public void trackerResetsOnNewSegmentVideoOrGap() {
         VotHighlightTracker tracker = new VotHighlightTracker();
-        assertEquals(2, tracker.next("v", highlightAt(2), 1500).passedWords());
+        assertEquals(2, Objects.requireNonNull(tracker.next("v", highlightAt(2), 1500)).passedWords());
         assertNull(tracker.next("v", null, 1600));
         // After a gap the next highlight starts fresh, even if smaller.
-        assertEquals(1, tracker.next("v", highlightAt(1), 1700).passedWords());
+        assertEquals(1, Objects.requireNonNull(tracker.next("v", highlightAt(1), 1700)).passedWords());
         // New video also resets.
-        assertEquals(3, tracker.next("v", highlightAt(3), 5000).passedWords());
-        assertEquals(1, tracker.next("w", highlightAt(1), 5100).passedWords());
+        assertEquals(3, Objects.requireNonNull(tracker.next("v", highlightAt(3), 5000)).passedWords());
+        assertEquals(1, Objects.requireNonNull(tracker.next("w", highlightAt(1), 5100)).passedWords());
     }
 }

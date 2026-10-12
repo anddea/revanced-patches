@@ -1,21 +1,19 @@
 /*
- * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * Copyright 2026 kondratjev.
+ * https://github.com/kondratjev/revanced-patches
+ *
+ * Original author(s):
+ * - kondratjev (https://github.com/kondratjev)
  *
  * Word-highlight model ported from ilyhalight/voice-over-translation
  * (src/subtitles/processor.ts allocateTimingsByLength, src/subtitles/activeCues.ts,
  * src/subtitles/widget.ts highlightWords). MIT, (c) sodapng / ilyhalight.
- *
- * Original author(s):
- * - kondratjev (https://github.com/kondratjev)
  *
  * <p>Two timing sources, same as the original: real per-word timings from the Yandex
  * subtitles API ({@code tokens} array, kept in {@link TranscriptSegment#timedWords})
  * and proportional interpolation for lines without them (e.g. translated Google captions).
  *
  * <p>Rendering lives in the Gemini subtitle overlay; this class only computes state.
- *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
  */
 
 package app.morphe.extension.youtube.patches.voiceovertranslation;

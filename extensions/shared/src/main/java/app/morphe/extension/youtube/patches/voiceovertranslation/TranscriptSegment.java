@@ -2,7 +2,7 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
- * Original author(s):
+ * Portions of this file are modified by kondratjev:
  * - kondratjev (https://github.com/kondratjev)
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
