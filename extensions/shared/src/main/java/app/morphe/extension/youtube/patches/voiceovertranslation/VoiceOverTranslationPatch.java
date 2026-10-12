@@ -196,6 +196,14 @@ public class VoiceOverTranslationPatch {
         stopAudioPlayback();
     }
 
+    /**
+     * @return true only while the stream is actually ongoing. Finished livestreams keep the
+     * live flag but report their VOD length, so they remain translatable.
+     */
+    private static boolean isOngoingLive() {
+        return pendingIsLive && pendingVideoLength <= 0;
+    }
+
     public static void toggleTranslation() {
         if (!Settings.VOT_ENABLED.get()) return;
         if (isTranslationRequestInProgress()) return;
@@ -207,20 +215,20 @@ public class VoiceOverTranslationPatch {
             return;
         }
 
-        if (pendingIsLive) {
-            TranslationPlaybackController.failed(TranslationPlaybackState.YANDEX, pendingVideoId);
+        if (isOngoingLive()) {
+            TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, pendingVideoId);
             showToastShort(str("revanced_vot_unavailable_live"));
             return;
         }
         if (pendingVideoLength > 4 * 60 * 60 * 1000L) {
-            TranslationPlaybackController.failed(TranslationPlaybackState.YANDEX, pendingVideoId);
+            TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, pendingVideoId);
             showToastShort(str("revanced_vot_unavailable_too_long"));
             return;
         }
         String sourceLang = Settings.VOT_SOURCE_LANGUAGE.get();
         String targetLang = Settings.VOT_TARGET_LANGUAGE.get();
         if (!sourceLang.isEmpty() && !"auto".equalsIgnoreCase(sourceLang) && sourceLang.equals(targetLang)) {
-            TranslationPlaybackController.failed(TranslationPlaybackState.YANDEX, pendingVideoId);
+            TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, pendingVideoId);
             showToastShort(str("revanced_vot_unavailable_same_language"));
             return;
         }
@@ -418,7 +426,7 @@ public class VoiceOverTranslationPatch {
         if (!isTranslationActive()) return;
         String videoId = currentTranslatedVideoId.get();
         if (videoId == null || videoId.isEmpty()) return;
-        if (pendingIsLive) return;
+        if (isOngoingLive()) return;
         if (pendingVideoLength > 4 * 60 * 60 * 1000L) return;
         String sourceLang = Settings.VOT_SOURCE_LANGUAGE.get();
         String targetLang = Settings.VOT_TARGET_LANGUAGE.get();
@@ -469,7 +477,7 @@ public class VoiceOverTranslationPatch {
     }
 
     private static void translationFailed(String videoId) {
-        TranslationPlaybackController.failed(TranslationPlaybackState.YANDEX, videoId);
+        TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, videoId);
         showToastShort(str("revanced_vot_playback_error"));
     }
 
@@ -534,7 +542,7 @@ public class VoiceOverTranslationPatch {
                     break;
                 case VotApiClient.STATUS_SESSION_REQUIRED:
                     Utils.runOnMainThread(() -> {
-                        TranslationPlaybackController.failed(TranslationPlaybackState.YANDEX, videoId);
+                        TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, videoId);
                         showToastShort(str("revanced_vot_auth_required"));
                     });
                     break;
@@ -614,7 +622,7 @@ public class VoiceOverTranslationPatch {
                     public void onSessionRequired() {
                         if (isCurrentTranslationRequest(requestId, videoId)) {
                             Utils.runOnMainThread(() -> {
-                        TranslationPlaybackController.failed(TranslationPlaybackState.YANDEX, videoId);
+                        TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, videoId);
                         showToastShort(str("revanced_vot_auth_required"));
                     });
                         }
@@ -634,7 +642,7 @@ public class VoiceOverTranslationPatch {
         );
         if (result == null && isCurrentTranslationRequest(requestId, videoId)) {
             Utils.runOnMainThread(() -> {
-                TranslationPlaybackController.failed(TranslationPlaybackState.YANDEX, videoId);
+                TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, videoId);
                 showToastShort(str("revanced_vot_stream_not_ready"));
             });
         }

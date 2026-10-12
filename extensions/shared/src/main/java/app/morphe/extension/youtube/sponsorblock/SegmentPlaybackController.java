@@ -348,6 +348,7 @@ public class SegmentPlaybackController {
                 return;
             }
             clearData();
+            Utils.runOnMainThreadNowOrLater(SponsorBlockViewController::hideAll);
             if (!Settings.SB_ENABLED.get()) {
                 return;
             }

@@ -432,6 +432,7 @@ Tap here to learn more about DeArrow"</string>
     <string name="revanced_append_time_stamp_information_summary_on">"Information is appended to the timestamp
 
 Tap to configure the video quality or playback speed
+Double tap to switch between elapsed and remaining time
 Tap and hold to toggle the appended information type"</string>
     <string name="revanced_append_time_stamp_information_title">Append timestamp information</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Append playback speed</string>
@@ -2903,4 +2904,14 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
+    <string name="morphe_restore_original_titles_title">Restore original titles</string>
+    <string name="morphe_restore_original_titles_summary">Shows the original video titles and descriptions instead of the auto-translated ones</string>
+    <string name="morphe_restore_original_titles_loading">Loading title…</string>
+    <!-- video.buffer.playbackBufferPatch -->
+    <string name="morphe_playback_buffer_size_title">Playback buffer size</string>
+    <string name="morphe_playback_buffer_size_entry_default">Default</string>
+    <string name="morphe_playback_buffer_size_entry_low">Low</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Medium</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Maximum</string>
+
 </resources>

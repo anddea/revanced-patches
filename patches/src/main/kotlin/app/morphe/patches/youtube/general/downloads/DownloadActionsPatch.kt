@@ -59,6 +59,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.patch.PatchException
+import app.morphe.patches.shared.litho.addLithoFilter
+import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -124,11 +126,15 @@ val downloadActionsPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
+        lithoFilterPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
     )
 
     execute {
+        // Track the top-level player menu even when Hide player flyout menu is excluded.
+        addLithoFilter("Lapp/morphe/extension/youtube/patches/components/PlayerFlyoutMenuFilter;")
+
         fun addDownloadActionsSettings() {
             try {
                 val settings = mutableListOf(

@@ -8,6 +8,7 @@ import static app.morphe.extension.shared.settings.Setting.parentInverted;
 
 import app.morphe.extension.shared.patches.PatchStatus;
 import app.morphe.extension.shared.patches.PoTokenProviderPatch.PoTokenProviderAvailability;
+import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.SpoofVideoStreamsAvailability;
 import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch.JavaScriptClientAvailability;
 import app.morphe.extension.shared.spoof.js.JavaScriptVariant;
@@ -53,7 +54,7 @@ public class SharedYouTubeSettings extends BaseSettings {
 
     public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting(
             "morphe_spoof_video_streams",
-            PatchStatus.GmsCoreSupport() && !PatchStatus.PoTokenProvider(),
+            PatchStatus.GmsCoreSupport(),
             true,
             "morphe_spoof_video_streams_user_dialog_message",
             new SpoofVideoStreamsAvailability());
@@ -67,7 +68,8 @@ public class SharedYouTubeSettings extends BaseSettings {
 
     public static final BooleanSetting POTOKEN_PROVIDER = new BooleanSetting(
             "morphe_potoken_provider",
-            PatchStatus.GmsCoreSupport() && PatchStatus.PoTokenProvider(),
+            PatchStatus.GmsCoreSupport() && PatchStatus.PoTokenProvider()
+                    && !SpoofVideoStreamsPatch.isPatchIncluded(),
             true,
             "morphe_external_potoken_provider_user_dialog_message",
             new PoTokenProviderAvailability());
@@ -84,10 +86,10 @@ public class SharedYouTubeSettings extends BaseSettings {
     private static final BooleanSetting DEPRECATED_SANITIZE_URL_QUERY = new BooleanSetting("morphe_sanitize_url_query", TRUE);
 
     static {
-        // Prioritize the PoToken provider on upgrades, including installs that already saved
+        // Prioritize stream spoofing on upgrades, including installs that already saved
         // both settings as enabled. Otherwise, each setting disables the other's switch.
         if (SPOOF_VIDEO_STREAMS.get() && POTOKEN_PROVIDER.get()) {
-            SPOOF_VIDEO_STREAMS.save(FALSE);
+            POTOKEN_PROVIDER.save(FALSE);
         }
 
         // TODO: Eventually remove these migrations

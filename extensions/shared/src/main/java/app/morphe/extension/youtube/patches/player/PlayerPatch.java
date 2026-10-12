@@ -17,6 +17,7 @@ import android.os.Vibrator;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewConfiguration;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -1189,6 +1190,27 @@ public class PlayerPatch {
         );
     }
 
+    private static final int timestampClickListenerTag =
+            ResourceUtils.getStringIdentifier("revanced_replace_time_stamp_action_title");
+
+    /**
+     * Retains YouTube's remaining-time action before the timestamp menu replaces it.
+     * Hooked at the native listener assignment, avoiding reflection into Android views.
+     */
+    public static void setTimestampClickListener(View view, View.OnClickListener original) {
+        if (original == null
+                || !Settings.APPEND_TIME_STAMP_INFORMATION.get()
+                || !Settings.REPLACE_TIME_STAMP_ACTION.get()) {
+            view.setTag(timestampClickListenerTag, null);
+            view.setOnClickListener(original);
+            return;
+        }
+
+        TimestampClickListener listener = new TimestampClickListener(view, original);
+        view.setTag(timestampClickListenerTag, listener);
+        view.setOnClickListener(listener);
+    }
+
     public static void setContainerClickListener(View view) {
         if (!Settings.APPEND_TIME_STAMP_INFORMATION.get())
             return;
@@ -1197,37 +1219,89 @@ public class PlayerPatch {
             return;
 
         final BooleanSetting appendTypeSetting = Settings.APPEND_TIME_STAMP_INFORMATION_TYPE;
-        final boolean previousBoolean = appendTypeSetting.get();
-
         containerView.setOnLongClickListener(timeStampContainerView -> {
-                    appendTypeSetting.save(!previousBoolean);
+                    appendTypeSetting.save(!appendTypeSetting.get());
                     return true;
                 }
         );
 
         if (Settings.REPLACE_TIME_STAMP_ACTION.get()) {
-            View.OnClickListener listener = v -> {
-                Context context = v.getContext();
-                if (Settings.APPEND_TIME_STAMP_INFORMATION_TYPE.get()) {
-                    if (Settings.APPEND_TIME_STAMP_INFORMATION_VIDEO_QUALITY_MENU_TYPE.get()) {
-                        VideoUtils.showCustomVideoQualityFlyoutMenu(context);
-                    } else {
-                        VideoUtils.showYouTubeLegacyVideoQualityFlyoutMenu();
-                    }
-                } else {
-                    switch (Settings.APPEND_TIME_STAMP_INFORMATION_PLAYBACK_SPEED_MENU_TYPE.get()) {
-                        case YOUTUBE_LEGACY ->
-                                VideoUtils.showYouTubeLegacyPlaybackSpeedFlyoutMenu();
-                        case CUSTOM_NO_THEME ->
-                                VideoUtils.showCustomNoThemePlaybackSpeedDialog(context);
-                        case CUSTOM_LEGACY ->
-                                VideoUtils.showCustomLegacyPlaybackSpeedDialog(context);
-                        case CUSTOM_MODERN ->
-                                VideoUtils.showCustomModernPlaybackSpeedDialog(context);
-                    }
-                }
-            };
+            // Some player layouts nest timestamps_inner_container inside the native
+            // timestamps_container. Bind the tapped parent to the ancestor's action.
+            View nativeContainer = containerView;
+            while (!(nativeContainer.getTag(timestampClickListenerTag) instanceof TimestampClickListener listener)) {
+                if (!(nativeContainer.getParent() instanceof View parent)) return;
+                nativeContainer = parent;
+            }
+
+            listener.showMenu = true;
             containerView.setOnClickListener(listener);
+        }
+    }
+
+    /**
+     * Delays the menu until a single tap is confirmed. A second tap cancels the menu
+     * and invokes YouTube's original action to toggle elapsed and remaining time.
+     * The listener survives timestamp refreshes so they cannot reset a pending tap.
+     */
+    private static final class TimestampClickListener implements View.OnClickListener {
+        private final View.OnClickListener original;
+        private final WeakReference<View> nativeView;
+        private Runnable pendingClick;
+        private boolean showMenu;
+
+        private TimestampClickListener(View view, View.OnClickListener original) {
+            this.original = original;
+            nativeView = new WeakReference<>(view);
+        }
+
+        private void invokeOriginal() {
+            View view = nativeView.get();
+            if (view != null) original.onClick(view);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (!showMenu) {
+                invokeOriginal();
+                return;
+            }
+
+            if (pendingClick != null) {
+                view.removeCallbacks(pendingClick);
+                pendingClick = null;
+                invokeOriginal();
+                return;
+            }
+
+            pendingClick = () -> {
+                pendingClick = null;
+                showTimestampMenu(view);
+            };
+
+            view.postDelayed(pendingClick, ViewConfiguration.getDoubleTapTimeout());
+        }
+    }
+
+    private static void showTimestampMenu(View v) {
+        Context context = v.getContext();
+        if (Settings.APPEND_TIME_STAMP_INFORMATION_TYPE.get()) {
+            if (Settings.APPEND_TIME_STAMP_INFORMATION_VIDEO_QUALITY_MENU_TYPE.get()) {
+                VideoUtils.showCustomVideoQualityFlyoutMenu(context);
+            } else {
+                VideoUtils.showYouTubeLegacyVideoQualityFlyoutMenu();
+            }
+        } else {
+            switch (Settings.APPEND_TIME_STAMP_INFORMATION_PLAYBACK_SPEED_MENU_TYPE.get()) {
+                case YOUTUBE_LEGACY ->
+                        VideoUtils.showYouTubeLegacyPlaybackSpeedFlyoutMenu();
+                case CUSTOM_NO_THEME ->
+                        VideoUtils.showCustomNoThemePlaybackSpeedDialog(context);
+                case CUSTOM_LEGACY ->
+                        VideoUtils.showCustomLegacyPlaybackSpeedDialog(context);
+                case CUSTOM_MODERN ->
+                        VideoUtils.showCustomModernPlaybackSpeedDialog(context);
+            }
         }
     }
 

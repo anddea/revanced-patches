@@ -1,54 +1,67 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.patches.components;
 
-import app.morphe.extension.shared.settings.BooleanSetting;
 import app.morphe.extension.shared.utils.ByteTrieSearch;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.settings.BooleanSetting;
 
 /**
  * If you have more than 1 filter patterns, then all instances of
- * this class should filtered using {@link ByteArrayFilterGroupList#check(byte[])},
+ * this class should be filtered using {@link ByteArrayFilterGroupList#check(byte[])},
  * which uses a prefix tree to give better performance.
  */
-@SuppressWarnings("unused")
 public class ByteArrayFilterGroup extends FilterGroup<byte[]> {
 
-    private volatile int[][] failurePatterns;
+    private volatile int[][] skipTables;
 
-    // Modified implementation from https://stackoverflow.com/a/1507813
-    private static int indexOf(final byte[] data, final byte[] pattern, final int[] failure) {
+    private static int indexOf(final byte[] data, final byte[] pattern, final int[] skipTable, final int fromIndex) {
         // Finds the first occurrence of the pattern in the byte array using
-        // KMP matching algorithm.
+        // Boyer-Moore-Horspool algorithm.
+        int dataLength = data.length;
         int patternLength = pattern.length;
-        for (int i = 0, j = 0, dataLength = data.length; i < dataLength; i++) {
-            while (j > 0 && pattern[j] != data[i]) {
-                j = failure[j - 1];
+        int difference = dataLength - patternLength;
+        if (patternLength == 0) return fromIndex; // Edge case
+
+        for (int index = fromIndex; index <= difference; ) {
+            int lastCharLength = patternLength - 1;
+
+            while (lastCharLength >= 0 && data[index + lastCharLength] == pattern[lastCharLength]) {
+                lastCharLength--;
             }
-            if (pattern[j] == data[i]) {
-                j++;
-            }
-            if (j == patternLength) {
-                return i - patternLength + 1;
-            }
+
+            if (lastCharLength < 0) return index;
+
+            byte lastCharInWindow = data[index + patternLength - 1];
+            int skipDistance = skipTable[lastCharInWindow & 0xFF];
+
+            index += skipDistance;
         }
+
         return -1;
     }
 
-    private static int[] createFailurePattern(byte[] pattern) {
-        // Computes the failure function using a boot-strapping process,
-        // where the pattern is matched against itself.
-        final int patternLength = pattern.length;
-        final int[] failure = new int[patternLength];
+    private static int[] buildSkipTable(byte[] pattern) {
+        int[] skipTable = new int[256];
 
-        for (int i = 1, j = 0; i < patternLength; i++) {
-            while (j > 0 && pattern[j] != pattern[i]) {
-                j = failure[j - 1];
-            }
-            if (pattern[j] == pattern[i]) {
-                j++;
-            }
-            failure[i] = j;
+        for (int i = 0; i < 256; i++) {
+            skipTable[i] = pattern.length;
         }
-        return failure;
+
+        int lastCharLength = pattern.length - 1;
+        for (int i = 0; i < lastCharLength; i++) {
+            skipTable[pattern[i] & 0xFF] = lastCharLength - i;
+        }
+
+        return skipTable;
     }
 
     public ByteArrayFilterGroup(BooleanSetting setting, byte[]... filters) {
@@ -62,31 +75,37 @@ public class ByteArrayFilterGroup extends FilterGroup<byte[]> {
         super(setting, ByteTrieSearch.convertStringsToBytes(filters));
     }
 
-    private synchronized void buildFailurePatterns() {
-        if (failurePatterns != null)
-            return; // Thread race and another thread already initialized the search.
-        Logger.printDebug(() -> "Building failure array for: " + this);
-        int[][] failurePatterns = new int[filters.length][];
+    private synchronized void buildSkipTables() {
+        if (skipTables != null) return; // Thread race and another thread already initialized the search.
+        Logger.printDebug(() -> "Building skip tables for: " + this);
+        int[][] skipTables = new int[filters.length][];
         int i = 0;
         for (byte[] pattern : filters) {
-            failurePatterns[i++] = createFailurePattern(pattern);
+            skipTables[i++] = buildSkipTable(pattern);
         }
-        this.failurePatterns = failurePatterns; // Must set after initialization finishes.
+        this.skipTables = skipTables; // Must set after initialization finishes.
     }
 
     @Override
     public FilterGroupResult check(final byte[] bytes) {
+        return check(bytes, 0);
+    }
+
+    /**
+     * Same as {@link #check(byte[])}, but only searches the bytes starting at the given index.
+     */
+    public FilterGroupResult check(final byte[] bytes, final int fromIndex) {
         int matchedLength = 0;
         int matchedIndex = -1;
         if (isEnabled()) {
-            int[][] failures = failurePatterns;
-            if (failures == null) {
-                buildFailurePatterns(); // Lazy load.
-                failures = failurePatterns;
+            int[][] tables = skipTables;
+            if (tables == null) {
+                buildSkipTables(); // Lazy load.
+                tables = skipTables;
             }
             for (int i = 0, length = filters.length; i < length; i++) {
                 byte[] filter = filters[i];
-                matchedIndex = indexOf(bytes, filter, failures[i]);
+                matchedIndex = indexOf(bytes, filter, tables[i], fromIndex);
                 if (matchedIndex >= 0) {
                     matchedLength = filter.length;
                     break;

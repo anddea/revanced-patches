@@ -421,6 +421,9 @@
         <!-- SETTINGS: OPEN_CHANNEL_OF_LIVE_AVATAR
         <SwitchPreference android:title="@string/morphe_open_channel_of_live_avatar_title" android:key="morphe_open_channel_of_live_avatar" android:summary="@string/morphe_open_channel_of_live_avatar_summary" />SETTINGS: OPEN_CHANNEL_OF_LIVE_AVATAR -->
 
+        <!-- SETTINGS: RESTORE_ORIGINAL_TITLES
+        <SwitchPreference android:title="@string/morphe_restore_original_titles_title" android:key="morphe_restore_original_titles" android:summary="@string/morphe_restore_original_titles_summary" />SETTINGS: RESTORE_ORIGINAL_TITLES -->
+
     <!-- PREFERENCE_SCREEN: FEED
     </PreferenceScreen>PREFERENCE_SCREEN: FEED -->
 
@@ -1039,6 +1042,10 @@
 
         <!-- SETTINGS: REMEMBER_LIVESTREAM_POSITION
         <SwitchPreference android:title="@string/morphe_remember_livestream_position_title" android:key="morphe_remember_livestream_position" android:summary="@string/morphe_remember_livestream_position_summary" />SETTINGS: REMEMBER_LIVESTREAM_POSITION -->
+
+        <!-- SETTINGS: PLAYBACK_BUFFER
+        <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_playback_buffer_size_title" android:key="morphe_playback_buffer_size" android:entries="@array/morphe_playback_buffer_size_entries" android:entryValues="@array/morphe_playback_buffer_size_entry_values" android:defaultValue="DEFAULT" />SETTINGS: PLAYBACK_BUFFER -->
+
     <!-- PREFERENCE_SCREEN: VIDEO
     </PreferenceScreen>PREFERENCE_SCREEN: VIDEO -->
 

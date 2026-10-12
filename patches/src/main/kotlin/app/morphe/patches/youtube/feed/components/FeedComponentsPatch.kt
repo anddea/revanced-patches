@@ -47,6 +47,8 @@ import app.morphe.patches.youtube.utils.resourceid.horizontalCardList
 import app.morphe.patches.youtube.utils.resourceid.relatedChipCloudMargin
 import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
+import app.morphe.patches.youtube.utils.proto.elementProtoParserHookPatch
+import app.morphe.patches.youtube.utils.proto.hookElement
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.addInstructionsAtControlFlowLabel
@@ -91,10 +93,13 @@ val feedComponentsPatch = bytecodePatch(
         playerTypeHookPatch,
         sharedResourceIdPatch,
         settingsPatch,
+        elementProtoParserHookPatch,
         engagementPanelHookPatch,
         versionCheckPatch,
     )
     execute {
+        hookElement("$FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hidePageHeaderButtons([B)[B")
+
 
         // region patch for hide carousel shelf, subscriptions channel section, latest videos button
 

@@ -156,22 +156,7 @@ public final class LyricsFileParser {
             text = builder.toString();
         }
 
-        if (words.size() > 1) {
-            for (int i = 0; i < words.size() - 1; i++) {
-                Word word = words.get(i);
-                if (word.endMs() == LyricsLine.NO_TIME) {
-                    words.set(i, new Word(word.startMs(), words.get(i + 1).startMs(), word.text()));
-                }
-            }
-        }
-        if (!words.isEmpty()) {
-            int last = words.size() - 1;
-            Word lastWord = words.get(last);
-            if (lastWord.endMs() == LyricsLine.NO_TIME) {
-                words.set(last, new Word(lastWord.startMs(),
-                        lastWord.startMs() + 800, lastWord.text()));
-            }
-        }
+        LrcParser.inferMissingWordEnds(words, 800);
 
         return new LyricsLine(asLong(map.get("start_ms")), text, words);
     }
@@ -199,6 +184,9 @@ public final class LyricsFileParser {
     }
 
     private static Object readValue(List<String> lines, Cursor cursor, int indent) {
+        if (cursor.index >= lines.size()) {
+            return new LinkedHashMap<>();
+        }
         if (isSequenceItem(lines.get(cursor.index), indent)) {
             return readSequence(lines, cursor, indent);
         }
@@ -219,10 +207,11 @@ public final class LyricsFileParser {
             String rest = line.trim().substring(2).trim();
             if (rest.isEmpty()) {
                 cursor.index++;
+                if (cursor.index >= lines.size()) {
+                    break;
+                }
                 sequence.add(readValue(lines, cursor, indent + 2));
             } else {
-                // The first mapping key sits inline after "- "; rewrite it as a
-                // regular mapping line so the shared reader can consume it.
                 lines.set(cursor.index, " ".repeat(indent + 2) + rest);
                 sequence.add(readMapping(lines, cursor, indent + 2));
             }

@@ -197,6 +197,10 @@ internal enum class PatchList(
         "Overlay buttons",
         "Adds options to display useful overlay buttons in the video player."
     ),
+    PLAYBACK_BUFFER(
+        "Playback buffer",
+        "Adds an option to change the video playback buffer size."
+    ),
     PLAYBACK_IN_FEEDS(
         "Playback in feeds",
         "Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it."
@@ -228,6 +232,10 @@ internal enum class PatchList(
     REMOVE_VIEWER_DISCRETION_DIALOG(
         "Remove viewer discretion dialog",
         "Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction."
+    ),
+    RESTORE_ORIGINAL_TITLES(
+        "Restore original titles",
+        "Adds an option to show the original video titles and descriptions instead of the auto-translated ones."
     ),
     RETURN_YOUTUBE_DISLIKE(
         "Return YouTube Dislike",
