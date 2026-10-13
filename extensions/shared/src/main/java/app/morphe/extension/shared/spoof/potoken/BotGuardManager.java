@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.regex.Pattern;
 
-// modified by lavinhoque33, 2026-10-11: ported Morphe PR 3663/c04605b7 with RVX package names for Logger/Utils.
+// Ported Morphe PR 3663/c04605b7 with RVX package names for Logger/Utils.
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.shared.requests.Requester;

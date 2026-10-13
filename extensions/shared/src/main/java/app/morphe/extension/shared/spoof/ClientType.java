@@ -201,7 +201,7 @@ public enum ClientType {
             "PS4",
             "PlayStation 4",
             "",
-            "7.20261007.13.00", // modified by lavinhoque33, 2026-10-11: version bump (Morphe 28ea7f9f)
+            "7.20261007.13.00",
             "GAME_CONSOLE",
             "Mozilla/5.0 (PS4; Leanback Shell) Gecko/20100101 Firefox/65.0 LeanbackShell/01.00.01.75 Sony PS4/ (PS4, , no, CH)",
             true,
@@ -213,7 +213,7 @@ public enum ClientType {
             true,
             "TV"
     ),
-    // modified by lavinhoque33, 2026-10-11: Wii U TV fallback client (Morphe 5c6b8418).
+    // Wii U TV fallback client (Morphe 5c6b8418).
     /**
      * Same as {@code TV_SABR} but uses another device.
      * This client cannot be selected in the settings and is used only if {@code TV_SABR} fails.

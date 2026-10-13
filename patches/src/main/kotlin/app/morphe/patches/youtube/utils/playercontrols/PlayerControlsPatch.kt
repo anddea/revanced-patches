@@ -98,7 +98,6 @@ fun injectControl(
     topControl: Boolean = true,
     initialize: Boolean = true
 ) {
-    // modified by lavinhoque33, 2026-10-08
     // Insert positions are resolved at call time: other hooks (such as the inlined feature flag
     // overrides on YouTube 21.39) can add instructions to these methods after this patch executed,
     // which made cached indices stale and placed the initialization before ViewStub.inflate().
@@ -283,8 +282,7 @@ val playerControlsPatch = bytecodePatch(
                 )
             }
         } else if (is_20_20_or_greater) { // Use the bold player button style when bold icons are enabled.
-            // modified by lavinhoque33, 2026-10-08: no warning when the flag is gone (YouTube 21.39),
-            // the bold button style is still applied through the flags below.
+            // The flag is gone in YouTube 21.39. The bold button style is still applied through the flags below.
             playerControlsFullscreenLargeButtonsFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
                 PLAYER_CONTROLS_FULLSCREEN_LARGE_BUTTON_FEATURE_FLAG,
                 playerBottomControlsExploderLayoutOverride,

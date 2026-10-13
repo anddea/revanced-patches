@@ -48,7 +48,7 @@ private object NewPlayerOverlaysFeatureFlagFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-11: ported from Morphe c3431a3 (#3649).
+// Ported from Morphe c3431a3 (#3649).
 private object AutonavEndscreenOverlayFingerprint : Fingerprint(
     returnType = "Ljava/lang/String;",
     parameters = listOf(),
@@ -85,7 +85,7 @@ internal val legacyPlayerStatePatch = bytecodePatch(
         // If NewPlayerTypeEnumFeatureFlagFingerprint is overridden then must also
         // force off new player control flags otherwise player has no buttons visible.
         if (is_21_04_or_greater) {
-            // modified by lavinhoque33, 2026-10-11: keep the real value for the autonav end screen.
+            // Keep the real value for the autonav end screen.
             val flagMethods = NewPlayerOverlaysFeatureFlagFingerprint.matchAll().map {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
@@ -125,10 +125,9 @@ internal val legacyPlayerStatePatch = bytecodePatch(
                 }
             }
 
-            // modified by lavinhoque33, 2026-10-08
             // YouTube 21.39 also inlines the flag into a method that is not a flag getter.
-            // modified by lavinhoque33, 2026-10-11: skip the getters hooked above. A constant
-            // override there would land before disableNewPlayerOverlays and hide the real value.
+            // Skip the getters hooked above. A constant override there would land before
+            // disableNewPlayerOverlays and hide the real value.
             forEachInlinedFeatureFlagSite(45752335L) { literalIndex ->
                 val isHookedGetter = flagMethods.any {
                     it.definingClass == definingClass && MethodUtil.methodSignaturesMatch(it, this)

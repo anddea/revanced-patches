@@ -195,7 +195,7 @@ public final class PlayerRoutes {
 
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("User-Agent", clientType.userAgent);
-        // modified by lavinhoque33, 2026-10-11: Not a typo. "Client-Name" uses the client type id (ported from Morphe).
+        // Not a typo. "Client-Name" uses the client type id (ported from Morphe).
         connection.setRequestProperty("X-YouTube-Client-Name", String.valueOf(clientType.id));
         connection.setRequestProperty("X-YouTube-Client-Version", clientType.clientVersion);
 

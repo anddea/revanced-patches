@@ -14,7 +14,7 @@ import android.webkit.CookieManager;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.locks.ReentrantLock;
 
-// modified by lavinhoque33, 2026-10-11: ported Morphe PR 3663 with RVX package names for Logger/Utils.
+// Ported Morphe PR 3663 with RVX package names for Logger/Utils.
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
 

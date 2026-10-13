@@ -486,11 +486,10 @@ val overlayButtonsPatch = resourcePatch(
                                 }
                             }
 
-                        // modified by lavinhoque33, 2026-10-11: YouTube 21.x re-anchors the bottom
-                        // controls (time bar reference, timestamps, fullscreen button) to the top of
-                        // metapanel_container_holder at runtime. Moving the holder onto the bottom
-                        // margin view, which itself sits on the time bar reference, forms a constraint
-                        // cycle and the whole row floats above the seekbar.
+                        // YouTube 21.x re-anchors the bottom controls (time bar reference, timestamps,
+                        // fullscreen button) to the top of metapanel_container_holder at runtime.
+                        // Moving the holder onto the bottom margin view, which itself sits on the time
+                        // bar reference, forms a constraint cycle and the whole row floats above the seekbar.
                         val isMetapanelHolder = id == "@id/metapanel_container_holder" ||
                             id == "@+id/metapanel_container_holder"
                         node.getAttributeNode("yt:layout_constraintBottom_toTopOf")

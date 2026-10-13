@@ -7,7 +7,7 @@
 
 package app.morphe.extension.shared.spoof.potoken;
 
-// modified by lavinhoque33, 2026-10-11: ported Morphe elapsedRealtime-based expiry (c04605b7).
+// Ported Morphe elapsedRealtime-based expiry (c04605b7).
 import android.os.SystemClock;
 
 public class PoTokenResult {

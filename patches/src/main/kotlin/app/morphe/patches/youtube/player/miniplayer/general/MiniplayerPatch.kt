@@ -221,8 +221,7 @@ val miniplayerPatch = bytecodePatch(
         // modified by lavinhoque33, 2026-10-04
         // 21.39: the modern miniplayer is always on and its config constructor (literal 45623000) with all the
         // miniplayer feature flags was removed, so the flag/type overrides have nothing to hook.
-        // modified by lavinhoque33, 2026-10-08: no warning, the settings that depended on the config
-        // class are hooked elsewhere below (or not shown) on 21.39.
+        // The settings that depended on the config class are hooked elsewhere below (or not shown) on 21.39.
         val hasModernConstructor = miniplayerModernConstructorFingerprint.resolvable()
 
         if (hasModernConstructor) miniplayerModernConstructorFingerprint.mutableClassOrThrow().methods.forEach {
@@ -256,7 +255,6 @@ val miniplayerPatch = bytecodePatch(
             // Disable it by consuming no touch events at the start of its touch handler.
             val dragMatch = runCatching { MiniplayerDragRecognizerFingerprint.match() }.getOrNull()
             if (dragMatch == null) {
-                // modified by lavinhoque33, 2026-10-08: user-facing wording.
                 printWarn("\"Enable drag and drop\" is not supported in this version. Use YouTube versions up to 21.39.")
             } else {
                 dragMatch.method.addInstructionsWithLabels(
@@ -350,7 +348,6 @@ val miniplayerPatch = bytecodePatch(
                 // so the minimum is lowered to 170 and 192 is reloaded for the initial width, which is then overridden.
                 val sizeMatch = runCatching { ModernMiniplayerMinimumSizeFingerprint.match() }.getOrNull()
                 if (sizeMatch == null) {
-                    // modified by lavinhoque33, 2026-10-08: user-facing wording.
                     printWarn("\"Initial size\" is not supported in this version. Use YouTube versions up to 21.39.")
                 } else sizeMatch.method.apply {
                     val minimumIndex = sizeMatch.instructionMatches[1].index
@@ -395,7 +392,6 @@ val miniplayerPatch = bytecodePatch(
             // corner applier class, so the non-rounded provider is used when the setting is off.
             val roundedMatch = runCatching { MiniplayerRoundedCornersFingerprint.match() }.getOrNull()
             if (roundedMatch == null) {
-                // modified by lavinhoque33, 2026-10-08: user-facing wording.
                 printWarn("\"Enable rounded corners\" is not supported in this version. Use YouTube versions up to 21.39.")
             } else {
                 val outlineIndex = roundedMatch.instructionMatches[1].index
@@ -608,7 +604,6 @@ val miniplayerPatch = bytecodePatch(
                             "hideMiniplayerSubTexts(Landroid/view/View;)V",
                 )
             } else {
-                // modified by lavinhoque33, 2026-10-08: user-facing wording.
                 printWarn("\"Hide subtexts\" is not supported in this version. Use YouTube versions up to 21.39.")
             }
         }

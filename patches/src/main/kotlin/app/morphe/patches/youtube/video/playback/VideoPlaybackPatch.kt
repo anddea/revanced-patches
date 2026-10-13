@@ -202,9 +202,9 @@ val videoPlaybackPatch = bytecodePatch(
                     }
             }
 
-            // modified by lavinhoque33, 2026-10-11: the load parameters only seed the rate. The
-            // player then takes it from the playback rate settings store, so the default is also
-            // written through the Shorts speed setter once the Shorts player has the player response.
+            // The load parameters only seed the rate. The player then takes it from the playback
+            // rate settings store, so the default is also written through the Shorts speed setter
+            // once the Shorts player has the player response.
             videoIdFingerprintShorts.methodOrThrow().addInstruction(
                 0,
                 "invoke-static { }, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->onShortsPlayerResponse()V"

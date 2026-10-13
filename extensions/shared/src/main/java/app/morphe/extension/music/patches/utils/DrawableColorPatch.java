@@ -456,7 +456,6 @@ public class DrawableColorPatch {
         }
     }
 
-    // modified by lavinhoque33, 2026-10-11
     // The prebuilt table only covered the fixed IDs 0x7f060f00..0f10. YouTube Music 9.40 already
     // uses those IDs, so the patch now assigns the runtime colors to the first free IDs and the
     // table is built here for the IDs of the installed APK.

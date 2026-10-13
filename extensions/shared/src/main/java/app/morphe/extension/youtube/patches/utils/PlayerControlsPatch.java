@@ -167,7 +167,7 @@ public class PlayerControlsPatch {
         return true;
     }
 
-    // modified by lavinhoque33, 2026-10-11: ported from Morphe c3431a3 (#3649).
+    // Ported from Morphe c3431a3 (#3649).
     /**
      * The value the app has for the new player overlays flag, before it is forced off.
      */

@@ -1,4 +1,3 @@
-// modified by lavinhoque33, 2026-10-11: synced with Morphe dev (console stub, Number.toLocaleString Intl fallback).
 if (!Object.hasOwn) {
   Object.hasOwn = function (obj, key) {
     if (obj == null) {

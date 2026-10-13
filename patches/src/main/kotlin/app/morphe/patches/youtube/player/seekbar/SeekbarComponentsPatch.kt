@@ -614,7 +614,6 @@ val seekbarComponentsPatch = bytecodePatch(
                     FullscreenLargeSeekbarStateWriterFingerprint.matchAll()
                 }.getOrNull().orEmpty().singleOrNull()
 
-                // modified by lavinhoque33, 2026-10-08: user-facing wording.
                 if (stateWriter == null) {
                     printWarn("\"Enable fullscreen large seekbar\" is not supported in this version. Use YouTube versions up to 21.39.")
                 } else {

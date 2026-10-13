@@ -79,7 +79,6 @@ val themeAttributesPatch = bytecodePatch(
                 "0x0"
             )
 
-            // modified by lavinhoque33, 2026-10-08
             // YouTube 21.39 also inlines the flag into the stats for nerds text builder.
             insertLiteralOverrideAtInlinedSites(STATS_FOR_NERDS_FEATURE_FLAG, false)
         }

@@ -201,7 +201,6 @@ val navigationBarComponentsPatch = bytecodePatch(
                     )
                 }
                 if (patched == 0) {
-                    // modified by lavinhoque33, 2026-10-08: user-facing wording.
                     printWarn("\"Disable translucent navigation bar\" is not fully supported in this version. Use YouTube versions up to 21.39.")
                 }
             }
@@ -242,8 +241,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                     )
                 } == 0
             ) {
-                // modified by lavinhoque33, 2026-10-08: user-facing wording, and the setting is not
-                // shown when it has no effect.
+                // The setting is not shown when it has no effect.
                 printWarn("\"Enable navigation bar animations\" is not supported in this version. Use YouTube versions up to 21.39.")
                 animatedTabsHooked = false
             }

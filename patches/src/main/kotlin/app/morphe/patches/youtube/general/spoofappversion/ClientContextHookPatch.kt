@@ -95,8 +95,7 @@ internal val clientContextHookPatch = bytecodePatch(
             endpoint.parentFingerprints.forEach { parentFingerprint ->
                 // modified by lavinhoque33, 2026-10-04: YouTube 21.39 removed the "reel/create_reel_items"
                 // endpoint class, so a parent that no longer matches is skipped instead of failing.
-                // modified by lavinhoque33, 2026-10-08: skipped silently, as the app no longer sends
-                // that request and the remaining Shorts endpoints are still hooked.
+                // The app no longer sends that request, and the remaining Shorts endpoints are still hooked.
                 val endpointClassDef = runCatching { parentFingerprint.originalClassDef }.getOrNull()
                     ?: return@forEach
 

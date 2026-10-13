@@ -154,7 +154,6 @@ val playerFlyoutMenuPatch = bytecodePatch(
             "$PLAYER_CLASS_DESCRIPTOR->hidePiPModeMenu(Z)Z"
         )
 
-        // modified by lavinhoque33, 2026-10-08
         // YouTube 21.39 inlines the flag into more callers than the matched config method.
         insertLiteralOverrideAtInlinedSites(
             45427407L,

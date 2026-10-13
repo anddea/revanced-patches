@@ -152,7 +152,6 @@ val resumingShortsOnStartupPatch = bytecodePatch(
                 )
             }
             if (sites == 0) {
-                // modified by lavinhoque33, 2026-10-08: user-facing wording.
                 printWarn("\"Disable resuming Shorts player\" is not fully supported in this version. Use YouTube versions up to 21.39.")
             }
         }

@@ -184,7 +184,7 @@ public final class VisitorIdRequester {
             final int connectionTimeoutMillis = 5000;
             String url = String.format(YT_API_URL_FORMAT,
                     // TVHTML5 does not support the '/visitor_id' endpoint.
-                    // modified by lavinhoque33, 2026-10-11: include TV_SABR_WII_U (Morphe 5c6b8418).
+                    // Include TV_SABR_WII_U (Morphe 5c6b8418).
                     clientType == ClientType.TV_SABR || clientType == ClientType.TV_SABR_WII_U ? "guide" : "visitor_id"
             );
             HttpURLConnection connection = Requester.openConnection(url);

@@ -29,7 +29,7 @@ import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 
-// modified by lavinhoque33, 2026-10-11: ported Morphe PR 3663 with RVX package names for ResourceUtils/Utils.
+// Ported Morphe PR 3663 with RVX package names for ResourceUtils/Utils.
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 

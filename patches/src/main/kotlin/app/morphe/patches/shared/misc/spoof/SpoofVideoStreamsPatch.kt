@@ -93,7 +93,7 @@ internal fun spoofVideoStreamsPatch(
     hookAccountIdentity: BytecodePatchBuilder.() -> Boolean = { false },
     restoreMissingCuepointMethod: BytecodePatchBuilder.() -> Boolean = { false },
     block: BytecodePatchBuilder.() -> Unit,
-    applicationInitFingerprint: Fingerprint? = null, // modified by lavinhoque33, 2026-10-11
+    applicationInitFingerprint: Fingerprint? = null,
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = SPOOF_VIDEO_STREAMS.title,
@@ -115,7 +115,7 @@ internal fun spoofVideoStreamsPatch(
             """
         )
 
-        // modified by lavinhoque33, 2026-10-11: Also set the client order on Application init (Morphe a60a3b6),
+        // Also set the client order on Application init (Morphe a60a3b6),
         // so playback started without the main activity (widgets, etc.) uses the right clients.
         // Insert after the shared extension hook that sets the extension context at index 0.
         applicationInitFingerprint?.method?.addInstruction(
@@ -404,7 +404,6 @@ internal fun spoofVideoStreamsPatch(
             // modified by lavinhoque33, 2026-10-04
             // YouTube Music 9.40 removed feature flag 45665455 entirely; the fingerprint is only that
             // literal, so a failed match means the flag is gone and there is nothing to override.
-            // modified by lavinhoque33, 2026-10-08: skipped without a warning.
             runCatching { PlaybackStartDescriptorFeatureFlagFingerprint.match() }.getOrNull()?.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,

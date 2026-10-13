@@ -110,7 +110,7 @@ public class SpoofVideoStreamsPatch {
         }
     }
 
-    // modified by lavinhoque33, 2026-10-11: Force AVC support, strips VP9 formats on SABR (Morphe bb3e3ff0).
+    // Force AVC support, strips VP9 formats on SABR (Morphe bb3e3ff0).
     private static volatile boolean forceAVC;
 
     /**

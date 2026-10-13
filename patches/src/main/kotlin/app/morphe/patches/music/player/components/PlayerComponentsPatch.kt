@@ -1439,8 +1439,7 @@ val playerComponentsPatch = bytecodePatch(
             songVideoToggleFlagHooked = true
         }
 
-        // modified by lavinhoque33, 2026-10-08: user-facing wording, and the setting is not shown
-        // when it has no effect.
+        // The setting is not shown when it has no effect.
         if (!songVideoToggleVisibilityHooked && !songVideoToggleFlagHooked) {
             printWarn("\"Hide Song / Video toggle\" is not supported in this version. Use YouTube Music versions up to 9.40.")
         } else {

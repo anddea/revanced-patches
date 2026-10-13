@@ -44,7 +44,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.AudioConfig;
-import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.Format; // modified by lavinhoque33, 2026-10-11: force AVC
+import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.Format;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.InlinePlaybackConfig;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayabilityStatus;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerConfig;
@@ -56,7 +56,7 @@ import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.BaseSettings;
 import app.morphe.extension.shared.spoof.ClientType;
-import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch; // modified by lavinhoque33, 2026-10-11: force AVC
+import app.morphe.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.morphe.extension.shared.spoof.potoken.PoTokenManager;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -89,7 +89,7 @@ public class StreamOrDetailsDataRequest {
 
         List<ClientType> orderToUse = new ArrayList<>(availableClients.size());
         orderToUse.add(preferredClient);
-        // modified by lavinhoque33, 2026-10-11: Wii U TV fallback (Morphe 5c6b8418).
+        // Wii U TV fallback (Morphe 5c6b8418).
         // YouTube serves each TV device separately, so another one can still play when the first is cut off.
         if (preferredClient == ClientType.TV_SABR) {
             orderToUse.add(ClientType.TV_SABR_WII_U);
@@ -424,7 +424,7 @@ public class StreamOrDetailsDataRequest {
                 // TV SABR clients in livestreams will be temporarily fallbacked to TV DASH clients.
                 //
                 // TODO: Override other playerConfigs such as exoPlayerConfig.
-                // modified by lavinhoque33, 2026-10-11: include TV_SABR_WII_U (Morphe 5c6b8418).
+                // Include TV_SABR_WII_U (Morphe 5c6b8418).
                 if (!forDownload && clientType.requireSABR
                         && (clientType == ClientType.TV_SABR || clientType == ClientType.TV_SABR_WII_U)
                         && Utils.containsAny(streamingData.getServerAbrStreamingUrl(), "yt_live_broadcast", "yt_premiere_broadcast")) {
@@ -445,7 +445,7 @@ public class StreamOrDetailsDataRequest {
                     responseBuilder.setStreamingData(deobfuscatedStreamingData);
                 }
 
-                // modified by lavinhoque33, 2026-10-11: Strip VP9 formats when Force AVC is on (Morphe bb3e3ff0).
+                // Strip VP9 formats when Force AVC is on (Morphe bb3e3ff0).
                 // 'Force AVC' only keeps the player from using VP9, its formats are still in the stream.
                 // A default quality that only VP9 formats reach then has no format the player can use,
                 // and with SABR the video restarts at 0:01 without end, each time with a new playback nonce.
@@ -557,7 +557,7 @@ public class StreamOrDetailsDataRequest {
                 HttpURLConnection connection = send(clientTypeStream, videoId, playerHeaders, showErrorToast, isDownload);
                 Object playerResponseBuffer = buildPlayerStreamOrDetailsResponse(clientTypeStream, connection, videoId, isInline, isDownload);
 
-                // modified by lavinhoque33, 2026-10-11: include TV_SABR_WII_U (Morphe 5c6b8418).
+                // Include TV_SABR_WII_U (Morphe 5c6b8418).
                 if ((clientTypeStream == ClientType.TV_SABR || clientTypeStream == ClientType.TV_SABR_WII_U)
                         && fallbackWithTVDash) {
                     fallbackWithTVDash = false;

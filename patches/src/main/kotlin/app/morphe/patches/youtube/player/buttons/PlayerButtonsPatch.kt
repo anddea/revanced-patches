@@ -125,7 +125,6 @@ val playerButtonsPatch = bytecodePatch(
                 )
             }
 
-            // modified by lavinhoque33, 2026-10-08
             // YouTube 21.39 also inlines both flags into the cast button callers.
             arrayOf(
                 CAST_BUTTON_PLAYER_FEATURE_FLAG,

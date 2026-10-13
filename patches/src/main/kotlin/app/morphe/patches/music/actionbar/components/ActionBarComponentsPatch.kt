@@ -362,7 +362,6 @@ val actionBarComponentsPatch = bytecodePatch(
             }
 
             if (is_7_25_or_greater) {
-                // modified by lavinhoque33, 2026-10-08
                 // YouTube Music 9.40 removed the flag and the alternative layout it switched to,
                 // so the setting is only offered when the flag can be overridden.
                 if (actionBarPositionFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(

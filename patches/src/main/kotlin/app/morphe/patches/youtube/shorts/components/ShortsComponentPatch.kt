@@ -364,7 +364,7 @@ private val shortsCustomActionsPatch = bytecodePatch(
         videoIdPatch,
         videoInformationPatch,
         versionCheckPatch,
-        // modified by lavinhoque33, 2026-10-11: custom actions are added to the bottom sheet menu.
+        // Custom actions are added to the bottom sheet menu.
         bottomSheetFlyoutMenuPatch,
     )
 

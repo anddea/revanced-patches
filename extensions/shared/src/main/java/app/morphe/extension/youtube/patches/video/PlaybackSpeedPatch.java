@@ -251,8 +251,8 @@ public class PlaybackSpeedPatch {
      * Regular videos retain the rate supplied by YouTube and the regular-video speed hooks.
      */
     public static float getShortsPlaybackSpeed(float playbackSpeed) {
-        // modified by lavinhoque33, 2026-10-11: on 21.39 the player response of a played Short can
-        // arrive after this call or be marked as not opening, so also check the Shorts player state.
+        // On 21.39 the player response of a played Short can arrive after this call or be marked
+        // as not opening, so also check the Shorts player state.
         final boolean isShortsActive = isShortsActive();
         if (!VideoInformation.lastVideoIdIsShort() && !isShortsActive) {
             return playbackSpeed;
@@ -270,9 +270,9 @@ public class PlaybackSpeedPatch {
         return speed;
     }
 
-    // modified by lavinhoque33, 2026-10-11: the 21.04+ player takes the active rate from its
-    // playback rate settings store, which replaces the load parameter rate above. Write the default
-    // through the Shorts speed setter (the same path as the speed menu) once per loaded Short.
+    // The 21.04+ player takes the active rate from its playback rate settings store, which replaces
+    // the load parameter rate above. Write the default through the Shorts speed setter (the same
+    // path as the speed menu) once per loaded Short.
     private static volatile boolean shortsDefaultSpeedPending;
     private static volatile boolean shortsPlayerResponseReceived;
 

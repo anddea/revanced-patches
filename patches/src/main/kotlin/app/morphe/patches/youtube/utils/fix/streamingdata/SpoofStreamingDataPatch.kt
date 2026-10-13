@@ -25,7 +25,7 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     // Updated parameter name: extensionClassDescriptor -> extensionClass
     extensionClass = "Lapp/morphe/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;",
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
-    // modified by lavinhoque33, 2026-10-11: also set the client order on Application init (Morphe a60a3b6).
+    // Also set the client order on Application init (Morphe a60a3b6).
     applicationInitFingerprint = applicationInitHook.fingerprint,
     fixMediaFetchHotConfig = {
         is_19_34_or_greater

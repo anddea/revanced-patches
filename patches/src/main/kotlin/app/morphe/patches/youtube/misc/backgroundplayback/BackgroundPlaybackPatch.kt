@@ -136,7 +136,7 @@ val backgroundPlaybackPatch = bytecodePatch(
 
             // modified by lavinhoque33, 2026-10-04
             // 21.39: pip_input_consumer feature flag was removed; skip when absent.
-            // modified by lavinhoque33, 2026-10-08: no warning, as the flag no longer exists there is nothing to override.
+            // There is nothing to override as the flag no longer exists there.
             runCatching {
                 PipInputConsumerFeatureFlagFingerprint.matchSingle().method
             }.getOrNull()?.insertLiteralOverride(

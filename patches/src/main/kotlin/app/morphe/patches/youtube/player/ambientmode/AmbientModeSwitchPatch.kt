@@ -119,7 +119,6 @@ val ambientModeSwitchPatch = bytecodePatch(
             )
         }
 
-        // modified by lavinhoque33, 2026-10-08
         // YouTube 21.39 also reads the flag a second time in one of the matched methods.
         insertLiteralOverrideAtInlinedSites(
             45376186L,
