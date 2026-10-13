@@ -1,6 +1,15 @@
 package app.morphe.extension.youtube.settings;
 
 public class Settings {
+    public static final Flag VOT_USE_LIVE_VOICES = new Flag("live");
+    public static final Flag VOT_AUDIO_PROXY_ENABLED = new Flag("proxy");
+    public static class Text {
+        public String value;
+        Text(String value) { this.value = value; }
+        public String get() { return value; }
+    }
+    public static final Text VOT_SOURCE_LANGUAGE = new Text("auto");
+    public static final Text VOT_TARGET_LANGUAGE = new Text("ru");
     public static final Volume VOT_TRANSLATION_VOLUME = new Volume();
     public static class Volume {
         public int get() { return 100; }

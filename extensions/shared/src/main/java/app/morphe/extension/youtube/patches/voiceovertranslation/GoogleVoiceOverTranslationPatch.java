@@ -555,10 +555,10 @@ public class GoogleVoiceOverTranslationPatch {
             sessionEnabled = !sessionEnabled;
             Settings.GOOGLE_VOT_SESSION_ENABLED.save(sessionEnabled);
             if (!sessionEnabled) {
-                TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
                 clearNativeStartupAudio();
                 stopTts();
                 lastSpokenIndex = -1;
+                TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.GOOGLE, currentVideoId);
             } else {
                 TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
                 if (!currentVideoId.isEmpty() && segments.isEmpty() && !isLoading) {

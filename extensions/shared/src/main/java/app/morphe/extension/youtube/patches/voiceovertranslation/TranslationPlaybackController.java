@@ -239,6 +239,8 @@ public final class TranslationPlaybackController {
      * was playing. Unlike {@link #failed}, the video keeps playing instead of staying paused.
      */
     static void cancelAndResume(int provider, String videoId) {
+        if (state.provider() != provider || !videoId.equals(VideoInformation.getVideoId())) return;
+        automaticVideoId = videoId;
         ready(provider, videoId);
     }
 
