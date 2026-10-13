@@ -154,7 +154,7 @@ public class VoiceOverTranslationPatch {
     ) {
         String newId = videoId != null ? videoId : "";
         if (!newId.equals(pendingVideoId)) {
-            invalidateTranslationRequest();
+            invalidateTranslationRequest(false);
         }
         if (!Settings.VOT_ENABLED.get()) {
             TranslationPlaybackController.metadataLoaded(newId);
@@ -177,14 +177,13 @@ public class VoiceOverTranslationPatch {
         // The visible ID hook can precede the metadata needed to build a Yandex request.
         if (!videoId.equals(pendingVideoId)) return false;
         if (Settings.VOT_ENABLED.get() && !isTranslationActive() && !isTranslationRequestInProgress()) {
-            toggleTranslation();
+            startTranslation();
         }
         return true;
     }
 
     static void suspendTranslation() {
-        invalidateTranslationRequest();
-        stopAudioPlayback();
+        invalidateTranslationRequest(false);
     }
 
     /**
@@ -197,15 +196,21 @@ public class VoiceOverTranslationPatch {
 
     public static void toggleTranslation() {
         if (!Settings.VOT_ENABLED.get()) return;
-        if (isTranslationRequestInProgress()) return;
-
-        if (isTranslationActive()) {
-            invalidateTranslationRequest();
-            stopAudioPlayback();
+        if (isTranslationRequested()) {
+            invalidateTranslationRequest(true);
             showToastShort(str("revanced_vot_stopped"));
             return;
         }
 
+        startTranslation();
+    }
+
+    public static boolean isTranslationRequested() {
+        return isTranslationActive() || isTranslationRequestInProgress()
+                || TranslationPlaybackController.isWaiting(TranslationPlaybackState.YANDEX, pendingVideoId);
+    }
+
+    private static void startTranslation() {
         if (isOngoingLive()) {
             TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, pendingVideoId);
             showToastShort(str("revanced_vot_unavailable_live"));
@@ -325,11 +330,13 @@ public class VoiceOverTranslationPatch {
         TranslationPlaybackController.failed(TranslationPlaybackState.YANDEX, pendingVideoId);
     }
 
-    private static void invalidateTranslationRequest() {
+    private static void invalidateTranslationRequest(boolean resume) {
         translationRequestGeneration.incrementAndGet();
         isTranslating.set(false);
         clearTranslationRequestProgress();
-        clearPausedVideoState();
+        stopAudioPlayback();
+        if (resume) TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, pendingVideoId);
+        else clearPausedVideoState();
     }
 
     private static boolean isCurrentTranslationRequest(long requestId, String videoId) {
@@ -422,8 +429,7 @@ public class VoiceOverTranslationPatch {
         String targetLang = Settings.VOT_TARGET_LANGUAGE.get();
         if (!sourceLang.isEmpty() && !"auto".equalsIgnoreCase(sourceLang) && sourceLang.equals(targetLang)) return;
 
-        invalidateTranslationRequest();
-        stopAudioPlayback();
+        invalidateTranslationRequest(false);
         double durationSeconds = pendingVideoLength / 1000.0;
         startTranslationRequest(videoId, pendingVideoTitle, sourceLang, targetLang, durationSeconds, true);
     }
@@ -465,9 +471,11 @@ public class VoiceOverTranslationPatch {
         return str("revanced_vot_time_sec", Math.max(1, seconds));
     }
 
-    private static void translationFailed(String videoId) {
-        TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, videoId);
-        showToastShort(str("revanced_vot_playback_error"));
+    private static void translationFailed(long requestId, String videoId, String messageKey) {
+        // A queued failure must not cancel a later retry of the same video.
+        if (!isCurrentTranslationRequestGeneration(requestId, videoId)) return;
+        invalidateTranslationRequest(true);
+        showToastShort(str(messageKey));
     }
 
     private static void requestTranslation(
@@ -482,7 +490,7 @@ public class VoiceOverTranslationPatch {
                     youtubeUrl, durationSeconds, sourceLang, targetLang, videoTitle);
             if (!isCurrentTranslationRequest(requestId, videoId)) return;
             if (result == null) {
-                Utils.runOnMainThread(() -> translationFailed(videoId));
+                Utils.runOnMainThread(() -> translationFailed(requestId, videoId, "revanced_vot_playback_error"));
                 return;
             }
             switch (result.status()) {
@@ -500,7 +508,7 @@ public class VoiceOverTranslationPatch {
                         final String fallbackFinal = fallback;
                         Utils.runOnMainThread(() -> startAudioPlayback(requestId, videoId, urlFinal, fallbackFinal));
                     } else {
-                        Utils.runOnMainThread(() -> translationFailed(videoId));
+                        Utils.runOnMainThread(() -> translationFailed(requestId, videoId, "revanced_vot_playback_error"));
                     }
                     break;
                 case VotApiClient.STATUS_WAITING:
@@ -530,10 +538,7 @@ public class VoiceOverTranslationPatch {
                             audioWaitTime > 0 ? audioWaitTime : 10, audioUploadState);
                     break;
                 case VotApiClient.STATUS_SESSION_REQUIRED:
-                    Utils.runOnMainThread(() -> {
-                        TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, videoId);
-                        showToastShort(str("revanced_vot_auth_required"));
-                    });
+                    Utils.runOnMainThread(() -> translationFailed(requestId, videoId, "revanced_vot_auth_required"));
                     break;
                 case VotApiClient.STATUS_FAILED:
                 default:
@@ -543,12 +548,12 @@ public class VoiceOverTranslationPatch {
                         requestTranslation(videoId, videoTitle, sourceLang, targetLang, durationSeconds, requestId, audioUploadState);
                         return;
                     }
-                    Utils.runOnMainThread(() -> translationFailed(videoId));
+                    Utils.runOnMainThread(() -> translationFailed(requestId, videoId, "revanced_vot_playback_error"));
                     break;
             }
         } catch (Exception e) {
             Logger.printException(() -> "requestTranslation failed", e);
-            Utils.runOnMainThread(() -> translationFailed(videoId));
+            Utils.runOnMainThread(() -> translationFailed(requestId, videoId, "revanced_vot_playback_error"));
         } finally {
             if (requestId == translationRequestGeneration.get()) {
                 clearTranslationRequestProgress();
@@ -603,17 +608,14 @@ public class VoiceOverTranslationPatch {
                             Utils.runOnMainThread(() -> showToastShort(str("revanced_vot_live_voices_unavailable")));
                             return true;
                         }
-                        Utils.runOnMainThread(() -> translationFailed(videoId));
+                        Utils.runOnMainThread(() -> translationFailed(requestId, videoId, "revanced_vot_playback_error"));
                         return false;
                     }
 
                     @Override
                     public void onSessionRequired() {
                         if (isCurrentTranslationRequest(requestId, videoId)) {
-                            Utils.runOnMainThread(() -> {
-                        TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, videoId);
-                        showToastShort(str("revanced_vot_auth_required"));
-                    });
+                            Utils.runOnMainThread(() -> translationFailed(requestId, videoId, "revanced_vot_auth_required"));
                         }
                     }
 
@@ -630,10 +632,7 @@ public class VoiceOverTranslationPatch {
                 }
         );
         if (result == null && isCurrentTranslationRequest(requestId, videoId)) {
-            Utils.runOnMainThread(() -> {
-                TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.YANDEX, videoId);
-                showToastShort(str("revanced_vot_stream_not_ready"));
-            });
+            Utils.runOnMainThread(() -> translationFailed(requestId, videoId, "revanced_vot_stream_not_ready"));
         }
     }
 
@@ -651,7 +650,7 @@ public class VoiceOverTranslationPatch {
         } catch (Exception e) {
             Logger.printException(() -> "handleAudioRequested failed", e);
             if (isCurrentTranslationRequest(requestId, videoId)) {
-                Utils.runOnMainThread(() -> translationFailed(videoId));
+                Utils.runOnMainThread(() -> translationFailed(requestId, videoId, "revanced_vot_playback_error"));
             }
         }
     }
@@ -696,7 +695,7 @@ public class VoiceOverTranslationPatch {
                 if (fallbackUrl != null && !fallbackUrl.isEmpty()) {
                     startAudioPlayback(requestId, videoId, fallbackUrl, null);
                 } else {
-                    translationFailed(videoId);
+                    translationFailed(requestId, videoId, "revanced_vot_playback_error");
                 }
                 return;
             }
@@ -713,7 +712,7 @@ public class VoiceOverTranslationPatch {
                     } else if (fallbackUrl != null && !fallbackUrl.isEmpty()) {
                         startAudioPlayback(requestId, videoId, fallbackUrl, null);
                     } else {
-                        translationFailed(videoId);
+                        translationFailed(requestId, videoId, "revanced_vot_playback_error");
                     }
                 });
             });
@@ -821,7 +820,7 @@ public class VoiceOverTranslationPatch {
                 Utils.runOnMainThread(() -> {
                     if (!isCurrentTranslationRequest(requestId, videoId) || mediaPlayer.get() != p) return;
                     stopAudioPlayback();
-                    translationFailed(videoId);
+                    translationFailed(requestId, videoId, "revanced_vot_playback_error");
                 });
                 return true;
             });
@@ -835,7 +834,7 @@ public class VoiceOverTranslationPatch {
             Logger.printException(() -> "startAudioPlaybackFromFile failed", e);
             deleteTempProxyFile();
             if (isCurrentTranslationRequest(requestId, videoId)) {
-                translationFailed(videoId);
+                translationFailed(requestId, videoId, "revanced_vot_playback_error");
             }
         }
     }
@@ -892,7 +891,7 @@ public class VoiceOverTranslationPatch {
                     if (fallback != null && !fallback.isEmpty()) {
                         startAudioPlayback(requestId, videoId, fallback, null);
                     } else {
-                        translationFailed(videoId);
+                        translationFailed(requestId, videoId, "revanced_vot_playback_error");
                     }
                 });
                 return true;
@@ -924,7 +923,7 @@ public class VoiceOverTranslationPatch {
                 if (fallbackUrl != null && !fallbackUrl.isEmpty()) {
                     startAudioPlayback(requestId, videoId, fallbackUrl, null);
                 } else {
-                    translationFailed(videoId);
+                    translationFailed(requestId, videoId, "revanced_vot_playback_error");
                 }
             });
         }

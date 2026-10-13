@@ -1217,4 +1217,50 @@ public class TranslationPlaybackControllerTest {
         assertTrue(VideoInformation.playing);
     }
 
+
+    @Test
+    public void cancellationBeforeAutomaticDispatchSuppressesOnlyThisVideo() throws Exception {
+        for (int provider : new int[] {YANDEX, GOOGLE}) {
+            before();
+            if (provider == YANDEX) yandex(); else google();
+            init();
+            VideoInformation.id = VoiceOverTranslationPatch.pending = "a";
+            TranslationPlaybackController.newVideoLoaded("a");
+            TranslationPlaybackController.cancelAndResume(provider, "a");
+            Utils.drain();
+            assertTrue(VideoInformation.playing);
+            assertEquals(0, VoiceOverTranslationPatch.starts + GoogleVoiceOverTranslationPatch.starts);
+            init();
+            load("a");
+            assertEquals(0, VoiceOverTranslationPatch.starts + GoogleVoiceOverTranslationPatch.starts);
+            load("b");
+            assertEquals(1, VoiceOverTranslationPatch.starts + GoogleVoiceOverTranslationPatch.starts);
+            assertTrue(TranslationPlaybackController.isWaiting(provider, "b"));
+        }
+    }
+
+    @Test
+    public void obsoleteProviderOrVideoCannotSuppressAutomaticTranslation() throws Exception {
+        for (boolean wrongProvider : new boolean[] {false, true}) {
+            before();
+            yandex(); init();
+            VideoInformation.id = VoiceOverTranslationPatch.pending = "a";
+            TranslationPlaybackController.newVideoLoaded("a");
+            TranslationPlaybackController.cancelAndResume(wrongProvider ? GOOGLE : YANDEX, wrongProvider ? "a" : "b");
+            Utils.drain();
+            assertEquals(1, VoiceOverTranslationPatch.starts);
+            assertTrue(TranslationPlaybackController.isWaiting(YANDEX, "a"));
+        }
+    }
+
+    @Test public void staleCancellationCannotUndoCurrentVideosAutomaticSuppression() {
+        yandex(); init(); load("a");
+        VoiceOverTranslationPatch.inflight = false;
+        TranslationPlaybackController.cancelAndResume(YANDEX, "a");
+        TranslationPlaybackController.cancelAndResume(YANDEX, "b");
+        TranslationPlaybackController.metadataLoaded("a");
+        Utils.drain();
+        assertEquals(1, VoiceOverTranslationPatch.starts);
+        assertFalse(TranslationPlaybackController.isWaiting(YANDEX, "a"));
+    }
 }

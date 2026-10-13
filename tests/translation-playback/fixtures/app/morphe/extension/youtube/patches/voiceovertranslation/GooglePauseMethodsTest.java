@@ -877,4 +877,37 @@ public class GooglePauseMethodsTest {
         GooglePauseMethods.onVoiceChanged();
         assertEquals(0, TtsPrefetcher.time);
     }
+
+    @Test
+    public void googleCancelRestoresPlaybackButKeepsExplicitPauseForBothEngines() throws Exception {
+        for (String voice : new String[] {"edge", "system"}) {
+            for (boolean manualPause : new boolean[] {false, true}) {
+                before();
+                GooglePauseMethods.voice = voice;
+                Settings.GOOGLE_VOT_AUTO_TRANSLATE.value = true;
+                if (manualPause) VideoInformation.setPlayerPlaying(false);
+                GooglePauseMethods.toggleTranslation();
+                assertFalse(held());
+                assertEquals(!manualPause, VideoInformation.playing);
+                assertFalse(GooglePauseMethods.sessionEnabled);
+                assertTrue(Settings.GOOGLE_VOT_AUTO_TRANSLATE.get());
+                GooglePauseMethods.nativeStartupFinished("prepare", true);
+                Utils.drain();
+                assertEquals(!manualPause, VideoInformation.playing);
+                assertEquals(1, GooglePauseMethods.stopped);
+            }
+        }
+    }
+
+    @Test public void sessionAndProviderChangesRequireMainThreadBeforeAnyChanges() throws Exception {
+        for (Runnable action : new Runnable[] {GooglePauseMethods::toggleTranslation,
+                GooglePauseMethods::onVoiceChanged, GooglePauseMethods::reloadTranscript}) {
+            before();
+            Utils.mainThread = false;
+            assertThrows(IllegalStateException.class, action::run);
+            assertTrue(GooglePauseMethods.sessionEnabled);
+            assertEquals(0, GooglePauseMethods.stopped);
+            assertEquals(1, GooglePauseMethods.transcriptGeneration);
+        }
+    }
 }

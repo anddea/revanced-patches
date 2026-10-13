@@ -36,6 +36,11 @@ public class YandexPauseMethodsTest {
         YandexPauseMethods.isPaused = false;
         YandexPauseMethods.mainHandler.removed = 0;
         VideoInformation.time = 0;
+        YandexPauseMethods.pendingVideoLength = 100000;
+        YandexPauseMethods.pendingIsLive = false;
+        YandexPauseMethods.toast = null;
+        Settings.VOT_SOURCE_LANGUAGE.value = "auto";
+        Settings.VOT_TARGET_LANGUAGE.value = "ru";
     }
 
     private boolean held() {
@@ -245,7 +250,7 @@ public class YandexPauseMethodsTest {
     @Test
     public void invalidationCancelsHoldAndRetiresRequest() {
         YandexPauseMethods.isTranslating.set(true);
-        YandexPauseMethods.invalidateTranslationRequest();
+        YandexPauseMethods.invalidateTranslationRequest(false);
         assertFalse(held());
         assertFalse(YandexPauseMethods.isTranslating.get());
         assertEquals(2, YandexPauseMethods.translationRequestGeneration.get());
@@ -321,29 +326,256 @@ public class YandexPauseMethodsTest {
     @Test
     public void automaticTranslationWaitsForMatchingMetadata() {
         assertFalse(YandexPauseMethods.startAutomaticTranslation("b"));
-        assertEquals(0, YandexPauseMethods.toggles);
+        assertEquals(1, YandexPauseMethods.translationRequestGeneration.get());
         assertTrue(YandexPauseMethods.startAutomaticTranslation("a"));
-        assertEquals(1, YandexPauseMethods.toggles);
+        assertEquals(2, YandexPauseMethods.translationRequestGeneration.get());
     }
 
     @Test
     public void automaticTranslationDoesNotToggleOffPreparedAudio() {
         YandexPauseMethods.active = true;
         assertTrue(YandexPauseMethods.startAutomaticTranslation("a"));
-        assertEquals(0, YandexPauseMethods.toggles);
+        assertEquals(1, YandexPauseMethods.translationRequestGeneration.get());
     }
 
     @Test
     public void automaticTranslationDoesNotDuplicatePendingRequest() {
         YandexPauseMethods.isTranslating.set(true);
         assertTrue(YandexPauseMethods.startAutomaticTranslation("a"));
-        assertEquals(0, YandexPauseMethods.toggles);
+        assertEquals(1, YandexPauseMethods.translationRequestGeneration.get());
     }
 
     @Test
     public void disabledYandexDoesNotRequestTranslation() {
         Settings.VOT_ENABLED.value = false;
         assertTrue(YandexPauseMethods.startAutomaticTranslation("a"));
-        assertEquals(0, YandexPauseMethods.toggles);
+        assertEquals(1, YandexPauseMethods.translationRequestGeneration.get());
+    }
+
+    @Test
+    public void cancelWhileLoadingStopsRequestAndRestoresPlayback() {
+        Settings.VOT_AUTO_TRANSLATE.value = true;
+        YandexPauseMethods.isTranslating.set(true);
+        assertTrue(YandexPauseMethods.isTranslationRequested());
+        YandexPauseMethods.toggleTranslation();
+        assertFalse(held());
+        assertTrue(VideoInformation.playing);
+        assertFalse(YandexPauseMethods.isTranslationRequested());
+        assertFalse(YandexPauseMethods.isTranslating.get());
+        assertEquals(2, YandexPauseMethods.translationRequestGeneration.get());
+        assertEquals("localized:revanced_vot_stopped", YandexPauseMethods.toast);
+        assertTrue(Settings.VOT_AUTO_TRANSLATE.get());
+        assertTrue(Utils.background.isEmpty());
+    }
+
+    @Test
+    public void cancelPreparedAudioStopsItBeforeVideoResumes() {
+        var audio = new YandexPauseMethods.MediaPlayer();
+        audio.playing = true;
+        YandexPauseMethods.mediaPlayer.set(audio);
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.toggleTranslation();
+        assertFalse(audio.playing);
+        assertNull(YandexPauseMethods.mediaPlayer.get());
+        assertTrue(VideoInformation.playing);
+        assertFalse(YandexPauseMethods.isTranslationRequested());
+    }
+
+    @Test
+    public void strandedHoldCanBeCanceledEvenAfterWorkerFinished() {
+        assertFalse(YandexPauseMethods.isTranslating.get());
+        assertTrue(YandexPauseMethods.isTranslationRequested());
+        YandexPauseMethods.toggleTranslation();
+        assertFalse(held());
+        assertTrue(VideoInformation.playing);
+        assertTrue(TranslationPlaybackController.overridePlayWhenReady(VideoInformation.player, true));
+    }
+
+    @Test
+    public void cancelPreservesManualPauseAndDoesNotRestartOnLateReady() {
+        VideoInformation.setPlayerPlaying(false);
+        YandexPauseMethods.toggleTranslation();
+        assertFalse(held());
+        assertFalse(VideoInformation.playing);
+        assertFalse(YandexPauseMethods.resumeVideoAfterTranslationReady("a", 1));
+        assertFalse(VideoInformation.playing);
+    }
+
+    @Test
+    public void canceledRequestCanBeRetriedAndOldFailureCannotReleaseIt() {
+        YandexPauseMethods.toggleTranslation();
+        YandexPauseMethods.toggleTranslation();
+        assertTrue(held());
+        assertTrue(YandexPauseMethods.isTranslating.get());
+        assertEquals(3, YandexPauseMethods.translationRequestGeneration.get());
+        YandexPauseMethods.translationFailed(1, "a", "old-error");
+        assertTrue(held());
+        assertEquals("localized:revanced_vot_started", YandexPauseMethods.toast);
+        assertEquals(3, YandexPauseMethods.translationRequestGeneration.get());
+        YandexPauseMethods.translationFailed(3, "b", "wrong-video");
+        assertTrue(held());
+    }
+
+    @Test
+    public void currentFailureStopsAudioAndReleasesHoldOnlyOnce() {
+        var audio = new YandexPauseMethods.MediaPlayer();
+        audio.playing = true;
+        YandexPauseMethods.mediaPlayer.set(audio);
+        YandexPauseMethods.active = true;
+        YandexPauseMethods.isTranslating.set(true);
+        YandexPauseMethods.translationFailed(1, "a", "no-speech");
+        assertFalse(held());
+        assertFalse(audio.playing);
+        assertTrue(VideoInformation.playing);
+        assertFalse(YandexPauseMethods.isTranslationRequested());
+        assertEquals("localized:no-speech", YandexPauseMethods.toast);
+        int plays = VideoInformation.playCalls;
+        YandexPauseMethods.translationFailed(1, "a", "duplicate");
+        assertEquals(plays, VideoInformation.playCalls);
+        assertEquals("localized:no-speech", YandexPauseMethods.toast);
+    }
+
+    @Test
+    public void failureAfterManualPauseAllowsPlayWithoutForcingIt() {
+        VideoInformation.setPlayerPlaying(false);
+        YandexPauseMethods.translationFailed(1, "a", "error");
+        assertFalse(VideoInformation.playing);
+        assertFalse(held());
+        VideoInformation.setPlayerPlaying(true);
+        assertTrue(VideoInformation.playing);
+    }
+
+    @Test
+    public void cancellationWhileRecreatingDefersResumeUntilSameVideoIsConfirmed() {
+        TranslationPlaybackController.initialize(new Object());
+        YandexPauseMethods.isTranslating.set(true);
+        YandexPauseMethods.toggleTranslation();
+        assertFalse(VideoInformation.playing);
+        TranslationPlaybackController.newVideoLoaded("a");
+        Utils.drain();
+        assertTrue(VideoInformation.playing);
+        assertFalse(held());
+    }
+
+    @Test
+    public void activeToggleWorksWithoutHoldAndDisabledToggleDoesNothing() {
+        TranslationPlaybackController.failed(YANDEX, "a");
+        YandexPauseMethods.active = true;
+        assertTrue(YandexPauseMethods.isTranslationRequested());
+        Settings.VOT_ENABLED.value = false;
+        YandexPauseMethods.toggleTranslation();
+        assertTrue(YandexPauseMethods.active);
+        assertNull(YandexPauseMethods.toast);
+        Settings.VOT_ENABLED.value = true;
+        YandexPauseMethods.toggleTranslation();
+        assertFalse(YandexPauseMethods.active);
+        assertFalse(VideoInformation.playing);
+        assertFalse(YandexPauseMethods.isTranslationRequested());
+    }
+
+    @Test
+    public void suspensionRetiresRequestWithoutResumingOtherProvider() {
+        YandexPauseMethods.isTranslating.set(true);
+        YandexPauseMethods.suspendTranslation();
+        assertFalse(held());
+        assertFalse(VideoInformation.playing);
+        assertFalse(YandexPauseMethods.isTranslating.get());
+    }
+
+    @Test
+    public void automaticTranslationStartsInsteadOfCancelingStartupHold() {
+        assertTrue(held());
+        YandexPauseMethods.startAutomaticTranslation("a");
+        assertTrue(held());
+        assertTrue(YandexPauseMethods.isTranslating.get());
+        assertEquals("localized:revanced_vot_started", YandexPauseMethods.toast);
+    }
+
+    @Test
+    public void unavailableVideoReleasesHoldWithoutStartingRequest() throws Exception {
+        for (int reason = 0; reason < 3; reason++) {
+            before();
+            if (reason == 0) { YandexPauseMethods.pendingIsLive = true; YandexPauseMethods.pendingVideoLength = 0; }
+            if (reason == 1) YandexPauseMethods.pendingVideoLength = 14400001;
+            if (reason == 2) Settings.VOT_SOURCE_LANGUAGE.value = "ru";
+            YandexPauseMethods.startAutomaticTranslation("a");
+            assertFalse(held());
+            assertTrue(VideoInformation.playing);
+            assertTrue(Utils.background.isEmpty());
+            assertEquals("localized:" + new String[] {"revanced_vot_unavailable_live", "revanced_vot_unavailable_too_long", "revanced_vot_unavailable_same_language"}[reason], YandexPauseMethods.toast);
+        }
+    }
+
+    @Test
+    public void finishedLivestreamAndFourHourBoundaryRemainTranslatable() throws Exception {
+        for (long length : new long[] {1, 14400000}) {
+            before();
+            YandexPauseMethods.pendingIsLive = true;
+            YandexPauseMethods.pendingVideoLength = length;
+            YandexPauseMethods.startAutomaticTranslation("a");
+            assertTrue(YandexPauseMethods.isTranslating.get());
+            assertTrue(held());
+        }
+    }
+
+    @Test
+    public void emptyAndAutoSourceDoNotCountAsSameLanguage() throws Exception {
+        for (String source : new String[] {"", "AUTO", "en"}) {
+            before();
+            Settings.VOT_SOURCE_LANGUAGE.value = source;
+            if (!source.equals("en")) Settings.VOT_TARGET_LANGUAGE.value = source;
+            YandexPauseMethods.startAutomaticTranslation("a");
+            assertTrue(YandexPauseMethods.isTranslating.get());
+        }
+    }
+
+    @Test
+    public void manualStartRequiresMetadataAndDoesNotDuplicateRequest() throws Exception {
+        for (String id : new String[] {null, ""}) {
+            before();
+            TranslationPlaybackController.failed(YANDEX, "a");
+            YandexPauseMethods.pendingVideoId = id;
+            YandexPauseMethods.startTranslation();
+            assertTrue(Utils.background.isEmpty());
+            assertNull(YandexPauseMethods.toast);
+        }
+        before();
+        YandexPauseMethods.isTranslating.set(true);
+        YandexPauseMethods.startTranslation();
+        assertTrue(Utils.background.isEmpty());
+        assertNull(YandexPauseMethods.toast);
+    }
+
+    @Test
+    public void pendingRequestIsStillCancelableWithPauseOptionOff() {
+        Settings.VOT_PAUSE_VIDEO_WHILE_PREPARING_TRANSLATION.value = false;
+        YandexPauseMethods.isTranslating.set(true);
+        assertTrue(YandexPauseMethods.isTranslationRequested());
+        YandexPauseMethods.toggleTranslation();
+        assertFalse(YandexPauseMethods.isTranslationRequested());
+    }
+
+    @Test
+    public void zeroLengthNonLiveVideoIsNotAnOngoingLivestream() {
+        YandexPauseMethods.pendingVideoLength = 0;
+        YandexPauseMethods.startAutomaticTranslation("a");
+        assertTrue(YandexPauseMethods.isTranslating.get());
+        Utils.background.remove().run();
+        assertEquals(0, YandexPauseMethods.requestedDuration, 0);
+    }
+
+    @Test
+    public void startPassesVideoMetadataAndSecondsToRequest() {
+        YandexPauseMethods.pendingVideoLength = 123456;
+        YandexPauseMethods.pendingVideoTitle = "example";
+        Settings.VOT_SOURCE_LANGUAGE.value = "en";
+        Settings.VOT_TARGET_LANGUAGE.value = "ru";
+        YandexPauseMethods.startAutomaticTranslation("a");
+        Utils.background.remove().run();
+        assertEquals(123.456, YandexPauseMethods.requestedDuration, 0.000001);
+        assertEquals("a", YandexPauseMethods.requestedId);
+        assertEquals("example", YandexPauseMethods.requestedTitle);
+        assertEquals("en", YandexPauseMethods.requestedSource);
+        assertEquals("ru", YandexPauseMethods.requestedTarget);
     }
 }

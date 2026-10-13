@@ -23,7 +23,17 @@ DEPENDENCIES = [
     ('org/apache/commons/commons-text/1.15.0/commons-text-1.15.0.jar', '58d2da30f058512a1e7f914e39241deca4dff5c27a085b4ed2faa9e7208067f6'),
     ('org/apache/commons/commons-lang3/3.20.0/commons-lang3-3.20.0.jar', '69e5c9fa35da7a51a5fd2099dfe56a2d8d32cf233e2f6d770e796146440263f4'),
 ]
+KOTLIN_DEPENDENCIES = [
+    ('org/jetbrains/kotlin/kotlin-compiler-embeddable/2.2.21/kotlin-compiler-embeddable-2.2.21.jar', '9588fa696ac5507af764fd5660df6894185e12704ec1bc3f5cb772af4987f295'),
+    ('org/jetbrains/kotlin/kotlin-stdlib/2.2.21/kotlin-stdlib-2.2.21.jar', '6558a3d233da56a20934b32159f9db5f86ed5816ef098f78a2c223dc6abb79dd'),
+    ('org/jetbrains/kotlin/kotlin-script-runtime/2.2.21/kotlin-script-runtime-2.2.21.jar', '2b1519b427b514d1536c1b425674b03fe914af637924028e9959c6625442df51'),
+    ('org/jetbrains/kotlin/kotlin-daemon-embeddable/2.2.21/kotlin-daemon-embeddable-2.2.21.jar', '91c0673c22e44b054ae0314d323860ebe1f3aff3f0ebc74fff82c4733dde09be'),
+    ('org/jetbrains/kotlin/kotlin-reflect/1.6.10/kotlin-reflect-1.6.10.jar', '3277ac102ae17aad10a55abec75ff5696c8d109790396434b496e75087854203'),
+    ('org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.8.0/kotlinx-coroutines-core-jvm-1.8.0.jar', '9860906a1937490bf5f3b06d2f0e10ef451e65b95b269f22daf68a3d1f5065c5'),
+    ('org/jetbrains/annotations/13.0/annotations-13.0.jar', 'ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478'),
+]
 EXTRACTED = {
+    'YandexRequestMethods': ('VoiceOverTranslationPatch', ['requestTranslation', 'pollTranslation', 'handleAudioRequested']),
     'NativePlaybackMethods': ('../../shared/VideoInformation', ['isPlayerPlaying']),
     'TtsPlaybackMethods': ('TtsEngine', ['pause', 'resume', 'startPlayer', 'setPlaybackRate', 'startPreparedPlayback']),
     'GooglePauseMethods': ('GoogleVoiceOverTranslationPatch', [
@@ -36,18 +46,20 @@ EXTRACTED = {
         'isCurrentTranslationRequestGeneration', 'pauseVideoForTranslation',
         'resumeVideoAfterTranslationReady', 'startTranslationRequest',
         'shouldPlayTranslationAudio', 'startAutomaticTranslation',
-        'resumeAudio', 'pauseAudio',
+        'resumeAudio', 'pauseAudio', 'toggleTranslation', 'isTranslationRequested',
+        'startTranslation', 'isOngoingLive', 'translationFailed', 'suspendTranslation',
     ]),
 }
-# Only deterministic stand-ins and the two logging lambdas are excluded. Production pause
-# state, controller, and extracted provider methods all use PIT's ALL mutator set.
+# Exclude deterministic stand-ins, harness entry points, and two logging lambdas.
+# Production state, controller, provider and button methods use PIT's ALL mutator set.
 BOUNDARY_METHODS = [
+    'click', 'accessibility', 'refresh', 'showMenu', 'getMenus', 'setMenus', 'getInstance', 'setInstance',
     'ensureTts', 'stopTts', 'resetPlaybackState', 'notifyStateChanged',
     'updateTranslationActiveCache', 'resolveTargetLang', 'resolveVoice',
     'loadTranscript', 'updateTtsLanguage', 'logError', 'lambda$checkStartupReady*',
     'lambda$nativeStartupFinished$1',
     'clearTranslationRequestProgress', 'notifyTranslationStateChanged',
-    'requestTranslation', 'isTranslationActive', 'isTranslationRequestInProgress',
+    'isTranslationActive', 'isTranslationRequestInProgress',
 ]
 
 
@@ -86,7 +98,7 @@ def main():
     for directory in (dependencies, generated, classes):
         directory.mkdir(parents=True, exist_ok=True)
     jars = []
-    for coordinate, expected_hash in DEPENDENCIES[:None if args.mutation else 2]:
+    for coordinate, expected_hash in DEPENDENCIES[:None if args.mutation else 2] + KOTLIN_DEPENDENCIES:
         path = dependencies / Path(coordinate).name
         if not path.exists():
             with urllib.request.urlopen('https://repo.maven.apache.org/maven2/' + coordinate) as response:
@@ -117,9 +129,33 @@ def main():
                      ('TranslationPlaybackState', 'TranslationPlaybackController')]
     source_files.append(TEST / RELATIVE_PACKAGE / 'TranslationPlaybackStateTest.java')
     classpath = os.pathsep.join(map(str, [classes, *jars]))
+    button_test = HERE / 'fixtures' / RELATIVE_PACKAGE / 'YandexButtonMethodsTest.java'
+    source_files.remove(button_test)
     subprocess.run([javac, '-g', '-cp', classpath, '-d', str(classes), *map(str, source_files)], check=True)
+    button_source = (MAIN / RELATIVE_PACKAGE.parent / 'overlaybutton/VoiceOverTranslationButton.kt').read_text()
+    bodies = []
+    for name in ('onClick', 'setToggleAccessibilityDelegate', 'PlayerControlButton.setActivated'):
+        match = re.search(r'    private fun ' + re.escape(name) + r'\([^)]*\) \{', button_source)
+        if match is None:
+            raise ValueError('Button method not found: ' + name)
+        start = match.start()
+        end = button_source.index('{', start) + 1
+        depth = 1
+        while depth:
+            if button_source[end] == '{':
+                depth += 1
+            elif button_source[end] == '}':
+                depth -= 1
+            end += 1
+        bodies.append(button_source[start:end])
+    button_file = generated / 'YandexButtonMethods.kt'
+    button_file.write_text((HERE / 'YandexButtonMethods.kt.in').read_text().replace('// PRODUCTION_METHODS', '\n'.join(bodies)))
+    subprocess.run([java, '-cp', classpath, 'org.jetbrains.kotlin.cli.jvm.K2JVMCompiler',
+                    '-no-stdlib', '-no-reflect', '-classpath', classpath,
+                    '-d', str(classes), str(button_file)], check=True)
+    subprocess.run([javac, '-g', '-cp', classpath, '-d', str(classes), str(button_test)], check=True)
     targets = ['TranslationPlaybackState', 'TranslationPlaybackController', *EXTRACTED]
-    tests = [PACKAGE + '.' + target + 'Test' for target in [*targets, 'PreferenceChangeMethods']]
+    tests = [PACKAGE + '.' + target + 'Test' for target in [*targets, 'PreferenceChangeMethods', 'YandexButtonMethods']]
     subprocess.run([java, '-cp', classpath, 'org.junit.runner.JUnitCore', *tests], check=True)
     if args.mutation:
         # Exercise the two integration seams that a controller-only mutant cannot cover.
@@ -146,7 +182,8 @@ def main():
         subprocess.run([
             java, '-cp', classpath, 'org.pitest.mutationtest.commandline.MutationCoverageReport',
             '--reportDir', str(output / 'mutation-report'),
-            '--targetClasses', ','.join(PACKAGE + '.' + target for target in targets),
+            '--targetClasses', PACKAGE + '.YandexButtonMethods*,' + ','.join(PACKAGE + '.' + target + ('*' if target == 'YandexRequestMethods' else '') for target in targets),
+            '--excludedClasses', '*Test',
             '--targetTests', ','.join(tests), '--sourceDirs', str(MAIN) + ',' + str(generated),
             '--mutators', 'ALL', '--threads', '4', '--outputFormats', 'XML,HTML',
             '--timestampedReports=false', '--avoidCallsTo', 'app.morphe.extension.shared.utils.Logger',
