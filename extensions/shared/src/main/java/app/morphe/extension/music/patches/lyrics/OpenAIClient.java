@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches/pull/2269
  *
+ * Original author(s):
+ * - Morphe contributors (https://github.com/MorpheApp/morphe-patches)
+ * - COOLak (https://github.com/COOLak)
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
 
@@ -272,7 +276,7 @@ public final class OpenAIClient {
         }
         String count = String.valueOf(lines.size());
         Matcher matcher = PROMPT_VARIABLE.matcher(template);
-        StringBuilder out = new StringBuilder(template.length() + 256);
+        StringBuffer out = new StringBuffer(template.length() + 256);
         while (matcher.find()) {
             String name = matcher.group(1);
             String value = promptValue(name, task, language, title, artist, count,

@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches/pull/2269
  *
+ * Original author(s):
+ * - Morphe contributors (https://github.com/MorpheApp/morphe-patches)
+ * - COOLak (https://github.com/COOLak)
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
 
@@ -14,6 +18,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ArgbEvaluator;
 import android.animation.LayoutTransition;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -32,6 +37,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
@@ -523,6 +529,8 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
         return changed;
     }
 
+    // Use the host app's framework text styling without requiring an AppCompat theme.
+    @SuppressLint("AppCompatCustomView")
     private static final class FittingTextView extends TextView {
         private final FittedState fittedState = new FittedState();
 
@@ -555,6 +563,7 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
         }
     }
 
+    @SuppressLint("AppCompatCustomView")
     private static final class LyricsLineView extends TextView {
         private static final int REVEAL_CONTENT = 0;
         private static final int REVEAL_TRANS = 1;
@@ -926,6 +935,8 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
             canvas.restore();
         }
 
+        // Called only by onDraw; draw() would re-enter our override.
+        @SuppressLint("WrongCall")
         private void drawBaseText(Canvas canvas) {
             final Layout layout = getLayout();
             if (layout == null) {
@@ -1885,7 +1896,7 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
                         freshRoma[i] = !(prevView != null && prevView.romaStart >= 0
                                 && prevView.romaReveal >= 1f);
                     }
-                    linesContainer.suppressLayout(true);
+                    suppressLyricsLayout(true);
                     try {
                         for (int i = 0; i < count; i++) {
                             lineWordSpans.set(i, only ? Collections.emptyList() : allTimings.get(i));
@@ -1911,7 +1922,7 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
                             }
                         }
                     } finally {
-                        linesContainer.suppressLayout(false);
+                        suppressLyricsLayout(false);
                     }
                     final List<RowResize> resizes = new ArrayList<>();
                     if (!contentInBuild) {
@@ -3732,6 +3743,13 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
         observer.addOnPreDrawListener(listener);
     }
 
+    private void suppressLyricsLayout(boolean suppress) {
+        // Batching is an optimization; older Android versions can lay out normally.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            linesContainer.suppressLayout(suppress);
+        }
+    }
+
     private void applyLineOverlay(int index) {
         final boolean hidePlayed = Settings.LYRICS_HIDE_PLAYED.get();
         final boolean hideUnplayed = Settings.LYRICS_HIDE_UNPLAYED.get();
@@ -3743,7 +3761,7 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
             if (!modeChanged && index == lastOverlayIndex) {
                 return;
             }
-            linesContainer.suppressLayout(true);
+            suppressLyricsLayout(true);
             try {
                 for (int i = 0; i < lineRows.size(); i++) {
                     if (lineRows.get(i).getVisibility() != VISIBLE) {
@@ -3751,7 +3769,7 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
                     }
                 }
             } finally {
-                linesContainer.suppressLayout(false);
+                suppressLyricsLayout(false);
             }
             lastOverlayIndex = index;
             return;
@@ -3761,7 +3779,7 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
             return;
         }
 
-        linesContainer.suppressLayout(true);
+        suppressLyricsLayout(true);
         try {
             for (int i = 0; i < lineRows.size(); i++) {
                 final int newVis;
@@ -3777,7 +3795,7 @@ public final class LyricsPanelView extends FrameLayout implements LyricsManager.
                 lineRows.get(i).setVisibility(newVis);
             }
         } finally {
-            linesContainer.suppressLayout(false);
+            suppressLyricsLayout(false);
         }
         lastOverlayIndex = index;
     }

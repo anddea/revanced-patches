@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches/pull/3384
  *
+ * Original author(s):
+ * - Morphe contributors (https://github.com/MorpheApp/morphe-patches)
+ * - COOLak (https://github.com/COOLak)
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
 
@@ -98,7 +102,7 @@ final class OriginalTitleRequest {
     private static String fetchTitle(String videoId) {
         try {
             String url = "https://www.youtube.com/oembed?format=json&url="
-                    + URLEncoder.encode("https://www.youtube.com/watch?v=" + videoId, StandardCharsets.UTF_8);
+                    + URLEncoder.encode("https://www.youtube.com/watch?v=" + videoId, StandardCharsets.UTF_8.name());
 
             HttpURLConnection connection = Requester.openConnection(url);
             connection.setConnectTimeout(CONNECTION_TIMEOUT_MILLISECONDS);
