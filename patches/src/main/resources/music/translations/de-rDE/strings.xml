@@ -67,29 +67,31 @@ Schritte:
     <string name="morphe_music_crossfade_about_best_title">Was am besten funktioniert</string>
     <string name="morphe_music_crossfade_about_credit_summary">Crossfade-Funktion von VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Credits</string>
-    <string name="morphe_music_crossfade_about_how_summary">"Nahtlose Wiedergabe überlappt das Ende des aktuellen Songs mit dem Anfang des nächsten entsprechend des von dir gewählten Überblendungsmodus über die eingestellte Dauer. In der Fachsprache nennt man dies auch Crossfade
+    <string name="morphe_music_crossfade_about_how_summary">"Crossfade überlappt das Ende eines Songs mit dem Anfang des nächsten, unter Verwendung deiner Dauer und Kurve
 
-Die Funktion lässt sich sowohl bei der normalen Wiedergabe (wenn ein Song von selbst zu Ende geht) als auch beim manuellen Überspringen mit den jeweiligen Schaltern separat aktivieren. Bei automatischem Titelwechsel beginnt die Überblendung gemäß der Einstellung schon vor dem Ende des Titels
-
-Nahtlose Wiedergabe benötigt YouTube Music 9.x oder neuer"</string>
+Es läuft bei automatischem Weiterspringen und bei manuellem Überspringen, jeweils mit eigenem Schalter. Beim automatischen Weiterspringen beginnt die Überblendung einige Sekunden vor dem Ende des Songs.‚"</string>
     <string name="morphe_music_crossfade_about_how_title">Wie es funktioniert</string>
     <string name="morphe_music_crossfade_about_known_summary">"Ist der erste Titel einer Wiedergabe (oder außerhalb der aktuellen Warteschlange gestartet) ein Musikvideo, kann dieses kurz als Video angezeigt werden, bevor der Audio-only-Modus aktiviert wird
 
 Das Anhalten der nahtlosen Wiedergabe zum Ansehen eines Musikvideos kann dazu führen, dass einige Videos schwarz bleiben (solche, deren Audio aus dem Video selbst stammt). Dies lässt sich vermeiden, indem die nahtlose Wiedergabe pausiert wird, bevor ein Song ausgewählt wird"</string>
     <string name="morphe_music_crossfade_about_known_title">Bekannte Probleme</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"Bei Musikvideos wird während aktivierter nahtloser Wiedergabe nur der Ton wiedergegeben. Über langes Drücken der Shuffle-Taste lässt sich die Funktion pausieren, falls man das Video sehen möchte
+    <string name="morphe_music_crossfade_about_quirks_summary">"Bei aktivem Crossfade werden Musikvideos nur als Audio abgespielt. Halte die Zufallswiedergabe lange gedrückt, um Crossfade zu pausieren und das Video anzusehen
 
-Titel, die kürzer sind als die eingestellte Überblendungsdauer werden möglicherweise nicht überblendet
+Startet die Wiedergabe mit einem Musikvideo, bleibt es bis zum nächsten Song im Videomodus
 
-Sperrbildschirm und Wiedergabebenachrichtigung kann während der Überblendung kurzzeitig einen veralteten Zustand anzeigen"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">Was nicht richtig funktioniert</string>
+Songs, die kürzer als die Überblendungsdauer sind, werden nicht überblendet
+
+Der Sperrbildschirm oder die Benachrichtigung kann mitten im Übergang kurzzeitig einen veralteten Zustand anzeigen
+
+Wenn du Crossfade pausierst, um ein Musikvideo anzusehen, kann das dazu führen, dass einige Videos schwarz bleiben. Wenn du Crossfade pausierst, bevor du den Song auswählst, vermeidest du das"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Einschränkungen</string>
     <string name="morphe_music_crossfade_about_summary">Wie nahtlose Wiedergabe funktioniert – und wann es nicht klappt</string>
     <string name="morphe_music_crossfade_about_title">Über</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Übertragung oder Spiegelung von Audio (Chromecast, Bildschirm- oder Audiospiegelung) – nahtlose Wiedergabe wird währenddessen wegen Instabilität pausiert und wird möglicherweise nie funktionieren
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Casten oder Spiegeln von Audio (Chromecast, Bildschirm- oder Audiospiegelung)
 
-YouTube Music 8.x – Nahtlose Wiedergabe funktioniert erst ab Version 9.x"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">Was überhaupt nicht funktioniert</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">Nahtlose Wiedergabe ist während der Audioausgabe auf anderen Geräten pausiert. Nahtlose Wiedergabe über Miracast/Audio-Broadcast ist instabil und möglicherweise nicht umsetzbar</string>
+SABR-Wiedergabe (Spoofing von Videostreams deaktiviert)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Nicht unterstützt</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Beim Casten ist Crossfade deaktiviert</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Sanftes Halten</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Sanfter Übergang</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Gleiche Lautstärke</string>
@@ -171,6 +173,7 @@ Solange diese Option aktiviert ist, listet der Downloads-Tab diese Titel anstell
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">Konfigurieren Sie den OpenAI-kompatiblen API-Endpunkt für die KI-gestützte Übersetzung und Romanisierung von Liedtexten</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">KI-Übersetzungseinstellungen</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Modellname (z. B. openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">Prompt-Vorlage (Variablen: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">Konfiguriert</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Modellname darf nicht leer sein</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">Basis-URL darf nicht leer sein</string>
@@ -183,7 +186,7 @@ Solange diese Option aktiviert ist, listet der Downloads-Tab diese Titel anstell
     <string name="morphe_music_lyrics_copied">In Zwischenablage kopiert</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Wenn Songtexte fälschlicherweise nach unten herausgefiltert werden, passe dies an oder leere das Feld. […] Leer lassen, um zu deaktivieren</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Markierungen für Infozeilen</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">Regulärer Ausdruck, der auf Titel, Interpreten und Alben angewendet wird, bevor nach Songtexten gesucht wird. Zum Deaktivieren leer lassen. Die Standardeinstellung entfernt üblichen Ballast wie „Official Video“, „Remaster“ und „- Topic“</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Regulärer Ausdruck, der auf Titel, Interpreten und Alben angewendet wird, bevor Songtexte gesucht werden und beim Bewerten, ob zwei Titel übereinstimmen. Leer lassen, um beides zu deaktivieren. Die Standardeinstellung entfernt häufiges Beiwerk wie \"Official Video\", \"Remaster\", \"【插曲】\" und \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">RegEx für Songtextfilter</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Schaltet die Anzeigereihenfolge von Interpret und Titel im Miniplayer und in MediaSession um. EIN „Interpret - Titel“ und AUS „Titel - Interpret“. Dies hat keinen Einfluss auf die Songtextsuche</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Anzeige von Künstler und Titel […] EIN „Künstler – Titel“ und AUS „Titel – Künstler“. Das hat keinen Einfluss auf die Songtextsuche</string>
@@ -200,22 +203,28 @@ Solange diese Option aktiviert ist, listet der Downloads-Tab diese Titel anstell
     <string name="morphe_music_lyrics_mediasession_title">MediaSession-Songtexte auf dem Sperrbildschirm anzeigen</string>
     <string name="morphe_music_lyrics_miniplayer_title">Miniplayer-Songtexte anzeigen</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Synchronisierte Songtexte folgen der Wiedergabe. Wenn sie abweichen, passe den Timing-Offset an. […] Verwende einen positiven Wert, wenn die Songtexte dem Song vorauseilen</string>
-    <string name="morphe_music_lyrics_offset_ms_title">Zeitlicher Versatz</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Globaler Zeitversatz</string>
     <string name="morphe_music_lyrics_refreshed">Aktualisiert</string>
     <string name="morphe_music_lyrics_refreshing">Wird aktualisiert</string>
     <string name="morphe_music_lyrics_romanize_failed">Songtexte konnten nicht romanisiert werden</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanisiert</string>
+    <string name="morphe_music_lyrics_romanize_only">Nur romanisiert</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanisiert von %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanisiert von Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanisiere …</string>
     <string name="morphe_music_lyrics_saved">Gespeichert</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Interpret</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Songtexte suchen</string>
+    <string name="morphe_music_lyrics_search_empty">Songtitel und Interpret eingeben</string>
+    <string name="morphe_music_lyrics_search_no_providers">Keiner der aktivierten Anbieter kann nach anderen Songs suchen</string>
+    <string name="morphe_music_lyrics_search_title_hint">Songtitel</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">Tippe, um die Original-Songtexte als Klartext zu kopieren; drücke lange, um die rohe Songtext-Quelldatei in Downloads zu speichern</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Kopieren-Schaltfläche anzeigen</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Tippe, um zum nächsten Songtextkandidaten zu wechseln; drücke lange, um zu speichern</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Tippen, um zum nächsten Songtext-Kandidaten zu wechseln; langes Drücken, um anhand von Songtitel und Interpret nach Songtexten zu suchen</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Schaltfläche „Aktualisieren“ anzeigen</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Romanisiere Songtexte mithilfe von Anbieter-Romanisierung, Google Translate oder einer OpenAI-kompatiblen API</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Tippen, um die Romanisierung umzuschalten; langes Drücken nur für die Romanisierung. Verwendet die Romanisierung des Anbieters, Google Translate oder eine OpenAI-kompatible API</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Schaltfläche „Romanisieren“ anzeigen</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Übersetze Songtexte mithilfe von Anbieterübersetzungen, Google Translate oder einer OpenAI-kompatiblen API</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Tippen, um die Übersetzung umzuschalten; langes Drücken nur für die Übersetzung. Verwendet Anbieterübersetzungen, Google Translate oder eine OpenAI-kompatible API</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Übersetzen-Schaltfläche anzeigen</string>
     <string name="morphe_music_lyrics_source_all_disabled">Alle Anbieter deaktiviert – integrierte Songtexte und eingebettete Songtexte</string>
     <string name="morphe_music_lyrics_source_label">Quelle: %s</string>
@@ -232,6 +241,7 @@ Solange diese Option aktiviert ist, listet der Downloads-Tab diese Titel anstell
     <string name="morphe_music_lyrics_text_size_title">Textgröße</string>
     <string name="morphe_music_lyrics_translate_failed">Die Liedtexte konnten nicht übersetzt werden</string>
     <string name="morphe_music_lyrics_translate_hide">Übersetzt</string>
+    <string name="morphe_music_lyrics_translate_only">Nur Übersetzung</string>
     <string name="morphe_music_lyrics_translated_by_ai">Übersetzt von %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Übersetzt von Google</string>
     <string name="morphe_music_lyrics_translating">Wird übersetzt…</string>
@@ -288,6 +298,16 @@ Erforderliche Cookies: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PA
     <string name="morphe_settings_name_custom_item_hint">Name eingeben</string>
     <string name="morphe_settings_name_empty_warning">Name darf nicht leer sein</string>
     <string name="morphe_settings_name_title">RVX-Einstellungsname</string>
+    <string name="morphe_settings_save">Speichern</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Nur Pausen, die mindestens so lang sind, werden verkürzt. Wirkt sich erst aus, wenn das nächste Video startet</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimale Pausenlänge</string>
+    <string name="morphe_skip_silence_summary">Überspringt automatisch Stillepausen in Video-Audio</string>
+    <string name="morphe_skip_silence_title">Stille überspringen</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s hat mehrmals hintereinander nicht funktioniert, aber %2$s schon
+
+Soll %2$s als Standard-Client festgelegt werden?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Wechseln</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Standard-Client funktioniert nicht</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
     <string name="morphe_spoof_video_streams_screen_summary">Client-Streams spoofen, um Wiedergabeprobleme zu vermeiden</string>
@@ -329,7 +349,6 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_add_miniplayer_next_button_summary">Fügt dem Miniplayer eine Schaltfläche für den nächsten Titel hinzu</string>
     <string name="revanced_add_miniplayer_next_button_title">einen mini Player hinzufügen mit weiter Button</string>
     <string name="revanced_change_start_page_entry_charts">Charts</string>
-    <string name="revanced_change_start_page_entry_default">Standard</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Episoden für später</string>
     <string name="revanced_change_start_page_entry_explore">Entdecken</string>
     <string name="revanced_change_start_page_entry_history">Verlauf</string>
@@ -362,9 +381,9 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_restart_dialog_message">Starten Sie die App neu, damit die Änderungen wirksam werden</string>
     <string name="revanced_restart_first_run">Starte die App neu, um die Einrichtung abzuschließen</string>
     <string name="revanced_restart_title">Neustart erforderlich</string>
-    <string name="revanced_ryd_attribution_summary">"Daten werden von der Return YouTube Dislike API bereitgestellt
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike stellt die Anzahl der Dislikes wieder her, die YouTube im Jahr 2021 versteckt hat. Die Zahlen stammen aus Daten, die vor der Entfernung archiviert wurden, und werden für neuere Videos aus den Stimmen seiner Nutzer geschätzt, sind also ungefähr und werden alle paar Tage aktualisiert
 
-Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
+Die ID des Videos, das du dir ansiehst, wird an die Return YouTube Dislike-API gesendet, und deine Likes und Dislikes werden anonym gesendet, um die Schätzungen zu verbessern"</string>
     <string name="revanced_ryd_compact_layout_summary">Verringert die Breite der „Like“-Schaltfläche, um Platz zu sparen</string>
     <string name="revanced_ryd_compact_layout_title">Schaltfläche „Like“ in kompakter Darstellung verwenden</string>
     <string name="revanced_ryd_dislike_percentage_summary">Zeigt anstelle eines Zahlenwerts die Dislikes prozentual zur Anzahl der Likes an</string>

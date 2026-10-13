@@ -68,11 +68,27 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_dark_theme_custom_color_summary">「カスタム」が選択されている場合に使用されます。</string>
     <string name="morphe_dark_theme_custom_color_title">カスタムダークテーマの色</string>
     <string name="morphe_dark_theme_title">ダークテーマ</string>
+    <string name="morphe_dearrow_about_summary">"DeArrowは、クリックベイトのタイトルとサムネイルを、より正確で扇動的でないクラウドソースのものに置き換えます。タイトルはコミュニティによって書かれ投票され、サムネイルは動画から取られたフレームです
+
+動画はハッシュ化された動画IDの短いプレフィックスによってリクエストされるため、サーバーはあなたが見ている動画を正確に特定できません。動画にDeArrowのサムネイルがない場合、オリジナルまたは静止画が表示されます"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">元のタイトルを表示するために必要な、面白いやクリエイティブなどの単一カテゴリでのカジュアル投票の数</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">元のタイトルを表示するためのカジュアル投票の最小数</string>
+    <string name="morphe_dearrow_casual_mode_summary">DeArrowユーザーが元のタイトルを好むと投票した場合、DeArrowタイトルではなく元のタイトルを表示します</string>
+    <string name="morphe_dearrow_casual_mode_title">カジュアルモード</string>
+    <string name="morphe_dearrow_error">DeArrow は一時的に利用できません (status code: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow は一時的に利用できません</string>
+    <string name="morphe_dearrow_titles_icon_summary">クラウドソースされた動画タイトルに DeArrow アイコンを表示します</string>
+    <string name="morphe_dearrow_titles_icon_title">DeArrow アイコンを表示</string>
+    <string name="morphe_dearrow_titles_title">DeArrow タイトル</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">フィードが古くなった後に自動的に更新されるのを防ぎます。</string>
+    <string name="morphe_disable_auto_feed_refresh_title">自動フィード更新を無効にする</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">スクロール中もナビゲーションバーを表示したままにします。</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">ナビゲーションバーの自動非表示を無効化</string>
     <string name="morphe_disable_drc_audio_summary_off">オーディオ DRC を無効にします。</string>
     <string name="morphe_disable_drc_audio_summary_on">オーディオ DRC を無効にします。</string>
     <string name="morphe_disable_drc_audio_title">オーディオ DRC を無効化</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">YouTubeがラベルなしで送信する場合、ナビゲーションボタンをラベル付きで表示します</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">ラベルのないナビゲーションボタンを無効にする</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC プロトコルを無効にします。</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC プロトコルを無効にします。</string>
     <string name="morphe_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
@@ -121,6 +137,8 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">「要注意リスト」に登録中のチャンネル</string>
     <string name="morphe_hide_aislist_warnlist_category_title">要注意リスト (信頼度: 中)</string>
     <string name="morphe_hide_auto_dubbed_label_title">「オートダビング版」ラベルを非表示</string>
+    <string name="morphe_hide_channel_buttons_summary">検索結果のチャンネルプロフィールから「登録」「チャンネルを見る」「コミュニティ」「YouTube Music」などのボタンを非表示にします</string>
+    <string name="morphe_hide_channel_buttons_title">チャンネルボタンを非表示</string>
     <string name="morphe_hide_courses_menu_title">「コース」を非表示</string>
     <string name="morphe_hide_explore_button_title">[探索] ボタンを非表示</string>
     <string name="morphe_hide_fashion_menu_title">「ファッションと美容」を非表示</string>
@@ -132,6 +150,8 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_hide_invite_to_message_card_title">「他のユーザーをメッセージに招待」カードを非表示</string>
     <string name="morphe_hide_learning_menu_title">「学び」を非表示</string>
     <string name="morphe_hide_live_menu_title">「ライブ」を非表示</string>
+    <string name="morphe_hide_live_streams_summary">ホームフィードと検索結果で現在ライブ配信中の動画を非表示にします</string>
+    <string name="morphe_hide_live_streams_title">ライブ配信を非表示</string>
     <string name="morphe_hide_memberships_menu_title">「メンバーシップ」を非表示</string>
     <string name="morphe_hide_movies_menu_title">「映画とテレビ番組」を非表示</string>
     <string name="morphe_hide_music_menu_title">「音楽」を非表示</string>
@@ -180,6 +200,10 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_open_videos_fullscreen_title">動画を全画面表示で再生</string>
     <string name="morphe_override_youtube_music_buttons_summary">YouTube Music ボタンの呼び出し先を、「純正 YouTube Music アプリ」から「設定した音楽アプリ」に変更します。</string>
     <string name="morphe_override_youtube_music_buttons_title">[YouTube Music] ボタンを置換</string>
+    <string name="morphe_playback_buffer_size_entry_low">低</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">最大</string>
+    <string name="morphe_playback_buffer_size_entry_medium">中</string>
+    <string name="morphe_playback_buffer_size_title">再生バッファサイズ</string>
     <string name="morphe_playback_in_feeds_entry_always_on">常にオン</string>
     <string name="morphe_playback_in_feeds_entry_off">オフ</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi のみ</string>
@@ -208,6 +232,9 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_replace_music_with_youtube_title">共有リンクを youtube.com に変更</string>
     <string name="morphe_restore_old_player_buttons_summary">プレーヤーのコントロールのデザインを、現在の太字デザインから従来の細字デザインに戻します。</string>
     <string name="morphe_restore_old_player_buttons_title">プレーヤーのボタンスタイルを古いデザインに復元</string>
+    <string name="morphe_restore_original_titles_loading">タイトルを読み込み中…</string>
+    <string name="morphe_restore_original_titles_summary">動画のタイトルと動画およびチャンネルの説明文の自動翻訳を無効にし、原文を表示します</string>
+    <string name="morphe_restore_original_titles_title">タイトルを原文に戻す</string>
     <string name="morphe_sanitize_sharing_links_summary_off">共有リンクから追跡パラメータを削除します。</string>
     <string name="morphe_sanitize_sharing_links_summary_on">共有リンクから追跡パラメータを削除します。</string>
     <string name="morphe_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
@@ -231,6 +258,10 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_settings_name_custom_item_hint">名称を入力してください。</string>
     <string name="morphe_settings_name_empty_warning">名称は空欄にできません。</string>
     <string name="morphe_settings_name_title">RVX 設定の名称</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">この値よりも短い無音の部分や会話などの間はスキップ (短縮) しません。設定後に再生を開始する動画から適用されます</string>
+    <string name="morphe_skip_silence_minimum_pause_title">スキップする区間の長さのしきい値</string>
+    <string name="morphe_skip_silence_summary">動画内の無音の部分や会話などの間を自動的にスキップします</string>
+    <string name="morphe_skip_silence_title">無音の区間をスキップ</string>
     <string name="morphe_splash_screen_animation_style_entry_2">色</string>
     <string name="morphe_splash_screen_animation_style_entry_3">白黒</string>
     <string name="morphe_splash_screen_animation_style_title">スプラッシュ画面のスタイル</string>
@@ -247,6 +278,11 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_spoof_video_streams_av1_summary_on">"動画のコーデックはAVC（H.264）、VP9、またはAV1 のいずれかになります。\n\n注意: 再生がカクついたり、コマ落ちが発生する可能性があります。"</string>
     <string name="morphe_spoof_video_streams_av1_title">Android VR / visionOS AV1 を許可</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"この設定を有効にすると、AV1 のソフトウェアデコードが使用される場合があります。\n\nAV1 での動画再生は、カクついたりコマ落ちが発生する場合があります。"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s は複数回連続して動作しませんでしたが、%2$s は動作しました。
+
+%2$s をデフォルト クライアントにしますか？"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切り替える</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">デフォルト クライアントが動作しません</string>
     <string name="morphe_spoof_video_streams_client_type_title">偽装するクライアントを選択</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">クライアントの動画ストリームを取得できませんでした</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">JavaScript 版プレーヤー</string>
@@ -319,6 +355,8 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_video_quality_prioritize_dialog">この設定をオフにすると、古い動画で画質を手動で選択できなくなる可能性があります。</string>
     <string name="morphe_video_quality_prioritize_summary">コーデックの圧縮効率よりも利用可能な最高画質を優先します。</string>
     <string name="morphe_video_quality_prioritize_title">動画の画質を優先</string>
+    <string name="morphe_volume_boost_summary">最大音量を超えて上にスワイプすると音量がブーストされ、大音量のオーディオが歪む可能性があります</string>
+    <string name="morphe_volume_boost_title">音量ブースト</string>
     <string name="morphe_vot_auto_translate_summary_off">現在の設定: 翻訳ボタンをタップすると、Google 翻訳が開始します。</string>
     <string name="morphe_vot_auto_translate_summary_on">現在の設定: 各動画で Google 翻訳が自動的に開始されます。</string>
     <string name="morphe_vot_caption_language_title">言語</string>
@@ -372,19 +410,10 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_advanced_video_quality_menu_type_summary_off">現在の設定: 昔のスタイルのフライアウトパネルが使用されます。</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">現在の設定: カスタムダイアログが使用されます。</string>
     <string name="revanced_advanced_video_quality_menu_type_title">ショート動画の画質の詳細設定メニュー</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow は YouTube の動画のサムネイルをクラウドソーシングで提供しています。これらのサムネイルは、YouTube が提供するサムネイルよりも関連性の高いものが多いです。
-
-有効にすると、動画の URL のみが API サーバーに送信され、その他のデータは送信されません。動画に DeArrow サムネイルがない場合は、オリジナルまたは静止画サムネイルが表示されます。
-
-DeArrow について詳しく知るには、ここをタップしてください。"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">無効な DeArrow API の URL です。</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow がサムネイルのキャッシュを取得するエンドポイントの URLです。</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API エンドポイント</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow が利用できない場合にトーストを表示します。</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow が利用できない場合にトーストを表示します。</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow は一時的に利用できません (ステータスコード: %s)。</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow は一時的に利用できません。</string>
     <string name="revanced_alt_thumbnail_home_title">[ホーム] タブ</string>
     <string name="revanced_alt_thumbnail_library_title">[マイページ] タブ</string>
     <string name="revanced_alt_thumbnail_options_entry_1">オリジナルサムネイル</string>
@@ -395,9 +424,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_alt_thumbnail_search_title">検索結果</string>
     <string name="revanced_alt_thumbnail_stills">静止画サムネイル</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">静止画サムネイルは、各動画の最初、中間、最後のいずれかの部分から取得されます。これらの画像は YouTube に直接組み込まれており、外部 API は使用されません。</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">中画質の静止画サムネイルを使用します。サムネイルの読み込みは速くなりますが、ライブ、未公開、または非常に古い動画には空白のサムネイルが表示されることがあります。</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">中画質の静止画サムネイルを使用します。サムネイルの読み込みは速くなりますが、ライブ、未公開、または非常に古い動画には空白のサムネイルが表示されることがあります。</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">高速な静止画サムネイルを使用</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">動画の最初</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">動画の中間</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">動画の最後</string>
@@ -435,7 +461,6 @@ DeArrow について詳しく知るには、ここをタップしてください
     <string name="revanced_bypass_url_redirects_summary_on">URL リダイレクト (youtube.com/redirect) をバイパスします。</string>
     <string name="revanced_bypass_url_redirects_title">URL リダイレクトをバイパス</string>
     <string name="revanced_cancel">キャンセル</string>
-    <string name="revanced_change_form_factor_entry_1">デフォルト</string>
     <string name="revanced_change_form_factor_entry_2">スマホ</string>
     <string name="revanced_change_form_factor_entry_3">スマホ (最大 480 dp)</string>
     <string name="revanced_change_form_factor_entry_4">タブレット</string>
@@ -1917,7 +1942,6 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_preference_screen_account_menu_title">[マイページ] タブ</string>
     <string name="revanced_preference_screen_action_buttons_summary">プレーヤー下のアクションボタンを非表示または表示します。</string>
     <string name="revanced_preference_screen_ads_title">広告</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">代替サムネイル</string>
     <string name="revanced_preference_screen_ambient_mode_summary">アンビエントモードの制限を回避またはアンビエントモードを無効にします。</string>
     <string name="revanced_preference_screen_ambient_mode_title">アンビエントモード</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">ホーム、検索結果、登録チャンネルにあるおすすめ欄を非表示または表示します。</string>

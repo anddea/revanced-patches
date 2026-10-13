@@ -68,11 +68,27 @@
     <string name="morphe_dark_theme_custom_color_summary">Используется, когда выбран параметр «Пользовательский»</string>
     <string name="morphe_dark_theme_custom_color_title">Пользовательский темный цвет темы</string>
     <string name="morphe_dark_theme_title">Темная тема</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow заменяет кликбейтные заголовки и миниатюры на созданные сообществом, которые более точны и менее сенсационны. Заголовки пишутся и оцениваются сообществом, а миниатюры — это кадры из видео
+
+Видео запрашиваются по короткому префиксу хеша идентификатора видео, поэтому сервер не может точно определить, какое видео вы смотрите. Если для видео нет миниатюры DeArrow, показывается оригинал или статичный кадр"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">Количество казуальных голосов в одной категории, например «смешное» или «креативное», необходимое для показа оригинального названия</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Минимальное количество казуальных голосов для показа оригинального названия</string>
+    <string name="morphe_dearrow_casual_mode_summary">Показывает оригинальное название вместо названия DeArrow, если пользователи DeArrow проголосовали за то, что им нравится оригинальное название</string>
+    <string name="morphe_dearrow_casual_mode_title">Казуальный режим</string>
+    <string name="morphe_dearrow_error">DeArrow временно недоступен (код статуса: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow временно недоступен</string>
+    <string name="morphe_dearrow_titles_icon_summary">Показывает значок DeArrow на названиях видео, созданных сообществом</string>
+    <string name="morphe_dearrow_titles_icon_title">Показывать значок DeArrow</string>
+    <string name="morphe_dearrow_titles_title">Названия DeArrow</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Предотвращает автоматическое обновление лент после их устаревания</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Отключить автоматическое обновление ленты</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Не скрывать панель навигации при прокрутке</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Выключить авто скрытие панели навигации</string>
     <string name="morphe_disable_drc_audio_summary_off">Аудио DRC включено</string>
     <string name="morphe_disable_drc_audio_summary_on">Аудио DRC отключено</string>
     <string name="morphe_disable_drc_audio_title">Отключить DRC аудио</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Показывает кнопки навигации с подписями, если YouTube отправляет их без подписей</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Отключить кнопки навигации без подписей</string>
     <string name="morphe_disable_quic_protocol_summary_off">Протокол QUIC включен</string>
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC отключен</string>
     <string name="morphe_disable_quic_protocol_title">Отключить протокол QUIC</string>
@@ -102,9 +118,9 @@
 Ограничения:
 • Отфильтрованные Shorts могут отображаться как пустые пространства
 • Некоторые видео с ИИ все равно могут отображаться"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"Данные предоставлены AiSList
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList — это список с открытым исходным кодом каналов YouTube, публикующих контент, созданный искусственным интеллектом, поддерживаемый волонтёрами. Пользователи сообщают о каналах, и они проверяются перед добавлением
 
-Нажмите здесь, чтобы открыть AiSlopList.com и посмотреть загрузки для других платформ"</string>
+Список загружается с GitHub, и видео фильтруются на вашем устройстве"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">Черный список: высокая уверенность</string>
     <string name="morphe_hide_aislist_hide_home_title">Скрыть видео на главной странице</string>
     <string name="morphe_hide_aislist_hide_search_title">Скрыть видео в поиске</string>
@@ -119,6 +135,8 @@
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Каналы в списке предупреждений</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Список предупреждений: умеренная уверенность</string>
     <string name="morphe_hide_auto_dubbed_label_title">Скрыть надпись \"Автоматически озвучено\"</string>
+    <string name="morphe_hide_channel_buttons_summary">Скрывает такие кнопки, как «Подписаться», «Смотреть канал», «Сообщество» и «YouTube Music», в профилях каналов в результатах поиска</string>
+    <string name="morphe_hide_channel_buttons_title">Скрыть кнопки каналов</string>
     <string name="morphe_hide_courses_menu_title">Скрыть меню «Курсы»</string>
     <string name="morphe_hide_explore_button_title">Скрыть кнопку «Поделиться»</string>
     <string name="morphe_hide_fashion_menu_title">Скрыть меню «Мода и красота»</string>
@@ -130,6 +148,8 @@
     <string name="morphe_hide_invite_to_message_card_title">Скрыть карточку \"Пригласить в чат\"</string>
     <string name="morphe_hide_learning_menu_title">Скрыть меню \"Обучение\"</string>
     <string name="morphe_hide_live_menu_title">Скрыть меню «Прямые трансляции»</string>
+    <string name="morphe_hide_live_streams_summary">Скрывает видео, которые сейчас идут в прямом эфире, в ленте на главной странице и в результатах поиска</string>
+    <string name="morphe_hide_live_streams_title">Скрывать прямые эфиры</string>
     <string name="morphe_hide_memberships_menu_title">Скрыть меню «Подписки»</string>
     <string name="morphe_hide_movies_menu_title">Скрыть меню «Фильмы и ТВ»</string>
     <string name="morphe_hide_music_menu_title">Скрыть меню «Музыка»</string>
@@ -177,6 +197,10 @@
     <string name="morphe_open_videos_fullscreen_title">Открыть видео в полноэкранном режиме</string>
     <string name="morphe_override_youtube_music_buttons_summary">Открывает предпочитаемое вами музыкальное приложение вместо стандартного приложения YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Переопределить кнопки YouTube Music</string>
+    <string name="morphe_playback_buffer_size_entry_low">Низкий</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Максимальный</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Средний</string>
+    <string name="morphe_playback_buffer_size_title">Размер буфера воспроизведения</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Всегда</string>
     <string name="morphe_playback_in_feeds_entry_off">Выкл</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Только по Wi-Fi</string>
@@ -202,6 +226,9 @@
     <string name="morphe_replace_music_with_youtube_title">Изменить ссылки для обмена на youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">Возвращает смелые элементы управления видеоплеером к старому, более тонкому визуальному стилю</string>
     <string name="morphe_restore_old_player_buttons_title">Восстановить старый стиль кнопок плеера</string>
+    <string name="morphe_restore_original_titles_loading">Загрузка названия…</string>
+    <string name="morphe_restore_original_titles_summary">Показывает оригинальные названия видео, описания видео и описания каналов вместо автоматически переведённых</string>
+    <string name="morphe_restore_original_titles_title">Восстановить исходные названия</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Параметр отслеживания запросов не удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметр отслеживания запросов удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_title">Очищать ссылки для обмена</string>
@@ -225,6 +252,10 @@
     <string name="morphe_settings_name_custom_item_hint">Укажите название</string>
     <string name="morphe_settings_name_empty_warning">Поле имени не может быть пустым</string>
     <string name="morphe_settings_name_title">Настройки RVX</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Сокращаются только паузы длительностью не менее этого значения. Вступает в силу при запуске следующего видео</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Минимальная длительность паузы</string>
+    <string name="morphe_skip_silence_summary">Автоматически пропускает паузы тишины в аудиодорожке видео</string>
+    <string name="morphe_skip_silence_title">Пропускать тишину</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Цветной</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Монохромная</string>
     <string name="morphe_splash_screen_animation_style_title">Анимация запуска</string>
@@ -245,6 +276,11 @@
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Включение этой опции может использовать программное декодирование AV1
 
 Воспроизведение видео с AV1 может прерываться или пропускать кадры"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s не сработал несколько раз подряд, а %2$s сработал
+
+Сделать %2$s клиентом по умолчанию?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Переключить</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Клиент по умолчанию не работает</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить никаких клиентских потоков</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Вариант JavaScript плеера</string>
@@ -320,6 +356,8 @@
     <string name="morphe_video_quality_prioritize_dialog">Если эта настройка отключена, в старых видео могут отсутствовать варианты выбора качества</string>
     <string name="morphe_video_quality_prioritize_summary">Приоритет максимально доступного качества видео над эффективностью кодека</string>
     <string name="morphe_video_quality_prioritize_title">Приоритет качества видео</string>
+    <string name="morphe_volume_boost_summary">Проведение вверх за пределы максимальной громкости усиливает её, что может искажать громкий звук</string>
+    <string name="morphe_volume_boost_title">Усиление громкости</string>
     <string name="morphe_vot_caption_language_title">Язык</string>
     <string name="morphe_vot_cost_free">Бесплатно</string>
     <string name="morphe_vot_cost_per_hour">%s за 100 часов видео</string>
@@ -371,19 +409,10 @@
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Стиль расширенного меню качества отключен</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Стиль расширенного меню качества включен</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Расширенный тип меню качества Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow предоставляет краудсорсинговые миниатюры для видео на YouTube. Эти миниатюры часто более актуальны, чем те, которые предоставляет YouTube
-
-Если включено, URL-адреса видео будут отправляться на сервер API, и никакие другие данные не будут отправлены. Если у видео нет миниатюр DeArrow, будут показаны исходные или снимки экрана
-
-Нажмите здесь, чтобы открыть DeArrow.ajay.app"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">О "DeArrow"</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Неверный URL API для миниатюр DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL-адрес конечной точки кэша миниатюр DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Конечная точка DeArrow API</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Всплывающее уведомление при недоступности DeArrow скрыто</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Всплывающее уведомление при недоступности DeArrow показано</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow временно недоступен (код статуса: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow временно недоступен</string>
     <string name="revanced_alt_thumbnail_home_title">Для вкладки \"Главная\"</string>
     <string name="revanced_alt_thumbnail_library_title">Для вкладки \"Вы\"</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Оригинальные миниатюры</string>
@@ -394,9 +423,6 @@
     <string name="revanced_alt_thumbnail_search_title">Для результатов поиска</string>
     <string name="revanced_alt_thumbnail_stills">Стоп-кадр видео</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Кадры взяты из начала/середины/конца каждого видео. Эти изображения уже есть в YouTube и внешний API не используется</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Используется высокое качество кадра</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Используется среднее качество кадра. Миниатюры будут грузиться быстрее, но возможна их потеря у трансляций, премьер или очень старых видео</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Быстрый захват кадра</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Начало</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Середина</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Конец</string>
@@ -437,7 +463,6 @@
     <string name="revanced_bypass_url_redirects_summary_on">Перенаправления URL-адресов (youtube.com/redirect) обходятся и исходные URL-адреса открываются напрямую</string>
     <string name="revanced_bypass_url_redirects_title">Обход перенаправлений URL-адресов</string>
     <string name="revanced_cancel">Отмена</string>
-    <string name="revanced_change_form_factor_entry_1">По умолчанию</string>
     <string name="revanced_change_form_factor_entry_2">Телефонный</string>
     <string name="revanced_change_form_factor_entry_3">Планшетный</string>
     <string name="revanced_change_form_factor_entry_4">Автомобильный</string>
@@ -1108,7 +1133,7 @@ Shorts
     <string name="revanced_hide_general_ads_title">Скрыть общую рекламу</string>
     <string name="revanced_hide_handle_summary_off">Псевдоним отображен</string>
     <string name="revanced_hide_handle_summary_on">Псевдоним скрыт</string>
-    <string name="revanced_hide_handle_title">Скрыть псевдоним</string>
+    <string name="revanced_hide_handle_title">Скрыть адрес канала</string>
     <string name="revanced_hide_hashtag_section_summary_off">Раздел с хэш-тегами показан</string>
     <string name="revanced_hide_hashtag_section_summary_on">Раздел с хэш-тегами скрыт</string>
     <string name="revanced_hide_hashtag_section_title">Скрыть раздел хэштегов</string>
@@ -1897,7 +1922,6 @@ Shorts
     <string name="revanced_preference_screen_account_menu_title">Меню аккаунта</string>
     <string name="revanced_preference_screen_action_buttons_summary">Настройка кнопок действий под видео</string>
     <string name="revanced_preference_screen_ads_title">Реклама</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Альтернативные миниатюры</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Отключить окружающую подсветку или обойти ограничение в режиме экономии заряда батареи</string>
     <string name="revanced_preference_screen_ambient_mode_title">Окружающая подсветка</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Настройка полки карусели на \"Главной\", результатов поиска и подписок</string>
@@ -2093,9 +2117,9 @@ Shorts
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдите &lt;a href=\"%1$s\"&gt;Новый проект&lt;/a&gt;.&lt;br&gt;2. Нажмите &lt;b&gt;Создать&lt;/b&gt;.&lt;br&gt;3. Перейдите &lt;a href=\"%2$s\"&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Нажмите &lt;b&gt;Включить&lt;/b&gt;.&lt;br&gt;5. Нажмите &lt;b&gt;Создать учетные данные&lt;/b&gt;.&lt;br&gt;6. Выберите &lt;b&gt;Публичные данные&lt;/b&gt;.&lt;br&gt;7. Нажмите &lt;b&gt;Далее&lt;/b&gt;.&lt;br&gt;8. Скопируйте ключ API.&lt;br&gt;&lt;br&gt;※ Ключом API нельзя поделиться, поэтому он не доступен в настройках Импорт/Экспорт</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Проблема с ключом разработчика \"RYU\" Data API v3</string>
     <string name="revanced_ryd_about">О \"Вернуть YouTube Dislike\"</string>
-    <string name="revanced_ryd_attribution_summary">"Данные предоставляются API Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike возвращает счётчики дизлайков, которые YouTube скрыл в 2021 году. Счётчики берутся из данных, архивированных до удаления, и оцениваются для новых видео на основе голосов пользователей, поэтому они приблизительны и обновляются каждые несколько дней
 
-Нажмите здесь, чтобы открыть ReturnYouTubeDislike.com"</string>
+Идентификатор просматриваемого вами видео отправляется в API Return YouTube Dislike, а ваши лайки и дизлайки отправляются анонимно для улучшения оценок"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Лайк\" стилизована для лучшего внешнего вида</string>
     <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Лайк\" стилизована для минимальной ширины</string>

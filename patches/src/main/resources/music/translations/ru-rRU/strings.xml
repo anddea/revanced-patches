@@ -74,29 +74,31 @@
     <string name="morphe_music_crossfade_about_best_title">Лучше всего работает с</string>
     <string name="morphe_music_crossfade_about_credit_summary">Функция плавного перехода от VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Благодарности</string>
-    <string name="morphe_music_crossfade_about_how_summary">"Плавный переход между треками накладывает конец одной песни на начало следующей, постепенно уменьшая громкость одной песни, одновременно увеличивая громкость другой в течение выбранной вами продолжительности и с выбранной кривой
+    <string name="morphe_music_crossfade_about_how_summary">"Кроссфейд накладывает конец одной песни на начало следующей, используя выбранные длительность и кривую
 
-Он работает в режиме автоматического воспроизведения (когда песня заканчивается сама по себе) и при ручном пропуске — для каждого из них есть отдельный переключатель выше. В режиме автоматического воспроизведения смешивание начинается за несколько секунд до конца песни
-
-Требуется YouTube Music версии 9.x или более поздней"</string>
+Он работает при автопереходе и при ручном переключении, для каждого есть свой переключатель. При автопереходе микширование начинается за несколько секунд до окончания песни"</string>
     <string name="morphe_music_crossfade_about_how_title">Как это работает</string>
     <string name="morphe_music_crossfade_about_known_summary">"Музыкальное видео, установленное в качестве первой песни — или запущенное извне текущего плейлиста — может ненадолго отображаться как видео перед переходом в аудио режим
 
 Приостановка плавного перехода для просмотра музыкального видео может привести к тому, что некоторые видео будут черными (особенно те, у которых звук исходит из самого видео). Чтобы избежать этого, приостановите плавный переход перед выбором песни"</string>
     <string name="morphe_music_crossfade_about_known_title">Известные проблемы</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"Музыкальные видео воспроизводятся только в аудио режиме при включенном плавном переходе (удерживайте кнопку перемешивания, чтобы приостановить, если хотите видеть видео)
+    <string name="morphe_music_crossfade_about_quirks_summary">"При включённом кроссфейде музыкальные клипы воспроизводятся только как аудио. Нажмите и удерживайте «Перемешать», чтобы приостановить кроссфейд и посмотреть видео
 
-Песни короче длительности затухания могут пропускать затухание
+Музыкальный клип, с которого началось воспроизведение, остаётся в видеорежиме до следующей песни
 
-Экран блокировки или уведомление могут кратковременно отображать устаревшее состояние во время перехода"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">Работает не совсем корректно</string>
+Песни короче длительности кроссфейда не перекрываются
+
+Экран блокировки или уведомление могут ненадолго показать устаревшее состояние в середине перехода
+
+Приостановка кроссфейда для просмотра музыкального клипа может оставить некоторые видео чёрными. Приостановка кроссфейда до выбора песни позволяет избежать этого"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Ограничения</string>
     <string name="morphe_music_crossfade_about_summary">Как работает плавный переход между треками — и в каких случаях он не работает</string>
     <string name="morphe_music_crossfade_about_title">Информация</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляция или дублирование аудио (Chromecast, дублирование экрана или звука) — функция плавного перехода (кроссфейда) приостанавливается, так как в этом режиме работа нестабильна и проблема, возможно, никогда не будет исправлена
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляция или зеркалирование аудио (Chromecast, зеркалирование экрана или аудио)
 
-YouTube Music версии 8.x — плавный переход работает только в версиях 9.x и новее"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">Совсем не работает</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">Во время воспроизведения аудио в режиме трансляции или зеркального отображения плавный переход между треками приостанавливается. Плавный переход при трансляции/зеркальном отображении может быть нестабильным и, возможно, никогда не будет исправлен</string>
+SABR-воспроизведение (подмена видеопотоков отключена)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Не поддерживается</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Кроссфейд отключён во время трансляции</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Плавное удержание</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Мягкое сглаживание</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Равномерная мощность</string>
@@ -176,6 +178,7 @@ YouTube Music версии 8.x — плавный переход работае�
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">Настройте конечную точку API, совместимого с OpenAI, для перевода текстов песен и транслитерации с помощью ИИ</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">Настройки ИИ-перевода</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Название модели (например, openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">Шаблон промпта (переменные: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">Настроено</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Название модели не может быть пустым</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">Базовый URL не может быть пустым</string>
@@ -188,7 +191,7 @@ YouTube Music версии 8.x — плавный переход работае�
     <string name="morphe_music_lyrics_copied">Скопировано в буфер обмена</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Если строки текста неправильно определяются как информационные строки, настройте эти маркеры</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Маркеры информационных строк</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">Регулярное выражение, применяемое к названиям, исполнителям и альбомам перед поиском текста. Оставьте поле пустым, чтобы отключить. По умолчанию удаляется распространённый мусор, например «Official Video», «Remaster» и «- Topic»</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Регулярное выражение применяется к названиям, исполнителям и альбомам перед поиском текстов песен и при оценке совпадения двух названий. Оставьте пустым, чтобы отключить оба. По умолчанию удаляется распространённый мусор, такой как \"Official Video\", \"Remaster\", \"【插曲】\" и \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">Регулярное выражение для метаданных</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Переключить порядок отображения исполнителя и названия в мини-плеере и MediaSession. Включено: «Исполнитель — Название», выключено: «Название — Исполнитель»</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Порядок отображения исполнителя и названия</string>
@@ -205,22 +208,28 @@ YouTube Music версии 8.x — плавный переход работае�
     <string name="morphe_music_lyrics_mediasession_title">Показывать текст MediaSession на экране блокировки</string>
     <string name="morphe_music_lyrics_miniplayer_title">Показывать тексты в мини-плеере</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Синхронизированный текст следует временному смещению. Используйте положительное значение, если текст опережает песню</string>
-    <string name="morphe_music_lyrics_offset_ms_title">Смещение по времени</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Глобальное смещение тайминга</string>
     <string name="morphe_music_lyrics_refreshed">Обновлено</string>
     <string name="morphe_music_lyrics_refreshing">Обновление</string>
     <string name="morphe_music_lyrics_romanize_failed">Не удалось романизировать текст</string>
     <string name="morphe_music_lyrics_romanize_hide">Романизация</string>
+    <string name="morphe_music_lyrics_romanize_only">Только романизированный</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Транслитерировано с помощью %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Романизировано Google</string>
     <string name="morphe_music_lyrics_romanizing">Романизация…</string>
     <string name="morphe_music_lyrics_saved">Сохранено</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Исполнитель</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Поиск текста песни</string>
+    <string name="morphe_music_lyrics_search_empty">Введите название песни и исполнителя</string>
+    <string name="morphe_music_lyrics_search_no_providers">Ни один из включённых провайдеров не может искать другие песни</string>
+    <string name="morphe_music_lyrics_search_title_hint">Название песни</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">Нажмите, чтобы скопировать оригинальный текст как обычный текст; нажмите и удерживайте, чтобы сохранить исходный файл текста в Downloads</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Показать кнопку копирования</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Сохранено</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Нажмите, чтобы переключиться на следующий вариант текста; долгое нажатие — поиск текста по названию песни и исполнителю</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Показывать кнопку «Обновить»</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Романизировать тексты песен с помощью романизации провайдера, Google Translate или OpenAI-совместимого API</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Нажмите, чтобы переключить романизацию; долгое нажатие — только романизация. Использует романизацию провайдера, Google Translate или OpenAI-совместимый API</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Показывать кнопку романизации</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Переводить тексты песен с помощью переводов провайдера, Google Translate или OpenAI-совместимого API</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Нажмите, чтобы переключить перевод; долгое нажатие — только перевод. Использует переводы провайдера, Google Translate или OpenAI-совместимый API</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Показать кнопку перевода</string>
     <string name="morphe_music_lyrics_source_all_disabled">Все сервисы отключены — встроенные тексты и тексты из метаданных</string>
     <string name="morphe_music_lyrics_source_label">Источник: %s</string>
@@ -237,6 +246,7 @@ YouTube Music версии 8.x — плавный переход работае�
     <string name="morphe_music_lyrics_text_size_title">Размер текста</string>
     <string name="morphe_music_lyrics_translate_failed">Не удалось перевести текст песни</string>
     <string name="morphe_music_lyrics_translate_hide">Перевод</string>
+    <string name="morphe_music_lyrics_translate_only">Только перевод</string>
     <string name="morphe_music_lyrics_translated_by_ai">Переведено с помощью %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Переведено Google</string>
     <string name="morphe_music_lyrics_translating">Перевод…</string>
@@ -293,6 +303,16 @@ YouTube Music версии 8.x — плавный переход работае�
     <string name="morphe_settings_name_custom_item_hint">Укажите название</string>
     <string name="morphe_settings_name_empty_warning">Поле имени не может быть пустым</string>
     <string name="morphe_settings_name_title">Настройки RVX</string>
+    <string name="morphe_settings_save">Сохранить</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Сокращаются только паузы длительностью не менее этого значения. Вступает в силу при запуске следующего видео</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Минимальная длительность паузы</string>
+    <string name="morphe_skip_silence_summary">Автоматически пропускает паузы тишины в аудиодорожке видео</string>
+    <string name="morphe_skip_silence_title">Пропускать тишину</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s не сработал несколько раз подряд, а %2$s сработал
+
+Сделать %2$s клиентом по умолчанию?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Переключить</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Клиент по умолчанию не работает</string>
     <string name="morphe_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить никаких клиентских потоков</string>
     <string name="morphe_spoof_video_streams_screen_summary">Настройте подмену клиента, чтобы предотвратить проблемы с воспроизведением</string>
@@ -364,7 +384,6 @@ YouTube Music версии 8.x — плавный переход работае�
     <string name="revanced_change_share_sheet_summary">Меняет тип диалогового окна \"Поделиться\" из встроенного на системное</string>
     <string name="revanced_change_share_sheet_title">Изменить окно \"Поделиться\"</string>
     <string name="revanced_change_start_page_entry_charts">Графики</string>
-    <string name="revanced_change_start_page_entry_default">По умолчанию</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Эпизоды на потом</string>
     <string name="revanced_change_start_page_entry_explore">Навигатор</string>
     <string name="revanced_change_start_page_entry_history">История просмотров</string>
@@ -720,9 +739,9 @@ YouTube Music версии 8.x — плавный переход работае�
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Ключ YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдите в раздел &lt;a href=%1$s&gt;Создать New Project&lt;/a&gt;.&lt;br&gt;2. Нажмите кнопку &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Перейдите в &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Нажмите кнопку &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Нажмите кнопку &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Выберите &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Нажмите кнопку &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Скопируйте ключ API. &lt;br&gt;&lt;br&gt;※ Ключ API нельзя предоставлять другим, поэтому он не включен в Импорт/Экспорт настроек</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Создание ключа разработчика YouTube Data API v3</string>
-    <string name="revanced_ryd_attribution_summary">"Данные предоставляются API Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike возвращает счётчики дизлайков, которые YouTube скрыл в 2021 году. Счётчики берутся из данных, архивированных до удаления, и оцениваются для новых видео на основе голосов пользователей, поэтому они приблизительны и обновляются каждые несколько дней
 
-Нажмите здесь, чтобы открыть ReturnYouTubeDislike.com"</string>
+Идентификатор просматриваемого вами видео отправляется в API Return YouTube Dislike, а ваши лайки и дизлайки отправляются анонимно для улучшения оценок"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Уменьшает ширину кнопки «Нравится», чтобы сэкономить место</string>
     <string name="revanced_ryd_compact_layout_title">Использовать компактную кнопку «Нравится»</string>

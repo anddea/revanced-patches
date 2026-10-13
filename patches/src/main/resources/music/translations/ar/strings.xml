@@ -63,29 +63,31 @@
     <string name="morphe_music_crossfade_about_best_title">يعمل بشكل أفضل مع</string>
     <string name="morphe_music_crossfade_about_credit_summary">ميزة Transitions مقدمة من VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">حقوق الملكية</string>
-    <string name="morphe_music_crossfade_about_how_summary">"يؤدي التشغيل التدريجي إلى تداخل نهاية إحدى الأغاني مع بداية الأغنية التالية، مع خفض صوت الأولى تدريجيًا أثناء ارتفاع صوت الأخرى خلال المدة والمنحنى اللذين اخترتهما
+    <string name="morphe_music_crossfade_about_how_summary">"التلاشي المتقاطع يدمج نهاية أغنية مع بداية الأغنية التالية، باستخدام المدة والمنحنى اللذين تحددهما
 
-يعمل على التقديم التلقائي (عندما تنتهي الأغنية من تلقاء نفسها) وعلى عمليات التخطي اليدوي — ولكل منهما مفتاح تشغيل/إيقاف خاص به أعلاه. في التقديم التلقائي، يبدأ المزج قبل ثوانٍ قليلة من نهاية الأغنية
-
-يتطلب YouTube Music الإصدار 9.x أو أحدث"</string>
+يعمل عند الانتقال التلقائي والتخطي اليدوي، ولكل منهما مفتاح تبديل خاص به. عند الانتقال التلقائي، يبدأ المزج قبل ثوانٍ قليلة من نهاية الأغنية"</string>
     <string name="morphe_music_crossfade_about_how_title">كيف يعمل</string>
     <string name="morphe_music_crossfade_about_known_summary">"قد تظهر مقاطع فيديو الموسيقى المعينة كأول أغنية - أو التي بدأت من خارج قائمة الانتظار الحالية - كفيديو لفترة وجيزة قبل أن يبدأ وضع الصوت فقط
 
 قد يؤدي إيقاف الانتقال التدريجي لمشاهدة مقطع فيديو موسيقي إلى ظهور بعض مقاطع الفيديو باللون الأسود (تلك التي يأتي صوتها من الفيديو نفسه). تجنب ذلك عن طريق إيقاف الانتقال التدريجي قبل اختيار الأغنية"</string>
     <string name="morphe_music_crossfade_about_known_title">مشاكل معروفة</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"تعمل مقاطع فيديو الموسيقى كصوت فقط أثناء تشغيل الانتقال التدريجي (اضغط مع الاستمرار على زر التشغيل العشوائي للإيقاف إذا كنت تريد الفيديو)
+    <string name="morphe_music_crossfade_about_quirks_summary">"تُشغَّل الفيديوهات الموسيقية كصوت فقط أثناء تفعيل التلاشي المتقاطع. اضغط مطولًا على زر الخلط لإيقاف التلاشي المتقاطع مؤقتًا ومشاهدة الفيديو
 
-قد تتخطى الأغاني الأقصر من مدة التلاشي عملية التلاشي
+أي فيديو موسيقي يبدأ تشغيله يبقى في وضع الفيديو حتى الأغنية التالية
 
-قد يعرض شاشة القفل أو الإشعار حالة قديمة لفترة وجيزة أثناء الانتقال"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">لا يعمل بشكل صحيح</string>
+لا يتم تطبيق التلاشي المتقاطع على الأغاني الأقصر من مدة التلاشي
+
+قد تعرض شاشة القفل أو الإشعار حالة قديمة لفترة وجيزة في منتصف الانتقال
+
+إيقاف التلاشي المتقاطع مؤقتًا لمشاهدة فيديو موسيقي قد يجعل بعض الفيديوهات سوداء. إيقاف التلاشي المتقاطع مؤقتًا قبل اختيار الأغنية يتجنب حدوث ذلك"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">القيود</string>
     <string name="morphe_music_crossfade_about_summary">كيف يعمل التشغيل التدريجي — ومتى لا يعمل</string>
     <string name="morphe_music_crossfade_about_title">لمحة</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"البث أو عكس الصوت (Chromecast، أو عكس الشاشة أو الصوت) - يتوقف الانتقال التدريجي لأنه غير مستقر هناك وقد لا يتم إصلاحه أبدًا
+    <string name="morphe_music_crossfade_about_unsupported_summary">"بث الصوت أو عكسه (Chromecast، أو عكس الشاشة أو الصوت)
 
-YouTube Music 8.x - يعمل الانتقال التدريجي فقط على الإصدار 9.x والإصدارات الأحدث"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">لا يعمل على الإطلاق</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">تم إيقاف التشغيل التدريجي أثناء البث أو انعكاس الصوت. التلاشي التدريجي عبر البث/الانعكاس غير مستقر وقد لا يمكن إصلاحه أبدًا</string>
+تشغيل SABR (عند إيقاف محاكاة بث الفيديو)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">غير مدعوم</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">التلاشي المتقاطع متوقف أثناء الإرسال</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">تأخير لطيف</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">تسهيل لطيف</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">قوة متساوية</string>
@@ -167,6 +169,7 @@ tظهر المسارات التي تم تنزيلها هنا"</string>
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">قم بتكوين نقطة نهاية API المتوافقة مع OpenAI لترجمة كلمات الأغاني والكتابة الصوتية المدعومة بالذكاء الاصطناعي</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">إعدادات الترجمة بالذكاء الاصطناعي</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">اسم النموذج (مثال: openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">قالب المطالبة (المتغيرات: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">تم التكوين</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">لا يمكن أن يكون اسم النموذج فارغًا</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">لا يمكن أن يكون عنوان URL الأساسي فارغًا</string>
@@ -179,7 +182,7 @@ tظهر المسارات التي تم تنزيلها هنا"</string>
     <string name="morphe_music_lyrics_copied">تم النسخ إلى الحافظة</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">إذا تمت تصفية الكلمات بشكل غير صحيح إلى الأسفل، فاضبط هذا أو امسحه. […] اتركه فارغًا لتعطيله</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">علامات سطر المعلومات</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">\"Regular Expressions\" يتم تطبيقها على العناوين، والفنانين، والألبومات قبل البحث عن الكلمات. إتركه فارغاً لإلغاء التفعيل. السلوك الإفتراضي يتخلص من الفوضى الشائعة مثل \"Official Video\", \"Remaster\", \"Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">تعبير نمطي يُطبَّق على العناوين والفنانين والألبومات قبل البحث عن كلمات الأغاني وعند تقييم درجة تطابق عنوانين. اتركه فارغًا لتعطيل الاستخدامين معًا. الإعداد الافتراضي يزيل العبارات الزائدة الشائعة مثل \"Official Video\" و\"Remaster\" و\"【插曲】\" و\"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">تعبير مرشّح الكلمات</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">تبديل ترتيب الفنان والعنوان في المشغل المصغر وواجهة \"MediaSession\". تشغيل يعني \"الفنان - العنوان\" وإطفاء يعني \"العنوان - الفنان\". لا يؤثر هذا الإجراء على البحث عن كلمات الأغاني</string>
     <string name="morphe_music_lyrics_display_artist_first_title">عند التشغيل: تكون الرومنة أسفل الكلمات والترجمة أعلاها. عند الإيقاف: تبقى الرومنة أعلى الكلمات والترجمة أسفلها</string>
@@ -196,22 +199,28 @@ tظهر المسارات التي تم تنزيلها هنا"</string>
     <string name="morphe_music_lyrics_mediasession_title">أظهار كلمات \"MediaSession\" في شاشة القفل</string>
     <string name="morphe_music_lyrics_miniplayer_title">إظهار الكلمات في المشغّل المصغّر</string>
     <string name="morphe_music_lyrics_offset_ms_summary">تتبع الكلمات المتزامنة التشغيل. إذا انحرفت، فاضبط إزاحة التوقيت. […] استخدم قيمة موجبة إذا كانت الكلمات تسبق الأغنية</string>
-    <string name="morphe_music_lyrics_offset_ms_title">إزاحة التوقيت</string>
+    <string name="morphe_music_lyrics_offset_ms_title">إزاحة التوقيت العامة</string>
     <string name="morphe_music_lyrics_refreshed">تم التحديث</string>
     <string name="morphe_music_lyrics_refreshing">جارٍ التحديث</string>
     <string name="morphe_music_lyrics_romanize_failed">تعذّرت رومنة […]</string>
     <string name="morphe_music_lyrics_romanize_hide">مُروَّن</string>
+    <string name="morphe_music_lyrics_romanize_only">الرومنة فقط</string>
     <string name="morphe_music_lyrics_romanized_by_ai">تمت الكتابة بالحروف اللاتينية بواسطة %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">تمت الرومنة بواسطة Google</string>
     <string name="morphe_music_lyrics_romanizing">جارٍ الرومنة…</string>
     <string name="morphe_music_lyrics_saved">محفوظة</string>
+    <string name="morphe_music_lyrics_search_artist_hint">الفنان</string>
+    <string name="morphe_music_lyrics_search_dialog_title">البحث عن الكلمات</string>
+    <string name="morphe_music_lyrics_search_empty">أدخل عنوان الأغنية واسم الفنان</string>
+    <string name="morphe_music_lyrics_search_no_providers">لا يمكن لأي من المزودين المفعّلين البحث عن أغانٍ أخرى</string>
+    <string name="morphe_music_lyrics_search_title_hint">عنوان الأغنية</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">انقر لنسخ الكلمات الأصلية كنص عادي؛ اضغط مطولًا لحفظ ملف مصدر الكلمات الخام في مجلد التنزيلات</string>
     <string name="morphe_music_lyrics_show_copy_button_title">إظهار زر النسخ</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">انقر للتبديل إلى مرشّح الكلمات التالي؛ اضغط مطولًا لفتح الخيارات</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">انقر للتبديل إلى مرشح الكلمات التالي؛ اضغط مطولاً للبحث عن الكلمات حسب عنوان الأغنية والفنان</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">إظهار زر التحديث</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">حوّل كلمات الأغاني إلى أحرف لاتينية باستخدام الرومنة من المزود، أو ترجمة Google، أو واجهة برمجة تطبيقات متوافقة مع OpenAI</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">اضغط للتبديل بين إظهار الكتابة بالحروف اللاتينية وإخفائها؛ اضغط مطوّلاً لعرض الكتابة بالحروف اللاتينية فقط. يستخدم رومنة المزوّد أو خدمة Google Translate أو واجهة برمجة تطبيقات متوافقة مع OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">إظهار زر الرومنة</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">ترجم كلمات الأغاني باستخدام ترجمات المزود، أو ترجمة Google، أو واجهة برمجة تطبيقات متوافقة مع OpenAI</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">اضغط للتبديل بين إظهار الترجمة وإخفائها؛ اضغط مطوّلاً لعرض الترجمة فقط. يستخدم ترجمات المزوّد أو خدمة Google Translate أو واجهة برمجة تطبيقات متوافقة مع OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">إظهار زر الترجمة</string>
     <string name="morphe_music_lyrics_source_all_disabled">إخفاء السطر الجاري تشغيله</string>
     <string name="morphe_music_lyrics_source_label">المصدر: %s</string>
@@ -228,6 +237,7 @@ tظهر المسارات التي تم تنزيلها هنا"</string>
     <string name="morphe_music_lyrics_text_size_title">حجم النص</string>
     <string name="morphe_music_lyrics_translate_failed">تعذر ترجمة كلمات الأغنية</string>
     <string name="morphe_music_lyrics_translate_hide">مترجَم</string>
+    <string name="morphe_music_lyrics_translate_only">المترجَم فقط</string>
     <string name="morphe_music_lyrics_translated_by_ai">تمت الترجمة بواسطة %s</string>
     <string name="morphe_music_lyrics_translated_by_google">تمت الترجمة بواسطة Google</string>
     <string name="morphe_music_lyrics_translating">جارٍ الترجمة...</string>
@@ -279,6 +289,16 @@ tظهر المسارات التي تم تنزيلها هنا"</string>
     <string name="morphe_settings_name_custom_item_hint">أدخل اسم</string>
     <string name="morphe_settings_name_empty_warning">خانة الاسم لايمكن ان تكون فارغه</string>
     <string name="morphe_settings_name_title">اسم إعدادات RVX</string>
+    <string name="morphe_settings_save">حفظ</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">يتم تقصير فترات التوقف التي تبلغ هذه المدة أو أكثر فقط. ويسري هذا عند بدء الفيديو التالي</string>
+    <string name="morphe_skip_silence_minimum_pause_title">الحد الأدنى لمدة التوقف</string>
+    <string name="morphe_skip_silence_summary">يتخطى تلقائيًا فترات الصمت في صوت الفيديو</string>
+    <string name="morphe_skip_silence_title">تخطي الصمت</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"فشل %1$s في العمل عدة مرات متتالية، بينما نجح %2$s في ذلك
+
+هل ترغب في جعل %2$s هو العميل الافتراضي؟"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">تبديل</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">العميل الافتراضي لا يعمل</string>
     <string name="morphe_spoof_video_streams_client_type_title">العميل الافتراضي</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">تعذر جلب أي تدفقات عميل</string>
     <string name="morphe_spoof_video_streams_screen_summary">ضبط خاصية تمويه هوية العميل لمنع مشاكل التشغيل</string>
@@ -349,7 +369,6 @@ tظهر المسارات التي تم تنزيلها هنا"</string>
     <string name="revanced_change_share_sheet_summary">تغيير قائمة المشاركة داخل التطبيق إلى قائمة مشاركة النظام</string>
     <string name="revanced_change_share_sheet_title">تغيير لوح مشاركة</string>
     <string name="revanced_change_start_page_entry_charts">الرسوم البيانية</string>
-    <string name="revanced_change_start_page_entry_default">الافتراضية</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">حلقات للمشاهدة لاحقًا</string>
     <string name="revanced_change_start_page_entry_explore">استكشف</string>
     <string name="revanced_change_start_page_entry_history">السجلّ</string>
@@ -692,9 +711,9 @@ tظهر المسارات التي تم تنزيلها هنا"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">مفتاح API لبيانات YouTube</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. انتقل إلى &lt;a href=%1$s&gt;إنشاء مشروع جديد&lt;/a&gt;.&lt;br&gt;2. انقر على زر &lt;b&gt;CREATE&lt;/b&gt; (إنشاء).&lt;br&gt;3. انتقل إلى &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. انقر على زر &lt;b&gt;ENABLE&lt;/b&gt; (تفعيل).&lt;br&gt;5. انقر على زر &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; (إنشاء مفاتيح اعتماد).&lt;br&gt;6. اختر خيار &lt;b&gt;Public data&lt;/b&gt; (البيانات العامة).&lt;br&gt;7. انقر على زر &lt;b&gt;NEXT&lt;/b&gt; (التالي).&lt;br&gt;8. انسخ مفتاح API.&lt;br&gt;&lt;br&gt;※ يجب عدم مشاركة مفتاح API مع الآخرين أبداً، لذا لا يتم تضمينه في إعدادات الاستيراد والتصدير</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">إصدار مفتاح مطور YouTube Data API v3</string>
-    <string name="revanced_ryd_attribution_summary">"يتم توفير البيانات بواسطة Return YouTube Dislike API
+    <string name="revanced_ryd_attribution_summary">"يعيد Return YouTube Dislike عرض عدد مرات عدم الإعجاب التي أخفاها YouTube في عام 2021. تأتي الأعداد من بيانات مؤرشفة قبل الإزالة وتُقدَّر للفيديوهات الأحدث من خلال أصوات مستخدميه، لذا فهي تقريبية وتُحدَّث كل بضعة أيام
 
-انقر هنا لفتح ReturnYouTubeDislike.com"</string>
+يتم إرسال معرف الفيديو الذي تشاهده إلى واجهة برمجة تطبيقات Return YouTube Dislike، ويتم إرسال إعجاباتك وعدم إعجاباتك بشكل مجهول لتحسين التقديرات"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">يقلل من عرض زر الإعجاب لتوفير المساحة</string>
     <string name="revanced_ryd_compact_layout_title">استخدام زر الإعجاب المصغّر</string>

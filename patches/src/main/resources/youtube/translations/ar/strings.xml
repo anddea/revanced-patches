@@ -68,11 +68,27 @@
     <string name="morphe_dark_theme_custom_color_summary">يُستخدم عند اختيار "مُخصَّص"</string>
     <string name="morphe_dark_theme_custom_color_title">لون مخصص للسمة الداكنة</string>
     <string name="morphe_dark_theme_title">مظهر مظلم</string>
+    <string name="morphe_dearrow_about_summary">"يستبدل DeArrow العناوين والصور المصغّرة التي تعتمد على طُعم النقر بتلك المقدَّمة من المجتمع، والتي تكون أكثر دقةً وأقل إثارة. تُكتب العناوين ويصوِّت عليها المجتمع، والصور المصغّرة هي إطارات مأخوذة من الفيديو
+
+تُطلب الفيديوهات ببادئة قصيرة من معرّف الفيديو المجزّأ، لذا لا يمكن للخادم معرفة الفيديو الذي تشاهده بالضبط. إذا لم يكن للفيديو صورة مصغّرة من DeArrow، فتُعرض الصورة الأصلية أو لقطة ثابتة"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">عدد الأصوات العادية في فئة واحدة، مثل مضحكة أو إبداعية، المطلوب لإظهار العنوان الأصلي</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">الحد الأدنى من الأصوات العادية لإظهار العنوان الأصلي</string>
+    <string name="morphe_dearrow_casual_mode_summary">يعرض العنوان الأصلي بدلًا من عنوان DeArrow إذا صَوَّت مستخدمو DeArrow بأنهم يفضلون العنوان الأصلي</string>
+    <string name="morphe_dearrow_casual_mode_title">الوضع العادي</string>
+    <string name="morphe_dearrow_error">DeArrow غير متوفر مؤقتًا (رمز الحالة: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow غير متوفر مؤقتًا</string>
+    <string name="morphe_dearrow_titles_icon_summary">يُظهر أيقونة DeArrow على عناوين الفيديو المُقدَّمة من المجتمع</string>
+    <string name="morphe_dearrow_titles_icon_title">عرض أيقونة DeArrow</string>
+    <string name="morphe_dearrow_titles_title">عناوين DeArrow</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">يمنع الخلاصات من التحديث تلقائيًا بعد أن تصبح قديمة</string>
+    <string name="morphe_disable_auto_feed_refresh_title">تعطيل تحديث الخلاصة تلقائيًا</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">يبقي شريط التنقل ظاهرًا أثناء التمرير</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">تعطيل إخفاء شريط التنقل تلقائيًا</string>
     <string name="morphe_disable_drc_audio_summary_off">تم تمكين صوت DRC</string>
     <string name="morphe_disable_drc_audio_summary_on">تم تعطيل صوت DRC</string>
     <string name="morphe_disable_drc_audio_title">تعطيل صوت DRC</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">يعرض أزرار التنقل مع تسميات، إذا أرسلها YouTube بدون تسميات</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">تعطيل أزرار التنقل بدون تسميات</string>
     <string name="morphe_disable_quic_protocol_summary_off">تم تمكين بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_summary_on">تم تعطيل بروتوكول QUIC</string>
     <string name="morphe_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
@@ -92,7 +108,7 @@
     <string name="morphe_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
     <string name="morphe_force_original_audio_title">فرض لغة الصوت الأصلية</string>
     <string name="morphe_fullscreen_large_seekbar_title">تمكين شريط التقدم الكبير بملء الشاشة</string>
-    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">إخفاء زر ضبط حجم الفيديو في مشغل الوضع الرأسي</string>
+    <string name="morphe_fullscreen_video_scale_button_fullscreen_only_summary">إخفاء زر ضبط مقياس الفيديو في مشغل الوضع الرأسي</string>
     <string name="morphe_fullscreen_video_scale_button_fullscreen_only_title">العرض في وضع ملء الشاشة فقط</string>
     <string name="morphe_fullscreen_video_scale_button_summary">انقر للتنقل بين الوضع الافتراضي، التمديد، والتكبير</string>
     <string name="morphe_fullscreen_video_scale_button_title">عرض زر مقياس الفيديو</string>
@@ -104,9 +120,9 @@
 القيود:
 • قد تظهر فيديوهات Shorts التي تم تصفيتها كمساحة فارغة
 • قد يستمر عرض بعض الفيديوهات التي تم إنشاؤها بواسطة الذكاء الاصطناعي"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"يتم توفير البيانات بواسطة AiSList
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList هي قائمة مفتوحة المصدر لقنوات YouTube التي تنشر محتوى تم إنشاؤه بواسطة الذكاء الاصطناعي، ويتم صيانتها بواسطة متطوعين. يتم الإبلاغ عن القنوات من قبل المستخدمين ومراجعتها قبل إضافتها
 
-انقر هنا لفتح AiSlopList.com والاطلاع على التنزيلات للمنصات الأخرى"</string>
+يتم تنزيل القائمة من GitHub ويتم تصفية الفيديوهات على جهازك"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">القائمة السوداء: ثقة عالية</string>
     <string name="morphe_hide_aislist_hide_home_title">إخفاء الفيديوهات في الصفحة الرئيسية</string>
     <string name="morphe_hide_aislist_hide_search_title">إخفاء الفيديوهات في البحث</string>
@@ -121,6 +137,8 @@
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">قنوات قائمة التحذير</string>
     <string name="morphe_hide_aislist_warnlist_category_title">قائمة التحذير: ثقة متوسطة</string>
     <string name="morphe_hide_auto_dubbed_label_title">إخفاء علامة \'مُدبلج تلقائيًا\'</string>
+    <string name="morphe_hide_channel_buttons_summary">يخفي الأزرار مثل الاشتراك، الاطّلاع على القناة، المنتدى، و YouTube Music من ملفات القناة في نتائج البحث</string>
+    <string name="morphe_hide_channel_buttons_title">إخفاء أزرار القناة</string>
     <string name="morphe_hide_courses_menu_title">إخفاء قائمة الدورات التدريبية</string>
     <string name="morphe_hide_explore_button_title">إخفاء زر استكشاف</string>
     <string name="morphe_hide_fashion_menu_title">إخفاء قائمة \'الموضة والجمال\'</string>
@@ -132,6 +150,8 @@
     <string name="morphe_hide_invite_to_message_card_title">إخفاء بطاقة \'دعوة الآخرين للمراسلة\'</string>
     <string name="morphe_hide_learning_menu_title">إخفاء قائمة محتوى تعليمي</string>
     <string name="morphe_hide_live_menu_title">إخفاء قائمة بث مباشر</string>
+    <string name="morphe_hide_live_streams_summary">يخفي الفيديوهات المباشرة الآن في خلاصة الصفحة الرئيسية ونتائج البحث</string>
+    <string name="morphe_hide_live_streams_title">إخفاء البث المباشر</string>
     <string name="morphe_hide_memberships_menu_title">إخفاء قائمة العضويات</string>
     <string name="morphe_hide_movies_menu_title">إخفاء قائمة \'الأفلام &amp; التلفزيون\'</string>
     <string name="morphe_hide_music_menu_title">إخفاء قائمة الموسيقى</string>
@@ -180,6 +200,10 @@
     <string name="morphe_open_videos_fullscreen_title">فتح الفيديوهات بوضع ملء الشاشة</string>
     <string name="morphe_override_youtube_music_buttons_summary">يفتح تطبيق الموسيقى المفضل لديك بدلًا من تطبيق YouTube Music الافتراضي</string>
     <string name="morphe_override_youtube_music_buttons_title">تغيير وظيفة أزرار YouTube Music</string>
+    <string name="morphe_playback_buffer_size_entry_low">منخفض</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">الحد الأقصى</string>
+    <string name="morphe_playback_buffer_size_entry_medium">متوسط</string>
+    <string name="morphe_playback_buffer_size_title">حجم المخزن المؤقت للتشغيل</string>
     <string name="morphe_playback_in_feeds_entry_always_on">مفعّل دائمًا</string>
     <string name="morphe_playback_in_feeds_entry_off">متوقف</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">فقط Wi-Fi</string>
@@ -208,6 +232,9 @@
     <string name="morphe_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">يعيد أزرار مشغل الفيديو السميكة إلى النمط المرئي القديم الأقل سُمكًا</string>
     <string name="morphe_restore_old_player_buttons_title">استعادة نمط أزرار المشغل القديم</string>
+    <string name="morphe_restore_original_titles_loading">جارٍ تحميل العنوان…</string>
+    <string name="morphe_restore_original_titles_summary">يعرض عناوين الفيديو الأصلية، أوصاف الفيديو وأوصاف القناة بدلًا من العناوين والأوصاف المترجمة تلقائيًا</string>
+    <string name="morphe_restore_original_titles_title">استعادة العناوين الأصلية</string>
     <string name="morphe_sanitize_sharing_links_summary_off">لم تتم إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_summary_on">تمت إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_title">تنظيف روابط المشاركة</string>
@@ -231,6 +258,10 @@
     <string name="morphe_settings_name_custom_item_hint">أدخل اسم</string>
     <string name="morphe_settings_name_empty_warning">خانة الاسم لايمكن ان تكون فارغه</string>
     <string name="morphe_settings_name_title">اسم إعدادات RVX</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">يتم تقصير فترات التوقف التي تبلغ هذه المدة أو أكثر فقط. ويسري هذا عند بدء الفيديو التالي</string>
+    <string name="morphe_skip_silence_minimum_pause_title">الحد الأدنى لمدة التوقف</string>
+    <string name="morphe_skip_silence_summary">يتخطى تلقائيًا فترات الصمت في صوت الفيديو</string>
+    <string name="morphe_skip_silence_title">تخطي الصمت</string>
     <string name="morphe_splash_screen_animation_style_entry_2">اللون</string>
     <string name="morphe_splash_screen_animation_style_entry_3">أحادية اللون</string>
     <string name="morphe_splash_screen_animation_style_title">تأثير حركة بدء التشغيل</string>
@@ -251,6 +282,11 @@
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"قد يؤدي تمكين هذا الإعداد إلى استخدام فك تشفير AV1 البرمجي
 
 قد يتسبب تشغيل الفيديو باستخدام AV1 في التقطيع أو إسقاط الإطارات"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"فشل %1$s في العمل عدة مرات متتالية، بينما نجح %2$s في ذلك
+
+هل ترغب في جعل %2$s هو العميل الافتراضي؟"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">تبديل</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">العميل الافتراضي لا يعمل</string>
     <string name="morphe_spoof_video_streams_client_type_title">العميل الافتراضي</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">تعذر جلب أي تدفقات عميل</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">متغير JavaScript الخاص بالمشغل</string>
@@ -327,6 +363,8 @@
     <string name="morphe_video_quality_prioritize_dialog">إذا تم إيقاف هذا الإعداد، فقد لا تعرض الفيديوهات القديمة خيارات جودة الفيديو</string>
     <string name="morphe_video_quality_prioritize_summary">يُعطي الأولوية لأعلى جودة فيديو متاحة على حساب كفاءة الترميز</string>
     <string name="morphe_video_quality_prioritize_title">إعطاء الأولوية لجودة فيديو</string>
+    <string name="morphe_volume_boost_summary">التمرير لأعلى بعد تجاوز الحد الأقصى للصوت يزيد مستوى الصوت، قد يتسبب بتشويه الصوت العالي</string>
+    <string name="morphe_volume_boost_title">تضخيم الصوت</string>
     <string name="morphe_vot_auto_translate_summary_off">انقر على زر الترجمة لبدء ترجمة جوجل</string>
     <string name="morphe_vot_auto_translate_summary_on">تبدأ ترجمة جوجل تلقائيًا لكل فيديو</string>
     <string name="morphe_vot_caption_language_title">اللغة</string>
@@ -383,19 +421,10 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_advanced_video_quality_menu_type_summary_off">يتم استخدام القائمة المنبثقة على الطراز القديم</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">يتم استخدام مربع حوار مخصص</string>
     <string name="revanced_advanced_video_quality_menu_type_title">نوع قائمة جودة الفيديو المتقدمة في Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"يقدّم DeArrow مصغرات من إعداد المستخدمين لفيديوهات YouTube. وغالبًا ما تكون أكثر ارتباطًا بالمحتوى من مصغرات YouTube الأصلية
-
-إذا تم تمكينها، سيتم إرسال عناوين URL للفيديو إلى خادم API ولن يتم إرسال أي بيانات أخرى. إذا لم يكن للفيديو مصغرات DeArrow، فسيتم عرض المصغرات الأصلية أو اللقطات الثابتة
-
-انقر هنا لمعرفة المزيد عن DeArrow"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL الخاص بـ DeArrow API غير صالح</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">عنوان URL لنقطة نهاية ذاكرة التخزين المؤقت لمصغرات DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API Endpoint</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">لا يتم عرض ملاحظة إذا كان DeArrow غير متاح</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">يتم عرض ملاحظة إذا كان DeArrow غير متاح</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow غير متوفر مؤقتًا (رمز الحالة: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow غير متوفر مؤقتًا</string>
     <string name="revanced_alt_thumbnail_home_title">لعلامة تبويب الصفحة الرئيسية</string>
     <string name="revanced_alt_thumbnail_library_title">لعلامة تبويب أنت</string>
     <string name="revanced_alt_thumbnail_options_entry_1">المصغرات الأصلية</string>
@@ -406,9 +435,6 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_alt_thumbnail_search_title">لنتائج البحث</string>
     <string name="revanced_alt_thumbnail_stills">لقطات الفيديو الثابتة</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">يتم التقاط اللقطات الثابتة من بداية/وسط/نهاية كل فيديو. هذه الصور مدمجة في YouTube ولا يتم استخدام أي واجهة برمجة تطبيقات خارجية</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">استخدام لقطات الفيديو الثابتة بجودة عالية</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">استخدام اللقطات متوسطة الجودة. سيتم تحميل المصغرات بشكل أسرع، ولكن البث المباشر و الفيديوهات التي لم يتم إصدارها أو القديمة جدًا قد تعرض مصغرات فارغة</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">استخدام اللقطات الثابتة السريعة</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">البداية</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">المنتصف</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">النهاية</string>
@@ -449,7 +475,6 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_bypass_url_redirects_summary_on">تم تجاوز إعادة توجيه عنوان URL</string>
     <string name="revanced_bypass_url_redirects_title">تجاوز إعادة توجيه URL</string>
     <string name="revanced_cancel">إلغاء</string>
-    <string name="revanced_change_form_factor_entry_1">الافتراضي</string>
     <string name="revanced_change_form_factor_entry_2">الجوّال</string>
     <string name="revanced_change_form_factor_entry_3">الجهاز اللوحي</string>
     <string name="revanced_change_form_factor_entry_4">Automotive</string>
@@ -975,6 +1000,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
 • التسوق
 • مشاهده مرة أخرى"</string>
     <string name="revanced_hide_carousel_shelf_title">إخفاء الرفوف الدوارة</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_off">الفيديو ليس مترجم</string>
     <string name="revanced_hide_category_bar_in_comments_title">إخفاء في التعليقات</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">يُعرض في الموجز</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">مخفي في الموجز</string>
@@ -1136,7 +1162,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_hide_general_ads_title">إخفاء الإعلانات العامة</string>
     <string name="revanced_hide_handle_summary_off">يتم عرض الاسم المعرِّف</string>
     <string name="revanced_hide_handle_summary_on">تم إخفاء الاسم المعرِّف</string>
-    <string name="revanced_hide_handle_title">إخفاء الاسم المعرِّف</string>
+    <string name="revanced_hide_handle_title">إخفاء المعرّف</string>
     <string name="revanced_hide_hashtag_section_title">إخفاء قسم الهاشتاغ</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">يتم عرض قسم \'طريقة صناعة هذا المحتوى\'</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">تم إخفاء قسم \'طريقة صناعة هذا المحتوى\'</string>
@@ -1890,7 +1916,6 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_preference_screen_account_menu_title">قائمة الحساب</string>
     <string name="revanced_preference_screen_action_buttons_summary">إخفاء أو عرض أزرار الإجراءات تحت الفيديو</string>
     <string name="revanced_preference_screen_ads_title">الإعلانات</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">مصغرات فيديو بديلة</string>
     <string name="revanced_preference_screen_ambient_mode_summary">تعطيل وضع الإضاءة السينمائية أو تجاوز قيود وضع الإضاءة السينمائية</string>
     <string name="revanced_preference_screen_ambient_mode_title">وضع الإضاءة السينمائية</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">إخفاء أو عرض Carousel Shelf في الصفحة الرئيسية، نتائج البحث، والاشتراكات</string>
@@ -2070,9 +2095,9 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Go to &lt;a href=%1$s&gt;Create a new project&lt;/a&gt;.&lt;br&gt;2. Click the &lt;b&gt;CREATE&lt;/b&gt; button.&lt;br&gt;3. Go to &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Click the &lt;b&gt;ENABLE&lt;/b&gt; button.&lt;br&gt;5. Click the &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; button.&lt;br&gt;6. Select the &lt;b&gt;Public data&lt;/b&gt; option.&lt;br&gt;7. Click the &lt;b&gt;NEXT&lt;/b&gt; button.&lt;br&gt;8. Copy the API key.&lt;br&gt;&lt;br&gt;※ لا ينبغي مشاركة مفتاح API مع الآخرين مطلقًا، لذا فهو غير مدرج في إعدادات الاستيراد / التصدير</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">إصدار مفتاح مطور YouTube Data API v3</string>
     <string name="revanced_ryd_about">لمحة</string>
-    <string name="revanced_ryd_attribution_summary">"يتم توفير البيانات بواسطة Return YouTube Dislike API
+    <string name="revanced_ryd_attribution_summary">"يعيد Return YouTube Dislike عرض عدد مرات عدم الإعجاب التي أخفاها YouTube في عام 2021. تأتي الأعداد من بيانات مؤرشفة قبل الإزالة وتُقدَّر للفيديوهات الأحدث من خلال أصوات مستخدميه، لذا فهي تقريبية وتُحدَّث كل بضعة أيام
 
-انقر هنا لفتح ReturnYouTubeDislike.com"</string>
+يتم إرسال معرف الفيديو الذي تشاهده إلى واجهة برمجة تطبيقات Return YouTube Dislike، ويتم إرسال إعجاباتك وعدم إعجاباتك بشكل مجهول لتحسين التقديرات"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">زر أعجبني مصمم لأفضل مظهر</string>
     <string name="revanced_ryd_compact_layout_summary_on">زر أعجبني مصمم لأدنى عرض</string>

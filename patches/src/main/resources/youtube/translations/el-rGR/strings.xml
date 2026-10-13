@@ -59,11 +59,27 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Παύση εκτός αν είναι συνδεδεμένη ασύρματη συσκευή ήχου</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Αυτόματη παύση όταν η συσκευή είναι κλειδωμένη</string>
     <string name="morphe_custom_branding_icon_title">Εικονίδιο εφαρμογής</string>
+    <string name="morphe_dearrow_about_summary">"Το DeArrow αντικαθιστά τους παραπλανητικούς τίτλους και τις μικρογραφίες clickbait με αυτές που παρέχονται από το κοινό, οι οποίες είναι πιο ακριβείς και λιγότερο εντυπωσιακές. Οι τίτλοι γράφονται και ψηφίζονται από την κοινότητα, και οι μικρογραφίες είναι καρέ που λαμβάνονται από το βίντεο
+
+Τα βίντεο ζητούνται με ένα σύντομο πρόθεμα του κατακερματισμένου αναγνωριστικού βίντεο, έτσι ο διακομιστής δεν μπορεί να γνωρίζει ακριβώς ποιο βίντεο βλέπετε. Εάν ένα βίντεο δεν έχει μικρογραφία DeArrow, εμφανίζεται το πρωτότυπο ή ένα στατικό στιγμιότυπο"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">Ο αριθμός των ψήφων casual σε μία κατηγορία, όπως το αστείο ή το δημιουργικό, που απαιτείται για την εμφάνιση του αρχικού τίτλου</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Ελάχιστος αριθμός ψήφων casual για την εμφάνιση του αρχικού τίτλου</string>
+    <string name="morphe_dearrow_casual_mode_summary">Εμφανίζει τον αρχικό τίτλο αντί για τον τίτλο DeArrow, αν οι χρήστες του DeArrow ψήφισαν ότι τους αρέσει ο αρχικός τίτλος</string>
+    <string name="morphe_dearrow_casual_mode_title">Χαλαρή λειτουργία</string>
+    <string name="morphe_dearrow_error">DeArrow προσωρινά μη διαθέσιμο (κωδικός: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow προσωρινά μη διαθέσιμο</string>
+    <string name="morphe_dearrow_titles_icon_summary">Εμφανίζει το εικονίδιο DeArrow σε τίτλους βίντεο από το πλήθος</string>
+    <string name="morphe_dearrow_titles_icon_title">Εμφάνιση εικονιδίου DeArrow</string>
+    <string name="morphe_dearrow_titles_title">Τίτλοι DeArrow</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Αποτρέπει την αυτόματη ανανέωση των ροών όταν αυτές καταστούν ξεπερασμένες</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Απενεργοποίηση αυτόματης ανανέωσης ροής</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Απόκρυψη του σκούρου shading γύρω από τα στοιχεία ελέγχου του video player</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Απενεργοποίηση αυτόματης απόκρυψης της γραμμής πλοήγησης</string>
     <string name="morphe_disable_drc_audio_summary_off">Ο ήχος DRC είναι ενεργοποιημένος</string>
     <string name="morphe_disable_drc_audio_summary_on">Ο ήχος DRC είναι απενεργοποιημένος</string>
     <string name="morphe_disable_drc_audio_title">Απενεργοποίηση ήχου DRC</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Εμφανίζει τα κουμπιά πλοήγησης με ετικέτες, εάν το YouTube τα στέλνει χωρίς ετικέτες</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Απενεργοποίηση κουμπιών πλοήγησης χωρίς ετικέτες</string>
     <string name="morphe_disable_quic_protocol_summary_off">Το πρωτόκολλο QUIC είναι ενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_summary_on">Το πρωτόκολλο QUIC είναι απενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
@@ -93,9 +109,9 @@
 Περιορισμοί:
 • Τα φιλτραρισμένα AI Shorts ενδέχεται να εμφανίζονται ως κενός χώρος
 • Ορισμένα βίντεο AI ενδέχεται να εξακολουθούν να εμφανίζονται"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"Τα δεδομένα παρέχονται από το AiSList
+    <string name="morphe_hide_aislist_attribution_summary">"Το AiSList είναι μια λίστα ανοιχτού κώδικα, συντηρούμενη από εθελοντές, με κανάλια YouTube που δημοσιεύουν περιεχόμενο που δημιουργείται από τεχνητή νοημοσύνη. Τα κανάλια αναφέρονται από χρήστες και εξετάζονται πριν προστεθούν
 
-Πατήστε εδώ για να ανοίξετε το AiSlopList.com και να δείτε λήψεις για άλλες πλατφόρμες"</string>
+Η λίστα λαμβάνεται από το GitHub και τα βίντεο φιλτράρονται στη συσκευή σας"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">Μαύρη λίστα: Υψηλή βεβαιότητα</string>
     <string name="morphe_hide_aislist_hide_home_title">Απόκρυψη βίντεο στην Αρχική σελίδα</string>
     <string name="morphe_hide_aislist_hide_search_title">Απόκρυψη βίντεο στην αναζήτηση</string>
@@ -110,6 +126,8 @@
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Κανάλια στη λίστα προειδοποιήσεων</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Λίστα προειδοποίησης: Μέτρια βεβαιότητα</string>
     <string name="morphe_hide_auto_dubbed_label_title">Απόκρυψη ετικέτας \'Αυτόματης μεταγλώττισης\'</string>
+    <string name="morphe_hide_channel_buttons_summary">Αποκρύπτει κουμπιά όπως Εγγραφή, Προβολή καναλιού, Κοινότητα και YouTube Music από τα προφίλ καναλιών στα αποτελέσματα αναζήτησης</string>
+    <string name="morphe_hide_channel_buttons_title">Απόκρυψη κουμπιών καναλιών</string>
     <string name="morphe_hide_courses_menu_title">Απόκρυψη μενού \"Μαθήματα\"</string>
     <string name="morphe_hide_explore_button_title">Απόκρυψη κουμπιού \"Εξερεύνηση\"</string>
     <string name="morphe_hide_fashion_menu_title">Απόκρυψη μενού \"Μόδα &amp; ομορφιά\"</string>
@@ -121,6 +139,8 @@
     <string name="morphe_hide_invite_to_message_card_title">Απόκρυψη της κάρτας \"Πρόσκληση άλλων σε συνομιλία\"</string>
     <string name="morphe_hide_learning_menu_title">Απόκρυψη μενού Εκμάθησης</string>
     <string name="morphe_hide_live_menu_title">Απόκρυψη μενού \"Live\"</string>
+    <string name="morphe_hide_live_streams_summary">Αποκρύπτει βίντεο που είναι ζωντανά τώρα στην αρχική ροή και στα αποτελέσματα αναζήτησης</string>
+    <string name="morphe_hide_live_streams_title">Απόκρυψη ζωντανών μεταδόσεων</string>
     <string name="morphe_hide_memberships_menu_title">Απόκρυψη μενού \"Συνδρομές\"</string>
     <string name="morphe_hide_movies_menu_title">Απόκρυψη μενού \'Ταινίες &amp; TV\'</string>
     <string name="morphe_hide_music_menu_title">Απόκρυψη μενού Μουσικής</string>
@@ -165,6 +185,10 @@
     <string name="morphe_open_videos_fullscreen_title">Άνοιγμα βίντεο σε πλήρη οθόνη</string>
     <string name="morphe_override_youtube_music_buttons_summary">Ανοίγει την προτιμώμενη εφαρμογή μουσικής αντί για την προεπιλεγμένη εφαρμογή YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Υπέρβαση των κουμπιών YouTube Music</string>
+    <string name="morphe_playback_buffer_size_entry_low">Χαμηλό</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Μέγιστο</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Μεσαίο</string>
+    <string name="morphe_playback_buffer_size_title">Μέγεθος buffer αναπαραγωγής</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Πάντα ενεργό</string>
     <string name="morphe_playback_in_feeds_entry_off">Απενεργό</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Μόνο Wi-Fi</string>
@@ -186,6 +210,9 @@
     <string name="morphe_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινοποίησης σε youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">Επαναφέρει τα έντονα χειριστήρια αναπαραγωγής βίντεο στο παλαιότερο, λεπτότερο οπτικό στυλ</string>
     <string name="morphe_restore_old_player_buttons_title">Επαναφορά στυλ κουμπιών παλαιού αναπαραγωγού</string>
+    <string name="morphe_restore_original_titles_loading">Φόρτωση τίτλου…</string>
+    <string name="morphe_restore_original_titles_summary">Εμφανίζει τους πρωτότυπους τίτλους βίντεο, τις περιγραφές βίντεο και τις περιγραφές καναλιών αντί των αυτόματα μεταφρασμένων</string>
+    <string name="morphe_restore_original_titles_title">Επαναφορά αρχικών τίτλων</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Οι παράμετροι παρακολούθησης δεν αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Οι παράμετροι παρακολούθησης αφαιρούνται από τους συνδέσμους κατά την κοινοποίηση</string>
     <string name="morphe_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κατά την κοινοποίηση</string>
@@ -209,6 +236,10 @@
     <string name="morphe_settings_name_custom_item_hint">Εισαγάγετε ένα όνομα</string>
     <string name="morphe_settings_name_empty_warning">Το όνομα δεν μπορεί να είναι κενό</string>
     <string name="morphe_settings_name_title">Όνομα ρυθμίσεων RVX</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Συντομεύονται μόνο οι παύσεις που διαρκούν τουλάχιστον αυτό. Ισχύει όταν ξεκινήσει το επόμενο βίντεο</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Ελάχιστη διάρκεια παύσης</string>
+    <string name="morphe_skip_silence_summary">Παραλείπει αυτόματα τις σιωπηλές παύσεις στον ήχο του βίντεο</string>
+    <string name="morphe_skip_silence_title">Παράλειψη σιωπής</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Χρωματιστή</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Μονόχρωμο</string>
     <string name="morphe_splash_screen_animation_style_title">Κινούμενο σχέδιο εκκίνησης</string>
@@ -229,6 +260,11 @@
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης ενδέχεται να χρησιμοποιήσει αποκωδικοποίηση λογισμικού AV1
 
 Η αναπαραγωγή βίντεο μπορεί να κομπιάζει ή να χάνει καρέ"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"Το %1$s δεν λειτούργησε αρκετές φορές στη σειρά, αλλά το %2$s λειτούργησε
+
+Να οριστεί το %2$s ως προεπιλεγμένος πελάτης;"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Εναλλαγή</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Ο προεπιλεγμένος πελάτης δεν λειτουργεί</string>
     <string name="morphe_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα αναπαραγωγής</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Αδυναμία λήψης προγράμματος ροής</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Παραλλαγή πρόγραμμα αναπαραγωγής JavaScript</string>
@@ -279,6 +315,8 @@
     <string name="morphe_video_quality_prioritize_dialog">Εάν αυτή η ρύθμιση είναι απενεργοποιημένη, τότε παλαιότερα βίντεο ενδέχεται να μην εμφανίζουν επιλογές ποιότητας βίντεο</string>
     <string name="morphe_video_quality_prioritize_summary">Δίνει προτεραιότητα στην υψηλότερη διαθέσιμη ποιότητα βίντεο έναντι της αποδοτικότητας του κωδικοποιητή</string>
     <string name="morphe_video_quality_prioritize_title">Προτεραιότητα στην ποιότητα βίντεο</string>
+    <string name="morphe_volume_boost_summary">Το σάρωμα προς τα πάνω πέρα από τη μέγιστη ένταση την ενισχύει, κάτι που μπορεί να παραμορφώσει τον δυνατό ήχο</string>
+    <string name="morphe_volume_boost_title">Ενίσχυση έντασης</string>
     <string name="morphe_vot_caption_language_title">Γλώσσα</string>
     <string name="morphe_vot_cost_free">Δωρεάν</string>
     <string name="morphe_vot_cost_per_hour">%s ανά 100 ώρες βίντεο</string>
@@ -330,19 +368,10 @@
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Εμφανίζεται το αναδυόμενο μενού παλιού στυλ</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Εμφανίζεται προσαρμοσμένο παράθυρο</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Εμφάνιση προχωρημένου μενού ποιότητας στα Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το κοινό για τα βίντεο. Οι μικρογραφίες αυτές είναι συχνά πιο σχετικές από εκείνες που παρέχει το ίδιο το YouTube
-
-Αν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα στέλνονται στον διακομιστή API χωρίς να στέλνονται άλλα δεδομένα. Αν κάποιο βίντεο δεν έχει μικρογραφίες DeArrow, θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ
-
-Πατήστε για να μάθετε περισσότερα για το DeArrow"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Μη έγκυρο URL για το DeArrow API</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Η διεύθυνση URL του τελικού σημείου αποθήκευσης μικρογραφιών DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Διεύθυνση API του DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow προσωρινά μη διαθέσιμο (κωδικός: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow προσωρινά μη διαθέσιμο</string>
     <string name="revanced_alt_thumbnail_home_title">Για την καρτέλα Αρχική</string>
     <string name="revanced_alt_thumbnail_library_title">Για την καρτέλα «Για εσάς»</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Αρχικές μικρογραφίες</string>
@@ -353,9 +382,6 @@
     <string name="revanced_alt_thumbnail_search_title">Για αποτελέσματα αναζήτησης</string>
     <string name="revanced_alt_thumbnail_stills">Ακίνητα καρέ</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Τα ακίνητα καρέ λαμβάνονται από την αρχή/μέση/τέλος κάθε βίντεο. Αυτές οι εικόνες είναι ενσωματωμένες στο YouTube και δεν χρησιμοποιείται εξωτερικό API</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Χρησιμοποιούνται ακίνητα καρέ υψηλής ποιότητας</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Χρησιμοποιούνται ακίνητα καρέ μέτριας ποιότητας. Οι μικρογραφίες θα φορτώνουν γρηγορότερα, αλλά τα ζωντανά, μη κυκλοφορημένα η πολύ παλιά βίντεο ενδέχεται να εμφανίζουν κενές μικρογραφίες</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Χρήση γρήγορων λήψεων καρέ</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Έναρξη</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Μέση</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Τέλος</string>
@@ -394,7 +420,6 @@
     <string name="revanced_bypass_url_redirects_summary_on">Οι ανακατευθύνσεις συνδέσμων URL παρακάμπτονται</string>
     <string name="revanced_bypass_url_redirects_title">Παράκαμψη ανακατευθύνσεων συνδέσμων</string>
     <string name="revanced_cancel">Ακύρωση</string>
-    <string name="revanced_change_form_factor_entry_1">Προεπιλογή</string>
     <string name="revanced_change_form_factor_entry_2">Τηλέφωνο</string>
     <string name="revanced_change_form_factor_entry_3">Ταμπλετ</string>
     <string name="revanced_change_form_factor_entry_4">Αυτοκίνητο</string>
@@ -1039,7 +1064,7 @@ Playlists
     <string name="revanced_hide_general_ads_title">Γενικές διαφημίσεις</string>
     <string name="revanced_hide_handle_summary_off">Εμφανίζονται</string>
     <string name="revanced_hide_handle_summary_on">Κρυμμένα</string>
-    <string name="revanced_hide_handle_title">Ψευδώνυμο &amp; διεύθυνση e-mail</string>
+    <string name="revanced_hide_handle_title">Απόκρυψη handle</string>
     <string name="revanced_hide_hashtag_section_title">Απόκρυψη ενότητας hashtag</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Εμφανίζεται</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Κρυμμένη</string>
@@ -1790,7 +1815,6 @@ Playlists
     <string name="revanced_preference_screen_account_menu_title">Μενού λογαριασμού</string>
     <string name="revanced_preference_screen_action_buttons_summary">Απόκρυψη ή εμφάνιση κουμπιών κάτω από τα βίντεο</string>
     <string name="revanced_preference_screen_ads_title">Διαφημίσεις</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Εναλλακτικές μικρογραφίες</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Παράκαμψη περιορισμών λειτουργίας περιβάλλοντος ή απενεργοποίηση της</string>
     <string name="revanced_preference_screen_ambient_mode_title">Λειτουργία περιβάλλοντος</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Απόκρυψη ή εμφάνιση της ενότητας καρουζέλ προτάσεων στην αρχική καρτέλα, στα αποτελέσματα αναζήτησης και στην καρτέλα εγγραφών</string>
@@ -1986,9 +2010,9 @@ Playlists
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Μεταβείτε στη &lt;a href=%1$s&gt;δημιουργία νέου project&lt;/a&gt;.&lt;br&gt;2. Πατήστε το κουμπί &lt;b&gt;CREATE&lt;/b&gt;. &lt;br&gt;3. Μεταβείτε στην επιλογή &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Πατήστε το κουμπί &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Πατήστε το κουμπί &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Επιλέξτε την επιλογή &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Πατήστε το κουμπί &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Αντιγράψτε το κλειδί API.&lt;br&gt;&lt;br&gt;※ Το κλειδί API δεν πρέπει να το μοιράζεστε ποτέ με άλλους, οπότε δεν περιλαμβάνεται κατά την Εισαγωγή / Εξαγωγή ρυθμίσεων</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Έκδοση κλειδιού προγραμματιστή YouTube Data API v3</string>
     <string name="revanced_ryd_about">Σχετικά με</string>
-    <string name="revanced_ryd_attribution_summary">"Τα δεδομένα παρέχονται από το Return YouTube Dislike API
+    <string name="revanced_ryd_attribution_summary">"Το Return YouTube Dislike επαναφέρει τους μετρητές dislikes που έκρυψε το YouTube το 2021. Τα στοιχεία προέρχονται από δεδομένα που αρχειοθετήθηκαν πριν από την αφαίρεση και εκτιμώνται για νεότερα βίντεο από τις ψήφους των χρηστών του, οπότε είναι κατά προσέγγιση και ενημερώνονται κάθε λίγες ημέρες
 
-Πατήστε εδώ για να ανοίξετε το ReturnYouTubeDislike.com"</string>
+Το αναγνωριστικό του βίντεο που παρακολουθείτε αποστέλλεται στο API του Return YouTube Dislike, και τα likes και dislikes σας αποστέλλονται ανώνυμα για να βελτιωθούν οι εκτιμήσεις"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Το κουμπί «Μου αρέσει» είναι διαμορφωμένο για καλύτερη εμφάνιση</string>
     <string name="revanced_ryd_compact_layout_summary_on">Το κουμπί «Μου αρέσει» είναι διαμορφωμένο για ελάχιστο μέγεθος</string>

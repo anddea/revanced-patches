@@ -74,29 +74,31 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_music_crossfade_about_best_title">가장 잘 작동하는 경우</string>
     <string name="morphe_music_crossfade_about_credit_summary">VazerOG의 크로스페이드 기능</string>
     <string name="morphe_music_crossfade_about_credit_title">크레딧</string>
-    <string name="morphe_music_crossfade_about_how_summary">"크로스페이드는 한 트랙이 끝날 때 다음 트랙의 시작 부분을 겹쳐 재생하며, 설정한 지속 시간과 곡선에 따라 한 트랙의 음량은 줄이고 다른 트랙의 음량은 높입니다
+    <string name="morphe_music_crossfade_about_how_summary">"크로스페이드는 한 곡의 끝부분과 다음 곡의 시작 부분을 겹쳐 재생하는 기능으로, 설정한 지속 시간과 곡선에 따라 크로스페이드를 적용합니다
 
-자동으로 다음 트랙이 재생될 때(트랙이 자연스럽게 끝난 경우)와 수동으로 트랙을 건너뛸 때 모두 작동하며, 각각은 위에서 개별적으로 설정할 수 있습니다. 자동 전환 시에는 트랙이 끝나기 몇 초 전부터 크로스페이드가 시작됩니다
-
-이 기능을 사용하려면 YouTube Music 9.x 이상이 필요합니다"</string>
+이 기능은 자동 다음 곡 재생과 수동으로 곡을 건너뛸 때 작동하며, 각각 별도로 활성화하거나 비활성화할 수 있습니다. 자동 다음 곡 재생에서는 곡이 끝나기 몇 초 전부터 크로스페이드가 시작됩니다"</string>
     <string name="morphe_music_crossfade_about_how_title">작동 방식</string>
     <string name="morphe_music_crossfade_about_known_summary">"첫 번째 트랙으로 설정된 뮤직 비디오나 현재 재생목록 외부에서 시작된 뮤직 비디오는 오디오 전용 모드가 적용되기 전까지 잠시 동영상으로 표시될 수 있습니다
 
 뮤직 비디오를 시청하기 위해 크로스페이드를 일시 중지하면 일부 동영상(자체 오디오를 사용하는 동영상)이 검은 화면으로 표시될 수 있습니다. 이를 방지하려면 트랙을 선택하기 전에 크로스페이드를 일시 중지하세요"</string>
     <string name="morphe_music_crossfade_about_known_title">알려진 문제점</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"크로스페이드가 활성화되어 있는 동안에는 뮤직 비디오가 오디오 전용으로 재생됩니다 (동영상을 시청하려면 셔플 버튼을 길게 탭하여 크로스페이드를 일시 중지하세요)
+    <string name="morphe_music_crossfade_about_quirks_summary">"크로스페이드가 활성화되어 있으면 뮤직비디오는 오디오만 재생됩니다. 셔플 버튼을 길게 탭하여 크로스페이드를 일시 중지하면 동영상을 시청할 수 있습니다
 
-트랙의 길이가 설정한 크로스페이드 시간보다 짧은 경우 크로스페이드가 적용되지 않을 수 있습니다
+재생이 시작된 뮤직비디오는 다음 곡이 재생될 때까지 동영상 모드로 유지됩니다
 
-트랙 전환 중에는 잠금 화면이나 알림에 이전 재생 상태가 잠시 표시될 수 있습니다"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">제대로 작동하지 않는 경우</string>
+페이드 지속 시간보다 재생 시간이 짧은 곡에는 크로스페이드가 적용되지 않습니다
+
+전환 중에는 잠금 화면이나 알림에 이전 상태가 일시적으로 표시될 수 있습니다
+
+뮤직비디오를 시청하기 위해 크로스페이드를 일시 중지하면 일부 동영상 화면이 검게 표시될 수 있습니다. 이를 방지하려면 곡을 선택하기 전에 크로스페이드를 일시 중지하세요"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">제한 사항</string>
     <string name="morphe_music_crossfade_about_summary">크로스페이드 작동 방식과 제한 사항</string>
     <string name="morphe_music_crossfade_about_title">정보</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"오디오를 캐스팅하거나 미러링하는 동안에는 크로스페이드가 일시 중지됩니다. 캐스트/미러링 환경에서의 크로스페이드는 불안정하며, 영구적으로 해결되지 않을 수도 있습니다
+    <string name="morphe_music_crossfade_about_unsupported_summary">"오디오 캐스팅 또는 미러링를 사용하는 경우 (Chromecast, 화면 또는 오디오 미러링)
 
-YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크로스페이드는 YouTube Music 9.x 이상에서만 지원됩니다"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">전혀 작동하지 않는 경우</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">오디오를 캐스팅하거나 미러링하는 동안에는 크로스페이드가 일시 중지됩니다. 캐스팅/미러링 환경에서의 크로스페이드는 불안정하며, 영구적으로 해결되지 않을 수도 있습니다</string>
+SABR 프로토콜을 사용하여 재생하는 경우 (동영상 스트림 속이기가 비활성화된 경우)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">지원되지 않음</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">캐스팅 중에는 크로스페이드가 비활성화됩니다</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">미묘한 홀드</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">부드러운 완화</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">동일한 음량</string>
@@ -178,6 +180,7 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">AI 기반 가사 번역 및 로마자 표기를 위해 OpenAI 호환 API 엔드포인트를 설정하세요</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">AI 번역 설정</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">모델 이름 (예시: openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">프롬프트 템플릿 (변수: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">설정됨</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">모델 이름은 비워둘 수 없습니다</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">기본 URL은 비워둘 수 없습니다</string>
@@ -190,7 +193,7 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_music_lyrics_copied">클립보드에 복사하였습니다</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">가사가 잘못 필터링되어 하단으로 내려가는 경우 이 설정을 조정하거나 비워 두세요. 쉼표로 구분된 마커: 마커가 포함된 줄에 콜론(:)이 뒤따르면 해당 줄은 크레딧 정보로 간주되어 하단에 표시됩니다. 비워두면 비활성화됩니다</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">정보 줄 마커</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">가사를 검색하기 전에 트랙 제목, 아티스트, 앨범에 적용되는 정규식입니다. 비워두면 비활성화됩니다. 기본값은 \'Official Video\', \'Remaster\', \'- Topic\'과 같은 불필요한 문구를 제거합니다</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">가사를 검색하기 전과 두 제목이 일치하는지 판단할 때 제목, 아티스트, 앨범에 적용할 정규식입니다. 비워 두면 두 기능 모두 비활성화됩니다. 기본값은 \'Official Video\', \'Remaster\', \'【插曲】\', \'- Topic\'과 같은 불필요한 문구를 제거합니다</string>
     <string name="morphe_music_lyrics_custom_regex_title">메타데이터 정규식</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">미니 플레이어와 MediaSession에서 아티스트와 제목의 표시 순서를 전환합니다. 활성화되면 \'아티스트 - 제목\', 비활성화되면 \'제목 - 아티스트\'로 표시됩니다. 가사 검색에는 영향을 주지 않습니다</string>
     <string name="morphe_music_lyrics_display_artist_first_title">아티스트 및 제목 표시 순서</string>
@@ -207,22 +210,28 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_music_lyrics_mediasession_title">잠금 화면에 MediaSession 가사 표시</string>
     <string name="morphe_music_lyrics_miniplayer_title">미니 플레이어 가사 표시</string>
     <string name="morphe_music_lyrics_offset_ms_summary">싱크된 가사는 재생에 맞춰 따라갑니다. 가사가 음악과 어긋나는 경우 타이밍 오프셋을 조정하세요. 싱크된 가사를 앞으로 또는 뒤로 이동할 수 있습니다. 가사가 노래보다 앞서 나오는 경우에는 양수 값을 사용하세요</string>
-    <string name="morphe_music_lyrics_offset_ms_title">타이밍 오프셋</string>
+    <string name="morphe_music_lyrics_offset_ms_title">전역 타이밍 오프셋</string>
     <string name="morphe_music_lyrics_refreshed">새로고침됨</string>
     <string name="morphe_music_lyrics_refreshing">새로고침 중</string>
     <string name="morphe_music_lyrics_romanize_failed">가사를 로마자로 표기할 수 없습니다</string>
     <string name="morphe_music_lyrics_romanize_hide">로마자 표기됨</string>
+    <string name="morphe_music_lyrics_romanize_only">로마자 표기만</string>
     <string name="morphe_music_lyrics_romanized_by_ai">%s에 의해 로마자 표기됨</string>
     <string name="morphe_music_lyrics_romanized_by_google">Google에 의해 로마자 표기됨</string>
     <string name="morphe_music_lyrics_romanizing">로마자 표기 중…</string>
     <string name="morphe_music_lyrics_saved">저장됨</string>
+    <string name="morphe_music_lyrics_search_artist_hint">아티스트</string>
+    <string name="morphe_music_lyrics_search_dialog_title">가사 검색</string>
+    <string name="morphe_music_lyrics_search_empty">노래 제목과 아티스트를 입력하세요</string>
+    <string name="morphe_music_lyrics_search_no_providers">활성화된 제공자 중 다른 노래를 검색할 수 있는 곳이 없습니다</string>
+    <string name="morphe_music_lyrics_search_title_hint">노래 제목</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">버튼을 탭하여 원본 가사를 일반 텍스트로 복사할 수 있고, 길게 탭하면 원본 가사 소스 파일을 다운로드에 저장할 수 있습니다</string>
     <string name="morphe_music_lyrics_show_copy_button_title">복사 버튼 표시</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">버튼을 탭하여 다음 가사 후보로 전환할 수 있고, 길게 탭하면 서드파티 가사를 일시적으로 비활성화하고 기본 가사를 표시할 수 있습니다</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">버튼을 탭하여 다음 우선순위의 가사 제공자로 전환할 수 있고, 길게 탭하면 노래 제목과 아티스트로 가사를 검색할 수 있습니다</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">새로고침 버튼 표시</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">제공자 로마자 표기, Google 번역 또는 OpenAI 호환 API를 사용하여 가사를 로마자로 표기하세요</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">버튼을 탭하여 로마자 표기를 켜거나 끌 수 있고, 길게 탭하면 로마자 표기만 표시됩니다. 제공자 로마자 표기, Google 번역 또는 OpenAI 호환 API를 사용합니다</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">로마자 표기 버튼 표시</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">제공자 번역, Google 번역 또는 OpenAI 호환 API를 사용하여 가사를 번역하세요</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">버튼을 탭하여 번역을 켜거나 끌 수 있고, 길게 탭하면 번역만 표시됩니다. 제공자 번역, Google 번역 또는 OpenAI 호환 API를 사용합니다</string>
     <string name="morphe_music_lyrics_show_translate_button_title">번역 버튼 표시</string>
     <string name="morphe_music_lyrics_source_all_disabled">모든 제공자가 비활성화됨 - 내장 가사 및 삽입 가사</string>
     <string name="morphe_music_lyrics_source_label">출처: %s</string>
@@ -239,6 +248,7 @@ YouTube Music 8.x에서는 크로스페이드가 작동하지 않습니다. 크�
     <string name="morphe_music_lyrics_text_size_title">텍스트 크기</string>
     <string name="morphe_music_lyrics_translate_failed">가사를 번역할 수 없습니다</string>
     <string name="morphe_music_lyrics_translate_hide">번역됨</string>
+    <string name="morphe_music_lyrics_translate_only">번역만</string>
     <string name="morphe_music_lyrics_translated_by_ai">%s에 의해 번역됨</string>
     <string name="morphe_music_lyrics_translated_by_google">Google에 의해 번역됨</string>
     <string name="morphe_music_lyrics_translating">번역하는 중…</string>
@@ -295,7 +305,7 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_potoken_provider_title">PoToken 제공자</string>
     <string name="morphe_potoken_provider_unavailable_summary">"내부 PoToken 생성기를 사용하여 재생 문제를 수정합니다 (실험 기능)
 
-기능을 사용하려면, '동영상 스트림 속이기'를 비활성화하세요"</string>
+이 기능을 사용하려면, '동영상 스트림 속이기'를 비활성화하세요"</string>
     <string name="morphe_replace_music_with_youtube_summary">공유 링크에서 music.youtube.com을 youtube.com으로 변경합니다</string>
     <string name="morphe_replace_music_with_youtube_summary_off">공유 링크를 \'music.youtube.com\'으로 사용합니다</string>
     <string name="morphe_replace_music_with_youtube_summary_on">공유 링크를 \'youtube.com\'으로 사용합니다</string>
@@ -311,6 +321,16 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_settings_name_custom_item_hint">이름을 입력하세요</string>
     <string name="morphe_settings_name_empty_warning">이름을 비워 둘 수 없습니다</string>
     <string name="morphe_settings_name_title">RVX 설정 이름</string>
+    <string name="morphe_settings_save">저장</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">최소 이 시간 이상 일시 정지하는 경우에만 단축됩니다. 다음 동영상이 시작될 때 적용됩니다</string>
+    <string name="morphe_skip_silence_minimum_pause_title">최소 일시 정지 길이</string>
+    <string name="morphe_skip_silence_summary">동영상 오디오에서 무음 구간을 자동으로 건너뜁니다</string>
+    <string name="morphe_skip_silence_title">무음 건너뛰기</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s는 연속으로 여러 번 작동하지 않았지만, %2$s는 작동하였습니다 
+
+%2$s를 기본 클라이언트로 설정하시겠습니까?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">스위치</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">기본 클라이언트가 작동하지 않습니다</string>
     <string name="morphe_spoof_video_streams_client_type_title">기본 클라이언트</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">클라이언트 스트림을 가져올 수 없습니다</string>
     <string name="morphe_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다</string>
@@ -384,7 +404,6 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
     <string name="revanced_change_share_sheet_summary">기본 공유 시트에서 시스템 공유 시트로 변경합니다</string>
     <string name="revanced_change_share_sheet_title">공유 시트 변경</string>
     <string name="revanced_change_start_page_entry_charts">차트</string>
-    <string name="revanced_change_start_page_entry_default">기본값</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">나중에 감상할 에피소드</string>
     <string name="revanced_change_start_page_entry_explore">둘러보기</string>
     <string name="revanced_change_start_page_entry_history">기록</string>
@@ -742,9 +761,9 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API Key</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;새 프로젝트 만들기&lt;/a&gt; 로 이동합니다.&lt;br&gt;2. &lt;b&gt;만들기&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; 로 이동합니다.&lt;br&gt;4. &lt;b&gt;사용&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;5. &lt;b&gt;사용자 인증 정보 만들기&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;6. &lt;b&gt;공개 데이터&lt;/b&gt; 옵션을 선택합니다.&lt;br&gt;7. &lt;b&gt;다음&lt;/b&gt; 버튼을 탭합니다.&lt;br&gt;8. API Key를 복사합니다.&lt;br&gt;&lt;br&gt;※ API Key는 다른 사람과 공유해서는 안 되므로 가져오기 / 내보내기 설정에 포함되지 않습니다</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Developer Key 발급</string>
-    <string name="revanced_ryd_attribution_summary">"데이터는 Return YouTube Dislike API에 의해 제공됩니다
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike는 YouTube가 2021년에 숨긴 싫어요 수를 복원합니다. 싫어요 수는 해당 기능이 제거되기 전에 보관된 데이터를 기반으로 하며, 이후에 게시된 동영상의 싫어요 수는 사용자들의 투표 데이터를 바탕으로 추정합니다. 따라서 표시되는 수치는 정확하지 않을 수 있으며, 며칠마다 업데이트됩니다
 
-자세한 정보를 보려면 여기를 탭하여 'ReturnYouTubeDislike.com'으로 이동하세요"</string>
+시청 중인 동영상의 ID는 Return YouTube Dislike API로 전송되며, 추정치의 정확도를 높이기 위해 사용자의 좋아요 및 싫어요 정보도 익명으로 전송됩니다"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">공간을 절약하기 위해 좋아요 버튼의 너비를 줄입니다</string>
     <string name="revanced_ryd_compact_layout_title">최소화된 좋아요 버튼 사용</string>

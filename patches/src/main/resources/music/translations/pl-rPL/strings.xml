@@ -74,29 +74,31 @@ Kroki:
     <string name="morphe_music_crossfade_about_best_title">Działa najlepiej przy</string>
     <string name="morphe_music_crossfade_about_credit_summary">Funkcja przenikania autorstwa VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Podziękowanie</string>
-    <string name="morphe_music_crossfade_about_how_summary">"Przenikanie nakłada koniec jednego utworu na początek następnego, wyciszając pierwszy, podczas gdy drugi zgłaśnia się zgodnie z wybranym czasem trwania i krzywą
+    <string name="morphe_music_crossfade_about_how_summary">"Przenikanie nakłada koniec jednego utworu na początek następnego, zgodnie z ustawionym czasem i krzywą
 
-​Działa to przy automatycznym przechodzeniu (gdy utwór sam się kończy) i przy ręcznym pomijaniu - obie opcje mają własne przełączniki powyżej. Przy automatycznym przełączaniu miksowanie zaczyna się kilka sekund przed końcem utworu
-
-​Wymaga YouTube Music w wersji 9.x lub nowszej"</string>
+Działa przy automatycznym odtwarzaniu oraz ręcznym pomijaniu, obie opcje mają własne przełączniki. Przy automatycznym odtwarzaniu łączenie zaczyna się kilka sekund przed końcem utworu"</string>
     <string name="morphe_music_crossfade_about_how_title">Jak to działa</string>
     <string name="morphe_music_crossfade_about_known_summary">"Teledysk ustawiony jako pierwszy utwór, lub odpalony spoza obecnej kolejki - może przez chwilę wyświetlać obraz, zanim wskoczy tryb samego dźwięku
 
 ​Wstrzymanie przenikania, żeby obejrzeć teledysk, może skutkować czarnym ekranem w niektórych filmach (tych, w których dźwięk pochodzi bezpośrednio z filmu). Wstrzymanie przenikania przed wybraniem utworu pozwala tego uniknąć"</string>
     <string name="morphe_music_crossfade_about_known_title">Znane problemy</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"Gdy włączone jest przenikanie, teledyski odtwarzają się tylko w formie dźwiękowej (przytrzymaj przycisk odtwarzania losowego, aby je wstrzymać, jeśli chcesz zobaczyć film)
+    <string name="morphe_music_crossfade_about_quirks_summary">"Teledyski są odtwarzane tylko jako utwory, gdy przenikanie jest włączone. Przytrzymaj przycisk losowego odtwarzania, aby wstrzymać przenikanie i obejrzeć teledysk
 
-Utwory krótsze niż ustawiony czas przenikania mogą pominąć ten efekt
+Teledysk, od którego rozpoczyna się odtwarzanie, pozostaje teledyskiem aż do następnego utworu
 
-Ekran blokady lub powiadomienie może przez chwilę pokazywać nieaktualny stan w trakcie przejścia"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">Co nie działa idealnie</string>
+Utwory krótsze niż czas przenikania nie są łączone
+
+Ekran blokady lub powiadomienie może na chwilę pokazać nieaktualny stan w trakcie przejścia
+
+Wstrzymanie przenikania, aby obejrzeć teledysk, może skutkować czarnym ekranem w niektórych z nich. Wstrzymanie przenikania przed wybraniem utworu pozwala tego uniknąć"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Ograniczenia</string>
     <string name="morphe_music_crossfade_about_summary">Jak działa przenikanie - i kiedy nie działa</string>
     <string name="morphe_music_crossfade_about_title">Informacje</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Przesyłanie lub klonowanie dźwięku (Chromecast, klonowanie ekranu lub dźwięku) - przenikanie jest wstrzymywane, ponieważ działa tam niestabilnie i być może nigdy nie uda się tego naprawić
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Przesyłanie lub klonowanie (Chromecast, klonowanie ekranu lub dźwięku)
 
-​YouTube Music 8.x - przenikanie działa tylko na wersjach 9.x i nowszych"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">W ogóle nie działa</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">Przenikanie jest wstrzymane podczas przesyłania lub klonowaniu dźwięku. Przenikanie w tych trybach jest niestabilne i być może nigdy nie uda się tego naprawić</string>
+​Odtwarzanie SABR (wyłączone fałszowanie strumieni filmów)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Nieobsługiwane</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Przenikanie wyłączone podczas przesyłania</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Subtelne przytrzymanie</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Łagodne przejście</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Stała moc</string>
@@ -178,6 +180,7 @@ Tutaj pojawią się pobrane utwory"</string>
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">Skonfiguruj punkt końcowy API zgodny z OpenAI do tłumaczenia i romanizacji tekstów piosenek za pomocą AI</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">Ustawienia tłumaczenia AI</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Nazwa modelu (np. openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">Szablon promptu (zmienne: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">Skonfigurowano</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Nazwa modelu nie może być pusta</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">Bazowy adres nie może być pusty</string>
@@ -188,9 +191,9 @@ Tutaj pojawią się pobrane utwory"</string>
     <string name="morphe_music_lyrics_ai_config_toast_reset">Zresetowano ustawienia tłumaczenia AI</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">Zapisano ustawienia tłumaczenia AI</string>
     <string name="morphe_music_lyrics_copied">Skopiowano do schowka</string>
-    <string name="morphe_music_lyrics_credit_line_regex_summary">Jeśli standardowy tekst piosenki jest błędnie przenoszony na sam dół, dostosuj to pole lub je wyczyść. Znaczniki oddzielane przecinkami: wiersze zawierające znacznik, po którym następuje dwukropek, są traktowane jako informacje o twórcach i wyświetlane na dole. Pozostaw puste, aby wyłączyć</string>
+    <string name="morphe_music_lyrics_credit_line_regex_summary">Jeśli standardowy tekst utworu jest błędnie przenoszony na sam dół, dostosuj to pole lub je wyczyść. Znaczniki oddzielane przecinkami: wiersze zawierające znacznik, po którym następuje dwukropek, są traktowane jako informacje o twórcach i wyświetlane na dole. Pozostaw puste, aby wyłączyć</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Znaczniki wierszy informacyjnych</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">Wyrażenie regularne stosowane do tytułów, wykonawców i albumów przed wyszukaniem tekstu. Pozostaw puste, aby wyłączyć. Domyślne ustawienie usuwa powszechne dopiski, takie jak \"Official Video\", \"Remaster\" czy \"- Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Wyrażenie regularne stosowane do tytułów, wykonawców i albumów przed wyszukaniem tekstu oraz podczas oceniania zgodności dwóch tytułów. Pozostaw puste, aby wyłączyć obie funkcje. Domyślne ustawienie usuwa powszechne zbędne elementy, takie jak \"Official Video\", \"Remaster\", \"【插曲】\" i \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">Wyrażenie regularne dla metadanych</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Zmienia kolejność wyświetlania wykonawcy i tytułu w miniodtwarzaczu i MediaSession. Włączone: \"Wykonawca - Tytuł\", wyłączone: \"Tytuł - Wykonawca\". Nie wpływa to na wyszukiwanie tekstów</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Kolejność wyświetlania wykonawcy i tytułu</string>
@@ -208,22 +211,28 @@ Tutaj pojawią się pobrane utwory"</string>
     <string name="morphe_music_lyrics_miniplayer_title">Pokaż teksty w miniodtwarzaczu</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Zsynchronizowane teksty podążają za odtwarzaniem. Jeśli się przesuwają, dostosuj przesunięcie czasowe. Przesuń zsynchronizowane teksty do przodu lub do tyłu 
 Użyj wartości dodatniej, jeśli teksty wyprzedzają utwór</string>
-    <string name="morphe_music_lyrics_offset_ms_title">Przesunięcie czasowe</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Globalne przesunięcie czasowe</string>
     <string name="morphe_music_lyrics_refreshed">Odświeżono</string>
     <string name="morphe_music_lyrics_refreshing">Odświeżanie</string>
     <string name="morphe_music_lyrics_romanize_failed">Nie udało się zromanizować tekstu</string>
     <string name="morphe_music_lyrics_romanize_hide">Zromanizowane</string>
+    <string name="morphe_music_lyrics_romanize_only">Tylko romanizacja</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Zromanizowane przez %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Zromanizowane przez Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanizowanie…</string>
     <string name="morphe_music_lyrics_saved">Zapisano</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Wykonawca</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Wyszukaj tekst</string>
+    <string name="morphe_music_lyrics_search_empty">Wpisz tytuł utworu i wykonawcę</string>
+    <string name="morphe_music_lyrics_search_no_providers">Żaden z włączonych dostawców nie obsługuje wyszukiwania innych utworów</string>
+    <string name="morphe_music_lyrics_search_title_hint">Tytuł utworu</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">Dotknij, aby skopiować oryginalny tekst jako zwykły tekst. Przytrzymaj, aby zapisać surowy plik źródłowy z tekstem w folderze Pobrane</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Pokaż przycisk Kopiuj</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Dotknij, aby przełączyć na kolejną propozycję tekstu. Przytrzymaj, aby tymczasowo wyłączyć teksty zewnętrzne i pokazać oryginalne</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Dotknij, aby przełączyć na następną propozycję tekstu. Przytrzymaj, aby wyszukać tekst według tytułu utworu i wykonawcy</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Pokaż przycisk Odśwież</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Romanizuj tekst za pomocą romanizacji dostawcy, Tłumacza Google lub API zgodnego z OpenAI</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Dotknij, aby przełączyć romanizację. Przytrzymaj, aby wyświetlić tylko romanizację. Wykorzystuje romanizację dostawcy, Tłumacza Google lub API zgodne z OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Pokaż przycisk Romanizuj</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Tłumacz tekst za pomocą tłumaczeń dostawcy, Tłumacza Google lub API zgodnego z OpenAI</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Dotknij, aby przełączyć tłumaczenie. Przytrzymaj, aby wyświetlić tylko tłumaczenie. Wykorzystuje tłumaczenia dostawcy, Tłumacza Google lub API zgodne z OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Pokaż przycisk Przetłumacz</string>
     <string name="morphe_music_lyrics_source_all_disabled">Wszyscy dostawcy wyłączeni - teksty wbudowane i osadzone</string>
     <string name="morphe_music_lyrics_source_label">Źródło: %s</string>
@@ -234,12 +243,13 @@ Użyj wartości dodatniej, jeśli teksty wyprzedzają utwór</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Zamień miejscami tłumaczenie i romanizację</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Dotknięcie linijki przeskakuje do tego momentu w utworze</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">Dotknij linijki, aby przewinąć</string>
-    <string name="morphe_music_lyrics_text_filter_summary">Wyrażenie regularne stosowane wyłącznie do oryginalnego tekstu piosenki (z pominięciem tłumaczeń i romanizacji). Pozostaw puste, aby wyłączyć</string>
+    <string name="morphe_music_lyrics_text_filter_summary">Wyrażenie regularne stosowane wyłącznie do oryginalnego tekstu utworu (z pominięciem tłumaczeń i romanizacji). Pozostaw puste, aby wyłączyć</string>
     <string name="morphe_music_lyrics_text_filter_title">Wyrażenie regularne filtra tekstu</string>
     <string name="morphe_music_lyrics_text_size_summary">Rozmiar tekstu utworu</string>
     <string name="morphe_music_lyrics_text_size_title">Rozmiar tekstu</string>
     <string name="morphe_music_lyrics_translate_failed">Nie udało się przetłumaczyć tekstu</string>
     <string name="morphe_music_lyrics_translate_hide">Przetłumaczone</string>
+    <string name="morphe_music_lyrics_translate_only">Tylko tłumaczenie</string>
     <string name="morphe_music_lyrics_translated_by_ai">Przetłumaczone przez %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Przetłumaczone przez Google</string>
     <string name="morphe_music_lyrics_translating">Tłumaczenie…</string>
@@ -288,6 +298,11 @@ Wymagane ciasteczka: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPI
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 jest tymczasowo niedostępny (API nie reaguje)</string>
     <string name="morphe_oauth2_toast_invalid">Nieprawidłowy token logowania VR, spróbuj zalogować się ponownie</string>
     <string name="morphe_oauth2_toast_reset">Wylogowano z Android VR</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"Token wbudowany w tę wersję dostawcy PoToken już nie działa
+
+Włączyć \'Fałszywanie strumienia wideo\' aby naprawić odtwarzanie"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">Dostawca PoToken już nie działa</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Włączyć</string>
     <string name="morphe_potoken_provider_summary">"Naprawia problemy z odtwarzaniem za pomocą wbudowanego dostawcy PoToken (wersja eksperymentalna)
 
 Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>
@@ -310,6 +325,15 @@ Aby korzystać z tej funkcji, wyłącz opcję „Podrabianie strumieni wideo”\
     <string name="morphe_settings_name_custom_item_hint">Wprowadź nazwę</string>
     <string name="morphe_settings_name_empty_warning">Nazwa nie może być pusta</string>
     <string name="morphe_settings_name_title">Nazwa ustawień RVX</string>
+    <string name="morphe_settings_save">Zapisz</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Skracane są tylko pauzy trwające co najmniej tak długo. Zmiana wejdzie w życie po uruchomieniu kolejnego filmu</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimalna długość pauzy</string>
+    <string name="morphe_skip_silence_summary">Automatycznie pomija ciche fragmenty w dźwięku filmu</string>
+    <string name="morphe_skip_silence_title">Pomijaj ciszę</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s nie zadziałał(o) kilka razy z rzędu, ale %2$s już tak
+Ustawić %2$s jako domyślnego klienta?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Przełącz</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Domyślny klient nie działa</string>
     <string name="morphe_spoof_video_streams_client_type_title">Domyślny klient</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nie można przechwycić żadnego ze strumieni klienta</string>
     <string name="morphe_spoof_video_streams_screen_summary">Skonfiguruj fałszowanie klienta, aby zapobiec problemom z odtwarzaniem</string>
@@ -383,7 +407,6 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="revanced_change_share_sheet_summary">Zmienia wygląd panelu udostępniania z natywnego aplikacji na systemowy</string>
     <string name="revanced_change_share_sheet_title">Zmień wygląd panelu udostępniania</string>
     <string name="revanced_change_start_page_entry_charts">Listy przebojów</string>
-    <string name="revanced_change_start_page_entry_default">Domyślna</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Odcinki na później</string>
     <string name="revanced_change_start_page_entry_explore">Odkrywaj</string>
     <string name="revanced_change_start_page_entry_history">Historia</string>
@@ -738,9 +761,9 @@ Kliknij, by zobaczyć, jak zgłosić klucz API"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Klucz YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Przejdź do &lt;a href=%1$s&gt;Utwórz nowy projekt&lt;/a&gt;.&lt;br&gt;2. Kliknij przycisk &lt;b&gt;UTWÓRZ&lt;/b&gt;&lt;br&gt;3. Przejdź do &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Kliknij przycisk &lt;b&gt;WŁĄCZ&lt;/b&gt;&lt;br&gt;5. Kliknij przycisk &lt;b&gt;UTWÓRZ DANE LOGOWANIA&lt;/b&gt;&lt;br&gt;6. Wybierz opcję &lt;b&gt;Dane publiczne&lt;/b&gt;&lt;br&gt;7. Kliknij przycisk &lt;b&gt;DALEJ&lt;/b&gt;&lt;br&gt;8. Skopiuj klucz API&lt;br&gt;&lt;br&gt;※ Klucz API nie powinien być współdzielony z innymi, dlatego nie jest zawarty w ustawieniach importu/eksportu</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Zgłoś klucz deweloperski YouTube Data API</string>
-    <string name="revanced_ryd_attribution_summary">"Dane są dostarczane przez API Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike przywraca licznik łapek w dół, który YouTube ukrył w 2021 roku. Liczby pochodzą z danych zarchiwizowanych przed usunięciem, a dla nowszych filmów są szacowane na podstawie głosów użytkowników rozszerzenia, dlatego są to wartości przybliżone i aktualizują się co kilka dni
 
-Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
+Identyfikator oglądanego filmu jest wysyłany do API Return YouTube Dislike, a Twoje oceny są przesyłane anonimowo w celu poprawy szacunków"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Zmniejsza szerokość przycisku Lubię, aby zaoszczędzić miejsce</string>
     <string name="revanced_ryd_compact_layout_title">Użyj kompaktowego przycisku Lubię</string>
@@ -916,5 +939,5 @@ Efekt uboczny (blokada żądania):
     <string name="revanced_webview_toast_empty">%s jest puste</string>
     <string name="revanced_webview_toast_no_network">Sprawdź swoje połączenie internetowe</string>
     <string name="revanced_webview_toast_unavailable">WebView jest niedostępne</string>
-    <string name="revanced_webview_visitor_data">Visitor Data</string>
+    <string name="revanced_webview_visitor_data">Dane Gościa</string>
 </resources>

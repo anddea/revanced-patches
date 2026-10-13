@@ -59,11 +59,27 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">除非连接无线音频，否则暂停</string>
     <string name="morphe_auto_pause_on_screen_lock_title">设备锁定时自动暂停</string>
     <string name="morphe_custom_branding_icon_title">应用图标</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow 会用更准确、更不耸人听闻的众包标题和缩略图来替换点击诱饵标题和缩略图。标题由社区撰写并投票决定，缩略图则是从视频中截取的帧
+
+视频通过视频 ID 哈希值的一小段前缀来请求，因此服务器无法确切知道您正在观看的是哪个视频。如果某个视频没有 DeArrow 缩略图，则会显示原始缩略图或静态帧"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">在单个类别中，例如有趣或创意，显示原标题所需的休闲票数</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">显示原标题所需的最低休闲票数</string>
+    <string name="morphe_dearrow_casual_mode_summary">如果DeArrow用户投票赞成原标题，则显示原标题而不是DeArrow标题</string>
+    <string name="morphe_dearrow_casual_mode_title">休闲模式</string>
+    <string name="morphe_dearrow_error">DeArrow 暂时不可用（状态码：%s）</string>
+    <string name="morphe_dearrow_error_generic">DeArrow 暂时不可用</string>
+    <string name="morphe_dearrow_titles_icon_summary">在众包视频标题上显示DeArrow图标</string>
+    <string name="morphe_dearrow_titles_icon_title">显示DeArrow图标</string>
+    <string name="morphe_dearrow_titles_title">DeArrow 标题</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">防止信息流在过期后自动刷新</string>
+    <string name="morphe_disable_auto_feed_refresh_title">关闭信息流自动刷新</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">隐藏“音轨”菜单页脚</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">禁用自动隐藏导航栏</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC 音频已启用</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC 音频已禁用</string>
     <string name="morphe_disable_drc_audio_title">禁用 DRC 音频</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">如果 YouTube 发送的导航按钮没有标签，则显示带标签的导航按钮</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">禁用无标签的导航按钮</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC协议已启用</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC协议已禁用</string>
     <string name="morphe_disable_quic_protocol_title">禁用QUIC协议</string>
@@ -93,9 +109,9 @@
 限制：
 • 过滤后的AI Shorts可能显示为空白
 • 某些AI视频可能仍然显示"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"数据由AiSList提供
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList 是一个由志愿者维护的开源 YouTube 频道列表，其中收录的是发布 AI 生成内容的频道。频道由用户举报，审核通过后才会被添加
 
-点击此处打开AiSlopList.com，查看其他平台的下载内容"</string>
+该列表从 GitHub 下载，视频在您的设备上进行过滤"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">阻止列表：高置信度</string>
     <string name="morphe_hide_aislist_hide_home_title">在主页隐藏</string>
     <string name="morphe_hide_aislist_hide_search_title">在搜索中隐藏</string>
@@ -110,6 +126,8 @@
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">警告名单频道</string>
     <string name="morphe_hide_aislist_warnlist_category_title">警告列表：中等置信度</string>
     <string name="morphe_hide_auto_dubbed_label_title">隐藏“自动配音”标签</string>
+    <string name="morphe_hide_channel_buttons_summary">隐藏搜索结果中频道资料上的订阅、查看频道、社区和 YouTube Music 等按钮</string>
+    <string name="morphe_hide_channel_buttons_title">隐藏频道按钮</string>
     <string name="morphe_hide_courses_menu_title">隐藏课程菜单</string>
     <string name="morphe_hide_explore_button_title">隐藏探索按钮</string>
     <string name="morphe_hide_fashion_menu_title">隐藏“时尚与美妆”菜单</string>
@@ -121,6 +139,8 @@
     <string name="morphe_hide_invite_to_message_card_title">隐藏“邀请他人聊天”卡片</string>
     <string name="morphe_hide_learning_menu_title">隐藏学习菜单</string>
     <string name="morphe_hide_live_menu_title">隐藏直播菜单</string>
+    <string name="morphe_hide_live_streams_summary">隐藏首页信息流和搜索结果中当前正在直播的视频</string>
+    <string name="morphe_hide_live_streams_title">隐藏直播</string>
     <string name="morphe_hide_memberships_menu_title">隐藏会员菜单</string>
     <string name="morphe_hide_movies_menu_title">隐藏“电影和电视”菜单</string>
     <string name="morphe_hide_music_menu_title">隐藏音乐菜单</string>
@@ -165,6 +185,10 @@
     <string name="morphe_open_videos_fullscreen_title">以全屏模式打开视频</string>
     <string name="morphe_override_youtube_music_buttons_summary">打开您首选的音乐应用，而不是默认的YouTube Music应用</string>
     <string name="morphe_override_youtube_music_buttons_title">覆盖 YouTube Music 按钮</string>
+    <string name="morphe_playback_buffer_size_entry_low">低</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">最大</string>
+    <string name="morphe_playback_buffer_size_entry_medium">中等</string>
+    <string name="morphe_playback_buffer_size_title">播放缓冲区大小</string>
     <string name="morphe_playback_in_feeds_entry_always_on">始终开启</string>
     <string name="morphe_playback_in_feeds_entry_off">关闭</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">仅限 Wi-Fi</string>
@@ -186,6 +210,9 @@
     <string name="morphe_replace_music_with_youtube_title">将分享链接更改为 youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">将粗体视频播放器控件恢复为旧的、较薄的视觉样式</string>
     <string name="morphe_restore_old_player_buttons_title">恢复旧播放器按钮样式</string>
+    <string name="morphe_restore_original_titles_loading">正在加载标题…</string>
+    <string name="morphe_restore_original_titles_summary">显示原始视频标题、视频描述和频道描述，而非自动翻译的内容</string>
+    <string name="morphe_restore_original_titles_title">恢复原标题</string>
     <string name="morphe_sanitize_sharing_links_summary_off">跟踪查询参数未从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_summary_on">跟踪查询参数已从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_title">净化分享链接</string>
@@ -209,6 +236,10 @@
     <string name="morphe_settings_name_custom_item_hint">输入名称</string>
     <string name="morphe_settings_name_empty_warning">名称不能为空</string>
     <string name="morphe_settings_name_title">RVX 设置名称</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">只有至少达到此长度的暂停才会被缩短。在下一个视频开始时生效</string>
+    <string name="morphe_skip_silence_minimum_pause_title">最短暂停时长</string>
+    <string name="morphe_skip_silence_summary">自动跳过视频音频中的静音停顿</string>
+    <string name="morphe_skip_silence_title">跳过静音</string>
     <string name="morphe_splash_screen_animation_style_entry_2">颜色</string>
     <string name="morphe_splash_screen_animation_style_entry_3">单色</string>
     <string name="morphe_splash_screen_animation_style_title">启动动画</string>
@@ -229,6 +260,11 @@
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"启用此设置可能会使用软件 AV1 解码。
 
 使用 AV1 播放视频可能会卡顿或丢帧。"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 连续多次无法使用，但 %2$s 可以。
+
+要将 %2$s 设为默认客户端吗？"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切换</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">默认客户端无法使用</string>
     <string name="morphe_spoof_video_streams_client_type_title">默认客户端</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">无法获取任何客户端流</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">播放器JavaScript变种</string>
@@ -279,6 +315,8 @@
     <string name="morphe_video_quality_prioritize_dialog">如果关闭此设置，旧视频可能不显示视频质量选项</string>
     <string name="morphe_video_quality_prioritize_summary">优先考虑最高视频画质而不是编解码器效率</string>
     <string name="morphe_video_quality_prioritize_title">优先视频画质</string>
+    <string name="morphe_volume_boost_summary">向上滑动超过最大音量可增强音量，这可能会导致响亮音频失真</string>
+    <string name="morphe_volume_boost_title">音量增强</string>
     <string name="morphe_vot_caption_language_title">语言</string>
     <string name="morphe_vot_cost_free">免费</string>
     <string name="morphe_vot_cost_per_hour">每 100 小时 %s</string>
@@ -330,19 +368,10 @@
     <string name="revanced_advanced_video_quality_menu_type_summary_off">使用旧版样式的弹出菜单。</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">使用自定义对话框。</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Shorts 中的高级视频画质菜单类型</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 为 YouTube 视频提供众包缩略图。这些缩略图通常比 YouTube 提供的更相关
-
-如果启用，视频 URL 将发送到 API 服务器，并且不会发送其他数据。如果视频没有 DeArrow 缩略图，则会显示原始或静态截图
-
-点击此处详细了解 DeArrow"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">无效的 DeArrow API URL</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow 缩略图缓存端点的 URL</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API 端点</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">如果 DeArrow 不可用，则不显示提示</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">如果 DeArrow 不可用，则显示提示</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow 暂时不可用（状态码：%s）</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow 暂时不可用</string>
     <string name="revanced_alt_thumbnail_home_title">供主页标签使用</string>
     <string name="revanced_alt_thumbnail_library_title">供您标签使用</string>
     <string name="revanced_alt_thumbnail_options_entry_1">原始缩略图</string>
@@ -353,9 +382,6 @@
     <string name="revanced_alt_thumbnail_search_title">用于搜索结果</string>
     <string name="revanced_alt_thumbnail_stills">静态视频捕获</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">静止截图从每个视频的开头/中间/结尾截取。这些图像内置于 YouTube，不使用任何外部 API</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">使用高质量的静止截图</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">使用中等质量的静止截图。缩略图加载速度更快，但直播、未发布或非常旧的视频可能会显示空白缩略图</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">使用快速静止截图</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">开始</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">中间</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">结束</string>
@@ -391,7 +417,6 @@
     <string name="revanced_bypass_url_redirects_summary_on">URL 重定向将被跳过</string>
     <string name="revanced_bypass_url_redirects_title">绕过 URL 重定向</string>
     <string name="revanced_cancel">取消</string>
-    <string name="revanced_change_form_factor_entry_1">默认</string>
     <string name="revanced_change_form_factor_entry_2">手机</string>
     <string name="revanced_change_form_factor_entry_3">平板电脑</string>
     <string name="revanced_change_form_factor_entry_4">汽车</string>
@@ -1048,7 +1073,7 @@
     <string name="revanced_hide_general_ads_title">隐藏一般广告</string>
     <string name="revanced_hide_handle_summary_off">控制列已显示</string>
     <string name="revanced_hide_handle_summary_on">控制列已隐藏</string>
-    <string name="revanced_hide_handle_title">隐藏控制列</string>
+    <string name="revanced_hide_handle_title">隐藏句柄</string>
     <string name="revanced_hide_hashtag_section_title">隐藏话题标签部分</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">「内容制作说明」部分已显示</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">内容制作说明部分已隐藏</string>
@@ -1791,7 +1816,6 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_preference_screen_account_menu_title">账户菜单</string>
     <string name="revanced_preference_screen_action_buttons_summary">隐藏或显示视频下方的操作按钮</string>
     <string name="revanced_preference_screen_ads_title">广告</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">备选缩略图</string>
     <string name="revanced_preference_screen_ambient_mode_summary">绕过氛围模式限制或禁用氛围模式</string>
     <string name="revanced_preference_screen_ambient_mode_title">氛围模式</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">在主页、搜索结果和订阅中隐藏或显示轮播栏。</string>
@@ -1985,9 +2009,9 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 前往 &lt;a href=%1$s&gt; 创建一个新项目 &lt;/a&gt;.&lt;br&gt;2. 点击 &lt;b&gt; 创建 &lt;/b&gt; 按钮 &lt;br&gt;3. 前往 &lt;a href=%2$s&gt; YouTube Data API v3 &lt;/a&gt;.&lt;br&gt;4. 点击 &lt;b&gt; 启用 &lt;/b&gt; 按钮 &lt;br&gt;5. 点击 &lt;b&gt; 创建凭据 &lt;/b&gt; 按钮 &lt;br&gt;6. 选择 &lt;b&gt; 公共数据 &lt;/b&gt; 选项 &lt;br&gt;7. 点击 &lt;b&gt; 下一步 &lt;/b&gt; 按钮 &lt;br&gt;8. 复制 API 密钥 &lt;br&gt;&lt;br&gt;※ API 密钥绝不可与他人分享，因此不包含在导入 / 导出设置中</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">获取 YouTube Data API v3 开发者密钥</string>
     <string name="revanced_ryd_about">关于</string>
-    <string name="revanced_ryd_attribution_summary">"数据由 Return YouTube Dislike API 提供
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike 恢复了 YouTube 在 2021 年隐藏的不喜欢数量。这些数量来自移除前存档的数据，较新视频的数量则根据其用户的投票估算，因此它们只是近似值，并且每隔几天更新一次
 
-点击此处打开 ReturnYouTubeDislike.com"</string>
+您观看的视频的 ID 会发送到 Return YouTube Dislike API，您的喜欢和不喜欢信息会匿名发送以改进估算"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">点赞按钮设置为最佳外观</string>
     <string name="revanced_ryd_compact_layout_summary_on">点赞按钮设置为最小宽度</string>

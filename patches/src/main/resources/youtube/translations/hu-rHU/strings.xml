@@ -59,11 +59,27 @@ A jelentések nyilvánosak, és felülvizsgálják őket, mielőtt egy csatorna 
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Szüneteltetés, hacsak nincs vezeték nélküli hang csatlakoztatva</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Automatikus szüneteltetés, ha az eszköz le van zárva</string>
     <string name="morphe_custom_branding_icon_title">Alkalmazás ikonja</string>
+    <string name="morphe_dearrow_about_summary">"A DeArrow a kattintásvadász címeket és miniatűröket közösségi forrásból származó, pontosabb és kevésbé szenzációhajhász tartalmakra cseréli. A címeket a közösség írja és szavazza meg, a miniatűrök pedig a videóból készült képkockák
+
+A videókat a hash-elt videóazonosító rövid előtagjával kérik le, így a szerver nem tudja pontosan, hogy melyik videót nézed. Ha egy videóhoz nincs DeArrow miniatűr, akkor az eredeti vagy egy állókép jelenik meg"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">Az eredeti cím megjelenítéséhez szükséges alkalmi szavazatok száma egy kategóriában, például vicces vagy kreatív</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Minimális alkalmi szavazatszám az eredeti cím megjelenítéséhez</string>
+    <string name="morphe_dearrow_casual_mode_summary">Az eredeti címet mutatja a DeArrow-cím helyett, ha a DeArrow-felhasználók arra szavaztak, hogy az eredeti cím tetszik nekik</string>
+    <string name="morphe_dearrow_casual_mode_title">Alkalmi mód</string>
+    <string name="morphe_dearrow_error">A DeArrow átmenetileg nem érhető el (állapotkód: %s)</string>
+    <string name="morphe_dearrow_error_generic">A DeArrow átmenetileg nem érhető el</string>
+    <string name="morphe_dearrow_titles_icon_summary">Megjeleníti a DeArrow ikont a közösségi videócímeken</string>
+    <string name="morphe_dearrow_titles_icon_title">DeArrow ikon megjelenítése</string>
+    <string name="morphe_dearrow_titles_title">DeArrow-címek</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Megakadályozza, hogy a hírcsatornák automatikusan frissüljenek, miután elavulttá válnak</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Automatikus hírcsatorna-frissítés letiltása</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">A navigációs sáv látható marad a görgetés közben</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Kapcsold ki az automatikus elrejtést a navigációs sávra</string>
     <string name="morphe_disable_drc_audio_summary_off">A DRC hang engedélyezve van</string>
     <string name="morphe_disable_drc_audio_summary_on">A DRC hang letiltva van</string>
     <string name="morphe_disable_drc_audio_title">DRC hang letiltása</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Megjeleníti a navigációs gombokat címkékkel, ha a YouTube címkék nélkül küldi azokat</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Címkék nélküli navigációs gombok letiltása</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protokoll engedélyezve</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokoll letiltva</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokoll letiltása</string>
@@ -93,9 +109,9 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
 Korlátozások:
 • A szűrt AI Rövid videók üres helyként jelenhetnek meg
 • Néhány AI videó még megjelenhet"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"Az adatokat az AiSList biztosítja
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList egy nyílt forráskódú lista YouTube-csatornákról, amelyek AI-generált tartalmat tesznek közzé, önkéntesek karbantartják. A csatornákat a felhasználók jelentik, és a hozzáadás előtt felülvizsgálják azokat
 
-Érintse meg ide az AiSlopList.com megnyitásához, és tekintse meg a letöltéseket más platformokra"</string>
+A lista a GitHubról töltődik le, és a videók az eszközödön kerülnek szűrésre.}{"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">Tiltólista: Magas megbízhatóság</string>
     <string name="morphe_hide_aislist_hide_home_title">Videók elrejtése a főoldalon</string>
     <string name="morphe_hide_aislist_hide_search_title">Videók elrejtése a keresésben</string>
@@ -110,6 +126,8 @@ Korlátozások:
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Figyelmeztetésre került csatornák</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Figyelőlista: Közepes megbízhatóság</string>
     <string name="morphe_hide_auto_dubbed_label_title">​„Automatikus szinkron” címke elrejtése</string>
+    <string name="morphe_hide_channel_buttons_summary">Elrejti az olyan gombokat, mint a Feliratkozás, Csatorna megtekintése, Közösség és a YouTube Music a csatornaprofilokon a keresési találatokban</string>
+    <string name="morphe_hide_channel_buttons_title">Csatornagombok elrejtése</string>
     <string name="morphe_hide_courses_menu_title">Kurzusok menü elrejtése</string>
     <string name="morphe_hide_explore_button_title">Felfedezés gomb elrejtése</string>
     <string name="morphe_hide_fashion_menu_title">\"Divat és szépség\" menü elrejtése</string>
@@ -121,6 +139,8 @@ Korlátozások:
     <string name="morphe_hide_invite_to_message_card_title">Elrejti az \'Emberek meghívása üzenetküldésre\' kártyát</string>
     <string name="morphe_hide_learning_menu_title">Rejtse el a Tanulás menüt</string>
     <string name="morphe_hide_live_menu_title">Élő menü elrejtése</string>
+    <string name="morphe_hide_live_streams_summary">Elrejti a jelenleg élő videókat a kezdőlapi hírfolyamban és a keresési találatokban</string>
+    <string name="morphe_hide_live_streams_title">Élő közvetítések elrejtése</string>
     <string name="morphe_hide_memberships_menu_title">Tagságok menü elrejtése</string>
     <string name="morphe_hide_movies_menu_title">\'Filmek és TV\' menü elrejtése</string>
     <string name="morphe_hide_music_menu_title">Zene menü elrejtése</string>
@@ -165,6 +185,10 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_open_videos_fullscreen_title">Videók megnyitása teljes képernyős módban</string>
     <string name="morphe_override_youtube_music_buttons_summary">A kívánt zenealkalmazást nyitja meg az alapértelmezett YouTube Music alkalmazás helyett</string>
     <string name="morphe_override_youtube_music_buttons_title">A YouTube Music gombok felülbírálása</string>
+    <string name="morphe_playback_buffer_size_entry_low">Alacsony</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Maximális</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Közepes</string>
+    <string name="morphe_playback_buffer_size_title">Lejátszási puffer mérete</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Mindig bekapcsolva</string>
     <string name="morphe_playback_in_feeds_entry_off">Ki</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Csak Wi-Fi esetén</string>
@@ -186,6 +210,9 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_replace_music_with_youtube_title">Módosítsa a megosztási linkeket youtube.com-ra</string>
     <string name="morphe_restore_old_player_buttons_summary">A videólejátszó vezérlőgombok régi, keskenyebb stílusához való visszatérés</string>
     <string name="morphe_restore_old_player_buttons_title">Régi lejátszó gomb stílusának visszaállítása</string>
+    <string name="morphe_restore_original_titles_loading">Cím betöltése…</string>
+    <string name="morphe_restore_original_titles_summary">Az eredeti videócímek, videóleírások és csatornaleírások megjelenítése az automatikusan lefordítottak helyett</string>
+    <string name="morphe_restore_original_titles_title">Eredeti címek visszaállítása</string>
     <string name="morphe_sanitize_sharing_links_summary_off">A követési lekérdezési paraméter nem kerül eltávolításra a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
@@ -209,6 +236,10 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_settings_name_custom_item_hint">Adjon meg egy nevet</string>
     <string name="morphe_settings_name_empty_warning">A név nem lehet üres</string>
     <string name="morphe_settings_name_title">RVX-beállításnév</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Csak a legalább ilyen hosszú szünetek rövidülnek le. A következő videó indításakor lép érvénybe</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimális szünet hossza</string>
+    <string name="morphe_skip_silence_summary">Automatikusan kihagyja a néma szüneteket a videó hangjában</string>
+    <string name="morphe_skip_silence_title">Csend kihagyása</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Színes</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monokróm</string>
     <string name="morphe_splash_screen_animation_style_title">Indítási animáció</string>
@@ -229,6 +260,11 @@ A lejátszás akadozhat vagy képkockákat ejthet"</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Ennek a beállításnak az engedélyezése szoftveres AV1 dekódolást használhat
 
 Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s egymás után többször nem működött, de %2$s igen
+
+Legyen %2$s az alapértelmezett kliens?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Váltás</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Az alapértelmezett kliens nem működik</string>
     <string name="morphe_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nem találtunk ügyfelek által megosztott folyamokat</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Lejátszó JavaScript változata</string>
@@ -279,6 +315,8 @@ Korlátozás: Ha a „Régi videós eszköztár visszaállítása” ki van kapc
     <string name="morphe_video_quality_prioritize_dialog">Ha ez a beállítás ki van kapcsolva, akkor a régebbi videóknál nem jelenik meg videóminőségi opció</string>
     <string name="morphe_video_quality_prioritize_summary">A legmagasabb elérhető videóminőség részesít előnyben a kodek hatékonyságával szemben</string>
     <string name="morphe_video_quality_prioritize_title">Videóminőség prioritása</string>
+    <string name="morphe_volume_boost_summary">A maximális hangerőn túli felfelé húzás felerősíti a hangot, ami torzíthatja a hangos hanganyagot</string>
+    <string name="morphe_volume_boost_title">Hangerőnövelés</string>
     <string name="morphe_vot_caption_language_title">Nyelv</string>
     <string name="morphe_vot_cost_free">Ingyenes</string>
     <string name="morphe_vot_cost_per_hour">%s dollár 100 videóóra esetén</string>
@@ -330,19 +368,10 @@ A fordítások folytatásához váltson másik fordításszolgáltatót a beáll
     <string name="revanced_advanced_video_quality_menu_type_summary_off">A régi stílusú előugró menüt használja</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Az egyéni menü van használatban</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Speciális videóminőség menü a shortok esetén</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"A DeArrow tömegforrásból származó miniatűr képeket biztosít a YouTube-videókhoz. Ezek a miniatűr képek gyakran relevánsabbak, mint a YouTube által biztosítottak
-
-Ha engedélyezve van, akkor a videók URL-jeit elküldjük az API kiszolgálónak, és más adatokat nem küldünk. Ha egy videónak nincs DeArrow miniatűr képe, akkor az eredeti vagy állókép miniatűr kép lesz megjelenítve
-
-Érintse meg itt, hogy többet megtudjon a DeArrow-ról"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">A DeArrow-ról</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Érvénytelen DeArrow API URL</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">A DeArrow bélyegkép cache végpont URL-je</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API végpont</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Nem jelenik meg üzenet, ha a DeArrow nem elérhető</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Üzenet megjelenítése, ha a DeArrow nem elérhető</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">A DeArrow átmenetileg nem érhető el (állapotkód: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">A DeArrow átmenetileg nem érhető el</string>
     <string name="revanced_alt_thumbnail_home_title">A Home laphoz</string>
     <string name="revanced_alt_thumbnail_library_title">A Te laphoz</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Eredeti indexképek</string>
@@ -353,9 +382,6 @@ Ha engedélyezve van, akkor a videók URL-jeit elküldjük az API kiszolgálóna
     <string name="revanced_alt_thumbnail_search_title">A keresési eredményekhez</string>
     <string name="revanced_alt_thumbnail_stills">Állóképfelvételek</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Pillanatképek minden videó elejéről/közepéről/végéről készülnek. Ezek a képek be vannak építve a YouTube-ba és nem használnak külső API-t</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Magas minőségű pillanatképeket használ</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Közepes minőségű pillanatképeket használ. A bélyegképek gyorsabban betöltődnek, de az élő közvetítések, kiadatlan vagy nagyon régi videók üres bélyegképeket jeleníthetnek meg</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Gyors pillanatképek használata</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Kezdőpont</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Közép</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Végpont</string>
@@ -394,7 +420,6 @@ Ez a beállítás megoldhatja a hiányzó képek problémáját, amelyek blokkol
     <string name="revanced_bypass_url_redirects_summary_on">URL átirányítások kikerülve</string>
     <string name="revanced_bypass_url_redirects_title">URL átirányítások kikerülése</string>
     <string name="revanced_cancel">Mégse</string>
-    <string name="revanced_change_form_factor_entry_1">Alapértelmezett</string>
     <string name="revanced_change_form_factor_entry_2">Telefon</string>
     <string name="revanced_change_form_factor_entry_3">Táblagép</string>
     <string name="revanced_change_form_factor_entry_4">Autóipari</string>
@@ -1053,7 +1078,7 @@ Ha a sáv összes elemét elrejted, a teljes megjegyzések szakasz is rejtve mar
     <string name="revanced_hide_general_ads_title">Általános hirdetések elrejtése</string>
     <string name="revanced_hide_handle_summary_off">A kezelő látható</string>
     <string name="revanced_hide_handle_summary_on">A kezelő el van rejtve</string>
-    <string name="revanced_hide_handle_title">Kezelő elrejtése</string>
+    <string name="revanced_hide_handle_title">Handle elrejtése</string>
     <string name="revanced_hide_hashtag_section_title">Hashtag szekció elrejtése</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">A Hogyan készült ez a tartalom szakasz látható</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">A Hogyan készült ez a tartalom szakasz rejtett</string>
@@ -1799,7 +1824,6 @@ A beépített lejátszási lista letöltése gomb megjelenítéséhez kapcsolja 
     <string name="revanced_preference_screen_account_menu_title">Fiók menü</string>
     <string name="revanced_preference_screen_action_buttons_summary">Videók alatti műveletgombok elrejtése vagy megjelenítése</string>
     <string name="revanced_preference_screen_ads_title">Hirdetések</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Alternatív miniatűrök</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Tiltsa le a mozifilmes világítás módot, vagy kerülje meg a korlátozásait</string>
     <string name="revanced_preference_screen_ambient_mode_title">Mozifilmes világítás mód</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Karusszel elrejtése vagy megjelenítése a kezdőlapon, a keresési eredményekben és a feliratkozásokban</string>
@@ -1995,9 +2019,9 @@ Kattintson az API-kulcs kiadás folyamatának megtekintéséhez"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Nyissa meg a(z) &lt;a href=%1$s&gt;Új projekt létrehozását&lt;/a&gt;.&lt;br&gt;2. Kattintson a &lt;b&gt;LÉTREHOZÁS&lt;/b&gt; gomb.&lt;br&gt;3. Lépj a &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; oldalára.&lt;br&gt;4. Kattintson az &lt;b&gt;Engedélyezés&lt;/b&gt; gombra.&lt;br&gt;5. Kattintson a &lt;b&gt;HITELESÍTÉSI ADATOK LÉTREHOZÁSA&lt;/b&gt; gombra.&lt;br&gt;6. Válassza ki a &lt;b&gt;Nyilvános adatok&lt;/b&gt; lehetőség.&lt;br&gt;7. Kattintson a &lt;b&gt;KÖVETKEZŐ&lt;/b&gt; gombra.&lt;br&gt;8. Másolja ki az API-kulcsot.&lt;br&gt;&lt;br&gt;※ Az API-kulcsot soha ne ossza meg másokkal, így az nem szerepel az importálási/exportálási beállításokban</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 fejlesztői kulcs kiadás</string>
     <string name="revanced_ryd_about">Névjegy</string>
-    <string name="revanced_ryd_attribution_summary">"Az adatokat a Return YouTube Dislike API biztosítja
+    <string name="revanced_ryd_attribution_summary">"A Return YouTube Dislike visszaállítja a YouTube által 2021-ben elrejtett nemtetszés-számlálókat. A számok a törlés előtt archivált adatokból származnak, az újabb videóknál pedig a felhasználók szavazatai alapján becsülik őket, így közelítőek, és néhány naponta frissülnek
 
-Érintse meg ide a ReturnYouTubeDislike.com megnyitásához"</string>
+A megtekintett videó azonosítóját elküldjük a Return YouTube Dislike API-nak, a like-jaid és dislike-jaid pedig névtelenül kerülnek elküldésre a becslések javításához"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">A tetszik gomb a legjobb megjelenésre formázva</string>
     <string name="revanced_ryd_compact_layout_summary_on">A tetszik gomb minimális szélességre formázva</string>

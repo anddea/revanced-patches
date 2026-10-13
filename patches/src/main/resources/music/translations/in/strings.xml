@@ -74,29 +74,31 @@ Langkah-langkah:
     <string name="morphe_music_crossfade_about_best_title">Paling baik digunakan dengan</string>
     <string name="morphe_music_crossfade_about_credit_summary">Fitur pudar silang oleh VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Kredit</string>
-    <string name="morphe_music_crossfade_about_how_summary">"Pudar silang menggabungkan akhir satu lagu dengan bagian awal lagu berikutnya, dengan secara bertahap meredupkan volume lagu pertama saat volume lagu berikutnya mulai naik sesuai durasi dan kurva yang Anda pilih
+    <string name="morphe_music_crossfade_about_how_summary">"Crossfade menumpangtindihkan akhir satu lagu dengan awal lagu berikutnya, menggunakan durasi dan kurva Anda
 
-Hal ini berjalan secara otomatis (ketika lagu berakhir dengan sendirinya) dan saat Anda melompat ke lagu berikutnya secara manual — masing-masing memiliki tombol pengatur di bagian atas. Pada mode otomatis, proses perpaduan dimulai beberapa detik sebelum lagu berakhir
-
-Membutuhkan YouTube Music versi 9.x atau yang lebih baru"</string>
+Ini berjalan pada lanjut otomatis dan lewati manual, masing-masing dengan sakelarnya sendiri. Pada lanjut otomatis, perpaduan dimulai beberapa detik sebelum lagu berakhir.    guna"</string>
     <string name="morphe_music_crossfade_about_how_title">Cara kerjanya</string>
     <string name="morphe_music_crossfade_about_known_summary">"Video musik yang ditetapkan sebagai lagu pertama — atau yang dimulai dari luar antrian saat ini — mungkin akan ditampilkan sebentar sebagai video sebelum mode audio saja mulai berlaku
 
 Menjeda pudar silang untuk menonton video musik dapat menyebabkan beberapa video tampil hitam (yaitu video yang audionya berasal dari video itu sendiri). Menjeda pudar silang sebelum memilih lagu dapat mencegah hal tersebut"</string>
     <string name="morphe_music_crossfade_about_known_title">Masalah yang diketahui</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"Video musik akan diputar hanya sebagai audio saat fitur pudar silang aktif (tekan dan tahan tombol acak untuk menjeda jika Anda ingin menonton videonya)
+    <string name="morphe_music_crossfade_about_quirks_summary">"Video musik diputar hanya sebagai audio saat crossfade aktif. Tekan lama tombol acak untuk menjeda crossfade dan menonton videonya
 
-Lagu yang durasinya lebih pendek dari durasi pemudaran mungkin akan melewati efek pemudaran
+Video musik yang mulai diputar tetap dalam mode video hingga lagu berikutnya
 
-Layar kunci atau pemberitahuan mungkin sebentar menampilkan tampilan yang sudah ketinggalan di tengah perpindahan"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">Tidak berfungsi dengan baik</string>
+Lagu yang lebih pendek dari durasi fade tidak di-crossfade
+
+Layar kunci atau notifikasi dapat menampilkan status usang sesaat di tengah transisi
+
+Menjeda crossfade untuk menonton video musik dapat membuat beberapa video menjadi hitam. Menjeda crossfade sebelum Anda memilih lagu akan menghindari hal tersebut"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Keterbatasan</string>
     <string name="morphe_music_crossfade_about_summary">Cara kerja pudar silang — dan kapan pudar silang tidak berfungsi</string>
     <string name="morphe_music_crossfade_about_title">Tentang</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Menayangkan atau menampilkan audio (Chromecast, pencerminan layar atau audio) — pudar silang terhenti karena fitur tersebut tidak stabil di sana dan mungkin tidak akan pernah bisa diperbaiki
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Casting atau mirroring audio (Chromecast, mirroring layar atau audio)
 
-YouTube Music 8.x — pudar silang hanya berfungsi pada versi 9.x dan yang lebih baru"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">Tidak berfungsi sama sekali</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">Pudar silang dijeda saat melakukan penayangan atau pencerminan audio. Pudar silang saat penayangan/pencerminan tidak stabil dan mungkin tidak akan pernah bisa diperbaiki</string>
+Pemutaran SABR (Spoof aliran video dimatikan)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Tidak didukung</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Crossfade nonaktif saat casting</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Genggaman yang halus</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Ketenangan yang lembut</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Daya yang sama</string>
@@ -178,6 +180,7 @@ Selama fitur ini aktif, tab Unduhan mencantumkan trek ini, bukan pustaka offline
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">Konfigurasikan titik akhir API yang kompatibel dengan OpenAI untuk terjemahan dan romanisasi lirik bertenaga AI</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">Pengaturan Terjemahan AI</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Nama model (mis. openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">Templat prompt (variabel: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">Dikonfigurasi</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Nama model tidak boleh kosong</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">URL dasar tidak boleh kosong</string>
@@ -190,7 +193,7 @@ Selama fitur ini aktif, tab Unduhan mencantumkan trek ini, bukan pustaka offline
     <string name="morphe_music_lyrics_copied">Disalin ke papan klip</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Jika lirik salah disaring ke bagian bawah, sesuaikan atau hapus ini. Penanda yang dipisahkan dengan koma: baris yang berisi penanda diikuti dengan titik dua akan ditampilkan sebagai info kredit di bagian bawah. Biarkan kosong untuk menonaktifkan</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Penanda baris info</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">Regular expression diterapkan pada judul, artis, dan album sebelum mencari lirik. Biarkan kosong untuk menonaktifkan. Pengaturan bawaan akan menghapus teks tambahan yang umum seperti \"Official Video\", \"Remaster\", dan \"- Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Ekspresi reguler diterapkan pada judul, artis, dan album sebelum mencari lirik dan saat menilai apakah dua judul cocok. Biarkan kosong untuk menonaktifkan keduanya. Default menghapus keramaian umum seperti \"Official Video\", \"Remaster\", \"【插曲】\", dan \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">Regex metadata</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Ubah urutan tampilan Artis dan Judul di Pemutar mini dan MediaSession. ON \"Artis - Judul\" dan OFF \"Judul - Artis\". Tidak memengaruhi pencarian lirik</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Urutan tampilan Artis dan Judul</string>
@@ -207,22 +210,28 @@ Selama fitur ini aktif, tab Unduhan mencantumkan trek ini, bukan pustaka offline
     <string name="morphe_music_lyrics_mediasession_title">Tampilkan lirik MediaSession di layar kunci</string>
     <string name="morphe_music_lyrics_miniplayer_title">Tampilkan lirik Pemutar mini</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Lirik yang disinkronkan mengikuti pemutaran. Jika tidak selaras, sesuaikan pergeseran waktu. Geser lirik yang disinkronkan ke depan atau ke belakang. Gunakan nilai positif jika lirik mendahului lagu</string>
-    <string name="morphe_music_lyrics_offset_ms_title">Pergeseran waktu</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Offset waktu global</string>
     <string name="morphe_music_lyrics_refreshed">Segarkan</string>
     <string name="morphe_music_lyrics_refreshing">MediaSession</string>
     <string name="morphe_music_lyrics_romanize_failed">Tidak dapat meromanisasi lirik</string>
     <string name="morphe_music_lyrics_romanize_hide">Diromanisasi</string>
+    <string name="morphe_music_lyrics_romanize_only">Hanya romanisasi</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Diromanisasi oleh %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Diromanisasi oleh Google</string>
     <string name="morphe_music_lyrics_romanizing">Meromanisasi…</string>
     <string name="morphe_music_lyrics_saved">Tersimpan</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Artis</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Cari lirik</string>
+    <string name="morphe_music_lyrics_search_empty">Masukkan judul lagu dan artis</string>
+    <string name="morphe_music_lyrics_search_no_providers">Tidak ada penyedia yang diaktifkan yang dapat mencari lagu lain</string>
+    <string name="morphe_music_lyrics_search_title_hint">Judul lagu</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">Ketuk untuk menyalin lirik asli sebagai teks biasa; tekan lama untuk menyimpan file sumber lirik mentah ke Unduhan</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Tampilkan tombol Salin</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Ketuk untuk beralih ke kandidat lirik berikutnya; tekan lama untuk menonaktifkan lirik pihak ketiga sementara waktu dan menampilkan lirik bawaan</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Ketuk untuk berpindah ke kandidat lirik berikutnya; tekan lama untuk mencari lirik berdasarkan judul lagu dan artis</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Tampilkan tombol Segarkan</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Romanisasikan lirik menggunakan penyedia romanisasi, Google Terjemahan, atau API yang kompatibel dengan OpenAI</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Ketuk untuk mengalihkan romanisasi; tekan lama untuk hanya romanisasi. Menggunakan penyedia romanisasi, Google Terjemahan, atau API yang kompatibel dengan OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Tampilkan tombol Romanisasi</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Terjemahkan lirik menggunakan penyedia terjemahan, Google Terjemahan, atau API yang kompatibel dengan OpenAI</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Ketuk untuk mengalihkan terjemahan; tekan lama untuk hanya terjemahan. Menggunakan penyedia terjemahan, Google Terjemahan, atau API yang kompatibel dengan OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Tampilkan tombol Terjemahan</string>
     <string name="morphe_music_lyrics_source_all_disabled">Semua penyedia dinonaktifkan — lirik bawaan dan lirik tersemat</string>
     <string name="morphe_music_lyrics_source_label">Sumber: %s</string>
@@ -239,6 +248,7 @@ Selama fitur ini aktif, tab Unduhan mencantumkan trek ini, bukan pustaka offline
     <string name="morphe_music_lyrics_text_size_title">Ukuran teks</string>
     <string name="morphe_music_lyrics_translate_failed">Tidak dapat menerjemahkan lirik</string>
     <string name="morphe_music_lyrics_translate_hide">Diterjemahkan</string>
+    <string name="morphe_music_lyrics_translate_only">Terjemahan saja</string>
     <string name="morphe_music_lyrics_translated_by_ai">Diterjemahkan oleh %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Diterjemahkan oleh Google</string>
     <string name="morphe_music_lyrics_translating">Menerjemahkan…</string>
@@ -267,12 +277,12 @@ Langkah-langkah:
     <string name="morphe_music_token_dialog_get_token">Dapatkan token</string>
     <string name="morphe_music_youtube_cookies_dialog_instruction">"Tempelkan cookie YouTube Anda untuk mengambil subtitle dan teks waktu dari YouTube
 
-​Langkah-langkah:
-​Buka youtube.com di peramban (browser) dan masuk (login)
-​Buka DevTools (F12) → Application → Cookies → youtube.com
-​Salin seluruh string cookie (pasangan kunci=nilai yang dipisahkan dengan titik koma)
+Langkah-langkah:
+1. Buka youtube.com di peramban dan masuk
+2. Buka DevTools (F12) → Application → Cookies → youtube.com
+3. Salin seluruh string cookie (pasangan key=value yang dipisahkan oleh titik koma)
 
-​Cookie yang diperlukan: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID, LOGIN_INFO"</string>
+Cookie yang diperlukan: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID, LOGIN_INFO"</string>
     <string name="morphe_music_youtube_cookies_title">Cookie YouTube</string>
     <string name="morphe_music_youtube_cookies_toast_cleared">YouTube: cookie dihapus</string>
     <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: cookie tidak valid — periksa kembali dan coba lagi</string>
@@ -309,6 +319,16 @@ Untuk menggunakan fitur ini, Matikan \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_custom_item_hint">Masukkan nama</string>
     <string name="morphe_settings_name_empty_warning">Nama tidak boleh kosong</string>
     <string name="morphe_settings_name_title">Nama setelan RVX</string>
+    <string name="morphe_settings_save">Simpan</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Hanya jeda yang setidaknya selama ini yang dipersingkat. Berlaku saat video berikutnya dimulai</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Durasi jeda minimum</string>
+    <string name="morphe_skip_silence_summary">Secara otomatis melewati jeda hening di audio video</string>
+    <string name="morphe_skip_silence_title">Lewati keheningan</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s tidak berfungsi beberapa kali berturut-turut, tetapi %2$s berfungsi
+
+Jadikan %2$s sebagai klien default?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Ganti</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Klien default tidak berfungsi</string>
     <string name="morphe_spoof_video_streams_client_type_title">Klien bawaan</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Tidak dapat mengambil aliran klien apa pun</string>
     <string name="morphe_spoof_video_streams_screen_summary">Konfigurasikan pemalsuan klien untuk mencegah masalah pemutaran</string>
@@ -341,7 +361,9 @@ Untuk masuk, tekan lanjutkan di bawah ini"</string>
 Jika Anda pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Aliran video tidak dipalsukan
 
-Pemutaran mungkin tidak berfungsi"</string>
+Pemutaran mungkin tidak berfungsi
+
+Untuk menggunakan fitur ini, matikan 'Penyedia PoToken'"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Aliran video dipalsukan
 
 Jika Anda adalah pengguna YouTube Premium, pengaturan ini mungkin tidak diperlukan"</string>
@@ -380,7 +402,6 @@ Jika Anda adalah pengguna YouTube Premium, pengaturan ini mungkin tidak diperluk
     <string name="revanced_change_share_sheet_summary">Mengubah lembar berbagi dalam aplikasi ke lembar berbagi sistem</string>
     <string name="revanced_change_share_sheet_title">Ubah lembar berbagi</string>
     <string name="revanced_change_start_page_entry_charts">Grafik</string>
-    <string name="revanced_change_start_page_entry_default">Bawaan</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Episode untuk nanti</string>
     <string name="revanced_change_start_page_entry_explore">Jelajahi</string>
     <string name="revanced_change_start_page_entry_history">Riwayat</string>
@@ -389,7 +410,7 @@ Jika Anda adalah pengguna YouTube Premium, pengaturan ini mungkin tidak diperluk
     <string name="revanced_change_start_page_entry_podcasts">Siniar</string>
     <string name="revanced_change_start_page_entry_samples">Sampel</string>
     <string name="revanced_change_start_page_entry_search">Telusuri</string>
-    <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Subscription</string>
     <string name="revanced_change_start_page_summary">Pilih di halaman mana aplikasi dibuka</string>
     <string name="revanced_change_start_page_title">Halaman awal</string>
     <string name="revanced_confirm_user_dialog_title">Apakah kamu yakin ingin melanjutkan?</string>
@@ -742,9 +763,9 @@ Klik untuk melihat cara menerbitkan kunci API"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Kunci API Data YouTube</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Pergi ke &lt;a href=%1$s&gt;Buat proyek baru&lt;/a&gt;.&lt;br&gt;2. Klik &lt;b&gt;tombol;&lt;/b&gt; BUAT.&lt;br&gt;3. Pergi ke &lt;a href=%2$s&gt;API Data YouTube v3&lt;/a&gt;.&lt;br&gt;4. Klik &lt;b&gt;tombol&lt;/b&gt; NYALAKAN.&lt;br&gt;5. Klik &lt;b&gt;tombol&lt;/b&gt; BUAT KREDENSIAL.&lt;br&gt;6. Pilih &lt;b&gt;pilihan&lt;/b&gt; data Publik.&lt;br&gt;7. Klik &lt;b&gt;tombol&lt;/b&gt; SELANJUTNYA.&lt;br&gt;8. Salin kunci API.&lt;br&gt;&lt;br&gt;※ Kunci API tidak boleh dibagikan dengan orang lain, sehingga tidak disertakan dalam pengaturan Impor / Ekspor</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Terbitkan kunci pengembang API Data YouTube v3</string>
-    <string name="revanced_ryd_attribution_summary">"Data disediakan oleh API Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike mengembalikan jumlah dislike yang disembunyikan YouTube pada tahun 2021. Jumlah tersebut berasal dari data yang diarsipkan sebelum penghapusan dan diperkirakan untuk video yang lebih baru dari suara penggunanya, sehingga bersifat perkiraan dan diperbarui setiap beberapa hari
 
-Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
+ID video yang Anda tonton dikirim ke API Return YouTube Dislike, dan suka dan tidak suka Anda dikirim secara anonim untuk meningkatkan perkiraan.}"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Mengurangi lebar tombol Suka untuk menghemat ruang</string>
     <string name="revanced_ryd_compact_layout_title">Gunakan tombol Suka ringkas</string>

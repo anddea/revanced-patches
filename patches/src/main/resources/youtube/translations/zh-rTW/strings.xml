@@ -31,7 +31,7 @@
 • 以 AI 語音、視覺效果、腳本或音樂為主要內容
 • 使用 AI 工具大量製作內容，且幾乎沒有真人投入
 
-請勿檢舉僅討論 AI，或僅在影片某些部分使用 AI 的頻道。
+請勿檢舉僅討論 AI，或僅在影片某些部份使用 AI 的頻道。
 
 檢舉內容是公開的，且在頻道加入清單前會經過審查。若要移除，只能透過在 GitHub 上提出請求"</string>
     <string name="morphe_aislist_submit_failed">檢舉失敗，請檢查你的網路連線</string>
@@ -59,11 +59,27 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">除非連接無線音訊，否則暫停</string>
     <string name="morphe_auto_pause_on_screen_lock_title">裝置鎖定時自動暫停</string>
     <string name="morphe_custom_branding_icon_title">應用程式圖示</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow 以更準確且不那麼誇大的社群提交內容取代點擊誘餌標題和縮圖。標題由社群撰寫和投票，縮圖則取自影片的畫面
+
+影片是透過雜湊影片 ID 的短前綴來請求，因此伺服器無法確切知道您正在查看哪部影片。如果影片沒有 DeArrow 縮圖，則會顯示原始影片或靜態擷取畫面"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">在單一類別中，例如搞笑或創意，顯示原始標題所需的休閒票數</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">顯示原始標題所需的最低休閒票數</string>
+    <string name="morphe_dearrow_casual_mode_summary">如果 DeArrow 使用者投票表示喜歡原始標題，則顯示原始標題而非 DeArrow 標題</string>
+    <string name="morphe_dearrow_casual_mode_title">休閒模式</string>
+    <string name="morphe_dearrow_error">DeArrow 暫時無法使用（狀態碼：%s）</string>
+    <string name="morphe_dearrow_error_generic">DeArrow 暫時無法使用</string>
+    <string name="morphe_dearrow_titles_icon_summary">在群眾外包的影片標題上顯示 DeArrow 圖示</string>
+    <string name="morphe_dearrow_titles_icon_title">顯示 DeArrow 圖示</string>
+    <string name="morphe_dearrow_titles_title">DeArrow 標題</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">防止動態消息在過時後自動重新整理</string>
+    <string name="morphe_disable_auto_feed_refresh_title">停用動態消息自動重新整理</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">在捲動時，保持導覽列可見</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">停用自動隱藏導航欄</string>
     <string name="morphe_disable_drc_audio_summary_off">已啟用 DRC 音效</string>
     <string name="morphe_disable_drc_audio_summary_on">已停用 DRC 音效</string>
     <string name="morphe_disable_drc_audio_title">停用 DRC 音效</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">如果 YouTube 傳送的導覽按鈕沒有標籤，則顯示帶有標籤的導覽按鈕</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">停用沒有標籤的導覽按鈕</string>
     <string name="morphe_disable_quic_protocol_summary_off">已啟用 QUIC 協定</string>
     <string name="morphe_disable_quic_protocol_summary_on">已停用 QUIC 協定</string>
     <string name="morphe_disable_quic_protocol_title">停用 QUIC 協定</string>
@@ -92,10 +108,10 @@
 
 限制：
 • 篩選後的 AI Shorts 可能會顯示為空白空間
-• 部分 AI 影片仍可能顯示出來"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"資料由 AiSList 提供。
+• 部份 AI 影片仍可能顯示出來"</string>
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList 是一個開源的 YouTube 頻道清單，收錄發布 AI 生成內容的頻道，由志願者維護。頻道由用戶舉報，並在加入前經過審查
 
-點擊這裡打開 AiSlopList.com，以查看其他平台下載内容"</string>
+清單從 GitHub 下載，影片會在您的裝置上進行過濾"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">封鎖清單：高信度</string>
     <string name="morphe_hide_aislist_hide_home_title">在「首頁」中隱藏影片</string>
     <string name="morphe_hide_aislist_hide_search_title">在搜尋結果中隱藏影片</string>
@@ -110,6 +126,8 @@
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">警告頻道</string>
     <string name="morphe_hide_aislist_warnlist_category_title">警告清單：中等信度</string>
     <string name="morphe_hide_auto_dubbed_label_title">隱藏「自動配音」標籤</string>
+    <string name="morphe_hide_channel_buttons_summary">隱藏搜尋結果中頻道個人檔案中的訂閱、查看頻道、社群和 YouTube Music 等按鈕</string>
+    <string name="morphe_hide_channel_buttons_title">隱藏頻道按鈕</string>
     <string name="morphe_hide_courses_menu_title">隱藏「課程」選單</string>
     <string name="morphe_hide_explore_button_title">隱藏「探索」按鈕</string>
     <string name="morphe_hide_fashion_menu_title">隱藏「時尚&amp;美妝」選單</string>
@@ -121,6 +139,8 @@
     <string name="morphe_hide_invite_to_message_card_title">隱藏「邀請他人傳訊息」卡片</string>
     <string name="morphe_hide_learning_menu_title">隱藏「學習」選單</string>
     <string name="morphe_hide_live_menu_title">隱藏「直播」選單</string>
+    <string name="morphe_hide_live_streams_summary">隱藏首頁動態和搜尋結果中目前正在直播的影片</string>
+    <string name="morphe_hide_live_streams_title">隱藏直播</string>
     <string name="morphe_hide_memberships_menu_title">隱藏「會員資格」選單</string>
     <string name="morphe_hide_movies_menu_title">隱藏「電影與電視」選單</string>
     <string name="morphe_hide_music_menu_title">隱藏音樂選單</string>
@@ -165,6 +185,10 @@
     <string name="morphe_open_videos_fullscreen_title">以全螢幕模式開啟影片</string>
     <string name="morphe_override_youtube_music_buttons_summary">開啟您偏好的音樂應用程式，而非內建的 YouTube Music 應用程式</string>
     <string name="morphe_override_youtube_music_buttons_title">覆蓋 YouTube Music 按鈕</string>
+    <string name="morphe_playback_buffer_size_entry_low">低</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">最大</string>
+    <string name="morphe_playback_buffer_size_entry_medium">中</string>
+    <string name="morphe_playback_buffer_size_title">播放緩衝區大小</string>
     <string name="morphe_playback_in_feeds_entry_always_on">持續開啟</string>
     <string name="morphe_playback_in_feeds_entry_off">關閉</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">僅 Wi-Fi</string>
@@ -186,6 +210,9 @@
     <string name="morphe_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">欺騙伺服器以提供更高品質的選項，方法是偽造裝置尺寸</string>
     <string name="morphe_restore_old_player_buttons_title">還原舊播放器按鈕樣式</string>
+    <string name="morphe_restore_original_titles_loading">正在載入標題…</string>
+    <string name="morphe_restore_original_titles_summary">顯示原始影片標題、影片說明和頻道說明，而非自動翻譯的內容</string>
+    <string name="morphe_restore_original_titles_title">還原原始標題</string>
     <string name="morphe_sanitize_sharing_links_summary_off">未從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_summary_on">已從分享連結中移除追蹤查詢參數</string>
     <string name="morphe_sanitize_sharing_links_title">清理分享連結</string>
@@ -209,6 +236,10 @@
     <string name="morphe_settings_name_custom_item_hint">輸入名稱</string>
     <string name="morphe_settings_name_empty_warning">名稱不可為空</string>
     <string name="morphe_settings_name_title">RVX 設定名稱</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">無聲停頓至少要足夠這個時間長度才會被縮短。會在下一段影片開始時生效。</string>
+    <string name="morphe_skip_silence_minimum_pause_title">最短無聲停頓長度</string>
+    <string name="morphe_skip_silence_summary">自動跳過影片音訊中的無聲停頓</string>
+    <string name="morphe_skip_silence_title">跳過無聲停頓</string>
     <string name="morphe_splash_screen_animation_style_entry_2">顏色</string>
     <string name="morphe_splash_screen_animation_style_entry_3">單色</string>
     <string name="morphe_splash_screen_animation_style_title">啟動動畫</string>
@@ -229,6 +260,11 @@
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"啟用此設定可能會使用軟體 AV1 解碼。
 
 AV1 視訊播放可能會卡頓或丟格。"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 已多次無法執行，但 %2$s 可以執行。
+
+將 %2$s 設定為預設客戶端嗎？"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切換</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">預設客戶端無法執行</string>
     <string name="morphe_spoof_video_streams_client_type_title">預設用戶端</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">未能擷取任何用戶端串流</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">播放器 JavaScript 變種</string>
@@ -246,7 +282,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
 4. 輕觸「允許 YouTube VR」存取權
 5. 看到「裝置已連結」訊息後，請返回這個應用程式"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_activation_code_dialog_title">說明</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登入 Android VR 可解決部分使用者的播放問題
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_not_signed_in_message">"登入 Android VR 可解決部份使用者的播放問題
 
 如要登入，請按下下方的「繼續」按鈕"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_dialog_reset">登出</string>
@@ -279,6 +315,8 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="morphe_video_quality_prioritize_dialog">如果關閉此設定，則舊影片可能不會顯示任何影片品質選項</string>
     <string name="morphe_video_quality_prioritize_summary">優先考慮可用的最高影片品質，而非編碼器效率</string>
     <string name="morphe_video_quality_prioritize_title">優先影片品質</string>
+    <string name="morphe_volume_boost_summary">向上滑動超過最大音量會增強音量，這可能會使響亮的音訊失真</string>
+    <string name="morphe_volume_boost_title">音量增強</string>
     <string name="morphe_vot_caption_language_title">語言</string>
     <string name="morphe_vot_cost_free">免費</string>
     <string name="morphe_vot_cost_per_hour">每 100 小時影片 %s 元</string>
@@ -292,12 +330,12 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="morphe_vot_http_error_title">翻譯不可用</string>
     <string name="morphe_vot_max_speech_rate_summary">在字幕欄位中調整語速時的最大倍數</string>
     <string name="morphe_vot_max_speech_rate_title">最大語速</string>
-    <string name="morphe_vot_mymemory_email_summary">選用。輸入您的 MyMemory 電子郵件地址，將每日字元限制從 5,000 個提高到 50,000 個。留空則使用匿名限制</string>
+    <string name="morphe_vot_mymemory_email_summary">選用。輸入您的 MyMemory 電子信箱地址，將每日字元限制從 5,000 個提高到 50,000 個。留空則使用匿名限制</string>
     <string name="morphe_vot_mymemory_email_title">MyMemory 電子郵件</string>
     <string name="morphe_vot_mymemory_error">MyMemory 翻譯失敗 (狀態 %s)</string>
-    <string name="morphe_vot_mymemory_info_summary">"免費翻譯 API，無需 API 金鑰。免費版每日最多可翻譯 5,000 個字元，或輸入電子郵件地址後，每日最多可翻譯 50,000 個字元。
+    <string name="morphe_vot_mymemory_info_summary">"免費翻譯 API，無需 API 金鑰。免費版每日最多可翻譯 5,000 個字元，或輸入電子信箱地址後，每日最多可翻譯 50,000 個字元。
 
-點擊這裡打開 MyMemory.translated.net"</string>
+點擊此處開啟 MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">您已用完今天的免費 MyMemory 翻譯額度 (5,000 個字元)。在設定中新增 MyMemory 電子郵件地址，將每日額度提高到 50,000 個字元，或切換至其他翻譯服務</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">您已用完今天的 MyMemory 翻譯額度 (50,000 個字元)。切換至其他翻譯服務或明天再試</string>
     <string name="morphe_vot_mymemory_quota_next_available">下次可用時間為 %s。</string>
@@ -330,19 +368,10 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">使用舊式彈出式選單。</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">使用自訂對話框。</string>
     <string name="revanced_advanced_video_quality_menu_type_title">短影音中的進階影片畫質選單類型</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 為 YouTube 影片提供由社群提供的縮圖。這些縮圖通常比 YouTube 提供的更貼切
-
-若您啟用此功能，影片網址將會傳送至 API 伺服器，不會傳送其他資料。如果影片沒有 DeArrow 縮圖，則會顯示原始縮圖或靜態截圖。
-
-點擊這裡以進一步了解 DeArrow"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">DeArrow API 網址無效。</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow URL 縮圖快取端點</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API 端點</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">如果 DeArrow 無法使用，則不會顯示提示訊息</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">如果 DeArrow 無法使用，則顯示提示訊息</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow 暫時無法使用（狀態碼：%s）</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow 暫時無法使用</string>
     <string name="revanced_alt_thumbnail_home_title">首頁標籤</string>
     <string name="revanced_alt_thumbnail_library_title">您標籤</string>
     <string name="revanced_alt_thumbnail_options_entry_1">原版縮圖</string>
@@ -353,9 +382,6 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_alt_thumbnail_search_title">顯示連線錯誤警示</string>
     <string name="revanced_alt_thumbnail_stills">靜態影片擷取</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">靜態擷取是擷取每個影片的開頭/中間/結尾作為縮圖。這些圖像內建於 YouTube 中，不會使用外部 API</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">使用高品質的靜態擷取</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">使用中等品質靜態擷取。縮圖載入速度會更快，但直播、未發布或非常舊的影片可能會顯示空白縮圖</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">使用快速靜態擷取</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">中間</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">將粗體影片播放器控制項復原為較舊、較細的視覺樣式</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">結束</string>
@@ -396,7 +422,6 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_bypass_url_redirects_summary_on">已繞過 URL 重新導向</string>
     <string name="revanced_bypass_url_redirects_title">繞過網址重新導向</string>
     <string name="revanced_cancel">取消</string>
-    <string name="revanced_change_form_factor_entry_1">預設</string>
     <string name="revanced_change_form_factor_entry_2">手機</string>
     <string name="revanced_change_form_factor_entry_3">平板電腦</string>
     <string name="revanced_change_form_factor_entry_4">汽車</string>
@@ -590,7 +615,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_disable_layout_updates_title">停用版面配置更新</string>
     <string name="revanced_disable_layout_updates_user_dialog_message">"應用程式版面回復至首次安裝時的版面配置。
 
-部分伺服器端的版面可能不會回復。
+部份伺服器端的版面可能不會回復。
 
 變更內容包括：
 • 播放器彈出式選單中的元件（或相關設定）可能無法運作。
@@ -1059,11 +1084,11 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_general_ads_title">隱藏一般廣告</string>
     <string name="revanced_hide_handle_summary_off">控制列已顯示。</string>
     <string name="revanced_hide_handle_summary_on">控制列已隱藏。</string>
-    <string name="revanced_hide_handle_title">隱藏控制列</string>
+    <string name="revanced_hide_handle_title">隱藏頻道代號</string>
     <string name="revanced_hide_hashtag_section_title">隱藏主題標籤區段</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">已顯示這項內容的製作方式區塊</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">已隱藏這項內容的製作方式區塊</string>
-    <string name="revanced_hide_how_this_was_made_section_title">隱藏「此部分的製作方式」區段</string>
+    <string name="revanced_hide_how_this_was_made_section_title">隱藏「此部份的製作方式」區段</string>
     <string name="revanced_hide_hype_button_summary_off">「熱推」按鈕已顯示</string>
     <string name="revanced_hide_hype_button_summary_on">「熱推」按鈕已隱藏</string>
     <string name="revanced_hide_hype_button_title">隱藏 Hype 按鈕</string>
@@ -1098,10 +1123,10 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
 
 限制：
 • 無法依頻道名稱隱藏 Shorts
-• 部分 UI 元件可能無法隱藏
+• 部份 UI 元件可能無法隱藏
 • 搜尋關鍵字可能無法顯示結果"</string>
     <string name="revanced_hide_keyword_content_about_title">關於關鍵字篩選</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">將關鍵字或詞組用雙引號括起來，可以防止影片標題和頻道名稱的部分相符&lt;br&gt;&lt;br&gt;例如：&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; 會隱藏影片：&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;但不會隱藏：&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">將關鍵字或詞組用雙引號括起來，可以防止影片標題和頻道名稱的部份相符&lt;br&gt;&lt;br&gt;例如：&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; 會隱藏影片：&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;但不會隱藏：&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">比對整個字詞</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">留言未篩選。</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">留言已篩選。</string>
@@ -1823,7 +1848,6 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_preference_screen_account_menu_title">帳戶選單</string>
     <string name="revanced_preference_screen_action_buttons_summary">隱藏或顯示影片下方的操作按鈕。</string>
     <string name="revanced_preference_screen_ads_title">廣告</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">替換縮略圖</string>
     <string name="revanced_preference_screen_ambient_mode_summary">繞過微光模式限制或停用微光模式。</string>
     <string name="revanced_preference_screen_ambient_mode_title">微光模式</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">隱藏或顯示輪播欄在首頁, 搜尋結果, 和訂閱頁面。</string>
@@ -2019,9 +2043,9 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 前往 &lt;a href=%1$s&gt;建立新專案&amp;p;.&lt;br&gt;2.點擊&lt;b&gt;創建&lt;/b&gt; 按鈕。&lt;br&gt;3.&lt;br&gt;轉到 &lt;a href=%2$s&gt;YouTube 資料 API v3&lt;/a&gt;.&lt;br&gt;4.點選&lt;b&gt;啟用&lt;/b&gt; 按鈕。&lt;br&gt;5.點選&lt;b&gt;建立憑證&lt;b&gt; 按鈕。 &lt;br&gt;6.選擇&lt;b&gt;公共資料&lt;/b&gt; 選項。&lt;br&gt;7.點選&lt;b&gt;下一步&lt;/b&gt; 按鈕。&lt;br&gt;8.複製 API 金鑰。&lt;br&gt;&lt;br&gt;※ API 金鑰不應與其他人共用，因此它不包含在匯入/匯出設定中。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">取得 YouTube 資料 API v3 開發人員金鑰</string>
     <string name="revanced_ryd_about">關於</string>
-    <string name="revanced_ryd_attribution_summary">"資料由 Return YouTube Dislike API 提供
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike 會還原 YouTube 於 2021 年隱藏的不喜歡計數。計數來自移除前存檔的數據，而對於較新的影片，則根據用戶的投票進行估算，因此數字為近似值，且每隔幾天更新一次
 
-點擊這裡開啟 ReturnYouTubeDislike.com"</string>
+您觀看的影片 ID 會傳送至 Return YouTube Dislike API，而您的喜歡與不喜歡會以匿名方式傳送，以改善估算"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">「喜歡」按鈕樣式設為最佳外觀</string>
     <string name="revanced_ryd_compact_layout_summary_on">「喜歡」按鈕樣式設為最小寬度</string>

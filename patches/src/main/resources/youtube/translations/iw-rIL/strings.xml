@@ -59,11 +59,27 @@
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">השהה אלא אם כן אודיו אלחוטי מחובר</string>
     <string name="morphe_auto_pause_on_screen_lock_title">השהייה אוטומטית כשהמכשיר נעול</string>
     <string name="morphe_custom_branding_icon_title">אייקון האפליקציה</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow מחליף כותרות ומיניאטורות קליקבייט בכאלה שמגיעות מהקהל, שהן מדויקות יותר ופחות סנסציוניות. הכותרות נכתבות ומוצבעות על ידי הקהילה, והמיניאטורות הן פריימים שנלקחו מהסרטון
+
+הסרטונים מתבקשים באמצעות קידומת קצרה של מזהה הווידאו המגובב, כך שהשרת לא יכול לדעת בדיוק איזה סרטון אתה מסתכל. אם לסרטון אין מיניאטורה של DeArrow, מוצגת התמונה המקורית או תמונת סטילס"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">מספר הצבעות הקז\'ואל בקטגוריה אחת, כמו מצחיק או יצירתי, שנדרש כדי להציג את הכותרת המקורית</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">מינימום הצבעות קז\'ואל להצגת הכותרת המקורית</string>
+    <string name="morphe_dearrow_casual_mode_summary">מציג את הכותרת המקורית במקום כותרת DeArrow אם משתמשי DeArrow הצביעו שהם אוהבים את הכותרת המקורית</string>
+    <string name="morphe_dearrow_casual_mode_title">מצב קז\'ואל</string>
+    <string name="morphe_dearrow_error">השירות DeArrow אינו זמין באופן זמני (קוד מצב: %s)</string>
+    <string name="morphe_dearrow_error_generic">השירות DeArrow אינו זמין באופן זמני</string>
+    <string name="morphe_dearrow_titles_icon_summary">מציג את סמל DeArrow על כותרות וידאו שמקורן בקהל</string>
+    <string name="morphe_dearrow_titles_icon_title">הצג סמל DeArrow</string>
+    <string name="morphe_dearrow_titles_title">כותרות DeArrow</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">מונע מהעדכונים להתרענן אוטומטית לאחר שהם מתיישנים</string>
+    <string name="morphe_disable_auto_feed_refresh_title">השבת רענון אוטומטי של עדכונים</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">שומר את סרגל הניווט גלוי בזמן גלילה</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">השבת הסתרת אוטומטית של סרגל הניווט</string>
     <string name="morphe_disable_drc_audio_summary_off">אודיו DRC מופעל</string>
     <string name="morphe_disable_drc_audio_summary_on">אודיו DRC מושבת</string>
     <string name="morphe_disable_drc_audio_title">השבת אודיו DRC</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">מציג את לחצני הניווט עם תוויות, אם YouTube שולח אותם ללא תוויות</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">השבת לחצני ניווט ללא תוויות</string>
     <string name="morphe_disable_quic_protocol_summary_off">פרוטוקול QUIC פעיל</string>
     <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
     <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
@@ -93,9 +109,9 @@
 מגבלות:
 • Shorts מסוננים עשויים להופיע כשטח ריק
 • חלק מסרטוני הבינה המלאכותית עדיין עשויים להופיע"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"הנתונים מסופקים על ידי AiSList
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList הוא רשימה בקוד פתוח של ערוצי YouTube שמפרסמים תוכן שנוצר באמצעות בינה מלאכותית, המתוחזקת על ידי מתנדבים. ערוצים מדווחים על ידי משתמשים ונבדקים לפני שהם מתווספים
 
-הקש כאן כדי לפתוח את AiSlopList.com ולראות הורדות עבור פלטפורמות אחרות"</string>
+הרשימה מורדת מ-GitHub וסרטונים מסוננים במכשיר שלך"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">רשימה חסומה: ביטחון גבוה</string>
     <string name="morphe_hide_aislist_hide_home_title">הסתר סרטונים בעמוד הבית</string>
     <string name="morphe_hide_aislist_hide_search_title">הסתר סרטונים בחיפוש</string>
@@ -110,6 +126,8 @@
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">ערוצים ברשימת אזהרה</string>
     <string name="morphe_hide_aislist_warnlist_category_title">רשימת אזהרה: ביטחון בינוני</string>
     <string name="morphe_hide_auto_dubbed_label_title">הסתר תווית \'דיבוב אוטומטי\'</string>
+    <string name="morphe_hide_channel_buttons_summary">מסתיר כפתורים כגון הירשם, מעבר לערוץ, קהילה ו-YouTube Music מפרופילי ערוצים בתוצאות החיפוש</string>
+    <string name="morphe_hide_channel_buttons_title">הסתר כפתורי ערוץ</string>
     <string name="morphe_hide_courses_menu_title">הסתר תפריט קורסים</string>
     <string name="morphe_hide_explore_button_title">הסתר כפתור חקור</string>
     <string name="morphe_hide_fashion_menu_title">הסתר תפריט \'אופנה ויופי\'</string>
@@ -121,6 +139,8 @@
     <string name="morphe_hide_invite_to_message_card_title">הסתר את הכרטיס \"הזמן אחרים להודעה\"</string>
     <string name="morphe_hide_learning_menu_title">הסתר תפריט למידה</string>
     <string name="morphe_hide_live_menu_title">הסתר תפריט לייב</string>
+    <string name="morphe_hide_live_streams_summary">מסתיר סרטונים שמועברים בשידור חי כעת בפיד הבית ובתוצאות החיפוש</string>
+    <string name="morphe_hide_live_streams_title">הסתר שידורים חיים</string>
     <string name="morphe_hide_memberships_menu_title">הסתר תפריט מנויים</string>
     <string name="morphe_hide_movies_menu_title">הסתר תפריט \'סרטים וטלוויזיה\'</string>
     <string name="morphe_hide_music_menu_title">הסתר תפריט מוזיקה</string>
@@ -165,6 +185,10 @@
     <string name="morphe_open_videos_fullscreen_title">פתח סרטונים במצב מסך מלא</string>
     <string name="morphe_override_youtube_music_buttons_summary">פותח את אפליקציית המוזיקה המועדפת עליך במקום אפליקציית YouTube Music הרגילה</string>
     <string name="morphe_override_youtube_music_buttons_title">גמַהת במְירַד הכולַה</string>
+    <string name="morphe_playback_buffer_size_entry_low">נמוך</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">מקסימלי</string>
+    <string name="morphe_playback_buffer_size_entry_medium">בינוני</string>
+    <string name="morphe_playback_buffer_size_title">גודל חיץ ההשמעה</string>
     <string name="morphe_playback_in_feeds_entry_always_on">תמיד מופעל</string>
     <string name="morphe_playback_in_feeds_entry_off">כבוי</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">רק Wi-Fi</string>
@@ -186,6 +210,9 @@
     <string name="morphe_replace_music_with_youtube_title">שנה קישורי שיתוף ל-youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">מחזיר את כפתורי הנגן של הסרטון לסגנון הוויזואלי הישן והדק יותר</string>
     <string name="morphe_restore_old_player_buttons_title">שחזור סגנון כפתורי נגן ישן</string>
+    <string name="morphe_restore_original_titles_loading">טוען כותרת…</string>
+    <string name="morphe_restore_original_titles_summary">מציג את כותרות הסרטונים המקוריות, את תיאורי הסרטונים ואת תיאורי הערוצים במקום אלה המתורגמים אוטומטית</string>
+    <string name="morphe_restore_original_titles_title">שחזור כותרות מקוריות</string>
     <string name="morphe_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
     <string name="morphe_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
@@ -209,6 +236,10 @@
     <string name="morphe_settings_name_custom_item_hint">הזן שם</string>
     <string name="morphe_settings_name_empty_warning">השם לא יכול להיות ריק</string>
     <string name="morphe_settings_name_title">שם ההגדרות של RVX</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">רק הפסקות שאורכן לפחות משך זה יתקצרו. ההגדרה תיכנס לתוקף כשהסרטון הבא מתחיל</string>
+    <string name="morphe_skip_silence_minimum_pause_title">אורך הפסקה מינימלי</string>
+    <string name="morphe_skip_silence_summary">מדלג אוטומטית על הפסקות שקט באודיו של וידאו</string>
+    <string name="morphe_skip_silence_title">דילוג על שקט</string>
     <string name="morphe_splash_screen_animation_style_entry_2">צבע</string>
     <string name="morphe_splash_screen_animation_style_entry_3">מונוכרום</string>
     <string name="morphe_splash_screen_animation_style_title">אנימציית אתחול</string>
@@ -229,6 +260,11 @@
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"הפעלת הגדרה זו עשויה להשתמש בפענוח תוכנה של AV1
 
 הפעלת וידאו עם AV1 עלולה לגרום לגמגום או לדלוג על פריימים"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s לא עבד כמה פעמים ברציפות, אבל %2$s עבד
+
+להפוך את %2$s ללקוח ברירת המחדל?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">החלף</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">לקוח ברירת המחדל לא עובד</string>
     <string name="morphe_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не удалось получить доступ к потокам клиента</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">גירסת JavaScript של השחקן</string>
@@ -279,6 +315,8 @@
     <string name="morphe_video_quality_prioritize_dialog">אם ההגדרה הזו כבויה, ייתכן שסרטונים ישנים לא יציגו אפשרויות איכות וידאו</string>
     <string name="morphe_video_quality_prioritize_summary">מתעדף את איכות הווידאו הגבוהה ביותר הזמינה על פני יעילות הקידוד</string>
     <string name="morphe_video_quality_prioritize_title">תעדוף איכות וידאו</string>
+    <string name="morphe_volume_boost_summary">כאשר מחליקים למעלה מעבר לעוצמת הקול המקסימלית, זה מגביר אותה, מה שעלול לעוות שמע חזק</string>
+    <string name="morphe_volume_boost_title">הגברת עוצמת הקול</string>
     <string name="morphe_vot_caption_language_title">שפה</string>
     <string name="morphe_vot_cost_free">חינם</string>
     <string name="morphe_vot_cost_per_hour">%s לכל 100 שעות וידאו</string>
@@ -330,19 +368,10 @@
     <string name="revanced_advanced_video_quality_menu_type_summary_off">נעשה שימוש בתפריט נשלף בסגנון ישן</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">נעשה שימוש בדיאלוג מותאם אישית</string>
     <string name="revanced_advanced_video_quality_menu_type_title">סוג תפריט איכות וידאו מתקדמת ב-Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow מספק תמונות ממוזערות שנאספו בהמונים לסרטוני YouTube. תמונות ממוזערות אלה רלוונטיות לרוב מאלו שסיפק YouTube
-
-אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, יוצגו התמונות המקוריות או הצילומים המצולמים
-
-הקש כאן כדי ללמוד עוד על DeArrow"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">כתובת ה-API של DeArrow אינה תקינה</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">כתובת ה-URL של הנקודת קצה מטמון תמונות ממוזערות של DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">נקודת קצה של DeArrow API</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">הודעה קופצת אינו מוצגת אם DeArrow אינו זמין</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">הודעה קופצת מוצגת אם DeArrow אינו זמין</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">השירות DeArrow אינו זמין באופן זמני (קוד מצב: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">השירות DeArrow אינו זמין באופן זמני</string>
     <string name="revanced_alt_thumbnail_home_title">לכרטיסיית דף הבית</string>
     <string name="revanced_alt_thumbnail_library_title">לכרטיסיית \'בשבילך\'</string>
     <string name="revanced_alt_thumbnail_options_entry_1">תמונות ממוזערות מקוריות</string>
@@ -353,9 +382,6 @@
     <string name="revanced_alt_thumbnail_search_title">לתוצאות חיפוש</string>
     <string name="revanced_alt_thumbnail_stills">צילום וידאו סטילס</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">לכידות דוממות נלקחות מהתחלת/אמצע/סוף של כל סרטון. תמונות אלו מובנות לתוך YouTube ולא נעשה שימוש ב-API חיצוני</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">שימוש בלכידות דוממות באיכות גבוהה</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">שימוש בלכידות דוממות באיכות בינונית. תמונות ממוזערות יטענו מהר יותר, אבל שידורים חיים וסרטונים שלא פורסמו או ישנים מאוד עשויים להציג תמונות ממוזערות ריקות</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">השתמש בלכידות דוממות מהירות</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">התחלה</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">אמצע</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">סיום</string>
@@ -391,7 +417,6 @@
     <string name="revanced_bypass_url_redirects_summary_on">הפניות מחדש של URL נעקפות</string>
     <string name="revanced_bypass_url_redirects_title">עקוף הפניות מחדש של URL</string>
     <string name="revanced_cancel">לבטל</string>
-    <string name="revanced_change_form_factor_entry_1">ברירת מחדל</string>
     <string name="revanced_change_form_factor_entry_2">טלפון</string>
     <string name="revanced_change_form_factor_entry_3">טאבלט</string>
     <string name="revanced_change_form_factor_entry_4">רכב</string>
@@ -694,6 +719,7 @@
     <string name="revanced_hide_general_ads_summary_off">מודעות כלליות מוצגות</string>
     <string name="revanced_hide_general_ads_summary_on">מודעות כלליות מוסתרות</string>
     <string name="revanced_hide_general_ads_title">הסתר מודעות כלליות</string>
+    <string name="revanced_hide_handle_title">הסתר שם משתמש</string>
     <string name="revanced_hide_hashtag_section_title">הסתר סעיף Hashtag</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">מדור \'איך התוכן הזה נוצר\' מוצג</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">מדור \'איך התוכן הזה נוצר\' מוסתר</string>
@@ -1007,9 +1033,9 @@
 
 מגבלה: חוזר לסגנון הישן של שכבת 'עוד סרטונים'"</string>
     <string name="revanced_restore_old_video_action_bar_title">שחזור סרגל פעולות וידאו ישן</string>
-    <string name="revanced_ryd_attribution_summary">"הנתונים מסופקים על ידי ה-Return YouTube Dislike API
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike משחזר את מספרי הדיסלייקים ש-YouTube הסתיר ב-2021. המספרים מגיעים מנתונים שנשמרו בארכיון לפני ההסרה והם מוערכים עבור סרטונים חדשים יותר מההצבעות של משתמשיה, לכן הם מקורבים ומתעדכנים כל כמה ימים
 
-הקש כאן כדי לפתוח את ReturnYouTubeDislike.com"</string>
+מזהה הסרטון שאתה צופה בו נשלח ל-API של Return YouTube Dislike, והלייקים והדיסלייקים שלך נשלחים באופן אנונימי כדי לשפר את ההערכות"</string>
     <string name="revanced_ryd_compact_layout_summary_off">לחצן אהבתי מעוצב למראה הטוב ביותר</string>
     <string name="revanced_ryd_compact_layout_summary_on">לחצן אהבתי מעוצב לרוחב מינימלי</string>
     <string name="revanced_ryd_compact_layout_title">השתמש בכפתור לייק קומפקטי</string>

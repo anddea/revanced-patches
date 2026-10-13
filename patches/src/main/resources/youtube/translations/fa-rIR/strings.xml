@@ -60,11 +60,27 @@
     <string name="morphe_auto_pause_on_screen_lock_title">مکث خودکار هنگام قفل‌شدن دستگاه</string>
     <string name="morphe_custom_branding_icon_title">آیکون برنامه</string>
     <string name="morphe_dark_theme_title">تم تاریک</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow عنوان‌های کلیک‌بیت و بندانگشتی‌ها را با نمونه‌های جمع‌سپاری‌شده جایگزین می‌کند که دقیق‌تر و کم‌جنجال‌تر هستند. عنوان‌ها توسط جامعه نوشته و رأی‌گیری می‌شوند و بندانگشتی‌ها فریم‌هایی هستند که از ویدیو گرفته شده‌اند
+
+ویدیوها با پیشوند کوتاهی از شناسه هش‌شده ویدیو درخواست می‌شوند، بنابراین سرور نمی‌تواند دقیقاً بفهمد به کدام ویدیو نگاه می‌کنید. اگر ویدیویی بندانگشتی DeArrow نداشته باشد، تصویر اصلی یا یک فریم ثابت نمایش داده می‌شود"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">تعداد رای‌های غیررسمی در یک دسته‌بندی، مانند خنده‌دار یا خلاقانه، که برای نمایش عنوان اصلی لازم است</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">حداقل تعداد رای‌های غیررسمی برای نمایش عنوان اصلی</string>
+    <string name="morphe_dearrow_casual_mode_summary">اگر کاربران DeArrow رای داده باشند که عنوان اصلی را می‌پسندند، عنوان اصلی را به‌جای عنوان DeArrow نشان می‌دهد</string>
+    <string name="morphe_dearrow_casual_mode_title">حالت غیررسمی</string>
+    <string name="morphe_dearrow_error">DeArrow موقتاً در دسترس نیست (کد وضعیت: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow موقتاً در دسترس نیست</string>
+    <string name="morphe_dearrow_titles_icon_summary">آیکون DeArrow را روی عنوان‌های ویدیویی جمع‌سپاری‌شده نمایش می‌دهد</string>
+    <string name="morphe_dearrow_titles_icon_title">نمایش آیکون DeArrow</string>
+    <string name="morphe_dearrow_titles_title">عنوان‌های DeArrow</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">جلوگیری از تازه‌سازی خودکار فیدها پس از قدیمی شدن آن‌ها</string>
+    <string name="morphe_disable_auto_feed_refresh_title">غیرفعال کردن تازه‌سازی خودکار فید</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">هنگام پیمایش، نوار پیمایش را قابل مشاهده نگه می‌دارد</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">غیرفعال‌کردن پنهان‌شدن خودکار نوار پیمایش</string>
     <string name="morphe_disable_drc_audio_summary_off">صدای DRC فعال است</string>
     <string name="morphe_disable_drc_audio_summary_on">صدای DRC غیرفعال است</string>
     <string name="morphe_disable_drc_audio_title">غیرفعال‌کردن صدای DRC</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">اگر YouTube دکمه‌های ناوبری را بدون برچسب ارسال کند، آن‌ها را با برچسب نشان می‌دهد</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">غیرفعال کردن دکمه‌های ناوبری بدون برچسب</string>
     <string name="morphe_disable_quic_protocol_summary_off">پروتکل QUIC فعال شده است</string>
     <string name="morphe_disable_quic_protocol_summary_on">پروتکل QUIC غیرفعال است</string>
     <string name="morphe_disable_quic_protocol_title">غیرفعال‌کردن پروتکل QUIC</string>
@@ -89,9 +105,9 @@
 محدودیت‌ها:
 • Shorts فیلترشدهٔ هوش مصنوعی ممکن است به‌صورت فضای خالی نمایش داده شوند
 • ممکن است بعضی ویدئوهای هوش مصنوعی همچنان نمایش داده شوند"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"داده‌ها توسط AiSList ارائه می‌شوند
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList یک فهرست متن‌باز از کانال‌های YouTube است که محتوای تولیدشده با هوش مصنوعی را منتشر می‌کنند و توسط داوطلبان نگهداری می‌شود. کانال‌ها توسط کاربران گزارش می‌شوند و پیش از افزوده‌شدن بررسی می‌شوند
 
-برای بازکردن AiSlopList.com و دیدن دانلودها برای پلتفرم‌های دیگر، اینجا ضربه بزنید"</string>
+این فهرست از GitHub دانلود می‌شود و ویدیوها روی دستگاه شما فیلتر می‌شوند"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">فهرست مسدودشده: اطمینان زیاد</string>
     <string name="morphe_hide_aislist_hide_home_title">پنهان‌کردن ویدئوها در خانه</string>
     <string name="morphe_hide_aislist_hide_search_title">پنهان‌کردن ویدئوها در جست‌وجو</string>
@@ -106,6 +122,8 @@
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">کانال‌های فهرست هشدار</string>
     <string name="morphe_hide_aislist_warnlist_category_title">فهرست هشدار: اطمینان متوسط</string>
     <string name="morphe_hide_auto_dubbed_label_title">پنهان‌کردن برچسب «دوبلهٔ خودکار»</string>
+    <string name="morphe_hide_channel_buttons_summary">دکمه‌هایی مانند اشتراک، مشاهده کانال، انجمن و YouTube Music را از نمایه کانال‌ها در نتایج جستجو پنهان می‌کند</string>
+    <string name="morphe_hide_channel_buttons_title">پنهان کردن دکمه‌های کانال</string>
     <string name="morphe_hide_courses_menu_title">پنهان‌کردن منوی دوره‌ها</string>
     <string name="morphe_hide_explore_button_title">پنهان‌کردن دکمهٔ کاوش</string>
     <string name="morphe_hide_fashion_menu_title">پنهان‌کردن منوی «مد و زیبایی»</string>
@@ -117,6 +135,8 @@
     <string name="morphe_hide_invite_to_message_card_title">پنهان‌کردن کارت «دعوت از دیگران برای پیام‌دادن»</string>
     <string name="morphe_hide_learning_menu_title">پنهان‌کردن منوی یادگیری</string>
     <string name="morphe_hide_live_menu_title">پنهان‌کردن منوی زنده</string>
+    <string name="morphe_hide_live_streams_summary">ویدیوهایی را که هم‌اکنون به‌صورت زنده پخش می‌شوند در فید خانه و نتایج جستجو پنهان می‌کند</string>
+    <string name="morphe_hide_live_streams_title">پنهان کردن پخش‌های زنده</string>
     <string name="morphe_hide_memberships_menu_title">پنهان‌کردن منوی عضویت‌ها</string>
     <string name="morphe_hide_movies_menu_title">پنهان‌کردن منوی «فیلم‌ها و تلویزیون»</string>
     <string name="morphe_hide_music_menu_title">پنهان‌کردن منوی موسیقی</string>
@@ -154,6 +174,10 @@
     <string name="morphe_open_videos_fullscreen_title">بازکردن ویدئوها در حالت تمام‌صفحه</string>
     <string name="morphe_override_youtube_music_buttons_summary">به‌جای برنامهٔ اصلی YouTube Music، برنامهٔ موسیقی دلخواه شما را باز می‌کند</string>
     <string name="morphe_override_youtube_music_buttons_title">جایگزین‌کردن دکمه‌های YouTube Music</string>
+    <string name="morphe_playback_buffer_size_entry_low">کم</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">حداکثر</string>
+    <string name="morphe_playback_buffer_size_entry_medium">متوسط</string>
+    <string name="morphe_playback_buffer_size_title">اندازه بافر پخش</string>
     <string name="morphe_playback_in_feeds_entry_always_on">همیشه روشن</string>
     <string name="morphe_playback_in_feeds_entry_off">خاموش</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">فقط Wi-Fi</string>
@@ -170,14 +194,18 @@
     <string name="morphe_replace_music_with_youtube_title">تغییر پیوندهای اشتراک‌گذاری به youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">کنترل‌های پررنگ پخش‌کنندهٔ ویدئو را به سبک بصری قدیمی و باریک‌تر برمی‌گرداند</string>
     <string name="morphe_restore_old_player_buttons_title">بازیابی سبک قدیمی دکمه‌های پخش‌کننده</string>
+    <string name="morphe_restore_original_titles_loading">در حال بارگذاری عنوان…</string>
+    <string name="morphe_restore_original_titles_summary">عنوان‌های اصلی ویدیو، توضیحات ویدیو و توضیحات کانال را به‌جای نسخه‌های ترجمه‌شده خودکار نمایش می‌دهد</string>
+    <string name="morphe_restore_original_titles_title">بازیابی عنوان‌های اصلی</string>
     <string name="morphe_sanitize_sharing_links_title">پاک‌سازی پیوندهای اشتراک‌گذاری</string>
     <string name="morphe_save_to_watch_later_already_exists_toast">این ویدئو از قبل در فهرست پخش «بعداً تماشا می‌کنم» ذخیره شده است</string>
     <string name="morphe_save_to_watch_later_button_summary">برای ذخیره در «بعداً تماشا می‌کنم» ضربه بزنید؛ برای گزینه‌های صف لمس طولانی کنید</string>
     <string name="morphe_save_to_watch_later_button_title">نمایش دکمهٔ ذخیره برای بعداً تماشا کردن</string>
     <string name="morphe_save_to_watch_later_error_toast">ذخیرهٔ این ویدئو در فهرست پخش «بعداً تماشا می‌کنم» ممکن نیست</string>
     <string name="morphe_save_to_watch_later_flyout_title">ذخیره برای بعداً تماشا کردن</string>
-    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">امکان ذخیرهٔ ویدئوهای مربوط به کودکان را در منوی بازشوی «بعداً تماشا می‌کنم» فراهم می‌کند</string>
+    <string name="morphe_save_to_watch_later_kids_flyout_button_summary">امکان ذخیره ویدیوهای مرتبط با کودکان در «تماشای بعداً» را از منوی بازشو فراهم می‌کند</string>
     <string name="morphe_save_to_watch_later_kids_flyout_button_title">نمایش دکمهٔ ذخیره برای بعداً تماشا کردن در ویدئوهای کودک</string>
+    <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">امکان ذخیره Shorts در «تماشای بعداً» را از منوی بازشو فراهم می‌کند</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">نمایش دکمهٔ ذخیره برای بعداً تماشا کردن در منوی بازشو Shorts ها</string>
     <string name="morphe_save_to_watch_later_success_toast">ویدئو با موفقیت در فهرست پخش «بعداً تماشا می‌کنم» ذخیره شد</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">بیشترین بازپخش</string>
@@ -190,9 +218,13 @@
     <string name="morphe_settings_name_custom_item_hint">نامی وارد کنید</string>
     <string name="morphe_settings_name_empty_warning">نام نمی‌تواند خالی باشد</string>
     <string name="morphe_settings_name_title">نام تنظیمات RVX</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">فقط مکث‌هایی که حداقل این مدت طول بکشند کوتاه‌تر می‌شوند. با شروع ویدیوی بعدی اعمال می‌شود</string>
+    <string name="morphe_skip_silence_minimum_pause_title">حداقل طول مکث</string>
+    <string name="morphe_skip_silence_summary">به‌طور خودکار مکث‌های بی‌صدا در صدای ویدیو را رد می‌کند</string>
+    <string name="morphe_skip_silence_title">رد کردن سکوت</string>
     <string name="morphe_splash_screen_animation_style_entry_2">رنگی</string>
     <string name="morphe_splash_screen_animation_style_entry_3">تک‌رنگ</string>
-    <string name="morphe_splash_screen_animation_style_title">سبک صفحهٔ آغازین</string>
+    <string name="morphe_splash_screen_animation_style_title">انیمیشن راه‌اندازی</string>
     <string name="morphe_spoof_video_streams_about_end_early">• پخش ممکن است ۱ ثانیه زودتر تمام شود</string>
     <string name="morphe_spoof_video_streams_about_js">• اگر رفع ابهام شکست بخورد، پخش ممکن است با شکست مواجه شود</string>
     <string name="morphe_spoof_video_streams_about_no_audio_tracks">• منوی «ترک صوتی» وجود ندارد</string>
@@ -206,6 +238,11 @@
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"فعال‌کردن این تنظیم ممکن است از رمزگشایی نرم‌افزاری AV1 استفاده کند
 
 پخش ویدئو با AV1 ممکن است دچار لکنت شود یا فریم‌ها را از دست بدهد"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s چند بار پیاپی کار نکرد، اما %2$s کار کرد
+
+%2$s را کلاینت پیش‌فرض کنیم؟"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">تعویض</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">کلاینت پیش‌فرض کار نمی‌کند</string>
     <string name="morphe_spoof_video_streams_client_type_title">کلاینت پیش‌فرض</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">نتوانست هیچ جریان کلاینتی دریافت کند</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">گونهٔ JavaScript پخش‌کننده</string>
@@ -248,6 +285,8 @@
     <string name="morphe_video_quality_prioritize_dialog">اگر این تنظیم خاموش باشد، ویدئوهای قدیمی ممکن است هیچ گزینهٔ کیفیت ویدئویی نشان ندهند</string>
     <string name="morphe_video_quality_prioritize_summary">بالاترین کیفیت موجود را بر کارایی کدک اولویت می‌دهد</string>
     <string name="morphe_video_quality_prioritize_title">اولویت‌دادن به کیفیت ویدئو</string>
+    <string name="morphe_volume_boost_summary">کشیدن انگشت به بالا فراتر از حداکثر صدا آن را تقویت می‌کند، که می‌تواند صدای بلند را مخدوش کند</string>
+    <string name="morphe_volume_boost_title">تقویت صدا</string>
     <string name="morphe_vot_caption_language_title">زبان</string>
     <string name="morphe_vot_cost_free">رایگان</string>
     <string name="morphe_vot_cost_per_hour">%s به‌ازای هر ۱۰۰ ساعت ویدئو</string>
@@ -294,16 +333,8 @@
     <string name="morphe_vot_voice_gender_male">مرد</string>
     <string name="morphe_vot_voice_gender_male_multilingual">مرد چندزبانه</string>
     <string name="revanced_advanced_video_quality_menu_title">بازکردن منوی کیفیت پیشرفته</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow تصاویر بندانگشتی جمع‌سپاری‌شده برای ویدئوهای YouTube فراهم می‌کند. این تصاویر معمولاً از تصاویر ارائه‌شده توسط YouTube مرتبط‌تر هستند
-
-اگر فعال باشد، نشانی ویدئوها به سرور API ارسال می‌شود و هیچ دادهٔ دیگری ارسال نمی‌شود. اگر ویدئویی تصویر بندانگشتی DeArrow نداشته باشد، تصاویر اصلی یا ثابت نمایش داده می‌شوند
-
-برای بازکردن DeArrow به اینجا ضربه بزنید: DeArrow.ajay.app"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">نشانی نقطهٔ پایانی حافظهٔ پنهان تصاویر بندانگشتی DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">نقطهٔ پایانی API DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow موقتاً در دسترس نیست (کد وضعیت: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow موقتاً در دسترس نیست</string>
     <string name="revanced_alt_thumbnail_home_title">برای برگهٔ خانه</string>
     <string name="revanced_alt_thumbnail_library_title">برای برگهٔ «برای شما»</string>
     <string name="revanced_alt_thumbnail_options_entry_1">تصاویر بندانگشتی اصلی</string>
@@ -313,7 +344,6 @@
     <string name="revanced_alt_thumbnail_player_title">برای فهرست‌های پخش و پیشنهادهای پخش‌کننده</string>
     <string name="revanced_alt_thumbnail_search_title">برای نتایج جست‌وجو</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">تصاویر ثابت از ابتدا / میانه / انتهای هر ویدئو گرفته می‌شوند. این تصاویر در YouTube تعبیه شده‌اند و از API خارجی استفاده نمی‌شود</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">استفاده از تصاویر ثابت سریع</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">ابتدا</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">میانه</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">انتها</string>
@@ -328,7 +358,6 @@
     <string name="revanced_back_button_always_exits_feed_title">دکمهٔ برگشت از خوراک خارج می‌شود</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">دورزدن محدودیت‌های حالت محیطی</string>
     <string name="revanced_bypass_image_region_restrictions_title">دورزدن محدودیت‌های منطقه‌ای تصویر</string>
-    <string name="revanced_change_form_factor_entry_1">پیش‌فرض</string>
     <string name="revanced_change_form_factor_entry_2">تلفن</string>
     <string name="revanced_change_form_factor_entry_3">تبلت</string>
     <string name="revanced_change_form_factor_entry_4">خودرویی</string>
@@ -507,6 +536,7 @@
     <string name="revanced_hide_fullscreen_ads_summary_on">تبلیغات تمام‌صفحه پنهان هستند</string>
     <string name="revanced_hide_fullscreen_ads_title">پنهان‌کردن تبلیغات تمام‌صفحه</string>
     <string name="revanced_hide_general_ads_title">پنهان‌کردن تبلیغات عمومی</string>
+    <string name="revanced_hide_handle_title">پنهان کردن شناسه</string>
     <string name="revanced_hide_hashtag_section_title">پنهان‌کردن بخش هشتگ</string>
     <string name="revanced_hide_how_this_was_made_section_title">پنهان‌کردن بخش «این چگونه ساخته شد»</string>
     <string name="revanced_hide_hype_button_title">پنهان‌کردن دکمهٔ Hype</string>
@@ -609,6 +639,7 @@
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">توقف پخش با کشیدن افقی</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">به‌خاطر سپردن موقعیت کشیدن</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_title">پنهان‌کردن دکمه‌های روی‌هم‌افتاده</string>
+    <string name="revanced_miniplayer_hide_title_title">پنهان کردن عنوان و کانال</string>
     <string name="revanced_miniplayer_opacity_title">شفافیت روی‌هم‌افتادگی</string>
     <string name="revanced_miniplayer_type_entry_2">حداقلی</string>
     <string name="revanced_miniplayer_type_entry_3">مینیمال ۲</string>
@@ -657,13 +688,13 @@
     <string name="revanced_remove_viewer_discretion_dialog_title">حذف گفت‌وگوی هشدار بیننده</string>
     <string name="revanced_restart_first_run">برای پایان راه‌اندازی، مجدداً راه‌اندازی کنید</string>
     <string name="revanced_restore_old_settings_menus_title">بازگرداندن صفحهٔ تنظیمات قدیمی YouTube</string>
-    <string name="revanced_restore_old_video_action_bar_summary">"مشکل نمایش‌ندادن پسندیدن‌ها و پنهان‌نشدن دکمه‌های عملیات ویدئو را برطرف می‌کند
+    <string name="revanced_restore_old_video_action_bar_summary">"رفع مشکل پنهان‌نشدن دکمه‌های اکشن ویدیو
 
-محدودیت: به سبک قدیمی روی‌هم‌افتادگی «ویدئوهای بیشتر» برمی‌گردد"</string>
+محدودیت: به نمای قدیمی «ویدیوهای بیشتر» بازمی‌گردد"</string>
     <string name="revanced_restore_old_video_action_bar_title">بازیابی نوار عملیات قدیمی ویدئو</string>
-    <string name="revanced_ryd_attribution_summary">"داده‌ها توسط API سرویس Return YouTube Dislike ارائه می‌شوند
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike تعداد دیسلایک‌هایی را که YouTube در ۲۰۲۱ پنهان کرد بازیابی می‌کند. این شمارش‌ها از داده‌های بایگانی‌شده پیش از حذف به دست می‌آیند و برای ویدیوهای جدیدتر بر اساس آرای کاربران Return YouTube Dislike تخمین زده می‌شوند؛ بنابراین تقریبی هستند و هر چند روز یک‌بار به‌روزرسانی می‌شوند
 
-برای بازکردن ReturnYouTubeDislike.com، اینجا ضربه بزنید"</string>
+شناسه ویدیویی که تماشا می‌کنید به API سرویس Return YouTube Dislike ارسال می‌شود و لایک‌ها و دیسلایک‌های شما به‌صورت ناشناس برای بهبود تخمین‌ها ارسال می‌شوند"</string>
     <string name="revanced_ryd_compact_layout_title">استفاده از دکمهٔ پسندیدن فشرده</string>
     <string name="revanced_ryd_dislike_percentage_title">نمایش نپسندیدن‌ها به‌صورت درصد</string>
     <string name="revanced_ryd_estimated_like_title">نمایش پسندیدن‌های تخمینی</string>
@@ -685,6 +716,7 @@
     <string name="revanced_settings_import_copy">کپی</string>
     <string name="revanced_settings_import_reset">تنظیمات RVX به پیش‌فرض بازنشانی شد</string>
     <string name="revanced_settings_import_success">%d تنظیم وارد شد</string>
+    <string name="revanced_settings_navigate_up">بازگشت به بالا</string>
     <string name="revanced_settings_reset">بازنشانی</string>
     <string name="revanced_settings_reset_color">بازنشانی رنگ</string>
     <string name="revanced_settings_search_clear_history">پاک‌کردن سابقهٔ جست‌وجو</string>
@@ -695,6 +727,7 @@
     <string name="revanced_settings_search_no_results_summary">کلیدواژهٔ دیگری را امتحان کنید</string>
     <string name="revanced_settings_search_no_results_title">نتیجه‌ای برای «%s» پیدا نشد</string>
     <string name="revanced_settings_search_recent_searches">جست‌وجوهای اخیر</string>
+    <string name="revanced_settings_search_remove">حذف از تاریخچه جستجو</string>
     <string name="revanced_settings_search_remove_message">از سابقهٔ جست‌وجو حذف شود؟</string>
     <string name="revanced_settings_search_tips_summary">"• برای پیمایش به یک مسیر، روی آن ضربه بزنید
 • برای پیمایش به یک تنظیم، آن را طولانی فشار دهید

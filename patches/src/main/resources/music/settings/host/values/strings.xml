@@ -172,6 +172,7 @@ While this is on, the Downloads tab lists these tracks instead of the Music Prem
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configure the OpenAI-compatible API endpoint for AI-powered lyrics translation and romanization</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">AI Translation Settings</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Model name (e.g. openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">Prompt template (variables: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">Configured</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Model name cannot be empty</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">Base URL cannot be empty</string>
@@ -206,10 +207,16 @@ While this is on, the Downloads tab lists these tracks instead of the Music Prem
     <string name="morphe_music_lyrics_refreshing">Refreshing</string>
     <string name="morphe_music_lyrics_romanize_failed">Could not romanize the lyrics</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanized</string>
+    <string name="morphe_music_lyrics_romanize_only">Romanized only</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanized by %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanized by Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanizing…</string>
     <string name="morphe_music_lyrics_saved">Saved</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Artist</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Search lyrics</string>
+    <string name="morphe_music_lyrics_search_empty">Enter a song title and an artist</string>
+    <string name="morphe_music_lyrics_search_no_providers">None of the enabled providers can search for other songs</string>
+    <string name="morphe_music_lyrics_search_title_hint">Song title</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">Tap to copy original lyrics as plain text; long press to save raw lyrics source file to Downloads</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Show Copy button</string>
     <string name="morphe_music_lyrics_show_refresh_button_summary">Tap to switch to next lyrics candidate; long press to search lyrics by song title and artist</string>
@@ -233,6 +240,7 @@ While this is on, the Downloads tab lists these tracks instead of the Music Prem
     <string name="morphe_music_lyrics_text_size_title">Text size</string>
     <string name="morphe_music_lyrics_translate_failed">Could not translate the lyrics</string>
     <string name="morphe_music_lyrics_translate_hide">Translated</string>
+    <string name="morphe_music_lyrics_translate_only">Translated only</string>
     <string name="morphe_music_lyrics_translated_by_ai">Translated by %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Translated by Google</string>
     <string name="morphe_music_lyrics_translating">Translating…</string>
@@ -271,6 +279,11 @@ While this is on, the Downloads tab lists these tracks instead of the Music Prem
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
     <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"The token built into this version of PoToken provider no longer works
+
+Turn on \'Spoof video streams\' to fix playback"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">PoToken provider no longer works</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Turn on</string>
     <string name="morphe_potoken_provider_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 If you are a YouTube Premium user, this setting may not be required"</string>
@@ -278,11 +291,6 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="morphe_potoken_provider_unavailable_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 To use this feature, turn off \'Spoof video streams\'"</string>
-    <string name="morphe_potoken_provider_expired_dialog_title">PoToken provider no longer works</string>
-    <string name="morphe_potoken_provider_expired_dialog_message">"The token built into this version of PoToken provider no longer works
-
-Turn on \'Spoof video streams\' to fix playback"</string>
-    <string name="morphe_potoken_provider_expired_dialog_turn_on">Turn on</string>
     <string name="morphe_replace_music_with_youtube_summary">Shared links use youtube.com instead of music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
@@ -303,13 +311,17 @@ Turn on \'Spoof video streams\' to fix playback"</string>
     <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
     <string name="morphe_settings_name_title">RVX settings name</string>
     <string name="morphe_settings_save">Save</string>
-    <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
-    <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Default client does not work</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s did not work several times in a row, but %2$s did.
+    <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
+    <string name="morphe_skip_silence_summary">Automatically skips silent pauses in video audio</string>
+    <string name="morphe_skip_silence_title">Skip silence</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s did not work several times in a row, but %2$s did
 
 Make %2$s the default client?"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Switch</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Default client does not work</string>
+    <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
+    <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
     <string name="morphe_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary">Not signed in to Android VR. Tap here to sign in</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_about_summary_disabled">To use this feature, change \'Default client\' to Android VR</string>
@@ -381,7 +393,6 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="revanced_change_share_sheet_summary">Changes the in-app share sheet to system share sheet</string>
     <string name="revanced_change_share_sheet_title">Change share sheet</string>
     <string name="revanced_change_start_page_entry_charts">Charts</string>
-    <string name="revanced_change_start_page_entry_default">Default</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Episodes for Later</string>
     <string name="revanced_change_start_page_entry_explore">Explore</string>
     <string name="revanced_change_start_page_entry_history">History</string>
@@ -919,16 +930,4 @@ Side effect (Block request):
     <string name="revanced_webview_toast_no_network">Please check your network connection</string>
     <string name="revanced_webview_toast_unavailable">WebView is not available</string>
     <string name="revanced_webview_visitor_data">Visitor Data</string>
-    <string name="morphe_music_lyrics_search_dialog_title">Search lyrics</string>
-    <string name="morphe_music_lyrics_search_title_hint">Song title</string>
-    <string name="morphe_music_lyrics_search_artist_hint">Artist</string>
-    <string name="morphe_music_lyrics_search_empty">Enter a song title and an artist</string>
-    <string name="morphe_music_lyrics_search_no_providers">None of the enabled providers can search for other songs</string>
-    <string name="morphe_music_lyrics_ai_config_prompt_hint">Prompt template (variables: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
-    <string name="morphe_music_lyrics_translate_only">Translated only</string>
-    <string name="morphe_music_lyrics_romanize_only">Romanized only</string>
-    <string name="morphe_skip_silence_title">Skip silence</string>
-    <string name="morphe_skip_silence_summary">Automatically skips silent pauses in video audio</string>
-    <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
-    <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
 </resources>

@@ -67,29 +67,31 @@ MicroG に対して電池の最適化を無効にしても、バッテリー消�
     <string name="morphe_music_crossfade_about_best_title">最適な動作環境</string>
     <string name="morphe_music_crossfade_about_credit_summary">Crossfade機能はVazerOGによるものです</string>
     <string name="morphe_music_crossfade_about_credit_title">クレジット</string>
-    <string name="morphe_music_crossfade_about_how_summary">"クロスフェードは、ある曲の終わりと次の曲の始まりを重ね合わせ、選択した時間とカーブで一方の曲の音量を下げながら、もう一方の曲の音量を上げていきます。
+    <string name="morphe_music_crossfade_about_how_summary">"クロスフェードは、指定した時間とカーブを使用して、一曲の終わりと次の曲の始まりを重ねます。
 
-自動スキップ（曲が自動的に終了した場合）と手動スキップの両方で動作し、それぞれに上記で個別の切り替えがあります。自動スキップでは、ブレンドは曲の終了数秒前に開始されます。
-
-YouTube Music 9.x 以降が必要です。"</string>
+自動再生と手動スキップで動作し、それぞれに独自のトグルがあります。自動再生では、曲が終了する数秒前にブレンドが始まります"</string>
     <string name="morphe_music_crossfade_about_how_title">仕組み</string>
     <string name="morphe_music_crossfade_about_known_summary">"最初の曲として設定された音楽ビデオ、または現在のキュー外から開始された音楽ビデオは、音声のみモードに切り替わる前に、一時的にビデオとして表示されることがあります。
 
 クロスフェードを一時停止して音楽ビデオを視聴すると、一部のビデオが黒く表示されることがあります（ビデオ自体から音声が出力されるもの）。曲を選択する前にクロスフェードを一時停止すると、これを回避できます。"</string>
     <string name="morphe_music_crossfade_about_known_title">既知の問題</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"クロスフェードがオンのとき、音楽ビデオは音声のみで再生されます（ビデオを一時停止したい場合は、シャッフルを長押ししてください）。
+    <string name="morphe_music_crossfade_about_quirks_summary">"クロスフェードがオンの間、ミュージックビデオは音声のみで再生されます。シャッフルを長押しするとクロスフェードが一時停止され、ビデオを視聴できます。
 
-フェード時間より短い曲は、フェードをスキップする場合があります。
+再生を開始したミュージックビデオは、次の曲までビデオモードのままになります。
 
-ロック画面または通知に、移行中に古い状態が一時的に表示されることがあります。"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">完全には機能しません</string>
+フェード時間より短い曲はクロスフェードされません。
+
+ロック画面または通知に、切り替え途中の古い状態が一時的に表示されることがあります。
+
+クロスフェードを一時停止してミュージックビデオを視聴すると、一部のビデオが黒い画面のままになることがあります。曲を選ぶ前にクロスフェードを一時停止しておけば、これを回避できます"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">制限事項</string>
     <string name="morphe_music_crossfade_about_summary">クロスフェードの仕組みと利用できない場合について</string>
     <string name="morphe_music_crossfade_about_title">クロスフェードについて</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"オーディオのキャストまたはミラーリング（Chromecast、画面またはオーディオのミラーリング）—クロスフェードは不安定なため一時停止し、修正されない可能性があります。
+    <string name="morphe_music_crossfade_about_unsupported_summary">"キャストまたはオーディオミラーリング（Chromecast、画面ミラーリング、オーディオミラーリング）
 
-YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されます。"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">全く機能しない</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">キャストまたはミラーリング中は、動作が不安定なためクロスフェードを一時停止します。この問題は将来的にも解決できない可能があります</string>
+SABR再生（動画ストリームのスプーフがオフ）"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">非対応</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">キャスト中はクロスフェードがオフになります</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">ゆるやかなホールド（持続）</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">おだやかなイーズ（緩急）</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">等電力（全体音量一定）</string>
@@ -171,6 +173,7 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">AI による歌詞の翻訳とローマ字表記に使用する OpenAI 互換 API のエンドポイントを設定します。</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">AI 翻訳の設定</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">モデル名 (例: openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">プロンプトテンプレート（変数: {language}, {task}, {title}, {artist}, {count}, {lines}）</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">設定済み</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">モデル名は空欄にはできません</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">ベース URL は空欄にはできません</string>
@@ -183,7 +186,7 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
     <string name="morphe_music_lyrics_copied">クリップボードにコピーしました</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">歌詞フィルターの正規表現</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">歌詞フィルターで正規表現を使用する</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">歌詞を検索する前に、曲名、アーティスト名、アルバム名に適用される正規表現です。無効にするには空のままにしてください。デフォルトでは、「Official Video」「Remaster」「- Topic」などのよくある不要な文字列を削除します。</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">曲名、アーティスト、アルバムに適用される正規表現です。歌詞の検索前と、2つの曲名が一致するかどうかの判定時に使用されます。空にすると両方が無効になります。デフォルトでは、\"Official Video\"、\"Remaster\"、\"【插曲】\"、\"- Topic\" などのよくある不要な部分を除去します。</string>
     <string name="morphe_music_lyrics_custom_regex_title">歌詞フィルターの正規表現</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Miniplayer と MediaSession で、アーティスト名とタイトルの表示順を切り替えます。ON「アーティスト - タイトル」、OFF「タイトル - アーティスト」。歌詞検索には影響しません。</string>
     <string name="morphe_music_lyrics_display_artist_first_title">メディアセッションでアーティスト名とタイトルを表示[…] ON = \"アーティスト - タイトル\"、OFF = \"タイトル - アーティスト\" この設定は歌詞検索には影響しません</string>
@@ -200,22 +203,28 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
     <string name="morphe_music_lyrics_mediasession_title">ロック画面に MediaSession の歌詞を表示する</string>
     <string name="morphe_music_lyrics_miniplayer_title">ミニプレイヤーの歌詞を表示</string>
     <string name="morphe_music_lyrics_offset_ms_summary">再生中に現在の行をハイライトする</string>
-    <string name="morphe_music_lyrics_offset_ms_title">歌詞の遅延</string>
+    <string name="morphe_music_lyrics_offset_ms_title">全体のタイミングオフセット</string>
     <string name="morphe_music_lyrics_refreshed">更新済み</string>
     <string name="morphe_music_lyrics_refreshing">更新中</string>
     <string name="morphe_music_lyrics_romanize_failed">[…] をローマ字化できませんでした</string>
     <string name="morphe_music_lyrics_romanize_hide">歌詞が見つかりません</string>
+    <string name="morphe_music_lyrics_romanize_only">ローマ字のみ</string>
     <string name="morphe_music_lyrics_romanized_by_ai">ローマ字: %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">未保存</string>
     <string name="morphe_music_lyrics_romanizing">ロード中</string>
     <string name="morphe_music_lyrics_saved">保存しました</string>
+    <string name="morphe_music_lyrics_search_artist_hint">アーティスト</string>
+    <string name="morphe_music_lyrics_search_dialog_title">歌詞を検索</string>
+    <string name="morphe_music_lyrics_search_empty">曲名とアーティストを入力してください</string>
+    <string name="morphe_music_lyrics_search_no_providers">有効なプロバイダーのどれも、他の曲を検索できません</string>
+    <string name="morphe_music_lyrics_search_title_hint">曲名</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">オフにした行をハイライトする</string>
     <string name="morphe_music_lyrics_show_copy_button_title">コピーボタンを表示</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">タップすると次の歌詞候補に切り替わります; \"Saved\"</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">タップして次の歌詞候補に切り替え、長押しして曲名とアーティストで歌詞を検索します</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">更新ボタンを表示</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">プロバイダーのローマ字表記、Google 翻訳、または OpenAI 互換 API を使用して歌詞をローマ字化します</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">タップでローマ字表記を切り替え、長押しでローマ字表記のみ表示します。プロバイダー提供のローマ字表記、Google翻訳、またはOpenAI互換APIを使用します。</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">ローマ字化ボタンを表示</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">プロバイダーの翻訳、Google 翻訳、または OpenAI 互換 API を使用して歌詞を翻訳します</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">タップで翻訳を切り替え、長押しで翻訳のみ表示します。プロバイダー提供の翻訳、Google翻訳、またはOpenAI互換APIを使用します。</string>
     <string name="morphe_music_lyrics_show_translate_button_title">翻訳ボタンを表示</string>
     <string name="morphe_music_lyrics_source_all_disabled">すべてのプロバイダーが無効です — 内蔵歌詞と埋め込み歌詞</string>
     <string name="morphe_music_lyrics_source_label">提供: %s</string>
@@ -232,6 +241,7 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
     <string name="morphe_music_lyrics_text_size_title">文字サイズ</string>
     <string name="morphe_music_lyrics_translate_failed">歌詞を翻訳できませんでした</string>
     <string name="morphe_music_lyrics_translate_hide">歌詞が見つかりません</string>
+    <string name="morphe_music_lyrics_translate_only">翻訳のみ</string>
     <string name="morphe_music_lyrics_translated_by_ai">翻訳: %s</string>
     <string name="morphe_music_lyrics_translated_by_google">保存済み</string>
     <string name="morphe_music_lyrics_translating">翻訳中…</string>
@@ -286,6 +296,16 @@ YouTube Music 8.x — クロスフェードは9.x以降でのみ実行されま�
     <string name="morphe_settings_name_custom_item_hint">表示名を入力してください</string>
     <string name="morphe_settings_name_empty_warning">表示名は空欄にはできません</string>
     <string name="morphe_settings_name_title">RVX の設定の表示名</string>
+    <string name="morphe_settings_save">適用</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">この値よりも短い無音の部分や会話などの間はスキップ (短縮) しません。設定後に再生を開始する動画から適用されます</string>
+    <string name="morphe_skip_silence_minimum_pause_title">スキップする区間の長さのしきい値</string>
+    <string name="morphe_skip_silence_summary">動画内の無音の部分や会話などの間を自動的にスキップします</string>
+    <string name="morphe_skip_silence_title">無音の区間をスキップ</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s は複数回連続して動作しませんでしたが、%2$s は動作しました。
+
+%2$s をデフォルト クライアントにしますか？"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切り替える</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">デフォルト クライアントが動作しません</string>
     <string name="morphe_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">クライアントの動画ストリームを取得できませんでした</string>
     <string name="morphe_spoof_video_streams_screen_summary">動画の再生が止まる問題を回避するために、偽装するクライアントを設定します</string>
@@ -344,7 +364,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_change_share_sheet_summary">アプリ内共有メニューからシステムの共有メニューに置き換えます。</string>
     <string name="revanced_change_share_sheet_title">共有メニューを変更</string>
     <string name="revanced_change_start_page_entry_charts">チャート</string>
-    <string name="revanced_change_start_page_entry_default">デフォルト</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">後で視聴するエピソード</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
     <string name="revanced_change_start_page_entry_history">履歴</string>
@@ -687,9 +706,9 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API キー</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 「&lt;a href=%1$s&gt;新しいプロジェクトの作成&lt;/a&gt;」に移動します。&lt;br&gt;2. 「&lt;b&gt;作成&lt;/b&gt;」をタップします。&lt;br&gt;3. 「&lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;」に移動します。&lt;br&gt;4. 「&lt;b&gt;有効にする&lt;/b&gt;」をタップします。&lt;br&gt;5. 「&lt;b&gt;認証情報を作成&lt;/b&gt;」をタップします。&lt;br&gt;6. 「&lt;b&gt;一般公開データ&lt;/b&gt;」オプションを選択します。&lt;br&gt;7. 「&lt;b&gt;次へ&lt;/b&gt;」をタップします。&lt;br&gt;8.  API キーをコピーします。&lt;br&gt;&lt;br&gt;※API キーは他人と共有してはならないため、インポート/エクスポート設定には含まれません。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 開発者キーの発行</string>
-    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike API を使用してデータを取得しています
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike は、2021年にYouTubeが非表示にした低評価の数を復元します。カウントは削除前にアーカイブされたデータから取得され、新しい動画についてはユーザーの投票から推定されるため、おおよその値であり、数日ごとに更新されます
 
-ここをタップすると ReturnYouTubeDislike.com を開きます"</string>
+視聴している動画のIDはReturn YouTube Dislike APIに送信され、あなたの高評価と低評価は匿名で送信され、推定の精度向上に役立てられます"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">高評価ボタンを横幅が短いボタンで置き換えます</string>
     <string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタンを使用</string>

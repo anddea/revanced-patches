@@ -51,11 +51,27 @@ Báo cáo được công khai và được xem xét trước khi một kênh đ�
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Tạm dừng trừ khi có thiết bị âm thanh không dây được kết nối</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Tạm dừng khi khóa thiết bị</string>
     <string name="morphe_custom_branding_icon_title">Biểu tượng ứng dụng</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow thay thế các tiêu đề và hình thu nhỏ giật gân bằng những cái do cộng đồng đóng góp, chính xác hơn và ít giật gân hơn. Tiêu đề được viết và bình chọn bởi cộng đồng, và hình thu nhỏ là các khung hình lấy từ video
+
+Video được yêu cầu bằng một tiền tố ngắn của ID video đã băm, vì vậy máy chủ không thể biết chính xác bạn đang xem video nào. Nếu video không có hình thu nhỏ DeArrow, sẽ hiển thị bản gốc hoặc khung hình tĩnh"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">Số phiếu bầu thông thường trong một hạng mục, chẳng hạn như hài hước hoặc sáng tạo, cần thiết để hiển thị tiêu đề gốc</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Số phiếu bầu thông thường tối thiểu để hiển thị tiêu đề gốc</string>
+    <string name="morphe_dearrow_casual_mode_summary">Hiển thị tiêu đề gốc thay vì tiêu đề DeArrow nếu người dùng DeArrow bình chọn rằng họ thích tiêu đề gốc</string>
+    <string name="morphe_dearrow_casual_mode_title">Chế độ thông thường</string>
+    <string name="morphe_dearrow_error">DeArrow tạm thời không khả dụng (mã trạng thái: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow tạm thời không khả dụng</string>
+    <string name="morphe_dearrow_titles_icon_summary">Hiển thị biểu tượng DeArrow trên các tiêu đề video do cộng đồng đóng góp</string>
+    <string name="morphe_dearrow_titles_icon_title">Hiển thị biểu tượng DeArrow</string>
+    <string name="morphe_dearrow_titles_title">Tiêu đề DeArrow</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Ngăn các nguồn cấp dữ liệu tự động làm mới sau khi chúng trở nên lỗi thời</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Tắt tự động làm mới nguồn cấp dữ liệu</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Giữ thanh điều hướng hiển thị khi cuộn</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Tắt tự động ẩn thanh điều hướng</string>
     <string name="morphe_disable_drc_audio_summary_off">Tính năng nén dải động đã bật</string>
     <string name="morphe_disable_drc_audio_summary_on">Tính năng nén dải động đã tắt</string>
     <string name="morphe_disable_drc_audio_title">Tắt âm thanh DRC</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Hiển thị các nút điều hướng có nhãn, nếu YouTube gửi chúng không có nhãn</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Tắt các nút điều hướng không có nhãn</string>
     <string name="morphe_disable_quic_protocol_summary_off">Giao thức QUIC đã bật</string>
     <string name="morphe_disable_quic_protocol_summary_on">Giao thức QUIC đã tắt</string>
     <string name="morphe_disable_quic_protocol_title">Tắt giao thức QUIC</string>
@@ -85,9 +101,9 @@ Báo cáo được công khai và được xem xét trước khi một kênh đ�
 Hạn chế:
 • Short sử dụng AI sau khi lọc có thể để lại một màn hình trống
 • Một số video AI có thể vẫn hiển thị"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"Dữ liệu được cung cấp bởi AiSList
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList là danh sách mã nguồn mở các kênh YouTube đăng nội dung do AI tạo ra, được duy trì bởi các tình nguyện viên. Các kênh được người dùng báo cáo và được xem xét trước khi được thêm vào
 
-Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các nền tảng khác"</string>
+Danh sách được tải xuống từ GitHub và video được lọc trên thiết bị của bạn"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">Danh sách chặn: Độ tin cậy cao</string>
     <string name="morphe_hide_aislist_hide_home_title">Ẩn video trên Trang chủ</string>
     <string name="morphe_hide_aislist_hide_search_title">Ẩn video trong tìm kiếm</string>
@@ -102,6 +118,8 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Kênh trong ds cảnh báo</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Danh sách cảnh báo: Độ tin cậy trung bình</string>
     <string name="morphe_hide_auto_dubbed_label_title">Ẩn nhãn \"Bản lồng tiếng\"</string>
+    <string name="morphe_hide_channel_buttons_summary">Ẩn các nút như Đăng ký, Xem kênh, Cộng đồng và YouTube Music khỏi hồ sơ kênh trong kết quả tìm kiếm</string>
+    <string name="morphe_hide_channel_buttons_title">Ẩn các nút kênh</string>
     <string name="morphe_hide_courses_menu_title">Ẩn menu Khóa học</string>
     <string name="morphe_hide_explore_button_title">Ẩn nút Khám phá</string>
     <string name="morphe_hide_fashion_menu_title">Ẩn menu \'Thời trang &amp; Làm đẹp\'</string>
@@ -113,9 +131,11 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
     <string name="morphe_hide_invite_to_message_card_title">Ẩn thẻ \'Mời người khác nhắn tin\'</string>
     <string name="morphe_hide_learning_menu_title">Ẩn menu Học tập</string>
     <string name="morphe_hide_live_menu_title">Ẩn menu Trực tiếp</string>
+    <string name="morphe_hide_live_streams_summary">Ẩn các video đang phát trực tiếp trong nguồn cấp dữ liệu trang chủ và kết quả tìm kiếm</string>
+    <string name="morphe_hide_live_streams_title">Ẩn video phát trực tiếp</string>
     <string name="morphe_hide_memberships_menu_title">Ẩn menu Hội viên</string>
-    <string name="morphe_hide_movies_menu_title">Ẩn menu \'Movies &amp; TV\'</string>
-    <string name="morphe_hide_music_menu_title">Ẩn menu Music</string>
+    <string name="morphe_hide_movies_menu_title">Ẩn menu \'Phim &amp; TV\'</string>
+    <string name="morphe_hide_music_menu_title">Ẩn menu Âm nhạc</string>
     <string name="morphe_hide_news_menu_title">Ẩn menu Tin tức</string>
     <string name="morphe_hide_playables_menu_title">Ẩn menu Chơi game</string>
     <string name="morphe_hide_player_flyout_audio_track_not_available">"Menu 'Bản âm thanh' đã bị ẩn
@@ -155,8 +175,12 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
     <string name="morphe_open_channel_of_live_avatar_summary">Không mở video phát trực tiếp khi bấm vào ảnh đại diện của kênh</string>
     <string name="morphe_open_channel_of_live_avatar_title">Mở kênh khi bấm vào ảnh đại diện có sự kiện trực tiếp</string>
     <string name="morphe_open_videos_fullscreen_title">Mở video ở chế độ toàn màn hình</string>
-    <string name="morphe_override_youtube_music_buttons_summary">Mở ứng dụng phát nhạc mà bạn thích thay cho ứng dụng YouTube Music mặc định</string>
+    <string name="morphe_override_youtube_music_buttons_summary">Mở ứng dụng nhạc đã chọn thay cho YouTube Music mặc định</string>
     <string name="morphe_override_youtube_music_buttons_title">Ghi đè chức năng nút YouTube Music</string>
+    <string name="morphe_playback_buffer_size_entry_low">Thấp</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Tối đa</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Trung bình</string>
+    <string name="morphe_playback_buffer_size_title">Kích thước bộ đệm phát lại</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Luôn bật</string>
     <string name="morphe_playback_in_feeds_entry_off">Tắt</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Chỉ Wi-Fi</string>
@@ -178,6 +202,9 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
     <string name="morphe_replace_music_with_youtube_title">Đổi liên kết chia sẻ thành youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">Khôi phục giao diện điều khiển trình phát kiểu cũ, mỏng hơn</string>
     <string name="morphe_restore_old_player_buttons_title">Khôi phục kiểu nút trình phát cũ</string>
+    <string name="morphe_restore_original_titles_loading">Đang tải tiêu đề…</string>
+    <string name="morphe_restore_original_titles_summary">Hiển thị tiêu đề video, mô tả video và mô tả kênh gốc thay vì các bản được tự động dịch</string>
+    <string name="morphe_restore_original_titles_title">Khôi phục tiêu đề gốc</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tham số truy vấn theo dõi không bị loại bỏ khỏi các liên kết được chia sẻ</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi bị loại bỏ khỏi các liên kết được chia sẻ</string>
     <string name="morphe_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>
@@ -201,12 +228,16 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
     <string name="morphe_settings_name_custom_item_hint">Nhập tên</string>
     <string name="morphe_settings_name_empty_warning">Tên không được để trống</string>
     <string name="morphe_settings_name_title">Tên cài đặt RVX</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Chỉ những khoảng dừng dài ít nhất khoảng thời gian này mới được rút ngắn. Có hiệu lực khi video tiếp theo bắt đầu</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Độ dài khoảng dừng tối thiểu</string>
+    <string name="morphe_skip_silence_summary">Tự động bỏ qua các khoảng dừng im lặng trong âm thanh video</string>
+    <string name="morphe_skip_silence_title">Bỏ qua khoảng lặng</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Màu</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Đơn sắc</string>
     <string name="morphe_splash_screen_animation_style_title">Hoạt ảnh khởi động</string>
     <string name="morphe_spoof_video_streams_about_end_early">• Phát lại có thể kết thúc sớm 1 giây</string>
     <string name="morphe_spoof_video_streams_about_js">• Nếu giải mã thất bại, video có thể không phát được</string>
-    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• \'Menu bản âm thanh\' bị thiếu</string>
+    <string name="morphe_spoof_video_streams_about_no_audio_tracks">• Thiếu menu \"Bản âm thanh\"</string>
     <string name="morphe_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
     <string name="morphe_spoof_video_streams_about_no_force_original_audio">• Buộc âm thanh gốc không khả dụng</string>
     <string name="morphe_spoof_video_streams_about_no_immersive_mode">• Không hỗ trợ chế độ trải nhiệm VR 360°</string>
@@ -217,10 +248,15 @@ Bấm vào đây để mở AiSlopList.com và xem các phiên bản cho các n�
     <string name="morphe_spoof_video_streams_av1_summary_on">"Codec video là AVC (H.264), VP9 hoặc AV1
 
 Quá trình phát có thể bị giật hoặc tụt khung hình"</string>
-    <string name="morphe_spoof_video_streams_av1_title">Cho phép \'Android VR\' / visionOS AV1</string>
+    <string name="morphe_spoof_video_streams_av1_title">Cho phép \"Android VR\" / visionOS AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Bật cài đặt này có thể sử dụng giải mã AV1 bằng phần mềm
 
 Phát video bằng AV1 có thể bị giật hoặc tụt khung hình"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s đã không hoạt động vài lần liên tiếp, nhưng %2$s thì hoạt động
+
+Đặt %2$s làm máy khách mặc định?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Chuyển</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Máy khách mặc định không hoạt động</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client mặc định</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Không thể lấy bất kỳ luồng phát nào</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Biến thể JavaScript của trình phát</string>
@@ -271,6 +307,8 @@ Hạn chế: Nếu tùy chọn \"Khôi phục thanh thao tác video cũ\" bị t
     <string name="morphe_video_quality_prioritize_dialog">Nếu tắt tính năng này, các video cũ có thể không hiển thị tùy chọn chất lượng video</string>
     <string name="morphe_video_quality_prioritize_summary">Ưu tiên chất lượng video cao nhất hơn là tối ưu codec</string>
     <string name="morphe_video_quality_prioritize_title">Ưu tiên chất lượng video</string>
+    <string name="morphe_volume_boost_summary">Vuốt lên vượt quá mức âm lượng tối đa sẽ tăng cường âm lượng, điều này có thể làm méo âm thanh lớn</string>
+    <string name="morphe_volume_boost_title">Tăng cường âm lượng</string>
     <string name="morphe_vot_caption_language_title">Ngôn ngữ</string>
     <string name="morphe_vot_cost_free">Miễn phí</string>
     <string name="morphe_vot_cost_per_hour">%s cho mỗi 100 giờ video</string>
@@ -322,19 +360,10 @@ Bấm vào đây để truy cập OpenRouter.ai"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Trình đơn tuỳ chọn kiểu cũ được sử dụng</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Hộp thoại tuỳ chỉnh được sử dụng</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Kiểu trình đơn chất lượng video nâng cao trong Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow cung cấp hình thu nhỏ có nguồn gốc từ cộng đồng cho video YouTube. Những hình thu nhỏ này thường liên quan hơn so với những hình thu nhỏ do YouTube cung cấp
-
-Nếu được bật, URL video sẽ được gửi đến máy chủ API và không có dữ liệu nào khác được gửi. Nếu video không có hình thu nhỏ DeArrow, thì hình thu nhỏ gốc hoặc ảnh chụp tĩnh sẽ được hiển thị
-
-Nhấn vào đây để truy cập DeArrow.ajay.app"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL của API DeArrow không hợp lệ</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL của điểm cuối bộ đệm hình thu nhỏ DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Điểm cuối API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Thông báo ngắn không hiện nếu DeArrow không khả dụng</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Thông báo ngắn sẽ hiện nếu DeArrow không khả dụng</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow tạm thời không khả dụng (mã trạng thái: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow tạm thời không khả dụng</string>
     <string name="revanced_alt_thumbnail_home_title">Dành cho thẻ Trang chủ</string>
     <string name="revanced_alt_thumbnail_library_title">Dành cho thẻ Bạn</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Hình thu nhỏ gốc</string>
@@ -345,9 +374,6 @@ Nhấn vào đây để truy cập DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_search_title">Dành cho kết quả tìm kiếm</string>
     <string name="revanced_alt_thumbnail_stills">Hình thu nhỏ tự động</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Chụp tĩnh là lấy từ đầu/giữa/cuối của mỗi video. Những hình ảnh này được dựng sẵn trong Youtube và không dùng API bên ngoài</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Đang dùng hình chụp tĩnh chất lượng cao</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Đang dùng hình chụp tĩnh chất lượng trung bình.\n\nHình thu nhỏ tải nhanh hơn, nhưng video phát trực tiếp, chưa phát hành hoặc video cũ có thể hiển thị không hình thu nhỏ</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Dùng hình chụp tĩnh nhanh</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Đầu video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Giữa video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Cuối video</string>
@@ -371,7 +397,7 @@ Nhấn và giữ để chuyển loại thông tin cần thêm vào"</string>
     <string name="revanced_auto_captions_style_entry_3">Hiển thị khi bật tiếng</string>
     <string name="revanced_auto_captions_style_entry_4">Hiển thị khi tắt tiếng</string>
     <string name="revanced_auto_captions_style_title">Tự động hiển thị phụ đề</string>
-    <string name="revanced_back_button_always_exits_feed_title">Nút quay lại thoát khỏi bảng tin</string>
+    <string name="revanced_back_button_always_exits_feed_title">Bấm quay lại để thoát trang video</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Các hạn chế tiết kiệm pin của chế độ môi trường xung quanh chưa bị bỏ qua</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Các hạn chế tiết kiệm pin của chế độ môi trường xung quanh đã được bỏ qua</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Bỏ qua hạn chế cho chế độ môi trường xung quanh</string>
@@ -386,7 +412,6 @@ Bật tính năng này có thể khắc phục tình trạng hình ảnh không 
     <string name="revanced_bypass_url_redirects_summary_on">Chuyển hướng URL đã được bỏ qua</string>
     <string name="revanced_bypass_url_redirects_title">Bỏ qua chuyển hướng URL</string>
     <string name="revanced_cancel">Huỷ</string>
-    <string name="revanced_change_form_factor_entry_1">Mặc định</string>
     <string name="revanced_change_form_factor_entry_2">Điện thoại</string>
     <string name="revanced_change_form_factor_entry_3">Máy tính bảng</string>
     <string name="revanced_change_form_factor_entry_4">Màn hình ô tô</string>
@@ -1071,7 +1096,7 @@ Hạn chế: Các bình luận chữ xanh không dùng kiểu chữ mặc địn
     <string name="revanced_hide_general_ads_title">Ẩn quảng cáo chung</string>
     <string name="revanced_hide_handle_summary_off">Tên hiển thị được hiển thị</string>
     <string name="revanced_hide_handle_summary_on">Tên hiển thị đã ẩn</string>
-    <string name="revanced_hide_handle_title">Ẩn tên hiển thị</string>
+    <string name="revanced_hide_handle_title">Ẩn handle</string>
     <string name="revanced_hide_hashtag_section_summary_off">Phần hashtag được hiển thị</string>
     <string name="revanced_hide_hashtag_section_summary_on">Phần hashtag bị ẩn</string>
     <string name="revanced_hide_hashtag_section_title">Ẩn phần Hashtag</string>
@@ -1216,7 +1241,7 @@ Từ có chữ in hoa ở giữa phải được nhập chính xác (ví dụ: i
     <string name="revanced_hide_paid_promotion_label_title">Ẩn nhãn \'Chứa nội dung được trả tiền để quảng cáo\'</string>
     <string name="revanced_hide_playables_summary_off">Chơi game được hiển thị</string>
     <string name="revanced_hide_playables_summary_on">Chơi game đã bị ẩn</string>
-    <string name="revanced_hide_playables_title">Ẩn Chơi game trên Youtube</string>
+    <string name="revanced_hide_playables_title">Ẩn Chơi game</string>
     <string name="revanced_hide_player_autoplay_button_summary_off">Nút Tự động phát được hiển thị</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">Nút Tự động phát đã ẩn</string>
     <string name="revanced_hide_player_autoplay_button_title">Ẩn nút Tự động phát</string>
@@ -1297,7 +1322,7 @@ Hạn chế: Toàn bộ nút trên lớp phủ có thể bị ẩn sau khi video
     <string name="revanced_hide_player_fullscreen_button_title">Ẩn nút Toàn màn hình</string>
     <string name="revanced_hide_player_popup_ads_summary_off">Quảng cáo bật lên của trình phát được hiển thị</string>
     <string name="revanced_hide_player_popup_ads_summary_on">Quảng cáo bật lên của trình phát đã bị ẩn</string>
-    <string name="revanced_hide_player_popup_ads_title">Ẩn quảng cáo bật lên trên trình phát</string>
+    <string name="revanced_hide_player_popup_ads_title">Ẩn quảng cáo trên trình phát</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Nút Trước đó &amp; Tiếp theo được hiển thị</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Nút Trước đó &amp; Tiếp theo đã ẩn</string>
     <string name="revanced_hide_player_previous_next_button_title">Ẩn các nút Chuyển đến video trước đó/tiếp theo</string>
@@ -1826,7 +1851,7 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng</string
     <string name="revanced_patched_date_title">Ngày vá</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">Đã loại trừ</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">Đã bao gồm</font></string>
-    <string name="revanced_playback_audio_time_stretching_summary">Cho phép thiết lập tốc độ và cao độ một cách độc lập, có thể gây ra nhiễu âm thanh</string>
+    <string name="revanced_playback_audio_time_stretching_summary">Cho phép thiết lập tốc độ và cao độ một cách độc lập, có thể gây ra hiện tượng méo âm thanh</string>
     <string name="revanced_playback_audio_time_stretching_title">Kéo dãn thời gian âm thanh</string>
     <string name="revanced_playback_speed_normal">Bình thường</string>
     <string name="revanced_preference_category_action_buttons">Nút thao tác</string>
@@ -1855,7 +1880,6 @@ Nhấn và giữ để mở hộp thoại cài đặt Danh sách trắng</string
     <string name="revanced_preference_screen_account_menu_title">Trình đơn Tài khoản</string>
     <string name="revanced_preference_screen_action_buttons_summary">Ẩn hoặc hiển thị các nút thao tác bên dưới video</string>
     <string name="revanced_preference_screen_ads_title">Quảng cáo</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Hình thu nhỏ thay thế</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Tắt hoặc bỏ qua các hạn chế của Chế độ môi trường xung quanh</string>
     <string name="revanced_preference_screen_ambient_mode_title">Chế độ môi trường xung quanh</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Ẩn hoặc hiển thị kệ được cá nhân hoá trong trang chủ, kết quả tìm kiếm, và kênh đăng ký</string>
@@ -1972,7 +1996,7 @@ Mô tả
     <string name="revanced_quick_actions_top_margin_invalid_toast">Lề trên bảng nút thao tác nhanh phải nằm trong khoảng 0 đến 32</string>
     <string name="revanced_quick_actions_top_margin_summary">Đặt lề trên của bảng nút thao tác nhanh (0-32 dp)</string>
     <string name="revanced_quick_actions_top_margin_title">Lề trên bảng nút thao tác nhanh</string>
-    <string name="revanced_remember_playback_audio_pitch_toast">Đã thay đổi cao độ phát mặc định thành: %s</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">Đã đặt cao độ mặc định thành: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Thay đổi tốc độ phát chỉ áp dụng cho video hiện tại</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Thay đổi tốc độ phát áp dụng cho tất cả video</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Nhớ tốc độ phát</string>
@@ -2051,9 +2075,9 @@ Nhấn vào đây để xem các bước tạo khóa API"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Tạo dự án mới&lt;/a&gt;.&lt;br&gt;2. Ấn vào &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Đi tới &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Ấn vào &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Ấn vào &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Chọn &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Ấn vào &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Sao chép mã khoá API.&lt;br&gt;&lt;br&gt;※ Không nên chia sẻ mã khoá API với người khác, vì vậy chúng cũng không có mặt trong mục Nhập/Xuất cài đặt</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Tạo mã khoá</string>
     <string name="revanced_ryd_about">Giới thiệu</string>
-    <string name="revanced_ryd_attribution_summary">"Dữ liệu được cung cấp bởi API Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike khôi phục số lượt không thích mà YouTube đã ẩn vào năm 2021. Số liệu đến từ dữ liệu được lưu trữ trước khi gỡ bỏ và được ước tính cho các video mới hơn dựa trên phiếu bầu của người dùng, vì vậy chúng chỉ là gần đúng và được cập nhật sau mỗi vài ngày
 
-Bấm vào đây để mở ReturnYouTubeDislike.com"</string>
+ID của video bạn xem được gửi đến API Return YouTube Dislike, và lượt thích và không thích của bạn được gửi ẩn danh để cải thiện các ước tính"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Nút thích được thiết kế để tối ưu ngoại hình tốt nhất</string>
     <string name="revanced_ryd_compact_layout_summary_on">Nút thích được thiết kế để tối ưu độ rộng</string>
@@ -2550,7 +2574,7 @@ Trong số các ứng dụng khách JavaScript, lựa chọn khuyên dùng là T
     <string name="revanced_swipe_haptic_feedback_title">Bật phản hồi xúc giác</string>
     <string name="revanced_swipe_horizontal_zone_summary">Tỷ lệ phần trăm chiều cao của trình phát được dành riêng ở cạnh trên và cạnh dưới cho các thao tác vuốt nhanh và tìm kiếm</string>
     <string name="revanced_swipe_horizontal_zone_title">Khu vực vuốt ngang</string>
-    <string name="revanced_swipe_left_zone_title">Cử chỉ vuốt sang trái</string>
+    <string name="revanced_swipe_left_zone_title">Cử chỉ vuốt bên trái</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Tự động</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Vuốt xuống đến giá trị thấp nhất không bật độ sáng tự động</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Vuốt xuống đến giá trị thấp nhất của cử chỉ độ sáng bật độ sáng tự động</string>
@@ -2580,7 +2604,7 @@ Trong số các ứng dụng khách JavaScript, lựa chọn khuyên dùng là T
     <string name="revanced_swipe_press_to_engage_summary_off">Nhấn giữ để vuốt đã tắt</string>
     <string name="revanced_swipe_press_to_engage_summary_on">Nhấn giữ để vuốt đã bật</string>
     <string name="revanced_swipe_press_to_engage_title">Bật cử chỉ bấm giữ để vuốt</string>
-    <string name="revanced_swipe_right_zone_title">Cử chỉ vuốt sang phải</string>
+    <string name="revanced_swipe_right_zone_title">Cử chỉ vuốt bên phải</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">Không lưu và khôi phục độ sáng khi thoát hoặc vào toàn màn hình</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">Lưu và khôi phục độ sáng khi thoát hoặc vào toàn màn hình</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">Lưu và khôi phục độ sáng</string>
@@ -2605,7 +2629,7 @@ Tua video bằng cách vuốt ngang nửa trên màn hình"</string>
     <string name="revanced_swipe_text_overlay_size_title">Kích thước văn bản lớp phủ vuốt</string>
     <string name="revanced_swipe_threshold_summary">Đặt khoảng cách tối thiếu để vuốt có ý nghĩa</string>
     <string name="revanced_swipe_threshold_title">Độ rộng ngưỡng vuốt</string>
-    <string name="revanced_swipe_top_zone_title">Cử chỉ vuốt từ phía trên</string>
+    <string name="revanced_swipe_top_zone_title">Cử chỉ vuốt bên trên</string>
     <string name="revanced_swipe_vertical_zone_summary">Phần trăm chiều rộng trình phát được dành riêng ở cạnh trái và cạnh phải cho các thao tác vuốt điều chỉnh độ sáng và âm lượng</string>
     <string name="revanced_swipe_vertical_zone_title">Khu vực vuốt dọc</string>
     <string name="revanced_swipe_volume_distance_summary">Giá trị cao hơn yêu cầu vuốt nhiều hơn cho mỗi bước âm lượng</string>

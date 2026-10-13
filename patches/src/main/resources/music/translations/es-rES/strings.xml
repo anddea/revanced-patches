@@ -74,29 +74,31 @@ Pasos:
     <string name="morphe_music_crossfade_about_best_title">Funciona mejor con</string>
     <string name="morphe_music_crossfade_about_credit_summary">Característica de fundido entre canciones por VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Créditos</string>
-    <string name="morphe_music_crossfade_about_how_summary">"El fundido entre canciones superpone el final de una canción con el comienzo de la siguiente, reduciendo el volumen de una mientras aumenta el volumen de la otra durante la duración y la curva que hayas elegido
+    <string name="morphe_music_crossfade_about_how_summary">"El crossfade superpone el final de una canción con el inicio de la siguiente, usando tu duración y curva
 
-Funciona con el avance automático (cuando una canción termina por sí sola) y con los cambios manuales, cada uno tiene su propio botón de activación. Con el avance automático, la mezcla comienza unos segundos antes de que termine la canción
-
-Requiere YouTube Music 9.x o posterior"</string>
+Se ejecuta en avance automático y en salto manual, cada uno con su propio interruptor. En avance automático, la mezcla comienza unos segundos antes de que la canción termine"</string>
     <string name="morphe_music_crossfade_about_how_title">Cómo funciona</string>
     <string name="morphe_music_crossfade_about_known_summary">"Un vídeo musical establecido como primera canción, o iniciado fuera de la cola actual, puede mostrarse brevemente como vídeo antes de cambiar al modo solo audio
 
 Pausar el fundido para ver un vídeo musical puede dejar algunos vídeos en negro (los que usan el audio del propio vídeo). Pausa el fundido antes de elegir la canción para evitarlo"</string>
     <string name="morphe_music_crossfade_about_known_title">Problemas conocidos</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"Los vídeos musicales se reproducen solo con audio cuando el fundido entre canciones está activado (mantén pulsado el botón de reproducción aleatoria para pausarlo si quieres ver el vídeo)
+    <string name="morphe_music_crossfade_about_quirks_summary">"Los vídeos musicales se reproducen solo como audio mientras el fundido entre canciones está activado. Mantén pulsado el botón de reproducción aleatoria para pausar el fundido y ver el vídeo
 
-Las canciones más cortas que la duración del fundido pueden omitir el efecto
+Un vídeo musical que empieza a reproducirse permanece en modo de vídeo hasta la siguiente canción
 
-La pantalla de bloqueo o la notificación pueden mostrar brevemente un estado desactualizado durante la transición"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">No funciona del todo bien</string>
+Las canciones más cortas que la duración del fundido no llegan a fundirse
+
+La pantalla de bloqueo o la notificación pueden mostrar brevemente un estado desactualizado durante la transición
+
+Pausar el fundido para ver un vídeo musical puede dejar algunos vídeos en negro. Pausar el fundido antes de elegir la canción evita este problema"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Limitaciones</string>
     <string name="morphe_music_crossfade_about_summary">Cómo funciona el fundido entre canciones, y cuándo no</string>
     <string name="morphe_music_crossfade_about_title">Acerca de</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Transmisión o duplicación de audio (Chromecast, duplicación de pantalla o de audio): el fundido entre canciones se pausa porque es inestable en estos casos y puede que nunca pueda corregirse
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Transmisión o duplicación de audio (Chromecast, duplicación de pantalla o de audio)
 
-YouTube Music 8.x: el fundido entre canciones solo funciona en la versión 9.x y posteriores"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">No funciona en absoluto</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">El fundido entre canciones se pausa mientras se transmite o duplica el audio. El fundido entre canciones durante la transmisión o duplicación de audio es inestable y es posible que nunca pueda corregirse</string>
+Reproducción SABR (con 'Falsificar transmisiones de vídeo' desactivado)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">No compatible</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">El fundido entre canciones está desactivado durante la transmisión</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Retención sutil</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Transición suave</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Potencia constante</string>
@@ -178,6 +180,7 @@ Mientras esta opción esté activada, la pestaña Descargas muestra estas cancio
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configura el punto de conexión de la API compatible con OpenAI para la traducción y romanización de letras con IA</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">Ajustes de traducción con IA</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Nombre del modelo (p. ej., openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">Plantilla de prompt (variables: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">Configurado</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">El nombre del modelo no puede estar vacío</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">La URL base no puede estar vacía</string>
@@ -190,7 +193,7 @@ Mientras esta opción esté activada, la pestaña Descargas muestra estas cancio
     <string name="morphe_music_lyrics_copied">Copiado al portapapeles</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Si las letras se filtran incorrectamente al final, ajusta o borra esto. Marcadores separados por comas: las líneas que contienen un marcador seguido de dos puntos se muestran como información de créditos al final. Déjalo vacío para desactivarlo</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Marcadores de línea de información</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">Expresión regular aplicada a títulos, artistas y álbumes antes de buscar las letras. Déjala vacía para desactivarla. La predeterminada elimina términos comunes como \"Vídeo oficial\", \"Remasterizado\" y \"- Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Expresión regular aplicada a títulos, artistas y álbumes antes de buscar las letras y al puntuar si dos títulos coinciden. Déjala vacía para desactivar ambas. La predeterminada elimina términos comunes como \"Vídeo oficial\", \"Remaster\", \"【插曲】\" y \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">Regex de metadatos</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Alterna el orden de visualización de artista y título en el reproductor en miniatura y MediaSession. Activado: \"Artista - Título\"; desactivado: \"Título - Artista\". No afecta a la búsqueda de letras</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Orden de visualización de artista y título</string>
@@ -207,22 +210,28 @@ Mientras esta opción esté activada, la pestaña Descargas muestra estas cancio
     <string name="morphe_music_lyrics_mediasession_title">Mostrar letras de MediaSession en la pantalla de bloqueo</string>
     <string name="morphe_music_lyrics_miniplayer_title">Mostrar letras en el reproductor en miniatura</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Las letras sincronizadas siguen a la reproducción. Si se desvían, ajusta el desfase de tiempo. Desplaza las letras sincronizadas hacia adelante o hacia atrás. Usa un valor positivo si la letra va por delante de la canción</string>
-    <string name="morphe_music_lyrics_offset_ms_title">Desfase de tiempo</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Desfase de tiempo global</string>
     <string name="morphe_music_lyrics_refreshed">Actualizado</string>
     <string name="morphe_music_lyrics_refreshing">Actualizando</string>
     <string name="morphe_music_lyrics_romanize_failed">No se pudieron romanizar las letras</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanizado</string>
+    <string name="morphe_music_lyrics_romanize_only">Solo romanización</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanizado por %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanizado por Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanizando…</string>
     <string name="morphe_music_lyrics_saved">Guardado</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Artista</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Buscar letras</string>
+    <string name="morphe_music_lyrics_search_empty">Introduce un título de canción y un artista</string>
+    <string name="morphe_music_lyrics_search_no_providers">Ninguno de los proveedores activados puede buscar otras canciones</string>
+    <string name="morphe_music_lyrics_search_title_hint">Título de la canción</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">Pulsa para copiar las letras originales como texto sin formato; mantén pulsado para guardar el archivo de letras sin procesar en Descargas</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Mostrar botón Copiar</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Pulsa para cambiar a la siguiente letra candidata; mantén pulsado para desactivar temporalmente las letras de terceros y mostrar las nativas</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Pulsa para cambiar a la siguiente letra candidata; mantén pulsado para buscar letras por título de la canción y artista</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Mostrar botón Actualizar</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Romaniza las letras usando la romanización del proveedor, Google Translate o una API compatible con OpenAI</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Pulsa para activar o desactivar la romanización; mantén pulsado para solo romanización. Usa la romanización del proveedor, Google Translate o una API compatible con OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Mostrar botón Romanizar</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Traduce las letras usando las traducciones del proveedor, Google Translate o una API compatible con OpenAI</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Pulsa para activar o desactivar la traducción; mantén pulsado para solo traducción. Usa las traducciones del proveedor, Google Translate o una API compatible con OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Mostrar botón Traducir</string>
     <string name="morphe_music_lyrics_source_all_disabled">Todos los proveedores desactivados: letras integradas y letras incrustadas</string>
     <string name="morphe_music_lyrics_source_label">Fuente: %s</string>
@@ -239,6 +248,7 @@ Mientras esta opción esté activada, la pestaña Descargas muestra estas cancio
     <string name="morphe_music_lyrics_text_size_title">Tamaño del texto</string>
     <string name="morphe_music_lyrics_translate_failed">No se pudieron traducir las letras</string>
     <string name="morphe_music_lyrics_translate_hide">Traducido</string>
+    <string name="morphe_music_lyrics_translate_only">Solo traducción</string>
     <string name="morphe_music_lyrics_translated_by_ai">Traducido por %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Traducido por Google</string>
     <string name="morphe_music_lyrics_translating">Traduciendo…</string>
@@ -309,6 +319,16 @@ Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_settings_name_custom_item_hint">Introduce un nombre</string>
     <string name="morphe_settings_name_empty_warning">El nombre no puede estar vacío</string>
     <string name="morphe_settings_name_title">Nombre de los ajustes de RVX</string>
+    <string name="morphe_settings_save">Guardar</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Solo se acortan las pausas que duren al menos este tiempo. Se aplica cuando empieza el siguiente vídeo</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Duración mínima de la pausa</string>
+    <string name="morphe_skip_silence_summary">Omite automáticamente las pausas silenciosas en el audio del vídeo</string>
+    <string name="morphe_skip_silence_title">Omitir silencios</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s no funcionó varias veces seguidas, pero %2$s sí
+
+¿Quieres establecer %2$s como cliente predeterminado?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Cambiar</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">El cliente predeterminado no funciona</string>
     <string name="morphe_spoof_video_streams_client_type_title">Cliente predeterminado</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">No se ha podido obtener ninguna transmisión del cliente</string>
     <string name="morphe_spoof_video_streams_screen_summary">Falsifica las transmisiones de vídeo del cliente para evitar problemas de reproducción</string>
@@ -335,16 +355,16 @@ Para iniciar sesión, pulsa en Continuar"</string>
 • Si esta aplicación no se utiliza durante 6 meses, Google eliminará esta autenticación
 • Tendrás que iniciar sesión de nuevo si cambias tu contraseña de Google o cancelas el registro de este dispositivo en tus ajustes de Google"</string>
     <string name="morphe_spoof_video_streams_sign_in_android_vr_success_dialog_title">Sesión iniciada correctamente</string>
-    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">No se pudo emitir un código de activación</string>
-    <string name="morphe_spoof_video_streams_summary">"Corrige los problemas de reproducción para la mayoría de los usuarios solicitando una transmisión de video compatible
+    <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">Error al emitir un código de activación</string>
+    <string name="morphe_spoof_video_streams_summary">"Corrige los problemas de reproducción para la mayoría de los usuarios solicitando una transmisión de vídeo compatible
 
-Si eres usuario de YouTube Premium, esta configuración puede no ser necesaria"</string>
+Si eres usuario de YouTube Premium, este ajuste puede no ser necesario"</string>
     <string name="morphe_spoof_video_streams_summary_off">"Los streams de vídeo no son suplantados. La reproducción puede no funcionar. Para usar esta función, desactiva 'proveedor PoToken'"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Las transmisiones de vídeo están falsificadas
 
 Si eres un usuario de YouTube Premium, esta configuración podría no ser necesaria"</string>
     <string name="morphe_spoof_video_streams_title">Falsificar transmisiones de vídeo</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Desactivar este ajuste puede causar problemas de reproducción</string>
     <string name="morphe_theme_entry_amoled_black">Negro Amoled</string>
     <string name="morphe_theme_entry_classic_youtube">Clásico (Youtube antiguo)</string>
     <string name="morphe_theme_entry_dark_blue">Azul oscuro</string>
@@ -377,9 +397,8 @@ Si eres un usuario de YouTube Premium, esta configuración podría no ser necesa
     <string name="revanced_change_seekbar_position_title">Cambiar posición de la barra de acción</string>
     <string name="revanced_change_share_sheet_summary">Cambia la hoja de compartir en la app a la hoja de compartir del sistema</string>
     <string name="revanced_change_share_sheet_title">Cambiar la hoja de compartir</string>
-    <string name="revanced_change_start_page_entry_charts">Gráficas</string>
-    <string name="revanced_change_start_page_entry_default">Predeterminada</string>
-    <string name="revanced_change_start_page_entry_episodes_for_later">Episodios para después</string>
+    <string name="revanced_change_start_page_entry_charts">Listas de éxitos</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">Episodios para más tarde</string>
     <string name="revanced_change_start_page_entry_explore">Explorar</string>
     <string name="revanced_change_start_page_entry_history">Historial</string>
     <string name="revanced_change_start_page_entry_library">Biblioteca</string>
@@ -414,11 +433,11 @@ Preferiblemente colores oscuros, la aplicación no soporta temas claros"</string
     <string name="revanced_custom_player_background_color_secondary_title">Color secundario del fondo del reproductor</string>
     <string name="revanced_custom_player_background_invalid_toast">Color de fondo del reproductor inválido</string>
     <string name="revanced_debug_protobuffer_summary">Añade información de registro adicional para que los desarrolladores identifiquen los componentes de la aplicación</string>
-    <string name="revanced_debug_protobuffer_title">Registrar búfer de protocolo</string>
+    <string name="revanced_debug_protobuffer_title">Búfer de protocolo de registro de depuración</string>
     <string name="revanced_debug_spannable_summary">Incluye spannable dentro del registro de depuración</string>
     <string name="revanced_debug_spannable_title">Spannable en registro</string>
     <string name="revanced_debug_summary">Muestra el registro de depuración</string>
-    <string name="revanced_debug_title">Registro de depuración</string>
+    <string name="revanced_debug_title">Activar registro de depuración</string>
     <string name="revanced_default_app_settings_summary">Para abrir los enlaces de YouTube Music en RVX Music, activa \'Abrir enlaces soportados\' y activa las direcciones web soportadas</string>
     <string name="revanced_default_app_settings_title">Abrir ajustes predeterminados de la app</string>
     <string name="revanced_disable_auto_captions_summary">Desactiva la activación automática de los subtítulos forzados en el reproductor de vídeo</string>
@@ -487,7 +506,7 @@ Limitantes: Los segmentos de SponsorBlock no se mostrarán en la barra de acció
     <string name="revanced_external_downloader_action_summary">El botón de descargar acción abre tu descarga externa</string>
     <string name="revanced_external_downloader_action_title">Reemplazar botón de acción de Descarga</string>
     <string name="revanced_external_downloader_dialog_title">Descargador externo</string>
-    <string name="revanced_external_downloader_flyout_menu_summary">Utiliza el descargador externo seleccionado en lugar del menú desplegable de descarga original</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">Utiliza el descargador externo seleccionado en lugar del menú flotante de descarga original</string>
     <string name="revanced_external_downloader_flyout_menu_title">Reemplazar menú Descargar</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s no está instalado
 Descarga %2$s desde el sitio web"</string>
@@ -726,9 +745,9 @@ Toca para ver cómo crear una clave de API"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Clave API de datos de YouTube</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Ve a &lt;a href=%1$s&gt;Crear un nuevo proyecto&lt;/a&gt;.&lt;br&gt;2. Pulsa en el botón &lt;b&gt;CREAR&lt;/b&gt;.&lt;br&gt;3. 3. Ve a &lt;a href=%2$s&gt;API v3 de datos de YouTube&lt;/a&gt;.&lt;br&gt;4. Pulsa en el botón &lt;b&gt;HABILITAR&lt;/b&gt;.&lt;br&gt;5. Pulsa en &lt;b&gt;CREAR&lt;/b&gt;. Pulsa en el botón &lt;b&gt;CREAR CREDENCIALES&lt;/b&gt;.&lt;br&gt;6. Selecciona la opción &lt;b&gt;Datos públicos&lt;/b&gt;.&lt;br&gt;7. Pulsa en el botón &lt;b&gt; SIGUIENTE&lt;/b&gt;.&lt;br&gt;8. Copia la clave API.&lt;br&gt;&lt;br&gt;※ La clave API nunca debe ser compartida con otros, por lo que no se incluye en los ajustes de Importar / Exportar</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Crear clave de desarrollador API v3 de datos de YouTube</string>
-    <string name="revanced_ryd_attribution_summary">"Los datos son proporcionados por la API de Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike restaura los contadores de no me gusta que YouTube ocultó en 2021. Los contadores provienen de datos archivados antes de la eliminación y se estiman para videos más nuevos a partir de los votos de sus usuarios, por lo que son aproximados y se actualizan cada pocos días
 
-Pulsa aquí para abrir ReturnYouTubeDislike.com"</string>
+El ID del video que ves se envía a la API de Return YouTube Dislike, y tus me gusta y no me gusta se envían de forma anónima para mejorar las estimaciones"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Reduce el ancho del botón de \'Me gusta\' para ahorrar espacio</string>
     <string name="revanced_ryd_compact_layout_title">Usar botón de \'Me gusta\' compacto</string>
@@ -736,7 +755,7 @@ Pulsa aquí para abrir ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_dislike_percentage_title">Mostrar \'No me gusta\' como porcentaje</string>
     <string name="revanced_ryd_enabled_summary">Muestra el número de vídeos que no te gustan</string>
     <string name="revanced_ryd_enabled_title">Activar Return YouTube Dislike</string>
-    <string name="revanced_ryd_estimated_like_summary">Muestra una estimación del número de \'Me gusta\' en los videos donde el creador ha desactivado las reacciones</string>
+    <string name="revanced_ryd_estimated_like_summary">Muestra una estimación del número de \'Me gusta\' en los vídeos donde el creador ha desactivado los \'Me gusta\'</string>
     <string name="revanced_ryd_estimated_like_title">Mostrar estimación de \'Me gusta\'</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Los \'No me gusta\' no están disponibles (se alcanzó el límite de la API del cliente)</string>
     <string name="revanced_ryd_failure_connection_status_code">Los \'No me gusta\' no están disponibles (estado %d)</string>

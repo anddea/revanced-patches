@@ -67,29 +67,31 @@ Lépések:
     <string name="morphe_music_crossfade_about_best_title">Legjobban illik hozzá</string>
     <string name="morphe_music_crossfade_about_credit_summary">A keresztátmenet funkciót VazerOG készítette</string>
     <string name="morphe_music_crossfade_about_credit_title">Közreműködők</string>
-    <string name="morphe_music_crossfade_about_how_summary">"A hangolás a következő szám elején átfedésben kezeli az egyik szám végét, enyhítve az egyiket, miközben a másik a kiválasztott időtartamon és görbén hangzik 
+    <string name="morphe_music_crossfade_about_how_summary">"Átúszás átfedi az egyik dal végét a következő elejével, a beállított időtartam és görbe segítségével
 
-Automatikus lejátszás esetén (amikor egy szám magától befejez) és manuális átlépés esetén is működik – mindkettőnek van egy saját kapcsolója fent. Az automatikus lejátszásnál az átmenet néhány másodperccel a dal vége előtt kezdődik
-
-Szükséges a YouTube Music 9.x vagy újabb verzió"</string>
+Automatikus továbblépésnél és kézi ugrásnál is működik, mindegyikhez külön kapcsoló tartozik. Automatikus továbblépésnél az átkeverés néhány másodperccel a dal vége előtt kezdődik"</string>
     <string name="morphe_music_crossfade_about_how_title">A működése</string>
     <string name="morphe_music_crossfade_about_known_summary">"Ha egy zenevideó van beállítva első számként – vagy egy másik forrásból indítva – előfordulhat, hogy rövid ideig videóként jelenik meg, mielőtt elindul a hangtörténeti mód
 
 A keresztátmenet szüneteltetése zenevideó nézéséhez fekete képernyőt eredményezhet egyes videóknál (azoknál, amelyek hangja a videóból származik). A keresztátmenet szüneteltetése a szám kiválasztása előtt elkerüli ezt"</string>
     <string name="morphe_music_crossfade_about_known_title">Ismert problémák</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"A zenevideók csak hangként játszódnak le, ha a keresztátmenet be van kapcsolva (nyomja meg hosszan a keverés gombot a szüneteltetéshez, ha szeretné a videót)
+    <string name="morphe_music_crossfade_about_quirks_summary">"Ha a crossfade be van kapcsolva, a zenei videók csak hangként játszódnak le. Tartsd lenyomva a shuffle gombot a crossfade szüneteltetéséhez és a videó megtekintéséhez
 
-A keresztátmenet időtartamánál rövidebb számok esetében kihagyhatja a keresztátmenetet
+Amelyik zenei videó elindítja a lejátszást, videó módban marad a következő számig
 
-A zárlácon vagy az értesítésben pillanatnyilag régi állapot látható lehet átmenet közben"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">Nem igazán működik megfelelően</string>
+A fade időtartamnál rövidebb számok nem lesznek átkeverve
+
+Az átmenet közben a zárképernyő vagy az értesítés röviden elavult állapotot mutathat
+
+A crossfade szüneteltetése a zenei videó megtekintéséhez néhány videót feketén hagyhat. Ha a crossfade-et a szám kiválasztása előtt szünetelteted, ez elkerülhető"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Korlátok</string>
     <string name="morphe_music_crossfade_about_summary">A hangolás működése – és mikor nem működik</string>
     <string name="morphe_music_crossfade_about_title">Névjegy</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"A hangvetítés vagy tükrözés (Chromecast, képernyő vagy hangtükrözés) esetén a keresztátmenet szünetel, mert ott instabil, és a probléma nem feltétlenül javítható
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Casting vagy hangtükrözés (Chromecast, képernyő- vagy hangtükrözés)
 
-YouTube Music 8.x – a keresztátmenet csak a 9.x és újabb verziókon fut"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">Egyáltalán nem működik</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">A hangolás szünetel a hang vagy a képmegosztás közben. A hangolás közbeni vagy képmegosztás közbeni átmenet instabil, és előfordulhat, hogy soha nem javítható ki</string>
+SABR lejátszás (a videostreamek spoofolása kikapcsolva)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Nem támogatott</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">A crossfade ki van kapcsolva casting közben</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Enyhe kitartás</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Lágy átmenet</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Egyenletes teljesítmény</string>
@@ -171,6 +173,7 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">Állítsa be az OpenAI-kompatibilis API-végpontot az AI-alapú dalszövegfordításhoz és romanizáláshoz</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">AI-fordítási beállítások</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Modellnév (pl. openai-fast, gpt-4o-mini)</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">Prompt sablon (változók: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">Beállítva</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">A modellnév nem lehet üres</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">A Base URL nem lehet üres</string>
@@ -183,7 +186,7 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_lyrics_copied">Másolva a vágólapra</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Ha a dalszövegek hibásan az aljára szűrődnek, módosítsd vagy töröld ezt a mezőt. Vesszővel elválasztott jelölők: azok a sorok, amelyek egy, kettősponttal követett jelölőt tartalmaznak, alul forrásmegjelölésként jelennek meg. A letiltáshoz hagyd üresen</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Információs sorok jelölői</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">A címekre, előadókra és albumokra alkalmazott reguláris kifejezés a dalszövegek keresése előtt. A letiltáshoz hagyd üresen. Az alapértelmezett eltávolítja a gyakori felesleges elemeket, például az \"Official Video\", a \"Remaster\" és a \"- Topic\" kifejezéseket</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">A címekre, előadókra és albumokra alkalmazott reguláris kifejezés a dalszöveg keresése előtt, valamint annak kiértékelésekor, hogy két cím egyezik-e. Hagyja üresen mindkettő letiltásához. Az alapértelmezett reguláris kifejezés eltávolítja a gyakori felesleges elemeket, például \"Official Video\", \"Remaster\", \"【插曲】\" és \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">Dalszöveg-szűrő regex</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Váltja az előadó és a cím sorrendjét a minilejátszóban és a MediaSessionben. BE: \"Előadó - Cím\", KI: \"Cím - Előadó\". Nem befolyásolja a dalszövegkeresést</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Előadó és cím megjelenítési sorrendje</string>
@@ -200,22 +203,28 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_lyrics_mediasession_title">MediaSession-dalszövegek megjelenítése a lezáróképernyőn</string>
     <string name="morphe_music_lyrics_miniplayer_title">Dalszöveg megjelenítése a minilejátszóban</string>
     <string name="morphe_music_lyrics_offset_ms_summary">A szinkronizált dalszövegek a lejátszást követik. Ha elcsúsznak, módosítsd az időeltolást. A szinkronizált dalszövegeket told előre vagy hátra. Használj pozitív értéket, ha a dalszöveg a szám előtt jár</string>
-    <string name="morphe_music_lyrics_offset_ms_title">Időeltolódás</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Globális időzítési eltolás</string>
     <string name="morphe_music_lyrics_refreshed">Frissítve</string>
     <string name="morphe_music_lyrics_refreshing">Frissítés</string>
     <string name="morphe_music_lyrics_romanize_failed">Nem sikerült romanizálni a dalszöveget</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanizált</string>
+    <string name="morphe_music_lyrics_romanize_only">Csak romanizált</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanizálta: %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">A Google romanizálta</string>
     <string name="morphe_music_lyrics_romanizing">Romanizálás…</string>
     <string name="morphe_music_lyrics_saved">Mentett</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Előadó</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Dalszöveg keresése</string>
+    <string name="morphe_music_lyrics_search_empty">Adja meg a dal címét és az előadót</string>
+    <string name="morphe_music_lyrics_search_no_providers">Az engedélyezett szolgáltatók egyike sem tud más számokat keresni</string>
+    <string name="morphe_music_lyrics_search_title_hint">Dalcím</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">Koppintson az eredeti dalszöveg egyszerű szövegként történő másolásához; tartsa hosszan a nyers dalszöveg-forrásfájl mentéséhez a Letöltések mappába</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Másolás gomb megjelenítése</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Koppintson a következő dalszöveg-jelöltre váltáshoz; […] : „A szinkronizált szavak vagy szótagok kiemelése”</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Koppintson a következő dalszövegjelöltre váltáshoz; hosszú megnyomással dalszöveget kereshet cím és előadó alapján</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Frissítés gomb megjelenítése</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Dalszövegek romanizálása a szolgáltató által biztosított romanizálással, a Google Fordítóval vagy egy OpenAI-kompatibilis API-val</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Koppintson a romanizálás be-/kikapcsolásához; hosszú megnyomással csak a romanizálás jelenik meg. Szolgáltatói romanizálást, Google Fordítót vagy OpenAI-kompatibilis API-t használ</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Romanizálás gomb megjelenítése</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Dalszövegek fordítása a szolgáltató által biztosított fordításokkal, a Google Fordítóval vagy egy OpenAI-kompatibilis API-val</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Koppintson a fordítás be-/kikapcsolásához; hosszú megnyomással csak a fordítás jelenik meg. Szolgáltatói fordításokat, Google Fordítót vagy OpenAI-kompatibilis API-t használ</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Fordítás gomb megjelenítése</string>
     <string name="morphe_music_lyrics_source_all_disabled">Minden szolgáltató le van tiltva – a beépített és a beágyazott dalszövegek is</string>
     <string name="morphe_music_lyrics_source_label">Forrás: %s</string>
@@ -232,6 +241,7 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_lyrics_text_size_title">Betűméret</string>
     <string name="morphe_music_lyrics_translate_failed">A dalszöveg fordítása sikertelen</string>
     <string name="morphe_music_lyrics_translate_hide">Lefordítva</string>
+    <string name="morphe_music_lyrics_translate_only">Csak a fordítás</string>
     <string name="morphe_music_lyrics_translated_by_ai">Fordította: %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Fordította a Google</string>
     <string name="morphe_music_lyrics_translating">Fordítás…</string>
@@ -293,6 +303,16 @@ Szükséges cookie-k: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAP
     <string name="morphe_settings_name_custom_item_hint">Adjon meg egy nevet</string>
     <string name="morphe_settings_name_empty_warning">A név nem lehet üres</string>
     <string name="morphe_settings_name_title">RVX-beállításnév</string>
+    <string name="morphe_settings_save">Mentés</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Csak a legalább ilyen hosszú szünetek rövidülnek le. A következő videó indításakor lép érvénybe</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimális szünet hossza</string>
+    <string name="morphe_skip_silence_summary">Automatikusan kihagyja a néma szüneteket a videó hangjában</string>
+    <string name="morphe_skip_silence_title">Csend kihagyása</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s egymás után többször nem működött, de %2$s igen
+
+Legyen %2$s az alapértelmezett kliens?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Váltás</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Az alapértelmezett kliens nem működik</string>
     <string name="morphe_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nem találtunk ügyfelek által megosztott folyamokat</string>
     <string name="morphe_spoof_video_streams_screen_summary">A kliens videó streamek hamisítása a lejátszási problémák elkerülése érdekében</string>
@@ -351,7 +371,6 @@ Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szüks
     <string name="revanced_change_share_sheet_summary">Az alkalmazáson belüli megosztási lapot a rendszer megosztási lapjára változtatja</string>
     <string name="revanced_change_share_sheet_title">Megosztási lap megváltoztatása</string>
     <string name="revanced_change_start_page_entry_charts">Sikerlisták</string>
-    <string name="revanced_change_start_page_entry_default">Alapértelmezett</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Epizódok későbbre</string>
     <string name="revanced_change_start_page_entry_explore">Felfedezés</string>
     <string name="revanced_change_start_page_entry_history">Előzmények</string>
@@ -704,9 +723,9 @@ Kattintson ide az API-kulcs kiadásának megtekintéséhez"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API kulcs</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Nyisd meg az &lt;a href=%1$s&gt;Új projekt létrehozását&lt;/a&gt;.&lt;br&gt;2. Kattints a &lt;b&gt;LÉTREHOZÁS&lt;/b&gt; gombra.&lt;br&gt;3. Lépj a &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; oldalára.&lt;br&gt;4. Kattints az &lt;b&gt;Engedélyezés&lt;/b&gt; gombra.&lt;br&gt;5. Kattints a &lt;b&gt;HITELEZÉSI ADATOK LÉTREHOZÁSA&lt;/b&gt; gombot.&lt;br&gt;6. Válaszd ki a &lt;b&gt;Nyilvános adatok&lt;/b&gt; lehetőség.&lt;br&gt;7. Kattints a &lt;b&gt;KÖVETKEZŐ&lt;/b&gt; gombra.&lt;br&gt;8. Másold ki az API-kulcsot.&lt;br&gt;&lt;br&gt;※ Az API-kulcsot soha nem szabad megosztani másokkal, így az nem szerepel az importálási/exportálási beállításokban</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 fejlesztői kulcs megszerzése</string>
-    <string name="revanced_ryd_attribution_summary">"Az adatokat a Return YouTube Dislike API biztosítja
+    <string name="revanced_ryd_attribution_summary">"A Return YouTube Dislike visszaállítja a YouTube által 2021-ben elrejtett nemtetszés-számlálókat. A számok a törlés előtt archivált adatokból származnak, az újabb videóknál pedig a felhasználók szavazatai alapján becsülik őket, így közelítőek, és néhány naponta frissülnek
 
-Érintse meg ide a ReturnYouTubeDislike.com megnyitásához"</string>
+A megtekintett videó azonosítóját elküldjük a Return YouTube Dislike API-nak, a like-jaid és dislike-jaid pedig névtelenül kerülnek elküldésre a becslések javításához"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Csökkenti a lájkgomb szélességét a hely megtakarítása érdekében</string>
     <string name="revanced_ryd_compact_layout_title">Kompakt lájkgomb használata</string>

@@ -67,29 +67,31 @@
     <string name="morphe_music_crossfade_about_best_title">最佳使用场景</string>
     <string name="morphe_music_crossfade_about_credit_summary">交叉淡入功能由 VazerOG 提供</string>
     <string name="morphe_music_crossfade_about_credit_title">鸣谢</string>
-    <string name="morphe_music_crossfade_about_how_summary">"交叉淡入淡出将一首歌的结尾与下一首歌的开头重叠，在您选择的持续时间和曲线中逐渐降低一首歌的音量，同时逐渐提高另一首歌的音量。
+    <string name="morphe_music_crossfade_about_how_summary">"交叉淡化会将一首歌曲的结尾与下一首歌曲的开头重叠，并使用您设置的时长和曲线
 
-它在自动前进（一首歌自动结束时）和手动跳过时运行——两者都有自己独立的切换选项。在自动前进的情况下，混合会在歌曲结束前几秒钟开始。
-
-需要 YouTube Music 9.x 或更高版本。"</string>
+它可在自动播放和手动跳过时运行，两者各有独立开关。在自动播放时，交叉淡化会在歌曲结束前几秒开始"</string>
     <string name="morphe_music_crossfade_about_how_title">它的工作原理</string>
     <string name="morphe_music_crossfade_about_known_summary">"将音乐视频设置为第一首歌曲，或者从当前队列外部启动的歌曲，可能会在仅音频模式开始之前短暂显示为视频
 
 暂停交叉淡入以观看音乐视频可能会导致一些视频画面变黑（那些音频来自视频本身的视频）。在选择歌曲之前暂停交叉淡入可以避免这种情况"</string>
     <string name="morphe_music_crossfade_about_known_title">已知问题</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"在开启交叉淡入时，音乐视频仅播放音频（如果您想暂停视频，请长按“随机播放”按钮）
+    <string name="morphe_music_crossfade_about_quirks_summary">"开启交叉淡化时，音乐视频将仅作为音频播放。长按随机播放按钮可暂停交叉淡化并观看视频
 
-短于淡入持续时间的歌曲可能会跳过淡入
+音乐视频开始播放后，将保持视频模式，直到下一首歌曲开始播放
 
-锁屏或通知可能会短暂显示过时的状态，尤其是在过渡期间"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">效果不太好</string>
+时长短于淡化时长的歌曲不会进行交叉淡化
+
+锁屏或通知可能会在过渡期间短暂显示过时状态
+
+暂停交叉淡化来观看音乐视频可能会导致某些视频黑屏。在选歌前暂停交叉淡化可避免此问题"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">限制</string>
     <string name="morphe_music_crossfade_about_summary">交叉淡入淡出的工作原理及其不适用的情况</string>
     <string name="morphe_music_crossfade_about_title">关于</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"投屏或镜像音频（Chromecast、屏幕或音频镜像）——交叉淡入会暂停，因为它在那里的稳定性较差，并且可能无法修复。
+    <string name="morphe_music_crossfade_about_unsupported_summary">"投射或镜像音频（Chromecast、屏幕或音频镜像）
 
-YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">完全无法工作</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">在投射或镜像音频时，交叉淡入淡出已暂停。通过投射/镜像的交叉淡入淡出不稳定，可能无法修复。</string>
+SABR 播放（模拟视频流已关闭）"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">不支持</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">投射时交叉淡化已关闭</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">微妙的延迟</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">平缓的过渡</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">平均功率</string>
@@ -171,6 +173,7 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_music_lyrics_ai_config_dialog_instruction">配置用于 AI 歌词翻译和音译的 OpenAI 兼容 API 端点。</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">AI 翻译设置</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">模型名称（例如 openai-fast、gpt-4o-mini）</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_hint">提示模板（变量：{language}、{task}、{title}、{artist}、{count}、{lines}）</string>
     <string name="morphe_music_lyrics_ai_config_status_configured">已配置</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">模型名称不能为空</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">基础 URL 不能为空</string>
@@ -183,7 +186,7 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_music_lyrics_copied">复制到剪贴板</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">如果歌词被错误地过滤到底部，请调整或清除此项。以逗号分隔的标记：包含标记且后跟冒号的行会作为署名信息显示在底部。留空以禁用</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">信息行标记</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">在查找歌词之前应用于曲目标题、艺人和专辑的正则表达式。留空以禁用。默认会移除常见干扰内容，如 \"Official Video\"、\"Remaster\" 和 \"- Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">用于标题、艺术家和专辑的正则表达式，在查找歌词前以及为两个标题是否匹配评分时使用。留空可同时禁用两者。默认值会移除常见干扰项，如\"Official Video\"、\"Remaster\"、\"【插曲】\"和\"- Topic\"。</string>
     <string name="morphe_music_lyrics_custom_regex_title">元数据正则表达式</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">在迷你播放器和媒体通知卡片中切换艺术家和标题的显示顺序。ON“艺术家-标题”和OFF“标题-艺术家”不影响歌词搜索</string>
     <string name="morphe_music_lyrics_display_artist_first_title">艺术家和标题显示顺序</string>
@@ -200,22 +203,28 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_music_lyrics_mediasession_title">在锁屏上显示媒体通知卡片歌词</string>
     <string name="morphe_music_lyrics_miniplayer_title">显示迷你播放器歌词</string>
     <string name="morphe_music_lyrics_offset_ms_summary">同步歌词会跟随播放。如果出现偏移，请调整时间偏移。将同步歌词向前或向后移动。如果歌词比歌曲超前，请使用正值</string>
-    <string name="morphe_music_lyrics_offset_ms_title">时间偏移</string>
+    <string name="morphe_music_lyrics_offset_ms_title">全局时间偏移</string>
     <string name="morphe_music_lyrics_refreshed">已刷新</string>
     <string name="morphe_music_lyrics_refreshing">正在刷新</string>
     <string name="morphe_music_lyrics_romanize_failed">无法为歌词生成音译</string>
     <string name="morphe_music_lyrics_romanize_hide">已音译</string>
+    <string name="morphe_music_lyrics_romanize_only">仅罗马音</string>
     <string name="morphe_music_lyrics_romanized_by_ai">由 %s 音译</string>
     <string name="morphe_music_lyrics_romanized_by_google">由 Google 提供音译</string>
     <string name="morphe_music_lyrics_romanizing">正在音译…</string>
     <string name="morphe_music_lyrics_saved">已保存</string>
+    <string name="morphe_music_lyrics_search_artist_hint">歌手</string>
+    <string name="morphe_music_lyrics_search_dialog_title">搜索歌词</string>
+    <string name="morphe_music_lyrics_search_empty">输入歌曲标题和歌手</string>
+    <string name="morphe_music_lyrics_search_no_providers">已启用的提供商均无法搜索其他歌曲</string>
+    <string name="morphe_music_lyrics_search_title_hint">歌曲标题</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">点按以纯文本形式复制原始歌词；长按将原始歌词源文件保存到“下载”文件夹</string>
     <string name="morphe_music_lyrics_show_copy_button_title">显示复制按钮</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">点按可切换至下一个歌词候选项；长按可暂时禁用第三方歌词并显示原生歌词</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">点按可切换到下一个歌词候选；长按可按歌曲标题和歌手搜索歌词</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">显示刷新按钮</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">使用提供商音译、Google 翻译或兼容 OpenAI 的 API 将歌词音译</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">点按以切换罗马音；长按仅显示罗马音。使用提供方罗马音、Google 翻译或兼容 OpenAI 的 API</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">显示音译按钮</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">使用提供商翻译、Google 翻译或兼容 OpenAI 的 API 翻译歌词</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">点按以切换翻译；长按仅翻译。使用提供方翻译、Google 翻译或兼容 OpenAI 的 API</string>
     <string name="morphe_music_lyrics_show_translate_button_title">显示翻译按钮</string>
     <string name="morphe_music_lyrics_source_all_disabled">所有提供程序均已禁用 — 内置歌词与内嵌歌词</string>
     <string name="morphe_music_lyrics_source_label">来源：%s</string>
@@ -232,6 +241,7 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_music_lyrics_text_size_title">文本大小</string>
     <string name="morphe_music_lyrics_translate_failed">无法翻译歌词</string>
     <string name="morphe_music_lyrics_translate_hide">翻译</string>
+    <string name="morphe_music_lyrics_translate_only">仅翻译</string>
     <string name="morphe_music_lyrics_translated_by_ai">由 %s 翻译</string>
     <string name="morphe_music_lyrics_translated_by_google">由 Google 翻译</string>
     <string name="morphe_music_lyrics_translating">正在翻译…</string>
@@ -293,6 +303,16 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="morphe_settings_name_custom_item_hint">输入名称</string>
     <string name="morphe_settings_name_empty_warning">名称不能为空</string>
     <string name="morphe_settings_name_title">RVX 设置名称</string>
+    <string name="morphe_settings_save">保存</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">只有至少达到此长度的暂停才会被缩短。在下一个视频开始时生效</string>
+    <string name="morphe_skip_silence_minimum_pause_title">最短暂停时长</string>
+    <string name="morphe_skip_silence_summary">自动跳过视频音频中的静音停顿</string>
+    <string name="morphe_skip_silence_title">跳过静音</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 连续多次无法使用，但 %2$s 可以。
+
+要将 %2$s 设为默认客户端吗？"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切换</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">默认客户端无法使用</string>
     <string name="morphe_spoof_video_streams_client_type_title">默认客户端</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">无法获取任何客户端流</string>
     <string name="morphe_spoof_video_streams_screen_summary">配置客户端欺骗以防止播放问题</string>
@@ -350,7 +370,6 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_change_share_sheet_summary">将应用内共享菜单更改为系统共享菜单。</string>
     <string name="revanced_change_share_sheet_title">更改分享菜单</string>
     <string name="revanced_change_start_page_entry_charts">图表</string>
-    <string name="revanced_change_start_page_entry_default">默认</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">待看集数</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
     <string name="revanced_change_start_page_entry_history">历史记录</string>
@@ -654,9 +673,9 @@ YouTube Music 8.x —— 交叉淡入仅在 9.x 及更高版本上运行"</strin
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube 数据 API 密钥</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 转到&lt;a href=%1$s&gt;创建新项目&lt;/a&gt;。&lt;br&gt;2. 单击&lt;b&gt;创建&lt;/b&gt;按钮。&lt;br&gt;3. 转到&lt;a href=%2$s&gt;YouTube 数据 API v3&lt;/a&gt;。&lt;br&gt;4. 单击&lt;b&gt;启用&lt;/b&gt;按钮。&lt;br&gt;5. 单击&lt;b&gt;创建凭据&lt;/b&gt;按钮。&lt;br&gt;6. 选择&lt;b&gt;公共数据&lt;/b&gt;选项。&lt;br&gt;7. 单击&lt;b&gt;下一步&lt;/b&gt;按钮。&lt;br&gt;8. 复制 API 密钥。&lt;br&gt;&lt;br&gt;※ API 密钥不应与他人共享，因此它不包含在导入/导出设置中。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">签发 YouTube 数据 API v3 开发者密钥</string>
-    <string name="revanced_ryd_attribution_summary">"数据由 Return YouTube Dislike API 提供
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike 恢复了 YouTube 在 2021 年隐藏的不喜欢数量。这些数量来自移除前存档的数据，较新视频的数量则根据其用户的投票估算，因此它们只是近似值，并且每隔几天更新一次
 
-点击此处打开 ReturnYouTubeDislike.com"</string>
+您观看的视频的 ID 会发送到 Return YouTube Dislike API，您的喜欢和不喜欢信息会匿名发送以改进估算"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">减小喜欢按钮的宽度以节省空间</string>
     <string name="revanced_ryd_compact_layout_title">使用紧凑的喜欢按钮</string>

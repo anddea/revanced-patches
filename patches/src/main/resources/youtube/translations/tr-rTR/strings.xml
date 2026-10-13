@@ -60,11 +60,27 @@ Raporlar herkese açıktır ve bir kanal listeye eklenmeden önce incelenir. Kal
     <string name="morphe_auto_pause_on_screen_lock_title">Cihaz kilitliyken otomatik duraklat</string>
     <string name="morphe_custom_branding_icon_title">Uygulama simgesi</string>
     <string name="morphe_dark_theme_title">Koyu tema</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow, tıklama tuzağı başlıkları ve küçük resimleri, daha doğru ve daha az sansasyonel olan topluluk kaynaklı olanlarla değiştirir. Başlıklar topluluk tarafından yazılır ve oylanır, küçük resimler ise videodan alınan karelerdir
+
+Videolar, karma video kimliğinin kısa bir önekiyle istenir; bu nedenle sunucu tam olarak hangi videoya baktığınızı söyleyemez. Bir videoda DeArrow küçük resmi yoksa, orijinal veya sabit bir kare gösterilir"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">Orijinal başlığı göstermek için komik veya yaratıcı gibi tek bir kategoride gereken gündelik oy sayısı</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Orijinal başlığı göstermek için minimum gündelik oy sayısı</string>
+    <string name="morphe_dearrow_casual_mode_summary">DeArrow kullanıcıları orijinal başlığı beğendikleri yönünde oy kullandıysa, DeArrow başlığı yerine orijinal başlığı gösterir</string>
+    <string name="morphe_dearrow_casual_mode_title">Gündelik mod</string>
+    <string name="morphe_dearrow_error">DeArrow geçici olarak kullanılamıyor (durum kodu: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow geçici olarak kullanılamıyor</string>
+    <string name="morphe_dearrow_titles_icon_summary">Kitle kaynaklı video başlıklarında DeArrow simgesini gösterir</string>
+    <string name="morphe_dearrow_titles_icon_title">DeArrow simgesini göster</string>
+    <string name="morphe_dearrow_titles_title">DeArrow başlıkları</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Akışların güncelliğini yitirdikten sonra otomatik olarak yenilenmesini engeller</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Otomatik akış yenilemeyi devre dışı bırak</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Kaydırırken gezinme çubuğunu görünür tutar</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Gezinme çubuğunun otomatik gizlenmesini devre dışı bırak</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC sesi etkin</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC sesi devre dışı</string>
     <string name="morphe_disable_drc_audio_title">DRC sesi devre dışı bırak</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">YouTube bunları etiketsiz gönderirse, gezinme düğmelerini etiketlerle gösterir</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Etiketsiz gezinme düğmelerini devre dışı bırak</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protokolü etkin</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokolü devre dışı</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokolünü devre dışı bırak</string>
@@ -94,9 +110,9 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
 Sınırlamalar:
 • Filtrelenmiş AI Shorts boş bir alan olarak görünebilir
 • Bazı yapay zeka videoları hala gösterilebilir"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"Veriler AiSList tarafından sağlanır
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList, gönüllüler tarafından bakımı yapılan, AI tarafından üretilen içerik yayınlayan YouTube kanallarının açık kaynaklı bir listesidir. Kanallar kullanıcılar tarafından bildirilir ve eklenmeden önce incelenir
 
-AiSlopList.com'u açmak ve diğer platformlar için indirmeleri görmek için buraya dokunun"</string>
+Liste GitHub'dan indirilir ve videolar cihazınızda filtrelenir"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">Engelleme Listesi: Yüksek güven</string>
     <string name="morphe_hide_aislist_hide_home_title">Videoları Ana sayfada gizle</string>
     <string name="morphe_hide_aislist_hide_search_title">Videoları aramada gizle</string>
@@ -111,6 +127,8 @@ AiSlopList.com'u açmak ve diğer platformlar için indirmeleri görmek için bu
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Uyarı listesindeki kanallar</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Uyarı Listesi: Orta güven</string>
     <string name="morphe_hide_auto_dubbed_label_title">\'Dublajlı\' etiketini gizle</string>
+    <string name="morphe_hide_channel_buttons_summary">Arama sonuçlarında kanal profillerindeki Abone Ol, Kanalı Görüntüle, Topluluk ve YouTube Music gibi düğmeleri gizler</string>
+    <string name="morphe_hide_channel_buttons_title">Kanal düğmelerini gizle</string>
     <string name="morphe_hide_courses_menu_title">Dersler menüsünü gizle</string>
     <string name="morphe_hide_explore_button_title">Keşfet düğmesini gizle</string>
     <string name="morphe_hide_fashion_menu_title">\'Moda &amp; Güzellik\' menüsünü gizle</string>
@@ -122,6 +140,8 @@ AiSlopList.com'u açmak ve diğer platformlar için indirmeleri görmek için bu
     <string name="morphe_hide_invite_to_message_card_title">\'Mesaja başkalarını davet et\' kartını gizle</string>
     <string name="morphe_hide_learning_menu_title">Öğrenme menüsünü gizle</string>
     <string name="morphe_hide_live_menu_title">Canlı menüsünü gizle</string>
+    <string name="morphe_hide_live_streams_summary">Ana sayfa akışındaki ve arama sonuçlarındaki canlı videoları gizler</string>
+    <string name="morphe_hide_live_streams_title">Canlı yayınları gizle</string>
     <string name="morphe_hide_memberships_menu_title">Üyelikler menüsünü gizle</string>
     <string name="morphe_hide_movies_menu_title">\'Filmler ve TV\' menüsünü gizle</string>
     <string name="morphe_hide_music_menu_title">Müzik menüsünü gizle</string>
@@ -166,6 +186,10 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_open_videos_fullscreen_title">Videoları tam ekran modunda aç</string>
     <string name="morphe_override_youtube_music_buttons_summary">Tercih ettiğiniz müzik uygulamasını, yerleşik YouTube Music uygulaması yerine açar</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music düğmelerini değiştir</string>
+    <string name="morphe_playback_buffer_size_entry_low">Düşük</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Maksimum</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Orta</string>
+    <string name="morphe_playback_buffer_size_title">Oynatma arabellek boyutu</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Her zaman açık</string>
     <string name="morphe_playback_in_feeds_entry_off">Kapalı</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Yalnızca Wi-Fi üzerinde</string>
@@ -187,6 +211,9 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
     <string name="morphe_restore_old_player_buttons_summary">Kalın video oynatıcı kontrollerini eski, daha ince görünüme geri döndürür</string>
     <string name="morphe_restore_old_player_buttons_title">Eski oynatıcı düğmesi stilini geri getir</string>
+    <string name="morphe_restore_original_titles_loading">Başlık yükleniyor…</string>
+    <string name="morphe_restore_original_titles_summary">Orijinal video başlıklarını, video açıklamalarını ve kanal açıklamalarını otomatik çevrilenlerin yerine gösterir</string>
+    <string name="morphe_restore_original_titles_title">Orijinal başlıkları geri yükle</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
     <string name="morphe_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
@@ -210,6 +237,10 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_settings_name_custom_item_hint">Bir ad gir</string>
     <string name="morphe_settings_name_empty_warning">Ad boş olamaz</string>
     <string name="morphe_settings_name_title">RVX ayarları adı</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Yalnızca en az bu uzunluktaki duraklamalar kısaltılır. Bir sonraki video başladığında geçerli olur</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimum duraklama süresi</string>
+    <string name="morphe_skip_silence_summary">Video sesindeki sessiz duraklamaları otomatik olarak atlar</string>
+    <string name="morphe_skip_silence_title">Sessizliği atla</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Renkli</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Tek renk</string>
     <string name="morphe_splash_screen_animation_style_title">Başlangıç animasyonu</string>
@@ -230,6 +261,11 @@ Oynatma takılabilir veya kare atlayabilir"</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Bu ayarı etkinleştirmek yazılım tabanlı AV1 kod çözmeyi kullanabilir
 
 AV1 ile video oynatma takılabilir veya kare atlayabilir"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s art arda birkaç kez çalışmadı, ancak %2$s çalıştı
+
+%2$s varsayılan istemci yapılsın mı?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Değiştir</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Varsayılan istemci çalışmıyor</string>
     <string name="morphe_spoof_video_streams_client_type_title">Varsayılan istemci</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Hiçbir istemci akışı alınamadı</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Oynatıcı JavaScript varyantı</string>
@@ -293,6 +329,8 @@ Sınırlamalar: 'Eski video eylem çubuğunu geri yükle' kapatılırsa, 'Daha f
     <string name="morphe_video_quality_prioritize_dialog">Bu ayar devre dışı bırakılırsa, eski videolar için video kalitesi seçenekleri görüntülenmeyebilir</string>
     <string name="morphe_video_quality_prioritize_summary">Kodek verimliliğinden ziyade en yüksek video kalitesine öncelik verir</string>
     <string name="morphe_video_quality_prioritize_title">Video kalitesine öncelik ver</string>
+    <string name="morphe_volume_boost_summary">Maksimum ses seviyesinin ötesine kaydırmak sesi güçlendirir, bu da yüksek seslerin bozulmasına neden olabilir</string>
+    <string name="morphe_volume_boost_title">Ses güçlendirme</string>
     <string name="morphe_vot_caption_language_title">Dil</string>
     <string name="morphe_vot_cost_free">Ücretsiz</string>
     <string name="morphe_vot_cost_per_hour">100 video saati başına %s</string>
@@ -344,19 +382,10 @@ OpenRouter.ai'yi açmak için buraya dokunun"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Eski stil açılır menü kullanılıyor</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Özel iletişim kutusu kullanılıyor</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Shorts\'ta gelişmiş video kalitesi menü türü</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları için topluluk kaynaklı küçük resimler sağlar. Bu küçük resimler genellikle YouTube tarafından sağlananlardan daha alakalıdır
-
-Etkinleştirilirse, video URL'leri API sunucusuna gönderilir ve başka hiçbir veri gönderilmez. Bir videoda DeArrow küçük resmi yoksa, orijinal veya hareketsiz yakalamalar gösterilir
-
-DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Geçersiz DeArrow API URL</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow kapak resim önbelleğinin URL\'si</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API uç noktası</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow kullanılamadığında uyarı gösterilmez</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow kullanılamadığında uyarı gösterilir</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow geçici olarak kullanılamıyor (durum kodu: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow geçici olarak kullanılamıyor</string>
     <string name="revanced_alt_thumbnail_home_title">Ana Sayfa sekmesi için</string>
     <string name="revanced_alt_thumbnail_library_title">Siz sekmesi için</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Orijinal kapak resimleri</string>
@@ -367,9 +396,6 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun"</string>
     <string name="revanced_alt_thumbnail_search_title">Arama sonuçları için</string>
     <string name="revanced_alt_thumbnail_stills">Hareketsiz video çekimleri</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Her videonun başından / ortasından / sonundan hareketsiz yakalamalar alınır. Bu resimler YouTube\'da yerleşiktir ve harici bir API kullanılmaz</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Yüksek kalite hareketsiz yakalamalar kullanılıyor</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Orta kalite hareketsiz yakalamalar kullanılıyor. Kapak resimleri daha hızlı yüklenecektir fakat canlı yayınlar, yayınlanmayan veya çok eski videolar boş kapak resimleri gösterebilir</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Hızlı hareketsiz yakalamaları kullan</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Başlangıç</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Orta</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Bitiş</string>
@@ -405,7 +431,6 @@ Bunu etkinleştirmek, bazı bölgelerde engellenen eksik resimleri düzeltebilir
     <string name="revanced_bypass_url_redirects_summary_on">URL yönlendirmeleri atlanıyor</string>
     <string name="revanced_bypass_url_redirects_title">URL yönlendirmelerini atla</string>
     <string name="revanced_cancel">İptal</string>
-    <string name="revanced_change_form_factor_entry_1">Varsayılan</string>
     <string name="revanced_change_form_factor_entry_2">Telefon</string>
     <string name="revanced_change_form_factor_entry_3">Tablet</string>
     <string name="revanced_change_form_factor_entry_4">Otomotiv</string>
@@ -1059,7 +1084,7 @@ Sınırlama: Varsayılan metin stiline sahip olmayan bazı vurgulanan arama bağ
     <string name="revanced_hide_general_ads_title">Genel reklamları gizle</string>
     <string name="revanced_hide_handle_summary_off">Etiket gizlenmiyor</string>
     <string name="revanced_hide_handle_summary_on">Etiket gizleniyor</string>
-    <string name="revanced_hide_handle_title">Etiketi gizle</string>
+    <string name="revanced_hide_handle_title">Kullanıcı adını gizle</string>
     <string name="revanced_hide_hashtag_section_title">Hashtag bölümünü gizle</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Bu içerik nasıl yapıldı kısmı görünür</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Bu içerik nasıl yapıldı kısmı gizli</string>
@@ -1821,7 +1846,6 @@ Yerel oynatma listesi indirme düğmesini göstermek için \'Uygulama sürümün
     <string name="revanced_preference_screen_account_menu_title">Hesap Menüsü</string>
     <string name="revanced_preference_screen_action_buttons_summary">Videonun altındaki aksiyon düğmeleri gizle veya göster</string>
     <string name="revanced_preference_screen_ads_title">Reklamlar</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Alternatif kapak fotoğrafları</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Ambiyans modu kısıtlamalarını atlayın veya ortam modunu devre dışı bırakın</string>
     <string name="revanced_preference_screen_ambient_mode_title">Ortam modu</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Ana sayfada, arama sonuçlarında ve aboneliklerde carousel rafını gizle veya göster</string>
@@ -2017,9 +2041,9 @@ Bir API anahtarının nasıl alınacağını görmek için tıklayın"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Yeni bir proje oluştur&lt;/a&gt; adresine gidin.&lt;br&gt;2. &lt;b&gt;OLUŞTUR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; adresine gidin.&lt;br&gt;4. &lt;b&gt;ETKİNLEŞTİR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;5. &lt;b&gt;KİMLİK BİLGİLERİ OLUŞTUR&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;6. &lt;b&gt;Herkese açık veri&lt;/b&gt; seçeneğini seçin.&lt;br&gt;7. &lt;b&gt;İLERİ&lt;/b&gt; düğmesine tıklayın.&lt;br&gt;8. API anahtarını kopyalayın.&lt;br&gt;&lt;br&gt;※ API anahtarı asla başkalarıyla paylaşılmamalıdır, bu nedenle İçe/Dışa Aktarma ayarlarına dahil edilmemiştir</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 geliştirici anahtarı al</string>
     <string name="revanced_ryd_about">Hakkında</string>
-    <string name="revanced_ryd_attribution_summary">"Veriler Return YouTube Dislike API tarafından sağlanır
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike, YouTube'un 2021'de gizlediği dislike sayılarını geri getirir. Sayılar, kaldırma işleminden önce arşivlenen verilerden gelir ve daha yeni videolar için kullanıcıların oylarından tahmin edilir, bu nedenle yaklaşıktır ve birkaç günde bir güncellenir
 
-ReturnYouTubeDislike.com'u açmak için buraya dokunun"</string>
+İzlediğiniz videonun kimliği Return YouTube Dislike API'sine gönderilir ve beğenileriniz ve beğenmeme işlemleriniz, tahminleri iyileştirmek için anonim olarak gönderilir.}],\"action\":\"translate\"}"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Beğenme düğmesi en iyi görünüm için biçimlendirilir</string>
     <string name="revanced_ryd_compact_layout_summary_on">Beğenme düğmesi en az genişlik için biçimlendirilir</string>

@@ -68,15 +68,33 @@ Laporan bersifat publik dan ditinjau sebelum saluran ditambahkan ke daftar. Peng
     <string name="morphe_dark_theme_custom_color_summary">Digunakan saat Kustom dipilih</string>
     <string name="morphe_dark_theme_custom_color_title">Warna tema gelap Kustom</string>
     <string name="morphe_dark_theme_title">Tema gelap</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow mengganti judul dan thumbnail clickbait dengan yang berasal dari crowdsource yang lebih akurat dan kurang sensasional. Judul ditulis dan dipilih oleh komunitas, dan thumbnail adalah bingkai yang diambil dari video
+
+Video diminta dengan awalan pendek dari ID video yang di-hash, sehingga server tidak dapat mengetahui dengan pasti video mana yang Anda lihat. Jika video tidak memiliki thumbnail DeArrow, yang asli atau tangkapan diam akan ditampilkan"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">Jumlah suara kasual dalam satu kategori, seperti lucu atau kreatif, yang diperlukan untuk menampilkan judul asli</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Jumlah minimum suara kasual untuk menampilkan judul asli</string>
+    <string name="morphe_dearrow_casual_mode_summary">Menampilkan judul asli, bukan judul DeArrow, jika pengguna DeArrow memberikan suara bahwa mereka menyukai judul asli</string>
+    <string name="morphe_dearrow_casual_mode_title">Mode kasual</string>
+    <string name="morphe_dearrow_error">DeArrow sementara tidak tersedia (kode status: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow sementara tidak tersedia</string>
+    <string name="morphe_dearrow_titles_icon_summary">Menampilkan ikon DeArrow pada judul video kontribusi pengguna</string>
+    <string name="morphe_dearrow_titles_icon_title">Tampilkan ikon DeArrow</string>
+    <string name="morphe_dearrow_titles_title">Judul DeArrow</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Mencegah feed agar tidak disegarkan secara otomatis setelah kedaluwarsa</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Nonaktifkan penyegaran feed otomatis</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Menjaga bilah navigasi tetap terlihat saat menggulir</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Nonaktifkan otomatis menyembunyikan bilah navigasi</string>
     <string name="morphe_disable_drc_audio_summary_off">Audio DRC diaktifkan</string>
     <string name="morphe_disable_drc_audio_summary_on">Audio DRC dinonaktifkan</string>
     <string name="morphe_disable_drc_audio_title">Nonaktifkan audio DRC</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Menampilkan tombol navigasi dengan label, jika YouTube mengirimkannya tanpa label</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Nonaktifkan tombol navigasi tanpa label</string>
     <string name="morphe_disable_quic_protocol_summary_off">Protokol QUIC diaktifkan</string>
     <string name="morphe_disable_quic_protocol_summary_on">Protokol QUIC dinonaktifkan</string>
     <string name="morphe_disable_quic_protocol_title">Nonaktifkan protokol QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Nonaktifkan batas kecepatan menggulir</string>
+    <string name="morphe_disable_system_splash_summary">Membuat ikon splash sistem statis menjadi transparan</string>
+    <string name="morphe_disable_system_splash_title">Nonaktifkan splash sistem</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Perluas durasi siaran langsung DVR' mungkin tidak tersedia
 
 Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' menjadi 'TV Simply' atau 'visionOS'"</string>
@@ -102,9 +120,9 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
 Batasan:
 • Shorts AI yang disaring mungkin ditampilkan sebagai ruang kosong
 • Beberapa video AI mungkin masih ditampilkan"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"Data disediakan oleh AiSList
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList adalah daftar sumber terbuka saluran YouTube yang menerbitkan konten buatan AI, dikelola oleh sukarelawan. Saluran dilaporkan oleh pengguna dan ditinjau sebelum ditambahkan
 
-Ketuk di sini untuk membuka AiSlopList.com dan melihat unduhan untuk platform lain"</string>
+Daftar diunduh dari GitHub dan video difilter di perangkat Anda"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">Daftar blokir: Keyakinan tinggi</string>
     <string name="morphe_hide_aislist_hide_home_title">Sembunyikan video di Beranda</string>
     <string name="morphe_hide_aislist_hide_search_title">Sembunyikan video di pencarian</string>
@@ -119,6 +137,8 @@ Ketuk di sini untuk membuka AiSlopList.com dan melihat unduhan untuk platform la
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Daftar peringatan saluran</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Daftar peringatan: Keyakinan sedang</string>
     <string name="morphe_hide_auto_dubbed_label_title">Sembunyikan label \'Sulih suara Otomatis\'</string>
+    <string name="morphe_hide_channel_buttons_summary">Menyembunyikan tombol seperti Subscribe, Lihat Saluran, Komunitas, dan YouTube Music dari profil saluran di hasil penelusuran</string>
+    <string name="morphe_hide_channel_buttons_title">Sembunyikan tombol saluran</string>
     <string name="morphe_hide_courses_menu_title">Sembunyikan menu Kursus</string>
     <string name="morphe_hide_explore_button_title">Sembunyikan tombol Eksplorasi</string>
     <string name="morphe_hide_fashion_menu_title">Sembunyikan menu \'Fashion &amp; Kecantikan\'</string>
@@ -130,6 +150,8 @@ Ketuk di sini untuk membuka AiSlopList.com dan melihat unduhan untuk platform la
     <string name="morphe_hide_invite_to_message_card_title">Sembunyikan kartu \'Undang lainnya untuk mengirim pesan\'</string>
     <string name="morphe_hide_learning_menu_title">Sembunyikan menu Pembelajaran</string>
     <string name="morphe_hide_live_menu_title">Sembunyikan menu Live</string>
+    <string name="morphe_hide_live_streams_summary">Menyembunyikan video yang sedang ditayangkan langsung di feed beranda dan hasil penelusuran</string>
+    <string name="morphe_hide_live_streams_title">Sembunyikan siaran langsung</string>
     <string name="morphe_hide_memberships_menu_title">Sembunyikan menu Langganan</string>
     <string name="morphe_hide_movies_menu_title">Sembunyikan menu \'Film &amp; TV\'</string>
     <string name="morphe_hide_music_menu_title">Sembunyikan menu Musik</string>
@@ -178,6 +200,10 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_open_videos_fullscreen_title">Buka video dalam mode layar penuh</string>
     <string name="morphe_override_youtube_music_buttons_summary">Membuka aplikasi musik pilihan Anda daripada aplikasi bawaan YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Ganti tombol YouTube Music</string>
+    <string name="morphe_playback_buffer_size_entry_low">Rendah</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Maksimum</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Sedang</string>
+    <string name="morphe_playback_buffer_size_title">Ukuran buffer pemutaran</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Selalu aktif</string>
     <string name="morphe_playback_in_feeds_entry_off">Nonaktif</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi saja</string>
@@ -206,6 +232,9 @@ Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
     <string name="morphe_replace_music_with_youtube_title">Ubah tautan berbagi ke youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">Mengembalikan tampilan tombol pemutar video yang tebal ke gaya visual yang lebih lama, lebih ramping</string>
     <string name="morphe_restore_old_player_buttons_title">Kembalikan gaya tombol pemutar lama</string>
+    <string name="morphe_restore_original_titles_loading">Memuat judul…</string>
+    <string name="morphe_restore_original_titles_summary">Menampilkan judul video asli, deskripsi video, dan deskripsi saluran, bukan yang diterjemahkan secara otomatis</string>
+    <string name="morphe_restore_original_titles_title">Pulihkan judul asli</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan yang dibagikan</string>
     <string name="morphe_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
@@ -229,6 +258,10 @@ Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_custom_item_hint">Masukkan nama</string>
     <string name="morphe_settings_name_empty_warning">Nama tidak boleh kosong</string>
     <string name="morphe_settings_name_title">Nama setelan RVX</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Hanya jeda yang setidaknya selama ini yang dipersingkat. Berlaku saat video berikutnya dimulai</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Durasi jeda minimum</string>
+    <string name="morphe_skip_silence_summary">Secara otomatis melewati jeda hening di audio video</string>
+    <string name="morphe_skip_silence_title">Lewati keheningan</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Berwarna</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monokrom</string>
     <string name="morphe_splash_screen_animation_style_title">Animasi startup</string>
@@ -249,6 +282,11 @@ Pemutaran mungkin tersendat atau kehilangan bingkai"</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Mengaktifkan opsi ini mungkin menggunakan perangkat lunak decoding AV1
 
 Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s tidak berfungsi beberapa kali berturut-turut, tetapi %2$s berfungsi
+
+Jadikan %2$s sebagai klien default?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Ganti</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Klien default tidak berfungsi</string>
     <string name="morphe_spoof_video_streams_client_type_title">Klien bawaan</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Tidak dapat mengambil aliran klien apa pun</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Varian pemutar JavaScript</string>
@@ -283,7 +321,9 @@ Untuk masuk, tekan lanjutkan di bawah ini"</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_title">Tampilkan pemalsuan pada \'Informasi statistik\'</string>
     <string name="morphe_spoof_video_streams_summary_off">"Aliran video tidak dipalsukan
 
-Pemutaran mungkin tidak berfungsi"</string>
+Pemutaran mungkin tidak berfungsi
+
+Untuk mengunakan fitur ini, matikan 'Penyedia PoToken'"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Aliran video dipalsukan
 
 Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>
@@ -325,6 +365,9 @@ Batasan: Jika 'Kembalikan bilah tindakan video lama' dinonaktifkan, hamparan 'Vi
     <string name="morphe_video_quality_prioritize_dialog">Jika setelan ini dimatikan, maka video lama tidak dapat menampilkan pilihan kualitas video</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritaskan kualitas video tertinggi yang tersedia daripada efisiensi codec</string>
     <string name="morphe_video_quality_prioritize_title">Prioritaskan kualitas video</string>
+    <string name="morphe_volume_boost_summary">Menggeser ke atas melewati volume maksimum akan meningkatkannya, yang dapat menyebabkan distorsi pada audio yang keras</string>
+    <string name="morphe_volume_boost_title">Penguat volume</string>
+    <string name="morphe_vot_auto_translate_summary_off">Ketuk tombol terjemahan untuk memulai terjemahan Google</string>
     <string name="morphe_vot_caption_language_title">Bahasa</string>
     <string name="morphe_vot_cost_free">Gratis</string>
     <string name="morphe_vot_cost_per_hour">%s per 100 jam video</string>
@@ -376,19 +419,10 @@ Ketuk di sini untuk membuka OpenRouter.ai"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Menu flyout gaya lama digunakan</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Dialog khusus digunakan</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Menu jenis kualitas video lanjutan di Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow menyediakan thumbnail yang dikumpulkan dari pengguna untuk video YouTube. Thumbnail ini seringkali lebih relevan daripada yang disediakan oleh YouTube
-
-Jika diaktifkan, URL video akan dikirim ke server API dan tidak ada data lain yang dikirim. Jika sebuah video tidak memiliki thumbnail dari DeArrow, maka gambar asli atau tangkapan layar akan ditampilkan
-
-Ketuk di sini untuk membuka DeArrow.ajay.app"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL APIK DeArrow tidak valid</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL titik akhir cache thumbnail DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Titik akhir API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Pesan timbul tidak ditampilkan jika DeArrow tidak tersedia</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Pesan timbul ditampilkan jika DeArrow tidak tersedia</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow sementara tidak tersedia (kode status: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow sementara tidak tersedia</string>
     <string name="revanced_alt_thumbnail_home_title">Untuk tab Beranda</string>
     <string name="revanced_alt_thumbnail_library_title">Untuk tab Anda</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Thumbnail asli</string>
@@ -399,9 +433,6 @@ Ketuk di sini untuk membuka DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_search_title">Untuk hasil pencarian</string>
     <string name="revanced_alt_thumbnail_stills">Tangkapan layar video</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Tangkapan diam diambil dari awal / tengah / akhir di setiap video. Gambar-gambar ini dibuat di YouTube dan tidak ada API eksternal yang digunakan</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Menggunakan tangkapan diam berkualitas tinggi</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Menggunakan tangkapan diam kualitas sedang. Thumbnail akan dimuat lebih cepat, tetapi siaran langsung, video yang belum dirilis, atau video yang sangat lama mungkin menampilkan thumbnail kosong</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Gunakan tangkapan diam cepat</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Awal</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Tengah</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Akhir</string>
@@ -440,7 +471,6 @@ Mengaktifkan ini dapat memperbaiki gambar yang hilang yang diblokir di beberapa 
     <string name="revanced_bypass_url_redirects_summary_on">Pengalihan URL diabaikan</string>
     <string name="revanced_bypass_url_redirects_title">Abaikan pengalihan URL</string>
     <string name="revanced_cancel">Membatalkan</string>
-    <string name="revanced_change_form_factor_entry_1">Bawaan</string>
     <string name="revanced_change_form_factor_entry_2">Ponsel</string>
     <string name="revanced_change_form_factor_entry_3">Tablet</string>
     <string name="revanced_change_form_factor_entry_4">Otomotif</string>
@@ -470,7 +500,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_share_sheet_summary_off">Lembar berbagi dalam aplikasi digunakan</string>
     <string name="revanced_change_share_sheet_summary_on">Lembar berbagi sistem digunakan</string>
     <string name="revanced_change_share_sheet_title">Ubah lembar berbagi</string>
-    <string name="revanced_change_start_page_entry_all_subscriptions">Semua subscriptions</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Semua subscription</string>
     <string name="revanced_change_start_page_entry_browse">Jelajahi saluran</string>
     <string name="revanced_change_start_page_entry_courses">Kursus / Pembelajaran</string>
     <string name="revanced_change_start_page_entry_create">Buat</string>
@@ -494,7 +524,7 @@ Jika ada perubahan di sisi server, warna latar belakang bilah camilan mungkin ti
     <string name="revanced_change_start_page_entry_shopping">Belanja</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Olahraga</string>
-    <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Subscription</string>
     <string name="revanced_change_start_page_entry_trending">Sedang tren</string>
     <string name="revanced_change_start_page_entry_virtual_reality">Realitas Virtual</string>
     <string name="revanced_change_start_page_entry_watch_later">Tonton nanti</string>
@@ -1047,7 +1077,7 @@ Toko"</string>
     <string name="revanced_hide_general_ads_title">Sembunyikan iklan umum</string>
     <string name="revanced_hide_handle_summary_off">Hancle ditampilkan</string>
     <string name="revanced_hide_handle_summary_on">Handle disembunyikan</string>
-    <string name="revanced_hide_handle_title">Sembunyikan Handle</string>
+    <string name="revanced_hide_handle_title">Sembunyikan handle</string>
     <string name="revanced_hide_hashtag_section_title">Sembunyikan bagian Hashtag</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">Bagian \'Cara konten ini dibuat\' ditampilkan</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">Bagian \'Cara konten ini dibuat\' disembunyikan</string>
@@ -1168,6 +1198,8 @@ Kata-kata yang mengandung huruf besar di tengah harus sama persis (misalnya, iPh
     <string name="revanced_hide_player_flyout_menu_help_summary_off">Membantu &amp; menu umpan balik ditampilkan</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_on">Menu bantuan &amp; umpan balik disembunyikan</string>
     <string name="revanced_hide_player_flyout_menu_help_title">Sembunyikan Bantuan &amp; menu umpan balik</string>
+    <string name="revanced_hide_player_flyout_menu_stats_for_nerds_summary_on">Menu Informasi statistik disembunyikan</string>
+    <string name="revanced_hide_player_flyout_menu_stats_for_nerds_title">Sembunyikan menu Informasi statistik</string>
     <string name="revanced_hide_player_flyout_quality_title">Sembunyikan menu Kualitas</string>
     <string name="revanced_hide_player_fullscreen_button_summary_on">"Tombol Layar Penuh disembunyikan
 
@@ -1330,7 +1362,11 @@ Keterbatasan:
     <string name="revanced_language_BN">Bengali\n<small>বাংলা</small></string>
     <string name="revanced_language_CA">Catalan</string>
     <string name="revanced_language_DEFAULT">Bahasa aplikasi</string>
+    <string name="revanced_language_EN">Inggris\n<small>English</small></string>
+    <string name="revanced_language_HI">India\n<small>हिन्दी</small></string>
     <string name="revanced_language_ID">Indonesian\n<small>Indonesia</small></string>
+    <string name="revanced_language_JA">Jepang\n<small>日本語</small></string>
+    <string name="revanced_language_KO">Korea\n<small>한국어</small></string>
     <string name="revanced_language_title">Bahasa RVX</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">Jeda pemutaran dengan menyeret secara horizontal</string>
     <string name="revanced_miniplayer_disable_horizontal_reposition_title">Ingat posisi seret</string>
@@ -1395,7 +1431,6 @@ Untuk menampilkan tombol unduh daftar putar bawaan, aktifkan opsi 'Palsukan vers
     <string name="revanced_preference_category_keyword_filter">Penyaring kata kunci</string>
     <string name="revanced_preference_category_view_counts_filter">Filter jumlah penayangan</string>
     <string name="revanced_preference_screen_ads_title">Iklan</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Thumbnail alternatif</string>
     <string name="revanced_preference_screen_category_bar_summary">Sembunyikan atau tampilkan bilah kategori di feed, pencarian, dan video terkait</string>
     <string name="revanced_preference_screen_category_bar_title">Bilah kategori</string>
     <string name="revanced_preference_screen_channel_page_summary">Sembunyikan atau tampilkan komponen halaman saluran</string>
@@ -1494,9 +1529,14 @@ Deskripsi
 
 Batasan: Mengembalikan tampilan hamparan 'Video lainnya' ke gaya lama"</string>
     <string name="revanced_restore_old_video_action_bar_title">Kembalikan bilah tindakan video lama</string>
-    <string name="revanced_ryd_attribution_summary">"Data disediakan oleh API Return YouTube Dislike
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Kunci Developer YouTube Data API v3 diperlukan untuk mengganti handle dengan nama pengguna
 
-Ketuk di sini untuk membuka ReturnYouTubeDislike.com"</string>
+Kuota harian untuk kunci API pada paket gratis adalah 10.000, dan 1 kuota digunakan untuk mengganti handle dengan nama pengguna untuk 1 komentar
+
+Klik untuk melihat cara mendapatkan kunci API"</string>
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike mengembalikan jumlah dislike yang disembunyikan YouTube pada tahun 2021. Jumlah tersebut berasal dari data yang diarsipkan sebelum penghapusan dan diperkirakan untuk video yang lebih baru dari suara penggunanya, sehingga bersifat perkiraan dan diperbarui setiap beberapa hari
+
+ID video yang Anda tonton dikirim ke API Return YouTube Dislike, dan suka dan tidak suka Anda dikirim secara anonim untuk meningkatkan perkiraan.}"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
     <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
@@ -1798,6 +1838,10 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
 • Terkadang video tidak akan diputar bahkan setelah 10 detik, dalam hal ini Anda perlu mengklik tombol muat ulang video
 • Video mungkin mulai terlambat
 • Mode imersif VR 360° tidak tersedia"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_tv_simply">"• Jika deobfuscation gagal, pemutaran mungkin gagal
+• Beberapa akun mungkin memerlukan PoToken, jika demikian pemutaran akan gagal
+• Terkadang video tidak diputar bahkan setelah 10 detik, jika ini terjadi Anda perlu mengeklik tombol muat ulang video
+• Video mungkin mulai terlambat"</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Tidak diketahui</string>
     <string name="revanced_spoof_streaming_data_side_effects_visionos">"• Menu trek audio hilang
 • Video anak-anak mungkin tidak dapat diputar saat Anda tidak masuk atau dalam mode penyamaran
@@ -1885,6 +1929,7 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
     <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Menonaktifkan setelan ini juga akan menonaktifkan pemblokiran iklan di Shorts
 
 Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran"</string>
+    <string name="revanced_transcript_cookies_dialog_auth_text">Otentikasi</string>
     <string name="revanced_transcript_cookies_dialog_message">"Auth
 ══════════════
 1. Klik 'Auth' untuk membuka halaman masuk di WebView
@@ -1908,6 +1953,7 @@ No Auth
 6. Tutup WebView dan tempelkan Cookie yang telah disalin ke pengaturan 'Cookie Transkrip'
 
 Penafian: Cookie yang diterbitkan tanpa masuk mungkin tidak valid atau mungkin memerlukan waktu untuk tersedia di API Transkrip"</string>
+    <string name="revanced_transcript_cookies_dialog_no_auth_text">Tanpa Otentikasi</string>
     <string name="revanced_vot_about_summary">"Layanan Terjemahan Voice-Over menyediakan trek audio terjemahan untuk video YouTube menggunakan Yandex VoT
 
 Jika server Yandex tidak tersedia di wilayah Anda, gunakan opsi «Proxy audio stream»
@@ -1917,8 +1963,36 @@ Anda harus melakukan otentikasi untuk meminta terjemahan dengan suara asli untuk
     <string name="revanced_vot_enabled_title">Terjemahan sulih suara</string>
     <string name="revanced_vot_original_audio_volume_summary">Volume audio YouTube asli saat terjemahan sedang berbicara</string>
     <string name="revanced_vot_original_audio_volume_title">Volume audio asli</string>
+    <string name="revanced_vot_proxy_url_summary">Host proksi worker VOT. Bawaan: vot-worker.eu.cc</string>
+    <string name="revanced_vot_proxy_url_title">Server proksi</string>
+    <string name="revanced_vot_source_language_summary">Pilih bahasa audio video</string>
+    <string name="revanced_vot_source_language_title">Bahasa sumber</string>
+    <string name="revanced_vot_started">Terjemahan dimulai</string>
+    <string name="revanced_vot_stopped">Terjemahan dihentikan</string>
+    <string name="revanced_vot_stream_not_ready">Terjemahan belum siap. Gunakan tombol untuk mengaktifkannya saat sudah siap</string>
+    <string name="revanced_vot_stream_ready">Terjemahan siap, memutar</string>
+    <string name="revanced_vot_stream_requesting">Meminta terjemahan untuk siaran…</string>
+    <string name="revanced_vot_stream_waiting">Menunggu… ~%s</string>
+    <string name="revanced_vot_stream_waiting_status">Terjemahan sedang diproses…</string>
+    <string name="revanced_vot_target_language_summary">Pilih bahasa yang ingin diterjemahkan ke</string>
+    <string name="revanced_vot_target_language_title">Bahasa target</string>
+    <string name="revanced_vot_time_sec">%d detik</string>
     <string name="revanced_vot_translation_volume_summary">Volume suara terjemahan yang telah disulihsuara</string>
     <string name="revanced_vot_translation_volume_title">Volume terjemahan</string>
+    <string name="revanced_vot_unavailable_live">Terjemahan tidak tersedia untuk siaran langsung</string>
+    <string name="revanced_vot_unavailable_same_language">Audio video sudah dalam bahasa target</string>
+    <string name="revanced_vot_unavailable_too_long">Video terlalu panjang untuk diterjemahkan (maksimal 4 jam)</string>
+    <string name="revanced_vot_voice_style_live">Suara langsung</string>
+    <string name="revanced_vot_voice_style_live_summary_off">Suara TTS standar</string>
+    <string name="revanced_vot_voice_style_live_summary_on">Suara terdengar alami dari Yandex</string>
+    <string name="revanced_vot_voice_style_standard">Suara standar</string>
+    <string name="revanced_vot_voice_style_title">Gaya pengisi suara</string>
+    <string name="revanced_watch_history_about_status_blocked">• Riwayat tontonan diblokir</string>
+    <string name="revanced_watch_history_about_status_original">"• Mengikuti pengaturan riwayat tontonan akun Google
+• Riwayat tontonan mungkin tidak berfungsi akibat penggunaan DNS atau VPN"</string>
+    <string name="revanced_watch_history_about_status_replaced">• Mengikuti pengaturan riwayat tontonan akun Google</string>
+    <string name="revanced_watch_history_about_title">Status riwayat tontonan</string>
+    <string name="revanced_watch_history_management_summary">Klik untuk membuka pengelolaan riwayat tontonan YouTube</string>
     <string name="revanced_watch_history_management_title">Tata seluruh riwayat</string>
     <string name="revanced_watch_history_type_entry_2">Menimpa domain</string>
     <string name="revanced_watch_history_type_entry_3">Halangi riwayat tontonan</string>
@@ -1951,6 +2025,7 @@ Anda harus melakukan otentikasi untuk meminta terjemahan dengan suara asli untuk
     <string name="revanced_whitelist_settings_title">Daftar putih saluran</string>
     <string name="revanced_yandex_error_download_subs_failed">Gagal mengunduh terjemahan (Code: %1$d)</string>
     <string name="revanced_yandex_error_internal_no_chosen_url">Kesalahan Internal: Trek yang dipilih tidak memiliki URL</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">Kesalahan internal: Gagal mendapatkan teks final</string>
     <string name="revanced_yandex_error_network_generic">Jaringan eror</string>
     <string name="revanced_yandex_error_network_subs_fetch">Kesalahan jaringan saat mengambil file subtitle</string>
     <string name="revanced_yandex_error_no_language_selected">Tidak ada bahasa yang dipilih</string>
@@ -1964,6 +2039,7 @@ Anda harus melakukan otentikasi untuk meminta terjemahan dengan suara asli untuk
     <string name="revanced_yandex_error_unknown">Kesalahan tidak diketahui</string>
     <string name="revanced_yandex_status_processing_hour">Lebih dari satu jam tersisa...</string>
     <string name="revanced_yandex_status_processing_minute">Sekitar satu menit lagi...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">Tersisa %d menit...</string>
     <string name="revanced_yandex_status_processing_short">Sedang diproses...</string>
     <string name="revanced_yandex_status_requesting_translation">Meminta terjemahan</string>
     <string name="revanced_yandex_status_subs_found">Subtitle ditemukan, sedang mengambil...</string>

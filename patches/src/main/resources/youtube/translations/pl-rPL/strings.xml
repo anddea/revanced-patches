@@ -68,11 +68,28 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_dark_theme_custom_color_summary">Używane, gdy wybrano opcję Niestandardowe</string>
     <string name="morphe_dark_theme_custom_color_title">Niestandardowy ciemny kolor motywu</string>
     <string name="morphe_dark_theme_title">Ciemny motyw</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow zastępuje zwodnicze tytuły i miniaturki na te tworzone przez społeczność, które są dokładniejsze i mniej sensacyjne. Tytuły są pisane i oceniane przez społeczność, a miniaturki to klatki wycięte z filmu
+
+​Filmy są pobierane za pomocą krótkiego prefiksu zakodowanego identyfikatora filmu, dzięki czemu serwer nie wie dokładnie, jaki film oglądasz. Jeśli film nie ma miniaturki DeArrow, wyświetlana jest oryginalna lub nieruchoma klatka"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">Liczba głosów w pojedynczej kategorii, takiej jak zabawny lub kreatywny, wymagana do wyświetlenia oryginalnego tytułu</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Minimalna liczba głosów, aby pokazać oryginalny tytuł</string>
+    <string name="morphe_dearrow_casual_mode_summary">Wyświetla oryginalny tytuł zamiast tytułu DeArrow, jeśli użytkownicy DeArrow zagłosowali, że podoba im się oryginał</string>
+    <string name="morphe_dearrow_casual_mode_title">Tryb swobodny</string>
+    <string name="morphe_dearrow_error">DeArrow jest niedostępny (kod statusu: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow jest niedostępny</string>
+    <string name="morphe_dearrow_titles_icon_summary">Wyświetla ikonę DeArrow przy społecznościowych tytułach filmów</string>
+    <string name="morphe_dearrow_titles_icon_title">Pokaż ikonę DeArrow</string>
+    <string name="morphe_dearrow_titles_summary">Zastępuje tytuły filmów tytułami utworzonymi w oparciu o crowdsourcing i przesłanymi do DeArrow</string>
+    <string name="morphe_dearrow_titles_title">Tytuły DeArrow</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Zapobiega automatycznemu odświeżaniu treści, gdy stają się nieaktualne</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Wyłącz automatyczne odświeżanie</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Utrzymuje widoczność paska nawigacji podczas przewijania</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Wyłącz automatyczne ukrywanie paska nawigacji</string>
     <string name="morphe_disable_drc_audio_summary_off">Włączona</string>
     <string name="morphe_disable_drc_audio_summary_on">Wyłączona</string>
     <string name="morphe_disable_drc_audio_title">Wyłącz kompresję dźwięku</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Wyświetla przyciski nawigacji z etykietami, jeśli YouTube przesyła je bez nich</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Wyłącz przyciski nawigacji bez etykiet</string>
     <string name="morphe_disable_quic_protocol_summary_off">Włączony</string>
     <string name="morphe_disable_quic_protocol_summary_on">Wyłączony</string>
     <string name="morphe_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
@@ -104,9 +121,9 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
 Ograniczenia:
 • Filtrowane filmy Short z AI mogą wyświetlać się jako puste miejsce
 • Niektóre filmy z AI mogą nadal być widoczne"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"Dane są dostarczane przez AiSList
+    <string name="morphe_hide_aislist_attribution_summary">"AiSList to otwartoźródłowa lista kanałów na YouTube, które publikują treści generowane przez sztuczną inteligencję, utrzymywana przez wolontariuszy. Kanały są zgłaszane przez użytkowników i sprawdzane przed dodaniem
 
-Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy"</string>
+Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">Lista blokad: wysoka pewność</string>
     <string name="morphe_hide_aislist_hide_home_title">Ukryj filmy na stronie głównej</string>
     <string name="morphe_hide_aislist_hide_search_title">Ukryj filmy w wynikach wyszukiwania</string>
@@ -121,6 +138,8 @@ Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Kanały z listy ostrzeżeń</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Lista ostrzeżeń: umiarkowana pewność</string>
     <string name="morphe_hide_auto_dubbed_label_title">Ukryj etykietę automatycznego dubbingu</string>
+    <string name="morphe_hide_channel_buttons_summary">Ukrywa przyciski takie jak Subskrybuj, Wyświetl kanał, Społeczność i YouTube Music na profilach kanałów w wynikach wyszukiwania</string>
+    <string name="morphe_hide_channel_buttons_title">Ukryj przyciski kanału</string>
     <string name="morphe_hide_courses_menu_title">Ukryj menu Kursy</string>
     <string name="morphe_hide_explore_button_title">Ukryj przycisk Odkrywaj</string>
     <string name="morphe_hide_fashion_menu_title">Ukryj menu \"Moda i uroda\"</string>
@@ -132,6 +151,8 @@ Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy
     <string name="morphe_hide_invite_to_message_card_title">Ukryj kartę \"Zaproś innych do przesyłania wiadomości\"</string>
     <string name="morphe_hide_learning_menu_title">Ukryj menu Nauka</string>
     <string name="morphe_hide_live_menu_title">Ukryj menu Na żywo</string>
+    <string name="morphe_hide_live_streams_summary">Ukrywa trwające transmisje na żywo na stronie głównej i w wynikach wyszukiwania</string>
+    <string name="morphe_hide_live_streams_title">Ukryj transmisje na żywo</string>
     <string name="morphe_hide_memberships_menu_title">Ukryj menu \"Wspieranie kanału\"</string>
     <string name="morphe_hide_movies_menu_title">Ukryj menu Filmy</string>
     <string name="morphe_hide_music_menu_title">Ukryj menu Muzyka</string>
@@ -180,12 +201,21 @@ Dotknij tutaj, aby otworzyć AiSlopList.com i zobaczyć wersje na inne platformy
     <string name="morphe_open_videos_fullscreen_title">Otwieraj filmy w trybie pełnoekranowym</string>
     <string name="morphe_override_youtube_music_buttons_summary">Otwiera preferowaną aplikację muzyczną zamiast domyślnej aplikacji YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Zastąp przyciski YouTube Music</string>
+    <string name="morphe_playback_buffer_size_entry_low">Mały</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Maksymalny</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Średni</string>
+    <string name="morphe_playback_buffer_size_title">Rozmiar bufora odtwarzania</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Zawsze włączone</string>
     <string name="morphe_playback_in_feeds_entry_off">Wyłączone</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Tylko Wi-Fi</string>
     <string name="morphe_playback_in_feeds_title">Odtwarzanie w kanałach</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Dostosuj krycie tła za przyciskami sterowania odtwarzacza i paskiem czasu (0 to brak krycia, 100 to pełne krycie)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Krycie tła przycisków sterowania</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"Token wbudowany w tę wersję dostawcy PoToken już nie działa
+
+Włączyć \'Fałszywanie strumienia wideo\' aby naprawić odtwarzanie"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">Dostawca PoToken już nie działa</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Włączyć</string>
     <string name="morphe_potoken_provider_summary">"Naprawia problemy z odtwarzaniem za pomocą wbudowanego dostawcy PoToken (wersja eksperymentalna)
 
 Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>
@@ -208,6 +238,9 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_replace_music_with_youtube_title">Zmień linki udostępniania na youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">Przywraca pogrubione elementy sterujące odtwarzaczem do starszego, cieńszego stylu wizualnego</string>
     <string name="morphe_restore_old_player_buttons_title">Przywróć stary styl przycisków odtwarzacza</string>
+    <string name="morphe_restore_original_titles_loading">Wczytywanie tytułu…</string>
+    <string name="morphe_restore_original_titles_summary">Wyświetla oryginalne tytuły, opisy filmów i kanałów zamiast tłumaczeń automatycznych</string>
+    <string name="morphe_restore_original_titles_title">Przywróć oryginalne tytuły</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Pozostawia parametry śledzące w linkach</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Usuwa parametry śledzące z linków</string>
     <string name="morphe_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
@@ -231,6 +264,10 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_settings_name_custom_item_hint">Wprowadź nazwę</string>
     <string name="morphe_settings_name_empty_warning">Nazwa nie może być pusta</string>
     <string name="morphe_settings_name_title">Nazwa ustawień RVX</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Skracane są tylko pauzy trwające co najmniej tak długo. Zmiana wejdzie w życie po uruchomieniu kolejnego filmu</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimalna długość pauzy</string>
+    <string name="morphe_skip_silence_summary">Automatycznie pomija ciche fragmenty w dźwięku filmu</string>
+    <string name="morphe_skip_silence_title">Pomijaj ciszę</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Kolorowa</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monochromatyczna</string>
     <string name="morphe_splash_screen_animation_style_title">Animacja startowa</string>
@@ -251,6 +288,10 @@ Odtwarzanie może powodować zacinanie się lub gubienie klatek"</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Włączenie tej opcji może wymusić programowe dekodowanie AV1
 
 Odtwarzanie filmu z użyciem AV1 może powodować zacinanie się lub gubienie klatek"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s nie zadziałał(o) kilka razy z rzędu, ale %2$s już tak
+Ustawić %2$s jako domyślnego klienta?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Przełącz</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Domyślny klient nie działa</string>
     <string name="morphe_spoof_video_streams_client_type_title">Domyślny klient</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Nie można przechwycić żadnego ze strumieni klienta</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Wariant skryptu JS odtwarzacza</string>
@@ -329,6 +370,8 @@ Ograniczenie: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączo
     <string name="morphe_video_quality_prioritize_dialog">Jeśli to ustawienie będzie wyłączone, starsze filmy mogą nie wyświetlać opcji wyboru jakości filmu</string>
     <string name="morphe_video_quality_prioritize_summary">Nadaje priorytet najwyższej dostępnej jakości filmu kosztem wydajności kodeka</string>
     <string name="morphe_video_quality_prioritize_title">Priorytet jakości filmu</string>
+    <string name="morphe_volume_boost_summary">Przesunięcie w górę powyżej maksymalnej głośności wzmacnia ją, co może zniekształcać głośny dźwięk</string>
+    <string name="morphe_volume_boost_title">Wzmocnienie głośności</string>
     <string name="morphe_vot_auto_translate_summary_off">Przycisk automatycznego tłumaczenia Google</string>
     <string name="morphe_vot_auto_translate_summary_on">Przycisk automatycznego tłumaczenia Google dla każdego filmu</string>
     <string name="morphe_vot_caption_language_title">Język</string>
@@ -382,19 +425,10 @@ Ograniczenie: Jeśli opcja \"Przywróć stary pasek akcji filmu\" jest wyłączo
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Stary</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Własny</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Typ zaawansowanego menu od jakości filmu w Shortsach</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow udostępnia tworzone przez społeczność miniaturki filmów na YouTube, które są często bardziej trafne niż te dostarczane przez YouTube
-
-Jeśli opcja ta jest włączona, do serwera API wysyłane są wyłącznie adresy filmów. W przypadku braku miniaturek DeArrow, wyświetlana jest miniaturka oryginalna lub kadr z filmu
-
-Dotknij tutaj, aby otworzyć DeArrow.ajay.app"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Nieprawidłowy adres URL API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Adres punktu końcowego do miniaturek DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Punkt końcowy API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Komunikat nie jest wyświetlany, jeśli DeArrow nie jest dostępny</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Komunikat jest wyświetlany, jeśli DeArrow nie jest dostępny</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow jest niedostępny (kod statusu: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow jest niedostępny</string>
     <string name="revanced_alt_thumbnail_home_title">Dla strony głównej</string>
     <string name="revanced_alt_thumbnail_library_title">Dla strony Ty</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Oryginalne miniaturki</string>
@@ -405,9 +439,6 @@ Dotknij tutaj, aby otworzyć DeArrow.ajay.app"</string>
     <string name="revanced_alt_thumbnail_search_title">Dla wyników wyszukiwania</string>
     <string name="revanced_alt_thumbnail_stills">Miniaturki przechwycone z wideo</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Statyczne kadry są pobierane z początku, środka lub końca każdego filmu. Obrazy te są wbudowane w YouTube i nie korzystają z zewnętrznych API</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Używasz przechwytywania wysokiej jakości</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Używasz przechwytywania średniej jakości. Miniaturki będą ładować się szybciej, lecz mogą pozostać puste w przypadku transmisji na żywo, niewydanych i bardzo starych filmów</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Użyj szybkich zrzutów klatek</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Początku</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Środka</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Końca</string>
@@ -417,10 +448,11 @@ Dotknij tutaj, aby otworzyć DeArrow.ajay.app"</string>
     <string name="revanced_app_version_title">Wersja aplikacji</string>
     <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">Typ menu od prędkości odtwarzania</string>
     <string name="revanced_append_time_stamp_information_summary_off">Niewidoczna</string>
-    <string name="revanced_append_time_stamp_information_summary_on">"Widoczna
+    <string name="revanced_append_time_stamp_information_summary_on">"Informacje są dodawane do znacznika czasu
 
-Stuknij, by skonfigurować jakość filmu lub prędkość odtwarzania
-Stuknij i przytrzymaj, by przełączać się pomiędzy typami wyświetlanej informacji"</string>
+Dotknij, aby skonfigurować jakość wideo lub prędkość odtwarzania
+Dotknij dwukrotnie, aby przełączać się między czasem, który upłynął, a czasem pozostałym
+Dotknij i przytrzymaj, aby przełączyć typ dodawanych informacji"</string>
     <string name="revanced_append_time_stamp_information_title">Dodatkowa informacja obok czasu</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Prędkość odtwarzania</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Jakość filmu</string>
@@ -448,7 +480,6 @@ Włączenie tego może naprawić brakujące obrazy, które są zablokowane w nie
     <string name="revanced_bypass_url_redirects_summary_on">Przekierowanie URL jest omijane</string>
     <string name="revanced_bypass_url_redirects_title">Omiń przekierowania linków</string>
     <string name="revanced_cancel">Anuluj</string>
-    <string name="revanced_change_form_factor_entry_1">Domyślny</string>
     <string name="revanced_change_form_factor_entry_2">Telefonowy</string>
     <string name="revanced_change_form_factor_entry_3">Tabletowy</string>
     <string name="revanced_change_form_factor_entry_4">Samochodowy</string>
@@ -883,6 +914,8 @@ Ograniczenia:
     <string name="revanced_gemini_error_transcription_parse">Nie udało się przetworzyć danych transkrypcyjnych</string>
     <string name="revanced_gemini_error_translation_failed">Tłumaczenie Gemini nie powiodło się</string>
     <string name="revanced_gemini_error_translation_parse_failed">Błąd przetwarzania tłumaczenia Gemini</string>
+    <string name="revanced_gemini_highlight_words_summary">Podświetl każde wypowiedziane słowo w napisach do filmu</string>
+    <string name="revanced_gemini_highlight_words_title">Zaznacz wypowiadane słowa</string>
     <string name="revanced_gemini_loading_default">Ładowanie...</string>
     <string name="revanced_gemini_loading_summarize">Podsumowanie filmu...</string>
     <string name="revanced_gemini_loading_transcribe">Transkrypcja filmu...</string>
@@ -1147,7 +1180,7 @@ Ograniczenie: niektóre najciekawsze wyniki wyszukiwania w postaci linków, któ
     <string name="revanced_hide_general_ads_title">Ukryj reklamy ogólne</string>
     <string name="revanced_hide_handle_summary_off">Widoczne</string>
     <string name="revanced_hide_handle_summary_on">Ukryte</string>
-    <string name="revanced_hide_handle_title">Nicki</string>
+    <string name="revanced_hide_handle_title">Ukryj identyfikator</string>
     <string name="revanced_hide_hashtag_section_summary_off">Widoczne</string>
     <string name="revanced_hide_hashtag_section_summary_on">Ukryte</string>
     <string name="revanced_hide_hashtag_section_title">Ukryj sekcję Hashtag</string>
@@ -1230,7 +1263,7 @@ Słowa z wielkimi literami w środku muszą pasować dokładnie (np. iPhone, Tik
     <string name="revanced_hide_like_button_title">Przycisk „Lubię to”</string>
     <string name="revanced_hide_like_dislike_button_summary_off">Przyciski łapki w górę i w dół są widoczne</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Przyciski łapki w górę i w dół są ukryte</string>
-    <string name="revanced_hide_like_dislike_button_title">Ukryj przyciski Lubię i Nie lubię</string>
+    <string name="revanced_hide_like_dislike_button_title">Ukryj przyciski Lubię i \"Nie podoba mi się\"</string>
     <string name="revanced_hide_links_preview_summary_off">Podgląd linków jest widoczny</string>
     <string name="revanced_hide_links_preview_summary_on">Podgląd linków jest ukryty</string>
     <string name="revanced_hide_links_preview_title">Ukryj podgląd linków</string>
@@ -1472,7 +1505,7 @@ Informacje:
     <string name="revanced_hide_shopping_links_title">Ukryj linki do sklepów</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Etykieta z automatycznym dubbingiem jest widoczna</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Etykieta z automatycznym dubbingiem jest ukryta</string>
-    <string name="revanced_hide_shorts_auto_dubbed_label_title">Ukryj etykietę automatycznego dubbingu</string>
+    <string name="revanced_hide_shorts_auto_dubbed_label_title">Ukryj etykietę \"Z dubbingiem automatycznym\"</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_buy_super_thanks_button_title">Przycisk od zakupu superpodziękowania</string>
@@ -1940,7 +1973,6 @@ Aby wyświetlić ten przycisk, włącz 'Oszukuj wersję aplikacji` i ustaw docel
     <string name="revanced_preference_screen_account_menu_title">Menu konta</string>
     <string name="revanced_preference_screen_action_buttons_summary">Ukryj lub pokazuj przyciski akcji pod odtwarzaczem</string>
     <string name="revanced_preference_screen_ads_title">Reklamy</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Alternatywne miniaturki</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Wyłącz oświetlenie kinowe lub obejdź jego ograniczenia</string>
     <string name="revanced_preference_screen_ambient_mode_title">Oświetlenie kinowe</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Ukryj lub pokazuj półki karuzelowe na stronie głównej, w wynikach wyszukiwania i subskrypcjach</string>
@@ -2135,9 +2167,9 @@ Kliknij, by zobaczyć, jak zgłosić klucz API"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Przejdź do &lt;a href=%1$s&gt;Utwórz nowy projekt&lt;/a&gt;.&lt;br&gt;2. Kliknij przycisk &lt;b&gt;UTWÓRZ&lt;/b&gt;&lt;br&gt;3. Przejdź do &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Kliknij przycisk &lt;b&gt;WŁĄCZ&lt;/b&gt;&lt;br&gt;5. Kliknij przycisk &lt;b&gt;UTWÓRZ DANE LOGOWANIA&lt;/b&gt;&lt;br&gt;6. Wybierz opcję &lt;b&gt;Dane publiczne&lt;/b&gt;&lt;br&gt;7. Kliknij przycisk &lt;b&gt;DALEJ&lt;/b&gt;&lt;br&gt;8. Skopiuj klucz API&lt;br&gt;&lt;br&gt;※ Klucz API nie powinien być współdzielony z innymi, dlatego nie jest zawarty w ustawieniach importu/eksportu</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Zgłoś klucz deweloperski YouTube Data API</string>
     <string name="revanced_ryd_about">O integracji</string>
-    <string name="revanced_ryd_attribution_summary">"Dane są dostarczane przez API Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike przywraca licznik łapek w dół, który YouTube ukrył w 2021 roku. Liczby pochodzą z danych zarchiwizowanych przed usunięciem, a dla nowszych filmów są szacowane na podstawie głosów użytkowników rozszerzenia, dlatego są to wartości przybliżone i aktualizują się co kilka dni
 
-Dotknij tutaj, aby otworzyć ReturnYouTubeDislike.com"</string>
+Identyfikator oglądanego filmu jest wysyłany do API Return YouTube Dislike, a Twoje oceny są przesyłane anonimowo w celu poprawy szacunków"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Przycisk łapki stylizowany dla najlepszego wyglądu</string>
     <string name="revanced_ryd_compact_layout_summary_on">Przycisk łapki stylizowany dla minimalnej szerokości</string>
@@ -2890,7 +2922,7 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_yandex_status_subs_found">Znaleziono napisy, pobieranie...</string>
     <string name="revanced_yandex_status_transcription_delayed">Transkrypcja jest lekko opóźniona</string>
     <string name="revanced_yandex_status_youtube_specific">Obsługiwanie żądań dźwięku YouTube...</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex może przetranskrybować filmy z dowolnego języka, ale dane wyjściowe są dostępne tylko w języku angielskim (en), rosyjskim (ru) i kazachskim (kk). Jeśli wprowadzisz inny kod języka lub użyjesz „Język aplikacji” (co stanowi domyślny język aplikacji), Gemini zostanie poproszone o przetłumaczenie (wymagany jest klucz API)</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Język docelowy napisów Yandex: Rosyjski (ru), Angielski (en), Kazachski (kk) lub język aplikacji („app”). Dostęp do pozostałych języków aplikacji jest możliwy za pośrednictwem tłumaczenia Gemini (wymagany jest klucz API)"</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Język Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Używaj transkrypcji Yandex zamiast Gemini. Yandex jest szybszy i bardziej rzetelny. Klucz API nie jest wymagany</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Transkrypcja Yandex</string>
