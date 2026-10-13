@@ -1042,6 +1042,59 @@ fun BytecodePatchContext.forEachInlinedFeatureFlagSite(
     return targets.sumOf { it.third.size }
 }
 
+/**
+ * Overrides every inlined check of the feature flag [literal] with [extensionMethodDescriptor],
+ * skipping checks that are already overridden with the same method.
+ *
+ * Older YouTube builds read each flag through one getter, so hooking the getter covered every read.
+ * Newer builds (21.39+) inline the getter into several callers; call this after hooking the
+ * fingerprint match so the setting applies to all of them. Returns the number of checks hooked.
+ *
+ * Added by lavinhoque33, 2026-10-08.
+ */
+fun BytecodePatchContext.insertLiteralOverrideAtInlinedSites(
+    literal: Long,
+    extensionMethodDescriptor: String,
+): Int {
+    var patched = 0
+    forEachInlinedFeatureFlagSite(literal) { literalIndex ->
+        val moveResultIndex = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
+        val nextReference = implementation!!.instructions.elementAtOrNull(moveResultIndex + 1)
+            ?.getReference<MethodReference>()?.toString()
+        if (nextReference != extensionMethodDescriptor) {
+            insertLiteralOverride(literalIndex, extensionMethodDescriptor)
+            patched++
+        }
+    }
+    return patched
+}
+
+/**
+ * Constant value variant of [insertLiteralOverrideAtInlinedSites]: forces every inlined check of
+ * [literal] to [override], skipping checks that are already forced to a constant.
+ *
+ * Added by lavinhoque33, 2026-10-08.
+ */
+fun BytecodePatchContext.insertLiteralOverrideAtInlinedSites(
+    literal: Long,
+    override: Boolean,
+): Int {
+    var patched = 0
+    forEachInlinedFeatureFlagSite(literal) { literalIndex ->
+        val moveResultIndex = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
+        val register = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
+        val next = implementation!!.instructions.elementAtOrNull(moveResultIndex + 1)
+        val alreadyForced = next != null &&
+                next.opcode in setOf(CONST, CONST_4, CONST_16) &&
+                (next as OneRegisterInstruction).registerA == register
+        if (!alreadyForced) {
+            insertLiteralOverride(literalIndex, override)
+            patched++
+        }
+    }
+    return patched
+}
+
 context(_: BytecodePatchContext)
 fun Match.getWalkerMethod(offset: Int) =
     method.getWalkerMethod(offset)

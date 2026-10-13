@@ -49,6 +49,8 @@ import app.morphe.patches.youtube.video.information.EXTENSION_PLAYBACK_SPEED_MEN
 import app.morphe.patches.youtube.video.information.InitializePlaybackSpeedValuesFingerprint
 import app.morphe.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.morphe.patches.youtube.video.information.hookVideoInformation
+import app.morphe.patches.youtube.utils.videoIdFingerprintShorts
+import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.patches.youtube.video.information.onCreateHook
 import app.morphe.patches.youtube.video.information.speedSelectionInsertMethod
 import app.morphe.patches.youtube.video.information.videoInformationPatch
@@ -199,6 +201,14 @@ val videoPlaybackPatch = bytecodePatch(
                         )
                     }
             }
+
+            // The load parameters only seed the rate. The player then takes it from the playback
+            // rate settings store, so the default is also written through the Shorts speed setter
+            // once the Shorts player has the player response.
+            videoIdFingerprintShorts.methodOrThrow().addInstruction(
+                0,
+                "invoke-static { }, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->onShortsPlayerResponse()V"
+            )
         } else if (is_20_14_or_greater) {
             PcmGetterMethodFingerprint.classDef.let {
                 val targetMethod =

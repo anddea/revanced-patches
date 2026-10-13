@@ -67,6 +67,7 @@ import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMuta
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.startVideoInformerFingerprint
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
+import app.morphe.patches.youtube.utils.bottomsheet.bottomSheetFlyoutMenuPatch
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.patch.PatchList.HOOK_DOWNLOAD_ACTIONS
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
@@ -129,6 +130,9 @@ val downloadActionsPatch = bytecodePatch(
         lithoFilterPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
+        // Keep the bottom sheet 3-dots menu that the custom flyout items
+        // (Save to Watch later, download) are added to.
+        bottomSheetFlyoutMenuPatch,
     )
 
     execute {

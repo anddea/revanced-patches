@@ -152,7 +152,7 @@ val resumingShortsOnStartupPatch = bytecodePatch(
                 )
             }
             if (sites == 0) {
-                printWarn("Could not find the user was in shorts feature flag. Disable resuming shorts on startup may not work.")
+                printWarn("\"Disable resuming Shorts player\" is not fully supported in this version. Use YouTube versions up to 21.39.")
             }
         }
 

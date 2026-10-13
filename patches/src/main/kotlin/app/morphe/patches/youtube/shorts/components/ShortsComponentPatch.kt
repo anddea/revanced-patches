@@ -73,6 +73,7 @@ import app.morphe.patches.shared.textcomponent.textComponentPatch
 import app.morphe.patches.youtube.player.fullscreen.openVideosFullscreenHookPatch
 import app.morphe.patches.youtube.player.overlaybuttons.geminiButton
 import app.morphe.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
+import app.morphe.patches.youtube.utils.bottomsheet.bottomSheetFlyoutMenuPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.morphe.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
@@ -363,6 +364,8 @@ private val shortsCustomActionsPatch = bytecodePatch(
         videoIdPatch,
         videoInformationPatch,
         versionCheckPatch,
+        // Custom actions are added to the bottom sheet menu.
+        bottomSheetFlyoutMenuPatch,
     )
 
     execute {

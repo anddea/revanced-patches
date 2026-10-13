@@ -7,9 +7,15 @@
 
 package app.morphe.extension.shared.spoof.potoken;
 
+// Ported Morphe elapsedRealtime-based expiry (c04605b7).
+import android.os.SystemClock;
+
 public class PoTokenResult {
     public final String playerRequestPoToken;
     public final String streamingDataPoToken;
+    /**
+     * {@link SystemClock#elapsedRealtime()} when the tokens expire.
+     */
     private final long expirationMs;
 
     public PoTokenResult(String playerRequestPoToken, String streamingDataPoToken, long expirationMs) {
@@ -19,6 +25,6 @@ public class PoTokenResult {
     }
 
     public boolean isExpired() {
-        return System.currentTimeMillis() >= expirationMs;
+        return SystemClock.elapsedRealtime() >= expirationMs;
     }
 }

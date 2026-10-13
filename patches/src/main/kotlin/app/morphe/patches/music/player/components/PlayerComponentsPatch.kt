@@ -1439,15 +1439,16 @@ val playerComponentsPatch = bytecodePatch(
             songVideoToggleFlagHooked = true
         }
 
+        // The setting is not shown when it has no effect.
         if (!songVideoToggleVisibilityHooked && !songVideoToggleFlagHooked) {
-            printWarn("\"Hide song/video toggle\": no hook is available in this version.")
+            printWarn("\"Hide Song / Video toggle\" is not supported in this version. Use YouTube Music versions up to 9.40.")
+        } else {
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_hide_song_video_toggle",
+                "false"
+            )
         }
-
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_hide_song_video_toggle",
-            "false"
-        )
 
         // endregion
 

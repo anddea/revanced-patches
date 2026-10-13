@@ -110,6 +110,20 @@ public class SpoofVideoStreamsPatch {
         }
     }
 
+    // Force AVC support, strips VP9 formats on SABR (Morphe bb3e3ff0).
+    private static volatile boolean forceAVC;
+
+    /**
+     * Injection point (called by the app wrapper).
+     */
+    public static void setForceAVC(boolean force) {
+        forceAVC = force;
+    }
+
+    public static boolean getForceAVC() {
+        return forceAVC;
+    }
+
     public static ClientType getPreferredClient() {
         return preferredClient;
     }

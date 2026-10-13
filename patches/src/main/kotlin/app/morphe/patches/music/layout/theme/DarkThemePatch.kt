@@ -93,8 +93,8 @@ private const val SPLASH_THEME_PARENT = "@style/Theme.YouTubeMusic"
 private const val PRECOMPILED_THEME_QUALIFIER_BASE = 801
 private const val DEFAULT_DARK_THEME_COLOR = "#FF0F0F0F"
 
-// These are the native YT Music dark-palette values. Runtime colors use stable IDs so Android
-// 11+ can switch palettes without changing the app's version-specific resource IDs.
+// These are the native YT Music dark-palette values. On Android 11+ the extension redefines the
+// runtime colors with a ResourcesLoader table that it builds for the IDs assigned below.
 private val stockDarkThemeColors = linkedMapOf(
     "yt_black0" to "#FF282828",
     "yt_black1" to "#FF212121",
@@ -117,6 +117,7 @@ private val runtimeDarkThemeResources =
 // modified by lavinhoque33, 2026-10-04
 // 9.40 change: stock 9.40.51 already uses 0x7f060f00..0x7f060f84, so the hard-coded 0x7f060f00 base
 // collided. The base is now max(0xf00, highest existing 0x7f06 id + 1); 9.15 (max 0xed7) is unchanged.
+// The extension looks the IDs up by name, so any base works.
 private fun buildRuntimeThemeResourceIds(firstFreeColorIndex: Int) = runtimeDarkThemeResources.values
     .mapIndexed { index, name ->
         name to "0x7f06${(firstFreeColorIndex + index).toString(16).padStart(4, '0')}"

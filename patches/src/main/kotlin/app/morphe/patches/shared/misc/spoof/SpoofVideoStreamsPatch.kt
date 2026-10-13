@@ -40,7 +40,6 @@ import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.registersUsed
 import app.morphe.util.setExtensionIsPatchIncluded
-import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -94,6 +93,7 @@ internal fun spoofVideoStreamsPatch(
     hookAccountIdentity: BytecodePatchBuilder.() -> Boolean = { false },
     restoreMissingCuepointMethod: BytecodePatchBuilder.() -> Boolean = { false },
     block: BytecodePatchBuilder.() -> Unit,
+    applicationInitFingerprint: Fingerprint? = null,
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = SPOOF_VIDEO_STREAMS.title,
@@ -113,6 +113,14 @@ internal fun spoofVideoStreamsPatch(
             """
                 invoke-static { }, $extensionClass->setClientOrderToUse()V   
             """
+        )
+
+        // Also set the client order on Application init (Morphe a60a3b6),
+        // so playback started without the main activity (widgets, etc.) uses the right clients.
+        // Insert after the shared extension hook that sets the extension context at index 0.
+        applicationInitFingerprint?.method?.addInstruction(
+            1,
+            "invoke-static { }, $extensionClass->setClientOrderToUse()V"
         )
 
         setExtensionIsPatchIncluded(EXTENSION_CLASS)
@@ -395,16 +403,12 @@ internal fun spoofVideoStreamsPatch(
         if (fixParsePlaybackResponseFeatureFlag()) {
             // modified by lavinhoque33, 2026-10-04
             // YouTube Music 9.40 removed feature flag 45665455 entirely; the fingerprint is only that
-            // literal, so a failed match means the flag is gone. Skip the override with a warning.
-            val playbackStartMatch =
-                runCatching { PlaybackStartDescriptorFeatureFlagFingerprint.match() }.getOrNull()
-            if (playbackStartMatch != null) {
-                playbackStartMatch.method.insertLiteralOverride(
-                    playbackStartMatch.instructionMatches.first().index,
+            // literal, so a failed match means the flag is gone and there is nothing to override.
+            runCatching { PlaybackStartDescriptorFeatureFlagFingerprint.match() }.getOrNull()?.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
                     "$EXTENSION_CLASS->usePlaybackStartFeatureFlag(Z)Z"
                 )
-            } else {
-                printWarn("PlaybackStartDescriptorFeatureFlagFingerprint: feature flag 45665455 no longer exists in this app version. Skipping.")
             }
         }
 
