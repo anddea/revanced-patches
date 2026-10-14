@@ -14,6 +14,7 @@ package app.morphe.extension.youtube.patches.components;
 import org.apache.commons.lang3.StringUtils;
 
 import app.morphe.extension.shared.patches.components.ByteArrayFilterGroup;
+import app.morphe.extension.shared.patches.components.ContextInterface;
 import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.shared.settings.BooleanSetting;
@@ -109,7 +110,9 @@ public final class ShortsShelfFilter extends Filter {
     @Override
     public boolean isFiltered(Object contextSource, String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        return isFiltered(String.valueOf(contextSource).contains(CONVERSATION_CONTEXT_FEED_IDENTIFIER),
+        return isFiltered(contextSource instanceof ContextInterface contextInterface
+                        ? contextInterface.isHomeFeedOrRelatedVideo()
+                        : String.valueOf(contextSource).contains(CONVERSATION_CONTEXT_FEED_IDENTIFIER),
                 path, buffer, matchedGroup, contentType, contentIndex);
     }
 

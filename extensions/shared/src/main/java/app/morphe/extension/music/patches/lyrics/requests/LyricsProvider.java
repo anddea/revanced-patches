@@ -16,7 +16,7 @@ import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
 
 /**
- * A third party lyrics backend.
+ * A third party lyrics' backend.
  */
 public interface LyricsProvider {
 
@@ -94,6 +94,40 @@ public interface LyricsProvider {
             }
             return false;
         }
+
+        public boolean isBlind() {
+            return (sourceTitle == null || sourceTitle.isEmpty())
+                    && queriedVariant == null
+                    && !videoIdKeyed;
+        }
+
+        @Nullable
+        public static FetchResult searched(@Nullable Lyrics lyrics,
+                                           @Nullable List<String> titles,
+                                           @Nullable List<String> artists,
+                                           long durationSec, TrackInfo track) {
+            if (lyrics == null) {
+                return null;
+            }
+            if (titles == null || titles.isEmpty()) {
+                return blind(lyrics);
+            }
+            final List<String> artistNames =
+                    artists == null || artists.isEmpty() ? List.of("") : artists;
+            for (String title : titles) {
+                if (title == null || title.isEmpty()) {
+                    continue;
+                }
+                for (String artist : artistNames) {
+                    FetchResult result = new FetchResult(lyrics, title,
+                            artist == null ? "" : artist, durationSec, null, false);
+                    if (result.isHighMatch(track)) {
+                        return result;
+                    }
+                }
+            }
+            return blind(lyrics);
+        }
     }
 
     /**
@@ -105,7 +139,7 @@ public interface LyricsProvider {
     FetchResult fetch(TrackInfo track) throws Exception;
 
     /**
-     * Returns scored candidate lyrics for the track, best first.
+     * Returns scored candidate lyrics for the track, the best first.
      * Scores use the shared match+sync scale from {@link LyricsRequests}.
      */
     default List<Lyrics.ScoredLyrics> fetchCandidates(TrackInfo track) throws Exception {

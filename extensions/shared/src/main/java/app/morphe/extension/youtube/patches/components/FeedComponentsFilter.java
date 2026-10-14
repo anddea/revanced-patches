@@ -35,6 +35,7 @@ import app.morphe.extension.youtube.shared.EngagementPanel;
 import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.morphe.extension.youtube.shared.RootView;
+import app.morphe.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings({"deprecation", "unused", "FieldCanBeLocal"})
 public final class FeedComponentsFilter extends Filter {
@@ -643,7 +644,7 @@ public final class FeedComponentsFilter extends Filter {
         }
 
         if (matchedGroup == videoLabels) {
-            return videoLabelsGroupList.check(buffer).isFiltered();
+            return ExtendedUtils.IS_20_31_OR_GREATER && videoLabelsGroupList.check(buffer).isFiltered();
         }
 
         if (matchedGroup == videoRecommendationLabels) {

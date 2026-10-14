@@ -8,17 +8,18 @@
 package app.morphe.patches.youtube.general.autocaptions
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.InstructionLocation
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
-import app.morphe.patcher.OpcodesFilter
-import app.morphe.patcher.anyInstruction
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.newInstance
+import app.morphe.patcher.opcode
 import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private object SubtitleManagerFingerprintClassFingerprint : Fingerprint(
     returnType = "Z",
@@ -33,26 +34,7 @@ private object SubtitleManagerFingerprintClassFingerprint : Fingerprint(
 )
 
 /**
- * String field of the enclosing class, or (older app targets) a call to an abstract String getter.
- */
-private fun stringFieldOrGetter(
-    location: InstructionLocation = InstructionLocation.MatchAfterAnywhere()
-) = anyInstruction(
-    fieldAccess(
-        opcode = Opcode.IGET_OBJECT,
-        definingClass = "this",
-        type = "Ljava/lang/String;"
-    ),
-    methodCall(
-        definingClass = "this",
-        parameters = listOf(),
-        returnType = "Ljava/lang/String;"
-    ),
-    location = location
-)
-
-/**
- * Resolves to the caption track class.
+ * Resolves to the caption track class. 21.02+
  */
 internal object CaptionTrackIsDisableOptionFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
@@ -61,7 +43,35 @@ internal object CaptionTrackIsDisableOptionFingerprint : Fingerprint(
     filters = listOf(
         string("DISABLE_CAPTIONS_OPTION"),
         // Language code.
-        stringFieldOrGetter(location = MatchAfterImmediately()),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = "Ljava/lang/String;",
+            location = MatchAfterImmediately()
+        ),
+        methodCall(
+            smali = "Ljava/lang/String;->equals(Ljava/lang/Object;)Z",
+            location = MatchAfterImmediately()
+        )
+    )
+)
+
+/**
+ * Resolves to the caption track class. Before 21.02 the class is abstract and uses getters.
+ */
+internal object CaptionTrackIsDisableOptionLegacyFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = listOf(
+        string("DISABLE_CAPTIONS_OPTION"),
+        // Language code.
+        methodCall(
+            definingClass = "this",
+            parameters = listOf(),
+            returnType = "Ljava/lang/String;",
+            location = MatchAfterImmediately()
+        ),
         methodCall(
             smali = "Ljava/lang/String;->equals(Ljava/lang/Object;)Z",
             location = MatchAfterWithin(1)
@@ -69,6 +79,9 @@ internal object CaptionTrackIsDisableOptionFingerprint : Fingerprint(
     )
 )
 
+/**
+ * 21.02+
+ */
 internal object CaptionTrackIsAutoTranslatedFingerprint : Fingerprint(
     classFingerprint = CaptionTrackIsDisableOptionFingerprint,
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
@@ -76,7 +89,36 @@ internal object CaptionTrackIsAutoTranslatedFingerprint : Fingerprint(
     parameters = listOf(),
     filters = listOf(
         // Vss id.
-        stringFieldOrGetter(),
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = "Ljava/lang/String;",
+            location = InstructionLocation.MatchAfterAnywhere()
+        ),
+        string("t", location = MatchAfterImmediately()),
+        methodCall(
+            smali = "Ljava/lang/String;->startsWith(Ljava/lang/String;)Z",
+            location = MatchAfterImmediately()
+        )
+    )
+)
+
+/**
+ * Before 21.02.
+ */
+internal object CaptionTrackIsAutoTranslatedLegacyFingerprint : Fingerprint(
+    classFingerprint = CaptionTrackIsDisableOptionLegacyFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = listOf(
+        // Vss id.
+        methodCall(
+            definingClass = "this",
+            parameters = listOf(),
+            returnType = "Ljava/lang/String;",
+            location = InstructionLocation.MatchAfterAnywhere()
+        ),
         string("t", location = MatchAfterWithin(1)),
         methodCall(
             smali = "Ljava/lang/String;->startsWith(Ljava/lang/String;)Z",
@@ -103,7 +145,84 @@ internal object CaptionTracksManagerAutoTranslateTracksFingerprint : Fingerprint
     returnType = "Ljava/util/List;",
     parameters = listOf(),
     filters = listOf(
-        string("&tlang=")
+        // Url of the source caption track.
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            type = "Ljava/lang/String;"
+        ),
+        methodCall(
+            smali = "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+            location = MatchAfterImmediately()
+        ),
+        string("&tlang=", location = MatchAfterImmediately())
+    )
+)
+
+/**
+ * Resolves to the caption track builder class.
+ */
+internal object CaptionTrackBuilderBuildFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "L",
+    parameters = listOf(),
+    filters = listOf(
+        // Display name.
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = "Ljava/lang/CharSequence;"
+        ),
+        string(" languageCode"),
+        string(" vssId"),
+        string(" url")
+    )
+)
+
+internal object CaptionTrackBuilderCopyConstructorFingerprint : Fingerprint(
+    classFingerprint = CaptionTrackBuilderBuildFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    parameters = listOf("L"),
+    filters = listOf(
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = "this",
+            type = "Ljava/lang/CharSequence;"
+        )
+    )
+)
+
+/**
+ * @param nullValueMessage Exception message of the setter, such as "Null url".
+ */
+internal class CaptionTrackBuilderSetterFingerprint(nullValueMessage: String) : Fingerprint(
+    classFingerprint = CaptionTrackBuilderBuildFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("Ljava/lang/String;"),
+    filters = listOf(
+        string(nullValueMessage)
+    )
+)
+
+/**
+ * Subtitle manager method that returns the direct caption tracks.
+ *
+ * @param directTracksMethod Caption tracks manager method that returns the direct tracks.
+ */
+internal class SubtitleManagerDirectTracksFingerprint(directTracksMethod: MethodReference) : Fingerprint(
+    classFingerprint = SubtitleManagerFingerprintClassFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Ljava/util/List;",
+    parameters = listOf(),
+    filters = listOf(
+        // Caption tracks manager.
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = directTracksMethod.definingClass
+        ),
+        opcode(Opcode.IF_EQZ, location = MatchAfterImmediately()),
+        methodCall(reference = directTracksMethod, location = MatchAfterImmediately())
     )
 )
 

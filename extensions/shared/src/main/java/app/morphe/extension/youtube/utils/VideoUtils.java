@@ -460,14 +460,7 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void reloadVideo() {
-        if (!VideoInformation.lastPlayerResponseIsShort()) {
-            String id = VideoInformation.getPlayerResponseVideoId();
-            if (!id.isEmpty()) {
-                reloadVideo(id);
-                return;
-            }
-        }
-        reloadVideo(VideoInformation.getVideoId());
+        reloadVideo(VideoInformation.getStartingOrPlayingVideoId());
     }
 
     public static void reloadVideo(@NonNull String videoId) {

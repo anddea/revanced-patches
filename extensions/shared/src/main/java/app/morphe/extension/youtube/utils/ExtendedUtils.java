@@ -441,20 +441,25 @@ public class ExtendedUtils extends PackageUtils {
                     if (!isDragging && deltaY <= touchSlop) {
                         return false;
                     }
+
                     isDragging = true;
                     clearTransientTouchState(v);
                     clearTransientTouchState(mainLayout);
+
                     if (deltaY >= 0) {
                         mainLayout.setTranslationY(translationY + deltaY);
                     }
+
                     return true;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
-                    clearTransientTouchState(v);
-                    clearTransientTouchState(mainLayout);
                     if (!isDragging) {
                         return consumeActionDown;
                     }
+
+                    clearTransientTouchState(v);
+                    clearTransientTouchState(mainLayout);
+
                     if (mainLayout.getTranslationY() > dismissThreshold) {
                         mainLayout.startAnimation(slideOut);
                     } else {
@@ -464,6 +469,7 @@ public class ExtendedUtils extends PackageUtils {
                         mainLayout.startAnimation(slideBack);
                         mainLayout.setTranslationY(0);
                     }
+
                     isDragging = false;
                     return true;
                 default:

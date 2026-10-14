@@ -164,6 +164,30 @@ final class MetadataCleaner {
         }
     }
 
+    public static String applyRegexPreserveOriginal(String input, String regex) {
+        if (regex == null || regex.trim().isEmpty()) {
+            return input;
+        }
+        try {
+            Pattern pattern = compiledPatterns.get(regex);
+            if (pattern == null) {
+                pattern = Pattern.compile(regex);
+                if (compiledPatterns.size() >= MAX_CACHED_PATTERNS) {
+                    compiledPatterns.clear();
+                }
+                compiledPatterns.put(regex, pattern);
+            }
+            final String normalized = CharactersConverter.normalizePreserveCase(input);
+            if (!pattern.matcher(normalized).find()) {
+                return input;
+            }
+            return pattern.matcher(normalized).replaceAll("");
+        } catch (Exception ex) {
+            Logger.printDebug(() -> "Failed to apply regex", ex);
+            return input;
+        }
+    }
+
     private static final String DASH_SEPARATOR = " - ";
 
     @Nullable

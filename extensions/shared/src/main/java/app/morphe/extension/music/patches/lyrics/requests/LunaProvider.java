@@ -26,10 +26,12 @@ import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.LyricsMerge;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
+import app.morphe.extension.music.patches.lyrics.requests.KrcParser;
+import app.morphe.extension.music.patches.lyrics.requests.LrcParser;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
 
-public final class LunaProvider implements LyricsProvider {
+public final class LunaProvider extends ScoredSongProvider {
 
     private static final String SEARCH_URL = "https://api.qishui.com/luna/search/track";
     private static final String DETAIL_URL = "https://beta-luna.douyin.com/luna/h5/seo_track";
@@ -48,47 +50,36 @@ public final class LunaProvider implements LyricsProvider {
     }
 
     @Override
-    public boolean hasCandidates() {
-        return true;
-    }
-
-    @Nullable
-    @Override
-    public FetchResult fetch(TrackInfo track) throws Exception {
-        List<Lyrics.ScoredLyrics> candidates = fetchCandidates(track);
-        return candidates.isEmpty() ? null : FetchResult.of(candidates.get(0).lyrics(), track);
-    }
-
-    @Override
-    public List<Lyrics.ScoredLyrics> fetchCandidates(TrackInfo track) throws Exception {
+    protected List<ScoredSong> fetchScoredSongs(TrackInfo track) throws Exception {
         List<JSONObject> tracks = searchTracks(track);
         if (tracks.isEmpty()) {
             return Collections.emptyList();
         }
 
-        List<Lyrics.ScoredLyrics> scored = new ArrayList<>();
+        List<ScoredSong> scored = new ArrayList<>();
         for (JSONObject trackObj : tracks) {
             if (scored.size() >= LyricsRequests.MAX_CANDIDATES) break;
-            String trackId = trackObj.optString("id", null);
-            if (trackId == null || trackId.isEmpty()) {
+            String trackId = trackObj.optString("id", "");
+            if (trackId.isEmpty()) {
                 continue;
             }
             try {
                 Lyrics lyrics = fetchLyricsByTrackId(trackId);
                 if (lyrics != null) {
+                    String title = trackObj.optString("name", "");
+                    String artist = firstArtistName(trackObj);
+                    long durationSec = trackObj.optLong("duration", 0) / 1000;
                     int score = LyricsRequests.scoreLyricsCandidate(
-                            trackObj.optString("name", ""),
-                            firstArtistName(trackObj),
-                            trackObj.optLong("duration", 0) / 1000,
-                            lyrics, track);
-                    scored.add(new Lyrics.ScoredLyrics(score, lyrics));
+                            title, artist, durationSec, lyrics, track);
+                    scored.add(new ScoredSong(score, lyrics, title, artist, durationSec));
                 }
             } catch (Exception ex) {
                 Logger.printDebug(() -> "Could not fetch Luna lyrics for a track id", ex);
             }
         }
 
-        return Lyrics.sortScoredByScore(scored);
+        scored.sort((a, b) -> Integer.compare(b.score(), a.score()));
+        return scored;
     }
 
     private static String firstArtistName(JSONObject trackObj) {
@@ -122,7 +113,6 @@ public final class LunaProvider implements LyricsProvider {
         return label != null && label.optBoolean("is_original", false);
     }
 
-    @Nullable
     private List<JSONObject> searchTracks(TrackInfo track) throws Exception {
         LyricsRequests.throttle(lastRequestTime, REQUEST_THROTTLE_MS);
 
@@ -193,8 +183,8 @@ public final class LunaProvider implements LyricsProvider {
                 if (entity == null) continue;
                 JSONObject trackObj = entity.optJSONObject("track");
                 if (trackObj == null) continue;
-                String id = trackObj.optString("id", null);
-                if (id != null && !id.isEmpty()) {
+                String id = trackObj.optString("id", "");
+                if (!id.isEmpty()) {
                     trackList.add(trackObj);
                 }
             }
@@ -313,19 +303,16 @@ public final class LunaProvider implements LyricsProvider {
             }
         }
 
-        if (result.isEmpty()) {
-            String sysLang = LyricsRequests.deviceLanguage();
-            if ("zh".equals(sysLang)) {
-                JSONObject translations = lyricInfo.optJSONObject("translations");
-                if (translations != null) {
-                    String cnContent = LyricsRequests.optString(translations, "cn");
-                    if (cnContent != null && !cnContent.isEmpty()) {
-                        List<LyricsLine> cnLines = LrcParser.parseSynced(cnContent);
-                        if (!cnLines.isEmpty()) {
-                            List<LyricsLine> merged = LyricsMerge.mergeRomanization(original, cnLines);
-                            if (LyricsMerge.hasText(merged)) {
-                                result.put("zh", merged);
-                            }
+        if (result.isEmpty() && LyricsRequests.isSimplifiedChinese()) {
+            JSONObject translations = lyricInfo.optJSONObject("translations");
+            if (translations != null) {
+                String cnContent = LyricsRequests.optString(translations, "cn");
+                if (cnContent != null && !cnContent.isEmpty()) {
+                    List<LyricsLine> cnLines = LrcParser.parseSynced(cnContent);
+                    if (!cnLines.isEmpty()) {
+                        List<LyricsLine> merged = LyricsMerge.mergeRomanization(original, cnLines);
+                        if (LyricsMerge.hasText(merged)) {
+                            result.put(LyricsRequests.SIMPLIFIED_CHINESE, merged);
                         }
                     }
                 }

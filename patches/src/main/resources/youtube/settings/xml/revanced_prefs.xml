@@ -205,6 +205,8 @@
         <!-- SETTINGS: DISABLE_AUTO_CAPTIONS
         <SwitchPreference android:title="@string/revanced_disable_auto_captions_title" android:key="revanced_disable_auto_captions" android:summaryOn="@string/revanced_disable_auto_captions_summary_on" android:summaryOff="@string/revanced_disable_auto_captions_summary_off" />SETTINGS: DISABLE_AUTO_CAPTIONS -->
 
+        <!-- SETTINGS: AUTO_TRANSLATE_ADDITIONAL_LANGUAGES
+        <SwitchPreference android:key="morphe_auto_translate_additional_languages" android:title="@string/morphe_auto_translate_additional_languages_title" android:summary="@string/morphe_auto_translate_additional_languages_summary" />SETTINGS: AUTO_TRANSLATE_ADDITIONAL_LANGUAGES -->
         <!-- SETTINGS: PREFERRED_CAPTION_LANGUAGE
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/morphe_preferred_caption_language_entries" android:title="@string/morphe_preferred_caption_language_title" android:summary="@string/morphe_preferred_caption_language_summary" android:key="morphe_preferred_caption_language" android:entryValues="@array/morphe_preferred_caption_language_entry_values" />SETTINGS: PREFERRED_CAPTION_LANGUAGE -->
 

@@ -176,6 +176,22 @@ public final class NavigationButtonsPatch {
 
     /**
      * Injection point.
+     *
+     * @param original The color the app theme gives the system navigation buttons.
+     */
+    public static int getSystemNavigationBarColor(int original) {
+        if (!DISABLE_TRANSLUCENT_NAVIGATION_BAR) return original;
+
+        try {
+            return OpaqueSystemBars.systemNavigationBarColor(original);
+        } catch (Exception ex) {
+            Logger.printException(() -> "getSystemNavigationBarColor failure", ex);
+            return original;
+        }
+    }
+
+    /**
+     * Injection point.
      */
     public static boolean useTranslucentNavigationButtons(boolean original) {
         // Feature requires Android 13+

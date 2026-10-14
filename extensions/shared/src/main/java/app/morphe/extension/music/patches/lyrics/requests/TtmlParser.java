@@ -38,7 +38,7 @@ import app.morphe.extension.shared.utils.Logger;
  * agent-based duet/right-alignment, inline + sidecar translations/romanizations,
  * IoU romanization alignment, and Ruby annotation support.
  */
-final class TtmlParser {
+public final class TtmlParser {
 
     private static final Pattern TIME_UNIT = Pattern.compile("(-?\\d+(?:\\.\\d+)?)(ms|h|m|s)");
     private static final Pattern TIME_COLON = Pattern.compile(
@@ -52,7 +52,7 @@ final class TtmlParser {
     private static final String NS_AMLL = "http://www.example.com/ns/amll";
 
     private static final Set<String> AMLL_EXCLUDED_KEYS = Set.of(
-            "ncmMusicId", "qqMusicId", "spotifyId", "appleMusicId", "isrc", "ttmlAuthorGithub", "ttmlAuthorGithubLogin"
+            "ncmMusicId", "qqMusicId", "spotifyId", "appleMusicId", "isrc", "ttmlAuthorGithub"
     );
 
     /** IoU minimum overlap threshold for romanization alignment. */
@@ -102,12 +102,17 @@ final class TtmlParser {
                             inSongwriters = true;
                             songwritersDepth = 1;
                         } else if (inSongwriters) {
-                            songwritersDepth++;
                             if ("songwriter".equals(local)) {
+                                // readTextContent swallows the closing tag too, so counting this
+                                // one would leave songwritersDepth above zero at
+                                // </songwriters> and latch inSongwriters, which swallows
+                                // the transliterations below.
                                 final String name = readTextContent(p);
                                 if (!name.trim().isEmpty()) {
                                     songwriters.add(name.trim());
                                 }
+                            } else {
+                                songwritersDepth++;
                             }
                         } else if ("meta".equals(local) && NS_AMLL.equals(p.getNamespace())) {
                             final String key = getAttr(p, NS_AMLL, "key", "amll:key");
@@ -167,7 +172,7 @@ final class TtmlParser {
     private static final String AGENT_TYPE_GROUP = "group";
     private static final String AGENT_TYPE_OTHER = "other";
 
-    record TtmlResult(List<LyricsLine> lines,
+    public record TtmlResult(List<LyricsLine> lines,
                       @Nullable List<LyricsLine> romanization,
                       @Nullable Map<String, List<LyricsLine>> translations,
                       @Nullable Map<String, List<LyricsLine>> romanizations,
@@ -183,7 +188,7 @@ final class TtmlParser {
                                       @Nullable String bgText, @Nullable List<Word> bgWords) {}
 
     @Nullable
-    static TtmlResult parse(String ttml) {
+    public static TtmlResult parse(String ttml) {
         if (ttml == null || ttml.isEmpty()) {
             return null;
         }
@@ -248,6 +253,16 @@ final class TtmlParser {
                         final ParsedLine pl = processPElement(p, pBegin, pEnd);
 
                         if (pl != null && !pl.text().trim().isEmpty()) {
+                            final List<RomajiSyllable> lineSidecar =
+                                    findSidecarRoman(lineId, sidecarRoman);
+                            // Read off the sidecar before the words carry a reading, or the
+                            // line loses the parts no word matched.
+                            final String romaText = buildLineRomaji(pl.words(), lineSidecar);
+                            // The panel draws a reading over the words, not beside them.
+                            if (lineSidecar != null && !lineSidecar.isEmpty()) {
+                                alignRomajiToWords(pl.words(), lineSidecar);
+                            }
+
                             final LyricsLine line = new LyricsLine(
                                     pl.begin(), pl.end(), pl.text(), pl.words(),
                                     agentId, false, false, divSongPart);
@@ -263,21 +278,18 @@ final class TtmlParser {
                                 lines.add(bgLine);
                             }
 
-                            final List<RomajiSyllable> lineSidecar =
-                                    findSidecarRoman(lineId, sidecarRoman);
-                            final String romaText = buildLineRomaji(
-                                    pl.words(), lineSidecar);
                             romanization.add(new LyricsLine(
                                     LyricsLine.NO_TIME, romaText));
                             for (int i = 0; i < pl.bgLines().size(); i++) {
                                 romanization.add(new LyricsLine(LyricsLine.NO_TIME, ""));
                             }
 
-                            buildRomanizations(lineId, sidecarRoman, pl.words(), romanizations);
+                            buildRomanizations(lineId, sidecarRoman, pl.words(), romanizations,
+                                    mainLineCount - 1, pl.bgLines().size());
 
-                            buildTranslations(lineId, sidecarTrans, translations, mainLineCount);
+                            buildTranslations(lineId, sidecarTrans, translations,
+                                    mainLineCount - 1, pl.bgLines().size());
 
-                            // Merge inline translations into translations map
                             if (pl.inlineTranslations() != null) {
                                 for (Map.Entry<String, String> e : pl.inlineTranslations().entrySet()) {
                                     final String lang = e.getKey();
@@ -290,7 +302,6 @@ final class TtmlParser {
                                     }
                                     langLines.add(new LyricsLine(LyricsLine.NO_TIME, text));
                                 }
-                                // Ensure all existing languages have entries
                                 for (Map.Entry<String, List<LyricsLine>> e : translations.entrySet()) {
                                     while (e.getValue().size() < lines.size()) {
                                         e.getValue().add(new LyricsLine(LyricsLine.NO_TIME, ""));
@@ -298,7 +309,6 @@ final class TtmlParser {
                                 }
                             }
 
-                            // Merge inline romanizations into romanizations map
                             if (pl.inlineRomanizations() != null) {
                                 for (Map.Entry<String, String> e : pl.inlineRomanizations().entrySet()) {
                                     final String lang = e.getKey();
@@ -313,7 +323,6 @@ final class TtmlParser {
                                 }
                             }
 
-                            // Merge BG inline translations into translations map
                             if (pl.bgInlineTranslations() != null) {
                                 for (Map.Entry<String, String> e : pl.bgInlineTranslations().entrySet()) {
                                     final String lang = "bg:" + e.getKey();
@@ -328,7 +337,6 @@ final class TtmlParser {
                                 }
                             }
 
-                            // Merge BG inline romanizations into romanizations map
                             if (pl.bgInlineRomanizations() != null) {
                                 for (Map.Entry<String, String> e : pl.bgInlineRomanizations().entrySet()) {
                                     final String lang = "bg:" + e.getKey();
@@ -359,6 +367,9 @@ final class TtmlParser {
             }
 
             resolveDuet(lines, agentTypes);
+
+            padDerivedTo(translations, lines.size());
+            padDerivedTo(romanizations, lines.size());
 
             final Map<String, List<LyricsLine>> transOut =
                     translations.isEmpty() ? null : translations;
@@ -662,7 +673,6 @@ final class TtmlParser {
             } else if (event == XmlPullParser.END_TAG) {
                 depth--;
                 if (depth <= 1) {
-                    // Closing main or bg span
                     if (inBgWord) {
                         inBgWord = false;
                         final String normalized = normalizeTextRaw(bgWordBuf.toString());
@@ -796,7 +806,6 @@ final class TtmlParser {
         final List<Word> words = new ArrayList<>();
         final StringBuilder fullText = new StringBuilder();
 
-        // Inline translation/roman state
         boolean inTranslation = false;
         final StringBuilder transBuf = new StringBuilder();
         String transLang = null;
@@ -804,13 +813,11 @@ final class TtmlParser {
         final StringBuilder romanBuf = new StringBuilder();
         String romanLang = null;
 
-        // Collected inline translations/romanizations for this <p>
         final Map<String, String> inlineTrans = new HashMap<>();
         final Map<String, String> inlineRoma = new HashMap<>();
         final Map<String, String> bgInlineTrans = new HashMap<>();
         final Map<String, String> bgInlineRoma = new HashMap<>();
 
-        // Background vocal state
         boolean inBg = false;
         final List<Word> bgWords = new ArrayList<>();
         final StringBuilder bgFullText = new StringBuilder();
@@ -859,7 +866,23 @@ final class TtmlParser {
                 final String beginAttr = getAttr(p, null, "begin", "begin");
                 final String endAttr = getAttr(p, null, "end", "end");
 
-                if (inBg) {
+                // Ruby is settled first: an annotation sits inside the vocal it reads,
+                // so the background branch below would drop its base text.
+                if ("container".equals(ruby)) {
+                    inRubyContainer = true;
+                    rubyBaseBuf.setLength(0);
+                    rubyTags.clear();
+                } else if ("base".equals(ruby) && inRubyContainer) {
+                    inRubyBase = true;
+                    rubyBaseBuf.setLength(0);
+                } else if ("textContainer".equals(ruby) && inRubyContainer) {
+                    inRubyTextContainer = true;
+                } else if ("text".equals(ruby) && inRubyTextContainer) {
+                    inRubyText = true;
+                    rubyTextBuf.setLength(0);
+                    rubyTextBegin = parseTime(beginAttr);
+                    rubyTextEnd = parseTime(endAttr);
+                } else if (inBg) {
                     if ("x-translation".equals(role)) {
                         inBgTranslation = true;
                         bgTransBuf.setLength(0);
@@ -890,20 +913,6 @@ final class TtmlParser {
                     inRoman = true;
                     romanBuf.setLength(0);
                     romanLang = getAttr(p, NS_XML, "lang", "xml:lang");
-                } else if ("container".equals(ruby)) {
-                    inRubyContainer = true;
-                    rubyBaseBuf.setLength(0);
-                    rubyTags.clear();
-                } else if ("base".equals(ruby) && inRubyContainer) {
-                    inRubyBase = true;
-                    rubyBaseBuf.setLength(0);
-                } else if ("textContainer".equals(ruby) && inRubyContainer) {
-                    inRubyTextContainer = true;
-                } else if ("text".equals(ruby) && inRubyTextContainer) {
-                    inRubyText = true;
-                    rubyTextBuf.setLength(0);
-                    rubyTextBegin = parseTime(beginAttr);
-                    rubyTextEnd = parseTime(endAttr);
                 } else if (beginAttr != null && endAttr != null) {
                     inWord = true;
                     wordBuf.setLength(0);
@@ -949,10 +958,6 @@ final class TtmlParser {
                             bgWords.add(new Word(bgWordBegin, bgWordEnd, text, null,
                                     endsWithSpace));
                         }
-                    } else if (inBg && bgWrapperDepth > 0) {
-                        bgWrapperDepth--;
-                    } else if (inBg) {
-                        inBg = false;
                     } else if (inRubyText && inRubyContainer) {
                         inRubyText = false;
                         final String text = normalizeText(rubyTextBuf.toString());
@@ -980,11 +985,25 @@ final class TtmlParser {
                                 rRoma.append(rs.text());
                             }
                             //noinspection SizeReplaceableByIsEmpty
-                            String romaji = rRoma.length() > 0 ? rRoma.toString() : null;
+                            final String romaji = rRoma.length() > 0 ? rRoma.toString() : null;
 
-                            fullText.append(baseText);
-                            words.add(new Word(rBegin, rEnd, baseText, romaji, false));
+                            // The base is the sung text either way, only the line differs.
+                            if (inBg) {
+                                bgFullText.append(baseText);
+                                bgWords.add(new Word(rBegin, rEnd, baseText, romaji, false));
+                            } else {
+                                fullText.append(baseText);
+                                words.add(new Word(rBegin, rEnd, baseText, romaji, false));
+                            }
                         }
+                    } else if (inBg && bgWrapperDepth > 0) {
+                        bgWrapperDepth--;
+                    } else if (inBg) {
+                        flushBgLine(bgLines, bgWords, bgFullText, bgBeginMs, bgEndMs,
+                                pBegin, pEnd);
+                        bgWords.clear();
+                        bgFullText.setLength(0);
+                        inBg = false;
                     } else if (inTranslation) {
                         inTranslation = false;
                         final String tText = transBuf.toString().trim();
@@ -1035,6 +1054,10 @@ final class TtmlParser {
                     bgRomanBuf.append(raw);
                 } else if (inBgWord) {
                     bgWordBuf.append(raw);
+                } else if (inRubyBase && inRubyContainer) {
+                    rubyBaseBuf.append(raw);
+                } else if (inRubyText && inRubyContainer) {
+                    rubyTextBuf.append(raw);
                 } else if (inBg && bgWrapperDepth == 0) {
                     // Formatting newlines (whitespace + \n) between BG word spans
                     if (!formattingNewline) {
@@ -1049,10 +1072,6 @@ final class TtmlParser {
                                     prev.text(), prev.romaji(), true));
                         }
                     }
-                } else if (inRubyBase && inRubyContainer) {
-                    rubyBaseBuf.append(raw);
-                } else if (inRubyText && inRubyContainer) {
-                    rubyTextBuf.append(raw);
                 } else if (inTranslation) {
                     transBuf.append(raw);
                 } else if (inRoman) {
@@ -1121,19 +1140,9 @@ final class TtmlParser {
             }
         }
 
-        // Save final BG section
-        //noinspection SizeReplaceableByIsEmpty
-        if (inBg && (!bgWords.isEmpty() || bgFullText.length() > 0)) {
-            String bgText = normalizeText(bgFullText.toString());
-            if (!bgText.trim().isEmpty()) {
-                bgText = bgText.replaceAll("^[(（]+", "").replaceAll("[)）]+$", "").trim();
-                stripBgWordParens(bgWords);
-                if (!bgText.isEmpty()) {
-                    final long bgStart = bgBeginMs > 0 ? bgBeginMs : pBegin;
-                    final long bgEnd = bgEndMs > 0 ? bgEndMs : pEnd;
-                    bgLines.add(new LyricsLine(bgStart, bgEnd, bgText, bgWords));
-                }
-            }
+        if (inBg) {
+            // Defensive: only reachable if an x-bg span was never closed.
+            flushBgLine(bgLines, bgWords, bgFullText, bgBeginMs, bgEndMs, pBegin, pEnd);
         }
 
         return new ParsedLine(effectiveBegin, effectiveEnd, lineText, words, bgLines,
@@ -1142,6 +1151,38 @@ final class TtmlParser {
                 inlineRoma.isEmpty() ? null : inlineRoma,
                 bgInlineTrans.isEmpty() ? null : bgInlineTrans,
                 bgInlineRoma.isEmpty() ? null : bgInlineRoma);
+    }
+
+    @SuppressWarnings("SizeReplaceableByIsEmpty")
+    private static void flushBgLine(List<LyricsLine> bgLines, List<Word> bgWords,
+                                    StringBuilder bgFullText, long bgBeginMs,
+                                    long bgEndMs, long pBegin, long pEnd) {
+        if (bgWords.isEmpty() && bgFullText.length() == 0) {
+            return;
+        }
+        String bgText = normalizeText(bgFullText.toString());
+        if (bgText.trim().isEmpty()) {
+            return;
+        }
+        bgText = bgText.replaceAll("^[(（]+", "").replaceAll("[)）]+$", "").trim();
+        if (bgText.isEmpty()) {
+            return;
+        }
+        stripBgWordParens(bgWords);
+
+        long bgStart = bgBeginMs > 0 ? bgBeginMs : pBegin;
+        long bgEnd = bgEndMs > 0 ? bgEndMs : pEnd;
+        if (bgBeginMs <= 0 && bgEndMs <= 0 && !bgWords.isEmpty()) {
+            long minStart = Long.MAX_VALUE;
+            long maxEnd = 0;
+            for (Word w : bgWords) {
+                if (w.startMs() > 0 && w.startMs() < minStart) minStart = w.startMs();
+                if (w.endMs() > 0 && w.endMs() > maxEnd) maxEnd = w.endMs();
+            }
+            if (minStart < Long.MAX_VALUE) bgStart = minStart;
+            if (maxEnd > 0) bgEnd = maxEnd;
+        }
+        bgLines.add(new LyricsLine(bgStart, bgEnd, bgText, new ArrayList<>(bgWords)));
     }
 
     private static void stripBgWordParens(List<Word> bgWords) {
@@ -1278,8 +1319,8 @@ final class TtmlParser {
     private static void buildRomanizations(String lineId,
             Map<String, List<RomajiSyllable>> sidecarRoman,
             List<Word> words,
-            Map<String, List<LyricsLine>> romanizations) {
-        // Find all sidecar romanization entries for this line
+            Map<String, List<LyricsLine>> romanizations,
+            int mainIndex, int bgCount) {
         // Keys may be "lang:lineId" or just "lineId" (no language)
         for (Map.Entry<String, List<RomajiSyllable>> entry : sidecarRoman.entrySet()) {
             final String key = entry.getKey();
@@ -1316,18 +1357,33 @@ final class TtmlParser {
                 }
             }
             final String text = sb.toString().trim();
-            if (!text.isEmpty()) {
-                final String langKey = lang != null ? lang : "romaji";
-                final List<LyricsLine> langLines = romanizations.computeIfAbsent(
-                        langKey, k -> new ArrayList<>());
+            final String langKey = lang != null ? lang : "romaji";
+            final List<LyricsLine> langLines = romanizations.computeIfAbsent(
+                    langKey, k -> new ArrayList<>());
+            while (langLines.size() < mainIndex) {
+                langLines.add(new LyricsLine(LyricsLine.NO_TIME, ""));
+            }
+            if (langLines.size() == mainIndex) {
                 langLines.add(new LyricsLine(LyricsLine.NO_TIME, text));
+            }
+        }
+        padDerivedTo(romanizations, mainIndex + 1 + bgCount);
+    }
+
+    private static void padDerivedTo(Map<String, List<LyricsLine>> derived, int size) {
+        if (derived == null || derived.isEmpty()) {
+            return;
+        }
+        for (List<LyricsLine> langLines : derived.values()) {
+            while (langLines.size() < size) {
+                langLines.add(new LyricsLine(LyricsLine.NO_TIME, ""));
             }
         }
     }
 
     private static void buildTranslations(String lineId,
             Map<String, SidecarTranslation> sidecarTrans,
-            Map<String, List<LyricsLine>> translations, int lineCount) {
+            Map<String, List<LyricsLine>> translations, int mainIndex, int bgCount) {
 
         final Map<String, SidecarTranslation> mainByLang = new HashMap<>();
         final Map<String, SidecarTranslation> bgByLang = new HashMap<>();
@@ -1347,42 +1403,38 @@ final class TtmlParser {
             }
         }
 
-        // Add main translations (with word-level timing if available)
         for (Map.Entry<String, SidecarTranslation> entry : mainByLang.entrySet()) {
             final String lang = entry.getKey();
             final SidecarTranslation st = entry.getValue();
-            if (st.text().isEmpty()) continue;
             final List<LyricsLine> langLines = translations.computeIfAbsent(
                     lang, k -> new ArrayList<>());
-            while (langLines.size() < lineCount - 1) {
+            while (langLines.size() < mainIndex) {
                 langLines.add(new LyricsLine(LyricsLine.NO_TIME, ""));
             }
-            langLines.add(new LyricsLine(LyricsLine.NO_TIME, st.text(), st.words()));
+            if (langLines.size() == mainIndex) {
+                langLines.add(new LyricsLine(LyricsLine.NO_TIME, st.text(), st.words()));
+            }
         }
 
-        // Add BG translations (from sidecar) — prefixed with "bg:" to distinguish
         for (Map.Entry<String, SidecarTranslation> entry : bgByLang.entrySet()) {
             final String lang = "bg:" + entry.getKey();
             final SidecarTranslation st = entry.getValue();
-            if (st.bgText() == null || st.bgText().isEmpty()) continue;
             final List<LyricsLine> langLines = translations.computeIfAbsent(
                     lang, k -> new ArrayList<>());
-            while (langLines.size() < lineCount) {
+            final int firstBg = mainIndex + 1;
+            while (langLines.size() < firstBg) {
                 langLines.add(new LyricsLine(LyricsLine.NO_TIME, ""));
             }
-            langLines.add(new LyricsLine(LyricsLine.NO_TIME, st.bgText(), st.bgWords()));
+            if (langLines.size() == firstBg) {
+                final String bgText = st.bgText() == null ? "" : st.bgText();
+                langLines.add(bgText.isEmpty()
+                        ? new LyricsLine(LyricsLine.NO_TIME, "")
+                        : new LyricsLine(LyricsLine.NO_TIME, bgText, st.bgWords()));
+            }
         }
 
-        // Ensure all existing languages have entries for this line
-        for (Map.Entry<String, List<LyricsLine>> entry : translations.entrySet()) {
-            final List<LyricsLine> langLines = entry.getValue();
-            while (langLines.size() < lineCount) {
-                langLines.add(new LyricsLine(LyricsLine.NO_TIME, ""));
-            }
-        }
+        padDerivedTo(translations, mainIndex + 1 + bgCount);
     }
-
-    // ── Utility ───────────────────────────────────────────────────────────
 
     private static String readTextContent(XmlPullParser p)
             throws XmlPullParserException, IOException {
@@ -1423,7 +1475,7 @@ final class TtmlParser {
         }
     }
 
-    static long parseTime(@Nullable String raw) {
+    public static long parseTime(@Nullable String raw) {
         if (raw == null || raw.isEmpty()) return 0;
         final String trimmed = raw.trim();
 
@@ -1504,7 +1556,7 @@ final class TtmlParser {
     }
 
     @Nullable
-    static Lyrics ttmlToLyrics(String ttml, String providerName,
+    public static Lyrics ttmlToLyrics(String ttml, String providerName,
             @Nullable String sourceUrl) {
         if (ttml == null || ttml.isEmpty()) return null;
         TtmlResult result = parse(ttml);

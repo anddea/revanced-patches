@@ -17,12 +17,15 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
+import app.morphe.extension.music.patches.lyrics.LyricsMerge;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
+import app.morphe.extension.music.patches.lyrics.requests.LrcParser;
 import app.morphe.extension.music.shared.VideoInformation;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
@@ -30,6 +33,9 @@ import app.morphe.extension.shared.requests.Requester;
 public final class SimpMusicProvider implements LyricsProvider {
 
     private static final String BASE_URL = "https://api-lyrics.simpmusic.org/v1/";
+
+    private static final String CLIENT_USER_AGENT = "SimpMusicLyrics/1.0";
+
     private static final Pattern HTML_ENTITY =
             Pattern.compile("&#x([0-9a-fA-F]+);|&#(\\d+);");
 
@@ -42,7 +48,7 @@ public final class SimpMusicProvider implements LyricsProvider {
     @Override
     public FetchResult fetch(TrackInfo track) throws Exception {
         final String videoId = VideoInformation.getVideoId();
-        if (videoId == null || videoId.isEmpty()) {
+        if (videoId.isEmpty()) {
             return null;
         }
         return FetchResult.of(fetchByVideoId(videoId));
@@ -54,6 +60,7 @@ public final class SimpMusicProvider implements LyricsProvider {
         try {
             final String url = BASE_URL + LyricsRequests.encode(videoId);
             connection = LyricsRequests.openConnection(url);
+            connection.setRequestProperty("User-Agent", CLIENT_USER_AGENT);
             connection.setRequestProperty("Accept", "application/json");
 
             final int code = connection.getResponseCode();
@@ -112,20 +119,21 @@ public final class SimpMusicProvider implements LyricsProvider {
 
     @Nullable
     private Lyrics parseEntry(JSONObject entry, String videoId) {
+        final String contributor = LyricsRequests.optString(entry, "contributor");
         final String richSync = LyricsRequests.optString(entry, "richSyncLyrics");
         if (richSync != null) {
-            return parseLrc(richSync, videoId);
+            return withContributor(parseLrc(richSync, videoId), contributor);
         }
         final String synced = LyricsRequests.optString(entry, "syncedLyrics");
         if (synced != null) {
-            return parseLrc(synced, videoId);
+            return withContributor(parseLrc(synced, videoId), contributor);
         }
         final String plain = LyricsRequests.optString(entry, "plainLyric");
         if (plain != null) {
             final List<LyricsLine> lines = LrcParser.parsePlain(plain);
             if (!lines.isEmpty()) {
-                return new Lyrics(lines, name(), false,
-                        null, null, null, null, plain, "plain", sourceUrl(videoId));
+                return withContributor(new Lyrics(lines, name(), false,
+                        null, null, null, null, plain, "plain", sourceUrl(videoId)), contributor);
             }
         }
         return null;
@@ -185,9 +193,9 @@ public final class SimpMusicProvider implements LyricsProvider {
             builder.append(text, last, matcher.start());
             try {
                 if (matcher.group(1) != null) {
-                    builder.append((char) Integer.parseInt(matcher.group(1), 16));
+                    builder.append((char) Integer.parseInt(Objects.requireNonNull(matcher.group(1)), 16));
                 } else {
-                    builder.append((char) Integer.parseInt(matcher.group(2)));
+                    builder.append((char) Integer.parseInt(Objects.requireNonNull(matcher.group(2))));
                 }
             } catch (NumberFormatException ex) {
                 Logger.printDebug(() -> "Could not parse HTML entity in SimpMusic", ex);
@@ -216,5 +224,10 @@ public final class SimpMusicProvider implements LyricsProvider {
             }
         }
         return result;
+    }
+
+    private static Lyrics withContributor(@Nullable Lyrics lyrics, @Nullable String contributor) {
+        return LyricsMerge.addSongwriter(lyrics,
+                contributor == null ? null : "Submitted by " + contributor);
     }
 }

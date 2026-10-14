@@ -211,24 +211,20 @@ val navigationBarComponentsPatch = bytecodePatch(
                 )
             }
 
-            // modified by lavinhoque33, 2026-10-04
-            // YouTube 21.39 inlines the flag getter into its callers, so the dedicated getter method
-            // no longer exists. Override every inlined flag check instead.
-            val systemFlagMatch = TranslucentNavigationButtonsSystemFeatureFlagFingerprint.matchOrNull()
-            if (systemFlagMatch != null) {
-                systemFlagMatch.method.insertLiteralOverride(
-                    systemFlagMatch.instructionMatches.first().index,
-                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
-                )
-            } else {
-                val patched = forEachInlinedFeatureFlagSite(45632194L) { literalIndex ->
-                    insertLiteralOverride(
-                        literalIndex,
-                        "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+            // The translucent theme hands the window a transparent color for the system navigation
+            // buttons, so an opaque one is swapped in there instead of turning off the feature flag.
+            SystemNavigationBarColorFingerprint.let {
+                it.method.apply {
+                    val colorIndex = it.instructionMatches[1].index
+                    val colorRegister = getInstruction<OneRegisterInstruction>(colorIndex).registerA
+
+                    addInstructions(
+                        colorIndex + 1,
+                        """
+                            invoke-static { v$colorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getSystemNavigationBarColor(I)I
+                            move-result v$colorRegister
+                        """
                     )
-                }
-                if (patched == 0) {
-                    printWarn("\"Disable translucent navigation bar\" is not fully supported in this version. Use YouTube versions up to 21.39.")
                 }
             }
 

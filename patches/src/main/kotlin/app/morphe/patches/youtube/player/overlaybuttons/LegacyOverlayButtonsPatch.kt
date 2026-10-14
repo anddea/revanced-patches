@@ -13,6 +13,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playercontrols.playerControlsPatch
+import app.morphe.patches.youtube.utils.playservice.is_21_08_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_15_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_36_or_greater
@@ -28,9 +29,13 @@ private object ModernPlayerTopControlsFeatureFlagFingerprint : Fingerprint(
     filters = listOf(literal(45750838L))
 )
 
-/** Flags that enable layout pieces incompatible with the legacy controls. */
-private object PlayerControlsModernAccessibilityFeatureFlagFingerprint : Fingerprint(
-    filters = listOf(literal(45757309L))
+/**
+ * Elevated player, which shows the video metadata in a player overlay.
+ */
+private object ElevatedPlayerFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45757309)
+    )
 )
 
 private object PlayerCommentTeaserFeatureFlagFingerprint : Fingerprint(
@@ -59,6 +64,17 @@ internal val legacyOverlayButtonsPatch = bytecodePatch(
     )
 
     execute {
+        if (is_21_08_or_greater) {
+            // The elevated player shows the video metadata without a background over the
+            // ambient mode colors, so the light theme text can not be read.
+            ElevatedPlayerFeatureFlagFingerprint.matchAll().forEach {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    false
+                )
+            }
+        }
+
         if (!restoreOldPlayerButtonsSupported) return@execute
 
         addPreference(arrayOf("SETTINGS: RESTORE_OLD_PLAYER_BUTTONS"))
@@ -70,21 +86,17 @@ internal val legacyOverlayButtonsPatch = bytecodePatch(
             )
         }
 
-        val layoutFlagFingerprints = if (is_21_15_or_greater) {
+        if (is_21_15_or_greater) {
             arrayOf(
-                PlayerControlsModernAccessibilityFeatureFlagFingerprint,
                 PlayerCommentTeaserFeatureFlagFingerprint,
                 RecyclerViewScrollingFeatureFlagFingerprint,
-            )
-        } else {
-            arrayOf(PlayerControlsModernAccessibilityFeatureFlagFingerprint)
-        }
-        layoutFlagFingerprints.forEach { fingerprint ->
-            fingerprint.matchAll().forEach {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS_DESCRIPTOR->allowModernPlayerLayoutFlags(Z)Z",
-                )
+            ).forEach { fingerprint ->
+                fingerprint.matchAll().forEach {
+                    it.method.insertLiteralOverride(
+                        it.instructionMatches.first().index,
+                        "$EXTENSION_CLASS_DESCRIPTOR->allowModernPlayerLayoutFlags(Z)Z",
+                    )
+                }
             }
         }
     }

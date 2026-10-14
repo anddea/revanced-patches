@@ -119,6 +119,11 @@ public final class VideoInformation {
     private static String channelName = "";
     @NonNull
     private static String videoId = "";
+    private static String playlistId = "";
+    /**
+     * If the video ID of the video started by the player controller has been set.
+     */
+    private static boolean videoIdSet;
     @NonNull
     private static String videoTitle = "";
     private static long videoLength = 0;
@@ -234,6 +239,8 @@ public final class VideoInformation {
      * Injection point.
      */
     public static void initialize() {
+        playlistId = "";
+        videoIdSet = false;
         videoTime = -1;
         videoLength = 0;
         playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
@@ -443,6 +450,12 @@ public final class VideoInformation {
      * @param newlyLoadedVideoId id of the current video
      */
     public static void setVideoId(@NonNull String newlyLoadedVideoId) {
+        videoIdSet = true;
+        // The playlist ID hook is called after the video ID hook of the same player response,
+        // and is skipped for Shorts.
+        if (!playerResponseVideoIdIsShort && newlyLoadedVideoId.equals(playerResponseVideoId)) {
+            playlistId = playerResponsePlaylistId;
+        }
         if (videoId.equals(newlyLoadedVideoId))
             return;
 
@@ -487,13 +500,32 @@ public final class VideoInformation {
     }
 
     /**
-     * This is the playlistId of the player response, but since Shorts does not support playlists, it is the same as the current playlistId.
+     * The player response video ID changes with any video loaded in the background,
+     * such as the feed videos loaded while scrolling with the miniplayer open,
+     * so it is used only while the video of the player in front has not started yet.
      *
-     * @return The playlist id of the video.
+     * @return The ID of the video of the player in front, or the ID of the last
+     *         player response if that video is still starting.
+     */
+    @NonNull
+    public static String getStartingOrPlayingVideoId() {
+        return videoIdSet || playerResponseVideoIdIsShort
+                ? videoId // Player response may be a Short in the feed.
+                : playerResponseVideoId;
+    }
+
+    /**
+     * Like {@link #getStartingOrPlayingVideoId()}, the playlist ID of the player response is used
+     * only while the video of the player in front has not started yet.
+     *
+     * @return The playlist ID of the video of the player in front, or the playlist ID of the last
+     *         player response if that video is still starting.
      */
     @NonNull
     public static String getPlaylistId() {
-        return playerResponsePlaylistId;
+        return videoIdSet || playerResponseVideoIdIsShort
+                ? playlistId
+                : playerResponsePlaylistId;
     }
 
     /**

@@ -18,6 +18,8 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Matcher;
@@ -31,7 +33,7 @@ import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
 
-public final class MusixmatchProvider implements LyricsProvider {
+public final class MusixmatchProvider extends ScoredSongProvider {
 
     private static final String API_BASE = "https://apic.musixmatch.com/ws/1.1/";
     private static final String TOKEN_URL = API_BASE + "token.get";
@@ -56,19 +58,7 @@ public final class MusixmatchProvider implements LyricsProvider {
     }
 
     @Override
-    public boolean hasCandidates() {
-        return true;
-    }
-
-    @Nullable
-    @Override
-    public FetchResult fetch(TrackInfo track) throws Exception {
-        final List<Lyrics.ScoredLyrics> candidates = fetchCandidates(track);
-        return candidates.isEmpty() ? null : FetchResult.of(candidates.get(0).lyrics(), track);
-    }
-
-    @Override
-    public List<Lyrics.ScoredLyrics> fetchCandidates(TrackInfo track) throws Exception {
+    protected List<ScoredSong> fetchScoredSongs(TrackInfo track) throws Exception {
         final String token = ensureToken();
         if (token == null) {
             return Collections.emptyList();
@@ -85,9 +75,8 @@ public final class MusixmatchProvider implements LyricsProvider {
             return Collections.emptyList();
         }
 
-        final List<Lyrics.ScoredLyrics> scored = new ArrayList<>();
-        Lyrics firstAccepted = null;
-        int firstAcceptedScore = -1;
+        final List<ScoredSong> scored = new ArrayList<>();
+        ScoredSong firstAccepted = null;
         for (JSONObject trackObj : trackObjs) {
             final int trackId = trackObj.optInt("track_id", -1);
             if (trackId <= 0) continue;
@@ -99,26 +88,27 @@ public final class MusixmatchProvider implements LyricsProvider {
                 continue;
             }
             if (lyrics != null) {
+                String title = trackObj.optString("track_name", "");
+                String artist = trackObj.optString("artist_name", "");
+                long durationSec = trackObj.optInt("track_length", 0);
                 int score = LyricsRequests.scoreLyricsCandidate(
-                        trackObj.optString("track_name", ""),
-                        trackObj.optString("artist_name", ""),
-                        trackObj.optInt("track_length", 0),
-                        lyrics, track);
+                        title, artist, durationSec, lyrics, track);
+                ScoredSong candidate = new ScoredSong(score, lyrics, title, artist, durationSec);
                 if (firstAccepted == null) {
-                    firstAccepted = lyrics;
-                    firstAcceptedScore = score;
+                    firstAccepted = candidate;
                 }
                 if (score >= LyricsRequests.SOFT_MIN + LyricsRequests.syncRank(lyrics)) {
-                    scored.add(new Lyrics.ScoredLyrics(score, lyrics));
+                    scored.add(candidate);
                     break;
                 }
             }
         }
         if (scored.isEmpty() && firstAccepted != null) {
-            scored.add(new Lyrics.ScoredLyrics(firstAcceptedScore, firstAccepted));
+            scored.add(firstAccepted);
         }
 
-        return Lyrics.sortScoredByScore(scored);
+        scored.sort((a, b) -> Integer.compare(b.score(), a.score()));
+        return scored;
     }
 
     @Nullable
@@ -178,8 +168,7 @@ public final class MusixmatchProvider implements LyricsProvider {
                 .append("&q_artist=").append(LyricsRequests.encode(track.artist()))
                 .append("&usertoken=").append(LyricsRequests.encode(token))
                 .append("&format=json")
-                .append("&app_id=" + APP_ID)
-                .append("&t=" + requestId());
+                .append("&app_id=" + APP_ID).append("&t=").append(requestId());
 
         if (durationSec > 0) {
             url.append("&q_duration=").append((int) durationSec);
@@ -396,7 +385,7 @@ public final class MusixmatchProvider implements LyricsProvider {
         final String query = url.substring(queryStart + 1);
         final StringBuilder filtered = new StringBuilder();
         for (String param : query.split("&")) {
-            if (!param.toLowerCase().startsWith("utm")) {
+            if (!param.toLowerCase(Locale.ROOT).startsWith("utm")) {
                 //noinspection SizeReplaceableByIsEmpty
                 if (filtered.length() > 0) filtered.append('&');
                 filtered.append(param);
@@ -505,8 +494,8 @@ public final class MusixmatchProvider implements LyricsProvider {
             if (line.isEmpty()) continue;
             final Matcher m = LRC_LINE_PATTERN.matcher(line);
             if (!m.matches()) continue;
-            final int min = Integer.parseInt(m.group(1));
-            final int sec = Integer.parseInt(m.group(2));
+            final int min = Integer.parseInt(Objects.requireNonNull(m.group(1)));
+            final int sec = Integer.parseInt(Objects.requireNonNull(m.group(2)));
             final String text = m.group(3);
             if (text == null || text.isEmpty()) continue;
             final long startMs = min * 60_000L + sec * 1_000L;
@@ -532,16 +521,17 @@ public final class MusixmatchProvider implements LyricsProvider {
             JSONObject time = line.optJSONObject("time");
             final double total = time != null ? time.optDouble("total", 0) : 0;
             final long startMs = (long) (total * 1000);
-            String text = line.optString("text", "\u266A");
+            String text = line.optString("text", "♪");
             if (text.isEmpty()) {
-                text = "\u266A";
+                text = "♪";
             }
             result.add(new LyricsLine(startMs, text));
         }
         if (result.isEmpty()) {
             return null;
         }
-        return new Lyrics(result, name(), true, null, null, null, null, null, "lrc", sourceUrl);
+        return new Lyrics(result, name(), true, null, null, null, null, body, "mxm.json",
+                sourceUrl);
     }
 
     @Nullable
@@ -550,7 +540,7 @@ public final class MusixmatchProvider implements LyricsProvider {
         if (result.isEmpty()) {
             return null;
         }
-        return new Lyrics(result, name(), false, null, null, null, null, null, null, sourceUrl);
+        return new Lyrics(result, name(), false, null, null, null, null, body, "txt", sourceUrl);
     }
 
     private HttpURLConnection openApi(String url) throws IOException {

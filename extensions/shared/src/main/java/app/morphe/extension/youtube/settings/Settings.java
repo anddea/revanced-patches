@@ -165,6 +165,7 @@ public class Settings extends SharedYouTubeSettings {
 
     // Captions.
     // Legacy switch values are migrated once in the static initialization block below.
+    public static final BooleanSetting AUTO_TRANSLATE_ADDITIONAL_LANGUAGES = new BooleanSetting("morphe_auto_translate_additional_languages", TRUE);
     public static final StringSetting PREFERRED_CAPTION_LANGUAGE = new StringSetting("morphe_preferred_caption_language", "off", true);
 
     public static final EnumSetting<AutoCaptionsStyle> AUTO_CAPTIONS_STYLE = new EnumSetting<>(

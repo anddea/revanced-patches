@@ -54,7 +54,7 @@ private const val LYRICS_PANEL_FILTER =
 @Suppress("unused")
 val lyricsPatch = bytecodePatch(
     name = "Third-party lyrics",
-    description = "Adds an option to show synced lyrics with experience enhancement from 15+ providers in the lyrics panel."
+    description = "Adds an option to show synced lyrics with experience enhancement from 18+ providers in the lyrics panel."
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -62,13 +62,14 @@ val lyricsPatch = bytecodePatch(
         lithoFilterPatch,
         videoInformationPatch,
         versionCheckPatch,
-        // The copy button needs its icon whether or not the patch that owns
-        // these resources is applied.
+        // The copy and romanize buttons need their icons whether or not the patches
+        // that own these resources are applied.
         resourcePatch {
             execute {
                 copyResources(
                     "music/lyrics",
-                    ResourceGroup("drawable", "morphe_yt_copy_bold.xml")
+                    ResourceGroup("drawable", "morphe_yt_copy_bold.xml"),
+                    ResourceGroup("drawable", "morphe_yt_romanize.xml")
                 )
             }
         }
@@ -128,6 +129,17 @@ val lyricsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.LYRICS,
+            "morphe_music_lyrics_tap_to_seek",
+            "true",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_keep_screen_on",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
             "morphe_music_lyrics_hide_played",
             "false",
             "morphe_music_lyrics_enabled"
@@ -140,8 +152,14 @@ val lyricsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.LYRICS,
-            "morphe_music_lyrics_tap_to_seek",
-            "true",
+            "morphe_music_lyrics_hide_info",
+            "false",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_show_section",
+            "false",
             "morphe_music_lyrics_enabled"
         )
         addSwitchPreference(
@@ -173,22 +191,21 @@ val lyricsPatch = bytecodePatch(
             "morphe_music_lyrics_enabled",
             false
         )
+        addListPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_romanize_language",
+            "morphe_music_lyrics_enabled",
+            false
+        )
         addCustomPreference(
             CategoryType.LYRICS,
-            "morphe_music_lyrics_use_ai_translation",
-            "app.morphe.extension.music.settings.preference.LyricsAiConfigPreference",
+            "morphe_music_lyrics_local_romanization",
+            "app.morphe.extension.music.settings.preference.LyricsLocalRomanizationPreference",
             "morphe_music_lyrics_enabled"
         )
         addSwitchPreference(
             CategoryType.LYRICS,
-            "morphe_music_lyrics_show_refresh_button",
-            "true",
-            "morphe_music_lyrics_enabled",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.LYRICS,
-            "morphe_music_lyrics_hide_info",
+            "morphe_music_lyrics_split_background",
             "false",
             "morphe_music_lyrics_enabled"
         )
@@ -200,13 +217,53 @@ val lyricsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.LYRICS,
-            "morphe_music_lyrics_keep_screen_on",
-            "false"
+            "morphe_music_lyrics_show_refresh_button",
+            "true",
+            "morphe_music_lyrics_enabled",
+            false
+        )
+        addCustomPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_ai_config",
+            "app.morphe.extension.music.settings.preference.LyricsAiConfigPreference",
+            "morphe_music_lyrics_enabled",
+            setSummary = false,
+            titleKey = "morphe_music_lyrics_use_ai_title"
+        )
+        addCustomPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_use_ai_translation",
+            "app.morphe.extension.music.settings.preference.LyricsAiPromptPreference",
+            "morphe_music_lyrics_enabled"
+        )
+        addCustomPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_use_ai_romanization",
+            "app.morphe.extension.music.settings.preference.LyricsAiPromptPreference",
+            "morphe_music_lyrics_enabled"
+        )
+        addCustomPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_use_ai_section",
+            "app.morphe.extension.music.settings.preference.LyricsAiPromptPreference",
+            "morphe_music_lyrics_enabled"
+        )
+        addCustomPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_transcribe_key",
+            "app.morphe.extension.music.settings.preference.LyricsTranscribeKeyPreference",
+            "morphe_music_lyrics_enabled"
         )
         addCustomPreference(
             CategoryType.LYRICS,
             "morphe_music_lyrics_offset_ms",
             "app.morphe.extension.shared.settings.preference.SliderPreference",
+            "morphe_music_lyrics_enabled"
+        )
+        addSwitchPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_sb_matching",
+            "true",
             "morphe_music_lyrics_enabled"
         )
         addSwitchPreference(
@@ -229,10 +286,12 @@ val lyricsPatch = bytecodePatch(
             "false",
             "morphe_music_lyrics_enabled"
         )
-        addNonInteractivePreference(
+        addCustomPreference(
             CategoryType.LYRICS,
             "morphe_music_lyrics_about",
-            "morphe_music_lyrics_enabled"
+            "app.morphe.extension.music.settings.preference.LyricsAboutPreference",
+            "morphe_music_lyrics_enabled",
+            setSummary = false
         )
 
         // The panel content is built by Elements, so there is no view to hook. The timed

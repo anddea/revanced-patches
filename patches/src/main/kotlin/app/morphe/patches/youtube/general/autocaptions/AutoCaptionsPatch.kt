@@ -57,6 +57,7 @@ val autoCaptionsPatch = bytecodePatch(
 
     dependsOn(
         baseAutoCaptionsPatch,
+        autoTranslateCaptionsPatch,
         settingsPatch,
         versionCheckPatch,
     )

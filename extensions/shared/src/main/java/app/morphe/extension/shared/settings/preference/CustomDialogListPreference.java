@@ -223,6 +223,74 @@ public class CustomDialogListPreference extends ListPreference {
         super(context);
     }
 
+    /**
+     * Creates the styled single choice dialog without showing it, for any preference.
+     * Picking an entry passes its index to {@code onSelected} and dismisses the dialog.
+     */
+    public static Dialog createListDialog(Context context, String title,
+                                          CharSequence[] entries, CharSequence[] entryValues,
+                                          @Nullable String selectedValue, java.util.function.IntConsumer onSelected) {
+        // Create ListView.
+        ListView listView = new ListView(context);
+        listView.setId(android.R.id.list);
+        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        listView.setDividerHeight(0);
+
+        // Create custom adapter for the ListView.
+        ListPreferenceArrayAdapter adapter = new ListPreferenceArrayAdapter(
+                context,
+                LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED,
+                entries,
+                entryValues,
+                selectedValue
+        );
+        listView.setAdapter(adapter);
+
+        // Set checked item.
+        if (selectedValue != null) {
+            for (int i = 0, length = entryValues.length; i < length; i++) {
+                if (selectedValue.equals(entryValues[i].toString())) {
+                    listView.setItemChecked(i, true);
+                    listView.setSelection(i);
+                    break;
+                }
+            }
+        }
+
+        // Create the custom dialog without OK button.
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
+                context,
+                title,
+                null,
+                null,
+                null,
+                null,
+                () -> {}, // Cancel button action.
+                null,
+                null,
+                true
+        );
+
+        Dialog dialog = dialogPair.first;
+
+        // Add the ListView to the main layout.
+        LinearLayout mainLayout = dialogPair.second;
+        LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                0,
+                1.0f
+        );
+        mainLayout.addView(listView, mainLayout.getChildCount() - 1, listViewParams);
+
+        // Handle item click to select value and dismiss dialog.
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            onSelected.accept(position);
+            dialog.dismiss();
+        });
+
+        return dialog;
+    }
+
     @Override
     protected void showDialog(Bundle state) {
         Context context = getContext();

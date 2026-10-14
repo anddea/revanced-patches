@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,58 +32,69 @@ public final class LyricsTranslator {
     private LyricsTranslator() {
     }
 
-    private static String translationLanguage() {
-        String language = Settings.LYRICS_TRANSLATION_LANGUAGE.get();
-        return "DEFAULT".equalsIgnoreCase(language)
-                ? LyricsRequests.deviceLanguage()
-                : language.toLowerCase(Locale.ROOT);
-    }
-
     @Nullable
     private static List<String> embeddedTranslation(Lyrics lyrics, String target, int lineCount) {
         Map<String, List<LyricsLine>> byLang = lyrics.translations();
         if (byLang == null || byLang.isEmpty()) {
             return null;
         }
-        String targetLang = primarySubtag(target);
+        String targetLang = LyricsRequests.primarySubtag(target);
+        final String targetScript = LyricsRequests.resolvedScript(target);
         for (Map.Entry<String, List<LyricsLine>> entry : byLang.entrySet()) {
-            if (!primarySubtag(entry.getKey()).equals(targetLang)) {
+            String key = entry.getKey();
+            if (key.startsWith(LyricsMerge.BACKGROUND_TRACK_PREFIX)) {
+                continue;
+            }
+            if (!LyricsRequests.primarySubtag(key).equals(targetLang)) {
+                continue;
+            }
+            if (!LyricsRequests.resolvedScript(key).equals(targetScript)) {
                 continue;
             }
             List<LyricsLine> lines = entry.getValue();
             if (lines == null || lines.size() != lineCount || !LyricsMerge.hasText(lines)) {
                 continue;
             }
-            List<String> out = new ArrayList<>(lines.size());
-            for (LyricsLine line : lines) {
-                String text = line.text();
-                out.add(text == null ? "" : text);
+            return embeddedTranslationLines(lyrics, lines,
+                    LyricsMerge.backgroundTrack(byLang, key));
+        }
+        return null;
+    }
+
+    /** Elsewhere the fallback would put the sung line's own words under different ones. */
+    private static List<String> embeddedTranslationLines(Lyrics lyrics, List<LyricsLine> lines,
+                                                          @Nullable List<LyricsLine> backgroundLines) {
+        List<String> out = new ArrayList<>(lines.size());
+        for (LyricsLine line : lines) {
+            String text = line.text();
+            out.add(text == null ? "" : text);
+        }
+        List<LyricsLine> allLines = lyrics.lines();
+        final boolean fallback = LyricsMerge.hasBackgroundTrack(lyrics, lyrics.translations());
+        for (int i = 0; i < out.size() && i < allLines.size(); i++) {
+            if (!allLines.get(i).isBG()) {
+                continue;
             }
-            List<LyricsLine> allLines = lyrics.lines();
-            for (int i = 0; i < out.size() && i < allLines.size(); i++) {
-                if (allLines.get(i).isBG()) {
-                    for (int j = i - 1; j >= 0; j--) {
-                        if (!allLines.get(j).isBG() && j < out.size()) {
-                            String parentTrans = out.get(j);
-                            if (parentTrans != null && !parentTrans.isEmpty()) {
-                                out.set(i, parentTrans);
-                            }
-                            break;
-                        }
+            final String own = LyricsMerge.textAt(backgroundLines, i);
+            if (!own.isEmpty()) {
+                out.set(i, own);
+                continue;
+            }
+            if (!fallback) {
+                continue;
+            }
+            for (int j = i - 1; j >= 0; j--) {
+                if (!allLines.get(j).isBG() && j < out.size()) {
+                    String parentTrans = out.get(j);
+                    if (parentTrans != null && !parentTrans.isEmpty()) {
+                        out.set(i, parentTrans);
                     }
+                    break;
                 }
             }
             return out;
         }
         return null;
-    }
-
-    private static String primarySubtag(String lang) {
-        if (lang == null) {
-            return "";
-        }
-        final int idx = lang.indexOf('-');
-        return (idx >= 0 ? lang.substring(0, idx) : lang).toLowerCase(Locale.ROOT);
     }
 
     public static void translate(TrackInfo track, Lyrics lyrics, String source, Callback callback) {
@@ -95,7 +105,7 @@ public final class LyricsTranslator {
             lines.add(line.text());
         }
 
-        String language = translationLanguage();
+        String language = LyricsRequests.translationLanguage();
 
         List<String> embedded = embeddedTranslation(lyrics, language, lines.size());
         if (embedded != null) {
@@ -149,9 +159,9 @@ public final class LyricsTranslator {
     @Nullable
     private static List<String> aiTranslate(List<String> lines, String language,
             String title, String artist, String baseUrl, String apiToken, String model) {
-        String prompt = OpenAIClient.renderPrompt(Settings.LYRICS_AI_PROMPT.get(),
+        String prompt = OpenAIClient.renderPrompt(Settings.LYRICS_AI_TRANSLATION_PROMPT.get(),
                 "translation", language, title, artist, lines);
-        return OpenAIClient.mapLines(baseUrl, apiToken, model, prompt, null, lines);
+        return OpenAIClient.mapLines(baseUrl, apiToken, model, prompt, lines);
     }
 
     @Nullable

@@ -221,7 +221,8 @@ public class PoTokenProviderPatch {
                 onTokenRejected("attestation is required");
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "onMediaResponseChunk failure", ex);
+            sabrResponseReaders.remove(callbacks);
+            Logger.printInfo(() -> "Could not read media response", ex);
         }
     }
 

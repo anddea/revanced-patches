@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.youtube.patches.components;
 
 import android.view.View;
@@ -133,7 +143,7 @@ public final class CommentsFilter extends Filter {
 
         commentsPreviewDots = new StringFilterGroup(
                 Settings.HIDE_PREVIEW_COMMENT_OLD_METHOD,
-                "|ContainerType|ContainerType|ContainerType|"
+                VIDEO_METADATA_CAROUSEL_PATH
         );
 
         previewCommentText = new StringFilterGroup(
@@ -198,7 +208,11 @@ public final class CommentsFilter extends Filter {
                 return Settings.HIDE_COMMENTS_SECTION_IN_HOME_FEED.get();
             } else return Settings.HIDE_COMMENTS_SECTION.get();
         } else if (matchedGroup == commentsPreviewDots) {
-            return path.startsWith(VIDEO_METADATA_CAROUSEL_PATH);
+            return path.contains("carousel_header") &&
+                            // Old action buttons layout.
+                            (path.endsWith("|ContainerType|ContainerType|ContainerType|")
+                            // New action buttons layout.
+                            || path.contains("|dot_indicator.e"));
         } else if (matchedGroup == previewCommentText) {
             return COMMENT_PREVIEW_TEXT_PATTERN.matcher(path).find();
         }
