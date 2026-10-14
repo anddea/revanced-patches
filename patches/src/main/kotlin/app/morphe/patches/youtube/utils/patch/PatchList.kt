@@ -45,6 +45,10 @@ internal enum class PatchList(
         "Change start page",
         "Adds an option to set which page the app opens in instead of the homepage."
     ),
+    COPY_TEXT(
+        "Copy text",
+        "Adds options to copy the video title and comments by tapping and holding them."
+    ),
     CUSTOM_SHORTS_ACTION_BUTTONS(
         "Custom Shorts action buttons",
         "Changes, at compile time, the icon of the action buttons of the Shorts player."

@@ -227,6 +227,10 @@
         <app.morphe.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_transcript_cookies_title" android:key="revanced_transcript_cookies" android:summary="@string/revanced_transcript_cookies_summary" android:inputType="textMultiLine" />
         <app.morphe.extension.youtube.settings.preference.GetCookiesPreference android:title="@string/revanced_transcript_cookies_about_title" android:key="revanced_transcript_cookies_about" android:summary="@string/revanced_transcript_cookies_about_summary" />SETTINGS: SET_TRANSCRIPT_COOKIES -->
 
+        <!-- SETTINGS: COPY_TEXT
+        <SwitchPreference android:title="@string/morphe_copy_video_title_title" android:key="morphe_copy_video_title" android:summary="@string/morphe_copy_video_title_summary" />
+        <SwitchPreference android:title="@string/morphe_copy_comments_title" android:key="morphe_copy_comments" android:summary="@string/morphe_copy_comments_summary" />SETTINGS: COPY_TEXT -->
+
         <!-- SETTINGS: FIX_TRANSCRIPT
         <SwitchPreference android:title="@string/revanced_fix_transcript_title" android:key="revanced_fix_transcript" android:summaryOn="@string/revanced_fix_transcript_summary_on" android:summaryOff="@string/revanced_fix_transcript_summary_off" />SETTINGS: FIX_TRANSCRIPT -->
 
@@ -1322,6 +1326,7 @@
                 <Preference android:title="Hide player flyout menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Overlay buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Copy text" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Picture-in-picture button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Player components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Reload video" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
