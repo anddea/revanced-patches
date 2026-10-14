@@ -205,6 +205,10 @@ internal enum class PatchList(
         "Overlay buttons",
         "Adds options to display useful overlay buttons in the video player."
     ),
+    PICTURE_IN_PICTURE_BUTTON(
+        "Picture-in-picture button",
+        "Adds an option to display a picture-in-picture button in the video player."
+    ),
     PLAYBACK_BUFFER(
         "Playback buffer",
         "Adds an option to change the video playback buffer size."
