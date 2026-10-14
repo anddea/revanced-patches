@@ -1,3 +1,28 @@
+# [4.4.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.3.1-dev.1...v4.4.0-dev.1) (2026-10-14)
+
+
+### Bug Fixes
+
+* **YouTube - Voice over translation:** Unblock finished livestreams and resume video when translation is unavailable ([#1860](https://github.com/anddea/revanced-patches/issues/1860)) ([9b2b192](https://github.com/anddea/revanced-patches/commit/9b2b19296a963c1eea346c8cb63519c7833bbace)), closes [#1806](https://github.com/anddea/revanced-patches/issues/1806)
+* **YouTube & YT Music - GmsCore support:** Fix notification registration for patched app ([87b1fec](https://github.com/anddea/revanced-patches/commit/87b1fecfaecf67bd1578f91fd9dc4bb503357085))
+* **YouTube:** Fix overlay buttons and partially applied settings on YouTube v21.39 ([#1854](https://github.com/anddea/revanced-patches/issues/1854)) ([e669864](https://github.com/anddea/revanced-patches/commit/e66986468fdaf5684d7b983e4b873dd1ed8017ae))
+
+
+### Features
+
+* Add experimental support for `YouTube v21.39.525` and `YouTube Music v9.40.51` ([#1849](https://github.com/anddea/revanced-patches/issues/1849)) ([774dc60](https://github.com/anddea/revanced-patches/commit/774dc60f4ef2459bcdd2046d88115da9078b9fb0))
+* **YouTube - Gemini:** Add spoken word highlighting to video subtitles ([#1857](https://github.com/anddea/revanced-patches/issues/1857)) ([21cb5f8](https://github.com/anddea/revanced-patches/commit/21cb5f830cc3ff2484d072040ba7f663190df497))
+* **YouTube - Hide feed components:** Add `Hide live streams` setting ([ebb1941](https://github.com/anddea/revanced-patches/commit/ebb1941d8907482f4e105674155f125edde611ea))
+* **YouTube - Seekbar components:** Add double tap gesture to show remaining time with timestamp info enabled ([18810e4](https://github.com/anddea/revanced-patches/commit/18810e45372236f97311bbfccd0597fc5b315528))
+* **YouTube - Swipe controls:** Add `Volume boost` setting ([6778382](https://github.com/anddea/revanced-patches/commit/6778382a0796996b035b0c77fb457450ff6872e2))
+* **YouTube - Voice over translation:** Allow canceling pending translation on second VOT button tap ([#1863](https://github.com/anddea/revanced-patches/issues/1863)) ([c00e98c](https://github.com/anddea/revanced-patches/commit/c00e98cf3799efca12ba883b9082cc21ba413842))
+* **YouTube & YT Music:** Add `Skip silence` patch ([0bc45d5](https://github.com/anddea/revanced-patches/commit/0bc45d52c1f58f68aa89f2d55b57aab3767093d3))
+* **YouTube Music - Third-party lyrics:** Search and prompt ([55aa921](https://github.com/anddea/revanced-patches/commit/55aa9210f76392aab29b1765915410fb5641fdcc))
+* **YouTube:** Add `Disable auto feed refresh` patch ([f470503](https://github.com/anddea/revanced-patches/commit/f470503eb15c80e3f9eccb7e9e0dbb80a0836ed1))
+* **YouTube:** Add `Playback buffer` patch ([c13a079](https://github.com/anddea/revanced-patches/commit/c13a0793b88e04d66e609a5f393d80cb7d39c7f8))
+* **YouTube:** Add `Restore original titles` patch ([4578bf9](https://github.com/anddea/revanced-patches/commit/4578bf974b3ab1dedf4ca9d5373f74c9a927c93c))
+* **YouTube:** Enable `Spoof video streams` and disable `PoToken provider` by default ([e132606](https://github.com/anddea/revanced-patches/commit/e132606016c2ef3b46c32cf297fcbff5063979d4))
+
 ## [4.3.1-dev.1](https://github.com/anddea/revanced-patches/compare/v4.3.0...v4.3.1-dev.1) (2026-09-28)
 
 
