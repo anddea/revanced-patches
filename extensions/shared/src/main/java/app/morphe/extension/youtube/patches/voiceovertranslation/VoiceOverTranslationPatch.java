@@ -436,18 +436,26 @@ public class VoiceOverTranslationPatch {
 
     public static void setVideoTime(long videoTimeMillis) {
         if (!Settings.VOT_ENABLED.get()) return;
+        MediaPlayer mp = mediaPlayer.get();
+        if (mp == null) return;
         if (isPaused) {
             final long time = videoTimeMillis;
-            mainHandler.postDelayed(() -> resumeAudio(time), 80);
+            mainHandler.postDelayed(() -> {
+                if (mediaPlayer.get() == mp) resumeAudio(time);
+            }, 80);
         }
         mainHandler.removeCallbacks(pauseCheckRunnable);
         mainHandler.postDelayed(pauseCheckRunnable, PAUSE_DETECTION_TIMEOUT_MS);
-        MediaPlayer mp = mediaPlayer.get();
-        if (mp == null || !mp.isPlaying()) return;
+        if (!mp.isPlaying()) return;
         final long time = videoTimeMillis;
         mainHandler.post(() -> {
             MediaPlayer p = mediaPlayer.get();
-            if (p == null || !p.isPlaying()) return;
+            if (p != mp) return;
+            if (!shouldPlayTranslationAudio()) {
+                pauseAudio();
+                return;
+            }
+            if (!p.isPlaying()) return;
             applyPlaybackSpeedToPlayer(p);
             try {
                 int audioPos = p.getCurrentPosition();
@@ -457,7 +465,6 @@ public class VoiceOverTranslationPatch {
                 boolean userSeeked = prev >= 0 && (time < prev - 500 || time > prev + USER_SEEK_JUMP_MS);
                 if (userSeeked || drift > SEEK_DRIFT_THRESHOLD_MS) {
                     p.seekTo((int) time);
-                    applyPlaybackSpeedToPlayer(p);
                 }
             } catch (IllegalStateException ignored) { }
         });
@@ -824,7 +831,7 @@ public class VoiceOverTranslationPatch {
                 });
                 return true;
             });
-            mp.setOnCompletionListener(p -> deleteTempProxyFile());
+            mp.setOnCompletionListener(VoiceOverTranslationPatch::onAudioCompleted);
             mediaPlayer.set(mp);
             currentTranslatedVideoId.set(videoId != null ? videoId : "");
             refreshOriginalAudioVolume();
@@ -853,6 +860,14 @@ public class VoiceOverTranslationPatch {
         }
     }
 
+    private static void onAudioCompleted(MediaPlayer player) {
+        if (mediaPlayer.get() != player) return;
+        // A speed update racing with completion can implicitly restart MediaPlayer.
+        pauseAudio();
+        isPaused = true;
+        deleteTempProxyFile();
+    }
+
     private static void startAudioPlaybackDirect(long requestId, String videoId, String audioUrl, String fallbackUrl) {
         if (!isCurrentTranslationRequest(requestId, videoId)) return;
         try {
@@ -863,6 +878,7 @@ public class VoiceOverTranslationPatch {
                             .setUsage(AudioAttributes.USAGE_MEDIA)
                             .build());
             mp.setDataSource(audioUrl);
+            mp.setOnCompletionListener(VoiceOverTranslationPatch::onAudioCompleted);
             final String fallback = fallbackUrl;
             mp.setOnPreparedListener(player -> Utils.runOnMainThread(() -> {
                 if (!isCurrentTranslationRequest(requestId, videoId) || mediaPlayer.get() != mp) {
@@ -967,6 +983,7 @@ public class VoiceOverTranslationPatch {
         if (mp == null || !isPaused) return;
         try {
             long position = videoTimeMillis >= 0 ? videoTimeMillis : VideoInformation.getVideoTime();
+            if (position < 0 || position >= mp.getDuration()) return;
             mp.seekTo((int) position);
             applyPlaybackSpeedToPlayer(mp);
             mp.start();
@@ -978,7 +995,7 @@ public class VoiceOverTranslationPatch {
         if (RootView.isShortsActive()) {
             return !shortsPlaybackPaused;
         }
-        return VideoInformation.isPlayerPlaying();
+        return !VideoInformation.isAtEndOfVideo() && VideoInformation.isPlayerPlaying();
     }
 
     /**
@@ -1005,6 +1022,8 @@ public class VoiceOverTranslationPatch {
         if (speed <= 0f) speed = 1.0f;
         if (speed < 0.25f) speed = 0.25f;
         if (speed > 2.5f) speed = 2.5f;
+        // Nonzero playback parameters also start a completed MediaPlayer from zero.
+        if (speed == lastAppliedPlaybackSpeed) return;
         try {
             PlaybackParams params = new PlaybackParams();
             params.setSpeed(speed);

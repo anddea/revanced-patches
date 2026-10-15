@@ -36,6 +36,7 @@ public class YandexPauseMethodsTest {
         YandexPauseMethods.isPaused = false;
         YandexPauseMethods.mainHandler.removed = 0;
         VideoInformation.time = 0;
+        VideoInformation.length = 0;
         YandexPauseMethods.pendingVideoLength = 100000;
         YandexPauseMethods.pendingIsLive = false;
         YandexPauseMethods.toast = null;
@@ -45,6 +46,31 @@ public class YandexPauseMethodsTest {
 
     private boolean held() {
         return TranslationPlaybackController.isWaiting(YANDEX, "a");
+    }
+
+    @Test public void completedVideoAndAudioStayStoppedUntilReplayOrBackwardSeek() {
+        var audio = new YandexPauseMethods.MediaPlayer();
+        YandexPauseMethods.mediaPlayer.set(audio);
+        YandexPauseMethods.isPaused = true;
+        VideoInformation.playing = true;
+        VideoInformation.length = VideoInformation.time = 900000;
+        YandexPauseMethods.resumeAudio(-1);
+        assertFalse(audio.playing);
+        VideoInformation.time = -1;
+        YandexPauseMethods.resumeAudio(-1);
+        assertFalse(audio.playing);
+        VideoInformation.length = 2000000;
+        VideoInformation.time = 1000000;
+        YandexPauseMethods.resumeAudio(-1);
+        YandexPauseMethods.resumeAudio(1000001);
+        assertFalse(audio.playing);
+        YandexPauseMethods.resumeAudio(999999);
+        assertTrue(audio.playing);
+        assertEquals(999999, audio.position);
+        YandexPauseMethods.pauseAudio();
+        YandexPauseMethods.resumeAudio(0);
+        assertTrue(audio.playing);
+        assertEquals(0, audio.position);
     }
 
     @Test

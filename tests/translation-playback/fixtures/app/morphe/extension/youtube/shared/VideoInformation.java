@@ -4,6 +4,7 @@ import app.morphe.extension.youtube.patches.voiceovertranslation.TranslationPlay
 
 public class VideoInformation {
     public static long time;
+    public static boolean isAtEndOfVideo() { return length > 0 && time >= length; }
 
     public static long getVideoTime() {
         return time;
