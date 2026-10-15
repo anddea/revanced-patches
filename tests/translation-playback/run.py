@@ -33,9 +33,10 @@ KOTLIN_DEPENDENCIES = [
     ('org/jetbrains/annotations/13.0/annotations-13.0.jar', 'ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478'),
 ]
 EXTRACTED = {
+    'YandexAudioMethods': ('VoiceOverTranslationPatch', ['setVideoTime', 'pauseAudio', 'resumeAudio', 'shouldPlayTranslationAudio', 'applyPlaybackSpeedToPlayer', 'onAudioCompleted']),
     'YandexRequestMethods': ('VoiceOverTranslationPatch', ['requestTranslation', 'pollTranslation', 'handleAudioRequested']),
     'NativePlaybackMethods': ('../../shared/VideoInformation', ['isPlayerPlaying']),
-    'TtsPlaybackMethods': ('TtsEngine', ['pause', 'resume', 'startPlayer', 'setPlaybackRate', 'startPreparedPlayback']),
+    'TtsPlaybackMethods': ('TtsEngine', ['pause', 'resume', 'startPlayer', 'setPlaybackRate', 'startPreparedPlayback', 'onPlaybackCompleted']),
     'GooglePauseMethods': ('GoogleVoiceOverTranslationPatch', [
         'startAutomaticTranslation', 'clearNativeStartupAudio', 'checkStartupReady',
         'onPlaybackPaused', 'onVoiceChanged', 'reloadTranscript', 'suspendTranslation',
@@ -109,6 +110,18 @@ def main():
     for target, (origin, methods) in EXTRACTED.items():
         source = (MAIN / RELATIVE_PACKAGE / f'{origin}.java').read_text()
         body = '\n'.join(extract_method(source, method) for method in methods)
+        if target == 'YandexAudioMethods':
+            for setup, method in (('fileCompletionSetup', 'startAudioPlaybackFromFile'),
+                                  ('directCompletionSetup', 'startAudioPlaybackDirect')):
+                registration = re.search(r'mp\.setOnCompletionListener\([^;]+;', extract_method(source, method))
+                if registration is None:
+                    raise ValueError(f'Missing completion listener: {method}')
+                body += '\n    static void ' + setup + '(MediaPlayer mp) { ' + registration.group().replace(origin + '::', target + '::') + ' }'
+        if target == 'TtsPlaybackMethods':
+            registration = re.search(r'mp\.setOnCompletionListener\([^;]+;', source)
+            if registration is None:
+                raise ValueError('Missing TTS completion listener')
+            body += '\n    void completionSetup(MediaPlayer mp, CountDownLatch latch) { ' + registration.group() + ' }'
         if target == 'YandexPauseMethods':
             callbacks = re.findall(r'mp.setOnPreparedListener\(player -> Utils.runOnMainThread\(\(\) -> \{(.*?)\n            \}\)\);', source, re.S)
             if len(callbacks) != 2:

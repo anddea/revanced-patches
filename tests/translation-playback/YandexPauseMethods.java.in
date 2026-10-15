@@ -32,6 +32,7 @@ class YandexPauseBoundaries {
         int starts, pauses, position, speedUpdates, seeks;
         float volume;
         boolean isPlaying() { return playing; }
+        int getDuration() { return 1000000; }
         void start() { starts++; playing = true; }
         void pause() { pauses++; playing = false; }
         void seekTo(int time) { seeks++; position = time; }

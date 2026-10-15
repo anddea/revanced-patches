@@ -81,6 +81,7 @@ final class TtsEngine {
     private MediaPlayer currentPlayer;
     private float currentPlaybackRate = 1.0f;
     private boolean currentPlaybackFollowsVideo;
+    private boolean currentPlaybackCompleted;
     /**
      * Boosts TTS playback gain above MediaPlayer's 1.0 ceiling so Edge MP3 (normalized to ~-16 LUFS)
      * matches YouTube media loudness (~-14 LUFS or louder). Null when no playback is active or when
@@ -291,6 +292,7 @@ final class TtsEngine {
     }
 
     private void startPlayer() {
+        if (currentPlaybackCompleted) return;
         if (currentPlaybackFollowsVideo && !VideoInformation.isPlayerPlaying()) {
             if (currentPlayer.isPlaying()) currentPlayer.pause();
             return;
@@ -315,7 +317,7 @@ final class TtsEngine {
     void setPlaybackRate(float rate) {
         Utils.verifyOnMainThread();
         currentPlaybackRate = rate;
-        if (currentPlayer == null) return;
+        if (currentPlayer == null || currentPlaybackCompleted) return;
         try {
             if (!currentPlayer.isPlaying()) return;
             if (currentPlaybackFollowsVideo && !VideoInformation.isPlayerPlaying()) {
@@ -728,10 +730,20 @@ final class TtsEngine {
     }
 
     private void startPreparedPlayback(float rate, long startTimeMs, boolean followVideo) {
+        currentPlaybackCompleted = false;
         currentPlaybackRate = rate;
         currentPlaybackFollowsVideo = followVideo;
         if (startTimeMs > 0) currentPlayer.seekTo((int) startTimeMs);
         startPlayer();
+    }
+
+    private void onPlaybackCompleted(MediaPlayer player, CountDownLatch latch) {
+        if (currentPlayer == player) {
+            // Block resume ticks while the synthesis thread queues player release.
+            currentPlaybackCompleted = true;
+            pause();
+        }
+        latch.countDown();
     }
 
     private void playMp3(byte[] mp3, float volume, float rate, long startTimeMs, long id,
@@ -783,7 +795,7 @@ final class TtsEngine {
                     @Override
                     public void close() {}
                 });
-                mp.setOnCompletionListener(m -> latch.countDown());
+                mp.setOnCompletionListener(m -> onPlaybackCompleted(m, latch));
                 mp.setOnErrorListener((m, what, extra) -> {
                     Logger.printDebug(() -> "MediaPlayer error what: " + what + " extra: " + extra);
                     latch.countDown();

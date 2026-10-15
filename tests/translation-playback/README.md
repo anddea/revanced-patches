@@ -14,6 +14,7 @@ The normal Android unit suite also runs `TranslationPlaybackStateTest` through `
 - Compile the actual `TranslationPlaybackState` and `TranslationPlaybackController` sources against deterministic Android/player/provider boundaries.
 - Extract the actual Yandex and Google pause-related method bodies from the current checkout on every run. The generated classes change only the enclosing class and private method visibility; the bodies are not maintained as test copies.
 - Extract both Yandex prepared-audio callbacks, the native playback-state reader, and the shared Google audio player's start/resume/speed methods. Model an accepted play command that leaves the video idle, delayed speech preparation, stale callbacks, and Android's implicit start when playback parameters change. Voice previews remain independent of video playback.
+- Extract Yandex synchronization, speed updates, completion listeners and replay/resume methods. Model Android restarting completed audio when nonzero playback parameters are applied, including completion between state checks, delayed resume ticks, shorter/longer translation tracks, replay, backward seeks and replacement players. Verify completion-listener registration in both Yandex paths and the shared native/Edge TTS player.
 - Extract the Yandex request/poll/failure paths with a deterministic service boundary, and compile the actual Kotlin click, activation and accessibility methods. Test cancellation during loading, preparation and recreation, error recovery, stale failures after retry, per-video suppression, and automatic translation on the next video.
 - Exercise automatic-only startup holds, unselected manual playback, manual-request recreation, pre-request settings changes, suppressed autoplay recovery on a new manual-mode video, metadata ownership, manual play/pause, completion during player recreation, duplicate metadata, provider switching, cancellation/failure, automatic dispatch, watch-page loading, both Google speech engines, voice changes, transcript replacement, native synthesis completion, stale audio reads, and same/new-video transitions.
 - Exercise the actual preference listener and YouTube callback against storage/UI stand-ins, including cache synchronization before dispatch. These 11 integration tests are outside the PIT pause-method target set.
@@ -23,7 +24,7 @@ The fixtures control scheduling, synthesis completion, cached audio, player stat
 
 ## Baseline result
 
-303 tests passed. Two additional seeded preference-integration mutations (missing playback dispatch and stale setting cache) are killed by assertions. PIT generated 1,626 mutations: 1,596 killed, 30 survived, none uncovered. Reports are generated at `build/translation-playback-tests/mutation-report/`.
+329 tests passed. Two additional seeded preference-integration mutations (missing playback dispatch and stale setting cache) are killed by assertions. PIT generated 1,839 mutations: 1,804 killed, 35 survived, none uncovered. Reports are generated at `build/translation-playback-tests/mutation-report/`.
 
 The surviving mutations were reviewed, not hidden by a percentage threshold:
 
@@ -37,6 +38,8 @@ The surviving mutations were reviewed, not hidden by a percentage threshold:
 | Audio error logging | 3 | Removing a diagnostic does not change the handling of a released audio player. |
 | Automatic Yandex duplicate guard | 2 | `startTranslationRequest` still rejects the same in-flight request with `compareAndSet`; the request and hold are unchanged. |
 | Yandex null-response/audio guards | 2 | Dereferencing the null response or audio URL reaches the existing catch block, which queues the same generation-checked failure. |
+| Yandex audio controls | 3 | Removing a null guard reaches an access inside an existing exception handler and leaves playback stopped. |
+| Yandex speed clamp boundaries | 2 | Clamping a value already equal to the limit assigns the same value. |
 | Kotlin generated null check | 1 | `Class.getName()` cannot return null; removing the compiler-inserted check leaves the same accessibility class name. |
 
 A surviving mutation is not proof of correctness. Keep these limits visible, and re-review the XML report when the implementation or fixtures change.

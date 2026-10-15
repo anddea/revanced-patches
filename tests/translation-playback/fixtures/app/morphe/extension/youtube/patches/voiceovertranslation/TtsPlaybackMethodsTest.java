@@ -2,6 +2,7 @@ package app.morphe.extension.youtube.patches.voiceovertranslation;
 
 import org.junit.Before;
 import org.junit.Test;
+import java.util.concurrent.CountDownLatch;
 import static org.junit.Assert.*;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.shared.VideoInformation;
@@ -158,5 +159,49 @@ public class TtsPlaybackMethodsTest {
         } finally {
             Utils.mainThread = true;
         }
+    }
+
+    @Test public void completedSpeechCannotRestartBeforeDeferredRelease() {
+        for (boolean followVideo : new boolean[] {false, true}) {
+            before();
+            VideoInformation.playing = true;
+            engine.startPreparedPlayback(1, 0, followVideo);
+            audio.playing = false;
+            var latch = new CountDownLatch(1);
+            engine.completionSetup(audio, latch);
+            assertNotNull(audio.completed);
+            audio.completed.accept(audio);
+            assertEquals(0, latch.getCount());
+            engine.resume();
+            engine.setPlaybackRate(2);
+            assertFalse(audio.playing);
+            assertEquals(1, audio.starts);
+            assertEquals(1, audio.rateChanges);
+            // The next native/Edge segment is allowed to start normally.
+            engine.currentPlayer = audio = new TtsPlaybackMethods.MediaPlayer();
+            engine.startPreparedPlayback(2, 0, followVideo);
+            assertTrue(audio.playing);
+            assertEquals(2, audio.rate, 0);
+        }
+    }
+
+    @Test public void completedPlayerCannotBeRestartedByRateChangeEvenIfItRacedWithEos() {
+        VideoInformation.playing = true;
+        engine.startPreparedPlayback(1, 0, true);
+        engine.onPlaybackCompleted(audio, new CountDownLatch(1));
+        assertFalse(audio.playing);
+        audio.playing = true;
+        engine.setPlaybackRate(2);
+        assertEquals(1, audio.rateChanges);
+    }
+
+    @Test public void oldCompletionReleasesItsWaiterWithoutPausingReplacement() {
+        VideoInformation.playing = true;
+        engine.startPreparedPlayback(1, 0, true);
+        var latch = new CountDownLatch(1);
+        engine.onPlaybackCompleted(new TtsPlaybackMethods.MediaPlayer(), latch);
+        assertEquals(0, latch.getCount());
+        assertTrue(audio.playing);
+        assertFalse(engine.currentPlaybackCompleted);
     }
 }
