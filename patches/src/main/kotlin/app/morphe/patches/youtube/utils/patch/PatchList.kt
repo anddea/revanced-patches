@@ -81,6 +81,10 @@ internal enum class PatchList(
         "Force original audio",
         "Adds an option to disable audio tracks from being automatically enabled."
     ),
+    PREFERRED_CAPTION_LANGUAGE(
+        "Preferred caption language",
+        "Adds an option to automatically select captions in your preferred language."
+    ),
     DISABLE_FORCED_AUTO_CAPTIONS(
         "Disable forced auto captions",
         "Adds an option to disable captions from being automatically enabled."
