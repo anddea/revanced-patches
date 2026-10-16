@@ -39,7 +39,11 @@ val videoIdPatch = bytecodePatch(
 
     execute {
         if (is_21_04_or_greater) {
-            VideoIdFingerprint.let { result ->
+            // YouTube 21.39: Map.put moved into a helper (modified by lavinhoque33, 2026-10-04).
+            // matchOrNull() still throws when only the class fingerprint matches.
+            val videoIdMatch = runCatching { VideoIdFingerprint.match() }.getOrNull()
+                ?: VideoIdHelperPutFingerprint.match()
+            videoIdMatch.let { result ->
                 result.method.apply {
                     videoIdMethodRef = WeakReference(this)
                     val index = result.instructionMatches[1].index

@@ -28,7 +28,7 @@ import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
 
-public final class DeezerProvider implements LyricsProvider {
+public final class DeezerProvider extends ScoredSongProvider {
 
     private static final String SEARCH_URL = "https://api.deezer.com/search";
     private static final String GW_URL = "https://www.deezer.com/ajax/gw-light.php";
@@ -63,19 +63,7 @@ public final class DeezerProvider implements LyricsProvider {
     }
 
     @Override
-    public boolean hasCandidates() {
-        return true;
-    }
-
-    @Nullable
-    @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
-        List<Lyrics> candidates = fetchCandidates(track);
-        return candidates.isEmpty() ? null : candidates.get(0);
-    }
-
-    @Override
-    public List<Lyrics> fetchCandidates(TrackInfo track) throws Exception {
+    protected List<ScoredSong> fetchScoredSongs(TrackInfo track) throws Exception {
         String arl = getArl();
         if (arl == null) {
             return Collections.emptyList();
@@ -93,7 +81,7 @@ public final class DeezerProvider implements LyricsProvider {
 
         List<JSONObject> sorted = sortCandidates(searchResults, track);
 
-        List<Lyrics.ScoredLyrics> scored = new ArrayList<>();
+        List<ScoredSong> scored = new ArrayList<>();
         for (JSONObject item : sorted) {
             if (scored.size() >= LyricsRequests.MAX_CANDIDATES) break;
 
@@ -103,19 +91,20 @@ public final class DeezerProvider implements LyricsProvider {
             try {
                 Lyrics lyrics = fetchLyricsByTrackId(trackId, arl);
                 if (lyrics != null) {
+                    String title = item.optString("title", "");
+                    String artist = artistName(item);
+                    long durationSec = item.optInt("duration", 0);
                     int score = LyricsRequests.scoreLyricsCandidate(
-                            item.optString("title", ""),
-                            artistName(item),
-                            item.optInt("duration", 0),
-                            lyrics, track);
-                    scored.add(new Lyrics.ScoredLyrics(score, lyrics));
+                            title, artist, durationSec, lyrics, track);
+                    scored.add(new ScoredSong(score, lyrics, title, artist, durationSec));
                 }
             } catch (Exception ex) {
                 Logger.printDebug(() -> "Could not fetch Deezer lyrics by track ID", ex);
             }
         }
 
-        return Lyrics.sortLyricsByScore(scored);
+        scored.sort((a, b) -> Integer.compare(b.score(), a.score()));
+        return scored;
     }
 
     private static String artistName(JSONObject item) {
@@ -127,8 +116,10 @@ public final class DeezerProvider implements LyricsProvider {
         String title = item.optString("title", "");
         JSONObject artistObj = item.optJSONObject("artist");
         String artist = artistObj != null ? artistObj.optString("name", "") : "";
+        JSONObject albumObj = item.optJSONObject("album");
+        String album = albumObj != null ? albumObj.optString("title", "") : "";
         return LyricsRequests.scoreTrackCandidate(title, artist,
-                item.optInt("duration", 0), track);
+                item.optInt("duration", 0), album, track);
     }
 
     private static List<JSONObject> sortCandidates(JSONArray searchResults, TrackInfo track) {
@@ -140,7 +131,13 @@ public final class DeezerProvider implements LyricsProvider {
             }
         }
         list.sort((a, b) -> scoreCandidate(b, track) - scoreCandidate(a, track));
-        return list;
+        List<JSONObject> passed = new ArrayList<>();
+        for (JSONObject item : list) {
+            if (scoreCandidate(item, track) >= LyricsRequests.SOFT_MIN) {
+                passed.add(item);
+            }
+        }
+        return passed.isEmpty() && !list.isEmpty() ? List.of(list.get(0)) : passed;
     }
 
     @Nullable
@@ -208,8 +205,7 @@ public final class DeezerProvider implements LyricsProvider {
 
         HttpURLConnection connection;
         try {
-            connection = LyricsRequests.openConnection(url, 10000, 15000,
-                    Map.of("Accept", "application/json"));
+            connection = LyricsRequests.openConnection(url, Map.of("Accept", "application/json"));
         } catch (IOException ex) {
             Logger.printDebug(() -> "Could not open Deezer search connection", ex);
             return null;
@@ -330,9 +326,11 @@ public final class DeezerProvider implements LyricsProvider {
             for (int i = 0; i < array.length(); i++) {
                 final String entry = array.optString(i, "").trim();
                 if (entry.isEmpty()) continue;
+                //noinspection SizeReplaceableByIsEmpty
                 if (builder.length() > 0) builder.append(", ");
                 builder.append(entry);
             }
+            //noinspection SizeReplaceableByIsEmpty
             return builder.length() == 0 ? null : builder.toString();
         }
         return null;

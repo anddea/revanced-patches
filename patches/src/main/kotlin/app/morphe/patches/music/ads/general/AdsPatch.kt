@@ -25,6 +25,7 @@ import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.litho.lithoFilterPatch
 import app.morphe.patches.shared.mainactivity.onStartMethod
 import app.morphe.patches.shared.mainactivity.onStopMethod
+import app.morphe.util.fingerprint.matchOrNull
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -128,7 +129,10 @@ val adsPatch = adsPatch(
         // region patch for hide get premium
 
         // get premium button at the top of the account switching menu
-        getPremiumTextViewFingerprint.matchOrThrow().let {
+        // modified by lavinhoque33, 2026-10-04
+        // 9.40: `const/16` instead of `const/4` in the matched sequence; same hook point (the iget-boolean).
+        (runCatching { getPremiumTextViewFingerprint.matchOrNull() }.getOrNull()
+            ?: getPremiumTextViewV940Fingerprint.matchOrThrow()).let {
             it.method.apply {
                 val insertIndex = it.instructionMatches.first().index
                 val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA

@@ -184,6 +184,70 @@ public abstract class Setting<T> {
     }
 
     /**
+     * Availability based on all availabilities being available.
+     */
+    public static Availability parentsAll(Availability... availabilities) {
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                for (Availability a : availabilities) {
+                    if (!a.isAvailable()) return false;
+                }
+                return true;
+            }
+
+            @Override
+            public boolean isVisible() {
+                for (Availability a : availabilities) {
+                    if (!a.isVisible()) return false;
+                }
+                return true;
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                List<Setting<?>> list = new java.util.ArrayList<>();
+                for (Availability a : availabilities) {
+                    list.addAll(a.getParentSettings());
+                }
+                return list;
+            }
+        };
+    }
+
+    /**
+     * Availability based on any availability being available.
+     */
+    public static Availability parentsAny(Availability... availabilities) {
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                for (Availability a : availabilities) {
+                    if (a.isAvailable()) return true;
+                }
+                return false;
+            }
+
+            @Override
+            public boolean isVisible() {
+                for (Availability a : availabilities) {
+                    if (a.isVisible()) return true;
+                }
+                return false;
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                List<Setting<?>> list = new java.util.ArrayList<>();
+                for (Availability a : availabilities) {
+                    list.addAll(a.getParentSettings());
+                }
+                return list;
+            }
+        };
+    }
+
+    /**
      * Availability based on any parent being disabled.
      */
     public static Availability parentsAnyInverted(BooleanSetting... parents) {

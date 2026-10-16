@@ -34,6 +34,7 @@ import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
+import app.morphe.util.insertLiteralOverrideAtInlinedSites
 import app.morphe.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -120,6 +121,17 @@ val playerButtonsPatch = bytecodePatch(
             ).forEach { fingerprint ->
                 fingerprint.method.insertLiteralOverride(
                     fingerprint.instructionMatches.first().index,
+                    "$PLAYER_CAST_BUTTON_CLASS_DESCRIPTOR->getCastButtonOverride(Z)Z",
+                )
+            }
+
+            // YouTube 21.39 also inlines both flags into the cast button callers.
+            arrayOf(
+                CAST_BUTTON_PLAYER_FEATURE_FLAG,
+                CAST_BUTTON_ACTION_FEATURE_FLAG,
+            ).forEach { literal ->
+                insertLiteralOverrideAtInlinedSites(
+                    literal,
                     "$PLAYER_CAST_BUTTON_CLASS_DESCRIPTOR->getCastButtonOverride(Z)Z",
                 )
             }
@@ -235,19 +247,32 @@ val playerButtonsPatch = bytecodePatch(
                     getReference<MethodReference>()?.name == "inflate"
                 }
 
-            val freeRegister = findFreeRegister(inflateControlsGroupLayoutStubIndex)
             val hidePlayerControlButtonsBackgroundDescriptor =
                 "$PLAYER_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V"
 
-            addInstructions(
-                inflateControlsGroupLayoutStubIndex + 1,
-                """
-                   # Move the inflated layout to a temporary register.
-                   # The result of the inflate method is by default not moved to a register after the method is called.
-                   move-result-object v$freeRegister
-                   invoke-static { v$freeRegister }, $hidePlayerControlButtonsBackgroundDescriptor
-                """
-            )
+            // modified by lavinhoque33, 2026-10-04
+            // YouTube 21.39 keeps the inflated view (move-result-object right after inflate).
+            // Inserting a second move-result there leaves the original one orphaned (VerifyError),
+            // so hook after the existing move-result and reuse its register.
+            val nextInstruction = getInstruction(inflateControlsGroupLayoutStubIndex + 1)
+            if (nextInstruction.opcode == Opcode.MOVE_RESULT_OBJECT) {
+                val viewRegister = (nextInstruction as OneRegisterInstruction).registerA
+                addInstruction(
+                    inflateControlsGroupLayoutStubIndex + 2,
+                    "invoke-static { v$viewRegister }, $hidePlayerControlButtonsBackgroundDescriptor"
+                )
+            } else {
+                val freeRegister = findFreeRegister(inflateControlsGroupLayoutStubIndex)
+                addInstructions(
+                    inflateControlsGroupLayoutStubIndex + 1,
+                    """
+                       # Move the inflated layout to a temporary register.
+                       # The result of the inflate method is by default not moved to a register after the method is called.
+                       move-result-object v$freeRegister
+                       invoke-static { v$freeRegister }, $hidePlayerControlButtonsBackgroundDescriptor
+                    """
+                )
+            }
         }
 
         // endregion

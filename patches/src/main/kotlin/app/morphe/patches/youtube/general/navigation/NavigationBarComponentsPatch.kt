@@ -15,6 +15,10 @@
 
 package app.morphe.patches.youtube.general.navigation
 
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import app.morphe.patches.youtube.utils.playservice.is_21_35_or_greater
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -27,6 +31,7 @@ import app.morphe.patches.shared.mapping.ResourceType.COLOR
 import app.morphe.patches.shared.mapping.getResourceId
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayWithRegistryMethodRef
 import app.morphe.patches.shared.spoof.guide.addClientOSVersionHook
 import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -56,6 +61,8 @@ import app.morphe.util.ResourceGroup
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
+import app.morphe.util.Utils.printWarn
+import app.morphe.util.forEachInlinedFeatureFlagSite
 import app.morphe.util.getFreeRegisterProvider
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -125,6 +132,12 @@ private val navigationBarComponentsResourcePatch = resourcePatch(
     }
 }
 
+private const val EXTENSION_SUBSCRIPTIONS_CLASS =
+    "Lapp/morphe/extension/youtube/patches/ClassicSubscriptionsLayoutPatch;"
+
+private const val EXTENSION_PIVOT_BAR_ITEM_INTERFACE =
+    $$"Lapp/morphe/extension/youtube/patches/ClassicSubscriptionsLayoutPatch$PivotBarItemInterface;"
+
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/NavigationButtonsPatch;"
 private const val THEME_EXTENSION_CLASS_DESCRIPTOR =
@@ -160,6 +173,22 @@ val navigationBarComponentsPatch = bytecodePatch(
             // Apply translucency to the overlay itself without changing edge-to-edge feature flags.
             addBottomBarContainerHook("$PATCHES_PATH/theme/StatusBarPatch;->apply(Landroid/view/View;)V")
 
+            // The status bar background view keeps the height of the hidden status bar
+            // and is drawn over the top bars, making them invisible or clipped.
+            StatusBarBackgroundShowFingerprint.matchOrNull(
+                StatusBarBackgroundShowFingerprint.classFingerprint!!.originalClassDef
+            )?.let {
+                it.method.apply {
+                    val index = it.instructionMatches.last().index
+                    val viewRegister = getInstruction<FiveRegisterInstruction>(index).registerC
+
+                    addInstruction(
+                        index + 1,
+                        "invoke-static { v$viewRegister }, $PATCHES_PATH/theme/StatusBarPatch;->hideStatusBarBackground(Landroid/view/View;)V"
+                    )
+                }
+            }
+
             // Keep the original translucent resources for player controls and apply the selected
             // status-bar translucency mode only to the status-bar color result.
             StatusBarColorFingerprint.method.apply {
@@ -182,11 +211,21 @@ val navigationBarComponentsPatch = bytecodePatch(
                 )
             }
 
-            TranslucentNavigationButtonsSystemFeatureFlagFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
-                )
+            // The translucent theme hands the window a transparent color for the system navigation
+            // buttons, so an opaque one is swapped in there instead of turning off the feature flag.
+            SystemNavigationBarColorFingerprint.let {
+                it.method.apply {
+                    val colorIndex = it.instructionMatches[1].index
+                    val colorRegister = getInstruction<OneRegisterInstruction>(colorIndex).registerA
+
+                    addInstructions(
+                        colorIndex + 1,
+                        """
+                            invoke-static { v$colorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getSystemNavigationBarColor(I)I
+                            move-result v$colorRegister
+                        """
+                    )
+                }
             }
 
             if (is_20_46_or_greater && !is_20_31_or_greater) {
@@ -209,12 +248,28 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for enable animations for navigation bar
 
         if (is_20_21_or_greater) {
-            AnimatedNavigationTabsFeatureFlagFingerprint.method.insertLiteralOverride(
-                AnimatedNavigationTabsFeatureFlagFingerprint.instructionMatches.first().index,
-                "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
-            )
+            // modified by lavinhoque33, 2026-10-04
+            // YouTube 21.39 inlines the flag getter into its callers; override each inlined check.
+            var animatedTabsHooked = true
+            val animatedTabsMatch = AnimatedNavigationTabsFeatureFlagFingerprint.matchOrNull()
+            if (animatedTabsMatch != null) {
+                animatedTabsMatch.method.insertLiteralOverride(
+                    animatedTabsMatch.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
+                )
+            } else if (forEachInlinedFeatureFlagSite(45680008L) { literalIndex ->
+                    insertLiteralOverride(
+                        literalIndex,
+                        "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
+                    )
+                } == 0
+            ) {
+                // The setting is not shown when it has no effect.
+                printWarn("\"Enable navigation bar animations\" is not supported in this version. Use YouTube versions up to 21.39.")
+                animatedTabsHooked = false
+            }
 
-            settingArray += "SETTINGS: ANIMATED_NAVIGATION_BAR"
+            if (animatedTabsHooked) settingArray += "SETTINGS: ANIMATED_NAVIGATION_BAR"
         }
 
         // endregion
@@ -349,6 +404,67 @@ val navigationBarComponentsPatch = bytecodePatch(
                         move-result-object v$insertRegister
                     """
                     )
+                    if (is_21_35_or_greater) {
+                        // Add back the Subscriptions button, if the server moved it to a tab of Home.
+                        // The proto is created with the method used for the navigation bar shown
+                        // before the guide response is loaded, so the browse endpoint extension is set.
+                        // Inserted at the same index as above, so the button is added before the Search
+                        // and Settings buttons.
+                        val iconType = PivotBarItemProtoFactoryFingerprint.method.parameterTypes[2].toString()
+                        // Enum constant names are obfuscated, so the icon type is found by its value.
+                        val iconTypeLookupMethod = Fingerprint(
+                            definingClass = iconType,
+                            returnType = iconType,
+                            parameters = listOf("I"),
+                            custom = { method, _ ->
+                                AccessFlags.STATIC.isSet(method.accessFlags)
+                            }
+                        ).originalMethod
+
+                        val pivotBarItemOptionalType = PivotBarRendererFingerprint.method.returnType
+                        // Non range invoke instructions, so 4-bit registers are required.
+                        val freeRegisters = getFreeRegisterProvider(insertIndex, 4,
+                            (16 until implementation!!.registerCount).toList() + insertRegister)
+                        val browseIdRegister = freeRegisters.getFreeRegister()
+                        val labelRegister = freeRegisters.getFreeRegister()
+                        val iconRegister = freeRegisters.getFreeRegister()
+                        val iconOnlyRegister = freeRegisters.getFreeRegister()
+
+                        check(listOf(browseIdRegister, labelRegister, iconRegister, iconOnlyRegister).all { it < 16 }) {
+                            "Subscriptions factory requires four free 4-bit registers"
+                        }
+
+                        addInstructionsWithLabels(
+                            insertIndex,
+                            """
+                                # Add the Subscriptions button, if the server removed it.
+                                invoke-static { v$insertRegister }, $EXTENSION_SUBSCRIPTIONS_CLASS->needsSubscriptionsPivotBarItem(Ljava/util/List;)Z
+                                move-result v$browseIdRegister
+                                if-eqz v$browseIdRegister, :skip_subscriptions
+
+                                const-string v$browseIdRegister, "FEsubscriptions"
+                                invoke-static { }, $EXTENSION_SUBSCRIPTIONS_CLASS->getSubscriptionsLabel()Ljava/lang/String;
+                                move-result-object v$labelRegister
+                                invoke-static { }, $EXTENSION_SUBSCRIPTIONS_CLASS->getSubscriptionsIconType()I
+                                move-result v$iconRegister
+                                invoke-static { v$iconRegister }, $iconTypeLookupMethod
+                                move-result-object v$iconRegister
+                                const/4 v$iconOnlyRegister, 0x0
+                                invoke-static { v$browseIdRegister, v$labelRegister, v$iconRegister, v$iconOnlyRegister }, ${PivotBarItemProtoFactoryFingerprint.method}
+                                move-result-object v$browseIdRegister
+                                invoke-static { v$browseIdRegister }, ${PivotBarRendererFingerprint.method}
+                                move-result-object v$browseIdRegister
+                                const/4 v$labelRegister, 0x0
+                                invoke-virtual { v$browseIdRegister, v$labelRegister }, $pivotBarItemOptionalType->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+                                move-result-object v$browseIdRegister
+
+                                invoke-static { v$insertRegister, v$browseIdRegister }, $EXTENSION_SUBSCRIPTIONS_CLASS->addSubscriptionsPivotBarItem(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
+                                move-result-object v$insertRegister
+                                :skip_subscriptions
+                                nop
+                            """
+                        )
+                    }
                 }
             }
 
@@ -358,6 +474,103 @@ val navigationBarComponentsPatch = bytecodePatch(
         }
 
         // endregion
+
+        //
+        // Disable the A/B layout with Subscriptions as a tab of Home.
+        //
+
+        if (is_21_35_or_greater) {
+            // Allow the extension to read the proto of navigation bar items.
+            PivotBarRendererFingerprint.classDef.apply {
+                val messageLiteField = fields.first { field ->
+                    field.type == "Lcom/google/protobuf/MessageLite;"
+                }
+                // The field can also be PivotBarIconOnlyItemRenderer or other renderers.
+                val pivotBarItemRendererType = PivotBarRendererFingerprint.instructionMatches[2]
+                    .instruction.getReference<TypeReference>()!!.type
+
+                interfaces.add(EXTENSION_PIVOT_BAR_ITEM_INTERFACE)
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_getPivotBarItemRenderer",
+                        listOf(),
+                        "Lcom/google/protobuf/MessageLite;",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(3),
+                    ).toMutable().apply {
+                        addInstructionsWithLabels(
+                            0,
+                            """
+                                iget-object v0, p0, $messageLiteField
+                                instance-of v1, v0, $pivotBarItemRendererType
+                                if-nez v1, :return
+                                const/4 v0, 0x0
+                                :return
+                                return-object v0
+                            """
+                        )
+                    }
+                )
+            }
+
+            // Show only the selected tab of the Home and Subscriptions feeds.
+            // The tab protos are filtered instead of the browse response,
+            // because the response would lose the proto extensions if it's parsed again.
+            BrowseResponseTabsFingerprint.let {
+                it.method.apply {
+                    val streamIndex = it.instructionMatches[1].index
+                    val tabsRegister = getInstruction<FiveRegisterInstruction>(streamIndex).registerC
+
+                    addInstructions(
+                        streamIndex,
+                        """
+                            invoke-static { v$tabsRegister }, $EXTENSION_SUBSCRIPTIONS_CLASS->filterBrowseTabs(Ljava/util/List;)Ljava/util/List;
+                            move-result-object v$tabsRegister
+                        """
+                    )
+                }
+            }
+
+            OfflineNavigationBarSubscriptionsFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_SUBSCRIPTIONS_CLASS->hideOfflineSubscriptionsButton(Z)Z"
+                )
+            }
+        }
+
+        //
+        // Disable the A/B layout with navigation buttons without labels.
+        //
+
+        // Inserted at the start of the method after the other hooks of the method,
+        // so the instruction indexes of their matches are still valid.
+        PivotBarRendererFingerprint.method.apply {
+            val pivotBarItemType = parameterTypes.first().toString()
+
+            addInstructionsWithLabels(
+                0,
+                """
+                    # The parameter register can be higher than 15.
+                    invoke-static/range { p0 .. p0 }, $EXTENSION_SUBSCRIPTIONS_CLASS->convertIconOnlyPivotBarItem(Lcom/google/protobuf/MessageLite;)[B
+                    move-result-object v0
+                    if-eqz v0, :not_icon_only
+
+                    # The endpoints are extensions, which are lost if parsed without the registry.
+                    sget-object v1, $pivotBarItemType->a:$pivotBarItemType
+                    invoke-static { }, Lcom/google/protobuf/ExtensionRegistryLite;->getGeneratedRegistry()Lcom/google/protobuf/ExtensionRegistryLite;
+                    move-result-object v2
+                    invoke-static { v1, v0, v2 }, ${parseByteArrayWithRegistryMethodRef.get()!!}
+                    move-result-object p0
+                    check-cast p0, $pivotBarItemType
+                    :not_icon_only
+                    nop
+                """
+            )
+        }
 
         // region patch for hide navigation buttons
 

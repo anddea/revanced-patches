@@ -251,15 +251,56 @@ public class PlaybackSpeedPatch {
      * Regular videos retain the rate supplied by YouTube and the regular-video speed hooks.
      */
     public static float getShortsPlaybackSpeed(float playbackSpeed) {
-        if (!VideoInformation.lastVideoIdIsShort()) {
+        // On 21.39 the player response of a played Short can arrive after this call or be marked
+        // as not opening, so also check the Shorts player state.
+        final boolean isShortsActive = isShortsActive();
+        if (!VideoInformation.lastVideoIdIsShort() && !isShortsActive) {
             return playbackSpeed;
         }
         float speed = DEFAULT_PLAYBACK_SPEED_SHORTS.get();
         if (speed < 0) {
             speed = lastSelectedShortsPlaybackSpeed;
+        } else if (isShortsActive) {
+            shortsDefaultSpeedPending = true;
+            if (shortsPlayerResponseReceived) {
+                applyShortsDefaultSpeed();
+            }
         }
         VideoInformation.setPlaybackSpeed(speed);
         return speed;
+    }
+
+    // The 21.04+ player takes the active rate from its playback rate settings store, which replaces
+    // the load parameter rate above. Write the default through the Shorts speed setter (the same
+    // path as the speed menu) once per loaded Short.
+    private static volatile boolean shortsDefaultSpeedPending;
+    private static volatile boolean shortsPlayerResponseReceived;
+
+    /**
+     * Injection point (21.04+).
+     * Called when the Shorts player receives a player response, after it is the speed setter target.
+     */
+    public static void onShortsPlayerResponse() {
+        shortsPlayerResponseReceived = true;
+        if (shortsDefaultSpeedPending) {
+            applyShortsDefaultSpeed();
+        }
+    }
+
+    private static void applyShortsDefaultSpeed() {
+        // Posted, so the Shorts player that delivered the event is already the speed setter target.
+        Utils.runOnMainThread(() -> {
+            if (!shortsDefaultSpeedPending || !isShortsActive()) {
+                return;
+            }
+            final float speed = DEFAULT_PLAYBACK_SPEED_SHORTS.get();
+            if (speed <= 0) {
+                return;
+            }
+            shortsDefaultSpeedPending = false;
+            Logger.printDebug(() -> "Applying Shorts default speed: " + speed);
+            VideoInformation.overridePlaybackSpeed(speed);
+        });
     }
 
     /**

@@ -84,9 +84,11 @@ internal object FeedBottomSheetFlyoutFingerprint : Fingerprint(
 internal object ModernFeedBottomSheetFlyoutFingerprint : Fingerprint(
     classFingerprint = Fingerprint(
         parameters = listOf("Landroid/os/Bundle;"),
+        // "BaseBottomSheetDialogFragment.useNewUi" was removed in YouTube 21.39
+        // (modified by lavinhoque33, 2026-10-04).
         filters = listOf(
-            string("BaseBottomSheetDialogFragment.useNewUi"),
             string("BaseBottomSheetDialogFragment.peekHeightEnabled"),
+            string("BaseBottomSheetDialogFragment.shouldSkipCollapsed"),
             string("BaseBottomSheetDialogFragment.largeFormWidthDp"),
         ),
     ),

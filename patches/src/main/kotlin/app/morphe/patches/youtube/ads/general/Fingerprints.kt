@@ -68,3 +68,14 @@ internal object PlayerOverlayTimelyShelfFingerprint : Fingerprint(
         string("Null onExitActions")
     )
 )
+
+// modified by lavinhoque33, 2026-10-04
+// YouTube 21.39: the timely shelf handler was split up; "player_overlay_timely_shelf" is now
+// compared inside a switch-lambda (Object)V that also contains "menu_item_stable_volume".
+internal val playerOverlayTimelyShelfSwitchFingerprint = legacyFingerprint(
+    name = "playerOverlayTimelyShelfSwitchFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("Ljava/lang/Object;"),
+    strings = listOf("player_overlay_timely_shelf", "menu_item_stable_volume"),
+)

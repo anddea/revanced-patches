@@ -42,6 +42,7 @@ package app.morphe.patches.music.utils.fix.streamingdata
 
 import app.morphe.patches.music.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE_MUSIC
 import app.morphe.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
+import app.morphe.patches.music.utils.extension.hooks.applicationInitHook
 import app.morphe.patches.music.utils.mainactivity.mainActivityFingerprint
 import app.morphe.patches.music.utils.playservice.is_6_27_or_greater
 import app.morphe.patches.music.utils.playservice.is_7_16_or_greater
@@ -68,6 +69,8 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     // Updated parameter name: extensionClassDescriptor -> extensionClass
     extensionClass = "Lapp/morphe/extension/music/patches/spoof/SpoofVideoStreamsPatch;",
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
+    // Also set the client order on Application init (Morphe a60a3b6).
+    applicationInitFingerprint = applicationInitHook.fingerprint,
     fixMediaFetchHotConfig = {
         is_7_16_or_greater
     },

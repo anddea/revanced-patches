@@ -7,6 +7,7 @@
  * Original author(s):
  * - anddea (https://github.com/anddea)
  * - Jav1x (https://github.com/Jav1x)
+ * - COOLak (https://github.com/COOLak)
  *
  * Licensed under the GNU General Public License v3.0.
  *
@@ -136,12 +137,8 @@ object VoiceOverTranslationButton {
     }
 
     private fun onClick(view: View) {
-        if (VoiceOverTranslationPatch.isTranslationRequestInProgress()) {
-            showMenu(view)
-            return
-        }
         VoiceOverTranslationPatch.toggleTranslation()
-        instance?.imageView()?.isActivated = VoiceOverTranslationPatch.isTranslationActive()
+        instance?.imageView()?.isActivated = VoiceOverTranslationPatch.isTranslationRequested()
     }
 
     private fun onLongClick(view: View): Boolean {
@@ -164,7 +161,7 @@ object VoiceOverTranslationButton {
                 super.onInitializeAccessibilityNodeInfo(host, info)
                 info.className = ToggleButton::class.java.name
                 info.isCheckable = true
-                info.isChecked = VoiceOverTranslationPatch.isTranslationActive()
+                info.isChecked = VoiceOverTranslationPatch.isTranslationRequested()
             }
         }
     }
@@ -255,6 +252,6 @@ object VoiceOverTranslationButton {
     }
 
     private fun PlayerControlButton.setActivated() {
-        imageView()?.isActivated = VoiceOverTranslationPatch.isTranslationActive()
+        imageView()?.isActivated = VoiceOverTranslationPatch.isTranslationRequested()
     }
 }

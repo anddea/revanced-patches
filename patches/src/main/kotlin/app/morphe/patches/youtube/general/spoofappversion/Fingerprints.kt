@@ -21,6 +21,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal object ShortsBoldIconsPrimaryFeatureFlagFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
@@ -43,11 +45,33 @@ internal object ShortsBoldIconsSecondaryFeatureFlagFingerprint : Fingerprint(
 internal object AuthenticationChangeListenerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     returnType = "V",
-    strings = listOf("Authentication changed while request was being made"),
     custom = { method, _ ->
-        indexOfMessageLiteBuilderReference(method) >= 0
+        indexOfMessageLiteBuilderReference(method) >= 0 &&
+                (hasAuthenticationChangedString(method) ||
+                        isAuthenticationChangeListenerWithoutString(method))
     },
 )
+
+// modified by lavinhoque33, 2026-10-04: string-less detection used by YouTube 21.39+.
+private fun isAuthenticationChangeListenerWithoutString(method: Method) =
+    method.parameterTypes.size == 1 &&
+            method.indexOfFirstInstruction {
+                opcode == Opcode.CHECK_CAST &&
+                        getReference<TypeReference>()?.type ==
+                        "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$InnerTubeContext;"
+            } >= 0 &&
+            method.indexOfFirstInstruction {
+                getReference<MethodReference>()?.let {
+                    it.definingClass == "Ljava/util/Set;" && it.name == "iterator"
+                } == true
+            } >= 0 &&
+            indexOfMessageLiteBuilderReference(method) >= 0
+
+private fun hasAuthenticationChangedString(method: Method) =
+    method.indexOfFirstInstruction {
+        getReference<StringReference>()?.string == "Authentication changed while request was being made"
+    } >= 0
+
 
 internal fun indexOfMessageLiteBuilderReference(method: Method, type: String = "L") =
     method.indexOfFirstInstruction {

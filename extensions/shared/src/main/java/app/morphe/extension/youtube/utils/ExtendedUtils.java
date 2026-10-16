@@ -64,6 +64,8 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_21_17_OR_GREATER = isVersionOrGreater("21.17.00");
     public static final boolean IS_21_21_OR_GREATER = isVersionOrGreater("21.21.00");
     public static final boolean IS_21_29_OR_GREATER = isVersionOrGreater("21.29.00");
+    // modified by lavinhoque33, 2026-10-07: miniplayer horizontal drag is on by default in stock 21.39.
+    public static final boolean IS_21_39_OR_GREATER = isVersionOrGreater("21.39.00");
 
     public static final boolean IS_ARC = hasSystemFeature("org.chromium.arc");
     public static final boolean IS_AUTOMOTIVE = hasSystemFeature("android.hardware.type.automotive");
@@ -439,20 +441,25 @@ public class ExtendedUtils extends PackageUtils {
                     if (!isDragging && deltaY <= touchSlop) {
                         return false;
                     }
+
                     isDragging = true;
                     clearTransientTouchState(v);
                     clearTransientTouchState(mainLayout);
+
                     if (deltaY >= 0) {
                         mainLayout.setTranslationY(translationY + deltaY);
                     }
+
                     return true;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
-                    clearTransientTouchState(v);
-                    clearTransientTouchState(mainLayout);
                     if (!isDragging) {
                         return consumeActionDown;
                     }
+
+                    clearTransientTouchState(v);
+                    clearTransientTouchState(mainLayout);
+
                     if (mainLayout.getTranslationY() > dismissThreshold) {
                         mainLayout.startAnimation(slideOut);
                     } else {
@@ -462,6 +469,7 @@ public class ExtendedUtils extends PackageUtils {
                         mainLayout.startAnimation(slideBack);
                         mainLayout.setTranslationY(0);
                     }
+
                     isDragging = false;
                     return true;
                 default:

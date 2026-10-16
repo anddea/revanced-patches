@@ -5,6 +5,10 @@ internal enum class PatchList(
     val summary: String,
     var included: Boolean? = false
 ) {
+    SKIP_SILENCE(
+        "Skip silence",
+        "Adds an option to automatically skip silent pauses in audio playback."
+    ),
     APP_REFRESH_RATE(
         "App refresh rate",
         "Adds an option to change the app refresh rate."

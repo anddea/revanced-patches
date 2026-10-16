@@ -60,7 +60,9 @@ import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findFreeRegister
+import app.morphe.util.findMutableMethodOf
 import app.morphe.util.findMethodsOrThrow
+import app.morphe.util.findMutableMethodOf // modified by lavinhoque33, 2026-10-07: 21.39 large seekbar reader hook
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -71,12 +73,14 @@ import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.numberOfParameterRegisters
 import app.morphe.util.numberOfParameterRegistersLogical
+import app.morphe.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -228,6 +232,49 @@ val seekbarComponentsPatch = bytecodePatch(
         // endregion
 
         // region patch for append time stamps information
+
+        // The native timestamp listener is assigned by callers of the time counter.
+        // Wrap their listeners, only the timestamp container enables the menu behavior.
+        val timeCounterClass = totalTimeFingerprint.methodOrThrow().definingClass
+        var timestampListenerCount = 0
+        classDefForEach { classDef ->
+            classDef.methods.forEach { method ->
+                val instructions = method.implementation?.instructions?.toList()
+                    ?: return@forEach
+
+                if (instructions.none { instruction ->
+                        instruction.getReference<FieldReference>()?.definingClass == timeCounterClass
+                    }) return@forEach
+
+                val listenerIndices = instructions.withIndex().filter { (_, instruction) ->
+                    instruction.getReference<MethodReference>()?.let {
+                        it.name == "setOnClickListener" &&
+                            it.parameterTypes == listOf($$"Landroid/view/View$OnClickListener;")
+                    } == true
+                }
+
+                if (listenerIndices.isEmpty()) return@forEach
+                val mutableMethod = mutableClassDefBy(classDef).findMutableMethodOf(method)
+
+                listenerIndices.forEach { (index, instruction) ->
+                    timestampListenerCount++
+                    val call = $$"$$PLAYER_CLASS_DESCRIPTOR->setTimestampClickListener(Landroid/view/View;Landroid/view/View$OnClickListener;)V"
+
+                    val replacement = if (instruction is RegisterRangeInstruction) {
+                        "invoke-static/range {v${instruction.startRegister} .. v${instruction.startRegister + 1}}, $call"
+                    } else {
+                        val registers = instruction as FiveRegisterInstruction
+                        "invoke-static {v${registers.registerC}, v${registers.registerD}}, $call"
+                    }
+
+                    mutableMethod.replaceInstruction(index, replacement)
+                }
+            }
+        }
+
+        if (timestampListenerCount == 0) {
+            throw PatchException("Timestamp click listener not found")
+        }
 
         totalTimeFingerprint.methodOrThrow().apply {
             val charSequenceIndex = indexOfFirstInstructionOrThrow {
@@ -596,7 +643,70 @@ val seekbarComponentsPatch = bytecodePatch(
         // region patch for fullscreen large seekbar
 
         if (is_20_28_or_greater) {
-            FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll().forEach {
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39: the feature flag (45691569) no longer exists in the app (the behavior was
+            // removed/hardcoded), so there is nothing to hook. Skip instead of failing the patch.
+            val largeSeekbarMatches = runCatching {
+                FullscreenLargeSeekbarFeatureFlagFingerprint.matchAll()
+            }.getOrNull().orEmpty()
+
+            if (largeSeekbarMatches.isEmpty()) {
+                // modified by lavinhoque33, 2026-10-07
+                // 21.39: flag removed; the large style is a boolean field on the seekbar state class
+                // (Larco;->B), written by FullscreenLargeSeekbarStateWriterFingerprint. It is true only in
+                // fullscreen, so every reader keeps it only when the setting is on.
+                val stateWriter = runCatching {
+                    FullscreenLargeSeekbarStateWriterFingerprint.matchAll()
+                }.getOrNull().orEmpty().singleOrNull()
+
+                if (stateWriter == null) {
+                    printWarn("\"Enable fullscreen large seekbar\" is not supported in this version. Use YouTube versions up to 21.39.")
+                } else {
+                    val stateFieldReference = stateWriter.method.getInstruction<ReferenceInstruction>(
+                        stateWriter.instructionMatches[9].index
+                    ).reference.toString()
+
+                    val readers = mutableListOf<Pair<com.android.tools.smali.dexlib2.iface.ClassDef, com.android.tools.smali.dexlib2.iface.Method>>()
+                    classDefForEach { classDef ->
+                        classDef.methods.forEach { method ->
+                            if (method.implementation?.instructions?.any {
+                                    it.opcode == Opcode.IGET_BOOLEAN &&
+                                            it.getReference<FieldReference>()?.toString() == stateFieldReference
+                                } == true
+                            ) {
+                                readers += classDef to method
+                            }
+                        }
+                    }
+
+                    if (readers.isEmpty()) {
+                        printWarn("\"Enable fullscreen large seekbar\" is not supported in this version. Use YouTube versions up to 21.39.")
+                    }
+
+                    readers.forEach { (classDef, method) ->
+                        mutableClassDefBy(classDef).findMutableMethodOf(method).apply {
+                            val readerIndices = implementation!!.instructions.withIndex().filter { (_, instruction) ->
+                                instruction.opcode == Opcode.IGET_BOOLEAN &&
+                                        instruction.getReference<FieldReference>()?.toString() == stateFieldReference
+                            }.map { it.index }
+
+                            // Reverse order so earlier indices stay valid.
+                            readerIndices.asReversed().forEach { index ->
+                                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+                                addInstructions(
+                                    index + 1,
+                                    """
+                                        invoke-static/range { v$register .. v$register }, $PLAYER_CLASS_DESCRIPTOR->useFullscreenLargeSeekbarState(Z)Z
+                                        move-result v$register
+                                    """
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
+            largeSeekbarMatches.forEach {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$PLAYER_CLASS_DESCRIPTOR->useFullscreenLargeSeekbar(Z)Z"

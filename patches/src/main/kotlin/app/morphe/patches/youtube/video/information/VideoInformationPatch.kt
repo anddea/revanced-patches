@@ -530,10 +530,20 @@ val videoInformationPatch = bytecodePatch(
                 }
             }
 
-            VideoLengthFingerprint.match(CreateVideoPlayerSeekbarFingerprint.originalClassDef).let {
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39 changed the method shape; use the 21.39 fingerprint when the old one no longer matches.
+            val videoLengthMatch = runCatching {
+                VideoLengthFingerprint.match(CreateVideoPlayerSeekbarFingerprint.originalClassDef)
+            }.getOrNull()
+            val isVideoLength21_39 = videoLengthMatch == null
+            (videoLengthMatch
+                ?: VideoLengthFingerprint21_39.match(CreateVideoPlayerSeekbarFingerprint.originalClassDef)).let {
                 it.method.apply {
-                    val targetIndex = it.instructionMatches.last().index
-                    val registerIndex = targetIndex - 2
+                    val lastIndex = it.instructionMatches.last().index
+                    // Old: insert before the last invoke, wide result sits 2 before.
+                    // 21.39: insert after the trailing move-result, wide result sits 2 before.
+                    val targetIndex = if (isVideoLength21_39) lastIndex + 1 else lastIndex
+                    val registerIndex = lastIndex - 2
                     val register = getInstruction<OneRegisterInstruction>(registerIndex).registerA
                     addInstruction(
                         targetIndex,

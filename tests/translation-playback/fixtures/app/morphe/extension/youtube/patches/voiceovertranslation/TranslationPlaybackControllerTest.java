@@ -21,7 +21,8 @@ public class TranslationPlaybackControllerTest {
 
     @Before
     public void before() throws Exception {
-        for (Field f : Settings.class.getFields()) ((Settings.Flag) f.get(null)).value = false;
+        for (Field f : Settings.class.getFields())
+            if (f.get(null) instanceof Settings.Flag flag) flag.value = false;
         Field f = TranslationPlaybackController.class.getDeclaredField("state");
         f.setAccessible(true);
         state = (TranslationPlaybackState) f.get(null);
@@ -42,6 +43,7 @@ public class TranslationPlaybackControllerTest {
         VideoInformation.player = new Object();
         VideoInformation.playing = false;
         VideoInformation.fail = false;
+        VideoInformation.deferPlay = false;
         VideoInformation.available = true;
         VideoInformation.playCalls = VideoInformation.pauseCalls = 0;
         VoiceOverTranslationPatch.pending = "";
@@ -1215,4 +1217,50 @@ public class TranslationPlaybackControllerTest {
         assertTrue(VideoInformation.playing);
     }
 
+
+    @Test
+    public void cancellationBeforeAutomaticDispatchSuppressesOnlyThisVideo() throws Exception {
+        for (int provider : new int[] {YANDEX, GOOGLE}) {
+            before();
+            if (provider == YANDEX) yandex(); else google();
+            init();
+            VideoInformation.id = VoiceOverTranslationPatch.pending = "a";
+            TranslationPlaybackController.newVideoLoaded("a");
+            TranslationPlaybackController.cancelAndResume(provider, "a");
+            Utils.drain();
+            assertTrue(VideoInformation.playing);
+            assertEquals(0, VoiceOverTranslationPatch.starts + GoogleVoiceOverTranslationPatch.starts);
+            init();
+            load("a");
+            assertEquals(0, VoiceOverTranslationPatch.starts + GoogleVoiceOverTranslationPatch.starts);
+            load("b");
+            assertEquals(1, VoiceOverTranslationPatch.starts + GoogleVoiceOverTranslationPatch.starts);
+            assertTrue(TranslationPlaybackController.isWaiting(provider, "b"));
+        }
+    }
+
+    @Test
+    public void obsoleteProviderOrVideoCannotSuppressAutomaticTranslation() throws Exception {
+        for (boolean wrongProvider : new boolean[] {false, true}) {
+            before();
+            yandex(); init();
+            VideoInformation.id = VoiceOverTranslationPatch.pending = "a";
+            TranslationPlaybackController.newVideoLoaded("a");
+            TranslationPlaybackController.cancelAndResume(wrongProvider ? GOOGLE : YANDEX, wrongProvider ? "a" : "b");
+            Utils.drain();
+            assertEquals(1, VoiceOverTranslationPatch.starts);
+            assertTrue(TranslationPlaybackController.isWaiting(YANDEX, "a"));
+        }
+    }
+
+    @Test public void staleCancellationCannotUndoCurrentVideosAutomaticSuppression() {
+        yandex(); init(); load("a");
+        VoiceOverTranslationPatch.inflight = false;
+        TranslationPlaybackController.cancelAndResume(YANDEX, "a");
+        TranslationPlaybackController.cancelAndResume(YANDEX, "b");
+        TranslationPlaybackController.metadataLoaded("a");
+        Utils.drain();
+        assertEquals(1, VoiceOverTranslationPatch.starts);
+        assertFalse(TranslationPlaybackController.isWaiting(YANDEX, "a"));
+    }
 }

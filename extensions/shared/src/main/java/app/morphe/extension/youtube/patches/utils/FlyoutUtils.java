@@ -47,9 +47,11 @@ import app.morphe.extension.shared.utils.ResourceType;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.patches.SaveToWatchLaterPatch;
+import app.morphe.extension.youtube.patches.PictureinPictureButtonPatch;
+import app.morphe.extension.youtube.videoplayer.PictureinPictureButton;
+import app.morphe.extension.youtube.patches.components.PlayerFlyoutMenuFilter;
 import app.morphe.extension.youtube.patches.general.DownloadActionsPatch;
 import app.morphe.extension.youtube.settings.Settings;
-import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ThemeUtils;
 
@@ -248,10 +250,13 @@ public final class FlyoutUtils {
         // onto whatever this call adds instead.
         customItemTextRefs.clear();
 
+        final String flyoutVideoId = DownloadActionsPatch.getFlyoutVideoId();
+
         boolean showKidsSaveToWatchLater = Settings.KIDS_SAVE_TO_WATCH_LATER_BUTTON.get()
-                && PlayerType.getCurrent().isMaximizedOrFullscreen()
+                && !flyoutVideoId.isEmpty()
                 && videoMarkedAsForKids;
         boolean showShortsSaveToWatchLater = Settings.SHORTS_SAVE_TO_WATCH_LATER_BUTTON.get()
+                && !flyoutVideoId.isEmpty()
                 && videoMarkedAsShorts;
 
         if (showKidsSaveToWatchLater || showShortsSaveToWatchLater) {
@@ -260,7 +265,7 @@ public final class FlyoutUtils {
                     saveToWatchLaterDrawable,
                     saveToWatchLaterButtonName,
                     v -> {
-                        SaveToWatchLaterPatch.saveVideo(DownloadActionsPatch.getFlyoutVideoId());
+                        SaveToWatchLaterPatch.saveVideo(flyoutVideoId);
 
                         dismissFlyout(); // Must dismiss after showing dialog.
                     },
@@ -285,21 +290,34 @@ public final class FlyoutUtils {
             }
         }
 
+        if (PictureinPictureButtonPatch.isPatchIncluded()) {
+            nextButtonIndex = PictureinPictureButton.addFlyoutButton(
+                    flyoutPanel,
+                    nextButtonIndex,
+                    PlayerFlyoutMenuFilter.getTopFlyoutMenuVisible(),
+                    videoMarkedAsShorts
+            );
+        }
+
         if (nextButtonIndex > 0) {
             addDivider(flyoutPanel, nextButtonIndex);
         }
+
+        // Reset 'topFlyoutMenuVisible' field, once the buttons have been injected into the player's
+        // overlay settings, to prevent them from also being added into nested menus.
+        PlayerFlyoutMenuFilter.resetTopFlyoutMenuVisible();
     }
 
     /**
      * @return The video the flyout belongs to. The player menu has no feed item to read the id
-     *         from, so the video that is playing is used for it instead.
+     *         from, so the video that is playing is used only for its top-level menu.
      */
     private static String getSubmittableVideoId() {
         String flyoutVideoId = DownloadActionsPatch.getFlyoutVideoId();
         if (!flyoutVideoId.isEmpty()) {
             return flyoutVideoId;
         }
-        if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+        if (PlayerFlyoutMenuFilter.getTopFlyoutMenuVisible()) {
             return VideoInformation.getVideoId();
         }
         return "";
@@ -414,7 +432,7 @@ public final class FlyoutUtils {
     }
 
     @SuppressWarnings("SameParameterValue")
-    private static int addFlyoutButton(
+    public static int addFlyoutButton(
             Object flyoutPanel,
             Drawable icon,
             String text,

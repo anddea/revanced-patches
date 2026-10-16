@@ -63,6 +63,7 @@ import app.morphe.patches.music.utils.settings.addSwitchPreference
 import app.morphe.patches.music.utils.settings.settingsPatch
 import app.morphe.patches.shared.misc.settings.preference.InputType
 import app.morphe.patches.music.video.information.onCreateHook
+import app.morphe.patches.music.video.information.ModernPlaybackSpeedFingerprint
 import app.morphe.patches.music.video.information.videoInformationPatch
 import app.morphe.patches.shared.FIXED_RESOLUTION_STRING
 import app.morphe.patches.shared.customspeed.customPlaybackSpeedPatch
@@ -74,6 +75,7 @@ import app.morphe.util.findFieldFromToString
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.findMutableClassOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.fingerprint.matchOrNull
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.mutableClassOrThrow
 import app.morphe.util.fingerprint.originalMethodOrThrow
@@ -89,6 +91,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
@@ -119,7 +122,17 @@ val videoPlaybackPatch = bytecodePatch(
     execute {
         // region patch for default playback speed
 
-        playbackSpeedBottomSheetFingerprint.mutableClassOrThrow().let {
+        // modified by lavinhoque33, 2026-10-04
+        // YouTube Music 9.40 no longer has a method with the string in the bottom sheet fragment class itself;
+        // the fragment class (`Lhwo;`) is the return type of `gxx.d(Activity)`, so use it as fallback.
+        val playbackSpeedBottomSheetClass =
+            runCatching { playbackSpeedBottomSheetFingerprint.mutableClassOrThrow() }.getOrNull()
+                ?: ModernPlaybackSpeedBottomSheetFingerprint.methodOrNull?.let {
+                    findMutableClassOrThrow(it.returnType)
+                }
+                ?: throw PatchException("Failed to resolve playbackSpeedBottomSheetFingerprint")
+
+        playbackSpeedBottomSheetClass.let {
             val onItemClickMethod =
                 it.methods.find { method -> method.name == "onItemClick" }
                     ?: throw PatchException("Failed to find onItemClick method")
@@ -136,9 +149,13 @@ val videoPlaybackPatch = bytecodePatch(
             }
         }
 
-        playbackSpeedFingerprint.matchOrThrow(playbackSpeedParentFingerprint).let {
-            it.method.apply {
-                val startIndex = it.instructionMatches.first().index
+        // modified by lavinhoque33, 2026-10-04
+        // YouTube Music 9.40 hoisted `const/high16 1.0f` to the top of `huy.t()V`; when the old shape
+        // does not match, hook right before the `Labrl;->I(F)V` call, which reads the hoisted register.
+        val defaultSpeedMatch = playbackSpeedFingerprint.matchOrNull(playbackSpeedParentFingerprint)
+        if (defaultSpeedMatch != null) {
+            defaultSpeedMatch.method.apply {
+                val startIndex = defaultSpeedMatch.instructionMatches.first().index
                 val speedRegister =
                     getInstruction<OneRegisterInstruction>(startIndex + 1).registerA
 
@@ -149,13 +166,37 @@ val videoPlaybackPatch = bytecodePatch(
                         """
                 )
             }
+        } else {
+            val parentClassDef = playbackSpeedParentFingerprint.second.classDefOrNull
+                ?: throw PatchException("Failed to resolve ${playbackSpeedParentFingerprint.first}")
+            ModernPlaybackSpeedFingerprint.matchOrNull(parentClassDef)?.method?.apply {
+                val invokeIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.returnType == "V" &&
+                            reference.parameterTypes.map(CharSequence::toString) == listOf("F")
+                }
+                val speedRegister =
+                    getInstruction<FiveRegisterInstruction>(invokeIndex).registerD
+
+                addInstructions(
+                    invokeIndex, """
+                        invoke-static {v$speedRegister}, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->getPlaybackSpeed(F)F
+                        move-result v$speedRegister
+                        """
+                )
+            } ?: throw PatchException("Failed to resolve ${playbackSpeedFingerprint.first}")
         }
 
         // endregion
 
         // region patch for default video quality
 
-        val videoQualityClass = videoQualityListFingerprint.matchOrThrow().let {
+        // modified by lavinhoque33, 2026-10-04
+        // YouTube Music 9.40 ends the quality list callback with invoke-virtual instead of invoke-interface.
+        val videoQualityListMatch = videoQualityListFingerprint.matchOrNull()
+            ?: videoQualityListModernFingerprint.matchOrThrow()
+        val videoQualityClass = videoQualityListMatch.let {
             with(it.method) {
                 // set video quality array
                 val listIndex = it.instructionMatches.first().index

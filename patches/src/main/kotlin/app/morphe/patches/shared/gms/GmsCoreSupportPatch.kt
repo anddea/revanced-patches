@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.shared.gms
 
 import app.morphe.patcher.Fingerprint
@@ -413,6 +423,19 @@ fun gmsCoreSupportPatch(
         }
 
         updatePatchStatus("$PATCHES_PATH/PatchStatus;", "GmsCoreSupport")
+
+        // GNP expects the original Google package even when the installed app is renamed.
+        GnpRegistrationTargetFingerprint.matchOrNull()?.let { match ->
+            val result = match.instructionMatches[1]
+            match.method.replaceInstruction(
+                result.index,
+                BuilderInstruction21c(
+                    Opcode.CONST_STRING,
+                    (result.instruction as OneRegisterInstruction).registerA,
+                    ImmutableStringReference(fromPackageName),
+                ),
+            )
+        }
 
         executeBlock()
     }

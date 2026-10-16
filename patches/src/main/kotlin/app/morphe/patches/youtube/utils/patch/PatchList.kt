@@ -5,13 +5,17 @@ internal enum class PatchList(
     val summary: String,
     var included: Boolean? = false
 ) {
+    SKIP_SILENCE(
+        "Skip silence",
+        "Adds an option to automatically skip silent pauses in audio playback."
+    ),
     APP_REFRESH_RATE(
         "App refresh rate",
         "Adds an option to change the app refresh rate."
     ),
-    ALTERNATIVE_THUMBNAILS(
-        "Alternative thumbnails",
-        "Adds options to replace video thumbnails using the DeArrow API or image captures from the video."
+    DEARROW(
+        "DeArrow",
+        "Adds options to replace video thumbnails and titles using the DeArrow API, or replace video thumbnails with image captures from the video."
     ),
     AMBIENT_MODE_CONTROL(
         "Ambient mode control",
@@ -41,6 +45,10 @@ internal enum class PatchList(
         "Change start page",
         "Adds an option to set which page the app opens in instead of the homepage."
     ),
+    COPY_TEXT(
+        "Copy text",
+        "Adds options to copy the video title and comments by tapping and holding them."
+    ),
     CUSTOM_SHORTS_ACTION_BUTTONS(
         "Custom Shorts action buttons",
         "Changes, at compile time, the icon of the action buttons of the Shorts player."
@@ -61,6 +69,10 @@ internal enum class PatchList(
         "Description components",
         "Adds options to hide and disable description components."
     ),
+    DISABLE_AUTO_FEED_REFRESH(
+        "Disable auto feed refresh",
+        "Adds an option to stop feeds from refreshing automatically after they become outdated."
+    ),
     DISABLE_QUIC_PROTOCOL(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."
@@ -68,6 +80,10 @@ internal enum class PatchList(
     FORCE_ORIGINAL_AUDIO(
         "Force original audio",
         "Adds an option to disable audio tracks from being automatically enabled."
+    ),
+    PREFERRED_CAPTION_LANGUAGE(
+        "Preferred caption language",
+        "Adds an option to automatically select captions in your preferred language."
     ),
     DISABLE_FORCED_AUTO_CAPTIONS(
         "Disable forced auto captions",
@@ -197,6 +213,14 @@ internal enum class PatchList(
         "Overlay buttons",
         "Adds options to display useful overlay buttons in the video player."
     ),
+    PICTURE_IN_PICTURE_BUTTON(
+        "Picture-in-picture button",
+        "Adds an option to display a picture-in-picture button in the video player."
+    ),
+    PLAYBACK_BUFFER(
+        "Playback buffer",
+        "Adds an option to change the video playback buffer size."
+    ),
     PLAYBACK_IN_FEEDS(
         "Playback in feeds",
         "Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it."
@@ -228,6 +252,10 @@ internal enum class PatchList(
     REMOVE_VIEWER_DISCRETION_DIALOG(
         "Remove viewer discretion dialog",
         "Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction."
+    ),
+    RESTORE_ORIGINAL_TITLES(
+        "Restore original titles",
+        "Adds an option to show the original video titles, video descriptions and channel descriptions instead of the auto-translated ones."
     ),
     RETURN_YOUTUBE_DISLIKE(
         "Return YouTube Dislike",

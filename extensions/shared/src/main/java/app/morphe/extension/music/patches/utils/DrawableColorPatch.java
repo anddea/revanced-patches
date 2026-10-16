@@ -67,7 +67,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
-import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -80,12 +79,12 @@ import androidx.annotation.RequiresApi;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.zip.GZIPInputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.Arrays;
 
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.patches.CustomBrandingPatch;
@@ -457,19 +456,47 @@ public class DrawableColorPatch {
         }
     }
 
+    // The prebuilt table only covered the fixed IDs 0x7f060f00..0f10. YouTube Music 9.40 already
+    // uses those IDs, so the patch now assigns the runtime colors to the first free IDs and the
+    // table is built here for the IDs of the installed APK.
     /** API 30 classes stay isolated so this patch remains verifier-safe on Android 8–10. */
     private static final class RuntimeResourceOverlay {
-        private static final byte[][] DARK_PLACEHOLDERS = {
-                {0x50, 0x34, 0x12, (byte) 0xFF}, {0x51, 0x34, 0x12, (byte) 0xFF},
-                {0x52, 0x34, 0x12, (byte) 0xFF}, {0x53, 0x34, 0x12, (byte) 0xFF},
-                {0x54, 0x34, 0x12, (byte) 0xFF}, {0x55, 0x34, 0x12, (byte) 0xFF},
-                {0x56, 0x34, 0x12, (byte) 0xFF}, {0x57, 0x34, 0x12, (byte) 0xFF},
-                {0x58, 0x34, 0x12, (byte) 0xFF}, {0x59, 0x34, 0x12, (byte) 0xFF},
-                {0x5A, 0x34, 0x12, (byte) 0xFF}, {0x5B, 0x34, 0x12, (byte) 0xFF},
-                {0x5C, 0x34, 0x12, (byte) 0xFF},
+        /**
+         * Runtime colors added by the patch, in the order of {@link #STOCK_DARK_THEME_COLORS}.
+         */
+        private static final String[] RUNTIME_COLOR_NAMES = {
+                "morphe_runtime_dark_theme_black0",
+                "morphe_runtime_dark_theme_black1",
+                "morphe_runtime_dark_theme_black1_opacity95",
+                "morphe_runtime_dark_theme_black1_opacity98",
+                "morphe_runtime_dark_theme_black2",
+                "morphe_runtime_dark_theme_black3",
+                "morphe_runtime_dark_theme_black4",
+                "morphe_runtime_dark_theme_black_pure",
+                "morphe_runtime_dark_theme_black_pure_opacity80",
+                "morphe_runtime_dark_theme_status_bar_background_dark",
+                "morphe_runtime_dark_theme_ytm_color_grey_12",
+                "morphe_runtime_dark_theme_material_grey_800",
+                "morphe_runtime_dark_theme_material_grey_850",
         };
-        private static final String COMPRESSED_TABLE =
-                "H4sIAGSJhWoAA+3dz0/TcBjH8adFFBQFPHkgZkYOBpKlwEBIMJKYeBV1/v5Ry2jGQrcupTPhovwBHryYeDTx4tGjRxP+Af8ETp71L8Cn2wMsQVIXPBjzfpEP3366p+vSbMemrgzJzisRR7KM6V8X3bnf3YLzRede62ZFYqlLUaq6xvo/klBbIA1ZlUT31HQtyqZutSTVrOjr/5OC01nfOAf7smsX6Xqya67UtT2gGdFcyI7XXNG4cl2mbJ22dcbWkq2zuva3r3ikSfbP5fWJjB6cXF50neuy5qZmQ/NBs635rhnUuSVNQ/NOs635qbnoitzSbGk+agqFepw010I/aTXSWj30V4Nk3U/XQt1ciYLKupc/MiUTE3kjftwMKrV0c2G2l+H5/JNP54/M5I+UpFQ6emQjDdLWhr8SJJrKejWJW43V9oBMTh59WD1Iw6QWRH41CTf9+VlPxsdzPoffbCVhL2/qeT1ML+h07tX39q7+nCfF4p983r0D5ns9YO43X66oVl1L7YhKHMXJ4U98aGTv/a564rojUl7MfpuOjA4f77cPAAAAAAAAAAAAAAAAAAAAAAAAAAAA4K9bOm4ctyyfrnXu98/uKX6/2HnhOHYBAAAAAAAAAAAAAAAAAAAAAAAAAAAA/DOye4CzZ4QXNJ7daLwsnWd7NzVbmrfSeab3Z81XzTfNjuZHdrCTPWfcbd9LPCAytlw6v5t1x/pt6671O9b7rN+1fsJ62Xq/9XvWT1q/b/2U9QfWB6w/tD5o/ZH109YfWz9j/Yn1IetPrZ+1/sz6OevPrQ9bv3QjbPcR69Pll7u/AI6KtVjgfgAA";
+
+        private static final short RES_STRING_POOL_TYPE = 0x0001;
+        private static final short RES_TABLE_TYPE = 0x0002;
+        private static final short RES_TABLE_PACKAGE_TYPE = 0x0200;
+        private static final short RES_TABLE_TYPE_TYPE = 0x0201;
+        private static final short RES_TABLE_TYPE_SPEC_TYPE = 0x0202;
+        private static final int TABLE_HEADER_SIZE = 12;
+        private static final int STRING_POOL_HEADER_SIZE = 28;
+        private static final int PACKAGE_HEADER_SIZE = 288;
+        private static final int TYPE_SPEC_HEADER_SIZE = 16;
+        private static final int CONFIG_SIZE = 64;
+        private static final int TYPE_HEADER_SIZE = 20 + CONFIG_SIZE;
+        /** ResTable_entry (8 bytes) followed by its Res_value (8 bytes). */
+        private static final int ENTRY_SIZE = 16;
+        private static final int NO_ENTRY = 0xFFFFFFFF;
+        private static final int SPEC_PUBLIC = 0x40000000;
+        private static final short ENTRY_FLAG_PUBLIC = 0x0002;
+        private static final byte TYPE_INT_COLOR_ARGB8 = 0x1c;
 
         private static ResourcesLoader loader;
 
@@ -480,10 +507,7 @@ public class DrawableColorPatch {
         static synchronized void install(Activity activity, int[] colors) throws IOException {
             if (loader != null) return;
 
-            byte[] table = inflateTable();
-            for (int i = 0; i < DARK_PLACEHOLDERS.length; i++) {
-                replacePlaceholderColor(table, DARK_PLACEHOLDERS[i], colors[i]);
-            }
+            byte[] table = buildTable(activity, colors);
             File tableFile = new File(activity.getCacheDir(), "morphe-dark-theme.arsc");
             try (FileOutputStream output = new FileOutputStream(tableFile, false)) {
                 output.write(table);
@@ -505,34 +529,132 @@ public class DrawableColorPatch {
             }
         }
 
-        private static byte[] inflateTable() throws IOException {
-            byte[] compressed = Base64.decode(COMPRESSED_TABLE, Base64.DEFAULT);
-            try (GZIPInputStream input = new GZIPInputStream(new ByteArrayInputStream(compressed));
-                 ByteArrayOutputStream output = new ByteArrayOutputStream()) {
-                byte[] buffer = new byte[4096];
-                int count;
-                while ((count = input.read(buffer)) != -1) {
-                    output.write(buffer, 0, count);
+        /** Builds a resources.arsc that redefines the runtime colors at their patched IDs. */
+        private static byte[] buildTable(Context context, int[] colors) throws IOException {
+            final int count = RUNTIME_COLOR_NAMES.length;
+            final int[] entryIndexes = new int[count];
+            int packageAndType = 0;
+            int entryCount = 0;
+            for (int i = 0; i < count; i++) {
+                final int id = ResourceUtils.getIdentifier(
+                        RUNTIME_COLOR_NAMES[i], ResourceType.COLOR, context);
+                if (id == 0) {
+                    throw new IOException("Runtime theme color not found: " + RUNTIME_COLOR_NAMES[i]);
                 }
-                return output.toByteArray();
+                if (i == 0) {
+                    packageAndType = id >>> 16;
+                } else if (packageAndType != id >>> 16) {
+                    throw new IOException("Runtime theme colors are not in one resource type");
+                }
+                entryIndexes[i] = id & 0xFFFF;
+                entryCount = Math.max(entryCount, entryIndexes[i] + 1);
             }
+            final int packageId = packageAndType >>> 8;
+            final int typeId = packageAndType & 0xFF;
+            final int firstId = (packageAndType << 16) | entryIndexes[0];
+            final Resources resources = context.getResources();
+            final String packageName = resources.getResourcePackageName(firstId);
+
+            // Type names are indexed by type ID - 1; only the color type has entries here.
+            final String[] typeNames = new String[typeId];
+            Arrays.fill(typeNames, "");
+            typeNames[typeId - 1] = resources.getResourceTypeName(firstId);
+
+            final byte[] globalPool = stringPool(new String[0]);
+            final byte[] typePool = stringPool(typeNames);
+            final byte[] keyPool = stringPool(RUNTIME_COLOR_NAMES);
+            final int typeSpecSize = TYPE_SPEC_HEADER_SIZE + entryCount * 4;
+            final int entriesStart = TYPE_HEADER_SIZE + entryCount * 4;
+            final int typeSize = entriesStart + count * ENTRY_SIZE;
+            final int packageSize = PACKAGE_HEADER_SIZE + typePool.length + keyPool.length
+                    + typeSpecSize + typeSize;
+            final int tableSize = TABLE_HEADER_SIZE + globalPool.length + packageSize;
+
+            final ByteBuffer out = ByteBuffer.allocate(tableSize).order(ByteOrder.LITTLE_ENDIAN);
+            // ResTable_header
+            out.putShort(RES_TABLE_TYPE).putShort((short) TABLE_HEADER_SIZE)
+                    .putInt(tableSize).putInt(1);
+            out.put(globalPool);
+
+            // ResTable_package
+            out.putShort(RES_TABLE_PACKAGE_TYPE).putShort((short) PACKAGE_HEADER_SIZE)
+                    .putInt(packageSize).putInt(packageId);
+            final int nameLength = Math.min(packageName.length(), 127);
+            for (int i = 0; i < 128; i++) {
+                out.putChar(i < nameLength ? packageName.charAt(i) : '\0');
+            }
+            out.putInt(PACKAGE_HEADER_SIZE)                        // typeStrings
+                    .putInt(0)                                     // lastPublicType
+                    .putInt(PACKAGE_HEADER_SIZE + typePool.length) // keyStrings
+                    .putInt(0)                                     // lastPublicKey
+                    .putInt(0);                                    // typeIdOffset
+            out.put(typePool).put(keyPool);
+
+            final int[] offsets = new int[entryCount];
+            Arrays.fill(offsets, NO_ENTRY);
+            for (int i = 0; i < count; i++) {
+                offsets[entryIndexes[i]] = i * ENTRY_SIZE;
+            }
+
+            // ResTable_typeSpec
+            out.putShort(RES_TABLE_TYPE_SPEC_TYPE).putShort((short) TYPE_SPEC_HEADER_SIZE)
+                    .putInt(typeSpecSize)
+                    .put((byte) typeId).put((byte) 0).putShort((short) 1)
+                    .putInt(entryCount);
+            for (int offset : offsets) {
+                out.putInt(offset == NO_ENTRY ? 0 : SPEC_PUBLIC);
+            }
+
+            // ResTable_type for the default configuration (all-zero ResTable_config).
+            out.putShort(RES_TABLE_TYPE_TYPE).putShort((short) TYPE_HEADER_SIZE)
+                    .putInt(typeSize)
+                    .put((byte) typeId).put((byte) 0).putShort((short) 0)
+                    .putInt(entryCount).putInt(entriesStart)
+                    .putInt(CONFIG_SIZE);
+            out.position(out.position() + CONFIG_SIZE - 4);
+            for (int offset : offsets) {
+                out.putInt(offset);
+            }
+            for (int i = 0; i < count; i++) {
+                // ResTable_entry: size, flags, key index.
+                out.putShort((short) 8).putShort(ENTRY_FLAG_PUBLIC).putInt(i);
+                // Res_value: size, res0, dataType, data.
+                out.putShort((short) 8).put((byte) 0).put(TYPE_INT_COLOR_ARGB8).putInt(colors[i]);
+            }
+            return out.array();
         }
 
-        private static void replacePlaceholderColor(byte[] table, byte[] placeholder, int color)
-                throws IOException {
-            for (int i = 0; i <= table.length - placeholder.length; i++) {
-                if (table[i] == placeholder[0]
-                        && table[i + 1] == placeholder[1]
-                        && table[i + 2] == placeholder[2]
-                        && table[i + 3] == placeholder[3]) {
-                    table[i] = (byte) color;
-                    table[i + 1] = (byte) (color >>> 8);
-                    table[i + 2] = (byte) (color >>> 16);
-                    table[i + 3] = (byte) (color >>> 24);
-                    return;
-                }
+        /** UTF-16 ResStringPool without styles, padded to 4 bytes. */
+        private static byte[] stringPool(String[] strings) {
+            int dataSize = 0;
+            for (String string : strings) {
+                dataSize += 2 + string.length() * 2 + 2;
             }
-            throw new IOException("Runtime theme placeholder not found");
+            dataSize = (dataSize + 3) & ~3;
+            final int stringsStart = STRING_POOL_HEADER_SIZE + strings.length * 4;
+            final int size = stringsStart + dataSize;
+
+            final ByteBuffer out = ByteBuffer.allocate(size).order(ByteOrder.LITTLE_ENDIAN);
+            out.putShort(RES_STRING_POOL_TYPE).putShort((short) STRING_POOL_HEADER_SIZE)
+                    .putInt(size)
+                    .putInt(strings.length)                       // stringCount
+                    .putInt(0)                                    // styleCount
+                    .putInt(0)                                    // flags: UTF-16
+                    .putInt(strings.length == 0 ? 0 : stringsStart)
+                    .putInt(0);                                   // stylesStart
+            int offset = 0;
+            for (String string : strings) {
+                out.putInt(offset);
+                offset += 2 + string.length() * 2 + 2;
+            }
+            for (String string : strings) {
+                out.putShort((short) string.length());
+                for (int i = 0; i < string.length(); i++) {
+                    out.putChar(string.charAt(i));
+                }
+                out.putShort((short) 0);
+            }
+            return out.array();
         }
     }
 }

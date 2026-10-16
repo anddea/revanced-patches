@@ -43,3 +43,13 @@ internal val volumeNormalizationConfigFingerprint = legacyFingerprint(
     name = "volumeNormalizationConfigFingerprint",
     literals = listOf(VOLUME_NORMALIZATION_EXPERIMENTAL_FEATURE_FLAG)
 )
+
+// modified by lavinhoque33, 2026-10-07: YouTube 21.39 / YT Music 9.40 removed the flag; the new
+// loudness algorithm is unconditional inside this method (chm.ax / hct.t). Does not match older versions.
+internal val volumeNormalizationMethodFingerprint = legacyFingerprint(
+    name = "volumeNormalizationMethodFingerprint",
+    returnType = "L",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "L", "F", "Z"),
+    strings = listOf("xheaac", ";rng.0;trkcfg.0"),
+)

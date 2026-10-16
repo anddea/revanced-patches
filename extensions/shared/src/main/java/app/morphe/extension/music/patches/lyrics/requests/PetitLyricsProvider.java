@@ -9,7 +9,6 @@ package app.morphe.extension.music.patches.lyrics.requests;
 
 import android.util.Base64;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -22,7 +21,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.atomic.AtomicLong;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
@@ -60,25 +58,30 @@ public final class PetitLyricsProvider implements LyricsProvider {
         return "PetitLyrics";
     }
 
+    @Override
+    public boolean hasCandidates() {
+        return false;
+    }
+
     @Nullable
     @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
+    public FetchResult fetch(TrackInfo track) throws Exception {
         Stash stash = new Stash();
 
         collectTier(track, TIER_WORD_SYNC, stash);
         Lyrics result = tryWordSync(stash);
         if (result != null) {
-            return result;
+            return FetchResult.of(result, track);
         }
 
         collectTier(track, TIER_LINE_SYNC, stash);
         result = tryWordSync(stash);
         if (result != null) {
-            return result;
+            return FetchResult.of(result, track);
         }
         result = tryLineSync(track, stash);
         if (result != null) {
-            return result;
+            return FetchResult.of(result, track);
         }
 
         if (stash.plainText == null && !stash.plainRequested) {
@@ -91,7 +94,10 @@ public final class PetitLyricsProvider implements LyricsProvider {
             }
         }
         result = tryText(stash);
-        return result;
+        if (result != null) {
+            return FetchResult.of(result, track);
+        }
+        return null;
     }
 
     private void collectTier(TrackInfo track, int lyricsType, Stash stash) {
@@ -116,6 +122,16 @@ public final class PetitLyricsProvider implements LyricsProvider {
         }
         List<Song> sorted = new ArrayList<>(response.songs);
         sorted.sort((a, b) -> Integer.compare(scoreOf(b, track), scoreOf(a, track)));
+        List<Song> gated = new ArrayList<>();
+        for (Song song : sorted) {
+            if (scoreOf(song, track) >= LyricsRequests.SOFT_MIN) {
+                gated.add(song);
+            }
+        }
+        if (gated.isEmpty() && !sorted.isEmpty()) {
+            gated.add(sorted.get(0));
+        }
+        sorted = gated;
 
         if (stash.creditLines == null) {
             for (Song song : sorted) {
@@ -261,7 +277,6 @@ public final class PetitLyricsProvider implements LyricsProvider {
         LrcParser.LrcParseResult lrc = LrcParser.parseSyncedWithCreditLines(text);
         if (!lrc.lines.isEmpty()) {
             List<String> credits = mergeCredits(stash.creditLines, lrc.creditLines);
-            assert credits != null;
             return new Lyrics(lrc.lines, name(), true, null, null, null,
                     credits.isEmpty() ? null : credits,
                     text, "lrc", sourceUrl(stash.sourceLyricsId));
@@ -282,7 +297,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
         return SOURCE_URL_PREFIX + lyricsId.trim();
     }
 
-    @NonNull
+    @Nullable
     private static List<String> creditLinesOf(Song song) {
         List<String> credits = new ArrayList<>(4);
         addCredit(credits, "Artist", song.artist);
@@ -326,15 +341,15 @@ public final class PetitLyricsProvider implements LyricsProvider {
     private Response request(TrackInfo track, int lyricsType) throws Exception {
         LyricsRequests.throttle(lastRequestTime, REQUEST_THROTTLE_MS);
 
-        String form =
-                "clientAppId=" + LyricsRequests.encode(CLIENT_APP_ID) +
-                "&terminalType=" + LyricsRequests.encode(TERMINAL_TYPE) +
-                "&lyricsType=" + lyricsType +
-                "&key_title=" + LyricsRequests.encode(track.title()) +
-                "&key_artist=" + LyricsRequests.encode(track.artist()) +
-                "&key_album=" + LyricsRequests.encode(track.album());
+        StringBuilder form = new StringBuilder();
+        form.append("clientAppId=").append(LyricsRequests.encode(CLIENT_APP_ID));
+        form.append("&terminalType=").append(LyricsRequests.encode(TERMINAL_TYPE));
+        form.append("&lyricsType=").append(lyricsType);
+        form.append("&key_title=").append(LyricsRequests.encode(track.title()));
+        form.append("&key_artist=").append(LyricsRequests.encode(track.artist()));
+        form.append("&key_album=").append(LyricsRequests.encode(track.album()));
 
-        var connection = LyricsRequests.postForm(API_URL, form);
+        var connection = LyricsRequests.postForm(API_URL, form.toString());
         int httpCode = connection.getResponseCode();
         if (httpCode != Requester.HTTP_STATUS_CODE_SUCCESS) {
             LyricsRequests.logFailure(name(), connection);
@@ -377,7 +392,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
                     case XmlPullParser.TEXT -> {
                         if (field != null && current != null) {
                             text.append(parser.getText());
-                        } else if ("status".equals(field)) {
+                        } else if (field != null && "status".equals(field)) {
                             text.append(parser.getText());
                         }
                     }
@@ -644,7 +659,7 @@ public final class PetitLyricsProvider implements LyricsProvider {
                 wraps++;
             }
             prev = cs;
-            out.add(cs + (long) wraps * LSY_WRAP_CS);
+            out.add((long) (cs + wraps * LSY_WRAP_CS));
         }
         return out;
     }
@@ -653,14 +668,15 @@ public final class PetitLyricsProvider implements LyricsProvider {
         if (!switchFlag) {
             return protectionId;
         }
-        return (protectionId & 0x0003)
-                | ((protectionId & 0x000c) << 2)
-                | ((protectionId & 0x0030) >> 2)
-                | ((protectionId & 0x00c0) << 2)
-                | ((protectionId & 0x0300) >> 2)
-                | ((protectionId & 0x0c00) << 2)
-                | ((protectionId & 0x3000) >> 2)
-                | (protectionId & 0xc000);
+        int k = protectionId;
+        return (k & 0x0003)
+                | ((k & 0x000c) << 2)
+                | ((k & 0x0030) >> 2)
+                | ((k & 0x00c0) << 2)
+                | ((k & 0x0300) >> 2)
+                | ((k & 0x0c00) << 2)
+                | ((k & 0x3000) >> 2)
+                | (k & 0xc000);
     }
 
     private static List<LyricsLine> zipLineSync(List<Long> timingsCs, String text) {
@@ -697,12 +713,8 @@ public final class PetitLyricsProvider implements LyricsProvider {
     private static String buildLrc(List<LyricsLine> lines) {
         StringBuilder sb = new StringBuilder(50 * lines.size());
         for (LyricsLine line : lines) {
-            final long totalMs = Math.max(0, line.startTimeMs());
-            final long min = totalMs / 60000;
-            final long sec = (totalMs % 60000) / 1000;
-            final long ms = totalMs % 1000;
             sb.append('[')
-              .append(String.format(Locale.US, "%02d:%02d.%02d", min, sec, ms / 10))
+              .append(LrcParser.formatCentiseconds(Math.max(0, line.startTimeMs())))
               .append(']')
               .append(line.text())
               .append('\n');

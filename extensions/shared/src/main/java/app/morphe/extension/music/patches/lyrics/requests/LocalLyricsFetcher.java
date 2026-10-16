@@ -24,7 +24,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+import java.util.function.IntPredicate;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
@@ -53,6 +53,15 @@ public final class LocalLyricsFetcher {
             return null;
         }
 
+        try {
+            return readEmbeddedLyrics(mediaUri);
+        } catch (Throwable ignored) {
+            return null;
+        }
+    }
+
+    @Nullable
+    private static Lyrics readEmbeddedLyrics(Uri mediaUri) {
         Context context = Utils.getContext();
         if (context == null) {
             return null;
@@ -301,6 +310,10 @@ public final class LocalLyricsFetcher {
         return null;
     }
 
+    private static boolean inBounds(byte[] d, int off, int len) {
+        return off >= 0 && len > 0 && off + (long) len <= d.length;
+    }
+
     @Nullable
     private static String parseId3v2(byte[] d) {
         if (d.length < 10) {
@@ -310,7 +323,13 @@ public final class LocalLyricsFetcher {
         final int tagSize = syncsafe(d[6], d[7], d[8], d[9]);
         int pos = 10;
         if ((major == 3 || major == 4) && (d[5] & 0x40) != 0) {
+            if (d.length < 14) {
+                return null;
+            }
             final int extSize = readInt32BE(d, 10);
+            if (extSize < 0 || extSize > d.length - 10) {
+                return null;
+            }
             pos = 10 + extSize;
         }
         final int end = Math.min(pos + tagSize, d.length);
@@ -390,7 +409,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseTxxxDescription(byte[] d, int off, int len) {
-        if (len <= 1) return null;
+        if (!inBounds(d, off, len) || len <= 1) return null;
         final int enc = d[off] & 0xFF;
         final int frameEnd = off + len;
         final int descEnd = indexOfNullTerm(d, off + 1, frameEnd, enc);
@@ -400,7 +419,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseTxxxValue(byte[] d, int off, int len) {
-        if (len <= 1) return null;
+        if (!inBounds(d, off, len) || len <= 1) return null;
         final int enc = d[off] & 0xFF;
         final int frameEnd = off + len;
         final int descEnd = indexOfNullTerm(d, off + 1, frameEnd, enc);
@@ -421,7 +440,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseCommDescription(byte[] d, int off, int len) {
-        if (len <= 4) return null;
+        if (!inBounds(d, off, len) || len <= 4) return null;
         final int enc = d[off] & 0xFF;
         final int frameEnd = off + len;
         final int descStart = off + 1 + 3;
@@ -432,7 +451,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseCommBody(byte[] d, int off, int len) {
-        if (len <= 4) return null;
+        if (!inBounds(d, off, len) || len <= 4) return null;
         final int enc = d[off] & 0xFF;
         final int frameEnd = off + len;
         final int descStart = off + 1 + 3;
@@ -454,7 +473,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseTextFrame(byte[] d, int off, int len) {
-        if (len <= 0) {
+        if (!inBounds(d, off, len) || len <= 0) {
             return null;
         }
         final int enc = d[off] & 0xFF;
@@ -489,7 +508,7 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseSylt(byte[] d, int off, int len) {
-        if (len <= 0) {
+        if (!inBounds(d, off, len) || len < 5) {
             return null;
         }
         final int enc = d[off] & 0xFF;
@@ -523,10 +542,9 @@ public final class LocalLyricsFetcher {
             }
             if (!seg.isEmpty()) {
                 if (tsMs >= 0) {
-                    final long min = tsMs / 60_000;
-                    final long sec = (tsMs / 1000) % 60;
-                    final long cs = (tsMs % 1000) / 10;
-                    sb.append(String.format(Locale.US, "[%02d:%02d.%02d]", min, sec, cs));
+                    sb.append('[')
+                      .append(LrcParser.formatCentiseconds(tsMs))
+                      .append(']');
                 }
                 sb.append(seg).append('\n');
             }
@@ -570,12 +588,18 @@ public final class LocalLyricsFetcher {
 
     @Nullable
     private static String parseVorbisComment(byte[] d, int start, int size) {
+        if (!inBounds(d, start, size)) {
+            return null;
+        }
         final int end = start + size;
         int p = start;
         if (p + 4 > end) {
             return null;
         }
         final int vendorLen = readInt32LE(d, p);
+        if (vendorLen < 0 || vendorLen > end - (p + 4)) {
+            return null;
+        }
         p += 4 + vendorLen;
         if (p + 4 > end) {
             return null;
@@ -585,7 +609,7 @@ public final class LocalLyricsFetcher {
         for (int i = 0; i < count && p + 4 <= end; i++) {
             final int len = readInt32LE(d, p);
             p += 4;
-            if (p + len > end) {
+            if (len < 0 || p + (long) len > end) {
                 break;
             }
             String comment = new String(d, p, len, StandardCharsets.UTF_8);
@@ -651,7 +675,7 @@ public final class LocalLyricsFetcher {
     @Nullable
     private static String parseVorbisCommentFromPacket(String payload, int off) {
         final int len = payload.length();
-        if (off + 4 > len) {
+        if (off < 0 || off + 4 > len) {
             return null;
         }
         int p = off;
@@ -659,6 +683,9 @@ public final class LocalLyricsFetcher {
                 | ((payload.charAt(p + 1) & 0xFF) << 8)
                 | ((payload.charAt(p + 2) & 0xFF) << 16)
                 | ((payload.charAt(p + 3) & 0xFF) << 24);
+        if (vendorLen < 0 || vendorLen > len - (p + 4)) {
+            return null;
+        }
         p += 4 + vendorLen;
         if (p + 4 > len) {
             return null;
@@ -674,7 +701,7 @@ public final class LocalLyricsFetcher {
                     | ((payload.charAt(p + 2) & 0xFF) << 16)
                     | ((payload.charAt(p + 3) & 0xFF) << 24);
             p += 4;
-            if (p + entryLen > len) {
+            if (entryLen < 0 || p + (long) entryLen > len) {
                 break;
             }
             String comment = payload.substring(p, p + entryLen);
@@ -693,12 +720,18 @@ public final class LocalLyricsFetcher {
     }
 
     @Nullable
+    /** Container boxes nest this deeply in real files; anything further is a crafted file. */
+    private static final int MAX_M4A_DEPTH = 32;
+
     private static String parseM4a(byte[] d) {
-        return walkM4a(d, 0, d.length);
+        return walkM4a(d, 0, d.length, 0);
     }
 
     @Nullable
-    private static String walkM4a(byte[] d, int start, int end) {
+    private static String walkM4a(byte[] d, int start, int end, int depth) {
+        if (depth > MAX_M4A_DEPTH) {
+            return null;
+        }
         int pos = start;
         while (pos + 8 <= end) {
             final int size = readInt32BE(d, pos);
@@ -726,7 +759,7 @@ public final class LocalLyricsFetcher {
                     if (type.equals("meta")) {
                         child = pos + 12;
                     }
-                    String s = walkM4a(d, child, pos + size);
+                    String s = walkM4a(d, child, pos + size, depth + 1);
                     if (s != null) {
                         return s;
                     }
@@ -973,72 +1006,31 @@ public final class LocalLyricsFetcher {
     }
 
     private static boolean isLikelyGbk(byte[] b) {
-        int i = 0;
-        int pairs = 0;
-        while (i < b.length) {
-            int b0 = b[i] & 0xFF;
-            if (b0 <= 0x7F) {
-                i++;
-                continue;
-            }
-            if (b0 >= 0x81 && b0 <= 0xFE && i + 1 < b.length) {
-                int b1 = b[i + 1] & 0xFF;
-                if (b1 >= 0x40 && b1 <= 0xFE && b1 != 0x7F) {
-                    pairs++;
-                    i += 2;
-                    continue;
-                }
-            }
-            return false;
-        }
-        return pairs > 0;
+        return isLikelyDoubleByte(b, c -> c >= 0x81 && c <= 0xFE,
+                c -> c >= 0x40 && c <= 0xFE && c != 0x7F);
     }
 
     private static boolean isLikelyBig5(byte[] b) {
-        int i = 0;
-        int pairs = 0;
-        while (i < b.length) {
-            int b0 = b[i] & 0xFF;
-            if (b0 <= 0x7F) {
-                i++;
-                continue;
-            }
-            if (b0 >= 0x81 && b0 <= 0xFE && i + 1 < b.length) {
-                int b1 = b[i + 1] & 0xFF;
-                if ((b1 >= 0x40 && b1 <= 0x7E) || (b1 >= 0xA1 && b1 <= 0xFE)) {
-                    pairs++;
-                    i += 2;
-                    continue;
-                }
-            }
-            return false;
-        }
-        return pairs > 0;
+        return isLikelyDoubleByte(b, c -> c >= 0x81 && c <= 0xFE,
+                c -> (c >= 0x40 && c <= 0x7E) || (c >= 0xA1 && c <= 0xFE));
     }
 
     private static boolean isLikelyShiftJis(byte[] b) {
-        int i = 0;
-        int pairs = 0;
-        while (i < b.length) {
-            int b0 = b[i] & 0xFF;
-            if (b0 <= 0x7F) {
-                i++;
-                continue;
-            }
-            if (((b0 >= 0x81 && b0 <= 0x9F) || (b0 >= 0xE0 && b0 <= 0xEF)) && i + 1 < b.length) {
-                int b1 = b[i + 1] & 0xFF;
-                if ((b1 >= 0x40 && b1 <= 0x7E) || (b1 >= 0x80 && b1 <= 0xFC)) {
-                    pairs++;
-                    i += 2;
-                    continue;
-                }
-            }
-            return false;
-        }
-        return pairs > 0;
+        return isLikelyDoubleByte(b, c -> (c >= 0x81 && c <= 0x9F) || (c >= 0xE0 && c <= 0xEF),
+                c -> (c >= 0x40 && c <= 0x7E) || (c >= 0x80 && c <= 0xFC));
     }
 
     private static boolean isLikelyEucKr(byte[] b) {
+        return isLikelyDoubleByte(b, c -> c >= 0x81 && c <= 0xFE,
+                c -> c >= 0x41 && c <= 0xFE);
+    }
+
+    /**
+     * Whether every non-ASCII byte belongs to a two-byte character of the encoding described by
+     * its lead and trail byte ranges, and at least one does. A lead byte with nothing usable
+     * after it means the text is not in this encoding, which is what tells the next one its turn.
+     */
+    private static boolean isLikelyDoubleByte(byte[] b, IntPredicate lead, IntPredicate trail) {
         int i = 0;
         int pairs = 0;
         while (i < b.length) {
@@ -1047,9 +1039,9 @@ public final class LocalLyricsFetcher {
                 i++;
                 continue;
             }
-            if (b0 >= 0x81 && b0 <= 0xFE && i + 1 < b.length) {
+            if (lead.test(b0) && i + 1 < b.length) {
                 int b1 = b[i + 1] & 0xFF;
-                if (b1 >= 0x41 && b1 <= 0xFE) {
+                if (trail.test(b1)) {
                     pairs++;
                     i += 2;
                     continue;

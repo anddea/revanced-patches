@@ -225,6 +225,39 @@ internal object ModernSwitchToggleColorFingerprint : Fingerprint(
     )
 )
 
+// modified by lavinhoque33, 2026-10-04
+// 9.40: the color source is no longer read via `Lpzt;->a()` + check-cast + iget. The state object
+// exposes a field (`iget-object Liuq;->f`) that holds the int colors, so match that shape instead.
+internal object ModernSwitchToggleColorFieldFingerprint : Fingerprint(
+    classFingerprint = ModernMiniPlayerConstructorFingerprint,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
+    returnType = "V",
+    parameters = listOf("L", "J"),
+    filters = listOf(
+        methodCall(opcode = Opcode.INVOKE_STATIC, name = "ofMillis"),
+        opcode(Opcode.IF_NE),
+        fieldAccess(opcode = Opcode.IGET_OBJECT, location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IGET, type = "I", location = MatchAfterImmediately()),
+        opcode(Opcode.GOTO, MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IGET_OBJECT, location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IGET, type = "I", location = MatchAfterImmediately())
+    )
+)
+
+// modified by lavinhoque33, 2026-10-04
+// 9.40: the miniplayer background color is no longer loaded with `getColor(ytm_color_grey_12)`;
+// it is resolved from the theme attribute `playerPageDefaultBackgroundColor` and stored with an iput.
+internal object ModernMiniPlayerDefaultColorFieldFingerprint : Fingerprint(
+    classFingerprint = ModernMiniPlayerConstructorFingerprint,
+    name = "<init>",
+    filters = listOf(
+        resourceLiteral(ResourceType.ATTR, "playerPageDefaultBackgroundColor"),
+        methodCall(opcode = Opcode.INVOKE_STATIC, returnType = "I", location = MatchAfterWithin(3)),
+        opcode(Opcode.MOVE_RESULT, MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IPUT, type = "I", location = MatchAfterImmediately())
+    )
+)
+
 internal object ModernMiniPlayerDefaultTextFingerprint : Fingerprint(
     returnType = "V",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
@@ -452,6 +485,20 @@ internal val repeatTrackFingerprint = legacyFingerprint(
         Opcode.IF_NEZ
     ),
     strings = listOf("w_st")
+)
+
+// modified by lavinhoque33, 2026-10-04
+// 9.40: fallback for repeatTrackFingerprint; `equals` is now preceded by check-casts.
+internal object ModernRepeatTrackFingerprint : Fingerprint(
+    returnType = "V",
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    parameters = listOf("L", "L"),
+    filters = listOf(
+        string("w_st"),
+        patcherMethodCall(opcode = Opcode.INVOKE_VIRTUAL, name = "equals"),
+        opcode(Opcode.MOVE_RESULT, MatchAfterImmediately()),
+        opcode(Opcode.IF_NEZ, MatchAfterImmediately())
+    )
 )
 
 internal const val SHUFFLE_BUTTON_ID = 45468L

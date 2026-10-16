@@ -9,6 +9,7 @@
  * - Morphe (https://github.com/MorpheApp)
  * - anddea (https://github.com/anddea)
  * - COOLak (https://github.com/COOLak)
+ * - kondratjev (https://github.com/kondratjev)
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
  */
@@ -53,6 +54,7 @@ import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.VideoState;
+import app.morphe.extension.youtube.utils.GeminiManager;
 
 /**
  * Orchestrator for the voice-over translation feature: reacts to video time/state changes,
@@ -332,6 +334,7 @@ public class GoogleVoiceOverTranslationPatch {
                 Logger.printDebug(() -> "Stopping TTS for player type: " + playerType);
                 stopTts();
                 if (playerType == PlayerType.NONE) {
+                    GeminiManager.getInstance().hideAllSubtitles();
                     currentVideoId = "";
                     segments = new ArrayList<>();
                     updateTranslationActiveCache();
@@ -552,10 +555,10 @@ public class GoogleVoiceOverTranslationPatch {
             sessionEnabled = !sessionEnabled;
             Settings.GOOGLE_VOT_SESSION_ENABLED.save(sessionEnabled);
             if (!sessionEnabled) {
-                TranslationPlaybackController.failed(TranslationPlaybackState.GOOGLE, currentVideoId);
                 clearNativeStartupAudio();
                 stopTts();
                 lastSpokenIndex = -1;
+                TranslationPlaybackController.cancelAndResume(TranslationPlaybackState.GOOGLE, currentVideoId);
             } else {
                 TranslationPlaybackController.select(TranslationPlaybackState.GOOGLE, currentVideoId);
                 if (!currentVideoId.isEmpty() && segments.isEmpty() && !isLoading) {

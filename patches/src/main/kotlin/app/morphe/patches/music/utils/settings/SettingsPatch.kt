@@ -583,10 +583,11 @@ internal fun addCustomPreference(
     dependencyKey: String = "",
     setSummary: Boolean = true,
     insertBeforeKey: String = "",
+    titleKey: String = "${key}_title",
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
-    ResourceUtils.addCustomPreference(categoryValue, key, tag, dependencyKey, setSummary, insertBeforeKey)
+    ResourceUtils.addCustomPreference(categoryValue, key, tag, dependencyKey, setSummary, insertBeforeKey, titleKey = titleKey)
 }
 
 /** Adds a dialog list preference that is handled by the current settings fragment. */

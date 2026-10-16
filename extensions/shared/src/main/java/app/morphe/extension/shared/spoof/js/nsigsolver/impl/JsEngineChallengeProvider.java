@@ -85,19 +85,6 @@ public class JsEngineChallengeProvider extends JsRuntimeChalBaseJCP {
         }
     }
 
-    private void resetIsolate() {
-        if (jsIsolate != null) {
-            try {
-                jsIsolate.close();
-            } catch (Exception e) {
-                // Ignore close errors.
-            }
-            jsIsolate = null;
-        }
-        executeCount = 0;
-        Logger.printDebug(() -> "Closed the JavaScript isolate");
-    }
-
     @Override
     protected String runJsRuntime(String stdin) throws JsChallengeProviderError {
         warmup();
@@ -131,10 +118,11 @@ public class JsEngineChallengeProvider extends JsRuntimeChalBaseJCP {
             }
             if (cause instanceof EvaluationFailedException jsError) {
                 if (jsError.getMessage() != null && jsError.getMessage().contains("Invalid or unexpected token")) {
+                    clearPreprocessedPlayer(getPlayerJSHash());
                     try {
                         cacheService.clear(CACHE_SECTION);
                     } catch (CacheError ce) {
-                        // ignore
+                        Logger.printDebug(() -> "Failed to clear cache on JS error", ce);
                     }
                 }
                 Logger.printException(() -> "JavaScript engine error, warmup: " + warmup, jsError);
@@ -151,7 +139,6 @@ public class JsEngineChallengeProvider extends JsRuntimeChalBaseJCP {
                 jsExecutor = Executors.newSingleThreadExecutor();
                 executeCount = 0;
                 resetLoadedPlayerState();
-                resetIsolate();
             } catch (Exception ex) {
                 Logger.printException(() -> "Failed to create JS executor", ex);
             }

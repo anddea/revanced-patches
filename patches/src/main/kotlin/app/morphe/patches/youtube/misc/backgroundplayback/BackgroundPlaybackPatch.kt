@@ -97,26 +97,49 @@ val backgroundPlaybackPatch = bytecodePatch(
 
         // Fix PiP mode issue.
         if (is_19_34_or_greater) {
-            arrayOf(
-                BackgroundPlaybackManagerCairoFragmentPrimaryFingerprint,
-                BackgroundPlaybackManagerCairoFragmentSecondaryFingerprint,
-            ).forEach { fingerprint ->
-                fingerprint.match(BackgroundPlaybackManagerCairoFragmentParentFingerprint.originalClassDef)
-                    .let {
-                        it.method.apply {
-                            val insertIndex = it.instructionMatches.first().index + 4
-                            val insertRegister =
-                                getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39 inlines the flag getter into the two fragment lifecycle methods.
+            // Force the flag to false in each of them; otherwise use the legacy fingerprints.
+            val inlinedFlagMatches = runCatching {
+                BackgroundPlaybackManagerCairoFragmentInlinedFlagFingerprint.matchAll(
+                    BackgroundPlaybackManagerCairoFragmentParentFingerprint.originalClassDef
+                )
+            }.getOrNull().orEmpty()
 
-                            addInstruction(
-                                insertIndex,
-                                "const/4 v$insertRegister, 0x0"
-                            )
+            if (inlinedFlagMatches.isNotEmpty()) {
+                inlinedFlagMatches.forEach {
+                    it.method.insertLiteralOverride(
+                        it.instructionMatches.last().index,
+                        false
+                    )
+                }
+            } else {
+                arrayOf(
+                    BackgroundPlaybackManagerCairoFragmentPrimaryFingerprint,
+                    BackgroundPlaybackManagerCairoFragmentSecondaryFingerprint,
+                ).forEach { fingerprint ->
+                    fingerprint.match(BackgroundPlaybackManagerCairoFragmentParentFingerprint.originalClassDef)
+                        .let {
+                            it.method.apply {
+                                val insertIndex = it.instructionMatches.first().index + 4
+                                val insertRegister =
+                                    getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                                addInstruction(
+                                    insertIndex,
+                                    "const/4 v$insertRegister, 0x0"
+                                )
+                            }
                         }
-                    }
+                }
             }
 
-            PipInputConsumerFeatureFlagFingerprint.matchSingle().method.insertLiteralOverride(
+            // modified by lavinhoque33, 2026-10-04
+            // 21.39: pip_input_consumer feature flag was removed; skip when absent.
+            // There is nothing to override as the flag no longer exists there.
+            runCatching {
+                PipInputConsumerFeatureFlagFingerprint.matchSingle().method
+            }.getOrNull()?.insertLiteralOverride(
                 PIP_INPUT_CONSUMER_FEATURE_FLAG,
                 false,
             )

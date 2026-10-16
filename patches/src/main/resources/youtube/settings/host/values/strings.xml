@@ -58,6 +58,14 @@ Reports are public and are reviewed before a channel is added to a list. Removal
     <string name="morphe_auto_pause_on_screen_lock_always">Always pause when locked</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pause unless wireless audio is connected</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Auto pause when device is locked</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Adds more languages to the auto-translate menu</string>
+    <string name="morphe_auto_translate_additional_languages_title">Add additional auto-translate languages</string>
+    <string name="morphe_copy_comments_success">Comment copied to clipboard</string>
+    <string name="morphe_copy_comments_summary">Tap and hold a comment to copy it</string>
+    <string name="morphe_copy_comments_title">Copy comments</string>
+    <string name="morphe_copy_video_title_success">Video title copied to clipboard</string>
+    <string name="morphe_copy_video_title_summary">Tap and hold the title of the video to copy it</string>
+    <string name="morphe_copy_video_title_title">Copy video title</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
     <string name="morphe_custom_branding_icon_title">App icon</string>
@@ -68,11 +76,31 @@ Reports are public and are reviewed before a channel is added to a list. Removal
     <string name="morphe_dark_theme_custom_color_summary">Used when Custom is selected</string>
     <string name="morphe_dark_theme_custom_color_title">Custom dark theme color</string>
     <string name="morphe_dark_theme_title">Dark theme</string>
+    <string name="morphe_dearrow_about_summary">"DeArrow provides crowdsourced titles and thumbnails for YouTube videos. These are often more relevant than those provided by YouTube
+
+If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
+
+Tap here to open DeArrow.ajay.app"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">The number of casual votes in a single category, such as funny or creative, needed to show the original title</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">Minimum casual votes to show original title</string>
+    <string name="morphe_dearrow_casual_mode_summary">Shows the original title instead of the DeArrow title if DeArrow users voted they like the original title</string>
+    <string name="morphe_dearrow_casual_mode_title">Casual mode</string>
+    <string name="morphe_dearrow_error">DeArrow is temporarily not available (status code: %s)</string>
+    <string name="morphe_dearrow_error_generic">DeArrow is temporarily not available</string>
+    <string name="morphe_dearrow_screen_title" translatable="false">DeArrow</string>
+    <string name="morphe_dearrow_titles_icon_summary">Shows the DeArrow icon on crowdsourced video titles</string>
+    <string name="morphe_dearrow_titles_icon_title">Show DeArrow icon</string>
+    <string name="morphe_dearrow_titles_summary">Replaces video titles with the crowdsourced titles submitted to DeArrow</string>
+    <string name="morphe_dearrow_titles_title">DeArrow titles</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">Prevents feeds from refreshing automatically after they become outdated</string>
+    <string name="morphe_disable_auto_feed_refresh_title">Disable auto feed refresh</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">Keeps the navigation bar visible while scrolling</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">Disable auto-hiding navigation bar</string>
     <string name="morphe_disable_drc_audio_summary_off">DRC audio is enabled</string>
     <string name="morphe_disable_drc_audio_summary_on">DRC audio is disabled</string>
     <string name="morphe_disable_drc_audio_title">Disable DRC audio</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">Shows the navigation buttons with labels, if YouTube sends them without labels</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">Disable navigation buttons without labels</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
     <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
@@ -122,6 +150,8 @@ Tap here to open AiSlopList.com and see downloads for other platforms"</string>
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">Warnlist channels</string>
     <string name="morphe_hide_aislist_warnlist_category_title">Warnlist: Moderate confidence</string>
     <string name="morphe_hide_auto_dubbed_label_title">Hide \'Auto-dubbed\' label</string>
+    <string name="morphe_hide_channel_buttons_summary">Hides buttons such as Subscribe, View Channel, Community, and YouTube Music from channel profiles in search results</string>
+    <string name="morphe_hide_channel_buttons_title">Hide channel buttons</string>
     <string name="morphe_hide_courses_menu_title">Hide Courses menu</string>
     <string name="morphe_hide_explore_button_title">Hide Explore button</string>
     <string name="morphe_hide_fashion_menu_title">Hide \'Fashion &amp; Beauty\' menu</string>
@@ -133,6 +163,8 @@ Tap here to open AiSlopList.com and see downloads for other platforms"</string>
     <string name="morphe_hide_invite_to_message_card_title">Hide \'Invite others to message\' card</string>
     <string name="morphe_hide_learning_menu_title">Hide Learning menu</string>
     <string name="morphe_hide_live_menu_title">Hide Live menu</string>
+    <string name="morphe_hide_live_streams_summary">Hides videos that are live now in the home feed and search results</string>
+    <string name="morphe_hide_live_streams_title">Hide live streams</string>
     <string name="morphe_hide_memberships_menu_title">Hide Memberships menu</string>
     <string name="morphe_hide_movies_menu_title">Hide Movies menu</string>
     <string name="morphe_hide_music_menu_title">Hide \'Music &amp; TV\' menu</string>
@@ -181,12 +213,24 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_open_videos_fullscreen_title">Open videos in fullscreen mode</string>
     <string name="morphe_override_youtube_music_buttons_summary">Opens your preferred music app instead of the stock YouTube Music app</string>
     <string name="morphe_override_youtube_music_buttons_title">Override YouTube Music buttons</string>
+    <string name="morphe_pip_button_flyout_name">Switch to Picture-in-Picture</string>
+    <string name="morphe_pip_button_flyout_title">Show Picture-in-Picture menu</string>
+    <string name="morphe_pip_button_overlay_title">Show Picture-in-Picture button</string>
+    <string name="morphe_playback_buffer_size_entry_low">Low</string>
+    <string name="morphe_playback_buffer_size_entry_maximum">Maximum</string>
+    <string name="morphe_playback_buffer_size_entry_medium">Medium</string>
+    <string name="morphe_playback_buffer_size_title">Playback buffer size</string>
     <string name="morphe_playback_in_feeds_entry_always_on">Always on</string>
     <string name="morphe_playback_in_feeds_entry_off">Off</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi only</string>
     <string name="morphe_playback_in_feeds_title">Playback in feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Adjust the opacity of the background behind the player control buttons and the time bar (0 is invisible, 100 is solid)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Control buttons background opacity</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"The token built into this version of PoToken provider no longer works
+
+Turn on \'Spoof video streams\' to fix playback"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">PoToken provider no longer works</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Turn on</string>
     <string name="morphe_potoken_provider_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 If you are a YouTube Premium user, this setting may not be required"</string>
@@ -194,6 +238,9 @@ If you are a YouTube Premium user, this setting may not be required"</string>
     <string name="morphe_potoken_provider_unavailable_summary">"Fixes playback issues using the built-in PoToken provider (Experimental)
 
 To use this feature, turn off \'Spoof video streams\'"</string>
+    <string name="morphe_preferred_caption_language_entry_off">Off</string>
+    <string name="morphe_preferred_caption_language_summary">Selects provider subtitles first, then automatically translates to the preferred language</string>
+    <string name="morphe_preferred_caption_language_title">Preferred caption language</string>
     <string name="morphe_queue_manager_check_failed_auth">Not logged in</string>
     <string name="morphe_queue_manager_check_failed_video_id">No video ID</string>
     <string name="morphe_reload_video_summary_off">Reload video button is hidden</string>
@@ -209,6 +256,9 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_replace_music_with_youtube_title">Change share links to youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">Uses the older video player layout for custom overlay buttons</string>
     <string name="morphe_restore_old_player_buttons_title">Restore old player button style</string>
+    <string name="morphe_restore_original_titles_loading">Loading title…</string>
+    <string name="morphe_restore_original_titles_summary">Shows the original video titles, video descriptions and channel descriptions instead of the auto-translated ones</string>
+    <string name="morphe_restore_original_titles_title">Restore original titles</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking query parameter is removed from shared links</string>
     <string name="morphe_sanitize_sharing_links_title">Sanitize sharing links</string>
@@ -236,6 +286,10 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_entry_3" translatable="false">Tweaks</string>
     <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
     <string name="morphe_settings_name_title">RVX settings name</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
+    <string name="morphe_skip_silence_summary">Automatically skips silent pauses in video audio</string>
+    <string name="morphe_skip_silence_title">Skip silence</string>
     <string name="morphe_splash_screen_animation_style_entry_2">Color</string>
     <string name="morphe_splash_screen_animation_style_entry_3">Monochrome</string>
     <string name="morphe_splash_screen_animation_style_title">Splash screen style</string>
@@ -256,6 +310,11 @@ Playback may stutter or drop frames"</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"Enabling this setting may use software AV1 decoding
 
 Video playback with AV1 may stutter or drop frames"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s did not work several times in a row, but %2$s did
+
+Make %2$s the default client?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Switch</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Default client does not work</string>
     <string name="morphe_spoof_video_streams_client_type_title">Default client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Could not fetch any client streams</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Player JavaScript variant</string>
@@ -334,6 +393,8 @@ Limitation: If \'Restore old video action bar\' is turned off, \'More videos\' o
     <string name="morphe_video_quality_prioritize_dialog">If this setting is turned off, then older videos can show no video quality options</string>
     <string name="morphe_video_quality_prioritize_summary">Prioritizes the highest available video quality over codec efficiency</string>
     <string name="morphe_video_quality_prioritize_title">Prioritize video quality</string>
+    <string name="morphe_volume_boost_summary">Swiping up past maximum volume boosts it, which can distort loud audio</string>
+    <string name="morphe_volume_boost_title">Volume boost</string>
     <string name="morphe_vot_auto_translate_summary_off">Tap the translation button to start Google translation</string>
     <string name="morphe_vot_auto_translate_summary_on">Google translation starts automatically for each video</string>
     <string name="morphe_vot_caption_language_title">Language</string>
@@ -394,19 +455,10 @@ Tap here to open OpenRouter.ai"</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_off">Old style flyout menu is used</string>
     <string name="revanced_advanced_video_quality_menu_type_summary_on">Custom dialog is used</string>
     <string name="revanced_advanced_video_quality_menu_type_title">Advanced video quality menu type in Shorts</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowdsourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube
-
-If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
-
-Tap here to learn more about DeArrow"</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Invalid DeArrow API URL</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is unavailable</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is unavailable</string>
-    <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily unavailable (status code: %s)</string>
-    <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily unavailable</string>
     <string name="revanced_alt_thumbnail_home_title">Home tab</string>
     <string name="revanced_alt_thumbnail_library_title">You tab</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
@@ -417,9 +469,6 @@ Tap here to learn more about DeArrow"</string>
     <string name="revanced_alt_thumbnail_search_title">Search results</string>
     <string name="revanced_alt_thumbnail_stills">Still video captures</string>
     <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning, middle, or end of each video. These images are built into YouTube and no external API is used</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
-    <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
@@ -432,6 +481,7 @@ Tap here to learn more about DeArrow"</string>
     <string name="revanced_append_time_stamp_information_summary_on">"Information is appended to the timestamp
 
 Tap to configure the video quality or playback speed
+Double tap to switch between elapsed and remaining time
 Tap and hold to toggle the appended information type"</string>
     <string name="revanced_append_time_stamp_information_title">Append timestamp information</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Append playback speed</string>
@@ -458,7 +508,6 @@ Tap and hold to toggle the appended information type"</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed</string>
     <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
     <string name="revanced_cancel">Cancel</string>
-    <string name="revanced_change_form_factor_entry_1">Default</string>
     <string name="revanced_change_form_factor_entry_2">Phone</string>
     <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
     <string name="revanced_change_form_factor_entry_4">Tablet</string>
@@ -882,6 +931,8 @@ Limitations:
     <string name="revanced_gemini_error_transcription_parse">Failed to parse transcription data</string>
     <string name="revanced_gemini_error_translation_failed">Gemini translation failed</string>
     <string name="revanced_gemini_error_translation_parse_failed">Gemini translation parsing failed</string>
+    <string name="revanced_gemini_highlight_words_summary">Highlight each spoken word in video subtitles</string>
+    <string name="revanced_gemini_highlight_words_title">Highlight spoken words</string>
     <string name="revanced_gemini_loading_default">Loading...</string>
     <string name="revanced_gemini_loading_summarize">Summarizing the video...</string>
     <string name="revanced_gemini_loading_transcribe">Transcribing the video...</string>
@@ -1946,7 +1997,6 @@ To show the native playlist download button, turn on \'Spoof app version\' and c
     <string name="revanced_preference_screen_account_menu_title">Account menu</string>
     <string name="revanced_preference_screen_action_buttons_summary">Hide or show action buttons under videos</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>
-    <string name="revanced_preference_screen_alt_thumbnails_title">Alternative thumbnails</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Disable Ambient mode or bypass Ambient mode restrictions</string>
     <string name="revanced_preference_screen_ambient_mode_title">Ambient mode</string>
     <string name="revanced_preference_screen_carousel_shelf_summary">Hide or show carousel shelf in home, search results, and subscriptions</string>
@@ -2897,7 +2947,7 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_status_subs_found">Subtitles found, fetching...</string>
     <string name="revanced_yandex_status_transcription_delayed">The transcription is slightly delayed</string>
     <string name="revanced_yandex_status_youtube_specific">Handling YouTube audio request...</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex can transcribe videos from any language, but the output is available only in English (en), Russian (ru) and Kazakh (kk). If you enter any other language code or use 'app' (which stands for the app's default language), Gemini will be asked to translate (API key is required)"</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Target language for Yandex subtitles: Russian (ru), English (en), Kazakh (kk) or the app language ('app'). Other app languages are reached through Gemini translation (API key is required)"</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
