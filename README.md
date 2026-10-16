@@ -22,6 +22,7 @@
 | `Change player flyout menu toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 21.39.525 ~ 20.05.46 |
 | `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 21.39.525 ~ 20.05.46 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 21.39.525 ~ 20.05.46 |
+| `Copy text` | Adds options to copy the video title and comments by tapping and holding them. | 21.39.525 ~ 20.05.46 |
 | `Custom DPI` | Forces a higher display density for this app only, so the whole UI scales up without changing system density. | 21.39.525 ~ 20.05.46 |
 | `Custom Shorts action buttons` | Changes, at compile time, the icon of the action buttons of the Shorts player. | 21.39.525 ~ 20.05.46 |
 | `Custom branding for YouTube` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 21.39.525 ~ 20.05.46 |
@@ -63,10 +64,12 @@
 | `Open links externally` | Adds an option to always open links in your browser instead of the in-app browser. | 21.39.525 ~ 20.05.46 |
 | `Overlay buttons` | Adds options to display useful overlay buttons in the video player. | 21.39.525 ~ 20.05.46 |
 | `Override YouTube Music buttons` | Overrides YouTube Music buttons to open RVX Music or any compatible third-party client. | 21.39.525 ~ 20.05.46 |
+| `Picture-in-picture button` | Adds an option to display a picture-in-picture button in the video player. | 21.39.525 ~ 20.05.46 |
 | `Playback buffer` | Adds an option to change the video playback buffer size. | 21.39.525 ~ 20.05.46 |
 | `Playback in feeds` | Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it. | 21.39.525 ~ 20.05.46 |
 | `Player components` | Adds options to hide or change components related to the video player. | 21.39.525 ~ 20.05.46 |
 | `PoToken provider` | Adds option to get PoToken using the built-in PoToken provider. | 21.39.525 ~ 20.05.46 |
+| `Preferred caption language` | Adds an option to automatically select captions in your preferred language. | 21.39.525 ~ 20.05.46 |
 | `Reload video` | Adds an option to display a button in the video player to reload the current video. | 21.39.525 ~ 20.05.46 |
 | `Remember livestream playback position` | Adds an option to remember the playback position of ongoing livestreams and resume from there when reopening a livestream. | 21.39.525 ~ 20.05.46 |
 | `Remove background playback restrictions` | Removes restrictions on background playback, including for music and kids videos. | 21.39.525 ~ 20.05.46 |
@@ -143,7 +146,7 @@
 | `Spoof app version for lyrics` | Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI. | 9.40.51 ~ 8.12.54 |
 | `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 9.40.51 ~ 8.12.54 |
 | `Theme` | Changes the app's dark theme to the values specified in patch options. | 9.40.51 ~ 8.12.54 |
-| `Third-party lyrics` | Adds an option to show synced lyrics with experience enhancement from 15+ providers in the lyrics panel. | 9.40.51 ~ 9.15.51 |
+| `Third-party lyrics` | Adds an option to show synced lyrics with experience enhancement from 18+ providers in the lyrics panel. | 9.40.51 ~ 9.15.51 |
 | `Track crossfade` | Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op. | 9.40.51 ~ 8.12.54 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 9.40.51 ~ 8.12.54 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 9.40.51 ~ 8.12.54 |

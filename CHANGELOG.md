@@ -1,3 +1,17 @@
+# [4.4.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.1...v4.4.0-dev.2) (2026-10-16)
+
+
+### Bug Fixes
+
+* **YouTube - Voice-over translation:** Keep completed audio stopped ([#1868](https://github.com/anddea/revanced-patches/issues/1868)) ([ed2641a](https://github.com/anddea/revanced-patches/commit/ed2641a6ab83444a207ee1d3da1a21aae6896268))
+
+
+### Features
+
+* **YouTube:** Add `Copy text` patch ([361561c](https://github.com/anddea/revanced-patches/commit/361561cdc0e2df3e16491a185eef92349a692740))
+* **YouTube:** Add `Picture-in-picture button` patch ([c2a5a59](https://github.com/anddea/revanced-patches/commit/c2a5a59e3226e3e36f5d351ab926271ed00e6bd0))
+* **YouTube:** Add `Preferred caption language` patch ([6fd3736](https://github.com/anddea/revanced-patches/commit/6fd3736e76826617b71ecdeabb47cbbbe6b0d1b9))
+
 # [4.4.0-dev.1](https://github.com/anddea/revanced-patches/compare/v4.3.1-dev.1...v4.4.0-dev.1) (2026-10-14)
 
 

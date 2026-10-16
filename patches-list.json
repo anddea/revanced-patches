@@ -1,5 +1,5 @@
 {
-  "version": "4.4.0-dev.1",
+  "version": "4.4.0-dev.2",
   "patches": [
     {
       "name": "Ambient mode control",
@@ -203,9 +203,8 @@
       "description": "Adds an option to change the in-app share sheet to the system share sheet.",
       "use": true,
       "dependencies": [
-        "ResourcePatch",
         "BytecodePatch",
-        "BytecodePatch"
+        "ResourcePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -269,6 +268,24 @@
           }
         }
       ]
+    },
+    {
+      "name": "Copy text",
+      "description": "Adds options to copy the video title and comments by tapping and holding them.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
     },
     {
       "name": "Custom DPI",
@@ -640,6 +657,7 @@
       "description": "Adds an option to disable captions from being automatically enabled.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch"
@@ -1732,6 +1750,26 @@
       "options": []
     },
     {
+      "name": "Picture-in-picture button",
+      "description": "Adds an option to display a picture-in-picture button in the video player.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
       "name": "Playback buffer",
       "description": "Adds an option to change the video playback buffer size.",
       "use": true,
@@ -1852,6 +1890,24 @@
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Preferred caption language",
+      "description": "Adds an option to automatically select captions in your preferred language.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -2819,7 +2875,7 @@
     },
     {
       "name": "Third-party lyrics",
-      "description": "Adds an option to show synced lyrics with experience enhancement from 15+ providers in the lyrics panel.",
+      "description": "Adds an option to show synced lyrics with experience enhancement from 18+ providers in the lyrics panel.",
       "use": true,
       "dependencies": [
         "BytecodePatch",
