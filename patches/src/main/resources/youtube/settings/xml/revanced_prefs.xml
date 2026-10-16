@@ -202,16 +202,17 @@
         <!-- SETTINGS: FORCE_ORIGINAL_AUDIO
         <app.morphe.extension.youtube.settings.preference.ForceOriginalAudioSwitchPreference android:title="@string/morphe_force_original_audio_title" android:key="morphe_force_original_audio" android:summaryOn="@string/morphe_force_original_audio_summary_on" android:summaryOff="@string/morphe_force_original_audio_summary_off" />SETTINGS: FORCE_ORIGINAL_AUDIO -->
 
-        <!-- SETTINGS: DISABLE_AUTO_CAPTIONS
-        <SwitchPreference android:title="@string/revanced_disable_auto_captions_title" android:key="revanced_disable_auto_captions" android:summaryOn="@string/revanced_disable_auto_captions_summary_on" android:summaryOff="@string/revanced_disable_auto_captions_summary_off" />SETTINGS: DISABLE_AUTO_CAPTIONS -->
-
-        <!-- SETTINGS: AUTO_TRANSLATE_ADDITIONAL_LANGUAGES
-        <SwitchPreference android:key="morphe_auto_translate_additional_languages" android:title="@string/morphe_auto_translate_additional_languages_title" android:summary="@string/morphe_auto_translate_additional_languages_summary" />SETTINGS: AUTO_TRANSLATE_ADDITIONAL_LANGUAGES -->
         <!-- SETTINGS: PREFERRED_CAPTION_LANGUAGE
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/morphe_preferred_caption_language_entries" android:title="@string/morphe_preferred_caption_language_title" android:summary="@string/morphe_preferred_caption_language_summary" android:key="morphe_preferred_caption_language" android:entryValues="@array/morphe_preferred_caption_language_entry_values" />SETTINGS: PREFERRED_CAPTION_LANGUAGE -->
 
         <!-- SETTINGS: AUTO_CAPTIONS_STYLE
         <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_auto_captions_style_entries" android:title="@string/revanced_auto_captions_style_title" android:key="revanced_auto_captions_style" android:entryValues="@array/revanced_auto_captions_style_entry_values" />SETTINGS: AUTO_CAPTIONS_STYLE -->
+
+        <!-- SETTINGS: DISABLE_AUTO_CAPTIONS
+        <SwitchPreference android:title="@string/revanced_disable_auto_captions_title" android:key="revanced_disable_auto_captions" android:summaryOn="@string/revanced_disable_auto_captions_summary_on" android:summaryOff="@string/revanced_disable_auto_captions_summary_off" />SETTINGS: DISABLE_AUTO_CAPTIONS -->
+
+        <!-- SETTINGS: AUTO_TRANSLATE_ADDITIONAL_LANGUAGES
+        <SwitchPreference android:key="morphe_auto_translate_additional_languages" android:title="@string/morphe_auto_translate_additional_languages_title" android:summary="@string/morphe_auto_translate_additional_languages_summary" />SETTINGS: AUTO_TRANSLATE_ADDITIONAL_LANGUAGES -->
 
         <!-- SETTINGS: DISABLE_SIGN_IN_TO_TV_POPUP
         <SwitchPreference android:title="@string/revanced_disable_signin_to_tv_popup_title" android:key="revanced_disable_signin_to_tv_popup" android:summaryOn="@string/revanced_disable_signin_to_tv_popup_summary_on" android:summaryOff="@string/revanced_disable_signin_to_tv_popup_summary_off" />SETTINGS: DISABLE_SIGN_IN_TO_TV_POPUP -->
