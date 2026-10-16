@@ -58,6 +58,12 @@ Le segnalazioni sono pubbliche e vengono esaminate prima che un canale venga agg
     <string name="morphe_auto_pause_on_screen_lock_always">Pausa sempre quando il dispositivo è bloccato</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausa a meno che non sia connesso un audio wireless</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Pausa automatica quando il dispositivo è bloccato</string>
+    <string name="morphe_copy_comments_success">Commento copiato negli appunti</string>
+    <string name="morphe_copy_comments_summary">Tocca e tieni premuto un commento per copiarlo</string>
+    <string name="morphe_copy_comments_title">Copia commenti</string>
+    <string name="morphe_copy_video_title_success">Titolo del video copiato negli appunti</string>
+    <string name="morphe_copy_video_title_summary">Tocca e tieni premuto il titolo del video per copiarlo</string>
+    <string name="morphe_copy_video_title_title">Copia titolo video</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Se disponibile, utilizza l\'icona dell'app selezionata per la voce relativa alle impostazioni RVX</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Utilizza l\'icona nelle impostazioni di RVX</string>
     <string name="morphe_custom_branding_icon_title">Icona dell\'applicazione</string>
@@ -79,6 +85,7 @@ I video vengono richiesti tramite un breve prefisso dell'ID video con hash, quin
     <string name="morphe_dearrow_error_generic">DeArrow non è temporaneamente disponibile</string>
     <string name="morphe_dearrow_titles_icon_summary">Mostra l\'icona DeArrow sui titoli video in crowdsourcing</string>
     <string name="morphe_dearrow_titles_icon_title">Mostra l\'icona DeArrow</string>
+    <string name="morphe_dearrow_titles_summary">Sostituisce i titoli dei video con quelli inviati a DeArrow</string>
     <string name="morphe_dearrow_titles_title">Titoli DeArrow</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Impedisce l\'aggiornamento automatico dei feed dopo che sono diventati obsoleti</string>
     <string name="morphe_disable_auto_feed_refresh_title">Disattiva l\'aggiornamento automatico dei feed</string>
@@ -97,13 +104,13 @@ I video vengono richiesti tramite un breve prefisso dell'ID video con hash, quin
     <string name="morphe_disable_system_splash_title">Disattiva la schermata iniziale del sistema</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Espandi durata DVR in diretta\' potrebbe non essere disponibile
 
-Per risolvere il problema, attiva \'Maschera flussi video\' e modifica \'Client predefinito\' in \'TV Simply\' o \'visionOS\'"</string>
+Per risolvere il problema, attiva \'Falsificazione dei flussi video\' e modifica \'Client predefinito\' in \'TV Simply\' o \'visionOS\'"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Consente di riavvolgere i video in diretta fino a 7 giorni</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Espandi la durata DVR sui video in diretta</string>
     <string name="morphe_explore_menu_screen_summary">Scegli quali componenti mostrare nel menù a comparsa</string>
     <string name="morphe_explore_menu_screen_title">Menù esplora</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Se non funziona, prova a forzare la chiusura di MicroG</string>
-    <string name="morphe_force_original_audio_not_available">Per usare questa funzionalità, imposta \"Falsifica i flussi video\" su Android Reel o TV</string>
+    <string name="morphe_force_original_audio_not_available">Per usare questa funzionalità, imposta \'Falsificazione dei flussi video\' su Android Reel o TV</string>
     <string name="morphe_force_original_audio_summary_off">Utilizza audio predefinito</string>
     <string name="morphe_force_original_audio_summary_on">Utilizza la lingua originale dell'audio</string>
     <string name="morphe_force_original_audio_title">Forza la lingua originale dell'audio</string>
@@ -180,7 +187,7 @@ Per mostrare il menu \'Traccia Audio\', cambia \'Falsificazione dei flussi video
     <string name="morphe_light_theme_title">Tema chiaro</string>
     <string name="morphe_livestream_dvr_not_available">"\'Abilita registrazione DVR in diretta\' potrebbe non essere disponibile
 
-Per risolvere il problema, attiva \'Falsifica flussi video\' e modifica \'Client predefinito\' in \'TV Simply\' o \'visionOS\'"</string>
+Per risolvere il problema, attiva \'Falsificazione dei flussi video\' e modifica \'Client predefinito\' in \'TV Simply\' o \'visionOS\'"</string>
     <string name="morphe_livestream_dvr_summary">Consente l\'avanzamento su tutti i video in diretta, anche su quelli che normalmente lo limitano</string>
     <string name="morphe_livestream_dvr_title">Abilita DVR sui video in diretta</string>
     <string name="morphe_music_package_name_summary">Nome del pacchetto dell\'applicazione musicale installata</string>
@@ -200,6 +207,9 @@ Per risolvere il problema, attiva \'Falsifica flussi video\' e modifica \'Client
     <string name="morphe_open_videos_fullscreen_title">Apri i video a schermo intero</string>
     <string name="morphe_override_youtube_music_buttons_summary">Apre l\'applicazione musicale preferita anziché l\'applicazione YouTube Music integrata</string>
     <string name="morphe_override_youtube_music_buttons_title">Sovrascrivi i pulsanti di YouTube Music</string>
+    <string name="morphe_pip_button_flyout_name">Passa a Picture-in-Picture</string>
+    <string name="morphe_pip_button_flyout_title">Mostra il menu Picture-in-Picture</string>
+    <string name="morphe_pip_button_overlay_title">Mostra il pulsante Picture-in-Picture</string>
     <string name="morphe_playback_buffer_size_entry_low">Bassa</string>
     <string name="morphe_playback_buffer_size_entry_maximum">Massima</string>
     <string name="morphe_playback_buffer_size_entry_medium">Media</string>
@@ -210,6 +220,11 @@ Per risolvere il problema, attiva \'Falsifica flussi video\' e modifica \'Client
     <string name="morphe_playback_in_feeds_title">Riproduzione nei feed</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Regola l\'opacità dello sfondo dietro i pulsanti di controllo del riproduttore e la barra del tempo (0 è invisibile, 100 è opaco)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Opacità dello sfondo dei pulsanti di controllo</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"Il token integrato in questa versione del fornitore PoToken non funziona più
+
+Attiva l\'opzione \'Falsifica i flussi video\' per risolvere il problema di riproduzione"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">Il fornitore PoTokennon funziona più</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Attiva</string>
     <string name="morphe_potoken_provider_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
 
 Se sei un utente di YouTube Premium, questa impostazione potrebbe non essere necessaria"</string>
@@ -217,6 +232,9 @@ Se sei un utente di YouTube Premium, questa impostazione potrebbe non essere nec
     <string name="morphe_potoken_provider_unavailable_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
 
 Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi video\'"</string>
+    <string name="morphe_preferred_caption_language_entry_off">Spento</string>
+    <string name="morphe_preferred_caption_language_summary">Seleziona prima i sottotitoli del provider, poi li traduce automaticamente nella lingua preferita</string>
+    <string name="morphe_preferred_caption_language_title">Lingua preferita per i sottotitoli</string>
     <string name="morphe_queue_manager_check_failed_auth">Non connesso</string>
     <string name="morphe_queue_manager_check_failed_video_id">ID video non trovato</string>
     <string name="morphe_reload_video_summary_off">Il pulsante ricarica video non è visibile</string>
@@ -443,9 +461,10 @@ Tocca qui per aprire OpenRouter.ai"</string>
     <string name="revanced_app_version_title">Versione app</string>
     <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">Cambia il tipo di menù della velocità di riproduzione</string>
     <string name="revanced_append_time_stamp_information_summary_off">L\'informazione nel timestamp è nascosta</string>
-    <string name="revanced_append_time_stamp_information_summary_on">"L'informazione nel timestamp è visibile
+    <string name="revanced_append_time_stamp_information_summary_on">"L\'informazione nel timestamp è visibile
 
 Tocca per configurare la qualità o la velocità del video
+Tocca due volte per passare dal tempo trascorso a quello rimanente
 Tocca e tieni premuto per cambiare il tipo di informazione mostrata"</string>
     <string name="revanced_append_time_stamp_information_title">Mostra l\'informazione nel timestamp</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Velocità di riproduzione</string>
@@ -883,12 +902,12 @@ Nota: a volte la sovrapposizione di scorrimento appare prima di passare alla mod
     <string name="revanced_fix_transcript_title">Correggi trascrizione</string>
     <string name="revanced_force_hdr_video_summary">Forza l\'app a riconoscere questo dispositivo come compatibile con HDR</string>
     <string name="revanced_force_hdr_video_title">Forza video HDR</string>
-    <string name="revanced_force_hdr_video_user_dialog_message">"Usa questa opzione se la decodifica HDR funziona ma YouTube non offre l'HDR, come su alcuni dispositivi HyperOS che nascondono HLG
+    <string name="revanced_force_hdr_video_user_dialog_message">"Usa questa opzione se la decodifica HDR funziona ma YouTube non offre l\'HDR, come su alcuni dispositivi HyperOS che nascondono HLG
 
 Limitazioni:
-• I colori potrebbero apparire errati se il display non puo effettivamente mostrare l'HDR
-• La riproduzione potrebbe fallire se il decoder non è in grado di gestire l'HDR
-• L'HDR dipende ancora dal client spoofato dei flussi video"</string>
+• I colori potrebbero apparire errati se lo schermo non puo effettivamente mostrare l'HDR
+• La riproduzione potrebbe fallire se il decodificatore non è in grado di gestire l'HDR
+• L\'HDR dipende ancora dal client falsificato dei flussi video"</string>
     <string name="revanced_fullscreen_ads_closed_toast">Annunci a schermo intero chiusi</string>
     <string name="revanced_gemini_cancelled">Cancellato</string>
     <string name="revanced_gemini_chat_input_hint">Chiedi per questo video</string>
@@ -905,6 +924,8 @@ Limitazioni:
     <string name="revanced_gemini_error_transcription_parse">Impossibile analizzare i dati di trascrizione</string>
     <string name="revanced_gemini_error_translation_failed">La traduzione di Gemini non è riuscita</string>
     <string name="revanced_gemini_error_translation_parse_failed">L\'analisi della traduzione di Gemini non è riuscita</string>
+    <string name="revanced_gemini_highlight_words_summary">Evidenzia ogni parola pronunciata nei sottotitoli del video</string>
+    <string name="revanced_gemini_highlight_words_title">Evidenzia le parole pronunciate</string>
     <string name="revanced_gemini_loading_default">Caricando...</string>
     <string name="revanced_gemini_loading_summarize">Riassumendo il video ...</string>
     <string name="revanced_gemini_loading_transcribe">Trascrivendo il video ...</string>
@@ -1214,7 +1235,7 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_join_button_in_channel_page_title">Nascondi il pulsante Abbonati</string>
     <string name="revanced_hide_key_concepts_section_summary_off">La sezione Concetti chiave è visibile</string>
     <string name="revanced_hide_key_concepts_section_summary_on">La sezione Concetti chiave è nascosta</string>
-    <string name="revanced_hide_key_concepts_section_title">Nascondi la sezione \'Concetti chiave\'</string>
+    <string name="revanced_hide_key_concepts_section_title">Nascondi sezione \'Concetti chiave\'</string>
     <string name="revanced_hide_keyword_content_about_summary">"Home / Iscrizioni / Ricerca / Commenti sono filtrati per nascondere i contenuti che corrispondono a frasi con parole chiave
 
 Limitazioni:
@@ -2900,7 +2921,7 @@ Se i server di Yandex non sono disponibili nella tua regione, utilizza l'opzione
     <string name="revanced_yandex_status_subs_found">Sottotitoli trovati, recuperando ...</string>
     <string name="revanced_yandex_status_transcription_delayed">La trascrizione è leggermente ritardata</string>
     <string name="revanced_yandex_status_youtube_specific">Gestione delle richieste audio di YouTube...</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex può trascrivere video da qualsiasi lingua, ma l'output è disponibile solo in inglese (en), russo (ru) e kazako (kk). Se inserisci qualsiasi altro codice lingua o usi 'app' (che sta per la lingua predefinita dell'app), a Gemini verrà chiesto di tradurre (è richiesta la chiave API)"</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">“Lingua di destinazione per i sottotitoli di Yandex: russo (ru), inglese (en), kazako (kk) o la lingua dell\'applicazione (‘app’). È possibile accedere ad altre lingue dell\'applicazione tramite la traduzione di Gemini (è richiesta una chiave API)”</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Lingua Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Usa la trascrizione Yandex invece di Gemini. Yandex è più veloce e affidabile. Non è richiesta alcuna chiave API</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Trascrizione Yandex</string>

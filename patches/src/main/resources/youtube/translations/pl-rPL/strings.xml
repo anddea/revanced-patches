@@ -58,6 +58,12 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_auto_pause_on_screen_lock_always">Zawsze wstrzymuj po zablokowaniu</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Wstrzymuj, chyba że podłączono bezprzewodowe słuchawki lub głośnik</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Automatyczne wstrzymywanie po zablokowaniu urządzenia</string>
+    <string name="morphe_copy_comments_success">Skopiowano komentarz do schowka</string>
+    <string name="morphe_copy_comments_summary">Przytrzymaj komentarz, aby go skopiować</string>
+    <string name="morphe_copy_comments_title">Kopiuj komentarze</string>
+    <string name="morphe_copy_video_title_success">Skopiowano tytuł filmu do schowka</string>
+    <string name="morphe_copy_video_title_summary">Przytrzymaj tytuł filmu, aby go skopiować</string>
+    <string name="morphe_copy_video_title_title">Kopiuj tytuł filmu</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Jeśli jest dostępna, użyj ikony wybranej aplikacji do wprowadzenia ustawień RVX</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Użyj ikony w ustawieniach RVX</string>
     <string name="morphe_custom_branding_icon_title">Ikona aplikacji</string>
@@ -201,6 +207,9 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_open_videos_fullscreen_title">Otwieraj filmy w trybie pełnoekranowym</string>
     <string name="morphe_override_youtube_music_buttons_summary">Otwiera preferowaną aplikację muzyczną zamiast domyślnej aplikacji YouTube Music</string>
     <string name="morphe_override_youtube_music_buttons_title">Zastąp przyciski YouTube Music</string>
+    <string name="morphe_pip_button_flyout_name">Przełącz na obraz w obrazie</string>
+    <string name="morphe_pip_button_flyout_title">Pokaż menu obrazu w obrazie</string>
+    <string name="morphe_pip_button_overlay_title">Pokaż przycisk obrazu w obrazie</string>
     <string name="morphe_playback_buffer_size_entry_low">Mały</string>
     <string name="morphe_playback_buffer_size_entry_maximum">Maksymalny</string>
     <string name="morphe_playback_buffer_size_entry_medium">Średni</string>
@@ -223,6 +232,9 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="morphe_potoken_provider_unavailable_summary">"Naprawia problemy z odtwarzaniem za pomocą wbudowanego dostawcy PoToken (wersja eksperymentalna)
 
 Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</string>
+    <string name="morphe_preferred_caption_language_entry_off">Wyłączone</string>
+    <string name="morphe_preferred_caption_language_summary">Najpierw wybiera napisy dostawcy, a następnie automatycznie tłumaczy je na preferowany język</string>
+    <string name="morphe_preferred_caption_language_title">Preferowany język napisów</string>
     <string name="morphe_queue_manager_check_failed_auth">Nie zalogowano</string>
     <string name="morphe_queue_manager_check_failed_video_id">Brak identyfikatora filmu</string>
     <string name="morphe_reload_video_summary_off">Ukryty</string>
@@ -1232,7 +1244,7 @@ Ograniczenia:
     <string name="revanced_hide_keyword_content_home_summary_off">Filmy na stronie głównej nie są filtrowane przez słowa</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Filmy na stronie głównej są filtrowane przez słowa</string>
     <string name="revanced_hide_keyword_content_home_title">Ukryj filmy na stronie głównej</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"Wpisz słowa i frazy do ukrycia, każda w nowej linii
+    <string name="revanced_hide_keyword_content_phrases_summary">"Wprowadź słowa i frazy do ukrycia, każda w nowej linii
 
 Słowem może być dowolny tekst wyświetlany w tytułach filmów lub nazwach kanałów
 
@@ -2462,7 +2474,7 @@ Może to nie działać, jeśli:
     <string name="revanced_settings_reset_color">Zresetuj kolor</string>
     <string name="revanced_settings_search_clear_history">Wyczyść historię wyszukiwania</string>
     <string name="revanced_settings_search_clear_history_message">Czy na pewno chcesz wyczyścić całą historię wyszukiwania?</string>
-    <string name="revanced_settings_search_empty_history_summary">Aby zapisać historię wyszukiwania, wpisz zapytanie i naciśnij Enter</string>
+    <string name="revanced_settings_search_empty_history_summary">Aby zapisać historię wyszukiwania, wprowadź zapytanie i naciśnij Enter</string>
     <string name="revanced_settings_search_empty_history_title">Historia wyszukiwania jest pusta</string>
     <string name="revanced_settings_search_gemini_results">Gemini wyniki</string>
     <string name="revanced_settings_search_gemini_searching_title">Poszukiwania z Gemini…</string>

@@ -58,6 +58,12 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_auto_pause_on_screen_lock_always">화면 잠금 시 항상 일시 정지</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">무선 오디오 미연결 시 일시 정지</string>
     <string name="morphe_auto_pause_on_screen_lock_title">기기 잠금 시 자동 일시 정지</string>
+    <string name="morphe_copy_comments_success">댓글이 클립보드에 복사되었습니다</string>
+    <string name="morphe_copy_comments_summary">댓글을 길게 탭하여 복사할 수 있도록 합니다</string>
+    <string name="morphe_copy_comments_title">댓글 복사</string>
+    <string name="morphe_copy_video_title_success">동영상 제목이 클립보드에 복사되었습니다</string>
+    <string name="morphe_copy_video_title_summary">동영상 제목을 길게 탭하여 복사할 수 있도록 합니다</string>
+    <string name="morphe_copy_video_title_title">동영상 제목 복사</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">사용할 수 있는 경우에 선택한 앱 아이콘을 RVX 설정 항목에 사용합니다</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">RVX 설정에서 아이콘 사용하기</string>
     <string name="morphe_custom_branding_icon_title">앱 아이콘</string>
@@ -79,6 +85,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_dearrow_error_generic">DeArrow를 일시적으로 사용할 수 없습니다</string>
     <string name="morphe_dearrow_titles_icon_summary">크라우드소싱된 동영상 제목에 DeArrow 아이콘을 표시합니다</string>
     <string name="morphe_dearrow_titles_icon_title">DeArrow 아이콘 표시하기</string>
+    <string name="morphe_dearrow_titles_summary">동영상 제목을 DeArrow에 제출된 크라우드소싱 제목으로 변경합니다</string>
     <string name="morphe_dearrow_titles_title">DeArrow 제목</string>
     <string name="morphe_disable_auto_feed_refresh_summary">피드가 만료된 후 자동으로 새로 고쳐지지 않도록 합니다</string>
     <string name="morphe_disable_auto_feed_refresh_title">자동 피드 새로고침 비활성화하기</string>
@@ -200,6 +207,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_open_videos_fullscreen_title">전체 화면 모드로 동영상 열기</string>
     <string name="morphe_override_youtube_music_buttons_summary">기본 YouTube Music 앱 대신 사용자가 사용하고 싶은 Music 앱을 열 수 있도록 설정합니다</string>
     <string name="morphe_override_youtube_music_buttons_title">YouTube Music 버튼 재정의하기</string>
+    <string name="morphe_pip_button_flyout_name">PIP 모드로 전환</string>
+    <string name="morphe_pip_button_flyout_title">PIP 모드 메뉴 표시하기</string>
+    <string name="morphe_pip_button_overlay_title">PIP 모드 버튼 표시하기</string>
     <string name="morphe_playback_buffer_size_entry_low">낮음</string>
     <string name="morphe_playback_buffer_size_entry_maximum">최대</string>
     <string name="morphe_playback_buffer_size_entry_medium">중간</string>
@@ -210,6 +220,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_playback_in_feeds_title">피드에서 재생</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">플레이어 컨트롤 버튼과 시간 표시 버튼 뒤 배경의 투명도를 설정할 수 있습니다 (0: 투명, 100: 불투명)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">컨트롤 버튼 배경 투명도</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">이 버전에 내장된 PotHelper 토큰이 더 이상 작동하지 않습니다
+
+재생 문제를 해결하려면 \'동영상 스트림 속이기\' 설정을 활성화하세요</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">PotHelper가 더 이상 작동하지 않음</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">활성화</string>
     <string name="morphe_potoken_provider_summary">"내부 PoToken 제공자를 사용하여 재생 문제를 수정합니다 (실험 기능)
 
 YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"</string>
@@ -217,6 +232,9 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_potoken_provider_unavailable_summary">"내부 PoToken 제공자를 사용하여 재생 문제를 수정합니다 (실험 기능)
 
 이 기능을 사용하려면, '동영상 스트림 속이기'를 비활성화하세요"</string>
+    <string name="morphe_preferred_caption_language_entry_off">사용 안함</string>
+    <string name="morphe_preferred_caption_language_summary">제공자가 제공하는 자막을 먼저 선택한 다음, 선호하는 언어로 자동 번역합니다</string>
+    <string name="morphe_preferred_caption_language_title">선호하는 자막 언어 설정</string>
     <string name="morphe_queue_manager_check_failed_auth">로그인하지 않았습니다</string>
     <string name="morphe_queue_manager_check_failed_video_id">동영상 ID가 없습니다</string>
     <string name="morphe_reload_video_summary_off">동영상 새로고침 버튼을 표시하지 않습니다</string>
@@ -446,6 +464,7 @@ API 키는 절대로 다른 사람과 공유해서는 안 됩니다. API 키에 
     <string name="revanced_append_time_stamp_information_summary_on">"타임스탬프에 정보를 추가합니다
 
 정보를 탭하여 동영상 화질 또는 동영상 재생 속도를 설정할 수 있습니다
+두 번 탭하면 경과 시간과 남은 시간을 전환할 수 있습니다
 길게 탭하면 추가되는 정보 유형을 전환할 수 있습니다"</string>
     <string name="revanced_append_time_stamp_information_title">타임스탬프에 정보 추가하기</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">현재 동영상 재생 속도 값을 추가합니다</string>
@@ -911,6 +930,8 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_gemini_error_transcription_parse">기록 데이터를 분석할 수 없습니다</string>
     <string name="revanced_gemini_error_translation_failed">Gemini가 번역할 수 없습니다</string>
     <string name="revanced_gemini_error_translation_parse_failed">Gemini가 번역 분석을 할 수 없습니다</string>
+    <string name="revanced_gemini_highlight_words_summary">동영상 자막에서 실제로 발음되는 각 단어를 강조 표시합니다</string>
+    <string name="revanced_gemini_highlight_words_title">발음되는 단어 강조 표시하기</string>
     <string name="revanced_gemini_loading_default">불러오는 중...</string>
     <string name="revanced_gemini_loading_summarize">동영상을 요약하는 중...</string>
     <string name="revanced_gemini_loading_transcribe">동영상을 기록하는 중...</string>
@@ -2924,7 +2945,7 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_yandex_status_subs_found">자막이 발견되었습니다, 가져오는 중입니다...</string>
     <string name="revanced_yandex_status_transcription_delayed">기록이 약간 지연됩니다</string>
     <string name="revanced_yandex_status_youtube_specific">YouTube 오디오 요청 처리 중...</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex는 모든 언어의 동영상을 텍스트로 기록할 수 있지만 출력은 영어(en), 러시아어(ru), 카자흐어(kk)로만 가능합니다. 다른 언어 코드 또는 앱의 기본 언어를 의미하는 \'app\'을 입력하면 Gemini에게 번역을 요청합니다 (API Key가 요구됨)</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex 자막에 지원되는 언어는 러시아어(ru), 영어(en), 카자흐어(kk) 또는 앱 언어('app')입니다. 그 외의 앱 언어는 Gemini 번역을 통해 지원됩니다 (API 키가 요구됨)</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex 언어</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Gemini 대신 Yandex 기록기를 사용할 수 있습니다. Yandex는 더 빠르고 안정적일 수 있습니다. API Key가 필요하지 않습니다</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex 기록기</string>

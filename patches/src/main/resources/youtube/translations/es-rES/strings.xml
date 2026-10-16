@@ -58,6 +58,12 @@ Los reportes son públicos y se revisan antes de añadir un canal a una lista. L
     <string name="morphe_auto_pause_on_screen_lock_always">Siempre pausar cuando esté bloqueado</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausar a menos que haya audio inalámbrico conectado</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Pausa automática cuando el dispositivo está bloqueado</string>
+    <string name="morphe_copy_comments_success">Comentario copiado al portapapeles</string>
+    <string name="morphe_copy_comments_summary">Mantén pulsado un comentario para copiarlo</string>
+    <string name="morphe_copy_comments_title">Copiar comentarios</string>
+    <string name="morphe_copy_video_title_success">Título del vídeo copiado al portapapeles</string>
+    <string name="morphe_copy_video_title_summary">Mantén pulsado el título del vídeo para copiarlo</string>
+    <string name="morphe_copy_video_title_title">Copiar título del vídeo</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Utiliza el icono de la app seleccionada para la entrada de configuración RVX cuando esté disponible</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Usar icono en la configuración de RVX</string>
     <string name="morphe_custom_branding_icon_title">Icono de la aplicación</string>
@@ -79,6 +85,7 @@ Los videos se solicitan mediante un prefijo corto del ID de video con hash, por 
     <string name="morphe_dearrow_error_generic">DeArrow no está disponible temporalmente</string>
     <string name="morphe_dearrow_titles_icon_summary">Muestra el icono de DeArrow en los títulos de vídeo de la comunidad</string>
     <string name="morphe_dearrow_titles_icon_title">Mostrar icono de DeArrow</string>
+    <string name="morphe_dearrow_titles_summary">Sustituye los títulos de vídeo por los títulos colaborativos enviados a DeArrow</string>
     <string name="morphe_dearrow_titles_title">Títulos de DeArrow</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Evita que los feeds se actualicen automáticamente cuando quedan desactualizados</string>
     <string name="morphe_disable_auto_feed_refresh_title">Desactivar actualización automática del feed</string>
@@ -200,6 +207,9 @@ Para solucionarlo, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente
     <string name="morphe_open_videos_fullscreen_title">Abrir vídeos en modo de pantalla completa</string>
     <string name="morphe_override_youtube_music_buttons_summary">Abre tu aplicación de música preferida en lugar de la aplicación YouTube Music original</string>
     <string name="morphe_override_youtube_music_buttons_title">Reemplazar botones de YouTube Music</string>
+    <string name="morphe_pip_button_flyout_name">Cambiar a imagen en imagen</string>
+    <string name="morphe_pip_button_flyout_title">Mostrar menú de imagen en imagen</string>
+    <string name="morphe_pip_button_overlay_title">Mostrar botón de imagen en imagen</string>
     <string name="morphe_playback_buffer_size_entry_low">Bajo</string>
     <string name="morphe_playback_buffer_size_entry_maximum">Máximo</string>
     <string name="morphe_playback_buffer_size_entry_medium">Medio</string>
@@ -210,6 +220,11 @@ Para solucionarlo, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente
     <string name="morphe_playback_in_feeds_title">Reproducción en feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Ajusta la opacidad del fondo detrás de los botones de control del reproductor y la barra de tiempo (0 es invisible, 100 es opaco)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Opacidad del fondo de los botones de control</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"El token integrado en esta versión del proveedor de PoToken ya no funciona
+
+Activa \'Suplantar streams de vídeo\' para arreglar la reproducción"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">El proveedor de PoToken ya no funciona</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Prender</string>
     <string name="morphe_potoken_provider_summary">"Soluciona problemas de reproducción usando el proveedor PoToken integrado (Experimental)
 
 Si eres usuario de YouTube Premium, puede que esta opción no sea obligatoria"</string>
@@ -217,6 +232,9 @@ Si eres usuario de YouTube Premium, puede que esta opción no sea obligatoria"</
     <string name="morphe_potoken_provider_unavailable_summary">"Soluciona problemas de reproducción usando el proveedor PoToken integrado (Experimental)
 
 Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
+    <string name="morphe_preferred_caption_language_entry_off">Desactivado</string>
+    <string name="morphe_preferred_caption_language_summary">Selecciona primero los subtítulos del proveedor y luego los traduce automáticamente al idioma preferido</string>
+    <string name="morphe_preferred_caption_language_title">Idioma preferido para subtítulos</string>
     <string name="morphe_queue_manager_check_failed_auth">No has iniciado sesión</string>
     <string name="morphe_queue_manager_check_failed_video_id">No hay ID de vídeo</string>
     <string name="morphe_reload_video_summary_off">El botón de recargar vídeo está oculto</string>
@@ -439,7 +457,11 @@ Pulsa aquí para abrir OpenRouter.ai"</string>
     <string name="revanced_app_version_title">Versión de la app</string>
     <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">Tipo de menú de velocidad de reproducción</string>
     <string name="revanced_append_time_stamp_information_summary_off">La adición de información en la marca de tiempo está desactivada</string>
-    <string name="revanced_append_time_stamp_information_summary_on">"La adición de información en la marca de tiempo está activada"</string>
+    <string name="revanced_append_time_stamp_information_summary_on">"La información se añade a la marca de tiempo
+
+Toca para configurar la calidad de vídeo o la velocidad de reproducción
+Doble toque para cambiar entre el tiempo transcurrido y el tiempo restante
+Pulsa y mantén pulsado para activar el tipo de información añadido"</string>
     <string name="revanced_append_time_stamp_information_title">Añadir información en marca de tiempo</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Añadir velocidad de reproducción</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Añadir calidad de vídeo</string>
@@ -898,6 +920,8 @@ Limitaciones:
     <string name="revanced_gemini_error_transcription_parse">No se pudieron analizar los datos de transcripción</string>
     <string name="revanced_gemini_error_translation_failed">Error en la traducción de Gemini,</string>
     <string name="revanced_gemini_error_translation_parse_failed">Error al analizar la traducción de Gemini</string>
+    <string name="revanced_gemini_highlight_words_summary">Resalta cada palabra hablada en los subtítulos del vídeo</string>
+    <string name="revanced_gemini_highlight_words_title">Destaca las palabras habladas</string>
     <string name="revanced_gemini_loading_default">Cargando...</string>
     <string name="revanced_gemini_loading_summarize">Resumiendo el video...</string>
     <string name="revanced_gemini_loading_transcribe">Transcribiendo el video...</string>
@@ -2899,7 +2923,7 @@ Se requiere autorización para solicitar la traducción con voces en vivo para l
     <string name="revanced_yandex_status_subs_found">Subtítulos encontrados, obteniendo...</string>
     <string name="revanced_yandex_status_transcription_delayed">La transcripción está ligeramente retrasada</string>
     <string name="revanced_yandex_status_youtube_specific">Gestionando solicitud de audio de YouTube...</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex puede transcribir videos de cualquier idioma, pero la salida solo está disponible en inglés (en), ruso (ru) y kazajo (kk). Si introduces cualquier otro código de idioma o usas 'app' (que significa el idioma predeterminado de la aplicación), se le pedirá a Gemini que traduzca (se requiere clave de API)"</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Idioma objetivo para los subtítulos de Yandex: ruso (ru), inglés (en), kazajo (kk) o el idioma de la app ('app'). Se accede a otros idiomas de la app mediante la traducción de Gemini (se requiere clave API)"</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Idioma de Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Usar transcripción de Yandex en lugar de Gemini. Yandex es más rápido y confiable. No se requiere clave de API</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Transcripción de Yandex</string>

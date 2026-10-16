@@ -177,19 +177,21 @@
     <string name="morphe_music_lyrics_about_title">Про сторонні тексти пісень</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">Ключ API (залиште порожнім для анонімного доступу)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">URL-адреса кінцевої точки API (наприклад, https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Налаштуйте кінцеву точку API, сумісну з OpenAI, для AI-перекладу текстів пісень та романізації</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_title">Налаштування AI-перекладу</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Налаштуйте кінцеву точку API, сумісну з OpenAI, для AI-перекладу текстів пісень, романізації та розділів</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">Налаштування AI</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Назва моделі (наприклад, openai-fast, gpt-4o-mini)</string>
-    <string name="morphe_music_lyrics_ai_config_prompt_hint">Шаблон запиту (змінні: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
-    <string name="morphe_music_lyrics_ai_config_status_configured">Налаштовано</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Назва моделі не може бути порожньою</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">Базова URL-адреса не може бути порожньою</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Базова URL-адреса має починатися з http:// або https://</string>
-    <string name="morphe_music_lyrics_ai_config_status_not_configured">Натисніть, щоб налаштувати</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Перевірка з\'єднання…</string>
+    <string name="morphe_music_lyrics_ai_config_summary_configured">Модель %1$s налаштовано</string>
     <string name="morphe_music_lyrics_ai_config_toast_invalid">Не вдалося підключитися до кінцевої точки AI. Будь ласка, перевірте налаштування</string>
-    <string name="morphe_music_lyrics_ai_config_toast_reset">Налаштування AI-перекладу скинуто</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">Налаштування AI-перекладу збережено</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">Налаштування AI скинуто</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">Налаштування AI збережено</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Заповнювачі: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_title">Шаблон запиту</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_reset">Запит скинуто</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_saved">Запит збережено</string>
     <string name="morphe_music_lyrics_copied">Скопійовано</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Якщо тексти пісень неправильно відфільтровано вниз, налаштуйте або очистіть це. Маркери, розділені комами: рядки, що містять маркер, за яким іде двокрапка, показуються як інформація про авторів унизу. Залиште порожнім, щоб вимкнути</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Маркери інформаційного рядка</string>
@@ -220,6 +222,9 @@
     <string name="morphe_music_lyrics_romanized_by_google">Романізовано Google</string>
     <string name="morphe_music_lyrics_romanizing">Романізується…</string>
     <string name="morphe_music_lyrics_saved">Збережено</string>
+    <string name="morphe_music_lyrics_sb_matching_summary">Зіставляє без сегментів, які пропускає SponsorBlock, і зсуває текст пісні на випущене аудіо. Якщо вимкнено, SponsorBlock повністю ігнорується</string>
+    <string name="morphe_music_lyrics_sb_matching_title">Використовувати сегменти SponsorBlock для зсуву тексту пісні</string>
+    <string name="morphe_music_lyrics_sb_no_video">У цього треку немає ідентифікатора відео для надсилання</string>
     <string name="morphe_music_lyrics_search_artist_hint">Виконавець</string>
     <string name="morphe_music_lyrics_search_dialog_title">Шукати текст пісні</string>
     <string name="morphe_music_lyrics_search_empty">Введіть назву пісні та виконавця</string>
@@ -231,6 +236,8 @@
     <string name="morphe_music_lyrics_show_refresh_button_title">Показувати кнопку \"Оновити\"</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">Натисніть, щоб перемкнути романізацію; довге натискання лише для романізації. Використовує романізацію постачальника, Google Translate або API, сумісний з OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Показати кнопку \"Романізувати\"</string>
+    <string name="morphe_music_lyrics_show_section_summary">Позначати кожен новий розділ тексту пісні невеликим тегом, наприклад \"Куплет\" або \"Приспів\"</string>
+    <string name="morphe_music_lyrics_show_section_title">Показувати теги розділів</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">Натисніть, щоб перемкнути переклад; довге натискання лише для перекладу. Використовує переклади постачальника, Google Translate або API, сумісний з OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Показати кнопку \"Перекласти\"</string>
     <string name="morphe_music_lyrics_source_all_disabled">Усіх постачальників вимкнено - вбудовані тексти пісень і вбудовані субтитри</string>
@@ -253,8 +260,13 @@
     <string name="morphe_music_lyrics_translated_by_google">Перекладено Google</string>
     <string name="morphe_music_lyrics_translating">Переклад…</string>
     <string name="morphe_music_lyrics_translation_language_title">Мова перекладу</string>
-    <string name="morphe_music_lyrics_use_ai_translation_summary">Використовувати власний API, сумісний з OpenAI, для перекладу та романізації замість Google Translate</string>
-    <string name="morphe_music_lyrics_use_ai_translation_title">Переклад через сервіс, сумісний з OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_summary">Надає перевагу романізації, яку постачає провайдер, потім вашій моделі, сумісній з OpenAI, і Google Translate наостанок</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_title">AI-романізація</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">Використовується лише тоді, коли постачальник не надає позначок розділів, таких як \"Приспів\" або \"Куплет\", які тоді визначає ваша модель, сумісна з OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_section_title">Розділ AI</string>
+    <string name="morphe_music_lyrics_use_ai_title">API, сумісний з OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">Надає перевагу перекладу, який постачає провайдер, потім вашій моделі, сумісній з OpenAI, і Google Translate наостанок</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">AI-переклад</string>
     <string name="morphe_music_lyrics_word_sync_summary">Надавати пріоритет тексту пісні по словах, коли доступно. Якщо текст пісні містить синхронізацію по словах, підсвічує кожне слово або склад у такт музиці</string>
     <string name="morphe_music_lyrics_word_sync_title">Підсвічувати синхронізовані слова або склади</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">токен користувача</string>
@@ -322,11 +334,11 @@
     <string name="morphe_skip_silence_minimum_pause_title">Мінімальна тривалість паузи</string>
     <string name="morphe_skip_silence_summary">Автоматично пропускає тихі паузи у звуку відео</string>
     <string name="morphe_skip_silence_title">Пропускати тишу</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s не працював кілька разів поспіль, але %2$s працював
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s кілька разів поспіль не спрацював, а %2$s спрацював
 
-Зробити %2$s клієнтом за замовчуванням?"</string>
+Зробити %2$s типовим клієнтом?"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Перемкнути</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Клієнт за замовчуванням не працює</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Типовий клієнт не працює</string>
     <string name="morphe_spoof_video_streams_client_type_title">Типовий клієнт</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
     <string name="morphe_spoof_video_streams_screen_summary">Налаштування підміни клієнта для запобігання проблемам з відтворенням</string>

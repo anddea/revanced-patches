@@ -176,19 +176,21 @@ Mentre questa opzione è attiva, la scheda Scaricati elenca questi brani invece 
     <string name="morphe_music_lyrics_about_title">Informazioni sui testi di terze parti</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">Chiave API (lasciare vuota per accesso anonimo)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">URL dell\'endpoint API (es. https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configura l\'endpoint API compatibile con OpenAI per la traduzione e la romanizzazione dei testi delle canzoni basata su AI</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_title">Impostazioni di traduzione AI</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configura l\'endpoint API compatibile con OpenAI per la traduzione, la romanizzazione e la ripartizione in sezioni dei testi delle canzoni basata su AI</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">Impostazioni AI</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Nome del modello (es. openai-fast, gpt-4o-mini)</string>
-    <string name="morphe_music_lyrics_ai_config_prompt_hint">Modello del prompt (variabili: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
-    <string name="morphe_music_lyrics_ai_config_status_configured">Configurato</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Il nome del modello non può essere vuoto</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">L\'URL di base non può essere vuoto</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">L\'URL di base deve iniziare con http:// o https://</string>
-    <string name="morphe_music_lyrics_ai_config_status_not_configured">Tocca per configurare</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Verifica della connessione…</string>
+    <string name="morphe_music_lyrics_ai_config_summary_configured">Modello %1$s configurato</string>
     <string name="morphe_music_lyrics_ai_config_toast_invalid">Impossibile connettersi all\'endpoint AI. Controlla le tue impostazioni</string>
-    <string name="morphe_music_lyrics_ai_config_toast_reset">Impostazioni di traduzione AI ripristinate</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">Impostazioni di traduzione AI salvate</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">Impostazioni AI ripristinate</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">Impostazioni AI salvate</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Segnaposti: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_title">Modello di prompt</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt ripristinato</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt salvato</string>
     <string name="morphe_music_lyrics_copied">Copiato negli appunti</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Sincronizza i testi con la musica</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Indicatori di riga delle informazioni</string>
@@ -219,6 +221,9 @@ Mentre questa opzione è attiva, la scheda Scaricati elenca questi brani invece 
     <string name="morphe_music_lyrics_romanized_by_google">Romanizzato da Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanizzazione…</string>
     <string name="morphe_music_lyrics_saved">Salvato</string>
+    <string name="morphe_music_lyrics_sb_matching_summary">Abbina senza i segmenti che SponsorBlock salta e sposta i testi sull\'audio pubblicato. Se disattivato, SponsorBlock viene completamente ignorato</string>
+    <string name="morphe_music_lyrics_sb_matching_title">Usa i segmenti di SponsorBlock per l\'offset dei testi</string>
+    <string name="morphe_music_lyrics_sb_no_video">Questa traccia non ha alcun id video da inviare</string>
     <string name="morphe_music_lyrics_search_artist_hint">Artista</string>
     <string name="morphe_music_lyrics_search_dialog_title">Cerca testi</string>
     <string name="morphe_music_lyrics_search_empty">Inserisci il titolo di un brano e un artista</string>
@@ -230,6 +235,8 @@ Mentre questa opzione è attiva, la scheda Scaricati elenca questi brani invece 
     <string name="morphe_music_lyrics_show_refresh_button_title">Mostra il pulsante Aggiorna</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">Tocca per attivare/disattivare la romanizzazione; pressione lunga per la sola romanizzazione. Usa la romanizzazione del fornitore, Google Translate o un\'API compatibile con OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Mostra il pulsante Romanizza</string>
+    <string name="morphe_music_lyrics_show_section_summary">Etichetta ogni nuova sezione del testo con una piccola etichetta, come Strofa o Ritornello</string>
+    <string name="morphe_music_lyrics_show_section_title">Mostra etichette delle sezioni</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">Tocca per attivare/disattivare la traduzione; pressione lunga per la sola traduzione. Usa le traduzioni del fornitore, Google Translate o un\'API compatibile con OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Mostra il pulsante Traduci</string>
     <string name="morphe_music_lyrics_source_all_disabled">Tutti i provider disabilitati — testi integrati e testi incorporati</string>
@@ -252,8 +259,13 @@ Mentre questa opzione è attiva, la scheda Scaricati elenca questi brani invece 
     <string name="morphe_music_lyrics_translated_by_google">Tradotto da Google</string>
     <string name="morphe_music_lyrics_translating">Traduzione in corso…</string>
     <string name="morphe_music_lyrics_translation_language_title">Lingua di traduzione</string>
-    <string name="morphe_music_lyrics_use_ai_translation_summary">Usa un\'API personalizzata compatibile con OpenAI per traduzione e romanizzazione invece di Google Translate</string>
-    <string name="morphe_music_lyrics_use_ai_translation_title">Traduzione compatibile con OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_summary">Preferisce la romanizzazione fornita dal provider, quindi il modello compatibile con OpenAI e infine Google Translate</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_title">Romanizzazione AI</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">Utilizzato solo quando il provider non fornisce etichette di sezione come Ritornello o Strofa, che vengono quindi rilevate dal modello compatibile con OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_section_title">Sezione AI</string>
+    <string name="morphe_music_lyrics_use_ai_title">API compatibile con OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">Preferisce la traduzione fornita dal provider, poi il tuo modello compatibile con OpenAI e infine Google Translate</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">Traduzione AI</string>
     <string name="morphe_music_lyrics_word_sync_summary">Mostra i testi</string>
     <string name="morphe_music_lyrics_word_sync_title">Lingua dei testi</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">token utente</string>
@@ -291,6 +303,11 @@ Cookie richiesti: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 è temporaneamente non disponibile (API scaduta)</string>
     <string name="morphe_oauth2_toast_invalid">Token di accesso Android VR non valido, prova ad accedere nuovamente</string>
     <string name="morphe_oauth2_toast_reset">Disconnesso da Android VR</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"Il token integrato in questa versione del fornitore PoToken non funziona più
+
+Attiva l'opzione \'Falsifica dei flussi video\' per risolvere il problema di riproduzione"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">Il fornitore PoToken non funziona più</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Attiva</string>
     <string name="morphe_potoken_provider_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
 
 Se sei un utente di YouTube Premium, questa impostazione potrebbe non essere necessaria"</string>
@@ -924,5 +941,5 @@ L'ID del video che guardi viene inviato all'API di Return YouTube Dislike, e i t
     <string name="revanced_webview_toast_empty">%s è vuota</string>
     <string name="revanced_webview_toast_no_network">Controlla la tua connessione di rete</string>
     <string name="revanced_webview_toast_unavailable">WebView non è disponibile</string>
-    <string name="revanced_webview_visitor_data">Dati dei visitatori</string>
+    <string name="revanced_webview_visitor_data">Dati sui visitatori</string>
 </resources>

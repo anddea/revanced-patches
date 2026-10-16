@@ -177,19 +177,21 @@ SABR 프로토콜을 사용하여 재생하는 경우 (동영상 스트림 속�
     <string name="morphe_music_lyrics_about_title">서드파티 가사에 대한 정보</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">API 키 (익명 접속을 원하시면 비워 두세요)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">API 엔드포인트 URL (예시: https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">AI 기반 가사 번역 및 로마자 표기를 위해 OpenAI 호환 API 엔드포인트를 설정하세요</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_title">AI 번역 설정</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">AI 기반 가사 번역, 로마자 표기 및 섹션 감지를 위해 OpenAI 호환 API 엔드포인트를 설정합니다</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">AI 설정</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">모델 이름 (예시: openai-fast, gpt-4o-mini)</string>
-    <string name="morphe_music_lyrics_ai_config_prompt_hint">프롬프트 템플릿 (변수: {language}, {task}, {title}, {artist}, {count}, {lines})</string>
-    <string name="morphe_music_lyrics_ai_config_status_configured">설정됨</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">모델 이름은 비워둘 수 없습니다</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">기본 URL은 비워둘 수 없습니다</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">기본 URL은 http:// 또는 https://로 시작해야 합니다</string>
-    <string name="morphe_music_lyrics_ai_config_status_not_configured">설정하려면 탭하세요</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">연결 유효성을 검사하는 중…</string>
+    <string name="morphe_music_lyrics_ai_config_summary_configured">모델 %1$s 구성됨</string>
     <string name="morphe_music_lyrics_ai_config_toast_invalid">AI 엔드포인트에 연결할 수 없습니다. 설정을 확인하세요</string>
-    <string name="morphe_music_lyrics_ai_config_toast_reset">AI 번역 설정을 초기화하였습니다</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">AI 번역 설정을 저장하였습니다</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">AI 설정 초기화</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">AI 설정 저장됨</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">자리 표시자: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_title">프롬프트 템플릿</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_reset">프롬프트 초기화</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_saved">프롬프트 저장됨</string>
     <string name="morphe_music_lyrics_copied">클립보드에 복사하였습니다</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">가사가 잘못 필터링되어 하단으로 내려가는 경우 이 설정을 조정하거나 비워 두세요. 쉼표로 구분된 마커: 마커가 포함된 줄에 콜론(:)이 뒤따르면 해당 줄은 크레딧 정보로 간주되어 하단에 표시됩니다. 비워두면 비활성화됩니다</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">정보 줄 마커</string>
@@ -220,6 +222,9 @@ SABR 프로토콜을 사용하여 재생하는 경우 (동영상 스트림 속�
     <string name="morphe_music_lyrics_romanized_by_google">Google에 의해 로마자 표기됨</string>
     <string name="morphe_music_lyrics_romanizing">로마자 표기 중…</string>
     <string name="morphe_music_lyrics_saved">저장됨</string>
+    <string name="morphe_music_lyrics_sb_matching_summary">SponsorBlock이 건너뛰는 구간을 제외한 오디오에 맞추고, 가사를 정식 발매된 음원에 맞춰 조정합니다. 비활성화하면 SponsorBlock을 완전히 무시합니다</string>
+    <string name="morphe_music_lyrics_sb_matching_title">가사 오프셋에 SponsorBlock 구간 사용하기</string>
+    <string name="morphe_music_lyrics_sb_no_video">이 트랙에는 제출할 동영상 ID가 없습니다</string>
     <string name="morphe_music_lyrics_search_artist_hint">아티스트</string>
     <string name="morphe_music_lyrics_search_dialog_title">가사 검색</string>
     <string name="morphe_music_lyrics_search_empty">노래 제목과 아티스트를 입력하세요</string>
@@ -231,6 +236,8 @@ SABR 프로토콜을 사용하여 재생하는 경우 (동영상 스트림 속�
     <string name="morphe_music_lyrics_show_refresh_button_title">새로고침 버튼 표시</string>
     <string name="morphe_music_lyrics_show_romanize_button_summary">버튼을 탭하여 로마자 표기를 켜거나 끌 수 있고, 길게 탭하면 로마자 표기만 표시됩니다. 제공자 로마자 표기, Google 번역 또는 OpenAI 호환 API를 사용합니다</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">로마자 표기 버튼 표시</string>
+    <string name="morphe_music_lyrics_show_section_summary">가사의 각 새 섹션에 Verse 또는 Chorus와 같은 작은 태그를 표시합니다</string>
+    <string name="morphe_music_lyrics_show_section_title">섹션 태그 표시</string>
     <string name="morphe_music_lyrics_show_translate_button_summary">버튼을 탭하여 번역을 켜거나 끌 수 있고, 길게 탭하면 번역만 표시됩니다. 제공자 번역, Google 번역 또는 OpenAI 호환 API를 사용합니다</string>
     <string name="morphe_music_lyrics_show_translate_button_title">번역 버튼 표시</string>
     <string name="morphe_music_lyrics_source_all_disabled">모든 제공자가 비활성화됨 - 내장 가사 및 삽입 가사</string>
@@ -253,8 +260,13 @@ SABR 프로토콜을 사용하여 재생하는 경우 (동영상 스트림 속�
     <string name="morphe_music_lyrics_translated_by_google">Google에 의해 번역됨</string>
     <string name="morphe_music_lyrics_translating">번역하는 중…</string>
     <string name="morphe_music_lyrics_translation_language_title">번역 언어</string>
-    <string name="morphe_music_lyrics_use_ai_translation_summary">Google 번역 대신 사용자 정의 OpenAI 호환 API를 사용하여 번역 및 로마자 표기를 수행합니다</string>
-    <string name="morphe_music_lyrics_use_ai_translation_title">OpenAI 호환 번역</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_summary">제공자에서 기본 제공하는 로마자 표기를 우선 사용하고, 그다음 OpenAI 호환 모델을 사용하며, Google 번역은 마지막 순위로 사용합니다</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_title">AI 로마자 표기</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">제공자가 후렴 또는 절 등의 섹션 레이블을 제공하지 않는 경우에만 사용하며, 이때 OpenAI 호환 모델이 해당 섹션을 감지합니다</string>
+    <string name="morphe_music_lyrics_use_ai_section_title">AI 섹션</string>
+    <string name="morphe_music_lyrics_use_ai_title">OpenAI 호환 API</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">제공자에서 기본 제공하는 번역을 우선 사용하고, 그다음 OpenAI 호환 모델을 사용하며, Google 번역은 마지막 순위로 사용합니다</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">AI 번역</string>
     <string name="morphe_music_lyrics_word_sync_summary">가능한 경우 단어 단위로 표시되는 가사를 우선합니다. 가사에 단어별 타이밍 정보가 포함되어 있으면, 음악에 맞춰 각 단어 음절을 순서대로 강조 표시합니다</string>
     <string name="morphe_music_lyrics_word_sync_title">동기화된 단어 또는 음절 강조 표시</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">사용자 토큰</string>
@@ -299,6 +311,11 @@ LOGIN_INFO"</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2를 일시적으로 사용할 수 없습니다 (API 시간 초과)</string>
     <string name="morphe_oauth2_toast_invalid">잘못된 VR 로그인 토큰입니다. 다시 VR에 로그인하세요</string>
     <string name="morphe_oauth2_toast_reset">Android VR에서 로그아웃되었습니다</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">이 버전에 내장된 PotHelper 토큰이 더 이상 작동하지 않습니다
+
+재생 문제를 해결하려면 \'동영상 스트림 속이기\' 설정을 활성화하세요</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">PotHelper가 더 이상 작동하지 않음</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">활성화</string>
     <string name="morphe_potoken_provider_summary">"내부 PoToken 생성기를 사용하여 재생 문제를 수정합니다 (실험 기능)
 
 YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"</string>
