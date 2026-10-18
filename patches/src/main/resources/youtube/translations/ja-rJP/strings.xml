@@ -38,7 +38,7 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_aislist_submit_failed_channel">この動画のチャンネルが見つかりません。</string>
     <string name="morphe_aislist_submit_failed_conflict">AiSList は報告を保存できませんでした。後でもう一度お試しください。</string>
     <string name="morphe_aislist_submit_failed_rate_limit">レポートが送信されすぎました。後でもう一度お試しください。</string>
-    <string name="morphe_aislist_submit_failed_rejected">AISList が報告を拒否しました。</string>
+    <string name="morphe_aislist_submit_failed_rejected">AiSList が報告を拒否しました。</string>
     <string name="morphe_aislist_submit_flyout_menu_summary">動画メニューに、動画のチャンネルを AiSList に報告するエントリを追加します。</string>
     <string name="morphe_aislist_submit_flyout_menu_title">動画メニューに報告エントリを追加</string>
     <string name="morphe_aislist_submit_no_username">AI チャンネルフィルター設定で報告者名を設定して、チャンネルを報告します。</string>
@@ -58,12 +58,14 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_auto_pause_on_screen_lock_always">常に一時停止</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">ワイヤレスオーディオ機器の接続時を除き一時停止</string>
     <string name="morphe_auto_pause_on_screen_lock_title">端末の画面ロック時に再生を一時停止</string>
-    <string name="morphe_copy_comments_success">コメントをクリップボードにコピーしました</string>
-    <string name="morphe_copy_comments_summary">コメントを長押しするとコピーできます</string>
+    <string name="morphe_auto_translate_additional_languages_summary">自動翻訳メニューにさらに言語を追加します。</string>
+    <string name="morphe_auto_translate_additional_languages_title">追加の自動翻訳言語を追加</string>
+    <string name="morphe_copy_comments_success">コメントがクリップボードにコピーされました。</string>
+    <string name="morphe_copy_comments_summary">コメントを長押しするとコピーできます。</string>
     <string name="morphe_copy_comments_title">コメントをコピー</string>
-    <string name="morphe_copy_video_title_success">動画タイトルをクリップボードにコピーしました</string>
-    <string name="morphe_copy_video_title_summary">動画のタイトルを長押しするとコピーできます</string>
-    <string name="morphe_copy_video_title_title">動画タイトルをコピー</string>
+    <string name="morphe_copy_video_title_success">動画のタイトルがクリップボードにコピーされました。</string>
+    <string name="morphe_copy_video_title_summary">動画のタイトルを長押しするとコピーできます。</string>
+    <string name="morphe_copy_video_title_title">動画のタイトルをコピー</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">利用可能な場合は、RVX 設定の項目に選択されたアプリアイコンを使用します。</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">RVX 設定でアイコンを使用</string>
     <string name="morphe_custom_branding_icon_title">アプリアイコン</string>
@@ -74,27 +76,30 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_dark_theme_custom_color_summary">「カスタム」が選択されている場合に使用されます。</string>
     <string name="morphe_dark_theme_custom_color_title">カスタムダークテーマの色</string>
     <string name="morphe_dark_theme_title">ダークテーマ</string>
-    <string name="morphe_dearrow_about_summary">"DeArrowは、クリックベイトのタイトルとサムネイルを、より正確で扇動的でないクラウドソースのものに置き換えます。タイトルはコミュニティによって書かれ投票され、サムネイルは動画から取られたフレームです
+    <string name="morphe_dearrow_about_summary">"DeArrow は、YouTube の動画のタイトルとサムネイルをクラウドソーシングで作成するサービスを提供しています。これらは YouTube が提供するものよりも関連性の高いものが多いです。
 
-動画はハッシュ化された動画IDの短いプレフィックスによってリクエストされるため、サーバーはあなたが見ている動画を正確に特定できません。動画にDeArrowのサムネイルがない場合、オリジナルまたは静止画が表示されます"</string>
-    <string name="morphe_dearrow_casual_mode_min_votes_summary">元のタイトルを表示するために必要な、面白いやクリエイティブなどの単一カテゴリでのカジュアル投票の数</string>
-    <string name="morphe_dearrow_casual_mode_min_votes_title">元のタイトルを表示するためのカジュアル投票の最小数</string>
-    <string name="morphe_dearrow_casual_mode_summary">DeArrowユーザーが元のタイトルを好むと投票した場合、DeArrowタイトルではなく元のタイトルを表示します</string>
-    <string name="morphe_dearrow_casual_mode_title">カジュアルモード</string>
-    <string name="morphe_dearrow_error">DeArrow は一時的に利用できません (status code: %s)</string>
-    <string name="morphe_dearrow_error_generic">DeArrow は一時的に利用できません</string>
-    <string name="morphe_dearrow_titles_icon_summary">クラウドソースされた動画タイトルに DeArrow アイコンを表示します</string>
+有効にすると、動画の URL が API サーバーに送信され、その他のデータは送信されません。動画に DeArrow のサムネイルがない場合は、元の画像または静止画が表示されます。
+
+DeArrow.ajay.app を開くには、ここをタップしてください。"</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_summary">「面白い」、「創造的」などの 1 つのカテゴリで、原文のタイトルを表示するために必要な投票数です。</string>
+    <string name="morphe_dearrow_casual_mode_min_votes_title">原文のタイトルを表示するために必要な最低投票数</string>
+    <string name="morphe_dearrow_casual_mode_summary">DeArrow のユーザー投票によって原文のタイトルが好まれている場合、DeArrow のタイトルではなく原文のタイトルを表示します。</string>
+    <string name="morphe_dearrow_casual_mode_title">原文のタイトルを優先</string>
+    <string name="morphe_dearrow_error">DeArrow は一時的に利用できません (ステータスコード: %s)。</string>
+    <string name="morphe_dearrow_error_generic">DeArrow は一時的に利用できません。</string>
+    <string name="morphe_dearrow_titles_icon_summary">ユーザーが DeArrow に投稿した評価の高いタイトルに DeArrow アイコンを表示します。</string>
     <string name="morphe_dearrow_titles_icon_title">DeArrow アイコンを表示</string>
+    <string name="morphe_dearrow_titles_summary">動画のタイトルを、ユーザーが DeArrow に投稿した評価の高いタイトルに置き換えます。</string>
     <string name="morphe_dearrow_titles_title">DeArrow タイトル</string>
-    <string name="morphe_disable_auto_feed_refresh_summary">フィードが古くなった後に自動的に更新されるのを防ぎます。</string>
-    <string name="morphe_disable_auto_feed_refresh_title">自動フィード更新を無効にする</string>
+    <string name="morphe_disable_auto_feed_refresh_summary">古くなったフィードが自動的に更新されないようにします。</string>
+    <string name="morphe_disable_auto_feed_refresh_title">フィードの自動更新を無効化</string>
     <string name="morphe_disable_auto_hide_navigation_bar_summary">スクロール中もナビゲーションバーを表示したままにします。</string>
     <string name="morphe_disable_auto_hide_navigation_bar_title">ナビゲーションバーの自動非表示を無効化</string>
     <string name="morphe_disable_drc_audio_summary_off">オーディオ DRC を無効にします。</string>
     <string name="morphe_disable_drc_audio_summary_on">オーディオ DRC を無効にします。</string>
     <string name="morphe_disable_drc_audio_title">オーディオ DRC を無効化</string>
-    <string name="morphe_disable_icon_only_navigation_buttons_summary">YouTubeがラベルなしで送信する場合、ナビゲーションボタンをラベル付きで表示します</string>
-    <string name="morphe_disable_icon_only_navigation_buttons_title">ラベルのないナビゲーションボタンを無効にする</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_summary">YouTube からナビゲーションボタンに付いている文字がない状態で送信された場合、ナビゲーションボタンをラベル付きで表示します。</string>
+    <string name="morphe_disable_icon_only_navigation_buttons_title">ラベルのないナビゲーションボタンを無効化</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC プロトコルを無効にします。</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC プロトコルを無効にします。</string>
     <string name="morphe_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
@@ -126,7 +131,7 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
 制限事項:
 ・AI 生成のショート動画を除外した際に、空白が残ってしまう可能性があります。
 ・一部の AI 生成動画が除外されずに残ってしまう可能性があります。"</string>
-    <string name="morphe_hide_aislist_attribution_summary">"データはAiSListによって提供されています。
+    <string name="morphe_hide_aislist_attribution_summary">"データは AiSList によって提供されています。
 
 ここをタップすると AiSlopList.com を開きます。詳細の確認や、他のプラットフォーム版のダウンロードが可能です。"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">ブロックリスト (信頼度: 高)</string>
@@ -143,8 +148,8 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_hide_aislist_stats_warnlist_channels_title">「要注意リスト」に登録中のチャンネル</string>
     <string name="morphe_hide_aislist_warnlist_category_title">要注意リスト (信頼度: 中)</string>
     <string name="morphe_hide_auto_dubbed_label_title">「オートダビング版」ラベルを非表示</string>
-    <string name="morphe_hide_channel_buttons_summary">検索結果のチャンネルプロフィールから「登録」「チャンネルを見る」「コミュニティ」「YouTube Music」などのボタンを非表示にします</string>
-    <string name="morphe_hide_channel_buttons_title">チャンネルボタンを非表示</string>
+    <string name="morphe_hide_channel_buttons_summary">検索結果のチャンネルプロフィールから、[チャンネル登録]、[チャンネルを見る]、[コミュニティ]、[YouTube Music] などのボタンを非表示にします。</string>
+    <string name="morphe_hide_channel_buttons_title">チャンネル内のボタンを非表示</string>
     <string name="morphe_hide_courses_menu_title">「コース」を非表示</string>
     <string name="morphe_hide_explore_button_title">[探索] ボタンを非表示</string>
     <string name="morphe_hide_fashion_menu_title">「ファッションと美容」を非表示</string>
@@ -156,7 +161,7 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_hide_invite_to_message_card_title">「他のユーザーをメッセージに招待」カードを非表示</string>
     <string name="morphe_hide_learning_menu_title">「学び」を非表示</string>
     <string name="morphe_hide_live_menu_title">「ライブ」を非表示</string>
-    <string name="morphe_hide_live_streams_summary">ホームフィードと検索結果で現在ライブ配信中の動画を非表示にします</string>
+    <string name="morphe_hide_live_streams_summary">ホームフィードと検索結果から現在ライブ配信中の動画を非表示にします。</string>
     <string name="morphe_hide_live_streams_title">ライブ配信を非表示</string>
     <string name="morphe_hide_memberships_menu_title">「メンバーシップ」を非表示</string>
     <string name="morphe_hide_movies_menu_title">「映画とテレビ番組」を非表示</string>
@@ -186,7 +191,7 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_light_theme_title">Light theme</string>
     <string name="morphe_livestream_dvr_not_available">"[すべてのライブ配信で DVR を有効化] をオンにしたときに正常に動作しない場合があります。
 
-この問題を解決するには、[動画ストリームを偽装] をオンにして、 [偽装するクライアント] を「TV Simply」または「visionOS」に変更してください。"</string>
+この問題を解決するには、[動画ストリームを偽装] をオンにして、[偽装するクライアント] を「TV Simply」または「visionOS」に変更してください。"</string>
     <string name="morphe_livestream_dvr_summary">本来はシーク機能が制限される場合も含め、すべてのライブ配信でシーク機能が利用可能になります</string>
     <string name="morphe_livestream_dvr_title">すべてのライブ配信で DVR を有効化</string>
     <string name="morphe_music_package_name_summary">YouTube Music の代わりに呼び出すインストール済みの音楽アプリのパッケージ名です。</string>
@@ -198,7 +203,7 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 は一時的に利用できません</string>
     <string name="morphe_oauth2_connection_failure_status">OAuth2 は一時的に利用できません (ステータス%d)。</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR へのログインが期限切れです。再度ログインしてください。</string>
-    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 は一時的に利用できません (API がタイムアウトしました）。</string>
+    <string name="morphe_oauth2_connection_failure_timeout">OAuth2 は一時的に利用できません (API がタイムアウトしました)。</string>
     <string name="morphe_oauth2_toast_invalid">VR ログイントークンが無効です。もう一度 VR にログインしてみてください。</string>
     <string name="morphe_oauth2_toast_reset">Android VR からログアウトしました</string>
     <string name="morphe_open_channel_of_live_avatar_summary">ライブ配信中のチャンネルアイコンをタップした際に、ライブ配信ではなくチャンネルページを開きます。</string>
@@ -207,27 +212,32 @@ AI についてのみ議論するチャンネルや、動画の一部に AI を�
     <string name="morphe_override_youtube_music_buttons_summary">YouTube Music ボタンの呼び出し先を、「純正 YouTube Music アプリ」から「設定した音楽アプリ」に変更します。</string>
     <string name="morphe_override_youtube_music_buttons_title">[YouTube Music] ボタンを置換</string>
     <string name="morphe_pip_button_flyout_name">ピクチャー イン ピクチャーで再生</string>
-    <string name="morphe_pip_button_flyout_title">「ピクチャー イン ピクチャーで再生」を表示</string>
-    <string name="morphe_pip_button_overlay_title">ピクチャー イン ピクチャー ボタンを表示</string>
+    <string name="morphe_pip_button_flyout_title">[ピクチャー イン ピクチャーで再生] を表示</string>
+    <string name="morphe_pip_button_overlay_title">ピクチャーインピクチャーボタンを表示</string>
     <string name="morphe_playback_buffer_size_entry_low">低</string>
     <string name="morphe_playback_buffer_size_entry_maximum">最大</string>
     <string name="morphe_playback_buffer_size_entry_medium">中</string>
-    <string name="morphe_playback_buffer_size_title">再生バッファサイズ</string>
+    <string name="morphe_playback_buffer_size_title">再生バッファのサイズ</string>
     <string name="morphe_playback_in_feeds_entry_always_on">常にオン</string>
     <string name="morphe_playback_in_feeds_entry_off">オフ</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Wi-Fi のみ</string>
     <string name="morphe_playback_in_feeds_title">フィードで再生</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">動画プレーヤーのコントロール (再生ボタンなど) の背景に表示される、ふちどりのための円形の影の透明度を設定します (0 が透明)。</string>
     <string name="morphe_player_control_buttons_background_opacity_title">プレーヤーのコントロールの背景の透明度</string>
-    <string name="morphe_potoken_provider_summary">"組み込みの PoToken プロバイダー を使用する際の再生の問題を修正します (実験的機能)。
+    <string name="morphe_potoken_provider_expired_dialog_message">"このバージョンの PoToken プロバイダーに組み込まれているトークンは動作しなくなりました。
+
+再生を修正するには、「動画ストリームを偽装」を有効にしてください。"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">PoToken プロバイダーが動作しなくなりました。</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">オン</string>
+    <string name="morphe_potoken_provider_summary">"組み込みの PoToken プロバイダーを使用する際の再生の問題を修正します (実験的機能)。
 
 YouTube Premium に加入している場合、この設定は必要ない可能性があります。"</string>
     <string name="morphe_potoken_provider_title">PoToken の生成</string>
-    <string name="morphe_potoken_provider_unavailable_summary">"組み込みの PoToken プロバイダー を使用する際の再生の問題を修正します (実験的機能)。
+    <string name="morphe_potoken_provider_unavailable_summary">"組み込みの PoToken プロバイダーを使用する際の再生の問題を修正します (実験的機能)。
 
 この機能を使用するには、「動画ストリームを偽装」をオフにしてください。"</string>
     <string name="morphe_preferred_caption_language_entry_off">オフ</string>
-    <string name="morphe_preferred_caption_language_summary">提供元の字幕を最初に選択し、その後、優先言語に自動翻訳します</string>
+    <string name="morphe_preferred_caption_language_summary">最初にプロバイダーの字幕を選択し、次に希望の言語に自動的に翻訳します。</string>
     <string name="morphe_preferred_caption_language_title">字幕の優先言語</string>
     <string name="morphe_queue_manager_check_failed_auth">ログインしていません。</string>
     <string name="morphe_queue_manager_check_failed_video_id">動画 ID がありません。</string>
@@ -245,8 +255,8 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_restore_old_player_buttons_summary">プレーヤーのコントロールのデザインを、現在の太字デザインから従来の細字デザインに戻します。</string>
     <string name="morphe_restore_old_player_buttons_title">プレーヤーのボタンスタイルを古いデザインに復元</string>
     <string name="morphe_restore_original_titles_loading">タイトルを読み込み中…</string>
-    <string name="morphe_restore_original_titles_summary">動画のタイトルと動画およびチャンネルの説明文の自動翻訳を無効にし、原文を表示します</string>
-    <string name="morphe_restore_original_titles_title">タイトルを原文に戻す</string>
+    <string name="morphe_restore_original_titles_summary">動画のタイトルと動画およびチャンネルの説明文の自動翻訳を無効にし、原文を表示します。</string>
+    <string name="morphe_restore_original_titles_title">原文のタイトルを復元</string>
     <string name="morphe_sanitize_sharing_links_summary_off">共有リンクから追跡パラメータを削除します。</string>
     <string name="morphe_sanitize_sharing_links_summary_on">共有リンクから追跡パラメータを削除します。</string>
     <string name="morphe_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
@@ -270,10 +280,10 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_settings_name_custom_item_hint">名称を入力してください。</string>
     <string name="morphe_settings_name_empty_warning">名称は空欄にできません。</string>
     <string name="morphe_settings_name_title">RVX 設定の名称</string>
-    <string name="morphe_skip_silence_minimum_pause_summary">この値よりも短い無音の部分や会話などの間はスキップ (短縮) しません。設定後に再生を開始する動画から適用されます</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">この値よりも短い無音の部分や会話などの間はスキップ (短縮) しません。設定後に再生を開始する動画から適用されます。</string>
     <string name="morphe_skip_silence_minimum_pause_title">スキップする区間の長さのしきい値</string>
-    <string name="morphe_skip_silence_summary">動画内の無音の部分や会話などの間を自動的にスキップします</string>
-    <string name="morphe_skip_silence_title">無音の区間をスキップ</string>
+    <string name="morphe_skip_silence_summary">動画内の無音の部分や会話などの間を自動的にスキップします。</string>
+    <string name="morphe_skip_silence_title">無音をスキップ</string>
     <string name="morphe_splash_screen_animation_style_entry_2">色</string>
     <string name="morphe_splash_screen_animation_style_entry_3">白黒</string>
     <string name="morphe_splash_screen_animation_style_title">スプラッシュ画面のスタイル</string>
@@ -290,11 +300,11 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_spoof_video_streams_av1_summary_on">"動画のコーデックはAVC（H.264）、VP9、またはAV1 のいずれかになります。\n\n注意: 再生がカクついたり、コマ落ちが発生する可能性があります。"</string>
     <string name="morphe_spoof_video_streams_av1_title">Android VR / visionOS AV1 を許可</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"この設定を有効にすると、AV1 のソフトウェアデコードが使用される場合があります。\n\nAV1 での動画再生は、カクついたりコマ落ちが発生する場合があります。"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s は複数回連続して動作しませんでしたが、%2$s は動作しました。
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"「%1$s」は何度か連続して動作しませんでしたが、「%2$s」は動作しました。
 
-%2$s をデフォルト クライアントにしますか？"</string>
+「%2$s」をデフォルトのクライアントとして設定しますか？"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_switch">切り替える</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">デフォルト クライアントが動作しません</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">デフォルトクライアントが動作しません。</string>
     <string name="morphe_spoof_video_streams_client_type_title">偽装するクライアントを選択</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">クライアントの動画ストリームを取得できませんでした</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">JavaScript 版プレーヤー</string>
@@ -367,7 +377,7 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_video_quality_prioritize_dialog">この設定をオフにすると、古い動画で画質を手動で選択できなくなる可能性があります。</string>
     <string name="morphe_video_quality_prioritize_summary">コーデックの圧縮効率よりも利用可能な最高画質を優先します。</string>
     <string name="morphe_video_quality_prioritize_title">動画の画質を優先</string>
-    <string name="morphe_volume_boost_summary">最大音量を超えて上にスワイプすると音量がブーストされ、大音量のオーディオが歪む可能性があります</string>
+    <string name="morphe_volume_boost_summary">音量を最大にした状態でさらに上にスワイプすると、音量が増幅されます。大きな音では音が歪む可能性があります。</string>
     <string name="morphe_volume_boost_title">音量ブースト</string>
     <string name="morphe_vot_auto_translate_summary_off">現在の設定: 翻訳ボタンをタップすると、Google 翻訳が開始します。</string>
     <string name="morphe_vot_auto_translate_summary_on">現在の設定: 各動画で Google 翻訳が自動的に開始されます。</string>
@@ -444,10 +454,12 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_app_name_title">アプリ名</string>
     <string name="revanced_app_version_title">アプリバージョン</string>
     <string name="revanced_append_time_stamp_information_playback_speed_menu_type_title">再生速度メニューの種類</string>
-    <string name="revanced_append_time_stamp_information_summary_off">タイムスタンプの横に情報を表示します。\n\nタップして画質または再生速度を変更できます。長押しすると、表示する情報の種類を切り替えることができます。</string>
+    <string name="revanced_append_time_stamp_information_summary_off">タイムスタンプの横に情報を表示します。\n\n・タップすると画質または再生速度を変更できます。\n・ダブルタップすると経過時間と残り時間を切り替えることができます。\n・長押しすると表示する情報の種類を切り替えることができます。</string>
     <string name="revanced_append_time_stamp_information_summary_on">"タイムスタンプの横に情報を表示します。
 
-タップして画質または再生速度を変更できます。長押しすると、表示する情報の種類を切り替えることができます。"</string>
+・タップすると画質または再生速度を変更できます。
+・ダブルタップすると経過時間と残り時間を切り替えることができます。
+・長押しすると表示する情報の種類を切り替えることができます。"</string>
     <string name="revanced_append_time_stamp_information_title">タイムスタンプの横に情報を追加</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">現在の設定: 再生速度を表示します。</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">現在の設定: 画質を表示します。</string>
@@ -467,7 +479,7 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_bypass_image_region_restrictions_domain_summary">画像を取得するためのドメインです。\n注意: 「https://」のような接頭辞を付けずにドメイン名のみを入力してください。</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">代替ドメイン</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">画像表示の地域制限を回避するために yt4.ggpht.com から画像を取得します。</string>
-    <string name="revanced_bypass_image_region_restrictions_summary_on">画像表示の地域制限を回避するために、 yt4.ggpht.com から画像を取得します。</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">画像表示の地域制限を回避するために、yt4.ggpht.com から画像を取得します。</string>
     <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避</string>
     <string name="revanced_bypass_url_redirects_summary_off">URL リダイレクト (youtube.com/redirect) をバイパスします。</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL リダイレクト (youtube.com/redirect) をバイパスします。</string>
@@ -573,11 +585,11 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_custom_seekbar_color_invalid_toast">無効なシークバーの色です。</string>
     <string name="revanced_custom_seekbar_color_primary_summary">シークバーのメインカラーを 16 進数カラーコードで入力してください。</string>
     <string name="revanced_custom_seekbar_color_primary_title">シークバーのメインカラー</string>
-    <string name="revanced_debug_export_logs_to_clipboard_summary">Revanced Extended のデバッグログをクリップボードにコピーします。</string>
+    <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced Extended のデバッグログをクリップボードにコピーします。</string>
     <string name="revanced_debug_export_logs_to_clipboard_title">デバッグログをコピー</string>
-    <string name="revanced_debug_export_logs_to_file_summary">Revanced Extended のデバッグログをファイルにエクスポートします。</string>
+    <string name="revanced_debug_export_logs_to_file_summary">ReVanced Extended のデバッグログをファイルにエクスポートします。</string>
     <string name="revanced_debug_export_logs_to_file_title">デバッグログをエクスポート</string>
-    <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべての Revanced Extended のデバッグログを消去します。</string>
+    <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべての ReVanced Extended のデバッグログを消去します。</string>
     <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去</string>
     <string name="revanced_debug_logs_clear_toast">ログを消去しました。</string>
     <string name="revanced_debug_logs_copied_to_clipboard">ログをコピーしました。</string>
@@ -595,9 +607,9 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_debug_summary_off">デバッグログを有効にします。</string>
     <string name="revanced_debug_summary_on">デバッグログを有効にします。</string>
     <string name="revanced_debug_title">デバッグログを有効化</string>
-    <string name="revanced_debug_toast_on_error_summary_off">Revanced Extended でエラーが発生した際にトーストを表示します。</string>
-    <string name="revanced_debug_toast_on_error_summary_on">Revanced Extended でエラーが発生した際にトーストを表示します。</string>
-    <string name="revanced_debug_toast_on_error_title">Revanced Extended のエラー時にトーストを表示</string>
+    <string name="revanced_debug_toast_on_error_summary_off">ReVanced Extended でエラーが発生した際にトーストを表示します。</string>
+    <string name="revanced_debug_toast_on_error_summary_on">ReVanced Extended でエラーが発生した際にトーストを表示します。</string>
+    <string name="revanced_debug_toast_on_error_title">ReVanced Extended のエラー時にトーストを表示</string>
     <string name="revanced_default_app_settings_summary">外部ブラウザから ReVanced Extended を開くには、[デフォルトで開く] → [対応リンクを開く] → [対応リンクを開くことをアプリに許可する] を選択してください。</string>
     <string name="revanced_default_app_settings_title">「デフォルトで開く」の設定を開く</string>
     <string name="revanced_default_playback_audio_pitch_title">デフォルトの音声ピッチ</string>
@@ -786,7 +798,7 @@ API キーは決して共有しないでください。キーにアクセスで�
 
 [さらに表示] ボタンを長押しするとカスタムアクションダイアログが表示されます。"</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_title">ツールバーのカスタムアクションを有効化</string>
-    <string name="revanced_enable_shorts_time_stamp_summary_off">プレーヤーにタイムスタンプを表示します。\n\n注意\n:・これを有効にすると、アクションバーの下にスペースが残ります。\n・これは Google による開発段階の機能であるため、レイアウトが崩れる可能性があります。</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_off">プレーヤーにタイムスタンプを表示します。\n\n注意:\n・これを有効にすると、アクションバーの下にスペースが残ります。\n・これは Google による開発段階の機能であるため、レイアウトが崩れる可能性があります。</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"プレーヤーにタイムスタンプを表示します。
 
 注意:
@@ -893,11 +905,13 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_gemini_error_transcription_parse">文字起こしデータの解析に失敗しました。</string>
     <string name="revanced_gemini_error_translation_failed">Gemini 翻訳に失敗しました</string>
     <string name="revanced_gemini_error_translation_parse_failed">Gemini 翻訳の解析に失敗しました</string>
-    <string name="revanced_gemini_loading_default">読み込み中...</string>
-    <string name="revanced_gemini_loading_summarize">動画を要約中...</string>
-    <string name="revanced_gemini_loading_transcribe">動画の文字起こし中...</string>
-    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: 字幕を取得中...</string>
-    <string name="revanced_gemini_status_translating">Gemini で翻訳しています...\n\n⚠️ Gemini が指示を無視したり制限に達したりすると、この手順は失敗する可能性があります。</string>
+    <string name="revanced_gemini_highlight_words_summary">動画字幕で話されている単語を一つずつ強調表示します。</string>
+    <string name="revanced_gemini_highlight_words_title">話された単語を強調表示</string>
+    <string name="revanced_gemini_loading_default">読み込み中…</string>
+    <string name="revanced_gemini_loading_summarize">動画を要約中…</string>
+    <string name="revanced_gemini_loading_transcribe">動画の文字起こし中…</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: 字幕を取得中…</string>
+    <string name="revanced_gemini_status_translating">Gemini で翻訳しています…\n\n⚠️ Gemini が指示を無視したり制限に達したりすると、この手順は失敗する可能性があります。</string>
     <string name="revanced_gemini_summary_title">Gemini 動画要約</string>
     <string name="revanced_gemini_time_taken">(%d 秒かかりました)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">字幕を表示するには「他のアプリに重ねて表示」を有効にしてください</string>
@@ -952,7 +966,7 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_hide_autoplay_preview_summary_off">「次の動画」コンテナを非表示にします。</string>
     <string name="revanced_hide_autoplay_preview_summary_on">「次の動画」コンテナを非表示にします。</string>
     <string name="revanced_hide_autoplay_preview_title">自動再生プレビューコンテナを非表示</string>
-    <string name="revanced_hide_carousel_shelf_about_summary">以下の欄を非表示にします:&lt;br&gt;&lt;br&gt;&lt;b&gt;・あなたへのおすすめ&lt;br&gt;&lt;br&gt;&lt;b&gt;・関連が強い&lt;/b&gt;&lt;br&gt;&lt;b&gt;・ショッピング&lt;/b&gt;&lt;br&gt;&lt;b&gt;・続きを見る&lt;/b&gt;&lt;br&gt;&lt;b&gt;・ニュース速報&lt;/b&gt;&lt;br&gt;&lt;b&gt;・もう一度聴く&lt;/b&gt;&lt;br&gt;&lt;b&gt;・もう一度見る&lt;/b&gt;&lt;br&gt;&lt;b&gt;・他のチャンネルを探す&lt;/b&gt;</string>
+    <string name="revanced_hide_carousel_shelf_about_summary">以下の欄を非表示にします:&lt;br&gt;&lt;br&gt;&lt;b&gt;・あなたへのおすすめ&lt;/b&gt;&lt;br&gt;&lt;b&gt;・関連が強い&lt;/b&gt;&lt;br&gt;&lt;b&gt;・ショッピング&lt;/b&gt;&lt;br&gt;&lt;b&gt;・続きを見る&lt;/b&gt;&lt;br&gt;&lt;b&gt;・ニュース速報&lt;/b&gt;&lt;br&gt;&lt;b&gt;・もう一度聴く&lt;/b&gt;&lt;br&gt;&lt;b&gt;・もう一度見る&lt;/b&gt;&lt;br&gt;&lt;b&gt;・他のチャンネルを探す&lt;/b&gt;</string>
     <string name="revanced_hide_carousel_shelf_about_title">おすすめ欄について</string>
     <string name="revanced_hide_carousel_shelf_home_summary_off">ホームフィードと関連動画から非表示にします。</string>
     <string name="revanced_hide_carousel_shelf_home_summary_on">ホームフィードと関連動画から非表示にします。</string>
@@ -1201,7 +1215,7 @@ API キーは決して共有しないでください。キーにアクセスで�
 ・一部の UI コンポーネントは非表示にならない可能性があります。
 ・キーワードで検索しても、結果が表示されない可能性があります。"</string>
     <string name="revanced_hide_keyword_content_about_title">キーワードフィルタリングについて</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">キーワードやフレーズを二重引用符 (\" \") で囲むことで、動画のタイトルやチャンネル名の部分一致を防ぐことができます。&lt;br&gt;&lt;br&gt;例えば、&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; とすると、動画 &lt;b&gt;「AI はどのように機能するのか？」&lt;/b&gt;&lt;br&gt; は表示されなくなりますが、&lt;b&gt;「フェアユースとは何か？ (What does f“ai”r use mean?) 」&lt;/b&gt; は表示されます。</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">キーワードやフレーズを二重引用符 (\" \") で囲むことで、動画のタイトルやチャンネル名の部分一致を防ぐことができます。&lt;br&gt;&lt;br&gt;例えば、&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; とすると、動画 &lt;b&gt;「AI はどのように機能するのか？」&lt;/b&gt;&lt;br&gt; は表示されなくなりますが、&lt;b&gt;「フェアユースとは何か？(What does f“ai”r use mean?)」&lt;/b&gt; は表示されます。</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">単語全体を一致させる</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">キーワードでコメントをフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">キーワードでコメントをフィルタリングします。</string>
@@ -1435,7 +1449,7 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_hide_rewards_button_title">[特典] ボタンを非表示</string>
     <string name="revanced_hide_search_bar_back_button_summary_off">検索バーの [戻る] ボタンを非表示にします。</string>
     <string name="revanced_hide_search_bar_back_button_summary_on">検索バーの [戻る] ボタンを非表示にします。</string>
-    <string name="revanced_hide_search_bar_back_button_title">Hide search bar back button</string>
+    <string name="revanced_hide_search_bar_back_button_title">検索バーの [戻る] ボタンを非表示</string>
     <string name="revanced_hide_search_inside_this_video_section_summary_off">「動画内を検索」セクションを非表示にします。</string>
     <string name="revanced_hide_search_inside_this_video_section_summary_on">「動画内を検索」セクションを非表示にします。</string>
     <string name="revanced_hide_search_inside_this_video_section_title">「動画内を検索」セクションを非表示</string>
@@ -1766,7 +1780,7 @@ API キーは決して共有しないでください。キーにアクセスで�
     <string name="revanced_language_UR">Urdu\n<small>اردو</small></string>
     <string name="revanced_language_VI">Vietnamese\n<small>Tiếng Việt</small></string>
     <string name="revanced_language_ZH">Chinese\n<small>中文</small></string>
-    <string name="revanced_language_title">Revanced Extended 設定の言語</string>
+    <string name="revanced_language_title">ReVanced Extended 設定の言語</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_off">ミニプレーヤーを画面端に収納して最小化した際に再生を一時停止します。</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_summary_on">ミニプレーヤーを画面端に収納して最小化した際に再生を一時停止します。</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">横へのドラッグによる再生を無効化</string>
@@ -2115,8 +2129,8 @@ API キーを取得するには、ここをタップしてください。"</stri
     <string name="revanced_replace_time_stamp_action_summary_on">現在の設定: プレーヤー左下のタイムスタンプをタップすると、再生速度または画質のフライアウトメニューが開きます。</string>
     <string name="revanced_replace_time_stamp_action_title">タイムスタンプを置換</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"タップすると YouTube の設定が開きます。
-長押しすると Revanced Extended の設定が開きます。"</string>
-    <string name="revanced_replace_toolbar_create_button_type_summary_on">"タップすると Revanced Extended の設定が開きます。
+長押しすると ReVanced Extended の設定が開きます。"</string>
+    <string name="revanced_replace_toolbar_create_button_type_summary_on">"タップすると ReVanced Extended の設定が開きます。
 長押しすると YouTube の設定が開きます。"</string>
     <string name="revanced_replace_toolbar_create_button_type_title">ボタンに割り当てるアクションの種類</string>
     <string name="revanced_reset_to_default_toast">デフォルト値にリセットしました。</string>
@@ -2148,7 +2162,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Data API キーについて</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">YouTube Data API v3 を使用するための開発者キーです。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API キーを入力</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;新しいプロジェクトの作成画面&lt;/a&gt;に移動します。&lt;br&gt;2. [&lt;b&gt;作成&lt;/b&gt;] をタップします。&lt;br&gt;3. 「&lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;」に移動します。&lt;br&gt;4. [&lt;b&gt;有効にする&lt;/b&gt;] をタップします。&lt;br&gt;5. [&lt;b&gt;認証情報を作成&lt;/b&gt;] をタップします。&lt;br&gt;6. [&lt;b&gt;一般公開データ&lt;/b&gt;] オプションを選択します。&lt;br&gt;7. [&lt;b&gt;次へ&lt;/b&gt;] をタップします。&lt;br&gt;8.  API キーをコピーします。&lt;br&gt;&lt;br&gt;※API キーは他人と共有してはならないため、インポート/エクスポート設定には含まれません。</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;新しいプロジェクトの作成画面&lt;/a&gt;に移動します。&lt;br&gt;2. [&lt;b&gt;作成&lt;/b&gt;] をタップします。&lt;br&gt;3. 「&lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;」に移動します。&lt;br&gt;4. [&lt;b&gt;有効にする&lt;/b&gt;] をタップします。&lt;br&gt;5. [&lt;b&gt;認証情報を作成&lt;/b&gt;] をタップします。&lt;br&gt;6. [&lt;b&gt;一般公開データ&lt;/b&gt;] オプションを選択します。&lt;br&gt;7. [&lt;b&gt;次へ&lt;/b&gt;] をタップします。&lt;br&gt;8. API キーをコピーします。&lt;br&gt;&lt;br&gt;※API キーは他人と共有してはならないため、インポート/エクスポート設定には含まれません。</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 の開発者キーを発行</string>
     <string name="revanced_ryd_about">Return YouTube Dislike について</string>
     <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されています。詳細はここをタップしてください。</string>
@@ -2287,7 +2301,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_segments_outro">終了画面 / クレジット (アウトロ)</string>
     <string name="revanced_sb_segments_outro_sum">クレジットや動画の終了画面が表示されている場面です。情報を含む結論は含まれません。</string>
     <string name="revanced_sb_segments_preview">予告 / 要約</string>
-    <string name="revanced_sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画/シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。</string>
+    <string name="revanced_sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画/シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。 </string>
     <string name="revanced_sb_segments_selfpromo">無報酬の宣伝 / 自己宣伝</string>
     <string name="revanced_sb_segments_selfpromo_sum">無報酬のプロモーションあるいはセルフプロモーションであるという点を除いては「スポンサー」と同様です。商品、寄付、コラボした人に関する内容を含みます。</string>
     <string name="revanced_sb_segments_sponsor">スポンサー</string>
@@ -2872,7 +2886,7 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_whitelist_excluded">ホワイトリストに登録されていません</string>
     <string name="revanced_whitelist_failure_generic">チャンネル情報を読み込めませんでした。</string>
     <string name="revanced_whitelist_included">ホワイトリストに登録されました</string>
-    <string name="revanced_whitelist_reload_video">今すぐ動画を再読み込みしますか?</string>
+    <string name="revanced_whitelist_reload_video">今すぐ動画を再読み込みしますか？</string>
     <string name="revanced_whitelist_remove_dialog_message">チャンネル「%1$s」を %2$s ホワイトリストから削除しますか？</string>
     <string name="revanced_whitelist_remove_failed">%2$s のホワイトリストからチャンネル「%1$s」を削除できませんでした。</string>
     <string name="revanced_whitelist_removed">チャンネル「%1$s」を %2$s ホワイトリストから削除しました。</string>
@@ -2892,7 +2906,7 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_yandex_error_subs_stuck_processing">内部エラー: 字幕処理が停止しました</string>
     <string name="revanced_yandex_error_translation_failed">翻訳に失敗しました</string>
     <string name="revanced_yandex_error_unknown">不明なエラー</string>
-    <string name="revanced_yandex_status_processing_hour">残り 1 時間以上...</string>
+    <string name="revanced_yandex_status_processing_hour">残り 1 時間以上…</string>
     <string name="revanced_yandex_status_processing_minute">残り約 1 分…</string>
     <string name="revanced_yandex_status_processing_minutes_plural">残り %d 分…</string>
     <string name="revanced_yandex_status_processing_short">処理中…</string>
@@ -2900,7 +2914,7 @@ JavaScript クライアントの中では、「TV Simply」が推奨されます
     <string name="revanced_yandex_status_subs_found">字幕が見つかりました。取得中…</string>
     <string name="revanced_yandex_status_transcription_delayed">文字起こしが遅延しています</string>
     <string name="revanced_yandex_status_youtube_specific">YouTube のオーディオリクエストを処理しています…</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex はあらゆる言語の動画を文字起こしできますが、出力可能な言語は英語 (en)、ロシア語 (ru)、カザフ語 (kk) のみです。他の言語コードを入力するか「app」(アプリのデフォルト言語を意味します) と入力した場合、Gemini による翻訳がリクエストされます (API キーが必要です)。"</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex 字幕の対象言語は、ロシア語 (ru)、英語 (en)、カザフ語 (kk)、またはアプリの言語 ('app') です。その他のアプリ言語は、Gemini 翻訳を介して利用できます (APIキーが必要です)。"</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex 文字起こしの言語</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Gemini の代わりに Yandex の文字起こしを使用します。Yandex はより高速で信頼性が高く、API キーは不要です。</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex 文字起こし</string>
