@@ -2,6 +2,10 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Portions of this file are modified by anddea:
+ * Copyright (C) 2026 anddea
+ * https://github.com/anddea/revanced-patches
+ *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
  */
 
@@ -19,10 +23,12 @@ import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.cloneMutableAndPreserveParameters
 import app.morphe.util.getReference
 import app.morphe.util.findFreeRegister
+import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.numberOfParameterRegistersLogical
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.iface.Field
@@ -37,7 +43,7 @@ private var textComponentLookupConversionContextField : Field? = null
 private var textComponentLookupCharSequenceRegister = -1
 
 
-private lateinit var lithoSpannableStringCreationMethodRef : WeakReference<MutableMethod>
+private var lithoSpannableStringCreationMethodRef: WeakReference<MutableMethod>? = null
 private var lithoSpannableStringCreationInsertIndex = -1
 private var lithoSpannableStringCreationConversionContextRegister = -1
 private var lithoSpannableStringCreationConversionContextField : String = ""
@@ -78,16 +84,28 @@ internal val lithoSpannableStringPatch = bytecodePatch(
             // 21.05 clobbers p0 (this) register.
             // Add additional registers so all parameters including p0 are free to use anywhere in the method.
             it.method.cloneMutableAndPreserveParameters(it.classDef).apply {
-                // Find the instruction for creating the text data object.
-                val insertIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.NEW_INSTANCE &&
-                            getReference<TypeReference>()?.type == TextComponentDataFingerprint.originalClassDef.type
+                val setterIndex = indexOfFirstInstruction {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.returnType == "V" &&
+                            reference.parameterTypes == listOf("Ljava/lang/CharSequence;")
                 }
-                val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
-                    opcode == Opcode.IPUT_OBJECT &&
-                            getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
+                val insertIndex: Int
+                val charSequenceRegister: Int
+                if (setterIndex >= 0) {
+                    insertIndex = setterIndex
+                    charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                } else {
+                    insertIndex = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.NEW_INSTANCE &&
+                                getReference<TypeReference>()?.type == TextComponentDataFingerprint.originalClassDef.type
+                    }
+                    val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
+                        opcode == Opcode.IPUT_OBJECT &&
+                                getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
+                    }
+                    charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
                 }
-                val charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
                 val conversionContext = findFreeRegister(insertIndex, charSequenceRegister)
 
                 textComponentLookupMethodRef = WeakReference(this)
@@ -109,7 +127,9 @@ internal val lithoSpannableStringPatch = bytecodePatch(
             }
         }
 
-        LithoSpannableStringCreationFingerprint.let {
+        // Older versions only use the lookup path and have no separate Span creation hook.
+        lithoSpannableStringCreationMethodRef = null
+        LithoSpannableStringCreationFingerprint.matchOrNull()?.let {
             val conversionContextField = it.classDef.type +
                     "->" + textComponentConversionContextField.name +
                     ":" + textComponentConversionContextField.type
@@ -139,8 +159,8 @@ internal val lithoSpannableStringPatch = bytecodePatch(
             }
         }
 
-        // Hook new litho text creation code.
-        TextComponentFeatureFlagFingerprint.matchAll().forEach {
+        // Hook new Litho text creation when its feature flag exists.
+        TextComponentFeatureFlagFingerprint.matchAllOrNull().orEmpty().forEach {
             it.method.insertLiteralOverride(
                 it.instructionMatches.first().index,
                 "$EXTENSION_CLASS->useNewLithoTextCreation(Z)Z"
@@ -168,13 +188,15 @@ internal fun hookLithoSpannableString(
 
     textComponentLookupInsertIndex += 3
 
-    lithoSpannableStringCreationMethodRef.get()!!.addInstructions(
-        lithoSpannableStringCreationInsertIndex,
-        """
-            invoke-static { v$lithoSpannableStringCreationConversionContextRegister, v$lithoSpannableStringCreationCharSequenceRegister }, $classDescriptor->$methodName(${EXTENSION_CONTEXT_INTERFACE}Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-            move-result-object v$lithoSpannableStringCreationCharSequenceRegister
-        """
-    )
+    lithoSpannableStringCreationMethodRef?.get()?.apply {
+        addInstructions(
+            lithoSpannableStringCreationInsertIndex,
+            """
+                invoke-static { v$lithoSpannableStringCreationConversionContextRegister, v$lithoSpannableStringCreationCharSequenceRegister }, $classDescriptor->$methodName(${EXTENSION_CONTEXT_INTERFACE}Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                move-result-object v$lithoSpannableStringCreationCharSequenceRegister
+            """
+        )
 
-    lithoSpannableStringCreationInsertIndex += 2
+        lithoSpannableStringCreationInsertIndex += 2
+    }
 }
