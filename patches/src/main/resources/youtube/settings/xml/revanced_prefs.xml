@@ -450,6 +450,10 @@
         <!-- SETTINGS: RESTORE_ORIGINAL_TITLES
         <SwitchPreference android:title="@string/morphe_restore_original_titles_title" android:key="morphe_restore_original_titles" android:summary="@string/morphe_restore_original_titles_summary" />SETTINGS: RESTORE_ORIGINAL_TITLES -->
 
+        <!-- SETTINGS: FEED_VIDEO_ACTIONS
+        <SwitchPreference android:title="@string/morphe_feed_long_press_menu_title" android:key="morphe_feed_long_press_menu" android:summary="@string/morphe_feed_long_press_menu_summary" />
+        <SwitchPreference android:title="@string/morphe_feed_watch_later_button_title" android:key="morphe_feed_watch_later_button" android:summary="@string/morphe_feed_watch_later_button_summary" />SETTINGS: FEED_VIDEO_ACTIONS -->
+
     <!-- PREFERENCE_SCREEN: FEED
     </PreferenceScreen>PREFERENCE_SCREEN: FEED -->
 
@@ -1339,6 +1343,7 @@
                 <Preference android:title="Hide player flyout menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Overlay buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Feed video actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Copy text" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Picture-in-picture button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Player components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

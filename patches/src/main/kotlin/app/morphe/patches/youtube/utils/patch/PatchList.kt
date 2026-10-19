@@ -45,6 +45,11 @@ internal enum class PatchList(
         "Change start page",
         "Adds an option to set which page the app opens in instead of the homepage."
     ),
+    FEED_VIDEO_ACTIONS(
+        "Feed video actions",
+        "Adds a Watch later button to video thumbnails in feeds, " +
+                "and opens the video menu by tapping and holding anywhere on a video."
+    ),
     COPY_TEXT(
         "Copy text",
         "Adds options to copy the video title and comments by tapping and holding them."
