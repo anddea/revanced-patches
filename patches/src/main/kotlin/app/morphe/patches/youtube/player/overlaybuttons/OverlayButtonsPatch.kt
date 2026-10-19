@@ -167,7 +167,7 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
 
         // Mark the active loop segment on the seekbar.
         val seekbarOnDrawMethod = seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint)
-        val rectangleFieldMethod = rectangleFieldInvalidatorFingerprint.methodOrThrow(seekbarFingerprint)
+        val rectangleFieldMethod = rectangleFieldInvalidatorFingerprint.match(seekbarFingerprint.second.classDef).method
         val invalidateIndex = rectangleFieldMethod.indexOfFirstInstructionReversed {
             getReference<MethodReference>()?.name == "invalidate"
         }

@@ -55,6 +55,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.util.Range;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -81,6 +82,7 @@ import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerControlsVisibility;
 import app.morphe.extension.youtube.shared.PlayerType;
+import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.shared.VideoState;
 import app.morphe.extension.youtube.patches.overlaybutton.LoopSegmentButton;
@@ -172,7 +174,7 @@ public class SegmentPlaybackController {
     private static final List<SponsorSegment> hiddenSkipSegmentsForCurrentVideoTime = new ArrayList<>();
     /**
      * Current segments that have been auto skipped.
-     * If field is non null then the range will always contain the current video time.
+     * If field is non-null then the range will always contain the current video time.
      * Range is used to prevent auto-skipping after undo.
      * Android Range object has inclusive end time, unlike {@link SponsorSegment}.
      */
@@ -180,7 +182,7 @@ public class SegmentPlaybackController {
     private static Range<Long> undoAutoSkipRange;
     /**
      * Range to undo if the toast is tapped.
-     * Is always null or identical to the last non null value of {@link #undoAutoSkipRange}.
+     * Is always null or identical to the last non-null value of {@link #undoAutoSkipRange}.
      */
     @Nullable
     private static Range<Long> undoAutoSkipRangeToast;
@@ -305,6 +307,7 @@ public class SegmentPlaybackController {
      */
     public static void clearData() {
         videoId = "";
+        ShortsSponsorBlockController.clear();
         segments = null;
         highlightSegment = null;
         highlightSegmentInitialShowEndTime = 0;
@@ -352,10 +355,6 @@ public class SegmentPlaybackController {
             if (!Settings.SB_ENABLED.get()) {
                 return;
             }
-            if (PlayerType.getCurrent().isNoneOrHidden()) {
-                Logger.printDebug(() -> "Ignoring Short");
-                return;
-            }
             if (!Utils.isNetworkConnected()) {
                 Logger.printDebug(() -> "Network not connected, ignoring video");
                 return;
@@ -381,7 +380,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Id of the last video opened.  Includes Shorts.
+     * ID of the last video opened.  Includes Shorts.
      *
      * @return The id of the video, or an empty string if no videos have been opened yet.
      */
@@ -448,7 +447,7 @@ public class SegmentPlaybackController {
     public static void setVideoTime(long millis) {
         try {
             if (!Settings.SB_ENABLED.get()
-                    || PlayerType.getCurrent().isNoneOrHidden() // Shorts playback.
+                    || (PlayerType.getCurrent().isNoneOrHidden() && !RootView.isShortsActive())
                     || segments == null || segments.length == 0
                     || isAdProgressTextVisible()
                     || LoopSegmentButton.isSegmentActive()) {
@@ -465,7 +464,7 @@ public class SegmentPlaybackController {
             // Amount of time to look ahead for the next segment,
             // and the threshold to determine if a scheduled show/hide is at the correct video time when it's run.
             //
-            // This value must be greater than largest time between calls to this method (1000ms),
+            // This value must be greater than the largest time between calls to this method (1000ms),
             // and must be adjusted for the video speed.
             //
             // To debug the stale skip logic, set this to a very large value (5000 or more)
@@ -532,7 +531,7 @@ public class SegmentPlaybackController {
 
                     // Only schedule, if the segment start time is not near the end time of the current segment.
                     // This check is needed to prevent scheduled hide and show from clashing with each other.
-                    // Instead the upcoming segment will be handled when the current segment scheduled hide calls back into this method.
+                    // Instead, the upcoming segment will be handled when the current segment scheduled hide calls back into this method.
                     final long minTimeBetweenStartEndOfSegments = 1000;
                     if (foundSegmentCurrentlyPlaying == null
                             || !foundSegmentCurrentlyPlaying.endIsNear(segment.start, minTimeBetweenStartEndOfSegments)) {
@@ -657,7 +656,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Removes all previously hidden segments that are not longer contained in the given video time.
+     * Removes all previously hidden segments that are no longer contained in the given video time.
      */
     private static void updateHiddenSegments(long currentVideoTime) {
         // If you want to maintain compatibility with RVX Android 6, use Iterator.
@@ -780,7 +779,8 @@ public class SegmentPlaybackController {
 
     private static void skipSegment(SponsorSegment segmentToSkip, boolean userManuallySkipped) {
         try {
-            if (LoopSegmentButton.isSegmentActive()) {
+            if (LoopSegmentButton.isSegmentActive()
+                    || (RootView.isShortsActive() && !ShortsSponsorBlockController.canSeek())) {
                 return;
             }
             SponsorBlockViewController.hideSkipHighlightButton();
@@ -823,7 +823,7 @@ public class SegmentPlaybackController {
             undoAutoSkipRangeToast = undoAutoSkipRange;
 
             // If the seek is successful, then the seek causes a recursive call back into this class.
-            final boolean seekSuccessful = VideoInformation.seekTo(segmentToSkip.end, getVideoLength());
+            final boolean seekSuccessful = seekTo(segmentToSkip.end);
             if (!seekSuccessful) {
                 // Can happen when switching videos and is normal.
                 Logger.printDebug(() -> "Could not skip segment (seek unsuccessful): " + segmentToSkip);
@@ -891,7 +891,7 @@ public class SegmentPlaybackController {
         Utils.runOnMainThreadDelayed(() -> {
             try {
                 // Do not show a toast if the user is scrubbing thru a paused video.
-                // Cannot do this video state check in setTime or before calling this this method,
+                // Cannot do this video state check in setTime or before calling this method,
                 // as the video state may not be up to date. So instead, only ignore the toast
                 // just before it's about to show since the video state is up to date.
                 if (VideoState.getCurrent() == VideoState.PAUSED) {
@@ -925,7 +925,9 @@ public class SegmentPlaybackController {
         Objects.requireNonNull(messageToToast);
         Utils.verifyOnMainThread();
 
-        Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
+        Context currentContext = RootView.isShortsActive()
+                ? ShortsSponsorBlockController.getPlayerContext()
+                : SponsorBlockViewController.getOverLaysViewGroupContext();
         if (currentContext == null) {
             // The player overlay is not initialized for feed autoplay.
             return;
@@ -991,7 +993,7 @@ public class SegmentPlaybackController {
                 Logger.printDebug(() -> "Undoing autoskip using range: " + rangeToUndo);
                 // Restore undo autoskip range since it's already cleared by now.
                 undoAutoSkipRange = rangeToUndo;
-                VideoInformation.seekTo(rangeToUndo.getLower());
+                seekTo(rangeToUndo.getLower());
 
                 mainLayout.startAnimation(fadeOut);
             } catch (Exception ex) {
@@ -1147,6 +1149,13 @@ public class SegmentPlaybackController {
         }
     }
 
+    /** Shorts must seek through their active timebar instead of a preloaded player controller. */
+    private static boolean seekTo(long time) {
+        return RootView.isShortsActive()
+                ? ShortsSponsorBlockController.seekTo(time)
+                : VideoInformation.seekTo(time, getVideoLength());
+    }
+
     /**
      * Injection point.
      */
@@ -1154,6 +1163,7 @@ public class SegmentPlaybackController {
         try {
             final long videoLength = getVideoLength();
             if (!Settings.SB_ENABLED.get()
+                    || RootView.isShortsActive()
                     || segments == null
                     || videoLength <= 0
                     || isAdProgressTextVisible()) {
@@ -1163,21 +1173,33 @@ public class SegmentPlaybackController {
             final int thicknessDiv2 = sponsorBarThickness / 2; // rounds down
             final float top = posY - (sponsorBarThickness - thicknessDiv2);
             final float bottom = posY + thicknessDiv2;
-            final float videoMillisecondsToPixels = (1f / videoLength) * (sponsorAbsoluteBarRight - sponsorBarAbsoluteLeft);
-            final float leftPadding = sponsorBarAbsoluteLeft;
-
-            for (SponsorSegment segment : segments) {
-                final float left = leftPadding + segment.start * videoMillisecondsToPixels;
-                final float right;
-                if (segment.category == SegmentCategory.HIGHLIGHT) {
-                    right = left + HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH;
-                } else {
-                    right = leftPadding + segment.end * videoMillisecondsToPixels;
-                }
-                canvas.drawRect(left, top, right, bottom, segment.category.paint);
-            }
+            drawTimeBars(canvas, sponsorBarAbsoluteLeft, top, sponsorAbsoluteBarRight, bottom, videoLength);
         } catch (Exception ex) {
             Logger.printException(() -> "drawSponsorTimeBars failure", ex);
+        }
+    }
+
+    /** Draws Shorts even when YouTube suppresses the thumb or uses a custom playhead bitmap. */
+    public static void drawShortsTimeBars(View view, Canvas canvas, Rect bar) {
+        long duration = getVideoLength();
+        if (!ShortsSponsorBlockController.isCurrentSeekbar(view)
+                || !Settings.SB_ENABLED.get() || segments == null
+                || duration <= 0 || bar.isEmpty() || isAdProgressTextVisible()) {
+            return;
+        }
+        drawTimeBars(canvas, bar.left, bar.top, bar.right, bar.bottom, duration);
+    }
+
+    private static void drawTimeBars(Canvas canvas, float leftPadding, float top,
+                                     float barRight, float bottom, long duration) {
+        final float videoMillisecondsToPixels = (barRight - leftPadding) / duration;
+        assert segments != null;
+        for (SponsorSegment segment : segments) {
+            final float left = leftPadding + segment.start * videoMillisecondsToPixels;
+            final float right = segment.category == SegmentCategory.HIGHLIGHT
+                    ? left + HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH
+                    : leftPadding + segment.end * videoMillisecondsToPixels;
+            canvas.drawRect(Math.max(leftPadding, left), top, Math.min(barRight, right), bottom, segment.category.paint);
         }
     }
 }
