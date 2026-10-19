@@ -1,6 +1,6 @@
 /*
  * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * https://github.com/MorpheApp/morphe-patches/pull/1685
  *
  * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
  */
@@ -124,7 +124,9 @@ final class TtsEngine {
 
         Utils.runOnBackgroundThread(() -> {
             try {
-                byte[] data = prefetch(text, voiceId, lang);
+                byte[] cached = TtsCache.getPreview(voiceId, lang, text);
+                byte[] data = cached != null ? cached : prefetch(text, voiceId, lang);
+                if (cached == null && data.length > 0) TtsCache.putPreview(voiceId, lang, text, data);
                 Utils.runOnMainThread(() -> {
                     if (data.length > 0 && !stopped && id == playbackId) {
                         play(data, volume, VideoInformation.getPlaybackSpeed(), 0, id, false, onDone);
@@ -538,6 +540,7 @@ final class TtsEngine {
                     // Collect audio frames until the server signals turn.end.
                     ByteArrayOutputStream audioOut = new ByteArrayOutputStream();
                     collectAudio(persistentIn, audioOut);
+                    if (audioOut.size() == 0) throw new IOException("Edge TTS returned no audio");
 
                     lastSynthesisEndMs = System.currentTimeMillis();
                     return audioOut.toByteArray();
@@ -638,8 +641,9 @@ final class TtsEngine {
         StringBuilder sb = new StringBuilder(1024);
         for (int b; (b = in.read()) != -1; ) {
             sb.append((char) b);
+            if (sb.length() > 16_384) throw new IOException("WebSocket upgrade headers too large");
             if (sb.length() >= 4 && "\r\n\r\n".contentEquals(sb.subSequence(sb.length() - 4, sb.length()))) {
-                if (!sb.toString().contains("101")) {
+                if (!sb.toString().startsWith("HTTP/1.1 101 ")) {
                     throw new IOException("WebSocket upgrade failed: " + sb.substring(0, Math.min(sb.length(), 120)));
                 }
                 return;
@@ -698,16 +702,17 @@ final class TtsEngine {
                 readFully(in, maskBytes);
             }
 
+            if (payloadLen > 8L * 1024 * 1024) throw new IOException("WebSocket frame too large");
             byte[] payload = new byte[(int) payloadLen];
             readFully(in, payload);
             if (masked) {
                 for (int i = 0; i < payload.length; i++) payload[i] ^= maskBytes[i % 4];
             }
 
-            if (opcode == 0x8) break; // close frame
+            if (opcode == 0x8) throw new IOException("Edge TTS closed before turn.end");
 
             if (opcode == 0x1) { // text frame
-                if (new String(payload, StandardCharsets.UTF_8).contains("Path:turn.end")) break;
+                if (new String(payload, StandardCharsets.UTF_8).contains("Path:turn.end")) return;
             } else if (opcode == 0x2 && payload.length > 2) { // binary audio frame
                 // First 2 bytes encode the header length; audio data starts after the header.
                 int headerLen  = ((payload[0] & 0xFF) << 8) | (payload[1] & 0xFF);
@@ -718,6 +723,7 @@ final class TtsEngine {
             }
             // opcode 0x0 (continuation), 0x9 (ping), 0xA (pong) - ignored
         }
+        throw new IOException("Edge TTS socket ended before turn.end");
     }
 
     private void readFully(InputStream in, byte[] buf) throws IOException {

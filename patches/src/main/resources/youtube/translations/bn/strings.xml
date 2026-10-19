@@ -4,22 +4,22 @@
     <string name="accessibility_settings_edu_opt_out_text">একটি অ্যাক্সেসিবিলিটি সেবা চালু থাকায় আপনার নিয়ন্ত্রণগুলি পরিবর্তিত হয়েছে।</string>
     <string name="gms_core_dialog_continue_text">এগিয়ে যান</string>
     <string name="gms_core_dialog_dismiss_text">এইটি আর দেখাবেন না।</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG-এর পটভূমিতে চালানোর অনুমতি নেই।
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"পটভূমিতে চলার জন্য MicroG-এর অনুমতি নেই।
 
-আপনার ফোনের জন্য \"Don't kill my app\" গাইড অনুসরণ করুন এবং MicroG ইনস্টলেশনের জন্য নির্দেশাবলী প্রয়োগ করুন।
+আপনার ফোনের জন্য \"Don't kill my app\" গাইড অনুসরণ করুন এবং নির্দেশাবলী আপনার MicroG ইনস্টলেশনে প্রয়োগ করুন।
 
-এটি অ্যাপ্লিকেশনটি কাজ করার জন্য প্রয়োজন।"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore-এর ব্যাটারি অপ্টিমাইজেশন অক্ষম করতে হবে।
+অ্যাপ্লিকেশনটি কাজ করার জন্য এটি প্রয়োজন।"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"সমস্যা এড়াতে MicroG-এর ব্যাটারি অপ্টিমাইজেশন বন্ধ থাকতে হবে।
 
-MicroG-এর জন্য ব্যাটারি অপ্টিমাইজেন অক্ষম করা ব্যাটারি ব্যবহারকে নেতিবাচকভាឱে প্রভাবিত করবে না।
+MicroG-এর জন্য ব্যাটারি অপ্টিমাইজেশন বন্ধ করলে ব্যাটারির ব্যবহারে নেতিবাচক প্রভাব পড়বে না।
 
-চালিয়ে যান বোতামটি ট্যাপ করুন এবং অপ্টিমাইজেশন পরিবর্তনগুলি অনুমোদন করুন।"</string>
+চালিয়ে যান বোতামে ট্যাপ করুন এবং অপ্টিমাইজেশন পরিবর্তনের অনুমতি দিন।"</string>
     <string name="gms_core_dialog_open_website_text">ওয়েবসাইট খুলুন</string>
     <string name="gms_core_dialog_title">পদক্ষেপ প্রয়োজন</string>
     <string name="gms_core_offline_account_login_error">আপনি যদি সম্প্রতি আপনার অ্যাকাউন্টের লগইন তথ্য পরিবর্তন করে থাকেন, তবে GmsCore আনইনস্টল করে পুনরায় ইনস্টল করুন।</string>
     <string name="gms_core_settings_summary">RVX-এ নোটিফিকেশন পেতে, ক্লাউড মেসেজিং সক্ষম করুন।</string>
     <string name="gms_core_settings_title">GmsCore সেটিংস খুলুন।</string>
-    <string name="gms_core_toast_not_installed_message">MicroG គয় ইনস্টল না। ইনস্টল করুন।</string>
+    <string name="gms_core_toast_not_installed_message">MicroG ইনস্টল করা নেই। এটি ইনস্টল করুন।</string>
     <string name="morphe_ads_channel_whitelist_title">চ্যানেল বিজ্ঞাপন সাদা তালিকা</string>
     <string name="morphe_aislist_submit_already_blocklisted">এই চ্যানেলটি ইতিমধ্যে AiSList ব্লকলিস্টে রয়েছে</string>
     <string name="morphe_aislist_submit_already_warnlisted">এই চ্যানেলটি ইতিমধ্যে AiSList ওয়ার্নলিস্টে রয়েছে</string>
@@ -58,6 +58,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_auto_pause_on_screen_lock_always">লক থাকলে সর্বদা বিরতি</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">ওয়্যারলেস অডিও সংযুক্ত না থাকলে বিরতি</string>
     <string name="morphe_auto_pause_on_screen_lock_title">ডিভাইস লক থাকলে স্বয়ংক্রিয়ভাবে বিরতি</string>
+    <string name="morphe_auto_translate_additional_languages_summary">অটো-অনুবাদ মেনুতে আরও বেশি ভাষা যোগ করে</string>
+    <string name="morphe_auto_translate_additional_languages_title">অতিরিক্য অটো-অনুবাদ ভাষা যোগ করুন</string>
     <string name="morphe_copy_comments_success">মন্তব্য ক্লিপবোর্ডে কপি করা হয়েছে</string>
     <string name="morphe_copy_comments_summary">একটি মন্তব্য কপি করতে ট্যাপ করে ধরে রাখুন</string>
     <string name="morphe_copy_comments_title">মন্তব্য কপি করুন</string>
@@ -98,6 +100,10 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_explore_menu_screen_summary">অন্বেষণ মেনুতে কোন উপাদানগুলো দেখাতে চান তা নির্বাচন করুন</string>
     <string name="morphe_explore_menu_screen_title">মেনু অন্বেষণ করুন</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">যদি এটি কাজ না করে, তাহলে MicroG জোর করে বন্ধ করার চেষ্টা করুন।</string>
+    <string name="morphe_feed_long_press_menu_summary">ফিডের যেকোনো ভিডিওতে ট্যাপ করে ধরে রাখলে এর মেনুটি খুলে যায়</string>
+    <string name="morphe_feed_long_press_menu_title">ভিডিও মেনু খুলতে ট্যাপ করুন এবং ধরে রাখুন</string>
+    <string name="morphe_feed_watch_later_button_summary">ফিড ভিডিওর থাম্বনেইলগুলিতে একটি \'পরে দেখুন\' বাটন দেখানো হয়। এটি ট্যাপ করে ধরে রাখলে প্লেলিস্টে সংরক্ষণ করা হয়</string>
+    <string name="morphe_feed_watch_later_button_title">থাম্বনেইলগুলিতে \'পরে দেখুন\' বাটন দেখান</string>
     <string name="morphe_force_original_audio_not_available">এই বৈশিষ্ট্যটি ব্যবহার করতে, \'ভিডিও স্ট্রিম স্পুফ করুন\' \'Android Studio\' এবং \'Android VR Downgraded\' ছাড়া অন্য কোনো ক্লায়েন্টে পরিবর্তন করুন</string>
     <string name="morphe_force_original_audio_summary_off">ডিফল্ট অডিও ব্যবহার করছে</string>
     <string name="morphe_force_original_audio_summary_on">মূল অডিও ভাষা ব্যবহার করা হচ্ছে</string>
@@ -181,7 +187,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_oauth2_connection_failure_auth_error">VR এ প্রবেশ করতে ব্যর্থ হয়েছে: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">ভিআরতে সাইন ইন করতে পারছেন না, ওয়েবসাইট অথেন্টিকেশন অনুমোদিত হয়নি</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 সাময়িকভাবে উপলব্ধ নয়</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 সাময়িকভাবে উপলব্ধ নয় (অবস্থা %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 সাময়িকভাবে উপলভ্য নয় (অবস্থা %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">আন্ড্রয়েড ভিআর সাইন ইন মেয়াদোত্তীর্ণ, ভিআরতে পুনরায় সাইন ইন করার চেষ্টা করুন</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 সাময়িকভাবে উপলব্ধ নয় (API সময় শেষ হয়েছে)</string>
     <string name="morphe_oauth2_toast_invalid">VR প্রবেশের জন্য অকার্যকর টোকেন, আবার VR এ প্রবেশ করুন</string>
@@ -204,7 +210,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_playback_in_feeds_title">ফিডে প্লেব্যাক</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">প্লেয়ার কন্ট্রোল বাটন এবং টাইম বারের পিছনের ব্যাকগ্রাউন্ডের অস্বচ্ছতা সামঞ্জস্য করুন (0 অদৃশ্য, 100 অস্বচ্ছ)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">কন্ট্রোল বাটনের পটভূমির অস্বচ্ছতা</string>
-    <string name="morphe_preferred_caption_language_entry_off">বন্ধ</string>
     <string name="morphe_preferred_caption_language_summary">প্রথমে প্রদানকারীর সাবটাইটেল নির্বাচন করে, তারপর স্বয়ংক্রিয়ভাবে পছন্দের ভাষায় অনুবাদ করে</string>
     <string name="morphe_preferred_caption_language_title">পছন্দের ক্যাপশন ভাষা</string>
     <string name="morphe_queue_manager_check_failed_auth">লগইন করা হয়নি</string>
@@ -269,9 +274,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
 
 প্লেব্যাক আটকে যেতে পারে বা ফ্রেম বাদ দিতে পারে"</string>
     <string name="morphe_spoof_video_streams_av1_title">\'Android VR\' / visionOS AV1 অনুমতি দিন</string>
-    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"এই সেটিংটি চালু করলে সফটওয়্যার AV1 ডিকোডিং ব্যবহার হতে পারে।
+    <string name="morphe_spoof_video_streams_av1_user_dialog_message">"এই সেটিংটি চালু করলে সফটওয়্যার AV1 ডিকোডিং ব্যবহার হতে পারে।
 
-AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে পারে বা ফ্রেম বাদ দিতে পারে।"</string>
+AV1 দিয়ে ভিডিও প্লেব্যেকে বিড়বিড় করা বা ফ্রেম বাদ দেওয়া হতে পারে"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s পরপর বেশ কয়েকবার কাজ করেনি, কিন্তু %2$s কাজ করেছে।
 
 %2$s-কে ডিফল্ট ক্লায়েন্ট বানাবেন?"</string>
@@ -315,7 +320,7 @@ AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে
     <string name="morphe_spoof_video_streams_summary_on">"ভিডিও স্ট্রিম স্পুফ করা হয়েছে
 
 আপনি যদি YouTube Premium ব্যবহারকারী হন, তাহলে এই সেটিংটির প্রয়োজন নাও হতে পারে"</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">এই সেটিং বন্ধ করলে প্লেব্যাক সমস্যা হতে পারে।</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">এই সেটিং বন্ধ করলে প্লেব্যাক সমস্যা হতে পারে</string>
     <string name="morphe_swap_save_and_queue_actions_summary">কিউ অপশনের জন্য ট্যাপ করুন, ওয়াচ লেটারে সংরক্ষণ করতে ট্যাপ করে ধরে রাখুন</string>
     <string name="morphe_swap_save_and_queue_actions_title">সেভ এবং কিউ অ্যাকশনগুলির স্থান পরিবর্তন করুন</string>
     <string name="morphe_tablet_layout_in_player_summary">"পুরানো প্লেয়ার লেআউট ফিরিয়ে আনুন
@@ -350,7 +355,7 @@ AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে
 MyMemory.translated.net ওপেন করতে এখানে চাপুন"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">আজকের ফ্রি MyMemory অনুবাদ কোটা (৫,০০০ ক্যারেক্টার) শেষ হয়েছে। দৈনিক সীমা ৫০,০০০ ক্যারেক্টার করতে সেটিংসে একটি MyMemory ইমেইল যোগ করুন, অথবা অন্য কোনো অনুবাদ সার্ভিস বেছে নিন</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">আজকের MyMemory অনুবাদ কোটা (৫০,০০০ ক্যারেক্টার) শেষ হয়েছে। অন্য কোনো অনুবাদ সার্ভিস বেছে নিন অথবা আগামীকাল আবার চেষ্টা করুন</string>
-    <string name="morphe_vot_mymemory_quota_next_available">পরবর্তী সুযোগ %s-এ উপলব্ধ।</string>
+    <string name="morphe_vot_mymemory_quota_next_available">%s সময় পরবর্তীতে পাওয়া যাবে</string>
     <string name="morphe_vot_mymemory_quota_title">MyMemory দৈনিক সীমা শেষ</string>
     <string name="morphe_vot_openrouter_api_key_summary">আপনার OpenRouter API কী। একটি কী তৈরি করতে ওপেন করুন: OpenRouter.ai &gt; Workspace &gt; API Keys</string>
     <string name="morphe_vot_openrouter_api_key_title">OpenRouter API কী</string>
@@ -523,17 +528,17 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_disable_layout_updates_summary_off">সার্ভার লেআউট আপডেট করবে</string>
     <string name="revanced_disable_layout_updates_summary_on">সার্ভার লেআউট আপডেট করবে না</string>
     <string name="revanced_disable_layout_updates_title">লেআউট আপডেট বন্ধ করুন</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"অ্যাপের লেআউট প্রথম ইনস্টল করার সময় ব্যবহৃত লেআউটে ফিরে যায়।
+    <string name="revanced_disable_layout_updates_user_dialog_message">"অ্যাপ লেআউট প্রথম ইনস্টল করার সময় ব্যবহৃত লেআউটে ফিরে আসে।
 
-কিছু সার্ভার-সাইড লেআউট ফিরে না যেতে পারে।
+কিছু সার্ভার-সাইড লেআউট ফিরে আসতে পারে না।
 
-পরিবর্তনগুলি:
-• প্লেয়ার ফ্লাইআউট মেনু (অথবা সম্পর্কিত সেটিংস) এর কম্পোনেন্টগুলি কাজ করতে পারে না।
-• রোলিং নম্বরগুলি অ্যানিমেটেড নয়।
-• লাইব্রেরি ট্যাব দেখানো হয়।
-• ভিডিও বর্ণনায় মিউজিক সেকশন কাজ করতে পারে না।
-• প্লেয়ার ফ্লাইআউট মেনু আইটেমগুলি লুকানো যায় না।
-• লাইব্রেরি ট্যাবে অ্যাকাউন্ট চেঞ্জ বাটন দেখা যায় না।"</string>
+পরিবর্তনগুলির মধ্যে:
+• প্লেয়ার ফ্লাইআউট মেনু (অথবা সংশ্লিষ্ট সেটিংস)-এ কম্পোনেন্ট কাজ নাও করতে পারে
+• গড়া সংখ্যাগুলি অ্যানিমেটেড নয়
+• লাইব্রেরি ট্যাব দেখানো হয়
+• ভিডিও বর্ণনাতে সঙ্গীত বিভাগ কাজ নাও করতে পারে
+• প্লেয়ার ফ্লাইআউট মেনু আইটেম লুকানো যায় না
+• অ্যাকাউন্ট সুইচ বোতাম লাইব্রেরি ট্যাবে নাও হতে পারে"</string>
     <string name="revanced_disable_playlist_autoplay_title">প্লেলিস্ট অটোপ্লে নিষ্ক্রিয় করুন</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে না</string>
@@ -553,7 +558,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_exit_fullscreen_title">ভিডিও শেষ হওয়ার পরে ফুলস্ক্রিন মোড থেকে বের হন</string>
     <string name="revanced_external_downloader_empty_warning">প্যাকেজের নাম খালি রাখা যাবে না</string>
     <string name="revanced_external_downloader_not_found_title">অ্যাপটি ইনস্টল করা নেই</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s ইনস্টল করা নেই। অনুগ্রহ করে এটি ইনস্টল করুন।</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s ইনস্টল করা নেই। অনুগ্রহ করে এটি ইনস্টল করুন</string>
     <string name="revanced_external_downloader_other_item">অন্যান্য</string>
     <string name="revanced_external_downloader_other_item_hint">প্যাকেজের নাম লিখুন</string>
     <string name="revanced_external_downloader_package_not_found_warning">"প্যাকেজ নামের সাথে ইনস্টল করা অ্যাপ খুঁজে পাওয়া যায়নি: %s
@@ -894,7 +899,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_hide_youtube_doodles_summary_off">লোগোতে YouTube Doodles অ্যানিমেশন দেখানো হয়</string>
     <string name="revanced_hide_youtube_doodles_summary_on">লোগোতে YouTube Doodles অ্যানিমেশন লুকানো আছে</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodles छिपाएँ</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">YouTube ডूडল দেখা কাস্টম হেডারগুলি দেখানো থেকে আটকাতে পারে।</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">YouTube Doodles দেখানো হতে পারে কাস্টম শিরোনাম প্রদর্শন করতে বাধা দেয়</string>
     <string name="revanced_language_DEFAULT">অ্যাপ্লিকেশনের ভাষা</string>
     <string name="revanced_language_title">RVX ভাষা</string>
     <string name="revanced_miniplayer_disable_horizontal_drag_playback_title">অনুভূমিকভাবে টেনে প্লেব্যাক থামান</string>
@@ -997,7 +1002,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_ryd_estimated_like_summary_on">পছন্দগুলি অক্ষম করা ভিডিওগুলি একটি আনুমানিক পছন্দের সংখ্যা দেখায়</string>
     <string name="revanced_ryd_estimated_like_title">অনুমানিত লাইক দেখান</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">অপছন্দগুলি উপলব্ধ নেই (ক্লায়েন্ট API সীমা)</string>
-    <string name="revanced_ryd_failure_connection_status_code">অপছন্দ উপলভ্য নয় (অবস্থা %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">অপছন্দ উপলভ্য নয় (অবস্থা %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">অপছন্দ সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
     <string name="revanced_ryd_failure_generic">অপছন্দ উপলভ্য নয় (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে না</string>
@@ -1078,7 +1083,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
 (%3$s)
 জমা দিতে প্রস্তুত।"</string>
     <string name="revanced_sb_new_segment_confirm_title">সময়কাল কি সঠিক?</string>
-    <string name="revanced_sb_new_segment_disabled_category">সেটিং থেকে বিভাগ নিস্ক্রিয় করা হয়েছে। জমা দিতে বিভাগ সক্রিয় করুন।</string>
+    <string name="revanced_sb_new_segment_disabled_category">ক্যাটাগরি সেটিংসে নিষ্ক্রিয় রয়েছে। জমা দিতে ক্যাটাগরি সক্রিয় করুন</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">আপনি কি সেগমেন্টের শুরু বা শেষের সময় সম্পাদনা করতে চান?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">ভুল সময় দেয়া হয়েছে</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">সেগমেন্টের সময় ম্যানুয়ালি সম্পাদনা করুন</string>
@@ -1160,7 +1165,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_sb_skipped_sponsor">স্পন্সর এড়িয়ে গেছে</string>
     <string name="revanced_sb_skipped_unsubmitted">জমা না হওয়া সেগমেন্ট এড়িয়ে গেছে</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock সাময়িকভাবে উপলভ্য নয়</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock সাময়িকভাবে উপলভ্য নয় (অবস্থা %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock সাময়িকভাবে উপলভ্য নয় (অবস্থা %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
     <string name="revanced_sb_square_layout">বর্গাকার লেআউট ব্যবহার করুন</string>
     <string name="revanced_sb_square_layout_sum_off">বোতাম এবং নিয়ন্ত্রণগুলি গোলাকার</string>
@@ -1182,7 +1187,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_sb_stats_submissions_sum">আপনার সেগমেন্ট দেখতে এখানে ট্যাপ করুন</string>
     <string name="revanced_sb_stats_username">আপনার ব্যবহারকারী নাম: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">আপনার ব্যবহারকারী নাম পরিবর্তন করতে ট্যাপ করুন</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">ব্যবহারকারীর নাম পরিবর্তন সফল হয়নি: অবস্থা: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">ব্যবহারকারীর নাম পরিবর্তন সফল হয়নি: অবস্থা: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">ব্যবহারকারীর নাম সফলভাবে পরিবর্তন হয়েছে</string>
     <string name="revanced_sb_submit_failed_duplicate">"সেগমেন্ট জমা দিতে পারছি না।
 পূর্বেই বিদ্যমান"</string>
@@ -1190,7 +1195,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_sb_submit_failed_invalid">%s সেগমেন্ট জমা দিতে সক্ষম হয়নি</string>
     <string name="revanced_sb_submit_failed_rate_limit">সেগমেন্ট জমা দিতে পারছি না। হার সীমাবদ্ধ (একই ব্যবহারকারী বা IP থেকে খুব বেশি)।</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock সাময়িকভাবে বন্ধ আছে</string>
-    <string name="revanced_sb_submit_failed_unknown_error">সেগমেন্ট জমা দিতে সক্ষম হয়নি (অবস্থা: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">সেগমেন্ট জমা দিতে সক্ষম হয়নি (অবস্থা: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">সেগমেন্ট সফলভাবে জমা হয়েছে</string>
     <string name="revanced_sb_toast_on_connection_error">সংযোগ ত্রুটি সতর্কতা দেখান</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock উপলভ্য না হলে টোস্ট দেখানো হয় না</string>
@@ -1201,7 +1206,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_sb_vote_downvote">ডাউন ভোট</string>
     <string name="revanced_sb_vote_failed_forbidden">সেগমেন্টের জন্য ভোট দেয়া সম্ভব নয়: %s</string>
     <string name="revanced_sb_vote_failed_timeout">সেগমেন্ট এর জন্য ভোট করা সম্ভব হয়নি (API সময় শেষ)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">সেগমেন্টের জন্য ভোট সম্ভব নয় (অবস্থা: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">সেগমেন্টের জন্য ভোট সম্ভব নয় (অবস্থা: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">ভোট দেয়ার জন্য আর কোন সেগমেন্ট নেই</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s থেকে %2$s</string>
     <string name="revanced_sb_vote_upvote">আপ ভোট</string>
@@ -1212,7 +1217,7 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_settings_import">আমদানি করুন</string>
     <string name="revanced_settings_import_copy">অনুলিপি করুন</string>
     <string name="revanced_settings_import_reset">RVX সেটিং ডিফল্ট সেট করা হয়েছে</string>
-    <string name="revanced_settings_import_success">%d সেটিং আমদানি হয়েছে</string>
+    <string name="revanced_settings_import_success">%s সেটিং আমদানি হয়েছে</string>
     <string name="revanced_settings_navigate_up">উপরে নেভিগেট করুন</string>
     <string name="revanced_settings_reset">আবার সেট করুন</string>
     <string name="revanced_settings_reset_color">রঙ রিসেট করুন</string>
@@ -1252,11 +1257,11 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_spoof_app_version_summary_on">সংস্করণ স্পুফ করা হয়েছে</string>
     <string name="revanced_spoof_app_version_target_entry_21_11_484">21.11.48 - পুরনো ক্যাপশন আচরণ পুনরুদ্ধার করুন</string>
     <string name="revanced_spoof_app_version_title">অ্যাপের সংস্করণ স্পুফ করুন</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"অ্যাপের ভার্সন বদলে একটি পুরোনো ভার্সন করে দেওয়া হবে।
+    <string name="revanced_spoof_app_version_user_dialog_message">"অ্যাপের ভার্সন একটি পুরোনো ভার্সনে স্পুফ করা হবে。
 
-এতে অ্যাপের ডিজাইন ও ফিচার পরিবর্তন হবে, তবে কিছু অচেনা সমস্যা দেখা দিতে পারে।
+এতে অ্যাপের ডিজাইন ও ফিচার পরিবর্তন হবে, তবে কিছু অচেনা পার্শ্বপ্রতিক্রিয়া দেখা দিতে পারে。
 
-পরে কখনো এটি বন্ধ করলে, অ্যাপের ডিজাইনে কোনো সমস্যা বা বাগ এড়াতে অ্যাপ ডাটা ক্লিয়ার (Clear Data) করার পরামর্শ দেওয়া হচ্ছে।"</string>
+পরবর্তীতে এটি বন্ধ করলে, UI বাগ এড়াতে অ্যাপের ডেটা ক্লিয়ার করার পরামর্শ দেওয়া হয়"</string>
     <string name="revanced_spoof_device_dimensions_summary">এটি সক্রিয় করা উচ্চ ভিডিও গুণমানগুলি আনলক করতে পারে।</string>
     <string name="revanced_spoof_device_dimensions_title">ডিভাইস ডাইমেনশন স্পুফ করুন</string>
     <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe disabled করা হয়েছে</string>

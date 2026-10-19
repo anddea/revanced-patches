@@ -4,22 +4,22 @@
     <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，你的控制選項已被修改。</string>
     <string name="gms_core_dialog_continue_text">繼續</string>
     <string name="gms_core_dialog_dismiss_text">不再顯示</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 未獲得在後台執行的許可權。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 沒有後台執行權限。
 
-請依照適用於您手機版本的「Do Not Kill My App」指南，並將其中指示應用於 MicroG 的安裝目錄。
+請依照適合您手機的 \"Don't kill my app\" 指南，並將指示應用於您的 MicroG 安裝。
 
-這項設定對於應用程式正常運作為必要條件。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必須停用 MicroG 的電池最佳化設定，以避免後續的問題發生。
+這是應用程式正常運作所必需的"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必須停用 MicroG 的電池最佳化設定以避免問題。
 
-停用 MicroG 的電池最佳化並不會增加電池使用量，對使用情況亦無負面影響。
+停用 MicroG 的電池最佳化不會對電池使用產生負面影響。
 
-點擊繼續按鈕以允許調整相關最佳化設定。"</string>
+點擊繼續按鈕並允許調整最佳化設定"</string>
     <string name="gms_core_dialog_open_website_text">開啟網站</string>
     <string name="gms_core_dialog_title">需要採取行動</string>
     <string name="gms_core_offline_account_login_error">如果您最近更改了您的帳戶登入詳細信息，請卸載並重新安裝 GmsCore。</string>
     <string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知。</string>
     <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
-    <string name="gms_core_toast_not_installed_message">MicroG 尚未安裝。請安裝它。</string>
+    <string name="gms_core_toast_not_installed_message">未安裝 MicroG。請安裝它</string>
     <string name="morphe_ads_channel_whitelist_title">頻道廣告白名單</string>
     <string name="morphe_aislist_submit_already_blocklisted">此頻道已在 AiSList 封鎖清單中</string>
     <string name="morphe_aislist_submit_already_warnlisted">此頻道已在 AiSList 警告清單中</string>
@@ -58,6 +58,8 @@
     <string name="morphe_auto_pause_on_screen_lock_always">鎖定時一律暫停</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">除非連接無線音訊，否則暫停</string>
     <string name="morphe_auto_pause_on_screen_lock_title">裝置鎖定時自動暫停</string>
+    <string name="morphe_auto_translate_additional_languages_summary">在自動翻譯選單中增加更多語言</string>
+    <string name="morphe_auto_translate_additional_languages_title">新增額外自動翻譯語言</string>
     <string name="morphe_copy_comments_success">留言已複製到剪貼簿</string>
     <string name="morphe_copy_comments_summary">長按留言即可複製</string>
     <string name="morphe_copy_comments_title">複製留言</string>
@@ -98,6 +100,10 @@
     <string name="morphe_explore_menu_screen_summary">選擇要在探索選單中顯示哪些元件</string>
     <string name="morphe_explore_menu_screen_title">探索選單</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">如果無法運作，請嘗試強制關閉 MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">在資訊流影片的任意位置輕觸並按住，即可開啟其選單</string>
+    <string name="morphe_feed_long_press_menu_title">輕觸並按住以開啟影片選單</string>
+    <string name="morphe_feed_watch_later_button_summary">資訊流影片的縮圖上會顯示「稍後觀看」按鈕。輕觸並按住該按鈕可進入「新增至播放清單」功能</string>
+    <string name="morphe_feed_watch_later_button_title">在縮圖上顯示稍後觀看按鈕</string>
     <string name="morphe_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 和 Android VR Downgraded 以外的任何用戶端。</string>
     <string name="morphe_force_original_audio_summary_off">使用預設音訊</string>
     <string name="morphe_force_original_audio_summary_on">正在使用原始音訊語言</string>
@@ -181,7 +187,7 @@
     <string name="morphe_oauth2_connection_failure_auth_error">無法登入 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">無法登入 VR，網站驗證未獲批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暫時不可用</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 暫時不可用（狀態 %d）</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 暫時無法使用（狀態 %s）</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR 登入逾期，請再次登入 VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暫時不可用（API 已逾時）</string>
     <string name="morphe_oauth2_toast_invalid">VR 登入憑證無效，請再次登入 VR</string>
@@ -204,7 +210,6 @@
     <string name="morphe_playback_in_feeds_title">feeds 中的播放</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">調整播放器控制按鈕和時間列後方背景的不透明度（0 為隱形，100 為不透明）</string>
     <string name="morphe_player_control_buttons_background_opacity_title">控制按鈕背景不透明度</string>
-    <string name="morphe_preferred_caption_language_entry_off">關閉</string>
     <string name="morphe_preferred_caption_language_summary">先選取提供者提供的字幕，再自動翻譯成偏好語言</string>
     <string name="morphe_preferred_caption_language_title">偏好字幕語言</string>
     <string name="morphe_queue_manager_check_failed_auth">未登入</string>
@@ -271,7 +276,7 @@
     <string name="morphe_spoof_video_streams_av1_title">允許「Android VR」/ visionOS AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"啟用此設定可能會使用軟體 AV1 解碼。
 
-AV1 視訊播放可能會卡頓或丟格。"</string>
+AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 已多次無法執行，但 %2$s 可以執行。
 
 將 %2$s 設定為預設客戶端嗎？"</string>
@@ -315,7 +320,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="morphe_spoof_video_streams_summary_on">"已偽裝視訊串流
 
 如果您是 YouTube Premium 使用者，則可能不需要此設定"</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題。</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題</string>
     <string name="morphe_swap_save_and_queue_actions_summary">點擊以開啟佇列選項，長按以儲存至「稍後觀看」</string>
     <string name="morphe_swap_save_and_queue_actions_title">交換「儲存」和「加入佇列」動作</string>
     <string name="morphe_tablet_layout_in_player_summary">"還原舊版播放器版面
@@ -350,7 +355,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
 點擊此處開啟 MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">您已用完今天的免費 MyMemory 翻譯額度 (5,000 個字元)。在設定中新增 MyMemory 電子郵件地址，將每日額度提高到 50,000 個字元，或切換至其他翻譯服務</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">您已用完今天的 MyMemory 翻譯額度 (50,000 個字元)。切換至其他翻譯服務或明天再試</string>
-    <string name="morphe_vot_mymemory_quota_next_available">下次可用時間為 %s。</string>
+    <string name="morphe_vot_mymemory_quota_next_available">%s 可使用下次重置</string>
     <string name="morphe_vot_mymemory_quota_title">MyMemory 每日額度已達標</string>
     <string name="morphe_vot_openrouter_api_key_summary">您的 OpenRouter API 金鑰。在 OpenRouter.ai &gt; 工作區 &gt; API 金鑰中建立金鑰</string>
     <string name="morphe_vot_openrouter_api_key_title">OpenRouter API 金鑰</string>
@@ -799,7 +804,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安裝。
 請從網站下載 %2$s。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s 未安裝。請安裝它。</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s 尚未安裝。請安裝它</string>
     <string name="revanced_external_downloader_other_item">其他</string>
     <string name="revanced_external_downloader_other_item_hint">輸入套件名稱</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">您安裝的外部下載器應用程式的套件名稱。</string>
@@ -1591,7 +1596,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
     <string name="revanced_hide_youtube_doodles_summary_off">已顯示 YouTube 標誌上的 Doodles 動畫</string>
     <string name="revanced_hide_youtube_doodles_summary_on">已隱藏 YouTube 標誌上的 Doodles 動畫</string>
     <string name="revanced_hide_youtube_doodles_title">隱藏 YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">顯示 YouTube 短影音可能會妨礙自訂標題的顯示。</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">顯示 YouTube Doodles 可能會導致自訂標題列無法顯示</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium 推廣已顯示。</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube Premium推廣活動已隱藏。
 
@@ -2072,7 +2077,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_ryd_estimated_like_summary_on">已停用喜歡的影片會顯示預估的喜歡人數</string>
     <string name="revanced_ryd_estimated_like_title">顯示預估喜歡人數</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">無法顯示「不喜歡」數量（用戶端 API 限制）</string>
-    <string name="revanced_ryd_failure_connection_status_code">無法顯示不喜歡人數（狀態 %d）</string>
+    <string name="revanced_ryd_failure_connection_status_code">無法顯示不喜歡人數（狀態 %s）</string>
     <string name="revanced_ryd_failure_connection_timeout">暫時無法顯示不喜歡人數（API 逾時）</string>
     <string name="revanced_ryd_failure_generic">無法顯示不喜歡人數 (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 無法使用，則不會顯示提示訊息</string>
@@ -2164,7 +2169,7 @@ AI 生成的回應可能包含不準確的資訊。
 準備提交？"</string>
     <string name="revanced_sb_new_segment_confirm_contents">段落從\n\n%1$s\n到\n%2$s\n\n(%3$s)\n\n確定要提交？</string>
     <string name="revanced_sb_new_segment_confirm_title">時間是否正確？</string>
-    <string name="revanced_sb_new_segment_disabled_category">已在設定中停用類別。啟用類別以提交。</string>
+    <string name="revanced_sb_new_segment_disabled_category">設定中已停用分類。啟用分類以提交。</string>
     <string name="revanced_sb_new_segment_edit">編輯片段</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">您想編輯片段開始或結束的時間嗎？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">所選擇的時間無效</string>
@@ -2244,7 +2249,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_skipped_intro_beginning">已跳過開頭</string>
     <string name="revanced_sb_skipped_intro_end">已跳過中場休息</string>
     <string name="revanced_sb_skipped_multiple_segments">已跳過多個片段</string>
-    <string name="revanced_sb_skipped_nomusic">已跳過非音樂部分</string>
+    <string name="revanced_sb_skipped_nomusic">已跳過非音樂部份</string>
     <string name="revanced_sb_skipped_outro">已跳過結尾</string>
     <string name="revanced_sb_skipped_preview_beginning">已跳過預覽</string>
     <string name="revanced_sb_skipped_preview_end">已跳過回顧</string>
@@ -2252,7 +2257,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_skipped_sponsor">已跳過贊助商廣告</string>
     <string name="revanced_sb_skipped_unsubmitted">跳過了未提交的片段</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock 暫時無法使用</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暫時無法使用（狀態 %d）</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暫時無法使用（狀態 %s）</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暫時無法使用（API 逾時）</string>
     <string name="revanced_sb_square_layout">使用方形版面配置</string>
     <string name="revanced_sb_square_layout_sum_off">已將按鈕和控制項設為圓角</string>
@@ -2275,7 +2280,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_stats_submissions_sum">輕觸這裡查看你的片段</string>
     <string name="revanced_sb_stats_username">你的使用者名稱：&lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">輕觸這裡變更你的使用者名稱</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">無法變更使用者名稱：狀態：%1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">無法變更使用者名稱：狀態：%1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">使用者名稱變更成功</string>
     <string name="revanced_sb_submit_failed_duplicate">"無法提交片段。
 已經存在"</string>
@@ -2283,7 +2288,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_submit_failed_invalid">無法提交片段：%s</string>
     <string name="revanced_sb_submit_failed_rate_limit">無法提交片段。速率限制（同一位使用者或 IP 的提交次數過多）</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock 暫時離線</string>
-    <string name="revanced_sb_submit_failed_unknown_error">無法提交片段（狀態：%1$d %2$s）</string>
+    <string name="revanced_sb_submit_failed_unknown_error">無法提交片段（狀態：%1$s %2$s）</string>
     <string name="revanced_sb_submit_succeeded">新片段提交成功</string>
     <string name="revanced_sb_toast_on_connection_error">顯示連線錯誤警示</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">如果 SponsorBlock 無法使用，則不會顯示提示訊息</string>
@@ -2294,7 +2299,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_sb_vote_downvote">倒讚</string>
     <string name="revanced_sb_vote_failed_forbidden">無法為片段投票：%s</string>
     <string name="revanced_sb_vote_failed_timeout">無法為片段投票（API 逾時）</string>
-    <string name="revanced_sb_vote_failed_unknown_error">無法為片段投票（狀態：%1$d %2$s）</string>
+    <string name="revanced_sb_vote_failed_unknown_error">無法為片段投票（狀態：%1$s %2$s）</string>
     <string name="revanced_sb_vote_no_segments">沒有可以投票的片段</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s 至 %2$s</string>
     <string name="revanced_sb_vote_upvote">按讚</string>
@@ -2337,7 +2342,7 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_settings_import_export_as_text_summary">使用文字匯入 / 匯出設定</string>
     <string name="revanced_settings_import_failed">匯入設定失敗。</string>
     <string name="revanced_settings_import_reset">將 RVX 設定重設為預設值</string>
-    <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
+    <string name="revanced_settings_import_success">已匯入 %s 個設定</string>
     <string name="revanced_settings_import_summary">從已儲存的檔案匯入設定。</string>
     <string name="revanced_settings_import_title">匯入設定</string>
     <string name="revanced_settings_navigate_up">向上瀏覽</string>
@@ -2451,11 +2456,11 @@ AI 生成的回應可能包含不準確的資訊。
     <string name="revanced_spoof_app_version_target_invalid_toast">無效的偽裝應用程式版本: %s。</string>
     <string name="revanced_spoof_app_version_target_summary">輸入偽裝的應用程式版本目標。</string>
     <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"應用程式版本將被偽裝為舊版本。
+    <string name="revanced_spoof_app_version_user_dialog_message">"App version will be spoofed to an older version
 
-這將改變應用程式的外觀和功能，但可能會發生未知的副作用。
+This will change the appearance and features of the app, but unknown side effects may occur
 
-如果之後關閉此設定，建議清除應用程式資料以避免 UI 錯誤。"</string>
+If later turned off, it is recommended to clear the app data to prevent UI bugs"</string>
     <string name="revanced_spoof_device_dimensions_summary">啟用此設定可以解鎖更高的影片畫質</string>
     <string name="revanced_spoof_device_dimensions_title">偽裝裝置尺寸</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• 音軌選單遺失。
@@ -2704,7 +2709,6 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
     <string name="revanced_webview_toast_empty">%s 是空的。</string>
     <string name="revanced_webview_toast_no_network">請檢查您的網路連線。</string>
     <string name="revanced_webview_toast_unavailable">WebView 無法使用。</string>
-    <string name="revanced_webview_visitor_data">訪客資料</string>
     <string name="revanced_whitelist_add_failed">"無法將頻道 '%1$s' 新增至 %2$s 白名單。"</string>
     <string name="revanced_whitelist_added">"頻道 '%1$s' 已加入 %2$s 白名單。"</string>
     <string name="revanced_whitelist_empty">沒有列入白名單的頻道。</string>

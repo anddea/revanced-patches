@@ -183,27 +183,6 @@ public class Settings extends SharedYouTubeSettings {
             false,
             false
     );
-    /**
-     * Converts legacy-only imports without overriding the new setting when both keys are present.
-     */
-    private static final Setting.ImportExportCallback AUTO_CAPTIONS_IMPORT_MIGRATION_CALLBACK =
-            new Setting.ImportExportCallback() {
-                @Override
-                public void settingsImporting(JSONObject json) throws JSONException {
-                    if (!json.has("auto_captions_style")
-                            && json.optBoolean("disable_auto_captions", false)) {
-                        json.put("auto_captions_style", "both_disabled");
-                    }
-                }
-
-                @Override
-                public void settingsImported(@Nullable Context context) {
-                }
-
-                @Override
-                public void settingsExported(@Nullable Context context) {
-                }
-            };
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_AV1 = new BooleanSetting(
             "morphe_spoof_video_streams_av1",
             FALSE,
@@ -1210,6 +1189,34 @@ public class Settings extends SharedYouTubeSettings {
         }
     }
 
+    /**
+     * Converts legacy-only imports without overriding the new setting when both keys are present.
+     */
+    private static final Setting.ImportExportCallback LEGACY_SETTINGS_IMPORT_MIGRATION_CALLBACK =
+            new Setting.ImportExportCallback() {
+                @Override
+                public void settingsImporting(JSONObject json) throws JSONException {
+                    // Normalize both supported key forms before import comparisons and persistence.
+                    for (String key : new String[]{"miniplayer_type", MINIPLAYER_TYPE.key}) {
+                        if ("phone".equalsIgnoreCase(json.optString(key))) {
+                            json.put(key, "minimal");
+                        }
+                    }
+                    if (!json.has("auto_captions_style")
+                            && json.optBoolean("disable_auto_captions", false)) {
+                        json.put("auto_captions_style", "both_disabled");
+                    }
+                }
+
+                @Override
+                public void settingsImported(@Nullable Context context) {
+                }
+
+                @Override
+                public void settingsExported(@Nullable Context context) {
+                }
+            };
+
     static {
         // region Migration initialized
 
@@ -1288,6 +1295,8 @@ public class Settings extends SharedYouTubeSettings {
             }
         }
 
+        migrateLegacyMiniplayerType();
+
         // 21.29+ YouTube removed all miniplayer types except modern_4 and rebuilt minimal bars.
         if (IS_21_29_OR_GREATER && !MINIPLAYER_TYPE.isSetToDefault()
                 && MINIPLAYER_TYPE.get() != MiniplayerType.MINIMAL_BAR
@@ -1331,9 +1340,11 @@ public class Settings extends SharedYouTubeSettings {
 
         // endregion
 
+        Setting.initializeUnsupportedSettings();
+
         // region SB import/export callbacks
 
-        Setting.addImportExportCallback(AUTO_CAPTIONS_IMPORT_MIGRATION_CALLBACK);
+        Setting.addImportExportCallback(LEGACY_SETTINGS_IMPORT_MIGRATION_CALLBACK);
         Setting.addImportExportCallback(SponsorBlockSettings.SB_IMPORT_EXPORT_CALLBACK);
         Setting.addImportExportCallback(GoogleVoiceOverTranslationPatch.VOT_IMPORT_EXPORT_CALLBACK);
 
@@ -1344,6 +1355,16 @@ public class Settings extends SharedYouTubeSettings {
         SeekBarPreference.register(new SeekBarPreference.SeekBarConfig(GOOGLE_VOT_TRANSLATION_VOLUME,
                 0, 100, 10, "%"));
 
+    }
+
+    /**
+     * Persist the renamed type after loading legacy preferences and before player hooks read it.
+     */
+    @SuppressWarnings("deprecation")
+    private static void migrateLegacyMiniplayerType() {
+        if (MINIPLAYER_TYPE.get() == MiniplayerType.PHONE) {
+            MINIPLAYER_TYPE.save(MiniplayerType.MINIMAL);
+        }
     }
 
     private static void applyOldSbOpacityToColor(StringSetting colorSetting, FloatSetting opacitySetting) {

@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">继续</string>
     <string name="gms_core_dialog_dismiss_text">不再提示</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 无法在后台运行。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 没有权限在后台运行。
 
-请按照 'Don't kill my app' 网站上对应手机的指南，允许 MicroG 在后台运行。
+请按照 \"Don't kill my app\" 指南操作您的手机，并将说明应用到您的 MicroG 安装中。
 
-这是应用程序正常运行的必要条件。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必须禁用 MicroG 的电池优化，以防止出现问题。
+这是应用程序正常运行所必需的"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必须禁用 MicroG 电池优化以防止出现问题。
 
-禁用 MicroG 的电池优化不会对电池使用造成负面影响。
+禁用 MicroG 的电池优化不会对电池续航产生负面影响。
 
-点击继续按钮并允许优化更改。"</string>
+点击继续按钮并允许更改优化设置"</string>
     <string name="gms_core_dialog_open_website_text">打开网站</string>
     <string name="gms_core_dialog_title">需要采取措施</string>
     <string name="gms_core_settings_summary">要在 RVX Music 中接收通知，请启用云消息传递。</string>
     <string name="gms_core_settings_title">打开 GmsCore 设置</string>
-    <string name="gms_core_toast_not_installed_message">MicroG 未安装。请先安装。</string>
+    <string name="gms_core_toast_not_installed_message">未安装 MicroG。请安装</string>
     <string name="morphe_app_refresh_rate_default">默认</string>
     <string name="morphe_app_refresh_rate_fps">%s 帧/秒</string>
     <string name="morphe_app_refresh_rate_title">应用刷新率</string>
@@ -60,7 +60,7 @@
 3. 复制 \"media-user-token\" 的值"</string>
     <string name="morphe_music_apple_music_token_title">Apple Music 媒体用户令牌</string>
     <string name="morphe_music_apple_music_token_toast_cleared">Apple Music：media-user-token 已清除</string>
-    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music：media-user-token 无效——请检查后重试</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music：无效媒体用户令牌 - 请检查并重试</string>
     <string name="morphe_music_apple_music_token_toast_saved">Apple Music：media-user-token 已保存</string>
     <string name="morphe_music_apple_token_optional_hint">Apple Music 令牌是可选的。没有它时，将使用 Lyrically 作为后备方案。</string>
     <string name="morphe_music_crossfade_about_best_summary">正常的歌曲播放和自动前进、单曲循环（歌曲淡入淡出到自身）、本地音频——手机扬声器、有线耳机、蓝牙或 USB。</string>
@@ -120,7 +120,7 @@ SABR 播放（模拟视频流已关闭）"</string>
 3. 复制 \"arl\" 的值"</string>
     <string name="morphe_music_deezer_arl_title">Deezer ARL</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl 已清除</string>
-    <string name="morphe_music_deezer_arl_toast_invalid">Deezer：arl 无效——请检查后重试</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer：无效 arl - 请检查并重试</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer：arl 已保存</string>
     <string name="morphe_music_downloads_actions_for">%s 的操作</string>
     <string name="morphe_music_downloads_all_deleted">下载已删除</string>
@@ -166,11 +166,13 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_in_app_downloads_user_dialog_message">"曲目保存在应用的私有存储中，如果卸载 YouTube Music，这些曲目将被删除。
 
 开启此选项后，“下载”标签页将列出这些曲目，而不是 Music Premium 离线曲库。关闭此选项可恢复该标签页，Premium 下载内容绝不会受到影响。"</string>
-    <string name="morphe_music_lyrics_about_summary">"歌词根据标题和艺术家进行匹配，异常的元数据可能导致找不到结果或匹配到错误的版本。使用刷新以切换版本。标有 * 的提供程序需要令牌。并非所有已启用的提供程序都会按您的顺序被请求，而是根据其速度进行响应。"</string>
+    <string name="morphe_music_lyrics_about_summary">"歌词通过标题和歌手进行匹配，异常元数据可能导致无结果或找到错误版本。使用刷新按钮切换版本。标记 * 的提供商需要令牌。并非所有启用的提供商都会按顺序请求，而是根据其响应速度返回结果。
+
+歌词来自第三方服务，这些服务与 RVX 无关，未受其赞助或认可。每个服务的使用方式保持不变：歌词、可用性及许可权仍归服务商及其许可方所有，使用它们可能需遵守其服务条款。发送至启用服务的请求仅包含您查询的内容 — 标题、歌手以及该服务所需的视频 ID。可选 AI 端点和 QuickLRC 转录仅在您配置后运行，并接收歌词文本或曲目的视频 URL。"</string>
     <string name="morphe_music_lyrics_about_title">关于第三方歌词</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">API 密钥（留空以匿名访问）</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">API 端点 URL（例如 https://text.pollinations.ai/openai）</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">配置 OpenAI 兼容的 API 端点，用于 AI 驱动的歌词翻译、罗马化和段落识别。</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">配置用于 AI 驱动的歌词翻译、罗马化和分段的兼容 OpenAI API 端点</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">AI 设置</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">模型名称（例如 openai-fast、gpt-4o-mini）</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">模型名称不能为空</string>
@@ -178,13 +180,20 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">基础 URL 必须以 http:// 或 https:// 开头</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">正在验证连接…</string>
     <string name="morphe_music_lyrics_ai_config_summary_configured">模型 %1$s 已配置</string>
-    <string name="morphe_music_lyrics_ai_config_toast_invalid">无法连接到 AI 端点。请检查您的设置。</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">无法连接到 AI 端点。请检查您的设置</string>
     <string name="morphe_music_lyrics_ai_config_toast_reset">AI 设置已重置</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">AI 设置已保存</string>
+    <string name="morphe_music_lyrics_ai_extra_body_hint">额外请求正文（JSON，合并到每个 AI 请求中）</string>
+    <string name="morphe_music_lyrics_ai_extra_body_invalid">无效的 JSON。保存前请修复或清空该字段</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">占位符：{language}, {task}, {title}, {artist}, {count}, {lines}</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">提示词模板</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">提示词已保存，但 AI 端点尚不可用。请先在 AI 设置中进行配置</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">提示词已重置</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">提示词已保存</string>
+    <string name="morphe_music_lyrics_clear_cache_done">已清除 %1$s MB</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">删除此设备上保留的歌词</string>
+    <string name="morphe_music_lyrics_clear_cache_title">清除缓存歌词</string>
+    <string name="morphe_music_lyrics_contribute_credit">长按复制按钮可保存此 LRC；如果您能微调时间轴并与社区提供者分享，我们将不胜感激</string>
     <string name="morphe_music_lyrics_copied">复制到剪贴板</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">如果歌词被错误地过滤到底部，请调整或清除此项。以逗号分隔的标记：包含标记且后跟冒号的行会作为署名信息显示在底部。留空以禁用</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">信息行标记</string>
@@ -192,6 +201,7 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_lyrics_custom_regex_title">元数据正则表达式</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">在迷你播放器和媒体通知卡片中切换艺术家和标题的显示顺序。ON“艺术家-标题”和OFF“标题-艺术家”不影响歌词搜索</string>
     <string name="morphe_music_lyrics_display_artist_first_title">艺术家和标题显示顺序</string>
+    <string name="morphe_music_lyrics_dual_only">双模式</string>
     <string name="morphe_music_lyrics_enabled_summary">从第三方服务获取歌词，如果找不到则回退到内置歌词</string>
     <string name="morphe_music_lyrics_enabled_title">使用第三方歌词</string>
     <string name="morphe_music_lyrics_hide_info_summary">隐藏显示在歌词下方的署名行</string>
@@ -202,7 +212,14 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_lyrics_hide_unplayed_title">隐藏未播歌词</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">防止在歌词面板打开时屏幕关闭</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">查看歌词时保持屏幕常亮</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">阅读 %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_failed">下载失败 - 请关闭后重新开启以重试</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">读音准备就绪（%1$d 条条目）</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">当提供商、您的模型及 Google 翻译均失败时，在设备上执行罗马音。读取内容跟随时间轴歌词的每一词；必须开启单词同步。支持中文、粤语、日语、韩语、希腊语、俄语、格鲁吉亚语、亚美尼亚语；约 120 MB</string>
+    <string name="morphe_music_lyrics_local_romanization_title">本地罗马音与对齐</string>
+    <string name="morphe_music_lyrics_mediasession_summary">在锁屏界面、Android Auto 和蓝牙中显示当前行。需要 Android 11 或更高版本</string>
     <string name="morphe_music_lyrics_mediasession_title">在锁屏上显示媒体通知卡片歌词</string>
+    <string name="morphe_music_lyrics_miniplayer_summary">在小播放器中显示当前行，并将曲目移至字幕</string>
     <string name="morphe_music_lyrics_miniplayer_title">显示迷你播放器歌词</string>
     <string name="morphe_music_lyrics_offset_ms_summary">同步歌词会跟随播放。如果出现偏移，请调整时间偏移。将同步歌词向前或向后移动。如果歌词比歌曲超前，请使用正值</string>
     <string name="morphe_music_lyrics_offset_ms_title">全局时间偏移</string>
@@ -210,6 +227,7 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_lyrics_refreshing">正在刷新</string>
     <string name="morphe_music_lyrics_romanize_failed">无法为歌词生成音译</string>
     <string name="morphe_music_lyrics_romanize_hide">已音译</string>
+    <string name="morphe_music_lyrics_romanize_language_title">罗马化语言</string>
     <string name="morphe_music_lyrics_romanize_only">仅罗马音</string>
     <string name="morphe_music_lyrics_romanized_by_ai">由 %s 音译</string>
     <string name="morphe_music_lyrics_romanized_by_google">由 Google 提供音译</string>
@@ -223,29 +241,48 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_lyrics_search_empty">输入歌曲标题和歌手</string>
     <string name="morphe_music_lyrics_search_no_providers">已启用的提供商均无法搜索其他歌曲</string>
     <string name="morphe_music_lyrics_search_title_hint">歌曲标题</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">点按以纯文本形式复制原始歌词；长按将原始歌词源文件保存到“下载”文件夹</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">点击以纯文本形式复制原始歌词；长按将原始歌词源文件保存至下载目录</string>
     <string name="morphe_music_lyrics_show_copy_button_title">显示复制按钮</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">点按可切换到下一个歌词候选；长按可按歌曲标题和歌手搜索歌词</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">点击切换下一个歌词候选项；长按通过歌曲标题和歌手搜索歌词</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">显示刷新按钮</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">点按以切换罗马音；长按仅显示罗马音。使用提供方罗马音、Google 翻译或兼容 OpenAI 的 API</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">点击切换罗马音标注；长按仅显示罗马音。使用提供商罗马音、Google 翻译或兼容 OpenAI 的 API</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">显示音译按钮</string>
     <string name="morphe_music_lyrics_show_section_summary">为歌词的每个新段落添加小标签，例如主歌或副歌</string>
     <string name="morphe_music_lyrics_show_section_title">显示段落标签</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">点按以切换翻译；长按仅翻译。使用提供方翻译、Google 翻译或兼容 OpenAI 的 API</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">点击切换翻译；长按仅显示翻译。使用提供商翻译、Google 翻译或兼容 OpenAI 的 API</string>
     <string name="morphe_music_lyrics_show_translate_button_title">显示翻译按钮</string>
-    <string name="morphe_music_lyrics_source_all_disabled">所有提供程序均已禁用 — 内置歌词与内嵌歌词</string>
+    <string name="morphe_music_lyrics_source_all_disabled">所有提供商已禁用 - 内置歌词和嵌入歌词</string>
     <string name="morphe_music_lyrics_source_label">来源：%s</string>
     <string name="morphe_music_lyrics_source_reset_message">将提供程序恢复为默认优先级顺序</string>
     <string name="morphe_music_lyrics_source_reset_title">重置提供程序顺序？</string>
     <string name="morphe_music_lyrics_source_title">歌词服务</string>
+    <string name="morphe_music_lyrics_split_background_summary">将写在括号中的背景人声（如“(Oh) I want you”）从演唱行中分离出来，形成独立的弱音行</string>
+    <string name="morphe_music_lyrics_split_background_title">单独显示背景人声</string>
     <string name="morphe_music_lyrics_swap_trans_roma_summary">开启时，音译在歌词下方、翻译在歌词上方；关闭时，音译在歌词上方、翻译在歌词下方</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">交换翻译和音译</string>
-    <string name="morphe_music_lyrics_tap_to_seek_summary">点击一行将跳到歌曲的该时刻</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">点击歌词行以跳转</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">点击某行以跳转到歌曲对应时刻；长按该行可复制指尖下方的字词，若长按未落在字词上则复制整行。关闭后两种手势均失效</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">点击并长按一行</string>
     <string name="morphe_music_lyrics_text_filter_summary">仅应用于原始歌词文本的正则表达式（不应用于翻译或音译）。留空以禁用</string>
     <string name="morphe_music_lyrics_text_filter_title">歌词过滤正则表达式</string>
     <string name="morphe_music_lyrics_text_size_summary">歌词文本的大小</string>
     <string name="morphe_music_lyrics_text_size_title">文本大小</string>
+    <string name="morphe_music_lyrics_transcribe_align">请求 QuickLRC 对齐</string>
+    <string name="morphe_music_lyrics_transcribe_aligning">对齐中</string>
+    <string name="morphe_music_lyrics_transcribe_apply_align">应用对齐</string>
+    <string name="morphe_music_lyrics_transcribe_cancelled">转录已取消</string>
+    <string name="morphe_music_lyrics_transcribe_failed">QuickLRC 无法处理此曲目</string>
+    <string name="morphe_music_lyrics_transcribe_key_cleared">QuickLRC API 密钥已清除</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRC 会为没有时间的歌词添加时间戳，或从曲目中转录它们，这将消耗积分。设置密钥后，没有歌词的曲目将提供转录功能，且搜索对话框会增加一个对齐按钮</string>
+    <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRC 不接受该密钥</string>
+    <string name="morphe_music_lyrics_transcribe_key_saved">QuickLRC API 密钥已保存</string>
+    <string name="morphe_music_lyrics_transcribe_key_set_summary">已保存 QuickLRC 密钥。使用歌词搜索对话框中的对齐按钮，或在没有歌词的曲目出现面板提示时使用</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRC 为当前曲目转录或对齐歌词。这是一项独立服务，与上述兼容 OpenAI 的端点无关</string>
+    <string name="morphe_music_lyrics_transcribe_key_title">QuickLRC API 密钥</string>
+    <string name="morphe_music_lyrics_transcribe_local_unsupported">仅可从 YouTube 播放的曲目才能进行转录</string>
+    <string name="morphe_music_lyrics_transcribe_no_text">无可对齐的歌词 - 改为进行转录</string>
+    <string name="morphe_music_lyrics_transcribe_out_of_credits">此曲目的 QuickLRC 积分已用完</string>
+    <string name="morphe_music_lyrics_transcribe_prompt">请求 QuickLRC 转录</string>
+    <string name="morphe_music_lyrics_transcribe_working">转录中</string>
     <string name="morphe_music_lyrics_translate_failed">无法翻译歌词</string>
     <string name="morphe_music_lyrics_translate_hide">翻译</string>
     <string name="morphe_music_lyrics_translate_only">仅翻译</string>
@@ -267,8 +304,9 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch 无需令牌即可使用，因此此字段可以留空</string>
     <string name="morphe_music_musixmatch_token_title">Musixmatch 令牌</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch：用户 token 已清除</string>
-    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch：用户 token 无效——请检查后重试</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch：无效用户令牌 - 请检查并重试</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch：用户 token 已保存</string>
+    <string name="morphe_music_scrobbling_log_out">登出</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"粘贴来自 Spotify 的 sp_dc cookie。
 
 步骤：
@@ -277,7 +315,7 @@ SABR 播放（模拟视频流已关闭）"</string>
 3. 复制 \"sp_dc\" 的值"</string>
     <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
     <string name="morphe_music_spotify_token_toast_cleared">Spotify：sp_dc 已清除</string>
-    <string name="morphe_music_spotify_token_toast_invalid">Spotify：sp_dc 无效——请检查后重试</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify：无效 sp_dc - 请检查并重试</string>
     <string name="morphe_music_spotify_token_toast_saved">Spotify：sp_dc 已保存</string>
     <string name="morphe_music_token_dialog_get_token">获取令牌</string>
     <string name="morphe_music_youtube_cookies_dialog_instruction">"粘贴你的 YouTube Cookie，以从 YouTube 查询字幕和时间文本。
@@ -290,12 +328,12 @@ SABR 播放（模拟视频流已关闭）"</string>
 所需 Cookie：SID、HSID、SSID、SAPISID、__Secure-3PAPISID、__Secure-1PAPISID、LOGIN_INFO"</string>
     <string name="morphe_music_youtube_cookies_title">YouTube Cookie</string>
     <string name="morphe_music_youtube_cookies_toast_cleared">YouTube：Cookie 已清除</string>
-    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube：Cookie 无效 — 请检查后重试</string>
+    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube：无效 Cookie - 请检查并重试</string>
     <string name="morphe_music_youtube_cookies_toast_saved">YouTube：Cookie 已保存</string>
     <string name="morphe_oauth2_connection_failure_auth_error">无法登录 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">无法登录VR，网站认证未批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暂时不可用</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 暂时不可用（状态：%d）</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 暂时不可用 (状态 %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR登录已过期，请重新登录VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暂时不可用（API 超时）</string>
     <string name="morphe_oauth2_toast_invalid">无效的 VR 登录令牌，请重新登录 VR</string>
@@ -304,10 +342,15 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="morphe_replace_music_with_youtube_summary_off">分享链接使用 music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">分享链接使用 youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">将分享链接更改为 youtube.com</string>
+    <string name="morphe_romanize_language_DEFAULT">自动</string>
     <string name="morphe_sanitize_sharing_links_summary">从共享链接中删除跟踪查询参数</string>
     <string name="morphe_sanitize_sharing_links_summary_off">跟踪查询参数未从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_summary_on">跟踪查询参数已从分享链接中移除</string>
     <string name="morphe_sanitize_sharing_links_title">净化分享链接</string>
+    <string name="morphe_sb_new_segment_choose_category">选择片段的类别</string>
+    <string name="morphe_sb_new_segment_confirm_submit">提交</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">起始位置须在结束位置前</string>
+    <string name="morphe_sb_new_segment_title">新的 SpongorBlock 片段</string>
     <string name="morphe_settings_menu_copy_path">已复制：%s</string>
     <string name="morphe_settings_menu_filter_picker_empty">打开标准应用设置屏幕一次以填充列表</string>
     <string name="morphe_settings_menu_filter_screen_summary">通过可见名称隐藏标准应用设置屏幕上的项目</string>
@@ -362,7 +405,7 @@ SABR 播放（模拟视频流已关闭）"</string>
 
 如果您是 YouTube Premium 用户，此设置可能不需要"</string>
     <string name="morphe_spoof_video_streams_title">伪造视频流</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">关闭此设置可能会导致播放问题。</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">关闭此设置可能会导致播放问题</string>
     <string name="revanced_add_miniplayer_next_button_summary">在迷你播放器中添加下一曲目按钮。</string>
     <string name="revanced_add_miniplayer_next_button_title">添加迷你播放器下一首按钮</string>
     <string name="revanced_add_miniplayer_previous_button_summary">在迷你播放器中添加上一曲目按钮。</string>
@@ -480,7 +523,7 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安装。
 请从网站下载 %2$s。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s未安装。请安装它。</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s 未安装。请安装它</string>
     <string name="revanced_external_downloader_package_name_summary">您安装的外部下载器应用的包名，例如 NewPipe 或 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_title">外部下载器应用包名</string>
     <string name="revanced_fullscreen_ads_closed_toast">全屏广告已关闭。</string>
@@ -698,7 +741,7 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="revanced_ryd_estimated_like_summary">在创作者禁用点赞的视频上显示估计的点赞数量</string>
     <string name="revanced_ryd_estimated_like_title">显示估计的点赞数</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">无法使用“不喜欢”（客户端 API 限制）</string>
-    <string name="revanced_ryd_failure_connection_status_code">点踩数不可用 (状态 %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">点踩数不可用 (状态 %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">点踩数暂时不可用 (API 连接超时)</string>
     <string name="revanced_ryd_failure_generic">点踩数不可用 (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">当 Return YouTube Dislike 服务器不可用时显示通知</string>
@@ -707,53 +750,53 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">数据由 SponsorBlock API 提供。点击此处了解更多信息并查看其他平台的下载。</string>
     <string name="revanced_sb_api_url">更改 API URL</string>
-    <string name="revanced_sb_api_url_changed">API URL 已更改。</string>
-    <string name="revanced_sb_api_url_invalid">API URL 无效。</string>
-    <string name="revanced_sb_api_url_reset">API URL 重置。</string>
+    <string name="revanced_sb_api_url_changed">已更改 API URL</string>
+    <string name="revanced_sb_api_url_invalid">API URL 无效</string>
+    <string name="revanced_sb_api_url_reset">已重置 API URL</string>
     <string name="revanced_sb_api_url_sum">SponsorBlock 用于调用服务器的地址。除非您知道自己在做什么，否则请不要更改此地址。</string>
     <string name="revanced_sb_color_changed">颜色已变更。</string>
-    <string name="revanced_sb_color_dot_label">颜色：</string>
+    <string name="revanced_sb_color_dot_label">颜色:</string>
     <string name="revanced_sb_color_invalid">无效的颜色代码。</string>
     <string name="revanced_sb_color_reset">颜色已重置。</string>
     <string name="revanced_sb_diff_segments">更改分段行为</string>
     <string name="revanced_sb_enabled">启用 SponsorBlock（赞助商拦截）</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock 是一个众包系统，用于跳过 YouTube 视频中令人讨厌的部分。</string>
-    <string name="revanced_sb_segments_filler">灌水内容 / 笑话</string>
+    <string name="revanced_sb_segments_filler">离题 / 笑话</string>
     <string name="revanced_sb_segments_filler_sum">跑题片段，闲聊或笑话，对理解视频主要内容并无帮助。这不会包含叙述环境与背景信息的片段</string>
-    <string name="revanced_sb_segments_hook">钩子/问候</string>
+    <string name="revanced_sb_segments_hook">引子/问候</string>
     <string name="revanced_sb_segments_hook_sum">即将到来视频的叙述预告片、问候和告别。不包括添加额外内容的部分。</string>
-    <string name="revanced_sb_segments_interaction">互动提醒（订阅）</string>
+    <string name="revanced_sb_segments_interaction">互动提醒 (订阅)</string>
     <string name="revanced_sb_segments_interaction_sum">在内容中间简短提醒点赞、订阅或关注他们。如果内容很长或涉及特定内容，则应进行自我推广。</string>
-    <string name="revanced_sb_segments_intro">中场/开场动画</string>
+    <string name="revanced_sb_segments_intro">过场/开场动画</string>
     <string name="revanced_sb_segments_intro_sum">没有实际内容的间隔。可以是暂停、静态帧或重复动画。不包括包含信息的过渡。</string>
     <string name="revanced_sb_segments_nomusic">音乐：非音乐部分</string>
     <string name="revanced_sb_segments_nomusic_sum">仅用于音乐视频。音乐视频中没有音乐的部分，尚未被其他类别涵盖。</string>
-    <string name="revanced_sb_segments_outro">片尾/致谢</string>
+    <string name="revanced_sb_segments_outro">结束画面/贡献表</string>
     <string name="revanced_sb_segments_outro_sum">致谢或 YouTube 片尾出现时。不适用于包含信息的结尾。</string>
     <string name="revanced_sb_segments_preview">预览 / 回顾</string>
     <string name="revanced_sb_segments_preview_sum">剪辑集合，展示即将发生的事或视频中或系列中其他视频中发生的事情，其中​​所有信息都在其他地方重复出现。</string>
-    <string name="revanced_sb_segments_selfpromo">无偿/自我推广</string>
+    <string name="revanced_sb_segments_selfpromo">非付费/自我推广</string>
     <string name="revanced_sb_segments_selfpromo_sum">与赞助商类似，但不包括免费或自我推广。包括商品、捐赠或合作方信息等部分。</string>
-    <string name="revanced_sb_segments_sponsor">赞助商</string>
+    <string name="revanced_sb_segments_sponsor">赞助</string>
     <string name="revanced_sb_segments_sponsor_sum">付费推广、付费推荐和直接广告。不用于自我推广或免费宣传他们喜欢的事业/创作者/网站/产品。</string>
     <string name="revanced_sb_skip_automatically">自动跳过</string>
     <string name="revanced_sb_skip_automatically_once">自动跳过一次</string>
     <string name="revanced_sb_skip_ignore">禁用</string>
-    <string name="revanced_sb_skipped_filler">已跳过跑题片段</string>
-    <string name="revanced_sb_skipped_hook">已跳过引子。</string>
-    <string name="revanced_sb_skipped_interaction">跳过烦人的提醒。</string>
-    <string name="revanced_sb_skipped_intro_beginning">跳过片头。</string>
-    <string name="revanced_sb_skipped_intro_end">跳过中场。</string>
-    <string name="revanced_sb_skipped_multiple_segments">跳过了多个片段。</string>
-    <string name="revanced_sb_skipped_nomusic">跳过了非音乐部分。</string>
-    <string name="revanced_sb_skipped_outro">已跳过片尾。</string>
-    <string name="revanced_sb_skipped_preview_beginning">已跳过预告。</string>
-    <string name="revanced_sb_skipped_preview_end">已跳过回顾。</string>
-    <string name="revanced_sb_skipped_selfpromo">跳过自我推广。</string>
-    <string name="revanced_sb_skipped_sponsor">跳过赞助商。</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_generic">赞助商拦截暂时不可用。</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">赞助商拦截暂时不可用（状态 %d）。</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">赞助商拦截暂时不可用（API 超时）。</string>
+    <string name="revanced_sb_skipped_filler">已跳过切题内容</string>
+    <string name="revanced_sb_skipped_hook">已跳过开头</string>
+    <string name="revanced_sb_skipped_interaction">已跳过烦人提醒</string>
+    <string name="revanced_sb_skipped_intro_beginning">已跳过视频开头</string>
+    <string name="revanced_sb_skipped_intro_end">已跳过中场</string>
+    <string name="revanced_sb_skipped_multiple_segments">已跳过多个片段</string>
+    <string name="revanced_sb_skipped_nomusic">跳过一个非音乐部分</string>
+    <string name="revanced_sb_skipped_outro">已跳过视频结尾</string>
+    <string name="revanced_sb_skipped_preview_beginning">跳过预览</string>
+    <string name="revanced_sb_skipped_preview_end">已跳过回顾</string>
+    <string name="revanced_sb_skipped_selfpromo">已跳过自我推广</string>
+    <string name="revanced_sb_skipped_sponsor">已跳过赞助商广告</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock 暂时无法使用</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暂时无法使用 (状态 %s)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暂时无法使用 (API 超时)</string>
     <string name="revanced_sb_toast_on_connection_error_sum">如果 SponsorBlock API 不可用，则显示 Toast 提示。</string>
     <string name="revanced_sb_toast_on_skip">自动跳过时显示 Toast 提示</string>
     <string name="revanced_sb_toast_on_skip_sum">当自动跳过某个片段时显示 Toast 提示。</string>
@@ -763,7 +806,7 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="revanced_settings_import_copy">复制</string>
     <string name="revanced_settings_import_export_as_text">将设置导入/导出为文本。</string>
     <string name="revanced_settings_import_reset">RVX 设置重置为默认</string>
-    <string name="revanced_settings_import_success">导入 %d 个设置</string>
+    <string name="revanced_settings_import_success">导入 %s 个设置</string>
     <string name="revanced_settings_navigate_up">向上导航</string>
     <string name="revanced_settings_reset">重置</string>
     <string name="revanced_settings_reset_color">重置颜色</string>
@@ -827,5 +870,4 @@ SABR 播放（模拟视频流已关闭）"</string>
     <string name="revanced_webview_toast_empty">%s 为空。</string>
     <string name="revanced_webview_toast_no_network">请检查你的网络连接。</string>
     <string name="revanced_webview_toast_unavailable">WebView 不可用。</string>
-    <string name="revanced_webview_visitor_data">访客数据</string>
 </resources>

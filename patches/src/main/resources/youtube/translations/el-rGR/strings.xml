@@ -58,6 +58,8 @@
     <string name="morphe_auto_pause_on_screen_lock_always">Πάντα παύση όταν η συσκευή είναι κλειδωμένη</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Παύση εκτός αν είναι συνδεδεμένη ασύρματη συσκευή ήχου</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Αυτόματη παύση όταν η συσκευή είναι κλειδωμένη</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Προσθέτει περισσότερες γλώσσες στο μενού αυτομάτης μετάφρασης</string>
+    <string name="morphe_auto_translate_additional_languages_title">Προσθήκη επιπλέον γλωσσών αυτομάτου μεταφρασμού</string>
     <string name="morphe_copy_comments_success">Το σχόλιο αντιγράφηκε στο πρόχειρο</string>
     <string name="morphe_copy_comments_summary">Πατήστε παρατεταμένα ένα σχόλιο για να το αντιγράψετε</string>
     <string name="morphe_copy_comments_title">Αντιγραφή σχολίων</string>
@@ -98,6 +100,10 @@
     <string name="morphe_explore_menu_screen_summary">Επιλέξτε ποια στοιχεία θα εμφανίζονται στο μενού εξερεύνησης</string>
     <string name="morphe_explore_menu_screen_title">Εξερεύνηση μενού</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Εάν δεν λειτουργεί, προσπαθήστε να κλείσετε αναγκαστικά το MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">Το πάτημα και το κράτημα πατημένο οπουδήποτε σε ένα βίντεο feed ανοίγει το μενού του</string>
+    <string name="morphe_feed_long_press_menu_title">Πατήστε και κρατήστε πατημένο για να ανοίξετε το μενού βίντεο</string>
+    <string name="morphe_feed_watch_later_button_summary">Ένα κουμπί προβολής αργότερα εμφανίζεται στις μικρογραφίες των βίντεο feed. Το πάτημα και το κράτημα πατημένο το ανοίγει την αποθήκευση στη λίστα αναπαραγωγής</string>
+    <string name="morphe_feed_watch_later_button_title">Εμφάνιση κουμπιού προβολής αργότερα στα μικρογραφίες</string>
     <string name="morphe_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε οποιονδήποτε πελάτη εκτός από το «Android Studio» και το «Android VR Downgraded»</string>
     <string name="morphe_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
     <string name="morphe_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
@@ -181,7 +187,7 @@
     <string name="morphe_oauth2_connection_failure_auth_error">Δεν είναι δυνατή η σύνδεση στο VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Δεν είναι δυνατή η είσοδος στο VR, η ταυτοποίηση δεν εγκρίθηκε</string>
     <string name="morphe_oauth2_connection_failure_generic">Το OAuth2 είναι προσωρινά μη διαθέσιμο</string>
-    <string name="morphe_oauth2_connection_failure_status">Το OAuth2 είναι προσωρινά μη διαθέσιμο (κατάσταση %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">Το OAuth2 είναι προσωρινά μη διαθέσιμο (κατάσταση %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Η σύνδεση Android VR έληξε, προσπαθήστε να συνδεθείτε ξανά στο VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">Το OAuth2 είναι προσωρινά μη διαθέσιμο (λήξη API)</string>
     <string name="morphe_oauth2_toast_invalid">Άκυρο κλειδί εισόδου VR, συνδεθείτε ξανά στο VR</string>
@@ -204,7 +210,6 @@
     <string name="morphe_playback_in_feeds_title">Αναπαραγωγή στις ροές</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Προσαρμόστε την αδιαφάνεια του φόντου πίσω από τα κουμπιά ελέγχου του προγράμματος αναπαραγωγής και τη γραμμή χρόνου (0 είναι αόρατο, 100 είναι αδιαφανές)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Αδιαφάνεια φόντου κουμπιών ελέγχου</string>
-    <string name="morphe_preferred_caption_language_entry_off">Ανενεργό</string>
     <string name="morphe_preferred_caption_language_summary">Επιλέγει πρώτα τους υποτίτλους του παρόχου και στη συνέχεια μεταφράζει αυτόματα στην προτιμώμενη γλώσσα</string>
     <string name="morphe_preferred_caption_language_title">Προτιμώμενη γλώσσα υποτίτλων</string>
     <string name="morphe_queue_manager_check_failed_auth">Δεν έχετε συνδεθεί</string>
@@ -350,7 +355,7 @@
 Πατήστε εδώ για να ανοίξετε το MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">Έχετε χρησιμοποιήσει το σημερινό δωρεάν ποσοστωτικό μετάφρασης MyMemory (5.000 χαρακτήρες). Προσθέστε ένα email MyMemory στις ρυθμίσεις για να αυξήσετε το ημερήσιο όριο σε 50.000 χαρακτήρες ή αλλάξτε σε μια άλλη υπηρεσία μετάφρασης</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">Έχετε χρησιμοποιήσει το σημερινό ποσοστωτικό μετάφρασης MyMemory (50.000 χαρακτήρες). Αλλάξτε σε μια άλλη υπηρεσία μετάφρασης ή δοκιμάστε ξανά αύριο</string>
-    <string name="morphe_vot_mymemory_quota_next_available">Διαθέσιμο στις %s</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Επόμενος διαθέσιμος στις %s</string>
     <string name="morphe_vot_mymemory_quota_title">Επιτεύχθηκε το ημερήσιο όριο MyMemory</string>
     <string name="morphe_vot_openrouter_api_key_summary">Το κλειδί API OpenRouter σας. Δημιουργήστε ένα κλειδί στο OpenRouter.ai &gt; Workspace &gt; API Keys</string>
     <string name="morphe_vot_openrouter_api_key_title">Κλειδί API OpenRouter</string>
@@ -606,17 +611,17 @@
     <string name="revanced_disable_layout_updates_summary_off">Η διάταξη θα ενημερώνεται από τον διακομιστή</string>
     <string name="revanced_disable_layout_updates_summary_on">Η διάταξη δε θα ενημερώνεται από τον διακομιστή</string>
     <string name="revanced_disable_layout_updates_title">Απενεργοποίηση ενημερώσεων διάταξης</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Η διάταξη της εφαρμογής επαναφέρεται στη διάταξη που χρησιμοποιήθηκε όταν εγκαταστάθηκε για πρώτη φορά
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Η διάταξη της εφαρμογής επαναφέρεται στη διάταξη που χρησιμοποιούνταν κατά την πρώτη εγκατάσταση
 
-Διάταξεις που είναι διαθέσιμες από τον διακομιστή μπορεί να μην επαναφερθούν
+Μερικές διατάξεις του server ενδέχεται να μην επανέλθουν
 
 Οι αλλαγές περιλαμβάνουν:
-• Στοιχεία στο μενού πλαισίου αναπαραγωγής (ή τις σχετικές ρυθμίσεις) μπορεί να μην λειτουργούν
-• Οι κυλυώμενοι αριθμοί δεν κινούνται
-• Η καρτέλα βιβλιοθήκης εμφανίζεται
-• Ο τομέας μουσικής του περιεχομένου περιγραφής βίντεο μπορεί να μην λειτουργήσει
-• Οι επιλογές του μενού πλαισίου αναπαραγωγής δεν μπορούν να αποκρυφθούν
-• Το κουμπί αλλαγής λογαριασμού μπορεί να μην εμφανιστεί στη καρτέλα Βιβλιοθήκη"</string>
+• Τα στοιχεία στο μενού player flyout (ή οι σχετικές ρυθμίσεις) ενδέχεται να μην λειτουργούν
+• Οι κύλιωμοι αριθμοί δεν animation
+• Η καρτέλα Βιβλιοθήκης εμφανίζεται
+• Η ενότητα Μουσικής της περιγραφής βίντεο ενδέχεται να μην λειτουργεί
+• Τα στοιχεία του μενού player flyout δεν μπορούν να αποκρυφούν
+• Το κουμπί αλλαγής λογαριασμού ενδέχεται να μην εμφανίζεται στην καρτέλα Βιβλιοθήκη"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Τα κουμπιά «Μου αρέσει» και «Δεν μου αρέσει» θα λάμπουν όταν αναφέρονται</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Τα κουμπιά «Μου αρέσει» και «Δεν μου αρέσει» δεν θα λάμπουν όταν αναφέρονται</string>
     <string name="revanced_disable_like_dislike_glow_title">Απενεργοποίηση λάμψης κουμπιών «Μου αρέσει» και «Δεν μου αρέσει»</string>
@@ -1570,7 +1575,7 @@ Playlists
     <string name="revanced_hide_youtube_doodles_summary_off">Εμφανίζεται\n\nΑφορά τις κινούμενες εικόνες YouTube Doodles στο λογότυπο</string>
     <string name="revanced_hide_youtube_doodles_summary_on">Κρυμμένα\n\nΑφορά τις κινούμενες εικόνες YouTube Doodles στο λογότυπο</string>
     <string name="revanced_hide_youtube_doodles_title">YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">Η εμφάνιση των Doodles της YouTube ενδέχεται να εμποδίσει την εμφάνιση προσαρμοσμένων κεφαλίδων</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">Η εμφάνιση YouTube Doodles μπορεί να εμποδίσει την προβολή προσαρμοσμένων κεφαλίδων</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">Εμφανίζονται</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"Κρυμμένες
 
@@ -2039,7 +2044,7 @@ Playlists
     <string name="revanced_ryd_estimated_like_summary_on">Τα βίντεο με απενεργοποιημένα «Μου αρέσει» εμφανίζουν έναν εκτιμώμενο αριθμό «Μου αρέσει»</string>
     <string name="revanced_ryd_estimated_like_title">Εμφάνιση των εκτιμώμενων «Μου αρέσει»</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Δεδομένα dislike μη διαθέσιμα (όριο API πελάτη)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Δεδομένα dislike μη διαθέσιμα (κατάσταση %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Δεδομένα dislike μη διαθέσιμα (κατάσταση %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Τα Dislike δεν είναι προσωρινά διαθέσιμα (υπερβολικός χρόνος αναμονής της API)</string>
     <string name="revanced_ryd_failure_generic">Δεδομένα dislike μη διαθέσιμα (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
@@ -2217,7 +2222,7 @@ Playlists
     <string name="revanced_sb_skipped_sponsor">Παραλείφθηκε ο χορηγός</string>
     <string name="revanced_sb_skipped_unsubmitted">Παραλήφθηκε μη υποβληθέν τμήμα</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock προσωρινά μη διαθέσιμο</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock προσωρινά μη διαθέσιμο (κατάσταση %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock προσωρινά μη διαθέσιμο (κατάσταση %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock προσωρινά μη διαθέσιμο (καθυστέρηση API)</string>
     <string name="revanced_sb_square_layout">Χρήση τετράγωνης διάταξης</string>
     <string name="revanced_sb_square_layout_sum_off">Τα κουμπιά και τα στοιχεία ελέγχου είναι στρογγυλεμένα</string>
@@ -2240,7 +2245,7 @@ Playlists
     <string name="revanced_sb_stats_submissions_sum">Πατήστε για να δείτε τα τμήματα σας</string>
     <string name="revanced_sb_stats_username">Το όνομα χρήστη σας: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Πατήστε για να αλλάξετε το όνομα χρήστη σας</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Αδυναμία αλλαγής ονόματος χρήστη: Κατάσταση: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Αδυναμία αλλαγής ονόματος χρήστη: Κατάσταση: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Το όνομα χρήστη άλλαξε επιτυχώς</string>
     <string name="revanced_sb_submit_failed_duplicate">"Δεν είναι δυνατή η υποβολή του τμήματος
 Διαθέτει ήδη την ίδια τιμή"</string>
@@ -2248,7 +2253,7 @@ Playlists
     <string name="revanced_sb_submit_failed_invalid">Αδυναμία υποβολής τμήματος: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Αδυναμία υποβολής τμήματος. Όριο Συχνότητας (πάρα πολλά από τον ίδιο χρήστη ή την IP)</string>
     <string name="revanced_sb_submit_failed_timeout">Το SponsorBlock είναι προσωρινά εκτός λειτουργίας</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Αδυναμία υποβολής τμήματος (κατάσταση: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Αδυναμία υποβολής τμήματος (κατάσταση: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Το τμήμα υποβλήθηκε επιτυχώς</string>
     <string name="revanced_sb_toast_on_connection_error">Εμφάνιση ειδοποιήσεων σφάλματος σύνδεσης</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο</string>
@@ -2259,7 +2264,7 @@ Playlists
     <string name="revanced_sb_vote_downvote">Αρνητική ψήφος</string>
     <string name="revanced_sb_vote_failed_forbidden">Αδυναμία ψηφοφορίας για το τμήμα: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Αδυναμία ψηφοφορίας για το τμήμα (χρονοκαθυστέρηση API)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Αδυναμία ψηφοφορίας για το τμήμα (κατάσταση: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Αδυναμία ψηφοφορίας για το τμήμα (κατάσταση: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Δεν υπάρχουν τμήματα για να ψηφίσετε</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s έως %2$s</string>
     <string name="revanced_sb_vote_upvote">Θετική ψήφος</string>
@@ -2298,7 +2303,7 @@ Playlists
     <string name="revanced_settings_import_export_as_text_summary">Εισαγωγή / Εξαγωγή των ρυθμίσεων ως κείμενο</string>
     <string name="revanced_settings_import_failed">Αποτυχία εισαγωγής ρυθμίσεων</string>
     <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις του RVX</string>
-    <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
+    <string name="revanced_settings_import_success">Έγινε εισαγωγή %s ρυθμίσεων</string>
     <string name="revanced_settings_import_summary">Εισαγωγή ρυθμίσεων από αποθηκευμένο αρχείο</string>
     <string name="revanced_settings_import_title">Εισαγωγή ρυθμίσεων</string>
     <string name="revanced_settings_navigate_up">Μετάβαση προς τα πάνω</string>
@@ -2405,11 +2410,11 @@ Playlists
     <string name="revanced_spoof_app_version_target_invalid_toast">Μη έγκυρη έκδοση για παραποίηση: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Πληκτρολογήστε την έκδοση εφαρμογής που θα εφαρμοστεί</string>
     <string name="revanced_spoof_app_version_title">Παραποίηση έκδοσης εφαρμογής</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Η έκδοση της εφαρμογής θα παραποιηθεί σε μια παλαιότερη έκδοση
+    <string name="revanced_spoof_app_version_user_dialog_message">"Η έκδοση της εφαρμογής θα παραποιηθεί σε παλαιότερη
 
-Αυτό θα αλλάξει την εμφάνιση και τα χαρακτηριστικά της εφαρμογής, αλλά ενδέχεται να προκύψουν άγνωστες παρενέργειες
+Αυτό θα αλλάξει την εμφάνιση και τα χαρακτηριστικά της εφαρμογής, αλλά ενδέχεται να εμφανιστούν άγνωστες παρενέργειες
 
-Εάν αργότερα απενεργοποιηθεί, συνιστάται η εκκαθάριση των δεδομένων της εφαρμογής για την αποφυγή σφαλμάτων διεπαφής χρήστη"</string>
+Εάν απενεργοποιηθεί αργότερα, συνιστάται η εκκαθάριση των δεδομένων της εφαρμογής για την αποφυγή σφαλμάτων UI"</string>
     <string name="revanced_spoof_device_dimensions_summary">Η ενεργοποίηση αυτής της λειτουργίας μπορεί να ξεκλειδώσει υψηλότερες ποιότητες βίντεο</string>
     <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Το μενού «Κομμάτι ήχου» λείπει
@@ -2635,7 +2640,6 @@ Playlists
     <string name="revanced_webview_toast_empty">Το %s είναι κενό</string>
     <string name="revanced_webview_toast_no_network">Παρακαλούμε ελέγξτε τη σύνδεσή σας</string>
     <string name="revanced_webview_toast_unavailable">Το WebView δεν είναι διαθέσιμο</string>
-    <string name="revanced_webview_visitor_data">Visitor Data</string>
     <string name="revanced_whitelist_add_failed">Αποτυχία προσθήκης καναλιού \'%1$s\' στη λίστα επιτρεπόμενων %2$s</string>
     <string name="revanced_whitelist_added">Το κανάλι \'%1$s\' προστέθηκε στη λίστα επιτρεπόμενων %2$s</string>
     <string name="revanced_whitelist_empty">Δεν υπάρχουν κανάλια στην λίστα επιτρεπόμενων</string>

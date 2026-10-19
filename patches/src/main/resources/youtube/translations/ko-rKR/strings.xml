@@ -58,6 +58,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_auto_pause_on_screen_lock_always">화면 잠금 시 항상 일시 정지</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">무선 오디오 미연결 시 일시 정지</string>
     <string name="morphe_auto_pause_on_screen_lock_title">기기 잠금 시 자동 일시 정지</string>
+    <string name="morphe_auto_translate_additional_languages_summary">자동 번역 메뉴에 언어를 추가합니다</string>
+    <string name="morphe_auto_translate_additional_languages_title">자동 번역 언어 추가하기</string>
     <string name="morphe_copy_comments_success">댓글이 클립보드에 복사되었습니다</string>
     <string name="morphe_copy_comments_summary">댓글을 길게 탭하여 복사할 수 있도록 합니다</string>
     <string name="morphe_copy_comments_title">댓글 복사</string>
@@ -110,6 +112,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_explore_menu_screen_summary">탐색 메뉴에 표시할 구성 요소를 선택하세요</string>
     <string name="morphe_explore_menu_screen_title">탐색 메뉴</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">이 기능이 작동하지 않는다면, MicroG를 강제로 종료하세요</string>
+    <string name="morphe_feed_long_press_menu_summary">피드 동영상의 아무 곳이나 길게 누르면 해당 동영상의 메뉴가 열립니다</string>
+    <string name="morphe_feed_long_press_menu_title">동영상을 길게 누르면 메뉴가 열립니다</string>
+    <string name="morphe_feed_watch_later_button_summary">피드 동영상의 썸네일에 \'나중에 볼 목록\' 버튼이 표시됩니다. 버튼을 길게 누르면 플레이리스트에 저장됩니다</string>
+    <string name="morphe_feed_watch_later_button_title">썸네일에 \'나중에 볼 목록\' 버튼 표시</string>
     <string name="morphe_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android Reel\' 또는 \'TV\'로 변경하세요</string>
     <string name="morphe_force_original_audio_summary_off">기본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_summary_on">원본 오디오 언어를 활성화합니다</string>
@@ -197,7 +203,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_oauth2_connection_failure_auth_error">VR에 로그인할 수 없습니다: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR에 로그인할 수 없습니다. 웹사이트 인증이 승인되지 않았습니다</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2를 일시적으로 사용할 수 없습니다</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2를 일시적으로 사용할 수 없습니다 (상태 코드 %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2을 일시적으로 사용할 수 없습니다 (상태 코드: %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR 로그인이 만료되었습니다. VR에 다시 로그인하세요</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2를 일시적으로 사용할 수 없습니다 (API 시간 초과)</string>
     <string name="morphe_oauth2_toast_invalid">잘못된 VR 로그인 토큰입니다. 다시 VR에 로그인하세요</string>
@@ -232,7 +238,6 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_potoken_provider_unavailable_summary">"내부 PoToken 제공자를 사용하여 재생 문제를 수정합니다 (실험 기능)
 
 이 기능을 사용하려면, '동영상 스트림 속이기'를 비활성화하세요"</string>
-    <string name="morphe_preferred_caption_language_entry_off">사용 안함</string>
     <string name="morphe_preferred_caption_language_summary">제공자가 제공하는 자막을 먼저 선택한 다음, 선호하는 언어로 자동 번역합니다</string>
     <string name="morphe_preferred_caption_language_title">선호하는 자막 언어 설정</string>
     <string name="morphe_queue_manager_check_failed_auth">로그인하지 않았습니다</string>
@@ -303,7 +308,7 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
     <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s는 연속으로 여러 번 작동하지 않았지만, %2$s는 작동하였습니다 
 
 %2$s를 기본 클라이언트로 설정하시겠습니까?"</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">스위치</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">전환</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_title">기본 클라이언트가 작동하지 않습니다</string>
     <string name="morphe_spoof_video_streams_client_type_title">기본 클라이언트</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">클라이언트 스트림을 가져올 수 없습니다</string>
@@ -694,17 +699,17 @@ API 키는 절대로 다른 사람과 공유해서는 안 됩니다. API 키에 
     <string name="revanced_disable_layout_updates_summary_off">레이아웃이 서버에 의해 업데이트됩니다</string>
     <string name="revanced_disable_layout_updates_summary_on">레이아웃이 서버에 의해 업데이트되지 않습니다</string>
     <string name="revanced_disable_layout_updates_title">레이아웃 업데이트 비활성화하기</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"앱 레이아웃이 처음 설치할 때 사용되는 레이아웃으로 되돌아갑니다
+    <string name="revanced_disable_layout_updates_user_dialog_message">"앱 레이아웃이 처음 설치했을 때의 레이아웃으로 되돌아갑니다
 
-일부 서버 측 레이아웃은 되돌려지지 않을 수 있습니다
+일부 서버 측 레이아웃은 원래대로 복원되지 않을 수 있습니다
 
 변경 사항:
 • 플레이어 메뉴 구성 요소(또는 관련 설정)가 작동하지 않을 수 있습니다
-• 롤링 넘버 애니메이션이 작동하지 않습니다
+• 롤링 넘버 애니메이션이 표시되지 않습니다
 • 보관함 탭이 표시됩니다
-• 동영상 설명에서 음악 섹션이 작동하지 않을 수 있습니다
+• 동영상 설명의 음악 섹션이 작동하지 않을 수 있습니다
 • 플레이어 메뉴 구성요소 항목을 숨길 수 없습니다
-• 보관함 탭에서 계정 전환 버튼이 표시되지 않을 수 있습니다"</string>
+• 보관함 탭에 계정 전환 버튼이 표시되지 않을 수 있습니다"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용합니다</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다</string>
     <string name="revanced_disable_like_dislike_glow_title">빛나는 \'좋아요 &amp; 싫어요\' 비활성화하기</string>
@@ -2213,7 +2218,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_ryd_estimated_like_summary_on">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시합니다</string>
     <string name="revanced_ryd_estimated_like_title">추정되는 좋아요 수 표시하기</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다 (클라이언트 API 제한 도달)</string>
-    <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (API 시간 초과)</string>
     <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
@@ -2373,7 +2378,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_sb_skip_button_selfpromo">자체 홍보 구간 건너뛰기</string>
     <string name="revanced_sb_skip_button_sponsor">스폰서 광고 건너뛰기</string>
     <string name="revanced_sb_skip_button_unsubmitted">미제출한 구간 건너뛰기</string>
-    <string name="revanced_sb_skip_ignore">아무것도 하지 않기</string>
+    <string name="revanced_sb_skip_ignore">사용하지 않기</string>
     <string name="revanced_sb_skip_seekbaronly">재생바에만 표시하기</string>
     <string name="revanced_sb_skip_showbutton">건너뛰기 버튼 표시하기</string>
     <string name="revanced_sb_skipped_filler">주제와 관련 없는 구간을 건너뛰었습니다</string>
@@ -2391,7 +2396,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_sb_skipped_sponsor">스폰서 광고를 건너뛰었습니다</string>
     <string name="revanced_sb_skipped_unsubmitted">미제출한 구간을 건너뛰었습니다</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock을 일시적으로 사용할 수 없습니다</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock을 일시적으로 사용할 수 없습니다 (상태 코드: %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock을 일시적으로 사용할 수 없습니다 (상태 코드: %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock을 일시적으로 사용할 수 없습니다 (응답 시간 초과)</string>
     <string name="revanced_sb_square_layout">각진 레이아웃 사용하기</string>
     <string name="revanced_sb_square_layout_sum_off">버튼과 컨트롤을 둥글게 활성화합니다</string>
@@ -2414,7 +2419,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_sb_stats_submissions_sum">구간을 보려면 여기를 탭하세요</string>
     <string name="revanced_sb_stats_username">사용자 이름: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">사용자 이름을 변경하려면 여기를 탭하세요</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">사용자 이름을 변경할 수 없습니다. 상태 코드: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">사용자 이름을 변경할 수 없습니다. 상태 코드: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">사용자 이름을 성공적으로 변경하였습니다</string>
     <string name="revanced_sb_submit_failed_duplicate">"구간을 제출할 수 없습니다
 이미 존재하는 구간입니다"</string>
@@ -2422,7 +2427,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_sb_submit_failed_invalid">구간을 제출할 수 없습니다: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">구간 제출 불가. 속도 제한 (동일 사용자 또는 IP에서 너무 많이 전송됨)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock을 일시적으로 사용할 수 없습니다</string>
-    <string name="revanced_sb_submit_failed_unknown_error">구간을 제출할 수 없습니다 (상태 코드: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">구간을 제출할 수 없습니다 (상태 코드: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">구간을 성공적으로 제출하였습니다</string>
     <string name="revanced_sb_toast_on_connection_error">연결 오류 알림 표시하기</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock을 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
@@ -2433,7 +2438,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_sb_vote_downvote">싫어요</string>
     <string name="revanced_sb_vote_failed_forbidden">구간에 투표할 수 없습니다: %s</string>
     <string name="revanced_sb_vote_failed_timeout">구간에 투표할 수 없습니다 (응답 시간 초과)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">구간에 투표할 수 없습니다 (상태 코드: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">구간에 투표할 수 없습니다 (상태 코드: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">투표할 구간이 없습니다</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s ~ %2$s</string>
     <string name="revanced_sb_vote_upvote">좋아요</string>
@@ -2482,7 +2487,7 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_settings_import_export_as_text_summary">설정을 텍스트로 가져오거나 내보낼 수 있습니다</string>
     <string name="revanced_settings_import_failed">설정을 가져올 수 없습니다</string>
     <string name="revanced_settings_import_reset">RVX 설정을 기본값으로 초기화합니다</string>
-    <string name="revanced_settings_import_success">%d 개의 설정을 가져왔습니다</string>
+    <string name="revanced_settings_import_success">%s 개의 설정을 가져왔습니다</string>
     <string name="revanced_settings_import_summary">설정을 저장된 파일에서 가져올 수 있습니다</string>
     <string name="revanced_settings_import_title">설정 가져오기</string>
     <string name="revanced_settings_navigate_up">위로 이동</string>
@@ -2910,7 +2915,6 @@ JavaScript 클라이언트 중에서 권장되는 클라이언트는 TV Simply�
     <string name="revanced_webview_toast_empty">\'%s\'가 비어 있습니다</string>
     <string name="revanced_webview_toast_no_network">네트워크 연결 상태를 확인하세요</string>
     <string name="revanced_webview_toast_unavailable">WebView를 사용할 수 없습니다</string>
-    <string name="revanced_webview_visitor_data">Visitor Data</string>
     <string name="revanced_whitelist_add_failed">\'%1$s\' 채널을 %2$s 화이트리스트에 추가할 수 없습니다</string>
     <string name="revanced_whitelist_added">\'%1$s\' 채널을 %2$s 화이트리스트에 추가하였습니다</string>
     <string name="revanced_whitelist_empty">화이트리스트 채널이 없습니다</string>

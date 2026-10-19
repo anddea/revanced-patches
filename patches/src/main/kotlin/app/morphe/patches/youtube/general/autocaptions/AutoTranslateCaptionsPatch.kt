@@ -1,5 +1,6 @@
 /*
  * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/3566
  * https://github.com/MorpheApp/morphe-patches/pull/3754
  * Adapted from https://github.com/itolkien/morphe-universal-captions
  *
@@ -8,7 +9,9 @@
 
 package app.morphe.patches.youtube.general.autocaptions
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
@@ -16,6 +19,8 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.getReference
+import app.morphe.util.matchAllMethodIndicesForEach
+import app.morphe.util.registersUsed
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -24,6 +29,8 @@ private const val EXTENSION_CLASS =
     "Lapp/morphe/extension/youtube/patches/AutoTranslateCaptionsPatch;"
 private const val EXTENSION_CAPTION_TRACK_INTERFACE =
     $$"Lapp/morphe/extension/youtube/patches/AutoTranslateCaptionsPatch$CaptionTrackInterface;"
+private const val PREFERRED_CAPTION_TRACK_INTERFACE =
+    $$"Lapp/morphe/extension/youtube/patches/PreferredCaptionLanguagePatch$CaptionTrackInterface;"
 
 internal val autoTranslateCaptionsPatch = bytecodePatch(
     description = "Adds an option to add more auto-translate languages and sort the languages by name."
@@ -81,6 +88,48 @@ internal val autoTranslateCaptionsPatch = bytecodePatch(
                     invoke-virtual { v0 }, ${CaptionTrackBuilderBuildFingerprint.method}
                     move-result-object v0
                     return-object v0
+                """
+            )
+        }
+
+        val directTracks = CaptionTracksManagerDirectTracksFingerprint.method
+        val autoTracks = CaptionTracksManagerAutoTranslateTracksFingerprint.method
+        // Added by the preferred caption language patch.
+        val translationSource = "${directTracks.definingClass}->patch_getTranslationSource()" +
+                CaptionTrackBuilderBuildFingerprint.method.returnType
+        // Keep both original getters intact. The adapter calls them once and cannot call itself.
+        CaptionTracksManagerDirectTracksFingerprint.classDef.addHelperMethod(
+            "patch_getAutoTranslateTracks", "Ljava/util/List;", freeRegisters = 3,
+            smali = """
+                invoke-virtual { p0 }, $autoTracks
+                move-result-object v0
+                invoke-virtual { p0 }, $directTracks
+                move-result-object v1
+                invoke-virtual { p0 }, $translationSource
+                move-result-object v2
+                invoke-static { v0, v1, v2 }, $EXTENSION_CLASS->restoreTranslationTracks(Ljava/util/List;Ljava/util/List;$PREFERRED_CAPTION_TRACK_INTERFACE)Ljava/util/List;
+                move-result-object v0
+                return-object v0
+            """
+        )
+
+        val adapter = "${directTracks.definingClass}->patch_getAutoTranslateTracks()Ljava/util/List;"
+        // Route the UI getter and the existing preferred-language interface getter through it.
+        AutoTranslateTracksCallFingerprint(autoTracks).matchAllMethodIndicesForEach { index ->
+            val register = getInstruction(index).registersUsed[0]
+            replaceInstruction(index, "invoke-virtual/range { v$register .. v$register }, $adapter")
+        }
+
+        // Reuse YouTube's localized option factory and preserve its remaining native checks.
+        CaptionTracksManagerTranslationCountFingerprint.apply {
+            val countMatch = instructionMatches[1]
+            val count = countMatch.getInstruction<OneRegisterInstruction>().registerA
+            val result = instructionMatches.last().getInstruction<OneRegisterInstruction>().registerA
+            method.addInstructions(
+                countMatch.index + 1,
+                """
+                    invoke-static { v$count, v$result }, $EXTENSION_CLASS->getTranslationCount(ILjava/util/List;)I
+                    move-result v$count
                 """
             )
         }

@@ -103,7 +103,7 @@ final class OfflineNotifications {
         builder.setContentTitle(task.title)
                 .setContentText(text)
                 .setProgress(100, Math.max(0, percent), percent < 0 || task.getState() != OfflineDownloader.State.DOWNLOADING)
-                .addAction(action(context, android.R.drawable.ic_menu_close_clear_cancel, str("revanced_offline_cancel"),
+                .addAction(action(context, android.R.drawable.ic_menu_close_clear_cancel, str("revanced_cancel"),
                         serviceIntent(context, OfflineServiceHooks.KEEP_ALIVE_SERVICE,
                                 OfflineServiceHooks.ACTION_DOWNLOAD_CANCEL, task.videoId, task.videoId.hashCode())));
         return builder.build();

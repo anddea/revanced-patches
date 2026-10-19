@@ -78,8 +78,7 @@ public final class LyricsFileSaver {
             formatType = "txt";
         }
 
-        String fileName = sanitizeFileName(track.artist() + " - " + track.title())
-                + "." + formatType;
+        String fileName = fileName(track, lyrics, formatType);
 
         // MediaStore.Downloads arrived in Android 10 and there is no legacy path here,
         // so saving is unavailable on older releases rather than failing at the field.
@@ -233,6 +232,15 @@ public final class LyricsFileSaver {
 
     private static String sanitizeFileName(String name) {
         return name.replaceAll("[\\\\/:*?\"<>|]", "_").replaceAll("\\s+", " ").trim();
+    }
+
+    private static String fileName(TrackInfo track, Lyrics lyrics, String formatType) {
+        String name = sanitizeFileName(track.artist() + " - " + track.title());
+        String provider = sanitizeFileName(lyrics.providerName());
+        if (!provider.isEmpty()) {
+            name += " [" + provider + "]";
+        }
+        return name + "." + formatType;
     }
 
     private static String getMimeType(String formatType) {

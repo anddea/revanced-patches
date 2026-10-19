@@ -196,7 +196,7 @@ final class SponsorBlockMusicSubmitDialog {
                             videoId, category, start, end, videoLength, manager));
                 },
                 () -> { },
-                str("morphe_sb_settings_copy"),
+                str("revanced_settings_import_copy"),
                 () -> copySpan(context, videoId, times),
                 false);
 

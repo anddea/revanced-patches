@@ -44,6 +44,9 @@ public class GooglePauseMethodsTest {
         GooglePauseMethods.nativeStartupAudio = null;
         GooglePauseMethods.tts = new GooglePauseMethods.FakeTts();
         GooglePauseMethods.ttsEngine = new GooglePauseMethods.FakeEngine();
+        VoiceCatalog.available = true;
+        EdgeTtsVoiceRepository.callback = null;
+        TtsPrefetcher.rescans = 0;
         TtsPrefetcher.time = -1;
         TtsPrefetcher.updates = TtsPrefetcher.clears = 0;
         TtsPrefetcher.video = "";
@@ -909,5 +912,34 @@ public class GooglePauseMethodsTest {
             assertEquals(0, GooglePauseMethods.stopped);
             assertEquals(1, GooglePauseMethods.transcriptGeneration);
         }
+    }
+
+    @Test
+    public void missingEdgeVoicesRescanWhenCatalogArrives() {
+        Settings.GOOGLE_VOT_AUTO_TRANSLATE.value = true;
+        Settings.GOOGLE_VOT_USE_NATIVE_TTS.value = false;
+        VoiceCatalog.available = false;
+        GooglePauseMethods.tts = null;
+        GooglePauseMethods.newVideoLoaded("b");
+        assertNotNull(GooglePauseMethods.tts);
+        assertNotNull(EdgeTtsVoiceRepository.callback);
+        VoiceCatalog.available = true;
+        EdgeTtsVoiceRepository.callback.run();
+        assertEquals(1, TtsPrefetcher.rescans);
+        Utils.background.forEach(Runnable::run);
+        assertEquals(0, GooglePauseMethods.ttsEngine.warmups);
+    }
+
+    @Test
+    public void retiredVideoCatalogCallbackDoesNotRescan() {
+        Settings.GOOGLE_VOT_AUTO_TRANSLATE.value = true;
+        Settings.GOOGLE_VOT_USE_NATIVE_TTS.value = false;
+        VoiceCatalog.available = false;
+        GooglePauseMethods.newVideoLoaded("b");
+        Runnable oldCallback = EdgeTtsVoiceRepository.callback;
+        GooglePauseMethods.newVideoLoaded("c");
+        VoiceCatalog.available = true;
+        oldCallback.run();
+        assertEquals(0, TtsPrefetcher.rescans);
     }
 }

@@ -15,6 +15,18 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
+import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
+import app.morphe.util.getFreeRegisterProvider
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import app.morphe.patches.youtube.video.playbackstart.playbackStartDescriptorPatch
+import app.morphe.patches.youtube.video.playbackstart.playbackStartVideoIdReference
+import app.morphe.patches.youtube.layout.livering.clientSettingEndpointFingerprint
+import app.morphe.patches.youtube.layout.livering.ShortsPlaybackIntentFingerprint
+import app.morphe.patches.youtube.layout.livering.ShortsPlaybackIntentFingerprintLegacy
+import app.morphe.patches.youtube.utils.playservice.is_21_20_or_greater
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
@@ -38,6 +50,7 @@ import app.morphe.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.morphe.patches.youtube.utils.playservice.is_19_30_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_40_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_20_14_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
@@ -139,6 +152,8 @@ val videoPlaybackPatch = bytecodePatch(
         videoInformationPatch,
         sharedResourceIdPatch,
         prioritizeVideoQualityPatch,
+        fixProtoLibraryPatch,
+        playbackStartDescriptorPatch,
         customPlaybackSpeedResourcePatch,
     )
 
@@ -261,6 +276,204 @@ val videoPlaybackPatch = bytecodePatch(
         hookBackgroundPlayVideoInformation("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
         hookVideoInformation("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
         hookPlayerResponseVideoId("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->fetchRequest(Ljava/lang/String;Z)V")
+
+        val videoQualitySettingMethod = VideoQualitySettingEnumFingerprint.let {
+            val videoQualitySettingType = it.classDef.type
+            val advancedMenuField = it.instructionMatches.last().instruction.getReference<FieldReference>()!!
+
+            getVideoQualitySettingFingerprint(videoQualitySettingType).method.apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static { }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->useAdvancedVideoQualitySetting()Z
+                        move-result v0
+                        if-eqz v0, :original
+                        sget-object v0, $advancedMenuField
+                        return-object v0
+                        :original
+                        nop
+                    """
+                )
+            }
+        }
+
+        // The server chooses the quality of SABR streams from the client ABR state sent with each request.
+        // The first request of a video sends the initial video quality as the sticky resolution,
+        // but the requests sent while the video plays have none, so the server can switch to another quality.
+        // The quality is sent as if the user just selected it, in every request.
+        if (is_20_21_or_greater) {
+            ClientAbrStateFingerprint.let {
+                val overrideClientAbrStateMethod = ImmutableMethod(
+                    it.classDef.type,
+                    "patch_overrideClientAbrState",
+                    listOf(ImmutableMethodParameter(CLIENT_ABR_STATE_CLASS, null, null)),
+                    CLIENT_ABR_STATE_CLASS,
+                    AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(3),
+                ).toMutable().apply {
+                    addInstructionsWithLabels(
+                        0,
+                        """
+                        invoke-static { p0 }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->overrideClientAbrState(Lcom/google/protobuf/MessageLite;)[B
+                        move-result-object v0
+                        if-eqz v0, :keep
+                        invoke-static { }, $CLIENT_ABR_STATE_CLASS->getDefaultInstance()$CLIENT_ABR_STATE_CLASS
+                        move-result-object v1
+                        invoke-static { v1, v0 }, ${parseByteArrayMethodRef.get()!!}
+                        move-result-object v0
+                        check-cast v0, $CLIENT_ABR_STATE_CLASS
+                        return-object v0
+                        :keep
+                        return-object p0
+                    """
+                    )
+                }
+                it.classDef.methods.add(overrideClientAbrStateMethod)
+
+                it.method.apply {
+                    findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                        addInstructionsAtControlFlowLabel(
+                            index,
+                            """
+                            invoke-static/range { v$register .. v$register }, $overrideClientAbrStateMethod
+                            move-result-object v$register
+                        """
+                        )
+                    }
+                }
+            }
+        }
+
+        // The initial video quality is only used when the video starts. While the video plays,
+        // the player and the SABR requests use the quality last selected in the quality menu,
+        // and without one the quality is chosen automatically, such as 720p for the size of the player.
+        // The default quality is used as the quality last selected, as if the user just selected it.
+        val videoIdField = LastSelectedVideoQualityConstructorFingerprint.let {
+            val videoIdField = it.instructionMatches[1].instruction.getReference<FieldReference>()!!
+
+            it.method.apply {
+                val selectedTimeField = it.instructionMatches[0].instruction.getReference<FieldReference>()!!
+                val playbackStartTimeField = it.instructionMatches[3].instruction.getReference<FieldReference>()!!
+                val resolutionField = it.instructionMatches[4].instruction.getReference<FieldReference>()!!
+                val directionField = it.instructionMatches[5].instruction.getReference<FieldReference>()!!
+
+                // All fields are set, so the registers are free before the return.
+                addInstructionsAtControlFlowLabel(
+                    indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID),
+                    """
+                        invoke-static { }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getLastSelectedVideoQuality()I
+                        move-result v0
+                        if-ltz v0, :original
+                        iput v0, p0, $resolutionField
+
+                        # The video starts with the default quality, so the direction is the one
+                        # saved when the user selects the quality that is playing (no change).
+                        const/4 v0, 0x0
+                        iput v0, p0, $directionField
+
+                        invoke-static { }, Ljava/lang/System;->currentTimeMillis()J
+                        move-result-wide v0
+                        iput-wide v0, p0, $selectedTimeField
+                        iput-wide v0, p0, $playbackStartTimeField
+
+                        # Without a video ID, YouTube saves the quality as the quality last selected.
+                        iget-object v0, p0, $videoIdField
+                        if-nez v0, :original
+                        const-string v0, ""
+                        iput-object v0, p0, $videoIdField
+                        :original
+                        nop
+                    """
+                )
+            }
+
+            videoIdField
+        }
+
+        // With some accounts, the quality selected in the quality menu is used only for the video
+        // it was selected for, and the player of other videos chooses the quality automatically.
+        // The default quality is used as if the user selected it for the current video.
+        getVideoQualityConstraintFingerprint(
+            LastSelectedVideoQualityConstructorFingerprint.classDef.type,
+            videoQualitySettingMethod.toString()
+        ).let {
+            it.method.apply {
+                val moveResultIndex = it.instructionMatches.first().index + 1
+                val lastSelectedRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
+                val insertIndex = moveResultIndex + 1
+                // The field is set with an instruction that can only use registers v0-v15.
+                val registerProvider = getFreeRegisterProvider(insertIndex, 2, lastSelectedRegister)
+                val videoIdRegister = registerProvider.getFreeRegister4Bit()
+                val lastSelectedFreeRegister = registerProvider.getFreeRegister4Bit()
+
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
+                        invoke-static { }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->getLastSelectedVideoQuality()I
+                        move-result v$videoIdRegister
+                        if-ltz v$videoIdRegister, :original
+                        move-object/from16 v$videoIdRegister, p3
+                        move-object/from16 v$lastSelectedFreeRegister, v$lastSelectedRegister
+                        iput-object v$videoIdRegister, v$lastSelectedFreeRegister, $videoIdField
+                        :original
+                        nop
+                    """
+                )
+            }
+        }
+
+        // A quality selected by the user is used again if YouTube reloads the video,
+        // until another video is opened. Reuse the existing playback-start descriptor hooks.
+        val playbackStartVideoIdMethod = playbackStartVideoIdReference as MethodReference
+        fun patchLogic(mapRegister: String, playerDescriptorClassRegister: String, free1: String, free2: String): String {
+            val methodParameter = playerDescriptorClassRegister.startsWith("p")
+
+            return """
+                move-object/from16 $free1, $mapRegister
+                ${
+                    if (methodParameter) "move-object/from16 $free2, $playerDescriptorClassRegister"
+                    else ""
+                }
+                invoke-virtual { ${
+                    if (methodParameter) free2
+                    else playerDescriptorClassRegister
+                } }, ${playbackStartVideoIdMethod.definingClass}->${playbackStartVideoIdMethod.name}()Ljava/lang/String;
+                move-result-object $free2
+                invoke-static { $free1, $free2 }, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->onVideoIntentLoaded(Ljava/util/Map;Ljava/lang/String;)Z
+                move-result $free1
+                if-eqz $free1, :ignore
+                return-void
+                :ignore
+                nop
+            """
+        }
+
+        clientSettingEndpointFingerprint.let {
+            it.method.apply {
+                val match = it.instructionMatches[1]
+                val moveResultRegister = match.getInstruction<OneRegisterInstruction>().registerA
+                val insertIndex = match.index + 1
+                val registerProvider = getFreeRegisterProvider(insertIndex, 2, moveResultRegister)
+                val free1 = registerProvider.getFreeRegister()
+                val free2 = registerProvider.getFreeRegister()
+
+                addInstructionsAtControlFlowLabel(
+                    insertIndex,
+                    patchLogic("p2", "v$moveResultRegister", "v$free1", "v$free2")
+                )
+            }
+        }
+
+        // Clear the previous video selection before the Shorts player starts.
+        (if (is_21_20_or_greater) ShortsPlaybackIntentFingerprint
+        else ShortsPlaybackIntentFingerprintLegacy).method.addInstructionsWithLabels(
+            0,
+            patchLogic("p2", "p1", "v0", "v1")
+        )
 
         updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "VideoPlayback")
 

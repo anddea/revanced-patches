@@ -4,16 +4,16 @@
     <string name="accessibility_settings_edu_opt_out_text">Ваши элементы управления изменены, поскольку включена служба специальных возможностей</string>
     <string name="gms_core_dialog_continue_text">Продолжить</string>
     <string name="gms_core_dialog_dismiss_text">Больше не показывать</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG не имеет разрешения на работу в фоновом режиме
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"У MicroG нет разрешения на работу в фоновом режиме
 
-Следуйте инструкции \"Don't kill my app\" для Вашего телефона и примените её к вашей установке MicroG
+Следуйте руководству «Don't kill my app» для вашего телефона и примените инструкции к установке MicroG
 
 Это необходимо для работы приложения"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизация батареи для MicroG должна быть отключена для предотвращения проблем
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизация батареи MicroG должна быть отключена во избежание проблем
 
-Отключение оптимизации батареи для MicroG не повлияет негативно на использование батареи
+Отключение оптимизации батареи для MicroG не повлияет на расход заряда
 
-Нажмите кнопку \"Продолжить\" и разрешите изменения оптимизации"</string>
+Нажмите кнопку «Продолжить» и разрешите изменения оптимизации"</string>
     <string name="gms_core_dialog_open_website_text">Открыть веб-сайт</string>
     <string name="gms_core_dialog_title">Требуется действие</string>
     <string name="gms_core_offline_account_login_error">Если Вы недавно изменили данные для входа в свою учетную запись, то удалите и переустановите GmsCore или MicroG</string>
@@ -58,6 +58,8 @@
     <string name="morphe_auto_pause_on_screen_lock_always">Всегда ставить на паузу при блокировке экрана</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Ставить на паузу, если не подключено беспроводное аудио</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Автоматическая пауза при блокировке устройства</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Добавляет больше языков в меню автоперевода</string>
+    <string name="morphe_auto_translate_additional_languages_title">Добавить дополнительные языки для автоперевода</string>
     <string name="morphe_copy_comments_success">Комментарий скопирован в буфер обмена</string>
     <string name="morphe_copy_comments_summary">Нажмите и удерживайте комментарий, чтобы скопировать его</string>
     <string name="morphe_copy_comments_title">Копировать комментарии</string>
@@ -99,6 +101,8 @@
     <string name="morphe_disable_quic_protocol_summary_on">Протокол QUIC отключен</string>
     <string name="morphe_disable_quic_protocol_title">Отключить протокол QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Отключить ограничение скорости прокрутки</string>
+    <string name="morphe_disable_system_splash_summary">Сделать статичную иконку заставки прозрачной</string>
+    <string name="morphe_disable_system_splash_title">Отключить системную заставку</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"«Расширить длительность DVR прямых трансляций» может быть недоступно
 
 Чтобы исправить это, включите «Подмена видеопотоков» и измените «Клиент по умолчанию» на «TV Simply» или «visionOS»"</string>
@@ -107,6 +111,10 @@
     <string name="morphe_explore_menu_screen_summary">Выберите, какие компоненты отображать в меню «Изучить»</string>
     <string name="morphe_explore_menu_screen_title">Изучить меню</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Если не работает, попробуйте принудительно закрыть MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">Нажатие и удержание в любом месте видео из ленты открывает его меню</string>
+    <string name="morphe_feed_long_press_menu_title">Нажмите и удерживайте, чтобы открыть меню видео</string>
+    <string name="morphe_feed_watch_later_button_summary">На превью видео из ленты отображается кнопка «Позже». Нажатие и удержание открывает сохранение в плейлист</string>
+    <string name="morphe_feed_watch_later_button_title">Показывать кнопку «Позже» на превью видео</string>
     <string name="morphe_force_original_audio_not_available">Чтобы использовать эту функцию, измените \'Подмена видеопотоков\' на любой клиент, кроме \'Android Studio\' и \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
     <string name="morphe_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
@@ -194,7 +202,7 @@
     <string name="morphe_oauth2_connection_failure_auth_error">Не удается войти в VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Невозможно войти в VR, веб-авторизация не была одобрена</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 временно недоступна</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 временно недоступна (статус %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 временно недоступен (статус %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Срок действия входа в Android VR истек. Попробуйте войти в VR снова</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 временно недоступен (время ожидания API истекло)</string>
     <string name="morphe_oauth2_toast_invalid">Недействительный токен входа в VR, попробуйте войти в VR еще раз</string>
@@ -217,11 +225,15 @@
     <string name="morphe_playback_in_feeds_title">Воспроизведение в ленте</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Регулирует непрозрачность фона за кнопками управления плеером и временной шкалой (0 — невидимый, 100 — непрозрачный)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Прозрачность фона кнопок управления</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"Токен созданный в этой версии PoToken провайдера больше не работает 
+
+Включить \'Подмена видеопотока\' для исправления воспроизведения"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">PoToken провайдер больше не работает</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Включить</string>
     <string name="morphe_potoken_provider_summary">"Исправляет проблемы с воспроизведением при использовании встроенного провайдера PoToken (экспериментальная функция)
 
 Если у вас YouTube Premium, эта настройка может не понадобиться"</string>
     <string name="morphe_potoken_provider_title">PoToken провайдер</string>
-    <string name="morphe_preferred_caption_language_entry_off">Выключено</string>
     <string name="morphe_preferred_caption_language_summary">Сначала выбирает субтитры поставщика, затем автоматически переводит их на предпочитаемый язык</string>
     <string name="morphe_preferred_caption_language_title">Предпочитаемый язык субтитров</string>
     <string name="morphe_queue_manager_check_failed_auth">Не вошел в систему</string>
@@ -363,6 +375,7 @@
     <string name="morphe_theme_entry_pale_blue">Бледно-голубая</string>
     <string name="morphe_theme_entry_pale_green">Бледно-зеленая</string>
     <string name="morphe_theme_entry_pale_yellow">Бледно-желтая</string>
+    <string name="morphe_theme_entry_patch_option">Опция патча</string>
     <string name="morphe_theme_entry_white">Белая</string>
     <string name="morphe_theme_settings_summary">Настройте тему оформления, внешний вид и брендирование</string>
     <string name="morphe_theme_settings_title">Настройки темы</string>
@@ -371,6 +384,8 @@
     <string name="morphe_video_quality_prioritize_title">Приоритет качества видео</string>
     <string name="morphe_volume_boost_summary">Проведение вверх за пределы максимальной громкости усиливает её, что может искажать громкий звук</string>
     <string name="morphe_volume_boost_title">Усиление громкости</string>
+    <string name="morphe_vot_auto_translate_summary_off">Нажмите кнопку перевода для начала перевода от Google</string>
+    <string name="morphe_vot_auto_translate_summary_on">Google перевод начинается автоматически для каждого видео</string>
     <string name="morphe_vot_caption_language_title">Язык</string>
     <string name="morphe_vot_cost_free">Бесплатно</string>
     <string name="morphe_vot_cost_per_hour">%s за 100 часов видео</string>
@@ -392,7 +407,7 @@
 Нажмите здесь, чтобы открыть MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">Вы использовали сегодняшнюю бесплатную квоту перевода MyMemory (5000 символов). Добавьте адрес электронной почты MyMemory в настройках, чтобы увеличить ежедневный лимит до 50 000 символов, или переключитесь на другую службу перевода</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">Вы использовали сегодняшнюю квоту перевода MyMemory (50 000 символов). Переключитесь на другую службу перевода или попробуйте снова завтра</string>
-    <string name="morphe_vot_mymemory_quota_next_available">Доступно в %s</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Следующая доступность %s</string>
     <string name="morphe_vot_mymemory_quota_title">Достигнут ежедневный лимит MyMemory</string>
     <string name="morphe_vot_openrouter_api_key_summary">Ваш ключ API OpenRouter. Создайте ключ на OpenRouter.ai &gt; Workspace &gt; API Keys</string>
     <string name="morphe_vot_openrouter_api_key_title">Ключ API OpenRouter</string>
@@ -648,6 +663,8 @@
     <string name="revanced_disable_engagement_panel_summary_off">Панель взаимодействия включена</string>
     <string name="revanced_disable_engagement_panel_summary_on">Панель взаимодействия отключена</string>
     <string name="revanced_disable_engagement_panel_title">Панель взаимодействия</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_off">Жест масштабирования двумя пальцами включён</string>
+    <string name="revanced_disable_fullscreen_zoom_gesture_summary_on">Жест масштабирования двумя пальцами выключен</string>
     <string name="revanced_disable_fullscreen_zoom_gesture_title">Отключить жест сжатия для масштабирования</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_off">Виброотклик между эпизодов включен</string>
     <string name="revanced_disable_haptic_feedback_chapters_summary_on">Виброотклик между эпизодов отключен</string>
@@ -672,17 +689,17 @@
     <string name="revanced_disable_layout_updates_summary_off">Макет будет обновляться сервером</string>
     <string name="revanced_disable_layout_updates_summary_on">Макет не будет обновляться сервером</string>
     <string name="revanced_disable_layout_updates_title">Отключить обновление макета</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Интерфейс приложения возвращается к тому, который использовался при первой установке
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Макет приложения возвращается к макету, используемому при первой установке
 
-Некоторые серверные интерфейсы могут не восстановиться
+Некоторые серверные макеты могут не вернуться к исходному состоянию
 
 Изменения включают:
-• Компоненты в раскрывающемся меню проигрывателя (или связанных настроек) могут не работать
-• Движущиеся числа не анимированы
-• Отображается вкладка Библиотека
+• Компоненты во всплывающем меню проигрывателя (или связанные с ними настройки) могут не работать
+• Бегущие числа не анимируются
+• Отображается вкладка «Библиотека»
 • Раздел Музыки в описании видео может не работать
 • Элементы всплывающего меню проигрывателя нельзя скрыть
-• Кнопка переключения аккаунта может не появиться на вкладке Библиотека"</string>
+• Кнопка переключения аккаунтов может не появиться на вкладке «Библиотека»"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Кнопки \"Лайк\" и \"Дизлайк\" при упоминании подсвечиваются</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Кнопки \"Лайк\" и \"Дизлайк\" при упоминании не подсвечиваются</string>
     <string name="revanced_disable_like_dislike_glow_title">Отключить свечение кнопки \"Лайк\" и \"Дизлайк\"</string>
@@ -843,7 +860,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не установлен
 Пожалуйста, скачайте %2$s с сайта"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Предупреждение</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s не установлено. Пожалуйста, установите его</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Пожалуйста, установите его</string>
     <string name="revanced_external_downloader_other_item">Другое</string>
     <string name="revanced_external_downloader_other_item_hint">Введите имя пакета</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Название пакета установленного внешнего приложения для загрузки</string>
@@ -896,6 +913,8 @@
     <string name="revanced_gemini_error_transcription_parse">Не удалось проанализировать данные транскрибации</string>
     <string name="revanced_gemini_error_translation_failed">Не удалось выполнить перевод Gemini</string>
     <string name="revanced_gemini_error_translation_parse_failed">Не удалось выполнить парсинг перевода Gemini</string>
+    <string name="revanced_gemini_highlight_words_summary">Подсветить каждого сказанного слова в видео</string>
+    <string name="revanced_gemini_highlight_words_title">Выделить сказанные слова</string>
     <string name="revanced_gemini_loading_default">Загрузка...</string>
     <string name="revanced_gemini_loading_summarize">Резюмирование видео...</string>
     <string name="revanced_gemini_loading_transcribe">Транскрибация видео...</string>
@@ -974,6 +993,8 @@
     <string name="revanced_hide_carousel_shelf_summary_off">Cекции предложений отображены</string>
     <string name="revanced_hide_carousel_shelf_summary_on">Cекции предложений скрыты.\nПримечание:\n• Последние новости.\n• Продолжить просмотр.\n• Исследовать больше каналов.\n• Послушать еще раз.\n• Покупки.\n• Посмотреть еще раз</string>
     <string name="revanced_hide_carousel_shelf_title">Скрыть секции предложений</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_off">Показано в комментариях</string>
+    <string name="revanced_hide_category_bar_in_comments_summary_on">Скрыто в комментариях</string>
     <string name="revanced_hide_category_bar_in_comments_title">Скрыть в комментариях</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">В ленте отображена</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">В ленте скрыта</string>
@@ -1653,7 +1674,7 @@ Shorts
     <string name="revanced_hide_youtube_doodles_summary_off">Анимация YouTube Doodles на логотипе показана</string>
     <string name="revanced_hide_youtube_doodles_summary_on">Анимация YouTube Doodles на логотипе скрыта</string>
     <string name="revanced_hide_youtube_doodles_title">Скрыть YouTube Doodles</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">Отображение Doodle от YouTube может помешать отображению пользовательских заголовков</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">Показ YouTube Doodles может предотвратить отображение пользовательских заголовков</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">Продвижение YouTube Premium отображено</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"Продвижение YouTube Premium скрыто
 
@@ -2147,7 +2168,7 @@ Shorts
     <string name="revanced_ryd_estimated_like_summary_on">Для видео с отключенными лайками показывается примерное количество лайков</string>
     <string name="revanced_ryd_estimated_like_title">Показать примерное количество лайков</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступны (лимит клиентов API)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступны (статус %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступны (статус %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки временно недоступны (таймаут API)</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступны (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности Return YouTube Dislike скрыто</string>
@@ -2326,7 +2347,7 @@ Shorts
     <string name="revanced_sb_skipped_sponsor">Спонсорская реклама пропущена</string>
     <string name="revanced_sb_skipped_unsubmitted">Неподтвержденный сегмент пропущен</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock временно недоступен</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock временно недоступен (статус %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock временно недоступен (статус %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock временно недоступен (время API истекло)</string>
     <string name="revanced_sb_square_layout">Использовать квадратный макет</string>
     <string name="revanced_sb_square_layout_sum_off">Кнопки и элементы управления закругленные</string>
@@ -2349,7 +2370,7 @@ Shorts
     <string name="revanced_sb_stats_submissions_sum">Нажмите здесь для просмотра Ваших сегментов</string>
     <string name="revanced_sb_stats_username">Ваше имя пользователя: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Нажмите для изменения Вашего имени пользователя</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Невозможно изменить имя пользователя: Статус: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Невозможно изменить имя пользователя: Статус: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Имя пользователя успешно изменено</string>
     <string name="revanced_sb_submit_failed_duplicate">"Невозможно отправить сегмент
 Уже существует"</string>
@@ -2357,7 +2378,7 @@ Shorts
     <string name="revanced_sb_submit_failed_invalid">Невозможно отправить сегмент: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Невозможно отправить сегмент. Частота ограничена (слишком много от одного пользователя или IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock временно не работает</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Невозможно отправить сегмент (статус: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Невозможно отправить сегмент (статус: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Сегмент успешно отправлен</string>
     <string name="revanced_sb_toast_on_connection_error">Показывать оповещения об ошибках подключения</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Всплывающее уведомление при недоступности SponsorBlock скрыто</string>
@@ -2368,7 +2389,7 @@ Shorts
     <string name="revanced_sb_vote_downvote">Голос \"против\"</string>
     <string name="revanced_sb_vote_failed_forbidden">Невозможно проголосовать за сегмент: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Невозможно проголосовать за сегмент (время API истекло)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Невозможно проголосовать за сегмент (статус: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Невозможно проголосовать за сегмент (статус: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Нет сегментов для голосования</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
     <string name="revanced_sb_vote_upvote">Голос \"за\"</string>
@@ -2416,7 +2437,7 @@ Shorts
     <string name="revanced_settings_import_export_as_text_summary">Импорт/Экспорт Настроек как текст</string>
     <string name="revanced_settings_import_failed">Ошибка импорта настроек</string>
     <string name="revanced_settings_import_reset">Настройки RVX восстановлены до значений по умолчанию</string>
-    <string name="revanced_settings_import_success">Импортировано %d настроек</string>
+    <string name="revanced_settings_import_success">Импортировано %s настроек</string>
     <string name="revanced_settings_import_summary">Импорт настроек из файла</string>
     <string name="revanced_settings_import_title">Импорт настроек</string>
     <string name="revanced_settings_navigate_up">Перейти вверх</string>
@@ -2441,10 +2462,10 @@ Shorts
     <string name="revanced_settings_search_remove">Удалить из истории поиска</string>
     <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
     <string name="revanced_settings_search_tips_summary">"• Нажмите на путь, чтобы перейти к нему
-• Длительно нажмите на настройку, чтобы перейти к ней
+• Нажмите и удерживайте настройку, чтобы перейти к ней
 • Нажмите Enter, чтобы сохранить поисковый запрос в историю
 • Поиск игнорирует регистр и знаки препинания
-• Родительские настройки отображаются над отключенными дочерними настройками"</string>
+• Родительские настройки отображаются над отключёнными вложенными настройками"</string>
     <string name="revanced_settings_search_tips_title">Советы по поиску</string>
     <string name="revanced_settings_search_title">Искать %s</string>
     <string name="revanced_settings_show_slider_summaries_summary_off">Сводные данные под настройками ползунка скрыты</string>
@@ -2521,6 +2542,7 @@ Shorts
     <string name="revanced_show_toolbar_settings_button_summary_off">Кнопка «Настройки» скрыта на панели инструментов</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">Кнопка «Настройки» отображается на панели инструментов</string>
     <string name="revanced_show_toolbar_settings_button_title">Показать кнопку \"Настройки\"</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_title">Применить к вкладке You tab</string>
     <string name="revanced_show_video_title_section_summary">"Показывает секцию заголовка видео в полноэкранном режиме
 
 Ограничение: заголовок видео исчезает при нажатии"</string>
@@ -2547,7 +2569,7 @@ Shorts
 
 Это изменит внешний вид и функции приложения, но могут возникнуть неизвестные побочные эффекты
 
-Если позже эта функция будет отключена, рекомендуется очистить данные приложения, чтобы предотвратить ошибки интерфейса"</string>
+Если позже функция будет отключена, рекомендуется очистить данные приложения, чтобы предотвратить ошибки интерфейса"</string>
     <string name="revanced_spoof_device_dimensions_summary">Активация этой опции может разблокировать более высокое качество видео</string>
     <string name="revanced_spoof_device_dimensions_title">Подменить размеры устройства</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню аудиодорожек отсутствует
@@ -2614,6 +2636,8 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
 Функция в разработке, используйте только для отладки"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Нажмите, чтобы посмотреть, как получить токен авторизации</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">О Android VR авторизации</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Прозрачный</string>
+    <string name="revanced_swipe_bottom_zone_title">Жест свайпа вниз</string>
     <string name="revanced_swipe_brightness_distance_summary">Количество пикселей, которое необходимо сдвинуть для изменения яркости. Чем меньше значение, тем быстрее меняется яркость, чем больше — тем медленнее (1 - 1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Чувствительность жеста яркости</string>
     <string name="revanced_swipe_brightness_summary_off">Регулировка яркости жестом отключена</string>
@@ -2814,7 +2838,6 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_webview_toast_empty">%s пуст</string>
     <string name="revanced_webview_toast_no_network">Проверьте подключение к Интернету</string>
     <string name="revanced_webview_toast_unavailable">WebView недоступен</string>
-    <string name="revanced_webview_visitor_data">Данные посещаемости</string>
     <string name="revanced_whitelist_add_failed">Ошибка добавления канала \'%1$s\' в белый список %2$s</string>
     <string name="revanced_whitelist_added">Канал \'%1$s\' добавлен в белый список %2$s</string>
     <string name="revanced_whitelist_empty">Каналы в белом списке отсутствуют</string>

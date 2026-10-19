@@ -50,6 +50,8 @@ Báo cáo được công khai và được xem xét trước khi một kênh đ�
     <string name="morphe_auto_pause_on_screen_lock_always">Luôn tạm dừng khi khóa</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Tạm dừng trừ khi có thiết bị âm thanh không dây được kết nối</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Tạm dừng khi khóa thiết bị</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Thêm nhiều ngôn ngữ hơn vào menu tự dịch</string>
+    <string name="morphe_auto_translate_additional_languages_title">Thêm ngôn ngữ tự dịch bổ sung</string>
     <string name="morphe_copy_comments_success">Đã sao chép bình luận vào bảng tạm</string>
     <string name="morphe_copy_comments_summary">Chạm và giữ một bình luận để sao chép</string>
     <string name="morphe_copy_comments_title">Sao chép bình luận</string>
@@ -90,6 +92,10 @@ Video được yêu cầu bằng một tiền tố ngắn của ID video đã b�
     <string name="morphe_explore_menu_screen_summary">Chọn các thành phần sẽ hiển thị trong menu Khám phá</string>
     <string name="morphe_explore_menu_screen_title">Menu khám phá</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Nếu nó không hoạt động, hãy thử buộc đóng MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">Chạm và giữ ở bất kỳ đâu trên video nguồn sẽ mở menu của video đó</string>
+    <string name="morphe_feed_long_press_menu_title">Chạm và giữ để mở menu video</string>
+    <string name="morphe_feed_watch_later_button_summary">Nút Xem sau được hiển thị trên hình thu nhỏ của các video nguồn. Chạm và giữ vào nút này để lưu vào danh sách phát</string>
+    <string name="morphe_feed_watch_later_button_title">Hiển thị nút Xem sau trên hình thu nhỏ</string>
     <string name="morphe_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng phát video\' thành bất kỳ client nào ngoại trừ \'Android Studio\' và \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
     <string name="morphe_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
@@ -173,7 +179,7 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_oauth2_connection_failure_auth_error">Không thể đăng nhập vào VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Không thể đăng nhập vào VR vì xác thực qua trang web không được chấp thuận</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 tạm thời không khả dụng</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 tạm thời không khả dụng (trạng thái %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 tạm thời không khả dụng (trạng thái %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Phiên đăng nhập Android VR đã hết hạn, hãy thử đăng nhập lại vào VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 tạm thời không khả dụng (API đã hết thời gian chờ)</string>
     <string name="morphe_oauth2_toast_invalid">Mã đăng nhập VR không hợp lệ, hãy thử đăng nhập lại vào VR</string>
@@ -196,7 +202,6 @@ Danh sách được tải xuống từ GitHub và video được lọc trên thi
     <string name="morphe_playback_in_feeds_title">Phát trong trang video</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Điều chỉnh độ mờ của nền phía sau các nút điều khiển trình phát và thanh thời gian (0 là vô hình, 100 là đặc)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Độ mờ nền của các nút điều khiển</string>
-    <string name="morphe_preferred_caption_language_entry_off">Tắt</string>
     <string name="morphe_preferred_caption_language_summary">Chọn phụ đề từ nhà cung cấp trước, sau đó tự động dịch sang ngôn ngữ ưa thích</string>
     <string name="morphe_preferred_caption_language_title">Ngôn ngữ phụ đề ưa thích</string>
     <string name="morphe_queue_manager_check_failed_auth">Chưa đăng nhập</string>
@@ -617,16 +622,17 @@ Cài đặt → Tự động phát/Phát → Tự động phát video tiếp the
     <string name="revanced_disable_layout_updates_summary_off">Giao diện sẽ được máy chủ cập nhật</string>
     <string name="revanced_disable_layout_updates_summary_on">Giao diện sẽ không còn được máy chủ cập nhật</string>
     <string name="revanced_disable_layout_updates_title">Tắt cập nhật giao diện</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Giao diện ứng dụng sẽ trở về như lúc mới cài đặt
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Bố cục ứng dụng sẽ quay lại bố cục được sử dụng khi lần đầu tiên cài đặt
 
-Một số thay đổi từ phía máy chủ có thể không được hoàn tác
+Một số bố cục phía máy chủ có thể không được quay lại
 
-Ví dụ:
-• Một số mục trong menu tùy chọn của trình phát (hoặc các cài đặt liên quan) có thể không dùng được hoặc không ẩn được
-• Không có hiệu ứng số cuộn
-• Thẻ Thư viện có thể hiện lại
-• Phần âm nhạc trong mô tả video có thể bị lỗi
-• Nút chuyển đổi tài khoản có thể biến mất trong thẻ Thư viện"</string>
+Các thay đổi bao gồm:
+• Các thành phần trong menu bay ra của trình phát (hoặc cài đặt liên quan) có thể không hoạt động
+• Số cuộn không được hoạt hình hóa
+• Thẻ Thư viện được hiển thị
+• Phần âm nhạc trong mô tả video có thể không hoạt động
+• Các mục trong menu bay ra của trình phát không thể bị ẩn
+• Nút chuyển đổi tài khoản có thể không xuất hiện trên thẻ Thư viện"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Các nút Thích và Không thích sẽ sáng lên khi nhấn vào</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Các nút Thích và Không thích sẽ không sáng lên khi nhấn vào</string>
     <string name="revanced_disable_like_dislike_glow_title">Tắt hoạt ảnh các nút Thích và Không thích</string>
@@ -791,7 +797,7 @@ Lưu ý:
     <string name="revanced_external_downloader_not_installed_dialog_message">"Có vẻ như %1$s chưa được cài đặt
  Vui lòng tải xuống %2$s từ trang web"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Cảnh báo</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Hãy cài đặt nó đi</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Vui lòng cài đặt</string>
     <string name="revanced_external_downloader_other_item">Khác</string>
     <string name="revanced_external_downloader_other_item_hint">Nhập tên gói</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Chọn hoặc nhập tên gói ứng dụng trình tải xuống đã được cài đặt trên thiết bị của bạn</string>
@@ -2104,7 +2110,7 @@ ID của video bạn xem được gửi đến API Return YouTube Dislike, và l
     <string name="revanced_ryd_estimated_like_summary_on">Video có lượt thích bị tắt hiển thị số lượt thích ước tính</string>
     <string name="revanced_ryd_estimated_like_title">Hiện số lượt thích ước tính</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Không thể tải số lượt không thích (đạt giới hạn API ứng dụng)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Không thể tải số lượt không thích (mã trạng thái %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Không thể tải số lượt không thích (mã trạng thái %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Tạm thời không thể tải số lượt không thích (hết thời gian chờ API)</string>
     <string name="revanced_ryd_failure_generic">Không thể hiện số lượt không thích (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo ngắn không hiện nếu Return YouTube Dislike không khả dụng</string>
@@ -2282,7 +2288,7 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
     <string name="revanced_sb_skipped_sponsor">Đã bỏ qua nhà tài trợ</string>
     <string name="revanced_sb_skipped_unsubmitted">Đã bỏ qua phân đoạn chưa gửi</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock tạm thời không khả dụng</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tạm thời không khả dụng (trạng thái %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tạm thời không khả dụng (trạng thái %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock tạm thời không khả dụng (hết thời gian chờ API)</string>
     <string name="revanced_sb_square_layout">Dùng bố cục vuông</string>
     <string name="revanced_sb_square_layout_sum_off">Các nút và điều khiển được bo tròn</string>
@@ -2305,14 +2311,14 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
     <string name="revanced_sb_stats_submissions_sum">Nhấn vào đây để xem các phân đoạn của bạn</string>
     <string name="revanced_sb_stats_username">Tên người dùng của bạn: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Chạm vào đây để thay đổi tên người dùng của bạn</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Không thay đổi được tên người dùng: Trạng thái: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Không thay đổi được tên người dùng: Trạng thái: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Tên người dùng đã được thay đổi thành công</string>
     <string name="revanced_sb_submit_failed_duplicate">"Không thể gửi phân đoạn trùng lặp"</string>
     <string name="revanced_sb_submit_failed_forbidden">Không thể gửi phân đoạn: %s</string>
     <string name="revanced_sb_submit_failed_invalid">Không thể gửi phân đoạn: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Không thể gửi phân đoạn. Giới hạn tỷ lệ (quá nhiều từ cùng một người dùng hoặc IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock tạm thời không hoạt động</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Không thể gửi phân đoạn (trạng thái: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Không thể gửi phân đoạn (trạng thái: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Phân đoạn được gửi thành công</string>
     <string name="revanced_sb_toast_on_connection_error">Hiện cảnh báo lỗi kết nối</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Thông báo ngắn không hiện nếu SponsorBlock không khả dụng</string>
@@ -2323,7 +2329,7 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
     <string name="revanced_sb_vote_downvote">Phản đối</string>
     <string name="revanced_sb_vote_failed_forbidden">Không thể bỏ phiếu cho phân đoạn: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Không thể bỏ phiếu phân đoạn (hết thời gian chờ API)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Không thể bỏ phiếu phân đoạn (trạng thái: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Không thể bỏ phiếu phân đoạn (trạng thái: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Không có phân đoạn nào để bỏ phiếu</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s đến %2$s</string>
     <string name="revanced_sb_vote_upvote">Ủng hộ</string>
@@ -2371,7 +2377,7 @@ Lưu ý: Cookie không phải giải pháp tuyệt đối. Nó có thể không 
     <string name="revanced_settings_import_export_as_text_summary">Nhập hoặc xuất toàn bộ cài đặt của bạn dưới dạng văn bản</string>
     <string name="revanced_settings_import_failed">Không thể nhập cài đặt</string>
     <string name="revanced_settings_import_reset">Đặt lại cài đặt RVX về mặc định</string>
-    <string name="revanced_settings_import_success">Đã nhập %d cài đặt</string>
+    <string name="revanced_settings_import_success">Đã nhập %s cài đặt</string>
     <string name="revanced_settings_import_summary">Nhập toàn bộ cài đặt của bạn từ tệp đã lưu trước đó</string>
     <string name="revanced_settings_import_title">Nhập cài đặt</string>
     <string name="revanced_settings_navigate_up">Điều hướng lên</string>
@@ -2776,7 +2782,6 @@ Tự động phát hiện</string>
     <string name="revanced_webview_toast_empty">%s trống</string>
     <string name="revanced_webview_toast_no_network">Hãy kiểm tra lại kết nối mạng của bạn</string>
     <string name="revanced_webview_toast_unavailable">WebView không khả dụng</string>
-    <string name="revanced_webview_visitor_data">Dữ liệu khách</string>
     <string name="revanced_whitelist_add_failed">Không thêm được kênh \'%1$s\' vào Danh sách trắng của %2$s</string>
     <string name="revanced_whitelist_added">Kênh \'%1$s\' đã được thêm vào Danh sách trắng của %2$s</string>
     <string name="revanced_whitelist_empty">Không có kênh nào</string>

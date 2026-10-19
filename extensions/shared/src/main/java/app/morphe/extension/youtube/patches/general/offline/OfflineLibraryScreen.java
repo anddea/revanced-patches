@@ -463,7 +463,7 @@ final class OfflineLibraryScreen implements OfflineScreens.Screen {
             ImageButton cancel = new ImageButton(activity);
             cancel.setImageDrawable(tinted(android.R.drawable.ic_menu_close_clear_cancel));
             cancel.setBackgroundColor(Color.TRANSPARENT);
-            cancel.setContentDescription(str("revanced_offline_cancel"));
+            cancel.setContentDescription(str("revanced_cancel"));
             cancel.setOnClickListener(v -> {
                 if (videoId != null) OfflineDownloader.cancel(videoId);
             });

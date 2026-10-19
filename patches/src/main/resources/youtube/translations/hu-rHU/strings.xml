@@ -58,6 +58,8 @@ A jelentések nyilvánosak, és felülvizsgálják őket, mielőtt egy csatorna 
     <string name="morphe_auto_pause_on_screen_lock_always">Mindig szüneteltetés, ha le van zárva</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Szüneteltetés, hacsak nincs vezeték nélküli hang csatlakoztatva</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Automatikus szüneteltetés, ha az eszköz le van zárva</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Több nyelv kerül a automatikus fordítás menübe</string>
+    <string name="morphe_auto_translate_additional_languages_title">További automatikus fordítási nyelvek hozzáadása</string>
     <string name="morphe_copy_comments_success">A hozzászólás a vágólapra lett másolva</string>
     <string name="morphe_copy_comments_summary">Tartsd lenyomva a hozzászólást a másoláshoz</string>
     <string name="morphe_copy_comments_title">Hozzászólások másolása</string>
@@ -98,6 +100,10 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_explore_menu_screen_summary">Válaszd ki, mely elemek jelenjenek meg a felfedezés menüben</string>
     <string name="morphe_explore_menu_screen_title">Felfedezés menü</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Ha nem működik, próbálja meg kényszerűen leállítani a MicroG-t</string>
+    <string name="morphe_feed_long_press_menu_summary">A posztfolyamat videóján bárhol koppintás és hosszú nyomás nyitja meg annak menüt</string>
+    <string name="morphe_feed_long_press_menu_title">Koppints és nyomd meg hosszan a videómenü megnyitásához</string>
+    <string name="morphe_feed_watch_later_button_summary">A Néssebb később gomb megjelenik a posztfolyamati videók képkockáján. Koppintás és hosszú nyomása esetén Megnyitás listában lehetőséget nyújt</string>
+    <string name="morphe_feed_watch_later_button_title">Mutassa a Néssebb később gombot a képkockákon</string>
     <string name="morphe_force_original_audio_not_available">A funkció használatához állítsd át a „Spoof video streams” opciót bármelyik kliensre az „Android Studio” és „Android VR Downgraded” kivételével</string>
     <string name="morphe_force_original_audio_summary_off">Alapértelmezett hang használata</string>
     <string name="morphe_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
@@ -181,7 +187,7 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_oauth2_connection_failure_auth_error">Nem tud bejelentkezni a VR-ba: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nem lehetséges a VR-ba belépni, a webhely hitelesítése nem lett jóváhagyva</string>
     <string name="morphe_oauth2_connection_failure_generic">Az OAuth2 átmenetileg nem elérhető</string>
-    <string name="morphe_oauth2_connection_failure_status">Az OAuth2 átmenetileg nem elérhető (állapot %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">Az OAuth2 átmenetileg nem érhető el (státusz: %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR belépés lejárt, próbáld meg újra belépni a VR-ba</string>
     <string name="morphe_oauth2_connection_failure_timeout">Az OAuth2 átmenetileg nem elérhető (az API időtúllépés miatt)</string>
     <string name="morphe_oauth2_toast_invalid">Érvénytelen VR bejelentkezési token, próbálja meg újra a bejelentkezést a VR-ba</string>
@@ -204,7 +210,6 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_playback_in_feeds_title">Lejátszás a hírekben</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">A lejátszó vezérlőgombjai és az idővonal mögötti háttér átlátszatlanságának beállítása (0 láthatatlan, 100 átlátszatlan)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Vezérlőgombok hátterének átlátszatlansága</string>
-    <string name="morphe_preferred_caption_language_entry_off">Ki</string>
     <string name="morphe_preferred_caption_language_summary">Először a szolgáltató feliratait választja ki, majd automatikusan lefordítja az előnyben részesített nyelvre</string>
     <string name="morphe_preferred_caption_language_title">Feliratok előnyben részesített nyelve</string>
     <string name="morphe_queue_manager_check_failed_auth">Nem jelentkezett be</string>
@@ -350,7 +355,7 @@ A fordítások folytatásához váltson másik fordításszolgáltatót a beáll
 Érintse meg ide a MyMemory.translated.net megnyitásához"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">Kimerítette a mai ingyenes MyMemory fordítási kvótát (5000 karakter). Adjon meg egy MyMemory e-mail címet a beállításokban a napi korlát 50000 karakterre emeléséhez, vagy váltson másik fordításszolgáltatót</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">Kimerítette a mai MyMemory fordítási kvótát (50000 karakter). Váltson másik fordításszolgáltatót, vagy próbálkozzon holnap</string>
-    <string name="morphe_vot_mymemory_quota_next_available">A következő elérhetőség: %s</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Következő elérhető: %s</string>
     <string name="morphe_vot_mymemory_quota_title">A MyMemory napi limite elérése</string>
     <string name="morphe_vot_openrouter_api_key_summary">Az OpenRouter API kulcsa. Hozzon létre egy kulcsot az OpenRouter.ai oldalon a Workspace &gt; API Keys területen</string>
     <string name="morphe_vot_openrouter_api_key_title">OpenRouter API kulcs</string>
@@ -621,12 +626,12 @@ Beállítások → Automatikus lejátszás → Következő videó automatikus le
     <string name="revanced_disable_layout_updates_summary_off">A szerver frissíti a minta</string>
     <string name="revanced_disable_layout_updates_summary_on">A szerver nem frissíti a minta</string>
     <string name="revanced_disable_layout_updates_title">Megjelenés frissítések letiltása</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Az alkalmazás megjelenése visszaáll a legelső telepítéskori állapotra
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Alkalmazás-elrendezés visszatér ahhoz az elrendezéshez, amely a telepítés első pillanatában volt
 
 Néhány szerveroldali elrendezés esetében előfordulhat, hogy a visszaállítás nem történik meg
 
 A változások a következőket tartalmazzák:
-• A lejátszó felugró menüjének elemei (vagy a kapcsolódó beállítások)  nem működhetnek
+• A lejátszó felugró menüjének elemei (vagy a kapcsolódó beállítások) nem működhetnek
 • A pörgő számok animációja megszűnik
 • Megjelenik a Könyvtár lap
 • A videóleírások zenei szekciója nem működhet
@@ -795,7 +800,7 @@ Megjegyzés:
     <string name="revanced_external_downloader_not_installed_dialog_message">"A(z) %1$s nincs telepítve
 Töltsd le a(z) %2$s weboldalról"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Figyelmeztetés</string>
-    <string name="revanced_external_downloader_not_installed_warning">A(z) %s nincs telepítve. Kérjük, telepítse</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérjük, telepítse</string>
     <string name="revanced_external_downloader_other_item">Egyéb</string>
     <string name="revanced_external_downloader_other_item_hint">Csomag név beírása</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">A telepített külső letöltő alkalmazás csomagneve</string>
@@ -1580,7 +1585,7 @@ Korlátozások:
     <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles animáció látható a logón</string>
     <string name="revanced_hide_youtube_doodles_summary_on">A YouTube Doodles animáció a logón elrejtve</string>
     <string name="revanced_hide_youtube_doodles_title">Alkalmi YouTube-logók elrejtése</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">A YouTube Doodles megjelenítése megakadályozhatja az egyéni fejlécek megjelenítését</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">A YouTube Doodle-ok megjelenítése megakadályozhatja, hogy az egyéni fejlécek megjelenjenek</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">A YouTube Prémium promóció látható</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"A YouTube Premium promóció rejtett
 
@@ -2048,7 +2053,7 @@ A megtekintett videó azonosítóját elküldjük a Return YouTube Dislike API-n
     <string name="revanced_ryd_estimated_like_summary_on">A letiltott kedvelésekkel rendelkező videók a becsült kedvelések számát mutatják</string>
     <string name="revanced_ryd_estimated_like_title">Becsült kedvelések mutatása</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">A nem tetszések nem érhetők el (ügyfél API korlát)</string>
-    <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">A nem tetszések jelenleg nem elérhetők (az API időtúllépése miatt)</string>
     <string name="revanced_ryd_failure_generic">A nem tetszik funkció nem elérhető (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Nem jelenik meg üzenet, ha a Return YouTube Dislike nem elérhető</string>
@@ -2226,7 +2231,7 @@ A felhasználói azonosítója olyan, mint egy jelszó, és soha nem szabad mego
     <string name="revanced_sb_skipped_sponsor">Szponzor kihagyva</string>
     <string name="revanced_sb_skipped_unsubmitted">Beküldésre váró rész kihagyva</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">A SponsorBlock átmenetileg nem elérhető</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">A SponsorBlock jelenleg nem elérhető (állapot %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">A SponsorBlock jelenleg nem elérhető (állapot %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">A SponsorBlock jelenleg nem elérhető (API időtúllépés)</string>
     <string name="revanced_sb_square_layout">Négyzetes elrendezés használata</string>
     <string name="revanced_sb_square_layout_sum_off">A gombok és vezérlők lekerekítettek</string>
@@ -2249,7 +2254,7 @@ A felhasználói azonosítója olyan, mint egy jelszó, és soha nem szabad mego
     <string name="revanced_sb_stats_submissions_sum">Koppintson ide a szegmensek megtekintéséhez</string>
     <string name="revanced_sb_stats_username">Az ön felhasználóneve: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Koppintson ide a felhasználónév megváltoztatásához</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">A felhasználónév nem módosítható: Állapot: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">A felhasználónév nem módosítható: Állapot: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">A felhasználónév sikeresen módosítva</string>
     <string name="revanced_sb_submit_failed_duplicate">"Nem lehet elküldeni a szegmenst
 Már létezik"</string>
@@ -2257,7 +2262,7 @@ Már létezik"</string>
     <string name="revanced_sb_submit_failed_invalid">Nem lehet beküldeni a szegmenst: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">A szegmens nem küldhető be. Korlátozva (túl sok ugyanazon felhasználótól vagy IP-címről)</string>
     <string name="revanced_sb_submit_failed_timeout">A SponsorBlock átmenetileg nem működik</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Nem lehet beküldeni a szegmenst (állapot: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Nem lehet beküldeni a szegmenst (állapot: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">A szakasz sikeresen beküldve</string>
     <string name="revanced_sb_toast_on_connection_error">Kapcsolati hibaüzenetek megjelenítése</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Nem látható üzenet, ha a SponsorBlock nem elérhető</string>
@@ -2268,7 +2273,7 @@ Már létezik"</string>
     <string name="revanced_sb_vote_downvote">Leszavazás</string>
     <string name="revanced_sb_vote_failed_forbidden">Nem lehet szavazni a szegmensre: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Nem lehet szavazni a szegmensre (API időtúllépés)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Nem lehet szavazni erre (állapot: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Nem lehet szavazni erre (állapot: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Nincsenek szakaszok, amikre szavazni lehet</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s – %2$s</string>
     <string name="revanced_sb_vote_upvote">Pozitív szavazás</string>
@@ -2307,7 +2312,7 @@ A következő esetekben esetleg nem működik:
     <string name="revanced_settings_import_export_as_text_summary">Beállítások importálása vagy exportálása szövegként</string>
     <string name="revanced_settings_import_failed">A beállítások importálása sikertelen</string>
     <string name="revanced_settings_import_reset">A RVX beállítások visszaállnak az alapértelmezettre</string>
-    <string name="revanced_settings_import_success">%d beállítás importálva</string>
+    <string name="revanced_settings_import_success">%s beállítás importálva</string>
     <string name="revanced_settings_import_summary">Beállítások importálása mentett fájlból</string>
     <string name="revanced_settings_import_title">Beállítások importálása</string>
     <string name="revanced_settings_navigate_up">Feljebb navigálás</string>
@@ -2414,11 +2419,11 @@ Korlátozás: A videó címe eltűnik, ha rákattint"</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Érvénytelen hamisított alkalmazásverzió: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Írja be a hamis alkalmazásverziót</string>
     <string name="revanced_spoof_app_version_title">Alkalmazásverzió hamisítása</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Az alkalmazás verziója egy régebbi verzióvá lesz hamisítva
+    <string name="revanced_spoof_app_version_user_dialog_message">"Az alkalmazás verziója hamisítani lesz egy régebbi verzióra
 
-Ez megváltoztatja az alkalmazás megjelenését és funkcióit, de előfordulhatnak nem várt mellékhatások
+Ez megváltoztatja az alkalmazás megjelenését és funkcióit, de ismeretlen mellékhatások léphetnek fel
 
-Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy megakadályozza a felhasználói felület hibáit"</string>
+Ha később kikapcsolja, ajánlott törölni az alkalmazás adatait a felhasználói felület hibáinak megelőzése érdekében"</string>
     <string name="revanced_spoof_device_dimensions_summary">Ennek engedélyezése magasabb videóminőségeket oldhat fel</string>
     <string name="revanced_spoof_device_dimensions_title">Eszközméret hamisítása</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• A hangsáv menü hiányzik
@@ -2651,7 +2656,6 @@ Jogi nyilatkozat: A bejelentkezés nélkül kibocsátott sütik érvénytelenek 
     <string name="revanced_webview_toast_empty">%s üres</string>
     <string name="revanced_webview_toast_no_network">Kérem ellenőrizze a hálózati kapcsolatot</string>
     <string name="revanced_webview_toast_unavailable">A webes nézet nem elérhető</string>
-    <string name="revanced_webview_visitor_data">Látogató adatok</string>
     <string name="revanced_whitelist_add_failed">Nem sikerült hozzáadni a(z) \'%1$s\' csatornát a(z) %2$s engedélyezőlistához</string>
     <string name="revanced_whitelist_added">\'%1$s\' csatorna hozzá lett adva a %2$s kivételekhez</string>
     <string name="revanced_whitelist_empty">Nincsenek engedélyezett csatornák</string>

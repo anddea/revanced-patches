@@ -178,7 +178,7 @@ public class LyricsAiPromptPreference extends SwitchPreference {
                     enableAfterValidation(switchSetting);
                 },
                 null,
-                str("morphe_settings_reset"),
+                str("revanced_settings_reset"),
                 () -> {
                     promptSetting.resetToDefault();
                     promptInput.setText(promptSetting.get());

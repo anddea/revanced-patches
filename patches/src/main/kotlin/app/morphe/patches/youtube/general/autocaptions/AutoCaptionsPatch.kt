@@ -56,6 +56,7 @@ val autoCaptionsPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     dependsOn(
+        translatedCaptionPensPatch,
         baseAutoCaptionsPatch,
         autoTranslateCaptionsPatch,
         settingsPatch,

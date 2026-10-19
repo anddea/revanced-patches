@@ -2,21 +2,21 @@
 <resources>
     <string name="gms_core_dialog_continue_text">続行</string>
     <string name="gms_core_dialog_dismiss_text">今後表示しない</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG には、バックグラウンドで実行するための権限が与えられていません。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG にはバックグラウンドで実行する権限がありません。
 
-下記ウェブサイト「Don't kill my app!」の携帯電話メーカー別のガイドに従い、MicroG に対するデバイスの設定を変更してください。
+お使いの携帯電話向けの \"Don't kill my app\" ガイドに従い、MicroG インストールに対して指示を適用してください。
 
-この操作は、アプリが正常に動作するために必要です。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG の電池の最適化は、問題を防ぐために無効にする必要があります。
+これによりアプリが正常に動作します"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"問題を避けるために、MicroG のバッテリー最適化を無効にする必要があります。
 
-MicroG に対して電池の最適化を無効にしても、バッテリー消費に悪影響はありません。
+MicroG に対するバッテリー最適化を無効にしても、バッテリー消費に悪影響はありません。
 
-[続行] をタップして電池の最適化を無効にしてください"</string>
+[続行] をタップして最適化の変更を許可してください"</string>
     <string name="gms_core_dialog_open_website_text">ウェブサイトを開く</string>
     <string name="gms_core_dialog_title">操作が必要です</string>
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging 設定を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCoreを開く</string>
-    <string name="gms_core_toast_not_installed_message">MicroG がインストールされていません。インストールしてください。</string>
+    <string name="gms_core_toast_not_installed_message">MicroG がインストールされていません。インストールしてください</string>
     <string name="morphe_app_refresh_rate_default">デフォルト</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">アプリのリフレッシュ レート</string>
@@ -60,7 +60,7 @@ MicroG に対して電池の最適化を無効にしても、バッテリー消�
 3.「media-user-token」の値をコピー"</string>
     <string name="morphe_music_apple_music_token_title">Apple Music media-user-token</string>
     <string name="morphe_music_apple_music_token_toast_cleared">Apple Music: media-user-token を消去しました</string>
-    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: 無効な media-user-token です。確認して再度お試しください</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: 無効なmedia-user-tokenです - 確認してもう一度お試しください</string>
     <string name="morphe_music_apple_music_token_toast_saved">Apple Music: media-user-token を保存しました</string>
     <string name="morphe_music_apple_token_optional_hint">Apple Music のトークンは必須ではありません。このトークンがない場合は、代替として Lyrically を使用します</string>
     <string name="morphe_music_crossfade_about_best_summary">通常の曲から曲への再生、自動スキップ、リピート再生（曲が自分自身にクロスフェード）、およびローカルオーディオ（電話スピーカー、有線ヘッドホン、Bluetooth、またはUSB）で最適に動作します。</string>
@@ -120,7 +120,7 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
 3. 「arl」の値をコピーします"</string>
     <string name="morphe_music_deezer_arl_title">Deezer […] \"arl\" の値をコピーしてください</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl が無効です。もう一度お試しください</string>
-    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: arl が無効です。値を確認してもう一度お試しください</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: 無効なarlです - 確認してもう一度お試しください</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl を保存しました</string>
     <string name="morphe_music_downloads_actions_for">%s の操作</string>
     <string name="morphe_music_downloads_all_deleted">ダウンロードを削除しました</string>
@@ -166,11 +166,13 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_in_app_downloads_user_dialog_message">"ダウンロードした楽曲は、YouTube Music の非公開ストレージ領域に保存されるため、YouTube Music をアンインストールすると削除されます。
 
 この機能をオンにしている間は、Premium 機能でダウンロードした楽曲の代わりに、この機能でダウンロードした楽曲を、オフラインのコンテンツとしてライブラリタブに表示します。オフにすると元に戻ります。この機能が Premium 機能でダウンロードした楽曲に影響を及ぼすことはありません。"</string>
-    <string name="morphe_music_lyrics_about_summary">"歌詞はタイトルとアーティストで照合されます。通常とは異なるメタデータでは、何も見つからないか、間違ったバージョンが見つかる可能性があります。更新を使用してバージョンを切り替えてください。* が付いているプロバイダーはトークンが必要です。有効なすべてのプロバイダーが常に指定された順序で要求されるわけではなく、応答速度に基づいて応答します。"</string>
+    <string name="morphe_music_lyrics_about_summary">"歌詞はタイトルとアーティストでマッチングされます。珍しいメタデータの場合、見つからないか間違ったバージョンになることがあります。バージョンを切り替えるには更新を使用してください。*マークのあるプロバイダーにはトークンが必要です。すべての有効なプロバイダーが常に順番に要求されるわけではありませんが、速度に基づいて応答します。
+
+歌詞はRVXとは関係のない、後援も認可もされていないサードパーティサービスから提供されています。それぞれは現状で使用されます：歌詞、その利用可能性、ライセンスはそれらのサービスおよびその許諾者に留まり、それらを使用することはサービスの利用規約の対象となる場合があります。有効化されたサービスに送信されるのは、あなたが要求した検索情報だけです - タイトル、アーティスト、そして必要に応じてビデオID。任意のAIエンドポイントとQuickLRC文字起こしは設定後にのみ実行され、歌詞テキストまたはトラックのビデオURLを受信します。"</string>
     <string name="morphe_music_lyrics_about_title">外部サービスの歌詞について</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">API キー (認証なしの場合は空欄)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">API エンドポイント URL (例: https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">AI による歌詞の翻訳、ローマ字表記、およびセクション検出に使用する OpenAI 互換 API のエンドポイントを設定します。</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">AI powered歌詞翻訳、ローマ字変換、セクション分割のためにOpenAI互換APIエンドポイントを構成します</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">AI 設定</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">モデル名 (例: openai-fast, gpt-4o-mini)</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">モデル名は空欄にはできません</string>
@@ -178,31 +180,46 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">ベース URL は http:// または https:// で始まる必要があります</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">接続を確認中…</string>
     <string name="morphe_music_lyrics_ai_config_summary_configured">モデル %1$s が設定されました</string>
-    <string name="morphe_music_lyrics_ai_config_toast_invalid">AI エンドポイントに接続できませんでした。設定を確認してください。</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">AIエンドポイントに接続できませんでした。設定を確認してください</string>
     <string name="morphe_music_lyrics_ai_config_toast_reset">AI 設定をリセットしました</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">AI 設定を保存しました</string>
+    <string name="morphe_music_lyrics_ai_extra_body_hint">追加リクエストボディ (JSON、すべてのAIリクエストにマージ)</string>
+    <string name="morphe_music_lyrics_ai_extra_body_invalid">無効なJSONです。保存前に修正するかフィールドをクリアしてください</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">プレースホルダー: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">プロンプト テンプレート</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">プロンプトは保存されましたが、AIエンドポイントはまだ使用できません。まずAI設定で構成してください</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">プロンプトをリセットしました</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">プロンプトを保存しました</string>
+    <string name="morphe_music_lyrics_clear_cache_done">%1$s MB を消去しました</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">このデバイスに保存されている歌詞を削除します</string>
+    <string name="morphe_music_lyrics_clear_cache_title">保存された歌詞を消去</string>
+    <string name="morphe_music_lyrics_contribute_credit">コピーボタンを長押ししてこのLRCを保存します。タイミングを微調整してコミュニティプロバイダと共有できる場合は感謝されます</string>
     <string name="morphe_music_lyrics_copied">クリップボードにコピーしました</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">歌詞フィルターの正規表現</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">歌詞フィルターで正規表現を使用する</string>
     <string name="morphe_music_lyrics_custom_regex_summary">曲名、アーティスト、アルバムに適用される正規表現です。歌詞の検索前と、2つの曲名が一致するかどうかの判定時に使用されます。空にすると両方が無効になります。デフォルトでは、\"Official Video\"、\"Remaster\"、\"【插曲】\"、\"- Topic\" などのよくある不要な部分を除去します。</string>
-    <string name="morphe_music_lyrics_custom_regex_title">歌詞フィルターの正規表現</string>
+    <string name="morphe_music_lyrics_custom_regex_title">メタデータの正規表現</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Miniplayer と MediaSession で、アーティスト名とタイトルの表示順を切り替えます。ON「アーティスト - タイトル」、OFF「タイトル - アーティスト」。歌詞検索には影響しません。</string>
     <string name="morphe_music_lyrics_display_artist_first_title">メディアセッションでアーティスト名とタイトルを表示[…] ON = \"アーティスト - タイトル\"、OFF = \"タイトル - アーティスト\" この設定は歌詞検索には影響しません</string>
+    <string name="morphe_music_lyrics_dual_only">デュアルモード</string>
     <string name="morphe_music_lyrics_enabled_summary">外部の歌詞配信サービスから歌詞を取得して表示します。見つからない場合は、アプリの歌詞を表示します</string>
     <string name="morphe_music_lyrics_enabled_title">外部サービスの歌詞を使用</string>
     <string name="morphe_music_lyrics_hide_info_summary">この歌詞を編集</string>
     <string name="morphe_music_lyrics_hide_info_title">この歌詞を編集</string>
-    <string name="morphe_music_lyrics_hide_played_summary">現在再生中の行より上の歌詞行を非表示にする</string>
-    <string name="morphe_music_lyrics_hide_played_title">再生済み […] 行を非表示</string>
-    <string name="morphe_music_lyrics_hide_unplayed_summary">現在再生中の […] 画面より下の歌詞行を非表示</string>
+    <string name="morphe_music_lyrics_hide_played_summary">現在再生中の行より上に表示される歌詞を非表示にします</string>
+    <string name="morphe_music_lyrics_hide_played_title">再生済みの歌詞を非表示</string>
+    <string name="morphe_music_lyrics_hide_unplayed_summary">現在再生中の行より下に表示される歌詞を非表示にします</string>
     <string name="morphe_music_lyrics_hide_unplayed_title">未再生の歌詞を非表示</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">歌詞欄が表示されている間は、画面の消灯機能を無効にします</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">歌詞表示中は画面を常にオン</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">%1$s を読み込み中: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_failed">ダウンロードに失敗しました。再試行するにはこの設定を一旦オフにしてから再度オンにしてください</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">読みデータ準備完了 (%1$d エントリ)</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">プロバイダー、ユーザーモデル、Google翻訳が失敗した場合にデバイス上でローマ字表記を行います。読みは時間付き歌詞の各単語に従います；単語同期が有効である必要があります。中国語、広東語、日本語、朝鮮語、ギリシャ語、ロシア語、ジョージア語、アルメニア語対応；約120 MB</string>
+    <string name="morphe_music_lyrics_local_romanization_title">ローカルローマ字表記とアライメント</string>
+    <string name="morphe_music_lyrics_mediasession_summary">ロック画面、Android Auto、Bluetooth で現在の行を表示。Android 11 以降が必要</string>
     <string name="morphe_music_lyrics_mediasession_title">ロック画面に MediaSession の歌詞を表示する</string>
+    <string name="morphe_music_lyrics_miniplayer_summary">ミニプレイヤーで現在行を表示し、トラックをサブタイトルに移動</string>
     <string name="morphe_music_lyrics_miniplayer_title">ミニプレイヤーの歌詞を表示</string>
     <string name="morphe_music_lyrics_offset_ms_summary">再生中に現在の行をハイライトする</string>
     <string name="morphe_music_lyrics_offset_ms_title">全体のタイミングオフセット</string>
@@ -210,6 +227,7 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_lyrics_refreshing">更新中</string>
     <string name="morphe_music_lyrics_romanize_failed">[…] をローマ字化できませんでした</string>
     <string name="morphe_music_lyrics_romanize_hide">歌詞が見つかりません</string>
+    <string name="morphe_music_lyrics_romanize_language_title">ローマ字変換言語</string>
     <string name="morphe_music_lyrics_romanize_only">ローマ字のみ</string>
     <string name="morphe_music_lyrics_romanized_by_ai">ローマ字: %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">未保存</string>
@@ -223,29 +241,48 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_lyrics_search_empty">曲名とアーティストを入力してください</string>
     <string name="morphe_music_lyrics_search_no_providers">有効なプロバイダーのどれも、他の曲を検索できません</string>
     <string name="morphe_music_lyrics_search_title_hint">曲名</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">オフにした行をハイライトする</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">タップして元の歌詞をプレーンテキストとしてコピー、長押しで歌詞ソースファイルをダウンロードディレクトリに保存</string>
     <string name="morphe_music_lyrics_show_copy_button_title">コピーボタンを表示</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">タップして次の歌詞候補に切り替え、長押しして曲名とアーティストで歌詞を検索します</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">タップして次の歌詞候補に切り替え、長押しで曲名とアーティストから歌詞を検索</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">更新ボタンを表示</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">タップでローマ字表記を切り替え、長押しでローマ字表記のみ表示します。プロバイダー提供のローマ字表記、Google翻訳、またはOpenAI互換APIを使用します。</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">タップしてローマ字表記を切替、長押しでローマ字表記のみ使用。プロバイダーのローマ字表記、Google翻訳、またはOpenAI互換APIを使用</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">ローマ字化ボタンを表示</string>
     <string name="morphe_music_lyrics_show_section_summary">歌詞の新しいセクションごとに、バースやコーラスなどの小さなタグを付けます。</string>
     <string name="morphe_music_lyrics_show_section_title">セクションタグを表示</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">タップで翻訳を切り替え、長押しで翻訳のみ表示します。プロバイダー提供の翻訳、Google翻訳、またはOpenAI互換APIを使用します。</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">タップして翻訳を切替、長押しで翻訳のみ使用。プロバイダーの翻訳、Google翻訳、またはOpenAI互換APIを使用</string>
     <string name="morphe_music_lyrics_show_translate_button_title">翻訳ボタンを表示</string>
-    <string name="morphe_music_lyrics_source_all_disabled">すべてのプロバイダーが無効です — 内蔵歌詞と埋め込み歌詞</string>
+    <string name="morphe_music_lyrics_source_all_disabled">すべてのプロバイダーが無効 - 内蔵歌詞と埋め込み歌詞</string>
     <string name="morphe_music_lyrics_source_label">提供: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">プロバイダーを既定の優先順位に戻します</string>
     <string name="morphe_music_lyrics_source_reset_title">プロバイダーの順序をリセットしますか？</string>
     <string name="morphe_music_lyrics_source_title">歌詞配信サービス</string>
+    <string name="morphe_music_lyrics_split_background_summary">「(Oh) I want you」のように括弧で囲まれたバックコーラスを、歌詞の行から分離し、専用の独立した行に薄く表示します</string>
+    <string name="morphe_music_lyrics_split_background_title">バックコーラスを分離して表示</string>
     <string name="morphe_music_lyrics_swap_trans_roma_summary">この歌詞を編集</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">この歌詞を編集</string>
-    <string name="morphe_music_lyrics_tap_to_seek_summary">タップした行の再生位置に移動します</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">タップした行の再生位置に移動</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">行をタップして曲のその瞬間にジャンプ、指下の単語または全行（単語上以外で長押し）をコピー。オフにすると両方のジェスチャーが無効になります</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">行をタップして長押し</string>
     <string name="morphe_music_lyrics_text_filter_summary">歌詞フィルターで正規表現を使用する</string>
-    <string name="morphe_music_lyrics_text_filter_title">歌詞フィルターの正規表現</string>
+    <string name="morphe_music_lyrics_text_filter_title">歌詞フィルタの正規表現</string>
     <string name="morphe_music_lyrics_text_size_summary">歌詞の文字サイズ</string>
     <string name="morphe_music_lyrics_text_size_title">文字サイズ</string>
+    <string name="morphe_music_lyrics_transcribe_align">QuickLRCのアラインをリクエスト</string>
+    <string name="morphe_music_lyrics_transcribe_aligning">整列中</string>
+    <string name="morphe_music_lyrics_transcribe_apply_align">整列を適用</string>
+    <string name="morphe_music_lyrics_transcribe_cancelled">変換がキャンセルされました</string>
+    <string name="morphe_music_lyrics_transcribe_failed">QuickLRCはこのトラックを処理できませんでした</string>
+    <string name="morphe_music_lyrics_transcribe_key_cleared">QuickLRC APIキーが消去されました</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRCは歌詞がないものに対してタイミングを設定するか、トラックから文字起こしを行います。クレジットコストが発生します。キーが設定されていると、歌詞のないトラックで文字起こしが利用可能になり、検索ダイアログにアラインボタンが表示されます</string>
+    <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRCがそのキーを受け入れませんでした</string>
+    <string name="morphe_music_lyrics_transcribe_key_saved">QuickLRC APIキーが保存されました</string>
+    <string name="morphe_music_lyrics_transcribe_key_set_summary">QuickLRCキーが保存されました。歌詞検索ダイアログのアラインボタン、またはトラックに歌詞がない場合のパネルプロンプトで使用してください</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRCは現在のトラックの歌詞を文字起こしまたはタイムアラインします。上記のOpenAI互換エンドポイントとは無関係な別のサービスです</string>
+    <string name="morphe_music_lyrics_transcribe_key_title">QuickLRC APIキー</string>
+    <string name="morphe_music_lyrics_transcribe_local_unsupported">YouTubeから再生されたトラックのみ変換可能です</string>
+    <string name="morphe_music_lyrics_transcribe_no_text">アラインする歌詞がありません - 代わりに文字起こししています</string>
+    <string name="morphe_music_lyrics_transcribe_out_of_credits">QuickLRCのクレジットがこのトラックに対して使い切られました</string>
+    <string name="morphe_music_lyrics_transcribe_prompt">QuickLRCの変換をリクエスト</string>
+    <string name="morphe_music_lyrics_transcribe_working">変換中</string>
     <string name="morphe_music_lyrics_translate_failed">歌詞を翻訳できませんでした</string>
     <string name="morphe_music_lyrics_translate_hide">歌詞が見つかりません</string>
     <string name="morphe_music_lyrics_translate_only">翻訳のみ</string>
@@ -267,8 +304,9 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch はトークンなしでも動作するため、このフィールドは空のままで構いません</string>
     <string name="morphe_music_musixmatch_token_title">Musixmatch […] ユーザートークンの値をコピーしてください</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: user token 削除済み</string>
-    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: user token が無効です。値を確認してもう一度お試しください</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: 無効なユーザートークンです - 確認してもう一度お試しください</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: user token 保存済み</string>
+    <string name="morphe_music_scrobbling_log_out">ログアウト</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"Spotify の sp_dc Cookie を貼り付けてください。
 
 手順:
@@ -277,18 +315,18 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
 3. 「sp_dc」の値をコピーします"</string>
     <string name="morphe_music_spotify_token_title">Spotify […] \"sp_dc\" の値をコピーしてください</string>
     <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc […] これがない場合、Lyrically がフォールバックとして使用されます</string>
-    <string name="morphe_music_spotify_token_toast_invalid">Spotify: sp_dc が無効です。値を確認してもう一度お試しください</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify: 無効なsp_dcです - 確認してもう一度お試しください</string>
     <string name="morphe_music_spotify_token_toast_saved">Spotify: sp_dc を保存しました</string>
     <string name="morphe_music_token_dialog_get_token">トークンを取得</string>
     <string name="morphe_music_youtube_cookies_dialog_instruction">"YouTube の値をコピーしてください"</string>
     <string name="morphe_music_youtube_cookies_title">YouTube</string>
     <string name="morphe_music_youtube_cookies_toast_cleared">YouTube</string>
-    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube が無効です。もう一度お試しください</string>
+    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: 無効なクッキーです - 確認してもう一度お試しください</string>
     <string name="morphe_music_youtube_cookies_toast_saved">YouTube を保存しました</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR にログインできません: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR にログインできません。ウェブサイトの認証が承認されませんでした</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 は一時的に利用できません</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 は一時的に利用できません (status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 は現在利用できません (ステータス %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR へのログインが期限切れです。再度ログインしてください</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 は一時的に利用できません (API タイムアウト)</string>
     <string name="morphe_oauth2_toast_invalid">無効な VR ログイン トークンです。再度ログインしてください</string>
@@ -297,10 +335,15 @@ SABR再生（動画ストリームのスプーフがオフ）"</string>
     <string name="morphe_replace_music_with_youtube_summary_off">共有リンクには music.youtube.com が使用されます</string>
     <string name="morphe_replace_music_with_youtube_summary_on">共有リンクには youtube.com が使用されます</string>
     <string name="morphe_replace_music_with_youtube_title">共有リンクを youtube.com に変更</string>
+    <string name="morphe_romanize_language_DEFAULT">自動</string>
     <string name="morphe_sanitize_sharing_links_summary">共有リンクから追跡パラメータを削除します</string>
     <string name="morphe_sanitize_sharing_links_summary_off">共有リンクから追跡パラメータは削除されません</string>
     <string name="morphe_sanitize_sharing_links_summary_on">共有リンクから追跡パラメータが削除されます</string>
     <string name="morphe_sanitize_sharing_links_title">共有リンクを無害化</string>
+    <string name="morphe_sb_new_segment_choose_category">セグメントのカテゴリを選択してください</string>
+    <string name="morphe_sb_new_segment_confirm_submit">送信</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">開始位置を終了位置よりも前にしてください</string>
+    <string name="morphe_sb_new_segment_title">新しいセグメント</string>
     <string name="morphe_settings_menu_copy_path">階層をコピーしました (%s)</string>
     <string name="morphe_settings_menu_filter_picker_empty">項目の一覧を取得するため、アプリ側の設定メニューを一度開いてください</string>
     <string name="morphe_settings_menu_filter_screen_summary">アプリ側の設定メニューの項目を、表示される項目名で指定して非表示にします</string>
@@ -355,7 +398,7 @@ YouTube Premium を利用している場合、この設定は必要ない場合�
 
 YouTube Premium ユーザーの場合、この設定は必要ない可能性があります"</string>
     <string name="morphe_spoof_video_streams_title">動画ストリームを偽装</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">この設定をオフにすると、動画の再生が止まる問題が発生する可能性があります。</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">この設定をオフにすると、再生に問題が発生する可能性があります</string>
     <string name="revanced_add_miniplayer_next_button_summary">ミニプレイヤーに「次の曲に進むボタン」を表示します。</string>
     <string name="revanced_add_miniplayer_next_button_title">「次の曲に進むボタン」を表示</string>
     <string name="revanced_add_miniplayer_previous_button_summary">ミニプレイヤーに「前の曲に戻るボタン」を表示します。</string>
@@ -494,7 +537,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s はインストールされていません。
 ウェブサイトから %2$s をダウンロードしてください。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s はインストールされていません。インストールしてください</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名。</string>
     <string name="revanced_external_downloader_package_name_title">外部ダウンローダーのパッケージ名</string>
     <string name="revanced_fullscreen_ads_closed_toast">全画面広告を閉じました。</string>
@@ -731,7 +774,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_ryd_estimated_like_summary">動画投稿者が高評価数を非公開に設定している動画で、高評価の推定値を表示します</string>
     <string name="revanced_ryd_estimated_like_title">高評価の推定値を表示</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数表示は利用できません (API のレート制限)</string>
-    <string name="revanced_ryd_failure_connection_status_code">低評価数表示は利用できません (status %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">低評価数表示は利用できません (status %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">低評価数表示は一時的に利用できません (API タイムアウト)</string>
     <string name="revanced_ryd_failure_generic">低評価数表示は利用できません (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike サーバーが利用できない場合に通知を表示します</string>
@@ -740,9 +783,9 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">データは SponsorBlock API によって提供されています。他のプラットフォームのダウンロードや詳細については、ここをタップしてください。</string>
     <string name="revanced_sb_api_url">APIのURLを変更</string>
-    <string name="revanced_sb_api_url_changed">APIのURLを変更しました。</string>
-    <string name="revanced_sb_api_url_invalid">APIのURLが無効です。</string>
-    <string name="revanced_sb_api_url_reset">APIのURLをリセットしました。</string>
+    <string name="revanced_sb_api_url_changed">API URL を変更しました</string>
+    <string name="revanced_sb_api_url_invalid">API URL が無効です</string>
+    <string name="revanced_sb_api_url_reset">API URL をリセットしました</string>
     <string name="revanced_sb_api_url_sum">SponsorBlock がサーバーとの通信で使うアドレスです。自分が何をしているのか理解していない場合は、変更しないでください。</string>
     <string name="revanced_sb_color_changed">色を変更しました。</string>
     <string name="revanced_sb_color_dot_label">色:</string>
@@ -751,42 +794,42 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_diff_segments">セグメントの設定</string>
     <string name="revanced_sb_enabled">Sponsor Block を有効化</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock は、YouTube の動画の迷惑な部分をスキップするためのクラウドソーシングシステムです。</string>
-    <string name="revanced_sb_segments_filler">繋ぎの話 / 冗談</string>
+    <string name="revanced_sb_segments_filler">余談 / 冗談</string>
     <string name="revanced_sb_segments_filler_sum">動画の本編を理解する上で必要のない、関係のないシーンや冗談が含まれます。文脈や背景の詳細​​を説明するセクションは含まれません。</string>
-    <string name="revanced_sb_segments_hook">フック / 挨拶</string>
+    <string name="revanced_sb_segments_hook">フック / あいさつ</string>
     <string name="revanced_sb_segments_hook_sum">今後の動画のナレーション付きの予告編、および開幕と別れの挨拶。重複しない内容や情報を追加する場面は含まれません。</string>
-    <string name="revanced_sb_segments_interaction">リマインダー（チャンネル登録などの催促）</string>
+    <string name="revanced_sb_segments_interaction">視聴者への催促 (登録)</string>
     <string name="revanced_sb_segments_interaction_sum">動画の途中に挿入される高評価、チャンネル登録、フォローなどを促す短いリマインダーは、長いものや何か具体的なものは「セルフプロモーション」に分類するべきです。</string>
-    <string name="revanced_sb_segments_intro">休憩 / イントロアニメーション</string>
+    <string name="revanced_sb_segments_intro">幕間 / オープニング (OP)</string>
     <string name="revanced_sb_segments_intro_sum">本編ではない部分。一時停止、静止画面、アニメーションの繰り返しが含まれます。情報を含んだ転換画面は含まれません。</string>
-    <string name="revanced_sb_segments_nomusic">MV: 音楽ではない区間</string>
+    <string name="revanced_sb_segments_nomusic">音楽: 楽曲以外の区間</string>
     <string name="revanced_sb_segments_nomusic_sum">ミュージックビデオでのみ使用できます。他のカテゴリーに含まれていない、ミュージックビデオの音楽のない区間。</string>
-    <string name="revanced_sb_segments_outro">エンドカード / クレジット</string>
+    <string name="revanced_sb_segments_outro">終了画面 / クレジット (ED)</string>
     <string name="revanced_sb_segments_outro_sum">クレジットや動画のエンドカードが表示されている場面。情報を含む結論は含まれません。</string>
-    <string name="revanced_sb_segments_preview">予告 / 要約</string>
+    <string name="revanced_sb_segments_preview">予告編 / 総集編</string>
     <string name="revanced_sb_segments_preview_sum">この動画やシリーズの他の動画で起きた、または今後起きる内容などをまとめたクリップのコレクション。すべての情報は、別の場所で繰り返し表示されます。</string>
-    <string name="revanced_sb_segments_selfpromo">無報酬 / セルフプロモーション</string>
+    <string name="revanced_sb_segments_selfpromo">無報酬の宣伝 / 自己宣伝</string>
     <string name="revanced_sb_segments_selfpromo_sum">無報酬のプロモーションあるいはセルフプロモーションであるという点を除いては「スポンサー」と同様です。商品、寄付、コラボ情報に関する内容を含みます。</string>
-    <string name="revanced_sb_segments_sponsor">スポンサー</string>
+    <string name="revanced_sb_segments_sponsor">スポンサー (広告)</string>
     <string name="revanced_sb_segments_sponsor_sum">有料プロモーション、有料紹介、直接広告が含まれます。セルフプロモーションや、個人の好きなクリエイター/ウェブサイト/商品に対する無償の活動は含まれません。</string>
     <string name="revanced_sb_skip_automatically">自動的にスキップ</string>
-    <string name="revanced_sb_skip_automatically_once">一度だけ自動的にスキップ</string>
+    <string name="revanced_sb_skip_automatically_once">1 回だけ自動的にスキップ</string>
     <string name="revanced_sb_skip_ignore">無効</string>
-    <string name="revanced_sb_skipped_filler">繋ぎの話をスキップしました。</string>
-    <string name="revanced_sb_skipped_hook">フックをスキップしました。</string>
-    <string name="revanced_sb_skipped_interaction">リマインダーをスキップしました。</string>
-    <string name="revanced_sb_skipped_intro_beginning">イントロをスキップしました。</string>
-    <string name="revanced_sb_skipped_intro_end">休憩をスキップしました。</string>
+    <string name="revanced_sb_skipped_filler">余談をスキップしました</string>
+    <string name="revanced_sb_skipped_hook">フックをスキップしました</string>
+    <string name="revanced_sb_skipped_interaction">視聴者への催促 (登録) をスキップしました</string>
+    <string name="revanced_sb_skipped_intro_beginning">オープニング (OP) をスキップしました</string>
+    <string name="revanced_sb_skipped_intro_end">幕間をスキップしました</string>
     <string name="revanced_sb_skipped_multiple_segments">複数のセグメントをスキップしました</string>
-    <string name="revanced_sb_skipped_nomusic">音楽ではない区間をスキップしました。</string>
-    <string name="revanced_sb_skipped_outro">アウトロをスキップしました。</string>
-    <string name="revanced_sb_skipped_preview_beginning">予告をスキップしました。</string>
-    <string name="revanced_sb_skipped_preview_end">要約をスキップしました。</string>
-    <string name="revanced_sb_skipped_selfpromo">セルフプロモーションをスキップしました。</string>
-    <string name="revanced_sb_skipped_sponsor">スポンサーをスキップしました。</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock は一時的に利用できません。</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock は一時的に利用できません。(ステータス %d)</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock は一時的に利用できません。(API タイムアウト)</string>
+    <string name="revanced_sb_skipped_nomusic">楽曲以外の区間をスキップしました</string>
+    <string name="revanced_sb_skipped_outro">エンディング (ED) をスキップしました</string>
+    <string name="revanced_sb_skipped_preview_beginning">予告編をスキップしました</string>
+    <string name="revanced_sb_skipped_preview_end">総集編をスキップしました</string>
+    <string name="revanced_sb_skipped_selfpromo">自己宣伝をスキップしました</string>
+    <string name="revanced_sb_skipped_sponsor">スポンサー (広告) をスキップしました</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock は一時的に利用できません</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock は一時的に利用できません (status %s)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock は一時的に利用できません (API タイムアウト)</string>
     <string name="revanced_sb_toast_on_connection_error_sum">SponsorBlock API が利用できない場合、メッセージが表示されます。</string>
     <string name="revanced_sb_toast_on_skip">自動的にスキップする時にトーストを表示する</string>
     <string name="revanced_sb_toast_on_skip_sum">セグメントが自動的にスキップされたときにトーストを表示します。</string>
@@ -796,7 +839,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_settings_import_copy">コピー</string>
     <string name="revanced_settings_import_export_as_text">設定をテキストとしてインポートまたはエクスポートします。</string>
     <string name="revanced_settings_import_reset">RVX の設定をデフォルトにリセットしました</string>
-    <string name="revanced_settings_import_success">%d 個の設定をインポートしました</string>
+    <string name="revanced_settings_import_success">%s 個の設定をインポートしました</string>
     <string name="revanced_settings_navigate_up">上へ移動</string>
     <string name="revanced_settings_reset">リセット</string>
     <string name="revanced_settings_reset_color">色を初期化</string>
@@ -864,5 +907,4 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_webview_toast_empty">「%s」は空です。</string>
     <string name="revanced_webview_toast_no_network">ネットワーク接続を確認してください。</string>
     <string name="revanced_webview_toast_unavailable">WebView は利用できません。</string>
-    <string name="revanced_webview_visitor_data">Visitor Data</string>
 </resources>

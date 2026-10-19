@@ -58,6 +58,8 @@
     <string name="morphe_auto_pause_on_screen_lock_always">همیشه هنگام قفل مکث شود</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">مکث مگر اینکه صدای بی‌سیم متصل باشد</string>
     <string name="morphe_auto_pause_on_screen_lock_title">مکث خودکار هنگام قفل‌شدن دستگاه</string>
+    <string name="morphe_auto_translate_additional_languages_summary">افزودن زبان‌های بیشتری به منوی ترجمه خودکار</string>
+    <string name="morphe_auto_translate_additional_languages_title">افزودن زبان‌های ترجمه خودکار اضافی</string>
     <string name="morphe_copy_comments_success">نظر در کلیپ‌بورد کپی شد</string>
     <string name="morphe_copy_comments_summary">برای کپی کردن نظر، آن را لمس کنید و نگه دارید</string>
     <string name="morphe_copy_comments_title">کپی کردن نظرات</string>
@@ -94,6 +96,10 @@
     <string name="morphe_explore_menu_screen_summary">انتخاب کنید کدام مؤلفه‌ها در منوی کاوش نمایش داده شوند</string>
     <string name="morphe_explore_menu_screen_title">منوی کاوش</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">اگر کار نکرد، MicroG را به‌اجبار ببندید</string>
+    <string name="morphe_feed_long_press_menu_summary">ضربه زدن و نگه داشتن در هر جایی از یک ویدیوی فید، منوی آن را باز می‌کند</string>
+    <string name="morphe_feed_long_press_menu_title">ضربه بزنید و نگه دارید تا منوی ویدیو باز شود</string>
+    <string name="morphe_feed_watch_later_button_summary">یک دکمه \"تماشا بعداً\" روی تصاویر بندانگشتی ویدیوهای فید نمایش داده می‌شود. ضربه زدن و نگه داشتن آن گزینه ذخیره در لیست پخش را باز می‌کند</string>
+    <string name="morphe_feed_watch_later_button_title">نمایش دکمه \"تماشا بعداً\" روی تصاویر بندانگشتی</string>
     <string name="morphe_force_original_audio_not_available">برای استفاده از این قابلیت، «جعل جریان‌های ویدئویی» را به هر کلاینتی به‌جز «Android Studio» و «Android VR Downgraded» تغییر دهید</string>
     <string name="morphe_force_original_audio_summary_off">استفاده از صدای پیش‌فرض</string>
     <string name="morphe_force_original_audio_summary_on">استفاده از زبان صوتی اصلی</string>
@@ -170,7 +176,7 @@
     <string name="morphe_oauth2_connection_failure_auth_error">نمی‌توان به VR وارد شد: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">نمی‌توان به VR وارد شد؛ احراز هویت وب‌سایت تأیید نشد</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 موقتاً در دسترس نیست</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 موقتاً در دسترس نیست (وضعیت %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 موقتاً در دسترس نیست (وضعیت %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">ورود به Android VR منقضی شده است؛ دوباره به VR وارد شوید</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 موقتاً در دسترس نیست (مهلت API تمام شد)</string>
     <string name="morphe_oauth2_toast_invalid">توکن ورود به VR نامعتبر است؛ دوباره به VR وارد شوید</string>
@@ -193,7 +199,6 @@
     <string name="morphe_playback_in_feeds_title">پخش در خوراک‌ها</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">شفافیت پس‌زمینهٔ پشت دکمه‌های کنترل پخش‌کننده و نوار زمان را تنظیم کنید (۰ نامرئی و ۱۰۰ یک‌دست است)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">شفافیت پس‌زمینهٔ دکمه‌های کنترل</string>
-    <string name="morphe_preferred_caption_language_entry_off">خاموش</string>
     <string name="morphe_preferred_caption_language_summary">ابتدا زیرنویس‌های ارائه‌شده را انتخاب می‌کند، سپس به‌طور خودکار به زبان ترجیحی ترجمه می‌کند</string>
     <string name="morphe_preferred_caption_language_title">زبان ترجیحی زیرنویس‌ها</string>
     <string name="morphe_queue_manager_check_failed_auth">وارد نشده‌اید</string>
@@ -448,9 +453,9 @@
     <string name="revanced_disable_layout_updates_title">غیرفعال‌کردن به‌روزرسانی‌های طرح‌بندی</string>
     <string name="revanced_disable_layout_updates_user_dialog_message">"طرح‌بندی برنامه به طرحی که هنگام نصب اولیه استفاده شده بود برمی‌گردد
 
-بعضی طرح‌بندی‌های سمت سرور ممکن است برنگردند
+برخی طرح‌بندی‌های سمت سرور ممکن است برنگردند
 
-تغییرات شامل این موارد است:
+تغییرات شامل:
 • مؤلفه‌های منوی بازشوی پخش‌کننده (یا تنظیمات مرتبط) ممکن است کار نکنند
 • اعداد متحرک انیمیشن ندارند
 • برگهٔ کتابخانه نمایش داده می‌شود
@@ -711,15 +716,140 @@
     <string name="revanced_ryd_dislike_percentage_title">نمایش نپسندیدن‌ها به‌صورت درصد</string>
     <string name="revanced_ryd_estimated_like_title">نمایش پسندیدن‌های تخمینی</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">نپسندیدن‌ها در دسترس نیستند (محدودیت API کلاینت)</string>
-    <string name="revanced_ryd_failure_connection_status_code">نپسندیدن‌ها در دسترس نیستند (وضعیت %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">نپسندیدن‌ها در دسترس نیستند (وضعیت %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">نپسندیدن‌ها موقتاً در دسترس نیستند (مهلت API تمام شد)</string>
     <string name="revanced_ryd_failure_generic">نپسندیدن‌ها در دسترس نیستند (%s)</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">توسط مالک پنهان شده است</string>
     <string name="revanced_sanitize_video_subtitle_title">پاک‌سازی زیرنویس ویدئو</string>
+    <string name="revanced_sb_api_url_changed">نشانی API تغییر کرد</string>
+    <string name="revanced_sb_api_url_invalid">نشانی API نامعتبر است</string>
+    <string name="revanced_sb_api_url_reset">نشانی API بازنشانی شد</string>
+    <string name="revanced_sb_color_dot_label">رنگ:</string>
+    <string name="revanced_sb_duration_10s">۱۰ ثانیه</string>
+    <string name="revanced_sb_duration_1s">۱ ثانیه</string>
+    <string name="revanced_sb_duration_2s">۲ ثانیه</string>
+    <string name="revanced_sb_duration_3s">۳ ثانیه</string>
+    <string name="revanced_sb_duration_4s">۴ ثانیه</string>
+    <string name="revanced_sb_duration_5s">۵ ثانیه</string>
+    <string name="revanced_sb_duration_6s">۶ ثانیه</string>
+    <string name="revanced_sb_duration_7s">۷ ثانیه</string>
+    <string name="revanced_sb_duration_8s">۸ ثانیه</string>
+    <string name="revanced_sb_duration_9s">۹ ثانیه</string>
+    <string name="revanced_sb_guidelines_popup_already_read">قبلاً خوانده‌ام</string>
+    <string name="revanced_sb_guidelines_popup_content">پیش از ایجاد بخش‌های جدید، راهنمای SponsorBlock را بخوانید</string>
+    <string name="revanced_sb_guidelines_popup_open">نمایش بده</string>
+    <string name="revanced_sb_guidelines_popup_title">راهنما را دنبال کنید</string>
+    <string name="revanced_sb_new_segment_choose_category">دستهٔ بخش را انتخاب کنید</string>
+    <string name="revanced_sb_new_segment_confirm_content">"بخش از
+
+%1$s
+تا
+%2$s
+
+(%3$s)
+
+آمادهٔ ارسال است؟"</string>
+    <string name="revanced_sb_new_segment_confirm_title">آیا زمان‌ها درست هستند؟</string>
+    <string name="revanced_sb_new_segment_disabled_category">دسته در تنظیمات غیرفعال است. برای ارسال، دسته را فعال کنید</string>
+    <string name="revanced_sb_new_segment_edit_by_hand_content">آیا می‌خواهید زمان‌بندی آغاز یا پایان بخش را ویرایش کنید؟</string>
+    <string name="revanced_sb_new_segment_edit_by_hand_parse_error">زمان واردشده نامعتبر است</string>
+    <string name="revanced_sb_new_segment_edit_by_hand_title">ویرایش دستی زمان‌بندی بخش</string>
+    <string name="revanced_sb_new_segment_highlight_content">"آیا زمان بخش برجسته درست است؟
+
+%s
+
+اگر بخش برجسته ارسال نمی‌کنید، روی لغو ضربه بزنید و موقعیت دوم را علامت بزنید"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">ارسال بخش برجسته</string>
+    <string name="revanced_sb_new_segment_mark_end">پایان</string>
+    <string name="revanced_sb_new_segment_mark_locations_first">ابتدا یک موقعیت را روی نوار زمان علامت بزنید</string>
+    <string name="revanced_sb_new_segment_mark_start">آغاز</string>
+    <string name="revanced_sb_new_segment_now">اکنون</string>
+    <string name="revanced_sb_new_segment_preview_segment_first">پیش‌نمایش بخش را ببینید و مطمئن شوید که به‌نرمی رد می‌شود</string>
+    <string name="revanced_sb_new_segment_start_is_before_end">آغاز باید پیش از پایان باشد</string>
+    <string name="revanced_sb_new_segment_time_end">زمان پایان بخش</string>
+    <string name="revanced_sb_new_segment_time_start">زمان آغاز بخش</string>
+    <string name="revanced_sb_new_segment_title">بخش جدید SponsorBlock</string>
+    <string name="revanced_sb_segments_filler">حاشیه / شوخی‌ها</string>
+    <string name="revanced_sb_segments_highlight">بخش برجسته</string>
+    <string name="revanced_sb_segments_hook">قلاب / خوشامدگویی</string>
+    <string name="revanced_sb_segments_interaction">یادآوری تعامل (عضویت)</string>
+    <string name="revanced_sb_segments_intro">وقفه / پویانمایی آغازین</string>
+    <string name="revanced_sb_segments_nomusic">موسیقی: بخش بدون موسیقی</string>
     <string name="revanced_sb_segments_nomusic_sum">فقط برای استفاده در موزیک ویدئوها. بخش‌هایی از موزیک ویدئوها بدون موسیقی، که هنوز تحت پوشش دسته‌بندی دیگری نیستند</string>
-    <string name="revanced_sb_submit_failed_duplicate">"نمی‌توان قطعه را ارسال کرد
-از قبل موجود است"</string>
-    <string name="revanced_sb_submit_failed_forbidden">نمی‌توان قطعه را ارسال کرد: %s</string>
+    <string name="revanced_sb_segments_outro">کارت‌های پایانی / تیتراژ</string>
+    <string name="revanced_sb_segments_preview">پیش‌نمایش / مرور دوباره</string>
+    <string name="revanced_sb_segments_selfpromo">تبلیغ بدون پرداخت / خودتبلیغی</string>
+    <string name="revanced_sb_segments_sponsor">حامی مالی</string>
+    <string name="revanced_sb_settings_export_failed">صادرکردن ناموفق بود: %s</string>
+    <string name="revanced_sb_settings_import_failed">واردکردن ناموفق بود: %s</string>
+    <string name="revanced_sb_settings_import_successful">تنظیمات با موفقیت وارد شدند</string>
+    <string name="revanced_sb_skip_automatically">ردکردن خودکار</string>
+    <string name="revanced_sb_skip_automatically_once">یک‌بار ردکردن خودکار</string>
+    <string name="revanced_sb_skip_button_compact">ردکردن</string>
+    <string name="revanced_sb_skip_button_filler">ردکردن حاشیه</string>
+    <string name="revanced_sb_skip_button_highlight">رفتن به بخش برجسته</string>
+    <string name="revanced_sb_skip_button_hook">ردکردن قلاب</string>
+    <string name="revanced_sb_skip_button_interaction">ردکردن تعامل</string>
+    <string name="revanced_sb_skip_button_intro_beginning">ردکردن آغازین</string>
+    <string name="revanced_sb_skip_button_intro_end">ردکردن وقفه</string>
+    <string name="revanced_sb_skip_button_nomusic">ردکردن بخش بدون موسیقی</string>
+    <string name="revanced_sb_skip_button_outro">ردکردن پایان</string>
+    <string name="revanced_sb_skip_button_preview_beginning">ردکردن پیش‌نمایش</string>
+    <string name="revanced_sb_skip_button_preview_end">ردکردن مرور دوباره</string>
+    <string name="revanced_sb_skip_button_selfpromo">ردکردن تبلیغ</string>
+    <string name="revanced_sb_skip_button_sponsor">ردکردن حامی مالی</string>
+    <string name="revanced_sb_skip_button_unsubmitted">ردکردن بخش</string>
+    <string name="revanced_sb_skip_ignore">غیرفعال‌کردن</string>
+    <string name="revanced_sb_skip_seekbaronly">نمایش در نوار جست‌وجو</string>
+    <string name="revanced_sb_skip_showbutton">نمایش دکمهٔ ردکردن</string>
+    <string name="revanced_sb_skipped_filler">حاشیه رد شد</string>
+    <string name="revanced_sb_skipped_highlight">به بخش برجسته رفت</string>
+    <string name="revanced_sb_skipped_hook">قلاب رد شد</string>
+    <string name="revanced_sb_skipped_interaction">یادآوری آزاردهنده رد شد</string>
+    <string name="revanced_sb_skipped_intro_beginning">آغازین رد شد</string>
+    <string name="revanced_sb_skipped_intro_end">وقفه رد شد</string>
+    <string name="revanced_sb_skipped_multiple_segments">چند بخش رد شد</string>
+    <string name="revanced_sb_skipped_nomusic">بخش بدون موسیقی رد شد</string>
+    <string name="revanced_sb_skipped_outro">پایان رد شد</string>
+    <string name="revanced_sb_skipped_preview_beginning">پیش‌نمایش رد شد</string>
+    <string name="revanced_sb_skipped_preview_end">مرور دوباره رد شد</string>
+    <string name="revanced_sb_skipped_selfpromo">خودتبلیغی رد شد</string>
+    <string name="revanced_sb_skipped_sponsor">حامی مالی رد شد</string>
+    <string name="revanced_sb_skipped_unsubmitted">بخش ارسال‌نشده رد شد</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock موقتاً در دسترس نیست</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock موقتاً در دسترس نیست (وضعیت %s)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock موقتاً در دسترس نیست (مهلت API تمام شد)</string>
+    <string name="revanced_sb_stats_connection_failure">آمار موقتاً در دسترس نیست (API از کار افتاده است)</string>
+    <string name="revanced_sb_stats_reputation">اعتبار شما: &lt;b&gt;%.2f&lt;/b&gt;</string>
+    <string name="revanced_sb_stats_saved">شما افراد را از &lt;b&gt;%s&lt;/b&gt; بخش نجات داده‌اید</string>
+    <string name="revanced_sb_stats_saved_hour_format">%1$s ساعت و %2$s دقیقه</string>
+    <string name="revanced_sb_stats_saved_minute_format">%1$s دقیقه و %2$s ثانیه</string>
+    <string name="revanced_sb_stats_saved_second_format">%s ثانیه</string>
+    <string name="revanced_sb_stats_saved_zero">جدول امتیازات SponsorBlock</string>
+    <string name="revanced_sb_stats_sb_disabled">SponsorBlock غیرفعال است</string>
+    <string name="revanced_sb_stats_self_saved">شما &lt;b&gt;%s&lt;/b&gt; بخش را رد کرده‌اید</string>
+    <string name="revanced_sb_stats_self_saved_reset_title">شمارندهٔ بخش‌های ردشده بازنشانی شود؟</string>
+    <string name="revanced_sb_stats_submissions">شما &lt;b&gt;%s&lt;/b&gt; بخش ایجاد کرده‌اید</string>
+    <string name="revanced_sb_stats_username">نام کاربری شما: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="revanced_sb_stats_username_change">برای تغییر نام کاربری، اینجا ضربه بزنید</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">تغییر نام کاربری ناموفق بود: وضعیت: %1$s %2$s</string>
+    <string name="revanced_sb_stats_username_changed">نام کاربری با موفقیت تغییر کرد</string>
+    <string name="revanced_sb_submit_failed_duplicate">"نمی‌توان بخش را ارسال کرد
+قبلاً وجود دارد"</string>
+    <string name="revanced_sb_submit_failed_forbidden">نمی‌توان بخش را ارسال کرد: %s</string>
+    <string name="revanced_sb_submit_failed_invalid">ارسال بخش ناموفق بود: %s</string>
+    <string name="revanced_sb_submit_failed_rate_limit">ارسال بخش ناموفق بود. محدودیت نرخ (درخواست‌های بیش از حد از همان کاربر یا IP)</string>
+    <string name="revanced_sb_submit_failed_timeout">SponsorBlock موقتاً از کار افتاده است</string>
+    <string name="revanced_sb_submit_failed_unknown_error">ارسال بخش ناموفق بود (وضعیت: %1$s %2$s)</string>
+    <string name="revanced_sb_submit_succeeded">بخش با موفقیت ارسال شد</string>
+    <string name="revanced_sb_vote_category">تغییر دسته</string>
+    <string name="revanced_sb_vote_downvote">رأی منفی</string>
+    <string name="revanced_sb_vote_failed_forbidden">رأی‌دادن به بخش ناموفق بود: %s</string>
+    <string name="revanced_sb_vote_failed_timeout">رأی‌دادن به بخش ناموفق بود (مهلت API تمام شد)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">رأی‌دادن به بخش ناموفق بود (وضعیت: %1$s %2$s)</string>
+    <string name="revanced_sb_vote_no_segments">بخشی برای رأی‌دادن وجود ندارد</string>
+    <string name="revanced_sb_vote_segment_time_to_from">%1$s تا %2$s</string>
+    <string name="revanced_sb_vote_upvote">رأی مثبت</string>
     <string name="revanced_settings_color_invalid">رنگ نامعتبر است</string>
     <string name="revanced_settings_disable_bold_icons_summary_off">آیکون‌ها پررنگ هستند</string>
     <string name="revanced_settings_disable_bold_icons_summary_on">آیکون‌ها پررنگ نیستند</string>
@@ -727,7 +857,7 @@
     <string name="revanced_settings_import">واردکردن</string>
     <string name="revanced_settings_import_copy">کپی</string>
     <string name="revanced_settings_import_reset">تنظیمات RVX به پیش‌فرض بازنشانی شد</string>
-    <string name="revanced_settings_import_success">%d تنظیم وارد شد</string>
+    <string name="revanced_settings_import_success">%s تنظیم وارد شد</string>
     <string name="revanced_settings_navigate_up">بازگشت به بالا</string>
     <string name="revanced_settings_reset">بازنشانی</string>
     <string name="revanced_settings_reset_color">بازنشانی رنگ</string>

@@ -2,16 +2,16 @@
 <resources>
     <string name="gms_core_dialog_continue_text">Продолжить</string>
     <string name="gms_core_dialog_dismiss_text">Больше не показывать</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG не имеет разрешения на работу в фоновом режиме
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"У MicroG нет разрешения на работу в фоновом режиме
 
-Следуйте инструкции \"Don't kill my app\" для Вашего телефона и примените её к вашей установке MicroG
+Следуйте руководству «Don't kill my app» для вашего телефона и примените инструкции к установке MicroG
 
 Это необходимо для работы приложения"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизация батареи для MicroG должна быть отключена для предотвращения проблем
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизация батареи MicroG должна быть отключена во избежание проблем
 
-Отключение оптимизации батареи для MicroG не повлияет негативно на использование батареи
+Отключение оптимизации батареи для MicroG не повлияет на расход заряда
 
-Нажмите кнопку \"Продолжить\" и разрешите изменения оптимизации"</string>
+Нажмите кнопку «Продолжить» и разрешите изменения оптимизации"</string>
     <string name="gms_core_dialog_open_website_text">Открыть веб-сайт</string>
     <string name="gms_core_dialog_title">Требуется действие</string>
     <string name="gms_core_settings_summary">Включите \"Облачные уведомления\" для получения уведомлений</string>
@@ -67,7 +67,7 @@
 3. Скопируйте значение «media-user-token»"</string>
     <string name="morphe_music_apple_music_token_title">Apple Music Media-user-token</string>
     <string name="morphe_music_apple_music_token_toast_cleared">Apple Music: media-user-token очищен</string>
-    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: недействительный media-user-token — проверьте и повторите попытку</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: неверный media-user-token - пожалуйста, проверьте и попробуйте ещё раз</string>
     <string name="morphe_music_apple_music_token_toast_saved">Apple Music: media-user-token сохранён</string>
     <string name="morphe_music_apple_token_optional_hint">Токен Apple Music необязателен. Без него в качестве резервного варианта будет использоваться Lyrically</string>
     <string name="morphe_music_crossfade_about_best_summary">Обычное воспроизведение песен, автоматическое воспроизведение, повтор одной песни (песня плавно переходит в саму себя) и локальное аудио — динамик телефона, проводные наушники, Bluetooth или USB</string>
@@ -127,7 +127,7 @@ SABR-воспроизведение (подмена видеопотоков о�
 3. Скопируйте значение «arl»"</string>
     <string name="morphe_music_deezer_arl_title">Deezer ARL</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl очищено</string>
-    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: недействительный arl — проверьте и повторите попытку</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: недействительный arl - пожалуйста проверьте и повторите попытку</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl сохранён</string>
     <string name="morphe_music_downloads_actions_for">Действия для %s</string>
     <string name="morphe_music_downloads_all_deleted">Загрузка удалена</string>
@@ -171,11 +171,11 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="morphe_music_in_app_downloads_summary">Скачивает аудио внутри YouTube Music вместо открытия внешнего приложения-загрузчика</string>
     <string name="morphe_music_in_app_downloads_title">Скачивание в приложении</string>
     <string name="morphe_music_in_app_downloads_user_dialog_message">"Треки сохраняются в приватном хранилище приложения и удаляются при удалении YouTube Music.\n\nПока эта функция включена, вкладка «Загрузки» отображает эти треки вместо офлайн-библиотеки Music Premium. При её отключении вкладка восстанавливается, а загрузки Premium никогда не затрагиваются"</string>
-    <string name="morphe_music_lyrics_about_summary">"Тексты песен подбираются по названию и исполнителю; нестандартные метаданные могут не найти ничего или найти неправильную версию. Используйте обновление для переключения версий. Провайдеры, отмеченные *, требуют токен. Все включенные провайдеры запрашиваются не всегда в указанном вами порядке, а отвечают в зависимости от их скорости"</string>
+    <string name="morphe_music_lyrics_about_summary">"Текст песни сопоставляется по названию и исполнителю; при наличии необычных метаданных может ничего не быть найдено или будет найдена неверная версия. Используйте обновления, чтобы переключаться между версиями. Для поставщиков, отмеченных знаком *, требуется токен. Не все подключенные провайдеры всегда запрашиваются в вашем заказе, но они отвечают в зависимости от своей скорости.\n\nТексты песен взяты из сторонних сервисов, которые не связаны с RVX, не спонсируются и не одобряются компанией RVX. Каждый из них используется в том виде, в каком он есть: права на тексты песен, их доступность и условия лицензирования принадлежат данным сервисам и их лицензиарам, а их использование может регулироваться условиями предоставления услуг этих сервисов. К включенному сервису поступает только запрошенная вами информация - название, исполнитель и, если это необходимо данному сервису, видео ID. Дополнительный конечный узел ИИ и транскрипция с помощью QuickLRC запускаются только после их настройки и получения текста песни или URL видеозаписи трека"</string>
     <string name="morphe_music_lyrics_about_title">О стороннем тексте песен</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">Ключ API (оставьте пустым для анонимного доступа)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">URL конечной точки API (например, https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Настройте конечную точку API, совместимую с OpenAI, для перевода текстов песен, романизации и определения разделов с помощью ИИ</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Настройте конечную точку API, совместимую с OpenAI, для перевода, романизации и разбиения на секции текстов песен с помощью ИИ</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">Настройки ИИ</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Название модели (например, openai-fast, gpt-4o-mini)</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Название модели не может быть пустым</string>
@@ -183,13 +183,20 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Базовый URL должен начинаться с http:// или https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Проверка подключения…</string>
     <string name="morphe_music_lyrics_ai_config_summary_configured">Модель %1$s настроена</string>
-    <string name="morphe_music_lyrics_ai_config_toast_invalid">Не удалось подключиться к конечной точке ИИ. Проверьте настройки</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">Не удалось подключиться к конечной точке ИИ. Проверьте ваши настройки</string>
     <string name="morphe_music_lyrics_ai_config_toast_reset">Настройки ИИ сброшены</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">Настройки ИИ сохранены</string>
+    <string name="morphe_music_lyrics_ai_extra_body_hint">Дополнительный текст запроса (JSON, включаться в каждый запрос AI)</string>
+    <string name="morphe_music_lyrics_ai_extra_body_invalid">Неверный JSON. Исправьте ошибку или очистите поле перед сохранением</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Плейсхолдеры: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Шаблон промпта</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Промпт сохранен, но конечная точка ИИ пока не готова к использованию. Сначала настройте её в разделе настроек ИИ</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Промпт сброшен</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">Промпт сохранен</string>
+    <string name="morphe_music_lyrics_clear_cache_done">Очищено %1$s MB</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Удалить тексты песен, сохраненные на этом устройстве</string>
+    <string name="morphe_music_lyrics_clear_cache_title">Очистить сохраненные тексты песен</string>
+    <string name="morphe_music_lyrics_contribute_credit">Длительное нажатие на кнопку копирования сохранит этот LRC; если вы сможете точно настроить тайминги и поделиться ими с другими пользователями, мы будем благодарны</string>
     <string name="morphe_music_lyrics_copied">Скопировано в буфер обмена</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Если строки текста неправильно определяются как информационные строки, настройте эти маркеры</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Маркеры информационных строк</string>
@@ -197,6 +204,7 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="morphe_music_lyrics_custom_regex_title">Регулярное выражение для метаданных</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Переключить порядок отображения исполнителя и названия в мини-плеере и MediaSession. Включено: «Исполнитель — Название», выключено: «Название — Исполнитель»</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Порядок отображения исполнителя и названия</string>
+    <string name="morphe_music_lyrics_dual_only">Только двойной режим</string>
     <string name="morphe_music_lyrics_enabled_summary">Отображает текст песни из стороннего сервиса, при его отсутствии – встроенный текст песни</string>
     <string name="morphe_music_lyrics_enabled_title">Использовать текст песни из сторонних источников</string>
     <string name="morphe_music_lyrics_hide_info_summary">Скрывать строку с указанием авторства под текстом</string>
@@ -207,7 +215,14 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="morphe_music_lyrics_hide_unplayed_title">Скрывать невоспроизведённые строки</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Предотвращает отключение экрана, пока открыта панель с текстами песен</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Не выключать экран при просмотре текстов песен</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Чтение %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_failed">Загрузка не удалась - выключите и включите снова, чтобы повторить попытку</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Материалы для чтения готовы (%1$d записи)</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">Используйте транслитерацию перевода на устройстве, если провайдер, ваша модель и Google Translate не справляются. Чтение следует за каждым словом текста песни, воспроизводимого в режиме хронометража; функция синхронизации слов должна быть включена. Китайский, кантонский, японский, корейский, греческий, русский, грузинский, армянский; около 120 MB</string>
+    <string name="morphe_music_lyrics_local_romanization_title">Локальная романизация и выравнивание</string>
+    <string name="morphe_music_lyrics_mediasession_summary">Отображает текущую строку на экране блокировки, в Android Auto и при подключении по Bluetooth. Требуется Android 11 или более поздней версии</string>
     <string name="morphe_music_lyrics_mediasession_title">Показывать текст MediaSession на экране блокировки</string>
+    <string name="morphe_music_lyrics_miniplayer_summary">Отображает текущую строку в мини плеере, при этом трек перемещается к соответствующему субтитру</string>
     <string name="morphe_music_lyrics_miniplayer_title">Показывать тексты в мини-плеере</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Синхронизированный текст следует временному смещению. Используйте положительное значение, если текст опережает песню</string>
     <string name="morphe_music_lyrics_offset_ms_title">Глобальное смещение тайминга</string>
@@ -215,6 +230,7 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="morphe_music_lyrics_refreshing">Обновление</string>
     <string name="morphe_music_lyrics_romanize_failed">Не удалось романизировать текст</string>
     <string name="morphe_music_lyrics_romanize_hide">Романизация</string>
+    <string name="morphe_music_lyrics_romanize_language_title">Язык романизации</string>
     <string name="morphe_music_lyrics_romanize_only">Только романизированный</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Транслитерировано с помощью %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Романизировано Google</string>
@@ -228,29 +244,48 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="morphe_music_lyrics_search_empty">Введите название песни и исполнителя</string>
     <string name="morphe_music_lyrics_search_no_providers">Ни один из включённых провайдеров не может искать другие песни</string>
     <string name="morphe_music_lyrics_search_title_hint">Название песни</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">Нажмите, чтобы скопировать оригинальный текст как обычный текст; нажмите и удерживайте, чтобы сохранить исходный файл текста в Downloads</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">Нажмите, чтобы скопировать исходный текст песни в виде простого текста; нажмите и удерживайте, чтобы сохранить исходный файл текста песни в папке \"Загрузки\"</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Показать кнопку копирования</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Нажмите, чтобы переключиться на следующий вариант текста; долгое нажатие — поиск текста по названию песни и исполнителю</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Нажмите, чтобы перейти к следующему варианту текста песни; нажмите и удерживайте, чтобы выполнить поиск текста по названию песни и исполнителю</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Показывать кнопку «Обновить»</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Нажмите, чтобы переключить романизацию; долгое нажатие — только романизация. Использует романизацию провайдера, Google Translate или OpenAI-совместимый API</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Нажмите, чтобы включить или выключить транслитерацию; нажмите и удерживайте, чтобы использовать только транслитерацию. Использует романизацию провайдера, Google Translate или API, совместимый с OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Показывать кнопку романизации</string>
     <string name="morphe_music_lyrics_show_section_summary">Помечать каждую новую секцию текста песни небольшим тегом, например, «Куплет» или «Припев»</string>
     <string name="morphe_music_lyrics_show_section_title">Показывать теги секций</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Нажмите, чтобы переключить перевод; долгое нажатие — только перевод. Использует переводы провайдера, Google Translate или OpenAI-совместимый API</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Нажмите, чтобы включить или выключить перевод; нажмите и удерживайте, чтобы отобразить только перевод. Использует переводы сторонних сервисов, Google Translate или API, совместимый с OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Показать кнопку перевода</string>
-    <string name="morphe_music_lyrics_source_all_disabled">Все сервисы отключены — встроенные тексты и тексты из метаданных</string>
+    <string name="morphe_music_lyrics_source_all_disabled">Все источники отключены - встроенные тексты песен и встроенные тексты</string>
     <string name="morphe_music_lyrics_source_label">Источник: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">Восстановить сервисы в порядке приоритета по умолчанию</string>
     <string name="morphe_music_lyrics_source_reset_title">Сбросить порядок сервисов?</string>
     <string name="morphe_music_lyrics_source_title">Сервис текстов песен</string>
+    <string name="morphe_music_lyrics_split_background_summary">Переносит фоновый вокал, записанный в скобках, например \"(О) я хочу тебя\", из основной строки в отдельную слабую строку</string>
+    <string name="morphe_music_lyrics_split_background_title">Показывать бэк-вокал отдельно</string>
     <string name="morphe_music_lyrics_swap_trans_roma_summary">ON размещает романизацию под переводом, OFF — над ним</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Поменять местами перевод и романизацию</string>
-    <string name="morphe_music_lyrics_tap_to_seek_summary">Нажатие на строку переводит к соответствующему моменту в песне</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">Нажмите на строку, чтобы перейти к моменту воспроизведения</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">Нажмите на строку, чтобы перейти к этому моменту в песне; нажмите и удерживайте, чтобы скопировать слово под пальцем или всю строку, если вы не нажимаете на конкретное слово. Команда \"Off\" отменяет оба жеста</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Нажмите и удерживайте линию</string>
     <string name="morphe_music_lyrics_text_filter_summary">Регулярное выражение применяется только к оригинальному тексту песни (не к переводам или романизациям)</string>
     <string name="morphe_music_lyrics_text_filter_title">Регулярное выражение фильтра текста</string>
     <string name="morphe_music_lyrics_text_size_summary">Размер текста песни</string>
     <string name="morphe_music_lyrics_text_size_title">Размер текста</string>
+    <string name="morphe_music_lyrics_transcribe_align">Запросить выравнивание в QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_aligning">Выравнивается</string>
+    <string name="morphe_music_lyrics_transcribe_apply_align">Применить выравнивание</string>
+    <string name="morphe_music_lyrics_transcribe_cancelled">Транскрипция отменена</string>
+    <string name="morphe_music_lyrics_transcribe_failed">QuickLRC не смог обработать этот трек</string>
+    <string name="morphe_music_lyrics_transcribe_key_cleared">Ключ API QuickLRC очищен</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRC добавляет тайминги к текстам без них или транскрибирует их из трека за стоимость кредитов. При установленном ключе треки без текстов предлагают транскрипцию, а в диалоговом окне поиска появляется кнопка выравнивания</string>
+    <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRC отклонил этот ключ</string>
+    <string name="morphe_music_lyrics_transcribe_key_saved">Ключ API QuickLRC сохранен</string>
+    <string name="morphe_music_lyrics_transcribe_key_set_summary">Ключ QuickLRC сохранен. Используйте кнопку выравнивания в диалоговом окне поиска текстов или подсказку на панели, если у трека отсутствуют тексты</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRC транскрибирует или временнó выравнивает тексты песен для текущего трека. Это отдельный сервис, не связанный с указанной выше конечной точкой, совместимой с OpenAI</string>
+    <string name="morphe_music_lyrics_transcribe_key_title">Ключ API QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_local_unsupported">Можно транскрибировать только треки, воспроизводимые с YouTube</string>
+    <string name="morphe_music_lyrics_transcribe_no_text">Нечему выравнивать — вместо этого выполняется транскрипция</string>
+    <string name="morphe_music_lyrics_transcribe_out_of_credits">Кредиты QuickLRC исчерпаны для этого трека</string>
+    <string name="morphe_music_lyrics_transcribe_prompt">Запросить транскрипцию в QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_working">Транскрибируется</string>
     <string name="morphe_music_lyrics_translate_failed">Не удалось перевести текст песни</string>
     <string name="morphe_music_lyrics_translate_hide">Перевод</string>
     <string name="morphe_music_lyrics_translate_only">Только перевод</string>
@@ -272,8 +307,9 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch работает без токена, поэтому это поле можно оставить пустым</string>
     <string name="morphe_music_musixmatch_token_title">Musixmatch Token</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: токен пользователя очищен</string>
-    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: недействительный токен пользователя — проверьте и повторите попытку</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: недействительный токен пользователя - пожалуйста проверьте и повторите попытку</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: токен пользователя сохранён</string>
+    <string name="morphe_music_scrobbling_log_out">Выйти</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"Вставьте файл cookie sp_dc из Spotify
 
 Шаги:
@@ -282,7 +318,7 @@ SABR-воспроизведение (подмена видеопотоков о�
 3. Скопируйте значение «sp_dc»"</string>
     <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
     <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc очищен</string>
-    <string name="morphe_music_spotify_token_toast_invalid">Spotify: недействительный sp_dc — проверьте и повторите попытку</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify: invalid sp_dc - please check and try again</string>
     <string name="morphe_music_spotify_token_toast_saved">Spotify: sp_dc […] Без него Lyrically будет использоваться как запасной вариант</string>
     <string name="morphe_music_token_dialog_get_token">Получить токен</string>
     <string name="morphe_music_youtube_cookies_dialog_instruction">"Вставьте […] Скопируйте полную строку куки (пары «ключ=значение», разделённые точками с запятой)
@@ -290,12 +326,12 @@ SABR-воспроизведение (подмена видеопотоков о�
 Требуемые куки: SID, HSID, SSID, SAPISID, __Secure-3APISID, LOGIN_INFO"</string>
     <string name="morphe_music_youtube_cookies_title">Куки YouTube</string>
     <string name="morphe_music_youtube_cookies_toast_cleared">YouTube: куки очищены</string>
-    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: недействительные куки — проверьте и попробуйте ещё раз</string>
+    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: недействительные файлы cookie — проверьте и повторите попытку</string>
     <string name="morphe_music_youtube_cookies_toast_saved">YouTube: куки сохранены</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не удается войти в VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Невозможно войти в VR, веб-авторизация не была одобрена</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 временно недоступна</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 временно недоступна (статус %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 временно недоступен (статус %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Срок действия входа в Android VR истек. Попробуйте войти в VR снова</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 временно недоступен (время ожидания API истекло)</string>
     <string name="morphe_oauth2_toast_invalid">Недействительный токен входа в VR, попробуйте войти в VR еще раз</string>
@@ -304,10 +340,15 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="morphe_replace_music_with_youtube_summary_off">Общие ссылки используют music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Общие ссылки используют youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Изменить ссылки для обмена на youtube.com</string>
+    <string name="morphe_romanize_language_DEFAULT">Автоматически</string>
     <string name="morphe_sanitize_sharing_links_summary">Удаляет параметры отслеживания запросов из общих ссылок</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Параметр отслеживания запросов не удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметр отслеживания запросов удален из ссылок для обмена</string>
     <string name="morphe_sanitize_sharing_links_title">Очищать ссылки для обмена</string>
+    <string name="morphe_sb_new_segment_choose_category">Выбрать категорию сегмента</string>
+    <string name="morphe_sb_new_segment_confirm_submit">Отправить</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">Начало должно быть перед окончанием</string>
+    <string name="morphe_sb_new_segment_title">Новый сегмент SponsorBlock</string>
     <string name="morphe_settings_menu_copy_path">Скопировано: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Откройте экран стандартных настроек приложения один раз, чтобы заполнить список</string>
     <string name="morphe_settings_menu_filter_screen_summary">Скрыть элементы на экране настроек приложения, основываясь на их видимом имени</string>
@@ -512,7 +553,7 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не установлен
 Пожалуйста, скачайте %2$s с сайта"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Внимание</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s не установлено. Пожалуйста, установите его</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Пожалуйста, установите его</string>
     <string name="revanced_external_downloader_package_name_summary">Имя пакета вашего установленного внешнего загрузчика. Например, NewPipe или YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Имя пакета внешнего загрузчика</string>
     <string name="revanced_fullscreen_ads_closed_toast">Полноэкранная реклама закрыта</string>
@@ -764,7 +805,7 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="revanced_ryd_estimated_like_summary">Показывает приблизительное количество лайков на видео, где автор отключил лайки</string>
     <string name="revanced_ryd_estimated_like_title">Показать примерное количество лайков</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступны (лимит клиентов API)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступны (статус %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступны (статус %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки временно недоступны (таймаут API)</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступны (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Показывает уведомление, когда сервер Return YouTube Dislike недоступен</string>
@@ -773,9 +814,9 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Данные предоставлены SponsorBlock API. Нажмите здесь, чтобы узнать больше и увидеть опцию загрузки для других платформ</string>
     <string name="revanced_sb_api_url">Изменить адрес сервера API</string>
-    <string name="revanced_sb_api_url_changed">Адрес сервера API изменён</string>
-    <string name="revanced_sb_api_url_invalid">Адрес сервера API недействителен</string>
-    <string name="revanced_sb_api_url_reset">Адрес сервера API сброшен</string>
+    <string name="revanced_sb_api_url_changed">URL-адрес API изменен</string>
+    <string name="revanced_sb_api_url_invalid">URL-адрес API недействителен</string>
+    <string name="revanced_sb_api_url_reset">URL-адрес API сброшен</string>
     <string name="revanced_sb_api_url_sum">Адрес, используемый для связи с сервером SponsorBlock. Не изменяйте его, если не знаете, что делаете</string>
     <string name="revanced_sb_color_changed">Цвет изменён</string>
     <string name="revanced_sb_color_dot_label">Цвет:</string>
@@ -784,41 +825,41 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="revanced_sb_diff_segments">Изменить поведение сегмента</string>
     <string name="revanced_sb_enabled">Включить SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock - это реализованная с помощью участия сообщества система для пропуска раздражающих частей видео в YouTube</string>
-    <string name="revanced_sb_segments_filler">Касательные / шутки</string>
+    <string name="revanced_sb_segments_filler">Отвлеченные темы / Шутки</string>
     <string name="revanced_sb_segments_filler_sum">Второстепенные сцены или шутки, которые не требуются для понимания основного содержания видео. Не включает разделы с контекстом или подробностями истории</string>
-    <string name="revanced_sb_segments_hook">Хук / Приветствие</string>
+    <string name="revanced_sb_segments_hook">Вступление / Приветствие</string>
     <string name="revanced_sb_segments_hook_sum">Озвученные трейлеры к предстоящему видео, приветствия и прощания. Не включает разделы с дополнительным контентом</string>
     <string name="revanced_sb_segments_interaction">Напоминание о взаимодействии (подписка)</string>
     <string name="revanced_sb_segments_interaction_sum">Короткое напоминание поставить отметку \"Нравится\", подписаться на канал или соцсети посреди ролика. Если эта вставка длительная или о чём-то конкретном, она должна классифицироваться как самореклама</string>
-    <string name="revanced_sb_segments_intro">Пауза / Интро</string>
+    <string name="revanced_sb_segments_intro">Пауза/Заставка</string>
     <string name="revanced_sb_segments_intro_sum">Интервал без фактического содержания. Это может быть пауза, статический кадр или повторяющаяся анимация. Не включает переходы, содержащие информацию</string>
-    <string name="revanced_sb_segments_nomusic">Музыка: Сегмент без музыки</string>
+    <string name="revanced_sb_segments_nomusic">Музыка: сегмент без музыки</string>
     <string name="revanced_sb_segments_nomusic_sum">Только для использования в музыкальных роликах. Разделы музыкальных видео без музыки, которые ещё не охвачены другой категорией</string>
-    <string name="revanced_sb_segments_outro">Конечная заставка / Титры</string>
+    <string name="revanced_sb_segments_outro">Конечные заставки / Титры</string>
     <string name="revanced_sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для подведения итогов сказанного в видео</string>
-    <string name="revanced_sb_segments_preview">Предварительный просмотр / краткое содержание</string>
+    <string name="revanced_sb_segments_preview">Предпросмотр / Пересказ</string>
     <string name="revanced_sb_segments_preview_sum">Краткое содержание предыдущих эпизодов или предварительный просмотр того, что будет в данном видео</string>
-    <string name="revanced_sb_segments_selfpromo">Безвозмездная реклама / Самореклама</string>
+    <string name="revanced_sb_segments_selfpromo">Бесплатная реклама/самореклама</string>
     <string name="revanced_sb_segments_selfpromo_sum">Похоже на спонсорскую рекламу, за исключением безвозмездной рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем они сотрудничали</string>
     <string name="revanced_sb_segments_sponsor">Спонсорская реклама</string>
     <string name="revanced_sb_segments_sponsor_sum">Платные промоакции, платные рефералы и прямая реклама. Не для саморекламы или бесплатных рекомендаций о делах / создателях / веб-сайтах / продуктах, которые им нравятся</string>
-    <string name="revanced_sb_skip_automatically">Автоматически пропускать</string>
+    <string name="revanced_sb_skip_automatically">Пропускать автоматически</string>
     <string name="revanced_sb_skip_automatically_once">Пропускать автоматически один раз</string>
     <string name="revanced_sb_skip_ignore">Отключить</string>
-    <string name="revanced_sb_skipped_filler">Пропущена касательная</string>
-    <string name="revanced_sb_skipped_hook">Пропущен хук</string>
-    <string name="revanced_sb_skipped_interaction">Пропущено назойливое напоминание</string>
-    <string name="revanced_sb_skipped_intro_beginning">Пропущено интро</string>
-    <string name="revanced_sb_skipped_intro_end">Пропущена пауза</string>
-    <string name="revanced_sb_skipped_multiple_segments">Пропущено несколько сегментов</string>
-    <string name="revanced_sb_skipped_nomusic">Пропущен сегмент без музыки</string>
-    <string name="revanced_sb_skipped_outro">Пропущена концовка</string>
-    <string name="revanced_sb_skipped_preview_beginning">Пропущен предпросмотр</string>
-    <string name="revanced_sb_skipped_preview_end">Пропущено краткое повторение</string>
-    <string name="revanced_sb_skipped_selfpromo">Пропущена самореклама</string>
-    <string name="revanced_sb_skipped_sponsor">Пропущена спонсорская реклама</string>
+    <string name="revanced_sb_skipped_filler">Отвлеченные темы пропущены</string>
+    <string name="revanced_sb_skipped_hook">Вступление пропущено</string>
+    <string name="revanced_sb_skipped_interaction">Назойливое напоминание пропущено</string>
+    <string name="revanced_sb_skipped_intro_beginning">Вступление пропущено</string>
+    <string name="revanced_sb_skipped_intro_end">Пауза пропущена</string>
+    <string name="revanced_sb_skipped_multiple_segments">Несколько сегментов пропущены</string>
+    <string name="revanced_sb_skipped_nomusic">Сегмент без музыки пропущен</string>
+    <string name="revanced_sb_skipped_outro">Концовка пропущена</string>
+    <string name="revanced_sb_skipped_preview_beginning">Предпросмотр пропущен</string>
+    <string name="revanced_sb_skipped_preview_end">Пересказ пропущен</string>
+    <string name="revanced_sb_skipped_selfpromo">Самореклама пропущена</string>
+    <string name="revanced_sb_skipped_sponsor">Спонсорская реклама пропущена</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock временно недоступен</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock временно недоступен (состояние %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock временно недоступен (статус %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock временно недоступен (время API истекло)</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Отображает всплывающее уведомление, когда SponsorBlock недоступен</string>
     <string name="revanced_sb_toast_on_skip">Показать тост когда пропущен сегмент автоматически</string>
@@ -834,7 +875,7 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="revanced_settings_import_export_title">Импорт / Экспорт настроек</string>
     <string name="revanced_settings_import_failed">Не удалось импортировать: %s</string>
     <string name="revanced_settings_import_reset">Настройки RVX восстановлены до значений по умолчанию</string>
-    <string name="revanced_settings_import_success">Импортировано %d настроек</string>
+    <string name="revanced_settings_import_success">Импортировано %s настроек</string>
     <string name="revanced_settings_navigate_up">Перейти вверх</string>
     <string name="revanced_settings_reset">Сбросить</string>
     <string name="revanced_settings_reset_color">Сбросить цвет</string>
@@ -851,10 +892,10 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="revanced_settings_search_remove">Удалить из истории поиска</string>
     <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
     <string name="revanced_settings_search_tips_summary">"• Нажмите на путь, чтобы перейти к нему
-• Длительно нажмите на настройку, чтобы перейти к ней
+• Нажмите и удерживайте настройку, чтобы перейти к ней
 • Нажмите Enter, чтобы сохранить поисковый запрос в историю
 • Поиск игнорирует регистр и знаки препинания
-• Родительские настройки отображаются над отключенными дочерними настройками"</string>
+• Родительские настройки отображаются над отключёнными вложенными настройками"</string>
     <string name="revanced_settings_search_tips_title">Советы по поиску</string>
     <string name="revanced_settings_search_title">Поиск %s</string>
     <string name="revanced_settings_show_slider_summaries_summary">Показывать/скрывать описания под параметрами с ползунком</string>
@@ -922,5 +963,4 @@ SABR-воспроизведение (подмена видеопотоков о�
     <string name="revanced_webview_toast_empty">%s пуст</string>
     <string name="revanced_webview_toast_no_network">Проверьте подключение к Интернету</string>
     <string name="revanced_webview_toast_unavailable">WebView недоступен</string>
-    <string name="revanced_webview_visitor_data">Данные посещаемости</string>
 </resources>

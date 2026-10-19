@@ -13,13 +13,13 @@ Isso é necessário para o app funcionar"</string>
 
 Desabilitar as otimizações de bateria para o MicroG não afetará negativamente o uso da bateria
 
-Toque no botão continuar e permita as mudanças de otimização"</string>
+Toque no botão continuar e permita as alterações de otimização"</string>
     <string name="gms_core_dialog_open_website_text">Abrir site</string>
     <string name="gms_core_dialog_title">Ação necessária</string>
     <string name="gms_core_offline_account_login_error">Se você alterou recentemente os detalhes de login da sua conta, desinstale e reinstale o GmsCore</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX, ative o Cloud Messaging</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">MicroG não está instalado. Instale-o</string>
+    <string name="gms_core_toast_not_installed_message">O MicroG não está instalado. Instale-o</string>
     <string name="morphe_ads_channel_whitelist_title">Lista de permissões de anúncios do canal</string>
     <string name="morphe_aislist_submit_already_blocklisted">Este canal já está na lista de bloqueio do AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Este canal já está na lista de avisos do AiSList</string>
@@ -58,6 +58,8 @@ As denúncias são públicas e passam por revisão antes de um canal ser adicion
     <string name="morphe_auto_pause_on_screen_lock_always">Sempre pausar quando bloqueado</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausar a menos que o áudio sem fio esteja conectado</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Pausa automática quando o dispositivo estiver bloqueado</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Adiciona mais idiomas ao menu de auto-tradução</string>
+    <string name="morphe_auto_translate_additional_languages_title">Adicionar idiomas adicionais para auto-tradução</string>
     <string name="morphe_copy_comments_success">Comentário copiado para a área de transferência</string>
     <string name="morphe_copy_comments_summary">Toque e segure um comentário para copiá-lo</string>
     <string name="morphe_copy_comments_title">Copiar comentários</string>
@@ -109,6 +111,10 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_explore_menu_screen_summary">Escolha quais componentes aparecem no menu Explorar</string>
     <string name="morphe_explore_menu_screen_title">Menu Explorar</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Se não funcionar, tente forçar o fechamento do MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">Clicar e segurar em qualquer lugar em um vídeo do feed abre seu menu</string>
+    <string name="morphe_feed_long_press_menu_title">Toque e segure para abrir o menu de vídeo</string>
+    <string name="morphe_feed_watch_later_button_summary">Um botão \"Assistir mais tarde\" é exibido nas miniaturas dos vídeos do feed. Clicar e segurar nele salva na playlist</string>
+    <string name="morphe_feed_watch_later_button_title">Mostrar botão \"Assistir mais tarde\" nas miniaturas</string>
     <string name="morphe_force_original_audio_not_available">Para usar este recurso, altere \'Falsificar dados de transmissão\' para Android Reel ou TV</string>
     <string name="morphe_force_original_audio_summary_off">Usando áudio padrão</string>
     <string name="morphe_force_original_audio_summary_on">Usar o idioma original do áudio</string>
@@ -196,7 +202,7 @@ Para corrigir isso, ative 'Simular streams de vídeo' e altere o 'Cliente padrã
     <string name="morphe_oauth2_connection_failure_auth_error">Não é possível fazer login no VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 temporariamente indisponível (status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 está temporariamente indisponível (status %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">O login do Android VR expirou. Tente fazer login novamente no VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">\"OAuth2 está temporariamente indisponível (API expirou)\"</string>
     <string name="morphe_oauth2_toast_invalid">Token de login do VR inválido, tente fazer login no VR novamente</string>
@@ -226,7 +232,6 @@ Se você for assinante do YouTube Premium, essa configuração pode não ser
     <string name="morphe_potoken_provider_unavailable_summary">"Corrige problemas de reprodução usando o provedor PoToken integrado (Experimental)
 
 Para usar este recurso, desative 'Falsificar fluxos de vídeo'"</string>
-    <string name="morphe_preferred_caption_language_entry_off">Desativado</string>
     <string name="morphe_preferred_caption_language_summary">Seleciona primeiro as legendas do provedor e depois traduz automaticamente para o idioma preferido</string>
     <string name="morphe_preferred_caption_language_title">Idioma preferido das legendas</string>
     <string name="morphe_queue_manager_check_failed_auth">Você não está logado</string>
@@ -402,7 +407,7 @@ Para continuar usando as traduções, altere para um provedor de tradução dife
 Toque aqui para abrir MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">Você usou a cota de tradução gratuita do MyMemory (5.000 caracteres) de hoje. Adicione um e-mail do MyMemory nas configurações para aumentar o limite diário para 50.000 caracteres, ou altere para um serviço de tradução diferente</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">Você usou a cota de tradução do MyMemory (50.000 caracteres) de hoje. Altere para um serviço de tradução diferente ou tente novamente amanhã</string>
-    <string name="morphe_vot_mymemory_quota_next_available">Disponível novamente em %s</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Próximo disponível em %s</string>
     <string name="morphe_vot_mymemory_quota_title">Limite diário do MyMemory atingido</string>
     <string name="morphe_vot_openrouter_api_key_summary">Sua chave de API OpenRouter. Crie uma chave em OpenRouter.ai &gt; Workspace &gt; API Keys</string>
     <string name="morphe_vot_openrouter_api_key_title">Chave de API OpenRouter</string>
@@ -2171,7 +2176,7 @@ O ID do vídeo que você assiste é enviado para a API do Return YouTube Dislike
     <string name="revanced_ryd_estimated_like_summary_on">Vídeos com likes desativados mostram uma estimativa da contagem de likes</string>
     <string name="revanced_ryd_estimated_like_title">Mostrar uma estimativa de \'Gostei\'</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">\"Não gostei\" não estão disponíveis (limite da API do cliente)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Dislikes indisponível (status %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Dislikes indisponível (status %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Não gostei indisponível por um tempo (API expirou)</string>
     <string name="revanced_ryd_failure_generic">Não gostei indisponível (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Notificação flutuante não vai ser exibida se o Return YouTube Dislike não estiver disponível</string>
@@ -2276,7 +2281,7 @@ Se você não estiver enviando um destaque, toque em Cancelar e marque a segunda
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Definir %s como início ou fim de um novo segmento?</string>
     <string name="revanced_sb_new_segment_mark_end">Fim</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Marque primeiro uma localização na barra de tempo</string>
-    <string name="revanced_sb_new_segment_mark_start">Começar</string>
+    <string name="revanced_sb_new_segment_mark_start">Começo</string>
     <string name="revanced_sb_new_segment_now">Agora</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Visualize o segmento e certifique-se de que ele pule sem problemas</string>
     <string name="revanced_sb_new_segment_publish">Publicar segmento criado</string>
@@ -2318,10 +2323,10 @@ Seu ID de usuário é como uma senha e nunca deve ser compartilhado. "</string>
     <string name="revanced_sb_skip_automatically">Pular automaticamente</string>
     <string name="revanced_sb_skip_automatically_once">Pular automaticamente uma vez</string>
     <string name="revanced_sb_skip_button_compact">Pular</string>
-    <string name="revanced_sb_skip_button_filler">Pular tangente</string>
-    <string name="revanced_sb_skip_button_highlight">Pular para destaque</string>
+    <string name="revanced_sb_skip_button_filler">Pular desvio</string>
+    <string name="revanced_sb_skip_button_highlight">Destaque</string>
     <string name="revanced_sb_skip_button_hook">Pular introdução</string>
-    <string name="revanced_sb_skip_button_interaction">Pular interação</string>
+    <string name="revanced_sb_skip_button_interaction">Pular lembrete</string>
     <string name="revanced_sb_skip_button_intro_beginning">Pular introdução</string>
     <string name="revanced_sb_skip_button_intro_end">Pular intervalo</string>
     <string name="revanced_sb_skip_button_nomusic">Pular sem música</string>
@@ -2349,7 +2354,7 @@ Seu ID de usuário é como uma senha e nunca deve ser compartilhado. "</string>
     <string name="revanced_sb_skipped_sponsor">Patrocinador pulado</string>
     <string name="revanced_sb_skipped_unsubmitted">Segmento não enviado pulado</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporariamente indisponível</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporariamente indisponível (status %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporariamente indisponível (status %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporariamente indisponível (API expirou)</string>
     <string name="revanced_sb_square_layout">Usar layout quadrado</string>
     <string name="revanced_sb_square_layout_sum_off">Botões e controles são arredondados</string>
@@ -2371,8 +2376,8 @@ Seu ID de usuário é como uma senha e nunca deve ser compartilhado. "</string>
     <string name="revanced_sb_stats_submissions">Você criou &lt;b&gt;%s&lt;/b&gt; segmentos</string>
     <string name="revanced_sb_stats_submissions_sum">Toque aqui para ver seus segmentos</string>
     <string name="revanced_sb_stats_username">Seu nome de usuário: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="revanced_sb_stats_username_change">Toque aqui para alterar seu nome de usuário</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Não foi possível alterar o nome de usuário. Status: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change">Toque aqui para mudar o seu nome de usuário</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Não foi possível alterar o nome de usuário. Status: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Nome de usuário alterado com sucesso</string>
     <string name="revanced_sb_submit_failed_duplicate">"Não é possível enviar o segmento
 Já existe"</string>
@@ -2380,7 +2385,7 @@ Já existe"</string>
     <string name="revanced_sb_submit_failed_invalid">Não foi possível votar no segmento: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Não é possível enviar o segmento. Taxa limitada (muitos do mesmo usuário ou IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock está temporariamente desligado</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Não é possível enviar o segmento (status: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Não é possível enviar o segmento (status: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segmento enviado com sucesso</string>
     <string name="revanced_sb_toast_on_connection_error">Mostrar alertas de erro de conexão</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Notificação flutuante não é exibida se o SponsorBlock não está disponível</string>
@@ -2391,7 +2396,7 @@ Já existe"</string>
     <string name="revanced_sb_vote_downvote">Voto negativo</string>
     <string name="revanced_sb_vote_failed_forbidden">Não foi possível votar no segmento: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Não foi possível votar para segmento (API expirou)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Não é possível votar para o segmento (status: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Não é possível votar para o segmento (status: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Não há segmentos para votar</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s para %2$s</string>
     <string name="revanced_sb_vote_upvote">Aprovar</string>
@@ -2440,7 +2445,7 @@ Isso pode não funcionar se:
     <string name="revanced_settings_import_export_as_text_summary">Importar / Exportar as configurações como texto</string>
     <string name="revanced_settings_import_failed">Falha ao importar as configurações</string>
     <string name="revanced_settings_import_reset">Configurações do RVX redefinidas para o padrão</string>
-    <string name="revanced_settings_import_success">Configurações %d importadas</string>
+    <string name="revanced_settings_import_success">Configurações %s importadas</string>
     <string name="revanced_settings_import_summary">Importar configurações de um arquivo salvo</string>
     <string name="revanced_settings_import_title">Importar configurações</string>
     <string name="revanced_settings_navigate_up">Navegar para cima</string>
@@ -2882,7 +2887,6 @@ Fluxo de áudio proxy</string>
     <string name="revanced_webview_toast_empty">%s está vazio</string>
     <string name="revanced_webview_toast_no_network">Por favor, verifique sua conexão com a internet</string>
     <string name="revanced_webview_toast_unavailable">O WebView não está disponível</string>
-    <string name="revanced_webview_visitor_data">Dados de Visitante</string>
     <string name="revanced_whitelist_add_failed">Falha ao adicionar o canal \'%1$s\' à lista branca de %2$s</string>
     <string name="revanced_whitelist_added">O canal \'%1$s\' foi adicionado à lista branca de %2$s</string>
     <string name="revanced_whitelist_empty">Não há canais na lista branca</string>

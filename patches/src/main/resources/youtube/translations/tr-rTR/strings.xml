@@ -4,9 +4,9 @@
     <string name="accessibility_settings_edu_opt_out_text">Bir erişilebilirlik hizmeti açık olduğundan kontrolleriniz değiştirildi</string>
     <string name="gms_core_dialog_continue_text">Devam et</string>
     <string name="gms_core_dialog_dismiss_text">Tekrar gösterme</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore'nin arka planda çalışma izni yok
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG'nin arka planda çalışma izni yok
 
-Telefonunuz için \"Don't kill my app\" rehberini takip edin ve talimatları MicroG kurulumunuza uygulayın
+Telefonunuz için \"Don't kill my app\" kılavuzunu takip edin ve talimatları MicroG kurulumunuza uygulayın
 
 Bu, uygulamanın çalışması için gereklidir"</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Sorunları önlemek için MicroG pil optimizasyonu devre dışı bırakılmalıdır
@@ -19,7 +19,7 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin"</string
     <string name="gms_core_offline_account_login_error">Yakın zamanda hesap giriş bilgilerinizi değiştirdiyseniz, GmsCore\'u kaldırıp yeniden yükleyin</string>
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin</string>
     <string name="gms_core_settings_title">GmsCore ayarlarını aç</string>
-    <string name="gms_core_toast_not_installed_message">MicroG yüklenmemiş. Yükleyin</string>
+    <string name="gms_core_toast_not_installed_message">MicroG yüklenmedi. Yükleyin</string>
     <string name="morphe_ads_channel_whitelist_title">Kanal reklam beyaz listesi</string>
     <string name="morphe_aislist_submit_already_blocklisted">Bu kanal zaten AiSList engel listesinde</string>
     <string name="morphe_aislist_submit_already_warnlisted">Bu kanal zaten AiSList uyarı listesinde</string>
@@ -58,13 +58,23 @@ Raporlar herkese açıktır ve bir kanal listeye eklenmeden önce incelenir. Kal
     <string name="morphe_auto_pause_on_screen_lock_always">Kilitliyken her zaman duraklat</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Kablosuz ses bağlı değilse duraklat</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Cihaz kilitliyken otomatik duraklat</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Otomatik çeviri menüsüne daha fazla dil ekler</string>
+    <string name="morphe_auto_translate_additional_languages_title">Ek otomatik çeviri dilleri ekleyin</string>
     <string name="morphe_copy_comments_success">Yorum panoya kopyalandı</string>
     <string name="morphe_copy_comments_summary">Bir yorumu kopyalamak için dokunup basılı tutun</string>
     <string name="morphe_copy_comments_title">Yorumları kopyala</string>
     <string name="morphe_copy_video_title_success">Video başlığı panoya kopyalandı</string>
     <string name="morphe_copy_video_title_summary">Videonun başlığını kopyalamak için dokunup basılı tutun</string>
     <string name="morphe_copy_video_title_title">Video başlığını kopyala</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_summary">RVX ayarları girişi için, mevcut olduğunda seçili uygulama simgesini kullanın</string>
+    <string name="morphe_custom_branding_apply_to_rvx_settings_title">RVX ayarlarındaki simgeyi kullanın</string>
     <string name="morphe_custom_branding_icon_title">Uygulama simgesi</string>
+    <string name="morphe_custom_branding_splash_animation_size_summary">Özel açılış animasyonunun boyutunu ayarlar</string>
+    <string name="morphe_custom_branding_splash_animation_size_title">Splash animasyon boyutu</string>
+    <string name="morphe_custom_branding_use_as_system_splash_summary">Seçilen animasyonu Android'in sistem açılış ekranı olarak kullanır</string>
+    <string name="morphe_custom_branding_use_as_system_splash_title">Sistem sıçraması olarak kullan</string>
+    <string name="morphe_dark_theme_custom_color_summary">Özel seçildiğinde kullanılır</string>
+    <string name="morphe_dark_theme_custom_color_title">Özel koyu tema rengi</string>
     <string name="morphe_dark_theme_title">Koyu tema</string>
     <string name="morphe_dearrow_about_summary">"DeArrow, tıklama tuzağı başlıkları ve küçük resimleri, daha doğru ve daha az sansasyonel olan topluluk kaynaklı olanlarla değiştirir. Başlıklar topluluk tarafından yazılır ve oylanır, küçük resimler ise videodan alınan karelerdir
 
@@ -77,6 +87,7 @@ Videolar, karma video kimliğinin kısa bir önekiyle istenir; bu nedenle sunucu
     <string name="morphe_dearrow_error_generic">DeArrow geçici olarak kullanılamıyor</string>
     <string name="morphe_dearrow_titles_icon_summary">Kitle kaynaklı video başlıklarında DeArrow simgesini gösterir</string>
     <string name="morphe_dearrow_titles_icon_title">DeArrow simgesini göster</string>
+    <string name="morphe_dearrow_titles_summary">Video başlıklarını, DeArrow'a gönderilen ve kullanıcılar tarafından oluşturulan başlıklarla değiştirir</string>
     <string name="morphe_dearrow_titles_title">DeArrow başlıkları</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Akışların güncelliğini yitirdikten sonra otomatik olarak yenilenmesini engeller</string>
     <string name="morphe_disable_auto_feed_refresh_title">Otomatik akış yenilemeyi devre dışı bırak</string>
@@ -91,6 +102,8 @@ Videolar, karma video kimliğinin kısa bir önekiyle istenir; bu nedenle sunucu
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokolü devre dışı</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokolünü devre dışı bırak</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Kaydırma hız sınırını devre dışı bırak</string>
+    <string name="morphe_disable_system_splash_summary">Statik sistem açılış simgesini şeffaf hale getirir</string>
+    <string name="morphe_disable_system_splash_title">Sistem sıçramasını devre dışı bırak</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayın DVR süresini genişlet' seçeneği kullanılamayabilir
 
 Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Varsayılan istemci'yi 'TV Simply' veya 'visionOS' olarak değiştir"</string>
@@ -99,6 +112,10 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_explore_menu_screen_summary">Keşfet menüsünde hangi bileşenlerin görüneceğini seçin</string>
     <string name="morphe_explore_menu_screen_title">Menüyü keşfet</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Çalışmazsa, MicroG\'u zorla kapatmayı deneyin</string>
+    <string name="morphe_feed_long_press_menu_summary">Akış video üzerinde herhangi bir yere dokunup basılı tutmak, menüyü açar</string>
+    <string name="morphe_feed_long_press_menu_title">Video menüsünü açmak için dokunun ve basılı tutun</string>
+    <string name="morphe_feed_watch_later_button_summary">Akış videolarının küçük resimlerinde bir Daha Sonra İzle düğmesi gösterilir. Dokunulup basılı tutulduğunda Çalma listesine kaydet açılır</string>
+    <string name="morphe_feed_watch_later_button_title">Küçük resimlerde Daha Sonra İzle düğmesini göster</string>
     <string name="morphe_force_original_audio_not_available">Bu özelliği kullanmak için, \'Video akışlarını taklit et\' ayarını \'Android Studio\' ve \'Android VR Downgraded\' dışındaki herhangi bir istemciye değiştirin</string>
     <string name="morphe_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
@@ -172,6 +189,8 @@ Liste GitHub'dan indirilir ve videolar cihazınızda filtrelenir"</string>
     <string name="morphe_hide_youtube_premium_menu_title">YouTube Premium menüsünü gizle</string>
     <string name="morphe_hide_youtube_studio_menu_title">YouTube Studio menüsünü gizle</string>
     <string name="morphe_hide_youtube_works_menu_title">\'YouTube\'un nasıl çalıştığı\' menüsünü gizle</string>
+    <string name="morphe_light_theme_custom_color_title">Özel ışık teması rengi</string>
+    <string name="morphe_light_theme_title">Işık teması</string>
     <string name="morphe_livestream_dvr_not_available">"'It canlı yayın DVR'ı etkinleştir' seçeneği kullanılamayabilir
 
 Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Varsayılan istemci'yi 'TV Simply' veya 'visionOS' olarak değiştir"</string>
@@ -179,10 +198,11 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_livestream_dvr_title">Canlı yayın DVR\'ı etkinleştir</string>
     <string name="morphe_music_package_name_summary">Yüklü müzik uygulamanızın paket adı</string>
     <string name="morphe_music_package_name_title">Müzik uygulaması paket adı</string>
+    <string name="morphe_notification_dot_color_summary">Bildirim noktalarının rengini değiştirir</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR oturumu açılamadı: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR oturumu açılamadı, web sitesi kimlik doğrulaması onaylanmadı</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 geçici olarak kullanılamıyor</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 geçici olarak kullanılamıyor (durum %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 geçici olarak kullanılamıyor (durum %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR oturum süresi doldu, VR\'da tekrar oturum açmayı deneyin</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="morphe_oauth2_toast_invalid">Geçersiz VR oturum açma belirteci, VR\'da tekrar oturum açmayı deneyin</string>
@@ -202,10 +222,10 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_playback_in_feeds_entry_always_on">Her zaman açık</string>
     <string name="morphe_playback_in_feeds_entry_off">Kapalı</string>
     <string name="morphe_playback_in_feeds_entry_wifi_only">Yalnızca Wi-Fi üzerinde</string>
-    <string name="morphe_playback_in_feeds_title">Beslemelerde oynatma</string>
+    <string name="morphe_playback_in_feeds_title">Akışlarda oynatma</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Oynatıcı kontrol düğmelerinin ve zaman çubuğunun arkasındaki arka planın opaklığını ayarlayın (0 görünmez, 100 opaktır)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Düğme arka plan opaklığı</string>
-    <string name="morphe_preferred_caption_language_entry_off">Kapalı</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Aç</string>
     <string name="morphe_preferred_caption_language_summary">Önce sağlayıcı altyazılarını seçer, ardından otomatik olarak tercih edilen dile çevirir</string>
     <string name="morphe_preferred_caption_language_title">Tercih edilen altyazı dili</string>
     <string name="morphe_queue_manager_check_failed_auth">Giriş yapılmadı</string>
@@ -637,15 +657,16 @@ Ayarlar → Otomatik Oynatma / Oynatma → Sonraki videoyu otomatik oynat"</stri
     <string name="revanced_disable_layout_updates_title">Düzen güncellemelerini devre dışı bırak</string>
     <string name="revanced_disable_layout_updates_user_dialog_message">"Uygulama düzeni, ilk yüklendiğinde kullanılan düzene geri döner
 
-Bazı sunucu tarafı düzenlemeler geri alınamayabilir
+Sunucu taraflı bazı düzenler eski hâline dönmeyebilir
 
 Değişiklikler şunları içerir:
-• Oynatıcı açılır menüsündeki (veya ilgili ayarlardaki) bileşenler çalışmayabilir
-• Kayan sayılar animasyonlu değildir
+
+• Oynatıcının açılır menüsündeki bileşenler (veya ilgili ayarlar) çalışmayabilir
+• Kayan sayılar animasyonlu gösterilmez
 • Kitaplık sekmesi gösterilir
 • Video açıklamasındaki müzik bölümü çalışmayabilir
-• Oynatıcı açılır menü öğeleri gizlenemez
-• Kitaplık sekmesinde hesap değiştirme düğmesi görünmeyebilir"</string>
+• Oynatıcının açılır menüsündeki öğeler gizlenemez
+• Hesap değiştirme düğmesi Kitaplık sekmesinde görünmeyebilir"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Beğen Ve beğenme butonları bahsedildiğinde parıldayacak</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Beğen Ve beğenme butonları bahsedildiğinde parıldamayacak</string>
     <string name="revanced_disable_like_dislike_glow_title">Beğen ve Beğenme düğmesinin parlamasını devre dışı bırak</string>
@@ -2070,7 +2091,7 @@ Bir API anahtarının nasıl alınacağını görmek için tıklayın"</string>
     <string name="revanced_ryd_estimated_like_summary_on">Beğenileri devre dışı bırakılan videolarda tahmini beğeni sayısı gösterilir</string>
     <string name="revanced_ryd_estimated_like_title">Tahmini beğenileri göster</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenilmemeler kullanılamıyor (istemci API sınırı)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Beğenilmemeler kullanılamıyor (durum %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Beğenilmemeler kullanılamıyor (durum %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Beğenmeme sayıları geçici olarak kullanılamıyor (API zaman aşımına uğradı)</string>
     <string name="revanced_ryd_failure_generic">Beğenilmemeler kullanılamıyor (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike kullanılamadığında uyarı gösterilmez</string>
@@ -2249,7 +2270,7 @@ Kullanıcı kimliğiniz bir parola gibidir ve asla paylaşılmamalıdır
     <string name="revanced_sb_skipped_sponsor">Sponsor atlandı</string>
     <string name="revanced_sb_skipped_unsubmitted">Gönderilmemiş kısım atlandı</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock geçici olarak kullanılamıyor</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock geçici olarak kullanılamıyor (durum %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock geçici olarak kullanılamıyor (durum %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock geçici olarak kullanılamıyor (API zaman aşımı)</string>
     <string name="revanced_sb_square_layout">Kare düzen kullan</string>
     <string name="revanced_sb_square_layout_sum_off">Düğmeler ve kontroller yuvarlatılmış şekilde</string>
@@ -2272,7 +2293,7 @@ Kullanıcı kimliğiniz bir parola gibidir ve asla paylaşılmamalıdır
     <string name="revanced_sb_stats_submissions_sum">Kısımlarınızı görüntülemek için buraya dokunun</string>
     <string name="revanced_sb_stats_username">Kullanıcı adınız: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Kullanıcı adınızı değiştirmek için buraya dokunun</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Kullanıcı adı değiştirilemiyor: Durum: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Kullanıcı adı değiştirilemiyor: Durum: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Kullanıcı adı başarıyla değiştirildi</string>
     <string name="revanced_sb_submit_failed_duplicate">"Kısmı gönderilemiyor
 Aynısı mevcut"</string>
@@ -2280,7 +2301,7 @@ Aynısı mevcut"</string>
     <string name="revanced_sb_submit_failed_invalid">Kısım gönderilemedi: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Segment gönderilemedi. Hız Sınırlı (aynı kullanıcıdan veya IP\'den çok fazla)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock geçici olarak kapalı</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Kısım gönderilemedi (durum: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Kısım gönderilemedi (durum: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Kısım başarıyla gönderildi</string>
     <string name="revanced_sb_toast_on_connection_error">Bağlantı hatası uyarılarını göster</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock kullanılamadığında bildirim gösterilmez</string>
@@ -2291,7 +2312,7 @@ Aynısı mevcut"</string>
     <string name="revanced_sb_vote_downvote">Olumsuz oy</string>
     <string name="revanced_sb_vote_failed_forbidden">Kısım oylanamıyor: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Kısım oylanamıyor (API zaman aşımı)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Kısım oylanamıyor (durum %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Kısım oylanamıyor (durum %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Oylanılacak kısım bulunmuyor</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s - %2$s</string>
     <string name="revanced_sb_vote_upvote">Olumlu oy</string>
@@ -2331,7 +2352,7 @@ Aynısı mevcut"</string>
     <string name="revanced_settings_import_export_as_text_summary">Ayarları metin olarak içe/dışa aktar</string>
     <string name="revanced_settings_import_failed">Ayarlar içe aktarılamadı</string>
     <string name="revanced_settings_import_reset">RVX ayarları varsayılanlara sıfırlandı</string>
-    <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
+    <string name="revanced_settings_import_success">%s ayar içe aktarıldı</string>
     <string name="revanced_settings_import_summary">Kaydedilmiş bir dosyadan ayarları içe aktarın</string>
     <string name="revanced_settings_import_title">Ayarları içe aktar</string>
     <string name="revanced_settings_navigate_up">Yukarı git</string>
@@ -2441,11 +2462,11 @@ Sınırlama: Tıklandığında video başlığı kayboluyor"</string>
     <string name="revanced_spoof_app_version_target_invalid_toast">Geçersiz taklit uygulama sürümü: %s</string>
     <string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini seçin</string>
     <string name="revanced_spoof_app_version_title">Uygulama sürümünü taklit et</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"Uygulama sürümü, daha eski bir sürüme taklit edilecektir
+    <string name="revanced_spoof_app_version_user_dialog_message">"Uygulama sürümü, daha eski bir sürüm gibi gösterilecektir
 
-Bu, uygulamanın görünümünü ve özelliklerini değiştirecektir, ancak bilinmeyen yan etkiler ortaya çıkabilir
+Bu işlem uygulamanın görünümünü ve özelliklerini değiştirecektir; ancak öngörülemeyen yan etkiler ortaya çıkabilir
 
-Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerinin temizlenmesi önerilir"</string>
+Daha sonra bu özellik kapatılırsa, arayüz hatalarını önlemek için uygulama verilerinin temizlenmesi önerilir"</string>
     <string name="revanced_spoof_device_dimensions_summary">Bunu etkinleştirmek daha yüksek video kalitelerini açabilir</string>
     <string name="revanced_spoof_device_dimensions_title">Cihaz boyutlarını taklit et</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Ses parçası menüsü eksik
@@ -2701,7 +2722,6 @@ Sorumluluk Reddi: Oturum açmadan gönderilen çerezler geçersiz olabilir veya 
     <string name="revanced_webview_toast_empty">%s boş</string>
     <string name="revanced_webview_toast_no_network">Lütfen ağ bağlantınızı kontrol edin</string>
     <string name="revanced_webview_toast_unavailable">WebView kullanılamıyor</string>
-    <string name="revanced_webview_visitor_data">Ziyaretçi Verileri</string>
     <string name="revanced_whitelist_add_failed">Kanal \'%1$s\', \'%2$s\' beyaz listesine eklenemedi</string>
     <string name="revanced_whitelist_added">\'%1$s\' kanalı \'%2$s\' beyaz listesine eklendi</string>
     <string name="revanced_whitelist_empty">Beyaz listeye alınmış kanal yok</string>

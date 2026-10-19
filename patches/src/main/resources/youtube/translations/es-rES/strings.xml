@@ -58,6 +58,8 @@ Los reportes son públicos y se revisan antes de añadir un canal a una lista. L
     <string name="morphe_auto_pause_on_screen_lock_always">Siempre pausar cuando esté bloqueado</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausar a menos que haya audio inalámbrico conectado</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Pausa automática cuando el dispositivo está bloqueado</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Añade más idiomas al menú de traducción automática</string>
+    <string name="morphe_auto_translate_additional_languages_title">Añadir idiomas adicionales de traducción automática</string>
     <string name="morphe_copy_comments_success">Comentario copiado al portapapeles</string>
     <string name="morphe_copy_comments_summary">Mantén pulsado un comentario para copiarlo</string>
     <string name="morphe_copy_comments_title">Copiar comentarios</string>
@@ -110,6 +112,10 @@ Para solucionar esto, activa \'Suplantar transmisiones de video\' y cambia \'Cli
     <string name="morphe_explore_menu_screen_summary">Elige qué componentes aparecen en el menú Explorar</string>
     <string name="morphe_explore_menu_screen_title">Menú Explorar</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Si no funciona, prueba a forzar el cierre de MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">Tocar y mantener pulsado en cualquier parte de un vídeo del feed abre su menú</string>
+    <string name="morphe_feed_long_press_menu_title">Toca y mantén pulsado para abrir el menú de vídeo</string>
+    <string name="morphe_feed_watch_later_button_summary">Se muestra un botón \"Ver más tarde\" en las miniaturas de los vídeos del feed. Tocar y mantener pulsado abre Guardar en lista</string>
+    <string name="morphe_feed_watch_later_button_title">Mostrar botón \"Ver más tarde\" en las miniaturas</string>
     <string name="morphe_force_original_audio_not_available">Para usar esta función, cambia \"Falsificar transmisiones de vídeo\" a Android Reel o TV</string>
     <string name="morphe_force_original_audio_summary_off">Utilizando audio predeterminado</string>
     <string name="morphe_force_original_audio_summary_on">Usar el idioma de audio original</string>
@@ -197,7 +203,7 @@ Para solucionarlo, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente
     <string name="morphe_oauth2_connection_failure_auth_error">No se puede iniciar sesión en VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">No se puede iniciar sesión en VR, la autenticación del sitio web no se ha aprobado</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 no está disponible temporalmente</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 no está disponible temporalmente (estado %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 no está disponible temporalmente (estado %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">El inicio de sesión de Android VR ha expirado, intenta iniciar sesión en VR de nuevo</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 no está disponible temporalmente (la API no responde)</string>
     <string name="morphe_oauth2_toast_invalid">Token de inicio de sesión de VR no válido, intenta iniciar sesión en VR de nuevo</string>
@@ -232,7 +238,6 @@ Si eres usuario de YouTube Premium, puede que esta opción no sea obligatoria"</
     <string name="morphe_potoken_provider_unavailable_summary">"Soluciona problemas de reproducción usando el proveedor PoToken integrado (Experimental)
 
 Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
-    <string name="morphe_preferred_caption_language_entry_off">Desactivado</string>
     <string name="morphe_preferred_caption_language_summary">Selecciona primero los subtítulos del proveedor y luego los traduce automáticamente al idioma preferido</string>
     <string name="morphe_preferred_caption_language_title">Idioma preferido para subtítulos</string>
     <string name="morphe_queue_manager_check_failed_auth">No has iniciado sesión</string>
@@ -1687,7 +1692,7 @@ Limitaciones:
     <string name="revanced_hide_youtube_doodles_summary_off">La animación de los Doodles de YouTube en el logo está visible</string>
     <string name="revanced_hide_youtube_doodles_summary_on">La animación de los Doodles de YouTube en el logo está oculta</string>
     <string name="revanced_hide_youtube_doodles_title">Ocultar Doodles de YouTube</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">Mostrar los Doodles de YouTube puede impedir que se muestren encabezados personalizados</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">Mostrar los Doodles de YouTube puede impedir que se muestren las cabeceras personalizadas</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">La promoción de YouTube Premium está visible</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"La promoción de YouTube Premium está oculta
 
@@ -2188,7 +2193,7 @@ El ID del video que ves se envía a la API de Return YouTube Dislike, y tus me g
     <string name="revanced_ryd_estimated_like_summary_on">Los vídeos con \"me gusta\" desactivados muestran un recuento estimado de \"me gusta\"</string>
     <string name="revanced_ryd_estimated_like_title">Mostrar estimación de \'Me gusta\'</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Los \'No me gusta\' no están disponibles (se alcanzó el límite de la API del cliente)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Los \'No me gusta\' no están disponibles (estado %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Los \'No me gusta\' no están disponibles (estado %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Los \'No me gusta\' no están disponibles temporalmente (la API no responde)</string>
     <string name="revanced_ryd_failure_generic">Los \'No me gusta\' no están disponibles (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast no se muestra si Devolución de YouTube Dislike no está disponible</string>
@@ -2202,9 +2207,9 @@ El ID del video que ves se envía a la API de Return YouTube Dislike, y tus me g
     <string name="revanced_sanitize_video_subtitle_title">Limpiar subtítulos de vídeo</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas para otras plataformas</string>
-    <string name="revanced_sb_api_url_changed">La URL de la API fue cambiada</string>
+    <string name="revanced_sb_api_url_changed">Se ha cambiado la URL de la API</string>
     <string name="revanced_sb_api_url_invalid">La URL de la API no es válida</string>
-    <string name="revanced_sb_api_url_reset">La URL de la API fue restablecida</string>
+    <string name="revanced_sb_api_url_reset">Se ha restablecido la URL de la API</string>
     <string name="revanced_sb_appearance_category">Apariencia</string>
     <string name="revanced_sb_auto_hide_skip_button_duration">Duración del botón \"Omitir\"</string>
     <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cuánto tiempo se deben mostrar los botones de \"saltar\" y \"saltar al momento destacado\" antes de ocultarse automáticamente</string>
@@ -2260,7 +2265,7 @@ El ID del video que ves se envía a la API de Return YouTube Dislike, y tus me g
     <string name="revanced_sb_general_uuid_sum">Esto debería mantenerse privado. Es como una contraseña y no debe ser compartido con nadie. Si alguien obtiene esto, podran usarlo para suplantarte</string>
     <string name="revanced_sb_guidelines_popup_already_read">Ya leídas</string>
     <string name="revanced_sb_guidelines_popup_content">Lee las normas de SponsorBlock antes de crear nuevos segmentos</string>
-    <string name="revanced_sb_guidelines_popup_open">Múestrame</string>
+    <string name="revanced_sb_guidelines_popup_open">Muéstrame</string>
     <string name="revanced_sb_guidelines_popup_title">Sigue las normas</string>
     <string name="revanced_sb_guidelines_preference_sum">Las pautas contienen reglas y consejos para crear nuevos segmentos</string>
     <string name="revanced_sb_guidelines_preference_title">Directrices de envío</string>
@@ -2278,7 +2283,7 @@ a
 ¿Listo para enviar?"</string>
     <string name="revanced_sb_new_segment_confirm_contents">El segmento es desde\n\n%1$s\nhasta\n%2$s\n\n(%3$s)\n\n¿Está listo para ser enviado?</string>
     <string name="revanced_sb_new_segment_confirm_title">¿Son correctos los tiempos?</string>
-    <string name="revanced_sb_new_segment_disabled_category">Categoría desactivada en ajustes. Activa la categoría para enviarla</string>
+    <string name="revanced_sb_new_segment_disabled_category">Categoría desactivada en ajustes. Actívala para poder enviarla</string>
     <string name="revanced_sb_new_segment_edit">Editar el segmento</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">¿Quieres editar el tiempo para el inicio o el final del segmento?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Tiempo no válido</string>
@@ -2302,7 +2307,7 @@ Si no vas a enviar un destacado, pulsa Cancelar y marca la segunda ubicación"</
     <string name="revanced_sb_new_segment_time_end">Tiempo en que finaliza el segmento</string>
     <string name="revanced_sb_new_segment_time_start">Tiempo en que inicia el segmento</string>
     <string name="revanced_sb_new_segment_title">Nuevo segmento de SponsorBlock</string>
-    <string name="revanced_sb_segments_filler">Tangente de relleno / Bromas</string>
+    <string name="revanced_sb_segments_filler">Relleno / Bromas</string>
     <string name="revanced_sb_segments_filler_sum">Escenas o bromas tangenciales que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo</string>
     <string name="revanced_sb_segments_highlight">Destacado</string>
     <string name="revanced_sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente está buscando</string>
@@ -2318,7 +2323,7 @@ Si no vas a enviar un destacado, pulsa Cancelar y marca la segunda ubicación"</
     <string name="revanced_sb_segments_outro_sum">Créditos o cuando aparecen las tarjetas finales de YouTube. No es para conclusiones con información</string>
     <string name="revanced_sb_segments_preview">Adelanto / Resumen</string>
     <string name="revanced_sb_segments_preview_sum">Colección de clips que muestran lo que está por venir o lo que sucedió en el vídeo o en otros vídeos de una serie, donde toda la información se repite en otra parte</string>
-    <string name="revanced_sb_segments_selfpromo">Promoción propia / no pagada</string>
+    <string name="revanced_sb_segments_selfpromo">Autopromoción / no pagada</string>
     <string name="revanced_sb_segments_selfpromo_sum">Similar a \"Patrocinador\", excepto cuando se trata de promoción propia o no pagada. Incluye secciones sobre mercancía, donaciones, o información sobre con quién colaboraron</string>
     <string name="revanced_sb_segments_sponsor">Patrocinador</string>
     <string name="revanced_sb_segments_sponsor_sum">Promoción pagada, referencias pagadas y anuncios directos. No para autopromoción o gritos gratuitos a causas/creadores/sitios web/productos que les gustan</string>
@@ -2336,7 +2341,7 @@ Tu ID de usuario es como una contraseña y nunca debe compartirse"</string>
     <string name="revanced_sb_skip_automatically_once">Omitir automáticamente una vez</string>
     <string name="revanced_sb_skip_button_compact">Omitir</string>
     <string name="revanced_sb_skip_button_filler">Omitir relleno</string>
-    <string name="revanced_sb_skip_button_highlight">Ir a destacado</string>
+    <string name="revanced_sb_skip_button_highlight">Ir al destacado</string>
     <string name="revanced_sb_skip_button_hook">Omitir enganche</string>
     <string name="revanced_sb_skip_button_interaction">Omitir interacción</string>
     <string name="revanced_sb_skip_button_intro_beginning">Omitir introducción</string>
@@ -2345,12 +2350,12 @@ Tu ID de usuario es como una contraseña y nunca debe compartirse"</string>
     <string name="revanced_sb_skip_button_outro">Omitir créditos</string>
     <string name="revanced_sb_skip_button_preview_beginning">Omitir adelanto</string>
     <string name="revanced_sb_skip_button_preview_end">Omitir resumen</string>
-    <string name="revanced_sb_skip_button_selfpromo">Omitir promoción</string>
+    <string name="revanced_sb_skip_button_selfpromo">Omitir autopromoción</string>
     <string name="revanced_sb_skip_button_sponsor">Omitir patrocinador</string>
     <string name="revanced_sb_skip_button_unsubmitted">Omitir segmento</string>
     <string name="revanced_sb_skip_ignore">Desactivado</string>
-    <string name="revanced_sb_skip_seekbaronly">Mostrar en barra de progreso</string>
-    <string name="revanced_sb_skip_showbutton">Mostrar botón de omitir</string>
+    <string name="revanced_sb_skip_seekbaronly">Mostrar en la barra de progreso</string>
+    <string name="revanced_sb_skip_showbutton">Mostrar botón Omitir</string>
     <string name="revanced_sb_skipped_filler">Relleno omitido</string>
     <string name="revanced_sb_skipped_highlight">Saltado en destacado</string>
     <string name="revanced_sb_skipped_hook">Enganche omitido</string>
@@ -2362,19 +2367,19 @@ Tu ID de usuario es como una contraseña y nunca debe compartirse"</string>
     <string name="revanced_sb_skipped_outro">Créditos omitidos</string>
     <string name="revanced_sb_skipped_preview_beginning">Adelanto omitido</string>
     <string name="revanced_sb_skipped_preview_end">Resumen omitido</string>
-    <string name="revanced_sb_skipped_selfpromo">Promoción propia omitida</string>
+    <string name="revanced_sb_skipped_selfpromo">Autopromoción omitida</string>
     <string name="revanced_sb_skipped_sponsor">Patrocinador omitido</string>
     <string name="revanced_sb_skipped_unsubmitted">Segmento no enviado omitido</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock no está disponible temporalmente</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock no está disponible temporalmente (estado %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock no está disponible temporalmente (estado %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock no está disponible temporalmente (la API no responde)</string>
     <string name="revanced_sb_square_layout">Usar diseño cuadrado</string>
     <string name="revanced_sb_square_layout_sum_off">Los botones y controles están redondeados</string>
     <string name="revanced_sb_square_layout_sum_on">Los botones y los controles son cuadrados</string>
     <string name="revanced_sb_stats">Estadísticas</string>
-    <string name="revanced_sb_stats_connection_failure">Estadísticas no disponibles temporalmente (la API está inactiva)</string>
+    <string name="revanced_sb_stats_connection_failure">Estadísticas no disponibles temporalmente (la API está caída)</string>
     <string name="revanced_sb_stats_reputation">Tu reputación es de &lt;b&gt;%.2f&lt;/b&gt;</string>
-    <string name="revanced_sb_stats_saved">Has salvado personas de &lt;b&gt;%s&lt;/b&gt; segmentos</string>
+    <string name="revanced_sb_stats_saved">Has salvado a personas de &lt;b&gt;%s&lt;/b&gt; segmentos</string>
     <string name="revanced_sb_stats_saved_hour_format">%1$s horas %2$s minutos</string>
     <string name="revanced_sb_stats_saved_minute_format">%1$s minutos %2$s segundos</string>
     <string name="revanced_sb_stats_saved_second_format">%s segundos</string>
@@ -2395,9 +2400,9 @@ Tu ID de usuario es como una contraseña y nunca debe compartirse"</string>
 Ya existe"</string>
     <string name="revanced_sb_submit_failed_forbidden">No se puede enviar el segmento: %s</string>
     <string name="revanced_sb_submit_failed_invalid">No se puede enviar el segmento: %s</string>
-    <string name="revanced_sb_submit_failed_rate_limit">No se puede enviar el segmento. Tasa limitada (demasiada del mismo usuario o IP)</string>
+    <string name="revanced_sb_submit_failed_rate_limit">No se puede enviar el segmento. Límite de tasa excedido (demasiadas peticiones del mismo usuario o IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock no está disponible temporalmente</string>
-    <string name="revanced_sb_submit_failed_unknown_error">No se puede enviar el segmento (estado: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">No se puede enviar el segmento (estado: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segmento enviado correctamente</string>
     <string name="revanced_sb_toast_on_connection_error">Mostrar alertas de error de conexión</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Toast no se muestra si SponsorBlock no está disponible</string>
@@ -2408,8 +2413,8 @@ Ya existe"</string>
     <string name="revanced_sb_vote_downvote">Votar negativamente</string>
     <string name="revanced_sb_vote_failed_forbidden">No se puede votar por el segmento: %s</string>
     <string name="revanced_sb_vote_failed_timeout">No se puede votar por el segmento (la API no responde)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">No se puede votar por el segmento (estado: %1$d %2$s)</string>
-    <string name="revanced_sb_vote_no_segments">No hay segmentos por los cuales votar</string>
+    <string name="revanced_sb_vote_failed_unknown_error">No se puede votar por el segmento (estado: %1$s %2$s)</string>
+    <string name="revanced_sb_vote_no_segments">No hay segmentos para votar</string>
     <string name="revanced_sb_vote_segment_time_to_from">De %1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Votar positivamente</string>
     <string name="revanced_search_in_channel_no_results">No se encuentran vídeos en los resultados de búsqueda</string>
@@ -2457,7 +2462,7 @@ Puede que no funcione si:
     <string name="revanced_settings_import_export_as_text_summary">Importar o exportar los ajustes como texto</string>
     <string name="revanced_settings_import_failed">Error al importar los ajustes</string>
     <string name="revanced_settings_import_reset">Ajustes de RVX restablecidos a los valores predeterminados</string>
-    <string name="revanced_settings_import_success">Ajustes importados: %d</string>
+    <string name="revanced_settings_import_success">Ajustes importados: %s</string>
     <string name="revanced_settings_import_summary">Importa los ajustes desde un archivo guardado</string>
     <string name="revanced_settings_import_title">Importar ajustes</string>
     <string name="revanced_settings_navigate_up">Navegar hacia arriba</string>
@@ -2888,7 +2893,6 @@ Se requiere autorización para solicitar la traducción con voces en vivo para l
     <string name="revanced_webview_toast_empty">%s está vacío</string>
     <string name="revanced_webview_toast_no_network">Comprueba tu conexión a Internet</string>
     <string name="revanced_webview_toast_unavailable">WebView no está disponible</string>
-    <string name="revanced_webview_visitor_data">Datos de visitante</string>
     <string name="revanced_whitelist_add_failed">Error al añadir el canal %1$s a la lista blanca %2$s</string>
     <string name="revanced_whitelist_added">El canal %1$s se agregó a la lista blanca %2$s</string>
     <string name="revanced_whitelist_empty">No hay canales en esta lista</string>

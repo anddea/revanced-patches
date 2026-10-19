@@ -58,6 +58,8 @@ Le segnalazioni sono pubbliche e vengono esaminate prima che un canale venga agg
     <string name="morphe_auto_pause_on_screen_lock_always">Pausa sempre quando il dispositivo è bloccato</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausa a meno che non sia connesso un audio wireless</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Pausa automatica quando il dispositivo è bloccato</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Aggiunge più lingue al menu di traduzione automatica</string>
+    <string name="morphe_auto_translate_additional_languages_title">Aggiungi ulteriori lingue per la traduzione automatica</string>
     <string name="morphe_copy_comments_success">Commento copiato negli appunti</string>
     <string name="morphe_copy_comments_summary">Tocca e tieni premuto un commento per copiarlo</string>
     <string name="morphe_copy_comments_title">Copia commenti</string>
@@ -110,6 +112,10 @@ Per risolvere il problema, attiva \'Falsificazione dei flussi video\' e modifica
     <string name="morphe_explore_menu_screen_summary">Scegli quali componenti mostrare nel menù a comparsa</string>
     <string name="morphe_explore_menu_screen_title">Menù esplora</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Se non funziona, prova a forzare la chiusura di MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">Toccare e tenere premuto ovunque su un video nel feed apre il relativo menu</string>
+    <string name="morphe_feed_long_press_menu_title">Tocca e tieni premuto per aprire il menu video</string>
+    <string name="morphe_feed_watch_later_button_summary">Un pulsante Guarda più tardi viene visualizzato sulle miniature dei video nel feed. Toccare e tenere premuto su di esso per Salva in playlist</string>
+    <string name="morphe_feed_watch_later_button_title">Mostra il pulsante Guarda più tardi sulle miniature</string>
     <string name="morphe_force_original_audio_not_available">Per usare questa funzionalità, imposta \'Falsificazione dei flussi video\' su Android Reel o TV</string>
     <string name="morphe_force_original_audio_summary_off">Utilizza audio predefinito</string>
     <string name="morphe_force_original_audio_summary_on">Utilizza la lingua originale dell'audio</string>
@@ -232,7 +238,6 @@ Se sei un utente di YouTube Premium, questa impostazione potrebbe non essere nec
     <string name="morphe_potoken_provider_unavailable_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
 
 Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi video\'"</string>
-    <string name="morphe_preferred_caption_language_entry_off">Spento</string>
     <string name="morphe_preferred_caption_language_summary">Seleziona prima i sottotitoli del provider, poi li traduce automaticamente nella lingua preferita</string>
     <string name="morphe_preferred_caption_language_title">Lingua preferita per i sottotitoli</string>
     <string name="morphe_queue_manager_check_failed_auth">Non connesso</string>
@@ -2195,7 +2200,7 @@ L'ID del video che guardi viene inviato all'API di Return YouTube Dislike, e i t
     <string name="revanced_ryd_estimated_like_summary_on">I video con</string>
     <string name="revanced_ryd_estimated_like_title">Mostra \"Mi piace\" stimati</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">I \"Non mi piace\" non sono disponibili (limite API client)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Non Mi Piace non disponibili (stato: %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Non Mi Piace non disponibili (stato: %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">I \"Non Mi Piace\" temporaneamente non disponibili (timeout API)</string>
     <string name="revanced_ryd_failure_generic">Non Mi Piace non disponibili (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Nessuna notifica viene mostrata se Return YouTube Dislike non è disponibile</string>
@@ -2373,7 +2378,7 @@ Il tuo ID utente è come una password e non dovrebbe mai essere condiviso"</stri
     <string name="revanced_sb_skipped_sponsor">Sponsorizzazione saltata</string>
     <string name="revanced_sb_skipped_unsubmitted">Segmento non inviato saltato</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporaneamente non disponibile</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporaneamente non disponibile (stato %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporaneamente non disponibile (stato %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporaneamente non disponibile (API scaduto)</string>
     <string name="revanced_sb_square_layout">Usa interfaccia squadrata</string>
     <string name="revanced_sb_square_layout_sum_off">Pulsanti e controlli sono arrotondati</string>
@@ -2396,7 +2401,7 @@ Il tuo ID utente è come una password e non dovrebbe mai essere condiviso"</stri
     <string name="revanced_sb_stats_submissions_sum">Tocca qui per visualizzare i tuoi segmenti</string>
     <string name="revanced_sb_stats_username">Il tuo nome utente: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Tocca qui per cambiare il tuo nome utente</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Impossibile modificare il nome utente: Stato: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Impossibile modificare il nome utente: Stato: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Il tuo nome utente è stato correttamente modificato</string>
     <string name="revanced_sb_submit_failed_duplicate">"Impossibile inviare il segmento
 Esiste già"</string>
@@ -2404,7 +2409,7 @@ Esiste già"</string>
     <string name="revanced_sb_submit_failed_invalid">Impossibile inviare il segmento: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Invio del segmento non riuscito. Frequenza limitata (troppi invii dallo stesso utente o IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock è temporaneamente non disponibile</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Impossibile inviare il segmento (stato: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Impossibile inviare il segmento (stato: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segmento inviato con successo</string>
     <string name="revanced_sb_toast_on_connection_error">Mostra avvisi di errore di connessione</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">La notifica è nascosta se SponsorBlock non è disponibile</string>
@@ -2415,7 +2420,7 @@ Esiste già"</string>
     <string name="revanced_sb_vote_downvote">Non mi piace</string>
     <string name="revanced_sb_vote_failed_forbidden">Impossibile votare il segmento: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Impossibile votare il segmento (API scaduta)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Impossibile votare il segmento (stato: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Impossibile votare il segmento (stato: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Non ci sono segmenti da votare</string>
     <string name="revanced_sb_vote_segment_time_to_from">Da %1$s a %2$s</string>
     <string name="revanced_sb_vote_upvote">Mi piace</string>
@@ -2457,7 +2462,7 @@ Note:
     <string name="revanced_settings_import_export_as_text_summary">Esporta o importa le impostazioni come testo</string>
     <string name="revanced_settings_import_failed">Importazione delle impostazioni non riuscita</string>
     <string name="revanced_settings_import_reset">Reimposta le impostazioni di RVX ai valori predefiniti</string>
-    <string name="revanced_settings_import_success">Importate %d impostazioni</string>
+    <string name="revanced_settings_import_success">Importate %s impostazioni</string>
     <string name="revanced_settings_import_summary">Importa le impostazioni dal file esportato</string>
     <string name="revanced_settings_import_title">Importa le impostazioni</string>
     <string name="revanced_settings_navigate_up">Torna su</string>
@@ -2886,7 +2891,6 @@ Se i server di Yandex non sono disponibili nella tua regione, utilizza l'opzione
     <string name="revanced_webview_toast_empty">%s è vuota</string>
     <string name="revanced_webview_toast_no_network">Controlla la tua connessione di rete</string>
     <string name="revanced_webview_toast_unavailable">WebView non è disponibile</string>
-    <string name="revanced_webview_visitor_data">Dati del visitatore</string>
     <string name="revanced_whitelist_add_failed">Aggiunta del canale \"%1$s\" alla whitelist %2$s non riuscita</string>
     <string name="revanced_whitelist_added">Il canale \"%1$s\" è stato aggiunto alla whitelist %2$s</string>
     <string name="revanced_whitelist_empty">Non ci sono canali nella whitelist</string>

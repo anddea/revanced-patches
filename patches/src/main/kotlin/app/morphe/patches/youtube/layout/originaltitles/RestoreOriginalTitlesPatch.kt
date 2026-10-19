@@ -27,6 +27,9 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.video.videoid.hookVideoId
 import app.morphe.patches.youtube.video.videoid.videoIdPatch
 import app.morphe.patches.shared.misc.media.MediaSessionSetMetadataFingerprint
+import app.morphe.util.getReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import app.morphe.util.findFreeRegister
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -111,6 +114,66 @@ val restoreOriginalTitlesPatch = bytecodePatch(
             }
         }
 
+        // Compact videos do not use Litho, such as the videos of the watch history.
+        CompactVideoBindFingerprint.let {
+            it.method.apply {
+                val rendererMatch = it.instructionMatches.first()
+                val rendererRegister = rendererMatch.getInstruction<OneRegisterInstruction>().registerA
+                val rendererType = rendererMatch.instruction.getReference<TypeReference>()!!.type
+                // Video id is the only string of the renderer.
+                val videoIdField = classDefBy(rendererType).instanceFields.single { field ->
+                    field.type == "Ljava/lang/String;"
+                }
+
+                val titleSetterMatch = it.instructionMatches.last()
+                val titleSetter = titleSetterMatch.getMethodCalled()
+                val titleViewField = compactVideoTitleSetterFingerprint(titleSetter.definingClass, titleSetter.name)
+                    .instructionMatches.first().getFieldAccessed()
+
+                val insertIndex = titleSetterMatch.index + 1
+                val presenterRegister = titleSetterMatch.getInstruction<FiveRegisterInstruction>().registerC
+                val titleViewRegister = findFreeRegister(insertIndex, rendererRegister, presenterRegister)
+                val videoIdRegister = findFreeRegister(insertIndex, rendererRegister, presenterRegister, titleViewRegister)
+
+                addInstructions(
+                    insertIndex,
+                    """
+                        iget-object v$titleViewRegister, v$presenterRegister, $titleViewField
+                        iget-object v$videoIdRegister, v$rendererRegister, $videoIdField
+                        invoke-static { v$titleViewRegister, v$videoIdRegister }, $EXTENSION_CLASS->restoreOriginalTitle(Landroid/widget/TextView;Ljava/lang/String;)V
+                    """
+                )
+            }
+        }
+
+        // The suggested video at the end of a video in fullscreen does not use Litho.
+        SuggestedVideoEndScreenBindFingerprint.let {
+            it.method.apply {
+                val rendererGetterMatch = it.instructionMatches.first()
+                val rendererGetter = rendererGetterMatch.instruction.getReference<MethodReference>()!!
+                val endScreenRegister = rendererGetterMatch.getInstruction<FiveRegisterInstruction>().registerC
+                // Video id is the only string of the renderer.
+                val videoIdField = classDefBy(rendererGetter.returnType).instanceFields.single { field ->
+                    field.type == "Ljava/lang/String;"
+                }
+
+                val setTitleMatch = it.instructionMatches.last()
+                val insertIndex = setTitleMatch.index + 1
+                val titleViewRegister = setTitleMatch.getInstruction<FiveRegisterInstruction>().registerC
+                val videoIdRegister = findFreeRegister(insertIndex, endScreenRegister, titleViewRegister)
+
+                addInstructions(
+                    insertIndex,
+                    """
+                        invoke-virtual { v$endScreenRegister }, $rendererGetter
+                        move-result-object v$videoIdRegister
+                        iget-object v$videoIdRegister, v$videoIdRegister, $videoIdField
+                        invoke-static { v$titleViewRegister, v$videoIdRegister }, $EXTENSION_CLASS->restoreOriginalTitle(Landroid/widget/TextView;Ljava/lang/String;)V
+                    """
+                )
+            }
+        }
+
         // The video information shown while the video is loading shows the title of the element that opened the video,
         // which can be marked with the video id.
         LoadingVideoInformationBindFingerprint.matchOrNull()?.let {
@@ -127,6 +190,19 @@ val restoreOriginalTitlesPatch = bytecodePatch(
 
         // The fullscreen engagement overlay shows the title of the opened video without the video id.
         FullscreenEngagementOverlayFingerprint.let {
+            it.method.apply {
+                val index = it.instructionMatches.last().index
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                addInstruction(
+                    index + 1,
+                    "invoke-static { v$register }, $EXTENSION_CLASS->restorePlayerTitle(Landroid/widget/TextView;)V"
+                )
+            }
+        }
+
+        // The minimal miniplayer shows the title of the opened video without the video id.
+        MinimalMiniplayerTitleViewFingerprint.let {
             it.method.apply {
                 val index = it.instructionMatches.last().index
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA

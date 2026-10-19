@@ -608,6 +608,8 @@ val settingsPatch = resourcePatch(
     }
 
     finalize {
+        ResourceUtils.writeUnsupportedSettings()
+
         /**
          * change RVX settings menu name
          * since it must be invoked after the Translations patch, it must be the last in the order.

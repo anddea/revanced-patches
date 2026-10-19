@@ -97,6 +97,12 @@ val lyricsPatch = bytecodePatch(
             "morphe_music_lyrics_enabled",
             setSummary = false
         )
+        addCustomPreference(
+            CategoryType.LYRICS,
+            "morphe_music_lyrics_clear_cache",
+            "app.morphe.extension.music.settings.preference.LyricsClearCachePreference",
+            "morphe_music_lyrics_enabled"
+        )
         addTextPreference(
             CategoryType.LYRICS,
             "morphe_music_lyrics_custom_regex",

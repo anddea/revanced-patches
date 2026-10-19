@@ -58,6 +58,8 @@
     <string name="morphe_auto_pause_on_screen_lock_always">Завжди призупиняти при блокуванні</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Призупиняти, якщо не підключено бездротовий звук</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Автоматично призупиняти, коли пристрій заблоковано</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Додає більше мов до меню автоперекладу</string>
+    <string name="morphe_auto_translate_additional_languages_title">Додати додаткові мови автоперекладу</string>
     <string name="morphe_copy_comments_success">Коментар скопійовано в буфер обміну</string>
     <string name="morphe_copy_comments_summary">Натисніть і утримуйте коментар, щоб скопіювати його</string>
     <string name="morphe_copy_comments_title">Копіювати коментарі</string>
@@ -85,6 +87,7 @@
     <string name="morphe_dearrow_error_generic">DeArrow тимчасово недоступний</string>
     <string name="morphe_dearrow_titles_icon_summary">Показує іконку DeArrow на краудсорсингових назвах відео</string>
     <string name="morphe_dearrow_titles_icon_title">Показувати іконку DeArrow</string>
+    <string name="morphe_dearrow_titles_summary">Замінює назви відео на назви, зібрані з краудсорсингу, надіслані до DeArrow</string>
     <string name="morphe_dearrow_titles_title">Назви DeArrow</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Запобігає автоматичному оновленню стрічок після того, як вони застарівають</string>
     <string name="morphe_disable_auto_feed_refresh_title">Вимкнути автоматичне оновлення стрічки</string>
@@ -109,6 +112,10 @@
     <string name="morphe_explore_menu_screen_summary">Виберіть, які компоненти будуть показуватися у меню \"Навігація\"</string>
     <string name="morphe_explore_menu_screen_title">Меню \"Навігація\"</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Якщо це не працює, спробуйте примусово закрити MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">Натискання та утримування будь-де на відео в стрічці відкриває його меню</string>
+    <string name="morphe_feed_long_press_menu_title">Натисніть та утримуйте, щоб відкрити меню відео</string>
+    <string name="morphe_feed_watch_later_button_summary">Кнопка \"Дивитися пізніше\" показується на мініатюрах відео в стрічці. Натискання та утримування її відкриває \"Зберегти в список відтворення\"</string>
+    <string name="morphe_feed_watch_later_button_title">Показувати кнопку \"Дивитися пізніше\" на мініатюрах</string>
     <string name="morphe_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підміни відеопотоків\" на будь-який, окрім \"Android Studio\" або \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary_off">Використовується звукова доріжка за замовчуванням</string>
     <string name="morphe_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
@@ -196,7 +203,7 @@
     <string name="morphe_oauth2_connection_failure_auth_error">Не вдається ввійти до VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не вдається ввійти у VR, автентифікацію вебсайту не схвалено</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 тимчасово недоступний</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 тимчасово недоступний (статус %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 тимчасово недоступний (статус %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Термін дії входу в Android VR закінчився. Спробуйте ввійти у VR ще раз</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 тимчасово недоступний (тайм-аут API)</string>
     <string name="morphe_oauth2_toast_invalid">Недійсний токен входу у VR, спробуйте ввійти у VR ще раз</string>
@@ -219,11 +226,15 @@
     <string name="morphe_playback_in_feeds_title">Відтворення в стрічках</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Налаштуйте прозорість фону за кнопками керування плеєром та панеллю часу (0 - невидиме, 100 - суцільне)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Прозорість фону кнопок керування</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"Токен, вбудований у цю версію провайдера PoToken, більше не працює
+
+Увімкніть опцію \'Імітувати відеопотоки\', щоб виправити проблему з відтворенням"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">Провайдер PoToken більше не працює</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Ввімкнути</string>
     <string name="morphe_potoken_provider_summary">"Виправляє проблеми з відтворенням за допомогою вбудованого провайдера PoToken (Експериментально) / Якщо ви користувач YouTube Premium, це налаштування може не знадобитися"</string>
     <string name="morphe_potoken_provider_title">Провайдер PoToken</string>
     <string name="morphe_potoken_provider_unavailable_summary">"Виправляє проблеми з відтворенням за допомогою вбудованого провайдера PoToken (Експериментально)
 ​Щоб використовувати цю функцію, вимкніть \' Підміна відеопотоків \'"</string>
-    <string name="morphe_preferred_caption_language_entry_off">Вимк</string>
     <string name="morphe_preferred_caption_language_summary">Спочатку вибирає субтитри постачальника, потім автоматично перекладає їх на бажану мову</string>
     <string name="morphe_preferred_caption_language_title">Бажана мова субтитрів</string>
     <string name="morphe_queue_manager_check_failed_auth">Не увійшли в систему</string>
@@ -917,6 +928,8 @@
     <string name="revanced_gemini_error_transcription_parse">Не вдалося розібрати дані транскрибування</string>
     <string name="revanced_gemini_error_translation_failed">Не вдався переклад Gemini</string>
     <string name="revanced_gemini_error_translation_parse_failed">Не вдався розбір перекладу Gemini</string>
+    <string name="revanced_gemini_highlight_words_summary">Виділити кожне сказане слово у відеосубтитрах</string>
+    <string name="revanced_gemini_highlight_words_title">Виділити сказані слова</string>
     <string name="revanced_gemini_loading_default">Завантаження...</string>
     <string name="revanced_gemini_loading_summarize">Підсумування відео...</string>
     <string name="revanced_gemini_loading_transcribe">Транскрибування відео...</string>
@@ -2187,7 +2200,7 @@
     <string name="revanced_ryd_estimated_like_summary_on">Для відео з вимкненими лайками показується приблизна кількість лайків</string>
     <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість лайків</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (ліміт клієнтів API)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (тайм-аут API)</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Return YouTube Dislike не доступний</string>
@@ -2365,7 +2378,7 @@
     <string name="revanced_sb_skipped_sponsor">Пропущено спонсорську вставку</string>
     <string name="revanced_sb_skipped_unsubmitted">Пропущено не надісланий сегмент</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock тимчасово не доступний</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock тимчасово недоступний (статус %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock тимчасово недоступний (статус %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock тимчасово недоступний (тайм-аут API)</string>
     <string name="revanced_sb_square_layout">Використовувати квадратний макет</string>
     <string name="revanced_sb_square_layout_sum_off">Кнопки та елементи керування заокруглені</string>
@@ -2388,7 +2401,7 @@
     <string name="revanced_sb_stats_submissions_sum">Натисніть тут для перегляду Ваших сегментів</string>
     <string name="revanced_sb_stats_username">Ваше ім\'я користувача: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Натисніть тут, щоб змінити ім\'я користувача</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Не вдалося змінити ім\'я користувача: Статус: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Не вдалося змінити ім\'я користувача: Статус: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Ім\'я користувача успішно змінено</string>
     <string name="revanced_sb_submit_failed_duplicate">"Неможливо надіслати сегмент
 Він вже існує"</string>
@@ -2396,7 +2409,7 @@
     <string name="revanced_sb_submit_failed_invalid">Неможливо надіслати сегмент: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Неможливо надіслати сегмент. Частота обмежена (занадто багато від одного користувача або IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock тимчасово не працює</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Не вдалося надіслати сегмент (статус: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Не вдалося надіслати сегмент (статус: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Сегмент успішно надіслано</string>
     <string name="revanced_sb_toast_on_connection_error">Показувати сповіщення про помилки з’єднання</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Тост не показується, якщо SponsorBlock не доступний</string>
@@ -2407,7 +2420,7 @@
     <string name="revanced_sb_vote_downvote">Проголосувати \"проти\"</string>
     <string name="revanced_sb_vote_failed_forbidden">Не вдалося проголосувати за сегмент: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Не вдалося проголосувати за сегмент (тайм-аут API)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Не вдалося проголосувати за сегмент (статус: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Не вдалося проголосувати за сегмент (статус: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Немає сегментів для голосування</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
     <string name="revanced_sb_vote_upvote">Проголосувати \"за\"</string>
@@ -2456,7 +2469,7 @@
     <string name="revanced_settings_import_export_as_text_summary">Імпортувати / експортувати налаштування у вигляді тексту</string>
     <string name="revanced_settings_import_failed">Не вдалося імпортувати налаштування</string>
     <string name="revanced_settings_import_reset">Налаштування RVX скинуто до типових</string>
-    <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
+    <string name="revanced_settings_import_success">Імпортовано %s налаштувань</string>
     <string name="revanced_settings_import_summary">Імпортувати налаштування зі збереженого файлу</string>
     <string name="revanced_settings_import_title">Імпорт налаштувань</string>
     <string name="revanced_settings_navigate_up">Перейти вгору</string>
@@ -2886,7 +2899,6 @@ uBlock Origin знайшов обхідний шлях для вирішення
     <string name="revanced_webview_toast_empty">%s порожній</string>
     <string name="revanced_webview_toast_no_network">Будь ласка, перевірте мережеве з\'єднання</string>
     <string name="revanced_webview_toast_unavailable">WebView недоступний</string>
-    <string name="revanced_webview_visitor_data">Дані відвідувача</string>
     <string name="revanced_whitelist_add_failed">Не вдалося додати канал \'%1$s\' до білого списку %2$s</string>
     <string name="revanced_whitelist_added">Канал \'%1$s\' додано до білого списку %2$s</string>
     <string name="revanced_whitelist_empty">Нема каналів у білому списку</string>

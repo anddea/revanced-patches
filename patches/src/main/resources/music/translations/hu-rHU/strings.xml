@@ -60,7 +60,7 @@ Lépések:
 3. Másold ki a \"media-user-token\" értékét"</string>
     <string name="morphe_music_apple_music_token_title">Apple Music médiafelhasználói token</string>
     <string name="morphe_music_apple_music_token_toast_cleared">Apple Music: media-user-token törölve</string>
-    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: érvénytelen media-user-token — ellenőrizd, és próbáld újra</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: érvénytelen média-felhasználói token – kérjük, ellenőrizze, majd próbálja újra</string>
     <string name="morphe_music_apple_music_token_toast_saved">Apple Music: media-user-token elmentve</string>
     <string name="morphe_music_apple_token_optional_hint">Az Apple Music token opcionális. Enélkül a Lyrically szolgál tartalékként</string>
     <string name="morphe_music_crossfade_about_best_summary">Normál számok közötti lejátszás és automatikus lejátszás, egy szám ismétlése (a szám önmagába hangol), és helyi hang – telefonhangszóró, vezetékes fülhallgató, Bluetooth vagy USB</string>
@@ -120,7 +120,7 @@ Lépések:
 3. Másold ki az \"arl\" értékét"</string>
     <string name="morphe_music_deezer_arl_title">Deezer […] Másolja ki az \"arl\" értékét</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: érvénytelen arl, próbálja újra</string>
-    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: érvénytelen arl — ellenőrizd, és próbáld újra</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: érvénytelen arl – kérjük, ellenőrizze, majd próbálja újra</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl elmentve</string>
     <string name="morphe_music_downloads_actions_for">%s műveletei</string>
     <string name="morphe_music_downloads_all_deleted">Letöltések törölve</string>
@@ -166,11 +166,13 @@ A letöltött számok itt jelennek meg"</string>
     <string name="morphe_music_in_app_downloads_user_dialog_message">"A számok az alkalmazás privát tárterületére kerülnek mentve, és törlődnek, ha a YouTube Music zostanie telepítve
 
 Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Music Premium offline könyvtár helyett. A kikapcsolás visszaállítja a fül funkcióját, és a Premium letöltések érintetlenek maradnak"</string>
-    <string name="morphe_music_lyrics_about_summary">"A dalszövegek cím és előadó alapján kerülnek párosításra; a szokatlan metaadatok miatt előfordulhat, hogy semmi nem található, vagy rossz verzió jelenik meg. A frissítés segítségével válthatsz a verziók között. A *-gal jelölt szolgáltatók tokent igényelnek. Az összes engedélyezett szolgáltató nem mindig a kérésed szerinti sorrendben kerül lekérdezésre, hanem sebességük alapján válaszolnak"</string>
+    <string name="morphe_music_lyrics_about_summary">"A dalszövegeket cím és előadó alapján illesztjük, a szokatlan metaadatok nulla találatot vagy a rossz verziót adhatják. Használja a frissítést a verziók közötti váltáshoz. A * jelzéssel ellátott szolgáltatók token requireálnak. Nem mindig kerülnek sorrendben kérésre minden engedélyezett szolgáltató, de sebességük alapján válaszolnak
+
+A dalszövegek harmadik féltől származó szolgáltatásokból származnak, amelyek nincsenek kapcsolatban, nem támogatják és nem endorsingolták a RVX által. Mindegyiket úgy használjuk ahogy van: a dalszövegek, elérhetőségük és licencelésük a szolgáltatások és licencelőik birtokában marad, és azok szolgáltatási feltételeinek alá vannak vetve. Ami eljut egy engedélyezett szolgáltatáshoz, az csak a lekérdezés amit kértél - a cím, az előadó és ahol a szolgáltatás szükségessége esetén, a videóazonosító. Opcionális AI végpont és QuickLRC transzkripció csak akkor fut, amikor beállítottad őket, és a dalszöveg szöveget vagy a szám videójának URL-jét kapják"</string>
     <string name="morphe_music_lyrics_about_title">A harmadik fél dalszövegeiről</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">API-kulcs (hagyja üresen anonim hozzáféréshez)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">API-végpont URL-címe (pl. https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Konfigurálja az OpenAI-kompatibilis API végpontot az AI-alapú dalszakasz-fordításhoz, romanizáláshoz és szakaszok meghatározásához</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Konfigurálja az OpenAI-kompatibilis API végpontot az AI-alapú dalszövegfordításhoz, romanizáláshoz és szekciónáláshoz</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">AI Beállítások</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Modellnév (pl. openai-fast, gpt-4o-mini)</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">A modellnév nem lehet üres</string>
@@ -178,13 +180,20 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">A Base URL-nek http:// vagy https:// előtaggal kell kezdődnie</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Kapcsolat ellenőrzése…</string>
     <string name="morphe_music_lyrics_ai_config_summary_configured">%1$s modell beállítva</string>
-    <string name="morphe_music_lyrics_ai_config_toast_invalid">Nem sikerült csatlakozni az AI-végponthoz. Ellenőrizze a beállításokat</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">Nem lehetett csatlakozni az AI végponthoz. Kérjük, ellenőrizze a beállításait</string>
     <string name="morphe_music_lyrics_ai_config_toast_reset">AI beállítások alapértékekre visszaállítva</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">AI beállítások mentve</string>
+    <string name="morphe_music_lyrics_ai_extra_body_hint">Extra kéreli test (JSON, egyesül minden AI kérlel)</string>
+    <string name="morphe_music_lyrics_ai_extra_body_invalid">Nem érvényes JSON. Javítsa ki vagy törölje a mezőt mentés előtt</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Helyőrzők: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Prompt sablon</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Bejegyzés elmentve, de az AI végpont még nem használható. Először konfigurálja az AI beállításokban</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt alapértékekre visszaállítva</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt mentve</string>
+    <string name="morphe_music_lyrics_clear_cache_done">%1$s MB törölve</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">A készüléken tárolt dalszövegek törlése</string>
+    <string name="morphe_music_lyrics_clear_cache_title">Tárolt dalszövegek törlése</string>
+    <string name="morphe_music_lyrics_contribute_credit">Hosszan nyomva tartás a másolás gombon az LRC mentéséhez; ha finomhangolja az időzítéseket és megosztja azokat a közösségi szolgáltatókkal, hálásak leszünk érte</string>
     <string name="morphe_music_lyrics_copied">Másolva a vágólapra</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Ha a dalszövegek hibásan az aljára szűrődnek, módosítsd vagy töröld ezt a mezőt. Vesszővel elválasztott jelölők: azok a sorok, amelyek egy, kettősponttal követett jelölőt tartalmaznak, alul forrásmegjelölésként jelennek meg. A letiltáshoz hagyd üresen</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Információs sorok jelölői</string>
@@ -192,6 +201,7 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_lyrics_custom_regex_title">Dalszöveg-szűrő regex</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Váltja az előadó és a cím sorrendjét a minilejátszóban és a MediaSessionben. BE: \"Előadó - Cím\", KI: \"Cím - Előadó\". Nem befolyásolja a dalszövegkeresést</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Előadó és cím megjelenítési sorrendje</string>
+    <string name="morphe_music_lyrics_dual_only">Kettős mód</string>
     <string name="morphe_music_lyrics_enabled_summary">Szövegeket jelenít meg egy külső szolgáltatótól, ha nincs találat, akkor a beépített szövegeket használja</string>
     <string name="morphe_music_lyrics_enabled_title">Harmadik féles szöveg használata</string>
     <string name="morphe_music_lyrics_hide_info_summary">A dalszöveg alatt látható forrásmegjelölés elrejtése</string>
@@ -202,7 +212,14 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_lyrics_hide_unplayed_title">A még el nem hangzott dalszövegek elrejtése</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Megakadályozza, hogy a kijelző kikapcsoljon, amíg a dalszövegpanel nyitva van</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Képernyő bekapcsolva tartása a dalszövegek megtekintése közben</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Olvasás %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_failed">Letöltés sikertelen - próbálja újra ezt a funkcióki/bekapcsolással</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Kész olvasások (%1$d bejegyzés)</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">Románosítás az eszközön, ha a szolgáltató, az Ön modellje és a Google Fordítás nem működik. Az olvasás követi az időzített dalszöveg minden szóát; a szószinkronizálásnak be kell lennie. Kínai, kantoni, japán, koreai, görög, orosz, grúz, örmény; kb. 120 MB</string>
+    <string name="morphe_music_lyrics_local_romanization_title">Helyi románosítás és igazítás</string>
+    <string name="morphe_music_lyrics_mediasession_summary">Jelenlegi sor megjelenítése a zárolási képernyőn, Android Autóban és Bluetoothon. Android 11 vagy újabb szükséges</string>
     <string name="morphe_music_lyrics_mediasession_title">MediaSession-dalszövegek megjelenítése a lezáróképernyőn</string>
+    <string name="morphe_music_lyrics_miniplayer_summary">Jelenlegi sor megjelenítése a miniLejátszóban, a szám áthelyezésével az alfejlécbe</string>
     <string name="morphe_music_lyrics_miniplayer_title">Dalszöveg megjelenítése a minilejátszóban</string>
     <string name="morphe_music_lyrics_offset_ms_summary">A szinkronizált dalszövegek a lejátszást követik. Ha elcsúsznak, módosítsd az időeltolást. A szinkronizált dalszövegeket told előre vagy hátra. Használj pozitív értéket, ha a dalszöveg a szám előtt jár</string>
     <string name="morphe_music_lyrics_offset_ms_title">Globális időzítési eltolás</string>
@@ -210,6 +227,7 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_lyrics_refreshing">Frissítés</string>
     <string name="morphe_music_lyrics_romanize_failed">Nem sikerült romanizálni a dalszöveget</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanizált</string>
+    <string name="morphe_music_lyrics_romanize_language_title">Romanizálási nyelv</string>
     <string name="morphe_music_lyrics_romanize_only">Csak romanizált</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanizálta: %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">A Google romanizálta</string>
@@ -223,29 +241,48 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_lyrics_search_empty">Adja meg a dal címét és az előadót</string>
     <string name="morphe_music_lyrics_search_no_providers">Az engedélyezett szolgáltatók egyike sem tud más számokat keresni</string>
     <string name="morphe_music_lyrics_search_title_hint">Dalcím</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">Koppintson az eredeti dalszöveg egyszerű szövegként történő másolásához; tartsa hosszan a nyers dalszöveg-forrásfájl mentéséhez a Letöltések mappába</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">Érintse meg az eredeti dalszöveg egyszerű szövegként történő másolásához; nyomja meg hosszan a nyers dalszöveg forrásfájának letöltéséhez a Letöltések mappába</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Másolás gomb megjelenítése</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Koppintson a következő dalszövegjelöltre váltáshoz; hosszú megnyomással dalszöveget kereshet cím és előadó alapján</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Érintse meg a következő dalszöveg-jelöltre váltáshoz; nyomja meg hosszan a dalszöveg kereséséhez a dal címe és előadója alapján</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Frissítés gomb megjelenítése</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Koppintson a romanizálás be-/kikapcsolásához; hosszú megnyomással csak a romanizálás jelenik meg. Szolgáltatói romanizálást, Google Fordítót vagy OpenAI-kompatibilis API-t használ</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Érintse meg a románosítás váltásához; nyomja meg hosszan csak a románosításhoz. Szolgáltatói románosítást, Google Fordítást vagy egy OpenAI-kompatibilis API-t használ</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Romanizálás gomb megjelenítése</string>
     <string name="morphe_music_lyrics_show_section_summary">Jelölje meg a dalszöveg minden új szakaszát egy kis címkével, például Strófa vagy Refrén</string>
     <string name="morphe_music_lyrics_show_section_title">Szakaszcímkék megjelenítése</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Koppintson a fordítás be-/kikapcsolásához; hosszú megnyomással csak a fordítás jelenik meg. Szolgáltatói fordításokat, Google Fordítót vagy OpenAI-kompatibilis API-t használ</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Érintse meg a fordítás váltásához; nyomja meg hosszan csak a fordításhoz. Szolgáltatói fordításokat, Google Fordítást vagy egy OpenAI-kompatibilis API-t használ</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Fordítás gomb megjelenítése</string>
-    <string name="morphe_music_lyrics_source_all_disabled">Minden szolgáltató le van tiltva – a beépített és a beágyazott dalszövegek is</string>
+    <string name="morphe_music_lyrics_source_all_disabled">Az összes szolgáltató letiltva – beépített és beágyazott dalszövegek</string>
     <string name="morphe_music_lyrics_source_label">Forrás: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">Szolgáltatók visszaállítása az alapértelmezett prioritási sorrendre</string>
     <string name="morphe_music_lyrics_source_reset_title">Visszaállítja a szolgáltatók sorrendjét?</string>
     <string name="morphe_music_lyrics_source_title">Szöveg szolgáltatás</string>
+    <string name="morphe_music_lyrics_split_background_summary">A zárójelben megadott háttérvokált (például: „(Óh) téged szeretlek”) kiveszi a dalos sorból, és elkülönít egy halkabb, saját sort hoz létre neki</string>
+    <string name="morphe_music_lyrics_split_background_title">A háttérvokál megjelenítése külön</string>
     <string name="morphe_music_lyrics_swap_trans_roma_summary">BE: a romanizációt a dalszöveg alá, a fordítást fölé helyezi; KI: a romanizációt felül, a fordítást alul hagyja</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">A fordítás és a romanizáció felcserélése</string>
-    <string name="morphe_music_lyrics_tap_to_seek_summary">A sor megérintése ugrássá teszi a dalban a megfelelő pillanatra</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">Érintse meg a sort az ugráshoz</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">Koppintson egy sorra a dal adott pontjának lejátszásához, vagy nyomja meg hosszan a szó másolásához, vagy az egész sor moreolásához, ha nem szóra nyom. A kikapcsolás eltávolítja mindkét érintést</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Érintse meg és tartsa nyomva egy sort</string>
     <string name="morphe_music_lyrics_text_filter_summary">Csak az eredeti dalszövegre alkalmazott reguláris kifejezés (nem a fordításokra vagy romanizációkra). A letiltáshoz hagyd üresen</string>
     <string name="morphe_music_lyrics_text_filter_title">Dalszöveg-szűrő regex</string>
     <string name="morphe_music_lyrics_text_size_summary">A dalszöveg betűmérete</string>
     <string name="morphe_music_lyrics_text_size_title">Betűméret</string>
+    <string name="morphe_music_lyrics_transcribe_align">QuickLRC igazálási kérelem</string>
+    <string name="morphe_music_lyrics_transcribe_aligning">Igazítás folyamatban</string>
+    <string name="morphe_music_lyrics_transcribe_apply_align">Igazítás alkalmazása</string>
+    <string name="morphe_music_lyrics_transcribe_cancelled">Átírás megszakítva</string>
+    <string name="morphe_music_lyrics_transcribe_failed">QuickLRC nem tudta ezt a számot feldolgozni</string>
+    <string name="morphe_music_lyrics_transcribe_key_cleared">QuickLRC API kulcs törölve</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">A QuickLRC időzíti a dalszöveget hiány esetén, vagy átiratja azt a zenéből kreditek felhasználásával. Beállított kulccsal a dalszöveg nélküli számoknál transzkripciót végez, és a kereső ablakhoz megjelenik az illesztés gomb</string>
+    <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRC nem fogadta el azt a kulcsot</string>
+    <string name="morphe_music_lyrics_transcribe_key_saved">QuickLRC API kulcs megtartott</string>
+    <string name="morphe_music_lyrics_transcribe_key_set_summary">QuickLRC kulcs elmentve. Használja az illesztés gombot a dalszövegkereső párbeszédablakban, vagy a képernyő feliratát, ha egy számnak nincs dalszövege</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">A QuickLRC leírja vagy időzíti az aktuális dal dalszövegét. Ez egy különálló szolgáltatás, amely nem kapcsolódik a fenti OpenAI-kompatibilis végponthoz</string>
+    <string name="morphe_music_lyrics_transcribe_key_title">QuickLRC API kulcs</string>
+    <string name="morphe_music_lyrics_transcribe_local_unsupported">Csak YouTube-ról játszott számszöveg átírható</string>
+    <string name="morphe_music_lyrics_transcribe_no_text">Nincs dalszöveg az illesztéshez - inkább transzkribálunk</string>
+    <string name="morphe_music_lyrics_transcribe_out_of_credits">QuickLRC hiteltények elfogytak erre a számra</string>
+    <string name="morphe_music_lyrics_transcribe_prompt">QuickLRC átírási kérelem</string>
+    <string name="morphe_music_lyrics_transcribe_working">Átírás folyamatban</string>
     <string name="morphe_music_lyrics_translate_failed">A dalszöveg fordítása sikertelen</string>
     <string name="morphe_music_lyrics_translate_hide">Lefordítva</string>
     <string name="morphe_music_lyrics_translate_only">Csak a fordítás</string>
@@ -267,8 +304,9 @@ Amíg ez bekapcsolva van, a Letöltések fül ezeket a számokat listázza a Mus
     <string name="morphe_music_musixmatch_token_optional_hint">A Musixmatch token nélkül is működik, így ez a mező üresen hagyható</string>
     <string name="morphe_music_musixmatch_token_title">Musixmatch-token</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: felhasználói token törölve</string>
-    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: érvénytelen felhasználói token — ellenőrizd, és próbáld újra</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: érvénytelen felhasználói token – kérjük, ellenőrizze, majd próbálja újra</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: felhasználói token elmentve</string>
+    <string name="morphe_music_scrobbling_log_out">Kijelentkezés</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"Illeszd be a Spotify sp_dc cookie-ját
 
 Lépések:
@@ -277,7 +315,7 @@ Lépések:
 3. Másold ki a \"sp_dc\" értékét"</string>
     <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
     <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc törölve</string>
-    <string name="morphe_music_spotify_token_toast_invalid">Spotify: érvénytelen sp_dc — ellenőrizd, és próbáld újra</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify: érvénytelen sp_dc – kérjük, ellenőrizze, majd próbálja újra</string>
     <string name="morphe_music_spotify_token_toast_saved">Spotify: sp_dc […] Enélkül a Lyrically lesz tartalékként használva</string>
     <string name="morphe_music_token_dialog_get_token">Token lekérése</string>
     <string name="morphe_music_youtube_cookies_dialog_instruction">"A YouTube-cookie-kat illeszd be, ha feliratokat és időzített szövegeket szeretnél lekérdezni a YouTube-ról
@@ -290,12 +328,12 @@ Lépések:
 Szükséges cookie-k: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID, LOGIN_INFO"</string>
     <string name="morphe_music_youtube_cookies_title">YouTube-cookie-k</string>
     <string name="morphe_music_youtube_cookies_toast_cleared">YouTube: cookie-k törölve</string>
-    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: érvénytelen cookie-k — ellenőrizd, és próbáld újra</string>
+    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: érvénytelen sütkék – kérjük, ellenőrizze, majd próbálja újra</string>
     <string name="morphe_music_youtube_cookies_toast_saved">YouTube: cookie-k elmentve</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nem tud bejelentkezni a VR-ba: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nem lehetséges a VR-ba belépni, a webhely hitelesítése nem lett jóváhagyva</string>
     <string name="morphe_oauth2_connection_failure_generic">Az OAuth2 átmenetileg nem elérhető</string>
-    <string name="morphe_oauth2_connection_failure_status">Az OAuth2 átmenetileg nem elérhető (állapot %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">Az OAuth2 átmenetileg nem érhető el (státusz: %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR belépés lejárt, próbáld meg újra belépni a VR-ba</string>
     <string name="morphe_oauth2_connection_failure_timeout">Az OAuth2 átmenetileg nem elérhető (az API időtúllépés miatt)</string>
     <string name="morphe_oauth2_toast_invalid">Érvénytelen VR bejelentkezési token, próbálja meg újra a bejelentkezést a VR-ba</string>
@@ -304,10 +342,15 @@ Szükséges cookie-k: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAP
     <string name="morphe_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
     <string name="morphe_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
     <string name="morphe_replace_music_with_youtube_title">Módosítsa a megosztási linkeket youtube.com-ra</string>
+    <string name="morphe_romanize_language_DEFAULT">Automatikus</string>
     <string name="morphe_sanitize_sharing_links_summary">Eltávolítja a követési paramétereket a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_summary_off">A követési lekérdezési paraméter nem kerül eltávolításra a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
     <string name="morphe_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
+    <string name="morphe_sb_new_segment_choose_category">Válassza ki a szakasz kategóriáját</string>
+    <string name="morphe_sb_new_segment_confirm_submit">Beküldés</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">A kezdetnek a vége előtt kell lennie</string>
+    <string name="morphe_sb_new_segment_title">Új SponsorBlock szakasz</string>
     <string name="morphe_settings_menu_copy_path">Másolva: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Nyissa meg a standard alkalmazásbeállítások képernyőjét egyszer a lista feltöltéséhez</string>
     <string name="morphe_settings_menu_filter_screen_summary">Rejtse el az elemeket a standard alkalmazásbeállítások képernyőn a látható nevük alapján</string>
@@ -502,7 +545,7 @@ Korlátozások: A SponsorBlock szegmensek nem jelennek meg a keresősávon"</str
     <string name="revanced_external_downloader_not_installed_dialog_message">"A(z) %1$s nincs telepítve
 Töltsd le a(z) %2$s weboldalról"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Figyelmeztetés</string>
-    <string name="revanced_external_downloader_not_installed_warning">A(z) %s nincs telepítve. Kérjük, telepítse</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérjük, telepítse</string>
     <string name="revanced_external_downloader_package_name_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy YTDLnis</string>
     <string name="revanced_external_downloader_package_name_title">Külső letöltő csomagneve</string>
     <string name="revanced_fullscreen_ads_closed_toast">Teljes képernyős hirdetések bezárva</string>
@@ -748,7 +791,7 @@ A megtekintett videó azonosítóját elküldjük a Return YouTube Dislike API-n
     <string name="revanced_ryd_estimated_like_summary">Becsült lájkszám megjelenítése azokon a videókon, ahol a készítő letiltotta a lájkokat</string>
     <string name="revanced_ryd_estimated_like_title">Becsült kedvelések mutatása</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">A nem tetszések nem érhetők el (ügyfél API korlát)</string>
-    <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">A nem tetszések jelenleg nem elérhetők (az API időtúllépése miatt)</string>
     <string name="revanced_ryd_failure_generic">A nem tetszik funkció nem elérhető (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Értesítést jelenít meg, ha a Return YouTube Dislike szerver nem érhető el</string>
@@ -759,7 +802,7 @@ A megtekintett videó azonosítóját elküldjük a Return YouTube Dislike API-n
     <string name="revanced_sb_api_url">API URL módosítása</string>
     <string name="revanced_sb_api_url_changed">API URL megváltoztatva</string>
     <string name="revanced_sb_api_url_invalid">API URL érvénytelen</string>
-    <string name="revanced_sb_api_url_reset">Az API URL visszaállítása</string>
+    <string name="revanced_sb_api_url_reset">API URL alaphelyzetbe állítása</string>
     <string name="revanced_sb_api_url_sum">A cím, amelyet a SponsorBlock a szerverhez történő kommunikációhoz használ. Ne változtasso ezen, ha nem tudod, hogy mit csinálsz</string>
     <string name="revanced_sb_color_changed">Szín módosítva</string>
     <string name="revanced_sb_color_dot_label">Szín:</string>
@@ -768,42 +811,42 @@ A megtekintett videó azonosítóját elküldjük a Return YouTube Dislike API-n
     <string name="revanced_sb_diff_segments">Szakasz viselkedésének megváltoztatása</string>
     <string name="revanced_sb_enabled">SzponsorBlokk engedélyezése</string>
     <string name="revanced_sb_enabled_sum">A SponsorBlock egy közösségi rendszer a YouTube-videók idegesítő részeinek kihagyására</string>
-    <string name="revanced_sb_segments_filler">Kitöltő / Vicces részek</string>
+    <string name="revanced_sb_segments_filler">Kitérés / Viccek</string>
     <string name="revanced_sb_segments_filler_sum">Olyan érintőleges jelenetek vagy poénok, amelyek nem szükségesek a videó fő tartalmának megértéséhez. Nem tartalmaznak kontextust vagy háttérinformációkat tartalmazó részeket</string>
-    <string name="revanced_sb_segments_hook">Felvezetés / Köszöntés</string>
+    <string name="revanced_sb_segments_hook">Bevezetés / Üdvözlet</string>
     <string name="revanced_sb_segments_hook_sum">Narrált előzetesek a közelgő videóhoz, üdvözlések és búcsúk. Nem tartalmaz további tartalmat hozzáadó részeket</string>
-    <string name="revanced_sb_segments_interaction">Emlékeztető (Feliratkozás)</string>
+    <string name="revanced_sb_segments_interaction">Interakció emlékeztető (Feliratkozás)</string>
     <string name="revanced_sb_segments_interaction_sum">Rövid emlékeztető a kedvelésre, feliratkozásra vagy követésre a tartalom közepette. Ha hosszú vagy valami specifikusról szól, akkor azt önpromóció alatt kell feltüntetni</string>
-    <string name="revanced_sb_segments_intro">Szünet/Intro animáció</string>
+    <string name="revanced_sb_segments_intro">Megszakítás/Intro animáció</string>
     <string name="revanced_sb_segments_intro_sum">Egy részlet tartalom nélkül. Lehet szünet, álló képkocka, vagy ismétlődő animáció. Nem használandó információt tartalmazó átmeneteknél</string>
-    <string name="revanced_sb_segments_nomusic">Zene: nem-zene szegmens</string>
+    <string name="revanced_sb_segments_nomusic">Zene: zenementes rész</string>
     <string name="revanced_sb_segments_nomusic_sum">Csak zenei videókhoz használható. Zenei videók zene nélküli részei, amelyek még nem tartoznak más kategóriába</string>
-    <string name="revanced_sb_segments_outro">Zárókártyák / Stáblista</string>
+    <string name="revanced_sb_segments_outro">Záróképernyő / Köszönetek</string>
     <string name="revanced_sb_segments_outro_sum">Stáblista, vagy amikor megjelennek a YouTube zárókártyák. Nem tartozik bele az információt tartalmazó összegzés</string>
-    <string name="revanced_sb_segments_preview">Előzetes / Összefoglaló / Bevezető</string>
+    <string name="revanced_sb_segments_preview">Előnézet / Összefoglaló</string>
     <string name="revanced_sb_segments_preview_sum">Olyan klipek gyűjteménye, amelyek megmutatják, hogy mi következik vagy mi történt a videóban vagy egy sorozat más videóiban, ahol minden információ máshol ismétlődik</string>
-    <string name="revanced_sb_segments_selfpromo">Nem fizetett / Önpromóció</string>
+    <string name="revanced_sb_segments_selfpromo">Nem fizetett hirdetés/önpromóció</string>
     <string name="revanced_sb_segments_selfpromo_sum">Hasonló a szponzorhoz, kivéve a nem fizetett vagy önpromóciót. Tartalmazza az árucikkekre, adományokra vonatkozó részeket, vagy információkat arról, hogy kivel működtek együtt</string>
     <string name="revanced_sb_segments_sponsor">Szponzor</string>
     <string name="revanced_sb_segments_sponsor_sum">Fizetett promóciók, fizetett hivatkozások és közvetlen reklámok. Nem önreklámozásra vagy ingyenes kiemelésre vonatkozik okok / alkotók / weboldalak / termékek esetében, amelyeket szeretnek</string>
-    <string name="revanced_sb_skip_automatically">Átugrás automatikusan</string>
+    <string name="revanced_sb_skip_automatically">Automatikus kihagyás</string>
     <string name="revanced_sb_skip_automatically_once">Automatikus kihagyás egyszer</string>
     <string name="revanced_sb_skip_ignore">Letiltás</string>
-    <string name="revanced_sb_skipped_filler">Töltelékrész kihagyva</string>
-    <string name="revanced_sb_skipped_hook">Átugrott felvezetés</string>
-    <string name="revanced_sb_skipped_interaction">Idegesítő emlékeztető átugorva</string>
-    <string name="revanced_sb_skipped_intro_beginning">Bevezető kihagyva</string>
-    <string name="revanced_sb_skipped_intro_end">Szünet átugorva</string>
-    <string name="revanced_sb_skipped_multiple_segments">Több szakasz átugorva</string>
-    <string name="revanced_sb_skipped_nomusic">Nem zenei rész átugorva</string>
-    <string name="revanced_sb_skipped_outro">Befejezés átugorva</string>
-    <string name="revanced_sb_skipped_preview_beginning">Bevezető átugorva</string>
-    <string name="revanced_sb_skipped_preview_end">Összefoglaló átugorva</string>
-    <string name="revanced_sb_skipped_selfpromo">Önpromóció átugorva</string>
-    <string name="revanced_sb_skipped_sponsor">Szponzor átugorva</string>
+    <string name="revanced_sb_skipped_filler">Mellékes rész kihagyva</string>
+    <string name="revanced_sb_skipped_hook">Horog kihagyva</string>
+    <string name="revanced_sb_skipped_interaction">Zavaró emlékeztető kihagyva</string>
+    <string name="revanced_sb_skipped_intro_beginning">Intro kihagyva</string>
+    <string name="revanced_sb_skipped_intro_end">Szünet kihagyva</string>
+    <string name="revanced_sb_skipped_multiple_segments">Több szakasz kihagyva</string>
+    <string name="revanced_sb_skipped_nomusic">Zenementes rész kihagyva</string>
+    <string name="revanced_sb_skipped_outro">Outro kihagyva</string>
+    <string name="revanced_sb_skipped_preview_beginning">Bevezető kihagyva</string>
+    <string name="revanced_sb_skipped_preview_end">Recap kihagyva</string>
+    <string name="revanced_sb_skipped_selfpromo">Önpromóció kihagyva</string>
+    <string name="revanced_sb_skipped_sponsor">Szponzor kihagyva</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">A SponsorBlock átmenetileg nem elérhető</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">A SponsorBlock jelenleg nem elérhető (állapot %d)</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">A SponsorBlock átmenetileg nem elérhető (API időtúllépés)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">A SponsorBlock jelenleg nem elérhető (állapot %s)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">A SponsorBlock jelenleg nem elérhető (API időtúllépés)</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Üzenetet ír ki, ha a SponsorBlock API nem érhető el</string>
     <string name="revanced_sb_toast_on_skip">Üzenet megjelenítése automatikus ugráskor</string>
     <string name="revanced_sb_toast_on_skip_sum">Üzenetet jelenít meg, amikor egy szegmens automatikusan kihagyásra kerül</string>
@@ -818,7 +861,7 @@ A megtekintett videó azonosítóját elküldjük a Return YouTube Dislike API-n
     <string name="revanced_settings_import_export_title">Beállítások importálása / exportálása</string>
     <string name="revanced_settings_import_failed">Sikertelen importálás: %s</string>
     <string name="revanced_settings_import_reset">A RVX beállítások visszaállnak az alapértelmezettre</string>
-    <string name="revanced_settings_import_success">%d beállítás importálva</string>
+    <string name="revanced_settings_import_success">%s beállítás importálva</string>
     <string name="revanced_settings_navigate_up">Feljebb navigálás</string>
     <string name="revanced_settings_reset">Visszaállítás</string>
     <string name="revanced_settings_reset_color">Szín alaphelyzetbe állítása</string>
@@ -905,5 +948,4 @@ A megtekintett videó azonosítóját elküldjük a Return YouTube Dislike API-n
     <string name="revanced_webview_toast_empty">%s üres</string>
     <string name="revanced_webview_toast_no_network">Kérem ellenőrizze a hálózati kapcsolatot</string>
     <string name="revanced_webview_toast_unavailable">A webes nézet nem elérhető</string>
-    <string name="revanced_webview_visitor_data">Látogató adatok</string>
 </resources>

@@ -146,7 +146,7 @@ final class OfflinePlayerScreen implements OfflineScreens.Screen, OfflinePlayer.
         title.setMaxLines(1);
         title.setEllipsize(android.text.TextUtils.TruncateAt.END);
         top.addView(title, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
-        speedButton = button(android.R.drawable.ic_menu_manage, str("revanced_offline_player_speed"));
+        speedButton = button(android.R.drawable.ic_menu_manage, str("revanced_preference_category_playback_speed"));
         speedButton.setOnClickListener(this::showSpeedMenu);
         top.addView(speedButton);
         overlay.addView(top, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -215,7 +215,7 @@ final class OfflinePlayerScreen implements OfflineScreens.Screen, OfflinePlayer.
         duration = text(13, Color.WHITE);
         bottom.addView(duration);
         fullscreenButton = button(android.R.drawable.ic_menu_always_landscape_portrait,
-                str("revanced_offline_player_fullscreen"));
+                str("revanced_preference_screen_fullscreen_title"));
         fullscreenButton.setOnClickListener(v -> toggleFullscreen());
         bottom.addView(fullscreenButton);
         overlay.addView(bottom, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -345,7 +345,7 @@ final class OfflinePlayerScreen implements OfflineScreens.Screen, OfflinePlayer.
         final float current = OfflinePlayer.getSpeed();
         for (int i = 0; i < SPEEDS.length; i++) {
             final float speed = SPEEDS[i];
-            String label = (speed == 1f ? str("revanced_offline_player_speed_normal")
+            String label = (speed == 1f ? str("revanced_playback_speed_normal")
                     : String.format(Locale.US, "%sx", trim(speed)));
             menu.getMenu().add(0, i, i, label).setCheckable(true).setChecked(speed == current);
         }

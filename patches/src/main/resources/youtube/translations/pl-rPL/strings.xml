@@ -6,14 +6,14 @@
     <string name="gms_core_dialog_dismiss_text">Nie pokazuj ponownie</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG nie posiada uprawnień, aby działać w tle
 
-Postępuj zgodnie z instrukcją \"Don't kill my app\" dla swojego telefonu i zastosuj te instrukcje dla aplikacji MicroG
+Postępuj zgodnie z instrukcją \"Don't kill my app\" dla swojego telefonu i zastosuj ją do zainstalowanego MicroG
 
-To jest wymagane, aby aplikacja mogła funkcjonować"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Optymalizacje baterii MicroG muszą zostać wyłączone, aby uniknąć problemów
+Jest to wymagane do działania aplikacji"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Optymalizacja baterii dla MicroG musi być wyłączona, aby uniknąć problemów
 
-Wyłączenie optymalizacji baterii MicroG nie będzie negatywnie wpływało na zużycie baterii
+Wyłączenie jej nie wpłynie negatywnie na zużycie baterii
 
-Dotknij przycisk Kontynuuj i zezwól na zmiany optymalizacji"</string>
+Dotknij przycisk Kontynuuj i zezwól na zmianę ustawień optymalizacji"</string>
     <string name="gms_core_dialog_open_website_text">Otwórz stronę</string>
     <string name="gms_core_dialog_title">Wymagane działanie</string>
     <string name="gms_core_offline_account_login_error">Jeśli niedawno zmieniono dane logowania do konta, to odinstaluj i zainstaluj ponownie GmsCore</string>
@@ -58,6 +58,8 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_auto_pause_on_screen_lock_always">Zawsze wstrzymuj po zablokowaniu</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Wstrzymuj, chyba że podłączono bezprzewodowe słuchawki lub głośnik</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Automatyczne wstrzymywanie po zablokowaniu urządzenia</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Dodaje więcej języków do menu automatycznego tłumaczenia</string>
+    <string name="morphe_auto_translate_additional_languages_title">Dodaj więcej języków automatycznego tłumaczenia</string>
     <string name="morphe_copy_comments_success">Skopiowano komentarz do schowka</string>
     <string name="morphe_copy_comments_summary">Przytrzymaj komentarz, aby go skopiować</string>
     <string name="morphe_copy_comments_title">Kopiuj komentarze</string>
@@ -110,6 +112,10 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_explore_menu_screen_summary">Zdecyduj, które elementy będą wyświetlane w menu odkrywania</string>
     <string name="morphe_explore_menu_screen_title">Menu odkrywania</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Jeśli to nie zadziała, spróbuj wymusić zatrzymanie microG</string>
+    <string name="morphe_feed_long_press_menu_summary">Przytrzymanie filmu w dowolnym miejscu na liście otwiera jego menu</string>
+    <string name="morphe_feed_long_press_menu_title">Przytrzymaj, aby otworzyć menu filmu</string>
+    <string name="morphe_feed_watch_later_button_summary">Na miniaturkach filmów na liście wyświetlany jest przycisk \"Do obejrzenia\". Przytrzymanie go otwiera opcję \"Zapisz na playliście\"</string>
+    <string name="morphe_feed_watch_later_button_title">Pokaż przycisk \"Do obejrzenia\" na miniaturkach</string>
     <string name="morphe_force_original_audio_not_available">Aby użyć tej funkcji, zmień opcję \"Fałszowanie strumieni filmów\" na dowolnego klienta z wyjątkiem \"Android Studio\" i \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary_off">Wyłączone</string>
     <string name="morphe_force_original_audio_summary_on">Włączone</string>
@@ -197,7 +203,7 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_oauth2_connection_failure_auth_error">Nie można zalogować się do VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nie można zalogować się do VR, autoryzacja na stronie nie została zatwierdzona</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 jest tymczasowo niedostępny</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 jest tymczasowo niedostępny (status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 jest tymczasowo niedostępny (status %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Sesja logowania Android VR wygasła, spróbuj zalogować się ponownie</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 jest tymczasowo niedostępny (API nie reaguje)</string>
     <string name="morphe_oauth2_toast_invalid">Nieprawidłowy token logowania VR, spróbuj zalogować się ponownie</string>
@@ -232,7 +238,6 @@ Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wyma
     <string name="morphe_potoken_provider_unavailable_summary">"Naprawia problemy z odtwarzaniem za pomocą wbudowanego dostawcy PoToken (wersja eksperymentalna)
 
 Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</string>
-    <string name="morphe_preferred_caption_language_entry_off">Wyłączone</string>
     <string name="morphe_preferred_caption_language_summary">Najpierw wybiera napisy dostawcy, a następnie automatycznie tłumaczy je na preferowany język</string>
     <string name="morphe_preferred_caption_language_title">Preferowany język napisów</string>
     <string name="morphe_queue_manager_check_failed_auth">Nie zalogowano</string>
@@ -344,7 +349,7 @@ Aby korzystać z tej funkcji, wyłącz dostawcę PoToken"</string>
     <string name="morphe_spoof_video_streams_summary_on">"Włączone
 
 Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może powodować problemy z odtwarzaniem</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Dotknij, aby wyświetlić opcje kolejki. Przytrzymaj, aby zapisać do obejrzenia</string>
     <string name="morphe_swap_save_and_queue_actions_title">Zamień akcje Zapisz i Kolejka</string>
     <string name="morphe_tablet_layout_in_player_summary">"Przywraca stary układ odtwarzacza
@@ -2196,7 +2201,7 @@ Identyfikator oglądanego filmu jest wysyłany do API Return YouTube Dislike, a 
     <string name="revanced_ryd_estimated_like_summary_on">Filmy z wyłączonymi polubieniami wyświetlają szacunkową liczbę polubień</string>
     <string name="revanced_ryd_estimated_like_title">Pokaż szacowaną liczbę polubień</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Łapki w dół są niedostępne (limit żądań API)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Łapki w dół są niedostępne (status %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Łapki w dół są niedostępne (status %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Łapki w dół są niedostępne (API nie reaguje)</string>
     <string name="revanced_ryd_failure_generic">Łapki w dół są niedostępne (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Komunikat nie jest wyświetlany, jeśli Return YouTube Dislike nie jest dostępny</string>
@@ -2303,7 +2308,7 @@ Jeśli nie wysyłasz wyróżnienia, dotknij Anuluj i zaznacz drugi punkt"</strin
     <string name="revanced_sb_new_segment_mark_locations_first">Najpierw zaznacz punkt na pasku postępu</string>
     <string name="revanced_sb_new_segment_mark_start">Początek</string>
     <string name="revanced_sb_new_segment_now">Teraz</string>
-    <string name="revanced_sb_new_segment_preview_segment_first">Obejrzyj podgląd i upewnij się, że segment pomijany jest płynnie</string>
+    <string name="revanced_sb_new_segment_preview_segment_first">Obejrzyj podgląd i upewnij się, że segment jest płynnie pomijany</string>
     <string name="revanced_sb_new_segment_publish">Opublikuj utworzony segment</string>
     <string name="revanced_sb_new_segment_rewind">Przewiń wstecz o określony czas (Domyślnie: 150 ms)</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Początek musi być przed końcem</string>
@@ -2375,7 +2380,7 @@ Twój identyfikator użytkownika jest jak hasło i nigdy nie powinno być udost�
     <string name="revanced_sb_skipped_sponsor">Pominięto treści sponsorowane</string>
     <string name="revanced_sb_skipped_unsubmitted">Pominięto niewysłany segment</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock jest niedostępny</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock jest niedostępny (status %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock jest niedostępny (status %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock jest niedostępny (API nie reaguje)</string>
     <string name="revanced_sb_square_layout">Użyj kwadratowego układu</string>
     <string name="revanced_sb_square_layout_sum_off">Przyciski i elementy sterujące są zaokrąglone</string>
@@ -2398,7 +2403,7 @@ Twój identyfikator użytkownika jest jak hasło i nigdy nie powinno być udost�
     <string name="revanced_sb_stats_submissions_sum">Dotknij tutaj, aby zobaczyć swoje segmenty</string>
     <string name="revanced_sb_stats_username">Twoja nazwa użytkownika: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Dotknij tutaj, aby zmienić nazwę użytkownika</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Nie można zmienić nazwy użytkownika: Status: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Nie można zmienić nazwy użytkownika: Status: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Nazwa użytkownika została zmieniona</string>
     <string name="revanced_sb_submit_failed_duplicate">"Nie można wysłać segmentu
 Już istnieje"</string>
@@ -2406,7 +2411,7 @@ Już istnieje"</string>
     <string name="revanced_sb_submit_failed_invalid">Nie można wysłać segmentu: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Nie można wysłać segmentu (zbyt wiele żądań od tego samego użytkownika lub IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock jest niedostępny</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Nie można wysłać segmentu (status: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Nie można wysłać segmentu (status: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segment został wysłany pomyślnie</string>
     <string name="revanced_sb_toast_on_connection_error">Pokaż powiadomienia o błędach połączenia</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Komunikat nie jest wyświetlany, jeśli SponsorBlock nie jest dostępny</string>
@@ -2417,7 +2422,7 @@ Już istnieje"</string>
     <string name="revanced_sb_vote_downvote">Głos przeciw</string>
     <string name="revanced_sb_vote_failed_forbidden">Nie można ocenić segmentu: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Nie można ocenić segmentu (API nie reaguje)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Nie można ocenić segmentu (status: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Nie można ocenić segmentu (status: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Brak segmentów, które można ocenić</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s do %2$s</string>
     <string name="revanced_sb_vote_upvote">Głos za</string>
@@ -2466,7 +2471,7 @@ Może to nie działać, jeśli:
     <string name="revanced_settings_import_export_as_text_summary">Importuje/Eksportuje ustawienia w formie tekstu</string>
     <string name="revanced_settings_import_failed">Nie udało się zaimportować ustawień</string>
     <string name="revanced_settings_import_reset">Przywrócono domyślne ustawienia RVX</string>
-    <string name="revanced_settings_import_success">Zaimportowano %d ustawień</string>
+    <string name="revanced_settings_import_success">Zaimportowano %s ustawień</string>
     <string name="revanced_settings_import_summary">Importuje ustawienia z zapisanego pliku</string>
     <string name="revanced_settings_import_title">Zaimportuj ustawienia</string>
     <string name="revanced_settings_navigate_up">Przejdź w górę</string>
@@ -2600,9 +2605,9 @@ Ograniczenie: tytuły filmów znikają po stuknięciu w nie"</string>
     <string name="revanced_spoof_app_version_title">Fałszuj wersję aplikacji</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"Aplikacja będzie przedstawiać się serwerom jako starsza wersja
 
-Może to zmienić wygląd i funkcje, ale też powodować nieznane błędy
+Zmieni to wygląd i dostępne funkcje aplikacji, ale mogą wystąpić nieprzewidziane skutki uboczne
 
-Jeśli później zostanie to wyłączone, zalecane jest usunięcie danych aplikacji, aby zapobiec błędom interfejsu"</string>
+​Jeśli później wyłączysz tę opcję, zaleca się wyczyszczenie danych aplikacji, aby uniknąć błędów interfejsu"</string>
     <string name="revanced_spoof_device_dimensions_summary">Włączenie tej opcji może odblokować wyższą jakość filmów</string>
     <string name="revanced_spoof_device_dimensions_title">Fałszuj rozdzielczość urządzenia</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• brakuje menu od ścieżki dźwiękowej
@@ -2899,7 +2904,6 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_webview_toast_empty">%s jest puste</string>
     <string name="revanced_webview_toast_no_network">Sprawdź swoje połączenie internetowe</string>
     <string name="revanced_webview_toast_unavailable">WebView jest niedostępne</string>
-    <string name="revanced_webview_visitor_data">Visitor Data</string>
     <string name="revanced_whitelist_add_failed">Nie udało się dodać kanału \'%1$s\' do białej listy %2$s</string>
     <string name="revanced_whitelist_added">Kanał \'%1$s\' został dodany do białej listy %2$s</string>
     <string name="revanced_whitelist_empty">Brak kanałów na białej liście</string>
@@ -2934,7 +2938,7 @@ Wymagana jest autoryzacja, aby poprosić o tłumaczenie z żywym głosem w przyp
     <string name="revanced_yandex_status_subs_found">Znaleziono napisy, pobieranie...</string>
     <string name="revanced_yandex_status_transcription_delayed">Transkrypcja jest lekko opóźniona</string>
     <string name="revanced_yandex_status_youtube_specific">Obsługiwanie żądań dźwięku YouTube...</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Język docelowy napisów Yandex: Rosyjski (ru), Angielski (en), Kazachski (kk) lub język aplikacji („app”). Dostęp do pozostałych języków aplikacji jest możliwy za pośrednictwem tłumaczenia Gemini (wymagany jest klucz API)"</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Język docelowy dla napisów Yandex: Rosyjski (ru), Angielski (en), Kazachski (kk) lub język aplikacji („app”). Dostęp do innych języków aplikacji jest możliwy za pośrednictwem tłumaczenia Gemini (wymagany jest klucz API)"</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Język Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Używaj transkrypcji Yandex zamiast Gemini. Yandex jest szybszy i bardziej rzetelny. Klucz API nie jest wymagany</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Transkrypcja Yandex</string>

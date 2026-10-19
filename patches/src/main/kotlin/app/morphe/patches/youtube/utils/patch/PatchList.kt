@@ -19,7 +19,7 @@ internal enum class PatchList(
     ),
     AMBIENT_MODE_CONTROL(
         "Ambient mode control",
-        "Adds options to disable Ambient mode and to bypass Ambient mode restrictions."
+        "Forces Ambient mode on and adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen."
     ),
     BYPASS_IMAGE_REGION_RESTRICTIONS(
         "Bypass image region restrictions",

@@ -9,11 +9,11 @@
 اتبَع دليل \"Don't kill my app\" الخاص بجوالك، وطبّق التعليمات على تثبيت MicroG
 
 هذا ضروري لعمل التطبيق"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">" تحسينات البطارية يجب تعطيلها لمنع المشكلات MicroG
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"يجب تعطيل تحسينات البطارية في MicroG لمنع حدوث مشكلات
 
-تعطيل تحسينات البطارية لـ MicroG لا يضغظ على استهلاك البطارية
+لا يؤثر تعطيل تحسينات البطارية لـ MicroG سلبًا على استخدام البطارية
 
- انقر على زر متابعة و اسمح بتغييرات التحسين"</string>
+انقر فوق زر المتابعة واسمح بتغييرات التحسين"</string>
     <string name="gms_core_dialog_open_website_text">فتح الموقع</string>
     <string name="gms_core_dialog_title">الإجراء مطلوب</string>
     <string name="gms_core_offline_account_login_error">إذا قمت مؤخرًا بتغيير تفاصيل تسجيل الدخول إلى حسابك، فقم بإلغاء تثبيت GmsCore وإعادة تثبيته</string>
@@ -58,6 +58,8 @@
     <string name="morphe_auto_pause_on_screen_lock_always">إيقاف التشغيل دائمًا عند القفل</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">إيقاف التشغيل إلا إذا كان الصوت اللاسلكي متصلًا</string>
     <string name="morphe_auto_pause_on_screen_lock_title">إيقاف التشغيل تلقائيًا عند قفل الجهاز</string>
+    <string name="morphe_auto_translate_additional_languages_summary">يضيف المزيد من اللغات إلى قائمة الترجمة التلقائية</string>
+    <string name="morphe_auto_translate_additional_languages_title">إضافة لغات إضافية للترجمة التلقائية</string>
     <string name="morphe_copy_comments_success">تم نسخ التعليق إلى الحافظة</string>
     <string name="morphe_copy_comments_summary">اضغط مع الاستمرار على تعليق لنسخه</string>
     <string name="morphe_copy_comments_title">نسخ التعليقات</string>
@@ -109,6 +111,10 @@
     <string name="morphe_explore_menu_screen_summary">اختر المكونات التي تظهر في قائمة استكشاف</string>
     <string name="morphe_explore_menu_screen_title">قائمة استكشاف</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">إذا لم ينجح الأمر، جرّب إيقاف MicroG إجباريًا</string>
+    <string name="morphe_feed_long_press_menu_summary">يؤدي الضغط مع الاستمرار في أي مكان على فيديو في الخلاصة إلى فتح قائمته</string>
+    <string name="morphe_feed_long_press_menu_title">الضغط مع الاستمرار لفتح قائمة الفيديو</string>
+    <string name="morphe_feed_watch_later_button_summary">يتم عرض زر المشاهدة لاحقًا على مصغرات فيديوهات الخلاصة. يؤدي الضغط مع الاستمرار عليه إلى فتح الحفظ في قوائم التشغيل</string>
+    <string name="morphe_feed_watch_later_button_title">عرض زر \"المشاهدة لاحقًا\" على المصغرات</string>
     <string name="morphe_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء \'Android Studio\' و \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
     <string name="morphe_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
@@ -196,7 +202,7 @@
     <string name="morphe_oauth2_connection_failure_auth_error">فشل تسجيل الدخول إلى VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">لا يمكن تسجيل الدخول إلى VR، لم تتم الموافقة على مصادقة الموقع الإلكتروني</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 غير متاح مؤقتًا</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 غير متاح مؤقتًا (الحالة %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 غير متاح مؤقتًا (الحالة %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">انتهت صلاحية تسجيل الدخول إلى Android VR، حاول تسجيل الدخول إلى VR مرة أخرى</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="morphe_oauth2_toast_invalid">رمز تسجيل الدخول إلى VR غير صالح، حاول تسجيل الدخول مرة أخرى إلى VR</string>
@@ -226,7 +232,6 @@
     <string name="morphe_potoken_provider_unavailable_summary">"يُصلح مشاكل التشغيل باستخدام موفر PoToken المدمج (تجريبي) 
 
 لاستخدام هذه الميزة، قم بإيقاف تشغيل  \'بث فيديو ساخر \'"</string>
-    <string name="morphe_preferred_caption_language_entry_off">متوقف</string>
     <string name="morphe_preferred_caption_language_summary">يقوم باختيار ترجمات المزود أولًا، ثم يترجم تلقائيًا إلى اللغة المفضلة</string>
     <string name="morphe_preferred_caption_language_title">لغة الترجمة المفضلة</string>
     <string name="morphe_queue_manager_check_failed_auth">تسجيل الدخول غير ممكن</string>
@@ -2124,7 +2129,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_ryd_estimated_like_summary_on">يتم عرض عدد تقديري للإعجابات في الفيديوهات التي تم تعطيل الإعجابات فيها</string>
     <string name="revanced_ryd_estimated_like_title">عرض الإعجابات المقدرة</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">عدد مرات لم يعجبني غير متوفر (حد API للعميل)</string>
-    <string name="revanced_ryd_failure_connection_status_code">لم يعجبني غير متاح (الحالة %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">لم يعجبني غير متاح (الحالة %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">لم يعجبني غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="revanced_ryd_failure_generic">لم يعجبني غير متاح (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
@@ -2151,8 +2156,8 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_sb_create_segment_category">إنشاء مقاطع جديدة</string>
     <string name="revanced_sb_diff_segments">تغيير سلوك المقطع</string>
     <string name="revanced_sb_duration_10s">10 ثوانٍ</string>
-    <string name="revanced_sb_duration_1s">ثانية واحدة</string>
-    <string name="revanced_sb_duration_2s">ثانيتان</string>
+    <string name="revanced_sb_duration_1s">1 ثانية</string>
+    <string name="revanced_sb_duration_2s">2 ثانية</string>
     <string name="revanced_sb_duration_3s">3 ثوانٍ</string>
     <string name="revanced_sb_duration_4s">4 ثوانٍ</string>
     <string name="revanced_sb_duration_5s">5 ثوانٍ</string>
@@ -2303,7 +2308,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_sb_skipped_sponsor">تم تخطي الراعي</string>
     <string name="revanced_sb_skipped_unsubmitted">تم تخطي المقطع الغير المرسل</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock غير متاح مؤقتًا</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock غير متاح مؤقتًا (الحالة %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock غير متاح مؤقتًا (الحالة %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock غير متاح مؤقتًا (انتهت مهلة API)</string>
     <string name="revanced_sb_square_layout">استخدام التخطيط المربع</string>
     <string name="revanced_sb_square_layout_sum_off">الأزرار وعناصر التحكم مدورة الشكل</string>
@@ -2326,7 +2331,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_sb_stats_submissions_sum">اضغط هنا لعرض المقاطع الخاصة بك</string>
     <string name="revanced_sb_stats_username">اسم المستخدم الخاص بك: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">انقر هنا لتغيير اسم المستخدم الخاص بك</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">غير قادر على تغيير اسم المستخدم: الحالة: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">غير قادر على تغيير اسم المستخدم: الحالة: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">تم تغيير اسم المستخدم بنجاح</string>
     <string name="revanced_sb_submit_failed_duplicate">"لا يمكن إرسال هذا المقطع
 موجود بالفعل"</string>
@@ -2334,7 +2339,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_sb_submit_failed_invalid">غير قادر على إرسال المقطع: الحالة: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">لا يمكن إرسال المقطع. جارٍ الحد من معدل إرسالك (عدد كبير جدًا من نفس المستخدم أو IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock متوقف مؤقتًا</string>
-    <string name="revanced_sb_submit_failed_unknown_error">غير قادر على إرسال المقطع (الحالة: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">غير قادر على إرسال المقطع (الحالة: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">تم إرسال المقطع بنجاح</string>
     <string name="revanced_sb_toast_on_connection_error">عرض تنبيهات خطأ الاتصال</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">لا يتم عرض ملاحظة في حالة عدم توفر SponsorBlock</string>
@@ -2345,7 +2350,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_sb_vote_downvote">اعتراض</string>
     <string name="revanced_sb_vote_failed_forbidden">غير قادر على التصويت للمقطع: %s</string>
     <string name="revanced_sb_vote_failed_timeout">غير قادر على التصويت للمقطع (انتهت مهلة API)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">غير قادر على التصويت للمقطع (الحالة: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">غير قادر على التصويت للمقطع (الحالة: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">لا توجد مقاطع للتصويت عليها</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s إلى %2$s</string>
     <string name="revanced_sb_vote_upvote">تأييد</string>
@@ -2387,7 +2392,7 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_settings_import_export_as_text_summary">استيراد \ تصدير الإعدادات كنص</string>
     <string name="revanced_settings_import_failed">فشل استيراد الإعدادات</string>
     <string name="revanced_settings_import_reset">إعادة تعيين إعدادات RVX إلى الوضع الافتراضي</string>
-    <string name="revanced_settings_import_success">تم استيراد %d إعدادات</string>
+    <string name="revanced_settings_import_success">تم استيراد %s إعدادات</string>
     <string name="revanced_settings_import_summary">استيراد الإعدادات من ملف محفوظ</string>
     <string name="revanced_settings_import_title">استيراد الإعدادات</string>
     <string name="revanced_settings_navigate_up">الانتقال لأعلى</string>
@@ -2760,7 +2765,6 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_webview_toast_empty">%s فارغ</string>
     <string name="revanced_webview_toast_no_network">يرجى التحقق من اتصالك بالشبكة</string>
     <string name="revanced_webview_toast_unavailable">WebView غير متاح</string>
-    <string name="revanced_webview_visitor_data">بيانات الزائر</string>
     <string name="revanced_whitelist_add_failed">فشلت إضافة القناة \'%1$s\' إلى القائمة البيضاء %2$s</string>
     <string name="revanced_whitelist_added">تم إضافة القناة \'%1$s\' إلى القائمة البيضاء %2$s</string>
     <string name="revanced_whitelist_empty">لا توجد قنوات مدرجة في القائمة البيضاء</string>

@@ -4,22 +4,22 @@
     <string name="accessibility_settings_edu_opt_out_text">由于无障碍服务已启用，你的控件已被修改。</string>
     <string name="gms_core_dialog_continue_text">继续</string>
     <string name="gms_core_dialog_dismiss_text">不再提示</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 无法在后台运行。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG 没有权限在后台运行。
 
-请按照 'Don't kill my app' 网站上对应手机的指南，允许 MicroG 在后台运行。
+请按照 \"Don't kill my app\" 指南操作您的手机，并将说明应用到您的 MicroG 安装中。
 
-这是应用程序正常运行的必要条件。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必须禁用 MicroG 的电池优化，以防止出现问题。
+这是应用程序正常运行所必需的"</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"必须禁用 MicroG 电池优化以防止出现问题。
 
-禁用 MicroG 的电池优化不会对电池使用造成负面影响。
+禁用 MicroG 的电池优化不会对电池续航产生负面影响。
 
-点击继续按钮并允许优化更改。"</string>
+点击继续按钮并允许更改优化设置"</string>
     <string name="gms_core_dialog_open_website_text">打开网站</string>
     <string name="gms_core_dialog_title">需要采取措施</string>
     <string name="gms_core_offline_account_login_error">如果您最近更改了帐户登录信息，请卸载并重新安装GmsCore。</string>
     <string name="gms_core_settings_summary">启用云消息传递以接收通知</string>
     <string name="gms_core_settings_title">打开 GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">MicroG 未安装。请先安装。</string>
+    <string name="gms_core_toast_not_installed_message">未安装 MicroG。请安装</string>
     <string name="morphe_ads_channel_whitelist_title">频道广告白名单</string>
     <string name="morphe_aislist_submit_already_blocklisted">此频道已在 AiSList 的黑名单中</string>
     <string name="morphe_aislist_submit_already_warnlisted">此频道已在 AiSList 的警告名单中</string>
@@ -58,6 +58,8 @@
     <string name="morphe_auto_pause_on_screen_lock_always">锁定时始终暂停</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">除非连接无线音频，否则暂停</string>
     <string name="morphe_auto_pause_on_screen_lock_title">设备锁定时自动暂停</string>
+    <string name="morphe_auto_translate_additional_languages_summary">在自动翻译菜单中添加更多语言</string>
+    <string name="morphe_auto_translate_additional_languages_title">添加更多自动翻译语言</string>
     <string name="morphe_copy_comments_success">评论已复制到剪贴板</string>
     <string name="morphe_copy_comments_summary">点按并按住评论即可复制</string>
     <string name="morphe_copy_comments_title">复制评论</string>
@@ -98,6 +100,10 @@
     <string name="morphe_explore_menu_screen_summary">选择在探索菜单中显示哪些组件</string>
     <string name="morphe_explore_menu_screen_title">探索菜单</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">如果不起作用，请尝试强制关闭 MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">在信息流视频中任意位置长按可打开其菜单</string>
+    <string name="morphe_feed_long_press_menu_title">长按打开视频菜单</string>
+    <string name="morphe_feed_watch_later_button_summary">信息流视频的缩略图上会显示“稍后观看”按钮，点击并长按该按钮可将其保存到播放列表</string>
+    <string name="morphe_feed_watch_later_button_title">在缩略图上显示稍后观看按钮</string>
     <string name="morphe_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除“Android Studio”和“Android VR 降级”之外的任何客户端</string>
     <string name="morphe_force_original_audio_summary_off">正在使用默认音频</string>
     <string name="morphe_force_original_audio_summary_on">使用原始音频语言</string>
@@ -181,7 +187,7 @@
     <string name="morphe_oauth2_connection_failure_auth_error">无法登录 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">无法登录VR，网站认证未批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暂时不可用</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 暂时不可用（状态：%d）</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 暂时不可用 (状态 %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR登录已过期，请重新登录VR</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 暂时不可用（API 超时）</string>
     <string name="morphe_oauth2_toast_invalid">无效的 VR 登录令牌，请重新登录 VR</string>
@@ -204,7 +210,6 @@
     <string name="morphe_playback_in_feeds_title">在信息流中播放</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">调整播放器控制按钮和时间栏后面背景的不透明度（0为不可见，100为完全不透明）</string>
     <string name="morphe_player_control_buttons_background_opacity_title">控制按钮背景不透明度</string>
-    <string name="morphe_preferred_caption_language_entry_off">关闭</string>
     <string name="morphe_preferred_caption_language_summary">先选择提供方字幕，然后自动翻译为首选语言</string>
     <string name="morphe_preferred_caption_language_title">首选字幕语言</string>
     <string name="morphe_queue_manager_check_failed_auth">未登录</string>
@@ -271,7 +276,7 @@
     <string name="morphe_spoof_video_streams_av1_title">允许“Android VR”/ visionOS AV1</string>
     <string name="morphe_spoof_video_streams_av1_user_dialog_message">"启用此设置可能会使用软件 AV1 解码。
 
-使用 AV1 播放视频可能会卡顿或丢帧。"</string>
+使用 AV1 播放视频可能会卡顿或丢帧"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s 连续多次无法使用，但 %2$s 可以。
 
 要将 %2$s 设为默认客户端吗？"</string>
@@ -315,7 +320,7 @@
     <string name="morphe_spoof_video_streams_summary_on">"视频流已欺骗
 
 如果您是 YouTube Premium 用户，此设置可能不需要"</string>
-    <string name="morphe_spoof_video_streams_user_dialog_message">关闭此设置可能会导致播放问题。</string>
+    <string name="morphe_spoof_video_streams_user_dialog_message">关闭此设置可能会导致播放问题</string>
     <string name="morphe_swap_save_and_queue_actions_summary">点击可查看队列选项，长按可保存到“稍后观看”</string>
     <string name="morphe_swap_save_and_queue_actions_title">交换保存和队列操作</string>
     <string name="morphe_tablet_layout_in_player_summary">"恢复旧版播放器布局
@@ -350,7 +355,7 @@
 点击此处打开 MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">您已使用今天的免费 MyMemory 翻译配额（5,000 个字符）。在设置中添加 MyMemory 邮箱以将每日限制提高到 50,000 个字符，或切换到其他翻译服务</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">您已使用今天的 MyMemory 翻译配额（50,000 个字符）。切换到其他翻译服务或明天再试</string>
-    <string name="morphe_vot_mymemory_quota_next_available">下次可用时间为 %s。</string>
+    <string name="morphe_vot_mymemory_quota_next_available">%s 后再次可用</string>
     <string name="morphe_vot_mymemory_quota_title">MyMemory 每日限制已达到</string>
     <string name="morphe_vot_openrouter_api_key_summary">您的 OpenRouter API 密钥。在 OpenRouter.ai &gt; 工作区 &gt; API 密钥处创建密钥</string>
     <string name="morphe_vot_openrouter_api_key_title">OpenRouter API 密钥</string>
@@ -619,17 +624,17 @@
     <string name="revanced_disable_layout_updates_summary_off">服务器会更新布局</string>
     <string name="revanced_disable_layout_updates_summary_on">服务器不会更新布局</string>
     <string name="revanced_disable_layout_updates_title">禁用布局更新</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"应用布局恢复到首次安装时使用的布局。
+    <string name="revanced_disable_layout_updates_user_dialog_message">"应用布局恢复为首次安装时使用的布局。
 
-某些服务器端布局可能无法恢复。
+某些服务器端布局可能不会恢复。
 
 更改包括：
-• 播放器飞出菜单（或相关设置）中的组件可能无法工作。
-• 滚动数字没有动画。
-• 显示库标签。
-• 视频描述中的音乐部分可能无法工作。
-• 播放器飞出菜单项无法隐藏。
-• 帐户切换按钮可能不会出现在库标签上。"</string>
+• 播放器弹出菜单（或相关设置）中的组件可能无法正常工作
+• 滚动数字不显示动画
+• 显示库标签页
+• 视频描述的音乐部分可能无法正常工作
+• 播放器弹出菜单项无法隐藏
+• 账户切换按钮可能不会出现在库标签页上"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">点赞和点踩按钮点击时有动效</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">点赞和点踩按钮点击时无动效</string>
     <string name="revanced_disable_like_dislike_glow_title">禁用点赞和点踩按钮动效</string>
@@ -787,7 +792,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安装
 请从网站下载 %2$s"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s未安装。请安装它。</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s 未安装。请安装它</string>
     <string name="revanced_external_downloader_other_item">其他</string>
     <string name="revanced_external_downloader_other_item_hint">输入包名</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">已安装的外部下载器应用的包名称。</string>
@@ -1085,7 +1090,7 @@
     <string name="revanced_hide_general_ads_title">隐藏一般广告</string>
     <string name="revanced_hide_handle_summary_off">控制列已显示</string>
     <string name="revanced_hide_handle_summary_on">控制列已隐藏</string>
-    <string name="revanced_hide_handle_title">隐藏句柄</string>
+    <string name="revanced_hide_handle_title">隐藏标识名</string>
     <string name="revanced_hide_hashtag_section_title">隐藏话题标签部分</string>
     <string name="revanced_hide_how_this_was_made_section_summary_off">「内容制作说明」部分已显示</string>
     <string name="revanced_hide_how_this_was_made_section_summary_on">内容制作说明部分已隐藏</string>
@@ -1572,7 +1577,7 @@
     <string name="revanced_hide_youtube_doodles_summary_off">YouTube 徽标上的 Doodles 动画已显示</string>
     <string name="revanced_hide_youtube_doodles_summary_on">隐藏YouTube徽标上的Doodles动画</string>
     <string name="revanced_hide_youtube_doodles_title">隐藏 YouTube 涂鸦</string>
-    <string name="revanced_hide_youtube_doodles_user_dialog_message">显示 YouTube 短视频可能会阻止自定义标题显示。</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">显示 YouTube Doodles 可能会阻止自定义标题的显示</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_off">YouTube Premium 推广已显示。</string>
     <string name="revanced_hide_youtube_premium_promotion_summary_on">"YouTube Premium 推广已隐藏。
 
@@ -1799,8 +1804,8 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_patched_date_title">补丁日期</string>
     <string name="revanced_patches_excluded"><font color="#EA4335">已排除</font></string>
     <string name="revanced_patches_included"><font color="#4CAF50">已包含</font></string>
-    <string name="revanced_playback_audio_time_stretching_summary">Allows setting speed and pitch independently, may cause audio artifacts</string>
-    <string name="revanced_playback_audio_time_stretching_title">Audio time stretching</string>
+    <string name="revanced_playback_audio_time_stretching_summary">支持独立调节速度和音高，可能会造成音频失真</string>
+    <string name="revanced_playback_audio_time_stretching_title">音频时间拉伸</string>
     <string name="revanced_playback_speed_normal">正常</string>
     <string name="revanced_preference_category_action_buttons">操作按钮</string>
     <string name="revanced_preference_category_additional_settings">其他设置</string>
@@ -1944,7 +1949,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_quick_actions_top_margin_invalid_toast">快速操作顶部边距必须在 0-32 之间 重置为默认值</string>
     <string name="revanced_quick_actions_top_margin_summary">设置快速操作栏的顶部外边距（0-32 dp）</string>
     <string name="revanced_quick_actions_top_margin_title">快速操作顶部外边距</string>
-    <string name="revanced_remember_playback_audio_pitch_toast">Changed default audio pitch to: %s</string>
+    <string name="revanced_remember_playback_audio_pitch_toast">已将默认音频音高更改为: %s</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度更改仅适用于当前视频</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度更改适用于所有视频</string>
     <string name="revanced_remember_playback_speed_last_selected_title">记住播放速度</string>
@@ -2038,7 +2043,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_ryd_estimated_like_summary_on">已禁用点赞的视频会显示估计的点赞数</string>
     <string name="revanced_ryd_estimated_like_title">显示估计的点赞数</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">无法使用“不喜欢”（客户端 API 限制）</string>
-    <string name="revanced_ryd_failure_connection_status_code">点踩数不可用 (状态 %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">点踩数不可用 (状态 %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">点踩数暂时不可用 (API 连接超时)</string>
     <string name="revanced_ryd_failure_generic">点踩数不可用 (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 不可用，则不显示提示</string>
@@ -2132,7 +2137,7 @@ AI生成的回复可能包含不准确的信息。
 准备好提交了吗？"</string>
     <string name="revanced_sb_new_segment_confirm_contents">该片段从\n\n%1$s\n到\n%2$s\n\n(%3$s)\n\n准备好提交了吗？</string>
     <string name="revanced_sb_new_segment_confirm_title">时间是否正确？</string>
-    <string name="revanced_sb_new_segment_disabled_category">类别已在设置中禁用。启用类别以提交。</string>
+    <string name="revanced_sb_new_segment_disabled_category">类别在设置中已禁用。启用类别以提交</string>
     <string name="revanced_sb_new_segment_edit">编辑片段</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">您想要编辑片段开始或结束的时间吗？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">给定的时间无效</string>
@@ -2221,7 +2226,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_skipped_sponsor">已跳过赞助商广告</string>
     <string name="revanced_sb_skipped_unsubmitted">跳过未提交的片段</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock 暂时无法使用</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暂时无法使用 (状态 %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暂时无法使用 (状态 %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暂时无法使用 (API 超时)</string>
     <string name="revanced_sb_square_layout">使用方形控件</string>
     <string name="revanced_sb_square_layout_sum_off">按钮和控件已使用圆角样式</string>
@@ -2244,7 +2249,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_stats_submissions_sum">点击这里查看您的片段</string>
     <string name="revanced_sb_stats_username">您的用户名: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">点击这里更改您的用户名</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">无法更改用户名：状态：%1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">无法更改用户名：状态：%1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">用户名称修改成功</string>
     <string name="revanced_sb_submit_failed_duplicate">"无法提交片段。
 已存在"</string>
@@ -2252,7 +2257,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_submit_failed_invalid">无法提交片段: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">无法提交片段。速率限制（来自同一用户或 IP 的太多）</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock 暂时无法使用</string>
-    <string name="revanced_sb_submit_failed_unknown_error">无法提交片段 (状态: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">无法提交片段 (状态: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">成功提交新片段</string>
     <string name="revanced_sb_toast_on_connection_error">显示连接错误提醒</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">如果 SponsorBlock 不可用，不显示\"提示\"</string>
@@ -2263,7 +2268,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_sb_vote_downvote">反对票</string>
     <string name="revanced_sb_vote_failed_forbidden">无法为片段投票: %s</string>
     <string name="revanced_sb_vote_failed_timeout">无法为片段投票 (API 超时)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">无法为片段投票 (状态: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">无法为片段投票 (状态: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">没有要投票的片段</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s 到 %2$s</string>
     <string name="revanced_sb_vote_upvote">赞成票</string>
@@ -2302,7 +2307,7 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_settings_import_export_as_text_summary">将设置导入/导出为文本。</string>
     <string name="revanced_settings_import_failed">导入设置失败。</string>
     <string name="revanced_settings_import_reset">RVX 设置重置为默认</string>
-    <string name="revanced_settings_import_success">导入 %d 个设置</string>
+    <string name="revanced_settings_import_success">导入 %s 个设置</string>
     <string name="revanced_settings_import_summary">从保存的文件导入设置。</string>
     <string name="revanced_settings_import_title">导入设置</string>
     <string name="revanced_settings_navigate_up">向上导航</string>
@@ -2416,11 +2421,11 @@ AI生成的回复可能包含不准确的信息。
     <string name="revanced_spoof_app_version_target_invalid_toast">无效的伪装应用版本：%s。</string>
     <string name="revanced_spoof_app_version_target_summary">选择伪装的应用版本</string>
     <string name="revanced_spoof_app_version_title">伪装应用版本</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"应用版本将被欺骗为旧版本。
+    <string name="revanced_spoof_app_version_user_dialog_message">"应用版本将被伪装为旧版本。
 
 这会改变应用程序的外观和功能，但可能会出现未知的副作用。
 
-如果稍后关闭，建议清除应用程序数据以防止 UI 错误。"</string>
+如果稍后关闭，建议清除应用程序数据以防止 UI 错误"</string>
     <string name="revanced_spoof_device_dimensions_summary">启用此功能可以解锁更高的视频质量</string>
     <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• 音轨菜单丢失。
@@ -2507,7 +2512,7 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_gestures_lock_mode_summary_on">在“锁定屏幕”模式下启用滑动手势</string>
     <string name="revanced_swipe_gestures_lock_mode_title">在“锁定屏幕”模式下滑动手势</string>
     <string name="revanced_swipe_haptic_feedback_title">使用触感反馈</string>
-    <string name="revanced_swipe_left_zone_title">Left swipe gesture</string>
+    <string name="revanced_swipe_left_zone_title">左侧滑动手势</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自动</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">滑动到最低亮度手势不启用自动亮度</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">滑动到最低亮度手势将启用自动亮度</string>
@@ -2537,7 +2542,7 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_press_to_engage_summary_off">按压以滑动已禁用</string>
     <string name="revanced_swipe_press_to_engage_summary_on">按压以滑动已启用</string>
     <string name="revanced_swipe_press_to_engage_title">启用按压以滑动的手势</string>
-    <string name="revanced_swipe_right_zone_title">Right swipe gesture</string>
+    <string name="revanced_swipe_right_zone_title">右侧滑动手势</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_off">退出/进入全屏时不保存或恢复亮度</string>
     <string name="revanced_swipe_save_and_restore_brightness_summary_on">退出/进入全屏时保存和恢复亮度</string>
     <string name="revanced_swipe_save_and_restore_brightness_title">保存并恢复亮度</string>
@@ -2562,7 +2567,7 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_swipe_text_overlay_size_title">滑动提示层文字大小</string>
     <string name="revanced_swipe_threshold_summary">设置触发调整所需的滑动距离</string>
     <string name="revanced_swipe_threshold_title">滑动幅度阈值</string>
-    <string name="revanced_swipe_top_zone_title">Top swipe gesture</string>
+    <string name="revanced_swipe_top_zone_title">顶部滑动手势</string>
     <string name="revanced_swipe_volume_distance_summary">数值越高，每个音量步进所需的滑动次数越多。</string>
     <string name="revanced_swipe_volume_distance_title">音量滑动灵敏度</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">音量滑动灵敏度必须在1-1000之间。</string>
@@ -2651,7 +2656,6 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
     <string name="revanced_webview_toast_empty">%s 为空。</string>
     <string name="revanced_webview_toast_no_network">请检查你的网络连接。</string>
     <string name="revanced_webview_toast_unavailable">WebView 不可用。</string>
-    <string name="revanced_webview_visitor_data">访客数据</string>
     <string name="revanced_whitelist_add_failed">无法将频道 \'%1$s\' 添加到 %2$s 白名单</string>
     <string name="revanced_whitelist_added">频道 \'%1$s\'已添加到 %2$s 白名单</string>
     <string name="revanced_whitelist_empty">白名单中没有频道</string>

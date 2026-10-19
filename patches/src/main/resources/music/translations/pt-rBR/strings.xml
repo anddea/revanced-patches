@@ -11,12 +11,12 @@ Isso é necessário para o app funcionar"</string>
 
 Desabilitar as otimizações de bateria para o MicroG não afetará negativamente o uso da bateria
 
-Toque no botão continuar e permita as mudanças de otimização"</string>
+Toque no botão continuar e permita as alterações de otimização"</string>
     <string name="gms_core_dialog_open_website_text">Abrir site</string>
     <string name="gms_core_dialog_title">Ação necessária</string>
     <string name="gms_core_settings_summary">Para receber notificações no RVX Music, ative as mensagens na nuvem</string>
     <string name="gms_core_settings_title">Abrir configurações do GmsCore</string>
-    <string name="gms_core_toast_not_installed_message">MicroG não está instalado. Instale-o</string>
+    <string name="gms_core_toast_not_installed_message">O MicroG não está instalado. Instale-o</string>
     <string name="morphe_app_refresh_rate_default">Padrão</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">Taxa de atualização do aplicativo</string>
@@ -67,7 +67,7 @@ Etapas:
 3. Copie o valor de \"media-user-token\""</string>
     <string name="morphe_music_apple_music_token_title">Token-de-usuário-de-mídia do Apple Music</string>
     <string name="morphe_music_apple_music_token_toast_cleared">Apple Music: media-user-token removido</string>
-    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: media-user-token removido</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: token de usuário multimídia inválido — verifique e tente novamente</string>
     <string name="morphe_music_apple_music_token_toast_saved">Apple Music: media-user-token salvo</string>
     <string name="morphe_music_apple_token_optional_hint">O token do Apple Music é opcional. Sem ele, o Lyrically será usado como alternativa</string>
     <string name="morphe_music_crossfade_about_best_summary">Reprodução normal entre músicas com avanço automático, repetição de uma única música (a música faz uma transição suave para ela mesma) e reprodução de áudio local — alto-falante do celular, fones de ouvido com fio, Bluetooth ou USB</string>
@@ -127,7 +127,7 @@ Etapas:
 3. Copie o valor de \"arl\""</string>
     <string name="morphe_music_deezer_arl_title">Deezer […] Copie o valor de \"arl\"</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Tente novamente</string>
-    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: arl removido</string>
+    <string name="morphe_music_deezer_arl_toast_invalid">Deezer: arl inválido — verifique e tente novamente</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl salvo</string>
     <string name="morphe_music_downloads_actions_for">Ações para %s</string>
     <string name="morphe_music_downloads_all_deleted">Downloads excluídos</string>
@@ -173,11 +173,13 @@ As faixas baixadas aparecem aqui"</string>
     <string name="morphe_music_in_app_downloads_user_dialog_message">"As faixas são salvas no armazenamento privado do app e são excluídas se o YouTube Music for desinstalado
 
 Enquanto isso estiver ativado, a guia Downloads listará essas faixas em vez da biblioteca offline do Music Premium. Desativá-lo restaura a guia, e os downloads do Premium nunca são afetados"</string>
-    <string name="morphe_music_lyrics_about_summary">"As letras são correspondidas por título e artista; metadados incomuns podem não encontrar nada ou a versão errada. Use a atualização para alternar as versões. Provedores marcados com * exigem um token. Nem todos os provedores ativados são sempre solicitados na sua ordem, mas respondem com base na velocidade deles"</string>
+    <string name="morphe_music_lyrics_about_summary">"As letras são correspondidas por título e artista, metadados incomuns podem não encontrar nada ou a versão errada. Use atualizar para trocar de versões. Provedores marcados * requerem um token. Nem todos os provedores habilitados são sempre solicitados na sua ordem, mas respondem com base na sua velocidade
+
+As letras vêm de serviços de terceiros que não são afiliados, patrocinados ou endossados pela RVX. Cada um é usado como está: as letras, sua disponibilidade e seu licenciamento permanecem com esses serviços e seus licenciadores, e usá-los pode estar sujeito aos seus termos de serviço. O que chega a um serviço habilitado é apenas a consulta que você pediu - o título, o artista e, onde esse serviço precisa, o ID do vídeo. O endpoint opcional de IA e a transcrição QuickLRC funcionam apenas após você configurá-los, e recebem o texto das letras ou a URL do vídeo da faixa"</string>
     <string name="morphe_music_lyrics_about_title">Sobre letras de terceiros</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">Chave da API (deixe vazio para acesso anônimo)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">URL do endpoint da API (ex.: https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configure o endpoint da API compatível com OpenAI para tradução de letras, romanização e seção alimentadas por IA</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configure o ponto de extremidade da API compatível com OpenAI para tradução, romanização e seção de letras com IA</string>
     <string name="morphe_music_lyrics_ai_config_dialog_title">Configurações de IA</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Nome do modelo (ex.: openai-fast, gpt-4o-mini)</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">O nome do modelo não pode estar vazio</string>
@@ -185,13 +187,20 @@ Enquanto isso estiver ativado, a guia Downloads listará essas faixas em vez da 
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">A URL base deve começar com http:// ou https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Validando conexão…</string>
     <string name="morphe_music_lyrics_ai_config_summary_configured">Modelo %1$s configurado</string>
-    <string name="morphe_music_lyrics_ai_config_toast_invalid">Não foi possível conectar ao endpoint de IA. Verifique suas configurações</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">Não foi possível conectar ao endpoint da IA. Verifique suas configurações</string>
     <string name="morphe_music_lyrics_ai_config_toast_reset">Configurações de IA redefinidas</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">Configurações de IA salvas</string>
+    <string name="morphe_music_lyrics_ai_extra_body_hint">Corpo de solicitação extra (JSON, mesclado em todas as solicitações de IA)</string>
+    <string name="morphe_music_lyrics_ai_extra_body_invalid">Não é JSON válido. Corrija-o ou limpe o campo antes de salvar</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Espaços reservados: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Template do Prompt</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Prompt salvo, mas o endpoint de IA ainda não está utilizável. Configure-o em Configurações de IA primeiro</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt redefinido</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt salvo</string>
+    <string name="morphe_music_lyrics_clear_cache_done">%1$s MB limpados</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Excluir as letras mantidas neste dispositivo</string>
+    <string name="morphe_music_lyrics_clear_cache_title">Limpar letras armazenadas</string>
+    <string name="morphe_music_lyrics_contribute_credit">Pressione longamente o botão copiar para salvar este LRC; se você puder ajustar os tempos e compartilhá-los com os provedores da comunidade, agradeceríamos</string>
     <string name="morphe_music_lyrics_copied">Copiado para a área de transferência</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Se as letras forem filtradas incorretamente para a parte inferior, ajuste ou limpe este campo. Marcadores separados por vírgula: linhas que contêm um marcador seguido de dois pontos são mostradas como informações de crédito na parte inferior. Deixe vazio para desativar</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Marcadores de linha de informação</string>
@@ -199,6 +208,7 @@ Enquanto isso estiver ativado, a guia Downloads listará essas faixas em vez da 
     <string name="morphe_music_lyrics_custom_regex_title">Metadados: \"regex de filtro de letras\"</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Alternar a ordem de exibição de Artista e Título no Miniplayer e no MediaSession. LIGADO \"Artista - Título\" e DESLIGADO \"Título - Artista\". Não afeta a busca de letras</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Exibição de artista e título na MediaSession. LIGADO \"Artista - Título\" e DESLIGADO \"Título - Artista\". Não afeta a busca por letras</string>
+    <string name="morphe_music_lyrics_dual_only">Modo duplo</string>
     <string name="morphe_music_lyrics_enabled_summary">Exibe letras de um serviço de terceiros, recorrendo às letras embutidas quando nenhuma for encontrada</string>
     <string name="morphe_music_lyrics_enabled_title">Usar letras de terceiros</string>
     <string name="morphe_music_lyrics_hide_info_summary">Ocultar a linha de crédito mostrada abaixo das letras</string>
@@ -209,7 +219,14 @@ Enquanto isso estiver ativado, a guia Downloads listará essas faixas em vez da 
     <string name="morphe_music_lyrics_hide_unplayed_title">Ocultar letras não reproduzidas</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Evita que a tela desligue enquanto o painel de letras estiver aberto</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Manter a tela ligada ao visualizar letras</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Lendo %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_failed">Falha ao baixar - desative e ative novamente para tentar novamente</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Leituras prontas (%1$d entradas)</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">Romanize no dispositivo quando o provedor, seu modelo e o Google Tradutor falharem. A leitura segue cada palavra de uma letra com tempo; sincronização de palavras deve estar ativada. Chinês, Cantonês, Japonês, Coreano, Grego, Russo, Georgiano, Armênio; cerca de 120 MB</string>
+    <string name="morphe_music_lyrics_local_romanization_title">Romanização e Alinhamento Local</string>
+    <string name="morphe_music_lyrics_mediasession_summary">Mostra a linha atual na tela de bloqueio, Android Auto e Bluetooth. Precisa do Android 11 ou mais recente</string>
     <string name="morphe_music_lyrics_mediasession_title">Mostrar letras do MediaSession na tela de bloqueio</string>
+    <string name="morphe_music_lyrics_miniplayer_summary">Mostra a linha atual no miniplayer, com a faixa movida para a legenda</string>
     <string name="morphe_music_lyrics_miniplayer_title">Mostrar letras no miniplayer</string>
     <string name="morphe_music_lyrics_offset_ms_summary">As letras sincronizadas acompanham a reprodução. Se elas saírem da sincronia, ajuste a compensação de tempo. Desloque as letras sincronizadas para frente ou para trás. Use um valor positivo se as letras estiverem adiantadas em relação à música</string>
     <string name="morphe_music_lyrics_offset_ms_title">Deslocamento global de tempo</string>
@@ -217,6 +234,7 @@ Enquanto isso estiver ativado, a guia Downloads listará essas faixas em vez da 
     <string name="morphe_music_lyrics_refreshing">Atualizando</string>
     <string name="morphe_music_lyrics_romanize_failed">Não foi possível romanizar a […]</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanizado</string>
+    <string name="morphe_music_lyrics_romanize_language_title">Idioma de romanização</string>
     <string name="morphe_music_lyrics_romanize_only">Somente romanizado</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanizado por %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanizado pelo Google</string>
@@ -230,29 +248,48 @@ Enquanto isso estiver ativado, a guia Downloads listará essas faixas em vez da 
     <string name="morphe_music_lyrics_search_empty">Digite o título da música e um artista</string>
     <string name="morphe_music_lyrics_search_no_providers">Nenhum dos provedores habilitados pode pesquisar outras músicas</string>
     <string name="morphe_music_lyrics_search_title_hint">Título da música</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">Toque para copiar a letra original como texto simples; toque e segure para salvar o arquivo de origem da letra bruta em Downloads</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">Toque para copiar as letras originais como texto puro; pressione e segure para salvar o arquivo fonte das letras brutais nas Downloads</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Mostrar botão Copiar</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Toque para alternar para a próxima candidata a letra; pressione e segure para pesquisar letras por título da música e artista</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Toque para alternar para a próxima opção de letra; segure para pesquisar letras pelo título da música e artista</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Mostrar botão para atualizar</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Toque para alternar a romanização; toque e segure para somente romanização. Usa romanização do provedor, Google Tradutor ou uma API compatível com OpenAI</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Toque para alternar romanização; pressione e segure para apenas romanização. Usa romanização do provedor, Google Tradutor ou uma API compatível com OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Mostrar botão Romanizar</string>
     <string name="morphe_music_lyrics_show_section_summary">Rotular cada nova seção da letra com uma pequena etiqueta, como Verso ou Refrão</string>
     <string name="morphe_music_lyrics_show_section_title">Mostrar etiquetas de seção</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Toque para alternar a tradução; toque e segure para somente tradução. Usa traduções do provedor, Google Tradutor ou uma API compatível com OpenAI</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Toque para alternar tradução; pressione e segure para apenas tradução. Usa traduções do provedor, Google Tradutor ou uma API compatível com OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Mostrar botão Traduzir</string>
-    <string name="morphe_music_lyrics_source_all_disabled">Todos os provedores desativados — letras integradas e incorporadas</string>
+    <string name="morphe_music_lyrics_source_all_disabled">Todos os provedores desativados — letras integradas e letras incorporadas</string>
     <string name="morphe_music_lyrics_source_label">Fonte: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">Restaurar a ordem de prioridade padrão dos provedores</string>
     <string name="morphe_music_lyrics_source_reset_title">Redefinir ordem dos provedores?</string>
     <string name="morphe_music_lyrics_source_title">Serviço de letras</string>
+    <string name="morphe_music_lyrics_split_background_summary">Move uma vocal de fundo escrito entre parênteses, como \"(Oh) eu quero você\", da linha cantada para uma linha própria com menor volume</string>
+    <string name="morphe_music_lyrics_split_background_title">Mostrar vocais de fundo separadamente</string>
     <string name="morphe_music_lyrics_swap_trans_roma_summary">LIGADO coloca a romanização abaixo das letras e a tradução acima; DESLIGADO mantém a romanização acima e a tradução abaixo</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Trocar tradução e romanização</string>
-    <string name="morphe_music_lyrics_tap_to_seek_summary">Tocar em uma linha leva você àquele momento da música</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">Toque em uma linha para avançar</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">Toque em uma linha para pular para esse momento na música, pressione e segure para copiar a palavra sob o seu dedo, ou a linha inteira quando a pressão não estiver sobre uma palavra. Desativa ambos os gestos</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Toque e segure uma linha</string>
     <string name="morphe_music_lyrics_text_filter_summary">Expressão regular aplicada apenas ao texto original da letra (não a traduções nem a romanizações). Deixe em branco para desativar</string>
     <string name="morphe_music_lyrics_text_filter_title">Regex do filtro de letras</string>
     <string name="morphe_music_lyrics_text_size_summary">Tamanho do texto da letra</string>
     <string name="morphe_music_lyrics_text_size_title">Tamanho do texto</string>
+    <string name="morphe_music_lyrics_transcribe_align">Solicitar alinhamento do QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_aligning">Alinhando</string>
+    <string name="morphe_music_lyrics_transcribe_apply_align">Aplicar alinhamento</string>
+    <string name="morphe_music_lyrics_transcribe_cancelled">Transcrição cancelada</string>
+    <string name="morphe_music_lyrics_transcribe_failed">O QuickLRC não pôde processar esta faixa</string>
+    <string name="morphe_music_lyrics_transcribe_key_cleared">Chave de API do QuickLRC limpa</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRC define a temporalização das letras que não têm, ou as transcreve da faixa, ao custo de créditos. Com uma chave definida, faixas sem letras oferecem transcrição e a caixa de diálogo de pesquisa ganha um botão de alinhamento</string>
+    <string name="morphe_music_lyrics_transcribe_key_rejected">O QuickLRC não aceitou essa chave</string>
+    <string name="morphe_music_lyrics_transcribe_key_saved">Chave de API do QuickLRC salva</string>
+    <string name="morphe_music_lyrics_transcribe_key_set_summary">Chave QuickLRC salva. Use o botão de alinhamento na caixa de diálogo de pesquisa de letras, ou a mensagem do painel quando uma faixa não tiver letras</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRC transcreve ou alinha temporariamente as letras da faixa atual. Um serviço separado, não relacionado ao ponto de extremidade compatível com OpenAI acima</string>
+    <string name="morphe_music_lyrics_transcribe_key_title">Chave de API do QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_local_unsupported">Apenas faixas reproduzidas do YouTube podem ser transcritas</string>
+    <string name="morphe_music_lyrics_transcribe_no_text">Nenhuma letra para alinhar - transcrevendo em vez disso</string>
+    <string name="morphe_music_lyrics_transcribe_out_of_credits">Os créditos do QuickLRC se esgotaram para esta faixa</string>
+    <string name="morphe_music_lyrics_transcribe_prompt">Solicitar transcrição do QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_working">Transcrevendo</string>
     <string name="morphe_music_lyrics_translate_failed">Não foi possível traduzir a letra</string>
     <string name="morphe_music_lyrics_translate_hide">Traduzido</string>
     <string name="morphe_music_lyrics_translate_only">Somente tradução</string>
@@ -274,12 +311,13 @@ Enquanto isso estiver ativado, a guia Downloads listará essas faixas em vez da 
     <string name="morphe_music_musixmatch_token_optional_hint">O Musixmatch funciona sem token, então este campo pode ficar vazio</string>
     <string name="morphe_music_musixmatch_token_title">Musixmatch […] Copie o valor do token do usuário</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: token do usuário limpo</string>
-    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: token de usuário removido</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: token de usuário inválido — verifique e tente novamente</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: token do usuário salvo</string>
+    <string name="morphe_music_scrobbling_log_out">Sair</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"Spotify SpDc"</string>
     <string name="morphe_music_spotify_token_title">Spotify SpDc</string>
     <string name="morphe_music_spotify_token_toast_cleared">Spotify: sp_dc removido</string>
-    <string name="morphe_music_spotify_token_toast_invalid">Spotify: sp_dc salvo</string>
+    <string name="morphe_music_spotify_token_toast_invalid">Spotify: sp_dc inválido — verifique e tente novamente</string>
     <string name="morphe_music_spotify_token_toast_saved">Sem isso, o Lyrically será usado como fallback</string>
     <string name="morphe_music_token_dialog_get_token">Obter token</string>
     <string name="morphe_music_youtube_cookies_dialog_instruction">"Cole a string completa de cookies (pares chave=valor separados por ponto e vírgula)
@@ -287,14 +325,14 @@ Enquanto isso estiver ativado, a guia Downloads listará essas faixas em vez da 
 Cookies necessários: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID, LOGIN_INFO"</string>
     <string name="morphe_music_youtube_cookies_title">YouTube Cookies</string>
     <string name="morphe_music_youtube_cookies_toast_cleared">Mostrar letras do MediaSession na tela de bloqueio</string>
-    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: cookies inválidos — por favor verifique e tente novamente</string>
+    <string name="morphe_music_youtube_cookies_toast_invalid">YouTube: cookies inválidos — verifique e tente novamente</string>
     <string name="morphe_music_youtube_cookies_toast_saved">Mostrar botão Atualizar</string>
     <string name="morphe_notification_dot_color_summary">Altera a cor dos pontos de notificação</string>
     <string name="morphe_notification_dot_color_title">Cor do ponto de notificação</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Não é possível fazer login no VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Não é possível entrar na VR, a autenticação do site não foi aprovada</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 temporariamente indisponível</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 temporariamente indisponível (status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 está temporariamente indisponível (status %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">O login do Android VR expirou, tente fazer login no VR novamente</string>
     <string name="morphe_oauth2_connection_failure_timeout">\"OAuth2 está temporariamente indisponível (API expirou)\"</string>
     <string name="morphe_oauth2_toast_invalid">Token de login do VR inválido, tente fazer login no VR novamente</string>
@@ -310,10 +348,15 @@ Para usar este recurso, desative-o \'Transmissões de vídeo falsas\"</string>
     <string name="morphe_replace_music_with_youtube_summary_off">Links compartilhados usam music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Links compartilhados usam youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Alterar links de compartilhamento para youtube.com</string>
+    <string name="morphe_romanize_language_DEFAULT">Automático</string>
     <string name="morphe_sanitize_sharing_links_summary">Remove parâmetros de rastreamento dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Parâmetro de consulta de rastreamento não é removido dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Parâmetro de consulta de rastreamento é removido dos links compartilhados</string>
     <string name="morphe_sanitize_sharing_links_title">Limpar links de compartilhamento</string>
+    <string name="morphe_sb_new_segment_choose_category">Escolha a categoria do segmento</string>
+    <string name="morphe_sb_new_segment_confirm_submit">Enviar</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">O início deve ser antes do fim</string>
+    <string name="morphe_sb_new_segment_title">Novo segmento SponsorBlock</string>
     <string name="morphe_settings_menu_copy_path">Copiado: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Abra a tela de configurações do aplicativo padrão uma vez para preencher a lista</string>
     <string name="morphe_settings_menu_filter_screen_summary">Ocultar itens na tela de configurações do aplicativo padrão pelo nome visível</string>
@@ -772,7 +815,7 @@ O ID do vídeo que você assiste é enviado para a API do Return YouTube Dislike
     <string name="revanced_ryd_estimated_like_summary">Mostra uma contagem de \'Gostei\' estimada em vídeos onde o criador os desativou</string>
     <string name="revanced_ryd_estimated_like_title">Mostrar uma estimativa de \'Gostei\'</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">\"Não gostei\" não estão disponíveis (limite da API do cliente)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Dislikes indisponível (status %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Dislikes indisponível (status %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Não gostei indisponível por um tempo (API expirou)</string>
     <string name="revanced_ryd_failure_generic">Não gostei indisponível (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Mostra uma notificação quando o servidor do Return YouTube Dislike estiver indisponível</string>
@@ -781,8 +824,8 @@ O ID do vídeo que você assiste é enviado para a API do Return YouTube Dislike
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver downloads para outras plataformas</string>
     <string name="revanced_sb_api_url">Alterar URL da API</string>
-    <string name="revanced_sb_api_url_changed">URL da API alterada</string>
-    <string name="revanced_sb_api_url_invalid">URL da API é inválida</string>
+    <string name="revanced_sb_api_url_changed">Endereço da API alterada</string>
+    <string name="revanced_sb_api_url_invalid">URL da API é inválido</string>
     <string name="revanced_sb_api_url_reset">Redefinir URL da API</string>
     <string name="revanced_sb_api_url_sum">O endereço que o SponsorBlock usa para fazer chamadas para o servidor. Não mude isso a menos que você saiba o que está fazendo</string>
     <string name="revanced_sb_color_changed">Cor alterada</string>
@@ -792,42 +835,42 @@ O ID do vídeo que você assiste é enviado para a API do Return YouTube Dislike
     <string name="revanced_sb_diff_segments">Alterar comportamento do segmento</string>
     <string name="revanced_sb_enabled">Ativar SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock é um sistema coletivo para pular partes irritantes de vídeos do YouTube</string>
-    <string name="revanced_sb_segments_filler">Enrolação / Piadas</string>
+    <string name="revanced_sb_segments_filler">Desvios / Piadas</string>
     <string name="revanced_sb_segments_filler_sum">Cenas ou piadas que não são necessárias para entender o conteúdo principal do vídeo. Não inclui seções fornecendo contexto ou detalhes de fundo</string>
     <string name="revanced_sb_segments_hook">Gancho / Saudações</string>
     <string name="revanced_sb_segments_hook_sum">Trailers narrados para o próximo vídeo, cumprimentos e despedidas. Não inclui seções que adicionam conteúdo adicional</string>
-    <string name="revanced_sb_segments_interaction">Lembrete de Interação (Inscreva-se)</string>
+    <string name="revanced_sb_segments_interaction">Lembrete de interação (inscrever-se)</string>
     <string name="revanced_sb_segments_interaction_sum">Um breve lembrete para curtir, se inscrever ou segui-los no meio do conteúdo. Se for longo ou sobre algo específico, deve estar sob autopromoção</string>
-    <string name="revanced_sb_segments_intro">Intervalo / Introdução Animada</string>
+    <string name="revanced_sb_segments_intro">Introdução/Intervalo Animado</string>
     <string name="revanced_sb_segments_intro_sum">Um intervalo sem conteúdo real. Pode ser uma pausa, um quadro estático ou uma animação repetida. Não inclui transições contendo informações</string>
-    <string name="revanced_sb_segments_nomusic">Música: Seção sem música</string>
+    <string name="revanced_sb_segments_nomusic">Música: Seção Sem Música</string>
     <string name="revanced_sb_segments_nomusic_sum">Somente para uso em vídeos de música. Seções de vídeos de música sem música, que já não estão cobertas por outra categoria</string>
-    <string name="revanced_sb_segments_outro">Cartões finais / Créditos</string>
+    <string name="revanced_sb_segments_outro">Cartões / Créditos</string>
     <string name="revanced_sb_segments_outro_sum">Créditos ou quando os cartões finais do YouTube aparecem. Não para conclusões com informações</string>
-    <string name="revanced_sb_segments_preview">Pré-visualização / Recapitulação</string>
+    <string name="revanced_sb_segments_preview">Prévia / Resumo</string>
     <string name="revanced_sb_segments_preview_sum">Coleção de clipes que mostram o que está por vir ou o que aconteceu no vídeo ou em outros vídeos de uma série, onde todas as informações são repetidas em outro lugar</string>
-    <string name="revanced_sb_segments_selfpromo">Não pago / Autopromoção</string>
+    <string name="revanced_sb_segments_selfpromo">Não-pago/Auto promoção</string>
     <string name="revanced_sb_segments_selfpromo_sum">Semelhante ao Patrocinador exceto pela promoção não paga ou autopromoção. Inclui seções sobre mercadorias, doações ou informações sobre com quem eles colaboraram</string>
     <string name="revanced_sb_segments_sponsor">Patrocinador</string>
     <string name="revanced_sb_segments_sponsor_sum">Promoção paga, referências pagas e anúncios diretos. Não deve ser usado para auto-promoção ou mensagens grátis para causas / criadores/sites / produtos que eles gostam</string>
     <string name="revanced_sb_skip_automatically">Pular automaticamente</string>
     <string name="revanced_sb_skip_automatically_once">Pular automaticamente uma vez</string>
     <string name="revanced_sb_skip_ignore">Desativar</string>
-    <string name="revanced_sb_skipped_filler">Enrolação pulada</string>
-    <string name="revanced_sb_skipped_hook">Gancho pulado</string>
+    <string name="revanced_sb_skipped_filler">Tangente pulada</string>
+    <string name="revanced_sb_skipped_hook">Introdução pulada</string>
     <string name="revanced_sb_skipped_interaction">Lembrete irritante pulado</string>
     <string name="revanced_sb_skipped_intro_beginning">Introdução pulada</string>
-    <string name="revanced_sb_skipped_intro_end">Intervalo pulado</string>
-    <string name="revanced_sb_skipped_multiple_segments">Pulou vários segmentos</string>
-    <string name="revanced_sb_skipped_nomusic">Segmento sem música pulado</string>
-    <string name="revanced_sb_skipped_outro">Outro pulado</string>
-    <string name="revanced_sb_skipped_preview_beginning">Pré-visualização pulada</string>
-    <string name="revanced_sb_skipped_preview_end">Recapitulação pulada</string>
-    <string name="revanced_sb_skipped_selfpromo">Autopromoção pulada</string>
+    <string name="revanced_sb_skipped_intro_end">Intervalo pulada</string>
+    <string name="revanced_sb_skipped_multiple_segments">Vários segmentos pulado</string>
+    <string name="revanced_sb_skipped_nomusic">Seção sem música pulado</string>
+    <string name="revanced_sb_skipped_outro">Encerramento pulado</string>
+    <string name="revanced_sb_skipped_preview_beginning">Prévia pulada</string>
+    <string name="revanced_sb_skipped_preview_end">Recapitulação pulado</string>
+    <string name="revanced_sb_skipped_selfpromo">Auto promoção pulada</string>
     <string name="revanced_sb_skipped_sponsor">Patrocinador pulado</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_generic">O SponsorBlock está temporariamente indisponível</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">O SponsorBlock está temporariamente indisponível (status %d)</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">O SponsorBlock está temporariamente indisponível (API expirou)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporariamente indisponível</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporariamente indisponível (status %s)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporariamente indisponível (API expirou)</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Exibe uma notificação flutuante se a API SponsorBlock não estiver disponível</string>
     <string name="revanced_sb_toast_on_skip">Exibir uma notificação flutuante quando pular automaticamente</string>
     <string name="revanced_sb_toast_on_skip_sum">Uma notificação flutuante é exibida quando um segmento é ignorado automaticamente</string>
@@ -842,7 +885,7 @@ O ID do vídeo que você assiste é enviado para a API do Return YouTube Dislike
     <string name="revanced_settings_import_export_title">Importar / Exportar configurações</string>
     <string name="revanced_settings_import_failed">A importação falhou: %s</string>
     <string name="revanced_settings_import_reset">Configurações do RVX redefinidas para o padrão</string>
-    <string name="revanced_settings_import_success">Configurações %d importadas</string>
+    <string name="revanced_settings_import_success">Configurações %s importadas</string>
     <string name="revanced_settings_navigate_up">Navegar para cima</string>
     <string name="revanced_settings_reset">Resetar</string>
     <string name="revanced_settings_reset_color">Redefinir cor</string>
@@ -932,5 +975,4 @@ O ID do vídeo que você assiste é enviado para a API do Return YouTube Dislike
     <string name="revanced_webview_toast_empty">%s está vazio</string>
     <string name="revanced_webview_toast_no_network">Por favor, verifique sua conexão com a internet</string>
     <string name="revanced_webview_toast_unavailable">O WebView não está disponível</string>
-    <string name="revanced_webview_visitor_data">Dados do visitante</string>
 </resources>

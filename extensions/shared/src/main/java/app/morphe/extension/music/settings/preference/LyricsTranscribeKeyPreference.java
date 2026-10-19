@@ -13,8 +13,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.Uri;
 import android.preference.Preference;
 import android.text.InputType;
@@ -77,6 +75,7 @@ public class LyricsTranscribeKeyPreference extends Preference {
         updateSummary();
     }
 
+    @SuppressWarnings("ConstantValue")
     private void updateSummary() {
         final String key = Settings.LYRICS_TRANSCRIBE_KEY.get();
         setSummary(key == null || key.trim().isEmpty()
@@ -89,6 +88,7 @@ public class LyricsTranscribeKeyPreference extends Preference {
         showDialog();
     }
 
+    @SuppressWarnings("ConstantValue")
     private void showDialog() {
         final Context context = getContext();
         if (!(context instanceof Activity activity)
@@ -115,7 +115,7 @@ public class LyricsTranscribeKeyPreference extends Preference {
         instructionParams.bottomMargin = Dim.dp12;
         content.addView(instruction, instructionParams);
 
-        final EditText keyInput = createThemedEditText(context);
+        final EditText keyInput = ThemedInput.create(context);
         keyInput.setHint("qlrc_...");
         keyInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         if (configured) {
@@ -173,7 +173,7 @@ public class LyricsTranscribeKeyPreference extends Preference {
                     });
                 },
                 null,
-                str("morphe_settings_reset"),
+                str("revanced_settings_reset"),
                 () -> {
                     Settings.LYRICS_TRANSCRIBE_KEY.resetToDefault();
                     keyInput.setText("");
@@ -202,19 +202,5 @@ public class LyricsTranscribeKeyPreference extends Preference {
             activeDialog = null;
             Logger.printDebug(() -> "Transcribe key dialog could not be shown", ex);
         }
-    }
-
-    private static EditText createThemedEditText(Context context) {
-        EditText editText = new EditText(context);
-        editText.setSingleLine(true);
-        editText.setTextSize(16);
-        editText.setTextColor(BaseThemeUtils.getAppForegroundColor());
-        ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                Dim.roundedCorners(10), null, null));
-        background.getPaint().setColor(BaseThemeUtils.getEditTextBackground());
-        editText.setPadding(Dim.dp12, Dim.dp8, Dim.dp12, Dim.dp8);
-        editText.setBackground(background);
-        editText.setClipToOutline(true);
-        return editText;
     }
 }

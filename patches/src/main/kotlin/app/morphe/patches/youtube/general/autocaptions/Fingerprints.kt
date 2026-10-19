@@ -12,6 +12,7 @@ import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.InstructionLocation
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.InstructionLocation.MatchFirst
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.newInstance
@@ -31,6 +32,59 @@ private object SubtitleManagerFingerprintClassFingerprint : Fingerprint(
     custom = { method, _ ->
         AccessFlags.STATIC.isSet(method.accessFlags)
     }
+)
+
+/**
+ * Parses a cached caption track file.
+ */
+internal object CaptionFileParserFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf("Ljava/lang/Object;", "L"),
+    filters = listOf(
+        // Caption request.
+        opcode(Opcode.CHECK_CAST, location = MatchFirst()),
+        // Caption track of the request.
+        fieldAccess(opcode = Opcode.IGET_OBJECT, location = MatchAfterWithin(2)),
+        methodCall(smali = "Ljava/io/File;->exists()Z"),
+        methodCall(smali = "Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V"),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            parameters = listOf("Ljava/io/InputStream;", "L"),
+            returnType = "Ljava/lang/Object;"
+        )
+    )
+)
+
+/**
+ * Parses the response of a request. Used for caption tracks and other requests.
+ */
+internal object RequestResponseParserFingerprint : Fingerprint(
+    name = "run",
+    returnType = "V",
+    parameters = listOf(),
+    filters = listOf(
+        // Response parser.
+        methodCall(
+            opcode = Opcode.INVOKE_INTERFACE,
+            parameters = listOf("Ljava/lang/Object;"),
+            returnType = "Ljava/lang/Object;"
+        ),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        // Request.
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = "Ljava/lang/Object;",
+            location = MatchAfterWithin(1)
+        ),
+        // Response callback.
+        methodCall(
+            opcode = Opcode.INVOKE_INTERFACE,
+            parameters = listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
+            returnType = "V",
+            location = MatchAfterImmediately()
+        )
+    )
 )
 
 /**
@@ -158,6 +212,59 @@ internal object CaptionTracksManagerAutoTranslateTracksFingerprint : Fingerprint
     )
 )
 
+/** The track manager's default source, without subtitle preference or CC state overrides. */
+internal class CaptionTracksManagerDefaultSourceFingerprint(captionTrackType: String) : Fingerprint(
+    classFingerprint = CaptionTracksManagerDirectTracksFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = captionTrackType,
+    parameters = listOf(),
+)
+
+/**
+ * Auto-translate tracks method, matched at the general translation source fallback that is used
+ * if a translation language has no source of its own.
+ */
+internal object CaptionTracksManagerTranslationSourceFingerprint : Fingerprint(
+    classFingerprint = CaptionTracksManagerDirectTracksFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Ljava/util/List;",
+    parameters = listOf(),
+    filters = listOf(
+        // Caption metadata.
+        fieldAccess(opcode = Opcode.IGET_OBJECT, definingClass = "this"),
+        // Current audio track.
+        fieldAccess(opcode = Opcode.IGET_OBJECT, definingClass = "this"),
+        opcode(Opcode.IF_EQZ, location = MatchAfterImmediately()),
+        // Source of the translation language.
+        methodCall(opcode = Opcode.INVOKE_DIRECT, definingClass = "this", parameters = listOf("L")),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        // Indices of the general translation sources.
+        fieldAccess(opcode = Opcode.IGET_OBJECT, location = MatchAfterWithin(1)),
+        methodCall(smali = "Ljava/util/List;->iterator()Ljava/util/Iterator;", location = MatchAfterImmediately()),
+        methodCall(smali = "Ljava/lang/Integer;->intValue()I", location = MatchAfterWithin(7)),
+        // Caption track indices of the current audio track.
+        fieldAccess(opcode = Opcode.IGET_OBJECT, location = MatchAfterWithin(1)),
+        methodCall(smali = "Ljava/util/List;->contains(Ljava/lang/Object;)Z", location = MatchAfterImmediately()),
+        // Caption tracks.
+        fieldAccess(opcode = Opcode.IGET_OBJECT, location = MatchAfterWithin(2)),
+        methodCall(name = "get", parameters = listOf("I"), returnType = "Ljava/lang/Object;",
+            location = MatchAfterImmediately()),
+        // Converts the caption track metadata to a caption track.
+        methodCall(opcode = Opcode.INVOKE_DIRECT, definingClass = "this", parameters = listOf("L"),
+            location = MatchAfterWithin(2))
+    )
+)
+
+/**
+ * Calls of the caption tracks manager auto-translate getter inside the subtitle manager.
+ */
+internal class AutoTranslateTracksCallFingerprint(autoTranslateTracksMethod: MethodReference) : Fingerprint(
+    classFingerprint = DefaultCaptionTrackFingerprint,
+    filters = listOf(
+        methodCall(reference = autoTranslateTracksMethod)
+    )
+)
+
 /**
  * Resolves to the caption track builder class.
  */
@@ -246,6 +353,23 @@ internal object SetSubtitleTrackFingerprint : Fingerprint(
     )
 )
 
+/** The final translation-count check before YouTube builds its own Auto-translate row. */
+internal object CaptionTracksManagerTranslationCountFingerprint : Fingerprint(
+    classFingerprint = CaptionTracksManagerDirectTracksFingerprint,
+    parameters = listOf(),
+    returnType = "Ljava/util/List;",
+    filters = listOf(
+        methodCall(name = "size", parameters = listOf(), returnType = "I"),
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately()),
+        opcode(Opcode.IF_LEZ, location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IGET_BOOLEAN, definingClass = "this", type = "Z",
+            location = MatchAfterImmediately()),
+        opcode(Opcode.IF_NEZ, location = MatchAfterImmediately()),
+        string("AUTO_TRANSLATE_CAPTIONS_OPTION", location = InstructionLocation.MatchAfterAnywhere()),
+        // Register holding the returned tracks list.
+        opcode(Opcode.RETURN_OBJECT, location = InstructionLocation.MatchAfterAnywhere())
+    )
+)
 internal object StartVideoInformerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
@@ -254,4 +378,29 @@ internal object StartVideoInformerFingerprint : Fingerprint(
         Opcode.RETURN_VOID,
     ),
     strings = listOf("pc")
+)
+
+/**
+ * Timed text (srv3) `<s>` segment element handler. Resolves to the pen lookup method.
+ */
+internal object TimedTextSegmentElementFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf("Ljava/util/Deque;", "Lorg/xml/sax/Attributes;", "Ljava/lang/String;"),
+    filters = listOf(
+        string("p"),
+        methodCall(
+            smali = "Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;",
+            location = MatchAfterImmediately()
+        ),
+        // Pen lookup by id.
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            parameters = listOf("I"),
+            returnType = "L",
+            location = MatchAfterWithin(5)
+        ),
+        string("t"),
+        string("ac"),
+        string("<br/>")
+    )
 )

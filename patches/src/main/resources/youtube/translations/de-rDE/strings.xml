@@ -6,7 +6,7 @@
     <string name="gms_core_dialog_dismiss_text">Nicht erneut anzeigen</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG hat keine Berechtigung, im Hintergrund zu laufen
 
-Folgen Sie der Anleitung “Don't kill my app” für Ihr Telefon und wenden Sie die Anleitungen auf Ihre MicroG-Installation an
+Befolge die Anleitung \"Don't kill my app\" für dein Telefon und wende die Anweisungen auf deine MicroG-Installation an
 
 Dies ist erforderlich, damit die App funktioniert"</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Die Akkuoptimierung muss für MicroG deaktiviert werden, um Probleme zu vermeiden
@@ -19,7 +19,7 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="gms_core_offline_account_login_error">If you recently changed your account login details, then uninstall and reinstall GmsCore</string>
     <string name="gms_core_settings_summary">Cloud-Nachrichteneinstellungen aktivieren, um Benachrichtigungen zu erhalten</string>
     <string name="gms_core_settings_title">GmsCore öffnen</string>
-    <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installieren Sie es</string>
+    <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installiere es</string>
     <string name="morphe_ads_channel_whitelist_title">Werbe-Whitelist für Kanäle</string>
     <string name="morphe_aislist_submit_already_blocklisted">Dieser Kanal ist bereits auf der AiSList-Blockliste</string>
     <string name="morphe_aislist_submit_already_warnlisted">Dieser Kanal ist bereits auf der AiSList-Warnliste</string>
@@ -58,6 +58,8 @@ Meldungen sind öffentlich und werden überprüft, bevor ein Kanal zu einer List
     <string name="morphe_auto_pause_on_screen_lock_always">Immer pausieren, wenn gesperrt</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Pausieren, außer wenn drahtloses Audio verbunden ist</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Auto-Pause bei gesperrtem Gerät</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Fügt dem Menü für die Auto-Übersetzung weitere Sprachen hinzu</string>
+    <string name="morphe_auto_translate_additional_languages_title">Weitere Sprachen für die Auto-Übersetzung hinzufügen</string>
     <string name="morphe_copy_comments_success">Kommentar in die Zwischenablage kopiert</string>
     <string name="morphe_copy_comments_summary">Tippe und halte einen Kommentar, um ihn zu kopieren</string>
     <string name="morphe_copy_comments_title">Kommentare kopieren</string>
@@ -98,6 +100,10 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_explore_menu_screen_summary">Wähle aus, welche Einträge im Entdecken-Menü angezeigt werden sollen</string>
     <string name="morphe_explore_menu_screen_title">Entdecken-Menü</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Wenn es nicht funktioniert, versuche, MicroG zwangsweise zu beenden</string>
+    <string name="morphe_feed_long_press_menu_summary">Das Tippen und Gedrückthalten irgendwo auf einem Feed-Video öffnet dessen Menü</string>
+    <string name="morphe_feed_long_press_menu_title">Tippen und gedrückt halten, um das Videomenü zu öffnen</string>
+    <string name="morphe_feed_watch_later_button_summary">Auf den Vorschaubildern von Feed-Videos wird eine Schaltfläche \"Später ansehen\" angezeigt. Durch Tippen und Gedrückthalten wird \"In Wiedergachelste speichern\" geöffnet</string>
+    <string name="morphe_feed_watch_later_button_title">Schaltfläche \"Später ansehen\" auf Vorschaubildern anzeigen</string>
     <string name="morphe_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \"Video-Streams fälschen\" auf einen beliebigen Client außer \"Android Studio\" und \"Android VR Downgraded\"</string>
     <string name="morphe_force_original_audio_summary_off">Standardaudio wird verwendet</string>
     <string name="morphe_force_original_audio_summary_on">Original Audio wird verwendet</string>
@@ -181,7 +187,7 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_oauth2_connection_failure_auth_error">Eine Anmeldung bei VR ist nicht möglich: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Eine Anmeldung bei VR ist nicht möglich, da die Website-Authentifizierung nicht genehmigt wurde</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ist vorübergehend nicht verfügbar</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR-Anmeldung abgelaufen, versuchen Sie erneut sich bei VR anzumelden</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="morphe_oauth2_toast_invalid">Ungültiger VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
@@ -204,7 +210,6 @@ Um das zu beheben, aktiviere 'Video-Streams vortäuschen' und stelle den 'Standa
     <string name="morphe_playback_in_feeds_title">Wiedergabe in Feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Deckkraft des Hintergrunds hinter den Player-Steuertasten und der Zeitleiste anpassen (0 = unsichtbar, 100 = deckend)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Hintergrundtransparenz der Steuertasten</string>
-    <string name="morphe_preferred_caption_language_entry_off">Aus</string>
     <string name="morphe_preferred_caption_language_summary">Wählt zuerst die Untertitel des Anbieters aus und übersetzt sie dann automatisch in die bevorzugte Sprache</string>
     <string name="morphe_preferred_caption_language_title">Bevorzugte Untertitelsprache</string>
     <string name="morphe_queue_manager_check_failed_auth">Nicht angemeldet</string>
@@ -618,17 +623,17 @@ Einstellungen → Autoplay / Wiedergabe → Nächstes Video Autoplay"</string>
     <string name="revanced_disable_layout_updates_summary_off">Der Server aktualisiert das Layout</string>
     <string name="revanced_disable_layout_updates_summary_on">Der Server aktualisiert das Layout nicht</string>
     <string name="revanced_disable_layout_updates_title">Layoutaktualisierungen deaktivieren</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"Das App-Layout wird auf das bei der Erstinstallation verwendete Layout zurückgesetzt
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Das App-Layout kehrt zum Layout zurück, das bei der Erstinstallation verwendet wurde
 
 Einige serverseitige Layouts werden möglicherweise nicht zurückgesetzt
 
-Folgende Änderungen werden vorgenommen:
-• Komponenten im Aufklappmenü des Players (oder in verwandten Einstellungen) funktionieren eventuell nicht
-• Sich aktualisierende Zahlen werden nicht animiert
-• Der Tab „Mediathek“ wird angezeigt
-• Der Abschnitt „Musik“ in der Videobeschreibung funktioniert möglicherweise nicht
-• Elemente im Aufklappmenü des Players können nicht ausgeblendet werden
-• Die Schaltfläche zum Kontowechsel im Tab „Mediathek“ wird eventuell nicht angezeigt"</string>
+Folgende Änderungen sind enthalten:
+• Komponenten im Flyout-Menü des Players (oder verwandte Einstellungen) funktionieren eventuell nicht
+• Laufende Zahlen sind nicht animiert
+• Tab „Mediathek“ wird angezeigt
+• Der Musikabschnitt der Videobeschreibung funktioniert eventuell nicht
+• Elemente im Flyout-Menü des Players können nicht ausgeblendet werden
+• Die Schaltfläche zum Kontowechsel wird eventuell nicht im Tab „Mediathek“ angezeigt"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchtet, wenn sie erwähnt werden</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Die \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen leuchten nicht, wenn sie erwähnt werden</string>
     <string name="revanced_disable_like_dislike_glow_title">Leuchten der \'Gefällt mir\' und \'Gefällt mir nicht\' Schaltflächen deaktivieren</string>
@@ -787,7 +792,7 @@ Um diese Funktion zu nutzen, ändern Sie einfach 'Standard-Client (Spoof-Streami
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s ist nicht installiert
 Bitte lade %2$s von der Webseite herunter"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warnung</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren Sie es zuerst</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren Sie es</string>
     <string name="revanced_external_downloader_other_item">Andere</string>
     <string name="revanced_external_downloader_other_item_hint">Paketname eingeben</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Paketname Ihrer installierten externen Downloader-App, wie z. B. YTDLnis</string>
@@ -2007,7 +2012,7 @@ Die ID des Videos, das du dir ansiehst, wird an die Return YouTube Dislike-API g
     <string name="revanced_ryd_estimated_like_summary_on">Videos mit deaktivierten \"Gefällt mir\"-Angaben zeigen eine geschätzte Anzahl von \"Gefällt mir\"-Angaben</string>
     <string name="revanced_ryd_estimated_like_title">Geschätzte \"Gefällt mir\"-Angaben anzeigen</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes sind nicht verfügbar (Limit der Client-API)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Dislikes sind nicht verfügbar (Status %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Dislikes sind nicht verfügbar (Status %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Dislikes sind vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="revanced_ryd_failure_generic">Dislikes sind nicht verfügbar (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast wird nicht angezeigt, wenn YouTube-Dislike nicht verfügbar ist</string>
@@ -2078,9 +2083,9 @@ Die ID des Videos, das du dir ansiehst, wird an die Return YouTube Dislike-API g
     <string name="revanced_sb_general_uuid_invalid">Private Benutzer-ID muss mindestens 30 Zeichen lang sein</string>
     <string name="revanced_sb_general_uuid_sum">Das sollte vertraulich behandelt werden. Das ist wie ein Passwort und sollte mit niemandem geteilt werden. Wenn jemand das hat, kann er sich für dich ausgeben</string>
     <string name="revanced_sb_guidelines_popup_already_read">Bereits gelesen</string>
-    <string name="revanced_sb_guidelines_popup_content">Lesen Sie die SponsorBlock Richtlinien bevor Sie neue Segmente erstellen</string>
-    <string name="revanced_sb_guidelines_popup_open">Zeig sie mir</string>
-    <string name="revanced_sb_guidelines_popup_title">Den Richtlinien folgen</string>
+    <string name="revanced_sb_guidelines_popup_content">Lies die Richtlinien von SponsorBlock, bevor du neue Segmente erstellst</string>
+    <string name="revanced_sb_guidelines_popup_open">Anzeigen</string>
+    <string name="revanced_sb_guidelines_popup_title">Halte dich an die Richtlinien</string>
     <string name="revanced_sb_guidelines_preference_sum">Richtlinien enthalten Regeln und Tipps zum Erstellen neuer Segmente</string>
     <string name="revanced_sb_guidelines_preference_title">Richtlinien</string>
     <string name="revanced_sb_new_segment_choose_category">Wähle die Segmentkategorie</string>
@@ -2151,7 +2156,7 @@ Ihre Benutzer-ID ist wie ein Passwort und sollte niemals weitergegeben werden
     <string name="revanced_sb_skip_automatically_once">Automatisch einmal überspringen</string>
     <string name="revanced_sb_skip_button_compact">Überspringen</string>
     <string name="revanced_sb_skip_button_filler">Abschweifung überspringen</string>
-    <string name="revanced_sb_skip_button_highlight">Zum Hervorheben springen</string>
+    <string name="revanced_sb_skip_button_highlight">Zum Highlight springen</string>
     <string name="revanced_sb_skip_button_hook">Hook überspringen</string>
     <string name="revanced_sb_skip_button_interaction">Interaktion überspringen</string>
     <string name="revanced_sb_skip_button_intro_beginning">Einleitung überspringen</string>
@@ -2159,7 +2164,7 @@ Ihre Benutzer-ID ist wie ein Passwort und sollte niemals weitergegeben werden
     <string name="revanced_sb_skip_button_nomusic">Nicht-Musik überspringen</string>
     <string name="revanced_sb_skip_button_outro">Überspringen</string>
     <string name="revanced_sb_skip_button_preview_beginning">Vorschau überspringen</string>
-    <string name="revanced_sb_skip_button_preview_end">Rückfall überspringen</string>
+    <string name="revanced_sb_skip_button_preview_end">Zusammenfassung überspringen</string>
     <string name="revanced_sb_skip_button_selfpromo">Promo überspringen</string>
     <string name="revanced_sb_skip_button_sponsor">Sponsor überspringen</string>
     <string name="revanced_sb_skip_button_unsubmitted">Segment überspringen</string>
@@ -2167,7 +2172,7 @@ Ihre Benutzer-ID ist wie ein Passwort und sollte niemals weitergegeben werden
     <string name="revanced_sb_skip_seekbaronly">In Suchleiste anzeigen</string>
     <string name="revanced_sb_skip_showbutton">Einen Skip-Button anzeigen</string>
     <string name="revanced_sb_skipped_filler">Abschweifung übersprungen</string>
-    <string name="revanced_sb_skipped_highlight">Zum Hervorheben übersprungen</string>
+    <string name="revanced_sb_skipped_highlight">Zum Highlight gesprungen</string>
     <string name="revanced_sb_skipped_hook">Hook übersprungen</string>
     <string name="revanced_sb_skipped_interaction">Nervige Erinnerung übersprungen</string>
     <string name="revanced_sb_skipped_intro_beginning">Intro übersprungen</string>
@@ -2181,7 +2186,7 @@ Ihre Benutzer-ID ist wie ein Passwort und sollte niemals weitergegeben werden
     <string name="revanced_sb_skipped_sponsor">Sponsor übersprungen</string>
     <string name="revanced_sb_skipped_unsubmitted">Nicht übermitteltes Segment übersprungen</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock vorübergehend nicht verfügbar</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock vorübergehend nicht verfügbar (Status %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock vorübergehend nicht verfügbar (Status %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="revanced_sb_square_layout">Quadratische Bedienelemente verwenden</string>
     <string name="revanced_sb_square_layout_sum_off">Schaltflächen und Bedienelemente sind abgerundet</string>
@@ -2204,7 +2209,7 @@ Ihre Benutzer-ID ist wie ein Passwort und sollte niemals weitergegeben werden
     <string name="revanced_sb_stats_submissions_sum">Tippen Sie hier, um Ihre Segmente anzuzeigen</string>
     <string name="revanced_sb_stats_username">Ihr Benutzername: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Tippe hier, um deinen Benutzernamen zu ändern</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Benutzername konnte nicht geändert werden; Status: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Benutzername konnte nicht geändert werden; Status: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Benutzername wurde geändert</string>
     <string name="revanced_sb_submit_failed_duplicate">"Kann das Segment nicht übermitteln
 Existiert bereits"</string>
@@ -2212,7 +2217,7 @@ Existiert bereits"</string>
     <string name="revanced_sb_submit_failed_invalid">Segment kann nicht gesendet werden: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Segment kann nicht übermittelt werden. Rate Limited (zu viele vom selben Benutzer oder der gleichen IP)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock ist vorübergehend nicht verfügbar</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Segment kann nicht gesendet werden (Status: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Segment kann nicht gesendet werden (Status: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segment erfolgreich übertragen</string>
     <string name="revanced_sb_toast_on_connection_error">Verbindungsfehler-Benachrichtigungen anzeigen</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Toast wird nicht angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
@@ -2223,7 +2228,7 @@ Existiert bereits"</string>
     <string name="revanced_sb_vote_downvote">Schlecht bewerten</string>
     <string name="revanced_sb_vote_failed_forbidden">Kann nicht für Segment abstimmen: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Abstimmung für Segment nicht möglich (API Timeout)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Segment kann nicht gewählt werden (Status: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Segment kann nicht gewählt werden (Status: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Es gibt keine Segmente zur Abstimmung</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s bis %2$s</string>
     <string name="revanced_sb_vote_upvote">Gut bewerten</string>
@@ -2261,7 +2266,7 @@ Dies kann nicht funktionieren, wenn:
     <string name="revanced_settings_import_export_as_text_summary">Import / Export settings as text</string>
     <string name="revanced_settings_import_failed">Failed to import settings</string>
     <string name="revanced_settings_import_reset">RVX-Einstellungen auf Standardwerte zurückgesetzt</string>
-    <string name="revanced_settings_import_success">%d Einstellungen importiert</string>
+    <string name="revanced_settings_import_success">%s Einstellungen importiert</string>
     <string name="revanced_settings_import_summary">Import settings from a saved file</string>
     <string name="revanced_settings_import_title">Import settings</string>
     <string name="revanced_settings_navigate_up">Nach oben navigieren</string>
@@ -2550,7 +2555,6 @@ Haftungsausschluss: Cookies, die ohne Anmeldung ausgestellt werden, können ung�
     <string name="revanced_webview_toast_empty">%s ist leer</string>
     <string name="revanced_webview_toast_no_network">Bitte prüfen Sie Ihre Internetverbindung</string>
     <string name="revanced_webview_toast_unavailable">WebView ist nicht verfügbar</string>
-    <string name="revanced_webview_visitor_data">Besucherdaten</string>
     <string name="revanced_whitelist_add_failed">Der Kanal \'%1$s\' konnte nicht auf die Whitelist für %2$s gesetzt werden</string>
     <string name="revanced_whitelist_added">Der Kanal \'%1$s\' wurde auf die Whitelist für %2$s gesetzt</string>
     <string name="revanced_whitelist_empty">Es gibt keine Kanäle auf der Whitelist</string>

@@ -58,6 +58,8 @@ Laporan bersifat publik dan ditinjau sebelum saluran ditambahkan ke daftar. Peng
     <string name="morphe_auto_pause_on_screen_lock_always">Selalu jeda saat perangkat dikunci</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Jeda kecuali jika audio nirkabel terhubung</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Jeda otomatis saat perangkat dikunci</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Menambahkan lebih banyak bahasa ke menu terjemahan otomatis</string>
+    <string name="morphe_auto_translate_additional_languages_title">Tambahkan bahasa terjemahan otomatis tambahan</string>
     <string name="morphe_copy_comments_success">Komentar disalin ke papan klip</string>
     <string name="morphe_copy_comments_summary">Ketuk dan tahan komentar untuk menyalinnya</string>
     <string name="morphe_copy_comments_title">Salin komentar</string>
@@ -109,6 +111,10 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_explore_menu_screen_summary">Pilih komponen mana yang akan ditampilkan di menu eksplorasi</string>
     <string name="morphe_explore_menu_screen_title">Menu eksplorasi</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Jika tidak berhasil, coba hentikan paksa MicroG</string>
+    <string name="morphe_feed_long_press_menu_summary">Mengetuk dan menahan di mana saja pada video umpan membuka menunya</string>
+    <string name="morphe_feed_long_press_menu_title">Ketuk dan tahan untuk membuka menu video</string>
+    <string name="morphe_feed_watch_later_button_summary">Tombol Tonton nanti ditampilkan pada thumbnail video umpan. Mengetuk dan menekannya akan membuka Simpan ke daftar putar</string>
+    <string name="morphe_feed_watch_later_button_title">Tampilkan tombol Tonton nanti pada thumbnail</string>
     <string name="morphe_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke klien apa pun kecuali \'Android Studio\' dan \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Menggunakan audio bawaan</string>
     <string name="morphe_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
@@ -196,7 +202,7 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_oauth2_connection_failure_auth_error">Tidak dapat masuk ke VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Tidak dapat masuk ke VR, autentikasi situs web tidak disetujui</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 sementara tidak tersedia</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 sementara tidak tersedia (status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 untuk sementara tidak tersedia (status %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Masuk ke Android VR telah kadaluwarsa, coba masuk ke VR lagi</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 sementara tidak tersedia (API kehabisan waktu)</string>
     <string name="morphe_oauth2_toast_invalid">Token masuk VR tidak sah, coba masuk ke VR lagi</string>
@@ -226,7 +232,6 @@ Jika anda pengguna YouTube Premium, pengaturan ini mungkin tidak diperlukan"</st
     <string name="morphe_potoken_provider_unavailable_summary">"Memperbaiki isu Playback menggunakan provider PoToken bawaan (Experimental)
 
 Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
-    <string name="morphe_preferred_caption_language_entry_off">Nonaktif</string>
     <string name="morphe_preferred_caption_language_summary">Memilih subtitle dari penyedia terlebih dahulu, lalu menerjemahkan secara otomatis ke bahasa pilihan</string>
     <string name="morphe_preferred_caption_language_title">Bahasa teks pilihan</string>
     <string name="morphe_queue_manager_check_failed_auth">Belum masuk</string>
@@ -296,9 +301,9 @@ Pemutaran mungkin tersendat atau kehilangan bingkai"</string>
 Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s tidak berfungsi beberapa kali berturut-turut, tetapi %2$s berfungsi
 
-Jadikan %2$s sebagai klien default?"</string>
+Jadikan %2$s sebagai klien bawaan?"</string>
     <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Ganti</string>
-    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Klien default tidak berfungsi</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Klien bawaan tidak berfungsi</string>
     <string name="morphe_spoof_video_streams_client_type_title">Klien bawaan</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Tidak dapat mengambil aliran klien apa pun</string>
     <string name="morphe_spoof_video_streams_player_js_variant_title">Varian pemutar JavaScript</string>
@@ -401,7 +406,7 @@ Untuk melanjutkan menggunakan terjemahan, ganti ke penyedia terjemahan yang berb
 Ketuk di sini untuk membuka MyMemory.translated.net"</string>
     <string name="morphe_vot_mymemory_quota_message_no_email">Anda telah menggunakan kuota terjemahan MyMemory gratis hari ini (5.000 karakter). Tambahkan email MyMemory di setelan untuk meningkatkan batas harian menjadi 50.000 karakter, atau ganti ke layanan terjemahan yang berbeda</string>
     <string name="morphe_vot_mymemory_quota_message_with_email">Anda telah menggunakan kuota terjemahan MyMemory hari ini (50.000 karakter). Ganti ke layanan terjemahan yang berbeda atau coba lagi besok</string>
-    <string name="morphe_vot_mymemory_quota_next_available">Tersedia kembali pada %s</string>
+    <string name="morphe_vot_mymemory_quota_next_available">Tersedia berikutnya pada %s</string>
     <string name="morphe_vot_mymemory_quota_title">Batas harian MyMemory tercapai</string>
     <string name="morphe_vot_openrouter_api_key_summary">Kunci API OpenRouter Anda. Buat kunci di OpenRouter.ai &gt; Workspace &gt; API Keys</string>
     <string name="morphe_vot_openrouter_api_key_title">Kunci API OpenRouter</string>
@@ -845,7 +850,7 @@ Untuk menggunakan fitur ini, ubah 'Klien bawaan (Palsukan aliran video)' menjadi
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s tidak terpasang
 Silahkan unduh %2$s dari situs web"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Peringatan</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s belum dipasang. Pasang dulu</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s belum terpasang. Harap pasang</string>
     <string name="revanced_external_downloader_other_item">Lainnya</string>
     <string name="revanced_external_downloader_other_item_hint">Masukkan nama paket</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Nama paket aplikasi pengunduh eksternal yang Anda pasang</string>
@@ -1560,7 +1565,7 @@ ID video yang Anda tonton dikirim ke API Return YouTube Dislike, dan suka dan ti
     <string name="revanced_ryd_estimated_like_summary_on">Video dengan suka yang dinonaktifkan menampilkan perkiraan jumlah suka</string>
     <string name="revanced_ryd_estimated_like_title">Tampilkan perkiraan suka</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislike tidak tersedia (pembatasan API klien)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Dislike tidak tersedia (status %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Dislike tidak tersedia (status %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Dislike sementara tidak tersedia (waktu API habis)</string>
     <string name="revanced_ryd_failure_generic">Dislike tidak tersedia (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
@@ -1705,7 +1710,7 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan"</string>
     <string name="revanced_sb_skip_button_sponsor">Lewati sponsor</string>
     <string name="revanced_sb_skip_button_unsubmitted">Lewati segmen</string>
     <string name="revanced_sb_skip_ignore">Nonaktifkan</string>
-    <string name="revanced_sb_skip_seekbaronly">Tampilkan di seekbar</string>
+    <string name="revanced_sb_skip_seekbaronly">Tampilkan di bilah geser</string>
     <string name="revanced_sb_skip_showbutton">Tampilkan tombol Lewati</string>
     <string name="revanced_sb_skipped_filler">Singgungan dilewati</string>
     <string name="revanced_sb_skipped_highlight">Dilewati ke sorotan</string>
@@ -1722,7 +1727,7 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan"</string>
     <string name="revanced_sb_skipped_sponsor">Sponsor dilewati</string>
     <string name="revanced_sb_skipped_unsubmitted">Melewati segmen yang belum dikirim</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock sementara tidak tersedia</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock sementara tidak tersedia (status %d)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock sementara tidak tersedia (status %s)</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock tidak tersedia (API kehabisan waktu)</string>
     <string name="revanced_sb_square_layout">Gunakan tata letak persegi</string>
     <string name="revanced_sb_square_layout_sum_off">Tombol dan kontrol berbentuk bulat</string>
@@ -1744,7 +1749,7 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan"</string>
     <string name="revanced_sb_stats_submissions_sum">Ketuk di sini untuk melihat segmen Anda</string>
     <string name="revanced_sb_stats_username">Nama pengguna Anda: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Tekan di sini untuk mengubah nama pengguna Anda</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Tidak dapat mengubah nama pengguna: Status: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Tidak dapat mengubah nama pengguna: Status: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">Nama pengguna berhasil diubah</string>
     <string name="revanced_sb_submit_failed_duplicate">"Tidak dapat mengirim segmen
 Sudah ada"</string>
@@ -1752,7 +1757,7 @@ Sudah ada"</string>
     <string name="revanced_sb_submit_failed_invalid">Tak dapat mengirim segmen: %s</string>
     <string name="revanced_sb_submit_failed_rate_limit">Tidak dapat mengirimkan segmen. Rate Limited (terlalu banyak dari pengguna atau IP yang sama)</string>
     <string name="revanced_sb_submit_failed_timeout">SponsorBlock sementara tidak tersedia</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Tak dapat mengirim segmen (status: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Tak dapat mengirim segmen (status: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segmen berhasil terkirim</string>
     <string name="revanced_sb_toast_on_connection_error">Tampilkan peringatan kesalahan sambungan</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">Pesan timbul tidak ditampilkan jika SponsorBlock tidak tersedia</string>
@@ -1763,7 +1768,7 @@ Sudah ada"</string>
     <string name="revanced_sb_vote_downvote">Tidak sukai</string>
     <string name="revanced_sb_vote_failed_forbidden">Tidak dapat memilih segmen: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Tidak dapat memilih segmen (API kehabisan waktu)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Tidak dapat memilih segmen (status: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Tidak dapat memilih segmen (status: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Tidak ada segmen untuk dipilih</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s ke %2$s</string>
     <string name="revanced_sb_vote_upvote">Sukai</string>
@@ -1775,7 +1780,7 @@ Sudah ada"</string>
     <string name="revanced_settings_import">Impor</string>
     <string name="revanced_settings_import_copy">Salin</string>
     <string name="revanced_settings_import_reset">Setelan ReVanced diatur ke bawaan</string>
-    <string name="revanced_settings_import_success">%d Setelan diimpor</string>
+    <string name="revanced_settings_import_success">%s Setelan diimpor</string>
     <string name="revanced_settings_navigate_up">Navigasi ke atas</string>
     <string name="revanced_settings_reset">Setel ulang</string>
     <string name="revanced_settings_reset_color">Setel ulang warna</string>
@@ -2022,7 +2027,6 @@ Anda harus melakukan otentikasi untuk meminta terjemahan dengan suara asli untuk
     <string name="revanced_webview_toast_empty">\"%s\" kosong</string>
     <string name="revanced_webview_toast_no_network">Silahkan periksa koneksi jaringan Anda</string>
     <string name="revanced_webview_toast_unavailable">WebView tidak tersedia</string>
-    <string name="revanced_webview_visitor_data">Data pengunjung</string>
     <string name="revanced_whitelist_add_failed">Gagal menambah saluran \'%1$s\' di %2$s daftar keinginan</string>
     <string name="revanced_whitelist_added">Saluran \'%1$s\' ditambahkan di %2$s dattar keinginan</string>
     <string name="revanced_whitelist_empty">Daftar keinginan kosong</string>

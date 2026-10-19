@@ -55,6 +55,8 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="morphe_auto_pause_on_screen_lock_always">Kilidli olduqda həmişə fasilə ver</string>
     <string name="morphe_auto_pause_on_screen_lock_except_wireless">Simsiz səs qoşulmadıqca fasilə ver</string>
     <string name="morphe_auto_pause_on_screen_lock_title">Cihaz kilidləndikdə avtomatik fasilə</string>
+    <string name="morphe_auto_translate_additional_languages_summary">Avtomatik tərcümə menyusuna daha çox dil əlavə edir</string>
+    <string name="morphe_auto_translate_additional_languages_title">Əlavə avtomatik tərcümə dilləri əlavə et</string>
     <string name="morphe_copy_comments_success">Şərh buferə köçürüldü</string>
     <string name="morphe_copy_comments_summary">Şərhi köçürmək üçün toxunub saxla</string>
     <string name="morphe_copy_comments_title">Şərhləri köçür</string>
@@ -95,6 +97,10 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_explore_menu_screen_summary">Kəşf et menyusunda hansı elementlər görünür seç</string>
     <string name="morphe_explore_menu_screen_title">Kəşf edin menyusu</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Əgər bu işləmirsə, MicroG-ni məcburi qapatmağa çalışın</string>
+    <string name="morphe_feed_long_press_menu_summary">Axında videonun istənilən yerinə toxunub saxlamaq onun menyusunu açır</string>
+    <string name="morphe_feed_long_press_menu_title">Video menyusunu açmaq üçün toxunub saxla</string>
+    <string name="morphe_feed_watch_later_button_summary">Daha sonra izlə düyməsi axın videolarının miniatürlərində göstərilir. Ona toxunub saxlamaq Pleylistdə saxlanı açır</string>
+    <string name="morphe_feed_watch_later_button_title">Miniatürlərdə Daha sonra izlə düyməsini göstər</string>
     <string name="morphe_force_original_audio_not_available">Bu xüsusiyyəti istifadə etmək üçün \'Video yayımların saxtalaşdırı\' \'Android Studio\' və \'Android VR Downgraded\' istisna istənilən qəbulediciyə dəyiş</string>
     <string name="morphe_force_original_audio_summary_off">İlkin səs istifadəsi</string>
     <string name="morphe_force_original_audio_summary_on">Orijinal səs dilini faydalanmaq</string>
@@ -178,7 +184,7 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_oauth2_connection_failure_auth_error">VR-a daxil olmaq olmur: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR-a daxil olmaq olmur, veb sayt təsdiqlənməsi qəbul edilməyib</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 keçici olaraq əlçatan deyil</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 keçici olaraq əlçatan deyil (vəziyyət %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 keçici olaraq əlçatan deyil (vəziyyət %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR girişi sonlandı, VR-a təkrar daxil olmağa cəhd et</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 keçici olaraq əlçatan deyil (API vaxtı bitdi)</string>
     <string name="morphe_oauth2_toast_invalid">Token-dəki etibarsız VR girişi, VR-a təkrar daxil olmağa cəhd et</string>
@@ -201,7 +207,6 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_playback_in_feeds_title">Axınlarda oynatma</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Oynadıcının idarəetmə düymələrinin və vaxt cizgisinin arxasındakı fonun çevrəsinin şəffaflığını tənzimlə (0 görünməzdir, 100 şəffaf olmayandır)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">İdarəetmə düymələrinin fon şəffaflığı</string>
-    <string name="morphe_preferred_caption_language_entry_off">Qapalı</string>
     <string name="morphe_preferred_caption_language_summary">Əvvəlcə təminatçının altyazılarını seçir, sonra avtomatik üstünlük verilən dilə tərcümə edir</string>
     <string name="morphe_preferred_caption_language_title">Üstünlük verilmiş titr dili</string>
     <string name="morphe_queue_manager_check_failed_auth">Daxil olunmayıb</string>
@@ -1005,7 +1010,7 @@ Məhdudiyyət: Köhnə üslub üçün \"Daha çox video\" örtüyünə qayıdır
     <string name="revanced_ryd_estimated_like_summary_on">Bəyənmələri olmayan videolar təxmini bəyənmə sayını göstərir</string>
     <string name="revanced_ryd_estimated_like_title">Təxmini bəyənmələri göstər</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Bəyənməmələr mövcud deyil (qəbuledici API limiti)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Bəyənməmə əlçatmazdır (status %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Bəyənməmə əlçatmazdır (status %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Bəyənməmə müvəqqəti əlçatmazdır (API zaman aşımı)</string>
     <string name="revanced_ryd_failure_generic">Bəyənməmə əlçatmazdır (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstərmə</string>
@@ -1072,29 +1077,35 @@ Məhdudiyyət: Köhnə üslub üçün \"Daha çox video\" örtüyünə qayıdır
     <string name="revanced_sb_guidelines_popup_title">Təlimatları izləyin</string>
     <string name="revanced_sb_guidelines_preference_sum">Təlimatlar, yeni bölümlərin yaradılması üçün qaydalar və məsləhətlər ehtiva edir</string>
     <string name="revanced_sb_guidelines_preference_title">Təlimatlara bax</string>
-    <string name="revanced_sb_new_segment_choose_category">Bölüm kateqoriyasını seçin</string>
-    <string name="revanced_sb_new_segment_confirm_content">"Bölüm
+    <string name="revanced_sb_new_segment_choose_category">Bölüm kateqoriyasını seç</string>
+    <string name="revanced_sb_new_segment_confirm_content">"Bölüm bu aralıqdadır:
 
 %1$s 
 ilə
-%2$s arasıdır
+%2$s arasındakı hissə
 
  (%3$s)
 
 Təqdim etməyə hazırdır?"</string>
     <string name="revanced_sb_new_segment_confirm_title">Vaxtlar düzgündür?</string>
-    <string name="revanced_sb_new_segment_disabled_category">Seçimlərdə kateqoriya qeyri-aktivdir. Göndərmək üçün kateqoriyanı aktiv et</string>
+    <string name="revanced_sb_new_segment_disabled_category">Kateqoriya tənzimləmələrdə qeyri-aktivdir. Göndərmək üçün kateqoriyanı aktiv et</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">Bölümün başlanğıc və ya bitiş vaxtlarına düzəliş etmək istəyirsiniz?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Yanlış vaxt verilmişdir</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Bölüm vaxtına əl ilə düzəliş et</string>
+    <string name="revanced_sb_new_segment_highlight_content">"Vurğulama vaxtı doğrudurmu?
+
+%s
+
+Əgər vurğulama göndərmirsinizsə, Ləğv et-ə toxunun və ikinci mövqeyi işarələyin"</string>
+    <string name="revanced_sb_new_segment_highlight_submit">Vurğulananı təqdim et</string>
     <string name="revanced_sb_new_segment_mark_end">Bitmə</string>
-    <string name="revanced_sb_new_segment_mark_locations_first">Əvvəlcə vaxt cizgisində iki yeri doldur</string>
+    <string name="revanced_sb_new_segment_mark_locations_first">İlk öncə vaxt cizgisi üzərində bir mövqe işarələ</string>
     <string name="revanced_sb_new_segment_mark_start">Başlanğıc</string>
     <string name="revanced_sb_new_segment_now">İndi</string>
-    <string name="revanced_sb_new_segment_preview_segment_first">Bölümü izləyin, düzgün ötürüldüyünə əmin olun</string>
+    <string name="revanced_sb_new_segment_preview_segment_first">Bölümü öncə izlə, düzgün ötürüldüyünə əmin ol</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Başlanğıc sondan əvvəl olmalıdır</string>
     <string name="revanced_sb_new_segment_time_end">Bölümün bitmə vaxtı</string>
-    <string name="revanced_sb_new_segment_time_start">Bölüm başladığı vaxt</string>
+    <string name="revanced_sb_new_segment_time_start">Bölümün başladığı vaxt</string>
     <string name="revanced_sb_new_segment_title">Yeni SponsorBlock bölümü</string>
     <string name="revanced_sb_segments_filler">Əlaqəsiz / Zarafatlar</string>
     <string name="revanced_sb_segments_filler_sum">Videonun əsas məzmunun başa düşmək tələb olunmayan əlaqəsiz səhnələr və ya zarafatlar. Məzmun və ya arxa plan təfərrüatlarını təmin edən bölmələr daxil deyil</string>
@@ -1102,24 +1113,24 @@ Təqdim etməyə hazırdır?"</string>
     <string name="revanced_sb_segments_highlight_sum">Əksər insanların axtardığı video bölümü</string>
     <string name="revanced_sb_segments_hook">Giriş / Salamlar</string>
     <string name="revanced_sb_segments_hook_sum">Yaxınlaşan video üçün danışılan kadrlar, salamlama və sağollaşma. Əlavə məzmun əlavə edən bölmələr daxil deyil</string>
-    <string name="revanced_sb_segments_interaction">Qarşılıqlı Əlaqə Xatırlatma (Abunə ol)</string>
+    <string name="revanced_sb_segments_interaction">Qarşılıqlı Əlaqə Xatırlatması (Abunə ol)</string>
     <string name="revanced_sb_segments_interaction_sum">Məzmun ortasında onları bəyənmək, izləmək və ya abunə olmaq üçün qısa xatırlatma. Əgər uzun və ya xüsusi bir şey haqqındadırsa, bu əvəzində öz reklamı olmalıdır</string>
-    <string name="revanced_sb_segments_intro">Fasilə/Giriş Animasiyası</string>
+    <string name="revanced_sb_segments_intro">Fasilə / Giriş Animasiyası</string>
     <string name="revanced_sb_segments_intro_sum">Həqiqi məzmunu olmayan aralıq. Fasilə, statik kadr və ya təkrarlanan animasiya ola bilər. Məlumat ehtiva edən keçidlər daxil deyil</string>
-    <string name="revanced_sb_segments_nomusic">Musiqi: Musiqi olmayan bölmə</string>
+    <string name="revanced_sb_segments_nomusic">Musiqi: Musiqi Olmayan Bölmə</string>
     <string name="revanced_sb_segments_nomusic_sum">Yalnız musiqi videolarında istifadə üçün. Artıq başqa kateqoriyaya aid edilməyən musiqisiz musiqi videoları bölmələri</string>
-    <string name="revanced_sb_segments_outro">Son kartlar / Zaminlər</string>
+    <string name="revanced_sb_segments_outro">Sonluq ekranları / Titrlər</string>
     <string name="revanced_sb_segments_outro_sum">Zaminlər və ya YouTube bitiş kartları görünəndə. Məlumat daxil olan nəticələr üçün deyil</string>
     <string name="revanced_sb_segments_preview">Önizləmə / Anons</string>
     <string name="revanced_sb_segments_preview_sum">Videoda və ya seriyanın digər videolarında nə gözlənildiyini və ya baş verdiyini göstərən, bütün məlumatların başqa yerdə təkrarlandığı bölüm toplusu</string>
-    <string name="revanced_sb_segments_selfpromo">Ödənişsiz/Öz reklamı</string>
+    <string name="revanced_sb_segments_selfpromo">Ödənişsiz / Öz reklamı</string>
     <string name="revanced_sb_segments_selfpromo_sum">Ödənişsiz və ya öz reklamı istisna olmaqla, Sponsor-a bənzər. Mallar, ianələr və ya onların kiminlə əməkdaşlıq etdiyi məzmunda məlumatlar haqqında bölmələr daxildir</string>
     <string name="revanced_sb_segments_sponsor">Sponsor</string>
     <string name="revanced_sb_segments_sponsor_sum">Ödənişli tanıtım, ödənişli yönləndirmələr və birbaşa reklamlar. Öz reklamı və ya bəyəndikləri səbəblərə/yaradıcılara/veb saytlara/məhsullara ödənişsiz çağırışlar etmək üçün deyil</string>
-    <string name="revanced_sb_settings_export_failed">%s ixrac uğursuz</string>
+    <string name="revanced_sb_settings_export_failed">İxrac etmək olmadı: %s</string>
     <string name="revanced_sb_settings_ie_sum">ReVanced və digər SponsorBlock platformalarına idxal/ixrac edilə bilən SponsorBlock JSON qurmanız</string>
     <string name="revanced_sb_settings_ie_sum_warning">ReVanced və digər SponsorBlock platformalarına idxal/ixrac edilə bilən SponsorBlock JSON qurmanız. Bu şəxsi istifadəçi kimliyinizi saxlayır. Bunu düzgün şəkildə paylaşdığınıza əmin olun</string>
-    <string name="revanced_sb_settings_import_failed">%s idxal uğursuz</string>
+    <string name="revanced_sb_settings_import_failed">İdxal etmək olmadı: %s</string>
     <string name="revanced_sb_settings_import_successful">Tənzimləmələr uğurla idxal edildi</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning">"Tənzimləmələrdə şəxsi SponsorBlock istifadəçi Id-niz var
 
@@ -1144,7 +1155,7 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz
     <string name="revanced_sb_skip_button_unsubmitted">Bölümü ötür</string>
     <string name="revanced_sb_skip_ignore">Qapadın</string>
     <string name="revanced_sb_skip_seekbaronly">Çevirmə cizgisində göstər</string>
-    <string name="revanced_sb_skip_showbutton">Ötürmə Düyməsini Göstər</string>
+    <string name="revanced_sb_skip_showbutton">Ötürmə düyməsini göstər</string>
     <string name="revanced_sb_skipped_filler">Əlaqəsiz ötürüldü</string>
     <string name="revanced_sb_skipped_highlight">Vurğulanan hissəyə keçildi</string>
     <string name="revanced_sb_skipped_hook">Giriş ötürüldü</string>
@@ -1154,18 +1165,18 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz
     <string name="revanced_sb_skipped_multiple_segments">Çoxlu bölümlər ötürüldü</string>
     <string name="revanced_sb_skipped_nomusic">Musiqi olmayan bölmə ötürüldü</string>
     <string name="revanced_sb_skipped_outro">Bitiş ötürüldü</string>
-    <string name="revanced_sb_skipped_preview_beginning">Önbaxış ötürüldü</string>
+    <string name="revanced_sb_skipped_preview_beginning">Önizləmə ötürüldü</string>
     <string name="revanced_sb_skipped_preview_end">Anons ötürüldü</string>
-    <string name="revanced_sb_skipped_selfpromo">Öz reklamı, ötürüldü</string>
-    <string name="revanced_sb_skipped_sponsor">Sponsorlu hissə ötürüldü</string>
+    <string name="revanced_sb_skipped_selfpromo">Öz reklamı ötürüldü</string>
+    <string name="revanced_sb_skipped_sponsor">Sponsor ötürüldü</string>
     <string name="revanced_sb_skipped_unsubmitted">Göndərilməmiş bölüm ötürüldü</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock müvəqqəti olaraq əlçatan deyil</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock müvəqqəti olaraq əlçatan deyil (status %d)</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock müvəqqəti əlçatmazdır (API vaxtı bitdi)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock müvəqqəti əlçatan deyil</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock müvəqqəti əlçatan deyil (status %s)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock müvəqqəti əlçatmazdır (API zaman aşımı)</string>
     <string name="revanced_sb_square_layout">Kvadrat düzümü istifadə et</string>
     <string name="revanced_sb_square_layout_sum_off">Düymələr və idarəedicilər dairəvidir</string>
     <string name="revanced_sb_square_layout_sum_on">Düymələr və idarəedicilər kvadratdır</string>
-    <string name="revanced_sb_stats_connection_failure">Statistikalar müvəqqəti mövcud deyil (API işləmir)</string>
+    <string name="revanced_sb_stats_connection_failure">Statistika müvəqqəti mövcud deyil (API işləmir)</string>
     <string name="revanced_sb_stats_reputation">Nüfuzunuz: &lt;b&gt;%.2f&lt;/b&gt;</string>
     <string name="revanced_sb_stats_saved">İnsanları &lt;b&gt;%s&lt;/b&gt; bölümdən azad etdiniz</string>
     <string name="revanced_sb_stats_saved_hour_format">%1$s saat %2$s dəqiqə</string>
@@ -1174,23 +1185,23 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz
     <string name="revanced_sb_stats_saved_sum">Bu, həyatlarının &lt;b&gt;%s&lt;/b&gt; qədəridir. &lt;br&gt;Liderlik lövhəsinə baxmaq üçün toxunun</string>
     <string name="revanced_sb_stats_saved_sum_zero">Qlobal statistikaları və başlıca töhfəçiləri görmək üçün bura toxunun</string>
     <string name="revanced_sb_stats_saved_zero">SponsorBlock liderlik lövhəsi</string>
-    <string name="revanced_sb_stats_sb_disabled">SponsorBlock qapadıldı</string>
+    <string name="revanced_sb_stats_sb_disabled">SponsorBlock qapalıdır</string>
     <string name="revanced_sb_stats_self_saved">&lt;b&gt;%s&lt;/b&gt; bölümü ötürdünüz</string>
     <string name="revanced_sb_stats_self_saved_reset_title">Ötürülən bölüm hesablayıcı sıfırlansın?</string>
     <string name="revanced_sb_stats_self_saved_sum">Bu, &lt;b&gt;%s&lt;/b&gt; deməkdir</string>
     <string name="revanced_sb_stats_submissions">&lt;b&gt;%s&lt;/b&gt; bölüm yaratdınız</string>
     <string name="revanced_sb_stats_submissions_sum">Bölümlərinizə baxmaq üçün bura toxunun</string>
     <string name="revanced_sb_stats_username">İstifadəçi adınız: &lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="revanced_sb_stats_username_change">İstifadəçi adınızı dəyişdirmək üçün bura toxunun</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">İstifadəçi adı dəyişdirilə bilmir: Status: %1$d %2$s</string>
+    <string name="revanced_sb_stats_username_change">İstifadəçi adınızı dəyişdirmək üçün bura toxun</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">İstifadəçi adını dəyişdirmək olmur: Status: %1$s %2$s</string>
     <string name="revanced_sb_stats_username_changed">İstifadəçi adı uğurla dəyişdirildi</string>
-    <string name="revanced_sb_submit_failed_duplicate">"Bölüm təqdim etmək mümkün deyil
-Artıq mövcuddur"</string>
-    <string name="revanced_sb_submit_failed_forbidden">Bölüm göndərilmir: %s</string>
-    <string name="revanced_sb_submit_failed_invalid">Bölüm göndərilmir: %s</string>
-    <string name="revanced_sb_submit_failed_rate_limit">Bölüm təqdim etmək olmur. Sürət Məhduddur (eyni istifadəçi və ya IP-dən artıq)</string>
-    <string name="revanced_sb_submit_failed_timeout">SponsorBlock müvəqqəti olaraq zəifləyir</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Bölüm göndərilmir (status: %1$d %2$s)</string>
+    <string name="revanced_sb_submit_failed_duplicate">"Bölümü təqdim etmək mümkün deyil
+Artıq var"</string>
+    <string name="revanced_sb_submit_failed_forbidden">Bölümü təqdim etmək olmur: %s</string>
+    <string name="revanced_sb_submit_failed_invalid">Bölümü göndərmək olmadı: %s</string>
+    <string name="revanced_sb_submit_failed_rate_limit">Bölüm təqdim etmək olmur. Sürət Məhduddur (eyni istifadəçi və ya IP-dən çox var)</string>
+    <string name="revanced_sb_submit_failed_timeout">SponsorBlock müvəqqəti olaraq fəaliyyət göstərmir</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Bölümü göndərmək olmadı (status: %1$s %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Bölüm uğurla göndərildi</string>
     <string name="revanced_sb_toast_on_connection_error">API əlçatan deyilsə ani bildirişi göstər</string>
     <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock əlçatan deyilsə, bildiriş göstərilmir</string>
@@ -1199,9 +1210,9 @@ Artıq mövcuddur"</string>
     <string name="revanced_sb_toast_on_skip_duration_sum">Ötür ani bildirişin ləğv etmə göstərilməsi müddəti</string>
     <string name="revanced_sb_vote_category">Kateqoriyanı dəyişdir</string>
     <string name="revanced_sb_vote_downvote">Mənfi səs</string>
-    <string name="revanced_sb_vote_failed_forbidden">Bölüm üçün səsvermə alınmır: %s</string>
-    <string name="revanced_sb_vote_failed_timeout">Bölüm üçün səsvermə alınmır (API vaxtı bitdi)</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Bölüm üçün səsvermə alınmır (status: %1$d %2$s)</string>
+    <string name="revanced_sb_vote_failed_forbidden">Bölümə səs vermək olmur: %s</string>
+    <string name="revanced_sb_vote_failed_timeout">Bölümə səs vermək olmur (API zaman aşımı)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Bölümə səs vermək olmur (status: %1$s %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Səsvermə üçün bölüm yoxdur</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s - %2$s</string>
     <string name="revanced_sb_vote_upvote">Müsbət səs</string>
@@ -1212,7 +1223,7 @@ Artıq mövcuddur"</string>
     <string name="revanced_settings_import">İdxal et</string>
     <string name="revanced_settings_import_copy">Köçür</string>
     <string name="revanced_settings_import_reset">RVX tənzimləmələr standarta təyin olundu</string>
-    <string name="revanced_settings_import_success">%d tənzimləmə idxal olundu</string>
+    <string name="revanced_settings_import_success">%s tənzimləmə idxal olundu</string>
     <string name="revanced_settings_navigate_up">Yuxarı keç</string>
     <string name="revanced_settings_reset">Sıfırla</string>
     <string name="revanced_settings_reset_color">Rəngi sıfırla</string>
