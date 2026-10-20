@@ -66,6 +66,7 @@ import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarIt
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.RendererAccessibilityData;
 import app.morphe.extension.youtube.innertube.IconOuterClass.Icon;
 import app.morphe.extension.youtube.innertube.IconOuterClass.YTIconType;
+import app.morphe.extension.youtube.patches.general.offline.OfflineScreens;
 import app.morphe.extension.youtube.patches.theme.ThemePatch.StatusBarTranslucency;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
@@ -733,6 +734,88 @@ public final class NavigationButtonsPatch {
         }
 
         return null;
+    }
+
+    // modified by lavinhoque33, 2026-10-10: Downloads button of the offline library in the You tab.
+    private static final boolean SHOW_TOOLBAR_DOWNLOADS_BUTTON =
+            Settings.IN_APP_DOWNLOADER.get() && Settings.SHOW_OFFLINE_LIBRARY_BUTTON.get();
+
+    private static final ThreadLocal<byte[]> pendingToolbarDownloadsButton = new ThreadLocal<>();
+
+    /**
+     * Injection point. Called for every button of a page toolbar, such as the one of the You tab,
+     * before YouTube creates its menu item.
+     * If it is YouTube's own Settings button, a copy with the download icon is kept for
+     * {@link #takeToolbarDownloadsButton()}, which adds it after the Settings button.
+     *
+     * @param buttonRenderer The button renderer YouTube is about to show.
+     */
+    public static void prepareToolbarDownloadsButton(Object buttonRenderer) {
+        pendingToolbarDownloadsButton.set(createToolbarDownloadsButton(buttonRenderer));
+    }
+
+    /**
+     * Injection point. Called after YouTube added the menu item of {@link #prepareToolbarDownloadsButton(Object)}.
+     *
+     * @return The Downloads button to add, or null.
+     */
+    @Nullable
+    public static byte[] takeToolbarDownloadsButton() {
+        byte[] button = pendingToolbarDownloadsButton.get();
+        pendingToolbarDownloadsButton.remove();
+        return button;
+    }
+
+    @Nullable
+    private static byte[] createToolbarDownloadsButton(Object buttonRenderer) {
+        if (!SHOW_TOOLBAR_DOWNLOADS_BUTTON || !(buttonRenderer instanceof MessageLite message)) {
+            return null;
+        }
+
+        try {
+            ButtonRenderer settings = ButtonRenderer.parseFrom(message.toByteArray());
+            if (!settings.hasIcon() || settings.getIcon().getYtIconType() != YTIconType.SETTINGS_CAIRO) {
+                return null;
+            }
+
+            ButtonRendererAccessibilityData accessibilityData = ButtonRendererAccessibilityData
+                    .newBuilder()
+                    .setLabel(ResourceUtils.getString("revanced_offline_library_title"))
+                    .build();
+            // The native command of the copy is replaced by the click listener of setToolbarDownloadsOnClickListener.
+            return settings.toBuilder()
+                    .setButtonRendererAccessibilityData(accessibilityData)
+                    .setRendererAccessibilityData(RendererAccessibilityData.newBuilder()
+                            .setButtonRendererAccessibilityData(accessibilityData)
+                            .build())
+                    .setIcon(Icon.newBuilder().setYtIconType(YTIconType.OFFLINE_DOWNLOAD).build())
+                    .build()
+                    .toByteArray();
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to create toolbar Downloads button", ex);
+            return null;
+        }
+    }
+
+    /**
+     * Injection point. Replaces the copied native listener after YouTube finishes binding the toolbar button.
+     */
+    public static void setToolbarDownloadsOnClickListener(String enumName, View toolbarView) {
+        if (!SHOW_TOOLBAR_DOWNLOADS_BUTTON || !YTIconType.OFFLINE_DOWNLOAD.name().equals(enumName)
+                || !(toolbarView instanceof ViewGroup viewGroup)) {
+            return;
+        }
+
+        ImageView imageView = Utils.getChildView(viewGroup, view -> view instanceof ImageView);
+        if (imageView == null) {
+            return;
+        }
+
+        Utils.runOnMainThreadDelayed(() -> {
+            imageView.setClickable(true);
+            imageView.setOnClickListener(button -> OfflineScreens.openLibrary(button.getContext()));
+            imageView.setOnLongClickListener(null);
+        }, 100);
     }
 
     /**

@@ -12,6 +12,7 @@ import android.widget.Toolbar;
 
 import app.morphe.extension.shared.settings.BaseActivityHook;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.general.offline.OfflineScreens;
 import app.morphe.extension.youtube.patches.theme.ThemePatch;
 import app.morphe.extension.youtube.settings.preference.YouTubePreferenceFragment;
 import app.morphe.extension.youtube.settings.search.YouTubeSearchViewController;
@@ -54,6 +55,8 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static void initialize(Activity parentActivity) {
+        // modified by lavinhoque33, 2026-10-10: LicenseActivity also hosts the offline library and player.
+        if (OfflineScreens.initialize(parentActivity)) return;
         ThemePatch.applyToSettingsActivity(parentActivity);
         settingsDarkMode = ThemeUtils.isDarkModeEnabled();
         BaseActivityHook.initialize(new YouTubeActivityHook(), parentActivity);
@@ -185,10 +188,15 @@ public class YouTubeActivityHook extends BaseActivityHook {
      * <p>
      * Overrides {@link Activity#finish()} of the injection Activity.
      *
-     * @return if the original activity finish method should be allowed to run.
+     * @param activity The LicenseActivity instance.
+     * @return if the back press was handled and the original activity finish method must not run.
      */
     @SuppressWarnings("unused")
-    public static boolean handleBackPress() {
+    public static boolean handleBackPress(Activity activity) {
+        // modified by lavinhoque33, 2026-10-10: Offline screens handle their own back presses.
+        if (OfflineScreens.hostsScreen(activity)) {
+            return OfflineScreens.handleBackPress(activity);
+        }
         return YouTubeSearchViewController.handleFinish(searchViewController);
     }
 }

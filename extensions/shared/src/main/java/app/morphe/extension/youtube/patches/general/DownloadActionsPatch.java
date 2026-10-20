@@ -401,7 +401,10 @@ public final class DownloadActionsPatch {
     public static boolean inAppVideoDownloadButtonOnClick(@Nullable Map<Object, Object> map, Object offlineVideoEndpointOuterClass,
                                                           @Nullable String videoId) {
         try {
-            if (OVERRIDE_VIDEO_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(videoId)) {
+            // modified by lavinhoque33, 2026-10-10: the built-in downloader replaces the native
+            // (Premium) downloader on its own, without the external-downloader override.
+            if ((OVERRIDE_VIDEO_DOWNLOAD_BUTTON || Settings.IN_APP_DOWNLOADER.get())
+                    && StringUtils.isNotEmpty(videoId)) {
                 if (OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER) {
                     PlaylistPatch.prepareDialogBuilder(videoId);
                 } else {
