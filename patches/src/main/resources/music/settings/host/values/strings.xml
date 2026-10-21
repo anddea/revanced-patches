@@ -121,50 +121,31 @@ YouTube Music 8.x - crossfade only runs on 9.x and newer"</string>
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl cleared</string>
     <string name="morphe_music_deezer_arl_toast_invalid">Deezer: invalid arl — please check and try again</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl saved</string>
-    <string name="morphe_music_downloads_actions_for">Actions for %s</string>
-    <string name="morphe_music_downloads_all_deleted">Downloads deleted</string>
     <string name="morphe_music_downloads_already_running">Download already in progress</string>
     <string name="morphe_music_downloads_already_saved">Already downloaded</string>
-    <string name="morphe_music_downloads_close">Close</string>
     <string name="morphe_music_downloads_complete">Download complete</string>
-    <string name="morphe_music_downloads_delete">Delete</string>
-    <string name="morphe_music_downloads_delete_all">Delete all downloads</string>
-    <string name="morphe_music_downloads_delete_all_message">All downloaded tracks will be deleted from this device</string>
-    <string name="morphe_music_downloads_delete_all_title">Delete all downloads?</string>
-    <string name="morphe_music_downloads_delete_track">Delete download</string>
-    <string name="morphe_music_downloads_delete_track_message">%s will be deleted from this device</string>
-    <string name="morphe_music_downloads_delete_track_title">Delete download?</string>
-    <string name="morphe_music_downloads_empty">"No downloads
-Downloaded tracks appear here"</string>
     <string name="morphe_music_downloads_failed">Download failed</string>
-    <string name="morphe_music_downloads_next">Next</string>
-    <string name="morphe_music_downloads_nothing_found">Nothing found</string>
     <string name="morphe_music_downloads_notification_channel">Audio downloads</string>
-    <string name="morphe_music_downloads_pause">Pause</string>
-    <string name="morphe_music_downloads_play">Play</string>
-    <string name="morphe_music_downloads_play_failed">Could not play the download</string>
-    <string name="morphe_music_downloads_play_pause">Play or pause</string>
-    <string name="morphe_music_downloads_playback_channel">Offline playback</string>
-    <string name="morphe_music_downloads_previous">Previous</string>
     <string name="morphe_music_downloads_progress">Downloading %s%%</string>
-    <string name="morphe_music_downloads_screen_title">Downloads</string>
-    <string name="morphe_music_downloads_search_hint">Search downloads</string>
     <string name="morphe_music_downloads_sort">Sort</string>
-    <string name="morphe_music_downloads_sort_artist">Sort by artist</string>
-    <string name="morphe_music_downloads_sort_size">Sort by size</string>
-    <string name="morphe_music_downloads_sort_title">Sort by title</string>
     <string name="morphe_music_downloads_started">Download started</string>
     <string name="morphe_music_downloads_starting">Starting download…</string>
-    <string name="morphe_music_downloads_summary">%1$s tracks • %2$s MB</string>
-    <string name="morphe_music_downloads_track_delete_failed">Could not delete the download</string>
-    <string name="morphe_music_downloads_track_deleted">Download deleted</string>
-    <string name="morphe_music_downloads_track_subtitle">%1$s • %2$s • %3$s MB</string>
+    <string name="morphe_music_downloads_storage_permission">Allow storage access, then tap Download again</string>
     <string name="morphe_music_downloads_unknown_track">Could not identify the track to download</string>
-    <string name="morphe_music_in_app_downloads_summary">Downloads audio inside YouTube Music instead of opening the external downloader app</string>
+    <string name="morphe_music_in_app_downloads_summary">Downloads songs and playlists for native offline playback</string>
     <string name="morphe_music_in_app_downloads_title">Download in app</string>
-    <string name="morphe_music_in_app_downloads_user_dialog_message">"Tracks are saved to the private storage of the app and are deleted if YouTube Music is uninstalled
+    <!-- modified by lavinhoque33, 2026-10-16: downloads use shared audio storage and Music's native local-file Library/player, with embedded tags. -->
+    <!-- modified by lavinhoque33, 2026-10-17: mention and name the derived "Not in a playlist" playlist. -->
+    <string name="morphe_music_in_app_downloads_user_dialog_message">"Songs and playlists are saved to Music/RVX and played by YouTube Music’s native local-file player. Allow audio access when Music asks.
 
-While this is on, the Downloads tab lists these tracks instead of the Music Premium offline library. Turning it off restores the tab, and Premium downloads are never touched"</string>
+Downloads (in Library or the account menu) opens the native device-files library. Choose Songs, Playlists, Albums or Artists there. Tracks keep their title, artist, album and cover. Downloaded songs that are in no playlist are listed in the “Not in a playlist” playlist. Existing in-app downloads are migrated without redownloading.
+
+Audio files remain after uninstalling Music; playlist organization is app data. Turning this option off restores stock Downloads navigation. Premium downloads are never changed."</string>
+    <string name="morphe_music_not_in_playlist">Not in a playlist</string>
+    <string name="morphe_music_playlist_download_complete">Playlist saved: %s tracks</string>
+    <string name="morphe_music_playlist_download_failed">Playlist download failed. Completed songs remain in device files; tap Download to retry.</string>
+    <string name="morphe_music_playlist_download_progress">Downloading track %1$s of %2$s</string>
+    <string name="morphe_music_playlist_download_started">Playlist download started</string>
     <string name="morphe_music_lyrics_about_summary">"Lyrics are matched by title and artist, unusual metadata may find nothing or the wrong version. Use refresh to switch versions. Providers marked * require a token. All enabled providers are not always requested in your order, but respond based on their speed"</string>
     <string name="morphe_music_lyrics_about_title">About third-party lyrics</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">API key (leave empty for anonymous access)</string>

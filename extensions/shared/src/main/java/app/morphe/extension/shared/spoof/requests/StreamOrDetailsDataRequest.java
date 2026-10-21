@@ -86,8 +86,9 @@ public class StreamOrDetailsDataRequest {
         Logger.printDebug(() -> "Available spoof clients: " + orderToUse);
     }
 
-    private static List<ClientType> buildClientOrder(List<ClientType> availableClients,
-                                                     ClientType preferredClient) {
+    // modified by lavinhoque33, 2026-10-14: public, the Music downloader tries the clients one by one.
+    public static List<ClientType> buildClientOrder(List<ClientType> availableClients,
+                                                    ClientType preferredClient) {
         Objects.requireNonNull(preferredClient);
 
         List<ClientType> orderToUse = new ArrayList<>(availableClients.size());

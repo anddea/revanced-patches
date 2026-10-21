@@ -67,7 +67,7 @@ internal enum class PatchList(
     ),
     DOWNLOADS(
         "Downloads",
-        "Adds support to download songs for offline playback inside YouTube Music."
+        "Adds support to download songs and playlists for offline playback in YouTube Music's own device files library and player."
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
