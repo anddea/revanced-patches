@@ -60,7 +60,6 @@ val pipStateHookPatch = bytecodePatch(
     dependsOn(versionCheckPatch)
 
     execute {
-        // modified by lavinhoque33, 2026-10-04
         // YouTube 21.39: PiP entry method signature changed (returns Z); use the V2 fingerprint.
         val pipFingerprint =
             if (is_21_04_or_greater) {

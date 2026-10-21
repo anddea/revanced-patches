@@ -405,7 +405,6 @@ val feedComponentsPatch = bytecodePatch(
 
         // region patch for hide channel tab
 
-        // modified by lavinhoque33, 2026-10-04
         // 21.39: the 4-parameter tab builder no longer exists (now has 5+ params), so it is optional.
         val channelTabBuilderMethod = runCatching {
             channelTabBuilderFingerprint.methodOrThrow()
@@ -462,7 +461,6 @@ val feedComponentsPatch = bytecodePatch(
                             """, ExternalLabel("next_iterator", getInstruction(iteratorIndex))
                     )
                 } else {
-                    // modified by lavinhoque33, 2026-10-04
                     // 21.39: the tab view builder call moved out of this method into a per-tab
                     // handler method `handler(TabItem, int, X)V` that is invoked inside the iterator loop.
                     // The builder signature also changed, so hook the loop call site instead.

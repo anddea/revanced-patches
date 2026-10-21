@@ -52,7 +52,7 @@ internal object AuthenticationChangeListenerFingerprint : Fingerprint(
     },
 )
 
-// modified by lavinhoque33, 2026-10-04: string-less detection used by YouTube 21.39+.
+// string-less detection used by YouTube 21.39+.
 private fun isAuthenticationChangeListenerWithoutString(method: Method) =
     method.parameterTypes.size == 1 &&
             method.indexOfFirstInstruction {

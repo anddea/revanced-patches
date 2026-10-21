@@ -83,7 +83,6 @@ val ambientModeSwitchPatch = bytecodePatch(
     execute {
         // region patch for bypass ambient mode restrictions
 
-        // modified by lavinhoque33, 2026-10-04
         // 21.39: there are two matching BroadcastReceivers (each with its own synthetic Consumer),
         // and the "(Object)V" fingerprint now matches an unrelated method whose nearest invoke-direct
         // class has no `accept`. Patch every receiver match and skip classes without `accept`.

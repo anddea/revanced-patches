@@ -86,7 +86,6 @@ internal object ModernFeedBottomSheetFlyoutFingerprint : Fingerprint(
     classFingerprint = Fingerprint(
         parameters = listOf("Landroid/os/Bundle;"),
         // "BaseBottomSheetDialogFragment.useNewUi" was removed in YouTube 21.39
-        // (modified by lavinhoque33, 2026-10-04).
         filters = listOf(
             string("BaseBottomSheetDialogFragment.peekHeightEnabled"),
             string("BaseBottomSheetDialogFragment.shouldSkipCollapsed"),
@@ -266,7 +265,7 @@ internal val setPlaylistDownloadButtonVisibilityFingerprint = Fingerprint(
     ),
 )
 
-// region built-in downloader and offline player (modified by lavinhoque33, 2026-10-10)
+// region built-in downloader and offline player
 
 // The stock service class names are kept by R8 because the manifest references them.
 private const val BACKGROUND_PLAYER_SERVICE_SUFFIX = "/BackgroundPlayerService;"
@@ -312,7 +311,6 @@ internal val browseEndpointCommandFingerprint = Fingerprint(
     ),
 )
 
-// modified by lavinhoque33, 2026-10-15
 /**
  * The command resolver, which looks up the handler of every command (taps, links, rows) and calls
  * it. It logs "Unknown command not resolved" when no handler matches; the text differs between

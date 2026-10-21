@@ -72,7 +72,6 @@ internal object BackgroundPlaybackSettingsFingerprint : Fingerprint(
         opcode(Opcode.INVOKE_VIRTUAL, location = MatchAfterImmediately()),
         opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately()),
         opcode(Opcode.IF_EQZ, location = MatchAfterImmediately()),
-        // modified by lavinhoque33, 2026-10-04
         // 21.39: the IF_NEZ + GOTO following IF_EQZ no longer exist (code was reordered).
         resourceLiteral(ResourceType.STRING, "pref_background_and_offline_category"),
     )
@@ -139,7 +138,6 @@ internal object BackgroundPlaybackManagerCairoFragmentSecondaryFingerprint : Fin
 
 internal const val CAIRO_FRAGMENT_PIP_FEATURE_FLAG = 45532100L
 
-// modified by lavinhoque33, 2026-10-04
 // 21.39: the boolean getter that [BackgroundPlaybackManagerCairoFragmentPrimaryFingerprint] and
 // [BackgroundPlaybackManagerCairoFragmentSecondaryFingerprint] relied on is inlined into the
 // two lifecycle methods (onStart/onResume equivalents) as `const-wide/32 flag` + `invoke-virtual w(JZ)Z`.

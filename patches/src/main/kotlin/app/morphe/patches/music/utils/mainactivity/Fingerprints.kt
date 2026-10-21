@@ -3,7 +3,6 @@ package app.morphe.patches.music.utils.mainactivity
 import app.morphe.util.containsStringInstruction
 import app.morphe.util.fingerprint.legacyFingerprint
 
-// modified by lavinhoque33, 2026-10-04
 // YouTube Music 9.40 moved both strings out of MusicActivity.onCreate,
 // so the launcher activity class itself is accepted as well.
 private const val MUSIC_ACTIVITY_CLASS_DESCRIPTOR =

@@ -378,7 +378,6 @@ private val shortsCustomActionsPatch = bytecodePatch(
         hookToolBar("$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->setToolbarMenu")
 
         // toolbar in Shorts livestream
-        // modified by lavinhoque33, 2026-10-04
         // YouTube 21.39 inlined this into LiveHeaderController.t(Z)V; fall back to that fingerprint.
         (liveHeaderElementsContainerFingerprint.methodOrNull()
             ?: liveHeaderElementsContainerFingerprint2139.methodOrThrow()).apply {
@@ -437,7 +436,6 @@ private val shortsCustomActionsPatch = bytecodePatch(
 
                 // The modern renderer takes a separate path for menu items with this flag.
                 // Pass the flag along so the extension can retain a normal item as its template.
-                // modified by lavinhoque33, 2026-10-04
                 // YouTube 21.39: the `and-int/lit16 0x1000` flag test became `if-ne vX, const` + `or-int/2addr`;
                 // the boolean flag is the second register of the nearest preceding `or-int/2addr`.
                 val elementTransformerFlagIndexLegacy = runCatching {
@@ -451,7 +449,6 @@ private val shortsCustomActionsPatch = bytecodePatch(
                         opcode == Opcode.OR_INT_2ADDR
                     }
 
-                // modified by lavinhoque33, 2026-10-04
                 // YouTube 21.39 added an earlier `iget-object, invoke-virtual, move-result, if-eqz` block
                 // (VIDEO_QUALITY_DETAIL_TEXT), so the first opcode match is no longer the menu list.
                 // Take the list field from the `iget-object` feeding the `add` receiver instead, and the
@@ -1273,7 +1270,6 @@ val shortsComponentPatch = bytecodePatch(
             descriptor: String,
             reversed: Boolean
         ) {
-            // modified by lavinhoque33, 2026-10-04
             // Check the version before resolving the fingerprint: shortsButtonFingerprint is not
             // guaranteed to resolve on 21.39 and nothing is injected for 20.18+ anyway.
             if (is_20_18_or_greater) return
@@ -1337,7 +1333,6 @@ val shortsComponentPatch = bytecodePatch(
 
         // region patch for hide like button (non-litho)
 
-        // modified by lavinhoque33, 2026-10-04
         // Resolve the fingerprint only when it is actually used (not on 20.18+, e.g. 21.39).
         if (!is_20_18_or_greater) shortsButtonFingerprint.methodOrThrow().apply {
             val insertIndex = indexOfFirstLiteralInstructionOrThrow(reelRightLikeIcon)

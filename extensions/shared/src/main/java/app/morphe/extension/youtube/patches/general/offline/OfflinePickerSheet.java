@@ -235,7 +235,7 @@ final class OfflinePickerSheet {
         TextView codec = text(13, secondary, 1);
         boolean av1 = video.codec().toUpperCase(Locale.ROOT).startsWith("AV1");
         boolean vp9 = OfflineFormats.CODEC_VP9.equals(video.codec());
-        // modified by lavinhoque33, 2026-10-14: AV1 this device cannot decode is listed, with a warning note.
+        // AV1 this device cannot decode is listed, with a warning note.
         SpannableStringBuilder codecText = new SpannableStringBuilder(video.codec() + " · "
                 + str(av1 ? "revanced_offline_picker_av1_hint"
                 : vp9 ? "revanced_offline_picker_vp9_hint" : "revanced_offline_picker_h264_hint"));

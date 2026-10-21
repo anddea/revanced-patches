@@ -125,7 +125,6 @@ val navigationBarComponentsPatch = bytecodePatch(
         /**
          * Hook theme class constructor to dynamically override mappings
          */
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: constructor no longer holds the drawable literals; fall back to the class of the helper that does.
         val themeMethod = runCatching { ThemeMapConstructorFingerprint.method }.getOrNull()
             ?: findMutableClassOrThrow(ThemeMapHelperFingerprint.method.definingClass).methods.first {
@@ -214,7 +213,6 @@ val navigationBarComponentsPatch = bytecodePatch(
                     } else {
                         -1
                     }
-                    // modified by lavinhoque33, 2026-10-04
                     // 9.40: item class is obfuscated differently (Laoio;); derive it from the
                     // check-cast after Iterator.next() instead of hardcoding Lbxjp;.
                     val iteratorNextIndex = if (replacementEnabled) {

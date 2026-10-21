@@ -123,7 +123,6 @@ internal object HistoryMenuItemOfflineTabFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // 9.40: the offline-tab menu method (gmn.b) looks up three menu items and calls setVisible
 // on each non-null item (offline settings, offline fallback, history), so the history
 // setVisible is the third call before return-void.
@@ -239,7 +238,6 @@ internal val tasteBuilderSyntheticFingerprint = legacyFingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // 9.40: the taste builder bind method (jdo.d) is now "public final bridge synthetic" instead of "public final synthetic".
 internal val tasteBuilderSyntheticV940Fingerprint = legacyFingerprint(
     name = "tasteBuilderSyntheticV940Fingerprint",

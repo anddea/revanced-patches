@@ -70,7 +70,6 @@ internal val pipPlaybackModernFingerprint = legacyFingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // YouTube 21.39: the PiP entry method now returns Z (was ListenableFuture) and the
 // 'is PiP allowed' check is an invoke-virtual instead of invoke-direct.
 internal val pipPlaybackModernV2Fingerprint = legacyFingerprint(

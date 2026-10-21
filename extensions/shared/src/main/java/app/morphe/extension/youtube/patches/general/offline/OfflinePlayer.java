@@ -187,7 +187,7 @@ public final class OfflinePlayer {
         releasePlayer();
         Context context = Utils.getContext();
         current = video;
-        // modified by lavinhoque33, 2026-10-14: say so instead of showing a grey picture when the AV1 cannot be decoded.
+        // say so instead of showing a grey picture when the AV1 cannot be decoded.
         if (OfflineFormats.CODEC_AV1.equals(video.codec)) {
             java.util.regex.Matcher quality = java.util.regex.Pattern.compile("^(\\d+)p(\\d+)?").matcher(video.qualityLabel);
             if (quality.find() && !OfflineFormats.canDecodeAv1(0, Integer.parseInt(quality.group(1)),

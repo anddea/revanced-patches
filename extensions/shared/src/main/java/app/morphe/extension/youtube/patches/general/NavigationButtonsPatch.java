@@ -820,7 +820,7 @@ public final class NavigationButtonsPatch {
         return null;
     }
 
-    // modified by lavinhoque33, 2026-10-10: Downloads button of the offline library in the You tab.
+    // Downloads button of the offline library in the You tab.
     private static final boolean SHOW_TOOLBAR_DOWNLOADS_BUTTON =
             Settings.IN_APP_DOWNLOADER.get() && Settings.SHOW_OFFLINE_LIBRARY_BUTTON.get();
 

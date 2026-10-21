@@ -307,7 +307,6 @@ internal object ProtobufBufferReferenceLegacyFingerprint : Fingerprint(
  * YouTube 21.39 and YouTube Music 9.40 dropped the extra object field that
  * [ProtobufBufferReferenceLegacyFingerprint] relies on, so identify the class by its own ByteBuffer field.
  * Only used when that fingerprint does not match: on older versions this looser shape also matches other classes.
- * modified by lavinhoque33, 2026-10-07
  */
 internal object ProtobufBufferReferenceLegacyByteBufferFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),

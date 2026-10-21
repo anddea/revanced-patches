@@ -352,7 +352,6 @@ internal object ModernMiniplayerMinimumSizeFingerprint : Fingerprint(
     ),
 )
 
-// modified by lavinhoque33, 2026-10-04
 // 21.39: the miniplayer subtitle TextView is looked up lazily by the modern controls class,
 // replacing the old (View)V view listener used for hiding subtexts.
 internal object MiniplayerModernSubtitleTextFingerprint : Fingerprint(
@@ -362,7 +361,6 @@ internal object MiniplayerModernSubtitleTextFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-07
 // 21.39: the drag and drop flag is gone. The drag recogniser class is the only one with a (Context, L)
 // constructor that creates a GestureDetector with long press disabled and computes touch slop squares.
 internal object MiniplayerDragRecognizerFingerprint : Fingerprint(
@@ -379,7 +377,6 @@ internal object MiniplayerDragRecognizerFingerprint : Fingerprint(
     parameters = listOf("Landroid/view/View;", "Landroid/view/MotionEvent;")
 )
 
-// modified by lavinhoque33, 2026-10-07
 // 21.39: the rounded corners flag is gone. Matches the method of the corner applier class that clips
 // a view to an outline and sets the outline provider, `(View, L)V` (the sibling with the same signature
 // does not call these directly).

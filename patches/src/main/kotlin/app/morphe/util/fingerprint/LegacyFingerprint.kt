@@ -106,14 +106,14 @@ internal fun MutableMethod.methodCall(): String {
 }
 
 /**
- * Modified by lavinhoque33 (2026-10-04) for experimental YouTube 21.39 support:
+ * For experimental YouTube 21.39 support:
  * if the flag getter no longer exists (YouTube 21.39 inlines flag getters into their callers),
  * the override is applied at every inlined call site of the flag instead.
  * If the flag literal no longer exists anywhere in the app (A/B test removed), there is
  * nothing to override and a warning is printed instead of failing.
  */
 context(context: BytecodePatchContext)
-// modified by lavinhoque33, 2026-10-07: returns whether the flag was hooked; optional missing-flag warning
+// returns whether the flag was hooked; optional missing-flag warning
 fun Pair<String, Fingerprint>.injectLiteralInstructionBooleanCall(
     literal: Long,
     descriptor: String,

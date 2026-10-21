@@ -74,7 +74,6 @@
         <!-- SETTINGS: HOOK_BUTTONS
         <PreferenceScreen android:title="@string/revanced_preference_screen_hook_buttons_title" android:key="revanced_preference_screen_hook_buttons" android:summary="@string/revanced_preference_screen_hook_buttons_summary">SETTINGS: HOOK_BUTTONS -->
 
-            <!-- modified by lavinhoque33, 2026-10-10: Built-in downloader, Downloads page replacement and offline library preferences. -->
             <!-- SETTINGS: HOOK_DOWNLOAD_ACTIONS
             <app.morphe.extension.youtube.settings.preference.OverridePlaylistDownloadButtonPreference android:title="@string/revanced_override_playlist_download_button_title" android:key="revanced_override_playlist_download_button" android:summaryOn="@string/revanced_override_playlist_download_button_summary_on" android:summaryOff="@string/revanced_override_playlist_download_button_summary_off" />
             <app.morphe.extension.youtube.settings.preference.ExternalDownloaderPlaylistPreference android:title="@string/revanced_external_downloader_package_name_playlist_title" android:key="revanced_external_downloader_package_name_playlist" android:summary="@string/revanced_external_downloader_package_name_playlist_summary" />

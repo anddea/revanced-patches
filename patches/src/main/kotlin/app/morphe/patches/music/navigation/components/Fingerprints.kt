@@ -172,7 +172,6 @@ internal object ThemeMapConstructorFingerprint : Fingerprint(
     }
 )
 
-// modified by lavinhoque33, 2026-10-04
 // 9.40: the outline drawable literals moved from the theme class constructor into a private helper
 // (Lixj;->c(Optional)V) that <init> calls. Match that helper; the patch then hooks the class constructor.
 internal object ThemeMapHelperFingerprint : Fingerprint(

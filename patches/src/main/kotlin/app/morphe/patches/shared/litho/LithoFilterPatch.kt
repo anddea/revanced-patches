@@ -191,7 +191,7 @@ val lithoFilterPatch = bytecodePatch(
                 }
             }
 
-            // modified by lavinhoque33, 2026-10-07: the looser ByteBuffer-field shape is only a fallback for
+            // the looser ByteBuffer-field shape is only a fallback for
             // YouTube 21.39 / YouTube Music 9.40; on older versions it also matches unrelated classes.
             val protobufBufferLegacyMatch = ProtobufBufferReferenceLegacyFingerprint.matchOrNull()
                 ?: ProtobufBufferReferenceLegacyByteBufferFingerprint.match()
@@ -477,7 +477,7 @@ val lithoFilterPatch = bytecodePatch(
             // recreate stateful components such as the timed lyrics background during updates.
             if (!isYouTubeMusic) {
                 // YouTube 21.39 removed this flag (Upb is always on); the Upb buffer hook
-                // above handles that path (modified by lavinhoque33, 2026-10-04).
+                // above handles that path
                 LithoConverterBufferUpbFeatureFlagFingerprint.matchOrNull()?.let {
                     // 20.22 the flag is still enabled in one location, but what it does is not known.
                     // Disable it anyway.

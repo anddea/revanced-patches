@@ -218,7 +218,6 @@ val miniplayerPatch = bytecodePatch(
 
         // region Enable modern miniplayer
 
-        // modified by lavinhoque33, 2026-10-04
         // 21.39: the modern miniplayer is always on and its config constructor (literal 45623000) with all the
         // miniplayer feature flags was removed, so the flag/type overrides have nothing to hook.
         // The settings that depended on the config class are hooked elsewhere below (or not shown) on 21.39.
@@ -250,7 +249,6 @@ val miniplayerPatch = bytecodePatch(
             )
             settingArray += "SETTINGS: MINIPLAYER_DRAG_AND_DROP"
         } else if (is_19_23_or_greater) {
-            // modified by lavinhoque33, 2026-10-07
             // 21.39: the drag and drop flag is gone, the drag recogniser is always registered.
             // Disable it by consuming no touch events at the start of its touch handler.
             val dragMatch = runCatching { MiniplayerDragRecognizerFingerprint.match() }.getOrNull()
@@ -341,7 +339,6 @@ val miniplayerPatch = bytecodePatch(
 
                 settingArray += "SETTINGS: MINIPLAYER_WIDTH_DIP"
             } else if (!hasModernConstructor) {
-                // modified by lavinhoque33, 2026-10-07
                 // 21.39: the miniplayer config class holding the initial size flag is gone, so the default
                 // size is hooked in the bounds controller constructor. The same const register is reused for the
                 // minimum size (first DisplayMetrics call) and the initial width (second DisplayMetrics call),
@@ -387,7 +384,6 @@ val miniplayerPatch = bytecodePatch(
 
             settingArray += "SETTINGS: MINIPLAYER_ROUNDED_CORNERS"
         } else if (is_19_36_or_greater) {
-            // modified by lavinhoque33, 2026-10-07
             // 21.39: the rounded corners flag is gone. The outline provider is chosen in a method of the
             // corner applier class, so the non-rounded provider is used when the setting is off.
             val roundedMatch = runCatching { MiniplayerRoundedCornersFingerprint.match() }.getOrNull()
@@ -467,7 +463,7 @@ val miniplayerPatch = bytecodePatch(
                 )
             }
 
-            // modified by lavinhoque33, 2026-10-07: the horizontal drag flag is gone in 21.39 and YouTube's
+            // the horizontal drag flag is gone in 21.39 and YouTube's
             // built-in behaviour is on, so this hook is the only switch, and is always applied.
             MiniplayerOffscreenHandlerFingerprint.let {
                 it.method.apply {
@@ -494,7 +490,7 @@ val miniplayerPatch = bytecodePatch(
                         "enableOffScreenMiniplayerButtonPressed(Landroid/view/MotionEvent;)V"
             )
 
-            // modified by lavinhoque33, 2026-10-07: 21.39 has no miniplayer config constructor, so the
+            // 21.39 has no miniplayer config constructor, so the
             // maximize animation flag is gone, but horizontal drag is controlled by the offscreen handler hook above.
             if (hasModernConstructor) {
                 miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
@@ -578,7 +574,6 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        // modified by lavinhoque33, 2026-10-04
         // 21.39: the lazily created miniplayer views are wrapped by the controls class, and the (View)V
         // listener that received every view is gone. Only the old listener is hooked if it still exists,
         // otherwise the subtitle TextView is hooked where it is looked up.

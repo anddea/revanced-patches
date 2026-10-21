@@ -64,7 +64,7 @@ public final class OfflineDownloader {
     private static final Pattern VIDEO_ID = Pattern.compile("[A-Za-z0-9_-]{11}");
     private static final String THUMBNAIL_URL = "https://i.ytimg.com/vi/%s/hqdefault.jpg";
 
-    // modified by lavinhoque33, 2026-10-13: measured 16 MiB response throttling; six connections saturate below it.
+    // measured 16 MiB response throttling; six connections saturate below it.
     private static final long CHUNK_SIZE = 8L * 1024 * 1024;
     private static final int PARALLEL_CONNECTIONS = 6;
     private static final int CHUNK_ATTEMPTS = 3;
@@ -80,7 +80,7 @@ public final class OfflineDownloader {
         final String title;
         final String qualityLabel;
         final AtomicLong done = new AtomicLong();
-        // modified by lavinhoque33, 2026-10-13: abort blocking reads and retain displayed progress across client restarts.
+        // abort blocking reads and retain displayed progress across client restarts.
         final Set<HttpURLConnection> connections = ConcurrentHashMap.newKeySet();
         final AtomicInteger percent = new AtomicInteger(-1);
         volatile boolean transferStopped;
@@ -242,7 +242,7 @@ public final class OfflineDownloader {
         if (task == null) return;
         Logger.printInfo(() -> "Cancelling download " + videoId);
         task.cancelled = true;
-        // modified by lavinhoque33, 2026-10-13: cancellation must unblock socket reads, not wait for their timeout.
+        // cancellation must unblock socket reads, not wait for their timeout.
         stopTransfer(task);
         if (task.state == State.QUEUED) {
             Future<?> future = task.future;
@@ -368,8 +368,8 @@ public final class OfflineDownloader {
             task.state = State.MERGING;
             notifyChanged(true);
             Logger.printInfo(() -> "Merging " + task.videoId);
-            // modified by lavinhoque33, 2026-10-14: merge straight into the pending MediaStore item.
-            // modified by lavinhoque33, 2026-10-14: .webm for VP9 downloads.
+            // merge straight into the pending MediaStore item.
+            // .webm for VP9 downloads.
             final String displayName = displayName(resolved.title(), task.videoId, video.fileExtension());
             final long size;
             final Uri uri;
@@ -423,7 +423,7 @@ public final class OfflineDownloader {
         }
     }
 
-    // modified by lavinhoque33, 2026-10-13: share workers across both streams and reuse complete bounded responses.
+    // share workers across both streams and reuse complete bounded responses.
     private static void downloadStreams(Task task, OfflineFormats.Resolved resolved, OfflineFormats.Stream video,
                                         File work, File videoFile, File audioFile) throws IOException {
         checkCancelled(task);
@@ -648,7 +648,7 @@ public final class OfflineDownloader {
         }
     }
 
-    // modified by lavinhoque33, 2026-10-13: coalesce Android's small socket reads into one cache write without copying.
+    // coalesce Android's small socket reads into one cache write without copying.
     private static int readBuffer(Task task, InputStream input, byte[] buffer, int length) throws IOException {
         int filled = 0;
         while (filled < length) {

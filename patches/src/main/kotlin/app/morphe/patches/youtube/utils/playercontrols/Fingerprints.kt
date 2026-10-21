@@ -92,7 +92,6 @@ internal val motionEventFingerprint = legacyFingerprint(
 /**
  * Up to YouTube 21.13 the "hide controls immediately" branch calls setTranslationY inline.
  * YouTube 21.39 moved that block into a no-arg helper, so fall back to the last such call
- * (modified by lavinhoque33, 2026-10-04).
  */
 internal fun indexOfTranslationInstruction(method: Method): Int {
     val translationIndex = method.indexOfFirstInstructionReversed {

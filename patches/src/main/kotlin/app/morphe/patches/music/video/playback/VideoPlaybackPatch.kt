@@ -122,7 +122,6 @@ val videoPlaybackPatch = bytecodePatch(
     execute {
         // region patch for default playback speed
 
-        // modified by lavinhoque33, 2026-10-04
         // YouTube Music 9.40 no longer has a method with the string in the bottom sheet fragment class itself;
         // the fragment class (`Lhwo;`) is the return type of `gxx.d(Activity)`, so use it as fallback.
         val playbackSpeedBottomSheetClass =
@@ -149,7 +148,6 @@ val videoPlaybackPatch = bytecodePatch(
             }
         }
 
-        // modified by lavinhoque33, 2026-10-04
         // YouTube Music 9.40 hoisted `const/high16 1.0f` to the top of `huy.t()V`; when the old shape
         // does not match, hook right before the `Labrl;->I(F)V` call, which reads the hoisted register.
         val defaultSpeedMatch = playbackSpeedFingerprint.matchOrNull(playbackSpeedParentFingerprint)
@@ -192,7 +190,6 @@ val videoPlaybackPatch = bytecodePatch(
 
         // region patch for default video quality
 
-        // modified by lavinhoque33, 2026-10-04
         // YouTube Music 9.40 ends the quality list callback with invoke-virtual instead of invoke-interface.
         val videoQualityListMatch = videoQualityListFingerprint.matchOrNull()
             ?: videoQualityListModernFingerprint.matchOrThrow()

@@ -1148,7 +1148,7 @@ fun addStaticFieldToExtension(
     objectClass: String,
     smaliInstructions: String,
     shouldAddConstructor: Boolean = true,
-    // modified by lavinhoque33, 2026-10-05: optional filter for R8-merged classes (YouTube Music 9.40),
+    // optional filter for R8-merged classes (YouTube Music 9.40),
     // where only some constructors create the object the extension needs. Default keeps all constructors.
     constructorFilter: (Method) -> Boolean = { true }
 ): MutableMethod {

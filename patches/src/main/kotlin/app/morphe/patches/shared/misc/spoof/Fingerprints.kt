@@ -170,7 +170,6 @@ internal object PlayerConfigBuilderFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // YouTube 21.39 inserted a String parameter after the position (Uri, J, String, I, [B, ...)
 // and renamed the fields. Both shapes are accepted.
 private val BUILD_MEDIA_DATA_SOURCE_PARAMETERS_LEGACY = listOf(
@@ -217,7 +216,6 @@ internal object NerdsStatsVideoFormatBuilderFingerprint : Fingerprint(
     filters = listOf(
         string("codecs=\"")
     ),
-    // modified by lavinhoque33, 2026-10-04
     // YouTube 21.39: a codec-parsing helper (String -> String) also contains "codecs=\""
     // and matches the generic "L" parameter. The target takes a format object, not a String.
     custom = { method, _ ->

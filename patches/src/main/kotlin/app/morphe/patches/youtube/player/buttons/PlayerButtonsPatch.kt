@@ -250,7 +250,6 @@ val playerButtonsPatch = bytecodePatch(
             val hidePlayerControlButtonsBackgroundDescriptor =
                 "$PLAYER_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V"
 
-            // modified by lavinhoque33, 2026-10-04
             // YouTube 21.39 keeps the inflated view (move-result-object right after inflate).
             // Inserting a second move-result there leaves the original one orphaned (VerifyError),
             // so hook after the existing move-result and reuse its register.

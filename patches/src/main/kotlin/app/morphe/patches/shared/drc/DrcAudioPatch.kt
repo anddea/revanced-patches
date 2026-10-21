@@ -90,7 +90,7 @@ fun drcAudioPatch(
             }
         }
 
-        // modified by lavinhoque33, 2026-10-07: when the flag is gone (YouTube 21.39 / YT Music 9.40),
+        // when the flag is gone (YouTube 21.39 / YT Music 9.40),
         // null the first argument of the unconditional loudness method so it returns a neutral result.
         val flagHooked = volumeNormalizationConfigFingerprint.injectLiteralInstructionBooleanCall(
             VOLUME_NORMALIZATION_EXPERIMENTAL_FEATURE_FLAG,

@@ -159,7 +159,6 @@ val actionBarComponentsPatch = bytecodePatch(
                 val conversionContextMethod = conversionContextMatch.method
                 val identifierReference =
                     conversionContextMethod.findFieldFromToString("identifierProperty=")
-                // modified by lavinhoque33, 2026-10-04
                 // YouTube Music 9.40 inlined the identifier getter (callers read the public field directly),
                 // so fall back to reading the field, as the YouTube hook does.
                 val identifierGetterName = conversionContextMatch.originalClassDef.methods
@@ -227,7 +226,6 @@ val actionBarComponentsPatch = bytecodePatch(
                         (getInstruction<ReferenceInstruction>(typedLazyCallbackIndex).reference as TypeReference).type
                     lazyCallbackElementType = elementType
                 } else {
-                    // modified by lavinhoque33, 2026-10-04
                     // YouTube Music 9.40: R8 merged the lazy callback into a shared synthetic lambda class
                     // (`adwo`) whose fields are all Object-typed. Use the constructor called right after
                     // the new-instance and take the field it stores the element parameter into.
@@ -329,7 +327,6 @@ val actionBarComponentsPatch = bytecodePatch(
                 addLithoContainerInterface(it.classDef, field)
             }
 
-            // modified by lavinhoque33, 2026-10-04
             // On 9.15 this helper is the same class as the lazy callback (`wev`). On 9.40 it is the merged
             // lambda `adwo` (one method per variant, switch on a field), so this fingerprint no longer
             // matches; the lazy-callback fallback above already exposes its element field.
@@ -354,7 +351,7 @@ val actionBarComponentsPatch = bytecodePatch(
             // callback. Expose that captured element so the list hook can remove the whole cell.
             lazyCallbackClassType?.let { callbackClassType ->
                 val callbackClass = mutableClassDefBy(callbackClassType)
-                // modified by lavinhoque33, 2026-10-04: 9.40 element field comes from the constructor (see above).
+                // 9.40 element field comes from the constructor (see above).
                 val elementField = lazyCallbackElementField ?: callbackClass.fields.single {
                     it.type == checkNotNull(lazyCallbackElementType)
                 }
@@ -495,7 +492,6 @@ val actionBarComponentsPatch = bytecodePatch(
             with (lottieAnimationViewTagFingerprint.methodOrThrow()) {
                 val literalIndex =
                     indexOfFirstLiteralInstructionOrThrow(elementsLottieAnimationViewTagId)
-                // modified by lavinhoque33, 2026-10-04
                 // YouTube Music 9.40 hoists the tag id constant above the URL getter, and the getter is an
                 // invoke-interface/range. Fall back to the getter right before the first getTag(I) call.
                 val legacyLottieAnimationUrlIndex =

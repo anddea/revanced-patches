@@ -422,7 +422,6 @@ val overlayButtonsPatch = resourcePatch(
         bottomControlsLayoutFileNames.forEach { xmlFile ->
             val targetXml = get("res").resolve("layout").resolve(xmlFile)
             if (targetXml.exists()) {
-                // modified by lavinhoque33, 2026-10-04
                 // YouTube 21.39 migrated these layouts to androidx.constraintlayout.widget.ConstraintLayout,
                 // so merge into the target's root element whatever its tag is.
                 document(

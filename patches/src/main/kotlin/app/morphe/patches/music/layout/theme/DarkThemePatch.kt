@@ -114,7 +114,6 @@ private val stockDarkThemeColors = linkedMapOf(
 private val runtimeDarkThemeResources =
     stockDarkThemeColors.keys.associateWith { name -> "morphe_runtime_dark_theme_${name.removePrefix("yt_")}" }
 
-// modified by lavinhoque33, 2026-10-04
 // 9.40 change: stock 9.40.51 already uses 0x7f060f00..0x7f060f84, so the hard-coded 0x7f060f00 base
 // collided. The base is now max(0xf00, highest existing 0x7f06 id + 1); 9.15 (max 0xed7) is unchanged.
 // The extension looks the IDs up by name, so any base works.
@@ -324,7 +323,6 @@ val darkThemePatch = resourcePatch(
         }
 
         document("res/values/public.xml").use { document ->
-            // modified by lavinhoque33, 2026-10-04
             // 9.40 change: pick the id range from the table instead of a fixed 0x7f060f00 base.
             val publicNodes = document.getElementsByTagName("public")
             val highestUsedColorIndex = (0 until publicNodes.length)

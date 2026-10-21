@@ -48,7 +48,7 @@ import app.morphe.extension.shared.utils.Logger;
 final class OfflineFormats {
     static final String CODEC_H264 = "H.264";
     static final String CODEC_AV1 = "AV1";
-    // modified by lavinhoque33, 2026-10-14: VP9 (WebM) is offered where H.264 and playable AV1 are missing.
+    // VP9 (WebM) is offered where H.264 and playable AV1 are missing.
     static final String CODEC_VP9 = "VP9";
 
     private static final String CPN_ALPHABET =
@@ -160,13 +160,13 @@ final class OfflineFormats {
                 final boolean isAv1 = mimeType.contains("av01");
                 if (!isAv1 && !mimeType.contains("avc1")) continue;
 
-                // modified by lavinhoque33, 2026-10-15: label and key follow YouTube's quality label, not the pixel height.
+                // label and key follow YouTube's quality label, not the pixel height.
                 int[] quality = qualityOf(format);
                 if (quality == null) continue;
                 final int height = quality[0];
                 final int fps = quality[1];
 
-                // modified by lavinhoque33, 2026-10-14: AV1 this device cannot decode is listed too, marked as such in the picker.
+                // AV1 this device cannot decode is listed too, marked as such in the picker.
                 final boolean playable = !isAv1 || canDecodeAv1(format.getWidth(), pixelHeight(format, height), decoderFps(format, fps), mimeType);
                 final String codec = isAv1 ? CODEC_AV1 : CODEC_H264;
 

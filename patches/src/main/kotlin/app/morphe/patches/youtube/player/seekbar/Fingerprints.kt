@@ -259,7 +259,6 @@ internal object FullscreenLargeSeekbarFeatureFlagFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-07
 // 21.39: the flag (45691569) was removed. The rounded fullscreen seekbar is driven by a boolean
 // field on the seekbar state class, written by this method (state == FULLSCREEN && !flag).
 // Used to resolve that field reference. Matches ofv.L()V in YouTube 21.39.525 only.

@@ -225,7 +225,6 @@ internal object ModernSwitchToggleColorFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // 9.40: the color source is no longer read via `Lpzt;->a()` + check-cast + iget. The state object
 // exposes a field (`iget-object Liuq;->f`) that holds the int colors, so match that shape instead.
 internal object ModernSwitchToggleColorFieldFingerprint : Fingerprint(
@@ -244,7 +243,6 @@ internal object ModernSwitchToggleColorFieldFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // 9.40: the miniplayer background color is no longer loaded with `getColor(ytm_color_grey_12)`;
 // it is resolved from the theme attribute `playerPageDefaultBackgroundColor` and stored with an iput.
 internal object ModernMiniPlayerDefaultColorFieldFingerprint : Fingerprint(
@@ -487,7 +485,6 @@ internal val repeatTrackFingerprint = legacyFingerprint(
     strings = listOf("w_st")
 )
 
-// modified by lavinhoque33, 2026-10-04
 // 9.40: fallback for repeatTrackFingerprint; `equals` is now preceded by check-casts.
 internal object ModernRepeatTrackFingerprint : Fingerprint(
     returnType = "V",

@@ -127,7 +127,6 @@ val resumingShortsOnStartupPatch = bytecodePatch(
             }
         }
 
-        // modified by lavinhoque33, 2026-10-04
         // 21.39: the feature flag getter (flag 45358360) is inlined into its callers, so the
         // config method no longer exists. Override the inlined flag result instead.
         val configMethod = runCatching { UserWasInShortsConfigFingerprint.method }.getOrNull()

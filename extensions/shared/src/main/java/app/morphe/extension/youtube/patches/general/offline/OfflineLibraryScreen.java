@@ -307,7 +307,7 @@ final class OfflineLibraryScreen implements OfflineScreens.Screen {
             return;
         }
         Intent intent = new Intent(Intent.ACTION_SEND)
-                .setType(OfflineMediaStore.mimeType(video.displayName)) // modified by lavinhoque33, 2026-10-14: WebM downloads
+                .setType(OfflineMediaStore.mimeType(video.displayName)) // WebM downloads
                 .putExtra(Intent.EXTRA_STREAM, uri)
                 .putExtra(Intent.EXTRA_SUBJECT, video.title)
                 .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

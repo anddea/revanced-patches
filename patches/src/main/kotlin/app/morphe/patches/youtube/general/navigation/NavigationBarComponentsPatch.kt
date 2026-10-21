@@ -400,7 +400,6 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for enable animations for navigation bar
 
         if (is_20_21_or_greater) {
-            // modified by lavinhoque33, 2026-10-04
             // YouTube 21.39 inlines the flag getter into its callers; override each inlined check.
             var animatedTabsHooked = true
             val animatedTabsMatch = AnimatedNavigationTabsFeatureFlagFingerprint.matchOrNull()

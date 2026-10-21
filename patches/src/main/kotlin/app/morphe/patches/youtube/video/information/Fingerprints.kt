@@ -130,7 +130,6 @@ internal object VideoLengthFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // 21.39: an extra `iget-boolean/if-nez` guard was added before the first duration getter, and the
 // trailing `const/4` moved after a `()Z` call. Ends at the `move-result` of that call.
 internal object VideoLengthFingerprint21_39 : Fingerprint(
@@ -250,7 +249,6 @@ internal val playerControllerSetTimeReferenceFingerprint = Fingerprint(
         Opcode.INVOKE_DIRECT_RANGE,
         Opcode.IGET_OBJECT
     ),
-    // modified by lavinhoque33, 2026-10-04
     // 21.39: the message became "Media progress reported outside media playback: %s" (format string
     // instead of concatenation), so the string is matched by prefix instead of exactly.
     custom = { method, _ ->

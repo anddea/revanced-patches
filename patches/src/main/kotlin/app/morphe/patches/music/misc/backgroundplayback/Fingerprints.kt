@@ -108,7 +108,6 @@ internal object KidsBackgroundPlaybackPolicyControllerFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // 9.40: getRoot() is now (String, int, Bundle) instead of (String, Bundle); both shapes are accepted.
 internal object MusicBrowserServiceFingerprint : Fingerprint(
     returnType = "L",

@@ -212,7 +212,6 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for hide tooltip content
 
-        // modified by lavinhoque33, 2026-10-04
         // YouTube 21.39 removed feature flag 45384061 (fullscreen tooltip) entirely; skip this hook if the method is gone.
         // The fullscreen tooltip code path is gone in 21.39, and the remaining tooltips are still hidden below.
         runCatching { tooltipContentFullscreenFingerprint.methodOrThrow() }.getOrNull()?.apply {

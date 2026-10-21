@@ -129,7 +129,6 @@ val adsPatch = adsPatch(
         // region patch for hide get premium
 
         // get premium button at the top of the account switching menu
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: `const/16` instead of `const/4` in the matched sequence; same hook point (the iget-boolean).
         (runCatching { getPremiumTextViewFingerprint.matchOrNull() }.getOrNull()
             ?: getPremiumTextViewV940Fingerprint.matchOrThrow()).let {

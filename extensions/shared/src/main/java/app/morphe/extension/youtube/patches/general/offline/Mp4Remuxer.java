@@ -380,7 +380,7 @@ final class Mp4Remuxer {
          * makes players drop the last frames.
          */
         long movieDuration(long scale) {
-            // modified by lavinhoque33, 2026-10-14: a source edit list's segment_duration is kept (rescaled);
+            // a source edit list's segment_duration is kept (rescaled);
             // fragmented sources usually carry 0 there, which means the whole media.
             if (editMediaTime >= 0 && editSegment > 0) {
                 return Math.round((double) editSegment * scale / movieTimescale);
@@ -448,7 +448,7 @@ final class Mp4Remuxer {
                 }
             });
             if (!seenMvex[0]) throw new UnsupportedInputException("Not a fragmented file");
-            // modified by lavinhoque33, 2026-10-14: mvex may follow trak, so defaults are resolved after all of moov.
+            // mvex may follow trak, so defaults are resolved after all of moov.
             for (int[] trex : trexList) {
                 if (seenTrack[0] && trex[0] == sourceTrackId) {
                     trexDuration = trex[2];
@@ -583,7 +583,7 @@ final class Mp4Remuxer {
                 if (type == TYPE_SENC || type == TYPE_SAIZ || type == TYPE_SAIO) {
                     throw new UnsupportedInputException("Encrypted fragments");
                 } else if (type == TYPE_SDTP) {
-                    // modified by lavinhoque33, 2026-10-14: sample dependency flags are not rebuilt.
+                    // sample dependency flags are not rebuilt.
                     throw new UnsupportedInputException("sdtp is not supported");
                 } else if (type == TYPE_TFHD) {
                     int flags = u32(d, bodyStart) & 0xFFFFFF;

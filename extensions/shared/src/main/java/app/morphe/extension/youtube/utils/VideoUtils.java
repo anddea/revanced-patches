@@ -130,7 +130,7 @@ import app.morphe.extension.shared.utils.IntentUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
-import app.morphe.extension.youtube.patches.general.offline.OfflineDownloader; // modified by lavinhoque33, 2026-10-10
+import app.morphe.extension.youtube.patches.general.offline.OfflineDownloader;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackAudioPitchPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.morphe.extension.youtube.patches.video.CustomPlaybackSpeedPatch.PlaybackSpeedMenuType;
@@ -230,7 +230,7 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void launchVideoExternalDownloader(@NonNull String videoId) {
-        // modified by lavinhoque33, 2026-10-10: every video download entry point funnels through here.
+        // every video download entry point funnels through here.
         if (Settings.IN_APP_DOWNLOADER.get()) {
             OfflineDownloader.download(videoId);
             return;

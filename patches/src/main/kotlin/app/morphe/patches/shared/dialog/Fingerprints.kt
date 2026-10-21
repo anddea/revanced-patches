@@ -95,7 +95,6 @@ internal val createDialogFingerprint = legacyFingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // YouTube Music 9.40: same body as createDialogFingerprint, but the method is public instead of protected.
 internal val createDialogFingerprintPublic = legacyFingerprint(
     name = "createDialogFingerprintPublic",

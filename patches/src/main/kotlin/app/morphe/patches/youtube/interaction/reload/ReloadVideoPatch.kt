@@ -97,7 +97,6 @@ val reloadVideoPatch = bytecodePatch(
                 "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->setMainActivity(Landroid/app/Activity;)V"
             )
 
-            // modified by lavinhoque33, 2026-10-04
             // YouTube 21.39 moved the dismiss player call; try the old shape first, then the new one.
             val dismissPlayerInnerMethod = runCatching {
                 MiniAppOpenYtContentCommandEndpointFingerprint

@@ -184,7 +184,6 @@ val fullscreenComponentsPatch = bytecodePatch(
             val jumpIndex =
                 indexOfFirstInstructionOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
 
-            // modified by lavinhoque33, 2026-10-04
             // YouTube 21.39 sets up a register (move/from16) between the stub lookup and the
             // inflate call, and that register is used after it. Jumping from the const over the
             // move leaves it uninitialized (VerifyError), so then only the invoke is skipped.

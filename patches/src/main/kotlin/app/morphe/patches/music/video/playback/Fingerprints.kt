@@ -34,7 +34,6 @@ internal val videoQualityListFingerprint = legacyFingerprint(
 /**
  * Locates the playback speed bottom sheet fragment through its static factory, whose return type is the fragment class.
  */
-// modified by lavinhoque33, 2026-10-04
 // YouTube Music 9.40: the string moved out of the fragment class into `gxx.d(Activity)Lhwo;`.
 internal object ModernPlaybackSpeedBottomSheetFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
@@ -42,7 +41,6 @@ internal object ModernPlaybackSpeedBottomSheetFingerprint : Fingerprint(
     filters = listOf(string("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT"))
 )
 
-// modified by lavinhoque33, 2026-10-04
 // YouTube Music 9.40: the quality list callback (`abdy.handleFormatStreamChangeEvent`) now ends with
 // `invoke-virtual {v1, v5, v3, p0}, Lhxe;->d([Lwdz;IZ)V` instead of an interface call.
 internal val videoQualityListModernFingerprint = legacyFingerprint(

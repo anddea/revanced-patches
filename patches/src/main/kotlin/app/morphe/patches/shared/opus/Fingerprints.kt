@@ -28,7 +28,6 @@ internal val codecSelectorFingerprint = legacyFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    // modified by lavinhoque33, 2026-10-04
     // YouTube 21.39 removed the "Audio track id %s not in audio streams" string, so match either the
     // string (older versions) or the (..., String)L static method that builds a HashSet from a codec set.
     customFingerprint = { method, _ ->

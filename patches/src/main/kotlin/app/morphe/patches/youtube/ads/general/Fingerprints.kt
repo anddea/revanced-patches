@@ -69,7 +69,6 @@ internal object PlayerOverlayTimelyShelfFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // YouTube 21.39: the timely shelf handler was split up; "player_overlay_timely_shelf" is now
 // compared inside a switch-lambda (Object)V that also contains "menu_item_stable_volume".
 internal val playerOverlayTimelyShelfSwitchFingerprint = legacyFingerprint(

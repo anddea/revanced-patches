@@ -85,7 +85,6 @@ internal object ModernVideoEndFingerprint : Fingerprint(
 )
 
 /** Modern track-load callback, including the extra boolean introduced after 9.15. */
-// modified by lavinhoque33, 2026-10-04
 // YouTube Music 9.40 made the method private and it returns an object (`acdn.M(Lwei;String)Lacdm;`),
 // so any final instance method with the string and parameters is accepted.
 internal object ModernVideoIdFingerprint : Fingerprint(
@@ -110,7 +109,6 @@ internal object ModernPlayerControllerSetTimeReferenceFingerprint : Fingerprint(
 /**
  * Playback speed setter, searched inside the class of [app.morphe.patches.music.utils.playbackSpeedParentFingerprint].
  */
-// modified by lavinhoque33, 2026-10-04
 // YouTube Music 9.40 hoisted `const/high16 1.0f` to the top of `huy.t()V`, so it no longer sits
 // between the check-cast and the `Labrl;->I(F)V` call. Match on the call instead.
 internal object ModernPlaybackSpeedFingerprint : Fingerprint(

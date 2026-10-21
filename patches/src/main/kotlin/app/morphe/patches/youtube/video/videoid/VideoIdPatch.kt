@@ -39,7 +39,7 @@ val videoIdPatch = bytecodePatch(
 
     execute {
         if (is_21_04_or_greater) {
-            // YouTube 21.39: Map.put moved into a helper (modified by lavinhoque33, 2026-10-04).
+            // YouTube 21.39: Map.put moved into a helper
             // matchOrNull() still throws when only the class fingerprint matches.
             val videoIdMatch = runCatching { VideoIdFingerprint.match() }.getOrNull()
                 ?: VideoIdHelperPutFingerprint.match()

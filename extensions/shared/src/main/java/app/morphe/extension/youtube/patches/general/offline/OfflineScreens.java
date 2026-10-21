@@ -47,7 +47,7 @@ public final class OfflineScreens {
     private static final String DOWNLOADS_BROWSE_ID = "FEdownloads";
     private static final byte[] DOWNLOADS_BROWSE_ID_BYTES = DOWNLOADS_BROWSE_ID.getBytes(StandardCharsets.UTF_8);
 
-    // modified by lavinhoque33, 2026-10-15: field numbers of the commands in YouTube's innertube
+    // field numbers of the commands in YouTube's innertube
     // protocol. browseEndpoint carries the browse id as field 1; the Downloads page endpoint is the
     // command of the "Downloads" row in the You tab's library list.
     private static final int BROWSE_ENDPOINT_FIELD = 48687626;
@@ -171,7 +171,7 @@ public final class OfflineScreens {
         return DOWNLOADS_BROWSE_ID.equals(browseId) && openLibraryInsteadOfDownloadsPage();
     }
 
-    // modified by lavinhoque33, 2026-10-15: the You tab library row opens the Downloads page with a
+    // the You tab library row opens the Downloads page with a
     // dedicated endpoint, which never reaches the browse-endpoint handler. Every command is checked
     // where YouTube resolves it, so each entry to the Downloads page is replaced.
     /**

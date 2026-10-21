@@ -24,13 +24,11 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/morphe/extension/youtube/pa
 fun baseViewerDiscretionDialogPatch(
     classDescriptor: String,
     isAgeVerified: Boolean = false,
-    // modified by lavinhoque33, 2026-10-04
     isYouTubeMusic: Boolean = false
 ) = bytecodePatch(
     description = "baseViewerDiscretionDialogPatch"
 ) {
     execute {
-        // modified by lavinhoque33, 2026-10-04
         // Music never runs the YouTube version-check patch, so is_20_21_or_greater is uninitialized there.
         if (!isYouTubeMusic && is_20_21_or_greater && BackgroundPlaybackManagerShortsFingerprint.matchOrNull() != null) {
             CreateDialogFingerprint.let {
@@ -92,7 +90,6 @@ fun baseViewerDiscretionDialogPatch(
                         "setPlayabilityStatus(Ljava/lang/Enum;)V"
             )
         } else {
-            // modified by lavinhoque33, 2026-10-04
             // 9.40 Music: dialog method is public instead of protected; fall back to the public-access variant.
             (createDialogFingerprint.methodOrNull() ?: createDialogFingerprintPublic.methodOrThrow())
                 .invoke(classDescriptor, "confirmDialog")

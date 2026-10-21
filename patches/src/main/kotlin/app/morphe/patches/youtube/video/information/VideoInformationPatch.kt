@@ -530,7 +530,6 @@ val videoInformationPatch = bytecodePatch(
                 }
             }
 
-            // modified by lavinhoque33, 2026-10-04
             // 21.39 changed the method shape; use the 21.39 fingerprint when the old one no longer matches.
             val videoLengthMatch = runCatching {
                 VideoLengthFingerprint.match(CreateVideoPlayerSeekbarFingerprint.originalClassDef)

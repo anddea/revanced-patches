@@ -136,7 +136,6 @@ val adsPatch = adsPatch(
 
         // This can be hidden with a regular Litho filter, but an empty space remains.
         if (is_20_21_or_greater) {
-            // modified by lavinhoque33, 2026-10-04
             // YouTube 21.39 moved the timely shelf check into a switch-lambda; hook inside the case instead.
             val timelyShelfMethod = runCatching { PlayerOverlayTimelyShelfFingerprint.method }.getOrNull()
             if (timelyShelfMethod != null) {

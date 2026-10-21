@@ -113,7 +113,7 @@ private const val EXTENSION_PROTOCOL_BUFFER_INTERFACE =
 
 private const val EXTENSION_FLYOUT_UTILS_CLASS_DESCRIPTOR = "Lapp/morphe/extension/youtube/patches/utils/FlyoutUtils;"
 
-// modified by lavinhoque33, 2026-10-10: Built-in downloader and offline player.
+// Built-in downloader and offline player.
 private const val EXTENSION_OFFLINE_SERVICE_HOOKS =
     "$GENERAL_PATH/offline/OfflineServiceHooks;"
 
@@ -152,7 +152,7 @@ val downloadActionsPatch = bytecodePatch(
         // Keep the bottom sheet 3-dots menu that the custom flyout items
         // (Save to Watch later, download) are added to.
         bottomSheetFlyoutMenuPatch,
-        // modified by lavinhoque33, 2026-10-10: Downloads button in the You tab.
+        // Downloads button in the You tab.
         fixProtoLibraryPatch,
         toolBarHookPatch,
     )
@@ -169,7 +169,7 @@ val downloadActionsPatch = bytecodePatch(
                     "SETTINGS: HOOK_DOWNLOAD_ACTIONS",
                     "SETTINGS: OVERRIDE_PLAY_NEXT_IN_QUEUE",
                 )
-                // modified by lavinhoque33, 2026-10-10: the setting is not shown when it has no effect.
+                // the setting is not shown when it has no effect.
                 if (youTabButtonHooked) settings += "SETTINGS: SHOW_OFFLINE_LIBRARY_BUTTON"
                 addPreference(
                     settings.toTypedArray(),
@@ -523,7 +523,7 @@ val downloadActionsPatch = bytecodePatch(
             // endregion
         }
 
-        // region built-in downloader and offline player (modified by lavinhoque33, 2026-10-10)
+        // region built-in downloader and offline player
 
         // Every hook is optional: a missing match only disables that part and is logged.
         fun hookOptional(name: String, block: () -> Unit) {
@@ -718,7 +718,7 @@ val downloadActionsPatch = bytecodePatch(
             }
         }
 
-        // modified by lavinhoque33, 2026-10-15: the library row of the You tab opens the Downloads page
+        // the library row of the You tab opens the Downloads page
         // with its own command, which never reaches the browse command handler above. The command
         // resolver sees the commands of taps, links and rows, so both forms are replaced there; the
         // browse hook above stays for handlers that are called without the resolver. The first
@@ -737,7 +737,7 @@ val downloadActionsPatch = bytecodePatch(
 
         // region Downloads button in the You tab
 
-        // modified by lavinhoque33, 2026-10-10: Downloads button of the offline library in the You tab.
+        // Downloads button of the offline library in the You tab.
         // The You tab builds its toolbar from page renderers in a loop that creates a menu item for each
         // button (21.39.525: Lpvt;->aI(Ljava/util/List;...)). A copy of YouTube's own Settings button with
         // the download icon is added after it, and its click opens the offline library.

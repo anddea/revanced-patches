@@ -236,7 +236,6 @@ private val playerComponentsResourcePatch = resourcePatch(
     }
 }
 
-// modified by lavinhoque33, 2026-10-04
 // 9.40: music_player_next/prev drawables no longer exist; pick an existing drawable.
 private fun ResourcePatchContext.insertNode(isPreviousButton: Boolean) {
     var shouldAddPreviousButton = true
@@ -280,7 +279,6 @@ private fun Element.setNextButtonNodeAttribute(drawableName: String) {
         "android:padding" to "@dimen/item_medium_spacing",
         "android:layout_width" to "@dimen/remix_generic_button_size",
         "android:layout_height" to "@dimen/remix_generic_button_size",
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: music_player_next was removed; fall back to quantum_ic_skip_next_white_36.
         "android:src" to "@drawable/$drawableName",
         "android:scaleType" to "fitCenter",
@@ -297,7 +295,6 @@ private fun Element.setPreviousButtonNodeAttribute(drawableName: String) {
         "android:padding" to "@dimen/item_medium_spacing",
         "android:layout_width" to "@dimen/remix_generic_button_size",
         "android:layout_height" to "@dimen/remix_generic_button_size",
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: music_player_prev was removed; fall back to quantum_ic_skip_previous_white_36.
         "android:src" to "@drawable/$drawableName",
         "android:scaleType" to "fitCenter",
@@ -639,7 +636,6 @@ val playerComponentsPatch = bytecodePatch(
                 }
             }
         } else {
-            // modified by lavinhoque33, 2026-10-04
             // 9.40: the (state, J) color method no longer calls `state.a()` + check-cast; the color
             // ints are read from a field of the state object, and the default color field is stored
             // from a theme attribute instead of getColor. Keep the old shape first, fall back to 9.40.
@@ -866,7 +862,6 @@ val playerComponentsPatch = bytecodePatch(
 
                 getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
             }
-            // modified by lavinhoque33, 2026-10-04
             // 9.40: the view pager callbacks are no longer registered in MusicActivity.onStart();
             // that code moved to a method of the miniplayer controller class (called from onStart).
             fun Method.indexOfViewPagerGet() = indexOfFirstInstruction {
@@ -1202,7 +1197,6 @@ val playerComponentsPatch = bytecodePatch(
                         val freeRegister =
                             getInstruction<FiveRegisterInstruction>(bottomSheetBehaviorIndex).registerD
 
-                        // modified by lavinhoque33, 2026-10-04
                         // 9.40: the `const/4` between the iget-object and the behavior call was hoisted
                         // to the method start, so the iget-object is directly before the invoke.
                         val getFieldIndex = indexOfFirstInstructionReversedOrThrow(
@@ -1399,7 +1393,6 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for hide song video toggle
 
-        // modified by lavinhoque33, 2026-10-07
         // 9.40: the presenter class has several methods (g/e/f) calling AudioVideoSwitcherToggleView.setVisibility,
         // so rewrite every call in the matched class instead of only the method picked by the fingerprint.
         // Flag 45671274 no longer exists in 9.40; the feature works through the setVisibility hook alone.
@@ -1454,7 +1447,6 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for remember repeat state
 
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: check-casts were added between the field loads and `equals`, breaking the contiguous
         // opcode pattern of the legacy fingerprint. Fall back to matching `equals; move-result; if-nez`.
         val (repeatTrackMethod, repeatTrackIndex) = (
@@ -1551,7 +1543,6 @@ val playerComponentsPatch = bytecodePatch(
                 method.isShuffleMethod()
             } ?: throw PatchException("shuffle method not found")
 
-            // modified by lavinhoque33, 2026-10-05
             // YouTube Music 9.40: R8 merged the shuffle class with unrelated classes (all fields are Object,
             // ten constructors). Hooking every constructor stored whichever variant was created last, and
             // shuffleTracks then crashed with a ClassCastException. Only hook the constructors that take the

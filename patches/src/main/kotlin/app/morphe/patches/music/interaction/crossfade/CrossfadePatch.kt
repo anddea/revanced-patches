@@ -8,7 +8,7 @@ package app.morphe.patches.music.interaction.crossfade
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
-// modified by lavinhoque33, 2026-10-07: imports for 9.40 suppressCwhU release-post guard
+// imports for 9.40 suppressCwhU release-post guard
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.util.smali.ExternalLabel
@@ -613,7 +613,6 @@ val crossfadePatch = bytecodePatch(
         val forwardingPlayerField9x: Field?
         var exoPlayerCwhField9x: Field? = null
         var cwhListenerType: String? = null
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: the Lctr counterpart is a final class (no longer an interface) and its
         // add-listener method is no longer named "B", so both are carried alongside the field.
         var cwhAddListenerName = "B"
@@ -641,7 +640,6 @@ val crossfadePatch = bytecodePatch(
                         }
                     } catch (_: Exception) { false }
             } ?: run {
-                // modified by lavinhoque33, 2026-10-04
                 // 9.40: setPlayer(Player, Looper) was inlined into the ExoPlayer constructor, so
                 // the shape above is gone. The same object is still shared between the
                 // coordinator and the ExoPlayer impl (coordinator field type == ExoPlayer impl
@@ -742,7 +740,6 @@ val crossfadePatch = bytecodePatch(
                         && f.type != EXO_PLAYER_TYPE
                         && try {
                             val cls = classDefBy(f.type)
-                            // modified by lavinhoque33, 2026-10-04
                             // 9.40: the set is declared as AbstractCollection (the
                             // CopyOnWriteArraySet is only a constructor parameter).
                             val hasCopyOnWriteSet = cls.fields.any { it.type == "Ljava/util/concurrent/CopyOnWriteArraySet;" }
@@ -857,7 +854,6 @@ val crossfadePatch = bytecodePatch(
 
         // Listener wrapper (cau) - has a CopyOnWriteArraySet field and is
         // referenced as a field on the ExoPlayer impl class.
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: the wrapper (ListenerSet, dhv) holds its set in a field typed
         // AbstractCollection (the CopyOnWriteArraySet is only a constructor parameter), and an
         // unrelated class (cbc, a frame-metadata broadcaster) also has a CopyOnWriteArraySet
@@ -887,7 +883,6 @@ val crossfadePatch = bytecodePatch(
         val listenerSetInWrapper = listenerWrapperClass.fields.firstOrNull {
             it.type == "Ljava/util/concurrent/CopyOnWriteArraySet;"
         } ?: listenerWrapperClass.fields.first {
-            // modified by lavinhoque33, 2026-10-04
             // 9.40: the set is declared as AbstractCollection.
             it.type == "Ljava/util/AbstractCollection;"
         }
@@ -1066,7 +1061,6 @@ val crossfadePatch = bytecodePatch(
         // (typically there's only one; if there are more, the first is the listener slot
         // because R8 puts the constructor-assigned field first).
         val cauClass = classDefBy(listenerWrapperField.type)
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: the wrapper class (dhv) is a merged class whose other methods allocate unrelated
         // classes that also carry an Object field (e.g. hfq, pw), so the element class is looked
         // up first in the single-parameter non-constructor methods (the add() method) and only
@@ -1247,7 +1241,6 @@ val crossfadePatch = bytecodePatch(
                         // iget on a field declared on the concrete impl class Lcrh;.
                         val lctrType = forwardingPlayerField9x.type
                         val concreteExoType = exoPlayerImplClass.type
-                        // modified by lavinhoque33, 2026-10-04
                         // 9.40: the collector is a class (invoke-virtual) and its add-listener
                         // method name differs; on 9.15 these resolve to invoke-interface ... ->B.
                         val addListenerInvoke = if (cwhIsInterface) "invoke-interface" else "invoke-virtual"
@@ -1645,7 +1638,7 @@ val crossfadePatch = bytecodePatch(
                 )
                 log.fine { "9.x: injected suppressCwhU into cwh.U()V (lctrType=$cwhLctrType, cgdType=$cgdType)" }
             } catch (e: Exception) {
-                // modified by lavinhoque33, 2026-10-07: YT Music 9.40.51 removed collector U()V;
+                // YT Music 9.40.51 removed collector U()V;
                 // the release is inlined into ExoPlayerImpl release (posts new Runnable(collector, 9)
                 // to the collector handler). Guard that post with suppressCwhU instead.
                 try {
@@ -1726,7 +1719,6 @@ val crossfadePatch = bytecodePatch(
         // On 8.x no guard exists — simple 4-register bridge.
         factoryClass.interfaces.add(FACTORY_INTERFACE)
         val needsGuardClear = guardField != null
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: the single-attachment guard field (TrackSelector listener) is private, so the
         // factory class cannot iput to it; the field is cleared by a helper added to its own
         // class instead. A public field (9.15) keeps the original direct iput.
@@ -1922,7 +1914,6 @@ val crossfadePatch = bytecodePatch(
 
         // --- VideoToggleAccess on nba ---
         videoToggleClass.interfaces.add(VIDEO_TOGGLE_INTERFACE)
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: the first object field of the toggle class is a Provider interface; the state
         // provider (a merged class with the static (state enum)Z helpers) is a later field.
         // Prefer the field whose class declares a static (enum)Z method; the original
@@ -1953,7 +1944,6 @@ val crossfadePatch = bytecodePatch(
             custom = { method, classDef ->
                 !AccessFlags.CONSTRUCTOR.isSet(method.accessFlags) &&
                         method.returnType != "Ljava/lang/Object;" &&
-                        // modified by lavinhoque33, 2026-10-04
                         // 9.40: the provider is a merged class with many no-arg getters;
                         // the state getter is the one returning the state enum that the
                         // class's static (enum)Z helpers take.
@@ -2098,7 +2088,6 @@ val crossfadePatch = bytecodePatch(
             }
             .reference as MethodReference
 
-        // modified by lavinhoque33, 2026-10-04
         // 9.40: the state holder field is declared as Object and cast to the real class right
         // before the broadcast call, so the class is taken from the broadcast call's owner.
         val chxpFieldIsErased = chxpFieldRef.type == "Ljava/lang/Object;"
@@ -2181,7 +2170,6 @@ val crossfadePatch = bytecodePatch(
             ).toMutable().apply {
                 addInstructions(
                     0,
-                    // modified by lavinhoque33, 2026-10-04
                     // 9.40: the field is typed Object, so cast to the real class before the call.
                     """
                         iget-object v0, p0, $chxpFieldRef

@@ -18,7 +18,6 @@ val viewerDiscretionDialogPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE_MUSIC)
 
     dependsOn(
-        // modified by lavinhoque33, 2026-10-04
         // Tell the shared patch it runs on Music (YouTube's is_20_21_or_greater is uninitialized here).
         baseViewerDiscretionDialogPatch(GENERAL_CLASS_DESCRIPTOR, isYouTubeMusic = true),
         settingsPatch,

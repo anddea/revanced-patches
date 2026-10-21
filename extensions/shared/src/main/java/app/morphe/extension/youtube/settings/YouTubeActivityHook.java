@@ -55,7 +55,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static void initialize(Activity parentActivity) {
-        // modified by lavinhoque33, 2026-10-10: LicenseActivity also hosts the offline library and player.
+        // LicenseActivity also hosts the offline library and player.
         if (OfflineScreens.initialize(parentActivity)) return;
         ThemePatch.applyToSettingsActivity(parentActivity);
         settingsDarkMode = ThemeUtils.isDarkModeEnabled();
@@ -193,7 +193,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static boolean handleBackPress(Activity activity) {
-        // modified by lavinhoque33, 2026-10-10: Offline screens handle their own back presses.
+        // Offline screens handle their own back presses.
         if (OfflineScreens.hostsScreen(activity)) {
             return OfflineScreens.handleBackPress(activity);
         }

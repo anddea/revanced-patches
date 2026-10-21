@@ -36,7 +36,6 @@ internal object SpecificNetworkErrorViewControllerFingerprint : Fingerprint(
 internal object LoadingFrameLayoutControllerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    // modified by lavinhoque33, 2026-10-04
     // YouTube 21.39 changed the single parameter from an object to a boolean (`qzf.a(Z)V`).
     filters = listOf(
         literal(icOfflineNoContentUpsideDown),

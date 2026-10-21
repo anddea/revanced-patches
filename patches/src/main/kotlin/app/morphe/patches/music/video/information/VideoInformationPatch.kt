@@ -228,7 +228,6 @@ val videoInformationPatch = bytecodePatch(
                 }
             }
 
-            // modified by lavinhoque33, 2026-10-04
             // YouTube Music 9.40: const/high16 is hoisted out of the check-cast..invoke-virtual window,
             // so fall back to ModernPlaybackSpeedFingerprint and hook the `Labrl;->I(F)V` walker method.
             val playbackSpeedWalkerMethod =

@@ -77,7 +77,6 @@ internal val liveHeaderElementsContainerFingerprint = legacyFingerprint(
     },
 )
 
-// modified by lavinhoque33, 2026-10-04
 // YouTube 21.39 inlined the live header `c(ViewGroup, renderer)` method into LiveHeaderController.t(Z)V,
 // which also contains unrelated addView calls. Search for addView only after the
 // "Header renderer is null" string (the elements container is filled right after that check).
@@ -91,7 +90,6 @@ fun indexOfAddLiveHeaderElementsContainerInstruction(method: Method): Int {
     }
 }
 
-// modified by lavinhoque33, 2026-10-04
 // YouTube 21.39: the "Header container is null" string is gone and the method is now t(Z)V.
 internal val liveHeaderElementsContainerFingerprint2139 = legacyFingerprint(
     name = "liveHeaderElementsContainerFingerprint2139",

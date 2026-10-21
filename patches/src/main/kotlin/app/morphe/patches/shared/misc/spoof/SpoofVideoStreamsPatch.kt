@@ -298,7 +298,6 @@ internal fun spoofVideoStreamsPatch(
             val targetIndex =
                 indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
 
-            // modified by lavinhoque33, 2026-10-04
             // YouTube 21.39: constructor has an extra String parameter, fields are now
             // a (uri), d (http method), e (post data). Older: a, c, d.
             val isNewShape = parameterTypes.size == 11
@@ -401,7 +400,6 @@ internal fun spoofVideoStreamsPatch(
         }
 
         if (fixParsePlaybackResponseFeatureFlag()) {
-            // modified by lavinhoque33, 2026-10-04
             // YouTube Music 9.40 removed feature flag 45665455 entirely; the fingerprint is only that
             // literal, so a failed match means the flag is gone and there is nothing to override.
             runCatching { PlaybackStartDescriptorFeatureFlagFingerprint.match() }.getOrNull()?.let {

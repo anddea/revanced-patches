@@ -62,7 +62,7 @@ import app.morphe.util.findInstructionIndicesReversedOrThrow
 import app.morphe.util.findFreeRegister
 import app.morphe.util.findMutableMethodOf
 import app.morphe.util.findMethodsOrThrow
-import app.morphe.util.findMutableMethodOf // modified by lavinhoque33, 2026-10-07: 21.39 large seekbar reader hook
+import app.morphe.util.findMutableMethodOf // 21.39 large seekbar reader hook
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
@@ -643,7 +643,6 @@ val seekbarComponentsPatch = bytecodePatch(
         // region patch for fullscreen large seekbar
 
         if (is_20_28_or_greater) {
-            // modified by lavinhoque33, 2026-10-04
             // 21.39: the feature flag (45691569) no longer exists in the app (the behavior was
             // removed/hardcoded), so there is nothing to hook. Skip instead of failing the patch.
             val largeSeekbarMatches = runCatching {
@@ -651,7 +650,6 @@ val seekbarComponentsPatch = bytecodePatch(
             }.getOrNull().orEmpty()
 
             if (largeSeekbarMatches.isEmpty()) {
-                // modified by lavinhoque33, 2026-10-07
                 // 21.39: flag removed; the large style is a boolean field on the seekbar state class
                 // (Larco;->B), written by FullscreenLargeSeekbarStateWriterFingerprint. It is true only in
                 // fullscreen, so every reader keeps it only when the setting is on.

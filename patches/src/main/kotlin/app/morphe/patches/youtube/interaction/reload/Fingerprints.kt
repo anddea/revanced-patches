@@ -31,7 +31,6 @@ internal object MiniAppOpenYtContentCommandEndpointFingerprint : Fingerprint(
     )
 )
 
-// modified by lavinhoque33, 2026-10-04
 // YouTube 21.39: the endpoint handler became a synthetic bridge `b(Request, Map)V` and the
 // dismiss player call moved to the end: `iget-boolean; if-eqz; iget-object; invoke-interface;
 // move-result-object; check-cast; invoke-virtual {}, dismissPlayer()V`.

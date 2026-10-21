@@ -21,7 +21,7 @@ import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviou
 import static app.morphe.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_21_29_OR_GREATER;
-import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_21_39_OR_GREATER; // modified by lavinhoque33, 2026-10-07
+import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_21_39_OR_GREATER;
 
 import android.content.Context;
 import android.os.Build;
@@ -426,7 +426,7 @@ public class Settings extends SharedYouTubeSettings {
     public static final BooleanSetting OVERRIDE_VIDEO_DOWNLOAD_BUTTON = new BooleanSetting("revanced_override_video_download_button", FALSE, true);
     public static final BooleanSetting OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER = new BooleanSetting("revanced_override_video_download_button_queue_manager", FALSE, true,
             "revanced_queue_manager_user_dialog_message", parent(OVERRIDE_VIDEO_DOWNLOAD_BUTTON));
-    // modified by lavinhoque33, 2026-10-10: built-in downloader, offline library and Downloads page replacement.
+    // built-in downloader, offline library and Downloads page replacement.
     public static final BooleanSetting IN_APP_DOWNLOADER = new BooleanSetting("revanced_in_app_downloader", FALSE);
     public static final BooleanSetting REPLACE_DOWNLOADS_PAGE = new BooleanSetting("revanced_replace_downloads_page", FALSE, parent(IN_APP_DOWNLOADER));
     public static final BooleanSetting SHOW_OFFLINE_LIBRARY_BUTTON = new BooleanSetting("revanced_show_offline_library_button", TRUE, true, parent(IN_APP_DOWNLOADER));
@@ -646,7 +646,7 @@ public class Settings extends SharedYouTubeSettings {
             IS_21_29_OR_GREATER ? MiniplayerType.MODERN_4 : MiniplayerType.DEFAULT, true);
     public static final BooleanSetting MINIPLAYER_DOUBLE_TAP_ACTION = new BooleanSetting("revanced_miniplayer_double_tap_action", TRUE, true, new MiniplayerPatch.MiniplayerAnyModernAvailability());
     public static final BooleanSetting MINIPLAYER_DRAG_AND_DROP = new BooleanSetting("revanced_miniplayer_drag_and_drop", TRUE, true, new MiniplayerPatch.MiniplayerDragAndDropAvailability());
-    // modified by lavinhoque33, 2026-10-07: in stock 21.39 horizontal drag is always on and the off-screen drag pauses playback,
+    // in stock 21.39 horizontal drag is always on and the off-screen drag pauses playback,
     // so the defaults reproduce that there. Older versions keep the previous defaults.
     public static final BooleanSetting MINIPLAYER_HORIZONTAL_DRAG = new BooleanSetting("revanced_miniplayer_horizontal_drag", IS_21_39_OR_GREATER ? TRUE : FALSE, true, new MiniplayerPatch.MiniplayerHorizontalDragAvailability());
     public static final BooleanSetting MINIPLAYER_DISABLE_HORIZONTAL_DRAG_PLAYBACK = new BooleanSetting("revanced_miniplayer_disable_horizontal_drag_playback", IS_21_39_OR_GREATER ? TRUE : FALSE, true, new MiniplayerPatch.MiniplayerHorizontalDragPlaybackAvailability());

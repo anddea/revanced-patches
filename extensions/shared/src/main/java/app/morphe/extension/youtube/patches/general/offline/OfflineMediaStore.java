@@ -47,7 +47,7 @@ final class OfflineMediaStore {
     private OfflineMediaStore() {
     }
 
-    // modified by lavinhoque33, 2026-10-14: the merged video is written straight into the pending item,
+    // the merged video is written straight into the pending item,
     // so it is not written to the cache first and copied again.
     /** A video being written to its final place. Either {@link #commit} or {@link #abort} it. */
     static final class Pending {
@@ -81,7 +81,7 @@ final class OfflineMediaStore {
         Uri commit() throws IOException {
             descriptor.close();
             if (uri == null) {
-                // modified by lavinhoque33, 2026-10-14: an earlier finished download is only replaced once the new one is complete.
+                // an earlier finished download is only replaced once the new one is complete.
                 if (!file.renameTo(destination)) {
                     //noinspection ResultOfMethodCallIgnored
                     file.delete();
@@ -120,7 +120,7 @@ final class OfflineMediaStore {
             ContentResolver resolver = context.getContentResolver();
             ContentValues values = new ContentValues();
             values.put(MediaStore.Video.Media.DISPLAY_NAME, displayName);
-            // modified by lavinhoque33, 2026-10-14: VP9 downloads are WebM files.
+            // VP9 downloads are WebM files.
             values.put(MediaStore.Video.Media.MIME_TYPE, mimeType(displayName));
             values.put(MediaStore.Video.Media.RELATIVE_PATH, RELATIVE_PATH);
             values.put(MediaStore.Video.Media.IS_PENDING, 1);
