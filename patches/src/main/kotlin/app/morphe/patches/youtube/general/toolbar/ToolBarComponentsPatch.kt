@@ -66,6 +66,7 @@ import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
+import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
 import app.morphe.patches.shared.misc.fix.proto.immutableMethodRef
 import app.morphe.patches.shared.misc.fix.proto.mutableCopyMethodRef
 import app.morphe.patches.shared.misc.fix.proto.parseByteArrayMethodRef
@@ -168,6 +169,7 @@ val toolBarComponentsPatch = bytecodePatch(
 
     dependsOn(
         castButtonPatch,
+        fixProtoLibraryPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
         settingsPatch,
@@ -746,6 +748,37 @@ val toolBarComponentsPatch = bytecodePatch(
                 val protoListFreeRegister = freeRegisters.getFreeRegister()
                 val buttonByteRegister = freeRegisters.getFreeRegister()
 
+                // The commands of the buttons are extensions, which are parsed only with the extension registry.
+                val parseByteArrayMethod = parseByteArrayMethodRef.get()!!
+                mutableClassDefBy(parseByteArrayMethod.definingClass).methods.firstOrNull { method ->
+                    method.name == "parseFrom" && method.parameterTypes.map { type -> type.toString() } == listOf(
+                        parseByteArrayMethod.parameterTypes.first().toString(),
+                        "[B",
+                        "Lcom/google/protobuf/ExtensionRegistryLite;"
+                    )
+                }?.let { parseWithRegistryMethod ->
+                    val messageType = parseWithRegistryMethod.parameterTypes.first()
+                    val extensionMethods = mutableClassDefBy(NAVIGATION_CLASS_DESCRIPTOR).methods
+                    extensionMethods.first { method -> method.name == "getGeneratedRegistry" }.addInstructions(
+                        0,
+                        """
+                            invoke-static { }, Lcom/google/protobuf/ExtensionRegistryLite;->getGeneratedRegistry()Lcom/google/protobuf/ExtensionRegistryLite;
+                            move-result-object v0
+                            return-object v0
+                        """
+                    )
+                    extensionMethods.first { method -> method.name == "parseWithRegistry" }.addInstructions(
+                        0,
+                        """
+                            check-cast p0, $messageType
+                            invoke-static { p0, p1, p2 }, $parseWithRegistryMethod
+                            move-result-object p0
+                            check-cast p0, Lcom/google/protobuf/MessageLite;
+                            return-object p0
+                        """
+                    )
+                }
+
                 addInstructionsWithLabels(
                     protoListIndex,
                     """
@@ -755,6 +788,9 @@ val toolBarComponentsPatch = bytecodePatch(
 
                             invoke-static {v$protoListRegister}, ${mutableCopyMethodRef.get()}
                             move-result-object v$protoListRegister
+
+                            # Replace the create button whose video button has an endpoint the app does not handle.
+                            invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->fixToolbarCreateButtonUpload(Ljava/util/List;)V
 
                             invoke-static {v$protoListRegister}, $NAVIGATION_CLASS_DESCRIPTOR->createToolbarSettingsButton(Ljava/util/List;)[B
                             move-result-object v$buttonByteRegister

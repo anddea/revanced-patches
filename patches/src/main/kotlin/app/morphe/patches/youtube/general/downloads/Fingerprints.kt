@@ -53,6 +53,7 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
@@ -84,9 +85,10 @@ internal object FeedBottomSheetFlyoutFingerprint : Fingerprint(
 internal object ModernFeedBottomSheetFlyoutFingerprint : Fingerprint(
     classFingerprint = Fingerprint(
         parameters = listOf("Landroid/os/Bundle;"),
+        // "BaseBottomSheetDialogFragment.useNewUi" was removed in YouTube 21.39
         filters = listOf(
-            string("BaseBottomSheetDialogFragment.useNewUi"),
             string("BaseBottomSheetDialogFragment.peekHeightEnabled"),
+            string("BaseBottomSheetDialogFragment.shouldSkipCollapsed"),
             string("BaseBottomSheetDialogFragment.largeFormWidthDp"),
         ),
     ),
@@ -262,3 +264,64 @@ internal val setPlaylistDownloadButtonVisibilityFingerprint = Fingerprint(
         Opcode.CONST_4
     ),
 )
+
+// region built-in downloader and offline player
+
+// The stock service class names are kept by R8 because the manifest references them.
+private const val BACKGROUND_PLAYER_SERVICE_SUFFIX = "/BackgroundPlayerService;"
+private const val OFFLINE_KEEP_ALIVE_SERVICE_SUFFIX = "/OfflineKeepAliveService;"
+
+private fun serviceMethodFingerprint(classSuffix: String, methodName: String) = Fingerprint(
+    custom = { method, classDef ->
+        classDef.type.endsWith(classSuffix) && method.name == methodName
+    },
+)
+
+internal val backgroundPlayerServiceOnCreateFingerprint =
+    serviceMethodFingerprint(BACKGROUND_PLAYER_SERVICE_SUFFIX, "onCreate")
+internal val backgroundPlayerServiceOnStartCommandFingerprint =
+    serviceMethodFingerprint(BACKGROUND_PLAYER_SERVICE_SUFFIX, "onStartCommand")
+internal val backgroundPlayerServiceOnBindFingerprint =
+    serviceMethodFingerprint(BACKGROUND_PLAYER_SERVICE_SUFFIX, "onBind")
+internal val backgroundPlayerServiceOnTaskRemovedFingerprint =
+    serviceMethodFingerprint(BACKGROUND_PLAYER_SERVICE_SUFFIX, "onTaskRemoved")
+internal val backgroundPlayerServiceOnDestroyFingerprint =
+    serviceMethodFingerprint(BACKGROUND_PLAYER_SERVICE_SUFFIX, "onDestroy")
+
+internal val offlineKeepAliveServiceOnCreateFingerprint =
+    serviceMethodFingerprint(OFFLINE_KEEP_ALIVE_SERVICE_SUFFIX, "onCreate")
+internal val offlineKeepAliveServiceOnStartCommandFingerprint =
+    serviceMethodFingerprint(OFFLINE_KEEP_ALIVE_SERVICE_SUFFIX, "onStartCommand")
+internal val offlineKeepAliveServiceOnDestroyFingerprint =
+    serviceMethodFingerprint(OFFLINE_KEEP_ALIVE_SERVICE_SUFFIX, "onDestroy")
+internal val offlineKeepAliveServiceOnTimeoutFingerprint =
+    serviceMethodFingerprint(OFFLINE_KEEP_ALIVE_SERVICE_SUFFIX, "onTimeout")
+
+/**
+ * The command handler of browse endpoints (navigation to a browse page such as "FEdownloads").
+ * It reads the browseId and compares it with "FEsfv_channel_pivot" before navigating.
+ * Both strings are present on 20.05, 21.13 and 21.39.
+ */
+internal val browseEndpointCommandFingerprint = Fingerprint(
+    returnType = "V",
+    parameters = listOf("L", "Ljava/util/Map;"),
+    filters = listOf(
+        string("FEsfv_channel_pivot"),
+        string("replace_pane_predicate"),
+    ),
+)
+
+/**
+ * The command resolver, which looks up the handler of every command (taps, links, rows) and calls
+ * it. It logs "Unknown command not resolved" when no handler matches; the text differs between
+ * 21.13 ("...resolved") and 21.39 ("...resolved %s").
+ */
+internal val commandResolverFingerprint = Fingerprint(
+    returnType = "V",
+    parameters = listOf("L", "Ljava/util/Map;"),
+    filters = listOf(
+        string("Unknown command not resolved", StringComparisonType.STARTS_WITH),
+    ),
+)
+
+// endregion

@@ -23,11 +23,16 @@ import android.content.Intent;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
+import androidx.annotation.ChecksSdkIntAtLeast;
+import app.morphe.extension.shared.ui.Dim;
+import app.morphe.extension.shared.utils.ResourceType;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.MessageLite;
 
 import org.apache.commons.lang3.BooleanUtils;
@@ -51,11 +56,21 @@ import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Accessibil
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.AccessibilityData;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonRenderer;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonRendererAccessibilityData;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.ButtonSheetRenderer;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.Buttons;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.CreationEntrySheetEndpoint;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.CreationMode;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.CreationModesCommand;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.CreationModesControlsRenderer;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.CreationModesControlsRendererHolder;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.CreationModesSwitcherRenderer;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.CreationModesSwitcherRendererHolder;
+import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.NavigationEndpoint;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.PivotBarItemRenderer;
 import app.morphe.extension.youtube.innertube.GuideResponseOuterClass.RendererAccessibilityData;
 import app.morphe.extension.youtube.innertube.IconOuterClass.Icon;
 import app.morphe.extension.youtube.innertube.IconOuterClass.YTIconType;
+import app.morphe.extension.youtube.patches.general.offline.OfflineScreens;
 import app.morphe.extension.youtube.patches.theme.ThemePatch.StatusBarTranslucency;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.RootView;
@@ -78,6 +93,23 @@ public final class NavigationButtonsPatch {
 
     private static final boolean HIDE_NAVIGATION_BAR
             = Settings.HIDE_NAVIGATION_BAR.get();
+
+    private static final boolean HIDE_SHORTS_NAVIGATION_BAR = Settings.HIDE_SHORTS_NAVIGATION_BAR.get();
+
+    /**
+     * The view the Shorts player is in, inside the layout of the Shorts player fragment.
+     */
+    private static final int shortsPlayerContainerId = HIDE_SHORTS_NAVIGATION_BAR
+            ? ResourceUtils.getIdentifier(ResourceType.ID, "fragment_container_view")
+            : 0;
+
+    /**
+     * If the room below the Shorts player is set by {@link #setShortsPlayerBottomInset(View)}.
+     * The system navigation buttons are read from the window insets, available from Android 11.
+     */
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.R)
+    private static final boolean SETS_SHORTS_PLAYER_BOTTOM_ROOM = HIDE_SHORTS_NAVIGATION_BAR
+            && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R;
 
     private static final boolean DISABLE_AUTO_HIDE_NAVIGATION_BAR
             = Settings.DISABLE_AUTO_HIDE_NAVIGATION_BAR.get();
@@ -151,6 +183,69 @@ public final class NavigationButtonsPatch {
 
     /**
      * Injection point.
+     * <p>
+     * With the translucent navigation bar turned on, the window is drawn behind the system
+     * navigation buttons, the navigation bar makes room for them, and the pages end above
+     * the navigation bar. With the navigation bar hidden in the Shorts player, nothing makes that
+     * room, so the Shorts player is drawn behind the system navigation buttons
+     * (https://github.com/MorpheApp/morphe-patches/issues/3908). The Shorts player then makes
+     * the room itself.
+     * <p>
+     * The room the Shorts player reserves for the navigation bar depends on how it's opened,
+     * so with the navigation bar hidden that room is left out ({@link #getShortsPlayerBottomRoom(int)}),
+     * and the Shorts player always ends a slight room above the system navigation buttons,
+     * or the seekbar thumb at the bottom of the Shorts player overlaps them.
+     *
+     * @param shortsFragmentLayout The layout of the Shorts player fragment.
+     */
+    public static void setShortsPlayerBottomInset(View shortsFragmentLayout) {
+        if (!SETS_SHORTS_PLAYER_BOTTOM_ROOM) {
+            return;
+        }
+
+        try {
+            shortsFragmentLayout.addOnLayoutChangeListener((view, left, top, right, bottom,
+                                                            oldLeft, oldTop, oldRight, oldBottom) -> {
+                try {
+                    WindowInsets insets = view.getRootWindowInsets();
+                    View shortsPlayerContainer = view.findViewById(shortsPlayerContainerId);
+                    if (insets == null || shortsPlayerContainer == null) return;
+
+                    // The window can already end above the system navigation buttons, such as
+                    // without the translucent navigation bar, so only the room still missing
+                    // is added. The padding added here is left out, or the room would be counted twice.
+                    final int navigationButtonsHeight = insets.getInsets(WindowInsets.Type.navigationBars()).bottom;
+                    int[] location = new int[2];
+                    shortsPlayerContainer.getLocationInWindow(location);
+                    final int roomBelow = view.getRootView().getHeight()
+                            - (location[1] + shortsPlayerContainer.getHeight())
+                            - view.getPaddingBottom();
+                    final int padding = Math.max(0, navigationButtonsHeight + Dim.dp12 - roomBelow);
+
+                    if (view.getPaddingBottom() != padding) {
+                        view.post(() -> view.setPadding(view.getPaddingLeft(), view.getPaddingTop(),
+                                view.getPaddingRight(), padding));
+                    }
+                } catch (Exception ex) {
+                    Logger.printException(() -> "setShortsPlayerBottomInset layout failure", ex);
+                }
+            });
+        } catch (Exception ex) {
+            Logger.printException(() -> "setShortsPlayerBottomInset failure", ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param original The room the Shorts player reserves below itself for the navigation bar.
+     */
+    public static int getShortsPlayerBottomRoom(int original) {
+        return SETS_SHORTS_PLAYER_BOTTOM_ROOM ? 0 : original;
+    }
+
+    /**
+     * Injection point.
      */
     public static boolean useAnimatedNavigationButtons(boolean original) {
         return Settings.NAVIGATION_BAR_ANIMATIONS.get();
@@ -162,6 +257,22 @@ public final class NavigationButtonsPatch {
     public static boolean allowCollapsingToolbarLayout(boolean original) {
         if (STATUS_BAR_TRANSLUCENCY != StatusBarTranslucency.DEFAULT) return false;
         return original;
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param original The color the app theme gives the system navigation buttons.
+     */
+    public static int getSystemNavigationBarColor(int original) {
+        if (!DISABLE_TRANSLUCENT_NAVIGATION_BAR) return original;
+
+        try {
+            return OpaqueSystemBars.systemNavigationBarColor(original);
+        } catch (Exception ex) {
+            Logger.printException(() -> "getSystemNavigationBarColor failure", ex);
+            return original;
+        }
     }
 
     /**
@@ -514,6 +625,126 @@ public final class NavigationButtonsPatch {
     }
 
     /**
+     * Injection point.
+     * <p>
+     * The toolbar create button of the Android Automotive layout, which swaps the create button with the
+     * notifications button, opens a bottom sheet whose video button uses the upload endpoint, which the app
+     * handles only in the creation modes. The upload endpoint is opened in the creation modes instead,
+     * as the create button of the phone layout does.
+     */
+    public static void fixToolbarCreateButtonUpload(List<MessageLite> rawButtonList) {
+        if (HIDE_TOOLBAR_CREATE_BUTTON || rawButtonList == null || rawButtonList.isEmpty()) return;
+
+        try {
+            for (int i = 0, size = rawButtonList.size(); i < size; i++) {
+                MessageLite rawButtons = rawButtonList.get(i);
+                Buttons buttons = Buttons.parseFrom(rawButtons.toByteArray());
+                if (!buttons.hasButtonRenderer() || !buttons.getButtonRenderer().hasIcon()
+                        || !StringUtils.equalsAny(buttons.getButtonRenderer().getIcon().getYtIconType().name(),
+                        CREATE_BUTTON_ENUMS)) {
+                    continue;
+                }
+
+                ButtonRenderer createButton = openUploadInCreationModes(buttons.getButtonRenderer());
+                if (createButton == null) {
+                    return;
+                }
+                ExtensionRegistryLite registry = getGeneratedRegistry();
+                MessageLite fixedButtons = registry == null ? null : parseWithRegistry(rawButtons,
+                        buttons.toBuilder().setButtonRenderer(createButton).build().toByteArray(), registry);
+                if (fixedButtons != null) {
+                    rawButtonList.set(i, fixedButtons);
+                    Logger.printDebug(() -> "Toolbar create button opens the upload in the creation modes");
+                }
+                return;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "fixToolbarCreateButtonUpload failure", ex);
+        }
+    }
+
+    /**
+     * Parses a message with the extension registry. The commands of the buttons are extensions,
+     * which are lost if the message is parsed without the registry.
+     *
+     * @param message Message of the class to parse.
+     * @return The parsed message, or null if the parse method was not found during patching.
+     */
+    @Nullable
+    private static MessageLite parseWithRegistry(MessageLite message, byte[] bytes, ExtensionRegistryLite registry) {
+        return null; // Modified during patching.
+    }
+
+    /**
+     * @return The extension registry of the app, or null if not found during patching.
+     */
+    @Nullable
+    private static ExtensionRegistryLite getGeneratedRegistry() {
+        return null; // Modified during patching.
+    }
+
+    /**
+     * @return The create button whose upload buttons open the upload endpoint in the creation modes,
+     *         or null if the create button has no upload button.
+     */
+    @Nullable
+    private static ButtonRenderer openUploadInCreationModes(ButtonRenderer createButton) {
+        NavigationEndpoint endpoint = createButton.getNavigationEndpoint();
+        if (!endpoint.hasCreationEntrySheetEndpoint()) {
+            return null;
+        }
+        CreationEntrySheetEndpoint sheetEndpoint = endpoint.getCreationEntrySheetEndpoint();
+        ButtonSheetRenderer sheet = sheetEndpoint.getButtonSheetSupportedRenderers().getButtonSheetRenderer();
+        ButtonSheetRenderer.Builder sheetBuilder = sheet.toBuilder();
+        boolean replaced = false;
+
+        for (int i = 0, count = sheet.getButtonsCount(); i < count; i++) {
+            Buttons button = sheet.getButtons(i);
+            ButtonRenderer buttonRenderer = button.getButtonRenderer();
+            NavigationEndpoint uploadEndpoint = buttonRenderer.getNavigationEndpoint();
+            if (!button.hasButtonRenderer() || !uploadEndpoint.hasShortsCreationEndpoint()) {
+                continue;
+            }
+
+            // The only mode button of the creation modes opens the upload endpoint.
+            ButtonRenderer modeButton = buttonRenderer.toBuilder()
+                    .clearNavigationEndpoint()
+                    .setCommand(uploadEndpoint)
+                    .build();
+            CreationModesSwitcherRenderer switcher = CreationModesSwitcherRenderer.newBuilder()
+                    .addModeButtons(Buttons.newBuilder().setButtonRenderer(modeButton))
+                    .addModes(CreationMode.CREATION_MODE_UPLOADS)
+                    .setDefaultMode(CreationMode.CREATION_MODE_UPLOADS)
+                    .build();
+            CreationModesCommand creationModesCommand = CreationModesCommand.newBuilder()
+                    .setCreationModesControlsRenderer(CreationModesControlsRendererHolder.newBuilder()
+                            .setCreationModesControlsRenderer(CreationModesControlsRenderer.newBuilder()
+                                    .setCreationModesSwitcherRenderer(CreationModesSwitcherRendererHolder.newBuilder()
+                                            .setCreationModesSwitcherRenderer(switcher))))
+                    .build();
+
+            NavigationEndpoint creationModesEndpoint = uploadEndpoint.toBuilder()
+                    .clearShortsCreationEndpoint()
+                    .setCreationModesCommand(creationModesCommand)
+                    .build();
+            sheetBuilder.setButtons(i, button.toBuilder().setButtonRenderer(
+                    buttonRenderer.toBuilder().setNavigationEndpoint(creationModesEndpoint)));
+            replaced = true;
+        }
+        if (!replaced) {
+            return null;
+        }
+
+        CreationEntrySheetEndpoint creationModesSheetEndpoint = sheetEndpoint.toBuilder()
+                .setButtonSheetSupportedRenderers(sheetEndpoint.getButtonSheetSupportedRenderers().toBuilder()
+                        .setButtonSheetRenderer(sheetBuilder))
+                .build();
+        return createButton.toBuilder()
+                .setNavigationEndpoint(endpoint.toBuilder().setCreationEntrySheetEndpoint(creationModesSheetEndpoint))
+                .build();
+    }
+
+    /**
      * Injection point. Removes toolbar buttons hidden by the user before YouTube lays them out.
      */
     public static void modifyToolbarButtons(List<MessageLite> rawButtonList) {
@@ -587,6 +818,88 @@ public final class NavigationButtonsPatch {
         }
 
         return null;
+    }
+
+    // Downloads button of the offline library in the You tab.
+    private static final boolean SHOW_TOOLBAR_DOWNLOADS_BUTTON =
+            Settings.IN_APP_DOWNLOADER.get() && Settings.SHOW_OFFLINE_LIBRARY_BUTTON.get();
+
+    private static final ThreadLocal<byte[]> pendingToolbarDownloadsButton = new ThreadLocal<>();
+
+    /**
+     * Injection point. Called for every button of a page toolbar, such as the one of the You tab,
+     * before YouTube creates its menu item.
+     * If it is YouTube's own Settings button, a copy with the download icon is kept for
+     * {@link #takeToolbarDownloadsButton()}, which adds it after the Settings button.
+     *
+     * @param buttonRenderer The button renderer YouTube is about to show.
+     */
+    public static void prepareToolbarDownloadsButton(Object buttonRenderer) {
+        pendingToolbarDownloadsButton.set(createToolbarDownloadsButton(buttonRenderer));
+    }
+
+    /**
+     * Injection point. Called after YouTube added the menu item of {@link #prepareToolbarDownloadsButton(Object)}.
+     *
+     * @return The Downloads button to add, or null.
+     */
+    @Nullable
+    public static byte[] takeToolbarDownloadsButton() {
+        byte[] button = pendingToolbarDownloadsButton.get();
+        pendingToolbarDownloadsButton.remove();
+        return button;
+    }
+
+    @Nullable
+    private static byte[] createToolbarDownloadsButton(Object buttonRenderer) {
+        if (!SHOW_TOOLBAR_DOWNLOADS_BUTTON || !(buttonRenderer instanceof MessageLite message)) {
+            return null;
+        }
+
+        try {
+            ButtonRenderer settings = ButtonRenderer.parseFrom(message.toByteArray());
+            if (!settings.hasIcon() || settings.getIcon().getYtIconType() != YTIconType.SETTINGS_CAIRO) {
+                return null;
+            }
+
+            ButtonRendererAccessibilityData accessibilityData = ButtonRendererAccessibilityData
+                    .newBuilder()
+                    .setLabel(ResourceUtils.getString("revanced_offline_library_title"))
+                    .build();
+            // The native command of the copy is replaced by the click listener of setToolbarDownloadsOnClickListener.
+            return settings.toBuilder()
+                    .setButtonRendererAccessibilityData(accessibilityData)
+                    .setRendererAccessibilityData(RendererAccessibilityData.newBuilder()
+                            .setButtonRendererAccessibilityData(accessibilityData)
+                            .build())
+                    .setIcon(Icon.newBuilder().setYtIconType(YTIconType.OFFLINE_DOWNLOAD).build())
+                    .build()
+                    .toByteArray();
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to create toolbar Downloads button", ex);
+            return null;
+        }
+    }
+
+    /**
+     * Injection point. Replaces the copied native listener after YouTube finishes binding the toolbar button.
+     */
+    public static void setToolbarDownloadsOnClickListener(String enumName, View toolbarView) {
+        if (!SHOW_TOOLBAR_DOWNLOADS_BUTTON || !YTIconType.OFFLINE_DOWNLOAD.name().equals(enumName)
+                || !(toolbarView instanceof ViewGroup viewGroup)) {
+            return;
+        }
+
+        ImageView imageView = Utils.getChildView(viewGroup, view -> view instanceof ImageView);
+        if (imageView == null) {
+            return;
+        }
+
+        Utils.runOnMainThreadDelayed(() -> {
+            imageView.setClickable(true);
+            imageView.setOnClickListener(button -> OfflineScreens.openLibrary(button.getContext()));
+            imageView.setOnLongClickListener(null);
+        }, 100);
     }
 
     /**

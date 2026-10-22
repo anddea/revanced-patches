@@ -9,6 +9,9 @@
  * - inotia00 (https://github.com/inotia00)
  * - KobeW50 (https://github.com/KobeW50)
  *
+ * experimental YouTube 21.39 support
+ * (inlined Cairo fragment flag).
+ *
  * Licensed under the GNU General Public License v3.0.
  *
  * ------------------------------------------------------------------------
@@ -104,6 +107,7 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -140,7 +144,27 @@ private val settingsBytecodePatch = bytecodePatch(
         // region fix cairo fragment
 
         if (is_19_28_or_greater) {
+            // YouTube 21.x+ inlines the Cairo flag check (const-wide + flag getter call)
+            // into its callers instead of calling a dedicated boolean getter.
+            fun MutableMethod.overrideInlinedCairoFragmentConfig(): Boolean {
+                val literalIndices = implementation!!.instructions.withIndex()
+                    .filter { (_, instruction) ->
+                        (instruction as? WideLiteralInstruction)?.wideLiteral == CAIRO_FRAGMENT_FEATURE_FLAG
+                    }
+                    .map { it.index }
+                // Insert from the bottom up so earlier indices stay valid.
+                literalIndices.asReversed().forEach { index ->
+                    insertLiteralOverride(
+                        index,
+                        "$EXTENSION_CLASS_DESCRIPTOR->disableCairoSettingsFragment(Z)Z"
+                    )
+                }
+                return literalIndices.isNotEmpty()
+            }
+
             fun MutableMethod.disableCairoFragmentConfig() {
+                if (overrideInlinedCairoFragmentConfig()) return
+
                 val cairoFragmentConfigMethodCall = cairoFragmentConfigFingerprint
                     .methodCall()
                 val insertIndex = indexOfFirstInstructionOrThrow {
@@ -289,9 +313,10 @@ private val settingsBytecodePatch = bytecodePatch(
                 null,
                 MutableMethodImplementation(3),
             ).toMutable().apply {
+                // Pass the activity, so offline screens can handle back presses.
                 addInstructions(
                     """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->handleBackPress()Z
+                        invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->handleBackPress(Landroid/app/Activity;)Z
                         move-result v0
                         if-nez v0, :search_handled
                         invoke-super { p0 }, Landroid/app/Activity;->finish()V
@@ -386,6 +411,30 @@ val settingsPatch = resourcePatch(
         ResourceUtils.setContext(this)
 
         /**
+         * YouTube 21.39 no longer ships the flat (non-Cairo) res/xml/settings_fragment.xml.
+         * Rebuild it from settings_fragment_cairo.xml by hoisting every preference out of
+         * its category, which is the layout the old settings menu used.
+         *
+         * Added by lavinhoque33 (2026-10-04) for experimental YouTube 21.39 support.
+         */
+        if (!get(ResourceUtils.YOUTUBE_SETTINGS_PATH).exists()) {
+            FilesCompat.copy(
+                get(ResourceUtils.YOUTUBE_CAIRO_SETTINGS_PATH),
+                get(ResourceUtils.YOUTUBE_SETTINGS_PATH)
+            )
+            document(ResourceUtils.YOUTUBE_SETTINGS_PATH).use { document ->
+                val root = document.documentElement
+                val categories = document.getElementsByTagName("PreferenceCategory")
+                List(categories.length) { categories.item(it) as Element }.forEach { category ->
+                    while (category.firstChild != null) {
+                        root.insertBefore(category.firstChild, category)
+                    }
+                    root.removeChild(category)
+                }
+            }
+        }
+
+        /**
          * remove strings duplicated with RVX resources
          *
          * YouTube does not provide translations for these strings.
@@ -427,6 +476,8 @@ val settingsPatch = resourcePatch(
         arrayOf(
             ResourceGroup(
                 "drawable",
+                "morphe_settings_screen_02_dearrow.xml",
+                "morphe_settings_screen_02_dearrow_bold.xml",
                 "revanced_settings_arrow_time.xml",
                 "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
@@ -557,6 +608,8 @@ val settingsPatch = resourcePatch(
     }
 
     finalize {
+        ResourceUtils.writeUnsupportedSettings()
+
         /**
          * change RVX settings menu name
          * since it must be invoked after the Translations patch, it must be the last in the order.

@@ -16,6 +16,9 @@ public final class DescriptionsFilter extends Filter {
     private final ByteArrayFilterGroupList macroMarkerShelfGroupList = new ByteArrayFilterGroupList();
     private final ByteArrayFilterGroupList playlistSectionGroupList = new ByteArrayFilterGroupList();
 
+    private final StringFilterGroup attributesSectionPath;
+    private final ByteArrayFilterGroup attributesSectionBuffer;
+    private final ByteArrayFilterGroup podcastSectionBuffer;
     private final StringFilterGroup featuredSection;
     private final StringFilterGroup hashtagSection;
     private final ByteArrayFilterGroupList hashtagSectionGroupList = new ByteArrayFilterGroupList();
@@ -79,6 +82,22 @@ public final class DescriptionsFilter extends Filter {
                 podcastSection,
                 transcriptSection,
                 videoSummarySection
+        );
+
+        attributesSectionPath = new StringFilterGroup(
+                null,
+                "card.e"
+        );
+
+        attributesSectionBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_ATTRIBUTES_SECTION,
+                "album_hero_card",
+                "gaming_hero_card"
+        );
+
+        podcastSectionBuffer = new ByteArrayFilterGroup(
+                null,
+                "podcast_hero_card"
         );
 
         featuredSection = new StringFilterGroup(
@@ -214,6 +233,7 @@ public final class DescriptionsFilter extends Filter {
         );
 
         addPathCallbacks(
+                attributesSectionPath,
                 howThisWasMadeSection,
                 correctionsSection,
                 courseProgressSection,
@@ -277,6 +297,11 @@ public final class DescriptionsFilter extends Filter {
         // Check for the index because of likelihood of false positives.
         if (matchedGroup == howThisWasMadeSection) {
             return contentIndex == 0;
+        } else if (matchedGroup == attributesSectionPath) {
+            return attributesSectionBuffer.check(buffer).isFiltered()
+                    || ((Settings.HIDE_EXPLORE_SECTION.get()
+                    || Settings.HIDE_EXPLORE_PODCAST_SECTION.get())
+                    && podcastSectionBuffer.check(buffer).isFiltered());
         } else if (matchedGroup == featuredSection) {
             return featuredSectionGroupList.check(buffer).isFiltered();
         } else if (matchedGroup == hashtagSection) {

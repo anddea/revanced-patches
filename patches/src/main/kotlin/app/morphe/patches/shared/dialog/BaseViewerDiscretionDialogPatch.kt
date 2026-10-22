@@ -9,6 +9,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.playservice.is_20_21_or_greater
 import app.morphe.util.fingerprint.matchOrThrow
+import app.morphe.util.fingerprint.methodOrNull
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.getReference
 import app.morphe.util.getWalkerMethod
@@ -22,12 +23,14 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/morphe/extension/youtube/pa
 
 fun baseViewerDiscretionDialogPatch(
     classDescriptor: String,
-    isAgeVerified: Boolean = false
+    isAgeVerified: Boolean = false,
+    isYouTubeMusic: Boolean = false
 ) = bytecodePatch(
     description = "baseViewerDiscretionDialogPatch"
 ) {
     execute {
-        if (is_20_21_or_greater && BackgroundPlaybackManagerShortsFingerprint.matchOrNull() != null) {
+        // Music never runs the YouTube version-check patch, so is_20_21_or_greater is uninitialized there.
+        if (!isYouTubeMusic && is_20_21_or_greater && BackgroundPlaybackManagerShortsFingerprint.matchOrNull() != null) {
             CreateDialogFingerprint.let {
                 it.method.apply {
                     val showDialogIndex = it.instructionMatches.last().index
@@ -87,8 +90,8 @@ fun baseViewerDiscretionDialogPatch(
                         "setPlayabilityStatus(Ljava/lang/Enum;)V"
             )
         } else {
-            createDialogFingerprint
-                .methodOrThrow()
+            // 9.40 Music: dialog method is public instead of protected; fall back to the public-access variant.
+            (createDialogFingerprint.methodOrNull() ?: createDialogFingerprintPublic.methodOrThrow())
                 .invoke(classDescriptor, "confirmDialog")
 
             if (isAgeVerified) {

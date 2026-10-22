@@ -10,6 +10,7 @@ internal object Constants {
         name = "YouTube",
         packageName = YOUTUBE_PACKAGE_NAME,
         targets = listOf(
+            AppTarget(version = "21.39.525", isExperimental = true, minSdk = 32),
             AppTarget(version = "21.13.164", minSdk = 28),
             AppTarget(version = "20.05.46", minSdk = 26),
         )

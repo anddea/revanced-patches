@@ -93,6 +93,12 @@ internal val clientContextHookPatch = bytecodePatch(
 
         Endpoint.entries.filter { it.smaliInstructions.isNotEmpty() }.forEach { endpoint ->
             endpoint.parentFingerprints.forEach { parentFingerprint ->
+                // YouTube 21.39 removed the "reel/create_reel_items"
+                // endpoint class, so a parent that no longer matches is skipped instead of failing.
+                // The app no longer sends that request, and the remaining Shorts endpoints are still hooked.
+                val endpointClassDef = runCatching { parentFingerprint.originalClassDef }.getOrNull()
+                    ?: return@forEach
+
                 // Use a local fingerprint because Fingerprint caches its match.
                 val endpointRequestBodyFingerprint = Fingerprint(
                     classFingerprint = parentFingerprint,
@@ -101,7 +107,7 @@ internal val clientContextHookPatch = bytecodePatch(
                     parameters = emptyList(),
                 )
 
-                endpointRequestBodyFingerprint.match(parentFingerprint.originalClassDef).let { match ->
+                endpointRequestBodyFingerprint.match(endpointClassDef).let { match ->
                     // 21.05+ clobbers the p0 register while building the request body.
                     match.method.cloneMutableAndPreserveParameters(match.classDef).apply {
                         match.classDef.methods.add(

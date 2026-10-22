@@ -44,8 +44,10 @@ import app.morphe.extension.shared.ui.ViewAnimations;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceUtils;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.originaltitles.RestoreOriginalTitlesPatch;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
+import app.morphe.extension.youtube.shared.ShortsPlayerState;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.utils.ThemeUtils;
 import kotlin.Unit;
@@ -160,6 +162,14 @@ public final class MinimalMiniplayerPatch {
     private static WeakReference<View> navigationBarRef = new WeakReference<>(null);
     private static WeakReference<MiniplayerBoundsController> boundsControllerRef = new WeakReference<>(null);
 
+    /**
+     * In the event that a short would be opened and overwrites the video and channel
+     * names, these fields will save the name of the currently open video.
+     */
+    private static String previousVideoTitle = "";
+    private static String previousChannelTitle = "";
+
+
     private static boolean listenersInstalled;
     private static boolean ticking;
     private static boolean playing;
@@ -189,6 +199,14 @@ public final class MinimalMiniplayerPatch {
     private static boolean barShapeApplied;
 
     /**
+     * The title last set to the title view. The view can show another text, as its title is
+     * replaced by {@link RestoreOriginalTitlesPatch} if enabled (original or DeArrow title),
+     * so it is set only when it changes.
+     */
+    @Nullable
+    private static String shownTitle;
+
+    /**
      * Injection point.
      * <p>
      * The legacy bar layout, looked up by YouTube itself and then left unused.
@@ -215,6 +233,7 @@ public final class MinimalMiniplayerPatch {
 
             TextView title = Utils.getChildViewByResourceName(controlsLayout, "floaty_title");
             titleRef = new WeakReference<>(title);
+            shownTitle = null;
             if (title != null && HIDE_TITLE) {
                 title.setVisibility(View.GONE);
             }
@@ -334,10 +353,17 @@ public final class MinimalMiniplayerPatch {
             Rect docked = fullWidthSpan(original);
             lastBounds.set(docked);
 
-            if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED) {
+            PlayerType getCurrent = PlayerType.getCurrent();
+            // While the player is up, this is only asked when the window changes, such as the
+            // keyboard closing or a rotation. What YouTube gets back is where the next collapse
+            // ends, so it is the bar for the new window, as it would be had nothing changed.
+            final boolean minimized = getCurrent == PlayerType.WATCH_WHILE_MINIMIZED;
+            if (minimized || getCurrent.isMaximizedOrFullscreen()) {
                 barBoundsFor(docked);
                 currentBounds.set(barBounds);
-                barShapeApplied = true;
+                if (minimized) {
+                    barShapeApplied = true;
+                }
                 return barBounds;
             }
 
@@ -390,7 +416,21 @@ public final class MinimalMiniplayerPatch {
 
         // Docked against it even when YouTube rests lower. After a recreated activity its
         // resting bounds are still the ones from before the system insets moved everything up.
-        return top;
+        return top - boundsOriginInWindow();
+    }
+
+    /**
+     * The bounds are relative to the layout that holds the player, not to the window. That
+     * layout can start below the status bar, which would otherwise move the bar down by its
+     * height and put it under the navigation bar.
+     */
+    private static int boundsOriginInWindow() {
+        View watchPlayer = watchPlayer();
+        if (watchPlayer == null || !(watchPlayer.getParent() instanceof View parent)) return 0;
+
+        parent.getLocationInWindow(windowLocation);
+
+        return windowLocation[1];
     }
 
     /**
@@ -412,14 +452,10 @@ public final class MinimalMiniplayerPatch {
             }
 
             if (getCurrentMiniplayerType() == MINIMAL_BAR) {
-                final int videoWidth = videoWidthFor(currentBounds.height());
-
+                // Always at the left edge. In a right-to-left layout YouTube mirrors the rect
+                // itself, which already puts the video at the end of the bar.
                 videoRect.set(currentBounds);
-                if (Utils.isRightToLeftLocale()) {
-                    videoRect.left = videoRect.right - videoWidth;
-                } else {
-                    videoRect.right = videoRect.left + videoWidth;
-                }
+                videoRect.right = videoRect.left + videoWidthFor(currentBounds.height());
             } else {
                 // Type 2 spans the bar with the video. YouTube fits anything that is not 16:9
                 // inside the bar instead, and the miniplayer has no background of its own, so
@@ -831,7 +867,11 @@ public final class MinimalMiniplayerPatch {
             };
 
     private static void reapplyBarBounds() {
-        if (!barShapeApplied || morphing || lastBounds.isEmpty()) return;
+        if (morphing || lastBounds.isEmpty()) return;
+
+        // While the player is up the bar is where the next collapse ends. The keyboard closing
+        // under it moves the navigation bar only after YouTube asked where that is.
+        if (!barShapeApplied && !PlayerType.getCurrent().isMaximizedOrFullscreen()) return;
 
         MiniplayerBoundsController controller = boundsControllerRef.get();
         if (controller == null) return;
@@ -1012,10 +1052,19 @@ public final class MinimalMiniplayerPatch {
     }
 
     private static void updateText() {
-        setText(titleRef.get(), VideoInformation.getVideoTitle());
+        if (!ShortsPlayerState.getCurrent().isOpen()) {
+            previousVideoTitle = VideoInformation.getVideoTitle();
+            previousChannelTitle = VideoInformation.getChannelName();
+        }
+
+        TextView titleView = titleRef.get();
+        if (titleView != null && !previousVideoTitle.equals(shownTitle)) {
+            shownTitle = previousVideoTitle;
+            setText(titleView, previousVideoTitle);
+        }
 
         TextView subtitle = subtitleRef.get();
-        if (setText(subtitle, VideoInformation.getChannelName())) {
+        if (setText(subtitle, previousChannelTitle)) {
             subtitle.setVisibility(View.VISIBLE);
         }
     }

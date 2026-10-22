@@ -14,83 +14,91 @@
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Alternative thumbnails` | Adds options to replace video thumbnails using the DeArrow API or image captures from the video. | 21.13.164 ~ 20.05.46 |
-| `Ambient mode control` | Adds options to disable Ambient mode and to bypass Ambient mode restrictions. | 21.13.164 ~ 20.05.46 |
-| `App refresh rate` | Adds an option to change the app refresh rate. | 21.13.164 ~ 20.05.46 |
-| `Bypass URL redirects` | Adds an option to bypass URL redirects and open the original URL directly. | 21.13.164 ~ 20.05.46 |
-| `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 21.13.164 ~ 20.05.46 |
-| `Change form factor` | Adds an option to change the UI appearance to a phone, tablet, or automotive device. | 21.13.164 ~ 20.05.46 |
-| `Change player flyout menu toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 21.13.164 ~ 20.05.46 |
-| `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 21.13.164 ~ 20.05.46 |
-| `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 21.13.164 ~ 20.05.46 |
-| `Custom DPI` | Forces a higher display density for this app only, so the whole UI scales up without changing system density. | 21.13.164 ~ 20.05.46 |
-| `Custom Shorts action buttons` | Changes, at compile time, the icon of the action buttons of the Shorts player. | 21.13.164 ~ 20.05.46 |
-| `Custom branding for YouTube` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 21.13.164 ~ 20.05.46 |
-| `Custom double tap length` | Adds Double-tap to seek values that are specified in patch options. | 21.13.164 ~ 20.05.46 |
-| `Description components` | Adds options to hide and disable description components. | 21.13.164 ~ 20.05.46 |
-| `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 21.13.164 ~ 20.05.46 |
-| `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 21.13.164 ~ 20.05.46 |
-| `Disable haptic feedback` | Adds options to disable haptic feedback when swiping in the video player. | 21.13.164 ~ 20.05.46 |
-| `Disable layout updates` | Adds an option to disable layout updates by server. | 21.13.164 ~ 20.05.46 |
-| `Disable playlist autoplay` | Adds an option to stop a playlist from automatically advancing to the next video. | 21.13.164 ~ 20.05.46 |
-| `Disable resuming Miniplayer on startup` | Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup. | 21.13.164 ~ 20.05.46 |
-| `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 21.13.164 ~ 20.05.46 |
-| `Disable scrolling speed limit` | Adds an option to remove limits of how fast the home and subscription feed can be scrolled. | 21.13.164 ~ 20.05.46 |
-| `Disable sign in to TV popup` | Adds an option to disable the popup asking to sign into a TV on the same local network. | 21.13.164 ~ 20.05.46 |
-| `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 21.13.164 ~ 20.05.46 |
-| `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 21.13.164 ~ 20.05.46 |
-| `Force original audio` | Adds an option to disable audio tracks from being automatically enabled. | 21.13.164 ~ 20.05.46 |
-| `Fullscreen components` | Adds options to hide or change components related to fullscreen. | 21.13.164 ~ 20.05.46 |
-| `Fullscreen video scale` | Adds options to stretch or zoom videos to fill the screen in fullscreen mode. | 21.13.164 ~ 20.05.46 |
-| `Gemini` | Adds options to use Gemini for video summaries, transcription, and settings search. | 21.13.164 ~ 20.05.46 |
-| `GmsCore support` | Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services. | 21.13.164 ~ 20.05.46 |
-| `Hide Shorts dimming` | Removes, at compile time, the dimming effect at the top and bottom of Shorts videos. | 21.13.164 ~ 20.05.46 |
-| `Hide accessibility controls dialog` | Removes, at compile time, accessibility controls dialog 'Turn on accessibility controls for the video player?'. | 21.13.164 ~ 20.05.46 |
-| `Hide action buttons` | Adds options to hide action buttons under videos. | 21.13.164 ~ 20.05.46 |
-| `Hide ads` | Adds options to hide ads. | 21.13.164 ~ 20.05.46 |
-| `Hide comments components` | Adds options to hide components related to comments. | 21.13.164 ~ 20.05.46 |
-| `Hide feed components` | Adds options to hide components related to feeds. | 21.13.164 ~ 20.05.46 |
-| `Hide feed flyout menu` | Adds the ability to hide feed flyout menu components using a custom filter. | 21.13.164 ~ 20.05.46 |
-| `Hide layout components` | Adds options to hide general layout components. | 21.13.164 ~ 20.05.46 |
-| `Hide player buttons` | Adds options to hide buttons in the video player, and to hide or change the opacity of the player control buttons background. | 21.13.164 ~ 20.05.46 |
-| `Hide player flyout menu` | Adds options to hide player flyout menu components. | 21.13.164 ~ 20.05.46 |
-| `Hide shortcuts` | Remove, at compile time, the app shortcuts that appears when the app icon is long pressed. | 21.13.164 ~ 20.05.46 |
-| `Hook download actions` | Adds support to download videos with an external downloader app using the in-app download button. | 21.13.164 ~ 20.05.46 |
-| `Miniplayer` | Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers. | 21.13.164 ~ 20.05.46 |
-| `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 21.13.164 ~ 20.05.46 |
-| `Open channel of live avatar` | Adds an option to prevent a channel's current live video from opening when tapping its avatar. | 21.13.164 ~ 20.05.46 |
-| `Open links externally` | Adds an option to always open links in your browser instead of the in-app browser. | 21.13.164 ~ 20.05.46 |
-| `Overlay buttons` | Adds options to display useful overlay buttons in the video player. | 21.13.164 ~ 20.05.46 |
-| `Override YouTube Music buttons` | Overrides YouTube Music buttons to open RVX Music or any compatible third-party client. | 21.13.164 ~ 20.05.46 |
-| `Playback in feeds` | Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it. | 21.13.164 ~ 20.05.46 |
-| `Player components` | Adds options to hide or change components related to the video player. | 21.13.164 ~ 20.05.46 |
-| `PoToken provider` | Adds option to get PoToken using the built-in PoToken provider. | 21.13.164 ~ 20.05.46 |
-| `Reload video` | Adds an option to display a button in the video player to reload the current video. | 21.13.164 ~ 20.05.46 |
-| `Remember livestream playback position` | Adds an option to remember the playback position of ongoing livestreams and resume from there when reopening a livestream. | 21.13.164 ~ 20.05.46 |
-| `Remove background playback restrictions` | Removes restrictions on background playback, including for music and kids videos. | 21.13.164 ~ 20.05.46 |
-| `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 21.13.164 ~ 20.05.46 |
-| `Return YouTube Dislike` | Adds an option to show the dislike count of videos using the Return YouTube Dislike API. | 21.13.164 ~ 20.05.46 |
-| `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 21.13.164 ~ 20.05.46 |
-| `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 21.13.164 ~ 20.05.46 |
-| `Save to Watch later` | Adds options to save videos to Watch later from the video player or feed flyout menu. | 21.13.164 ~ 20.05.46 |
-| `Seekbar components` | Adds options to hide or change components related to the seekbar. | 21.13.164 ~ 20.05.46 |
-| `Set transcript cookies` | Adds an option to set Cookies in YouTube Transcript API requests. | 21.13.164 ~ 20.05.46 |
-| `Settings for YouTube` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 21.13.164 ~ 20.05.46 |
-| `Settings menu filter` | Adds an option to hide items on the standard YouTube settings screen by their visible name. | 21.13.164 ~ 20.05.46 |
-| `Shorts components` | Adds options to hide or change components related to YouTube Shorts. | 21.13.164 ~ 20.05.46 |
-| `Snack bar components` | Adds options to hide or change components related to the snack bar. | 21.13.164 ~ 20.05.46 |
-| `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content. | 21.13.164 ~ 20.05.46 |
-| `Spoof app version` | Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features. | 21.13.164 ~ 20.05.46 |
-| `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 21.13.164 ~ 20.05.46 |
-| `Spoof watch history` | Adds an option to change the domain of the watch history or check its status. | 21.13.164 ~ 20.05.46 |
-| `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 21.13.164 ~ 20.05.46 |
-| `Theme` | Adds options to change the app's themes and splash screen style. | 21.13.164 ~ 20.05.46 |
-| `Toolbar components` | Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons. | 21.13.164 ~ 20.05.46 |
-| `Translations for YouTube` | Add translations or remove string resources. | 21.13.164 ~ 20.05.46 |
-| `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 21.13.164 ~ 20.05.46 |
-| `Visual preferences icons for YouTube` | Adds icons to specific preferences in the settings. | 21.13.164 ~ 20.05.46 |
-| `Voice Over Translation` | Adds an option to enable Yandex voice-over translation of video audio tracks. | 21.13.164 ~ 20.05.46 |
-| `Wide search bar` | Adds a wide search bar to the top of the home and subscription feed. | 21.13.164 ~ 20.05.46 |
+| `Ambient mode control` | Forces Ambient mode on and adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen. | 21.39.525 ~ 20.05.46 |
+| `App refresh rate` | Adds an option to change the app refresh rate. | 21.39.525 ~ 20.05.46 |
+| `Bypass URL redirects` | Adds an option to bypass URL redirects and open the original URL directly. | 21.39.525 ~ 20.05.46 |
+| `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 21.39.525 ~ 20.05.46 |
+| `Change form factor` | Adds an option to change the UI appearance to a phone, tablet, or automotive device. | 21.39.525 ~ 20.05.46 |
+| `Change player flyout menu toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 21.39.525 ~ 20.05.46 |
+| `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 21.39.525 ~ 20.05.46 |
+| `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 21.39.525 ~ 20.05.46 |
+| `Copy text` | Adds options to copy the video title and comments by tapping and holding them. | 21.39.525 ~ 20.05.46 |
+| `Custom DPI` | Forces a higher display density for this app only, so the whole UI scales up without changing system density. | 21.39.525 ~ 20.05.46 |
+| `Custom Shorts action buttons` | Changes, at compile time, the icon of the action buttons of the Shorts player. | 21.39.525 ~ 20.05.46 |
+| `Custom branding for YouTube` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 21.39.525 ~ 20.05.46 |
+| `Custom double tap length` | Adds Double-tap to seek values that are specified in patch options. | 21.39.525 ~ 20.05.46 |
+| `DeArrow` | Adds options to replace video thumbnails and titles using the DeArrow API, or replace video thumbnails with image captures from the video. | 21.39.525 ~ 20.05.46 |
+| `Description components` | Adds options to hide and disable description components. | 21.39.525 ~ 20.05.46 |
+| `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 21.39.525 ~ 20.05.46 |
+| `Disable auto feed refresh` | Adds an option to stop feeds from refreshing automatically after they become outdated. | 21.39.525 ~ 20.05.46 |
+| `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 21.39.525 ~ 20.05.46 |
+| `Disable haptic feedback` | Adds options to disable haptic feedback when swiping in the video player. | 21.39.525 ~ 20.05.46 |
+| `Disable layout updates` | Adds an option to disable layout updates by server. | 21.39.525 ~ 20.05.46 |
+| `Disable playlist autoplay` | Adds an option to stop a playlist from automatically advancing to the next video. | 21.39.525 ~ 20.05.46 |
+| `Disable resuming Miniplayer on startup` | Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup. | 21.39.525 ~ 20.05.46 |
+| `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 21.39.525 ~ 20.05.46 |
+| `Disable scrolling speed limit` | Adds an option to remove limits of how fast the home and subscription feed can be scrolled. | 21.39.525 ~ 20.05.46 |
+| `Disable sign in to TV popup` | Adds an option to disable the popup asking to sign into a TV on the same local network. | 21.39.525 ~ 20.05.46 |
+| `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 21.39.525 ~ 20.05.46 |
+| `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 21.39.525 ~ 20.05.46 |
+| `Feed video actions` | Adds a Watch later button to video thumbnails in feeds, and opens the video menu by tapping and holding anywhere on a video. | 21.39.525 ~ 20.05.46 |
+| `Force original audio` | Adds an option to disable audio tracks from being automatically enabled. | 21.39.525 ~ 20.05.46 |
+| `Fullscreen components` | Adds options to hide or change components related to fullscreen. | 21.39.525 ~ 20.05.46 |
+| `Fullscreen video scale` | Adds options to stretch or zoom videos to fill the screen in fullscreen mode. | 21.39.525 ~ 20.05.46 |
+| `Gemini` | Adds options to use Gemini for video summaries, transcription, and settings search. | 21.39.525 ~ 20.05.46 |
+| `GmsCore support` | Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services. | 21.39.525 ~ 20.05.46 |
+| `Hide Shorts dimming` | Removes, at compile time, the dimming effect at the top and bottom of Shorts videos. | 21.39.525 ~ 20.05.46 |
+| `Hide accessibility controls dialog` | Removes, at compile time, accessibility controls dialog 'Turn on accessibility controls for the video player?'. | 21.39.525 ~ 20.05.46 |
+| `Hide action buttons` | Adds options to hide action buttons under videos. | 21.39.525 ~ 20.05.46 |
+| `Hide ads` | Adds options to hide ads. | 21.39.525 ~ 20.05.46 |
+| `Hide comments components` | Adds options to hide components related to comments. | 21.39.525 ~ 20.05.46 |
+| `Hide feed components` | Adds options to hide components related to feeds. | 21.39.525 ~ 20.05.46 |
+| `Hide feed flyout menu` | Adds the ability to hide feed flyout menu components using a custom filter. | 21.39.525 ~ 20.05.46 |
+| `Hide layout components` | Adds options to hide general layout components. | 21.39.525 ~ 20.05.46 |
+| `Hide player buttons` | Adds options to hide buttons in the video player, and to hide or change the opacity of the player control buttons background. | 21.39.525 ~ 20.05.46 |
+| `Hide player flyout menu` | Adds options to hide player flyout menu components. | 21.39.525 ~ 20.05.46 |
+| `Hide shortcuts` | Remove, at compile time, the app shortcuts that appears when the app icon is long pressed. | 21.39.525 ~ 20.05.46 |
+| `Hook download actions` | Adds support to download videos with the built-in downloader or an external downloader app, and an offline library for downloaded videos. | 21.39.525 ~ 20.05.46 |
+| `Miniplayer` | Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers. | 21.39.525 ~ 20.05.46 |
+| `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 21.39.525 ~ 20.05.46 |
+| `Open channel of live avatar` | Adds an option to prevent a channel's current live video from opening when tapping its avatar. | 21.39.525 ~ 20.05.46 |
+| `Open links externally` | Adds an option to always open links in your browser instead of the in-app browser. | 21.39.525 ~ 20.05.46 |
+| `Overlay buttons` | Adds options to display useful overlay buttons in the video player. | 21.39.525 ~ 20.05.46 |
+| `Override YouTube Music buttons` | Overrides YouTube Music buttons to open RVX Music or any compatible third-party client. | 21.39.525 ~ 20.05.46 |
+| `Picture-in-picture button` | Adds an option to display a picture-in-picture button in the video player. | 21.39.525 ~ 20.05.46 |
+| `Playback buffer` | Adds an option to change the video playback buffer size. | 21.39.525 ~ 20.05.46 |
+| `Playback in feeds` | Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it. | 21.39.525 ~ 20.05.46 |
+| `Player components` | Adds options to hide or change components related to the video player. | 21.39.525 ~ 20.05.46 |
+| `PoToken provider` | Adds option to get PoToken using the built-in PoToken provider. | 21.39.525 ~ 20.05.46 |
+| `Preferred caption language` | Adds an option to automatically select captions in your preferred language. | 21.39.525 ~ 20.05.46 |
+| `Reload video` | Adds an option to display a button in the video player to reload the current video. | 21.39.525 ~ 20.05.46 |
+| `Remember livestream playback position` | Adds an option to remember the playback position of ongoing livestreams and resume from there when reopening a livestream. | 21.39.525 ~ 20.05.46 |
+| `Remove background playback restrictions` | Removes restrictions on background playback, including for music and kids videos. | 21.39.525 ~ 20.05.46 |
+| `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 21.39.525 ~ 20.05.46 |
+| `Restore original titles` | Adds an option to show the original video titles and descriptions instead of the auto-translated ones. | 21.39.525 ~ 20.05.46 |
+| `Return YouTube Dislike` | Adds an option to show the dislike count of videos using the Return YouTube Dislike API. | 21.39.525 ~ 20.05.46 |
+| `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 21.39.525 ~ 20.05.46 |
+| `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 21.39.525 ~ 20.05.46 |
+| `Save to Watch later` | Adds options to save videos to Watch later from the video player or feed flyout menu. | 21.39.525 ~ 20.05.46 |
+| `Seekbar components` | Adds options to hide or change components related to the seekbar. | 21.39.525 ~ 20.05.46 |
+| `Set transcript cookies` | Adds an option to set Cookies in YouTube Transcript API requests. | 21.39.525 ~ 20.05.46 |
+| `Settings for YouTube` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 21.39.525 ~ 20.05.46 |
+| `Settings menu filter` | Adds an option to hide items on the standard YouTube settings screen by their visible name. | 21.39.525 ~ 20.05.46 |
+| `Shorts components` | Adds options to hide or change components related to YouTube Shorts. | 21.39.525 ~ 20.05.46 |
+| `Skip silence` | Adds an option to automatically skip silent pauses in audio playback. | 21.39.525 ~ 20.05.46 |
+| `Snack bar components` | Adds options to hide or change components related to the snack bar. | 21.39.525 ~ 20.05.46 |
+| `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content. | 21.39.525 ~ 20.05.46 |
+| `Spoof app version` | Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features. | 21.39.525 ~ 20.05.46 |
+| `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 21.39.525 ~ 20.05.46 |
+| `Spoof watch history` | Adds an option to change the domain of the watch history or check its status. | 21.39.525 ~ 20.05.46 |
+| `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 21.39.525 ~ 20.05.46 |
+| `Theme` | Adds options to change the app's themes and splash screen style. | 21.39.525 ~ 20.05.46 |
+| `Toolbar components` | Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons. | 21.39.525 ~ 20.05.46 |
+| `Translations for YouTube` | Add translations or remove string resources. | 21.39.525 ~ 20.05.46 |
+| `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 21.39.525 ~ 20.05.46 |
+| `Visual preferences icons for YouTube` | Adds icons to specific preferences in the settings. | 21.39.525 ~ 20.05.46 |
+| `Voice Over Translation` | Adds an option to enable Yandex voice-over translation of video audio tracks. | 21.39.525 ~ 20.05.46 |
+| `Wide search bar` | Adds a wide search bar to the top of the home and subscription feed. | 21.39.525 ~ 20.05.46 |
 </details>
 
 ### [📦 YouTube Music](https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music)
@@ -98,52 +106,53 @@
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `App refresh rate` | Adds an option to change the app refresh rate. | 8.12.54 ~ 9.15.51 |
-| `Bitrate default value` | Sets the audio quality to 'Always High' when you first install the app. | 8.12.54 ~ 9.15.51 |
-| `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 8.12.54 ~ 9.15.51 |
-| `Certificate spoof` | Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate. | 8.12.54 ~ 9.15.51 |
-| `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 8.12.54 ~ 9.15.51 |
-| `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 8.12.54 ~ 9.15.51 |
-| `Custom branding for YouTube Music` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 8.12.54 ~ 9.15.51 |
-| `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 8.12.54 ~ 9.15.51 |
-| `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 8.12.54 ~ 9.15.51 |
-| `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 8.12.54 ~ 9.15.51 |
-| `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 8.12.54 ~ 9.15.51 |
-| `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 8.12.54 ~ 9.15.51 |
-| `Downloads` | Adds support to download songs for offline playback inside YouTube Music. | 8.12.54 ~ 9.15.51 |
-| `Enable debug logging` | Adds an option for debugging. | 8.12.54 ~ 9.15.51 |
-| `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 8.12.54 ~ 9.15.51 |
-| `Flyout menu components` | Adds options to hide or change flyout menu components. | 8.12.54 ~ 9.15.51 |
-| `Force original audio` | Adds an option to disable audio tracks from being automatically enabled. | 8.12.54 ~ 9.15.51 |
-| `GmsCore support` | Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services. | 8.12.54 ~ 9.15.51 |
-| `Hide account components` | Adds options to hide components related to the account menu. | 8.12.54 ~ 9.15.51 |
-| `Hide action bar components` | Adds options to hide action bar components and replace the offline download button with an external download button. | 8.12.54 ~ 9.15.51 |
-| `Hide ads` | Adds options to hide ads. | 8.12.54 ~ 9.15.51 |
-| `Hide layout components` | Adds options to hide general layout components. | 8.12.54 ~ 9.15.51 |
-| `Hide overlay filter` | Removes, at compile time, the dark overlay that appears when player flyout menus are open. | 8.12.54 ~ 9.15.51 |
-| `Hide player overlay filter` | Removes, at compile time, the dark overlay that appears when single-tapping in the player. | 8.12.54 ~ 9.15.51 |
-| `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 8.12.54 ~ 9.15.51 |
-| `Player components` | Adds options to hide or change components related to the player. | 8.12.54 ~ 9.15.51 |
-| `PoToken provider` | Adds option to get PoToken using the built-in PoToken provider. | 8.12.54 ~ 9.15.51 |
-| `Remove background playback restrictions` | Removes restrictions on background playback, including for kids videos. | 8.12.54 ~ 9.15.51 |
-| `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 8.12.54 ~ 9.15.51 |
-| `Restore old style library shelf` | Adds an option to return the Library tab to the old style. | 8.12.54 ~ 9.15.51 |
-| `Return YouTube Dislike` | Adds an option to show the dislike count of songs using the Return YouTube Dislike API. | 8.12.54 ~ 9.15.51 |
-| `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 8.12.54 ~ 9.15.51 |
-| `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 8.12.54 ~ 9.15.51 |
-| `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 8.12.54 ~ 9.15.51 |
-| `Settings menu filter` | Adds an option to hide items on the standard YouTube Music settings screen by their visible name. | 8.12.54 ~ 9.15.51 |
-| `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 8.12.54 ~ 9.15.51 |
-| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features. | 8.12.54 ~ 9.15.51 |
-| `Spoof app version for lyrics` | Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI. | 8.12.54 ~ 9.15.51 |
-| `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 8.12.54 ~ 9.15.51 |
-| `Theme` | Changes the app's dark theme to the values specified in patch options. | 8.12.54 ~ 9.15.51 |
-| `Third-party lyrics` | Adds an option to show synced lyrics with experience enhancement from 15+ providers in the lyrics panel. | 9.15.51 |
-| `Track crossfade` | Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op. | 8.12.54 ~ 9.15.51 |
-| `Translations for YouTube Music` | Add translations or remove string resources. | 8.12.54 ~ 9.15.51 |
-| `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 8.12.54 ~ 9.15.51 |
-| `Visual preferences icons for YouTube Music` | Adds icons to specific preferences in the settings. | 8.12.54 ~ 9.15.51 |
-| `Watch history` | Adds an option to change the domain of the watch history or check its status. | 8.12.54 ~ 9.15.51 |
+| `App refresh rate` | Adds an option to change the app refresh rate. | 9.40.51 ~ 8.12.54 |
+| `Bitrate default value` | Sets the audio quality to 'Always High' when you first install the app. | 9.40.51 ~ 8.12.54 |
+| `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 9.40.51 ~ 8.12.54 |
+| `Certificate spoof` | Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate. | 9.40.51 ~ 8.12.54 |
+| `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 9.40.51 ~ 8.12.54 |
+| `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 9.40.51 ~ 8.12.54 |
+| `Custom branding for YouTube Music` | Adds in-app app-name, launcher-icon, header, splash, and settings-icon selection. | 9.40.51 ~ 8.12.54 |
+| `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 9.40.51 ~ 8.12.54 |
+| `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 9.40.51 ~ 8.12.54 |
+| `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 9.40.51 ~ 8.12.54 |
+| `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 9.40.51 ~ 8.12.54 |
+| `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 9.40.51 ~ 8.12.54 |
+| `Downloads` | Adds support to download songs and playlists for offline playback in YouTube Music's own device files library and player. | 9.40.51 ~ 8.12.54 |
+| `Enable debug logging` | Adds an option for debugging. | 9.40.51 ~ 8.12.54 |
+| `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 9.40.51 ~ 8.12.54 |
+| `Flyout menu components` | Adds options to hide or change flyout menu components. | 9.40.51 ~ 8.12.54 |
+| `Force original audio` | Adds an option to disable audio tracks from being automatically enabled. | 9.40.51 ~ 8.12.54 |
+| `GmsCore support` | Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services. | 9.40.51 ~ 8.12.54 |
+| `Hide account components` | Adds options to hide components related to the account menu. | 9.40.51 ~ 8.12.54 |
+| `Hide action bar components` | Adds options to hide action bar components and replace the offline download button with an external download button. | 9.40.51 ~ 8.12.54 |
+| `Hide ads` | Adds options to hide ads. | 9.40.51 ~ 8.12.54 |
+| `Hide layout components` | Adds options to hide general layout components. | 9.40.51 ~ 8.12.54 |
+| `Hide overlay filter` | Removes, at compile time, the dark overlay that appears when player flyout menus are open. | 9.40.51 ~ 8.12.54 |
+| `Hide player overlay filter` | Removes, at compile time, the dark overlay that appears when single-tapping in the player. | 9.40.51 ~ 8.12.54 |
+| `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 9.40.51 ~ 8.12.54 |
+| `Player components` | Adds options to hide or change components related to the player. | 9.40.51 ~ 8.12.54 |
+| `PoToken provider` | Adds option to get PoToken using the built-in PoToken provider. | 9.40.51 ~ 8.12.54 |
+| `Remove background playback restrictions` | Removes restrictions on background playback, including for kids videos. | 9.40.51 ~ 8.12.54 |
+| `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 9.40.51 ~ 8.12.54 |
+| `Restore old style library shelf` | Adds an option to return the Library tab to the old style. | 9.40.51 ~ 8.12.54 |
+| `Return YouTube Dislike` | Adds an option to show the dislike count of songs using the Return YouTube Dislike API. | 9.40.51 ~ 8.12.54 |
+| `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 9.40.51 ~ 8.12.54 |
+| `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 9.40.51 ~ 8.12.54 |
+| `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 9.40.51 ~ 8.12.54 |
+| `Settings menu filter` | Adds an option to hide items on the standard YouTube Music settings screen by their visible name. | 9.40.51 ~ 8.12.54 |
+| `Skip silence` | Adds an option to automatically skip silent pauses in audio playback. | 9.40.51 ~ 8.12.54 |
+| `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 9.40.51 ~ 8.12.54 |
+| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features. | 9.40.51 ~ 8.12.54 |
+| `Spoof app version for lyrics` | Adds options to spoof the YouTube Music client version. This can be used to restore old lyrics UI. | 9.40.51 ~ 8.12.54 |
+| `Spoof video streams` | Adds options to spoof the client video streams to fix playback. | 9.40.51 ~ 8.12.54 |
+| `Theme` | Changes the app's dark theme to the values specified in patch options. | 9.40.51 ~ 8.12.54 |
+| `Third-party lyrics` | Adds an option to show synced lyrics with experience enhancement from 18+ providers in the lyrics panel. | 9.40.51 ~ 9.15.51 |
+| `Track crossfade` | Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op. | 9.40.51 ~ 8.12.54 |
+| `Translations for YouTube Music` | Add translations or remove string resources. | 9.40.51 ~ 8.12.54 |
+| `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 9.40.51 ~ 8.12.54 |
+| `Visual preferences icons for YouTube Music` | Adds icons to specific preferences in the settings. | 9.40.51 ~ 8.12.54 |
+| `Watch history` | Adds an option to change the domain of the watch history or check its status. | 9.40.51 ~ 8.12.54 |
 </details>
 
 

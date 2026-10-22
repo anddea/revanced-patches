@@ -171,3 +171,27 @@ internal object ThemeMapConstructorFingerprint : Fingerprint(
         } == true
     }
 )
+
+// 9.40: the outline drawable literals moved from the theme class constructor into a private helper
+// (Lixj;->c(Optional)V) that <init> calls. Match that helper; the patch then hooks the class constructor.
+internal object ThemeMapHelperFingerprint : Fingerprint(
+    returnType = "V",
+    custom = { method, _ ->
+        method.name != "<init>" && method.name != "<clinit>" &&
+                method.implementation?.instructions?.let { instructions ->
+                    var hasOutlineSamples = false
+                    var hasOutlineUpgrade = false
+                    for (instruction in instructions) {
+                        if (instruction.opcode == Opcode.CONST) {
+                            val literal = (instruction as? WideLiteralInstruction)?.wideLiteral
+                            if (literal == ytOutlineSamples) {
+                                hasOutlineSamples = true
+                            } else if (literal == ytOutlineYouTubeMusic) {
+                                hasOutlineUpgrade = true
+                            }
+                        }
+                    }
+                    hasOutlineSamples && hasOutlineUpgrade
+                } == true
+    }
+)

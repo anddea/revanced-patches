@@ -167,6 +167,28 @@ public class PlayerControlsPatch {
         return true;
     }
 
+    // Ported from Morphe c3431a3 (#3649).
+    /**
+     * The value the app has for the new player overlays flag, before it is forced off.
+     */
+    private static volatile boolean newPlayerOverlaysOriginal;
+
+    /**
+     * Injection point.
+     */
+    public static boolean disableNewPlayerOverlays(boolean original) {
+        newPlayerOverlaysOriginal = original;
+        return false;
+    }
+
+    /**
+     * Injection point.
+     * Called right after the flag is read, so the value is the one just stored.
+     */
+    public static boolean getOriginalNewPlayerOverlays(boolean overridden) {
+        return newPlayerOverlaysOriginal;
+    }
+
     /**
      * Injection point for player feature flags that select the modern layout.
      *

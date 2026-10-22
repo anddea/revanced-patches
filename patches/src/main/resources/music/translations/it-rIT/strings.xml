@@ -67,36 +67,38 @@ Passaggi:
 3. Copia il valore di \"media-user-token\""</string>
     <string name="morphe_music_apple_music_token_title">Token utente multimediale di Apple Music</string>
     <string name="morphe_music_apple_music_token_toast_cleared">Apple Music: media-user-token cancellato</string>
-    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: media-user-token non valido — controlla e riprova</string>
+    <string name="morphe_music_apple_music_token_toast_invalid">Apple Music: token utente-media non valido — controlla e riprova</string>
     <string name="morphe_music_apple_music_token_toast_saved">Apple Music: media-user-token salvato</string>
     <string name="morphe_music_apple_token_optional_hint">Il token di Apple Music è facoltativo. Senza di esso, Lyrically verrà utilizzato come fallback</string>
     <string name="morphe_music_crossfade_about_best_summary">La riproduzione normale da canzone a canzone e l\'avanzamento automatico, la ripetizione di una canzone (la canzone si dissolve in sé stessa) e l\'audio locale: altoparlante del telefono, cuffie cablate, Bluetooth o USB</string>
     <string name="morphe_music_crossfade_about_best_title">Funziona meglio con</string>
     <string name="morphe_music_crossfade_about_credit_summary">Funzione crossfade di VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Crediti</string>
-    <string name="morphe_music_crossfade_about_how_summary">"Il crossfade sovrappone la fine di una canzone all'inizio della successiva, attenuando gradualmente il volume di una canzone mentre il volume dell'altra aumenta, in base alla durata e alla curva scelte
+    <string name="morphe_music_crossfade_about_how_summary">"Crossfade sovrappone la fine di una canzone con l'inizio della successiva, usando la durata e la curva impostate
 
-Funziona con l'avanzamento automatico (quando una canzone termina da sola) e con la riproduzione manuale: ognuno ha un interruttore dedicato sopra. Con l'avanzamento automatico, la transizione inizia pochi secondi prima della fine della canzone
-
-Richiede YouTube Music 9.x o versioni successive"</string>
+Funziona con avanzamento automatico e con salto manuale, ciascuno con il proprio interruttore. Con l'avanzamento automatico, la dissolvenza inizia pochi secondi prima della fine della canzone"</string>
     <string name="morphe_music_crossfade_about_how_title">Come funziona</string>
     <string name="morphe_music_crossfade_about_known_summary">"Un video musicale impostato come prima canzone, o uno avviato al di fuori della coda corrente, potrebbe apparire brevemente come video prima che si attivi la modalità solo audio
 
 Mettere in pausa il crossfade per guardare un video musicale potrebbe lasciare alcuni video neri (quelli il cui audio proviene dal video stesso). Mettere in pausa il crossfade prima di selezionare la canzone lo evita"</string>
     <string name="morphe_music_crossfade_about_known_title">Problemi noti</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"I video musicali vengono riprodotti solo con l'audio quando il crossfade è attivo (tieni premuto shuffle per mettere in pausa se vuoi vedere il video)
+    <string name="morphe_music_crossfade_about_quirks_summary">"I video musicali vengono riprodotti solo come audio mentre il crossfade è attivo. Tieni premuto il pulsante di riproduzione casuale per mettere in pausa il crossfade e guardare il video
 
-Le canzoni più brevi della durata del fade potrebbero saltare il fade
+Un video musicale che viene avviato rimane in modalità video fino alla canzone successiva
 
-La schermata di blocco o la notifica potrebbero mostrare brevemente uno stato obsoleto durante la transizione"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">Non funziona perfettamente</string>
+Le canzoni più brevi della durata del crossfade non vengono mescolate
+
+La schermata di blocco o la notifica può mostrare brevemente uno stato non aggiornato a metà transizione
+
+Mettere in pausa il crossfade per guardare un video musicale può lasciare neri alcuni video. Mettere in pausa il crossfade prima di scegliere la canzone evita il problema"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Limitazioni</string>
     <string name="morphe_music_crossfade_about_summary">Come funziona il crossfade e quando non funziona</string>
     <string name="morphe_music_crossfade_about_title">A proposito di</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Trasmissione o mirroring dell'audio (Chromecast, mirroring dello schermo o dell'audio): il crossfade si mette in pausa perché è instabile e potrebbe non essere risolvibile
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Casting o mirroring dell'audio (Chromecast, mirroring dello schermo o dell'audio)
 
-YouTube Music 8.x: il crossfade funziona solo su 9.x e versioni successive"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">Non funziona affatto</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">Il crossfade è in pausa durante il casting o la condivisione dell\'audio. Il crossfade con il casting/la condivisione è instabile e potrebbe non essere mai risolvibile</string>
+Riproduzione SABR (simulazione dei flussi video disattivata)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Non supportato</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Il crossfade è disattivato durante il casting</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Attesa discreta</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Attenuazione delicata</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Uguale potenza</string>
@@ -127,72 +129,54 @@ Passaggi:
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl cancellato</string>
     <string name="morphe_music_deezer_arl_toast_invalid">Deezer: arl non valido — controlla e riprova</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl salvato</string>
-    <string name="morphe_music_downloads_actions_for">Azioni per %s</string>
-    <string name="morphe_music_downloads_all_deleted">Download eliminati</string>
-    <string name="morphe_music_downloads_already_running">Download già in corso</string>
+    <string name="morphe_music_downloads_already_running">Scaricamento già in corso</string>
     <string name="morphe_music_downloads_already_saved">Già scaricato</string>
-    <string name="morphe_music_downloads_close">Chiudi</string>
-    <string name="morphe_music_downloads_complete">Download completato</string>
-    <string name="morphe_music_downloads_delete">Elimina</string>
-    <string name="morphe_music_downloads_delete_all">Elimina tutti i download</string>
-    <string name="morphe_music_downloads_delete_all_message">Tutte le tracce scaricate verranno eliminate da questo dispositivo</string>
-    <string name="morphe_music_downloads_delete_all_title">Eliminare tutti i download?</string>
-    <string name="morphe_music_downloads_delete_track">Elimina download</string>
-    <string name="morphe_music_downloads_delete_track_message">%s verrà eliminato da questo dispositivo</string>
-    <string name="morphe_music_downloads_delete_track_title">Eliminare il download?</string>
-    <string name="morphe_music_downloads_empty">"Nessun download\nLe tracce scaricate appaiono qui"</string>
-    <string name="morphe_music_downloads_failed">Download non riuscito</string>
-    <string name="morphe_music_downloads_next">Successivo</string>
-    <string name="morphe_music_downloads_nothing_found">Nessun risultato</string>
-    <string name="morphe_music_downloads_notification_channel">Download audio</string>
-    <string name="morphe_music_downloads_pause">Pausa</string>
-    <string name="morphe_music_downloads_play">Riproduci</string>
-    <string name="morphe_music_downloads_play_failed">Impossibile riprodurre il download</string>
-    <string name="morphe_music_downloads_play_pause">Riproduci o metti in pausa</string>
-    <string name="morphe_music_downloads_playback_channel">Riproduzione offline</string>
-    <string name="morphe_music_downloads_previous">Precedente</string>
-    <string name="morphe_music_downloads_progress">Download in corso %s%%</string>
-    <string name="morphe_music_downloads_screen_title">Download</string>
-    <string name="morphe_music_downloads_search_hint">Cerca download</string>
+    <string name="morphe_music_downloads_complete">Scaricamento completato</string>
+    <string name="morphe_music_downloads_failed">Scaricamento non riuscito</string>
+    <string name="morphe_music_downloads_notification_channel">Scaricamenti audio</string>
+    <string name="morphe_music_downloads_progress">Scaricamento in corso %s%%</string>
     <string name="morphe_music_downloads_sort">Ordina</string>
-    <string name="morphe_music_downloads_sort_artist">Ordina per artista</string>
-    <string name="morphe_music_downloads_sort_size">Ordina per dimensione</string>
-    <string name="morphe_music_downloads_sort_title">Ordina per titolo</string>
-    <string name="morphe_music_downloads_started">Download avviato</string>
-    <string name="morphe_music_downloads_starting">Avvio download…</string>
-    <string name="morphe_music_downloads_summary">%1$s tracce • %2$s MB</string>
-    <string name="morphe_music_downloads_track_delete_failed">Impossibile eliminare il download</string>
-    <string name="morphe_music_downloads_track_deleted">Download eliminato</string>
-    <string name="morphe_music_downloads_track_subtitle">%1$s • %2$s • %3$s MB</string>
+    <string name="morphe_music_downloads_started">Scaricamento avviato</string>
+    <string name="morphe_music_downloads_starting">Avvio scaricamento…</string>
     <string name="morphe_music_downloads_unknown_track">Impossibile identificare la traccia da scaricare</string>
-    <string name="morphe_music_in_app_downloads_summary">Scarica audio all\'interno di YouTube Music invece di aprire l\'app di download esterna</string>
-    <string name="morphe_music_in_app_downloads_title">Download nell\'app</string>
-    <string name="morphe_music_in_app_downloads_user_dialog_message">"I brani vengono salvati nello spazio di archiviazione privato dell'app e vengono eliminati se YouTube Music viene disinstallato
+    <string name="morphe_music_in_app_downloads_summary">Scarica audio all\'interno di YouTube Music invece di aprire l\'applicazione di scaricamento esterna</string>
+    <string name="morphe_music_in_app_downloads_title">Scarica nell\'app</string>
+    <string name="morphe_music_lyrics_about_summary">"I testi vengono abbinati per titolo e artista; metadati insoliti potrebbero non trovare nulla o la versione sbagliata. Usa Aggiorna per cambiare versione. I provider contrassegnati con * richiedono un token. Non tutti i provider abilitati vengono sempre richiesti nel tuo ordine, ma rispondono in base alla loro velocità
 
-Mentre questa opzione è attiva, la scheda Download elenca questi brani invece della libreria offline di Music Premium. Disattivandola, la scheda viene ripristinata e i download Premium non vengono mai toccati"</string>
-    <string name="morphe_music_lyrics_about_summary">"I testi vengono abbinati in base al titolo e all'artista; metadati insoliti potrebbero non trovare nulla o la versione sbagliata. Usa Aggiorna per cambiare versione. I provider contrassegnati con * richiedono un token. Non tutti i provider abilitati vengono sempre interrogati nell'ordine che hai impostato, ma rispondono in base alla loro velocità"</string>
+I testi provengono da servizi di terze parti che non sono affiliati, sponsorizzati o approvati da RVX. Ognuno viene utilizzato così com'è: i testi, la loro disponibilità e la loro licenza rimangono a quei servizi e ai loro licenzianti, e il loro utilizzo può essere soggetto ai loro termini di servizio. Ciò che raggiunge un servizio abilitato è solo la ricerca che hai richiesto - il titolo, l'artista e, dove il servizio ne ha bisogno, l'ID video. L'endpoint AI opzionale e la trascrizione QuickLRC vengono eseguiti solo dopo che li hai configurati, e ricevono il testo dei testi o l'URL video del brano"</string>
     <string name="morphe_music_lyrics_about_title">Informazioni sui testi di terze parti</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">Chiave API (lasciare vuota per accesso anonimo)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">URL dell\'endpoint API (es. https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configura l\'endpoint API compatibile con OpenAI per la traduzione e la romanizzazione dei testi delle canzoni basata su AI</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_title">Impostazioni di traduzione AI</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configura l\'endpoint API compatibile con OpenAI per la traduzione dei testi, la romanizzazione e le sezioni basate sull\'IA</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">Impostazioni AI</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Nome del modello (es. openai-fast, gpt-4o-mini)</string>
-    <string name="morphe_music_lyrics_ai_config_status_configured">Configurato</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Il nome del modello non può essere vuoto</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">L\'URL di base non può essere vuoto</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">L\'URL di base deve iniziare con http:// o https://</string>
-    <string name="morphe_music_lyrics_ai_config_status_not_configured">Tocca per configurare</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Verifica della connessione…</string>
+    <string name="morphe_music_lyrics_ai_config_summary_configured">Modello %1$s configurato</string>
     <string name="morphe_music_lyrics_ai_config_toast_invalid">Impossibile connettersi all\'endpoint AI. Controlla le tue impostazioni</string>
-    <string name="morphe_music_lyrics_ai_config_toast_reset">Impostazioni di traduzione AI ripristinate</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">Impostazioni di traduzione AI salvate</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">Impostazioni AI ripristinate</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">Impostazioni AI salvate</string>
+    <string name="morphe_music_lyrics_ai_extra_body_hint">Corpo della richiesta aggiuntivo (JSON, unito a ogni richiesta AI)</string>
+    <string name="morphe_music_lyrics_ai_extra_body_invalid">JSON non valido. Correggilo o svuota il campo prima di salvare</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Segnaposti: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_title">Modello di prompt</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Prompt salvato, ma l\'endpoint AI non è ancora utilizzabile. Configurarlo prima nelle Impostazioni AI</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt ripristinato</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt salvato</string>
+    <string name="morphe_music_lyrics_clear_cache_done">%1$s MB eliminati</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Elimina i testi memorizzati su questo dispositivo</string>
+    <string name="morphe_music_lyrics_clear_cache_title">Elimina testi salvati</string>
+    <string name="morphe_music_lyrics_contribute_credit">Premi a lungo il pulsante copia per salvare questo LRC; se riesci a ottimizzare i tempi e condividerli con i provider della community, te ne saremmo grati</string>
     <string name="morphe_music_lyrics_copied">Copiato negli appunti</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Sincronizza i testi con la musica</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Indicatori di riga delle informazioni</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">Espressione regolare applicata a titoli, artisti e album prima della ricerca dei testi. Lascia vuoto per disattivare. L\'espressione predefinita rimuove elementi superflui comuni come \"Official Video\", \"Remaster\" e \"- Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Espressione regolare applicata a titoli, artisti e album prima di cercare i testi e quando si valuta se due titoli corrispondono. Lascia vuoto per disabilitare entrambe. L\'impostazione predefinita rimuove i soliti elementi superflui come \"Official Video\", \"Remaster\", \"【插曲】\" e \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">Regex filtro testi</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Alterna l\'ordine di visualizzazione di Artista e Titolo nel Miniplayer e in MediaSession. ON \"Artista - Titolo\" e OFF \"Titolo - Artista\" Non influisce sulla ricerca dei testi</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Visualizzazione di artista e titolo su MediaSession. ON \"Artista - Titolo\" e OFF \"Titolo - Artista\". Non influisce sulla ricerca dei testi</string>
+    <string name="morphe_music_lyrics_dual_only">Modalità duale</string>
     <string name="morphe_music_lyrics_enabled_summary">Mostra testi da un servizio di terze parti, con fallback ai testi integrati se non vengono trovati</string>
     <string name="morphe_music_lyrics_enabled_title">Usa testi di terze parti</string>
     <string name="morphe_music_lyrics_hide_info_summary">Caricamento testi...</string>
@@ -203,47 +187,91 @@ Mentre questa opzione è attiva, la scheda Download elenca questi brani invece d
     <string name="morphe_music_lyrics_hide_unplayed_title">Copia i testi</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Impedisce che lo schermo si spenga mentre il pannello dei testi è aperto</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Mantieni lo schermo acceso durante la visualizzazione dei testi</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Lettura %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_failed">Scaricamento non riuscito: disattiva e riattiva per riprovare</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Letture pronte (%1$d voci)</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">Romanizza sul dispositivo quando il provider, il tuo modello e Google Translate falliscono. La lettura segue ogni parola di un testo sincronizzato; la sincronizzazione delle parole deve essere attiva. Cinese, Cantonese, Giapponese, Coreano, Greco, Russo, Georgiano, Armeno; circa 120 MB</string>
+    <string name="morphe_music_lyrics_local_romanization_title">Romanizzazione e allineamento locale</string>
+    <string name="morphe_music_lyrics_mediasession_summary">Mostra la riga corrente sullo schermo di blocco, Android Auto e Bluetooth. Richiede Android 11 o versioni successive</string>
     <string name="morphe_music_lyrics_mediasession_title">Mostra i testi di MediaSession sulla schermata di blocco</string>
+    <string name="morphe_music_lyrics_miniplayer_summary">Mostra la riga corrente nel miniplayer, con il brano spostato nei sottotitoli</string>
     <string name="morphe_music_lyrics_miniplayer_title">Mostra i testi nel mini-player</string>
-    <string name="morphe_music_lyrics_offset_ms_summary">Regola la sincronizzazione dei testi</string>
-    <string name="morphe_music_lyrics_offset_ms_title">Offset temporale</string>
+    <string name="morphe_music_lyrics_offset_ms_summary">Il testo sincronizzato segue la riproduzione. Se si sfasano, regola la tempistica. Sposta il testo sincronizzato in avanti o indietro. Usa un valore positivo se il testo precede la canzone</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Offset temporale globale</string>
     <string name="morphe_music_lyrics_refreshed">Aggiornato</string>
     <string name="morphe_music_lyrics_refreshing">Aggiornamento in corso</string>
     <string name="morphe_music_lyrics_romanize_failed">Nessun testo trovato</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanizzato</string>
+    <string name="morphe_music_lyrics_romanize_language_title">Lingua di romanizzazione</string>
+    <string name="morphe_music_lyrics_romanize_only">Solo romanizzato</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanizzato da %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanizzato da Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanizzazione…</string>
     <string name="morphe_music_lyrics_saved">Salvato</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">Tocca per copiare i testi originali come testo normale; tieni premuto per salvare il file sorgente dei testi non elaborati in Download</string>
+    <string name="morphe_music_lyrics_sb_matching_summary">Abbina senza i segmenti che SponsorBlock salta e sposta i testi sull\'audio pubblicato. Se disattivato, SponsorBlock viene completamente ignorato</string>
+    <string name="morphe_music_lyrics_sb_matching_title">Usa i segmenti di SponsorBlock per l\'offset dei testi</string>
+    <string name="morphe_music_lyrics_sb_no_video">Questa traccia non ha alcun id video da inviare</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Artista</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Cerca testi</string>
+    <string name="morphe_music_lyrics_search_empty">Inserisci il titolo di un brano e un artista</string>
+    <string name="morphe_music_lyrics_search_no_providers">Nessuno dei provider abilitati può cercare altri brani</string>
+    <string name="morphe_music_lyrics_search_title_hint">Titolo del brano</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">Tocca per copiare i testi originali come testo normale; tieni premuto per salvare il file sorgente dei testi non elaborati in Scaricati</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Mostra il pulsante di copia</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Tocca per passare alla fonte di testi successiva; tieni premuto per selezionare una fonte di testi</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Tocca per passare al candidato di testo successivo; tieni premuto per cercare i testi per titolo del brano e artista</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Mostra il pulsante Aggiorna</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Romanizza i testi usando la romanizzazione del provider, Google Translate o un\'API compatibile con OpenAI</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Tocca per attivare/disattivare la romanizzazione; tieni premuto per solo romanizzazione. Usa la romanizzazione del provider, Google Translate o un\'API compatibile con OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Mostra il pulsante Romanizza</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Traduci i testi usando le traduzioni del provider, Google Translate o un\'API compatibile con OpenAI</string>
+    <string name="morphe_music_lyrics_show_section_summary">Etichetta ogni nuova sezione del testo con una piccola etichetta, come Strofa o Ritornello</string>
+    <string name="morphe_music_lyrics_show_section_title">Mostra etichette delle sezioni</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Tocca per attivare/disattivare la traduzione; tieni premuto per solo traduzione. Usa le traduzioni del provider, Google Translate o un\'API compatibile con OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Mostra il pulsante Traduci</string>
-    <string name="morphe_music_lyrics_source_all_disabled">Tutti i provider disabilitati — testi integrati e testi incorporati</string>
+    <string name="morphe_music_lyrics_source_all_disabled">Tutti i provider disabilitati - testi integrati e testi incorporati</string>
     <string name="morphe_music_lyrics_source_label">Fonte: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">Ripristina i provider all\'ordine di priorità predefinito</string>
     <string name="morphe_music_lyrics_source_reset_title">Reimpostare l\'ordine dei provider?</string>
     <string name="morphe_music_lyrics_source_title">Servizio testi</string>
+    <string name="morphe_music_lyrics_split_background_summary">Sposta il coro di sottofondo scritto tra parentesi, ad esempio \"(Oh) ti voglio\", dalla parte cantata in una riga distinta con minore intensità</string>
+    <string name="morphe_music_lyrics_split_background_title">Mostrare le vocali di sottofondo separatamente</string>
     <string name="morphe_music_lyrics_swap_trans_roma_summary">Riprova</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Scambia traduzione e romanizzazione</string>
-    <string name="morphe_music_lyrics_tap_to_seek_summary">Toccando una riga si salta a quel momento della canzone</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">Tocca una riga per cercare</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">Tocca una riga per saltare a quel momento nella canzone, tieni premuto per copiare la parola sotto il dito o l\'intera riga se la pressione non è su una parola. Disattiva entrambi i gesti</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Tocca e tieni premuto una riga</string>
     <string name="morphe_music_lyrics_text_filter_summary">L\'espressione regolare viene applicata solo al testo originale dei testi (non alle traduzioni o alle romanizzazioni). Lascia vuoto per disattivare</string>
     <string name="morphe_music_lyrics_text_filter_title">Regex del filtro testi</string>
     <string name="morphe_music_lyrics_text_size_summary">Dimensione del testo dei brani</string>
     <string name="morphe_music_lyrics_text_size_title">Dimensione del testo</string>
+    <string name="morphe_music_lyrics_transcribe_align">Richiedi allineamento QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_aligning">Allineamento in corso</string>
+    <string name="morphe_music_lyrics_transcribe_apply_align">Applica allineamento</string>
+    <string name="morphe_music_lyrics_transcribe_cancelled">Trascrizione annullata</string>
+    <string name="morphe_music_lyrics_transcribe_failed">QuickLRC non ha elaborato questa traccia</string>
+    <string name="morphe_music_lyrics_transcribe_key_cleared">Chiave API QuickLRC cancellata</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRC inserisce le tempistiche nei testi che non ce l\'hanno, oppure li trascrive dalla traccia, a costo di crediti. Con una chiave impostata, le tracce senza testi offrono la trascrizione e la finestra di dialogo di ricerca aggiunge un pulsante di allineamento</string>
+    <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRC non ha accettato quella chiave</string>
+    <string name="morphe_music_lyrics_transcribe_key_saved">Chiave API QuickLRC salvata</string>
+    <string name="morphe_music_lyrics_transcribe_key_set_summary">Chiave QuickLRC salvata. Usa il pulsante di allineamento nella finestra di dialogo di ricerca dei testi o il prompt del pannello quando una traccia non ha testi</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRC trascrive o allinea temporalmente i testi per la traccia corrente. Un servizio separato, non correlato all\'endpoint compatibile con OpenAI sopra indicato</string>
+    <string name="morphe_music_lyrics_transcribe_key_title">Chiave API QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_local_unsupported">Solo le tracce riprodotte da YouTube possono essere trascritte</string>
+    <string name="morphe_music_lyrics_transcribe_no_text">Nessun testo da allineare - trascrizione al suo posto</string>
+    <string name="morphe_music_lyrics_transcribe_out_of_credits">I crediti QuickLRC sono esauriti per questa traccia</string>
+    <string name="morphe_music_lyrics_transcribe_prompt">Richiedi trascrizione QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_working">Trascrizione in corso</string>
     <string name="morphe_music_lyrics_translate_failed">Impossibile tradurre il testo</string>
     <string name="morphe_music_lyrics_translate_hide">Tradotto</string>
+    <string name="morphe_music_lyrics_translate_only">Solo traduzione</string>
     <string name="morphe_music_lyrics_translated_by_ai">Tradotto da %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Tradotto da Google</string>
     <string name="morphe_music_lyrics_translating">Traduzione in corso…</string>
     <string name="morphe_music_lyrics_translation_language_title">Lingua di traduzione</string>
-    <string name="morphe_music_lyrics_use_ai_translation_summary">Usa un\'API personalizzata compatibile con OpenAI per traduzione e romanizzazione invece di Google Translate</string>
-    <string name="morphe_music_lyrics_use_ai_translation_title">Traduzione compatibile con OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_summary">Preferisce la romanizzazione fornita dal provider, quindi il modello compatibile con OpenAI e infine Google Translate</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_title">Romanizzazione AI</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">Utilizzato solo quando il provider non fornisce etichette di sezione come Ritornello o Strofa, che vengono quindi rilevate dal modello compatibile con OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_section_title">Sezione AI</string>
+    <string name="morphe_music_lyrics_use_ai_title">API compatibile con OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">Preferisce la traduzione fornita dal provider, poi il tuo modello compatibile con OpenAI e infine Google Translate</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">Traduzione AI</string>
     <string name="morphe_music_lyrics_word_sync_summary">Mostra i testi</string>
     <string name="morphe_music_lyrics_word_sync_title">Lingua dei testi</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">token utente</string>
@@ -253,6 +281,7 @@ Mentre questa opzione è attiva, la scheda Download elenca questi brani invece d
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: token utente cancellato</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: token utente non valido — controlla e riprova</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: token utente salvato</string>
+    <string name="morphe_music_scrobbling_log_out">Esci</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"Incolla il cookie sp_dc di Spotify
 
 Passaggi:
@@ -276,11 +305,16 @@ Cookie richiesti: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PAPISID
     <string name="morphe_oauth2_connection_failure_auth_error">Impossibile accedere ad Android VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Impossibile accedere ad Android VR, l\'autenticazione del sito non è stata approvata</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 non è al momento disponibile</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 è temporaneamente non disponibile (stato %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 è temporaneamente non disponibile (stato %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Accesso ad Android VR scaduto, prova ad accedere nuovamente</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 è temporaneamente non disponibile (API scaduta)</string>
     <string name="morphe_oauth2_toast_invalid">Token di accesso Android VR non valido, prova ad accedere nuovamente</string>
     <string name="morphe_oauth2_toast_reset">Disconnesso da Android VR</string>
+    <string name="morphe_potoken_provider_expired_dialog_message">"Il token integrato in questa versione del fornitore PoToken non funziona più
+
+Attiva l'opzione \'Falsifica dei flussi video\' per risolvere il problema di riproduzione"</string>
+    <string name="morphe_potoken_provider_expired_dialog_title">Il fornitore PoToken non funziona più</string>
+    <string name="morphe_potoken_provider_expired_dialog_turn_on">Attiva</string>
     <string name="morphe_potoken_provider_summary">"Risolve i problemi di riproduzione con il fornitore PoToken integrato (sperimentale)
 
 Se sei un utente di YouTube Premium, questa impostazione potrebbe non essere necessaria"</string>
@@ -292,10 +326,15 @@ Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi 
     <string name="morphe_replace_music_with_youtube_summary_off">I link condivisi usano music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">I link condivisi usano youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Cambia i link di condivisione in youtube.com</string>
+    <string name="morphe_romanize_language_DEFAULT">Automatico</string>
     <string name="morphe_sanitize_sharing_links_summary">Rimuove i parametri di query di tracciamento dai link condivisi</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Il parametro di query di tracciamento non viene rimosso dai collegamenti condivisi</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Il parametro di query di tracciamento viene rimosso dai collegamenti condivisi</string>
     <string name="morphe_sanitize_sharing_links_title">Sanifica collegamenti di condivisione</string>
+    <string name="morphe_sb_new_segment_choose_category">Scegli la categoria del segmento</string>
+    <string name="morphe_sb_new_segment_confirm_submit">Invia</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">L\'inizio deve essere prima della fine</string>
+    <string name="morphe_sb_new_segment_title">Nuovo segmento di SponsorBlock</string>
     <string name="morphe_settings_menu_copy_path">Copiato: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Apri la schermata delle impostazioni dell\'app standard una volta per popolare l\'elenco</string>
     <string name="morphe_settings_menu_filter_screen_summary">Nascondi elementi nella schermata delle impostazioni dell\'app standard in base al loro nome visibile</string>
@@ -303,6 +342,16 @@ Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi 
     <string name="morphe_settings_name_custom_item_hint">Inserisci un nome</string>
     <string name="morphe_settings_name_empty_warning">Il nome non può essere vuoto</string>
     <string name="morphe_settings_name_title">Nome impostazioni RVX</string>
+    <string name="morphe_settings_save">Salva</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Solo le pause di almeno questa durata vengono ridotte. L\'effetto si applica quando inizia il video successivo</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Durata minima della pausa</string>
+    <string name="morphe_skip_silence_summary">Salta automaticamente le pause di silenzio nell\'audio dei video</string>
+    <string name="morphe_skip_silence_title">Salta il silenzio</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s non ha funzionato diverse volte di seguito, mentre %2$s sì
+
+Vuoi rendere %2$s il client predefinito?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Cambia</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Client predefinito non funziona</string>
     <string name="morphe_spoof_video_streams_client_type_title">Client predefinito</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Impossibile recuperare il flusso da qualsiasi client</string>
     <string name="morphe_spoof_video_streams_screen_summary">Configura un client simulato per prevenire problemi di riproduzione</string>
@@ -367,16 +416,15 @@ Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necess
     <string name="revanced_bypass_image_region_restrictions_title">Aggira le restrizioni regionali delle immagini</string>
     <string name="revanced_change_action_bar_position_summary">Sposta l\'Action bar sotto il pulsante Play</string>
     <string name="revanced_change_action_bar_position_title">Cambia la posizione della Action bar</string>
-    <string name="revanced_change_miniplayer_color_summary">Cambia il colore del miniplayer in modo che corrisponda al lettore a schermo intero</string>
+    <string name="revanced_change_miniplayer_color_summary">Cambia il colore del riproduttore minimizato in modo che corrisponda al riproduttore a schermo intero</string>
     <string name="revanced_change_miniplayer_color_title">Cambia il colore del miniplayer</string>
-    <string name="revanced_change_player_background_color_summary">Cambia il colore di sfondo del lettore con un colore personalizzato</string>
-    <string name="revanced_change_player_background_color_title">Cambia il colore di sfondo del lettore</string>
+    <string name="revanced_change_player_background_color_summary">Cambia il colore di sfondo del riproduttore con un colore personalizzato</string>
+    <string name="revanced_change_player_background_color_title">Cambia il colore di sfondo del riproduttore</string>
     <string name="revanced_change_seekbar_position_summary">Sposta la barra di ricerca sotto il pulsante play</string>
     <string name="revanced_change_seekbar_position_title">Cambia la posizione della barra di ricerca</string>
     <string name="revanced_change_share_sheet_summary">Sostituisce il foglio di condivisione in-app con il foglio di condivisione di sistema</string>
     <string name="revanced_change_share_sheet_title">Cambia foglio di condivisione</string>
     <string name="revanced_change_start_page_entry_charts">Grafici</string>
-    <string name="revanced_change_start_page_entry_default">Predefinito</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Episodi da guardare dopo</string>
     <string name="revanced_change_start_page_entry_explore">Esplora</string>
     <string name="revanced_change_start_page_entry_history">Cronologia</string>
@@ -392,7 +440,7 @@ Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necess
     <string name="revanced_credits_title">Crediti</string>
     <string name="revanced_custom_filter_strings_summary">Elenco delle stringhe del builder percorsi per i componenti da filtrare, separate da nuove righe</string>
     <string name="revanced_custom_filter_strings_title">Filtro personalizzato</string>
-    <string name="revanced_custom_filter_summary">Abilita il filtro personalizzato per nascondere i componenti del layout</string>
+    <string name="revanced_custom_filter_summary">Abilita il filtro personalizzato per nascondere i componenti del l\'interfaccia</string>
     <string name="revanced_custom_filter_title">Attiva il filtro personalizzato</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizzato non valido: %s</string>
     <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Valore del colore nella barra di navigazione non valido</string>
@@ -402,19 +450,19 @@ Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necess
     <string name="revanced_custom_playback_speeds_parse_exception">Velocità di riproduzione personalizzate non valide</string>
     <string name="revanced_custom_playback_speeds_summary">Aggiungi o modifica le velocità di riproduzione disponibili</string>
     <string name="revanced_custom_playback_speeds_title">Modifica velocità di riproduzione personalizzate</string>
-    <string name="revanced_custom_player_background_color_primary_summary">"Digita il codice esadecimale del colore primario dello sfondo del lettore
+    <string name="revanced_custom_player_background_color_primary_summary">"Digita il codice esadecimale del colore primario dello sfondo del riproduttore
 
-Se possibile usa colori scuri, poiché l'app non supporta temi chiari"</string>
-    <string name="revanced_custom_player_background_color_primary_title">Colore primario di sfondo del lettore</string>
-    <string name="revanced_custom_player_background_color_secondary_summary">"Digita il codice esadecimale del colore secondario dello sfondo del lettore
+Se possibile usa colori scuri, poiché l'applicazione non supporta temi chiari"</string>
+    <string name="revanced_custom_player_background_color_primary_title">Colore primario di sfondo del riproduttore</string>
+    <string name="revanced_custom_player_background_color_secondary_summary">"Digita il codice esadecimale del colore secondario dello sfondo del riproduttore
 
-Se possibile usa colori scuri, poiché l'app non supporta temi chiari"</string>
-    <string name="revanced_custom_player_background_color_secondary_title">Colore secondario di sfondo del lettore</string>
-    <string name="revanced_custom_player_background_invalid_toast">Colore di sfondo lettore non valido</string>
+Se possibile usa colori scuri, poiché l'applicazione non supporta temi chiari"</string>
+    <string name="revanced_custom_player_background_color_secondary_title">Colore secondario di sfondo del riproduttore</string>
+    <string name="revanced_custom_player_background_invalid_toast">Colore di sfondo del riproduttore non valido</string>
     <string name="revanced_debug_protobuffer_summary">Aggiunge informazioni di registrazione aggiuntive per gli sviluppatori, al fine di identificare i componenti dell\'app</string>
-    <string name="revanced_debug_protobuffer_title">Buffer di protocollo per log</string>
+    <string name="revanced_debug_protobuffer_title">Buffer di protocollo per registri</string>
     <string name="revanced_debug_spannable_summary">Include espansione nel registro debug</string>
-    <string name="revanced_debug_spannable_title">Log espandibile</string>
+    <string name="revanced_debug_spannable_title">Registro espandibile</string>
     <string name="revanced_debug_summary">Stampa il registro di debug</string>
     <string name="revanced_debug_title">Abilita i registri di debug</string>
     <string name="revanced_default_app_settings_summary">Per aprire i link di YouTube Music in RVX Music, abilita Apri link supportati e abilita tutti gli indirizzi web supportati</string>
@@ -440,8 +488,8 @@ Trova la canzone ufficiale se viene rilevato un video musicale in riproduzione d
 
 Limitazioni: I video per bambini potrebbero non essere reindirizzati"</string>
     <string name="revanced_disable_music_video_in_album_title">Disabilita video musicali nell\'album</string>
-    <string name="revanced_disable_player_gesture_summary">Disabilita lo scorrimento per cambiare le tracce nel lettore</string>
-    <string name="revanced_disable_player_gesture_title">Disabilita gestualità dal lettore</string>
+    <string name="revanced_disable_player_gesture_summary">Disabilita lo scorrimento per cambiare le tracce nel riproduttore</string>
+    <string name="revanced_disable_player_gesture_title">Disabilita gesti del riproduttore</string>
     <string name="revanced_disable_quic_protocol_summary">"Disabilita il protocollo QUIC di CronetEngine"</string>
     <string name="revanced_disable_quic_protocol_title">Disabilita il protocollo QUIC</string>
     <string name="revanced_disable_trim_silence_summary">"Disabilita un interruttore di Taglia silenzio nel menu flyout velocità di riproduzione
@@ -458,7 +506,7 @@ Limitazioni: Non si applica alle risposte ai commenti"</string>
 
 Limitazioni:
 • Le copertine degli album nella scheda Raccolta diventano più piccole quando viene organizzata in una griglia
-• Il layout del timer di spegnimento può apparire insolito"</string>
+• L\'interfaccia del timer di spegnimento può apparire insolito"</string>
     <string name="revanced_enable_compact_dialog_title">Abilita dialogo compatto</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Imposta il colore della barra di navigazione</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">Abilita colore personalizzato nella barra di navigazione</string>
@@ -487,16 +535,16 @@ Limitazioni: i segmenti SponsorBlock non vengono mostrati nella barra di ricerca
     <string name="revanced_enable_zen_mode_summary">Aggiunge una sfumatura grigia al riproduttore video per ridurre l\'affaticamento degli occhi</string>
     <string name="revanced_enable_zen_mode_title">Abilita la modalità zen</string>
     <string name="revanced_external_downloader_action_summary">Il pulsante Scarica apre il tuo scaricatore esterno</string>
-    <string name="revanced_external_downloader_action_title">Sovrascrivi il pulsante di azione Download</string>
-    <string name="revanced_external_downloader_dialog_title">Downloader esterno</string>
-    <string name="revanced_external_downloader_flyout_menu_summary">Utilizza il downloader esterno scelto invece del menu flyout Scarica</string>
+    <string name="revanced_external_downloader_action_title">Sovrascrivi il pulsante di azione Scarica</string>
+    <string name="revanced_external_downloader_dialog_title">Scaricatore esterno</string>
+    <string name="revanced_external_downloader_flyout_menu_summary">Utilizza lo scaricatore esterno scelto invece del menu a comparsa Scarica</string>
     <string name="revanced_external_downloader_flyout_menu_title">Sostituisci il menu Scarica</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s non è installato
 Si prega di scaricare %2$s dal sito web"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Attenzione</string>
     <string name="revanced_external_downloader_not_installed_warning">%s non è installato. Si prega di installarlo</string>
-    <string name="revanced_external_downloader_package_name_summary">Nome del pacchetto dell\'app downloader esterna installata, come NewPipe o Seal</string>
-    <string name="revanced_external_downloader_package_name_title">Nome del pacchetto downloader esterno</string>
+    <string name="revanced_external_downloader_package_name_summary">Nome del pacchetto dell\'applicazione di scaricamento esterna installata, come NewPipe o Seal</string>
+    <string name="revanced_external_downloader_package_name_title">Nome del pacchetto scaricatore esterno</string>
     <string name="revanced_fullscreen_ads_closed_toast">Annunci a schermo intero chiusi</string>
     <string name="revanced_gms_show_dialog_summary">Visualizza la finestra di dialogo di ottimizzazione per GMSCore a ogni avvio dell\'applicazione</string>
     <string name="revanced_gms_show_dialog_title">Mostra il dialogo ottimizzazione per GMSCore</string>
@@ -514,11 +562,11 @@ Si prega di scaricare %2$s dal sito web"</string>
     <string name="revanced_hide_action_button_details_title">Nasconde il pulsante Dettagli</string>
     <string name="revanced_hide_action_button_disabled_summary">Nasconde i pulsanti disabilitati, come il pulsante Commenti disabilitati</string>
     <string name="revanced_hide_action_button_disabled_title">Nascondi pulsante disabilitato</string>
-    <string name="revanced_hide_action_button_download_summary">Nasconde il pulsante del download</string>
-    <string name="revanced_hide_action_button_download_title">Nascondi il pulsante Download</string>
+    <string name="revanced_hide_action_button_download_summary">Nasconde il pulsante Scarica</string>
+    <string name="revanced_hide_action_button_download_title">Nascondi il pulsante Scarica</string>
     <string name="revanced_hide_action_button_label_summary">Nasconde le etichette dei pulsanti di azione</string>
     <string name="revanced_hide_action_button_label_title">Nascondi le etichette della barra delle azioni</string>
-    <string name="revanced_hide_action_button_like_dislike_summary">Non funziona con il vecchio layout del player</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Non funziona con la vecchia interfaccia del player</string>
     <string name="revanced_hide_action_button_like_dislike_title">Nascondi pulsanti Mi Piace e Non Mi Piace</string>
     <string name="revanced_hide_action_button_live_chat_replay_summary">Nasconde il pulsante Replay della chat live per i video in diretta</string>
     <string name="revanced_hide_action_button_live_chat_replay_title">Nasconde il pulsante Replay della chat live</string>
@@ -553,7 +601,7 @@ Si prega di scaricare %2$s dal sito web"</string>
     <string name="revanced_hide_flyout_menu_captions_title">Nascondi il menù Sottotitoli</string>
     <string name="revanced_hide_flyout_menu_delete_playlist_title">Nascondi il menu Elimina playlist</string>
     <string name="revanced_hide_flyout_menu_dismiss_queue_title">Nascondi il menu Ignora coda</string>
-    <string name="revanced_hide_flyout_menu_download_title">Nascondi menù Download</string>
+    <string name="revanced_hide_flyout_menu_download_title">Nascondi menù Scarica</string>
     <string name="revanced_hide_flyout_menu_edit_playlist_title">Nascondi il menù Modifica playlist</string>
     <string name="revanced_hide_flyout_menu_go_to_album_title">Nascondi il menu Vai all\'album</string>
     <string name="revanced_hide_flyout_menu_go_to_artist_title">Nascondi il menu Vai all\'artista</string>
@@ -581,7 +629,7 @@ Si prega di scaricare %2$s dal sito web"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Nascondi il menu Visualizza crediti brano</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Nasconde gli annunci a schermo intero"</string>
     <string name="revanced_hide_fullscreen_ads_title">Nascondi le pubblicità a schermo intero</string>
-    <string name="revanced_hide_fullscreen_share_button_summary">Nasconde il pulsante Condividi nel lettore a schermo intero</string>
+    <string name="revanced_hide_fullscreen_share_button_summary">Nasconde il pulsante Condividi nel riproduttore a schermo intero</string>
     <string name="revanced_hide_fullscreen_share_button_title">Nascondi il pulsante Condividi a schermo intero</string>
     <string name="revanced_hide_general_ads_summary">Nasconde annunci generici</string>
     <string name="revanced_hide_general_ads_title">Nascondi annunci generici</string>
@@ -624,7 +672,7 @@ Si prega di scaricare %2$s dal sito web"</string>
     <string name="revanced_hide_samples_shelf_title">Nascondi scaffale Esempi</string>
     <string name="revanced_hide_search_button_summary">Nasconde il pulsante Cerca nella barra degli strumenti</string>
     <string name="revanced_hide_search_button_title">Nascondi il pulsante Cerca</string>
-    <string name="revanced_hide_song_video_toggle_summary">Nasconde l\'interruttore Brano / Video nel lettore</string>
+    <string name="revanced_hide_song_video_toggle_summary">Nasconde l\'interruttore Brano / Video nel riproduttore</string>
     <string name="revanced_hide_song_video_toggle_title">Nascondi l\'interruttore Brano / Video</string>
     <string name="revanced_hide_sound_search_button_summary">Nasconde il pulsante di ricerca sonora nella barra di ricerca</string>
     <string name="revanced_hide_sound_search_button_title">Nascondi il pulsante Ricerca sonora</string>
@@ -635,7 +683,7 @@ Si prega di scaricare %2$s dal sito web"</string>
     <string name="revanced_hide_voice_search_button_summary">Nasconde il pulsante di ricerca vocale nella barra di ricerca</string>
     <string name="revanced_hide_voice_search_button_title">Nascondi il pulsante di ricerca vocale</string>
     <string name="revanced_icon_custom">Personalizzata</string>
-    <string name="revanced_music_change_navigation_bar_color_summary">Abbina il colore della barra di navigazione al lettore a schermo intero</string>
+    <string name="revanced_music_change_navigation_bar_color_summary">Abbina il colore della barra di navigazione al riproduttore a schermo intero</string>
     <string name="revanced_music_change_navigation_bar_color_title">Cambia colore della barra di navigazione</string>
     <string name="revanced_preference_screen_account_title">Account</string>
     <string name="revanced_preference_screen_action_bar_title">Action bar</string>
@@ -645,7 +693,7 @@ Si prega di scaricare %2$s dal sito web"</string>
     <string name="revanced_preference_screen_lyrics_title">Testi</string>
     <string name="revanced_preference_screen_misc_title">Varie</string>
     <string name="revanced_preference_screen_navigation_title">Barra di navigazione</string>
-    <string name="revanced_preference_screen_player_title">Lettore</string>
+    <string name="revanced_preference_screen_player_title">Riproduttore</string>
     <string name="revanced_preference_screen_return_youtube_username_title">Restituisci il nome utente di YouTube</string>
     <string name="revanced_preference_screen_ryd_title">Restituisci YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
@@ -702,16 +750,16 @@ Fai clic per aprire le impostazioni \"Modifica pagina iniziale\""</string>
     <string name="revanced_replace_navigation_upgrade_button_summary">Sostituisce il pulsante Aggiorna con il pulsante Impostazioni</string>
     <string name="revanced_replace_navigation_upgrade_button_title">Sostituisci il pulsante Aggiorna</string>
     <string name="revanced_reset_to_default_toast">Reimposta ai valori predefiniti</string>
-    <string name="revanced_restart_dialog_message">Riavvia l'app per rendere effettiva questa modifica</string>
+    <string name="revanced_restart_dialog_message">Riavvia l'applicazione per rendere effettiva questa modifica</string>
     <string name="revanced_restart_first_run">Riavvia per completare la configurazione</string>
     <string name="revanced_restart_message">Aggiorna e riavvia</string>
     <string name="revanced_restart_title">Riavvio richiesto</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Ripristina i pannelli popup dei commenti al vecchio stile</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Ripristina i vecchi pannelli popup dei commenti</string>
-    <string name="revanced_restore_old_player_background_summary">Ripristina lo sfondo del lettore al vecchio stile</string>
-    <string name="revanced_restore_old_player_background_title">Ripristina lo sfondo del vecchio lettore</string>
-    <string name="revanced_restore_old_player_layout_summary">"Ripristina l'interfaccia del lettore al vecchio stile
-Alcune funzionalità potrebbero non funzionare correttamente nell'interfaccia del vecchio lettore"</string>
+    <string name="revanced_restore_old_player_background_summary">Ripristina lo sfondo del riproduttore al vecchio stile</string>
+    <string name="revanced_restore_old_player_background_title">Ripristina lo sfondo del vecchio riproduttore</string>
+    <string name="revanced_restore_old_player_layout_summary">"Ripristina l'interfaccia del riproduttore al vecchio stile
+Alcune funzionalità potrebbero non funzionare correttamente nell'interfaccia del vecchio riproduttore"</string>
     <string name="revanced_restore_old_player_layout_title">Ripristina l\'interfaccia del vecchio lettore</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Ripristina la scheda Libreria al vecchio stile (Sperimentale)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Ripristina la vecchia scheda Libreria</string>
@@ -730,11 +778,11 @@ Fai clic per vedere come emettere una chiave API"</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Informazioni sulla chiave API dei dati YouTube</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">La chiave sviluppatore per utilizzare l\'API v3 dei dati YouTube</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Chiave API dati YouTube</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Vai su &lt;a href=%1$s&gt;Crea un nuovo progetto&lt;/a&gt;.&lt;br&gt;2. Fai clic su &lt;b&gt;CREA&lt;/b&gt;pulsante.&lt;br&gt;3. Vai su &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Fai clic sul pulsante &lt;b&gt;ABILITA&lt;/b&gt;pulsante.&lt;br&gt;5. Fai clic su &lt;b&gt;CREA CREDENZIALI&lt;/b&gt;pulsante.&lt;br&gt;6. Seleziona l\'opzione &lt;b&gt;Dati pubblici&lt;/b&gt;opzioni.&lt;br&gt;7. Fai clic su &lt;b&gt;PROSSIMO&lt;/b&gt;pulsante.&lt;br&gt;8. Copia la chiave API.&lt;br&gt;&lt;br&gt;※ La chiave API non dovrebbe mai essere condivisa con altri, quindi non è inclusa nelle impostazioni di importazione/esportazione</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Vai su &lt;a href=%1$s&gt;Crea un nuovo progetto&lt;/a&gt;.&lt;br&gt;2. Premi su &lt;b&gt;CREA&lt;/b&gt;pulsante.&lt;br&gt;3. Vai su &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Premi sul pulsante &lt;b&gt;ABILITA&lt;/b&gt;pulsante.&lt;br&gt;5. Premj su &lt;b&gt;CREA CREDENZIALI&lt;/b&gt;pulsante.&lt;br&gt;6. Seleziona l\'opzione &lt;b&gt;Dati pubblici&lt;/b&gt;opzioni.&lt;br&gt;7. Premi su &lt;b&gt;PROSSIMO&lt;/b&gt;pulsante.&lt;br&gt;8. Copia la chiave API.&lt;br&gt;&lt;br&gt;※ La chiave API non dovrebbe mai essere condivisa con altri, quindi non è inclusa nelle impostazioni di importazione/esportazione</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Emetti la chiave sviluppatore YouTube Data API v3</string>
-    <string name="revanced_ryd_attribution_summary">"I dati sono forniti dall'API Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike ripristina i conteggi dei dislike che YouTube ha nascosto nel 2021. I conteggi provengono da dati archiviati prima della rimozione e sono stimati per i video più recenti in base ai voti degli utenti, quindi sono approssimativi e si aggiornano ogni pochi giorni
 
-Tocca qui per aprire ReturnYouTubeDislike.com"</string>
+L'ID del video che guardi viene inviato all'API di Return YouTube Dislike, e i tuoi like e dislike vengono inviati in modo anonimo per migliorare le stime"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Riduce la larghezza del pulsante Mi piace per risparmiare spazio</string>
     <string name="revanced_ryd_compact_layout_title">Usa il pulsante Mi piace compatto</string>
@@ -745,17 +793,17 @@ Tocca qui per aprire ReturnYouTubeDislike.com"</string>
     <string name="revanced_ryd_estimated_like_summary">Mostra un conteggio approssimativo dei Mi piace su video in cui il creatore ha disabilitato i Mi piace</string>
     <string name="revanced_ryd_estimated_like_title">Mostra \"Mi piace\" stimati</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">I \"Non mi piace\" non sono disponibili (limite API client)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Non Mi Piace non disponibili (stato: %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Non Mi Piace non disponibili (stato: %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">I \"Non Mi Piace\" temporaneamente non disponibili (timeout API)</string>
     <string name="revanced_ryd_failure_generic">Non Mi Piace non disponibili (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Mostra una notifica quando il server Return YouTube Dislike non è disponibile</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostra avvisi di errore di connessione</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto dal proprietario</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
-    <string name="revanced_sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
+    <string name="revanced_sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere le opzionidi scaricamento per altre piattaforme</string>
     <string name="revanced_sb_api_url">Modifica l\'URL dell\'API</string>
-    <string name="revanced_sb_api_url_changed">URL API modificato</string>
-    <string name="revanced_sb_api_url_invalid">URL API non valido</string>
+    <string name="revanced_sb_api_url_changed">URL dell\'API modificato</string>
+    <string name="revanced_sb_api_url_invalid">URL dell\'API non valido</string>
     <string name="revanced_sb_api_url_reset">Reimposta l\'URL dell\'API</string>
     <string name="revanced_sb_api_url_sum">L\'indirizzo usato da SponsorBlock per contattare il server. Non cambiarlo a meno che tu non sappia cosa stai facendo</string>
     <string name="revanced_sb_color_changed">Colore modificato</string>
@@ -765,42 +813,42 @@ Tocca qui per aprire ReturnYouTubeDislike.com"</string>
     <string name="revanced_sb_diff_segments">Modifica il comportamento dei segmenti</string>
     <string name="revanced_sb_enabled">Abilita SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock è un sistema di crowdsourcing per saltare parti fastidiose dei video di YouTube</string>
-    <string name="revanced_sb_segments_filler">Digressioni o battute</string>
+    <string name="revanced_sb_segments_filler">Divagazione/Battute</string>
     <string name="revanced_sb_segments_filler_sum">Scene di digressione o battute non necessarie per comprendere il contenuto principale del video. Non dovrebbe includere sezioni con informazioni</string>
-    <string name="revanced_sb_segments_hook">Collegamento / Saluti</string>
+    <string name="revanced_sb_segments_hook">Introduzione/Saluti</string>
     <string name="revanced_sb_segments_hook_sum">Trailer narrati per il prossimo video, saluti e arrivederci. Non include sezioni che aggiungono contenuti aggiuntivi</string>
-    <string name="revanced_sb_segments_interaction">Promemoria interazione (Iscriviti)</string>
+    <string name="revanced_sb_segments_interaction">Promemoria di interazione (iscrizione)</string>
     <string name="revanced_sb_segments_interaction_sum">Una breve promemoria per mettere mi piace, iscriversi o seguirli su altre piattaforme durante la visione. Se è lungo o riguarda qualcosa di specifico, dovrebbe essere considerato autopromozione</string>
-    <string name="revanced_sb_segments_intro">Animazione di Intermezzo / Introduzione</string>
+    <string name="revanced_sb_segments_intro">Interruzione/Animazione Introduzione</string>
     <string name="revanced_sb_segments_intro_sum">Intervallo senza contenuto sostanziale, come pause, scene statiche o ripetute che non includono transizioni contenenti informazioni</string>
-    <string name="revanced_sb_segments_nomusic">Musica: Sezione non musicale</string>
+    <string name="revanced_sb_segments_nomusic">Musica: Sezione Non-Musicale</string>
     <string name="revanced_sb_segments_nomusic_sum">Da utilizzare solo nei video musicali. Sezioni di video musicali senza musica, che non siano già coperte da un\'altra categoria</string>
-    <string name="revanced_sb_segments_outro">Schede finali / Crediti</string>
+    <string name="revanced_sb_segments_outro">Conclusioni/Titoli di coda</string>
     <string name="revanced_sb_segments_outro_sum">I crediti o quando appaiono le schede finali. Non per conclusioni con informazioni</string>
-    <string name="revanced_sb_segments_preview">Anteprima o riepilogo</string>
+    <string name="revanced_sb_segments_preview">Anteprima/Riepilogo</string>
     <string name="revanced_sb_segments_preview_sum">Raccolta di clip che mostrano cosa sta succedendo o cosa è successo nel video o in altri video di una serie, dove tutte le informazioni vengono ripetute altrove</string>
-    <string name="revanced_sb_segments_selfpromo">Promozione non retribuita / Autopromozione</string>
+    <string name="revanced_sb_segments_selfpromo">Non pagata/Auto Promozione</string>
     <string name="revanced_sb_segments_selfpromo_sum">Simile a Sponsor, eccetto per la promozione non retribuita o autopromozione. Include sezioni su merchandising, donazioni o informazioni su chi ha collaborato con loro</string>
-    <string name="revanced_sb_segments_sponsor">Sponsor</string>
+    <string name="revanced_sb_segments_sponsor">Sponsorizzazione</string>
     <string name="revanced_sb_segments_sponsor_sum">Promozioni a pagamento, referral a pagamento e pubblicità diretta. Non per autopromozione o ringraziamenti gratuiti a cause, creatori, siti web o prodotti di loro gradimento</string>
     <string name="revanced_sb_skip_automatically">Salta automaticamente</string>
     <string name="revanced_sb_skip_automatically_once">Salta automaticamente una volta</string>
     <string name="revanced_sb_skip_ignore">Disabilita</string>
-    <string name="revanced_sb_skipped_filler">Digressione saltata</string>
-    <string name="revanced_sb_skipped_hook">Collegamento saltato</string>
+    <string name="revanced_sb_skipped_filler">Tangente saltata</string>
+    <string name="revanced_sb_skipped_hook">Introduzione saltata</string>
     <string name="revanced_sb_skipped_interaction">Promemoria indesiderato saltato</string>
     <string name="revanced_sb_skipped_intro_beginning">Introduzione saltata</string>
     <string name="revanced_sb_skipped_intro_end">Intermezzo saltato</string>
     <string name="revanced_sb_skipped_multiple_segments">Segmenti multipli saltati</string>
-    <string name="revanced_sb_skipped_nomusic">Sezione non musicale saltata</string>
+    <string name="revanced_sb_skipped_nomusic">Sezione non-musicale saltata</string>
     <string name="revanced_sb_skipped_outro">Conclusione saltata</string>
     <string name="revanced_sb_skipped_preview_beginning">Anteprima saltata</string>
     <string name="revanced_sb_skipped_preview_end">Riepilogo saltato</string>
     <string name="revanced_sb_skipped_selfpromo">Autopromozione saltata</string>
-    <string name="revanced_sb_skipped_sponsor">Sponsor saltato</string>
+    <string name="revanced_sb_skipped_sponsor">Sponsorizzazione saltata</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporaneamente non disponibile</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporaneamente non disponibile (Stato: %d)</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporaneamente non disponibile (API scaduta)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporaneamente non disponibile (stato %s)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporaneamente non disponibile (API scaduto)</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Mostra una notifica toast se l\'API SponsorBlock non è disponibile</string>
     <string name="revanced_sb_toast_on_skip">Mostra una notifica toast quando si salta automaticamente</string>
     <string name="revanced_sb_toast_on_skip_sum">Mostra una notifica toast quando un segmento viene saltato automaticamente</string>
@@ -815,13 +863,13 @@ Tocca qui per aprire ReturnYouTubeDislike.com"</string>
     <string name="revanced_settings_import_export_title">Importa / Esporta impostazioni</string>
     <string name="revanced_settings_import_failed">Importazione fallita: %s</string>
     <string name="revanced_settings_import_reset">Reimposta le impostazioni di RVX ai valori predefiniti</string>
-    <string name="revanced_settings_import_success">Importate %d impostazioni</string>
+    <string name="revanced_settings_import_success">Importate %s impostazioni</string>
     <string name="revanced_settings_navigate_up">Torna su</string>
     <string name="revanced_settings_reset">Reimposta</string>
     <string name="revanced_settings_reset_color">Reimposta colore</string>
     <string name="revanced_settings_search_clear_history">Cancella cronologia ricerche</string>
     <string name="revanced_settings_search_clear_history_message">Sei sicuro di voler cancellare tutta la cronologia delle ricerche?</string>
-    <string name="revanced_settings_search_empty_history_summary">Per salvare la cronologia delle ricerche, digita una query di ricerca e premi Invio</string>
+    <string name="revanced_settings_search_empty_history_summary">Per salvare la cronologia delle ricerche, digita una richiesta di ricerca e premi Invio</string>
     <string name="revanced_settings_search_empty_history_title">La cronologia delle ricerche è vuota</string>
     <string name="revanced_settings_search_history_summary_off">La cronologia di ricerca delle impostazioni non è visualizzata</string>
     <string name="revanced_settings_search_history_summary_on">La cronologia di ricerca delle impostazioni è visualizzata</string>
@@ -905,5 +953,4 @@ Tocca qui per aprire ReturnYouTubeDislike.com"</string>
     <string name="revanced_webview_toast_empty">%s è vuota</string>
     <string name="revanced_webview_toast_no_network">Controlla la tua connessione di rete</string>
     <string name="revanced_webview_toast_unavailable">WebView non è disponibile</string>
-    <string name="revanced_webview_visitor_data">Dati dei visitatori</string>
 </resources>
