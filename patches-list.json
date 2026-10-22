@@ -1,13 +1,14 @@
 {
-  "version": "4.4.0-dev.2",
+  "version": "4.4.0-dev.3",
   "patches": [
     {
       "name": "Ambient mode control",
-      "description": "Adds options to disable Ambient mode and to bypass Ambient mode restrictions.",
+      "description": "Forces Ambient mode on and adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.",
       "use": true,
       "dependencies": [
         "ResourcePatch",
-        "ResourcePatch"
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -659,6 +660,7 @@
       "dependencies": [
         "BytecodePatch",
         "BytecodePatch",
+        "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch"
       ],
@@ -804,13 +806,15 @@
     },
     {
       "name": "Downloads",
-      "description": "Adds support to download songs for offline playback inside YouTube Music.",
+      "description": "Adds support to download songs and playlists for offline playback in YouTube Music's own device files library and player.",
       "use": true,
       "dependencies": [
-        "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -886,6 +890,25 @@
           "8.30.54",
           "8.28.54",
           "8.12.54"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Feed video actions",
+      "description": "Adds a Watch later button to video thumbnails in feeds, and opens the video menu by tapping and holding anywhere on a video.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
         ]
       },
       "options": []
@@ -1546,12 +1569,14 @@
     },
     {
       "name": "Hook download actions",
-      "description": "Adds support to download videos with an external downloader app using the in-app download button.",
+      "description": "Adds support to download videos with the built-in downloader or an external downloader app, and an offline library for downloaded videos.",
       "use": true,
       "dependencies": [
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
@@ -3067,6 +3092,8 @@
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch"
       ],

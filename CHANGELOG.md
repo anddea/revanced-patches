@@ -1,3 +1,18 @@
+# [4.4.0-dev.3](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.2...v4.4.0-dev.3) (2026-10-22)
+
+
+### Bug Fixes
+
+* **YouTube - Copy text:** Failed on older versions ([237b02e](https://github.com/anddea/revanced-patches/commit/237b02e94d2e8c1e80e79b81d3f4a04c951f1ad9))
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add support for Shorts ([fcd5a77](https://github.com/anddea/revanced-patches/commit/fcd5a775d65b287ddae4a63468ca6af2f6f309fa))
+* **YouTube Music - Downloads:** Download songs and playlists to Music's own device files library ([#1884](https://github.com/anddea/revanced-patches/issues/1884)) ([9b4d973](https://github.com/anddea/revanced-patches/commit/9b4d973eb5cd6dab2050c4461b47c686b6acd16a))
+* **YouTube:** Add `Feed video actions` patch ([aa0cb82](https://github.com/anddea/revanced-patches/commit/aa0cb8222a68d20a09181345f0dc838f1926e8bb))
+* **YouTube:** Add built-in video downloader ([#1883](https://github.com/anddea/revanced-patches/issues/1883)) ([15305a3](https://github.com/anddea/revanced-patches/commit/15305a359d711e4fc661c846bf44508f77397832))
+
 # [4.4.0-dev.2](https://github.com/anddea/revanced-patches/compare/v4.4.0-dev.1...v4.4.0-dev.2) (2026-10-16)
 
 

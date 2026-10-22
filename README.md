@@ -14,7 +14,7 @@
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Ambient mode control` | Adds options to disable Ambient mode and to bypass Ambient mode restrictions. | 21.39.525 ~ 20.05.46 |
+| `Ambient mode control` | Forces Ambient mode on and adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen. | 21.39.525 ~ 20.05.46 |
 | `App refresh rate` | Adds an option to change the app refresh rate. | 21.39.525 ~ 20.05.46 |
 | `Bypass URL redirects` | Adds an option to bypass URL redirects and open the original URL directly. | 21.39.525 ~ 20.05.46 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 21.39.525 ~ 20.05.46 |
@@ -41,6 +41,7 @@
 | `Disable sign in to TV popup` | Adds an option to disable the popup asking to sign into a TV on the same local network. | 21.39.525 ~ 20.05.46 |
 | `Enable debug logging` | Adds an option for debugging and exporting RVX logs to the clipboard. | 21.39.525 ~ 20.05.46 |
 | `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 21.39.525 ~ 20.05.46 |
+| `Feed video actions` | Adds a Watch later button to video thumbnails in feeds, and opens the video menu by tapping and holding anywhere on a video. | 21.39.525 ~ 20.05.46 |
 | `Force original audio` | Adds an option to disable audio tracks from being automatically enabled. | 21.39.525 ~ 20.05.46 |
 | `Fullscreen components` | Adds options to hide or change components related to fullscreen. | 21.39.525 ~ 20.05.46 |
 | `Fullscreen video scale` | Adds options to stretch or zoom videos to fill the screen in fullscreen mode. | 21.39.525 ~ 20.05.46 |
@@ -57,7 +58,7 @@
 | `Hide player buttons` | Adds options to hide buttons in the video player, and to hide or change the opacity of the player control buttons background. | 21.39.525 ~ 20.05.46 |
 | `Hide player flyout menu` | Adds options to hide player flyout menu components. | 21.39.525 ~ 20.05.46 |
 | `Hide shortcuts` | Remove, at compile time, the app shortcuts that appears when the app icon is long pressed. | 21.39.525 ~ 20.05.46 |
-| `Hook download actions` | Adds support to download videos with an external downloader app using the in-app download button. | 21.39.525 ~ 20.05.46 |
+| `Hook download actions` | Adds support to download videos with the built-in downloader or an external downloader app, and an offline library for downloaded videos. | 21.39.525 ~ 20.05.46 |
 | `Miniplayer` | Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers. | 21.39.525 ~ 20.05.46 |
 | `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 21.39.525 ~ 20.05.46 |
 | `Open channel of live avatar` | Adds an option to prevent a channel's current live video from opening when tapping its avatar. | 21.39.525 ~ 20.05.46 |
@@ -117,7 +118,7 @@
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 9.40.51 ~ 8.12.54 |
 | `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 9.40.51 ~ 8.12.54 |
 | `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 9.40.51 ~ 8.12.54 |
-| `Downloads` | Adds support to download songs for offline playback inside YouTube Music. | 9.40.51 ~ 8.12.54 |
+| `Downloads` | Adds support to download songs and playlists for offline playback in YouTube Music's own device files library and player. | 9.40.51 ~ 8.12.54 |
 | `Enable debug logging` | Adds an option for debugging. | 9.40.51 ~ 8.12.54 |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 9.40.51 ~ 8.12.54 |
 | `Flyout menu components` | Adds options to hide or change flyout menu components. | 9.40.51 ~ 8.12.54 |
