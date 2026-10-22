@@ -313,9 +313,10 @@ private val settingsBytecodePatch = bytecodePatch(
                 null,
                 MutableMethodImplementation(3),
             ).toMutable().apply {
+                // modified by lavinhoque33, 2026-10-10: Pass the activity, so offline screens can handle back presses.
                 addInstructions(
                     """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->handleBackPress()Z
+                        invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->handleBackPress(Landroid/app/Activity;)Z
                         move-result v0
                         if-nez v0, :search_handled
                         invoke-super { p0 }, Landroid/app/Activity;->finish()V

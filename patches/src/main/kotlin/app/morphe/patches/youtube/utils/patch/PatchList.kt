@@ -189,9 +189,10 @@ internal enum class PatchList(
         "Override YouTube Music buttons",
         "Overrides YouTube Music buttons to open RVX Music or any compatible third-party client."
     ),
+    // modified by lavinhoque33, 2026-10-10: Built-in downloader and offline library.
     HOOK_DOWNLOAD_ACTIONS(
         "Hook download actions",
-        "Adds support to download videos with an external downloader app using the in-app download button."
+        "Adds support to download videos with the built-in downloader or an external downloader app, and an offline library for downloaded videos."
     ),
     MINIPLAYER(
         "Miniplayer",
