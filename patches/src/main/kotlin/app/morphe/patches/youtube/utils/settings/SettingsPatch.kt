@@ -13,6 +13,7 @@
  * (inlined Cairo fragment flag).
  *
  * Licensed under the GNU General Public License v3.0.
+ * Modified by lavinhoque33, 2026-10-23.
  *
  * ------------------------------------------------------------------------
  * GPLv3 Section 7 – Additional Terms & Attribution Requirements
@@ -481,6 +482,18 @@ val settingsPatch = resourcePatch(
                 "revanced_settings_arrow_time.xml",
                 "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
+                // Icons of the built-in offline library and player.
+                "revanced_offline_back.xml",
+                "revanced_offline_check.xml",
+                "revanced_offline_close.xml",
+                "revanced_offline_next.xml",
+                "revanced_offline_pause.xml",
+                "revanced_offline_play.xml",
+                "revanced_offline_previous.xml",
+                "revanced_offline_rotate.xml",
+                "revanced_offline_search.xml",
+                "revanced_offline_sort.xml",
+                "revanced_offline_speed.xml",
                 "revanced_settings_icon.xml",
                 "revanced_settings_rounded_corners_background.xml",
                 "revanced_settings_search_icon.xml",
