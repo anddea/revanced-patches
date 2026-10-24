@@ -18,7 +18,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -28,7 +27,6 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -112,10 +110,26 @@ final class OfflineLibraryScreen implements OfflineScreens.Screen {
         toolbar.setNavigationIcon(ThemeUtils.getBackButtonDrawable());
         toolbar.setNavigationContentDescription(str("revanced_settings_navigate_up"));
         toolbar.setNavigationOnClickListener(v -> activity.finish());
-        toolbar.setTitle(str("revanced_offline_library_title"));
-        toolbar.setTitleTextColor(foreground);
-        root.addView(toolbar, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
+        // The Toolbar's own title view sits lower than the back arrow when the theme gives it
+        // a title margin or the font has extra padding. Use a plain TextView centered in a toolbar
+        // of the same height as the RVX settings toolbar.
+        TextView toolbarTitle = new TextView(activity);
+        toolbarTitle.setText(str("revanced_offline_library_title"));
+        toolbarTitle.setTextColor(foreground);
+        toolbarTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        toolbarTitle.setSingleLine();
+        toolbarTitle.setEllipsize(TextUtils.TruncateAt.END);
+        toolbarTitle.setIncludeFontPadding(false);
+        toolbarTitle.setGravity(Gravity.CENTER_VERTICAL);
+        toolbar.addView(toolbarTitle, new Toolbar.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,
+                Gravity.START | Gravity.CENTER_VERTICAL));
+        TypedValue actionBarSize = new TypedValue();
+        final int toolbarHeight = activity.getTheme().resolveAttribute(
+                android.R.attr.actionBarSize, actionBarSize, true)
+                ? TypedValue.complexToDimensionPixelSize(actionBarSize.data, activity.getResources().getDisplayMetrics())
+                : Utils.dipToPixels(56);
+        root.addView(toolbar, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, toolbarHeight));
 
         searchView = new SearchView(activity);
         searchView.setQueryHint(str("revanced_offline_library_search"));
@@ -138,7 +152,7 @@ final class OfflineLibraryScreen implements OfflineScreens.Screen {
 
         Menu menu = toolbar.getMenu();
         searchItem = menu.add(str("revanced_offline_library_search"));
-        searchItem.setIcon(tinted(android.R.drawable.ic_menu_search));
+        searchItem.setIcon(OfflineUi.icon(activity, "search", foreground));
         searchItem.setActionView(searchView);
         searchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
         searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
@@ -154,23 +168,13 @@ final class OfflineLibraryScreen implements OfflineScreens.Screen {
             }
         });
 
-        SubMenu sortMenu = menu.addSubMenu(str("revanced_offline_library_sort"));
-        sortMenu.getItem().setIcon(tinted(android.R.drawable.ic_menu_sort_by_size));
-        sortMenu.getItem().setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        final String currentSort = Settings.OFFLINE_LIBRARY_SORT.get();
-        for (String sort : SORTS) {
-            MenuItem item = sortMenu.add(1, Menu.NONE, Menu.NONE,
-                    str("revanced_offline_library_sort_" + sort.toLowerCase(Locale.ROOT)));
-            item.setCheckable(true);
-            item.setChecked(sort.equals(currentSort));
-            item.setOnMenuItemClickListener(clicked -> {
-                Settings.OFFLINE_LIBRARY_SORT.save(sort);
-                clicked.setChecked(true);
-                reload();
-                return true;
-            });
-        }
-        sortMenu.setGroupCheckable(1, true, true);
+        MenuItem sortItem = menu.add(str("revanced_offline_library_sort"));
+        sortItem.setIcon(OfflineUi.icon(activity, "sort", foreground));
+        sortItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        sortItem.setOnMenuItemClickListener(clicked -> {
+            showSortDialog();
+            return true;
+        });
 
         FrameLayout content = new FrameLayout(activity);
         ListView list = new ListView(activity);
@@ -213,13 +217,20 @@ final class OfflineLibraryScreen implements OfflineScreens.Screen {
         verifyFiles();
     }
 
-    private Drawable tinted(int resource) {
-        Drawable drawable = activity.getDrawable(resource);
-        if (drawable != null) {
-            drawable = drawable.mutate();
-            drawable.setTint(foreground);
+    private void showSortDialog() {
+        String[] labels = new String[SORTS.length];
+        for (int i = 0; i < SORTS.length; i++) {
+            labels[i] = str("revanced_offline_library_sort_" + SORTS[i].toLowerCase(Locale.ROOT));
         }
-        return drawable;
+        final String currentSort = Settings.OFFLINE_LIBRARY_SORT.get();
+        int selected = 0;
+        for (int i = 0; i < SORTS.length; i++) {
+            if (SORTS[i].equals(currentSort)) selected = i;
+        }
+        OfflineUi.showChoices(activity, str("revanced_offline_library_sort"), labels, selected, foreground, which -> {
+            Settings.OFFLINE_LIBRARY_SORT.save(SORTS[which]);
+            reload();
+        });
     }
 
     private void tintSearchView(SearchView view) {
@@ -461,7 +472,7 @@ final class OfflineLibraryScreen implements OfflineScreens.Screen {
             addView(texts, new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
             ImageButton cancel = new ImageButton(activity);
-            cancel.setImageDrawable(tinted(android.R.drawable.ic_menu_close_clear_cancel));
+            cancel.setImageDrawable(OfflineUi.icon(activity, "close", foreground));
             cancel.setBackgroundColor(Color.TRANSPARENT);
             cancel.setContentDescription(str("revanced_cancel"));
             cancel.setOnClickListener(v -> {
