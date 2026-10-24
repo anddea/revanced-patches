@@ -20,6 +20,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import app.morphe.extension.music.patches.lyrics.requests.CharactersConverter;
 import app.morphe.extension.music.settings.Settings;
@@ -28,8 +29,9 @@ import app.morphe.extension.shared.utils.Logger;
 /**
  * Normalizes YouTube Music metadata into what a lyrics database expects.
  *
- * <p>All cleanup is driven by the user-configured {@link Settings#LYRICS_CUSTOM_REGEX}.
- * When the regex is blank no filtering is applied.
+ * <p>Modified by dajiaohuang to handle trailing feature credits and localized artist
+ * conjunctions. Other cleanup is driven by the user-configured
+ * {@link Settings#LYRICS_CUSTOM_REGEX}. A blank regex disables only custom filtering.
  */
 final class MetadataCleaner {
 
@@ -39,6 +41,10 @@ final class MetadataCleaner {
     private static final ConcurrentMap<String, String> resolveCache = new ConcurrentHashMap<>();
     private static final ConcurrentMap<String, ResolveTask> pendingResolves = new ConcurrentHashMap<>();
     private static final ExecutorService resolveExecutor = Executors.newCachedThreadPool();
+    private static final Pattern FEATURE_CREDIT_SUFFIX = Pattern.compile(
+            "\\s*(?:\\(\\s*(?:feat(?:uring)?\\.?|ft\\.?)\\s+[^)]*\\)"
+                    + "|\\[\\s*(?:feat(?:uring)?\\.?|ft\\.?)\\s+[^\\]]*\\])\\s*$",
+            Pattern.CASE_INSENSITIVE);
 
     private MetadataCleaner() {
     }
@@ -100,21 +106,15 @@ final class MetadataCleaner {
         if (title == null) {
             return "";
         }
-        return collapseWhitespace(applyRegex(title, resolveSetting(Settings.LYRICS_CUSTOM_REGEX.get())));
+        return collapseWhitespace(applyRegex(stripFeatureCreditSuffix(title),
+                resolveSetting(Settings.LYRICS_CUSTOM_REGEX.get())));
     }
 
     static String cleanArtist(@Nullable String artist) {
         if (artist == null) {
             return "";
         }
-        String clean = artist;
-
-        // Multi artist strings such as "A, B & C" rarely match a database entry,
-        // so only the first credited artist is used for the lookup.
-        int separator = indexOfFirstSeparator(clean);
-        if (separator > 0) {
-            clean = clean.substring(0, separator);
-        }
+        String clean = firstArtist(artist);
         return collapseWhitespace(applyRegex(clean, resolveSetting(Settings.LYRICS_CUSTOM_REGEX.get())));
     }
 
@@ -183,8 +183,18 @@ final class MetadataCleaner {
         return swapped.equals(track) ? null : swapped;
     }
 
+    static String stripFeatureCreditSuffix(String title) {
+        return FEATURE_CREDIT_SUFFIX.matcher(title).replaceFirst("");
+    }
+
+    static String firstArtist(String artist) {
+        int separator = indexOfFirstSeparator(artist);
+        return separator > 0 ? artist.substring(0, separator) : artist;
+    }
+
     private static int indexOfFirstSeparator(String artist) {
-        String[] separators = {" & ", ", ", " x ", " X ", " feat. ", " ft. ", " с ", " 和 "};
+        String[] separators = {" & ", ", ", " x ", " X ", " feat. ", " ft. ", " с ", " 和 ",
+                " і ", " І ", " y ", " Y ", " und ", " UND "};
         int result = -1;
         for (String separator : separators) {
             int index = artist.indexOf(separator);
@@ -196,7 +206,7 @@ final class MetadataCleaner {
     }
 
     static String[] splitArtists(String artist) {
-        return artist.split("\\s*(?:和|&|feat\\.?|ft\\.?|,|/)\\s*");
+        return artist.split("(?iu)\\s*(?:和|&|feat\\.?|ft\\.?|,|/)\\s*|\\s+(?:і|y|und)\\s+");
     }
 
     private static String collapseWhitespace(String value) {
