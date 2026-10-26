@@ -70,8 +70,18 @@ public final class SnackBarPatch {
     private static int blackColor = 0;
     private static int whiteColor = 0;
 
-    public static boolean hideSnackBar() {
-        return HIDE_SNACK_BAR;
+    /**
+     * Block attachment after YouTube updates layout parameters, which can undo constructor-time hiding.
+     * A null view must still reach the container so it can clear the previous snackbar.
+     */
+    public static boolean hideSnackBar(View view) {
+        if (view == null) return false;
+        if (HIDE_SNACK_BAR) return true;
+        if (HIDE_SERVER_SIDE_SNACK_BAR) {
+            int tagKey = ResourceUtils.getDrawableIdentifier("snackbar_rounded_corners_background");
+            return tagKey != 0 && Boolean.TRUE.equals(view.getTag(tagKey));
+        }
+        return false;
     }
 
     public static void hideLithoSnackBar(FrameLayout frameLayout) {

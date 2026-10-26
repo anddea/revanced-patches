@@ -12,6 +12,8 @@ import static app.morphe.extension.shared.utils.StringRef.str;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.preference.Preference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -19,6 +21,7 @@ import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -32,10 +35,10 @@ import java.util.Map;
 import java.util.Set;
 
 import app.morphe.extension.music.settings.Settings;
-import app.morphe.extension.shared.settings.StringSetting;
-import app.morphe.extension.shared.ui.Dim;
-import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.settings.StringSetting;
+import app.morphe.extension.shared.utils.BaseThemeUtils;
+import app.morphe.extension.shared.ui.Dim;
 
 /**
  * Preference that shows the third-party lyrics providers inline on the settings screen and lets the
@@ -50,8 +53,8 @@ public final class LyricsOrderedListPreference extends Preference {
     /** Canonical provider ids, in the default priority order, shown in the list. */
     private static final List<String> PROVIDER_ORDER = Arrays.asList(
             "YTMusic", "Captions", "LRCLIB", "QQ", "NetEase", "KuGou", "Luna",
-            "PetitLyrics", "bLyrics", "BiniLyrics", "Unison", "SimpMusic", "AMLL",
-            "LunaBeat", "Lyricify", "Apple", "Musixmatch", "Spotify", "Deezer");
+            "RMM", "PetitLyrics", "bLyrics", "BiniLyrics", "Unison", "SimpMusic", "AMLL",
+            "LunaBeat", "Lyricify", "Apple", "Musixmatch", "Spotify", "Deezer", "Genius");
 
     /** Friendlier labels for display; ids not present here are shown verbatim. */
     private static final Map<String, String> PROVIDER_LABELS = new HashMap<>();
@@ -59,12 +62,33 @@ public final class LyricsOrderedListPreference extends Preference {
         PROVIDER_LABELS.put("YTMusic", "YouTube Music");
         PROVIDER_LABELS.put("Captions", "YouTube Captions (Auto) *");
         PROVIDER_LABELS.put("Apple", "Apple Music");
+        PROVIDER_LABELS.put("RMM", "RMM Revival");
         PROVIDER_LABELS.put("Luna", "Soda (Luna)");
         PROVIDER_LABELS.put("bLyrics", "BetterLyrics (bLyrics)");
         PROVIDER_LABELS.put("BiniLyrics", "BiniLyrics (Binimum)");
         PROVIDER_LABELS.put("Musixmatch", "Musixmatch");
         PROVIDER_LABELS.put("Spotify", "Spotify *");
         PROVIDER_LABELS.put("Deezer", "Deezer *");
+        PROVIDER_LABELS.put("Genius", "Genius");
+    }
+
+    private static final Map<String, String> PROVIDER_URLS = new HashMap<>();
+    static {
+        PROVIDER_URLS.put("LRCLIB", "https://lrclib.net/");
+        PROVIDER_URLS.put("QQ", "https://y.qq.com/");
+        PROVIDER_URLS.put("NetEase", "https://music.163.com/");
+        PROVIDER_URLS.put("KuGou", "https://www.kugou.com/");
+        PROVIDER_URLS.put("Luna", "https://www.qishui.com/");
+        PROVIDER_URLS.put("PetitLyrics", "https://petitlyrics.com/");
+        PROVIDER_URLS.put("bLyrics", "https://betterlyrics.org/");
+        PROVIDER_URLS.put("BiniLyrics", "https://lyrics.binimum.org/");
+        PROVIDER_URLS.put("Unison", "https://unison.boidu.dev/");
+        PROVIDER_URLS.put("SimpMusic", "https://lyrics.simpmusic.org/");
+        PROVIDER_URLS.put("AMLL", "https://amlldb.bikonoo.com/");
+        PROVIDER_URLS.put("LunaBeat", "https://2755337087.github.io/ttml-hub/");
+        PROVIDER_URLS.put("Lyricify", "https://lyricify.app/");
+        PROVIDER_URLS.put("RMM", "https://rmmreviv.al/");
+        PROVIDER_URLS.put("Genius", "https://genius.com/");
     }
 
     private static String providerLabel(String id) {
@@ -121,17 +145,21 @@ public final class LyricsOrderedListPreference extends Preference {
         if (!isEnabled()) {
             return;
         }
-        new AlertDialog.Builder(getContext())
-                .setTitle(str("morphe_music_lyrics_source_reset_title"))
-                .setMessage(str("morphe_music_lyrics_source_reset_message"))
-                .setPositiveButton(android.R.string.ok, (d, w) -> {
-                    Settings.LYRICS_SOURCE.resetToDefault();
-                    loadItems();
-                    updateSummary();
-                    rebuildRows();
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+        try {
+            new AlertDialog.Builder(getContext())
+                    .setTitle(str("morphe_music_lyrics_source_reset_title"))
+                    .setMessage(str("morphe_music_lyrics_source_reset_message"))
+                    .setPositiveButton(android.R.string.ok, (d, w) -> {
+                        Settings.LYRICS_SOURCE.resetToDefault();
+                        loadItems();
+                        updateSummary();
+                        rebuildRows();
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        } catch (WindowManager.BadTokenException ex) {
+            Logger.printException(() -> "Could not show the reset dialog", ex);
+        }
     }
 
     @Override
@@ -149,6 +177,20 @@ public final class LyricsOrderedListPreference extends Preference {
 
     @Override
     public View getView(View convertView, ViewGroup parent) {
+        try {
+            return buildView(convertView, parent);
+        } catch (Throwable ignored) {
+            // Bound from the settings list, where an exception would take the whole
+            // screen down. The sibling entry point guards itself the same way.
+            LinearLayout fallback = new LinearLayout(getContext());
+            fallback.setOrientation(LinearLayout.VERTICAL);
+            fallback.setLayoutParams(new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            return fallback;
+        }
+    }
+
+    private View buildView(View convertView, ViewGroup parent) {
         loadItems();
         Context context = getContext();
         final int fg = BaseThemeUtils.getAppForegroundColor();
@@ -163,16 +205,6 @@ public final class LyricsOrderedListPreference extends Preference {
                 onClick();
             }
         });
-
-        CharSequence title = getTitle();
-        if (!TextUtils.isEmpty(title)) {
-            TextView titleView = new TextView(context);
-            titleView.setText(title);
-            titleView.setTextSize(16);
-            titleView.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-            titleView.setTextColor(fg);
-            root.addView(titleView);
-        }
 
         CharSequence summary = getSummary();
         if (!TextUtils.isEmpty(summary)) {
@@ -226,6 +258,16 @@ public final class LyricsOrderedListPreference extends Preference {
         pref.showDialog(onTokenSaved);
     }
 
+    private void openUrl(String url) {
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            getContext().startActivity(intent);
+        } catch (Exception ex) {
+            Logger.printDebug(() -> "Failed to open provider site", ex);
+        }
+    }
+
     private void rebuildRows() {
         if (rowsContainer == null) {
             return;
@@ -264,6 +306,10 @@ public final class LyricsOrderedListPreference extends Preference {
         if (!locked && hasTokenDialog(item.id)) {
             name.setClickable(true);
             name.setOnClickListener(v -> showTokenDialogFor(item.id, null));
+        } else if (!locked && PROVIDER_URLS.containsKey(item.id)) {
+            final String url = PROVIDER_URLS.get(item.id);
+            name.setClickable(true);
+            name.setOnClickListener(v -> openUrl(url));
         }
 
         Switch switchV = new Switch(context);
@@ -316,9 +362,10 @@ public final class LyricsOrderedListPreference extends Preference {
                     case DragEvent.ACTION_DRAG_LOCATION: {
                         final int target = (int) v.getTag();
                         if (target != dragIndex && target >= 0) {
-                            reorder(dragIndex, target);
+                            final int from = dragIndex;
+                            reorder(from, target);
+                            moveRow(from, from < target ? target - 1 : target);
                             dragIndex = target;
-                            rebuildRows();
                         }
                         return true;
                     }
@@ -342,8 +389,25 @@ public final class LyricsOrderedListPreference extends Preference {
         return row;
     }
 
+    private void moveRow(int from, int to) {
+        if (rowsContainer == null || rowsContainer.getChildCount() != items.size()) {
+            rebuildRows();
+            return;
+        }
+        if (from == to || from < 0 || from >= rowsContainer.getChildCount()) {
+            return;
+        }
+        View row = rowsContainer.getChildAt(from);
+        rowsContainer.removeViewAt(from);
+        rowsContainer.addView(row, Math.max(0, Math.min(to, rowsContainer.getChildCount())));
+        for (int i = 0; i < rowsContainer.getChildCount(); i++) {
+            rowsContainer.getChildAt(i).setTag(i);
+        }
+    }
+
     private void reorder(int from, int to) {
-        if (from == to || from < 0 || to < 0) {
+        if (from == to || from < 0 || to < 0
+                || from >= items.size() || to >= items.size()) {
             return;
         }
         Item moved = items.remove(from);
@@ -382,6 +446,12 @@ public final class LyricsOrderedListPreference extends Preference {
             }
         }
 
+        if (disableTokenlessItems()) {
+            saveItems();
+        }
+    }
+
+    private boolean disableTokenlessItems() {
         boolean changed = false;
         for (Item item : items) {
             if (item.enabled && isTokenRequired(item.id)) {
@@ -389,17 +459,11 @@ public final class LyricsOrderedListPreference extends Preference {
                 changed = true;
             }
         }
-        if (changed) {
-            saveItems();
-        }
+        return changed;
     }
 
     private void saveItems() {
-        for (Item item : items) {
-            if (item.enabled && isTokenRequired(item.id)) {
-                item.enabled = false;
-            }
-        }
+        disableTokenlessItems();
         StringBuilder sb = new StringBuilder();
         for (Item item : items) {
             //noinspection SizeReplaceableByIsEmpty

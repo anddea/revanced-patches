@@ -86,17 +86,26 @@ public final class NetEaseProvider implements LyricsProvider {
 
     @Nullable
     @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
+    public FetchResult fetch(TrackInfo track) throws Exception {
         String keyword = track.title() + " " + track.artist();
         JSONObject song = searchBest(keyword, track);
         if (song == null || !song.has("id")) {
             return null;
         }
-        return fetchFromSong(song);
+        Lyrics lyrics = fetchFromSong(song);
+        if (lyrics == null) {
+            return null;
+        }
+        final long durationMs = song.optLong("duration", 0);
+        return FetchResult.of(lyrics,
+                song.optString("name", ""),
+                song.optString("artist", ""),
+                durationMs > 0 ? durationMs / 1000 : 0,
+                track);
     }
 
     @Override
-    public List<Lyrics> fetchCandidates(TrackInfo track) throws Exception {
+    public List<Lyrics.ScoredLyrics> fetchCandidates(TrackInfo track) throws Exception {
         String keyword = track.title() + " " + track.artist();
         List<JSONObject> songs = searchAll(keyword, track);
 
@@ -122,7 +131,7 @@ public final class NetEaseProvider implements LyricsProvider {
             }
         }
 
-        return Lyrics.sortLyricsByScore(scored);
+        return Lyrics.sortScoredByScore(scored);
     }
 
     @Nullable
@@ -149,10 +158,14 @@ public final class NetEaseProvider implements LyricsProvider {
         List<LyricsLine> romaLines = romalrc.isEmpty() ? null : LrcParser.parseSynced(romalrc);
         List<LyricsLine> romanization = LyricsMerge.mergeRomanization(lines, romaLines);
 
-        List<LyricsLine> transLines = tlyric.isEmpty() ? null : LrcParser.parseSynced(tlyric);
-        List<LyricsLine> translation = LyricsMerge.mergeRomanization(lines, transLines);
-        Map<String, List<LyricsLine>> translations =
-                LyricsMerge.singleLanguageTranslations(translation, "zh");
+        // NetEase writes this translation itself, in the Chinese the mainland uses.
+        Map<String, List<LyricsLine>> translations = null;
+        if (LyricsRequests.isSimplifiedChinese()) {
+            List<LyricsLine> transLines = tlyric.isEmpty() ? null : LrcParser.parseSynced(tlyric);
+            List<LyricsLine> translation = LyricsMerge.mergeRomanization(lines, transLines);
+            translations = LyricsMerge.singleLanguageTranslations(
+                    translation, LyricsRequests.SIMPLIFIED_CHINESE);
+        }
 
         String rawFormat = filterJsonLines(!yrc.isEmpty() ? yrc : lrc);
         String formatType = !yrc.isEmpty() ? "yrc" : "lrc";
@@ -246,7 +259,14 @@ public final class NetEaseProvider implements LyricsProvider {
         }
         List<JSONObject> scored = new ArrayList<>(candidates);
         scored.sort((a, b) -> scoreCandidate(b, track) - scoreCandidate(a, track));
-        return scored;
+        List<JSONObject> passed = new ArrayList<>();
+        for (JSONObject item : scored) {
+            if (scoreCandidate(item, track) >= LyricsRequests.SOFT_MIN) {
+                passed.add(item);
+            }
+        }
+        return passed.isEmpty() && !scored.isEmpty()
+                ? List.of(scored.get(0)) : passed;
     }
 
     @Nullable
@@ -264,6 +284,9 @@ public final class NetEaseProvider implements LyricsProvider {
                 bestScore = score;
                 best = candidate;
             }
+        }
+        if (best == null || bestScore < LyricsRequests.SOFT_MIN) {
+            return null;
         }
         return best;
     }
@@ -635,18 +658,14 @@ public final class NetEaseProvider implements LyricsProvider {
                 full.append(trimmed);
             }
             if (words.isEmpty() && !content.isEmpty()) {
-                words.add(new Word(lineStart, lineEnd, content));
                 full.append(content);
-            }
-            if (words.isEmpty()) {
-                continue;
             }
 
             String fullText = full.toString().trim();
             if (fullText.isEmpty()) {
                 continue;
             }
-            lines.add(new LyricsLine(lineStart, fullText, words));
+            lines.add(new LyricsLine(lineStart, lineEnd, fullText, words));
         }
 
         lines.sort(Comparator.comparingLong(LyricsLine::startTimeMs));
@@ -654,9 +673,8 @@ public final class NetEaseProvider implements LyricsProvider {
     }
 
     private static List<LyricsLine> parseLrc(String text) {
-        List<LyricsLine> lines = new ArrayList<>();
         if (text == null || text.isEmpty()) {
-            return lines;
+            return new ArrayList<>();
         }
 
         List<Item> items = new ArrayList<>();
@@ -665,30 +683,9 @@ public final class NetEaseProvider implements LyricsProvider {
             if (line.isEmpty()) {
                 continue;
             }
-            Matcher timeMatch = LRC_TIME.matcher(line);
-            List<Long> starts = new ArrayList<>();
-            int lastEnd = -1;
-            while (timeMatch.find()) {
-                starts.add(parseTimeMs(timeMatch.group(1), timeMatch.group(2), timeMatch.group(3)));
-                lastEnd = timeMatch.end();
-            }
-            if (starts.isEmpty()) {
-                continue;
-            }
-            String content = line.substring(lastEnd).trim();
-            if (content.isEmpty()) {
-                continue;
-            }
-            for (Long start : starts) {
-                items.add(new Item(start, content));
-            }
+            addTimeTaggedLine(line, items);
         }
-
-        items.sort(Comparator.comparingLong(Item::start));
-        for (Item item : items) {
-            lines.add(new LyricsLine(item.start(), item.text()));
-        }
-        return lines;
+        return toSortedLines(items);
     }
 
     private static List<LyricsLine> parseMixedNeteaseLyrics(String text) {
@@ -731,27 +728,38 @@ public final class NetEaseProvider implements LyricsProvider {
                 continue;
             }
 
-            Matcher timeMatch = LRC_TIME.matcher(line);
-            List<Long> starts = new ArrayList<>();
-            int lastEnd = -1;
-            while (timeMatch.find()) {
-                starts.add(parseTimeMs(timeMatch.group(1), timeMatch.group(2), timeMatch.group(3)));
-                lastEnd = timeMatch.end();
-            }
-            if (starts.isEmpty()) {
-                continue;
-            }
-            String content = line.substring(lastEnd).trim();
-            if (content.isEmpty()) {
-                continue;
-            }
-            for (Long start : starts) {
-                items.add(new Item(start, content));
-            }
+            addTimeTaggedLine(line, items);
         }
+        return toSortedLines(items);
+    }
 
+    /**
+     * Adds one line of {@code [mm:ss.xx] text}, once per timestamp it carries. A line with no
+     * timestamp, or with nothing after the last one, adds nothing.
+     */
+    private static void addTimeTaggedLine(String line, List<Item> items) {
+        Matcher timeMatch = LRC_TIME.matcher(line);
+        List<Long> starts = new ArrayList<>();
+        int lastEnd = -1;
+        while (timeMatch.find()) {
+            starts.add(parseTimeMs(timeMatch.group(1), timeMatch.group(2), timeMatch.group(3)));
+            lastEnd = timeMatch.end();
+        }
+        if (starts.isEmpty()) {
+            return;
+        }
+        String content = line.substring(lastEnd).trim();
+        if (content.isEmpty()) {
+            return;
+        }
+        for (Long start : starts) {
+            items.add(new Item(start, content));
+        }
+    }
+
+    private static List<LyricsLine> toSortedLines(List<Item> items) {
         items.sort(Comparator.comparingLong(Item::start));
-        List<LyricsLine> lines = new ArrayList<>();
+        List<LyricsLine> lines = new ArrayList<>(items.size());
         for (Item item : items) {
             lines.add(new LyricsLine(item.start(), item.text()));
         }

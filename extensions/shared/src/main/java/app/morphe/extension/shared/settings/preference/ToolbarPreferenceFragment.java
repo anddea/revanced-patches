@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.settings.preference;
 
 import static app.morphe.extension.shared.patches.PatchStatus.PatchVersion;
@@ -21,12 +31,16 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import app.morphe.extension.shared.patches.BaseAppRefreshRatePatch;
@@ -80,7 +94,16 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
                                 rootView.setOnApplyWindowInsetsListener((v, insets) -> {
                                     Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
                                     Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
-                                    v.setPadding(0, statusInsets.top, 0, navInsets.bottom);
+                                    Insets cutoutInsets = insets.getInsets(WindowInsets.Type.displayCutout());
+
+                                    // Apply padding for display cutout in landscape,
+                                    // and in portrait if the status bar is hidden.
+                                    int leftPadding = cutoutInsets.left;
+                                    int rightPadding = cutoutInsets.right;
+                                    int topPadding = Math.max(statusInsets.top, cutoutInsets.top);
+                                    int bottomPadding = navInsets.bottom;
+
+                                    v.setPadding(leftPadding, topPadding, rightPadding, bottomPadding);
                                     return insets;
                                 });
                             }
@@ -195,24 +218,28 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
     protected void exportText(Uri uri) {
         final Context context = this.getActivity();
         try {
-            FileWriter jsonFileWriter =
-                    new FileWriter(
-                            Objects.requireNonNull(context.getApplicationContext()
-                                            .getContentResolver()
-                                            .openFileDescriptor(uri, "w"))
-                                    .getFileDescriptor()
-                    );
-            PrintWriter printWriter = new PrintWriter(jsonFileWriter);
-            if (settingExportInProgress) {
-                printWriter.write(Setting.exportToJson(context));
-            } else {
-                String message = LogBufferManager.exportToString();
-                if (message != null) {
-                    printWriter.write(message);
+            Collection<String> pendingLinesToExport = settingExportInProgress
+                    ? List.of(Setting.exportToJson(context)) : LogBufferManager.exportToLines();
+            if (pendingLinesToExport == null) return;
+
+            // Stream the snapshot instead of allocating a joined string and its encoded bytes.
+            try (OutputStream out = context.getContentResolver().openOutputStream(uri, "rwt");
+                 BufferedWriter writer = out != null
+                         ? new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8))
+                         : null) {
+                if (writer == null) {
+                    throw new IOException("Could not open export destination");
                 }
+                boolean first = true;
+                for (String line : pendingLinesToExport) {
+                    if (!first) {
+                        writer.newLine();
+                    }
+                    writer.write(line);
+                    first = false;
+                }
+                writer.flush();
             }
-            printWriter.close();
-            jsonFileWriter.close();
 
             if (settingExportInProgress) {
                 showToastShort(str("revanced_settings_export_success"));

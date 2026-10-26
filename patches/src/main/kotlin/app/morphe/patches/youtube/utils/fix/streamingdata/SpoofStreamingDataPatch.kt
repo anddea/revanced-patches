@@ -2,6 +2,7 @@ package app.morphe.patches.youtube.utils.fix.streamingdata
 
 import app.morphe.patches.shared.misc.spoof.spoofVideoStreamsPatch
 import app.morphe.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
+import app.morphe.patches.youtube.utils.extension.hooks.applicationInitHook
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.morphe.patches.youtube.utils.mainactivity.mainActivityFingerprint
@@ -24,6 +25,8 @@ val spoofStreamingDataPatch = spoofVideoStreamsPatch(
     // Updated parameter name: extensionClassDescriptor -> extensionClass
     extensionClass = "Lapp/morphe/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;",
     mainActivityOnCreateFingerprint = mainActivityFingerprint.second,
+    // Also set the client order on Application init (Morphe a60a3b6).
+    applicationInitFingerprint = applicationInitHook.fingerprint,
     fixMediaFetchHotConfig = {
         is_19_34_or_greater
     },

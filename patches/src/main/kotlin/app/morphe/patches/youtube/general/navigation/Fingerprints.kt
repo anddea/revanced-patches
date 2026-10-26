@@ -52,6 +52,7 @@
 package app.morphe.patches.youtube.general.navigation
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.checkCast
@@ -274,13 +275,16 @@ internal object TranslucentNavigationButtonsFeatureFlagFingerprint : Fingerprint
 )
 
 /**
- * Device on screen back/home/recent buttons.
+ * Applies the system navigation bar color of the app theme to the window.
  */
-internal object TranslucentNavigationButtonsSystemFeatureFlagFingerprint : Fingerprint(
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
-    returnType = "Z",
+internal object SystemNavigationBarColorFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf("Landroid/content/res/TypedArray;"),
     filters = listOf(
-        literal(45632194L) // Translucent system buttons feature flag.
+        methodCall(smali = "Landroid/content/res/TypedArray;->getColor(II)I"),
+        opcode(Opcode.MOVE_RESULT, MatchAfterImmediately()),
+        methodCall(smali = "Landroid/view/Window;->getNavigationBarColor()I"),
+        methodCall(smali = "Landroid/view/Window;->setNavigationBarColor(I)V")
     )
 )
 

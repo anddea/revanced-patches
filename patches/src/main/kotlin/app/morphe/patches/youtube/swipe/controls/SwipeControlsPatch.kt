@@ -27,6 +27,7 @@ import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.getContext
 import app.morphe.patches.youtube.utils.settings.settingsPatch
+import app.morphe.patches.youtube.video.audio.soundBoostPatch
 import app.morphe.util.ResourceGroup
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
@@ -39,8 +40,8 @@ import app.morphe.util.getWalkerMethod
 import app.morphe.util.hookClassHierarchy
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstLiteralInstruction
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -63,6 +64,7 @@ val swipeControlsPatch = bytecodePatch(
         sharedResourceIdPatch,
         settingsPatch,
         versionCheckPatch,
+        soundBoostPatch,
     )
 
     execute {

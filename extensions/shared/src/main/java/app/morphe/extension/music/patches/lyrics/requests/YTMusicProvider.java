@@ -39,9 +39,7 @@ public final class YTMusicProvider implements LyricsProvider {
 
     private static final String WEB_REMIX_VERSION = "1.20260914.01.00";
     private static final String ANDROID_MUSIC_VERSION = "7.21.50";
-    private static final String INNERTUBE_USER_AGENT =
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                    + "(KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36";
+    private static final String INNERTUBE_USER_AGENT = LyricsRequests.CHROME_DESKTOP_USER_AGENT;
 
     @Override
     public String name() {
@@ -50,7 +48,7 @@ public final class YTMusicProvider implements LyricsProvider {
 
     @Nullable
     @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
+    public FetchResult fetch(TrackInfo track) throws Exception {
         final String videoId = VideoInformation.getVideoId();
         if (videoId.isEmpty()) {
             return null;
@@ -64,18 +62,18 @@ public final class YTMusicProvider implements LyricsProvider {
         final Lyrics plainResult = fetchLyrics(browseId, false);
         if (plainResult != null && !plainResult.isEmpty()) {
             if (plainResult.synced()) {
-                return plainResult;
+                return FetchResult.of(plainResult);
             }
             final Lyrics timedResult = fetchLyrics(browseId, true);
             if (timedResult != null && timedResult.synced()) {
-                return timedResult;
+                return FetchResult.of(timedResult);
             }
-            return plainResult;
+            return FetchResult.of(plainResult);
         }
 
         final Lyrics androidResult = fetchLyrics(browseId, true);
         if (androidResult != null && !androidResult.isEmpty()) {
-            return androidResult;
+            return FetchResult.of(androidResult);
         }
 
         return null;

@@ -4,7 +4,7 @@
     <string name="gms_core_dialog_dismiss_text">Nicht wider zeigen</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG hat keine Berechtigung, im Hintergrund zu laufen
 
-Folgen Sie der Anleitung “Don't kill my app” für Ihr Telefon und wenden Sie die Anleitungen auf Ihre MicroG-Installation an
+Befolge die Anleitung \"Don't kill my app\" für dein Telefon und wende die Anweisungen auf deine MicroG-Installation an
 
 Dies ist erforderlich, damit die App funktioniert"</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Die Akkuoptimierung muss für MicroG deaktiviert werden, um Probleme zu vermeiden
@@ -16,7 +16,7 @@ Tippe auf die Schaltfläche „Weiter“ und erlaube die Änderungen"</string>
     <string name="gms_core_dialog_title">Aktion notwendig</string>
     <string name="gms_core_settings_summary">Um Benachrichtigungen in RVX Music zu erhalten, aktivieren Sie Cloud Messaging</string>
     <string name="gms_core_settings_title">GmsCore-Einstellungen öffnen</string>
-    <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installieren Sie es</string>
+    <string name="gms_core_toast_not_installed_message">MicroG ist nicht installiert. Installiere es</string>
     <string name="morphe_app_refresh_rate_default">Standard</string>
     <string name="morphe_app_refresh_rate_fps">%s FPS</string>
     <string name="morphe_app_refresh_rate_title">Bildwiederholrate der App</string>
@@ -67,29 +67,31 @@ Schritte:
     <string name="morphe_music_crossfade_about_best_title">Was am besten funktioniert</string>
     <string name="morphe_music_crossfade_about_credit_summary">Crossfade-Funktion von VazerOG</string>
     <string name="morphe_music_crossfade_about_credit_title">Credits</string>
-    <string name="morphe_music_crossfade_about_how_summary">"Nahtlose Wiedergabe überlappt das Ende des aktuellen Songs mit dem Anfang des nächsten entsprechend des von dir gewählten Überblendungsmodus über die eingestellte Dauer. In der Fachsprache nennt man dies auch Crossfade
+    <string name="morphe_music_crossfade_about_how_summary">"Crossfade überlappt das Ende eines Songs mit dem Anfang des nächsten, unter Verwendung deiner Dauer und Kurve
 
-Die Funktion lässt sich sowohl bei der normalen Wiedergabe (wenn ein Song von selbst zu Ende geht) als auch beim manuellen Überspringen mit den jeweiligen Schaltern separat aktivieren. Bei automatischem Titelwechsel beginnt die Überblendung gemäß der Einstellung schon vor dem Ende des Titels
-
-Nahtlose Wiedergabe benötigt YouTube Music 9.x oder neuer"</string>
+Es läuft bei automatischem Weiterspringen und bei manuellem Überspringen, jeweils mit eigenem Schalter. Beim automatischen Weiterspringen beginnt die Überblendung einige Sekunden vor dem Ende des Songs.‚"</string>
     <string name="morphe_music_crossfade_about_how_title">Wie es funktioniert</string>
     <string name="morphe_music_crossfade_about_known_summary">"Ist der erste Titel einer Wiedergabe (oder außerhalb der aktuellen Warteschlange gestartet) ein Musikvideo, kann dieses kurz als Video angezeigt werden, bevor der Audio-only-Modus aktiviert wird
 
 Das Anhalten der nahtlosen Wiedergabe zum Ansehen eines Musikvideos kann dazu führen, dass einige Videos schwarz bleiben (solche, deren Audio aus dem Video selbst stammt). Dies lässt sich vermeiden, indem die nahtlose Wiedergabe pausiert wird, bevor ein Song ausgewählt wird"</string>
     <string name="morphe_music_crossfade_about_known_title">Bekannte Probleme</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"Bei Musikvideos wird während aktivierter nahtloser Wiedergabe nur der Ton wiedergegeben. Über langes Drücken der Shuffle-Taste lässt sich die Funktion pausieren, falls man das Video sehen möchte
+    <string name="morphe_music_crossfade_about_quirks_summary">"Bei aktivem Crossfade werden Musikvideos nur als Audio abgespielt. Halte die Zufallswiedergabe lange gedrückt, um Crossfade zu pausieren und das Video anzusehen
 
-Titel, die kürzer sind als die eingestellte Überblendungsdauer werden möglicherweise nicht überblendet
+Startet die Wiedergabe mit einem Musikvideo, bleibt es bis zum nächsten Song im Videomodus
 
-Sperrbildschirm und Wiedergabebenachrichtigung kann während der Überblendung kurzzeitig einen veralteten Zustand anzeigen"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">Was nicht richtig funktioniert</string>
+Songs, die kürzer als die Überblendungsdauer sind, werden nicht überblendet
+
+Der Sperrbildschirm oder die Benachrichtigung kann mitten im Übergang kurzzeitig einen veralteten Zustand anzeigen
+
+Wenn du Crossfade pausierst, um ein Musikvideo anzusehen, kann das dazu führen, dass einige Videos schwarz bleiben. Wenn du Crossfade pausierst, bevor du den Song auswählst, vermeidest du das"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Einschränkungen</string>
     <string name="morphe_music_crossfade_about_summary">Wie nahtlose Wiedergabe funktioniert – und wann es nicht klappt</string>
     <string name="morphe_music_crossfade_about_title">Über</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Übertragung oder Spiegelung von Audio (Chromecast, Bildschirm- oder Audiospiegelung) – nahtlose Wiedergabe wird währenddessen wegen Instabilität pausiert und wird möglicherweise nie funktionieren
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Casten oder Spiegeln von Audio (Chromecast, Bildschirm- oder Audiospiegelung)
 
-YouTube Music 8.x – Nahtlose Wiedergabe funktioniert erst ab Version 9.x"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">Was überhaupt nicht funktioniert</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">Nahtlose Wiedergabe ist während der Audioausgabe auf anderen Geräten pausiert. Nahtlose Wiedergabe über Miracast/Audio-Broadcast ist instabil und möglicherweise nicht umsetzbar</string>
+SABR-Wiedergabe (Spoofing von Videostreams deaktiviert)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Nicht unterstützt</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Beim Casten ist Crossfade deaktiviert</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Sanftes Halten</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">Sanfter Übergang</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Gleiche Lautstärke</string>
@@ -120,73 +122,52 @@ Schritte:
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl ungültig. Bitte erneut versuchen</string>
     <string name="morphe_music_deezer_arl_toast_invalid">Deezer: ungültiges arl – bitte überprüfen und erneut versuchen</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl gespeichert</string>
-    <string name="morphe_music_downloads_actions_for">Aktionen für %s</string>
-    <string name="morphe_music_downloads_all_deleted">Downloads gelöscht</string>
     <string name="morphe_music_downloads_already_running">Download läuft bereits</string>
     <string name="morphe_music_downloads_already_saved">Bereits heruntergeladen</string>
-    <string name="morphe_music_downloads_close">Schließen</string>
     <string name="morphe_music_downloads_complete">Download abgeschlossen</string>
-    <string name="morphe_music_downloads_delete">Löschen</string>
-    <string name="morphe_music_downloads_delete_all">Alle Downloads löschen</string>
-    <string name="morphe_music_downloads_delete_all_message">Alle heruntergeladenen Titel werden von diesem Gerät gelöscht</string>
-    <string name="morphe_music_downloads_delete_all_title">Alle Downloads löschen?</string>
-    <string name="morphe_music_downloads_delete_track">Download löschen</string>
-    <string name="morphe_music_downloads_delete_track_message">%s wird von diesem Gerät gelöscht</string>
-    <string name="morphe_music_downloads_delete_track_title">Download löschen?</string>
-    <string name="morphe_music_downloads_empty">"Keine Downloads
-Heruntergeladene Titel erscheinen hier"</string>
     <string name="morphe_music_downloads_failed">Download fehlgeschlagen</string>
-    <string name="morphe_music_downloads_next">Nächster Titel</string>
-    <string name="morphe_music_downloads_nothing_found">Nichts gefunden</string>
     <string name="morphe_music_downloads_notification_channel">Audio-Downloads</string>
-    <string name="morphe_music_downloads_pause">Pausieren</string>
-    <string name="morphe_music_downloads_play">Abspielen</string>
-    <string name="morphe_music_downloads_play_failed">Der Download konnte nicht abgespielt werden</string>
-    <string name="morphe_music_downloads_play_pause">Abspielen oder pausieren</string>
-    <string name="morphe_music_downloads_playback_channel">Offline-Wiedergabe</string>
-    <string name="morphe_music_downloads_previous">Vorheriger Titel</string>
     <string name="morphe_music_downloads_progress">Wird heruntergeladen: %s%%</string>
-    <string name="morphe_music_downloads_screen_title">Downloads</string>
-    <string name="morphe_music_downloads_search_hint">Downloads durchsuchen</string>
     <string name="morphe_music_downloads_sort">Sortieren</string>
-    <string name="morphe_music_downloads_sort_artist">Nach Künstler sortieren</string>
-    <string name="morphe_music_downloads_sort_size">Nach Größe sortieren</string>
-    <string name="morphe_music_downloads_sort_title">Nach Titel sortieren</string>
     <string name="morphe_music_downloads_started">Download gestartet</string>
     <string name="morphe_music_downloads_starting">Download wird gestartet…</string>
-    <string name="morphe_music_downloads_summary">%1$s Titel • %2$s MB</string>
-    <string name="morphe_music_downloads_track_delete_failed">Der Download konnte nicht gelöscht werden</string>
-    <string name="morphe_music_downloads_track_deleted">Download gelöscht</string>
-    <string name="morphe_music_downloads_track_subtitle">%1$s • %2$s • %3$s MB</string>
     <string name="morphe_music_downloads_unknown_track">Der Titel zum Herunterladen konnte nicht identifiziert werden</string>
     <string name="morphe_music_in_app_downloads_summary">Lädt Audio in YouTube Music herunter, anstatt die externe Downloader-App zu öffnen</string>
     <string name="morphe_music_in_app_downloads_title">Download in der App</string>
-    <string name="morphe_music_in_app_downloads_user_dialog_message">"Titel werden im privaten Speicher der App gespeichert und gelöscht, wenn YouTube Music deinstalliert wird
-
-Solange diese Option aktiviert ist, listet der Downloads-Tab diese Titel anstelle der Offline-Bibliothek von Music Premium auf. Wenn du sie deaktivierst, wird der Tab wiederhergestellt, und Premium-Downloads bleiben unberührt"</string>
-    <string name="morphe_music_lyrics_about_summary">"Songtexte werden nach Titel und Künstler abgeglichen. Ungewöhnliche Metadaten können zu keinem Ergebnis oder zur falschen Version führen. Verwenden Sie Aktualisieren, um die Versionen zu wechseln. Mit * markierte Anbieter erfordern ein Token. Alle aktivierten Anbieter werden nicht immer in Ihrer Reihenfolge angefragt, sondern antworten je nach ihrer Geschwindigkeit"</string>
+    <string name="morphe_music_lyrics_about_summary">"Liedtexte werden nach Titel und Interpret abgeglichen, ungewöhnliche Metadaten können nichts oder die falsche Version finden. Verwenden Sie Aktualisieren, um zwischen Versionen zu wechseln. Anbieter mit * benötigen ein Token. Nicht alle aktiven Anbieter werden immer in Ihrer Reihenfolge angefragt, sondern basierend auf ihrer Geschwindigkeit antworten.\n\nLiedtexte stammen von Drittanbieterdiensten, die keine Verbindung zu RVX haben, nicht von RVX gesponsert oder unterstützt werden. Jeder wird so verwendet, wie er ist: Der Liedtext, seine Verfügbarkeit und seine Lizenzierung bleiben bei diesen Diensten und ihren Lizengebern; deren Nutzung kann unterliegen deren Nutzungsbedingungen. Was einen aktivierten Dienst erreicht, ist nur die Lookup-Anfrage – Titel, Interpret und gegebenenfalls die Video-ID. Die optionale AI-Schnittstelle und die QuickLRC-Transkription werden nur ausgeführt, nachdem Sie diese konfiguriert haben, und erhalten den Liedtext oder die Video-URL des Titels"</string>
     <string name="morphe_music_lyrics_about_title">Über fremde Liedtexte</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">API-Schlüssel (für anonymen Zugriff leer lassen)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">API-Endpunkt-URL (z. B. https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Konfigurieren Sie den OpenAI-kompatiblen API-Endpunkt für die KI-gestützte Übersetzung und Romanisierung von Liedtexten</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_title">KI-Übersetzungseinstellungen</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Konfigurieren Sie den OpenAI-kompatiblen API-Endpunkt für KI-gestützte Lyrics-Übersetzung, Romanisierung und Sektion</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">KI-Einstellungen</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Modellname (z. B. openai-fast, gpt-4o-mini)</string>
-    <string name="morphe_music_lyrics_ai_config_status_configured">Konfiguriert</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Modellname darf nicht leer sein</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">Basis-URL darf nicht leer sein</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Basis-URL muss mit http:// oder https:// beginnen</string>
-    <string name="morphe_music_lyrics_ai_config_status_not_configured">Zum Konfigurieren tippen</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Verbindung wird überprüft…</string>
-    <string name="morphe_music_lyrics_ai_config_toast_invalid">Verbindung zum KI-Endpunkt fehlgeschlagen. Bitte überprüfen Sie Ihre Einstellungen</string>
-    <string name="morphe_music_lyrics_ai_config_toast_reset">KI-Übersetzungseinstellungen zurückgesetzt</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">KI-Übersetzungseinstellungen gespeichert</string>
+    <string name="morphe_music_lyrics_ai_config_summary_configured">Modell %1$s konfiguriert</string>
+    <string name="morphe_music_lyrics_ai_config_toast_invalid">Keine Verbindung zum AI-Endpunkt möglich. Bitte überprüfe deine Einstellungen</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">KI-Einstellungen zurückgesetzt</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">KI-Einstellungen gespeichert</string>
+    <string name="morphe_music_lyrics_ai_extra_body_hint">Zusätzlicher Anforderungskörper (JSON, wird in jede AI-Anfrage zusammengeführt)</string>
+    <string name="morphe_music_lyrics_ai_extra_body_invalid">Ungültiges JSON. Korrigieren Sie es oder leeren Sie das Feld vor dem Speichern</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Platzhalter: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_title">Prompt-Vorlage</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Prompt gespeichert, aber der AI-Endpunkt ist noch nicht nutzbar. Konfigurieren Sie ihn zuerst unter AI-Einstellungen</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt zurückgesetzt</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt gespeichert</string>
+    <string name="morphe_music_lyrics_clear_cache_done">%1$s MB gelöscht</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Löschen Sie die auf diesem Gerät gespeicherten Liedtexte</string>
+    <string name="morphe_music_lyrics_clear_cache_title">Gespeicherte Liedtexte löschen</string>
+    <string name="morphe_music_lyrics_contribute_credit">Drücken Sie die Kopier-Schaltfläche lange gedrückt, um diese LRC-Datei zu speichern. Wenn Sie die Timings optimieren und sie den Community-Anbietern zur Verfügung stellen, wären wir sehr dankbar</string>
     <string name="morphe_music_lyrics_copied">In Zwischenablage kopiert</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Wenn Songtexte fälschlicherweise nach unten herausgefiltert werden, passe dies an oder leere das Feld. […] Leer lassen, um zu deaktivieren</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Markierungen für Infozeilen</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">Regulärer Ausdruck, der auf Titel, Interpreten und Alben angewendet wird, bevor nach Songtexten gesucht wird. Zum Deaktivieren leer lassen. Die Standardeinstellung entfernt üblichen Ballast wie „Official Video“, „Remaster“ und „- Topic“</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Regulärer Ausdruck, der auf Titel, Interpreten und Alben angewendet wird, bevor Songtexte gesucht werden und beim Bewerten, ob zwei Titel übereinstimmen. Leer lassen, um beides zu deaktivieren. Die Standardeinstellung entfernt häufiges Beiwerk wie \"Official Video\", \"Remaster\", \"【插曲】\" und \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">RegEx für Songtextfilter</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Schaltet die Anzeigereihenfolge von Interpret und Titel im Miniplayer und in MediaSession um. EIN „Interpret - Titel“ und AUS „Titel - Interpret“. Dies hat keinen Einfluss auf die Songtextsuche</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Anzeige von Künstler und Titel […] EIN „Künstler – Titel“ und AUS „Titel – Künstler“. Das hat keinen Einfluss auf die Songtextsuche</string>
+    <string name="morphe_music_lyrics_dual_only">Dual-Modus</string>
     <string name="morphe_music_lyrics_enabled_summary">Zeigt Liedtexte von einem Drittanbieter, greift aber auf die integrierten Liedtexte zurück, wenn keine gefunden werden</string>
     <string name="morphe_music_lyrics_enabled_title">Texte von Drittanbietern verwenden</string>
     <string name="morphe_music_lyrics_hide_info_summary">Blende die unter den Songtexten angezeigte Creditszeile aus</string>
@@ -197,47 +178,91 @@ Solange diese Option aktiviert ist, listet der Downloads-Tab diese Titel anstell
     <string name="morphe_music_lyrics_hide_unplayed_title">Noch nicht abgespielte Songtextzeilen ausblenden</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Verhindert, dass sich der Bildschirm ausschaltet, während der Liedtextbereich geöffnet ist</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Bildschirm beim Anzeigen von Liedtexten eingeschaltet lassen</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Lesung %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_failed">Download fehlgeschlagen - schalten Sie dies aus und wieder ein, um es erneut zu versuchen</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Lesungen bereit (%1$d Einträge)</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">Transkribieren auf dem Gerät, wenn der Anbieter, Ihr Modell und Google Translate fehlschlagen. Die Lesung folgt jedem Wort eines getimten Liedtexts; Word-Sync muss aktiviert sein. Chinesisch, Kantonesisch, Japanisch, Koreanisch, Griechisch, Russisch, Georgisch, Armenisch; ca. 120 MB</string>
+    <string name="morphe_music_lyrics_local_romanization_title">Lokale Transliteration und Ausrichtung</string>
+    <string name="morphe_music_lyrics_mediasession_summary">Zeigt die aktuelle Zeile auf dem Sperrbildschirm, Android Auto und Bluetooth. Benötigt Android 11 oder neuer</string>
     <string name="morphe_music_lyrics_mediasession_title">MediaSession-Songtexte auf dem Sperrbildschirm anzeigen</string>
+    <string name="morphe_music_lyrics_miniplayer_summary">Zeigt die aktuelle Zeile im Miniplayer an, wobei der Titel in den Untertitel verschoben wird</string>
     <string name="morphe_music_lyrics_miniplayer_title">Miniplayer-Songtexte anzeigen</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Synchronisierte Songtexte folgen der Wiedergabe. Wenn sie abweichen, passe den Timing-Offset an. […] Verwende einen positiven Wert, wenn die Songtexte dem Song vorauseilen</string>
-    <string name="morphe_music_lyrics_offset_ms_title">Zeitlicher Versatz</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Globaler Zeitversatz</string>
     <string name="morphe_music_lyrics_refreshed">Aktualisiert</string>
     <string name="morphe_music_lyrics_refreshing">Wird aktualisiert</string>
     <string name="morphe_music_lyrics_romanize_failed">Songtexte konnten nicht romanisiert werden</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanisiert</string>
+    <string name="morphe_music_lyrics_romanize_language_title">Romanisierungssprache</string>
+    <string name="morphe_music_lyrics_romanize_only">Nur romanisiert</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Romanisiert von %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Romanisiert von Google</string>
     <string name="morphe_music_lyrics_romanizing">Romanisiere …</string>
     <string name="morphe_music_lyrics_saved">Gespeichert</string>
-    <string name="morphe_music_lyrics_show_copy_button_summary">Tippe, um die Original-Songtexte als Klartext zu kopieren; drücke lange, um die rohe Songtext-Quelldatei in Downloads zu speichern</string>
+    <string name="morphe_music_lyrics_sb_matching_summary">Gleiche ohne die Segmente, die SponsorBlock überspringt, ab und verschiebe den Songtext auf die veröffentlichte Audiospur. Aus ignoriert SponsorBlock vollständig</string>
+    <string name="morphe_music_lyrics_sb_matching_title">Verwende SponsorBlock-Segmente für den Songtext-Offset</string>
+    <string name="morphe_music_lyrics_sb_no_video">Dieser Titel hat keine Video-ID zum Übermitteln</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Interpret</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Songtexte suchen</string>
+    <string name="morphe_music_lyrics_search_empty">Songtitel und Interpret eingeben</string>
+    <string name="morphe_music_lyrics_search_no_providers">Keiner der aktivierten Anbieter kann nach anderen Songs suchen</string>
+    <string name="morphe_music_lyrics_search_title_hint">Songtitel</string>
+    <string name="morphe_music_lyrics_show_copy_button_summary">Tippen zum Kopieren der Original-Liedtexte als Klartext; langdrücken zum Speichern der Rohdaten-Quelle als Download</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Kopieren-Schaltfläche anzeigen</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Tippe, um zum nächsten Songtextkandidaten zu wechseln; drücke lange, um zu speichern</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Tippen zum Wechseln zum nächsten Liedtextkandidaten; langdrücken zum Suchen von Liedtexten nach Titel und Künstler</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Schaltfläche „Aktualisieren“ anzeigen</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Romanisiere Songtexte mithilfe von Anbieter-Romanisierung, Google Translate oder einer OpenAI-kompatiblen API</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Tippen zum Umschalten der Transliteration; langdrücken für nur die Transliteration. Verwendet Anbietertransliteration, Google Translate oder eine OpenAI-kompatible API</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Schaltfläche „Romanisieren“ anzeigen</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Übersetze Songtexte mithilfe von Anbieterübersetzungen, Google Translate oder einer OpenAI-kompatiblen API</string>
+    <string name="morphe_music_lyrics_show_section_summary">Kennzeichne jeden neuen Abschnitt des Liedtexts mit einem kleinen Tag, z. B. Strophe oder Refrain</string>
+    <string name="morphe_music_lyrics_show_section_title">Abschnitts-Tags anzeigen</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Tippen zum Umschalten der Übersetzung; langdrücken für nur die Übersetzung. Verwendet Anbieterübersetzungen, Google Translate oder eine OpenAI-kompatible API</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Übersetzen-Schaltfläche anzeigen</string>
-    <string name="morphe_music_lyrics_source_all_disabled">Alle Anbieter deaktiviert – integrierte Songtexte und eingebettete Songtexte</string>
+    <string name="morphe_music_lyrics_source_all_disabled">Alle Anbieter deaktiviert - integrierte und eingebettete Liedtexte</string>
     <string name="morphe_music_lyrics_source_label">Quelle: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">Anbieter auf die Standard-Prioritätsreihenfolge zurücksetzen</string>
     <string name="morphe_music_lyrics_source_reset_title">Anbieterreihenfolge zurücksetzen?</string>
     <string name="morphe_music_lyrics_source_title">Textdienst</string>
+    <string name="morphe_music_lyrics_split_background_summary">Verschiebt einen im Klammern notierten Hintergrundgesang, z. B. \"(Oh) ich will dich\", aus der gesungenen Zeile in eine eigene, gedimmte Zeile</string>
+    <string name="morphe_music_lyrics_split_background_title">Hintergrundstimmen separat anzeigen</string>
     <string name="morphe_music_lyrics_swap_trans_roma_summary">EIN setzt die Romanisierung unter die Songtexte und die Übersetzung darüber; AUS lässt die Romanisierung darüber und die Übersetzung darunter</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Übersetzung und Romanisierung vertauschen</string>
-    <string name="morphe_music_lyrics_tap_to_seek_summary">Durch Tippen auf eine Zeile springen Sie zu diesem Zeitpunkt im Song</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">Zeigen Sie auf eine Zeile, um zu springen</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">Tippen Sie auf eine Zeile, um zu dieser Stelle im Song zu springen. Tippen und halten Sie, um das Wort unter Ihrem Finger oder die gesamte Zeile zu kopieren (wenn nicht auf ein Wort gedrückt wird). Deaktiviert beide Gesten</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Tippen und gedrückt halten auf eine Zeile</string>
     <string name="morphe_music_lyrics_text_filter_summary">Regulärer Ausdruck, der nur auf den Originaltext der Songtexte angewendet wird (nicht auf Übersetzungen oder Romanisierungen). Leer lassen, um zu deaktivieren</string>
     <string name="morphe_music_lyrics_text_filter_title">RegEx für Songtextfilter</string>
     <string name="morphe_music_lyrics_text_size_summary">Größe des Liedtextes</string>
     <string name="morphe_music_lyrics_text_size_title">Textgröße</string>
+    <string name="morphe_music_lyrics_transcribe_align">QuickLRC-Alignment anfordern</string>
+    <string name="morphe_music_lyrics_transcribe_aligning">Ausrichten</string>
+    <string name="morphe_music_lyrics_transcribe_apply_align">Alignment anwenden</string>
+    <string name="morphe_music_lyrics_transcribe_cancelled">Transkription abgebrochen</string>
+    <string name="morphe_music_lyrics_transcribe_failed">QuickLRC konnte diesen Titel nicht verarbeiten</string>
+    <string name="morphe_music_lyrics_transcribe_key_cleared">QuickLRC-API-Schlüssel gelöscht</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRC erstellt Timings für Lyrics ohne welche oder transkribiert sie aus dem Track, gegen Kosten in Form von Credits. Mit gesetztem Schlüssel bieten Tracks ohne Lyrics Transkription und der Suchdialog erhält eine Align-Schaltfläche</string>
+    <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRC hat diesen Schlüssel nicht akzeptiert</string>
+    <string name="morphe_music_lyrics_transcribe_key_saved">QuickLRC-API-Schlüssel gespeichert</string>
+    <string name="morphe_music_lyrics_transcribe_key_set_summary">QuickLRC-Schlüssel gespeichert. Verwenden Sie die Align-Schaltfläche im Lyrics-Suchdialog oder die Eingabeaufforderung im Panel, wenn ein Track keine Lyrics hat</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRC transkribiert oder zeitlich alignt die Lyrics für den aktuellen Track. Ein separater Dienst, der unabhängig vom oben genannten OpenAI-kompatiblen Endpunkt ist</string>
+    <string name="morphe_music_lyrics_transcribe_key_title">QuickLRC-API-Schlüssel</string>
+    <string name="morphe_music_lyrics_transcribe_local_unsupported">Nur Titel, die von YouTube abgespielt werden, können transkribiert werden</string>
+    <string name="morphe_music_lyrics_transcribe_no_text">Keine Lyrics zum Alignen - stattdessen transkribieren</string>
+    <string name="morphe_music_lyrics_transcribe_out_of_credits">QuickLRC-Credits sind für diesen Titel aufgebraucht</string>
+    <string name="morphe_music_lyrics_transcribe_prompt">QuickLRC-Transkription anfordern</string>
+    <string name="morphe_music_lyrics_transcribe_working">Transkribieren</string>
     <string name="morphe_music_lyrics_translate_failed">Die Liedtexte konnten nicht übersetzt werden</string>
     <string name="morphe_music_lyrics_translate_hide">Übersetzt</string>
+    <string name="morphe_music_lyrics_translate_only">Nur Übersetzung</string>
     <string name="morphe_music_lyrics_translated_by_ai">Übersetzt von %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Übersetzt von Google</string>
     <string name="morphe_music_lyrics_translating">Wird übersetzt…</string>
     <string name="morphe_music_lyrics_translation_language_title">Übersetzungssprache</string>
-    <string name="morphe_music_lyrics_use_ai_translation_summary">Verwenden Sie eine benutzerdefinierte OpenAI-kompatible API für Übersetzung und Romanisierung anstelle von Google Übersetzer</string>
-    <string name="morphe_music_lyrics_use_ai_translation_title">OpenAI-kompatible Übersetzung</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_summary">Bevorzugt die vom Anbieter bereitgestellte Romanisierung, dann Ihr OpenAI-kompatibles Modell und zuletzt Google Translate</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_title">KI-Romanisierung</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">Wird nur verwendet, wenn der Anbieter keine Abschnittsbezeichnungen wie Refrain oder Strophe liefert, die dann von Ihrem OpenAI-kompatiblen Modell erkannt werden</string>
+    <string name="morphe_music_lyrics_use_ai_section_title">KI-Abschnitt</string>
+    <string name="morphe_music_lyrics_use_ai_title">OpenAI-kompatible API</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">Bevorzugt die Übersetzung des Anbieters, dann Ihr OpenAI-kompatibles Modell und zuletzt Google Translate</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">KI-Übersetzung</string>
     <string name="morphe_music_lyrics_word_sync_summary">Bevorzuge wortweise Songtexte, wenn verfügbar. Wenn Songtexte Wort-Timing enthalten, hebt dies jedes Wort oder jede Silbe synchron zur Musik hervor</string>
     <string name="morphe_music_lyrics_word_sync_title">Hebe synchronisierte Wörter oder Silben hervor</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">Musixmatch: ungültiges Benutzer-Token. Bitte erneut versuchen</string>
@@ -245,8 +270,9 @@ Solange diese Option aktiviert ist, listet der Downloads-Tab diese Titel anstell
     <string name="morphe_music_musixmatch_token_optional_hint">Musixmatch funktioniert ohne Token, daher kann dieses Feld leer bleiben</string>
     <string name="morphe_music_musixmatch_token_title">Musixmatch […] Kopiere den Wert des Benutzer-Tokens</string>
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: Benutzertoken gelöscht</string>
-    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: ungültiges Benutzertoken – bitte überprüfen und erneut versuchen</string>
+    <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: ungültiger Benutzertoken – bitte überprüfen und erneut versuchen</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: Benutzertoken gespeichert</string>
+    <string name="morphe_music_scrobbling_log_out">Abmelden</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"Füge das sp_dc-Cookie von Spotify ein
 
 Schritte:
@@ -268,7 +294,7 @@ Erforderliche Cookies: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PA
     <string name="morphe_oauth2_connection_failure_auth_error">Eine Anmeldung bei VR ist nicht möglich: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Eine Anmeldung bei VR ist nicht möglich, da die Website-Authentifizierung nicht genehmigt wurde</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ist vorübergehend nicht verfügbar</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 ist vorübergehend nicht verfügbar (Status %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Android VR-Anmeldung abgelaufen, versuchen Sie erneut sich bei VR anzumelden</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 ist vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="morphe_oauth2_toast_invalid">Ungültiger VR-Anmelde-Token, melden Sie sich erneut in VR an</string>
@@ -277,10 +303,15 @@ Erforderliche Cookies: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PA
     <string name="morphe_replace_music_with_youtube_summary_off">Freigabe-Links verwenden music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Freigabe-Links verwenden youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Freigabe-Links zu youtube.com ändern</string>
+    <string name="morphe_romanize_language_DEFAULT">Automatisch</string>
     <string name="morphe_sanitize_sharing_links_summary">Entfernt Tracking-Parameter aus geteilten Links</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
     <string name="morphe_sanitize_sharing_links_title">Freigabelinks bereinigen</string>
+    <string name="morphe_sb_new_segment_choose_category">Wähle die Segmentkategorie</string>
+    <string name="morphe_sb_new_segment_confirm_submit">Absenden</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">Start muss vor dem Ende sein</string>
+    <string name="morphe_sb_new_segment_title">Neues SponsorBlock Segment</string>
     <string name="morphe_settings_menu_copy_path">Kopiert: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Öffnen Sie den Bildschirm der Standard-App-Einstellungen einmal, um die Liste zu befüllen</string>
     <string name="morphe_settings_menu_filter_screen_summary">Elemente auf dem Bildschirm der Standard-App-Einstellungen anhand ihres sichtbaren Namens ausblenden</string>
@@ -288,6 +319,16 @@ Erforderliche Cookies: SID, HSID, SSID, SAPISID, __Secure-3PAPISID, __Secure-1PA
     <string name="morphe_settings_name_custom_item_hint">Name eingeben</string>
     <string name="morphe_settings_name_empty_warning">Name darf nicht leer sein</string>
     <string name="morphe_settings_name_title">RVX-Einstellungsname</string>
+    <string name="morphe_settings_save">Speichern</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Nur Pausen, die mindestens so lang sind, werden verkürzt. Wirkt sich erst aus, wenn das nächste Video startet</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Minimale Pausenlänge</string>
+    <string name="morphe_skip_silence_summary">Überspringt automatisch Stillepausen in Video-Audio</string>
+    <string name="morphe_skip_silence_title">Stille überspringen</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s hat mehrmals hintereinander nicht funktioniert, aber %2$s schon
+
+Soll %2$s als Standard-Client festgelegt werden?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Wechseln</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Standard-Client funktioniert nicht</string>
     <string name="morphe_spoof_video_streams_client_type_title">Standard-Client</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Es konnten keine Client-Streams abgerufen werden</string>
     <string name="morphe_spoof_video_streams_screen_summary">Client-Streams spoofen, um Wiedergabeprobleme zu vermeiden</string>
@@ -329,7 +370,6 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_add_miniplayer_next_button_summary">Fügt dem Miniplayer eine Schaltfläche für den nächsten Titel hinzu</string>
     <string name="revanced_add_miniplayer_next_button_title">einen mini Player hinzufügen mit weiter Button</string>
     <string name="revanced_change_start_page_entry_charts">Charts</string>
-    <string name="revanced_change_start_page_entry_default">Standard</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Episoden für später</string>
     <string name="revanced_change_start_page_entry_explore">Entdecken</string>
     <string name="revanced_change_start_page_entry_history">Verlauf</string>
@@ -350,7 +390,7 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_disable_quic_protocol_title">QUIC-Protokoll deaktivieren</string>
     <string name="revanced_external_downloader_flyout_menu_summary">Verwendet den von dir gewählten externen Downloader anstelle des standardmäßigen Download-Flyout-Menüs</string>
     <string name="revanced_external_downloader_flyout_menu_title">Download-Menü überschreiben</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren Sie es zuerst</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Bitte installieren Sie es</string>
     <string name="revanced_hide_fullscreen_ads_title">Vollbild-Werbung ausblenden</string>
     <string name="revanced_icon_custom">Benutzerdefiniert</string>
     <string name="revanced_music_change_navigation_bar_color_summary">Farbe der Navigationsleiste passt sich an den Vollbild-Player an</string>
@@ -362,9 +402,9 @@ Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise 
     <string name="revanced_restart_dialog_message">Starten Sie die App neu, damit die Änderungen wirksam werden</string>
     <string name="revanced_restart_first_run">Starte die App neu, um die Einrichtung abzuschließen</string>
     <string name="revanced_restart_title">Neustart erforderlich</string>
-    <string name="revanced_ryd_attribution_summary">"Daten werden von der Return YouTube Dislike API bereitgestellt
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike stellt die Anzahl der Dislikes wieder her, die YouTube im Jahr 2021 versteckt hat. Die Zahlen stammen aus Daten, die vor der Entfernung archiviert wurden, und werden für neuere Videos aus den Stimmen seiner Nutzer geschätzt, sind also ungefähr und werden alle paar Tage aktualisiert
 
-Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
+Die ID des Videos, das du dir ansiehst, wird an die Return YouTube Dislike-API gesendet, und deine Likes und Dislikes werden anonym gesendet, um die Schätzungen zu verbessern"</string>
     <string name="revanced_ryd_compact_layout_summary">Verringert die Breite der „Like“-Schaltfläche, um Platz zu sparen</string>
     <string name="revanced_ryd_compact_layout_title">Schaltfläche „Like“ in kompakter Darstellung verwenden</string>
     <string name="revanced_ryd_dislike_percentage_summary">Zeigt anstelle eines Zahlenwerts die Dislikes prozentual zur Anzahl der Likes an</string>
@@ -373,18 +413,48 @@ Tippen Sie hier, um ReturnYouTubeDislike.com zu öffnen"</string>
     <string name="revanced_ryd_estimated_like_summary">Zeigt bei Videos mit deaktivierten Likes eine geschätzte Anzahl an</string>
     <string name="revanced_ryd_estimated_like_title">Geschätzte \"Gefällt mir\"-Angaben anzeigen</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes sind nicht verfügbar (Limit der Client-API)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Dislikes sind nicht verfügbar (Status %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Dislikes sind nicht verfügbar (Status %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Dislikes sind vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="revanced_ryd_failure_generic">Dislikes sind nicht verfügbar (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Zeigt eine Benachrichtigung an, wenn der Return YouTube Dislike-Server nicht verfügbar ist</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Warnungen zu Verbindungfehlern anzeigen</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Vom Ersteller deaktiviert</string>
+    <string name="revanced_sb_api_url_changed">API-URL geändert</string>
+    <string name="revanced_sb_api_url_invalid">API URL ist ungültig</string>
+    <string name="revanced_sb_api_url_reset">API-URL zurückgesetzt</string>
+    <string name="revanced_sb_color_dot_label">Farbe:</string>
+    <string name="revanced_sb_segments_filler">Abschweifung / Witze</string>
+    <string name="revanced_sb_segments_hook">Hook / Begrüßungen</string>
+    <string name="revanced_sb_segments_interaction">Interaktionserinnerung (Abonnieren)</string>
+    <string name="revanced_sb_segments_intro">Unterbrechung/Introanimation</string>
+    <string name="revanced_sb_segments_nomusic">Musikvideos: Nicht-Musik-Passagen</string>
+    <string name="revanced_sb_segments_outro">Endkarte / Credits</string>
+    <string name="revanced_sb_segments_preview">Vorschau / Rückblick</string>
+    <string name="revanced_sb_segments_selfpromo">Unbezahlte oder Eigenwerbung</string>
+    <string name="revanced_sb_segments_sponsor">Sponsor</string>
+    <string name="revanced_sb_skip_automatically">Automatisch überspringen</string>
     <string name="revanced_sb_skip_automatically_once">Automatisch einmal überspringen</string>
+    <string name="revanced_sb_skip_ignore">Deaktivieren</string>
+    <string name="revanced_sb_skipped_filler">Abschweifung übersprungen</string>
+    <string name="revanced_sb_skipped_hook">Hook übersprungen</string>
+    <string name="revanced_sb_skipped_interaction">Nervige Erinnerung übersprungen</string>
+    <string name="revanced_sb_skipped_intro_beginning">Intro übersprungen</string>
+    <string name="revanced_sb_skipped_intro_end">Übersprungene Unterbrechung</string>
+    <string name="revanced_sb_skipped_multiple_segments">Mehrere Segmente übersprungen</string>
+    <string name="revanced_sb_skipped_nomusic">Nicht-Musik-Sektion übersprungen</string>
+    <string name="revanced_sb_skipped_outro">Outro übersprungen</string>
+    <string name="revanced_sb_skipped_preview_beginning">Vorschau übersprungen</string>
+    <string name="revanced_sb_skipped_preview_end">Übersprungene Rücklage</string>
+    <string name="revanced_sb_skipped_selfpromo">Eigenwerbung übersprungen</string>
+    <string name="revanced_sb_skipped_sponsor">Sponsor übersprungen</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock vorübergehend nicht verfügbar</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock vorübergehend nicht verfügbar (Status %s)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock vorübergehend nicht verfügbar (API Timeout)</string>
     <string name="revanced_settings_export_as_file">Exportiere Einstellungen zu dieser Datei</string>
     <string name="revanced_settings_import">Importieren</string>
     <string name="revanced_settings_import_copy">Kopieren</string>
     <string name="revanced_settings_import_reset">RVX-Einstellungen auf Standardwerte zurückgesetzt</string>
-    <string name="revanced_settings_import_success">%d Einstellungen importiert</string>
+    <string name="revanced_settings_import_success">%s Einstellungen importiert</string>
     <string name="revanced_settings_navigate_up">Nach oben navigieren</string>
     <string name="revanced_settings_reset">Zurücksetzen</string>
     <string name="revanced_settings_reset_color">Farbe zurücksetzen</string>

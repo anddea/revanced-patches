@@ -35,9 +35,7 @@ public final class LyricifyProvider implements LyricsProvider {
     private static final String API_BASE =
             "https://api.lyricify.app/lyrics/get/mobile/new";
 
-    private static final String USER_AGENT =
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                    + "(KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36";
+    private static final String USER_AGENT = LyricsRequests.CHROME_DESKTOP_USER_AGENT;
 
     private static final Random RNG = new Random();
 
@@ -51,7 +49,7 @@ public final class LyricifyProvider implements LyricsProvider {
 
     @Nullable
     @Override
-    public Lyrics fetch(TrackInfo track) throws Exception {
+    public FetchResult fetch(TrackInfo track) throws Exception {
         final String cacheKey = track.title().toLowerCase(Locale.ROOT)
                 + "|" + track.artist().toLowerCase(Locale.ROOT);
         String isrc = isrcCache.get(cacheKey);
@@ -122,8 +120,8 @@ public final class LyricifyProvider implements LyricsProvider {
         }
 
         final Map<String, List<LyricsLine>> translations;
-        final String deviceLang = Locale.getDefault().getLanguage();
-        if ("zh".equals(deviceLang) && trans != null && !trans.isEmpty()) {
+        if ("zh".equals(LyricsRequests.primarySubtag(LyricsRequests.translationLanguage()))
+                && trans != null && !trans.isEmpty()) {
             final List<String> translatedTexts = LyricifyParser.parseTranslation(trans, offset);
             if (!translatedTexts.isEmpty()) {
                 while (translatedTexts.size() < lines.size()) {
@@ -150,7 +148,7 @@ public final class LyricifyProvider implements LyricsProvider {
         }
 
         final String formatType = isSyllable ? "lys" : "lyl";
-        return new Lyrics(
+        return FetchResult.blind(new Lyrics(
                 lines,
                 name(),
                 true,
@@ -160,7 +158,7 @@ public final class LyricifyProvider implements LyricsProvider {
                 creditLines.isEmpty() ? null : creditLines,
                 text,
                 formatType,
-                null);
+                null));
     }
 
     private static HttpURLConnection openApi(String url) throws IOException {

@@ -18,11 +18,11 @@ import java.util.List;
  *
  * @param startTimeMs Start time in milliseconds, or {@link #NO_TIME} for unsynced lyrics.
  * @param endTimeMs   End time in milliseconds, or {@link #NO_TIME} when unknown.
- * @param text        Full line text. For word synced lines it is the concatenation of
- *                    every {@link #words()} entry, so translation and copy stay correct.
+ * @param text        Concatenation of every {@link #words()} entry, so translation and
+ *                    copy stay correct.
  * @param words       Word level timing, empty when only the line is synced.
- * @param agentId     Agent ID (e.g. "v1", "v2") from {@code ttm:agent}, or {@code null}.
- * @param isDuet      Right-aligned duet line derived from agent alternation.
+ * @param agentId     Agent ID from {@code ttm:agent} or an enhanced LRC marker, or null.
+ * @param isDuet      Right-aligned duet line, from agent alternation or number parity.
  * @param isBG        Background vocal line.
  * @param songPart    Song section label (e.g. "Verse", "Chorus"), or {@code null}.
  */
@@ -34,11 +34,7 @@ public record LyricsLine(long startTimeMs, long endTimeMs, String text, List<Wor
 
     public LyricsLine {
         words = words == null ? List.of() : Collections.unmodifiableList(words);
-    }
-
-    public LyricsLine(long startTimeMs, long endTimeMs, String text, List<Word> words,
-                      @Nullable String agentId, boolean isDuet, boolean isBG) {
-        this(startTimeMs, endTimeMs, text, words, agentId, isDuet, isBG, null);
+        text = text == null ? "" : text;
     }
 
     public LyricsLine(long startTimeMs, String text, List<Word> words,
@@ -60,6 +56,45 @@ public record LyricsLine(long startTimeMs, long endTimeMs, String text, List<Wor
 
     public boolean hasWords() {
         return !words.isEmpty();
+    }
+
+    /**
+     * Whether the words say more than the line itself does.
+     *
+     * <p>A lone word covering the whole line, or one that never ends, is the line's own timing
+     * written back out as a word. Counting it as word sync would have the line read as karaoke
+     * while it can only ever be sung in one go, and would rank it above lyrics that really do
+     * carry word timings.
+     */
+    public boolean hasWordTimings() {
+        if (words.isEmpty()) {
+            return false;
+        }
+        if (words.size() == 1) {
+            Word single = words.get(0);
+            if (isWholeLineWord(single.text(), text)) {
+                return false;
+            }
+            if (single.endMs() <= single.startMs()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isWholeLineWord(String wordText, String lineText) {
+        return compactText(wordText).equalsIgnoreCase(compactText(lineText));
+    }
+
+    private static String compactText(String value) {
+        final StringBuilder builder = new StringBuilder(value.length());
+        for (int i = 0; i < value.length(); i++) {
+            final char c = value.charAt(i);
+            if (!Character.isWhitespace(c)) {
+                builder.append(c);
+            }
+        }
+        return builder.toString();
     }
 
     @NonNull

@@ -1,12 +1,21 @@
+/*
+ * Copyright (C) 2026 anddea
+ *
+ * This file is part of the revanced-patches project:
+ * https://github.com/anddea/revanced-patches
+ */
+
 package app.morphe.patches.youtube.utils.sponsorblock
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
@@ -27,6 +36,7 @@ import app.morphe.patches.youtube.video.information.onCreateHook
 import app.morphe.patches.youtube.video.information.videoInformationPatch
 import app.morphe.patches.youtube.video.information.videoTimeHook
 import app.morphe.util.ResourceGroup
+import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.copyResources
 import app.morphe.util.doRecursively
 import app.morphe.util.fingerprint.matchOrThrow
@@ -36,12 +46,17 @@ import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.updatePatchStatus
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import org.w3c.dom.Element
 
 private const val EXTENSION_SPONSOR_BLOCK_PATH =
@@ -76,7 +91,78 @@ val sponsorBlockBytecodePatch = bytecodePatch(
             "initialize"
         )
 
+        val seekbarClass = seekbarFingerprint.second.classDef
+        val shortsController = "$EXTENSION_SPONSOR_BLOCK_PATH/ShortsSponsorBlockController;"
+        val shortsSeekbarInterface = "$EXTENSION_SPONSOR_BLOCK_PATH/ShortsSponsorBlockController\$Seekbar;"
+
+        // Resolve the inherited scrub-completion callback without depending on obfuscated names.
+        val seekbarParents = generateSequence(seekbarClass.superclass) { type ->
+            if (type == "Landroid/view/View;") null else classDefBy(type).superclass
+        }.takeWhile { it != "Landroid/view/View;" }.map { classDefBy(it) }.toList()
+        val seekComplete = seekbarParents.firstNotNullOfOrNull {
+            shortsSeekCompleteFingerprint.matchOrNull(it)?.method
+        } ?: throw PatchException("Could not find Shorts seekbar scrub completion")
+        val isScrubbing = shortsIsScrubbingFingerprint.match(classDefBy(seekComplete.definingClass)).method
+        seekbarClass.interfaces.add(shortsSeekbarInterface)
+        listOf(
+            Triple("patch_seekTo", listOf(ImmutableMethodParameter("J", null, null)), "V"),
+            Triple("patch_isScrubbing", emptyList(), "Z"),
+        ).forEach { (name, parameters, returnType) ->
+            seekbarClass.methods.add(
+                ImmutableMethod(
+                    seekbarClass.type, name, parameters, returnType,
+                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value, null, null,
+                    MutableMethodImplementation(3),
+                ).toMutable().apply {
+                    addInstructions(0, if (returnType == "V") """
+                        invoke-virtual {p0, p1, p2}, $seekComplete
+                        return-void
+                    """ else """
+                        invoke-virtual {p0}, $isScrubbing
+                        move-result v0
+                        return v0
+                    """)
+                }
+            )
+        }
+
         seekbarOnDrawFingerprint.methodOrThrow(seekbarFingerprint).apply {
+            addInstruction(0, "invoke-static/range {p0 .. p0}, $shortsController->setSeekbar(Landroid/view/View;)V")
+            // Shorts can hide the thumb. Draw at the end of the saved canvas instead of
+            // depending on drawCircle, using the exact rectangle laid out for this frame.
+            val rectSetIndex = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.toString() == "Landroid/graphics/Rect;->set(IIII)V"
+            }
+            val rectRegister = getInstruction<FiveRegisterInstruction>(rectSetIndex).registerC
+            val rectFieldIndex = indexOfFirstInstructionReversedOrThrow(rectSetIndex) {
+                opcode == Opcode.IGET_OBJECT &&
+                        (this as TwoRegisterInstruction).registerA == rectRegister &&
+                        getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+            }
+            val shortsRectField = getInstruction<ReferenceInstruction>(rectFieldIndex).reference
+            val drawShortsMethod = "${seekbarClass.type}->patch_drawShortsSponsorBars(Landroid/graphics/Canvas;)V"
+            seekbarClass.methods.add(
+                ImmutableMethod(
+                    seekbarClass.type, "patch_drawShortsSponsorBars",
+                    listOf(ImmutableMethodParameter("Landroid/graphics/Canvas;", null, null)), "V",
+                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value, null, null,
+                    MutableMethodImplementation(3),
+                ).toMutable().apply {
+                    addInstructions(0, """
+                        iget-object v0, p0, $shortsRectField
+                        invoke-static {p0, p1, v0}, $EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->drawShortsTimeBars(Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
+                        return-void
+                    """)
+                }
+            )
+            val restoreIndex = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.toString() == "Landroid/graphics/Canvas;->restore()V"
+            }
+            addInstructionsAtControlFlowLabel(
+                restoreIndex,
+                "invoke-virtual/range {p0 .. p1}, $drawShortsMethod"
+            )
+
             // Get left and right of seekbar rectangle
             val moveObjectIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_OBJECT_FROM16)
 
@@ -157,7 +243,7 @@ val sponsorBlockBytecodePatch = bytecodePatch(
         }
 
         // Replace strings
-        rectangleFieldInvalidatorFingerprint.methodOrThrow(seekbarFingerprint).apply {
+        rectangleFieldInvalidatorFingerprint.match(seekbarClass).method.apply {
             val invalidateIndex = indexOfInvalidateInstruction(this)
             val rectangleIndex = indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
                 getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
@@ -165,7 +251,7 @@ val sponsorBlockBytecodePatch = bytecodePatch(
             val rectangleFieldName =
                 (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
 
-            segmentPlaybackControllerFingerprint.matchOrThrow().let {
+            segmentPlaybackControllerFingerprint.match().let {
                 it.method.apply {
                     val replaceIndex = it.instructionMatches.first().index
                     val replaceRegister =

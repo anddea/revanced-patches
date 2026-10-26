@@ -72,31 +72,33 @@
     <string name="morphe_music_apple_token_optional_hint">Токен Apple Music необов\'язковий. Без нього як резервний варіант буде використано Lyrically</string>
     <string name="morphe_music_crossfade_about_best_summary">Звичайне відтворення треку за треком та автоперехід, повтор одного треку (трек плавно переходить сам у себе) і локальний звук - динамік телефону, дротові навушники, Bluetooth або USB</string>
     <string name="morphe_music_crossfade_about_best_title">Найкраще працює з</string>
-    <string name="morphe_music_crossfade_about_credit_summary">Функція плавного переходу від VazerOG</string>
-    <string name="morphe_music_crossfade_about_credit_title">Подяки</string>
-    <string name="morphe_music_crossfade_about_how_summary">"Плавний перехід накладає кінець однієї пісні на початок наступної, поступово знижуючи звук однієї та підвищуючи звук іншої впродовж вибраної тривалості та за вибраною кривою
+    <string name="morphe_music_crossfade_about_credit_summary">Функцію кросфейду створив VazerOG</string>
+    <string name="morphe_music_crossfade_about_credit_title">Автор</string>
+    <string name="morphe_music_crossfade_about_how_summary">"Кросфейд накладає кінець однієї пісні на початок наступної, використовуючи вашу тривалість і криву
 
-Він працює як при автоматичному переході (коли пісня завершується сама), так і при ручному перемиканні - для кожного є власний перемикач вище. При автоматичному переході змішування починається за кілька секунд до завершення пісні
-
-Потребує YouTube Music 9.x або новішої версії"</string>
+Він працює під час автоматичного переходу й ручного пропуску, і для кожного є окремий перемикач. Під час автоматичного переходу змішування починається за кілька секунд до завершення пісні"</string>
     <string name="morphe_music_crossfade_about_how_title">Як це працює</string>
     <string name="morphe_music_crossfade_about_known_summary">"Музичне відео, встановлене першим треком - або запущене не з поточної черги - може на короткий час показуватися як відео, перш ніж увімкнеться режим лише аудіо
 
 Призупинення плавного переходу для перегляду музичного відео може залишити деякі відео чорними (ті, чий звук надходить із самого відео). Призупинення плавного переходу перед вибором треку допомагає уникнути цього"</string>
     <string name="morphe_music_crossfade_about_known_title">Відомі проблеми</string>
-    <string name="morphe_music_crossfade_about_quirks_summary">"Музичні відео відтворюються лише як аудіо, коли увімкнено плавний перехід (довге натискання на перемішування для призупинення, якщо потрібне відео)
+    <string name="morphe_music_crossfade_about_quirks_summary">"Музичні відео відтворюються лише як аудіо, поки кросфейд увімкнено. Натисніть і утримуйте перемішування, щоб призупинити кросфейд і дивитися відео
 
-Треки коротші за тривалість переходу можуть пропускати перехід
+Музичне відео, яким починається відтворення, залишається в режимі відео до наступної пісні
 
-Екран блокування або сповіщення можуть короткочасно показувати застарілий стан під час переходу"</string>
-    <string name="morphe_music_crossfade_about_quirks_title">Працює не зовсім правильно</string>
+Пісні, коротші за тривалість затухання, не кросфейдяться
+
+Екран блокування або сповіщення можуть ненадовго показувати застарілий стан під час переходу
+
+Призупинення кросфейду для перегляду музичного відео може залишити частину відео чорними. Щоб цього уникнути, призупиніть кросфейд до вибору пісні"</string>
+    <string name="morphe_music_crossfade_about_quirks_title">Обмеження</string>
     <string name="morphe_music_crossfade_about_summary">Як працює плавний перехід - і коли він не працює</string>
     <string name="morphe_music_crossfade_about_title">Інформація</string>
-    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляція або дублювання звуку (Chromecast, дублювання екрана чи звуку) - плавний перехід призупиняється, оскільки він нестабільний у цьому випадку, і можливо, ніколи не бути виправленим
+    <string name="morphe_music_crossfade_about_unsupported_summary">"Трансляція або дзеркалення аудіо (Chromecast, дзеркалення екрана чи аудіо)
 
-YouTube Music 8.x - плавний перехід працює лише на версії 9.x і новіших"</string>
-    <string name="morphe_music_crossfade_about_unsupported_title">Не працює взагалі</string>
-    <string name="morphe_music_crossfade_cast_unstable_toast">Плавний перехід призупинено під час трансляції або дублювання звуку. Плавний перехід через трансляцію/дублювання нестабільний, і можливо, ніколи не бути виправленим</string>
+Відтворення SABR (функцію \"Підміна відеопотоків\" вимкнено)"</string>
+    <string name="morphe_music_crossfade_about_unsupported_title">Не підтримується</string>
+    <string name="morphe_music_crossfade_cast_unstable_toast">Кросфейд вимкнено під час трансляції</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_cubic">Незначна затримка</string>
     <string name="morphe_music_crossfade_curve_entry_ease_out_quad">М’яке згладжування</string>
     <string name="morphe_music_crossfade_curve_entry_equal_power">Рівномірна потужність</string>
@@ -104,19 +106,19 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_music_crossfade_curve_preview_incoming">Вхідний</string>
     <string name="morphe_music_crossfade_curve_preview_outgoing">Вихідний</string>
     <string name="morphe_music_crossfade_curve_title">Крива згасання</string>
-    <string name="morphe_music_crossfade_duration_title">Тривалість плавного переходу</string>
-    <string name="morphe_music_crossfade_enabled_title">Увімкнути плавний перехід</string>
-    <string name="morphe_music_crossfade_on_auto_advance_summary">Застосовує плавний перехід після природного завершення треку</string>
-    <string name="morphe_music_crossfade_on_auto_advance_title">Плавний перехід при автоматичному переході</string>
-    <string name="morphe_music_crossfade_on_skip_summary">Застосовує плавний перехід при ручному перемиканні треку</string>
-    <string name="morphe_music_crossfade_on_skip_title">Плавний перехід при ручному перемиканні</string>
-    <string name="morphe_music_crossfade_paused_toast">Плавний перехід призупинено для цієї сесії</string>
-    <string name="morphe_music_crossfade_resumed_toast">Плавний перехід відновлено</string>
-    <string name="morphe_music_crossfade_screen_summary">Плавно зводити треки один в інший</string>
-    <string name="morphe_music_crossfade_screen_title">Плавний перехід</string>
-    <string name="morphe_music_crossfade_session_control_summary">Утримуйте кнопку перемішування, щоб призупинити або відновити плавний перехід</string>
+    <string name="morphe_music_crossfade_duration_title">Тривалість кросфейду</string>
+    <string name="morphe_music_crossfade_enabled_title">Увімкнути кросфейд</string>
+    <string name="morphe_music_crossfade_on_auto_advance_summary">Застосовує ефект кросфейду, коли трек завершується природним чином</string>
+    <string name="morphe_music_crossfade_on_auto_advance_title">Кросфейд під час автоматичного переходу</string>
+    <string name="morphe_music_crossfade_on_skip_summary">Застосовує ефект кросфейду, коли ви вручну пропускаєте до наступного треку</string>
+    <string name="morphe_music_crossfade_on_skip_title">Кросфейд під час ручного пропуску</string>
+    <string name="morphe_music_crossfade_paused_toast">Кросфейд призупинено для цього сеансу</string>
+    <string name="morphe_music_crossfade_resumed_toast">Кросфейд відновлено</string>
+    <string name="morphe_music_crossfade_screen_summary">Плавно змішує треки між собою</string>
+    <string name="morphe_music_crossfade_screen_title">Кросфейд</string>
+    <string name="morphe_music_crossfade_session_control_summary">Натисніть і утримуйте кнопку перемішування, щоб призупинити або відновити кросфейд</string>
     <string name="morphe_music_crossfade_session_control_title">Керування сесією</string>
-    <string name="morphe_music_crossfade_video_mode_disabled_toast">Режим відео недоступний, коли ввімкнено плавний перехід</string>
+    <string name="morphe_music_crossfade_video_mode_disabled_toast">Режим відео недоступний, поки кросфейд увімкнено</string>
     <string name="morphe_music_deezer_arl_dialog_instruction">"Вставте cookie arl із Deezer
 
 Кроки:
@@ -127,73 +129,54 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_music_deezer_arl_toast_cleared">Deezer: arl очищено</string>
     <string name="morphe_music_deezer_arl_toast_invalid">Deezer: недійсний arl - перевірте і спробуйте ще раз</string>
     <string name="morphe_music_deezer_arl_toast_saved">Deezer: arl збережено</string>
-    <string name="morphe_music_downloads_actions_for">Дії для %s</string>
-    <string name="morphe_music_downloads_all_deleted">Завантаження видалено</string>
     <string name="morphe_music_downloads_already_running">Завантаження вже виконується</string>
     <string name="morphe_music_downloads_already_saved">Вже завантажено</string>
-    <string name="morphe_music_downloads_close">Закрити</string>
     <string name="morphe_music_downloads_complete">Завантаження завершено</string>
-    <string name="morphe_music_downloads_delete">Видалити</string>
-    <string name="morphe_music_downloads_delete_all">Видалити всі завантаження</string>
-    <string name="morphe_music_downloads_delete_all_message">Усі завантажені треки буде видалено з цього пристрою</string>
-    <string name="morphe_music_downloads_delete_all_title">Видалити всi завантаження?</string>
-    <string name="morphe_music_downloads_delete_track">Видалити завантаження</string>
-    <string name="morphe_music_downloads_delete_track_message">%s буде видалено з цього пристрою</string>
-    <string name="morphe_music_downloads_delete_track_title">Видалити завантаження?</string>
-    <string name="morphe_music_downloads_empty">"Немає завантажень
-Завантажені треки з'являються тут"</string>
     <string name="morphe_music_downloads_failed">Помилка завантаження</string>
-    <string name="morphe_music_downloads_next">Наступний</string>
-    <string name="morphe_music_downloads_nothing_found">Нічого не знайдено</string>
     <string name="morphe_music_downloads_notification_channel">Аудіозавантаження</string>
-    <string name="morphe_music_downloads_pause">Пауза</string>
-    <string name="morphe_music_downloads_play">Відтворити</string>
-    <string name="morphe_music_downloads_play_failed">Не вдалося відтворити завантажений файл</string>
-    <string name="morphe_music_downloads_play_pause">Відтворити або призупинити</string>
-    <string name="morphe_music_downloads_playback_channel">Відтворення офлайн</string>
-    <string name="morphe_music_downloads_previous">Попередній</string>
     <string name="morphe_music_downloads_progress">Завантаження %s%%</string>
-    <string name="morphe_music_downloads_screen_title">Завантаження</string>
-    <string name="morphe_music_downloads_search_hint">Пошук у завантаженнях</string>
     <string name="morphe_music_downloads_sort">Сортувати</string>
-    <string name="morphe_music_downloads_sort_artist">Сортувати за виконавцем</string>
-    <string name="morphe_music_downloads_sort_size">Сортувати  за розміром</string>
-    <string name="morphe_music_downloads_sort_title">Сортувати за назвою</string>
     <string name="morphe_music_downloads_started">Завантаження розпочато</string>
     <string name="morphe_music_downloads_starting">Розпочато завантаження…</string>
-    <string name="morphe_music_downloads_summary">%1$s треків • %2$s МБ</string>
-    <string name="morphe_music_downloads_track_delete_failed">Не вдалося видалити завантаження</string>
-    <string name="morphe_music_downloads_track_deleted">Завантаження видалено</string>
-    <string name="morphe_music_downloads_track_subtitle">%1$s • %2$s • %3$s МБ</string>
     <string name="morphe_music_downloads_unknown_track">Не вдалося визначити трек для завантаження</string>
     <string name="morphe_music_in_app_downloads_summary">Завантажує аудіо всередині YouTube Music замість відкриття зовнішнього застосунку завантажувача</string>
     <string name="morphe_music_in_app_downloads_title">Завантажити в застосунку</string>
-    <string name="morphe_music_in_app_downloads_user_dialog_message">"Треки зберігаються в приватному сховищі застосунку і видаляються, якщо YouTube Music буде видалено
+    <string name="morphe_music_lyrics_about_summary">"Тексти пісень зіставляються за назвою та виконавцем, тож нетипові метадані можуть нічого не знайти або знайти неправильну версію. Використовуйте оновлення, щоб перемикати версії. Постачальники, позначені *, потребують токена. Усі увімкнені постачальники не завжди запитуються у вашому порядку, а відповідають залежно від їхньої швидкості
 
-Поки цю функцію ввімкнено, у вкладці \"Завантаження\" відображаються саме ці треки замість офлайн-бібліотеки Music Premium. Вимкнення функції відновлює вкладку, а завантаження Premium залишаються незмінними"</string>
-    <string name="morphe_music_lyrics_about_summary">"Текст пісні шукається за назвою та виконавцем, нетипові метадані можуть не знайти нічого або знайти неправильну версію. Скористайтесь оновленням, щоб змінити версію. Постачальники, позначені *, потребують токен. Не всі увімкнені постачальники завжди запитуються у вашому порядку, вони відповідають залежно від швидкості"</string>
+Тексти пісень надходять зі сторонніх служб, які не пов'язані з RVX, не спонсоруються та не схвалюються ним. Кожна служба використовується як є: тексти пісень, їх доступність і ліцензування залишаються за цими службами та їхніми правовласниками, а користування ними може підпадати під їхні умови надання послуг. До увімкненої служби надходить лише запит, який ви зробили: назва, виконавець і, якщо служба цього потребує, ідентифікатор відео. Додаткова кінцева точка ШІ та транскрипція QuickLRC працюють лише після того, як ви їх налаштуєте, і отримують текст пісні або URL відео треку"</string>
     <string name="morphe_music_lyrics_about_title">Про сторонні тексти пісень</string>
     <string name="morphe_music_lyrics_ai_config_api_token_hint">Ключ API (залиште порожнім для анонімного доступу)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">URL-адреса кінцевої точки API (наприклад, https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Налаштуйте кінцеву точку API, сумісну з OpenAI, для AI-перекладу текстів пісень та романізації</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_title">Налаштування AI-перекладу</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Налаштуйте кінцеву точку API, сумісну з OpenAI, для AI-перекладу текстів пісень, романізації та розділів</string>
+    <string name="morphe_music_lyrics_ai_config_dialog_title">Налаштування AI</string>
     <string name="morphe_music_lyrics_ai_config_model_hint">Назва моделі (наприклад, openai-fast, gpt-4o-mini)</string>
-    <string name="morphe_music_lyrics_ai_config_status_configured">Налаштовано</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_model">Назва моделі не може бути порожньою</string>
     <string name="morphe_music_lyrics_ai_config_status_empty_url">Базова URL-адреса не може бути порожньою</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Базова URL-адреса має починатися з http:// або https://</string>
-    <string name="morphe_music_lyrics_ai_config_status_not_configured">Натисніть, щоб налаштувати</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Перевірка з\'єднання…</string>
+    <string name="morphe_music_lyrics_ai_config_summary_configured">Модель %1$s налаштовано</string>
     <string name="morphe_music_lyrics_ai_config_toast_invalid">Не вдалося підключитися до кінцевої точки AI. Будь ласка, перевірте налаштування</string>
-    <string name="morphe_music_lyrics_ai_config_toast_reset">Налаштування AI-перекладу скинуто</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">Налаштування AI-перекладу збережено</string>
+    <string name="morphe_music_lyrics_ai_config_toast_reset">Налаштування AI скинуто</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">Налаштування AI збережено</string>
+    <string name="morphe_music_lyrics_ai_extra_body_hint">Додаткове тіло запиту (JSON, додається до кожного запиту ШІ)</string>
+    <string name="morphe_music_lyrics_ai_extra_body_invalid">Схоже, ти вставив уже готовий переклад замість англійського оригіналу. Надішли, будь ласка, англійський рядок, і я перекладу</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Заповнювачі: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
+    <string name="morphe_music_lyrics_ai_prompt_dialog_title">Шаблон запиту</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Запит збережено, але кінцева точка AI ще непридатна до використання. Спочатку налаштуйте її в розділі \"Налаштування AI\"</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_reset">Запит скинуто</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_saved">Запит збережено</string>
+    <string name="morphe_music_lyrics_clear_cache_done">Очищено %1$s МБ</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Видалити тексти пісень, збережені на цьому пристрої</string>
+    <string name="morphe_music_lyrics_clear_cache_title">Очистити збережені тексти пісень</string>
+    <string name="morphe_music_lyrics_contribute_credit">Утримуйте кнопку копіювання, щоб зберегти цей LRC; якщо ви можете точніше налаштувати таймінги та поділитися ними зі спільнотою постачальників, ми будемо вдячні</string>
     <string name="morphe_music_lyrics_copied">Скопійовано</string>
     <string name="morphe_music_lyrics_credit_line_regex_summary">Якщо тексти пісень неправильно відфільтровано вниз, налаштуйте або очистіть це. Маркери, розділені комами: рядки, що містять маркер, за яким іде двокрапка, показуються як інформація про авторів унизу. Залиште порожнім, щоб вимкнути</string>
     <string name="morphe_music_lyrics_credit_line_regex_title">Маркери інформаційного рядка</string>
-    <string name="morphe_music_lyrics_custom_regex_summary">Регулярний вираз, що застосовується до назв, виконавців і альбомів перед пошуком текстів пісень. Залиште порожнім, щоб вимкнути. Типовий вираз видаляє поширене \"сміття\", як-от \"Official Video\", \"Remaster\" і \"- Topic\"</string>
+    <string name="morphe_music_lyrics_custom_regex_summary">Регулярний вираз, застосований до назв, виконавців та альбомів перед пошуком тексту пісні та при оцінці відповідності двох назв. Залиште порожнім, щоб вимкнути обидва. Типове значення видаляє типове сміття, наприклад \"Official Video\", \"Remaster\", \"【插曲】\" та \"- Topic\"</string>
     <string name="morphe_music_lyrics_custom_regex_title">Регулярний вираз для метаданих</string>
     <string name="morphe_music_lyrics_display_artist_first_summary">Перемикнути порядок показу виконавця та назви в мініплеєрі та MediaSession. Увімкнено - \"Виконавець - Назва\", вимкнено - \"Назва - Виконавець\". Не впливає на пошук текстів пісень</string>
     <string name="morphe_music_lyrics_display_artist_first_title">Порядок відображення виконавця та назви</string>
+    <string name="morphe_music_lyrics_dual_only">Подвійний режим</string>
     <string name="morphe_music_lyrics_enabled_summary">Показує текст пісні зі стороннього сервісу, повертаючись до вбудованого тексту, якщо нічого не знайдено</string>
     <string name="morphe_music_lyrics_enabled_title">Використовувати сторонні тексти пісень</string>
     <string name="morphe_music_lyrics_hide_info_summary">Приховати рядок з інформацією про авторів, що показується під текстом пісні</string>
@@ -204,47 +187,91 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_music_lyrics_hide_unplayed_title">Приховувати ще не відтворені рядки тексту</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Запобігає вимкненню екрана, поки відкрита панель тексту пісні</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Тримати екран увімкненим під час перегляду тексту пісні</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_building">Читання %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_failed">Не вдалося завантажити, вимкніть і ввімкніть це знову, щоб повторити спробу</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_ready">Зчитування готове (записів: %1$d)</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">Романізувати на пристрої, коли постачальник, ваша модель і Google Перекладач не спрацьовують. Читання відповідає кожному слову синхронізованого тексту пісні; синхронізація по словах має бути ввімкнена. Китайська, кантонська, японська, корейська, грецька, російська, грузинська, вірменська; близько 120 МБ</string>
+    <string name="morphe_music_lyrics_local_romanization_title">Локальна романізація та вирівнювання</string>
+    <string name="morphe_music_lyrics_mediasession_summary">Показує поточний рядок на екрані блокування, в Android Auto та через Bluetooth. Потрібен Android 11 або новіший</string>
     <string name="morphe_music_lyrics_mediasession_title">Показувати текст пісні MediaSession на екрані блокування</string>
+    <string name="morphe_music_lyrics_miniplayer_summary">Показує поточний рядок у мініплеєрі, а трек переноситься в підзаголовок</string>
     <string name="morphe_music_lyrics_miniplayer_title">Показувати текст пісні в мініплеєрі</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Синхронізовані тексти пісень слідують за відтворенням. Якщо вони збиваються, налаштуйте зсув часу. Зсуває синхронізовані тексти пісень уперед або назад. Використовуйте позитивне значення, якщо текст випереджає пісню</string>
-    <string name="morphe_music_lyrics_offset_ms_title">Зсув синхронізації</string>
+    <string name="morphe_music_lyrics_offset_ms_title">Глобальний зсув часу</string>
     <string name="morphe_music_lyrics_refreshed">Оновлено</string>
     <string name="morphe_music_lyrics_refreshing">Оновлення</string>
     <string name="morphe_music_lyrics_romanize_failed">Не вдалося романізувати текст пісні</string>
     <string name="morphe_music_lyrics_romanize_hide">Романізовано</string>
+    <string name="morphe_music_lyrics_romanize_language_title">Мова романізації</string>
+    <string name="morphe_music_lyrics_romanize_only">Лише романізовано</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Романізовано %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Романізовано Google</string>
     <string name="morphe_music_lyrics_romanizing">Романізується…</string>
     <string name="morphe_music_lyrics_saved">Збережено</string>
+    <string name="morphe_music_lyrics_sb_matching_summary">Зіставляє без сегментів, які пропускає SponsorBlock, і зсуває текст пісні на випущене аудіо. Якщо вимкнено, SponsorBlock повністю ігнорується</string>
+    <string name="morphe_music_lyrics_sb_matching_title">Використовувати сегменти SponsorBlock для зсуву тексту пісні</string>
+    <string name="morphe_music_lyrics_sb_no_video">У цього треку немає ідентифікатора відео для надсилання</string>
+    <string name="morphe_music_lyrics_search_artist_hint">Виконавець</string>
+    <string name="morphe_music_lyrics_search_dialog_title">Шукати текст пісні</string>
+    <string name="morphe_music_lyrics_search_empty">Введіть назву пісні та виконавця</string>
+    <string name="morphe_music_lyrics_search_no_providers">Жоден з увімкнених постачальників не може шукати інші пісні</string>
+    <string name="morphe_music_lyrics_search_title_hint">Назва пісні</string>
     <string name="morphe_music_lyrics_show_copy_button_summary">Натисніть, щоб скопіювати оригінальний текст пісні як звичайний текст; натисніть і утримуйте, щоб зберегти файл вихідного тексту пісні у \"Завантаження\"</string>
     <string name="morphe_music_lyrics_show_copy_button_title">Показати кнопку \"Копіювати\"</string>
-    <string name="morphe_music_lyrics_show_refresh_button_summary">Натисніть, щоб перейти до наступного варіанта тексту пісні; натисніть і утримуйте, щоб тимчасово вимкнути сторонні тексти пісень і показати вбудований текст</string>
+    <string name="morphe_music_lyrics_show_refresh_button_summary">Натисніть, щоб перейти до наступного варіанта тексту пісні; натисніть і утримуйте, щоб шукати текст пісні за назвою пісні та виконавцем</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Показувати кнопку \"Оновити\"</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Романізувати текст пісні за допомогою романізації постачальника, Google Translate або API, сумісного з OpenAI</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Натисніть, щоб увімкнути або вимкнути романізацію; натисніть і утримуйте, щоб показати лише романізацію. Використовує романізацію постачальника, Google Перекладач або API, сумісний з OpenAI</string>
     <string name="morphe_music_lyrics_show_romanize_button_title">Показати кнопку \"Романізувати\"</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Перекладати текст пісні за допомогою перекладів постачальника, Google Translate або API, сумісного з OpenAI</string>
+    <string name="morphe_music_lyrics_show_section_summary">Позначати кожен новий розділ тексту пісні невеликим тегом, наприклад \"Куплет\" або \"Приспів\"</string>
+    <string name="morphe_music_lyrics_show_section_title">Показувати теги розділів</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Натисніть, щоб увімкнути або вимкнути переклад; натисніть і утримуйте, щоб показати лише переклад. Використовує переклади постачальника, Google Перекладач або API, сумісний з OpenAI</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Показати кнопку \"Перекласти\"</string>
-    <string name="morphe_music_lyrics_source_all_disabled">Усіх постачальників вимкнено - вбудовані тексти пісень і вбудовані субтитри</string>
+    <string name="morphe_music_lyrics_source_all_disabled">Усі постачальники вимкнено, використовуються вбудовані та вбудовані в файл тексти пісень</string>
     <string name="morphe_music_lyrics_source_label">Джерело: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">Відновити типовий порядок пріоритету постачальників</string>
     <string name="morphe_music_lyrics_source_reset_title">Скинути порядок постачальників?</string>
     <string name="morphe_music_lyrics_source_title">Сервіс текстів пісень</string>
+    <string name="morphe_music_lyrics_split_background_summary">Виносить бек-вокал, записаний у дужках, наприклад \"(Oh) I want you\", із рядка основного вокалу в окремий, тьмяніший рядок</string>
+    <string name="morphe_music_lyrics_split_background_title">Показувати бек-вокал окремо</string>
     <string name="morphe_music_lyrics_swap_trans_roma_summary">Увімкнено - романізація під текстом, переклад над текстом; вимкнено - романізація над текстом, переклад під текстом</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Поміняти місцями переклад і романізацію</string>
-    <string name="morphe_music_lyrics_tap_to_seek_summary">Натискання на рядок переходить до цього моменту в пісні</string>
-    <string name="morphe_music_lyrics_tap_to_seek_title">Натисніть на рядок для переходу</string>
+    <string name="morphe_music_lyrics_tap_to_seek_summary">Натисніть рядок, щоб перейти до цього моменту в пісні, натисніть і утримайте його, щоб скопіювати слово під пальцем або весь рядок, якщо натискання припало не на слово. Якщо вимкнено, обидва жести не працюватимуть</string>
+    <string name="morphe_music_lyrics_tap_to_seek_title">Натисніть та утримуйте рядок</string>
     <string name="morphe_music_lyrics_text_filter_summary">Регулярний вираз, що застосовується лише до оригінального тексту пісні (не до перекладів чи романізацій). Залиште порожнім, щоб вимкнути</string>
     <string name="morphe_music_lyrics_text_filter_title">Регулярний вираз для фільтрації текстів пісень</string>
     <string name="morphe_music_lyrics_text_size_summary">Розмір тексту пісні</string>
     <string name="morphe_music_lyrics_text_size_title">Розмір тексту</string>
+    <string name="morphe_music_lyrics_transcribe_align">Запросити вирівнювання QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_aligning">Вирівнювання</string>
+    <string name="morphe_music_lyrics_transcribe_apply_align">Застосувати вирівнювання</string>
+    <string name="morphe_music_lyrics_transcribe_cancelled">Транскрипцію скасовано</string>
+    <string name="morphe_music_lyrics_transcribe_failed">QuickLRC не зміг обробити цей трек</string>
+    <string name="morphe_music_lyrics_transcribe_key_cleared">Ключ API QuickLRTC очищено</string>
+    <string name="morphe_music_lyrics_transcribe_key_dialog_instruction">QuickLRC додає таймінги до текстів, у яких їх немає, або транскрибує їх із треку, витрачаючи кредити. Якщо ключ вказано, для треків без тексту пропонується транскрипція, а в діалозі пошуку з\'являється кнопка вирівнювання</string>
+    <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRC не прийняв цей ключ</string>
+    <string name="morphe_music_lyrics_transcribe_key_saved">Ключ API QuickLRC збережено</string>
+    <string name="morphe_music_lyrics_transcribe_key_set_summary">Ключ QuickLRC збережено. Скористайтеся кнопкою вирівнювання в діалозі пошуку тексту пісні або запитом на панелі, коли для треку немає тексту</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRC транскрибує або синхронізує за часом текст пісні для поточного треку. Окремий сервіс, не пов\'язаний із кінцевою точкою, сумісною з OpenAI, вище</string>
+    <string name="morphe_music_lyrics_transcribe_key_title">Ключ API QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_local_unsupported">Транскрибувати можна лише треки, відтворені з YouTube</string>
+    <string name="morphe_music_lyrics_transcribe_no_text">Немає тексту для вирівнювання, натомість виконується транскрипція</string>
+    <string name="morphe_music_lyrics_transcribe_out_of_credits">Кредити QuickLRC для цього треку вичерпано</string>
+    <string name="morphe_music_lyrics_transcribe_prompt">Запросити транскрипцію QuickLRC</string>
+    <string name="morphe_music_lyrics_transcribe_working">Транскрибування</string>
     <string name="morphe_music_lyrics_translate_failed">Не вдалося перекласти текст пісні</string>
     <string name="morphe_music_lyrics_translate_hide">Перекладено</string>
+    <string name="morphe_music_lyrics_translate_only">Лише переклад</string>
     <string name="morphe_music_lyrics_translated_by_ai">Перекладено %s</string>
     <string name="morphe_music_lyrics_translated_by_google">Перекладено Google</string>
     <string name="morphe_music_lyrics_translating">Переклад…</string>
     <string name="morphe_music_lyrics_translation_language_title">Мова перекладу</string>
-    <string name="morphe_music_lyrics_use_ai_translation_summary">Використовувати власний API, сумісний з OpenAI, для перекладу та романізації замість Google Translate</string>
-    <string name="morphe_music_lyrics_use_ai_translation_title">Переклад через сервіс, сумісний з OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_summary">Надає перевагу романізації, яку постачає провайдер, потім вашій моделі, сумісній з OpenAI, і Google Translate наостанок</string>
+    <string name="morphe_music_lyrics_use_ai_romanization_title">AI-романізація</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">Використовується лише тоді, коли постачальник не надає позначок розділів, таких як \"Приспів\" або \"Куплет\", які тоді визначає ваша модель, сумісна з OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_section_title">Розділ AI</string>
+    <string name="morphe_music_lyrics_use_ai_title">API, сумісний з OpenAI</string>
+    <string name="morphe_music_lyrics_use_ai_translation_summary">Надає перевагу перекладу, який постачає провайдер, потім вашій моделі, сумісній з OpenAI, і Google Translate наостанок</string>
+    <string name="morphe_music_lyrics_use_ai_translation_title">AI-переклад</string>
     <string name="morphe_music_lyrics_word_sync_summary">Надавати пріоритет тексту пісні по словах, коли доступно. Якщо текст пісні містить синхронізацію по словах, підсвічує кожне слово або склад у такт музиці</string>
     <string name="morphe_music_lyrics_word_sync_title">Підсвічувати синхронізовані слова або склади</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">токен користувача</string>
@@ -254,6 +281,7 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_music_musixmatch_token_toast_cleared">Musixmatch: токен користувача очищено</string>
     <string name="morphe_music_musixmatch_token_toast_invalid">Musixmatch: недійсний токен користувача - перевірте і спробуйте ще раз</string>
     <string name="morphe_music_musixmatch_token_toast_saved">Musixmatch: токен користувача збережено</string>
+    <string name="morphe_music_scrobbling_log_out">Вийти</string>
     <string name="morphe_music_spotify_token_dialog_instruction">"Вставте cookie sp_dc зі Spotify
 
 Кроки:
@@ -282,7 +310,7 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_oauth2_connection_failure_auth_error">Не вдається ввійти до VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Не вдається ввійти у VR, автентифікацію вебсайту не схвалено</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 тимчасово недоступний</string>
-    <string name="morphe_oauth2_connection_failure_status">OAuth2 тимчасово недоступний (статус %d)</string>
+    <string name="morphe_oauth2_connection_failure_status">OAuth2 тимчасово недоступний (статус %s)</string>
     <string name="morphe_oauth2_connection_failure_status_400">Термін дії входу в Android VR закінчився. Спробуйте ввійти у VR ще раз</string>
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 тимчасово недоступний (тайм-аут API)</string>
     <string name="morphe_oauth2_toast_invalid">Недійсний токен входу у VR, спробуйте ввійти у VR ще раз</string>
@@ -296,10 +324,15 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">Змінити посилання для поширення на youtube.com</string>
+    <string name="morphe_romanize_language_DEFAULT">Автоматична</string>
     <string name="morphe_sanitize_sharing_links_summary">Видаляє параметри відстеження з посилань при поширенні</string>
     <string name="morphe_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з поширених посилань</string>
     <string name="morphe_sanitize_sharing_links_title">Очищувати посилання для поширення</string>
+    <string name="morphe_sb_new_segment_choose_category">Вибрати категорію сегмента</string>
+    <string name="morphe_sb_new_segment_confirm_submit">Надіслати</string>
+    <string name="morphe_sb_new_segment_start_is_before_end">Початок має бути перед кінцем</string>
+    <string name="morphe_sb_new_segment_title">Новий сегмент SponsorBlock</string>
     <string name="morphe_settings_menu_copy_path">Скопійовано: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Відкрийте екран стандартних налаштувань застосунку один раз, щоб заповнити список</string>
     <string name="morphe_settings_menu_filter_screen_summary">Приховати елементи на екрані стандартних налаштувань застосунку за їхньою видимою назвою</string>
@@ -307,6 +340,16 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="morphe_settings_name_custom_item_hint">Введіть назву</string>
     <string name="morphe_settings_name_empty_warning">Назва не може бути порожньою</string>
     <string name="morphe_settings_name_title">Назва налаштувань RVX</string>
+    <string name="morphe_settings_save">Зберегти</string>
+    <string name="morphe_skip_silence_minimum_pause_summary">Скорочуються лише паузи, не коротші за це значення. Набуває чинності при запуску наступного відео</string>
+    <string name="morphe_skip_silence_minimum_pause_title">Мінімальна тривалість паузи</string>
+    <string name="morphe_skip_silence_summary">Автоматично пропускає тихі паузи у звуку відео</string>
+    <string name="morphe_skip_silence_title">Пропускати тишу</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_message">"%1$s кілька разів поспіль не спрацював, а %2$s спрацював
+
+Зробити %2$s типовим клієнтом?"</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_switch">Перемкнути</string>
+    <string name="morphe_spoof_video_streams_client_failing_dialog_title">Типовий клієнт не працює</string>
     <string name="morphe_spoof_video_streams_client_type_title">Типовий клієнт</string>
     <string name="morphe_spoof_video_streams_no_clients_toast">Не вдалося отримати жодних клієнтських потоків</string>
     <string name="morphe_spoof_video_streams_screen_summary">Налаштування підміни клієнта для запобігання проблемам з відтворенням</string>
@@ -378,7 +421,6 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_change_share_sheet_summary">Змінює тип вікна діалогу поширення з вбудованого на системний</string>
     <string name="revanced_change_share_sheet_title">Змінити діалог поширення</string>
     <string name="revanced_change_start_page_entry_charts">Хіт-паради</string>
-    <string name="revanced_change_start_page_entry_default">За замовчуванням</string>
     <string name="revanced_change_start_page_entry_episodes_for_later">Послухати пізніше</string>
     <string name="revanced_change_start_page_entry_explore">Навігація</string>
     <string name="revanced_change_start_page_entry_history">Історія</string>
@@ -735,9 +777,9 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Ключ YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдіть до &lt;a href=%1$s&gt;Створити New Project&lt;/a&gt;.&lt;br&gt;2. Натисніть кнопку &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Перейдіть до &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Натисніть кнопку &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Натисніть кнопку &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Виберіть &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Натисніть кнопку &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Скопіюйте ключ API.&lt;br&gt;&lt;br&gt;※ Ключ API не можна надавати іншим, тому його не включено в Імпорт / Експорт налаштувань</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Створення ключа розробника YouTube Data API v3</string>
-    <string name="revanced_ryd_attribution_summary">"Дані надаються API Return YouTube Dislike
+    <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike повертає кількість дизлайків, яку YouTube приховав у 2021 році. Дані беруться з архіву, створеного до видалення, а для новіших відео оцінюються за голосами користувачів розширення, тож вони приблизні й оновлюються кожні кілька днів
 
-Торкніться тут, щоб відкрити ReturnYouTubeDislike.com"</string>
+Ідентифікатор відео, яке ви дивитеся, надсилається до API Return YouTube Dislike, а ваші лайки та дизлайки надсилаються анонімно для покращення оцінок"</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Зменшує ширину кнопки \"Лайк\", щоб заощадити місце</string>
     <string name="revanced_ryd_compact_layout_title">Використовувати компактну кнопку \"Лайк\"</string>
@@ -748,7 +790,7 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_ryd_estimated_like_summary">Показує приблизну кількість лайків на відео, де автор вимкнув лайки</string>
     <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість лайків</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (ліміт клієнтів API)</string>
-    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d)</string>
+    <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %s)</string>
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (тайм-аут API)</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Показує сповіщення, коли сервер Return YouTube Dislike недоступний</string>
@@ -757,9 +799,9 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Дані надаються SponsorBlock API. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
     <string name="revanced_sb_api_url">Змінити URL-адресу API</string>
-    <string name="revanced_sb_api_url_changed">Адресу сервера API змінено</string>
-    <string name="revanced_sb_api_url_invalid">Недійсна адреса сервера API</string>
-    <string name="revanced_sb_api_url_reset">Адресу сервера API скинуто</string>
+    <string name="revanced_sb_api_url_changed">Адресу API змінено</string>
+    <string name="revanced_sb_api_url_invalid">Адреса API недійсна</string>
+    <string name="revanced_sb_api_url_reset">Адресу API скинуто</string>
     <string name="revanced_sb_api_url_sum">Адреса, яку SponsorBlock використовує для звернень до сервера. Не змінюйте це, якщо не знаєте, що робите</string>
     <string name="revanced_sb_color_changed">Колір змінено</string>
     <string name="revanced_sb_color_dot_label">Колір:</string>
@@ -768,42 +810,42 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_sb_diff_segments">Змінити поведінку сегмента</string>
     <string name="revanced_sb_enabled">Увімкнути SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock - це краудсорсингова система для пропускання дратівливих частин відео на YouTube</string>
-    <string name="revanced_sb_segments_filler">Дотичне наповнення / Жарти</string>
+    <string name="revanced_sb_segments_filler">Дотичні теми / Жарти</string>
     <string name="revanced_sb_segments_filler_sum">Дотичні сцени, додані лише для наповнення або гумору, які не є необхідними для розуміння основного змісту відео. Не включає сегменти, що надають контекст або фонові деталі</string>
-    <string name="revanced_sb_segments_hook">Хук / Привітання</string>
+    <string name="revanced_sb_segments_hook">Зачіпка / Вітання</string>
     <string name="revanced_sb_segments_hook_sum">Озвучені трейлери до майбутнього відео, вітання та прощання. Не містить розділів із додатковим контентом</string>
     <string name="revanced_sb_segments_interaction">Нагадування про взаємодію (Підписка)</string>
     <string name="revanced_sb_segments_interaction_sum">Коротке нагадування про вподобання, підписку або підписку посеред контенту. Якщо воно довге або про щось конкретне, його слід розмістити в розділі самореклами</string>
-    <string name="revanced_sb_segments_intro">Пауза / Вступна Анімація</string>
+    <string name="revanced_sb_segments_intro">Пауза / Заставка</string>
     <string name="revanced_sb_segments_intro_sum">Інтервал без фактичного контенту. Може бути паузою, статичним кадром або повторюваною анімацією. Не включає переходи, що містять інформацію</string>
-    <string name="revanced_sb_segments_nomusic">Музика: Немузична секція</string>
+    <string name="revanced_sb_segments_nomusic">Музика: Сегмент без музики</string>
     <string name="revanced_sb_segments_nomusic_sum">Тільки для використання в музичних відео. Секції музичних відео без музики, які не підпадають під іншу категорію</string>
-    <string name="revanced_sb_segments_outro">Кінцеві картки / Титри</string>
+    <string name="revanced_sb_segments_outro">Кінцеві заставки / Титри</string>
     <string name="revanced_sb_segments_outro_sum">Титри або коли з\'являються кінцеві картки YouTube. Не для підсумків з інформацією</string>
-    <string name="revanced_sb_segments_preview">Прев\'ю / Коментарі / Підсумок</string>
+    <string name="revanced_sb_segments_preview">Попередній перегляд / Підсумок</string>
     <string name="revanced_sb_segments_preview_sum">Колекція кліпів, які показують, що відбувається або що сталося у відео чи в інших відео серій, де вся інформація повторюється в іншому місці</string>
-    <string name="revanced_sb_segments_selfpromo">Неоплачувана / Самореклама</string>
+    <string name="revanced_sb_segments_selfpromo">Самореклама / Рекомендація</string>
     <string name="revanced_sb_segments_selfpromo_sum">Подібно до \"Спонсор\", за винятком неоплачуваної або самореклами. Включає секції про товари, пожертви або інформацію про те, з ким вони співпрацювали</string>
     <string name="revanced_sb_segments_sponsor">Спонсор</string>
     <string name="revanced_sb_segments_sponsor_sum">Рекламні інтеграції, реферальні посилання і пряма реклама. Не для самореклами або рекомендацій різних подій / творців / сайтів / продуктів, які подобаються автору відео</string>
     <string name="revanced_sb_skip_automatically">Пропустити автоматично</string>
     <string name="revanced_sb_skip_automatically_once">Пропустити один раз</string>
     <string name="revanced_sb_skip_ignore">Вимкнути</string>
-    <string name="revanced_sb_skipped_filler">Пропущено наповнювач</string>
-    <string name="revanced_sb_skipped_hook">Пропущено хук</string>
+    <string name="revanced_sb_skipped_filler">Пропущено дотичну тему</string>
+    <string name="revanced_sb_skipped_hook">Пропущено зачіпку</string>
     <string name="revanced_sb_skipped_interaction">Пропущено дратівливе нагадування</string>
     <string name="revanced_sb_skipped_intro_beginning">Пропущено вступ</string>
     <string name="revanced_sb_skipped_intro_end">Пропущено паузу</string>
     <string name="revanced_sb_skipped_multiple_segments">Пропущено декілька сегментів</string>
-    <string name="revanced_sb_skipped_nomusic">Пропущено секцію без музики</string>
+    <string name="revanced_sb_skipped_nomusic">Пропущено сегмент без музики</string>
     <string name="revanced_sb_skipped_outro">Пропущено закінчення</string>
     <string name="revanced_sb_skipped_preview_beginning">Пропущено попередній перегляд</string>
     <string name="revanced_sb_skipped_preview_end">Пропущено підсумок</string>
     <string name="revanced_sb_skipped_selfpromo">Пропущено саморекламу</string>
     <string name="revanced_sb_skipped_sponsor">Пропущено спонсорську вставку</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock тимчасово недоступний</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock тимчасово недоступний (статус %d)</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock тимчасово недоступний (закінчився час APІ)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock тимчасово не доступний</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock тимчасово недоступний (статус %s)</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock тимчасово недоступний (тайм-аут API)</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Показує тост, якщо API SponsorBlock не доступний</string>
     <string name="revanced_sb_toast_on_skip">Показати тост, коли сегмент пропущено автоматично</string>
     <string name="revanced_sb_toast_on_skip_sum">Показує тост, коли сегмент автоматично пропущено</string>
@@ -818,7 +860,7 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_settings_import_export_title">Імпорт / Експорт налаштувань</string>
     <string name="revanced_settings_import_failed">Не вдалося імпортувати налаштування: %s</string>
     <string name="revanced_settings_import_reset">Налаштування RVX скинуто до типових</string>
-    <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
+    <string name="revanced_settings_import_success">Імпортовано %s налаштувань</string>
     <string name="revanced_settings_navigate_up">Перейти вгору</string>
     <string name="revanced_settings_reset">Скинути</string>
     <string name="revanced_settings_reset_color">Скинути колір</string>
@@ -911,5 +953,4 @@ YouTube Music 8.x - плавний перехід працює лише на в�
     <string name="revanced_webview_toast_empty">%s порожній</string>
     <string name="revanced_webview_toast_no_network">Перевірте підключення до Інтернету</string>
     <string name="revanced_webview_toast_unavailable">WebView недоступний</string>
-    <string name="revanced_webview_visitor_data">Дані відвідуваності</string>
 </resources>

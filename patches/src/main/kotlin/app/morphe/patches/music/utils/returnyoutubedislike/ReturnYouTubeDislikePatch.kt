@@ -82,9 +82,11 @@ private val returnYouTubeDislikeBytecodePatch = bytecodePatch(
                 )
             }
         } else {
+            // The flag is gone in YouTube Music 9.40. Its value is only used to size the separators.
             actionBarPositionFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
                 ACTION_BAR_POSITION_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->actionBarFeatureFlagLoaded(Z)Z"
+                "$EXTENSION_CLASS_DESCRIPTOR->actionBarFeatureFlagLoaded(Z)Z",
+                warnIfMissing = false
             )
         }
 

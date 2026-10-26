@@ -35,8 +35,9 @@ internal object ElementsTextColorFingerprint : Fingerprint(
     filters = listOf(
         methodCall(smali = "Landroid/text/style/ForegroundColorSpan;-><init>(I)V"),
     ),
+    // 21.39 dropped one parameter (15 -> 14) from this method.
     custom = { method, _ ->
-        method.parameterTypes.size >= 15 &&
+        method.parameterTypes.size >= 14 &&
                 method.parameterTypes.getOrNull(1) == "Landroid/content/Context;"
     },
 )

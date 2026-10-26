@@ -12,7 +12,9 @@
 package app.morphe.extension.youtube.patches.theme;
 
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.view.View;
+import android.view.WindowInsets;
 
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
@@ -53,6 +55,33 @@ public final class StatusBarPatch {
         } catch (Exception ex) {
             Logger.printException(() -> "Could not apply status bar translucency", ex);
         }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * The status bar background view is sized with the stable status bar inset,
+     * so when the status bar is hidden it covers the search bar and channel page top bar.
+     */
+    public static void hideStatusBarBackground(View view) {
+        if (!isStatusBarVisible(view.getRootView())) {
+            view.setVisibility(View.INVISIBLE);
+        } else {
+            // Keep the selected translucency when the system status bar is visible.
+            apply(view);
+        }
+    }
+
+    private static boolean isStatusBarVisible(View decorView) {
+        WindowInsets insets = decorView.getRootWindowInsets();
+        if (insets == null) {
+            return false;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            return insets.isVisible(WindowInsets.Type.statusBars());
+        }
+        //noinspection deprecation
+        return (decorView.getSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0;
     }
 
     private StatusBarPatch() {

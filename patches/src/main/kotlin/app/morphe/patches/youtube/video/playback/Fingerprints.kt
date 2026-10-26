@@ -19,6 +19,7 @@ import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import app.morphe.patches.shared.mapping.ResourceType.STRING
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.video.information.VideoQualityChangedFingerprint
@@ -223,4 +224,71 @@ internal object ModernLoadPlaybackSpeedFingerprint : Fingerprint(
     strings = listOf(
         "null cannot be cast to non-null type com.google.android.libraries.youtube.player.settings.control.models.PlayerSettingModel.PlaybackRateSettingModel"
     ),
+)
+
+/**
+ * Checks if the audio offload supports changing the playback speed.
+ */
+internal object AudioOffloadVariableRateSupportedFingerprint : Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = listOf(
+        string("offloadVariableRateSupported")
+    )
+)
+
+/**
+ * Checks if the audio offload is enabled.
+ */
+internal object AudioOffloadEnabledFingerprint : Fingerprint(
+    classFingerprint = AudioOffloadVariableRateSupportedFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_4,
+        Opcode.IF_NEZ,
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_4,
+        Opcode.IF_NEZ,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_NEZ,
+        Opcode.RETURN,
+        Opcode.RETURN,
+        Opcode.RETURN
+    )
+)
+
+/**
+ * Older audio offload checks merge the false result before returning instead of using three returns.
+ */
+internal object LegacyAudioOffloadEnabledFingerprint : Fingerprint(
+    classFingerprint = AudioOffloadVariableRateSupportedFingerprint,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
+    returnType = "Z",
+    parameters = listOf(),
+    filters = OpcodesFilter.opcodesToFilters(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_4,
+        Opcode.IF_NEZ,
+        Opcode.IGET_BOOLEAN,
+        Opcode.CONST_4,
+        Opcode.IF_NEZ,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_NEZ,
+        Opcode.GOTO,
+        Opcode.RETURN,
+        Opcode.MOVE,
+        Opcode.RETURN
+    )
 )

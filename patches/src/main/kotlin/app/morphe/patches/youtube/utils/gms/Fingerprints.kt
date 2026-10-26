@@ -36,13 +36,17 @@ internal object SpecificNetworkErrorViewControllerFingerprint : Fingerprint(
 internal object LoadingFrameLayoutControllerFingerprint : Fingerprint(
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
-    parameters = listOf("L"),
+    // YouTube 21.39 changed the single parameter from an object to a boolean (`qzf.a(Z)V`).
     filters = listOf(
         literal(icOfflineNoContentUpsideDown),
         literal(offlineNoContentBodyTextNotOfflineEligible),
         methodCall(name = "getString", returnType = "Ljava/lang/String;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
-    )
+    ),
+    custom = { method, _ ->
+        method.parameterTypes.size == 1 &&
+                method.parameterTypes.first().toString().let { it.startsWith("L") || it == "Z" }
+    }
 )
 
 internal object GmsDeviceComplianceCheckFingerprint : Fingerprint(

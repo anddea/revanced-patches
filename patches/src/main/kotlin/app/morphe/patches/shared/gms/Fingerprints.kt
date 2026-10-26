@@ -1,9 +1,9 @@
 package app.morphe.patches.shared.gms
 
-import app.morphe.util.fingerprint.legacyFingerprint
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.opcode
 import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
@@ -11,30 +11,17 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 const val GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME = "getGmsCoreVendorGroupId"
 
-internal val gmsCoreSupportFingerprint = legacyFingerprint(
-    name = "gmsCoreSupportFingerprint",
-    customFingerprint = { _, classDef ->
+internal val gmsCoreSupportFingerprint = Fingerprint(
+    custom = { _, classDef ->
         classDef.endsWith("GmsCoreSupport;")
     }
 )
 
-internal val castContextFetchFingerprint = legacyFingerprint(
-    name = "castContextFetchFingerprint",
+internal val castContextFetchFingerprint = Fingerprint(
     strings = listOf("Error fetching CastContext.")
 )
 
-internal val castDynamiteModuleFingerprint = legacyFingerprint(
-    name = "castDynamiteModuleFingerprint",
-    strings = listOf("com.google.android.gms.cast.framework.internal.CastDynamiteModuleImpl")
-)
-
-internal val castDynamiteModuleV2Fingerprint = legacyFingerprint(
-    name = "castDynamiteModuleV2Fingerprint",
-    strings = listOf("Failed to load module via V2: ")
-)
-
-internal val droidGuardSignatureFingerprint = legacyFingerprint(
-    name = "droidGuardSignatureFingerprint",
+internal val droidGuardSignatureFingerprint = Fingerprint(
     returnType = "Z",
     strings = listOf(
         "SHA-256",
@@ -42,16 +29,14 @@ internal val droidGuardSignatureFingerprint = legacyFingerprint(
     )
 )
 
-internal val gmsServiceBrokerFingerprint = legacyFingerprint(
-    name = "gmsServiceBrokerFingerprint",
+internal val gmsServiceBrokerFingerprint = Fingerprint(
     returnType = "V",
     strings = listOf("mServiceBroker is null, client disconnected")
 )
 
-internal val googlePlayUtilityFingerprint = legacyFingerprint(
-    name = "googlePlayUtilityFingerprint",
+internal val googlePlayUtilityFingerprint = Fingerprint(
     returnType = "I",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
     parameters = listOf("L", "I"),
     strings = listOf(
         "This should never happen.",
@@ -59,44 +44,39 @@ internal val googlePlayUtilityFingerprint = legacyFingerprint(
     )
 )
 
-internal val serviceCheckFingerprint = legacyFingerprint(
-    name = "serviceCheckFingerprint",
+internal val serviceCheckFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
     parameters = listOf("L", "I"),
     strings = listOf("Google Play Services not available")
 )
 
-internal val sslGuardFingerprint = legacyFingerprint(
-    name = "sslGuardFingerprint",
+internal val sslGuardFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     strings = listOf("Cannot initialize SslGuardSocketFactory will null"),
 )
 
-internal val eCatcherFingerprint = legacyFingerprint(
-    name = "eCatcherFingerprint",
+internal val eCatcherFingerprint = Fingerprint(
     returnType = "V",
-    opcodes = listOf(Opcode.NEW_ARRAY),
+    filters = listOf(opcode(Opcode.NEW_ARRAY)),
     strings = listOf("ECatcher disabled: level: %s, category: %s, message: %s"),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         method.parameterTypes.contains("Ljava/util/function/Function;")
     },
 )
 
-internal val primesApiFingerprint = legacyFingerprint(
-    name = "primesApiFingerprint",
+internal val primesApiFingerprint = Fingerprint(
     returnType = "V",
     strings = listOf("PrimesApiImpl.java"),
-    customFingerprint = { method, _ ->
+    custom = { method, _ ->
         MethodUtil.isConstructor(method)
     }
 )
 
-internal val primesBackgroundInitializationFingerprint = legacyFingerprint(
-    name = "primesBackgroundInitializationFingerprint",
-    opcodes = listOf(Opcode.NEW_INSTANCE),
-    customFingerprint = { method, _ ->
+internal val primesBackgroundInitializationFingerprint = Fingerprint(
+    filters = listOf(opcode(Opcode.NEW_INSTANCE)),
+    custom = { method, _ ->
         method.indexOfFirstInstruction {
             opcode == Opcode.CONST_STRING &&
                     getReference<StringReference>()
@@ -106,13 +86,12 @@ internal val primesBackgroundInitializationFingerprint = legacyFingerprint(
     }
 )
 
-internal val primesLifecycleEventFingerprint = legacyFingerprint(
-    name = "primesLifecycleEventFingerprint",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+internal val primesLifecycleEventFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     returnType = "V",
     parameters = emptyList(),
-    opcodes = listOf(Opcode.NEW_INSTANCE),
-    customFingerprint = { method, _ ->
+    filters = listOf(opcode(Opcode.NEW_INSTANCE)),
+    custom = { method, _ ->
         method.indexOfFirstInstruction {
             opcode == Opcode.CONST_STRING &&
                     getReference<StringReference>()
@@ -122,7 +101,6 @@ internal val primesLifecycleEventFingerprint = legacyFingerprint(
     }
 )
 
-internal val primeMethodFingerprint = legacyFingerprint(
-    name = "primesLifecycleEventFingerprint",
+internal val primeMethodFingerprint = Fingerprint(
     strings = listOf("com.google.android.GoogleCamera", "com.android.vending")
 )

@@ -17,11 +17,14 @@ import app.morphe.extension.shared.patches.components.Filter;
 import app.morphe.extension.shared.patches.components.StringFilterGroup;
 import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
 
 @SuppressWarnings("unused")
 public final class LayoutComponentsFilter extends Filter {
     private static final String ACCOUNT_HEADER_PATH = "account_header.";
     private static final String HANDLE_PATH = "|CellType|ContainerType|ContainerType|ContainerType|TextType|";
+
+    private final StringFilterGroup channelHandle;
 
     public LayoutComponentsFilter() {
         addIdentifierCallbacks(
@@ -31,17 +34,27 @@ public final class LayoutComponentsFilter extends Filter {
                 )
         );
 
+        channelHandle = new StringFilterGroup(
+                Settings.HIDE_HANDLE,
+                "content_metadata.e"
+        );
+
         addPathCallbacks(
                 new StringFilterGroup(
                         Settings.HIDE_HANDLE,
                         ACCOUNT_HEADER_PATH
-                )
+                ),
+                channelHandle
         );
     }
 
     @Override
     public boolean isFiltered(String path, String identifier, String allValue, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (matchedGroup == channelHandle) {
+            return path.startsWith("page_header.e")
+                    && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY;
+        }
         return contentType != FilterContentType.PATH || (contentIndex == 0 && path.contains(HANDLE_PATH));
     }
 

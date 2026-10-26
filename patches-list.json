@@ -1,31 +1,14 @@
 {
-  "version": "4.3.0",
+  "version": "4.4.0-dev.3",
   "patches": [
     {
-      "name": "Alternative thumbnails",
-      "description": "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
-      "use": true,
-      "dependencies": [
-        "BytecodePatch",
-        "BytecodePatch",
-        "BytecodePatch",
-        "ResourcePatch"
-      ],
-      "compatiblePackages": {
-        "com.google.android.youtube": [
-          "21.13.164",
-          "20.05.46"
-        ]
-      },
-      "options": []
-    },
-    {
       "name": "Ambient mode control",
-      "description": "Adds options to disable Ambient mode and to bypass Ambient mode restrictions.",
+      "description": "Forces Ambient mode on and adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.",
       "use": true,
       "dependencies": [
         "ResourcePatch",
-        "ResourcePatch"
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -45,10 +28,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -78,10 +61,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -112,10 +95,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -143,10 +126,10 @@
       "dependencies": [],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -208,10 +191,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -221,9 +204,8 @@
       "description": "Adds an option to change the in-app share sheet to the system share sheet.",
       "use": true,
       "dependencies": [
-        "ResourcePatch",
         "BytecodePatch",
-        "BytecodePatch"
+        "ResourcePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -243,10 +225,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -287,6 +269,24 @@
           }
         }
       ]
+    },
+    {
+      "name": "Copy text",
+      "description": "Adds options to copy the video title and comments by tapping and holding them.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
     },
     {
       "name": "Custom DPI",
@@ -364,7 +364,7 @@
         {
           "key": "appIcon",
           "title": "App icon",
-          "description": "Icon used by Android and selected by default in the app. Choose Custom to use the Custom icon folder, or enter a resource folder path. All icons remain available in the app settings.",
+          "description": "Icon used by Android and selected by default in the app. Choose Custom to use the Custom icon folder, or enter a resource folder path. Mounted (root) installs require patching again to change the launcher icon.",
           "required": true,
           "type": "kotlin.String",
           "default": "original",
@@ -418,10 +418,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": [
@@ -437,7 +437,7 @@
         {
           "key": "appIcon",
           "title": "App icon",
-          "description": "Icon used by Android and selected by default in the app. Choose Custom to use the Custom icon folder, or enter a resource folder path. All icons remain available in the app settings.",
+          "description": "Icon used by Android and selected by default in the app. Choose Custom to use the Custom icon folder, or enter a resource folder path. Mounted (root) installs require patching again to change the launcher icon.",
           "required": true,
           "type": "kotlin.String",
           "default": "original",
@@ -498,6 +498,26 @@
       ]
     },
     {
+      "name": "DeArrow",
+      "description": "Adds options to replace video thumbnails and titles using the DeArrow API, or replace video thumbnails with image captures from the video.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
       "name": "Description components",
       "description": "Adds options to hide and disable description components.",
       "use": true,
@@ -531,10 +551,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -549,10 +569,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -574,6 +594,22 @@
       "options": []
     },
     {
+      "name": "Disable auto feed refresh",
+      "description": "Adds an option to stop feeds from refreshing automatically after they become outdated.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
       "name": "Disable dislike redirection",
       "description": "Adds an option to disable redirection to the next track when clicking the Dislike button.",
       "use": true,
@@ -583,10 +619,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -609,10 +645,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -622,6 +658,8 @@
       "description": "Adds an option to disable captions from being automatically enabled.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch"
@@ -677,10 +715,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -768,21 +806,23 @@
     },
     {
       "name": "Downloads",
-      "description": "Adds support to download songs for offline playback inside YouTube Music.",
+      "description": "Adds support to download songs and playlists for offline playback in YouTube Music's own device files library and player.",
       "use": true,
       "dependencies": [
-        "ResourcePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -796,10 +836,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -846,10 +886,29 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Feed video actions",
+      "description": "Adds a Watch later button to video thumbnails in feeds, and opens the video menu by tapping and holding anywhere on a video.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
         ]
       },
       "options": []
@@ -871,10 +930,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -890,10 +949,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -985,10 +1044,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": [
@@ -1180,10 +1239,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1202,10 +1261,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1250,10 +1309,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1314,6 +1373,7 @@
         "ResourcePatch",
         "ResourcePatch",
         "BytecodePatch",
+        "BytecodePatch",
         "ResourcePatch"
       ],
       "compatiblePackages": {
@@ -1352,10 +1412,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1390,10 +1450,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1446,10 +1506,10 @@
       "dependencies": [],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1509,11 +1569,15 @@
     },
     {
       "name": "Hook download actions",
-      "description": "Adds support to download videos with an external downloader app using the in-app download button.",
+      "description": "Adds support to download videos with the built-in downloader or an external downloader app, and an offline library for downloaded videos.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
         "ResourcePatch",
-        "ResourcePatch"
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -1553,10 +1617,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1711,6 +1775,42 @@
       "options": []
     },
     {
+      "name": "Picture-in-picture button",
+      "description": "Adds an option to display a picture-in-picture button in the video player.",
+      "use": true,
+      "dependencies": [
+        "ResourcePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Playback buffer",
+      "description": "Adds an option to change the video playback buffer size.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
       "name": "Playback in feeds",
       "description": "Adds the 'Playback in feeds' setting of YouTube to the RVX settings, where it is always available even if YouTube hides it.",
       "use": true,
@@ -1741,10 +1841,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": [
@@ -1799,10 +1899,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1815,6 +1915,24 @@
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Preferred caption language",
+      "description": "Adds an option to automatically select captions in your preferred language.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -1868,10 +1986,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1905,10 +2023,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1938,10 +2056,33 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Restore original titles",
+      "description": "Adds an option to show the original video titles and descriptions instead of the auto-translated ones.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
         ]
       },
       "options": []
@@ -1956,10 +2097,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -1996,10 +2137,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -2030,10 +2171,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -2158,10 +2299,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": [
@@ -2209,10 +2350,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -2258,6 +2399,41 @@
         "BytecodePatch",
         "ResourcePatch",
         "BytecodePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.youtube": [
+          "21.13.164",
+          "20.05.46"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Skip silence",
+      "description": "Adds an option to automatically skip silent pauses in audio playback.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch"
+      ],
+      "compatiblePackages": {
+        "com.google.android.apps.youtube.music": [
+          "9.15.51",
+          "8.30.54",
+          "8.28.54",
+          "8.12.54"
+        ]
+      },
+      "options": []
+    },
+    {
+      "name": "Skip silence",
+      "description": "Adds an option to automatically skip silent pauses in audio playback.",
+      "use": true,
+      "dependencies": [
+        "BytecodePatch",
+        "ResourcePatch",
+        "ResourcePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -2373,10 +2549,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -2432,10 +2608,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -2469,10 +2645,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -2522,10 +2698,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -2578,7 +2754,8 @@
         "BytecodePatch",
         "ResourcePatch",
         "ResourcePatch",
-        "ResourcePatch"
+        "ResourcePatch",
+        "BytecodePatch"
       ],
       "compatiblePackages": {
         "com.google.android.youtube": [
@@ -2597,10 +2774,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": [
@@ -2723,7 +2900,7 @@
     },
     {
       "name": "Third-party lyrics",
-      "description": "Adds an option to show synced lyrics with experience enhancement from 15+ providers in the lyrics panel.",
+      "description": "Adds an option to show synced lyrics with experience enhancement from 18+ providers in the lyrics panel.",
       "use": true,
       "dependencies": [
         "BytecodePatch",
@@ -2745,6 +2922,7 @@
       "description": "Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons.",
       "use": true,
       "dependencies": [
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
@@ -2772,10 +2950,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -2834,10 +3012,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": [
@@ -2885,10 +3063,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
@@ -2914,6 +3092,8 @@
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch",
+        "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch"
       ],
@@ -2976,10 +3156,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": [
@@ -3039,10 +3219,10 @@
       ],
       "compatiblePackages": {
         "com.google.android.apps.youtube.music": [
-          "8.12.54",
-          "8.28.54",
+          "9.15.51",
           "8.30.54",
-          "9.15.51"
+          "8.28.54",
+          "8.12.54"
         ]
       },
       "options": []
