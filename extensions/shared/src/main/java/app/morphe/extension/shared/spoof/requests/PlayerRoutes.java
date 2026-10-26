@@ -66,6 +66,11 @@ public final class PlayerRoutes {
                     "?fields=status,playlistEditResults"
     ).compile();
 
+    private static final Route.CompiledRoute GET_REEL_STREAMING_DATA_WITH_DETAILS = new Route(
+            Route.Method.POST,
+            "reel/reel_item_watch?alt=proto"
+    ).compile();
+
     private static final String YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/";
 
     private static final int CONNECTION_TIMEOUT_MILLISECONDS = 10 * 1000;
@@ -187,7 +192,9 @@ public final class PlayerRoutes {
                                                                   boolean includeVideoDetails) throws IOException {
         Route.CompiledRoute route;
         if (!clientType.usePlayerEndpoint) {
-            route = GET_REEL_STREAMING_DATA;
+            route = includeVideoDetails
+                    ? GET_REEL_STREAMING_DATA_WITH_DETAILS
+                    : GET_REEL_STREAMING_DATA;
         } else {
             route = includeVideoDetails
                     ? GET_PLAYER_STREAMING_DATA_WITH_DETAILS

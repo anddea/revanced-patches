@@ -8,14 +8,26 @@
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
  */
 
-package app.morphe.patches.youtube.general.navigation
+package app.morphe.patches.youtube.utils.fix.padding
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
 import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import com.android.tools.smali.dexlib2.Opcode
+
+/**
+ * Changes how the height of the navigation bar and the miniplayer is given to the pages,
+ * which leaves wrong padding in some pages, such as the incognito search.
+ * 21.29 and older read it with a single accessor method.
+ */
+internal object IncognitoSearchPaddingFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45724388L)
+    )
+)
 
 /**
  * Sets the bottom margin of the layout that holds the page and the navigation bar.
@@ -59,3 +71,28 @@ internal object FeedListPaddingFingerprint : Fingerprint(
     )
 )
 
+/**
+ * Sets the bottom padding of the list of a browse page laid out behind the navigation bar,
+ * to the navigation bar height plus the bottom window inset, once the window insets are known.
+ */
+internal object BrowseListBottomPaddingFingerprint : Fingerprint(
+    returnType = "V",
+    parameters = listOf("Ljava/lang/Object;"),
+    filters = listOf(
+        methodCall(
+            definingClass = "Landroid/support/v7/widget/RecyclerView;",
+            name = "getPaddingRight"
+        ),
+        fieldAccess(
+            opcode = Opcode.IGET,
+            definingClass = "Landroid/graphics/Rect;",
+            name = "bottom",
+            location = MatchAfterWithin(6)
+        ),
+        methodCall(
+            definingClass = "Landroid/support/v7/widget/RecyclerView;",
+            name = "setPadding",
+            location = MatchAfterWithin(6)
+        )
+    )
+)

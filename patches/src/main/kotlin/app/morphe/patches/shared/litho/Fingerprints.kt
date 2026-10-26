@@ -45,6 +45,7 @@ import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.util.*
 import app.morphe.util.fingerprint.legacyFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags

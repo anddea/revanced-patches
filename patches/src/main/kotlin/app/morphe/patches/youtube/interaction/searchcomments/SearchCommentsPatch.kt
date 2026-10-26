@@ -22,6 +22,9 @@ import app.morphe.patches.youtube.utils.patch.PatchList.SEARCH_COMMENTS
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.video.information.videoInformationPatch
+import app.morphe.patches.youtube.utils.playservice.is_20_05_or_greater
+import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
+import app.morphe.util.Utils.printWarn
 import app.morphe.util.ResourceGroup
 import app.morphe.util.copyResources
 import app.morphe.util.indexOfFirstInstructionOrThrow
@@ -47,6 +50,7 @@ val searchCommentsPatch = bytecodePatch(
         lithoFilterPatch,
         engagementPanelHookPatch,
         videoInformationPatch,
+        versionCheckPatch,
         resourcePatch {
             execute {
                 copyResources(
@@ -60,6 +64,13 @@ val searchCommentsPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_YOUTUBE)
 
     execute {
+        // Older section-list controllers do not expose the list-view field used by the reload bridge.
+        // Do not install the filter or expose a setting when its controller bridge cannot be added.
+        if (!is_20_05_or_greater) {
+            printWarn("\"Search comments\" is not supported in this version. Use YouTube 20.05 or greater.")
+            return@execute
+        }
+
         addPreference(
             arrayOf("PREFERENCE_SCREEN: GENERAL", "SETTINGS: SEARCH_COMMENTS"),
             SEARCH_COMMENTS,

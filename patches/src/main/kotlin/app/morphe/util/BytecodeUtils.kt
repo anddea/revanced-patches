@@ -212,6 +212,7 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.MethodParameter
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -252,7 +253,11 @@ private val moveOpcodes: EnumSet<Opcode> = EnumSet.of(
  *
  * @param fieldName The name of the field to find. Partial matches are allowed.
  */
-private fun Method.findInstructionIndexFromToString(fieldName: String, isField: Boolean) : Int {
+private fun Method.findInstructionIndexFromToString(
+    fieldName: String,
+    isField: Boolean,
+    allowNull: Boolean = false
+): Int {
     val stringIndex = indexOfFirstInstruction {
         val reference = getReference<StringReference>()
         reference?.string?.contains(fieldName) == true
@@ -320,6 +325,12 @@ private fun Method.findInstructionIndexFromToString(fieldName: String, isField: 
             continue
         }
 
+        // Some older apps append a constant null instead of reading a context field.
+        if (allowNull && fieldSetInstruction.opcode == Opcode.CONST_4 &&
+            (fieldSetInstruction as NarrowLiteralInstruction)
+                .narrowLiteral == 0
+        ) return fieldSetIndex
+
         val fieldSetReference = fieldSetInstruction.getReference<Reference>()
 
         if (isField && fieldSetReference is FieldReference ||
@@ -376,10 +387,13 @@ internal fun setExtensionIsPatchIncluded(patchExtensionClassType: String) {
  *
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
-context(ctx: BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName, false)
-    return ctx.navigate(this).to(methodUsageIndex).stop()
+    val reference = getInstruction<ReferenceInstruction>(methodUsageIndex).reference as MethodReference
+    return findMethodOrThrow(reference.definingClass) {
+        MethodUtil.methodSignaturesMatch(this, reference)
+    }
 }
 
 /**
@@ -390,6 +404,15 @@ internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
 internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName, true)
     return getInstruction<ReferenceInstruction>(methodUsageIndex).getReference<FieldReference>()!!
+}
+
+/**
+ * Like [findFieldFromToString], but also accepts a constant null passed to StringBuilder.append.
+ * Unexpected instructions still fail instead of silently disabling the field hook.
+ */
+internal fun Method.findFieldFromToStringOrNull(fieldName: String): FieldReference? {
+    val index = findInstructionIndexFromToString(fieldName, true, allowNull = true)
+    return getInstruction(index).getReference<FieldReference>()
 }
 
 /**

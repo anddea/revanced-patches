@@ -1,14 +1,18 @@
 /*
  * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * https://github.com/MorpheApp/morphe-patches/pull/1065
+ * https://github.com/MorpheApp/morphe-patches/pull/3635
  *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  */
+
 package app.morphe.patches.music.interaction.crossfade
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
@@ -26,7 +30,9 @@ import com.android.tools.smali.dexlib2.Opcode
 /** Medialib outer player (atad): `stopVideo`. */
 internal object StopVideoFingerprint : Fingerprint(
     returnType = "V",
-    strings = listOf("stopVideo", "MedialibPlayer.stopVideo"),
+    strings = listOf(
+        string("MedialibPlayer.stopVideo()", StringComparisonType.STARTS_WITH)
+    ),
 )
 
 /** Inner coordinator (athu): `playNextInQueue` / gapless. */
@@ -46,7 +52,9 @@ internal object AudioVideoToggleFingerprint : Fingerprint(
 
 internal object PauseVideoFingerprint : Fingerprint(
     returnType = "V",
-    strings = listOf("pauseVideo", "MedialibPlayer.pauseVideo()"),
+    strings = listOf(
+        string("MedialibPlayer.pauseVideo()", StringComparisonType.STARTS_WITH)
+    ),
 )
 
 internal object PlayVideoFingerprint : Fingerprint(
@@ -60,17 +68,15 @@ internal object PlayVideoFingerprint : Fingerprint(
  * (coz) also references "ExoPlayerImpl" as a log tag.
  */
 internal object ExoPlayerImplFingerprint : Fingerprint(
+    interfaces = listOf("Landroidx/media3/exoplayer/ExoPlayer;"),
     strings = listOf("ExoPlayerImpl"),
-    custom = { _, classDef ->
-        classDef.interfaces.any { it == "Landroidx/media3/exoplayer/ExoPlayer;" }
-    },
 )
 
 /** MedialibPlayer loadVideo method (atzq.o). Scoped to StopVideoFingerprint class. */
 internal object LoadVideoFingerprint : Fingerprint(
     classFingerprint = StopVideoFingerprint,
     returnType = "V",
-    strings = listOf("MedialibPlayer.loadVideo("),
+    strings = listOf(string("MedialibPlayer.loadVideo(", StringComparisonType.STARTS_WITH)),
 )
 
 /**

@@ -15,6 +15,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patches.music.actionbar.components.actionBarComponentsPatch
@@ -34,7 +35,6 @@ import app.morphe.patches.shared.misc.media.MediaSessionSetMetadataFingerprint
 import app.morphe.patches.shared.misc.media.hookMediaSessionArgument
 import app.morphe.patches.shared.misc.request.authHeadersPatch
 import app.morphe.util.Utils.printWarn
-import app.morphe.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.Opcode

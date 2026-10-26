@@ -6,6 +6,7 @@ import app.morphe.patcher.checkCast
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.general.navigation.navigationBarComponentsPatch
@@ -13,7 +14,6 @@ import app.morphe.patches.youtube.utils.YOUTUBE_PIVOT_BAR_CLASS_TYPE
 import app.morphe.patches.youtube.utils.resourceid.bottomBarContainer
 import app.morphe.patches.youtube.utils.resourceid.imageOnlyTab
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags

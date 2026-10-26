@@ -4,6 +4,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.WATCH_NEXT_RESPONSE_PROCESSING_DELAY_STRING
 import app.morphe.patches.shared.playbackStartParametersConstructorFingerprint
 import app.morphe.patches.shared.playbackStartParametersToStringFingerprint
@@ -18,7 +19,6 @@ import app.morphe.patches.youtube.utils.webview.webViewPatch
 import app.morphe.util.findFieldFromToString
 import app.morphe.util.fingerprint.methodOrThrow
 import app.morphe.util.fingerprint.originalMethodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction

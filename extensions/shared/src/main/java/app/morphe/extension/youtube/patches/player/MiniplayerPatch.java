@@ -186,8 +186,6 @@ public final class MiniplayerPatch {
     private static final int MODERN_OVERLAY_SUBTITLE_TEXT
             = ResourceUtils.getIdIdentifier("modern_miniplayer_subtitle_text");
 
-    private static final boolean DISABLE_RESUMING_MINIPLAYER =
-            Settings.DISABLE_RESUMING_MINIPLAYER.get();
 
     private static final MiniplayerType CURRENT_TYPE = Settings.MINIPLAYER_TYPE.get();
 
@@ -401,8 +399,8 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean disableResumingStartupMiniPlayer(boolean original) {
-        return !DISABLE_RESUMING_MINIPLAYER && original;
+    public static boolean disableResumingStartupMiniPlayer() {
+        return Settings.DISABLE_RESUMING_MINIPLAYER.get();
     }
 
     /**

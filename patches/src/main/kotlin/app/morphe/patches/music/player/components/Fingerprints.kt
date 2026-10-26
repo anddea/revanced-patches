@@ -58,6 +58,7 @@ import app.morphe.patcher.fieldAccess
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.morphe.patches.music.utils.playservice.is_7_18_or_greater
 import app.morphe.patches.music.utils.resourceid.colorGrey
@@ -74,7 +75,6 @@ import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.util.containsLiteralInstruction
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags

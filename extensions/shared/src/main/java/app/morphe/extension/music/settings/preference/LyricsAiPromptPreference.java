@@ -64,10 +64,6 @@ public class LyricsAiPromptPreference extends SwitchPreference {
         String key = getKey();
         if (key == null) return null;
         switch (key) {
-            case "morphe_music_lyrics_use_ai_translation":
-                return Settings.LYRICS_USE_AI_TRANSLATION;
-            case "morphe_music_lyrics_use_ai_romanization":
-                return Settings.LYRICS_USE_AI_ROMANIZATION;
             case "morphe_music_lyrics_use_ai_section":
                 return Settings.LYRICS_USE_AI_SECTION;
             default:
@@ -79,10 +75,6 @@ public class LyricsAiPromptPreference extends SwitchPreference {
         String key = getKey();
         if (key == null) return null;
         switch (key) {
-            case "morphe_music_lyrics_use_ai_translation":
-                return Settings.LYRICS_AI_TRANSLATION_PROMPT;
-            case "morphe_music_lyrics_use_ai_romanization":
-                return Settings.LYRICS_AI_ROMANIZATION_PROMPT;
             case "morphe_music_lyrics_use_ai_section":
                 return Settings.LYRICS_AI_SECTION_PROMPT;
             default:
@@ -138,7 +130,7 @@ public class LyricsAiPromptPreference extends SwitchPreference {
         promptInput.setMinLines(4);
         promptInput.setMaxLines(8);
         promptInput.setVerticalScrollBarEnabled(true);
-        promptInput.setHint(str("morphe_music_lyrics_ai_prompt_dialog_title"));
+        promptInput.setHint(str("morphe_music_lyrics_ai_prompt_dialog_hint"));
         String currentPrompt = promptSetting.get();
         if (!currentPrompt.isEmpty()) {
             promptInput.setText(currentPrompt);
@@ -148,17 +140,11 @@ public class LyricsAiPromptPreference extends SwitchPreference {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
 
-        TextView caption = new TextView(context);
-        caption.setText(str("morphe_music_lyrics_ai_prompt_dialog_hint"));
-        caption.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
-        caption.setTextColor(BaseThemeUtils.getAppForegroundColor() & 0xAAFFFFFF);
-        LinearLayout.LayoutParams captionParams = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams reasoningParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        captionParams.topMargin = Dim.dp8;
-        content.addView(caption, captionParams);
-
-        content.addView(createReasoningRow(context), reasoningRowParams());
+        reasoningParams.topMargin = Dim.dp16;
+        content.addView(createReasoningRow(context), reasoningParams);
 
         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
@@ -310,12 +296,4 @@ public class LyricsAiPromptPreference extends SwitchPreference {
                 thread.setDaemon(true);
                 return thread;
             });
-
-    private static LinearLayout.LayoutParams reasoningRowParams() {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.topMargin = Dim.dp16;
-        return params;
-    }
 }

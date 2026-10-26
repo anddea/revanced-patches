@@ -1,12 +1,12 @@
 package app.morphe.patches.music.ads.general
 
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.resourceid.buttonContainer
 import app.morphe.patches.music.utils.resourceid.floatingLayout
 import app.morphe.patches.music.utils.resourceid.modernDialogBackground
 import app.morphe.patches.music.utils.resourceid.musicNotifierShelf
 import app.morphe.patches.music.utils.resourceid.privacyTosFooter
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags

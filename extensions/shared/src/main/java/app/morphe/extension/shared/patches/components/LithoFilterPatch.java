@@ -35,14 +35,27 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.patches.components;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -162,6 +175,38 @@ public final class LithoFilterPatch {
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
+     * Observable lists that hold the items of the lists, such as the feed.
+     * The lists use the equality of their content, so they are kept by reference instead of in a set.
+     */
+    private static final List<WeakReference<List<?>>> observableLists = new ArrayList<>();
+
+    /**
+     * Conversion context of the element that the calling thread is parsing.
+     */
+    private static final ThreadLocal<WeakReference<ContextInterface>> parsedElementContext = new ThreadLocal<>();
+
+    /**
+     * Interface added to the decorator that holds the item of a list, such as the feed.
+     */
+    public interface ListItemDecoratorInterface {
+        @Nullable
+        Object patch_getListItem();
+    }
+
+    /**
+     * Interface added to the sections of the lists, such as the feed or the related videos.
+     */
+    public interface ListSectionInterface {
+        /**
+         * Removes the item from the section, which lays itself out again without it.
+         * The rows of the grids are laid out again too, also when the section is no longer a grid.
+         *
+         * @return If the section has the item.
+         */
+        boolean patch_removeListItem(Object item);
+    }
+
+    /**
      * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
      * Used for 20.21 and lower.
@@ -187,6 +232,11 @@ public final class LithoFilterPatch {
      */
     private static final Map<String, byte[]> identifierToBufferGlobal
             = Collections.synchronizedMap(createIdentifierToBufferMap());
+
+    /**
+     * Sections of the lists, such as the feed or the related videos, that hold the items.
+     */
+    private static final List<WeakReference<ListSectionInterface>> listSections = new ArrayList<>();
 
     private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
     private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
@@ -472,13 +522,166 @@ public final class LithoFilterPatch {
             LithoFilterParameters parameter = new LithoFilterParameters(identifier, path, accessibility, contextSource, buffer);
             Logger.printDebug(() -> "Searching " + parameter);
 
-            return identifierSearchTree.matches(identifier, parameter)
-                    || pathSearchTree.matches(path, parameter);
+            if (identifierSearchTree.matches(identifier, parameter)
+                    || pathSearchTree.matches(path, parameter)) {
+                // The root component of the element, such as 'identifier|CellType|',
+                // means that the whole element is hidden.
+                final int identifierLength = identifier.length();
+                if (pathBuilder.length() > identifierLength + 1
+                        && pathBuilder.charAt(identifierLength) == '|'
+                        && pathBuilder.indexOf("|", identifierLength + 1) == pathBuilder.length() - 1
+                        && pathBuilder.indexOf(identifier) == 0) {
+                    if (contextSource instanceof ContextInterface contextInterface) {
+                        removeListItem(contextInterface);
+                    }
+                }
+                return true;
+            }
         } catch (Exception ex) {
             Logger.printException(() -> "isFiltered failure", ex);
         }
 
         return false;
+    }
+
+    /**
+     * Injection point.
+     * Called when an observable list, which can hold the items of a list such as the feed, is created.
+     */
+    public static void addObservableList(List<?> list) {
+        synchronized (observableLists) {
+            // Remove the lists that no longer exist.
+            observableLists.removeIf(reference -> reference.get() == null);
+            observableLists.add(new WeakReference<>(list));
+        }
+    }
+
+    /**
+     * Injection point.
+     * Called when the parsing of an element starts.
+     */
+    public static void setParsedElementContext(@Nullable ContextInterface contextInterface) {
+        parsedElementContext.set(contextInterface == null ? null : new WeakReference<>(contextInterface));
+    }
+
+    /**
+     * Injection point.
+     * Called when the element that is being parsed is hidden.
+     */
+    public static void removeParsedElementListItem() {
+        WeakReference<ContextInterface> reference = parsedElementContext.get();
+        ContextInterface contextInterface = reference == null ? null : reference.get();
+        if (contextInterface != null) {
+            removeListItem(contextInterface);
+        }
+    }
+
+    /**
+     * Injection point.
+     * Called when a section of a list, such as the feed or the related videos, is created.
+     */
+    public static void addListSection(ListSectionInterface section) {
+        synchronized (listSections) {
+            // Remove the sections that no longer exist.
+            listSections.removeIf(reference -> reference.get() == null);
+            listSections.add(new WeakReference<>(section));
+        }
+    }
+
+    /**
+     * Injection point.
+     * Called when a section of a list is released, such as when the list is created again.
+     * <p>
+     * A released section can share the list of its items with the section that replaces it.
+     * Removing an item through the released section would not lay out the rows of the new one
+     * again, and the rows that are views of the list would throw on the next access.
+     */
+    public static void removeListSection(ListSectionInterface section) {
+        synchronized (listSections) {
+            listSections.removeIf(reference -> reference.get() == section);
+        }
+    }
+
+    /**
+     * Injection point.
+     * Called when the whole element is hidden.
+     * <p>
+     * Hiding an element replaces it with an empty component, but the item of the element stays
+     * in its list. The grids of the tablet layout, such as the feed or the related videos,
+     * then show an empty cell in its place. To prevent this, the item is removed from the list.
+     */
+    static void removeListItem(@Nullable ContextInterface contextInterface) {
+        try {
+            if (contextInterface == null) {
+                return;
+            }
+
+            List<?> decorators = contextInterface.patch_getCommandEventDataDecorators();
+            if (decorators == null) {
+                return;
+            }
+
+            for (Object decorator : decorators) {
+                if (decorator instanceof ListItemDecoratorInterface listItemDecorator) {
+                    Object item = listItemDecorator.patch_getListItem();
+                    if (item != null) {
+                        // The lists can only be changed on the main thread.
+                        Utils.runOnMainThread(() -> {
+                            // The sections group their items into the rows of some grids, such as
+                            // the related videos, and lay the rows out again. Other grids, such as
+                            // the feed, have a list for each item.
+                            List<ListSectionInterface> sections = new ArrayList<>();
+                            synchronized (listSections) {
+                                Iterator<WeakReference<ListSectionInterface>> iterator = listSections.iterator();
+                                while (iterator.hasNext()) {
+                                    ListSectionInterface section = iterator.next().get();
+                                    if (section == null) {
+                                        iterator.remove();
+                                        continue;
+                                    }
+                                    sections.add(section);
+                                }
+                            }
+
+                            // Removing the item notifies the list observers, so it is done outside the lock.
+                            for (ListSectionInterface section : sections) {
+                                if (section.patch_removeListItem(item)) {
+                                    Logger.printDebug(() -> "Removed list item of filtered element: " + item);
+                                    return;
+                                }
+                            }
+
+                            List<?> itemList = null;
+                            int itemIndex = -1;
+                            synchronized (observableLists) {
+                                Iterator<WeakReference<List<?>>> iterator = observableLists.iterator();
+                                while (iterator.hasNext()) {
+                                    List<?> list = iterator.next().get();
+                                    if (list == null) {
+                                        iterator.remove();
+                                        continue;
+                                    }
+
+                                    itemIndex = list.indexOf(item);
+                                    if (itemIndex >= 0) {
+                                        itemList = list;
+                                        break;
+                                    }
+                                }
+                            }
+
+                            // Removing the item notifies the list observers, so it is done outside the lock.
+                            if (itemList != null) {
+                                itemList.remove(itemIndex);
+                                Logger.printDebug(() -> "Removed list item of filtered element: " + item);
+                            }
+                        });
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "removeFilteredElementListItem failure", ex);
+        }
     }
 
     /**

@@ -21,6 +21,7 @@ import app.morphe.patcher.methodCall
 import app.morphe.patcher.newInstance
 import app.morphe.patcher.opcode
 import app.morphe.patcher.string
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.patches.youtube.utils.resourceid.inlineTimeBarLiveSeekAbleRange
@@ -29,7 +30,6 @@ import app.morphe.patches.youtube.utils.resourceid.ytStaticBrandRed
 import app.morphe.patches.youtube.utils.resourceid.ytTextSecondary
 import app.morphe.patches.youtube.utils.resourceid.ytYoutubeMagenta
 import app.morphe.util.containsLiteralInstruction
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode

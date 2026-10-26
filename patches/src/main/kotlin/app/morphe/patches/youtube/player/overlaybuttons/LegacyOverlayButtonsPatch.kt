@@ -1,6 +1,9 @@
 /*
  * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * https://github.com/MorpheApp/morphe-patches/pull/954
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
  *
  * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
  */
@@ -10,10 +13,12 @@ package app.morphe.patches.youtube.player.overlaybuttons
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.literal
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.matchAllMethodIndicesForEach
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playercontrols.playerControlsPatch
 import app.morphe.patches.youtube.utils.playservice.is_21_08_or_greater
+import app.morphe.patches.youtube.utils.playservice.is_21_11_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_13_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_15_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_36_or_greater
@@ -42,8 +47,14 @@ private object PlayerCommentTeaserFeatureFlagFingerprint : Fingerprint(
     filters = listOf(literal(45771730L))
 )
 
-private object RecyclerViewScrollingFeatureFlagFingerprint : Fingerprint(
-    filters = listOf(literal(45763727L))
+/**
+ * Watch feed resize: scrolling the watch next feed resizes the player,
+ * and every scroll event relayouts the whole watch page.
+ */
+private object WatchFeedResizeFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45763727L) // 21.11+
+    )
 )
 
 private val restoreOldPlayerButtonsSupported
@@ -75,6 +86,15 @@ internal val legacyOverlayButtonsPatch = bytecodePatch(
             }
         }
 
+        // Watch feed resize A/B test: every scroll event of the watch next feed
+        // resizes the player and relayouts the watch page, and scrolling lags.
+        // It also interferes with the old player icons, so always turn it off.
+        if (is_21_11_or_greater) {
+            WatchFeedResizeFeatureFlagFingerprint.matchAllMethodIndicesForEach { index ->
+                insertLiteralOverride(index, false)
+            }
+        }
+
         if (!restoreOldPlayerButtonsSupported) return@execute
 
         addPreference(arrayOf("SETTINGS: RESTORE_OLD_PLAYER_BUTTONS"))
@@ -87,16 +107,11 @@ internal val legacyOverlayButtonsPatch = bytecodePatch(
         }
 
         if (is_21_15_or_greater) {
-            arrayOf(
-                PlayerCommentTeaserFeatureFlagFingerprint,
-                RecyclerViewScrollingFeatureFlagFingerprint,
-            ).forEach { fingerprint ->
-                fingerprint.matchAll().forEach {
-                    it.method.insertLiteralOverride(
-                        it.instructionMatches.first().index,
-                        "$EXTENSION_CLASS_DESCRIPTOR->allowModernPlayerLayoutFlags(Z)Z",
-                    )
-                }
+            PlayerCommentTeaserFeatureFlagFingerprint.matchAll().forEach {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->allowModernPlayerLayoutFlags(Z)Z",
+                )
             }
         }
     }

@@ -25,6 +25,34 @@ public interface LyricsProvider {
      */
     String name();
 
+    /**
+     * Fetches lyrics. Always called off the main thread.
+     *
+     * @return result, or {@code null} if this provider has none for the track.
+     */
+    @Nullable
+    FetchResult fetch(TrackInfo track) throws Exception;
+
+    /**
+     * Returns scored candidate lyrics for the track, the best first.
+     * Scores use the shared match+sync scale from {@link LyricsRequests}.
+     */
+    default List<Lyrics.ScoredLyrics> fetchCandidates(TrackInfo track) throws Exception {
+        FetchResult result = fetch(track);
+        if (result == null || result.lyrics() == null || result.lyrics() == Lyrics.NOT_FOUND) {
+            return Collections.emptyList();
+        }
+        int score = result.matchScore(track) + LyricsRequests.syncRank(result.lyrics());
+        return Collections.singletonList(new Lyrics.ScoredLyrics(score, result.lyrics()));
+    }
+
+    /**
+     * Whether this provider supports multiple candidates per track.
+     */
+    default boolean hasCandidates() {
+        return false;
+    }
+
     record FetchResult(Lyrics lyrics,
                        @Nullable String sourceTitle,
                        @Nullable String sourceArtist,
@@ -66,41 +94,6 @@ public interface LyricsProvider {
             return new FetchResult(lyrics, title, artist, durationSec, queriedVariant, false);
         }
 
-        public int matchScore(TrackInfo track) {
-            if (sourceTitle != null && !sourceTitle.isEmpty()) {
-                return LyricsRequests.evaluate(sourceTitle, sourceArtist, sourceDurationSec,
-                        track).score();
-            }
-            if (queriedVariant != null) {
-                return LyricsRequests.evaluate(queriedVariant.title(), queriedVariant.artist(),
-                        queriedVariant.durationSeconds(), track).score();
-            }
-            return videoIdKeyed ? LyricsRequests.VIDEO_ID_TRUST : LyricsRequests.NEUTRAL;
-        }
-
-        /** Whether this result clears the high-match gate for first display. */
-        public boolean isHighMatch(TrackInfo track) {
-            if (sourceTitle != null && !sourceTitle.isEmpty()) {
-                return LyricsRequests.isHighMatch(LyricsRequests.evaluate(
-                        sourceTitle, sourceArtist, sourceDurationSec, track));
-            }
-            if (queriedVariant != null) {
-                return LyricsRequests.isHighMatch(LyricsRequests.evaluate(
-                        queriedVariant.title(), queriedVariant.artist(),
-                        queriedVariant.durationSeconds(), track));
-            }
-            if (videoIdKeyed) {
-                return LyricsRequests.isHighMatch(LyricsRequests.MatchVerdict.videoIdTrust());
-            }
-            return false;
-        }
-
-        public boolean isBlind() {
-            return (sourceTitle == null || sourceTitle.isEmpty())
-                    && queriedVariant == null
-                    && !videoIdKeyed;
-        }
-
         @Nullable
         public static FetchResult searched(@Nullable Lyrics lyrics,
                                            @Nullable List<String> titles,
@@ -128,33 +121,44 @@ public interface LyricsProvider {
             }
             return blind(lyrics);
         }
-    }
 
-    /**
-     * Fetches lyrics. Always called off the main thread.
-     *
-     * @return result, or {@code null} if this provider has none for the track.
-     */
-    @Nullable
-    FetchResult fetch(TrackInfo track) throws Exception;
-
-    /**
-     * Returns scored candidate lyrics for the track, the best first.
-     * Scores use the shared match+sync scale from {@link LyricsRequests}.
-     */
-    default List<Lyrics.ScoredLyrics> fetchCandidates(TrackInfo track) throws Exception {
-        FetchResult result = fetch(track);
-        if (result == null || result.lyrics() == null || result.lyrics() == Lyrics.NOT_FOUND) {
-            return Collections.emptyList();
+        public int matchScore(TrackInfo track) {
+            if (sourceTitle != null && !sourceTitle.isEmpty()) {
+                LyricsRequests.MatchVerdict v = LyricsRequests.evaluate(sourceTitle, sourceArtist,
+                        sourceDurationSec, track);
+                return LyricsRequests.isCustomMatchMode()
+                        ? LyricsRequests.rankScore(v) : v.score();
+            }
+            if (queriedVariant != null) {
+                LyricsRequests.MatchVerdict v = LyricsRequests.evaluate(queriedVariant.title(),
+                        queriedVariant.artist(), queriedVariant.durationSeconds(), track);
+                return LyricsRequests.isCustomMatchMode()
+                        ? LyricsRequests.rankScore(v) : v.score();
+            }
+            return videoIdKeyed ? LyricsRequests.VIDEO_ID_TRUST : LyricsRequests.NEUTRAL;
         }
-        int score = result.matchScore(track) + LyricsRequests.syncRank(result.lyrics());
-        return Collections.singletonList(new Lyrics.ScoredLyrics(score, result.lyrics()));
-    }
 
-    /**
-     * Whether this provider supports multiple candidates per track.
-     */
-    default boolean hasCandidates() {
-        return false;
+        /** Whether this result clears the high-match gate for first display. */
+        public boolean isHighMatch(TrackInfo track) {
+            if (sourceTitle != null && !sourceTitle.isEmpty()) {
+                return LyricsRequests.isHighMatch(LyricsRequests.evaluate(
+                        sourceTitle, sourceArtist, sourceDurationSec, track));
+            }
+            if (queriedVariant != null) {
+                return LyricsRequests.isHighMatch(LyricsRequests.evaluate(
+                        queriedVariant.title(), queriedVariant.artist(),
+                        queriedVariant.durationSeconds(), track));
+            }
+            if (videoIdKeyed) {
+                return LyricsRequests.isHighMatch(LyricsRequests.MatchVerdict.videoIdTrust());
+            }
+            return false;
+        }
+
+        public boolean isBlind() {
+            return (sourceTitle == null || sourceTitle.isEmpty())
+                    && queriedVariant == null
+                    && !videoIdKeyed;
+        }
     }
 }

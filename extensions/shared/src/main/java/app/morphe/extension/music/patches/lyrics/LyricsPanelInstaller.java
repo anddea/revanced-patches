@@ -27,6 +27,7 @@ import java.util.Locale;
 
 import app.morphe.extension.music.patches.lyrics.LyricsManager;
 import app.morphe.extension.music.patches.lyrics.LyricsFilterDefaults;
+import app.morphe.extension.music.patches.lyrics.LockScreenLyrics;
 import app.morphe.extension.music.patches.lyrics.MiniPlayerLyrics;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
@@ -59,23 +60,15 @@ public final class LyricsPanelInstaller {
 
     /** How long the panel is waited for before the attempt is given up. */
     private static final long INSTALL_TIMEOUT_MILLISECONDS = 2000;
-
+    private static final long[] ENABLE_BUTTON_DELAYS_MS = {0, 150, 500, 1000, 2000};
+    private static final long ENABLE_BUTTON_MIN_INTERVAL_MS = 2000;
     /** Collapses the many component callbacks of one panel opening into one attempt. */
     private static boolean installPending;
-
     private static WeakReference<LyricsPanelView> panelReference = new WeakReference<>(null);
-
     /** Panel the app currently has in the engagement panel container. */
     private static WeakReference<Object> currentPanelReference = new WeakReference<>(null);
-
     /** Panel the lyrics were last built into, kept to recognize it when it comes back. */
     private static WeakReference<Object> lyricsPanelReference = new WeakReference<>(null);
-
-    private LyricsPanelInstaller() {
-    }
-
-    private static boolean settingsListenerRegistered;
-
     private static final SharedPreferences.OnSharedPreferenceChangeListener SETTINGS_LISTENER =
             (prefs, key) -> {
                 if (key == null || !key.startsWith("morphe_music_lyrics")) {
@@ -83,6 +76,12 @@ public final class LyricsPanelInstaller {
                 }
                 Utils.runOnMainThreadNowOrLater(() -> onLyricsSettingChanged(key));
             };
+    private static boolean settingsListenerRegistered;
+    private static long lastEnableButtonWalkUptimeMs;
+    private static boolean enableButtonWalkPending;
+
+    private LyricsPanelInstaller() {
+    }
 
     public static void registerSettingsListener() {
         if (settingsListenerRegistered) {
@@ -119,25 +118,53 @@ public final class LyricsPanelInstaller {
                 updateKeepScreenOn(isLyricsPanelOpen());
                 return;
             }
-            if (Settings.LYRICS_MINIPLAYER.key.equals(key)
-                    || Settings.LYRICS_DISPLAY_ARTIST_FIRST.key.equals(key)) {
+            final boolean formatting = Settings.LYRICS_FORCE_CAPITALIZE.key.equals(key)
+                    || Settings.LYRICS_STRIP_TRAILING_PUNCTUATION.key.equals(key);
+            if (formatting) {
+                // Also shown in the miniplayer and the media session.
                 MiniPlayerLyrics.onSettingsChanged();
+                LockScreenLyrics.onSettingsChanged();
+            } else if (Settings.LYRICS_MINIPLAYER.key.equals(key)
+                    || Settings.LYRICS_MEDIASESSION.key.equals(key)
+                    || Settings.LYRICS_MINI_TRACK_FORMAT.key.equals(key)
+                    || Settings.LYRICS_MINI_ENCAPSULATION.key.equals(key)
+                    || Settings.LYRICS_MINI_CHAR_LIMIT.key.equals(key)
+                    || Settings.LYRICS_MINI_ARTIST_CHAR_LIMIT.key.equals(key)
+                    || Settings.LYRICS_MINI_ARTIST_MIN_MS.key.equals(key)
+                    || Settings.LYRICS_MINI_ARTIST_MAX_MS.key.equals(key)
+                    || Settings.LYRICS_MINI_FULL_WIDTH_MULTIPLIER.key.equals(key)
+                    || Settings.LYRICS_MINI_INSTRUMENTAL.key.equals(key)
+                    || Settings.LYRICS_MINI_NEXT_OFFSET_MS.key.equals(key)) {
+                MiniPlayerLyrics.onSettingsChanged();
+                LockScreenLyrics.onSettingsChanged();
                 return;
             }
             final LyricsPanelView panelView = panelReference.get();
             if (panelView == null) {
                 return;
             }
+            final boolean translateButtonOff =
+                    Settings.LYRICS_SHOW_TRANSLATE_BUTTON.key.equals(key)
+                            && !Settings.LYRICS_SHOW_TRANSLATE_BUTTON.get();
+            final boolean romanizeButtonOff =
+                    Settings.LYRICS_SHOW_ROMANIZE_BUTTON.key.equals(key)
+                            && !Settings.LYRICS_SHOW_ROMANIZE_BUTTON.get();
+            if (translateButtonOff || romanizeButtonOff) {
+                panelView.releaseOnlyModesForHiddenButtons(translateButtonOff, romanizeButtonOff);
+            }
             if (Settings.LYRICS_SHOW_COPY_BUTTON.key.equals(key)
                     || Settings.LYRICS_SHOW_TRANSLATE_BUTTON.key.equals(key)
                     || Settings.LYRICS_SHOW_ROMANIZE_BUTTON.key.equals(key)
                     || Settings.LYRICS_SHOW_REFRESH_BUTTON.key.equals(key)) {
                 panelView.applyToolbarButtonSettings();
-            } else if (Settings.LYRICS_TEXT_SIZE.key.equals(key)) {
+            } else if (Settings.LYRICS_TEXT_SIZE.key.equals(key)
+                    || Settings.LYRICS_LINE_SCALE.key.equals(key)) {
                 panelView.applyTextSize();
-            } else if (Settings.LYRICS_SWAP_TRANS_ROMA.key.equals(key)
+                panelView.applyLineScale();
+            } else if (formatting || Settings.LYRICS_FORCE_CENTER.key.equals(key)
+                    || Settings.LYRICS_SWAP_TRANS_ROMA.key.equals(key)
                     || Settings.LYRICS_TAP_TO_SEEK.key.equals(key)) {
-                // Both are read while the line is laid out, so the lines need rebuilding.
+                // These are read while the line is laid out, so the lines need rebuilding.
                 panelView.applyLyricLayoutSettings();
             } else if (Settings.LYRICS_WORD_SYNC.key.equals(key)) {
                 panelView.applyWordSyncSetting();
@@ -362,7 +389,7 @@ public final class LyricsPanelInstaller {
             return false;
         }
         TextView title = findForegroundTitle(activity.getWindow().getDecorView());
-        return title != null && isLyricsTitle(title);
+        return isLyricsTitle(title);
     }
 
     public static boolean isOtherPanelForeground() {
@@ -385,7 +412,7 @@ public final class LyricsPanelInstaller {
     @Nullable
     private static ViewGroup findLyricsPanelContent(View root) {
         TextView title = findVisibleTitle(root);
-        if (title != null && isLyricsTitle(title)) {
+        if (isLyricsTitle(title)) {
             // Heading and content share a panel, so the container comes from the heading's
             // own panel rather than a global lookup.
             return findPanelContent(title);
@@ -504,12 +531,11 @@ public final class LyricsPanelInstaller {
     }
 
     /**
-     * The heading the app gives the lyrics panel, in the language on screen.
-     *
-     * <p>Read through the resources that drew it rather than through {@link ResourceUtils}: the app
-     * can be set to a language of its own, and a string then comes back in whichever language its
-     * context was configured with, which is not always the one being drawn in. Not cached across
-     * calls either, since a language change would leave a stale answer behind.
+     * The heading the app gives the lyrics panel, in the language on screen. Read through the
+     * resources that drew it rather than {@link ResourceUtils}: the app can be set to a language
+     * of its own, and a string then comes back in whichever language its context was configured
+     * with, which is not always the one being drawn. Not cached, since a language change would
+     * leave a stale answer behind.
      */
     @Nullable
     private static String lyricsTitle(@Nullable Context context) {
@@ -528,13 +554,6 @@ public final class LyricsPanelInstaller {
             return null;
         }
     }
-
-    private static final long[] ENABLE_BUTTON_DELAYS_MS = {0, 150, 500, 1000, 2000};
-
-    private static final long ENABLE_BUTTON_MIN_INTERVAL_MS = 2000;
-
-    private static long lastEnableButtonWalkUptimeMs;
-    private static boolean enableButtonWalkPending;
 
     public static void enableLyricsButton() {
         try {

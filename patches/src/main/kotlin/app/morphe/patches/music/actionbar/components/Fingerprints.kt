@@ -39,6 +39,13 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/1881
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.patches.music.actionbar.components
 
 import app.morphe.patcher.Fingerprint
@@ -52,17 +59,17 @@ import app.morphe.patcher.newInstance
 import app.morphe.patcher.string
 import app.morphe.patches.music.utils.resourceid.elementsLottieAnimationViewTagId
 import app.morphe.patches.music.utils.resourceid.likeDislikeContainer
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
+import app.morphe.util.containsLiteralInstruction
+import app.morphe.patcher.OpcodesFilter
+import app.morphe.patcher.StringComparisonType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val actionBarComponentFingerprint = legacyFingerprint(
-    name = "actionBarComponentFingerprint",
+internal val actionBarComponentFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L", "L"),
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.AND_INT_LIT16,
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
@@ -70,41 +77,50 @@ internal val actionBarComponentFingerprint = legacyFingerprint(
         Opcode.SGET_OBJECT,
         Opcode.SGET_OBJECT
     ),
-    literals = listOf(99180L),
+    custom = { method, _ -> method.containsLiteralInstruction(99180L) },
 )
 
-internal val likeDislikeContainerFingerprint = legacyFingerprint(
-    name = "likeDislikeContainerFingerprint",
+internal val likeDislikeContainerFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(likeDislikeContainer)
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
+    custom = { method, _ -> method.containsLiteralInstruction(likeDislikeContainer) }
 )
 
-internal val lottieAnimationViewTagFingerprint = legacyFingerprint(
-    name = "lottieAnimationViewTagFingerprint",
+internal val lottieAnimationViewTagFingerprint = Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
-    opcodes = listOf(
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL),
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
     ),
-    literals = listOf(elementsLottieAnimationViewTagId)
+    custom = { method, _ -> method.containsLiteralInstruction(elementsLottieAnimationViewTagId) }
 )
 
-internal val commandResolverFingerprint = legacyFingerprint(
-    name = "commandResolverFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.FINAL,
+internal val commandResolverFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL),
     returnType = "Z",
     parameters = listOf("L", "L", "Ljava/util/Map;"),
-    strings = listOf("CommandResolver threw exception during resolution")
+    strings = listOf(string("CommandResolver threw exception during resolution", StringComparisonType.CONTAINS))
 )
 
-internal val offlineVideoEndpointFingerprint = legacyFingerprint(
-    name = "offlineVideoEndpointFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+internal val offlineVideoEndpointFingerprint = Fingerprint(
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = listOf("L", "Ljava/util/Map;"),
-    strings = listOf("Object is not an offlineable video: %s")
+    strings = listOf("Object is not an offlineable video: %s"),
+    filters = listOf(
+        methodCall(
+            // Older Music clients resolve offlineability through an instance method.
+            opcodes = listOf(Opcode.INVOKE_STATIC, Opcode.INVOKE_VIRTUAL),
+            parameters = listOf("Ljava/lang/Object;"),
+            returnType = "L"
+        ),
+        methodCall(
+            opcodes = listOf(Opcode.INVOKE_INTERFACE, Opcode.INVOKE_VIRTUAL),
+            parameters = listOf("Ljava/lang/String;", "L", "L", "L"),
+            returnType = "V"
+        )
+    )
 )
 
 internal object ButtonProtoBufferGetterFingerprint : Fingerprint(

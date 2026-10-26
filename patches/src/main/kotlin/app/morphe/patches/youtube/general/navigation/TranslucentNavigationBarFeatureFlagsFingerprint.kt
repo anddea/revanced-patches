@@ -22,18 +22,34 @@ import app.morphe.patcher.literal
 internal val TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAGS = listOf(
     45630927L, // Blurred, translucent background of the navigation bar.
     NAVIGATION_BAR_COVERS_SYSTEM_BUTTONS_FLAG,
-    45631257L  // Feed laid out behind the navigation bar instead of above it.
+    FEED_BEHIND_NAVIGATION_BAR_FLAG
 )
 
 /**
- * Navigation bar also covers the system navigation buttons, the only one of
- * [TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAGS] that changes the room left for them.
+ * Navigation bar also covers the system navigation buttons, which adds the room for them
+ * to the navigation bar height.
  */
 internal const val NAVIGATION_BAR_COVERS_SYSTEM_BUTTONS_FLAG = 45632194L
+
+/**
+ * Feed laid out behind the navigation bar instead of above it. The page then ends at the bottom
+ * of the screen, and its list gets the navigation bar height as bottom padding.
+ */
+internal const val FEED_BEHIND_NAVIGATION_BAR_FLAG = 45631257L
 
 internal object TranslucentNavigationBarFeatureFlagsFingerprint : Fingerprint(
     filters = listOf(
         anyInstruction(*TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAGS.map { literal(it) }.toTypedArray())
+    )
+)
+
+/**
+ * Draws the top bars behind the status bar. 21.29 and older read it with a single
+ * accessor method, newer targets read it inline in every class that uses it.
+ */
+internal object EdgeToEdgeTopBarFeatureFlagFingerprint : Fingerprint(
+    filters = listOf(
+        literal(45400535L)
     )
 )
 

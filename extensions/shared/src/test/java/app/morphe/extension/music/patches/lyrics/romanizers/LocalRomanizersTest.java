@@ -5,6 +5,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertNull;
 
 import java.util.List;
+import java.util.Map;
 
 import app.morphe.extension.music.patches.lyrics.Word;
 
@@ -45,8 +46,10 @@ public class LocalRomanizersTest {
 
     @Test
     public void alphabetRomanizationPreservesUnrelatedText() {
-        assertEquals("Privet ABC 123", CyrillicRomanizer.romanize("Привет ABC 123"));
-        assertEquals("kalimera ABC", GreekRomanizer.romanize("καλημερα ABC"));
+        AlphabetRomanizer romanizer = new AlphabetRomanizer(ScriptDetector::isCyrillic,
+                Map.of("п", "p", "р", "r", "и", "i", "в", "v", "е", "e", "т", "t"),
+                Map.of(), false);
+        assertEquals("Privet ABC 123", romanizer.romanize("Привет ABC 123"));
     }
     @Test
     public void alignsSpokenCharactersWithoutAssigningPunctuation() {

@@ -17,9 +17,13 @@ import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.util.findFieldFromToString
+import app.morphe.util.findFieldFromToStringOrNull
+import app.morphe.util.getReference
+import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 const val EXTENSION_CONTEXT_INTERFACE =
@@ -46,8 +50,8 @@ val conversionContextPatch = bytecodePatch(
         val toStringMethod: MutableMethod
         val stringBuilderField: FieldReference
         val identifierField: FieldReference
-        val horizontalSwipeField: FieldReference
-        val heightConstraint: FieldReference
+        val horizontalSwipeField: FieldReference?
+        val heightConstraint: FieldReference?
 
         with(ConversionContextToStringFingerprint) {
             conversionContextClassDef = classDef
@@ -56,8 +60,8 @@ val conversionContextPatch = bytecodePatch(
                 field.type == "Ljava/lang/StringBuilder;"
             }
             identifierField = method.findFieldFromToString(IDENTIFIER_PROPERTY)
-            horizontalSwipeField = method.findFieldFromToString(HORIZONTAL_COLLECTION_SWIPE_PROTECTOR_PROPERTY)
-            heightConstraint = method.findFieldFromToString(HEIGHT_CONSTRAINT_PROPERTY)
+            horizontalSwipeField = method.findOptionalContextField(HORIZONTAL_COLLECTION_SWIPE_PROTECTOR_PROPERTY)
+            heightConstraint = method.findOptionalContextField(HEIGHT_CONSTRAINT_PROPERTY)
         }
 
         // Replace toString() to only include information patches care about.
@@ -125,10 +129,8 @@ val conversionContextPatch = bytecodePatch(
                     ).toMutable().apply {
                         addInstructions(
                             0,
-                            """
-                                iget-object v0, p0, $classFieldReference
-                                return-object v0
-                            """
+                            (if (classFieldReference == null) "const/4 v0, 0x0"
+                            else "iget-object v0, p0, $classFieldReference") + "\nreturn-object v0"
                         )
                     }
                 )
@@ -136,3 +138,12 @@ val conversionContextPatch = bytecodePatch(
         }
     }
 }
+
+/**
+ * Older apps inline unused context properties as null instead of retaining a field.
+ * Return the same null through the extension interface; still fail if a nonconstant field cannot be resolved.
+ */
+private fun MutableMethod.findOptionalContextField(property: String): FieldReference? =
+    if (indexOfFirstInstruction {
+        getReference<StringReference>()?.string?.contains("${property}null") == true
+    } >= 0) null else findFieldFromToStringOrNull(property)

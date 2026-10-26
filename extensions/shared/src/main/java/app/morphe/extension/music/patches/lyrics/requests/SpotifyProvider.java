@@ -30,6 +30,7 @@ import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
 import app.morphe.extension.music.patches.lyrics.Word;
+import app.morphe.extension.music.patches.lyrics.requests.LrcParser;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
@@ -56,7 +57,12 @@ public final class SpotifyProvider implements LyricsProvider {
     private static final long MAX_RETRY_AFTER_MS = 30_000;
 
     private static final String USER_AGENT = LyricsRequests.CHROME_DESKTOP_USER_AGENT;
-
+    private static final long SECRET_REFRESH_INTERVAL_MS = 60 * 60 * 1000;
+    private static final int[] FALLBACK_SECRET_DATA = {
+            99, 111, 47, 88, 49, 56, 118, 65, 52, 67, 50, 104,
+            117, 101, 55, 94, 95, 75, 94, 49, 69, 36, 85, 64, 74, 60
+    };
+    private static final String FALLBACK_TOTP_VERSION = "19";
     @Nullable
     private static volatile String cachedAccessToken;
     @Nullable
@@ -69,121 +75,6 @@ public final class SpotifyProvider implements LyricsProvider {
     @Nullable
     private static String cachedTotpVersion;
     private static long lastSecretFetchTime = 0;
-    private static final long SECRET_REFRESH_INTERVAL_MS = 60 * 60 * 1000;
-
-    private static final int[] FALLBACK_SECRET_DATA = {
-            99, 111, 47, 88, 49, 56, 118, 65, 52, 67, 50, 104,
-            117, 101, 55, 94, 95, 75, 94, 49, 69, 36, 85, 64, 74, 60
-    };
-    private static final String FALLBACK_TOTP_VERSION = "19";
-
-    @Override
-    public String name() {
-        return "Spotify";
-    }
-
-    @Nullable
-    @Override
-    public FetchResult fetch(TrackInfo track) throws Exception {
-        final String spDc = Settings.SPOTIFY_TOKEN.get();
-        if (spDc.trim().isEmpty()) {
-            return null;
-        }
-
-        String trackId  = searchTrack(spDc, track.title(), track.artist());
-        if (trackId == null) {
-            return null;
-        }
-
-        final String sourceUrl = "https://open.spotify.com/track/" + trackId;
-        JSONObject lyricsResponse = fetchLyrics(spDc, trackId);
-        if (lyricsResponse == null) {
-            return null;
-        }
-
-        final String rawJson = lyricsResponse.toString();
-        return FetchResult.blind(parseLyrics(lyricsResponse, rawJson, sourceUrl));
-    }
-
-    @Nullable
-    private String searchTrack(String spDc, String title, String artist) throws Exception {
-        final String accessToken = getAccessToken(spDc);
-        if (accessToken == null) {
-            return null;
-        }
-
-        final String clientToken = getClientToken(spDc);
-
-        final String query = title + " " + artist;
-
-        for (String hash : SEARCH_HASHES) {
-            final String body = new JSONObject()
-                    .put("extensions", new JSONObject()
-                            .put("persistedQuery", new JSONObject()
-                                    .put("sha256Hash", hash)
-                                    .put("version", 1)))
-                    .put("operationName", "searchDesktop")
-                    .put("variables", new JSONObject()
-                            .put("searchTerm", query)
-                            .put("limit", 5)
-                            .put("numberOfTopResults", 5)
-                            .put("offset", 0))
-                    .toString();
-
-            String trackId  = executeSearch(accessToken, clientToken, body);
-            if (trackId != null) {
-                return trackId;
-            }
-        }
-
-        return null;
-    }
-
-    @Nullable
-    private String executeSearch(String accessToken, @Nullable String clientToken,
-                                  String body) throws Exception {
-        final byte[] bodyBytes = body.getBytes(StandardCharsets.UTF_8);
-        long retryAfterMs = 0;
-
-        for (int attempt = 0; attempt <= SEARCH_RETRIES; attempt++) {
-            if (retryAfterMs > 0) {
-                try {
-                    Thread.sleep(Math.min(retryAfterMs, MAX_RETRY_AFTER_MS));
-                } catch (InterruptedException ex) {
-                    Logger.printDebug(() -> "Interrupted during search retry sleep", ex);
-                    Thread.currentThread().interrupt();
-                    return null;
-                }
-            }
-
-            final HttpURLConnection connection =
-                    openSearchConnection(accessToken, clientToken, bodyBytes);
-
-            final int code = connection.getResponseCode();
-
-            if (code == 200) {
-                final String json = Requester.parseString(connection);
-                connection.disconnect();
-
-                String trackId  = parseSearchResult(json);
-                if (trackId != null) {
-                    return trackId;
-                }
-                break;
-            }
-
-            if (code == 429) {
-                retryAfterMs = parseRetryAfter(connection);
-                connection.disconnect();
-                continue;
-            }
-
-            connection.disconnect();
-            return null;
-        }
-
-        return null;
-    }
 
     private static HttpURLConnection openSearchConnection(String accessToken,
                                                           @Nullable String clientToken,
@@ -213,8 +104,323 @@ public final class SpotifyProvider implements LyricsProvider {
         return connection;
     }
 
+    private static List<String> artistNames(JSONObject node) {
+        final List<String> out = new ArrayList<>();
+        final JSONArray artists = node.optJSONArray("artists");
+        if (artists != null) {
+            for (int i = 0; i < artists.length(); i++) {
+                final JSONObject artist = artists.optJSONObject(i);
+                if (artist == null) continue;
+                final String name = LyricsRequests.optString(artist, "name");
+                if (name != null) {
+                    out.add(name);
+                }
+            }
+            if (!out.isEmpty()) {
+                return out;
+            }
+        }
+        final JSONObject connection = node.optJSONObject("artists");
+        if (connection != null) {
+            final JSONArray edges = connection.optJSONArray("edges");
+            if (edges != null) {
+                for (int i = 0; i < edges.length(); i++) {
+                    final JSONObject edge = edges.optJSONObject(i);
+                    final JSONObject artistNode =
+                            edge != null ? edge.optJSONObject("node") : null;
+                    final String name = artistNode != null
+                            ? LyricsRequests.optString(artistNode, "name") : null;
+                    if (name != null) {
+                        out.add(name);
+                    }
+                }
+            }
+        }
+        if (out.isEmpty()) {
+            final String artist = LyricsRequests.optString(node, "artist");
+            if (artist != null) {
+                out.add(artist);
+            }
+        }
+        return out;
+    }
+
+    private static List<Word> parseSyllables(JSONArray syllablesArr, String lineText) {
+        final List<Word> words = new ArrayList<>(syllablesArr.length());
+        int charOffset = 0;
+
+        for (int j = 0; j < syllablesArr.length(); j++) {
+            JSONObject syllable = syllablesArr.optJSONObject(j);
+            if (syllable == null) {
+                continue;
+            }
+
+            final long startMs = parseStartTimeMs(syllable);
+            final long endMs = syllable.optLong("endTimeMs", startMs);
+            final int numChars = syllable.optInt("numChars", 0);
+            if (numChars <= 0) {
+                continue;
+            }
+
+            // Spaces before the syllable are not part of it.
+            while (charOffset < lineText.length() && Character.isWhitespace(lineText.charAt(charOffset))) {
+                charOffset++;
+            }
+            if (charOffset >= lineText.length()) {
+                break;
+            }
+
+            final int end = Math.min(charOffset + numChars, lineText.length());
+            final String wordText = lineText.substring(charOffset, end);
+            final boolean spaceAfter = (end < lineText.length() && Character.isWhitespace(lineText.charAt(end)));
+            words.add(new Word(startMs, endMs, wordText, null, spaceAfter));
+            charOffset = end;
+        }
+
+        return words;
+    }
+
+    private static long parseStartTimeMs(JSONObject obj) {
+        final String raw = LyricsRequests.optString(obj, "startTimeMs");
+        if (raw == null || raw.isEmpty()) {
+            return LyricsLine.NO_TIME;
+        }
+        try {
+            return Long.parseLong(raw);
+        } catch (NumberFormatException ex) {
+            Logger.printDebug(() -> "Could not parse start time in Spotify lyrics line", ex);
+            return LyricsLine.NO_TIME;
+        }
+    }
+
+    private static HttpURLConnection openServerTimeConnection(String spDc, int readTimeoutMs) throws IOException {
+        HttpURLConnection connection = (HttpURLConnection) new java.net.URL(SERVER_TIME_URL).openConnection();
+        connection.setRequestMethod("GET");
+        connection.setConnectTimeout(5000);
+        connection.setReadTimeout(readTimeoutMs);
+        connection.setRequestProperty("User-Agent", USER_AGENT);
+        connection.setRequestProperty("Origin", "https://open.spotify.com/");
+        connection.setRequestProperty("Referer", "https://open.spotify.com/");
+        connection.setRequestProperty("Cookie", "sp_dc=" + spDc);
+        return connection;
+    }
+
+    private static String generateTotp(long timestampMs, String secret)
+            throws NoSuchAlgorithmException, InvalidKeyException {
+        final long epochSeconds = timestampMs / 1000;
+        final long counter = epochSeconds / 30;
+
+        final byte[] counterBytes = new byte[8];
+        long tmp = counter;
+        for (int i = 7; i >= 0; i--) {
+            counterBytes[i] = (byte) (tmp & 0xFF);
+            tmp >>= 8;
+        }
+
+        final Mac mac = Mac.getInstance("HmacSHA1");
+        final byte[] secretBytes = secret.getBytes(StandardCharsets.UTF_8);
+        mac.init(new SecretKeySpec(secretBytes, "HmacSHA1"));
+        final byte[] hash = mac.doFinal(counterBytes);
+
+        final int offset = hash[hash.length - 1] & 0x0F;
+        final int binary = ((hash[offset] & 0x7F) << 24)
+                | ((hash[offset + 1] & 0xFF) << 16)
+                | ((hash[offset + 2] & 0xFF) << 8)
+                | (hash[offset + 3] & 0xFF);
+
+        final int otp = binary % 1_000_000;
+        return String.format(Locale.US, "%06d", otp);
+    }
+
     @Nullable
-    private String parseSearchResult(String json) {
+    private static String fetchSecrets() {
+        for (int attempt = 0; attempt <= SECRET_FETCH_RETRIES; attempt++) {
+            HttpURLConnection connection = null;
+            try {
+                connection = (HttpURLConnection)
+                        new java.net.URL(SECRETS_URL).openConnection();
+                connection.setRequestMethod("GET");
+                connection.setConnectTimeout(5000);
+                connection.setReadTimeout(8000);
+                connection.setRequestProperty("User-Agent", USER_AGENT);
+
+                final int code = connection.getResponseCode();
+                if (code == 200) {
+                    return Requester.parseString(connection);
+                }
+            } catch (IOException ex) {
+                Logger.printDebug(() -> "Could not read the response", ex);
+            } finally {
+                if (connection != null) connection.disconnect();
+            }
+            if (attempt < SECRET_FETCH_RETRIES) {
+                try {
+                    Thread.sleep(1000L * (attempt + 1));
+                } catch (InterruptedException ex) {
+                    Logger.printDebug(() -> "Interrupted during secret fetch retry sleep", ex);
+                    Thread.currentThread().interrupt();
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
+
+    private static String decimalStringFromInts(int[] values) {
+        final StringBuilder sb = new StringBuilder(values.length);
+        for (int v : values) {
+            sb.append(v);
+        }
+        return sb.toString();
+    }
+
+    private static long parseRetryAfter(HttpURLConnection connection) {
+        final String retryAfter = connection.getHeaderField("Retry-After");
+        if (retryAfter != null) {
+            try {
+                final long seconds = Long.parseLong(retryAfter.trim());
+                if (seconds > 0) {
+                    return Math.min(seconds, MAX_RETRY_AFTER_MS / 1000) * 1000;
+                }
+            } catch (NumberFormatException ex) {
+                Logger.printDebug(() -> "Could not parse Retry-After header", ex);
+            }
+        }
+        return 3000; // default 3 seconds
+    }
+
+    public static void invalidateToken() {
+        cachedAccessToken = null;
+        cachedClientToken = null;
+        clientTokenExpiry = 0;
+        cachedClientId = null;
+    }
+
+    public static boolean validateToken(String spDc) {
+        if (spDc == null || spDc.trim().isEmpty()) return false;
+        HttpURLConnection connection = null;
+        try {
+            connection = openServerTimeConnection(spDc, 8000);
+            return connection.getResponseCode() == Requester.HTTP_STATUS_CODE_SUCCESS;
+        } catch (Exception ex) {
+            Logger.printDebug(() -> "Could not validate Spotify token", ex);
+            return false;
+        } finally {
+            if (connection != null) connection.disconnect();
+        }
+    }
+
+    @Override
+    public String name() {
+        return "Spotify";
+    }
+
+    @Nullable
+    @Override
+    public FetchResult fetch(TrackInfo track) throws Exception {
+        final String spDc = Settings.SPOTIFY_TOKEN.get();
+        if (spDc.trim().isEmpty()) {
+            return null;
+        }
+
+        SearchHit hit = searchTrack(spDc, track.title(), track.artist());
+        if (hit == null) {
+            return null;
+        }
+
+        final String sourceUrl = "https://open.spotify.com/track/" + hit.id();
+        JSONObject lyricsResponse = fetchLyrics(spDc, hit.id());
+        if (lyricsResponse == null) {
+            return null;
+        }
+
+        final String rawJson = lyricsResponse.toString();
+        return FetchResult.searched(parseLyrics(lyricsResponse, rawJson, sourceUrl),
+                List.of(hit.title()), hit.artists(), 0L, track);
+    }
+
+    @Nullable
+    private SearchHit searchTrack(String spDc, String title, String artist) throws Exception {
+        final String accessToken = getAccessToken(spDc);
+        if (accessToken == null) {
+            return null;
+        }
+
+        final String clientToken = getClientToken(spDc);
+
+        final String query = title + " " + artist;
+
+        for (String hash : SEARCH_HASHES) {
+            final String body = new JSONObject()
+                    .put("extensions", new JSONObject()
+                            .put("persistedQuery", new JSONObject()
+                                    .put("sha256Hash", hash)
+                                    .put("version", 1)))
+                    .put("operationName", "searchDesktop")
+                    .put("variables", new JSONObject()
+                            .put("searchTerm", query)
+                            .put("limit", 5)
+                            .put("numberOfTopResults", 5)
+                            .put("offset", 0))
+                    .toString();
+
+            SearchHit hit = executeSearch(accessToken, clientToken, body);
+            if (hit != null) {
+                return hit;
+            }
+        }
+
+        return null;
+    }
+
+    @Nullable
+    private SearchHit executeSearch(String accessToken, @Nullable String clientToken,
+                                    String body) throws Exception {
+        final byte[] bodyBytes = body.getBytes(StandardCharsets.UTF_8);
+        long retryAfterMs = 0;
+
+        for (int attempt = 0; attempt <= SEARCH_RETRIES; attempt++) {
+            if (retryAfterMs > 0) {
+                try {
+                    Thread.sleep(Math.min(retryAfterMs, MAX_RETRY_AFTER_MS));
+                } catch (InterruptedException ex) {
+                    Logger.printDebug(() -> "Interrupted during search retry sleep", ex);
+                    Thread.currentThread().interrupt();
+                    return null;
+                }
+            }
+
+            final HttpURLConnection connection =
+                    openSearchConnection(accessToken, clientToken, bodyBytes);
+
+            final int code = connection.getResponseCode();
+
+            if (code == 200) {
+                final String json = Requester.parseString(connection);
+                connection.disconnect();
+
+                SearchHit hit = parseSearchResult(json);
+                if (hit != null) {
+                    return hit;
+                }
+                break;
+            }
+
+            if (code == 429) {
+                retryAfterMs = parseRetryAfter(connection);
+                connection.disconnect();
+                continue;
+            }
+
+            connection.disconnect();
+            return null;
+        }
+
+        return null;
+    }
+
+    @Nullable
+    private SearchHit parseSearchResult(String json) {
         try {
             JSONObject root = new JSONObject(json);
             JSONObject data = root.optJSONObject("data");
@@ -241,7 +447,7 @@ public final class SpotifyProvider implements LyricsProvider {
                 return null;
             }
 
-            return extractTrackId(items);
+            return extractSearchHit(items);
         } catch (Exception ex) {
             Logger.printDebug(() -> "Could not search Spotify track ID", ex);
             return null;
@@ -249,7 +455,7 @@ public final class SpotifyProvider implements LyricsProvider {
     }
 
     @Nullable
-    private String extractTrackId(JSONArray items) {
+    private SearchHit extractSearchHit(JSONArray items) {
         for (int i = 0; i < items.length(); i++) {
             JSONObject itemWrapper = items.optJSONObject(i);
             if (itemWrapper == null) continue;
@@ -265,7 +471,8 @@ public final class SpotifyProvider implements LyricsProvider {
                 }
             }
             if (id != null && !id.isEmpty()) {
-                return id;
+                final String title = LyricsRequests.optString(node, "name");
+                return new SearchHit(id, title != null ? title : "", artistNames(node));
             }
         }
 
@@ -342,12 +549,15 @@ public final class SpotifyProvider implements LyricsProvider {
         if (lines.isEmpty()) {
             return null;
         }
+
+        LrcParser.fillEstimatedEnds(lines);
+
         return new Lyrics(lines, providerName, true, null, null, null, null, rawJson, "sp.json", sourceUrl);
     }
 
     @Nullable
     private Lyrics parseSyllableLines(JSONArray linesArr, String providerName,
-                                       String rawJson, @Nullable String sourceUrl) {
+                                      String rawJson, @Nullable String sourceUrl) {
         List<LyricsLine> lines = new ArrayList<>(linesArr.length());
 
         for (int i = 0, length = linesArr.length(); i < length; i++) {
@@ -376,52 +586,15 @@ public final class SpotifyProvider implements LyricsProvider {
         if (lines.isEmpty()) {
             return null;
         }
+
+        LrcParser.fillEstimatedEnds(lines);
+
         return new Lyrics(lines, providerName, true, null, null, null, null, rawJson, "sp.json", sourceUrl);
-    }
-
-    private static List<Word> parseSyllables(JSONArray syllablesArr, String lineText) {
-        final List<Word> words = new ArrayList<>(syllablesArr.length());
-        int charOffset = 0;
-
-        for (int j = 0; j < syllablesArr.length(); j++) {
-            JSONObject syllable = syllablesArr.optJSONObject(j);
-            if (syllable == null) {
-                continue;
-            }
-
-            final long startMs = parseStartTimeMs(syllable);
-            final long endMs = syllable.optLong("endTimeMs", startMs);
-            final int numChars = syllable.optInt("numChars", 0);
-            if (numChars <= 0 || charOffset >= lineText.length()) {
-                continue;
-            }
-
-            final int end = Math.min(charOffset + numChars, lineText.length());
-            final String wordText = lineText.substring(charOffset, end);
-            final boolean spaceAfter = end < lineText.length();
-            words.add(new Word(startMs, endMs, wordText, null, spaceAfter));
-            charOffset = end;
-        }
-
-        return words;
-    }
-
-    private static long parseStartTimeMs(JSONObject obj) {
-        final String raw = LyricsRequests.optString(obj, "startTimeMs");
-        if (raw == null || raw.isEmpty()) {
-            return LyricsLine.NO_TIME;
-        }
-        try {
-            return Long.parseLong(raw);
-        } catch (NumberFormatException ex) {
-            Logger.printDebug(() -> "Could not parse start time in Spotify lyrics line", ex);
-            return LyricsLine.NO_TIME;
-        }
     }
 
     @Nullable
     private Lyrics parsePlainLines(JSONArray linesArr, String providerName,
-                                    String rawJson, @Nullable String sourceUrl) {
+                                   String rawJson, @Nullable String sourceUrl) {
         final List<LyricsLine> lines = new ArrayList<>(linesArr.length());
 
         for (int i = 0; i < linesArr.length(); i++) {
@@ -590,18 +763,6 @@ public final class SpotifyProvider implements LyricsProvider {
         }
     }
 
-    private static HttpURLConnection openServerTimeConnection(String spDc, int readTimeoutMs) throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) new java.net.URL(SERVER_TIME_URL).openConnection();
-        connection.setRequestMethod("GET");
-        connection.setConnectTimeout(5000);
-        connection.setReadTimeout(readTimeoutMs);
-        connection.setRequestProperty("User-Agent", USER_AGENT);
-        connection.setRequestProperty("Origin", "https://open.spotify.com/");
-        connection.setRequestProperty("Referer", "https://open.spotify.com/");
-        connection.setRequestProperty("Cookie", "sp_dc=" + spDc);
-        return connection;
-    }
-
     private long getServerTime(String spDc) {
         HttpURLConnection connection = null;
         try {
@@ -663,7 +824,7 @@ public final class SpotifyProvider implements LyricsProvider {
                         xored[i] = secretData[i] ^ ((i % 33) + 9);
                     }
 
-                    cachedTotpSecrets = new String[]{ decimalStringFromInts(xored) };
+                    cachedTotpSecrets = new String[]{decimalStringFromInts(xored)};
 
                     if (previousVersion != null && !cachedTotpVersion.equals(previousVersion)) {
                         cachedAccessToken = null;
@@ -678,114 +839,12 @@ public final class SpotifyProvider implements LyricsProvider {
         }
 
         if (cachedTotpSecrets == null || cachedTotpVersion == null) {
-            cachedTotpSecrets = new String[]{ decimalStringFromInts(FALLBACK_SECRET_DATA) };
+            cachedTotpSecrets = new String[]{decimalStringFromInts(FALLBACK_SECRET_DATA)};
             cachedTotpVersion = FALLBACK_TOTP_VERSION;
             lastSecretFetchTime = now;
         }
     }
 
-    private static String generateTotp(long timestampMs, String secret)
-            throws NoSuchAlgorithmException, InvalidKeyException {
-        final long epochSeconds = timestampMs / 1000;
-        final long counter = epochSeconds / 30;
-
-        final byte[] counterBytes = new byte[8];
-        long tmp = counter;
-        for (int i = 7; i >= 0; i--) {
-            counterBytes[i] = (byte) (tmp & 0xFF);
-            tmp >>= 8;
-        }
-
-        final Mac mac = Mac.getInstance("HmacSHA1");
-        final byte[] secretBytes = secret.getBytes(StandardCharsets.UTF_8);
-        mac.init(new SecretKeySpec(secretBytes, "HmacSHA1"));
-        final byte[] hash = mac.doFinal(counterBytes);
-
-        final int offset = hash[hash.length - 1] & 0x0F;
-        final int binary = ((hash[offset] & 0x7F) << 24)
-                | ((hash[offset + 1] & 0xFF) << 16)
-                | ((hash[offset + 2] & 0xFF) << 8)
-                | (hash[offset + 3] & 0xFF);
-
-        final int otp = binary % 1_000_000;
-        return String.format(Locale.US, "%06d", otp);
-    }
-
-    @Nullable
-    private static String fetchSecrets() {
-        for (int attempt = 0; attempt <= SECRET_FETCH_RETRIES; attempt++) {
-            HttpURLConnection connection = null;
-            try {
-                connection = (HttpURLConnection)
-                        new java.net.URL(SECRETS_URL).openConnection();
-                connection.setRequestMethod("GET");
-                connection.setConnectTimeout(5000);
-                connection.setReadTimeout(8000);
-                connection.setRequestProperty("User-Agent", USER_AGENT);
-
-                final int code = connection.getResponseCode();
-                if (code == 200) {
-                    return Requester.parseString(connection);
-                }
-            } catch (IOException ex) {
-                Logger.printDebug(() -> "Could not read the response", ex);
-            } finally {
-                if (connection != null) connection.disconnect();
-            }
-            if (attempt < SECRET_FETCH_RETRIES) {
-                try {
-                    Thread.sleep(1000L * (attempt + 1));
-                } catch (InterruptedException ex) {
-                    Logger.printDebug(() -> "Interrupted during secret fetch retry sleep", ex);
-                    Thread.currentThread().interrupt();
-                    return null;
-                }
-            }
-        }
-        return null;
-    }
-
-    private static String decimalStringFromInts(int[] values) {
-        final StringBuilder sb = new StringBuilder(values.length);
-        for (int v : values) {
-            sb.append(v);
-        }
-        return sb.toString();
-    }
-
-    private static long parseRetryAfter(HttpURLConnection connection) {
-        final String retryAfter = connection.getHeaderField("Retry-After");
-        if (retryAfter != null) {
-            try {
-                final long seconds = Long.parseLong(retryAfter.trim());
-                if (seconds > 0) {
-                    return Math.min(seconds, MAX_RETRY_AFTER_MS / 1000) * 1000;
-                }
-            } catch (NumberFormatException ex) {
-                Logger.printDebug(() -> "Could not parse Retry-After header", ex);
-            }
-        }
-        return 3000; // default 3 seconds
-    }
-
-    public static void invalidateToken() {
-        cachedAccessToken = null;
-        cachedClientToken = null;
-        clientTokenExpiry = 0;
-        cachedClientId = null;
-    }
-
-    public static boolean validateToken(String spDc) {
-        if (spDc == null || spDc.trim().isEmpty()) return false;
-        HttpURLConnection connection = null;
-        try {
-            connection = openServerTimeConnection(spDc, 8000);
-            return connection.getResponseCode() == Requester.HTTP_STATUS_CODE_SUCCESS;
-        } catch (Exception ex) {
-            Logger.printDebug(() -> "Could not validate Spotify token", ex);
-            return false;
-        } finally {
-            if (connection != null) connection.disconnect();
-        }
+    private record SearchHit(String id, String title, List<String> artists) {
     }
 }

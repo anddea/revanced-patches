@@ -51,6 +51,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableClass
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
@@ -86,8 +88,6 @@ import app.morphe.util.findFieldFromToString
 import app.morphe.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getFreeRegisterProvider
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversed
@@ -135,21 +135,28 @@ val actionBarComponentsPatch = bytecodePatch(
             addLithoFilter(FILTER_CLASS_DESCRIPTOR)
             hookSpannableString(ACTIONBAR_CLASS_DESCRIPTOR, "onLithoTextLoaded")
 
-            commandResolverFingerprint.methodOrThrow().addInstruction(
+            commandResolverFingerprint.method.addInstruction(
                 0,
                 "invoke-static {p2}, $ACTIONBAR_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick(Ljava/util/Map;)Z"
             )
 
-            offlineVideoEndpointFingerprint.methodOrThrow().addInstructionsWithLabels(
-                0, """
-                    invoke-static {p2}, $ACTIONBAR_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick(Ljava/util/Map;)Z
-                    move-result v0
-                    if-eqz v0, :ignore
-                    return-void
-                    :ignore
-                    nop
+            offlineVideoEndpointFingerprint.let {
+                val (_, downloadCall) = it.instructionMatches
+                val videoIdRegister = (downloadCall.instruction as FiveRegisterInstruction).registerD
+                // Reuse the ID YTM resolved for its single-video download action.
+                // v1 is unused by the download call, which is followed by return-void.
+                it.method.addInstructionsAtControlFlowLabel(
+                    downloadCall.index,
                     """
-            )
+                        invoke-static/range { v$videoIdRegister .. v$videoIdRegister }, $ACTIONBAR_CLASS_DESCRIPTOR->offlineVideoEndpointOnClick(Ljava/lang/String;)Z
+                        move-result v1
+                        if-eqz v1, :show_native_downloader
+                        return-void
+                        :show_native_downloader
+                        nop
+                    """
+                )
+            }
 
             var lazyCallbackClassType: String? = null
             var lazyCallbackElementType: String? = null
@@ -380,7 +387,7 @@ val actionBarComponentsPatch = bytecodePatch(
         }
 
         if (!is_7_25_or_greater) {
-            actionBarComponentFingerprint.matchOrThrow().let {
+            actionBarComponentFingerprint.let {
                 it.method.apply {
                     // hook download button
                     val addViewIndex = indexOfFirstInstructionOrThrow {
@@ -469,7 +476,7 @@ val actionBarComponentsPatch = bytecodePatch(
         }
 
         if (likeDislikeContainer != -1L) {
-            likeDislikeContainerFingerprint.methodOrThrow().apply {
+            likeDislikeContainerFingerprint.method.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(likeDislikeContainer)
                 val findViewByIdIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                     val reference = getReference<MethodReference>()
@@ -490,7 +497,7 @@ val actionBarComponentsPatch = bytecodePatch(
         }
 
         val (abstractClass, lottieAnimationUrlMethodName) =
-            with (lottieAnimationViewTagFingerprint.methodOrThrow()) {
+            with (lottieAnimationViewTagFingerprint.method) {
                 val literalIndex =
                     indexOfFirstLiteralInstructionOrThrow(elementsLottieAnimationViewTagId)
                 // YouTube Music 9.40 hoists the tag id constant above the URL getter, and the getter is an

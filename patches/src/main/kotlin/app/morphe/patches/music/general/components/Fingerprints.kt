@@ -46,6 +46,7 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.music.utils.resourceid.chipCloud
 import app.morphe.patches.music.utils.resourceid.musicTasteBuilderShelf
 import app.morphe.patches.music.utils.resourceid.playerOverlayChip
@@ -55,7 +56,6 @@ import app.morphe.patches.music.utils.resourceid.topBarMenuItemImageView
 import app.morphe.patches.shared.mapping.ResourceType
 import app.morphe.patches.shared.mapping.resourceLiteral
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags

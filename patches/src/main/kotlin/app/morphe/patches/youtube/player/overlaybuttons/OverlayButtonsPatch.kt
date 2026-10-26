@@ -65,6 +65,8 @@ import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
@@ -97,9 +99,7 @@ import app.morphe.util.Utils.printWarn
 import app.morphe.util.copyResources
 import app.morphe.util.doRecursively
 import app.morphe.util.findElementByAttributeValue
-import app.morphe.util.findFreeRegister
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversed
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
@@ -422,7 +422,7 @@ val overlayButtonsPatch = resourcePatch(
         )
 
         bottomControlsLayoutFileNames.forEach { xmlFile ->
-            val targetXml = get("res").resolve("layout").resolve(xmlFile)
+            val targetXml = get("res/layout/$xmlFile")
             if (targetXml.exists()) {
                 // YouTube 21.39 migrated these layouts to androidx.constraintlayout.widget.ConstraintLayout,
                 // so merge into the target's root element whatever its tag is.
@@ -455,7 +455,7 @@ val overlayButtonsPatch = resourcePatch(
         }
 
         (bottomControlsLayoutFileNames.toList() + legacyFullscreenLayouts.values).forEach { xmlFile ->
-            val targetXml = get("res").resolve("layout").resolve(xmlFile)
+            val targetXml = get("res/layout/$xmlFile")
             if (targetXml.exists()) {
                 document("res/layout/$xmlFile").use { document ->
                     document.doRecursively loop@{ node ->

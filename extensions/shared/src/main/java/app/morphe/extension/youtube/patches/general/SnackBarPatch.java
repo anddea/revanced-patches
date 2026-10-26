@@ -39,6 +39,14 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ */
+
 package app.morphe.extension.youtube.patches.general;
 
 import android.content.Context;
@@ -71,17 +79,22 @@ public final class SnackBarPatch {
     private static int whiteColor = 0;
 
     /**
-     * Block attachment after YouTube updates layout parameters, which can undo constructor-time hiding.
-     * A null view must still reach the container so it can clear the previous snackbar.
+     * Injection point.
      */
-    public static boolean hideSnackBar(View view) {
-        if (view == null) return false;
-        if (HIDE_SNACK_BAR) return true;
-        if (HIDE_SERVER_SIDE_SNACK_BAR) {
-            int tagKey = ResourceUtils.getDrawableIdentifier("snackbar_rounded_corners_background");
-            return tagKey != 0 && Boolean.TRUE.equals(view.getTag(tagKey));
+    public static boolean hideSnackbar(boolean skipDisplay) {
+        return skipDisplay || Settings.HIDE_SNACK_BAR.get();
+    }
+
+    /**
+     * Keeps the separate server-side option without skipping the container's callbacks.
+     * YouTube can overwrite the layout parameters set during snackbar construction.
+     */
+    public static void hideSnackBar(View view) {
+        if (view == null || !HIDE_SERVER_SIDE_SNACK_BAR) return;
+        int tagKey = ResourceUtils.getDrawableIdentifier("snackbar_rounded_corners_background");
+        if (tagKey != 0 && Boolean.TRUE.equals(view.getTag(tagKey))) {
+            Utils.hideViewByLayoutParams(view);
         }
-        return false;
     }
 
     public static void hideLithoSnackBar(FrameLayout frameLayout) {

@@ -66,15 +66,23 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.youtube.settings.Settings;
 
 public class GeminiUtils {
     private static final ExecutorService executor = Executors.newCachedThreadPool();
+    private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(2);
+    private static final int FIRST_RESPONSE_TIMEOUT_MS = 15000;
+    private static final int STREAM_IDLE_TIMEOUT_MS = 30000;
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
 
     /**
+     * Gemini 3.7 redirects to 3.8, so omit it to avoid retrying the same backend as a fallback.
+     *
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">gemini-3.8-flash</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash">gemini-3.7-flash</a>
      * @see <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash">gemini-3.6-flash</a>
@@ -89,7 +97,6 @@ public class GeminiUtils {
      */
     private static final String[] GEMINI_MODELS = {
             "gemini-3.8-flash",
-            "gemini-3.7-flash",
             "gemini-3.6-flash",
             "gemini-3.5-flash",
             "gemini-3.5-flash-lite",
@@ -246,13 +253,19 @@ public class GeminiUtils {
             return null;
         }
 
-        return executor.submit(() -> {
+        AtomicBoolean cancelled = new AtomicBoolean();
+        FutureTask<Void> task = new FutureTask<>(() -> {
             String lastError = "Unknown Gemini request failure.";
 
             for (int modelIndex = 0; modelIndex < GEMINI_MODELS.length; modelIndex++) {
                 String model = GEMINI_MODELS[modelIndex];
 
                 for (int apiKeyIndex = 0; apiKeyIndex < normalizedApiKeys.size(); apiKeyIndex++) {
+                    if (cancelled.get() || Thread.currentThread().isInterrupted()) {
+                        postFailure(callback, "Operation cancelled.");
+                        return;
+                    }
+
                     String apiKey = normalizedApiKeys.get(apiKeyIndex);
                     AttemptState attempt = new AttemptState(
                             model,
@@ -263,7 +276,12 @@ public class GeminiUtils {
                             normalizedApiKeys.size()
                     );
 
-                    AttemptResult result = performAttempt(requestSpec, attempt, callback);
+                    AttemptResult result = performAttempt(requestSpec, attempt, callback, cancelled);
+                    if (cancelled.get() || Thread.currentThread().isInterrupted()) {
+                        postFailure(callback, "Operation cancelled.");
+                        return;
+                    }
+
                     switch (result.status) {
                         case SUCCESS:
                             assert result.resultText != null;
@@ -288,16 +306,27 @@ public class GeminiUtils {
             }
 
             postFailure(callback, lastError);
-        });
+        }, null) {
+            @Override
+            public boolean cancel(boolean mayInterruptIfRunning) {
+                cancelled.set(true);
+                return super.cancel(mayInterruptIfRunning);
+            }
+        };
+
+        executor.execute(task);
+        return task;
     }
 
     @NonNull
     private static AttemptResult performAttempt(
             @NonNull RequestSpec requestSpec,
             @NonNull AttemptState attempt,
-            @NonNull Callback callback
+            @NonNull Callback callback,
+            @NonNull AtomicBoolean cancelled
     ) {
         HttpURLConnection connection = null;
+        GeminiRequestWatchdog watchdog = null;
 
         try {
             Logger.printInfo(() -> "GeminiUtils: Attempting " + describeAttempt(attempt));
@@ -311,6 +340,11 @@ public class GeminiUtils {
             connection = (HttpURLConnection) url.openConnection();
             configureConnection(connection, requestSpec.streaming);
 
+            if (requestSpec.streaming) {
+                watchdog = new GeminiRequestWatchdog(scheduler, connection::disconnect, cancelled::get,
+                        FIRST_RESPONSE_TIMEOUT_MS, STREAM_IDLE_TIMEOUT_MS);
+            }
+
             JSONObject requestBody = buildRequestBody(requestSpec, effectivePrompt, attempt.model);
             writeRequestBody(connection, requestBody);
 
@@ -320,10 +354,13 @@ public class GeminiUtils {
 
             int responseCode = connection.getResponseCode();
             if (requestSpec.streaming) {
-                return processStreamingResponse(responseCode, connection, attempt, callback);
+                return processStreamingResponse(responseCode, connection, attempt, callback, watchdog);
             }
             return processStandardResponse(responseCode, connection, requestSpec, attempt);
         } catch (java.net.SocketTimeoutException e) {
+            if (cancelled.get() || Thread.currentThread().isInterrupted()) {
+                return AttemptResult.cancelled();
+            }
             Logger.printException(() -> "Gemini API request timed out (" + describeAttempt(attempt) + ")", e);
             return AttemptResult.retry("Request timed out after " + (connection != null ? connection.getReadTimeout() / 1000 : "?") + " seconds.");
         } catch (InterruptedException e) {
@@ -331,12 +368,21 @@ public class GeminiUtils {
             Thread.currentThread().interrupt();
             return AttemptResult.cancelled();
         } catch (IOException e) {
+            if (cancelled.get() || Thread.currentThread().isInterrupted()) {
+                return AttemptResult.cancelled();
+            }
+            if (watchdog != null && watchdog.hasTimedOut()) {
+                return AttemptResult.retry("No Gemini response within the streaming deadline.");
+            }
             Logger.printException(() -> "Gemini API request IO failed (" + describeAttempt(attempt) + ")", e);
             return AttemptResult.retry(e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error");
         } catch (Exception e) {
             Logger.printException(() -> "Gemini API request failed (" + describeAttempt(attempt) + ")", e);
             return AttemptResult.retry(e.getMessage() != null ? e.getMessage() : "Unknown error during request setup");
         } finally {
+            if (watchdog != null) {
+                watchdog.close();
+            }
             if (connection != null) {
                 connection.disconnect();
             }
@@ -390,7 +436,8 @@ public class GeminiUtils {
             int responseCode,
             @NonNull HttpURLConnection connection,
             @NonNull AttemptState attempt,
-            @NonNull Callback callback
+            @NonNull Callback callback,
+            @NonNull GeminiRequestWatchdog watchdog
     ) {
         // EOF alone does not mean generation completed: the server must report STOP.
         boolean completed = false;
@@ -405,7 +452,7 @@ public class GeminiUtils {
                 return AttemptResult.retry(errorMessage);
             }
 
-            Logger.printInfo(() -> "GeminiUtils: Model succeeded: " + describeAttempt(attempt) + " (HTTP 200 stream)");
+            Logger.printInfo(() -> "GeminiUtils: Stream opened: " + describeAttempt(attempt) + " (HTTP 200; awaiting model output)");
             try (BufferedReader reader = getBufferedReader(responseCode, connection)) {
                 String line;
                 StringBuilder eventData = new StringBuilder();
@@ -421,6 +468,11 @@ public class GeminiUtils {
                             completed |= eventResult.completed;
                             if (eventResult.failureMessage != null) {
                                 return AttemptResult.retry(eventResult.failureMessage);
+                            }
+                            watchdog.onResponse();
+                            if (completed && accumulatedText.length() > 0) {
+                                Logger.printInfo(() -> "GeminiUtils: Model succeeded: " + describeAttempt(attempt) + " (completed stream)");
+                                return AttemptResult.success(accumulatedText.toString());
                             }
                             eventData.setLength(0);
                         }
@@ -442,6 +494,7 @@ public class GeminiUtils {
             }
 
             if (completed && accumulatedText.length() > 0) {
+                Logger.printInfo(() -> "GeminiUtils: Model succeeded: " + describeAttempt(attempt) + " (completed stream)");
                 return AttemptResult.success(accumulatedText.toString());
             }
             return AttemptResult.retry(completed ? lastFailureMessage : "Stream ended without a STOP finish reason.");
@@ -450,6 +503,13 @@ public class GeminiUtils {
             Thread.currentThread().interrupt();
             return AttemptResult.cancelled();
         } catch (IOException e) {
+            if (watchdog.isCancelled() || Thread.currentThread().isInterrupted()) {
+                return AttemptResult.cancelled();
+            }
+            if (watchdog.hasTimedOut()) {
+                Logger.printInfo(() -> "GeminiUtils: Streaming response deadline exceeded (" + describeAttempt(attempt) + ")");
+                return AttemptResult.retry("No Gemini response within the streaming deadline.");
+            }
             Logger.printException(() -> "Gemini streamed request IO failed (" + describeAttempt(attempt) + ")", e);
             return AttemptResult.retry(e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error");
         } catch (JSONException e) {
@@ -539,7 +599,9 @@ public class GeminiUtils {
         if (model.startsWith("gemini-3")) {
             thinkingConfig = new JSONObject()
                     .put("thinkingLevel", getThinkingLevel(model))
-                    .put("includeThoughts", false);
+                    // Rolling thought summaries are progress during reasoning, before answer tokens.
+                    // The stream parser counts these events for inactivity but excludes their text.
+                    .put("includeThoughts", requestSpec.streaming);
         } else {
             thinkingConfig = new JSONObject().put("thinkingBudget", 0);
         }
@@ -550,13 +612,12 @@ public class GeminiUtils {
 
     /**
      * Returns the lowest supported thinking level for the given Gemini 3 model.
-     * Gemini 3.7 Flash and Gemini 3.1 Pro do not support {@code minimal}.
+     * Gemini 3.8 Flash and Gemini 3.1 Pro do not support {@code minimal}.
      */
     @NonNull
     private static String getThinkingLevel(@NonNull String model) {
         if (
                 "gemini-3.8-flash".equals(model) ||
-                "gemini-3.7-flash".equals(model) ||
                 "gemini-3.1-pro-preview".equals(model)
         ) {
             return "low";
@@ -617,7 +678,7 @@ public class GeminiUtils {
         connection.setRequestProperty("Accept", streaming ? "text/event-stream" : "application/json");
         connection.setDoOutput(true);
         connection.setConnectTimeout(30000);
-        connection.setReadTimeout(6000000);
+        connection.setReadTimeout(120000);
     }
 
     private static void writeRequestBody(@NonNull HttpURLConnection connection, @NonNull JSONObject requestBody) throws IOException {

@@ -42,7 +42,9 @@ internal object CaptionFileParserFingerprint : Fingerprint(
     parameters = listOf("Ljava/lang/Object;", "L"),
     filters = listOf(
         // Caption request.
-        opcode(Opcode.CHECK_CAST, location = MatchFirst()),
+        // 19.28 has an R8 dispatcher before the request cast. Patcher 2.0 MatchFirst
+        // requires index zero, so search for the cast within the method instead.
+        opcode(Opcode.CHECK_CAST),
         // Caption track of the request.
         fieldAccess(opcode = Opcode.IGET_OBJECT, location = MatchAfterWithin(2)),
         methodCall(smali = "Ljava/io/File;->exists()Z"),

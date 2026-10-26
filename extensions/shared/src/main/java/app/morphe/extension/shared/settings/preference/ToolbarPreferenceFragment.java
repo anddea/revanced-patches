@@ -109,7 +109,8 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
                             }
 
                             Toolbar toolbar = new Toolbar(childScreen.getContext());
-                            toolbar.setTitle(childScreen.getTitle());
+                            // The title can have a new setting dot, which is not shown here.
+                            toolbar.setTitle(childScreen.getTitle().toString());
                             toolbar.setNavigationIcon(BaseThemeUtils.getBackButtonDrawable());
                             toolbar.setNavigationContentDescription(str("revanced_settings_navigate_up"));
                             toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
@@ -280,7 +281,7 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
 
             final boolean restartNeeded = Setting.importFromJSON(context, sb.toString());
             if (restartNeeded) {
-                showRestartDialog(getActivity());
+                setRestartNeeded();
             }
         } catch (IOException e) {
             showToastShort(str("revanced_settings_import_failed"));

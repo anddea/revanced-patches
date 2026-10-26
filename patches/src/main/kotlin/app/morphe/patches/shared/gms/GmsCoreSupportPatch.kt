@@ -27,6 +27,8 @@ import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.getReference
+import app.morphe.patcher.util.returnEarly
 import app.morphe.patches.shared.extension.Constants.PATCHES_PATH
 import app.morphe.patches.shared.gms.Constants.ACTIONS
 import app.morphe.patches.shared.gms.Constants.ACTIONS_LEGACY
@@ -37,11 +39,9 @@ import app.morphe.patches.shared.gms.Constants.PERMISSIONS_LEGACY
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.Utils.trimIndentMultiline
 import app.morphe.util.findMethodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
-import app.morphe.util.returnEarly
 import app.morphe.util.updatePatchStatus
 import app.morphe.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -376,7 +376,17 @@ fun gmsCoreSupportPatch(
         }
 
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.forEach { it.method.returnEarly() }
+        earlyReturnFingerprints.forEach {
+            it.method.apply {
+                // Patcher 2.0 requires an override matching the method's return type.
+                when (returnType) {
+                    "V" -> returnEarly()
+                    "Z" -> returnEarly(false)
+                    "I" -> returnEarly(0)
+                    else -> returnEarly(null)
+                }
+            }
+        }
 
         // Passes signature check of DroidGaurdResult (the.apk).
         droidGuardSignatureFingerprint

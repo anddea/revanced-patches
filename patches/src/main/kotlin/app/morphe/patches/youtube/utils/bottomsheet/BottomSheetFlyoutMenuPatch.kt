@@ -25,7 +25,9 @@ internal val bottomSheetFlyoutMenuPatch = bytecodePatch(
     description = "bottomSheetFlyoutMenuPatch"
 ) {
     execute {
+        // Fixes custom item insertion in the new popup layouts through FlyoutUtils.getPopupMenuContainer().
+        // Leave the server's popup choice intact; retain this workaround for device regression testing.
         // Versions without the flag have nothing to override.
-        insertLiteralOverrideAtInlinedSites(ANCHORED_FLYOUT_MENU_FEATURE_FLAG, false)
+        // insertLiteralOverrideAtInlinedSites(ANCHORED_FLYOUT_MENU_FEATURE_FLAG, false)
     }
 }

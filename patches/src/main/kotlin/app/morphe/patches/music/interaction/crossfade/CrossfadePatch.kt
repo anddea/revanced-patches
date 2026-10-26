@@ -1,11 +1,13 @@
 /*
  * Copyright 2026 Morphe.
- * https://github.com/MorpheApp/morphe-patches
+ * https://github.com/MorpheApp/morphe-patches/pull/1065
+ * https://github.com/MorpheApp/morphe-patches/pull/3635
  *
- * See the included NOTICE file for GPLv3 §7(b) and §7(c) terms that apply to this code.
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
  *
  * Modified by lavinhoque33, 2026-10-21.
  */
+
 package app.morphe.patches.music.interaction.crossfade
 
 import app.morphe.patcher.Fingerprint
@@ -13,6 +15,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 // imports for 9.40 suppressCwhU release-post guard
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.smali.ExternalLabel
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
@@ -38,7 +41,6 @@ import app.morphe.patches.shared.mainactivity.getMainActivityMethod
 import app.morphe.util.ResourceGroup
 import app.morphe.util.adoptChild
 import app.morphe.util.copyResources
-import app.morphe.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -519,10 +521,10 @@ val crossfadePatch = bytecodePatch(
         // resolve to the concrete implementation via Fingerprint.
         val sharedStateClass = if (AccessFlags.INTERFACE.isSet(sharedStateInterfaceClass.accessFlags)) {
             Fingerprint(
+                interfaces = listOf(sharedStateFieldRef.type),
                 custom = { _, classDef ->
                     !AccessFlags.INTERFACE.isSet(classDef.accessFlags)
                         && !AccessFlags.ABSTRACT.isSet(classDef.accessFlags)
-                        && sharedStateFieldRef.type in classDef.interfaces
                 }
             ).classDef
         } else {
@@ -2000,14 +2002,14 @@ val crossfadePatch = bytecodePatch(
         // setState is the instance void method on nlw that takes one nlv param.
         val setStateMethodFingerprint = Fingerprint(
             definingClass = stateProviderClass.type,
+            isStatic = false,
             returnType = "V",
             parameters = listOf(stateType),
             filters = listOf(
                 opcode((Opcode.IGET_OBJECT))
             ),
             custom = { method, _ ->
-                !AccessFlags.STATIC.isSet(method.accessFlags) &&
-                        !AccessFlags.CONSTRUCTOR.isSet(method.accessFlags)
+                !AccessFlags.CONSTRUCTOR.isSet(method.accessFlags)
             }
         )
         val setStateMethod = setStateMethodFingerprint.method

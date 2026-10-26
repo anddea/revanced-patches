@@ -223,15 +223,10 @@ public final class LocalDownloadManager {
     private static final class StreamCandidates {
         private final String videoId;
         private final Iterator<ClientType> clients;
-        @Nullable
-        private StreamOrDetailsDataRequest cached;
 
         StreamCandidates(String videoId) {
             this.videoId = videoId;
-            this.cached = StreamOrDetailsDataRequest.getRequestForVideoId(videoId);
-            if (cached == null) {
-                Logger.printDebug(() -> "No cached streaming request for download, resolving: " + videoId);
-            }
+            Logger.printDebug(() -> "Resolving stream and metadata for download: " + videoId);
             // The clients are named here because the playback order is only set up while spoofing
             // is on, and a download needs a client that answers with plain urls either way.
             this.clients = StreamOrDetailsDataRequest.buildClientOrder(
@@ -242,21 +237,16 @@ public final class LocalDownloadManager {
         /** @return The next stream with an audio url, or null once every client has been tried. */
         @Nullable
         ResolvedStream next() {
-            while (true) {
-                StreamOrDetailsDataRequest request = cached;
-                if (request != null) {
-                    cached = null;
-                } else if (clients.hasNext()) {
-                    ClientType client = clients.next();
-                    request = StreamOrDetailsDataRequest.fetchRequestForDownload(
-                            videoId, List.of(client), client);
-                } else {
-                    return null;
-                }
+            while (clients.hasNext()) {
+                // Cached playback responses omit videoDetails, so fetch streams and song details together.
+                ClientType client = clients.next();
+                StreamOrDetailsDataRequest request = StreamOrDetailsDataRequest.fetchRequestForDownload(
+                        videoId, List.of(client), client);
 
                 ResolvedStream stream = parseStream(videoId, request);
                 if (stream != null) return stream;
             }
+            return null;
         }
     }
 

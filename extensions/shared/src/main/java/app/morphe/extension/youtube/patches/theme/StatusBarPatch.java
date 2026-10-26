@@ -11,11 +11,24 @@
 
 package app.morphe.extension.youtube.patches.theme;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.res.Configuration;
+import android.os.Bundle;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.view.View;
 import android.view.WindowInsets;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
+import java.util.Collections;
+import java.util.Set;
+import java.util.WeakHashMap;
+
+import app.morphe.extension.youtube.patches.general.NavigationButtonsPatch;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceType;
@@ -82,6 +95,163 @@ public final class StatusBarPatch {
         }
         //noinspection deprecation
         return (decorView.getSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0;
+    }
+
+    /** Window position from the previous app start, kept stable throughout this session. */
+    private static final boolean WINDOW_ABOVE_NAVIGATION_BAR = Settings.WINDOW_ABOVE_NAVIGATION_BAR.get();
+
+    /** The account's edge-to-edge flag is observed without changing this fork's layout. */
+    @Nullable
+    private static volatile Boolean edgeToEdgeTopBarUsed;
+
+    public static Boolean isEdgeToEdgeTopBar() {
+        return edgeToEdgeTopBarUsed;
+    }
+
+    public static boolean isWindowAboveNavigationBar() {
+        return WINDOW_ABOVE_NAVIGATION_BAR;
+    }
+
+    /** Injection point. Observes the flag for the layout fixes without overriding its value. */
+    public static boolean useEdgeToEdgeTopBar(boolean original) {
+        if (edgeToEdgeTopBarUsed == null) {
+            edgeToEdgeTopBarUsed = original;
+        }
+        return original;
+    }
+
+    /**
+     * Main activities whose window position is watched once they are started.
+     */
+    private static final Set<Activity> windowPositionActivities = Collections.newSetFromMap(new WeakHashMap<>());
+
+    /**
+     * Callback when an activity is started. The window of the main activity is not created
+     * when it is initialized, so its position is watched once it is started.
+     */
+    private static final Application.ActivityLifecycleCallbacks WINDOW_POSITION_LIFECYCLE_CALLBACKS
+            = new Application.ActivityLifecycleCallbacks() {
+
+        public void onActivityStarted(@NonNull Activity activity) {
+            try {
+                if (windowPositionActivities.remove(activity)
+                        && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    watchWindowPosition(activity);
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "onActivityStarted window position failure", ex);
+            }
+        }
+
+        public void onActivityCreated(@NonNull Activity a, @Nullable Bundle b) {}
+        public void onActivityResumed(@NonNull Activity a) {}
+        public void onActivityPaused(@NonNull Activity a) {}
+        public void onActivityStopped(@NonNull Activity a) {}
+        public void onActivitySaveInstanceState(@NonNull Activity a, @NonNull Bundle b) {}
+        public void onActivityDestroyed(@NonNull Activity a) {}
+    };
+
+    private static boolean windowPositionLifecycleCallbacksRegistered;
+
+    /** Injection point. Starts watching the main window when its activity starts. */
+    public static void initialize(Activity activity) {
+        // The window position is watched once the activity is started, see watchWindowPosition().
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            try {
+                if (!windowPositionLifecycleCallbacksRegistered) {
+                    windowPositionLifecycleCallbacksRegistered = true;
+                    activity.getApplication().registerActivityLifecycleCallbacks(WINDOW_POSITION_LIFECYCLE_CALLBACKS);
+                }
+                windowPositionActivities.add(activity);
+            } catch (Exception ex) {
+                Logger.printException(() -> "initialize window position failure", ex);
+            }
+        }
+    }
+
+    // This fork copies only the navigation-bar measurement; its status-bar layout stays unchanged.
+    /**
+     * Some devices keep the window out of the status bar area, for example Samsung devices with
+     * the app not allowed to use the camera cutout area. The edge to edge top bar still makes room
+     * for the status bar above the top bars, which is then drawn as a second status bar below
+     * the real one and covers the top bars (https://github.com/MorpheApp/morphe-patches/issues/2969).
+     * <p>
+     * The flag is read before the window is laid out, so the position is saved and the flag is
+     * turned off from the next app start. Only the full screen window in portrait with the status bar
+     * shown is checked, where the status bar is above the window.
+     * <p>
+     * The same way, a window drawn edge to edge is expected to end behind the system navigation
+     * buttons, which the navigation bar covering them relies on. Some devices and Android versions
+     * keep it above them, and the room for them is then added twice, see
+     * {@link NavigationButtonsPatch#useTranslucentNavigationBar(boolean)}. The bottom of the window is
+     * saved, and the flags of the translucent navigation bar are turned off from the next app start.
+     */
+    @RequiresApi(api = Build.VERSION_CODES.R)
+    private static void watchWindowPosition(Activity activity) {
+        View decorView = activity.getWindow().getDecorView();
+        // Width, height and status bar visibility of the window last checked,
+        // so the position is only read when they change.
+        final int[] lastSize = {-1, -1, -1};
+        final int[] location = new int[2];
+
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            try {
+                WindowInsets insets = decorView.getRootWindowInsets();
+                // The keyboard can resize the window on some devices.
+                if (insets == null || insets.isVisible(WindowInsets.Type.ime())
+                        || activity.isInMultiWindowMode() || activity.isInPictureInPictureMode()
+                        || activity.getResources().getConfiguration().orientation
+                        != Configuration.ORIENTATION_PORTRAIT) {
+                    return;
+                }
+
+                final int width = decorView.getWidth();
+                final int height = decorView.getHeight();
+                final boolean statusBarVisible = insets.isVisible(WindowInsets.Type.statusBars());
+                final int statusBar = statusBarVisible ? 1 : 0;
+                if ((width == lastSize[0] && height == lastSize[1] && statusBar == lastSize[2])
+                        || width == 0 || height == 0) {
+                    return;
+                }
+                lastSize[0] = width;
+                lastSize[1] = height;
+                lastSize[2] = statusBar;
+
+                decorView.getLocationOnScreen(location);
+                final int windowTop = location[1];
+                final int windowBottom = windowTop + height;
+                final int displayHeight = activity.getWindowManager().getMaximumWindowMetrics().getBounds().height();
+                Logger.printDebug(() -> "Window top: " + windowTop + " bottom: " + windowBottom
+                        + " display height: " + displayHeight
+                        + " status bar inset: " + insets.getInsets(WindowInsets.Type.statusBars()).top
+                        + " stable: " + insets.getInsetsIgnoringVisibility(WindowInsets.Type.statusBars()).top
+                        + " cutout: " + insets.getInsets(WindowInsets.Type.displayCutout()).top
+                        + " navigation bar inset: " + insets.getInsets(WindowInsets.Type.navigationBars()).bottom);
+
+                // Without the edge to edge top bar the app itself can lay the window out below
+                // the status bar (it uses the default display cutout mode on Android 14 and lower)
+                // and above the system navigation buttons, so only a window that was drawn edge to edge
+                // tells that the device keeps it there. Otherwise the flags would stay off for good
+                // after one app start without them.
+                final boolean edgeToEdge = Boolean.TRUE.equals(edgeToEdgeTopBarUsed);
+
+                // Only with the system navigation buttons at the bottom of the screen. The navigation bar
+                // covering them can change how the window is laid out, so only a window laid out with it
+                // tells that the device keeps the window above them.
+                if (edgeToEdge && insets.isVisible(WindowInsets.Type.navigationBars())
+                        && insets.getInsetsIgnoringVisibility(WindowInsets.Type.navigationBars()).bottom > 0) {
+                    final boolean aboveNavigationBar = windowBottom < displayHeight;
+                    if ((!aboveNavigationBar || NavigationButtonsPatch.isNavigationBarCoveringSystemButtons())
+                            && aboveNavigationBar != Settings.WINDOW_ABOVE_NAVIGATION_BAR.get()) {
+                        Logger.printDebug(() -> "Window above navigation bar: " + aboveNavigationBar
+                                + ", applied from the next app start");
+                        Settings.WINDOW_ABOVE_NAVIGATION_BAR.save(aboveNavigationBar);
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "watchWindowPosition failure", ex);
+            }
+        });
     }
 
     private StatusBarPatch() {

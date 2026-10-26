@@ -48,6 +48,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.music.layout.hide.settingsmenu.SettingsHeadersOnCreatePreferencesFingerprint
@@ -81,8 +83,6 @@ import app.morphe.util.copyXmlNode
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getFreeRegisterProvider
-import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.removeStringsElements
 import app.morphe.util.valueOrThrow
@@ -181,7 +181,7 @@ private val settingsBytecodePatch = bytecodePatch(
                         addInstructions(
                             0,
                             """
-                                invoke-static {}, $EXTENSION_ACTIVITY_CLASS_DESCRIPTOR->handleFinish()Z
+                                invoke-static { p0 }, $EXTENSION_ACTIVITY_CLASS_DESCRIPTOR->handleFinish(Landroid/app/Activity;)Z
                                 move-result v0
                                 if-nez v0, :search_handled
                                 invoke-super { p0 }, $superclass->finish()V
@@ -436,6 +436,12 @@ val settingsPatch = resourcePatch(
             "revanced_settings_import_export"
         )
 
+        addCustomPreference(
+            category = CategoryType.MISC,
+            key = "morphe_settings_new_indicator_days",
+            tag = "app.morphe.extension.shared.settings.preference.SeekBarPreference",
+        )
+
         addSwitchPreference(
             category = CategoryType.MISC,
             key = "revanced_settings_show_slider_summaries",
@@ -583,7 +589,7 @@ internal fun addCustomPreference(
     dependencyKey: String = "",
     setSummary: Boolean = true,
     insertBeforeKey: String = "",
-    titleKey: String = "${key}_title",
+    titleKey: String? = "${key}_title",
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)

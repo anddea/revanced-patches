@@ -14,7 +14,6 @@ package app.morphe.extension.youtube.patches.general;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
-import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_31_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_AUTOMOTIVE;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_WATCH;
 
@@ -86,8 +85,7 @@ public class ChangeFormFactorPatch {
     private static final boolean USING_AUTOMOTIVE_TYPE = Objects.requireNonNull(
             FormFactor.AUTOMOTIVE.formFactorType).equals(FORM_FACTOR_TYPE);
     private static final boolean TABLET_LAYOUT_IN_PLAYER =
-            IS_20_31_OR_GREATER
-                    && FORM_FACTOR != FormFactor.LARGE
+            FORM_FACTOR != FormFactor.LARGE
                     && FORM_FACTOR != FormFactor.LARGE_WIDTH_DP
                     && Settings.TABLET_LAYOUT_IN_PLAYER.get();
 

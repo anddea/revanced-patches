@@ -1,4 +1,11 @@
 /*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ */
+
+/*
  * Copyright (C) 2026 anddea
  *
  * This file is part of the revanced-patches project:
@@ -43,34 +50,51 @@ package app.morphe.patches.music.general.redirection
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterWithin
+import app.morphe.patcher.anyInstruction
+import app.morphe.patcher.string
 import app.morphe.patcher.methodCall
+import app.morphe.patcher.util.getReference
 import app.morphe.util.containsLiteralInstruction
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal object NotificationLikeButtonControllerFingerprint : Fingerprint(
-    returnType = "V",
-    parameters = emptyList(),
-    strings = listOf("NotificationLikeButtonController"),
-    custom = { method, _ ->
-        method.name == "<clinit>"
-    }
-)
-
+/**
+ * String is a substring so both `NotificationLikeButtonController` (pre-8.x)
+ * and `DefaultNotificationLikeButtonController` (8.x+) match.
+ */
 internal object NotificationLikeButtonOnClickListenerFingerprint : Fingerprint(
-    classFingerprint = NotificationLikeButtonControllerFingerprint,
+    classFingerprint = Fingerprint(
+        name = "<clinit>",
+        returnType = "V",
+        parameters = listOf(),
+        filters = listOf(
+            anyInstruction(
+                // 7.29
+                string("com/google/android/apps/youtube/music/player/notification/NotificationLikeButtonController"),
+                // 8.x+
+                string("com/google/android/apps/youtube/music/player/notification/DefaultNotificationLikeButtonController")
+            )
+        )
+    ),
     accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.FINAL),
     returnType = "V",
     parameters = listOf("L"),
-    custom = { method, _ ->
-        indexOfMapInstruction(method) >= 0
-    }
+    filters = listOf(
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            parameters = listOf("L", "L", "Ljava/util/Map;")
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_INTERFACE,
+            returnType = "V",
+            parameters = listOf("L")
+        )
+    )
 )
+
 
 internal fun indexOfMapInstruction(method: Method) =
     method.indexOfFirstInstruction {

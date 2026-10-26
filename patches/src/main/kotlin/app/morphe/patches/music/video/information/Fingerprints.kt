@@ -43,36 +43,32 @@
 package app.morphe.patches.music.video.information
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.StringComparisonType
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.parametersMatch
 import app.morphe.patcher.string
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val playerControllerSetTimeReferenceFingerprint = legacyFingerprint(
-    name = "playerControllerSetTimeReferenceFingerprint",
+internal val playerControllerSetTimeReferenceFingerprint = "playerControllerSetTimeReferenceFingerprint" to Fingerprint(
     returnType = "V",
-    opcodes = listOf(
+    filters = OpcodesFilter.opcodesToFilters(
         Opcode.INVOKE_DIRECT_RANGE,
         Opcode.IGET_OBJECT
     ),
-    strings = listOf("Media progress reported outside media playback: ")
+    strings = listOf(string("Media progress reported outside media playback: ", StringComparisonType.STARTS_WITH))
 )
 
-internal val videoEndFingerprint = legacyFingerprint(
-    name = "videoEndFingerprint",
-    strings = listOf("Attempting to seek during an ad")
+internal val videoEndFingerprint = "videoEndFingerprint" to Fingerprint(
+    strings = listOf(string("Attempting to seek during an ad", StringComparisonType.CONTAINS))
 )
 
-internal val videoIdFingerprint = legacyFingerprint(
-    name = "videoIdFingerprint",
+internal val videoIdFingerprint = "videoIdFingerprint" to Fingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/lang/String;"),
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     strings = listOf("Null initialPlayabilityStatus")
 )
 
@@ -104,7 +100,7 @@ internal object ModernPlayerControllerSetTimeReferenceFingerprint : Fingerprint(
         Opcode.INVOKE_DIRECT_RANGE,
         Opcode.IGET_OBJECT
     ),
-    strings = listOf("Media progress reported outside media playback: ")
+    strings = listOf(string("Media progress reported outside media playback: ", StringComparisonType.STARTS_WITH))
 )
 
 /**

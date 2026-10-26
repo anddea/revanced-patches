@@ -1,5 +1,7 @@
 package app.morphe.extension.music.settings;
 
+import app.morphe.extension.shared.settings.BaseActivityHook;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -29,7 +31,7 @@ public class YouTubeMusicHostActivity extends BaseHostActivity {
     @Override
     public void onBackPressed() {
         if (handleBackPress()) {
-            super.onBackPressed();
+            BaseActivityHook.closeSettings(this);
         }
     }
 
@@ -77,7 +79,7 @@ public class YouTubeMusicHostActivity extends BaseHostActivity {
             if (searchViewController != null && searchViewController.isSearchActive()) {
                 searchViewController.closeSearch();
             } else {
-                activity.finish();
+                BaseActivityHook.closeSettings(activity);
             }
         };
     }

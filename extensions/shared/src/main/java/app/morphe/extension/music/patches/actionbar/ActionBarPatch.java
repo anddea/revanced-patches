@@ -1,4 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches/pull/1881
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.music.patches.actionbar;
+
+import app.morphe.extension.music.patches.flyout.FlyoutPatch;
 
 import static app.morphe.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
 import static app.morphe.extension.shared.utils.Utils.hideViewUnderCondition;
@@ -12,10 +21,14 @@ import androidx.annotation.Nullable;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
+import java.util.Locale;
 
 import app.morphe.extension.music.settings.Settings;
+import app.morphe.extension.music.shared.VideoInformation;
 import app.morphe.extension.music.utils.VideoUtils;
 import app.morphe.extension.shared.utils.Logger;
+import app.morphe.extension.shared.utils.ResourceUtils;
+import app.morphe.extension.shared.utils.Utils;
 import app.morphe.extension.shared.utils.PackageUtils;
 
 @SuppressWarnings({"unused", "deprecation"})
@@ -42,8 +55,8 @@ public class ActionBarPatch {
             "https://www.gstatic.com/youtube/img/lottie/custom_animated_like_icon/animated_like_music_dark";
     private static final String ELEMENTS_SENDER_VIEW =
             "com.google.android.libraries.youtube.rendering.elements.sender_view";
-    private static final String EXTERNAL_DOWNLOADER_LAUNCHED =
-            "external_downloader_launched";
+    private static final int IGNORE_DOUBLE_CLICK_DURATION_MS = 1000;
+    private static volatile long lastMainPlayerDownloadTime;
     private static String downloadButtonLabel = "";
 
     @NonNull
@@ -96,25 +109,70 @@ public class ActionBarPatch {
         }
     }
 
+    /**
+     * The label is the localized download text litho gave us, so no hard coded language is needed.
+     */
+    private static boolean isPlayerDownloadButton(@Nullable Map<Object, Object> map) {
+        if (map == null || downloadButtonLabel.isEmpty()
+                || !(map.get(ELEMENTS_SENDER_VIEW) instanceof ViewGroup senderViewGroup)) {
+            return false;
+        }
+        CharSequence description = senderViewGroup.getContentDescription();
+        if (description == null || description.length() == 0) return false;
+
+        String value = description.toString().toLowerCase(Locale.ROOT);
+        String label = downloadButtonLabel.toLowerCase(Locale.ROOT);
+        if (!value.contains(label) && !label.contains(value)) return false;
+
+        int actionBarId = ResourceUtils.getIdIdentifier("video_action_bar");
+        View view = senderViewGroup;
+        while (view.getParent() instanceof View parent) {
+            if (parent.getId() == actionBarId) return true;
+            view = parent;
+        }
+        return false;
+    }
+
     public static boolean inAppDownloadButtonOnClick(@Nullable Map<Object, Object> map) {
         try {
-            if (EXTERNAL_DOWNLOADER_ACTION_BUTTON &&
-                    !downloadButtonLabel.isEmpty() &&
-                    map != null &&
-                    map.get(ELEMENTS_SENDER_VIEW) instanceof ViewGroup senderViewGroup &&
-                    downloadButtonLabel.equals(senderViewGroup.getContentDescription() + "")
-            ) {
-                if (!map.containsKey(EXTERNAL_DOWNLOADER_LAUNCHED)) {
-                    map.put(EXTERNAL_DOWNLOADER_LAUNCHED, Boolean.TRUE);
-                    VideoUtils.runOnMainThreadDelayed(VideoUtils::launchExternalDownloader, 0);
-                }
-                return true;
+            if (FlyoutPatch.isViewInsideDialog(map == null ? null : map.get(ELEMENTS_SENDER_VIEW))
+                    || !isPlayerDownloadButton(map)) return false;
+            if (!EXTERNAL_DOWNLOADER_ACTION_BUTTON) {
+                FlyoutPatch.onStockPlayerDownload();
+                return false;
             }
+            String videoId = VideoInformation.getVideoId();
+            if (videoId == null || videoId.isEmpty()) return false;
+            return playerDownloadOnClick(videoId);
         } catch (Exception ex) {
             Logger.printException(() -> "inAppDownloadButtonOnClick failed", ex);
         }
-
         return false;
+    }
+
+    /**
+     * Injection point. Uses the song ID resolved by YouTube Music for the tapped download action.
+     */
+    public static boolean offlineVideoEndpointOnClick(String videoId) {
+        return FlyoutPatch.offlineVideoEndpointOnClick(videoId);
+    }
+
+    private static boolean playerDownloadOnClick(String videoId) {
+        try {
+            if (!EXTERNAL_DOWNLOADER_ACTION_BUTTON) {
+                return false;
+            }
+            Utils.verifyOnMainThread();
+
+            long now = System.currentTimeMillis();
+            if (now - lastMainPlayerDownloadTime < IGNORE_DOUBLE_CLICK_DURATION_MS) return true;
+            lastMainPlayerDownloadTime = now;
+            VideoUtils.launchExternalDownloader(videoId);
+            return true;
+        } catch (Exception ex) {
+            Logger.printException(() -> "offlineVideoEndpointOnClick failure", ex);
+            return false;
+        }
     }
 
     public static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,

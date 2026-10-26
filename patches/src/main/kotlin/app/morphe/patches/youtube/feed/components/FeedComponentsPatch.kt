@@ -17,6 +17,8 @@
 
 package app.morphe.patches.youtube.feed.components
 
+import app.morphe.patches.shared.extension.Constants.COMPONENTS_PATH as SHARED_COMPONENTS_PATH
+import app.morphe.patches.shared.litho.context.EXTENSION_CONTEXT_INTERFACE
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -24,6 +26,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLa
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
+import app.morphe.patcher.util.findFreeRegister
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.litho.addLithoFilter
 import app.morphe.patches.shared.mainactivity.onCreateMethod
@@ -51,15 +55,16 @@ import app.morphe.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.morphe.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.morphe.patches.youtube.utils.proto.elementProtoParserHookPatch
 import app.morphe.patches.youtube.utils.proto.hookElement
+import app.morphe.patches.youtube.utils.navigation.addBrowseIdHook
+import app.morphe.patches.youtube.utils.navigation.addSearchResultsHook
+import app.morphe.patches.youtube.utils.navigation.browseIdHookPatch
 import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.morphe.util.addInstructionsAtControlFlowLabel
 import app.morphe.util.findMutableClassOrThrow
-import app.morphe.util.findFreeRegister
 import app.morphe.util.fingerprint.injectLiteralInstructionViewCall
 import app.morphe.util.fingerprint.matchOrThrow
 import app.morphe.util.fingerprint.methodOrThrow
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
@@ -92,6 +97,7 @@ val feedComponentsPatch = bytecodePatch(
     dependsOn(
         mainActivityResolvePatch,
         navigationBarHookPatch,
+        browseIdHookPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
         settingsPatch,
@@ -377,12 +383,20 @@ val feedComponentsPatch = bytecodePatch(
                         invoke-static { $byteArrayParameter }, $FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists([B)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :show
+                        # The whole element is hidden, so its item is removed from the list (such as the feed).
+                        invoke-static { }, $SHARED_COMPONENTS_PATH/LithoFilterPatch;->removeParsedElementListItem()V
                         move-object v$returnEmptyComponentRegister, p1
                         goto :return_empty_component
                         :show
                         nop
                     """,
                     ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
+                )
+
+                // The conversion context parameter is reused before the filter is called.
+                addInstruction(
+                    0,
+                    "invoke-static/range { p2 .. p2 }, $SHARED_COMPONENTS_PATH/LithoFilterPatch;->setParsedElementContext($EXTENSION_CONTEXT_INTERFACE)V"
                 )
             }
         }
@@ -540,6 +554,11 @@ val feedComponentsPatch = bytecodePatch(
         // endregion
 
         addLithoFilter(FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
+
+        // The community posts are not hidden on the community page of a channel.
+        addBrowseIdHook("$FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR->setBrowseId(Ljava/lang/String;)V")
+        addSearchResultsHook("$FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR->clearBrowseId()V")
+
         addLithoFilter(FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(KEYWORD_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(AISLIST_FILTER_CLASS_DESCRIPTOR)

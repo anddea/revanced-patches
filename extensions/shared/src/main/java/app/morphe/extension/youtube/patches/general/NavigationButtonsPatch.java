@@ -22,6 +22,8 @@ import static app.morphe.extension.youtube.shared.NavigationBar.NavigationButton
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +76,9 @@ import app.morphe.extension.youtube.innertube.IconOuterClass.Icon;
 import app.morphe.extension.youtube.innertube.IconOuterClass.YTIconType;
 import app.morphe.extension.youtube.patches.general.offline.OfflineScreens;
 import app.morphe.extension.youtube.patches.theme.ThemePatch.StatusBarTranslucency;
+import app.morphe.extension.youtube.patches.FixPagePaddingPatch;
 import app.morphe.extension.youtube.settings.Settings;
+import app.morphe.extension.youtube.patches.theme.StatusBarPatch;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
 
@@ -206,7 +210,7 @@ public final class NavigationButtonsPatch {
      * navigation buttons, the navigation bar makes room for them, and the pages end above
      * the navigation bar. With the navigation bar hidden in the Shorts player, nothing makes that
      * room, so the Shorts player is drawn behind the system navigation buttons
-     * (https://github.com/MorpheApp/morphe-patches/issues/3908). The Shorts player then makes
+     * (<a href="https://github.com/MorpheApp/morphe-patches/issues/3908">...</a>). The Shorts player then makes
      * the room itself.
      * <p>
      * The room the Shorts player reserves for the navigation bar depends on how it's opened,
@@ -243,6 +247,14 @@ public final class NavigationButtonsPatch {
                     if (view.getPaddingBottom() != padding) {
                         view.post(() -> view.setPadding(view.getPaddingLeft(), view.getPaddingTop(),
                                 view.getPaddingRight(), padding));
+                    }
+
+                    // The room is drawn with the background of the layout, which follows the app theme.
+                    // The system navigation buttons over the Shorts player are light in both themes,
+                    // so with the light theme they cannot be seen. The room is black like the Shorts player.
+                    if (!(view.getBackground() instanceof ColorDrawable background)
+                            || background.getColor() != Color.BLACK) {
+                        view.setBackgroundColor(Color.BLACK);
                     }
                 } catch (Exception ex) {
                     Logger.printException(() -> "setShortsPlayerBottomInset layout failure", ex);
@@ -294,6 +306,21 @@ public final class NavigationButtonsPatch {
     }
 
     /**
+     * @deprecated Handled by {@link FixPagePaddingPatch#getKeyboardMargin(int)}.
+     */
+    @Deprecated
+    public static int getKeyboardMargin(int original) {
+        return FixPagePaddingPatch.getKeyboardMargin(original);
+    }
+
+    /**
+     * Whether miniplayers need to compensate for the page keyboard margin hook.
+     */
+    public static boolean isKeyboardMarginRemoved() {
+        return FixPagePaddingPatch.isKeyboardMarginRemoved();
+    }
+
+    /**
      * Injection point.
      *
      * @param bottomBarContainer The container of the navigation bar, which also covers the area
@@ -310,56 +337,131 @@ public final class NavigationButtonsPatch {
     }
 
     /**
-     * If the keyboard height was ever removed from the bottom margin of the layout that holds
-     * the page, the player and the navigation bar, so the keyboard covers them.
+     * Value of the navigation bar covering the system navigation buttons flag first read by the app,
+     * or null if not read yet.
      */
-    private static volatile boolean keyboardMarginRemoved;
+    @Nullable
+    private static volatile Boolean accountCoversSystemButtons;
 
     /**
-     * Injection point.
-     * <p>
+     * Value of the feed behind the navigation bar flag first read by the app, or null if not read yet.
+     */
+    @Nullable
+    private static volatile Boolean accountFeedBehindNavigationBar;
+
+    /**
      * The translucent navigation bar comes from feature flags that not every account gets, so they
-     * are turned on to make the bar look the same on every account. With them, the navigation bar
-     * and the pages make room for the system navigation buttons, which is only right when
-     * the window is drawn behind them. That comes from the edge to edge top bar feature flag,
-     * so without it the room is added twice: the navigation bar is raised and an empty bar is left
-     * at the bottom (https://github.com/MorpheApp/morphe-patches/issues/3825).
+     * are turned on to make the bar look the same on every account. With the navigation bar covering
+     * the system navigation buttons and the feed laid out behind it, the navigation bar and the pages
+     * make room for the system navigation buttons, which is only right when the window is drawn behind
+     * them. That comes from the edge to edge top bar feature flag, so without it the room is added twice:
+     * the navigation bar is raised and an empty bar is left at the bottom
+     * (<a href="https://github.com/MorpheApp/morphe-patches/issues/3825">...</a>), or the pages and
+     * the Shorts player end the height of the navigation bar above it
+     * (<a href="https://github.com/MorpheApp/morphe-patches/issues/4159">...</a>,
+     * <a href="https://github.com/MorpheApp/morphe-patches/issues/4173">...</a>).
      * <p>
      * The app draws the window behind the system navigation buttons only on Android 12 and later,
      * so on older versions the flags are always turned off, or the room is added twice
-     * (https://github.com/MorpheApp/morphe-patches/issues/3864).
+     * (<a href="https://github.com/MorpheApp/morphe-patches/issues/3864">...</a>).
      * <p>
-     * With {@link NavigationBarStyle#DEFAULT} the flags are left to the account.
+     * With {@link NavigationBarStyle#DEFAULT} the flags are left to the account, but they are still
+     * turned off without the edge to edge layout, which the Hide status bar patch can turn off
+     * for an account that has both.
+     *
+     * @param original The value the account first got, so all the classes that read the flag
+     *                 use the same value even if the account value changes while the app starts,
+     *                 the same as the edge to edge top bar flag.
      */
-    public static boolean useTranslucentNavigationBar(boolean original) {
-        if (NAVIGATION_BAR_STYLE == NavigationBarStyle.DEFAULT) {
+    private static boolean isNavigationBarBehindSystemButtons(boolean original) {
+        try {
+            // Some devices keep the window above the system navigation buttons also with the edge
+            // to edge layout, as found at a previous app start by the Hide status bar patch.
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || StatusBarPatch.isWindowAboveNavigationBar()) {
+                return false;
+            }
+
+            Boolean edgeToEdge = StatusBarPatch.isEdgeToEdgeTopBar();
+            // Null if not known yet, or the Hide status bar patch is not included.
+            // The edge to edge layout is then the one of the account, which the flags of the account follow.
+            if (edgeToEdge == null) {
+                return original;
+            }
+
+            return edgeToEdge && (original || NAVIGATION_BAR_STYLE != NavigationBarStyle.DEFAULT);
+        } catch (Exception ex) {
+            Logger.printException(() -> "isNavigationBarBehindSystemButtons failure", ex);
             return original;
         }
-
-        boolean translucent = original;
-        try {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-                translucent = false;
-            } else {
-                // This fork has no HideStatusBarPatch edge-to-edge override. Keep the account's
-                // layout flag, as upstream does when its edge-to-edge state is unknown.
-                translucent = original;
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "useTranslucentNavigationBar failure", ex);
-        }
-
-        return translucent;
     }
 
     /**
      * Injection point.
      * <p>
-     * The blurred, translucent background of the navigation bar and the feed laid out behind it
-     * only change how the bar looks, not the room left for the system navigation buttons, so they
-     * are turned on from Android 12 also when the window is not drawn edge to edge. With
-     * {@link NavigationBarStyle#OPAQUE}, they follow {@link #useTranslucentNavigationBar(boolean)}
-     * instead. With {@link NavigationBarStyle#DEFAULT} they are left to the account.
+     * The navigation bar covers the system navigation buttons, see
+     * {@link #isNavigationBarBehindSystemButtons(boolean)}.
+     */
+    public static boolean useTranslucentNavigationBar(boolean original) {
+        Boolean accountValue = accountCoversSystemButtons;
+        final boolean firstRead = accountValue == null;
+        if (firstRead) {
+            accountValue = original;
+            accountCoversSystemButtons = accountValue;
+        }
+
+        final boolean translucent = isNavigationBarBehindSystemButtons(accountValue);
+        if (firstRead) {
+            Logger.printDebug(() -> "Navigation bar covers system buttons: " + translucent + " (account: " + original
+                    + ", edge to edge: " + StatusBarPatch.isEdgeToEdgeTopBar()
+                    + ", window above navigation bar: " + StatusBarPatch.isWindowAboveNavigationBar()
+                    + ", style: " + NAVIGATION_BAR_STYLE + ")");
+        }
+        navigationBarCoversSystemButtons = translucent;
+        return translucent;
+    }
+
+    /**
+     * If the app was last told the navigation bar covers the system navigation buttons,
+     * with any navigation bar style.
+     */
+    private static volatile boolean navigationBarCoversSystemButtons;
+
+    public static boolean isNavigationBarCoveringSystemButtons() {
+        return navigationBarCoversSystemButtons;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * The feed is laid out behind the navigation bar. It follows the navigation bar covering
+     * the system navigation buttons: some pages add the navigation bar height below their content
+     * when the navigation bar covers the system navigation buttons, as they are expected to be
+     * laid out behind it, and the list padding for the navigation bar is only set with the edge
+     * to edge layout. See {@link #isNavigationBarBehindSystemButtons(boolean)}.
+     */
+    public static boolean useFeedBehindNavigationBar(boolean original) {
+        Boolean accountValue = accountFeedBehindNavigationBar;
+        final boolean firstRead = accountValue == null;
+        if (firstRead) {
+            accountValue = original;
+            accountFeedBehindNavigationBar = accountValue;
+        }
+
+        final boolean feedBehind = isNavigationBarBehindSystemButtons(accountValue);
+        if (firstRead) {
+            Logger.printDebug(() -> "Feed behind navigation bar: " + feedBehind + " (account: " + original + ")");
+        }
+        return feedBehind;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * The blurred, translucent background of the navigation bar only changes how the bar looks,
+     * not the room left for the system navigation buttons, so it is turned on from Android 12 also
+     * when the window is not drawn edge to edge. With {@link NavigationBarStyle#OPAQUE}, it follows
+     * {@link #isNavigationBarBehindSystemButtons(boolean)} instead. With {@link NavigationBarStyle#DEFAULT}
+     * it is left to the account.
      */
     public static boolean useTranslucentNavigationBarBackground(boolean original) {
         if (NAVIGATION_BAR_STYLE == NavigationBarStyle.DEFAULT) {
@@ -370,13 +472,18 @@ public final class NavigationButtonsPatch {
         if (NAVIGATION_BAR_STYLE != NavigationBarStyle.OPAQUE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             translucent = true;
         } else {
-            translucent = useTranslucentNavigationBar(original);
+            translucent = isNavigationBarBehindSystemButtons(original);
         }
 
         translucentNavigationBarBackgroundForced = translucent;
         return translucent;
     }
 
+    /**
+     * If {@link #useTranslucentNavigationBarBackground(boolean)} turned the translucent background
+     * of the navigation bar on. The fixes for what the blur and the feed behind the navigation bar
+     * break are only needed then.
+     */
     private static volatile boolean translucentNavigationBarBackgroundForced;
 
     /**
@@ -386,7 +493,7 @@ public final class NavigationButtonsPatch {
      * surface is drawn twice in every frame, at two positions. Android 12 and 13 send the two
      * positions to the surface from two threads at the same time, and the app crashes while
      * the player moves, such as when it is slowly dragged down to the miniplayer
-     * (https://github.com/MorpheApp/morphe-patches/pull/3684#issuecomment-6322984709).
+     * (<a href="https://github.com/MorpheApp/morphe-patches/pull/3684#issuecomment-6322984709">...</a>).
      * With {@link NavigationBarStyle#TRANSPARENT} and {@link NavigationBarStyle#OPAQUE} the copy
      * is not drawn, so the bar keeps its translucent color, without the blur.
      *
@@ -397,54 +504,6 @@ public final class NavigationButtonsPatch {
                 && (NAVIGATION_BAR_STYLE == NavigationBarStyle.TRANSPARENT
                 || NAVIGATION_BAR_STYLE == NavigationBarStyle.OPAQUE));
     }
-
-    /**
-     * Injection point.
-     * <p>
-     * The bottom margin of the layout that holds the page, the player and the navigation bar while
-     * the keyboard is open. This fork calls the hook where it already removes that margin,
-     * without forcing the translucent navigation feature flags.
-     * <p>
-     * The legacy miniplayer, such as the minimal type before 21.29, rests at the bottom of that
-     * layout, so while it is shown the layout ends at the top of the keyboard instead
-     * (https://github.com/MorpheApp/morphe-patches/issues/4003). The margin of the app leaves
-     * the height of the system navigation buttons for the navigation bar, which is hidden while
-     * the keyboard is open, so the full keyboard height is used. The other miniplayers are moved
-     * above the keyboard by {@link MinimalMiniplayerPatch}.
-     *
-     * @param original The keyboard height the app uses as the margin.
-     */
-    public static int getKeyboardMargin(int original) {
-        try {
-            if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED
-                    && !MiniplayerPatch.getCurrentMiniplayerType().isModern()
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                Activity activity = Utils.getActivity();
-                WindowInsets insets = activity == null
-                        ? null
-                        : activity.getWindow().getDecorView().getRootWindowInsets();
-                if (insets != null) {
-                    return Math.max(original, insets.getInsets(WindowInsets.Type.ime()).bottom);
-                }
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "getKeyboardMargin failure", ex);
-        }
-
-        keyboardMarginRemoved = true;
-        return 0;
-    }
-
-    /**
-     * Whether miniplayers need to compensate for the page keyboard margin hook.
-     */
-    public static boolean isKeyboardMarginRemoved() {
-        return keyboardMarginRemoved;
-    }
-
-    /**
-     * Injection point.
-     */
 
     /**
      * Injection point.
@@ -975,14 +1034,14 @@ public final class NavigationButtonsPatch {
         return null;
     }
 
-    // Downloads button of the offline library in the You tab.
+    // Downloads button of the offline library in the "You" tab.
     private static final boolean SHOW_TOOLBAR_DOWNLOADS_BUTTON =
             Settings.IN_APP_DOWNLOADER.get() && Settings.SHOW_OFFLINE_LIBRARY_BUTTON.get();
 
     private static final ThreadLocal<byte[]> pendingToolbarDownloadsButton = new ThreadLocal<>();
 
     /**
-     * Injection point. Called for every button of a page toolbar, such as the one of the You tab,
+     * Injection point. Called for every button of a page toolbar, such as the one of the "You" tab,
      * before YouTube creates its menu item.
      * If it is YouTube's own Settings button, a copy with the download icon is kept for
      * {@link #takeToolbarDownloadsButton()}, which adds it after the Settings button.

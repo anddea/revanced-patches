@@ -1,3 +1,13 @@
+/*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
 package app.morphe.extension.shared.settings;
 
 import static app.morphe.extension.shared.utils.StringRef.str;
@@ -16,6 +26,7 @@ import android.widget.Toolbar;
 
 import app.morphe.extension.shared.patches.SettingsNamePatch;
 import app.morphe.extension.shared.settings.preference.ToolbarPreferenceFragment;
+import app.morphe.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.morphe.extension.shared.utils.BaseThemeUtils;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
@@ -165,4 +176,14 @@ public abstract class BaseActivityHook extends Activity {
      * @param fragment The PreferenceFragment associated with the activity.
      */
     protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {}
+    /**
+     * Closes the settings, after first showing the restart dialog if a changed setting requires it.
+     */
+    public static void closeSettings(Activity activity) {
+        if (!AbstractPreferenceFragment.showRestartDialogIfNeeded(activity)) {
+            activity.finish();
+        }
+    }
+
+
 }

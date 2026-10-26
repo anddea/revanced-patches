@@ -17,9 +17,9 @@ import app.morphe.patcher.patch.BytecodePatchContext
 import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.registersUsed
 import app.morphe.patches.shared.extension.Constants.EXTENSION_PATCH_STATUS_CLASS_DESCRIPTOR
 import app.morphe.util.addInstructionsAtControlFlowLabel
-import app.morphe.util.registersUsed
 import app.morphe.util.updatePatchStatus
 import org.w3c.dom.Element
 

@@ -1,5 +1,7 @@
 package app.morphe.extension.youtube.settings;
 
+import app.morphe.extension.shared.settings.preference.AbstractPreferenceFragment;
+
 import static app.morphe.extension.youtube.utils.ExtendedUtils.IS_20_31_OR_GREATER;
 import static app.morphe.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
@@ -197,6 +199,8 @@ public class YouTubeActivityHook extends BaseActivityHook {
         if (OfflineScreens.hostsScreen(activity)) {
             return OfflineScreens.handleBackPress(activity);
         }
-        return YouTubeSearchViewController.handleFinish(searchViewController);
+        return YouTubeSearchViewController.handleFinish(searchViewController)
+                || AbstractPreferenceFragment
+                .showRestartDialogIfNeeded(activity);
     }
 }

@@ -54,8 +54,8 @@ package app.morphe.patches.shared
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.literal
+import app.morphe.patcher.util.getReference
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags

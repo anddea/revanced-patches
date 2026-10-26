@@ -9,9 +9,9 @@ package app.morphe.patches.shared.misc.request
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.findFreeRegister
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
-import app.morphe.util.findFreeRegister
-import app.morphe.util.registersUsed
+import app.morphe.patcher.util.registersUsed
 import java.lang.ref.WeakReference
 
 private lateinit var buildRequestMethod: WeakReference<MutableMethod>

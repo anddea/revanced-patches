@@ -34,11 +34,38 @@ import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.EngagementPanel;
 import app.morphe.extension.youtube.shared.NavigationBar;
 import app.morphe.extension.youtube.shared.NavigationBar.NavigationButton;
+import app.morphe.extension.youtube.shared.PlayerType;
 import app.morphe.extension.youtube.shared.RootView;
 import app.morphe.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings({"deprecation", "unused", "FieldCanBeLocal"})
 public final class FeedComponentsFilter extends Filter {
+    /**
+     * Browse id of the community page of a channel, which shows only community posts.
+     */
+    private static final String COMMUNITY_PAGE_BROWSE_ID = "FEcommunity_page";
+
+    /**
+     * Browse id of the page that is shown, or empty for the search feed.
+     */
+    private static volatile String browseId = "";
+
+    /**
+     * Injection point.
+     */
+    public static void setBrowseId(@Nullable String id) {
+        browseId = id == null ? "" : id;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * The search feed is not a browse page.
+     */
+    public static void clearBrowseId() {
+        browseId = "";
+    }
+
     private final String BROWSE_ID_CLIP = "FEclips";
     private final String BROWSE_ID_COURSES = "FEcourses_destination";
     private final String BROWSE_ID_HISTORY = "FEhistory";
@@ -130,6 +157,7 @@ public final class FeedComponentsFilter extends Filter {
 
         communityPosts = new StringFilterGroup(
                 null,
+                "communities_entrypoint.e",
                 "images_post_responsive",
                 "images_post_root",
                 "images_post_slim",
@@ -573,19 +601,27 @@ public final class FeedComponentsFilter extends Filter {
         }
 
         if (matchedGroup == communityPosts) {
-            // Channel Pages (Deep navigation logic)
-            // When back button is visible, we are likely on a channel page.
-            // Exclude Player and Search to ensure we don't accidentally hide Related/Search items with this setting.
-            if (RootView.isBackButtonVisible()
-                    && !RootView.isSearchBarActive()
-                    && !RootView.isPlayerActive()) {
+            // This fork also lets users hide posts on channel pages explicitly.
+            if (!PlayerType.getCurrent().isMaximizedOrFullscreen()
+                    && browseId.startsWith("UC")) {
+                return Settings.HIDE_COMMUNITY_POSTS_CHANNEL.get();
+            }
+
+            // YouTube now also shows community posts on a dedicated community page for channels,
+            // and hiding its posts prevents any posts from loading (the page shows a loading
+            // spinner forever) (https://github.com/MorpheApp/morphe-patches/issues/4101).
+            // The page is found by its browse id, as the back button it is navigated with is also
+            // visible on other pages, such as the search results, and on the page below the watch page.
+            // The watch page, with its related videos, comments and other panels, covers the page
+            // below it, also when the video is opened from the community page
+            // (https://github.com/MorpheApp/morphe-patches/issues/4170).
+            if (COMMUNITY_PAGE_BROWSE_ID.equals(browseId) && !PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+                // Keep this fork's explicit channel override; the default leaves the page usable.
                 return Settings.HIDE_COMMUNITY_POSTS_CHANNEL.get();
             }
 
             // Subscriptions Feed
             NavigationButton navButton = NavigationButton.getSelectedNavigationButton();
-            String browseId = RootView.getBrowseId();
-
             boolean isSubscriptions = (navButton == NavigationButton.SUBSCRIPTIONS)
                     || BROWSE_ID_SUBSCRIPTION.equals(browseId);
 

@@ -18,10 +18,13 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import app.morphe.extension.music.patches.lyrics.Lyrics;
 import app.morphe.extension.music.patches.lyrics.LyricsLine;
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
+import app.morphe.extension.music.patches.lyrics.requests.LrcParser;
+import app.morphe.extension.music.patches.lyrics.requests.LyricsFileParser;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.requests.Requester;
 
@@ -33,6 +36,34 @@ import app.morphe.extension.shared.requests.Requester;
 public final class LrcLibProvider implements LyricsProvider {
 
     private static final String BASE_URL = "https://lrclib.net/api/";
+
+    /**
+     * Public ID of the registered client application, which gets higher rate limits.
+     * It is not a secret.
+     *
+     * @see <a href="https://lrclib.net/developers/authorizations/HLyf7QYkIJfl4wcObeD-caHjBZPnGhv0Vuvx2UiIFKk">API authorization</a>
+     */
+    private static final String APP_ID = "HLyf7QYkIJfl4wcObeD-caHjBZPnGhv0Vuvx2UiIFKk";
+
+    private static final Map<String, String> HEADERS = Map.of("Lrclib-App-Id", APP_ID);
+
+    /**
+     * Orders candidates so every synced one comes before every plain one, by score within
+     * each group. Word timings rank above line timings.
+     */
+    static List<Lyrics.ScoredLyrics> syncedFirst(List<Lyrics.ScoredLyrics> scored) {
+        List<Lyrics.ScoredLyrics> ordered = new ArrayList<>(Lyrics.sortScoredByScore(scored));
+        // List.sort is stable, so the score order survives within each timing rank.
+        ordered.sort((a, b) -> LyricsRequests.syncRank(b.lyrics()) - LyricsRequests.syncRank(a.lyrics()));
+        return ordered;
+    }
+
+    private static int scoreCandidate(JSONObject item, TrackInfo track) {
+        String title = item.optString("trackName", "");
+        String artist = item.optString("artistName", "");
+        return LyricsRequests.scoreTrackCandidate(title, artist,
+                item.optInt("duration", 0), track);
+    }
 
     @Override
     public String name() {
@@ -49,27 +80,38 @@ public final class LrcLibProvider implements LyricsProvider {
     public FetchResult fetch(TrackInfo track) throws Exception {
         // The exact endpoint matches on duration as well, which gives the best timings,
         // but it fails for any track whose duration differs from the database entry.
-        Lyrics exact = fetchExact(track);
-        if (exact != null && exact != Lyrics.NOT_FOUND) {
-            return FetchResult.of(exact, track);
+        // Synced always wins over plain, so a plain exact match only stands when no search
+        // result has timings either.
+        FetchResult exact = fetchExact(track);
+        final boolean exactFound = exact != null && exact.lyrics() != Lyrics.NOT_FOUND;
+        if (exactFound && LyricsRequests.syncRank(exact.lyrics()) > 0) {
+            return exact;
         }
-        return FetchResult.of(fetchSearch(track), track);
+        FetchResult searched = fetchSearch(track);
+        if (!exactFound) {
+            return searched;
+        }
+        if (searched != null && searched.lyrics() != Lyrics.NOT_FOUND
+                && LyricsRequests.syncRank(searched.lyrics()) > LyricsRequests.syncRank(exact.lyrics())) {
+            return searched;
+        }
+        return exact;
     }
 
     @Override
     public List<Lyrics.ScoredLyrics> fetchCandidates(TrackInfo track) throws Exception {
         List<Lyrics.ScoredLyrics> scored = new ArrayList<>();
 
-        // Exact match first
-        Lyrics exact = fetchExact(track);
+        FetchResult exact = fetchExact(track);
         if (exact != null) {
-            scored.add(new Lyrics.ScoredLyrics(LyricsRequests.scoreSingleResult(exact), exact));
+            Lyrics exactLyrics = exact.lyrics();
+            scored.add(new Lyrics.ScoredLyrics(
+                    LyricsRequests.scoreSingleResult(exactLyrics), exactLyrics));
         }
 
-        // Then search results, sorted by combined score
         String url = BASE_URL + "search?track_name=" + LyricsRequests.encode(track.title())
                 + "&artist_name=" + LyricsRequests.encode(track.artist());
-        HttpURLConnection connection = LyricsRequests.openConnection(url);
+        HttpURLConnection connection = LyricsRequests.openConnection(url, HEADERS);
         if (connection.getResponseCode() != Requester.HTTP_STATUS_CODE_SUCCESS) {
             return Lyrics.sortScoredByScore(scored);
         }
@@ -93,6 +135,9 @@ public final class LrcLibProvider implements LyricsProvider {
             if (scoreA != scoreB) {
                 return scoreB - scoreA;
             }
+            if (track.durationSeconds() <= 0) {
+                return 0;
+            }
             final int deltaA = Math.abs(a.optInt("duration", 0) - track.durationSeconds());
             final int deltaB = Math.abs(b.optInt("duration", 0) - track.durationSeconds());
             return deltaA - deltaB;
@@ -109,9 +154,6 @@ public final class LrcLibProvider implements LyricsProvider {
         }
 
         for (JSONObject candidate : gated) {
-            if (scored.size() >= LyricsRequests.MAX_CANDIDATES) {
-                break;
-            }
             Lyrics lyrics = toLyrics(candidate);
             if (lyrics != null && !lyrics.isEmpty()) {
                 int score = LyricsRequests.scoreLyricsCandidate(
@@ -123,18 +165,14 @@ public final class LrcLibProvider implements LyricsProvider {
             }
         }
 
-        return Lyrics.sortScoredByScore(scored);
-    }
-
-    private static int scoreCandidate(JSONObject item, TrackInfo track) {
-        String title = item.optString("trackName", "");
-        String artist = item.optString("artistName", "");
-        return LyricsRequests.scoreTrackCandidate(title, artist,
-                item.optInt("duration", 0), track);
+        List<Lyrics.ScoredLyrics> ordered = syncedFirst(scored);
+        return ordered.size() > LyricsRequests.MAX_CANDIDATES
+                ? new ArrayList<>(ordered.subList(0, LyricsRequests.MAX_CANDIDATES))
+                : ordered;
     }
 
     @Nullable
-    private Lyrics fetchExact(TrackInfo track) throws Exception {
+    private FetchResult fetchExact(TrackInfo track) throws Exception {
         StringBuilder url = new StringBuilder(BASE_URL);
         url.append("get?track_name=").append(LyricsRequests.encode(track.title()));
         url.append("&artist_name=").append(LyricsRequests.encode(track.artist()));
@@ -149,15 +187,22 @@ public final class LrcLibProvider implements LyricsProvider {
         if (response == null) {
             return null;
         }
-        return toLyrics(response);
+        Lyrics lyrics = toLyrics(response);
+        if (lyrics == null) {
+            return null;
+        }
+        return FetchResult.of(lyrics,
+                response.optString("trackName", ""),
+                response.optString("artistName", ""),
+                response.optLong("duration", 0), track);
     }
 
     @Nullable
-    private Lyrics fetchSearch(TrackInfo track) throws Exception {
+    private FetchResult fetchSearch(TrackInfo track) throws Exception {
         String url = BASE_URL + "search?track_name=" + LyricsRequests.encode(track.title())
                 + "&artist_name=" + LyricsRequests.encode(track.artist());
 
-        HttpURLConnection connection = LyricsRequests.openConnection(url);
+        HttpURLConnection connection = LyricsRequests.openConnection(url, HEADERS);
         if (connection.getResponseCode() != Requester.HTTP_STATUS_CODE_SUCCESS) {
             LyricsRequests.logFailure(name(), connection);
             return null;
@@ -169,7 +214,8 @@ public final class LrcLibProvider implements LyricsProvider {
             return null;
         }
 
-        Lyrics bestLyrics = null;
+        FetchResult best = null;
+        int bestRank = -1;
         int bestCombined = -1;
         for (int i = 0; i < resultsLength; i++) {
             JSONObject candidate = results.optJSONObject(i);
@@ -184,17 +230,25 @@ public final class LrcLibProvider implements LyricsProvider {
                             candidate.optString("artistName", ""),
                             candidate.optInt("duration", 0),
                             candidateLyrics, track);
-                    int trackScore = combined - LyricsRequests.syncRank(candidateLyrics);
-                    if (trackScore >= LyricsRequests.SOFT_MIN && combined > bestCombined) {
+                    final int rank = LyricsRequests.syncRank(candidateLyrics);
+                    int trackScore = combined - rank;
+                    // Any synced match beats any plain one; the score only breaks ties
+                    // between results with the same kind of timings.
+                    if (trackScore >= LyricsRequests.SOFT_MIN
+                            && (rank > bestRank || (rank == bestRank && combined > bestCombined))) {
+                        bestRank = rank;
                         bestCombined = combined;
-                        bestLyrics = candidateLyrics;
+                        best = FetchResult.of(candidateLyrics,
+                                candidate.optString("trackName", ""),
+                                candidate.optString("artistName", ""),
+                                candidate.optInt("duration", 0), track);
                     }
                 }
             } catch (Exception ex) {
                 Logger.printDebug(() -> "Failed to process LrcLib candidate", ex);
             }
         }
-        return bestLyrics;
+        return best;
     }
 
     @Nullable
@@ -241,7 +295,7 @@ public final class LrcLibProvider implements LyricsProvider {
 
     @Nullable
     private JSONObject getJsonObject(String url) throws IOException, JSONException {
-        HttpURLConnection connection = LyricsRequests.openConnection(url);
+        HttpURLConnection connection = LyricsRequests.openConnection(url, HEADERS);
         final int responseCode = connection.getResponseCode();
         if (responseCode == 404) {
             connection.disconnect();

@@ -18,6 +18,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.literal
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.morphe.patches.youtube.utils.extension.sharedExtensionPatch
 import app.morphe.patches.youtube.utils.playservice.is_20_29_or_greater
@@ -25,7 +26,6 @@ import app.morphe.patches.youtube.utils.playservice.is_21_04_or_greater
 import app.morphe.patches.youtube.utils.playservice.is_21_36_or_greater
 import app.morphe.patches.youtube.utils.playservice.versionCheckPatch
 import app.morphe.util.findInstructionIndicesReversed
-import app.morphe.util.getReference
 import app.morphe.util.insertLiteralOverride
 import app.morphe.util.forEachInlinedFeatureFlagSite
 import com.android.tools.smali.dexlib2.Opcode

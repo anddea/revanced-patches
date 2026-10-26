@@ -9,12 +9,18 @@ package app.morphe.extension.music.patches.lyrics;
 
 import android.media.MediaMetadata;
 import android.media.session.MediaSession;
+import android.media.session.PlaybackState;
+import android.os.SystemClock;
 
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
+import app.morphe.extension.music.patches.lyrics.LyricsManager;
+import app.morphe.extension.music.patches.lyrics.LyricsPresentation;
+import app.morphe.extension.music.patches.lyrics.MetadataCleaner;
+import app.morphe.extension.music.patches.lyrics.TrackInfo;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 
@@ -23,20 +29,19 @@ import app.morphe.extension.shared.utils.Logger;
  * lock screen, Android Auto and Bluetooth displays. The artist field is rewritten to
  * {@code "artist - title"} so the track identity is preserved.
  *
- * <p>The app's {@link MediaSession#setMetadata(MediaMetadata)} call site is observed to
- * capture the {@link MediaSession} instance and the original metadata. Modified metadata is
- * then pushed from a ticker via the captured session. Because that push goes through the
- * framework directly, it does not re-enter the hooked app call site, so the lyrics and
- * scrobbling observers (which read the original metadata at that site) are never affected.
+ * <p>Observed at the app's {@link MediaSession#setMetadata(MediaMetadata)} call site to capture
+ * the session and the original metadata; modified metadata is pushed from a ticker via the
+ * framework directly, so it never re-enters the hooked call site and the lyrics/scrobbling
+ * observers reading the original metadata are unaffected. Other fields, notably album art, are
+ * preserved by copying the original metadata, including the display variants of title and artist.
  *
- * <p>All fields other than title and artist, notably the album art, are preserved by copying
- * the original metadata with {@link MediaMetadata.Builder}. The display variants of the title
- * and of the artist are rewritten as well, because the lock screen prefers them over the plain
- * ones when both are present.
+ * <p>Android 11+ only: Android 10 lock screens render the media notification (text baked into the
+ * RemoteViews at post time) instead of session metadata, so a pushed line would never be shown.
  */
 @SuppressWarnings("unused")
 public final class LockScreenLyrics {
 
+    private static final long MAX_NUDGE_RECEIPT_AGE_MS = 6 * 60 * 60 * 1000L;
     @Nullable
     private static volatile WeakReference<MediaSession> sessionRef;
     @Nullable
@@ -47,23 +52,40 @@ public final class LockScreenLyrics {
     private static volatile String realTitle;
     @Nullable
     private static volatile String realArtist;
-
     @Nullable
     private static String cachedCleanedTitle;
     @Nullable
     private static String cachedCleanedArtist;
-
-    /** Title pushed on the last tick, to avoid redundant {@code setMetadata} calls. */
+    /** Title and artist pushed on the last tick, to avoid redundant {@code setMetadata} calls. */
     @Nullable
     private static volatile String lastPushedTitle;
-
+    @Nullable
+    private static String lastPushedArtist;
     /** Set when the app pushes fresh metadata, so the next tick pushes it again. */
     private static volatile boolean needsRepush;
-
     /** Drives the periodic check that mirrors the current line into the MediaSession. */
     private static final LyricsTicker ticker = new LyricsTicker(LockScreenLyrics::tick);
+    @Nullable
+    private static volatile PlaybackState playbackState;
+    /**
+     * Re-arms the ticker whenever lyrics arrive or disappear, so a late lookup does not
+     * leave the mirror stuck on the track title.
+     */
+    private static final LyricsManager.Listener lyricsListener = (state, lyrics) -> {
+        if (state == LyricsManager.State.LOADED || state == LyricsManager.State.NOT_FOUND) {
+            ticker.schedule();
+        }
+    };
+    private static volatile long observedPositionMs;
+    private static volatile long observedAtElapsedMs;
 
     private LockScreenLyrics() {
+    }
+
+    /** Pushes the current line again, as a lyrics setting changed how it is shown. */
+    public static void onSettingsChanged() {
+        needsRepush = true;
+        tick();
     }
 
     /**
@@ -79,21 +101,29 @@ public final class LockScreenLyrics {
             sessionRef = new WeakReference<>(session);
             originalMetadata = original;
             metadataBuilder = new MediaMetadata.Builder(original);
-            realTitle = original.getString(MediaMetadata.METADATA_KEY_TITLE);
-            realArtist = original.getString(MediaMetadata.METADATA_KEY_ARTIST);
 
-            String[] parsed = MetadataCleaner.parseCleanTitleAndArtist(realTitle, realArtist);
+            String rt = original.getString(MediaMetadata.METADATA_KEY_TITLE);
+            String ra = original.getString(MediaMetadata.METADATA_KEY_ARTIST);
+            if (!Objects.equals(rt, realTitle) || !Objects.equals(ra, realArtist)) {
+                LyricsPresentation.resetTrackCycle();
+            }
+            realTitle = rt;
+            realArtist = ra;
+
+            String[] parsed = MetadataCleaner.parseCleanTitleAndArtist(rt, ra);
             cachedCleanedTitle = parsed[1];
             cachedCleanedArtist = parsed[0];
 
             if (!Settings.LYRICS_ENABLED.get() || !Settings.LYRICS_MEDIASESSION.get()) {
+                LyricsManager.getInstance().removeListener(lyricsListener);
                 ticker.stop();
                 lastPushedTitle = null;
                 return;
             }
 
             android.net.Uri mediaUri = LyricsManager.parseMediaUri(original);
-            LyricsManager.getInstance().onDisplayedTrackChanged(realTitle, realArtist, mediaUri);
+            LyricsManager.getInstance().onDisplayedTrackChanged(rt, ra, mediaUri);
+            LyricsManager.getInstance().addListener(lyricsListener);
             lastPushedTitle = null;
             needsRepush = true;
             ticker.schedule();
@@ -102,13 +132,34 @@ public final class LockScreenLyrics {
         }
     }
 
+    /**
+     * Observed at the app's {@code MediaSession.setPlaybackState} call site. Captures the
+     * latest playback state so a refresh nudge can be attached to line pushes, and revives
+     * the ticker when the feature is enabled, because state updates keep arriving while no
+     * metadata pushes are running.
+     */
+    public static void onPlaybackState(@Nullable PlaybackState state) {
+        if (state == null) {
+            return;
+        }
+
+        observedPositionMs = state.getPosition();
+        observedAtElapsedMs = SystemClock.elapsedRealtime();
+        playbackState = state;
+
+        if (Settings.LYRICS_ENABLED.get() && Settings.LYRICS_MEDIASESSION.get()
+                && sessionRef != null) {
+            ticker.schedule();
+        }
+    }
+
     private static void tick() {
         try {
             push();
         } catch (Exception ex) {
             Logger.printException(() -> "tick failure", ex);
-            ticker.stop();
             lastPushedTitle = null;
+            ticker.schedule();
         }
     }
 
@@ -117,6 +168,7 @@ public final class LockScreenLyrics {
         if (!Settings.LYRICS_ENABLED.get() || !Settings.LYRICS_MEDIASESSION.get()
                 || reference == null || originalMetadata == null) {
             restoreIfPushed();
+            LyricsManager.getInstance().removeListener(lyricsListener);
             ticker.stop();
             return;
         }
@@ -136,22 +188,58 @@ public final class LockScreenLyrics {
         }
 
         String newTitle = getCurrentLine();
-        if (!needsRepush && newTitle.equals(lastPushedTitle)) {
+        String artist = getTrackLine();
+        if (!needsRepush && newTitle.equals(lastPushedTitle) && artist.equals(lastPushedArtist)) {
             ticker.schedule();
             return;
         }
 
-        MediaMetadata metadata = buildMetadata(newTitle);
+        MediaMetadata metadata = buildMetadata(newTitle, artist);
         if (metadata == null) {
             ticker.schedule();
             return;
         }
 
         session.setMetadata(metadata);
+        LyricNotificationRefresh.refresh(session, newTitle,
+                metadata.getString(MediaMetadata.METADATA_KEY_DISPLAY_SUBTITLE));
         lastPushedTitle = newTitle;
+        lastPushedArtist = artist;
         needsRepush = false;
+        nudgePlaybackState(session);
 
         ticker.schedule();
+    }
+
+    /**
+     * Re-dispatches the app's playback state with a rebased position so media surfaces that
+     * refresh only on a state change pick up the line just pushed. The position continues from
+     * the receipt-time reading on the {@link SystemClock#elapsedRealtime} timebase
+     * {@link PlaybackState} mandates, so the seek bar keeps advancing instead of jumping
+     * backwards. Pushed through the framework, so the hooked app call site is not re-entered.
+     */
+    private static void nudgePlaybackState(MediaSession session) {
+        PlaybackState captured = playbackState;
+        if (captured == null) {
+            return;
+        }
+
+        final long now = SystemClock.elapsedRealtime();
+        final long receiptAge = now - observedAtElapsedMs;
+        final float speed = captured.getPlaybackSpeed();
+
+        if (captured.getState() != PlaybackState.STATE_PLAYING || speed <= 0f
+                || observedAtElapsedMs == 0
+                || receiptAge < 0 || receiptAge > MAX_NUDGE_RECEIPT_AGE_MS) {
+            session.setPlaybackState(captured);
+            return;
+        }
+
+        long position = observedPositionMs + (long) (receiptAge * speed);
+        PlaybackState nudged = new PlaybackState.Builder(captured)
+                .setState(captured.getState(), position, speed, now)
+                .build();
+        session.setPlaybackState(nudged);
     }
 
     private static void restoreIfPushed() {
@@ -163,9 +251,21 @@ public final class LockScreenLyrics {
         MediaMetadata original = originalMetadata;
         if (session != null && original != null) {
             session.setMetadata(original);
+            String title = original.getString(MediaMetadata.METADATA_KEY_DISPLAY_TITLE);
+            String text = original.getString(MediaMetadata.METADATA_KEY_DISPLAY_SUBTITLE);
+            LyricNotificationRefresh.refresh(session,
+                    title != null ? title : original.getString(MediaMetadata.METADATA_KEY_TITLE),
+                    text != null ? text : original.getString(MediaMetadata.METADATA_KEY_ARTIST));
+            nudgePlaybackState(session);
         }
         lastPushedTitle = null;
         needsRepush = false;
+    }
+
+    @Nullable
+    public static MediaSession mediaSession() {
+        WeakReference<MediaSession> reference = sessionRef;
+        return reference != null ? reference.get() : null;
     }
 
     private static boolean lyricsMatch() {
@@ -181,33 +281,34 @@ public final class LockScreenLyrics {
 
     private static String getCurrentLine() {
         String line = LyricsManager.getInstance().getCurrentLineText();
-        if (line == null || line.isEmpty()) {
-            return realTitle == null ? "" : realTitle;
+        if (line == null) {
+            String rt = realTitle;
+            return rt == null ? "" : rt;
         }
         return line;
     }
 
-    private static MediaMetadata buildMetadata(String title) {
+    /** The track format shown as the artist, or the plain artist if the title is unknown. */
+    private static String getTrackLine() {
+        String ra = realArtist;
+        String artist = ra == null ? "" : ra;
+        String rt = realTitle;
+        return rt == null || rt.isEmpty() ? artist : LyricsPresentation.trackLabel(rt, artist);
+    }
+
+    @Nullable
+    private static MediaMetadata buildMetadata(String title, String artist) {
         MediaMetadata.Builder builder = metadataBuilder;
         if (builder == null) {
             return null;
         }
-        String artist = realArtist == null ? "" : realArtist;
-        String display = artist;
-        if (realTitle != null && !realTitle.isEmpty()) {
-            display = new TrackInfo(realTitle, artist, "", 0)
-                    .displayWith(Settings.LYRICS_DISPLAY_ARTIST_FIRST.get());
-        }
+
         builder.putString(MediaMetadata.METADATA_KEY_TITLE, title);
         builder.putString(MediaMetadata.METADATA_KEY_DISPLAY_TITLE, title);
-        builder.putString(MediaMetadata.METADATA_KEY_ARTIST, display);
-        builder.putString(MediaMetadata.METADATA_KEY_DISPLAY_SUBTITLE, display);
+        builder.putString(MediaMetadata.METADATA_KEY_ARTIST, artist);
+        builder.putString(MediaMetadata.METADATA_KEY_DISPLAY_SUBTITLE, artist);
         return builder.build();
     }
 
-    @Nullable
-    public static MediaSession mediaSession() {
-        WeakReference<MediaSession> reference = sessionRef;
-        return reference != null ? reference.get() : null;
-    }
+
 }

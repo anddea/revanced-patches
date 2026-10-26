@@ -41,11 +41,18 @@
  *    user interface (e.g., in an "About" or "Credits" section).
  */
 
+/*
+ * Portions of this file are ported from Morphe:
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to this code.
+ */
+
 package app.morphe.patches.youtube.general.snackbar
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.booleanOption
@@ -53,8 +60,8 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.colorOption
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
-import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patches.shared.drawable.addDrawableColorHook
 import app.morphe.patches.shared.drawable.drawableColorHookPatch
 import app.morphe.patches.shared.spans.addSpanFilter
@@ -69,7 +76,6 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.findElementByAttributeValueOrThrow
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.getNode
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.valueOrThrow
@@ -97,14 +103,26 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
     )
 
     execute {
-        BottomUiContainerFingerprint.method.apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->hideSnackBar(Landroid/view/View;)Z
-                    move-result v0
-                    if-eqz v0, :show
-                    return-void
-                    """, ExternalLabel("show", getInstruction(0))
+        SnackbarDisplayFingerprint.let {
+            it.method.apply {
+                val index = it.instructionMatches.first().index + 1
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                // Let YouTube skip displaying the snackbar while still running its callbacks.
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->hideSnackbar(Z)Z
+                        move-result v$register
+                    """
+                )
+            }
+        }
+
+        BottomUiContainerFingerprint.let {
+            it.method.addInstruction(
+                it.instructionMatches.first().index,
+                "invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->hideSnackBar(Landroid/view/View;)V"
             )
         }
 

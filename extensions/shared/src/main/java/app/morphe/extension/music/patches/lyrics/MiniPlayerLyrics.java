@@ -18,6 +18,10 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
+import app.morphe.extension.music.patches.lyrics.LyricsManager;
+import app.morphe.extension.music.patches.lyrics.LyricsPresentation;
+import app.morphe.extension.music.patches.lyrics.MetadataCleaner;
+import app.morphe.extension.music.patches.lyrics.TrackInfo;
 import app.morphe.extension.music.settings.Settings;
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.ResourceType;
@@ -25,11 +29,9 @@ import app.morphe.extension.shared.utils.ResourceUtils;
 
 /**
  * Mirrors the currently sung lyric line into the in-app miniplayer: the title shows the current
- * line and the subtitle shows {@code "artist - title"}. When no synced or word-level lyrics are
- * available the app's own title and artist are left untouched.
- *
- * <p>The miniplayer view hierarchy is captured from the constructor injection point, and a ticker
- * updates the two {@link TextView}s as playback progresses.
+ * line and the subtitle shows {@code "artist - title"}. Without synced or word-level lyrics the
+ * app's own title and artist are left untouched. The views are captured at the constructor
+ * injection point and updated from a ticker as playback progresses.
  */
 @SuppressWarnings("unused")
 public final class MiniPlayerLyrics {
@@ -45,20 +47,30 @@ public final class MiniPlayerLyrics {
     @Nullable
     private static String displayArtist;
 
+    /**
+     * The metadata's untouched title and artist. {@link LyricsManager#getCurrentTrack()}
+     * carries the cleaned pair that the lyrics lookup wants, whose regex normalization folds
+     * fullwidth punctuation to ASCII, so the mirrored text is built from these instead - the
+     * same strings the media session shows.
+     */
     @Nullable
-    private static String cachedSubtitle;
+    private static String rawDisplayTitle;
+    @Nullable
+    private static String rawDisplayArtist;
 
     private static boolean mirrored;
 
-    /** Drives the periodic check that mirrors the current line into the mini player. */
-    private static final LyricsTicker ticker = new LyricsTicker(MiniPlayerLyrics::tick);
+    @Nullable
+    private static CharSequence preMirrorTitle;
+    @Nullable
+    private static CharSequence preMirrorSubtitle;
+    @Nullable
+    private static TrackInfo preMirrorTrack;
 
-    /** Listener that re-schedules the ticker immediately when lyrics finish loading. */
-    private static final LyricsManager.Listener lyricsListener = (state, lyrics) -> {
-        if (state == LyricsManager.State.LOADED || state == LyricsManager.State.NOT_FOUND) {
-            ticker.schedule();
-        }
-    };
+    @Nullable
+    private static String lastMirrorTitle;
+    @Nullable
+    private static String lastMirrorSubtitle;
 
     private MiniPlayerLyrics() {
     }
@@ -69,8 +81,15 @@ public final class MiniPlayerLyrics {
         LyricsManager.getInstance().removeListener(lyricsListener);
     }
 
+    /** Drives the periodic check that mirrors the current line into the mini player. */
+    private static final LyricsTicker ticker = new LyricsTicker(MiniPlayerLyrics::tick);
+
+    /**
+     * Starts or stops mirroring to match the current settings. Called when a lyrics setting
+     * changes and when the displayed track changes, so toggling the feature takes effect
+     * without recreating the miniplayer.
+     */
     public static void onSettingsChanged() {
-        cachedSubtitle = null;
         if (!Settings.LYRICS_ENABLED.get() || !Settings.LYRICS_MINIPLAYER.get()
                 || titleRef.get() == null || subtitleRef.get() == null) {
             disableFeature();
@@ -94,7 +113,8 @@ public final class MiniPlayerLyrics {
             String[] parsed = MetadataCleaner.parseCleanTitleAndArtist(title, artist);
             displayTitle = parsed[1];
             displayArtist = parsed[0];
-            cachedSubtitle = null; // invalidate on track change
+            rawDisplayTitle = title;
+            rawDisplayArtist = artist;
 
             android.net.Uri mediaUri = LyricsManager.parseMediaUri(original);
             LyricsManager.getInstance().onDisplayedTrackChanged(title, artist, mediaUri);
@@ -103,6 +123,13 @@ public final class MiniPlayerLyrics {
             Logger.printException(() -> "onMediaSessionSetMetadata failure", ex);
         }
     }
+
+    /** Listener that re-schedules the ticker immediately when lyrics finish loading. */
+    private static final LyricsManager.Listener lyricsListener = (state, lyrics) -> {
+        if (state == LyricsManager.State.LOADED || state == LyricsManager.State.NOT_FOUND) {
+            ticker.schedule();
+        }
+    };
 
     /**
      * Injection point. Captures the miniplayer title and subtitle TextViews and (re)starts the
@@ -115,7 +142,8 @@ public final class MiniPlayerLyrics {
 
         try {
             captureMiniPlayer(view);
-        } catch (Throwable ignored) {
+        } catch (Exception ex) {
+            Logger.printException(() -> "onMiniPlayerViewCreated failure", ex);
         }
     }
 
@@ -144,19 +172,14 @@ public final class MiniPlayerLyrics {
             displayArtist = current.artist();
         }
 
-        if (!Settings.LYRICS_ENABLED.get() || !Settings.LYRICS_MINIPLAYER.get()) {
-            disableFeature();
-            return;
-        }
-
-        LyricsManager.getInstance().addListener(lyricsListener);
-        ticker.schedule();
+        onSettingsChanged();
     }
 
     private static void tick() {
         try {
             update();
-        } catch (Throwable ignored) {
+        } catch (Exception ex) {
+            Logger.printException(() -> "tick failure", ex);
             ticker.stop();
         }
     }
@@ -187,16 +210,22 @@ public final class MiniPlayerLyrics {
 
         if (synced) {
             String line = manager.getCurrentLineText();
-            String newTitle = line.isEmpty() ? track.title() : line;
+            String newTitle = line == null ? displayTitleOr(track) : line;
+            // Built on every tick, as the track format frames take turns.
+            String newSubtitle = buildSubtitle(track);
+            if (!mirrored) {
+                preMirrorTitle = title.getText();
+                preMirrorSubtitle = subtitle.getText();
+                preMirrorTrack = track;
+            }
             if (!TextUtils.equals(newTitle, title.getText())) {
                 title.setText(newTitle);
             }
-            if (cachedSubtitle == null) {
-                cachedSubtitle = track.displayWith(Settings.LYRICS_DISPLAY_ARTIST_FIRST.get());
+            lastMirrorTitle = newTitle;
+            if (!TextUtils.equals(newSubtitle, subtitle.getText())) {
+                subtitle.setText(newSubtitle);
             }
-            if (!TextUtils.equals(cachedSubtitle, subtitle.getText())) {
-                subtitle.setText(cachedSubtitle);
-            }
+            lastMirrorSubtitle = newSubtitle;
             mirrored = true;
         } else {
             restoreIfMirrored();
@@ -216,11 +245,52 @@ public final class MiniPlayerLyrics {
         if (title == null || subtitle == null || track == null) {
             return;
         }
-        if (!TextUtils.equals(track.title(), title.getText())) {
-            title.setText(track.title());
+        final boolean sameTrack = track.equals(preMirrorTrack);
+        restoreField(title, lastMirrorTitle, sameTrack ? preMirrorTitle : null, displayTitleOr(track));
+        restoreField(subtitle, lastMirrorSubtitle, sameTrack ? preMirrorSubtitle : null,
+                displayArtistOr(track));
+    }
+
+    /** The title the app itself shows: the untouched metadata title when it is known. */
+    private static String displayTitleOr(TrackInfo track) {
+        final String raw = rawDisplayTitle;
+        return raw != null && !raw.trim().isEmpty() ? raw : track.title();
+    }
+
+    /** The artist the app itself shows: the untouched metadata artist when it is known. */
+    private static String displayArtistOr(TrackInfo track) {
+        final String raw = rawDisplayArtist;
+        return raw != null && !raw.trim().isEmpty() ? raw : track.artist();
+    }
+
+    /**
+     * The {@code "artist - title"} line the app and the media session show. The cleaned track
+     * feeds the lyrics lookup only: its regex normalization strips decorations and folds
+     * fullwidth punctuation to ASCII, which must not leak into what is displayed.
+     */
+    private static String buildSubtitle(TrackInfo track) {
+        final String rawTitle = rawDisplayTitle;
+        final String rawArtist = rawDisplayArtist;
+        if (rawTitle == null || rawTitle.trim().isEmpty()
+                || rawArtist == null || rawArtist.trim().isEmpty()) {
+            return LyricsPresentation.trackLabel(track.title(), track.artist());
         }
-        if (!TextUtils.equals(track.artist(), subtitle.getText())) {
-            subtitle.setText(track.artist());
+        return LyricsPresentation.trackLabel(rawTitle, rawArtist);
+    }
+
+    private static void restoreField(TextView view, @Nullable String lastMirrored,
+                                     @Nullable CharSequence preMirror, @Nullable String fallback) {
+        final CharSequence current = view.getText();
+        if (!TextUtils.equals(current, lastMirrored)) {
+            return;
+        }
+        final CharSequence restore = (preMirror != null && !preMirror.toString().isEmpty())
+                ? preMirror
+                : fallback;
+        if (restore != null && !TextUtils.equals(current, restore)) {
+            view.setText(restore);
         }
     }
+
+
 }

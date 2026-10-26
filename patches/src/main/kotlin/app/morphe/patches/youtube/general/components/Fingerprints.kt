@@ -29,29 +29,29 @@ import app.morphe.patches.youtube.utils.resourceid.compactListItem
 import app.morphe.patches.youtube.utils.resourceid.editSettingsAction
 import app.morphe.patches.youtube.utils.resourceid.toolTipContentView
 import app.morphe.patches.youtube.utils.resourceid.ytCallToAction
-import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.or
+import app.morphe.util.containsLiteralInstruction
+import app.morphe.patcher.string
+import app.morphe.patcher.StringComparisonType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val accountListFingerprint = legacyFingerprint(
-    name = "accountListFingerprint",
+internal object accountListFingerprint : Fingerprint(
+    classFingerprint = accountListParentFingerprint,
     returnType = "V",
-    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
-    literals = listOf(ytCallToAction),
+    accessFlags = listOf(AccessFlags.PROTECTED, AccessFlags.FINAL, AccessFlags.SYNTHETIC),
+    custom = { method, _ -> method.containsLiteralInstruction(ytCallToAction) },
 )
 
-internal val accountListParentFingerprint = legacyFingerprint(
-    name = "accountListParentFingerprint",
-    literals = listOf(compactListItem),
+internal object accountListParentFingerprint : Fingerprint(
+    custom = { method, _ -> method.containsLiteralInstruction(compactListItem) },
 )
 
-internal val accountMenuFingerprint = legacyFingerprint(
-    name = "accountMenuFingerprint",
+internal object accountMenuFingerprint : Fingerprint(
+    classFingerprint = accountMenuParentFingerprint,
     returnType = "V",
-    opcodes = listOf(
+    filters = opcodesToFilters(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_STATIC,
@@ -60,51 +60,45 @@ internal val accountMenuFingerprint = legacyFingerprint(
     )
 )
 
-internal val accountMenuParentFingerprint = legacyFingerprint(
-    name = "accountMenuParentFingerprint",
-    opcodes = listOf(
+internal object accountMenuParentFingerprint : Fingerprint(
+    filters = opcodesToFilters(
         Opcode.CONST,
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    literals = listOf(compactLink),
+    custom = { method, _ -> method.containsLiteralInstruction(compactLink) },
 )
 
-internal val accountSwitcherAccessibilityLabelFingerprint = legacyFingerprint(
-    name = "accountSwitcherAccessibilityLabelFingerprint",
+internal object accountSwitcherAccessibilityLabelFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/lang/Object;"),
-    literals = listOf(accountSwitcherAccessibility),
+    custom = { method, _ -> method.containsLiteralInstruction(accountSwitcherAccessibility) },
 )
 
-internal val appBlockingCheckResultToStringFingerprint = legacyFingerprint(
-    name = "appBlockingCheckResultToStringFingerprint",
+internal object appBlockingCheckResultToStringFingerprint : Fingerprint(
     returnType = "Ljava/lang/String;",
-    strings = listOf("AppBlockingCheckResult{intent=")
+    strings = listOf(string("AppBlockingCheckResult{intent=", StringComparisonType.CONTAINS))
 )
 
 
-internal val pipNotificationFingerprint = legacyFingerprint(
-    name = "pipNotificationFingerprint",
+internal object pipNotificationFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
-    literals = listOf(editSettingsAction),
+    custom = { method, _ -> method.containsLiteralInstruction(editSettingsAction) },
 )
 
-internal val tooltipContentFullscreenFingerprint = legacyFingerprint(
-    name = "tooltipContentFullscreenFingerprint",
+internal object tooltipContentFullscreenFingerprint : Fingerprint(
     returnType = "V",
-    literals = listOf(45384061L),
+    custom = { method, _ -> method.containsLiteralInstruction(45384061L) },
 )
 
-internal val tooltipContentViewFingerprint = legacyFingerprint(
-    name = "tooltipContentViewFingerprint",
+internal object tooltipContentViewFingerprint : Fingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.FINAL),
     parameters = listOf("L"),
-    literals = listOf(toolTipContentView),
+    custom = { method, _ -> method.containsLiteralInstruction(toolTipContentView) },
 )
 
 internal object SyncButtonFingerprint : Fingerprint(
@@ -117,18 +111,6 @@ internal object SyncButtonFingerprint : Fingerprint(
             returnType = "Landroid/view/View;",
         ),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
-    )
-)
-
-internal object CommentReplyPaddingFeatureFlagFingerprint : Fingerprint(
-    filters = listOf(
-        literal(45752241)
-    )
-)
-
-internal object IncognitoSearchPaddingFeatureFlagFingerprint : Fingerprint(
-    filters = listOf(
-        literal(45724388)
     )
 )
 

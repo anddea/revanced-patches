@@ -2,6 +2,7 @@ package app.morphe.patches.youtube.general.spoofappversion
 
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.util.returnEarly
 import app.morphe.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
@@ -18,7 +19,6 @@ import app.morphe.patches.youtube.utils.settings.settingsPatch
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.findMethodOrThrow
 import app.morphe.util.insertLiteralOverride
-import app.morphe.util.returnEarly
 
 private const val SPOOF_EXTENSION_CLASS_DESCRIPTOR = "$SPOOF_PATH/SpoofAppVersionPatch;"
 

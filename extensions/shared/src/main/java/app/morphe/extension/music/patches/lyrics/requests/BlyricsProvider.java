@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import java.net.HttpURLConnection;
 
 import app.morphe.extension.music.patches.lyrics.TrackInfo;
+import app.morphe.extension.music.patches.lyrics.requests.TtmlParser;
 import app.morphe.extension.shared.requests.Requester;
 
 public final class BlyricsProvider implements LyricsProvider {

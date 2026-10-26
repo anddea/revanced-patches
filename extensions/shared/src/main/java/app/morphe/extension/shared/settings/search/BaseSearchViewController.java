@@ -1,4 +1,14 @@
 /*
+ * Copyright 2026 Morphe.
+ * https://github.com/MorpheApp/morphe-patches
+ *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
+ * See the included NOTICE file for GPLv3 Section 7 terms that apply to Morphe contributions.
+ */
+
+/*
  * Copyright (C) 2026 anddea
  *
  * This file is part of the revanced-patches project:
@@ -44,6 +54,8 @@
  */
 
 package app.morphe.extension.shared.settings.search;
+
+import app.morphe.extension.shared.settings.BaseActivityHook;
 
 import static app.morphe.extension.shared.utils.ResourceUtils.getDrawableIdentifier;
 import static app.morphe.extension.shared.utils.ResourceUtils.getIdIdentifier;
@@ -391,7 +403,7 @@ public abstract class BaseSearchViewController {
             if (isSearchActive) {
                 closeSearch();
             } else {
-                activity.finish();
+                BaseActivityHook.closeSettings(activity);
             }
         });
     }

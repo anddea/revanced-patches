@@ -8,7 +8,7 @@ internal object Utils {
             .joinToString("\n") { it.trimIndent() } // Remove the leading whitespace from each line.
             .trimIndent() // Remove the leading newline.
 
-    private val logger = Logger.getLogger(this::class.java.name)
+    private val logger = Logger.getLogger("app.morphe.patcher.patches")
 
     internal fun printInfo(msg: String) =
         logger.info(msg)

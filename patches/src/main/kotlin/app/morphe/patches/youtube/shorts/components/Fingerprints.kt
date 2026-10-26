@@ -3,6 +3,7 @@ package app.morphe.patches.youtube.shorts.components
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.instructionsOrNull
 import app.morphe.patcher.literal
+import app.morphe.patcher.util.getReference
 import app.morphe.patches.youtube.utils.resourceid.reelDynRemix
 import app.morphe.patches.youtube.utils.resourceid.reelDynShare
 import app.morphe.patches.youtube.utils.resourceid.reelFeedbackLike
@@ -14,7 +15,6 @@ import app.morphe.patches.youtube.utils.resourceid.reelRightDislikeIcon
 import app.morphe.patches.youtube.utils.resourceid.reelRightLikeIcon
 import app.morphe.patches.youtube.utils.resourceid.rightComment
 import app.morphe.util.fingerprint.legacyFingerprint
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstruction
 import app.morphe.util.or
 import com.android.tools.smali.dexlib2.AccessFlags

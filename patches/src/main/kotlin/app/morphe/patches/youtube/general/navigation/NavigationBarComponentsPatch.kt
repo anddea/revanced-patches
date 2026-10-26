@@ -18,6 +18,8 @@
 
 package app.morphe.patches.youtube.general.navigation
 
+import app.morphe.patcher.util.getFreeRegisterProvider
+import app.morphe.patcher.util.getReference
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -30,6 +32,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.morphe.patches.shared.mapping.ResourceType.COLOR
 import app.morphe.patches.shared.mapping.getResourceId
 import app.morphe.patches.shared.misc.fix.proto.fixProtoLibraryPatch
@@ -40,6 +43,7 @@ import app.morphe.patches.shared.spoof.guide.spoofClientGuideEndpointPatch
 import app.morphe.patches.youtube.utils.compatibility.Constants.COMPATIBILITY_YOUTUBE
 import app.morphe.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.morphe.patches.youtube.utils.extension.Constants.PATCHES_PATH
+import app.morphe.patches.youtube.utils.fix.padding.BrowseListBottomPaddingFingerprint
 import app.morphe.patches.youtube.utils.navigation.addBottomBarContainerHook
 import app.morphe.patches.youtube.utils.navigation.hookNavigationButtonCreated
 import app.morphe.patches.youtube.utils.navigation.navigationBarHookPatch
@@ -67,15 +71,12 @@ import app.morphe.util.copyResources
 import app.morphe.util.copyXmlNode
 import app.morphe.util.Utils.printWarn
 import app.morphe.util.forEachInlinedFeatureFlagSite
-import app.morphe.util.getFreeRegisterProvider
-import app.morphe.util.getReference
 import app.morphe.util.indexOfFirstInstructionOrThrow
 import app.morphe.util.indexOfFirstInstructionReversedOrThrow
 import app.morphe.util.indexOfFirstLiteralInstructionOrThrow
 import app.morphe.util.indexOfFirstStringInstructionOrThrow
 import app.morphe.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -176,8 +177,20 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for translucent navigation and status bars
 
         if (is_19_25_or_greater) {
-            // Keep the account's layout flag: this fork has no edge-to-edge override.
-            // The other two flags select the same background styles as upstream.
+            // The layout flags must follow the window's edge-to-edge state, while the background
+            // style remains independent. Observe the account flag without changing it in this fork.
+            injectOnCreateMethodCall("$PATCHES_PATH/theme/StatusBarPatch;", "initialize")
+            EdgeToEdgeTopBarFeatureFlagFingerprint.matchAll().forEach { match ->
+                match.method.apply {
+                    // Newer targets can read the flag more than once in the same method.
+                    implementation!!.instructions.mapIndexedNotNull { index, instruction ->
+                        index.takeIf { (instruction as? WideLiteralInstruction)?.wideLiteral == 45400535L }
+                    }.asReversed().forEach { index ->
+                        insertLiteralOverride(index, "$PATCHES_PATH/theme/StatusBarPatch;->useEdgeToEdgeTopBar(Z)Z")
+                    }
+                }
+            }
+
             TranslucentNavigationBarFeatureFlagsFingerprint.matchAll().forEach { match ->
                 match.method.apply {
                     implementation!!.instructions.mapIndexedNotNull { index, instruction ->
@@ -186,10 +199,10 @@ val navigationBarComponentsPatch = bytecodePatch(
                         }
                     }.asReversed().forEach { index ->
                         val flag = getInstruction<WideLiteralInstruction>(index).wideLiteral
-                        val override = if (flag == NAVIGATION_BAR_COVERS_SYSTEM_BUTTONS_FLAG) {
-                            "useTranslucentNavigationBar"
-                        } else {
-                            "useTranslucentNavigationBarBackground"
+                        val override = when (flag) {
+                            NAVIGATION_BAR_COVERS_SYSTEM_BUTTONS_FLAG -> "useTranslucentNavigationBar"
+                            FEED_BEHIND_NAVIGATION_BAR_FLAG -> "useFeedBehindNavigationBar"
+                            else -> "useTranslucentNavigationBarBackground"
                         }
                         insertLiteralOverride(index, "$EXTENSION_CLASS_DESCRIPTOR->$override(Z)Z")
                     }
@@ -250,84 +263,26 @@ val navigationBarComponentsPatch = bytecodePatch(
                     )
                 }
 
-                // With the translucent navigation bar, the keyboard shrinks the layout that holds the page
-                // and the navigation bar to the top of the keyboard, so the navigation bar is moved above
-                // the keyboard. Without it, the keyboard covers the bottom of the page and the navigation bar
-                // stays at the bottom of the screen. The keyboard height is replaced with no margin,
-                // so the keyboard covers them again.
-                PageBottomMarginFingerprint.let {
-                    it.method.apply {
-                        // The keyboard height and the window inset are put in the same register,
-                        // and the window inset is read right after the branch of the keyboard height.
-                        val insetIndex = it.instructionMatches.last().index
-                        val marginRegister = getInstruction<TwoRegisterInstruction>(insetIndex).registerA
-                        val keyboardBranchIndex = indexOfFirstInstructionReversedOrThrow(insetIndex) {
-                            opcode == Opcode.IF_EQZ &&
-                                    (this as BuilderInstruction21t).target.location.index == insetIndex
-                        }
-                        val keyboardRegister = getInstruction<OneRegisterInstruction>(keyboardBranchIndex).registerA
-
-                        addInstructionsAtControlFlowLabel(
-                            insetIndex + 1,
-                            """
-                                if-eqz v$keyboardRegister, :keyboard_hidden
-                                const/4 v$marginRegister, 0x0
-                                :keyboard_hidden
-                                nop
-                            """
-                        )
-                    }
-                }
             }
 
-            // When the feed is laid out behind the navigation bar, the bottom padding of its list also
-            // holds the bottom window inset. With the keyboard open, that inset holds the keyboard too,
-            // so the padding grows, while the keyboard leaves the page as it is.
-            // While the page loads, as after tapping the search field of the watch history, the list
-            // does not scroll and its items only get the height left above the padding. With a tall
-            // keyboard nothing is left, and the items are hidden. The keyboard is removed from
-            // the padding, as for the navigation bar above.
             if (is_20_26_or_greater) {
-                FeedListPaddingFingerprint.let {
-                    it.method.apply {
-                        val index = it.instructionMatches.last().index
-                        val paddingInstruction = getInstruction<FiveRegisterInstruction>(index)
-                        val listRegister = paddingInstruction.registerC
-                        val bottomPaddingRegister = paddingInstruction.registerG
-                        val freeRegisters = getFreeRegisterProvider(index, 3)
-                        val insetsRegister = freeRegisters.getFreeRegister4Bit()
-                        val imeRegister = freeRegisters.getFreeRegister4Bit()
-                        val systemBarsRegister = freeRegisters.getFreeRegister4Bit()
+                // When a browse page is laid out behind the navigation bar, its list is set to draw into
+                // its padding, and the padding is set later, once the window insets are known. If the list
+                // is refreshed in between, as when coming back from the Shorts player, it's set to clip to
+                // its padding again, so the bottom padding is left as an empty band between the feed and
+                // the navigation bar. The list is set to draw into its padding again with the padding.
+                BrowseListBottomPaddingFingerprint.apply {
+                    clearMatch()
+                    method.apply {
+                        val index = instructionMatches.last().index
+                        val listRegister = getInstruction<FiveRegisterInstruction>(index).registerC
+                        val freeRegister = getFreeRegisterProvider(index + 1, 1).getFreeRegister4Bit()
 
                         addInstructionsWithLabels(
-                            index,
-                            $$"""
-                                # The inset types are only on Android 11 and later.
-                                sget v$$imeRegister, Landroid/os/Build$VERSION;->SDK_INT:I
-                                const/16 v$$systemBarsRegister, 0x1e
-                                if-lt v$$imeRegister, v$$systemBarsRegister, :keep_padding
-                                invoke-virtual { v$$listRegister }, Landroid/view/View;->getRootWindowInsets()Landroid/view/WindowInsets;
-                                move-result-object v$$insetsRegister
-                                if-eqz v$$insetsRegister, :keep_padding
-                                # The keyboard inset is empty when the keyboard is hidden.
-                                invoke-static { }, Landroid/view/WindowInsets$Type;->ime()I
-                                move-result v$$imeRegister
-                                invoke-virtual { v$$insetsRegister, v$$imeRegister }, Landroid/view/WindowInsets;->getInsets(I)Landroid/graphics/Insets;
-                                move-result-object v$$imeRegister
-                                iget v$$imeRegister, v$$imeRegister, Landroid/graphics/Insets;->bottom:I
-                                # The padding does not hold the bottom inset, as when the feed is not behind the navigation bar.
-                                if-lt v$$bottomPaddingRegister, v$$imeRegister, :keep_padding
-                                invoke-static { }, Landroid/view/WindowInsets$Type;->systemBars()I
-                                move-result v$$systemBarsRegister
-                                invoke-virtual { v$$insetsRegister, v$$systemBarsRegister }, Landroid/view/WindowInsets;->getInsets(I)Landroid/graphics/Insets;
-                                move-result-object v$$systemBarsRegister
-                                iget v$$systemBarsRegister, v$$systemBarsRegister, Landroid/graphics/Insets;->bottom:I
-                                # Keyboard height above the system bars.
-                                sub-int/2addr v$$imeRegister, v$$systemBarsRegister
-                                if-lez v$$imeRegister, :keep_padding
-                                sub-int/2addr v$$bottomPaddingRegister, v$$imeRegister
-                                :keep_padding
-                                nop
+                            index + 1,
+                            """
+                                const/4 v$freeRegister, 0x0
+                                invoke-virtual { v$listRegister, v$freeRegister }, Landroid/support/v7/widget/RecyclerView;->setClipToPadding(Z)V
                             """
                         )
                     }
@@ -638,6 +593,9 @@ val navigationBarComponentsPatch = bytecodePatch(
         //
 
         if (is_21_35_or_greater) {
+            // Earlier targets do not use the toolbar tabs controlled by this setting.
+            settingArray += "SETTINGS: DISABLE_TOOLBAR_NAVIGATION_TABS"
+
             // Allow the extension to read the proto of navigation bar items.
             PivotBarRendererFingerprint.classDef.apply {
                 val messageLiteField = fields.first { field ->

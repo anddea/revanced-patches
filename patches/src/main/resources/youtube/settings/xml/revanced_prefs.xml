@@ -130,17 +130,22 @@
             <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>
             <SwitchPreference android:title="@string/morphe_disable_icon_only_navigation_buttons_title" android:key="morphe_disable_icon_only_navigation_buttons" android:summary="@string/morphe_disable_icon_only_navigation_buttons_summary" />SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
-            <!-- SETTINGS: STATUS_BAR_TRANSLUCENCY
-            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_status_bar_translucency_entries" android:title="@string/revanced_status_bar_translucency_title" android:key="revanced_status_bar_translucency" android:entryValues="@array/revanced_status_bar_translucency_entry_values" />SETTINGS: STATUS_BAR_TRANSLUCENCY -->
+            <!-- SETTINGS: DISABLE_TOOLBAR_NAVIGATION_TABS
+            <SwitchPreference android:title="@string/morphe_disable_toolbar_navigation_tabs_title" android:key="morphe_disable_toolbar_navigation_tabs" android:summary="@string/morphe_disable_toolbar_navigation_tabs_summary" />SETTINGS: DISABLE_TOOLBAR_NAVIGATION_TABS -->
 
             <!-- SETTINGS: DISABLE_AUTO_HIDE_NAVIGATION_BAR
             <SwitchPreference android:title="@string/morphe_disable_auto_hide_navigation_bar_title" android:key="morphe_disable_auto_hide_navigation_bar" android:summary="@string/morphe_disable_auto_hide_navigation_bar_summary" />SETTINGS: DISABLE_AUTO_HIDE_NAVIGATION_BAR -->
 
+            <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
+            <SwitchPreference android:title="@string/revanced_hide_navigation_bar_title" android:key="revanced_hide_navigation_bar" android:summaryOn="@string/revanced_hide_navigation_bar_summary_on" android:summaryOff="@string/revanced_hide_navigation_bar_summary_off" />SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
+
             <!-- SETTINGS: NAVIGATION_BAR_STYLE
             <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_navigation_bar_style_title" android:key="morphe_navigation_bar_style" android:entries="@array/morphe_navigation_bar_style_entries" android:entryValues="@array/morphe_navigation_bar_style_entry_values" />SETTINGS: NAVIGATION_BAR_STYLE -->
 
-            <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
-            <SwitchPreference android:title="@string/revanced_hide_navigation_bar_title" android:key="revanced_hide_navigation_bar" android:summaryOn="@string/revanced_hide_navigation_bar_summary_on" android:summaryOff="@string/revanced_hide_navigation_bar_summary_off" />
+            <!-- SETTINGS: STATUS_BAR_TRANSLUCENCY
+            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:entries="@array/revanced_status_bar_translucency_entries" android:title="@string/revanced_status_bar_translucency_title" android:key="revanced_status_bar_translucency" android:entryValues="@array/revanced_status_bar_translucency_entry_values" />SETTINGS: STATUS_BAR_TRANSLUCENCY -->
+
+        <!-- SETTINGS: NAVIGATION_BAR_STYLE
         </PreferenceScreen>SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
         <!-- SETTINGS: HIDE_SETTINGS_MENU_FILTER
@@ -1275,6 +1280,8 @@
 
         <!-- PREFERENCE_SCREEN: TRANSLATIONS
         <app.morphe.extension.youtube.settings.preference.TranslationsPreference android:title="@string/revanced_translations_title" android:key="revanced_translations" />PREFERENCE_SCREEN: TRANSLATIONS -->
+
+        <app.morphe.extension.shared.settings.preference.SeekBarPreference android:title="@string/morphe_settings_new_indicator_days_title" android:key="morphe_settings_new_indicator_days" android:summary="@string/morphe_settings_new_indicator_days_summary" />
 
         <PreferenceCategory android:title="@string/revanced_search_settings_category_title">
             <SwitchPreference android:title="@string/revanced_settings_search_history_title" android:key="revanced_settings_search_history" android:summaryOn="@string/revanced_settings_search_history_summary_on" android:summaryOff="@string/revanced_settings_search_history_summary_off" />

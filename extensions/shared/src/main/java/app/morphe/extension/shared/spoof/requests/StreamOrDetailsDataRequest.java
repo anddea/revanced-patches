@@ -2,6 +2,9 @@
  * Copyright 2026 Morphe.
  * https://github.com/MorpheApp/morphe-patches
  *
+ * Original hard forked code:
+ * https://github.com/ReVanced/revanced-patches/commit/724e6d61b2ecd868c1a9a37d465a688e83a74799
+ *
  * Portions of this file are modified by anddea:
  * Copyright (C) 2026 anddea
  * https://github.com/anddea/revanced-patches
@@ -56,6 +59,7 @@ import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerGest
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.PlayerResponse;
 import app.morphe.extension.shared.innertube.PlayerResponseOuterClass.StreamingData;
 import app.morphe.extension.shared.innertube.ReelItemWatchResponseOuterClass.ReelItemWatchResponse;
+import app.morphe.extension.shared.innertube.utils.AuthUtils;
 import app.morphe.extension.shared.oauth2.requests.OAuth2Requester;
 import app.morphe.extension.shared.requests.Route;
 import app.morphe.extension.shared.settings.BaseSettings;
@@ -216,7 +220,7 @@ public class StreamOrDetailsDataRequest {
     }
 
     /**
-     * Resolves a video that the app never opened, using the latest player headers.
+     * Uses headers captured during playback so a song can be downloaded without first playing it.
      * Deliberately not cached, so downloads cannot evict the streams of videos being watched.
      * <p>
      * The clients are given by the caller instead of taken from the playback order, which stays at
@@ -228,7 +232,11 @@ public class StreamOrDetailsDataRequest {
         ClientType[] clientOrder = buildClientOrder(downloadClients, preferredClient)
                 .toArray(new ClientType[0]);
         // The video details name the saved file, so the download asks for them as well.
-        return new StreamOrDetailsDataRequest(null, videoId, false, lastPlayerHeaders, clientOrder, true);
+        // The auth hook keeps the headers even if spoofing is off, but it is not used by all apps.
+        Map<String, String> headers = AuthUtils.getAuthorization().isEmpty()
+                ? lastPlayerHeaders
+                : AuthUtils.getRequestHeader();
+        return new StreamOrDetailsDataRequest(null, videoId, false, headers, clientOrder, true);
     }
 
     @Nullable

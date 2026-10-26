@@ -2,6 +2,8 @@ package app.morphe.util.fingerprint
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.Match
+import app.morphe.patcher.StringComparisonType
+import app.morphe.patcher.string
 import app.morphe.patcher.OpcodesFilter
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -189,7 +191,8 @@ internal fun legacyFingerprint(
         accessFlags = if (accessFlags != null) getAccessFlagsForMethod(accessFlags).toList() else null,
         returnType = returnType,
         parameters = parameters,
-        strings = strings,
+        // Patcher 2.0 compares plain strings exactly; the legacy DSL used substring matching.
+        strings = strings.orEmpty().map { string(it, StringComparisonType.CONTAINS) },
         filters = if (opcodes != null) OpcodesFilter.opcodesToFilters(*opcodes.toTypedArray()) else null,
         custom = { method, classDef ->
             if (literals != null) {
