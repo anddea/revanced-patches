@@ -44,6 +44,15 @@ public final class EngagementPanel {
         return getId().equals("video-description-ep-identifier");
     }
 
+    /**
+     * @return The id of the panel opened last, or null if no panel is open.
+     */
+    @Nullable
+    public static String getLastOpenedPanelId() {
+        String panelId = getId();
+        return panelId.isEmpty() ? null : panelId;
+    }
+
     public static String getId() {
         return engagementPanelId.get();
     }
