@@ -7,6 +7,9 @@
 
 package app.morphe.extension.youtube.patches.utils;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -30,6 +33,7 @@ import java.util.regex.Pattern;
 
 import app.morphe.extension.shared.utils.Logger;
 import app.morphe.extension.shared.utils.Utils;
+import app.morphe.extension.youtube.patches.PostImageDownloadPatch;
 import app.morphe.extension.youtube.shared.VideoInformation;
 import app.morphe.extension.youtube.settings.Settings;
 import app.morphe.extension.youtube.shared.PlayerType;
@@ -51,7 +55,8 @@ import kotlin.Unit;
 @SuppressWarnings("unused")
 public final class FeedVideoCards {
 
-    private static final boolean ENABLED = Settings.FEED_WATCH_LATER_BUTTON.get();
+    private static final boolean ENABLED = Settings.FEED_WATCH_LATER_BUTTON.get()
+            || PostImageDownloadPatch.ENABLED;
 
     /** A card must be almost as wide as the screen. Shelves and grids are not used. */
     private static final float MIN_WIDTH_OF_SCREEN = 0.7f;
@@ -180,7 +185,10 @@ public final class FeedVideoCards {
     private FeedVideoCards() {
     }
 
-    private static boolean contains(byte[] bytes, byte[] search) {
+    /**
+     * @return If the bytes include the search bytes, such as an ASCII text of an element.
+     */
+    public static boolean contains(byte[] bytes, byte[] search) {
         final int last = bytes.length - search.length;
         outer:
         for (int i = 0; i <= last; i++) {
@@ -347,6 +355,49 @@ public final class FeedVideoCards {
         }
     }
 
+    @Nullable
+    private static Activity findActivity(Context context) {
+        while (context instanceof ContextWrapper wrapper) {
+            if (context instanceof Activity activity) {
+                return activity;
+            }
+            context = wrapper.getBaseContext();
+        }
+        return null;
+    }
+
+    /**
+     * The share sheet and other bottom sheets are dialogs that can show the thumbnail and the texts
+     * of the opened video, so they look like a card. Feeds are in the window of the activity.
+     */
+    public static boolean isInDialog(ComponentHost host) {
+        Activity activity = findActivity(host.getContext());
+        if (activity != null && activity.getWindow() != null) {
+            View decorView = activity.getWindow().peekDecorView();
+            if (decorView != null && host.getRootView() != decorView) {
+                return true;
+            }
+        }
+        return isInBottomSheet(host);
+    }
+
+    /**
+     * Bottom sheets that are shown in the window of the activity.
+     */
+    private static boolean isInBottomSheet(View view) {
+        ViewParent parent = view.getParent();
+        while (parent instanceof View parentView) {
+            final int id = parentView.getId();
+            // Generated ids, which have no package, are not resources.
+            if (id != View.NO_ID && (id >>> 24) != 0
+                    && parentView.getResources().getResourceEntryName(id).contains("bottom_sheet")) {
+                return true;
+            }
+            parent = parentView.getParent();
+        }
+        return false;
+    }
+
     /**
      * @return If the view is a list that scrolls sideways, such as a shelf of videos.
      */
@@ -405,6 +456,18 @@ public final class FeedVideoCards {
             }
         }
 
+        // The texts of a mix or a playlist, which are never shared with a video.
+        // A single short text can belong to an element of another video that was not seen.
+        return findBestMatch(scores);
+    }
+
+    /**
+     * @param scores Match -> score of the texts that belong to it, where a long text scores 2.
+     * @return The match with the highest score, or null if there is a tie
+     *         or the best match has only a single short text.
+     */
+    @Nullable
+    public static String findBestMatch(Map<String, Integer> scores) {
         String best = null;
         int bestScore = 0;
         boolean tie = false;
@@ -418,8 +481,6 @@ public final class FeedVideoCards {
                 tie = true;
             }
         }
-        // The texts of a mix or a playlist, which are never shared with a video.
-        // A single short text can belong to an element of another video that was not seen.
         return tie || bestScore < 2 ? null : best;
     }
 
@@ -432,6 +493,18 @@ public final class FeedVideoCards {
             parent = componentHost.getParent();
         }
         return root;
+    }
+
+    /**
+     * @return The root host of the card that contains the tapped view.
+     */
+    @Nullable
+    public static ComponentHost findTappedRootHost(View sender) {
+        ViewParent parent = sender instanceof ComponentHost host ? host : sender.getParent();
+        while (parent instanceof View view && !(parent instanceof ComponentHost)) {
+            parent = view.getParent();
+        }
+        return parent instanceof ComponentHost host ? findRootHost(host) : null;
     }
 
     /**
@@ -454,7 +527,10 @@ public final class FeedVideoCards {
         }
     }
 
-    private static void scheduleRetry(ComponentHost root) {
+    /**
+     * Checks the card again a little later, such as when what is drawn on it was not found yet.
+     */
+    public static void scheduleRetry(ComponentHost root) {
         Integer count = retries.get(root);
         final int attempt = count == null ? 0 : count;
         if (attempt >= MAX_RETRIES) {
@@ -493,6 +569,7 @@ public final class FeedVideoCards {
                 } else {
                     cardVideoIds.put(root, videoId);
                 }
+                PostImageDownloadPatch.onRootLaidOut(root);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateRoots failure", ex);

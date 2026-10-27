@@ -183,6 +183,11 @@ public final class DownloadActionsPatch {
         FeedVideoActionsPatch.onFlyoutSender(senderViewRef.get());
     }
 
+    @Nullable
+    public static View getSenderView() {
+        return senderViewRef.get();
+    }
+
     /**
      * Injection point. Resolves the video ID from a typed message or its serialized buffer.
      */

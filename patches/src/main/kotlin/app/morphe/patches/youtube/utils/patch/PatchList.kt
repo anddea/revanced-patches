@@ -50,6 +50,10 @@ internal enum class PatchList(
         "Adds a Watch later button to video thumbnails in feeds, " +
                 "and opens the video menu by tapping and holding anywhere on a video."
     ),
+    DOWNLOAD_POST_IMAGES(
+        "Download post images",
+        "Adds a button and a menu item to download the images and GIFs of posts."
+    ),
     SEARCH_COMMENTS(
         "Search comments",
         "Adds a button to the comments to show only the loaded comments that contain the searched words."

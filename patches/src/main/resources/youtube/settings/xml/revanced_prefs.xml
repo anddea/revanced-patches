@@ -456,6 +456,9 @@
         <SwitchPreference android:title="@string/morphe_feed_long_press_menu_title" android:key="morphe_feed_long_press_menu" android:summary="@string/morphe_feed_long_press_menu_summary" />
         <SwitchPreference android:title="@string/morphe_feed_watch_later_button_title" android:key="morphe_feed_watch_later_button" android:summary="@string/morphe_feed_watch_later_button_summary" />SETTINGS: FEED_VIDEO_ACTIONS -->
 
+        <!-- SETTINGS: POST_IMAGE_DOWNLOAD
+        <SwitchPreference android:title="@string/morphe_post_image_download_title" android:key="morphe_post_image_download" android:summary="@string/morphe_post_image_download_summary" />SETTINGS: POST_IMAGE_DOWNLOAD -->
+
     <!-- PREFERENCE_SCREEN: FEED
     </PreferenceScreen>PREFERENCE_SCREEN: FEED -->
 
@@ -1346,6 +1349,7 @@
                 <Preference android:title="Miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Overlay buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Feed video actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Download post images" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Copy text" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Picture-in-picture button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Player components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
