@@ -81,6 +81,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -175,30 +176,39 @@ val navigationBarComponentsPatch = bytecodePatch(
         // region patch for translucent navigation and status bars
 
         if (is_19_25_or_greater) {
-            // The blurred background of the translucent navigation bar draws a copy of the watch layout,
-            // so the player surface is drawn twice in every frame, at two positions. Android 12 and 13
-            // send the two positions to the surface from two threads at the same time, and the app
-            // crashes while the player moves, such as when it is slowly dragged down to the miniplayer
-            // (https://github.com/MorpheApp/morphe-patches/pull/3684#issuecomment-6322984709).
-            // Android 14 sends them one after the other. On older versions the copy is not drawn,
-            // so the bar keeps its translucent color, without the blur.
+            // Keep the account's layout flag: this fork has no edge-to-edge override.
+            // The other two flags select the same background styles as upstream.
+            TranslucentNavigationBarFeatureFlagsFingerprint.matchAll().forEach { match ->
+                match.method.apply {
+                    implementation!!.instructions.mapIndexedNotNull { index, instruction ->
+                        index.takeIf {
+                            (instruction as? WideLiteralInstruction)?.wideLiteral in TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAGS
+                        }
+                    }.asReversed().forEach { index ->
+                        val flag = getInstruction<WideLiteralInstruction>(index).wideLiteral
+                        val override = if (flag == NAVIGATION_BAR_COVERS_SYSTEM_BUTTONS_FLAG) {
+                            "useTranslucentNavigationBar"
+                        } else {
+                            "useTranslucentNavigationBarBackground"
+                        }
+                        insertLiteralOverride(index, "$EXTENSION_CLASS_DESCRIPTOR->$override(Z)Z")
+                    }
+                }
+            }
+
+            // The blurred background of the translucent navigation bar is drawn only if the canvas is
+            // hardware accelerated. The transparent and opaque styles leave it out, as it can crash
+            // the app on Android 12 and 13.
             NavigationBarBlurDrawFingerprint.let {
                 it.method.apply {
                     val index = it.instructionMatches[1].index
                     val hardwareAcceleratedRegister = getInstruction<OneRegisterInstruction>(index).registerA
-                    val freeRegisters = getFreeRegisterProvider(index + 1, 2)
-                    val sdkRegister = freeRegisters.getFreeRegister4Bit()
-                    val minSdkRegister = freeRegisters.getFreeRegister4Bit()
 
-                    addInstructionsWithLabels(
+                    addInstructions(
                         index + 1,
-                        $$"""
-                            sget v$$sdkRegister, Landroid/os/Build$VERSION;->SDK_INT:I
-                            const/16 v$$minSdkRegister, 0x22
-                            if-ge v$$sdkRegister, v$$minSdkRegister, :draw_blur
-                            const/4 v$$hardwareAcceleratedRegister, 0x0
-                            :draw_blur
-                            nop
+                        """
+                            invoke-static { v$hardwareAcceleratedRegister }, $EXTENSION_CLASS_DESCRIPTOR->useNavigationBarBlur(Z)Z
+                            move-result v$hardwareAcceleratedRegister
                         """
                     )
                 }
@@ -343,6 +353,8 @@ val navigationBarComponentsPatch = bytecodePatch(
                 }
             }
 
+            addBottomBarContainerHook("$EXTENSION_CLASS_DESCRIPTOR->setNavigationBarOpaque(Landroid/view/View;)V")
+
             // Keep the original translucent resources for player controls and apply the selected
             // status-bar translucency mode only to the status-bar color result.
             StatusBarColorFingerprint.method.apply {
@@ -355,13 +367,6 @@ val navigationBarComponentsPatch = bytecodePatch(
                 insertLiteralOverride(
                     getResourceId(COLOR, "yt_white1_opacity70"),
                     statusBarColorHook,
-                )
-            }
-
-            TranslucentNavigationButtonsFeatureFlagFingerprint.let {
-                it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
                 )
             }
 
@@ -394,7 +399,7 @@ val navigationBarComponentsPatch = bytecodePatch(
 
             settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
             settingArray += "SETTINGS: STATUS_BAR_TRANSLUCENCY"
-            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_NAVIGATION_BAR"
+            settingArray += "SETTINGS: NAVIGATION_BAR_STYLE"
         }
 
         // endregion

@@ -87,8 +87,24 @@ public final class NavigationButtonsPatch {
     private static final StatusBarTranslucency STATUS_BAR_TRANSLUCENCY
             = Settings.STATUS_BAR_TRANSLUCENCY.get();
 
-    private static final boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR
-            = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR.get();
+    public enum NavigationBarStyle {
+        /**
+         * The feature flags of the translucent navigation bar are left to the account,
+         * and the fixes for what they break are off.
+         */
+        DEFAULT,
+        TRANSLUCENT,
+        /**
+         * Translucent, without the blurred background.
+         */
+        TRANSPARENT,
+        /**
+         * Transparent, painted over with the app background.
+         */
+        OPAQUE
+    }
+
+    private static final NavigationBarStyle NAVIGATION_BAR_STYLE = Settings.NAVIGATION_BAR_STYLE.get();
 
     private static final boolean HIDE_NAVIGATION_LABEL
             = Settings.HIDE_NAVIGATION_LABEL.get();
@@ -267,7 +283,7 @@ public final class NavigationButtonsPatch {
      * @param original The color the app theme gives the system navigation buttons.
      */
     public static int getSystemNavigationBarColor(int original) {
-        if (!DISABLE_TRANSLUCENT_NAVIGATION_BAR) return original;
+        if (NAVIGATION_BAR_STYLE != NavigationBarStyle.OPAQUE) return original;
 
         try {
             return OpaqueSystemBars.systemNavigationBarColor(original);
@@ -279,19 +295,156 @@ public final class NavigationButtonsPatch {
 
     /**
      * Injection point.
+     *
+     * @param bottomBarContainer The container of the navigation bar, which also covers the area
+     *                           behind the system navigation buttons or gesture handle.
      */
-    public static boolean useTranslucentNavigationButtons(boolean original) {
-        // Feature requires Android 13+
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+    public static void setNavigationBarOpaque(View bottomBarContainer) {
+        if (NAVIGATION_BAR_STYLE != NavigationBarStyle.OPAQUE) return;
+
+        try {
+            OpaqueSystemBars.apply(bottomBarContainer);
+        } catch (Exception ex) {
+            Logger.printException(() -> "setNavigationBarOpaque failure", ex);
+        }
+    }
+
+    /**
+     * If the keyboard height was ever removed from the bottom margin of the layout that holds
+     * the page, the player and the navigation bar, so the keyboard covers them.
+     */
+    private static volatile boolean keyboardMarginRemoved;
+
+    /**
+     * Injection point.
+     * <p>
+     * The translucent navigation bar comes from feature flags that not every account gets, so they
+     * are turned on to make the bar look the same on every account. With them, the navigation bar
+     * and the pages make room for the system navigation buttons, which is only right when
+     * the window is drawn behind them. That comes from the edge to edge top bar feature flag,
+     * so without it the room is added twice: the navigation bar is raised and an empty bar is left
+     * at the bottom (https://github.com/MorpheApp/morphe-patches/issues/3825).
+     * <p>
+     * The app draws the window behind the system navigation buttons only on Android 12 and later,
+     * so on older versions the flags are always turned off, or the room is added twice
+     * (https://github.com/MorpheApp/morphe-patches/issues/3864).
+     * <p>
+     * With {@link NavigationBarStyle#DEFAULT} the flags are left to the account.
+     */
+    public static boolean useTranslucentNavigationBar(boolean original) {
+        if (NAVIGATION_BAR_STYLE == NavigationBarStyle.DEFAULT) {
             return original;
         }
 
-        if (DISABLE_TRANSLUCENT_NAVIGATION_BAR) {
-            return false;
+        boolean translucent = original;
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+                translucent = false;
+            } else {
+                // This fork has no HideStatusBarPatch edge-to-edge override. Keep the account's
+                // layout flag, as upstream does when its edge-to-edge state is unknown.
+                translucent = original;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "useTranslucentNavigationBar failure", ex);
         }
 
-        return original;
+        return translucent;
     }
+
+    /**
+     * Injection point.
+     * <p>
+     * The blurred, translucent background of the navigation bar and the feed laid out behind it
+     * only change how the bar looks, not the room left for the system navigation buttons, so they
+     * are turned on from Android 12 also when the window is not drawn edge to edge. With
+     * {@link NavigationBarStyle#OPAQUE}, they follow {@link #useTranslucentNavigationBar(boolean)}
+     * instead. With {@link NavigationBarStyle#DEFAULT} they are left to the account.
+     */
+    public static boolean useTranslucentNavigationBarBackground(boolean original) {
+        if (NAVIGATION_BAR_STYLE == NavigationBarStyle.DEFAULT) {
+            return original;
+        }
+
+        final boolean translucent;
+        if (NAVIGATION_BAR_STYLE != NavigationBarStyle.OPAQUE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            translucent = true;
+        } else {
+            translucent = useTranslucentNavigationBar(original);
+        }
+
+        translucentNavigationBarBackgroundForced = translucent;
+        return translucent;
+    }
+
+    private static volatile boolean translucentNavigationBarBackgroundForced;
+
+    /**
+     * Injection point.
+     * <p>
+     * The blurred background of the navigation bar draws a copy of the watch layout, so the player
+     * surface is drawn twice in every frame, at two positions. Android 12 and 13 send the two
+     * positions to the surface from two threads at the same time, and the app crashes while
+     * the player moves, such as when it is slowly dragged down to the miniplayer
+     * (https://github.com/MorpheApp/morphe-patches/pull/3684#issuecomment-6322984709).
+     * With {@link NavigationBarStyle#TRANSPARENT} and {@link NavigationBarStyle#OPAQUE} the copy
+     * is not drawn, so the bar keeps its translucent color, without the blur.
+     *
+     * @param hardwareAccelerated If the canvas is hardware accelerated, which the blur is drawn for.
+     */
+    public static boolean useNavigationBarBlur(boolean hardwareAccelerated) {
+        return hardwareAccelerated && !(translucentNavigationBarBackgroundForced
+                && (NAVIGATION_BAR_STYLE == NavigationBarStyle.TRANSPARENT
+                || NAVIGATION_BAR_STYLE == NavigationBarStyle.OPAQUE));
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * The bottom margin of the layout that holds the page, the player and the navigation bar while
+     * the keyboard is open. This fork calls the hook where it already removes that margin,
+     * without forcing the translucent navigation feature flags.
+     * <p>
+     * The legacy miniplayer, such as the minimal type before 21.29, rests at the bottom of that
+     * layout, so while it is shown the layout ends at the top of the keyboard instead
+     * (https://github.com/MorpheApp/morphe-patches/issues/4003). The margin of the app leaves
+     * the height of the system navigation buttons for the navigation bar, which is hidden while
+     * the keyboard is open, so the full keyboard height is used. The other miniplayers are moved
+     * above the keyboard by {@link MinimalMiniplayerPatch}.
+     *
+     * @param original The keyboard height the app uses as the margin.
+     */
+    public static int getKeyboardMargin(int original) {
+        try {
+            if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED
+                    && !MiniplayerPatch.getCurrentMiniplayerType().isModern()
+                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                Activity activity = Utils.getActivity();
+                WindowInsets insets = activity == null
+                        ? null
+                        : activity.getWindow().getDecorView().getRootWindowInsets();
+                if (insets != null) {
+                    return Math.max(original, insets.getInsets(WindowInsets.Type.ime()).bottom);
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "getKeyboardMargin failure", ex);
+        }
+
+        keyboardMarginRemoved = true;
+        return 0;
+    }
+
+    /**
+     * Whether miniplayers need to compensate for the page keyboard margin hook.
+     */
+    public static boolean isKeyboardMarginRemoved() {
+        return keyboardMarginRemoved;
+    }
+
+    /**
+     * Injection point.
+     */
 
     /**
      * Injection point.

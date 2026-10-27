@@ -136,8 +136,8 @@
             <!-- SETTINGS: DISABLE_AUTO_HIDE_NAVIGATION_BAR
             <SwitchPreference android:title="@string/morphe_disable_auto_hide_navigation_bar_title" android:key="morphe_disable_auto_hide_navigation_bar" android:summary="@string/morphe_disable_auto_hide_navigation_bar_summary" />SETTINGS: DISABLE_AUTO_HIDE_NAVIGATION_BAR -->
 
-            <!-- SETTINGS: DISABLE_TRANSLUCENT_NAVIGATION_BAR
-            <SwitchPreference android:title="@string/revanced_disable_translucent_navigation_bar_title" android:key="revanced_disable_translucent_navigation_bar" android:summaryOn="@string/revanced_disable_translucent_navigation_bar_summary_on" android:summaryOff="@string/revanced_disable_translucent_navigation_bar_summary_off" />SETTINGS: DISABLE_TRANSLUCENT_NAVIGATION_BAR -->
+            <!-- SETTINGS: NAVIGATION_BAR_STYLE
+            <app.morphe.extension.shared.settings.preference.CustomDialogListPreference android:title="@string/morphe_navigation_bar_style_title" android:key="morphe_navigation_bar_style" android:entries="@array/morphe_navigation_bar_style_entries" android:entryValues="@array/morphe_navigation_bar_style_entry_values" />SETTINGS: NAVIGATION_BAR_STYLE -->
 
             <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
             <SwitchPreference android:title="@string/revanced_hide_navigation_bar_title" android:key="revanced_hide_navigation_bar" android:summaryOn="@string/revanced_hide_navigation_bar_summary_on" android:summaryOff="@string/revanced_hide_navigation_bar_summary_off" />
