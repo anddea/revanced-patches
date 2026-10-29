@@ -74,6 +74,8 @@ public class PlayerControlsPatch {
     /**
      * Use one custom-button slot between icon centers, including the wider native fullscreen
      * slot. Translate the row as a unit so scrolling and internal button spacing stay intact.
+     * When fullscreen is hidden, reclaim its slot even if the button remains offscreen for
+     * draw callbacks, and align the row with the container's right content edge instead.
      */
     private static void spaceOverlayButtons(View fullscreenButton) {
         if (!(fullscreenButton.getParent() instanceof ViewGroup container)) return;
@@ -81,6 +83,10 @@ public class PlayerControlsPatch {
         float fullscreenCenter = fullscreenButton.getX() + (fullscreenButton.getWidth()
                 + fullscreenButton.getPaddingLeft() - fullscreenButton.getPaddingRight()) / 2f;
         View row = container.findViewById(ResourceUtils.getIdIdentifier("revanced_overlay_buttons_scroll_view"));
+        if (row != null && Settings.HIDE_PLAYER_FULLSCREEN_BUTTON.get()) {
+            row.setTranslationX(container.getWidth() - container.getPaddingRight() - row.getRight());
+            return;
+        }
         if (row instanceof ViewGroup scroll && scroll.getChildCount() > 0
                 && scroll.getChildAt(0) instanceof ViewGroup buttons) {
             for (int i = buttons.getChildCount() - 1; i >= 0; i--) {
