@@ -522,7 +522,7 @@ public final class CommentsSearchFilter extends Filter {
 
         FrameLayout button = new FrameLayout(context);
         button.setTag(SEARCH_BUTTON_TAG);
-        button.setContentDescription(str("morphe_search_comments_dialog_title"));
+        button.setContentDescription(str("morphe_search_comments_title"));
         button.setClickable(true);
         button.setFocusable(true);
 
@@ -561,10 +561,10 @@ public final class CommentsSearchFilter extends Filter {
 
             Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
-                    str("morphe_search_comments_dialog_title"),
+                    str("morphe_search_comments_title"),
                     null,
                     editText,
-                    str("morphe_search_comments_search"),
+                    str("revanced_change_start_page_entry_search"),
                     () -> {
                         String newText = editText.getText().toString();
                         setSearch(newText);

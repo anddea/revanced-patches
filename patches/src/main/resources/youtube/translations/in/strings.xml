@@ -103,6 +103,8 @@ Video diminta dengan awalan pendek dari ID video yang di-hash, sehingga server t
     <string name="morphe_disable_scrolling_speed_limit_title">Nonaktifkan batas kecepatan menggulir</string>
     <string name="morphe_disable_system_splash_summary">Membuat ikon splash sistem statis menjadi transparan</string>
     <string name="morphe_disable_system_splash_title">Nonaktifkan splash sistem</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Menampilkan Subscription di bilah navigasi, jika YouTube memindahkannya ke tab di bagian atas Beranda</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Nonaktifkan tab navigasi toolbar</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Perluas durasi siaran langsung DVR' mungkin tidak tersedia
 
 Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' menjadi 'TV Simply' atau 'visionOS'"</string>
@@ -111,9 +113,9 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_explore_menu_screen_summary">Pilih komponen mana yang akan ditampilkan di menu eksplorasi</string>
     <string name="morphe_explore_menu_screen_title">Menu eksplorasi</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Jika tidak berhasil, coba hentikan paksa MicroG</string>
-    <string name="morphe_feed_long_press_menu_summary">Mengetuk dan menahan di mana saja pada video umpan membuka menunya</string>
+    <string name="morphe_feed_long_press_menu_summary">Mengetuk dan menahan di mana saja pada video feed membuka menunya</string>
     <string name="morphe_feed_long_press_menu_title">Ketuk dan tahan untuk membuka menu video</string>
-    <string name="morphe_feed_watch_later_button_summary">Tombol Tonton nanti ditampilkan pada thumbnail video umpan. Mengetuk dan menekannya akan membuka Simpan ke daftar putar</string>
+    <string name="morphe_feed_watch_later_button_summary">Tombol Tonton nanti ditampilkan pada feed thumbnail video. Mengetuk dan menekannya akan membuka Simpan ke daftar putar</string>
     <string name="morphe_feed_watch_later_button_title">Tampilkan tombol Tonton nanti pada thumbnail</string>
     <string name="morphe_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke klien apa pun kecuali \'Android Studio\' dan \'Android VR Downgraded\'</string>
     <string name="morphe_force_original_audio_summary_off">Menggunakan audio bawaan</string>
@@ -197,6 +199,9 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_livestream_dvr_title">Aktifkan siaran langsung DVR</string>
     <string name="morphe_music_package_name_summary">Nama paket aplikasi musik yang terinstal</string>
     <string name="morphe_music_package_name_title">Nama paket aplikasi musik</string>
+    <string name="morphe_navigation_bar_style_entry_2">Translusen</string>
+    <string name="morphe_navigation_bar_style_title">Gaya bilah navigasi</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Gaya ini mungkin tidak didukung oleh perangkat atau versi YouTube Anda, dan dapat menyebabkan masalah tata letak atau crash</string>
     <string name="morphe_notification_dot_color_summary">Ubah warna dot Notifikasi</string>
     <string name="morphe_notification_dot_color_title">Warna dot Notifikasi</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Tidak dapat masuk ke VR: %s</string>
@@ -225,6 +230,16 @@ Untuk memperbaikinya, aktifkan 'Palsukan aliran video' dan ubah 'Klien bawaan' m
     <string name="morphe_playback_in_feeds_title">Pemutaran di feed</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Sesuaikan opasitas latar belakang di belakang tombol kontrol pemutar dan bilah waktu (0 tidak terlihat, 100 solid)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Opasitas latar belakang tombol kontrol</string>
+    <string name="morphe_post_image_download_failed">Tidak dapat mengunduh gambar</string>
+    <string name="morphe_post_image_download_flyout">Unduh gambar</string>
+    <string name="morphe_post_image_download_flyout_single">Unduh gambar</string>
+    <string name="morphe_post_image_download_not_found">Tidak ditemukan gambar dalam postingan ini</string>
+    <string name="morphe_post_image_download_saved">%1$s gambar disimpan ke %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Gambar disimpan ke %s</string>
+    <string name="morphe_post_image_download_started">Mengunduh %s gambar…</string>
+    <string name="morphe_post_image_download_started_single">Mengunduh gambar…</string>
+    <string name="morphe_post_image_download_summary">Tombol unduh ditampilkan di samping tombol Bagikan pada postingan dengan gambar atau GIF, dan item unduh ditambahkan ke menu mereka</string>
+    <string name="morphe_post_image_download_title">Unduh gambar postingan</string>
     <string name="morphe_potoken_provider_summary">"Memperbaiki isu Playback menggunakan provider PoToken bawaan (Experimental)
 
 Jika anda pengguna YouTube Premium, pengaturan ini mungkin tidak diperlukan"</string>
@@ -265,6 +280,12 @@ Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Memungkinkan Anda menyimpan Shorts ke \'Tonton Nanti\' melalui menu flyout</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Tampilkan tombol Simpan ke Tonton Nanti di flyout Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video berhasil disimpan di daftar tonton nanti</string>
+    <string name="morphe_search_comments_applied">Ubah urutan pengurutan atau buka kembali komentar untuk mencarinya</string>
+    <string name="morphe_search_comments_clear">Hapus</string>
+    <string name="morphe_search_comments_cleared">Pencarian dihapus. Ubah urutan pengurutan atau buka kembali komentar untuk menampilkan semua komentar</string>
+    <string name="morphe_search_comments_hint">Kata yang ingin dicari</string>
+    <string name="morphe_search_comments_summary">Ketuk tombol cari di komentar untuk menampilkan hanya komentar yang dimuat yang mengandung semua kata yang dicari. Letakkan kata dalam tanda kutip untuk mencari frasa</string>
+    <string name="morphe_search_comments_title">Cari komentar</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Paling sering di-replay</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Menampilkan thumbnail video saat menggeser bilah geser</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Aktifkan thumbnail pada bilah geser</string>
@@ -275,6 +296,8 @@ Untuk menggunakan fitur ini, matikan \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_custom_item_hint">Masukkan nama</string>
     <string name="morphe_settings_name_empty_warning">Nama tidak boleh kosong</string>
     <string name="morphe_settings_name_title">Nama setelan RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">Jumlah hari titik ditampilkan di samping setelan dan opsi yang ditambahkan oleh pembaruan</string>
+    <string name="morphe_settings_new_indicator_days_title">Sorot setelan baru</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Hanya jeda yang setidaknya selama ini yang dipersingkat. Berlaku saat video berikutnya dimulai</string>
     <string name="morphe_skip_silence_minimum_pause_title">Durasi jeda minimum</string>
     <string name="morphe_skip_silence_summary">Secara otomatis melewati jeda hening di audio video</string>
@@ -1881,6 +1904,8 @@ Masalah ini dapat diatasi dengan mudah dengan mengklik tombol 'Muat Ulang Video'
 
 Di antara klien JavaScript, klien yang direkomendasikan adalah TV Simply"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Tentang Android VR Auth</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Solid</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Transparan</string>
     <string name="revanced_swipe_brightness_summary_off">Pengusapan kecerahan layar penuh dinonaktifkan</string>
     <string name="revanced_swipe_brightness_summary_on">"Pengusapan kecerahan layar penuh diaktifkan
 
@@ -1892,7 +1917,7 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Mengusap ke bawah ke nilai terendah tidak mengaktifkan kecerahan otomatis</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Mengusap ke bawah ke nilai terendah dari gerakan kecerahan akan menyalakan kecerahan otomatis</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktifkan gerakan kecerahan otomatis</string>
-    <string name="revanced_swipe_overlay_background_opacity_summary">Sesuaikan level transparansi (0 transparan, 100 buram)</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">Sesuaikan level transparansi (0 transparan, 100 pekat)</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Opasitas latar belakang hamparan usap</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Atur warna bilah kemajuan kontrol kecerahan</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Warna kecerahan lapisan usap</string>

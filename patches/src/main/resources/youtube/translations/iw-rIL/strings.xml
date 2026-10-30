@@ -92,6 +92,8 @@
     <string name="morphe_disable_quic_protocol_summary_on">פרוטוקול QUIC מושבת</string>
     <string name="morphe_disable_quic_protocol_title">השבת פרוטוקול QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">השבת מגבלת מהירות גלילה</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">מציג את \"מנויים\" בסרגל הניווט, אם YouTube מעביר זאת ללשונית בחלק העליון של דף הבית</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">בטל לשוניות ניווט בסרגל הכלים</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'הרחבת משך ה-DVR לשידורים חיים' אולי לא תהיה זמינה
 
 כדי לתקן זאת, הפעל את 'זיוף הזרמות וידאו' ושנה את 'הלקוח המוגדר כברירת מחדל' ל-'TV Simply' או 'visionOS'"</string>
@@ -184,6 +186,9 @@
     <string name="morphe_livestream_dvr_title">הפעל DVR לשידור חי</string>
     <string name="morphe_music_package_name_summary">שם החבילה של אפליקציית המוזיקה המותקנת שלך</string>
     <string name="morphe_music_package_name_title">שם החבילה של אפליקציית המוזיקה</string>
+    <string name="morphe_navigation_bar_style_entry_2">חצי שקוף</string>
+    <string name="morphe_navigation_bar_style_title">סגנון סרגל ניווט</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">סגנון זה עשוי שלא להיות נתמך על ידי המכשיר שלך או גרסת ה-YouTube, ועלול לגרום לבעיות פריסה או לקריסות</string>
     <string name="morphe_oauth2_connection_failure_auth_error">לא ניתן להתחבר ל-VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">לא ניתן להתחבר ל-VR, אישור אימות אתר לא אושר</string>
     <string name="morphe_oauth2_connection_failure_generic">Очнення временно недоступен</string>
@@ -210,6 +215,16 @@
     <string name="morphe_playback_in_feeds_title">השמעה בפידים</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">כוונן את אטימות הרקע מאחורי כפתורי בקרת הנגן ופס הזמן (0 בלתי נראה, 100 אטום)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">אטימות הרקע של כפתורי השליטה</string>
+    <string name="morphe_post_image_download_failed">לא ניתן להוריד את התמונה</string>
+    <string name="morphe_post_image_download_flyout">הורדת תמונות</string>
+    <string name="morphe_post_image_download_flyout_single">הורדת תמונה</string>
+    <string name="morphe_post_image_download_not_found">לא נמצאה תמונה בפוסט זה</string>
+    <string name="morphe_post_image_download_saved">%1$s תמונות נשמרו ב-%2$s</string>
+    <string name="morphe_post_image_download_saved_single">התמונה נשמרה ב-%s</string>
+    <string name="morphe_post_image_download_started">הורדת %s תמונות...</string>
+    <string name="morphe_post_image_download_started_single">מוריד תמונה…</string>
+    <string name="morphe_post_image_download_summary">כפתור הורדה מוצג לצד כפתור השיתוף של פוסטים עם תמונות או GIF, ופריט הורדה מתווסף לתפריט שלהם</string>
+    <string name="morphe_post_image_download_title">הורדת תמונות פוסט</string>
     <string name="morphe_preferred_caption_language_summary">בוחר תחילה בכתוביות של הספק, ולאחר מכן מתרגם אותן אוטומטית לשפה המועדפת</string>
     <string name="morphe_preferred_caption_language_title">שפת כתוביות מועדפת</string>
     <string name="morphe_queue_manager_check_failed_auth">לא מחובר</string>
@@ -243,6 +258,12 @@
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">מאפשר לשמור סרטונים קצרים ברשימת \'צפה מאוחר יותר\' מהתפריט הנפתח</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">הצג כפתור שמירה ל\'צפה מאוחר יותר\' בתפריט הנפתח של הסרטונים הקצרים</string>
     <string name="morphe_save_to_watch_later_success_toast">הסרטון נשמר בהצלחה בפלייליסט \'צפייה מאוחרת\'</string>
+    <string name="morphe_search_comments_applied">שנו את סדר המיון או פתחו שוב את התגובות כדי לחפש בהן</string>
+    <string name="morphe_search_comments_clear">נקה</string>
+    <string name="morphe_search_comments_cleared">החיפוש נוקה. שנו את סדר המיון או פתחו שוב את התגובות כדי להציג את כל התגובות</string>
+    <string name="morphe_search_comments_hint">מילים לחיפוש</string>
+    <string name="morphe_search_comments_summary">הקישו על כפתור החיפוש בתגובות כדי להציג רק את התגובות שנטענו ומכילות את כל המילים שחפשתם. הקיפו מילים במרכאות כדי לחפש ביטוי</string>
+    <string name="morphe_search_comments_title">חיפוש תגובות</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">הכי הרבה השמעות חוזרות</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">מציג תמונה ממוזערת של הסרטון בזמן גרירת סרגל החיפוש</string>
     <string name="morphe_seekbar_thumbnail_preview_title">אפשר תמונות ממוזערות בסרגל החיפוש</string>
@@ -253,6 +274,8 @@
     <string name="morphe_settings_name_custom_item_hint">הזן שם</string>
     <string name="morphe_settings_name_empty_warning">השם לא יכול להיות ריק</string>
     <string name="morphe_settings_name_title">שם ההגדרות של RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">מספר הימים שבהם נקודה תוצג לצד הגדרות ואפשרויות שנוספו בעדכון</string>
+    <string name="morphe_settings_new_indicator_days_title">הדגשת הגדרות חדשות</string>
     <string name="morphe_skip_silence_minimum_pause_summary">רק הפסקות שאורכן לפחות משך זה יתקצרו. ההגדרה תיכנס לתוקף כשהסרטון הבא מתחיל</string>
     <string name="morphe_skip_silence_minimum_pause_title">אורך הפסקה מינימלי</string>
     <string name="morphe_skip_silence_summary">מדלג אוטומטית על הפסקות שקט באודיו של וידאו</string>
@@ -442,20 +465,21 @@
     <string name="revanced_change_form_factor_title">פריסת מכשיר</string>
     <string name="revanced_change_form_factor_user_dialog_message">"השינויים כוללים:
 
-פריסת טאבלט
-• פוסטים קהילתיים מוסתרים
-• הגדרת השמעה בפידים אינה זמינה
-• כפתור רמיקס וכפתור סאונד אינם זמינים ב-Shorts
-• שכבת 'עוד סרטונים' עשויה לא להיות זמינה
-• סרגל פעולות וידאו ישן שאינו מקופל מוצג
+מסמך טאבלט
+• פוסטים בקהילה מוסתרים
+• הגדרת ניגון בריבים אינה זמינה
+• כפתורי הרמיקס וצליל אינם זמינים בסרטונים קצרים
+• ייתכן ששכבת העל 'סרטונים נוספים' לא תהיה זמינה
+• יישור הפעולה הישן לא המקופל של הסרטון מוצג
+• פריטי תפריט קופץ עשויים לא לעבוד כראוי
 
-פריסה לרכב
-• הפיד מאורגן לפי נושאים וערוצים
-• הגדרת השמעה בפידים אינה זמינה
-• כפתור רמיקס וכפתור סאונד אינם זמינים ב-Shorts
-• שכבת 'עוד סרטונים' עשויה לא להיות זמינה
-• Shorts נפתחים בנגן הרגיל
-• סרגל פעולות וידאו ישן שאינו מקופל מוצג"</string>
+מסמך רכב
+• הריב מסודר לפי נושאים וערוצים
+• הגדרת ניגון בריבים אינה זמינה
+• כפתורים של הרמיקס וצליל אינם זמינים בסרטונים קצרים
+• ייתכן ששכבת העל 'סרטונים נוספים' לא תהיה זמינה
+• סרטונים קצרים נפתחים בנגן הרגיל
+• יישור הפעולה הישן לא המקופל של הסרטון מוצג"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">נעשה שימוש במתגים</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">נעשה שימוש בלחצני טקסט</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">שנה את סוג החלפת המצב</string>
@@ -1324,6 +1348,8 @@
 אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש"</string>
     <string name="revanced_spoof_device_dimensions_summary">הפעלת אפשרות זו עשויה לאפשר איכויות וידאו גבוהות יותר</string>
     <string name="revanced_spoof_device_dimensions_title">זייף ממדי מכשיר</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">אטום</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">שקוף</string>
     <string name="revanced_swipe_brightness_summary_off">החלקת בהירות במסך מלא מושבתת</string>
     <string name="revanced_swipe_brightness_summary_on">"החלקת בהירות במסך מלא מופעלת
 

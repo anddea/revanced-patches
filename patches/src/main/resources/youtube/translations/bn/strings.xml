@@ -92,6 +92,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_disable_quic_protocol_summary_on">কিউআইসি প্রোটোকল বন্ধ আছে</string>
     <string name="morphe_disable_quic_protocol_title">কিউআইসি প্রোটোকল বন্ধ করুন</string>
     <string name="morphe_disable_scrolling_speed_limit_title">স্ক্রলিং গতির সীমা অক্ষম করুন</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">যদি YouTube এটিকে হোমের উপরের একটি ট্যাবে সরিয়ে নেয়, তবে এটি নেভিগেশন বারে সাবস্ক্রিপশনগুলো দেখাবে</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">টুলবার নেভিগেশন ট্যাব নিষ্ক্রিয় করুন</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'লাইভ স্ট্রিম ডিভিআর সময়কাল বাড়ান' উপলব্ধ নাও হতে পারে
 
 এটি ঠিক করতে, 'ভিডিও স্ট্রিম স্পুফ করুন' চালু করুন এবং 'ডিফল্ট ক্লায়েন্ট' পরিবর্তন করে 'TV Simply' বা 'visionOS' করুন"</string>
@@ -184,6 +186,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_livestream_dvr_title">লাইভস্ট্রিম ডিভিআর সক্রিয় করুন</string>
     <string name="morphe_music_package_name_summary">আপনার ইনস্টল করা মিউজিক অ্যাপের প্যাকেজ নাম</string>
     <string name="morphe_music_package_name_title">মিউজিক অ্যাপ প্যাকেজ নাম</string>
+    <string name="morphe_navigation_bar_style_entry_2">অর্ধস্বচ্ছ</string>
+    <string name="morphe_navigation_bar_style_title">নেভিগেশন বার স্টাইল</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">এই স্টাইলটি আপনার ডিভাইস বা YouTube ভার্সন দ্বারা সমর্থিত নাও হতে পারে এবং এর ফলে লেআউটে সমস্যা হতে পারে বা ক্র্যাশ করতে পারে</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR এ প্রবেশ করতে ব্যর্থ হয়েছে: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">ভিআরতে সাইন ইন করতে পারছেন না, ওয়েবসাইট অথেন্টিকেশন অনুমোদিত হয়নি</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 সাময়িকভাবে উপলব্ধ নয়</string>
@@ -210,6 +215,16 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_playback_in_feeds_title">ফিডে প্লেব্যাক</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">প্লেয়ার কন্ট্রোল বাটন এবং টাইম বারের পিছনের ব্যাকগ্রাউন্ডের অস্বচ্ছতা সামঞ্জস্য করুন (0 অদৃশ্য, 100 অস্বচ্ছ)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">কন্ট্রোল বাটনের পটভূমির অস্বচ্ছতা</string>
+    <string name="morphe_post_image_download_failed">ছবিটি ডাউনলোড করা সম্ভব হয়নি</string>
+    <string name="morphe_post_image_download_flyout">ছবিগুলো ডাউনলোড করুন</string>
+    <string name="morphe_post_image_download_flyout_single">ছবি ডাউনলোড করুন</string>
+    <string name="morphe_post_image_download_not_found">এই পোস্টে কোনো ছবি পাওয়া যায়নি</string>
+    <string name="morphe_post_image_download_saved">%1$sটি ছবি %2$s-এ সংরক্ষণ করা হয়েছে</string>
+    <string name="morphe_post_image_download_saved_single">ছবিটি %s-এ সংরক্ষণ করা হয়েছে</string>
+    <string name="morphe_post_image_download_started">%sটি ছবি ডাউনলোড করা হচ্ছে…</string>
+    <string name="morphe_post_image_download_started_single">ছবি ডাউনলোড করা হচ্ছে…</string>
+    <string name="morphe_post_image_download_summary">ছবি বা GIF যুক্ত পোস্টের শেয়ার বাটনের পাশে একটি ডাউনলোড বাটন দেখানো হবে, এবং তাদের মেনুতে একটি ডাউনলোড আইটেম যোগ করা হবে</string>
+    <string name="morphe_post_image_download_title">পোস্টের ছবি ডাউনলোড করুন</string>
     <string name="morphe_preferred_caption_language_summary">প্রথমে প্রদানকারীর সাবটাইটেল নির্বাচন করে, তারপর স্বয়ংক্রিয়ভাবে পছন্দের ভাষায় অনুবাদ করে</string>
     <string name="morphe_preferred_caption_language_title">পছন্দের ক্যাপশন ভাষা</string>
     <string name="morphe_queue_manager_check_failed_auth">লগইন করা হয়নি</string>
@@ -243,6 +258,12 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">ফ্লাইআউট মেনু থেকে \'পরে দেখুন\'-এ শর্টস সংরক্ষণ করার অনুমতি দেয়</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">শর্টস ফ্লাইআউটে \'পরে দেখুন\'-এ সংরক্ষণ করার বোতাম দেখান</string>
     <string name="morphe_save_to_watch_later_success_toast">ভিডিওটি সফলভাবে পরে দেখার প্লেলিস্টে সেভ করা হয়েছে</string>
+    <string name="morphe_search_comments_applied">সর্টিং অর্ডার পরিবর্তন করুন অথবা অনুসন্ধান করার জন্য পুনরায় মন্তব্যগুলো খুলুন</string>
+    <string name="morphe_search_comments_clear">মুছে ফেলুন</string>
+    <string name="morphe_search_comments_cleared">অনুসন্ধান মুছে ফেলা হয়েছে। সব মন্তব্য দেখাতে সর্টিং অর্ডার পরিবর্তন করুন অথবা মন্তব্যগুলি আবার খুলুন</string>
+    <string name="morphe_search_comments_hint">অনুসন্ধান করার শব্দ</string>
+    <string name="morphe_search_comments_summary">শুধুমাত্র লোড হওয়া সেই মন্তব্যগুলো দেখানোর জন্য মন্তব্যের সার্চ বাটনে ট্যাপ করুন যেগুলোতে অনুসন্ধান করা সমস্ত শব্দ রয়েছে। কোনো নির্দিষ্ট শব্দগুচ্ছ অনুসন্ধান করতে শব্দগুলোকে উদ্ধৃতি চিহ্নের মধ্যে রাখুন</string>
+    <string name="morphe_search_comments_title">মন্তব্য অনুসন্ধান করুন</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">সবচেয়ে বেশি রিপ্লে করা</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">সীকবಾರ್ টেনে আনার সময় একটি ভিডিও থাম্বনেইল দেখায়</string>
     <string name="morphe_seekbar_thumbnail_preview_title">সিকবার থাম্বনেইল সক্ষম করুন</string>
@@ -253,6 +274,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
     <string name="morphe_settings_name_custom_item_hint">একটি নাম লিখুন</string>
     <string name="morphe_settings_name_empty_warning">নাম খালি হতে পারবে না</string>
     <string name="morphe_settings_name_title">RVX সেটিংসের নাম</string>
+    <string name="morphe_settings_new_indicator_days_summary">আপডেটের মাধ্যমে যুক্ত সেটিংস এবং অপশনগুলোর পাশে কত দিন একটি ডট দেখানো হবে</string>
+    <string name="morphe_settings_new_indicator_days_title">নতুন সেটিংস হাইলাইট করুন</string>
     <string name="morphe_skip_silence_minimum_pause_summary">কেবলমাত্র এই দৈর্ঘ্যের বা তার বেশি দীর্ঘ বিরতিগুলো সংক্ষিপ্ত করা হয়। পরবর্তী ভিডিও শুরু হলে এটি কার্যকর হয়</string>
     <string name="morphe_skip_silence_minimum_pause_title">সর্বনিম্ন বিরতির দৈর্ঘ্য</string>
     <string name="morphe_skip_silence_summary">ভিডিও অডিওর নীরব বিরতিগুলি স্বয়ংক্রিয়ভাবে এড়িয়ে যাওয়া হয়</string>
@@ -443,7 +466,23 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
     <string name="revanced_change_form_factor_entry_5">ট্যাবলেট (ন্যূনতম ৬০০ ডিপিআই)</string>
     <string name="revanced_change_form_factor_entry_6">গাড়ি সম্পর্কিত</string>
     <string name="revanced_change_form_factor_title">ডিভাইস লেআউট</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"'On-the-go' মেনু লুকান"</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"পরিবর্তনগুলোর মধ্যে রয়েছে:
+
+ট্যাবলেট লেআউট
+• কমিউনিটি পোস্টগুলো লুকানো থাকে
+• ফিড-এ প্লেব্যাক সেটিংটি উপলব্ধ নেই
+• শর্টস-এ রিমিক্স বোতাম এবং সাউন্ড বোতাম উপলব্ধ নেই
+• 'আরও ভিডিও' ওভারলে উপলব্ধ নাও হতে পারে
+• নন-ক্ল্যাপসড পুরনো ভিডিও অ্যাকশন বার দেখানো হয়
+• ফ্লাইআউট মেনু আইটেমগুলো সঠিকভাবে কাজ নাও করতে পারে
+
+অটোমোটিভ লেআউট
+• ফিডটি টপিক এবং চ্যানেল অনুযায়ী সাজানো থাকে
+• ফিড-এ প্লেব্যাক সেটিংটি উপলব্ধ নেই
+• শর্টস-এ রিমিক্স বোতাম এবং সাউন্ড বোতাম উপলব্ধ নেই
+• 'আরও ভিডিও' ওভারলে উপলব্ধ নাও হতে পারে
+• শর্টসগুলো সাধারণ প্লেয়ারে খোলে
+• নন-ক্ল্যাপসড পুরনো ভিডিও অ্যাকশন বার দেখানো হয়"</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">অন্য়াসব রভর্বাশার চিয়ুট</string>
     <string name="revanced_change_start_page_entry_browse">চ্যানেল ব্রাউজ করুন</string>
     <string name="revanced_change_start_page_entry_courses">কোর্সু চবুভায় চা চেরারুকে</string>
@@ -1264,6 +1303,8 @@ OpenRouter.ai ওপেন করতে এখানে ট্যাপ কর�
 পরবর্তীতে এটি বন্ধ করলে, UI বাগ এড়াতে অ্যাপের ডেটা ক্লিয়ার করার পরামর্শ দেওয়া হয়"</string>
     <string name="revanced_spoof_device_dimensions_summary">এটি সক্রিয় করা উচ্চ ভিডিও গুণমানগুলি আনলক করতে পারে।</string>
     <string name="revanced_spoof_device_dimensions_title">ডিভাইস ডাইমেনশন স্পুফ করুন</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">অস্বচ্ছ</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">স্বচ্ছ</string>
     <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe disabled করা হয়েছে</string>
     <string name="revanced_swipe_brightness_summary_on">"Fullscreen brightness swipe enabled আছে
 

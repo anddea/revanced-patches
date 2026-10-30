@@ -500,8 +500,8 @@
     <string-array name="morphe_music_lyrics_romanization_provider_entries">
         <item>@string/morphe_music_lyrics_romanization_provider_google</item>
         <item>@string/morphe_music_lyrics_romanization_provider_local</item>
-        <item>@string/morphe_music_lyrics_romanization_provider_gemini</item>
-        <item>@string/morphe_music_lyrics_romanization_provider_openai_compatible</item>
+        <item>@string/morphe_music_lyrics_translation_provider_gemini</item>
+        <item>@string/morphe_music_lyrics_translation_provider_openai_compatible</item>
     </string-array>
     <string-array name="morphe_music_lyrics_romanization_provider_entry_values">
         <item>google</item>
@@ -510,7 +510,7 @@
         <item>openai_compatible</item>
     </string-array>
     <string-array name="morphe_music_lyrics_rime_char_source_entries">
-        <item>@string/morphe_music_lyrics_rime_char_source_auto</item>
+        <item>@string/morphe_romanize_language_DEFAULT</item>
         <item>@string/morphe_music_lyrics_rime_char_source_cantonese</item>
         <item>@string/morphe_music_lyrics_rime_char_source_pinyin</item>
         <item>@string/morphe_music_lyrics_rime_char_source_none</item>

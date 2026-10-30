@@ -104,6 +104,8 @@ Zgłoszenia są publiczne i podlegają weryfikacji przed dodaniem kanału do lis
     <string name="morphe_disable_scrolling_speed_limit_title">Wyłącz limit prędkości przewijania</string>
     <string name="morphe_disable_system_splash_summary">Sprawia, że ​​ikona powitalna systemu statycznego staje się przezroczysta</string>
     <string name="morphe_disable_system_splash_title">Wyłącz powitanie systemowe</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Wyświetla Subskrypcje na pasku nawigacji, jeśli YouTube przeniesie je do zakładki na górze strony głównej</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Wyłącz zakładki nawigacji na pasku narzędzi</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Opcja \"Wydłuż czas przewijania transmisji na żywo\" może być niedostępna
 
 ​Aby to naprawić, włącz \"Fałszowanie strumieni filmów\" i zmień \"Domyślny klient\" na \"TV Simply\" lub \"visionOS\""</string>
@@ -198,6 +200,9 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_livestream_dvr_title">Włącz przewijanie transmisji na żywo</string>
     <string name="morphe_music_package_name_summary">Nazwa pakietu zainstalowanej aplikacji muzycznej</string>
     <string name="morphe_music_package_name_title">Nazwa pakietu aplikacji muzycznej</string>
+    <string name="morphe_navigation_bar_style_entry_2">Półprzezroczysty</string>
+    <string name="morphe_navigation_bar_style_title">Styl paska nawigacji</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Ten styl może nie być obsługiwany przez Twoje urządzenie lub wersję YouTube i może powodować błędy układu lub awarie aplikacji</string>
     <string name="morphe_notification_dot_color_summary">Zmienia kolor kropek powiadomień</string>
     <string name="morphe_notification_dot_color_title">Kolor kropki powiadomienia</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nie można zalogować się do VR: %s</string>
@@ -226,6 +231,16 @@ Lista jest pobierana z GitHuba, a filmy są filtrowane na Twoim urządzeniu"</st
     <string name="morphe_playback_in_feeds_title">Odtwarzanie w kanałach</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Dostosuj krycie tła za przyciskami sterowania odtwarzacza i paskiem czasu (0 to brak krycia, 100 to pełne krycie)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Krycie tła przycisków sterowania</string>
+    <string name="morphe_post_image_download_failed">Nie udało się pobrać obrazu</string>
+    <string name="morphe_post_image_download_flyout">Pobierz obrazy</string>
+    <string name="morphe_post_image_download_flyout_single">Pobierz obraz</string>
+    <string name="morphe_post_image_download_not_found">Nie znaleziono obrazu w tym poście</string>
+    <string name="morphe_post_image_download_saved">Zapisano %1$s obrazów w %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Zapisano obraz w %s</string>
+    <string name="morphe_post_image_download_started">Pobieranie %s obrazów…</string>
+    <string name="morphe_post_image_download_started_single">Pobieranie obrazu…</string>
+    <string name="morphe_post_image_download_summary">Pokazuje przycisk pobierania obok przycisku \"Udostępnij\" pod postami z obrazami lub plikami GIF oraz dodaje opcję pobierania do ich menu</string>
+    <string name="morphe_post_image_download_title">Pobieraj obrazy z postów</string>
     <string name="morphe_potoken_provider_expired_dialog_message">"Token wbudowany w tę wersję dostawcy PoToken już nie działa
 
 Włączyć \'Fałszywanie strumienia wideo\' aby naprawić odtwarzanie"</string>
@@ -271,8 +286,14 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Umożliwia zapisywanie filmów Short na liście \"Do obejrzenia\" z poziomu menu</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Pokaż przycisk \"Zapisz do obejrzenia\" w menu Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Zapisano na playliście \"Do obejrzenia\"</string>
+    <string name="morphe_search_comments_applied">Zmień kolejność sortowania lub otwórz komentarze ponownie, aby je przeszukać</string>
+    <string name="morphe_search_comments_clear">Wyczyść</string>
+    <string name="morphe_search_comments_cleared">Wyczyszczono wyszukiwanie. Zmień kolejność sortowania lub otwórz komentarze ponownie, aby wyświetlić wszystkie komentarze</string>
+    <string name="morphe_search_comments_hint">Szukane słowa</string>
+    <string name="morphe_search_comments_summary">Dotknij przycisku wyszukiwania w sekcji komentarzy, aby wyświetlić tylko te wczytane komentarze, które zawierają wszystkie szukane słowa. Ujmij słowa w cudzysłów, aby wyszukać dokładną frazę</string>
+    <string name="morphe_search_comments_title">Szukaj w komentarzach</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Najczęściej odtwarzane</string>
-    <string name="morphe_seekbar_thumbnail_preview_summary">Pokazuje podgląd filmu podczas przeciągania paska postępu</string>
+    <string name="morphe_seekbar_thumbnail_preview_summary">Wyświetla podgląd filmu podczas przeciągania paska postępu</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Włącz podgląd na pasku postępu</string>
     <string name="morphe_settings_menu_copy_path">Skopiowano: %s</string>
     <string name="morphe_settings_menu_filter_picker_empty">Otwórz standardowy ekran ustawień aplikacji raz, aby wypełnić listę</string>
@@ -281,6 +302,8 @@ Aby korzystać z tej funkcji, wyłącz ją. \'Fałszywe strumienie wideo\'"</str
     <string name="morphe_settings_name_custom_item_hint">Wprowadź nazwę</string>
     <string name="morphe_settings_name_empty_warning">Nazwa nie może być pusta</string>
     <string name="morphe_settings_name_title">Nazwa ustawień RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">Liczba dni, przez które kropka jest wyświetlana obok ustawień i opcji dodanych w aktualizacji</string>
+    <string name="morphe_settings_new_indicator_days_title">Wyróżnij nowe ustawienia</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Skracane są tylko pauzy trwające co najmniej tak długo. Zmiana wejdzie w życie po uruchomieniu kolejnego filmu</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimalna długość pauzy</string>
     <string name="morphe_skip_silence_summary">Automatycznie pomija ciche fragmenty w dźwięku filmu</string>
@@ -511,6 +534,7 @@ Układ tabletowy
 • Przyciski Remiks i Dźwięk nie są dostępne w Shortsach
 • Nakładka \"Więcej filmów\" może nie być dostępna
 • Stary pasek akcji filmu nie jest zwinięty
+• Elementy menu mogą nie działać prawidłowo
 
 Układ samochodowy
 • Strona główna jest uporządkowana według tematów i kanałów
@@ -1734,6 +1758,11 @@ Znany problem: gdy opcja jest włączona, YouTube Doodles stają się nieklikaln
     <string name="revanced_icon_xisr_yellow">Xisr Żółty</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube Czarny</string>
+    <string name="revanced_in_app_downloader_summary_off">Przyciski pobierania wideo korzystają z zewnętrznego programu do pobierania</string>
+    <string name="revanced_in_app_downloader_summary_on">"Przyciski pobierania wideo umożliwiają pobieranie za pomocą wbudowanego programu do pobierania i zapisywanie w folderze Filmy/RVX
+
+Przy każdym pobieraniu wyświetlany jest selektor jakości"</string>
+    <string name="revanced_in_app_downloader_title">Wbudowany program do pobierania</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">Nie</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">Tak</string>
     <string name="revanced_invert_snack_bar_theme_title">Odwróć motyw komunikatów</string>
@@ -1858,9 +1887,62 @@ Miniodtwarzacz można przeciągnąć poza ekran w lewo lub prawo"</string>
     <string name="revanced_navigation_bar_order_drag_handle">Przeciągnij, aby zmienić kolejność</string>
     <string name="revanced_navigation_bar_order_summary">Przeciągnij elementy nawigacji w kolejności, w jakiej powinny się pojawiać</string>
     <string name="revanced_navigation_bar_order_title">Kolejność paska nawigacji</string>
+    <string name="revanced_offline_action_delete">Usunąć</string>
+    <string name="revanced_offline_action_open_youtube">Otwórz na YouTube</string>
+    <string name="revanced_offline_action_play_background">Odtwórz w tle</string>
+    <string name="revanced_offline_action_share">Udostępnij</string>
+    <string name="revanced_offline_already_downloaded">Ten film jest już pobrany</string>
+    <string name="revanced_offline_already_downloading">Ten film jest już pobierany</string>
+    <string name="revanced_offline_av1_unplayable_toast">To urządzenie może nie odtwarzać tego filmu AV1. Obraz może pozostać pusty</string>
+    <string name="revanced_offline_close">Zamknąć</string>
+    <string name="revanced_offline_delete_message">Usunąć \"%s\" z tego urządzenia?</string>
+    <string name="revanced_offline_delete_title">Usuń pobieranie</string>
+    <string name="revanced_offline_download_complete">Pobieranie zakończone</string>
+    <string name="revanced_offline_download_complete_toast">Pobrano: %s</string>
+    <string name="revanced_offline_download_failed">Pobieranie nie powiodło się: %s</string>
+    <string name="revanced_offline_download_merging">Łączenie obrazu i dźwięku…</string>
+    <string name="revanced_offline_download_preparing">Przygotowuję pobieranie…</string>
+    <string name="revanced_offline_download_progress">Ściąganie %d%%</string>
+    <string name="revanced_offline_download_queued">W kolejce</string>
+    <string name="revanced_offline_download_queued_count">%d w kolejce</string>
+    <string name="revanced_offline_download_saving">Zapisywanie do Filmów/RVX…</string>
+    <string name="revanced_offline_download_started">Pobieranie rozpoczęte</string>
+    <string name="revanced_offline_download_starting">Startowy…</string>
+    <string name="revanced_offline_download_unavailable">Tego filmu nie można pobrać</string>
+    <string name="revanced_offline_error_forbidden">Serwer wideo odmówił pobrania</string>
+    <string name="revanced_offline_error_space">Za mało wolnego miejsca, %s wymagane</string>
+    <string name="revanced_offline_error_time_limit">Osiągnięto \' limit czasu pobierania w tle na Androidzie</string>
+    <string name="revanced_offline_library_empty">Nie ma jeszcze pobranych filmów</string>
+    <string name="revanced_offline_library_no_results">Brak plików do pobrania odpowiadających twojemu wyszukiwaniu</string>
+    <string name="revanced_offline_library_resume">Wznów w %s</string>
+    <string name="revanced_offline_library_search">Wyszukaj pliki do pobrania</string>
+    <string name="revanced_offline_library_sort">Sortować</string>
+    <string name="revanced_offline_library_sort_title">Tytuł</string>
+    <string name="revanced_offline_library_title">Pliki pobrania</string>
+    <string name="revanced_offline_loading_formats">Ładowanie dostępnych jakości…</string>
+    <string name="revanced_offline_next">Następny</string>
+    <string name="revanced_offline_no_formats">Nie znaleziono jakości do pobrania dla tego filmu</string>
+    <string name="revanced_offline_nothing_playing">Nic nie gra</string>
+    <string name="revanced_offline_notification_channel_downloads">Pobieranie filmów</string>
+    <string name="revanced_offline_notification_channel_playback">Odtwarzanie offline</string>
+    <string name="revanced_offline_pause">Pauza</string>
+    <string name="revanced_offline_picker_av1_hint">Mniejszy plik</string>
+    <string name="revanced_offline_picker_av1_unplayable">nie \' może grać na tym urządzeniu</string>
+    <string name="revanced_offline_picker_footer">Zapisano w filmach/RVX (MP4 lub WebM dla VP9)</string>
+    <string name="revanced_offline_picker_h264_hint">Gra wszędzie</string>
+    <string name="revanced_offline_picker_subtitle">Jakość pobierania</string>
+    <string name="revanced_offline_picker_vp9_hint">Odtwarza się na tym urządzeniu</string>
+    <string name="revanced_offline_play">Graj</string>
+    <string name="revanced_offline_playback_error">Nie można odtworzyć tego filmu</string>
+    <string name="revanced_offline_playing_background">Odtwarzanie w tle</string>
+    <string name="revanced_offline_previous">Poprzedni</string>
+    <string name="revanced_offline_share_unsupported">Udostępnianie nie jest obsługiwane w tej wersji Androida</string>
+    <string name="revanced_offline_video_missing">To pobieranie już nie istnieje</string>
     <string name="revanced_open_links_externally_summary_off">Wyłączona</string>
     <string name="revanced_open_links_externally_summary_on">Włączona</string>
     <string name="revanced_open_links_externally_title">Zewnętrzna przeglądarka</string>
+    <string name="revanced_open_offline_library_summary">Filmy pobrane za pomocą wbudowanego programu do pobierania</string>
+    <string name="revanced_open_offline_library_title">Otwórz bibliotekę offline</string>
     <string name="revanced_overlay_button">Przyciski w odtwarzaczu</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Stuknij, by zmienić stan pętli
 Stuknij i przytrzymaj, by zmienić stan pętli z pauzą"</string>
@@ -2145,6 +2227,9 @@ Informacje:
     <string name="revanced_replace_channel_handle_summary_off">Po nicku</string>
     <string name="revanced_replace_channel_handle_summary_on">Po nazwie</string>
     <string name="revanced_replace_channel_handle_title">Wyświetlanie tytułu kanału</string>
+    <string name="revanced_replace_downloads_page_summary_off">YouTube\' Strona jest wyświetlana</string>
+    <string name="revanced_replace_downloads_page_summary_on">YouTube\' Strona jest ukryta</string>
+    <string name="revanced_replace_downloads_page_title">Zastąp stronę pobierania</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Stuknij, aby wyświetlić pozostały czas</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Stuknij, aby otworzyć menu od prędkości odtwarzania lub jakości</string>
     <string name="revanced_replace_time_stamp_action_title">Działanie informacji obok czasu</string>
@@ -2566,6 +2651,9 @@ Większość błędów nie może być naprawiona w skutek ograniczeń po stronie
     <string name="revanced_shorts_player_type_regular_player">Standardowym odtwarzaczu</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Standardowym odtwarzaczu (pełny ekran)</string>
     <string name="revanced_shorts_player_type_title">Otwieraj Shorts w</string>
+    <string name="revanced_show_offline_library_button_summary_off">Brak przycisku Pobieranie na karcie Ty</string>
+    <string name="revanced_show_offline_library_button_summary_on">Przycisk Pobieranie na karcie Ty otwiera bibliotekę offline</string>
+    <string name="revanced_show_offline_library_button_title">Przycisk „Pobierz” w zakładce Ty</string>
     <string name="revanced_show_search_button_summary_off">Ukryty</string>
     <string name="revanced_show_search_button_title">Pokaż przycisk Szukaj</string>
     <string name="revanced_show_settings_button_summary_off">Ukryty</string>

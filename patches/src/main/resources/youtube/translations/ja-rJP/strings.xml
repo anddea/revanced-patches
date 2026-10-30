@@ -106,6 +106,8 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_disable_scrolling_speed_limit_title">スクロールの速度制限を無効化</string>
     <string name="morphe_disable_system_splash_summary">静的システムスプラッシュアイコンを透明にします。</string>
     <string name="morphe_disable_system_splash_title">システムスプラッシュを無効化</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube が「登録チャンネル」ボタンをホームの最上部に移動するレイアウトを有効にした場合に、このレイアウトを無効にし、最下部のナビゲーション バーに戻します</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">ナビゲーション ボタンの最上部への移動を無効化</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"[ライブ配信の DVR の制限を拡張] をオンにしたときに正常に動作しない可能性があります。
 
 この問題を解決するには、[動画ストリームを偽装] をオンにして [デフォルトのクライアント] を「TV Simply」または「visionOS」に変更してください。"</string>
@@ -200,6 +202,9 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_livestream_dvr_title">すべてのライブ配信で DVR を有効化</string>
     <string name="morphe_music_package_name_summary">YouTube Music の代わりに呼び出すインストール済みの音楽アプリのパッケージ名です。</string>
     <string name="morphe_music_package_name_title">音楽アプリのパッケージ名</string>
+    <string name="morphe_navigation_bar_style_entry_2">半透明</string>
+    <string name="morphe_navigation_bar_style_title">ナビゲーション バーのスタイル</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">このスタイルは、デバイスや YouTube のバージョンによってはサポートされていない場合があり、レイアウトの問題やクラッシュを引き起こす可能性があります</string>
     <string name="morphe_notification_dot_color_summary">通知ドットの色を変更します。</string>
     <string name="morphe_notification_dot_color_title">通知ドットの色</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR にログインできません: %s</string>
@@ -228,6 +233,16 @@ DeArrow.ajay.app を開くには、ここをタップしてください。"</str
     <string name="morphe_playback_in_feeds_title">フィードで再生</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">動画プレーヤーのコントロール (再生ボタンなど) の背景に表示される、ふちどりのための円形の影の透明度を設定します (0 が透明)。</string>
     <string name="morphe_player_control_buttons_background_opacity_title">プレーヤーのコントロールの背景の透明度</string>
+    <string name="morphe_post_image_download_failed">画像のダウンロードに失敗しました</string>
+    <string name="morphe_post_image_download_flyout">画像をダウンロード</string>
+    <string name="morphe_post_image_download_flyout_single">画像をダウンロード</string>
+    <string name="morphe_post_image_download_not_found">この投稿には画像がありません</string>
+    <string name="morphe_post_image_download_saved">%2$s に %1$s 個の画像を保存しました</string>
+    <string name="morphe_post_image_download_saved_single">%s に画像を保存しました</string>
+    <string name="morphe_post_image_download_started">%s 個の画像をダウンロード中…</string>
+    <string name="morphe_post_image_download_started_single">画像をダウンロード中…</string>
+    <string name="morphe_post_image_download_summary">画像または GIF 画像を含む投稿の共有ボタンの隣に、表示中の画像をダウンロードするボタンを表示します。同様の投稿のフライアウト メニューに、投稿内のすべての画像をダウンロードするための項目を追加します</string>
+    <string name="morphe_post_image_download_title">投稿の画像をダウンロード</string>
     <string name="morphe_potoken_provider_expired_dialog_message">"このバージョンの PoToken プロバイダーに組み込まれているトークンは動作しなくなりました。
 
 再生を修正するには、「動画ストリームを偽装」を有効にしてください。"</string>
@@ -273,6 +288,12 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">フィードのフライアウトメニューから、ショート動画を「後で見る」再生リストに保存できるようにします。</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">ショート動画での保存ボタン</string>
     <string name="morphe_save_to_watch_later_success_toast">動画を「後で見る」に保存しました。</string>
+    <string name="morphe_search_comments_applied">検索によるフィルタを適用するには、コメントの並び順 (フィルタ) を変更するかコメント欄を開き直してください</string>
+    <string name="morphe_search_comments_clear">解除</string>
+    <string name="morphe_search_comments_cleared">検索によるフィルタを解除しました。コメントの並び順 (フィルタ) を変更するかコメント欄を開き直すと、すべてのコメントを表示します</string>
+    <string name="morphe_search_comments_hint">検索ワード</string>
+    <string name="morphe_search_comments_summary">コメント欄に検索ボタンを表示します。タップすると、読み込まれているコメントのみを対象に、すべての検索ワードを含むコメントのみを表示するフィルタを適用するためのメニューを開きます。複数の単語を引用符で囲んだ場合は、フレーズとして検索します</string>
+    <string name="morphe_search_comments_title">コメントを検索</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">リプレイ回数が最も多い部分</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">シークバーをドラッグしてシークしている際に、シーク位置の映像を縮小した画像をシークバーの上に表示します。</string>
     <string name="morphe_seekbar_thumbnail_preview_title">シーク位置の映像を縮小表示</string>
@@ -283,6 +304,8 @@ YouTube Premium に加入している場合、この設定は必要ない可能�
     <string name="morphe_settings_name_custom_item_hint">名称を入力してください。</string>
     <string name="morphe_settings_name_empty_warning">名称は空欄にできません。</string>
     <string name="morphe_settings_name_title">RVX 設定の名称</string>
+    <string name="morphe_settings_new_indicator_days_summary">アップデートで追加された設定やオプションの横にドットが表示される日数</string>
+    <string name="morphe_settings_new_indicator_days_title">新しい設定を強調表示</string>
     <string name="morphe_skip_silence_minimum_pause_summary">この値よりも短い無音の部分や会話などの間はスキップ (短縮) しません。設定後に再生を開始する動画から適用されます。</string>
     <string name="morphe_skip_silence_minimum_pause_title">スキップする区間の長さのしきい値</string>
     <string name="morphe_skip_silence_summary">動画内の無音の部分や会話などの間を自動的にスキップします。</string>
@@ -2365,7 +2388,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_sb_segments_outro">終了画面 / クレジット (アウトロ)</string>
     <string name="revanced_sb_segments_outro_sum">クレジットや動画の終了画面が表示されている場面です。情報を含む結論は含まれません。</string>
     <string name="revanced_sb_segments_preview">予告 / 要約</string>
-    <string name="revanced_sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画/シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。 </string>
+    <string name="revanced_sb_segments_preview_sum">今後起きる内容などをまとめたクリップのコレクション、この動画や他の動画/シリーズで起きること、他の場面で繰り返されるすべての情報が含まれます。</string>
     <string name="revanced_sb_segments_selfpromo">無報酬の宣伝 / 自己宣伝</string>
     <string name="revanced_sb_segments_selfpromo_sum">無報酬のプロモーションあるいはセルフプロモーションであるという点を除いては「スポンサー」と同様です。商品、寄付、コラボした人に関する内容を含みます。</string>
     <string name="revanced_sb_segments_sponsor">スポンサー</string>

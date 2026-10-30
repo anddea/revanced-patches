@@ -43,6 +43,7 @@ Tap the continue button and allow optimization changes"</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_summary">Use the selected app icon for the RVX settings entry when available</string>
     <string name="morphe_custom_branding_apply_to_rvx_settings_title">Use icon in RVX settings</string>
     <string name="morphe_custom_branding_icon_title">App icon</string>
+    <string name="morphe_custom_branding_name_entry_2" translatable="false">YT Music RVX</string>
     <string name="morphe_custom_branding_name_title">App name</string>
     <string name="morphe_custom_branding_splash_animation_size_summary">Sets the size of the custom splash animation</string>
     <string name="morphe_custom_branding_splash_animation_size_title">Splash animation size</string>
@@ -141,26 +142,36 @@ Downloads (in Library or the account menu) opens the native device-files library
 Audio files remain after uninstalling Music; playlist organization is app data. Turning this option off restores stock Downloads navigation. Premium downloads are never changed"</string>
     <string name="morphe_music_lyrics_about_summary">"Lyrics are matched by title and artist, unusual metadata may find nothing or the wrong version. Use refresh to switch versions. Providers marked * require a token. All enabled providers are not always requested in your order, but respond based on their speed.\n\nLyrics come from third-party services that are not affiliated with, sponsored, or endorsed by RVX. Each one is used as it is: the lyrics, their availability, and their licensing stay with those services and their licensors, and using them can be subject to their terms of service. What reaches an enabled service is only the lookup you asked for - the title, the artist, and, where that service needs it, the video ID. The optional AI endpoint and QuickLRC transcription run only after you configure them, and receive the lyrics text or the track's video URL"</string>
     <string name="morphe_music_lyrics_about_title">About third-party lyrics</string>
-
+    <string name="morphe_music_lyrics_ai_config_api_token_label">API key (optional)</string>
     <string name="morphe_music_lyrics_ai_config_base_url_hint">API endpoint URL (e.g. https://api.openai.com/v1/chat/completions, https://api.anthropic.com/v1/chat/completions, https://generativelanguage.googleapis.com/v1beta/openai/chat/completions)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Configure API keys, models, endpoints, and prompt templates for AI providers.</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_title">AI &amp; Cloud Endpoints</string>
-
-
-
+    <string name="morphe_music_lyrics_ai_config_base_url_label">Base URL</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_presets_title">Choose a service</string>
+    <string name="morphe_music_lyrics_ai_config_deepl_key_label">Authentication key (Free or Pro)</string>
+    <string name="morphe_music_lyrics_ai_config_extra_body_hint">"Quote names and values, e.g. {"temperature": 0.3}. An unquoted value containing / or : is rejected. Model and messages cannot be set here"</string>
+    <string name="morphe_music_lyrics_ai_config_extra_body_label">Extra request body (optional JSON)</string>
+    <string name="morphe_music_lyrics_ai_config_extra_headers_hint">"Quote names and values, e.g. {"api-key": "abc"}. An unquoted value containing / : or a number is rejected. An empty value removes a header"</string>
+    <string name="morphe_music_lyrics_ai_config_extra_headers_label">Extra request headers (optional JSON)</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models">Fetch Models</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models_failed">Failed to fetch models. Check API key or connection</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models_success">Select a Model</string>
+    <string name="morphe_music_lyrics_ai_config_fetching_models">Fetching models…</string>
+    <string name="morphe_music_lyrics_ai_config_model_label">Model</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_label">Prompt</string>
+    <string name="morphe_music_lyrics_ai_config_status_connected">%1$s: Connected! (%2$s)</string>
+    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s: Connection failed. Check the settings</string>
+    <string name="morphe_music_lyrics_ai_config_status_invalid">Settings incomplete or rejected by the provider</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Base URL must start with http:// or https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Validating connection…</string>
-
-
-    <string name="morphe_music_lyrics_ai_config_toast_reset">Settings reset to default</string>
+    <string name="morphe_music_lyrics_ai_config_summary">Configure API keys, models, endpoints, and prompts</string>
+    <string name="morphe_music_lyrics_ai_config_test_connection">Test Connection</string>
     <string name="morphe_music_lyrics_ai_config_toast_saved">Translation &amp; Romanization settings saved</string>
-
-    <string name="morphe_music_lyrics_ai_extra_body_invalid">Not valid JSON. Fix it or clear the field before saving</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Placeholders: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Prompt Template</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Prompt saved, but the AI endpoint is not usable yet. Configure it under AI Settings first</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Prompt reset</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">Prompt saved</string>
+    <string name="morphe_music_lyrics_allow_transliteration_summary">Allow non-Latin readings from the lyrics source; when off, keep only Latin letters, accented letters and tone digits</string>
+    <string name="morphe_music_lyrics_allow_transliteration_title">Enable transliteration</string>
     <string name="morphe_music_lyrics_clear_cache_done">Cleared %1$s MB</string>
     <string name="morphe_music_lyrics_clear_cache_summary">Delete the %1$s MB of lyrics kept on this device</string>
     <string name="morphe_music_lyrics_clear_cache_title">Clear stored lyrics</string>
@@ -175,6 +186,10 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_music_lyrics_dual_only">Dual mode</string>
     <string name="morphe_music_lyrics_enabled_summary">Shows lyrics from a third-party service, falling back to the built-in lyrics when none are found</string>
     <string name="morphe_music_lyrics_enabled_title">Use third-party lyrics</string>
+    <string name="morphe_music_lyrics_force_capitalize_summary">Capitalizes the first letter of each lyrics line</string>
+    <string name="morphe_music_lyrics_force_capitalize_title">Capitalize first letter</string>
+    <string name="morphe_music_lyrics_force_center_summary">ON puts every line in the middle and ignores the source alignment, including duet sides; OFF keeps the alignment the lyrics ask for</string>
+    <string name="morphe_music_lyrics_force_center_title">Always center lyrics</string>
     <string name="morphe_music_lyrics_hide_info_summary">Hide the credit line shown below the lyrics</string>
     <string name="morphe_music_lyrics_hide_info_title">Hide credit line</string>
     <string name="morphe_music_lyrics_hide_played_summary">Hide lyrics lines above the currently playing line</string>
@@ -183,20 +198,83 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_music_lyrics_hide_unplayed_title">Hide unplayed lyrics</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Prevents the display from turning off while the lyrics panel is open</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Keep screen on while viewing lyrics</string>
+    <string name="morphe_music_lyrics_line_scale_summary">Draws every line that is not currently being sung slightly smaller, on top of dimming it</string>
+    <string name="morphe_music_lyrics_line_scale_title">Shrink inactive lines</string>
     <string name="morphe_music_lyrics_local_romanization_dict_building">Reading %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_chinese">Chinese words (pinyin-pro, ~17 MB)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_cldr">Greek, Slavic Cyrillic (incl. Russian, Ukrainian, Bulgarian, Serbian, Belarusian, Macedonian), Georgian, Armenian, Hebrew, Arabic, Amharic and Syriac transliteration (CLDR, ~0.5 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_downloading" translatable="false">%1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_empty">Choose at least one dictionary</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Download failed — turn this off and on again to retry</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_japanese">Japanese (SudachiDict, ~75 MB)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">Readings ready (%1$d entries)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_unidict">Chinese and Cantonese characters (UniDict, ~8 MB)</string>
+    <string name="morphe_music_lyrics_local_romanization_download_started">Downloading reading dictionaries…</string>
     <string name="morphe_music_lyrics_local_romanization_summary">Reads each word of a timed lyric (word sync on); Korean needs no download; fourteen scripts share one CLDR download; Han characters are read by Rime Wordlist when its word table covers the language</string>
     <string name="morphe_music_lyrics_local_romanization_title">Local Romanization and Alignment</string>
     <string name="morphe_music_lyrics_mediasession_summary">Shows the current line on the lock screen, Android Auto and Bluetooth. Needs Android 11 or newer</string>
     <string name="morphe_music_lyrics_mediasession_title">Show MediaSession Lyrics on lock screen</string>
+    <string name="morphe_music_lyrics_mini_artist_max_label">Maximum screen time (ms)</string>
+    <string name="morphe_music_lyrics_mini_artist_min_label">Minimum screen time (ms)</string>
+    <string name="morphe_music_lyrics_mini_artist_timing_explanation">For multiline animations only. Keep each frame for at least the minimum time. At the maximum, advance the artist line even when the lyric stays the same</string>
+    <string name="morphe_music_lyrics_mini_artist_timing_invalid">Minimum must be 0 or greater. Maximum must be greater than 0 and at least the minimum</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_invalid">The format must contain {lrc}</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_summary">Format of the lyrics line in the Miniplayer and MediaSession. {lrc} is the line and {n} is how many times in a row it is sung. Text between colons is only shown when the line repeats. Use \\: for a colon</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_title">Lyric line format</string>
+    <string name="morphe_music_lyrics_mini_instrumental_summary">Shown in the Miniplayer and MediaSession during an instrumental break. Each line is one animation frame. {t} is the title, {a} is the artist and {lrc} is the last lyrics line</string>
+    <string name="morphe_music_lyrics_mini_instrumental_title">Instrumental break</string>
+    <string name="morphe_music_lyrics_mini_line_limits_artist">"Artist line limit
+Split the populated track format into cycling frames. 0 disables splitting"</string>
+    <string name="morphe_music_lyrics_mini_line_limits_invalid">Enter whole-number limits from 0 to 10000 and a character weight greater than 0</string>
+    <string name="morphe_music_lyrics_mini_line_limits_lyrics">"Lyric line limit
+Split longer lyrics into balanced halves. 0 disables splitting"</string>
+    <string name="morphe_music_lyrics_mini_line_limits_summary">Lyric and artist line limits, and full-width character weight</string>
+    <string name="morphe_music_lyrics_mini_line_limits_title">Line length limits</string>
+    <string name="morphe_music_lyrics_mini_line_limits_weight">"Full-width character weight
+Applies to both limits. At 1.75, four full-width characters count as 7"</string>
+    <string name="morphe_music_lyrics_mini_next_offset_ms_summary">Shifts when the next line is shown in the Miniplayer and MediaSession. Use a negative value if lines show up late, for example on the lock screen</string>
+    <string name="morphe_music_lyrics_mini_next_offset_ms_title">Miniplayer and MediaSession timing offset</string>
+    <string name="morphe_music_lyrics_mini_track_format_summary">Format of the track shown with the lyrics in the Miniplayer and MediaSession. {t} is the title, {a} is the artist and {v} is the version, such as Acoustic, when the lyrics source provides one. Text between two colons is only shown when every variable inside it has a value; write \\: for a plain colon. Each line is shown in turn, moving on whenever the lyric changes</string>
+    <string name="morphe_music_lyrics_mini_track_format_title">Song title/artist format</string>
     <string name="morphe_music_lyrics_miniplayer_summary">Shows the current line in the miniplayer, with the track moved to the subtitle</string>
     <string name="morphe_music_lyrics_miniplayer_title">Show Miniplayer Lyrics</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Synced lyrics follow playback. If they drift, adjust the timing offset. Shift synced lyrics forwards or backwards. Use a positive value if the lyrics run ahead of the song</string>
     <string name="morphe_music_lyrics_offset_ms_title">Timing offset</string>
+    <string name="morphe_music_lyrics_providers_keep_one">At least one provider must stay on</string>
     <string name="morphe_music_lyrics_refreshed">Refreshed</string>
     <string name="morphe_music_lyrics_refreshing">Refreshing</string>
+    <string name="morphe_music_lyrics_rime_char_source_cantonese">Cantonese characters</string>
+    <string name="morphe_music_lyrics_rime_char_source_none">No character reading</string>
+    <string name="morphe_music_lyrics_rime_char_source_pinyin">Mandarin characters</string>
+    <string name="morphe_music_lyrics_rime_dict_add">Add</string>
+    <string name="morphe_music_lyrics_rime_dict_add_hint">A .dict.yaml file, or a zip holding one, with lines like 字\tham and 典\tdin2. The list is fetched when you tick it and tap Save, and its licence is yours to check</string>
+    <string name="morphe_music_lyrics_rime_dict_add_title">Add a Rime Wordlist</string>
+    <string name="morphe_music_lyrics_rime_dict_added">Added %1$s - tick it and tap Save to download it</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_code">The code must be two or three letters, as in hak</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_field">The name and address cannot contain a vertical bar</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_url">The address must start with https://</string>
+    <string name="morphe_music_lyrics_rime_dict_building">Reading word list: %1$d%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s already has a word table</string>
+    <string name="morphe_music_lyrics_rime_dict_empty">Rime Wordlist also needs UniDict: in the Offline Dictionary provider, tick \"Chinese and Cantonese characters (UniDict)\" and let it finish downloading first. Without it, a list that reads characters yields no reading.\n\nTick the lists Rime Wordlist should read, then tap Save to download them. A list you added is removed when you untick it.\n\nEach list is your own word-to-reading table, a .dict.yaml with lines like:\n字\tham\n典\tdin2\nThe first column is the word, the second its reading; extra columns and lines without a tab are ignored</string>
+    <string name="morphe_music_lyrics_rime_dict_failed">Word list download failed - tap Save again to retry</string>
+    <string name="morphe_music_lyrics_rime_dict_field_char_source">Characters not in a word</string>
+    <string name="morphe_music_lyrics_rime_dict_field_code">Language code</string>
+    <string name="morphe_music_lyrics_rime_dict_field_code_hint">Two or three letters, as in hak or wuu</string>
+    <string name="morphe_music_lyrics_rime_dict_field_label">Name</string>
+    <string name="morphe_music_lyrics_rime_dict_field_label_hint">Shown under the reading, as in Hakka (Meixian)</string>
+    <string name="morphe_music_lyrics_rime_dict_field_url">Word list address</string>
+    <string name="morphe_music_lyrics_rime_dict_field_url_hint">https:// address of the .dict.yaml or its zip</string>
+    <string name="morphe_music_lyrics_rime_dict_incomplete">Fill in the code, name and address</string>
+    <string name="morphe_music_lyrics_rime_dict_no_table">No Rime word list is ticked for the language above. Tap this name to tick one, or pick a language that has a list</string>
+    <string name="morphe_music_lyrics_rime_dict_ready">Word lists ready</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">Word lists ready (%1$d entries)</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s is read by the built-in romanizer and cannot take a word list</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved_row">Not used: this language already has its own reading, so untick it to remove it</string>
+    <string name="morphe_music_lyrics_rime_dict_title">Rime Wordlist</string>
+    <string name="morphe_music_lyrics_romanization_provider_google">Google (Default)</string>
+    <string name="morphe_music_lyrics_romanization_provider_local">Offline Dictionary</string>
+    <string name="morphe_music_lyrics_romanization_provider_title">Romanization or transliteration</string>
+    <string name="morphe_music_lyrics_romanization_target_language">Romanization or transliteration target language:\n%s</string>
     <string name="morphe_music_lyrics_romanize_failed">Could not romanize the lyrics</string>
     <string name="morphe_music_lyrics_romanize_hide">Romanized</string>
     <string name="morphe_music_lyrics_romanize_language_title">Romanization or transliteration language</string>
@@ -228,6 +306,10 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_music_lyrics_source_reset_message">Restore providers to the default priority order</string>
     <string name="morphe_music_lyrics_source_reset_title">Reset provider order?</string>
     <string name="morphe_music_lyrics_source_title">Lyrics service</string>
+    <string name="morphe_music_lyrics_split_background_summary">Separates background vocals and harmony from the lead line. Moves a background vocal written in brackets, such as \"(Oh) I want you\", out of the sung line into a dimmer line of its own</string>
+    <string name="morphe_music_lyrics_split_background_title">Show background vocals separately</string>
+    <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Removes full stops, commas, colons and semicolons at the end of lyrics lines. Question marks, exclamation marks, ellipses, quotes and brackets are kept</string>
+    <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Remove trailing punctuation</string>
     <string name="morphe_music_lyrics_swap_trans_roma_summary">ON puts romanization or transliteration below lyrics and translation above; OFF keeps romanization or transliteration above and translation below. A reading placed over each syllable moves with it, from above its syllable to below it</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Swap translation and romanization</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Tap a line to jump to that moment in the song, long-press it to copy the word under your finger, or the whole line when the press is not on a word. Off takes both gestures away</string>
@@ -260,13 +342,14 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_music_lyrics_translated_by_google">Translated by Google</string>
     <string name="morphe_music_lyrics_translating">Translating…</string>
     <string name="morphe_music_lyrics_translation_language_title">Translation language</string>
-
-
+    <string name="morphe_music_lyrics_translation_provider_deepl" translatable="false">DeepL API</string>
+    <string name="morphe_music_lyrics_translation_provider_gemini" translatable="false">Gemini API</string>
+    <string name="morphe_music_lyrics_translation_provider_google">Google (Default, Free)</string>
+    <string name="morphe_music_lyrics_translation_provider_openai_compatible">OpenAI Compatible (Custom)</string>
+    <string name="morphe_music_lyrics_translation_provider_title">Translation</string>
+    <string name="morphe_music_lyrics_translation_target_language">Translation target language:\n%s</string>
     <string name="morphe_music_lyrics_use_ai_section_summary">Only used when the provider ships no section labels such as Chorus or Verse, which your OpenAI-compatible model then detects. Editing the row also opens its prompt</string>
     <string name="morphe_music_lyrics_use_ai_section_title">Detect sections with AI</string>
-
-
-
     <string name="morphe_music_lyrics_word_sync_summary">Prioritize word-by-word lyrics when available. When lyrics carry word timing, highlights each word or syllable in time with the music</string>
     <string name="morphe_music_lyrics_word_sync_title">Highlight synced words or syllables</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">user token</string>
@@ -305,6 +388,7 @@ Audio files remain after uninstalling Music; playlist organization is app data. 
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 is temporarily not available (API timed out)</string>
     <string name="morphe_oauth2_toast_invalid">Invalid VR sign in token, try signing in to VR again</string>
     <string name="morphe_oauth2_toast_reset">Logged out of Android VR</string>
+    <string name="morphe_playback_in_feeds_entry_off">Off</string>
     <string name="morphe_potoken_provider_expired_dialog_message">"The token built into this version of PoToken provider no longer works
 
 Turn on \'Spoof video streams\' to fix playback"</string>
@@ -341,6 +425,8 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_entry_3" translatable="false">Tweaks</string>
     <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
     <string name="morphe_settings_name_title">RVX settings name</string>
+    <string name="morphe_settings_new_indicator_days_summary">Number of days a dot is shown next to settings and options added by an update</string>
+    <string name="morphe_settings_new_indicator_days_title">Highlight new settings</string>
     <string name="morphe_settings_save">Save</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
@@ -961,128 +1047,4 @@ Side effect (Block request):
     <string name="revanced_webview_toast_no_network">Please check your network connection</string>
     <string name="revanced_webview_toast_unavailable">WebView is not available</string>
     <string name="revanced_webview_visitor_data" translatable="false">Visitor Data</string>
-    <string name="morphe_music_lyrics_section_translation_title">Translation</string>
-    <string name="morphe_music_lyrics_section_romanization_title">Romanization</string>
-    <string name="morphe_music_lyrics_translation_provider_title">Translation</string>
-    <string name="morphe_music_lyrics_translation_provider_google">Google (Default, Free)</string>
-    <string name="morphe_music_lyrics_translation_provider_gemini" translatable="false">Gemini API</string>
-    <string name="morphe_music_lyrics_translation_provider_openai_compatible">OpenAI Compatible (Custom)</string>
-    <string name="morphe_music_lyrics_translation_provider_deepl" translatable="false">DeepL API</string>
-    <string name="morphe_music_lyrics_romanization_provider_title">Romanization or transliteration</string>
-    <string name="morphe_music_lyrics_romanization_provider_google">Google (Default)</string>
-    <string name="morphe_music_lyrics_romanization_provider_local">Offline Dictionary</string>
-    <string name="morphe_music_lyrics_romanization_provider_gemini" translatable="false">Gemini API</string>
-    <string name="morphe_music_lyrics_romanization_provider_openai_compatible">OpenAI Compatible (Custom)</string>
-    <string name="morphe_music_lyrics_ai_config_test_connection">Test Connection</string>
-    <string name="morphe_music_lyrics_ai_config_endpoint_label">Configure Endpoints</string>
-    <string name="morphe_music_lyrics_ai_config_show_all">Show All Endpoints</string>
-    <string name="morphe_music_lyrics_ai_config_translation_provider_label">Translation Provider</string>
-    <string name="morphe_music_lyrics_ai_config_romanization_provider_label">Romanization Provider</string>
-    <string name="morphe_music_lyrics_ai_config_fetch_models">Fetch Models</string>
-    <string name="morphe_music_lyrics_ai_config_fetching_models">Fetching models…</string>
-    <string name="morphe_music_lyrics_ai_config_fetch_models_success">Select a Model</string>
-    <string name="morphe_music_lyrics_ai_config_fetch_models_failed">Failed to fetch models. Check API key or connection.</string>
-    <string name="morphe_music_lyrics_ai_config_gemini_section">Gemini API Settings</string>
-    <string name="morphe_music_lyrics_ai_config_openai_compat_section">OpenAI Compatible (Custom Endpoint)</string>
-    <string name="morphe_music_lyrics_ai_config_deepl_section">DeepL API Settings</string>
-    <string name="morphe_music_lyrics_ai_config_api_key_label">API key</string>
-    <string name="morphe_music_lyrics_ai_config_model_label">Model</string>
-    <string name="morphe_music_lyrics_ai_config_base_url_label">Base URL</string>
-    <string name="morphe_music_lyrics_ai_config_api_token_label">API key (optional)</string>
-    <string name="morphe_music_lyrics_ai_config_prompt_label">Prompt</string>
-    <string name="morphe_music_lyrics_ai_config_prompt_romaji_label" translatable="false">Romanization prompt</string>
-    <string name="morphe_music_lyrics_ai_config_prompt_section_label" translatable="false">AI Section prompt</string>
-    <string name="morphe_music_lyrics_ai_config_extra_body_label">Extra request body (optional JSON)</string>
-    <string name="morphe_music_lyrics_ai_config_deepl_key_label">Authentication key (Free or Pro)</string>
-    <string name="morphe_music_lyrics_ai_config_summary">Configure API keys, models, endpoints, and prompts</string>
-
-    <string name="morphe_music_lyrics_mini_track_format_title">Song title/artist format</string>
-    <string name="morphe_music_lyrics_mini_track_format_summary">Format of the track shown with the lyrics in the Miniplayer and MediaSession. {t} is the title, {a} is the artist and {v} is the version, such as Acoustic, when the lyrics source provides one. Text between two colons is only shown when every variable inside it has a value; write \\: for a plain colon. Each line is shown in turn, moving on whenever the lyric changes</string>
-    <string name="morphe_music_lyrics_mini_encapsulation_title">Lyric line format</string>
-    <string name="morphe_music_lyrics_mini_encapsulation_summary">Format of the lyrics line in the Miniplayer and MediaSession. {lrc} is the line and {n} is how many times in a row it is sung. Text between colons is only shown when the line repeats. Use \\: for a colon</string>
-    <string name="morphe_music_lyrics_mini_encapsulation_invalid">The format must contain {lrc}</string>
-    <string name="morphe_music_lyrics_mini_track_format_menu_summary">Artist-line template and animation timing</string>
-    <string name="morphe_music_lyrics_mini_artist_min_label">Minimum screen time (ms)</string>
-    <string name="morphe_music_lyrics_mini_artist_max_label">Maximum screen time (ms)</string>
-    <string name="morphe_music_lyrics_mini_artist_timing_explanation">For multiline animations only. Keep each frame for at least the minimum time. At the maximum, advance the artist line even when the lyric stays the same.</string>
-    <string name="morphe_music_lyrics_mini_artist_timing_invalid">Minimum must be 0 or greater. Maximum must be greater than 0 and at least the minimum.</string>
-    <string name="morphe_music_lyrics_mini_line_limits_title">Line length limits</string>
-    <string name="morphe_music_lyrics_mini_line_limits_summary">Lyric and artist line limits, and full-width character weight</string>
-    <string name="morphe_music_lyrics_mini_line_limits_lyrics">"Lyric line limit
-Split longer lyrics into balanced halves. 0 disables splitting."</string>
-    <string name="morphe_music_lyrics_mini_line_limits_artist">"Artist line limit
-Split the populated track format into cycling frames. 0 disables splitting."</string>
-    <string name="morphe_music_lyrics_mini_line_limits_weight">"Full-width character weight
-Applies to both limits. At 1.75, four full-width characters count as 7."</string>
-    <string name="morphe_music_lyrics_mini_line_limits_invalid">Enter whole-number limits from 0 to 10000 and a character weight greater than 0</string>
-    <string name="morphe_music_lyrics_mini_instrumental_title">Instrumental break</string>
-    <string name="morphe_music_lyrics_mini_instrumental_summary">Shown in the Miniplayer and MediaSession during an instrumental break. Each line is one animation frame. {t} is the title, {a} is the artist and {lrc} is the last lyrics line</string>
-    <string name="morphe_music_lyrics_mini_next_offset_ms_title">Miniplayer and MediaSession timing offset</string>
-    <string name="morphe_music_lyrics_mini_next_offset_ms_summary">Shifts when the next line is shown in the Miniplayer and MediaSession. Use a negative value if lines show up late, for example on the lock screen</string>
-    <string name="morphe_music_lyrics_force_capitalize_title">Capitalize first letter</string>
-    <string name="morphe_music_lyrics_force_capitalize_summary">Capitalizes the first letter of each lyrics line</string>
-    <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Remove trailing punctuation</string>
-    <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Removes full stops, commas, colons and semicolons at the end of lyrics lines. Question marks, exclamation marks, ellipses, quotes and brackets are kept</string>
-    <string name="morphe_settings_new_indicator_days_title">Highlight new settings</string>
-    <string name="morphe_settings_new_indicator_days_summary">Number of days a dot is shown next to settings and options added by an update</string>
-    <string name="morphe_settings_new_indicator_days_off">Off</string>
-    <string name="morphe_music_lyrics_rime_dict_title">Rime Wordlist</string>
-    <string name="morphe_music_lyrics_rime_dict_empty">Rime Wordlist also needs UniDict: in the Offline Dictionary provider, tick \"Chinese and Cantonese characters (UniDict)\" and let it finish downloading first. Without it, a list that reads characters yields no reading.\n\nTick the lists Rime Wordlist should read, then tap Save to download them. A list you added is removed when you untick it.\n\nEach list is your own word-to-reading table, a .dict.yaml with lines like:\n字\tham\n典\tdin2\nThe first column is the word, the second its reading; extra columns and lines without a tab are ignored.</string>
-    <string name="morphe_music_lyrics_rime_dict_no_table">No Rime word list is ticked for the language above. Tap this name to tick one, or pick a language that has a list</string>
-    <string name="morphe_music_lyrics_rime_dict_add">Add</string>
-    <string name="morphe_music_lyrics_rime_dict_add_title">Add a Rime Wordlist</string>
-    <string name="morphe_music_lyrics_rime_dict_add_hint">A .dict.yaml file, or a zip holding one, with lines like 字\tham and 典\tdin2. The list is fetched when you tick it and tap Save, and its licence is yours to check</string>
-    <string name="morphe_music_lyrics_rime_dict_field_code">Language code</string>
-    <string name="morphe_music_lyrics_rime_dict_field_code_hint">Two or three letters, as in hak or wuu</string>
-    <string name="morphe_music_lyrics_rime_dict_field_label">Name</string>
-    <string name="morphe_music_lyrics_rime_dict_field_label_hint">Shown under the reading, as in Hakka (Meixian)</string>
-    <string name="morphe_music_lyrics_rime_dict_field_url">Word list address</string>
-    <string name="morphe_music_lyrics_rime_dict_field_url_hint">https:// address of the .dict.yaml or its zip</string>
-    <string name="morphe_music_lyrics_rime_dict_field_char_source">Characters not in a word</string>
-    <string name="morphe_music_lyrics_rime_char_source_auto">Automatic</string>
-    <string name="morphe_music_lyrics_rime_char_source_cantonese">Cantonese characters</string>
-    <string name="morphe_music_lyrics_rime_char_source_pinyin">Mandarin characters</string>
-    <string name="morphe_music_lyrics_rime_char_source_none">No character reading</string>
-    <string name="morphe_music_lyrics_rime_dict_incomplete">Fill in the code, name and address</string>
-    <string name="morphe_music_lyrics_rime_dict_bad_code">The code must be two or three letters, as in hak</string>
-    <string name="morphe_music_lyrics_rime_dict_bad_url">The address must start with https://</string>
-    <string name="morphe_music_lyrics_rime_dict_bad_field">The name and address cannot contain a vertical bar</string>
-    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s already has a word table</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s is read by the built-in romanizer and cannot take a word list</string>
-    <string name="morphe_music_lyrics_rime_dict_reserved_row">Not used: this language already has its own reading, so untick it to remove it</string>
-    <string name="morphe_music_lyrics_rime_dict_added">Added %1$s - tick it and tap Save to download it</string>
-    <string name="morphe_music_lyrics_rime_dict_ready">Word lists ready</string>
-    <string name="morphe_music_lyrics_rime_dict_ready_toast">Word lists ready (%1$d entries)</string>
-    <string name="morphe_music_lyrics_rime_dict_building">Reading word list: %1$d%%</string>
-    <string name="morphe_music_lyrics_rime_dict_failed">Word list download failed - tap Save again to retry</string>
-    <string name="morphe_music_lyrics_allow_transliteration_title">Enable transliteration</string>
-    <string name="morphe_music_lyrics_allow_transliteration_summary">Allow non-Latin readings from the lyrics source; when off, keep only Latin letters, accented letters and tone digits</string>
-    <string name="morphe_music_lyrics_local_romanization_download_started">Downloading reading dictionaries…</string>
-    <string name="morphe_music_lyrics_local_romanization_download_confirm_title">Offline Dictionary</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_japanese">Japanese (SudachiDict, ~75 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_unidict">Chinese and Cantonese characters (UniDict, ~8 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_chinese">Chinese words (pinyin-pro, ~17 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_cldr">Greek, Slavic Cyrillic (incl. Russian, Ukrainian, Bulgarian, Serbian, Belarusian, Macedonian), Georgian, Armenian, Hebrew, Arabic, Amharic and Syriac transliteration (CLDR, ~0.5 MB)</string>
-    <string name="morphe_music_lyrics_local_romanization_dict_empty">Choose at least one dictionary</string>
-    <string name="morphe_music_lyrics_line_scale_title">Shrink inactive lines</string>
-    <string name="morphe_music_lyrics_line_scale_summary">Draws every line that is not currently being sung slightly smaller, on top of dimming it</string>
-    <string name="morphe_music_lyrics_split_background_title">Show background vocals separately</string>
-    <string name="morphe_music_lyrics_split_background_summary">Separates background vocals and harmony from the lead line. Moves a background vocal written in brackets, such as \"(Oh) I want you\", out of the sung line into a dimmer line of its own</string>
-    <string name="morphe_music_lyrics_romanized_by_rime">Romanized by Rime (%s)</string>
-    <string name="morphe_music_lyrics_translation_target_language">Translation target language:\n%s</string>
-    <string name="morphe_music_lyrics_romanization_target_language">Romanization or transliteration target language:\n%s</string>
-    <string name="morphe_music_lyrics_force_center_title">Always center lyrics</string>
-    <string name="morphe_music_lyrics_force_center_summary">ON puts every line in the middle and ignores the source alignment, including duet sides; OFF keeps the alignment the lyrics ask for</string>
-    <string name="morphe_music_lyrics_providers_keep_one">At least one provider must stay on</string>
-    <string name="morphe_music_lyrics_romanization_provider_rime">Rime Wordlist</string>
-    <string name="morphe_music_lyrics_ai_config_status_invalid">Settings incomplete or rejected by the provider</string>
-    <string name="morphe_music_lyrics_ai_config_status_connected">%1$s: Connected! (%2$s)</string>
-    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s: Connection failed. Check the settings.</string>
-    <string name="morphe_music_lyrics_ai_config_status_empty_key">Enter the API key first</string>
-    <string name="morphe_music_lyrics_ai_config_base_url_presets_title">Choose a service</string>
-    <string name="morphe_music_lyrics_ai_config_extra_headers_label">Extra request headers (optional JSON)</string>
-    <string name="morphe_music_lyrics_ai_config_extra_headers_hint">"Quote names and values, e.g. {"api-key": "abc"}. An unquoted value containing / : or a number is rejected. An empty value removes a header."</string>
-    <string name="morphe_music_lyrics_ai_config_extra_body_hint">"Quote names and values, e.g. {"temperature": 0.3}. An unquoted value containing / or : is rejected. Model and messages cannot be set here."</string>
-    <string name="morphe_custom_branding_name_entry_2" translatable="false">YT Music Morphe</string>
-    <string name="morphe_music_lyrics_romanized_by_local">Romanized by %s</string>
 </resources>

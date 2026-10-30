@@ -99,8 +99,9 @@ public class SharedYouTubeSettings extends BaseSettings {
     private static final BooleanSetting DEPRECATED_SANITIZE_URL_QUERY = new BooleanSetting("morphe_sanitize_url_query", TRUE);
 
     static {
+        // Both apps provide this shared label for the disabled indicator duration.
         SeekBarPreference.register(new SeekBarConfig(SETTINGS_NEW_INDICATOR_DAYS,
-                0, 30, 1, "", 1, sf("morphe_settings_new_indicator_days_off"), null));
+                0, 30, 1, "", 1, sf("morphe_playback_in_feeds_entry_off"), null));
 
         // Prioritize stream spoofing on upgrades, including installs that already saved
         // both settings as enabled. Otherwise, each setting disables the other's switch.

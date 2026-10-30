@@ -104,6 +104,8 @@ Los videos se solicitan mediante un prefijo corto del ID de video con hash, por 
     <string name="morphe_disable_scrolling_speed_limit_title">Desactivar límite de velocidad de desplazamiento</string>
     <string name="morphe_disable_system_splash_summary">Hace que el icono de salpicadura estático del sistema sea transparente</string>
     <string name="morphe_disable_system_splash_title">Desactivar el salpicado del sistema</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Muestra las Suscripciones en la barra de navegación, si YouTube las mueve a una pestaña en la parte superior de Inicio</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Desactivar pestañas de navegación de la barra de herramientas</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Es posible que \'Ampliar la duración del DVR de la transmisión en directo\' no esté disponible
 
 Para solucionar esto, activa \'Suplantar transmisiones de video\' y cambia \'Cliente predeterminado\' a \'TV\' o \'visionOS\'"</string>
@@ -198,6 +200,9 @@ Para solucionarlo, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente
     <string name="morphe_livestream_dvr_title">Activar el DVR de la transmisión en directo</string>
     <string name="morphe_music_package_name_summary">Nombre del paquete de tu app de música instalada</string>
     <string name="morphe_music_package_name_title">Nombre del paquete de la app de música</string>
+    <string name="morphe_navigation_bar_style_entry_2">Translúcido</string>
+    <string name="morphe_navigation_bar_style_title">Estilo de la barra de navegación</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Es posible que tu dispositivo o la versión de YouTube no admitan este estilo, lo que puede causar problemas de diseño o cierres inesperados</string>
     <string name="morphe_notification_dot_color_summary">Cambia el color de los puntos de notificación</string>
     <string name="morphe_notification_dot_color_title">Color de punto de notificación</string>
     <string name="morphe_oauth2_connection_failure_auth_error">No se puede iniciar sesión en VR: %s</string>
@@ -226,6 +231,16 @@ Para solucionarlo, activa 'Falsificar transmisiones de vídeo' y cambia 'Cliente
     <string name="morphe_playback_in_feeds_title">Reproducción en feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Ajusta la opacidad del fondo detrás de los botones de control del reproductor y la barra de tiempo (0 es invisible, 100 es opaco)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Opacidad del fondo de los botones de control</string>
+    <string name="morphe_post_image_download_failed">No se pudo descargar la imagen</string>
+    <string name="morphe_post_image_download_flyout">Descargar imágenes</string>
+    <string name="morphe_post_image_download_flyout_single">Descargar imagen</string>
+    <string name="morphe_post_image_download_not_found">No se encontró ninguna imagen en esta publicación</string>
+    <string name="morphe_post_image_download_saved">Se han guardado %1$s imágenes en %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Imagen guardada en %s</string>
+    <string name="morphe_post_image_download_started">Descargando %s imágenes…</string>
+    <string name="morphe_post_image_download_started_single">Descargando imagen…</string>
+    <string name="morphe_post_image_download_summary">Se muestra un botón de descarga junto al botón Compartir de las publicaciones con imágenes o GIFs, y se añade un elemento de descarga a su menú</string>
+    <string name="morphe_post_image_download_title">Descargar imágenes de publicaciones</string>
     <string name="morphe_potoken_provider_expired_dialog_message">"El token integrado en esta versión del proveedor de PoToken ya no funciona
 
 Activa \'Suplantar streams de vídeo\' para arreglar la reproducción"</string>
@@ -271,6 +286,12 @@ Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Permite guardar Shorts en \'Ver más tarde\' desde el menú flotante</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Mostrar botón \'Guardar para ver más tarde\' en el menú flotante de Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Vídeo guardado correctamente en la lista de reproducción \'Ver más tarde\'</string>
+    <string name="morphe_search_comments_applied">Cambia el orden de clasificación o abre los comentarios de nuevo para buscarlos</string>
+    <string name="morphe_search_comments_clear">Limpiar</string>
+    <string name="morphe_search_comments_cleared">Búsqueda borrada. Cambia el orden de clasificación o abre los comentarios de nuevo para mostrar todos los comentarios</string>
+    <string name="morphe_search_comments_hint">Palabras a buscar</string>
+    <string name="morphe_search_comments_summary">Toca el botón de búsqueda en los comentarios para mostrar solo los comentarios cargados que contengan todas las palabras buscadas. Pon las palabras entre comillas para buscar una frase</string>
+    <string name="morphe_search_comments_title">Buscar comentarios</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Más reproducido</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Muestra una miniatura del vídeo mientras se arrastra la barra de progreso</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Activar miniaturas de la barra de progreso</string>
@@ -281,6 +302,8 @@ Para usar esta función, desactiva \'Suplantar los streams de vídeo\'"</string>
     <string name="morphe_settings_name_custom_item_hint">Introduce un nombre</string>
     <string name="morphe_settings_name_empty_warning">El nombre no puede estar vacío</string>
     <string name="morphe_settings_name_title">Nombre de los ajustes de RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">Número de días que se muestra un punto junto a los ajustes y las opciones añadidos por una actualización</string>
+    <string name="morphe_settings_new_indicator_days_title">Destacar nuevos ajustes</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Solo se acortan las pausas que duren al menos este tiempo. Se aplica cuando empieza el siguiente vídeo</string>
     <string name="morphe_skip_silence_minimum_pause_title">Duración mínima de la pausa</string>
     <string name="morphe_skip_silence_summary">Omite automáticamente las pausas silenciosas en el audio del vídeo</string>
@@ -506,15 +529,15 @@ Diseño para tablet
 • Las publicaciones de la comunidad están ocultas
 • El ajuste de reproducción en feeds no está disponible
 • El botón Remix y el botón Sonido no están disponibles en Shorts
-• La superposición 'Más vídeos' puede no estar disponible
+• La superposición «Más vídeos» puede no estar disponible
 • Se muestra la antigua barra de acciones de vídeo sin colapsar
 
 Diseño para automóviles
 • El feed está organizado por temas y canales
 • El ajuste de reproducción en feeds no está disponible
 • El botón Remix y el botón Sonido no están disponibles en Shorts
-• La superposición 'Más vídeos' puede no estar disponible
-• Shorts se abre en el reproductor normal
+• La superposición «Más vídeos» puede no estar disponible
+• Los Shorts se abren en el reproductor normal
 • Se muestra la antigua barra de acciones de vídeo sin colapsar"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Se utilizan interruptores cambiables</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Se utilizan interruptores de texto</string>
@@ -1726,6 +1749,11 @@ Problema conocido: Cuando este ajuste está activado, no se puede pulsar en los 
     <string name="revanced_icon_xisr_yellow">Xisr Amarillo</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube Negro</string>
+    <string name="revanced_in_app_downloader_summary_off">Botones de descarga de vídeo usa tu descarga externa</string>
+    <string name="revanced_in_app_downloader_summary_on">"Botones de descarga de vídeo descargan con el descargador integrado y guardan en Películas/RVX
+
+El selector de calidad aparece en cada descarga"</string>
+    <string name="revanced_in_app_downloader_title">Descargador integrado</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">El tema de la barra de notificaciones no está invertido</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">El tema de la barra de notificaciones está invertido</string>
     <string name="revanced_invert_snack_bar_theme_title">Invertir tema de barra de notificaciones</string>
@@ -1850,9 +1878,62 @@ El mini reproductor puede ser arrastrado de la pantalla a la izquierda o derecha
     <string name="revanced_navigation_bar_order_drag_handle">Arrastre para reordenar</string>
     <string name="revanced_navigation_bar_order_summary">Arrastra los elementos de navegación al orden en que deben aparecer</string>
     <string name="revanced_navigation_bar_order_title">Orden de la barra de navegación</string>
+    <string name="revanced_offline_action_delete">Borrar</string>
+    <string name="revanced_offline_action_open_youtube">Abrir en YouTube</string>
+    <string name="revanced_offline_action_play_background">Reproducir en segundo plano</string>
+    <string name="revanced_offline_action_share">Compartir</string>
+    <string name="revanced_offline_already_downloaded">Este vídeo ya está descargado</string>
+    <string name="revanced_offline_already_downloading">Este vídeo ya está descargando</string>
+    <string name="revanced_offline_av1_unplayable_toast">Este dispositivo puede que no pueda reproducir este vídeo AV1. La imagen puede quedarse en blanco</string>
+    <string name="revanced_offline_close">Cerrar</string>
+    <string name="revanced_offline_delete_message">¿Eliminar \"%s\" de este dispositivo?</string>
+    <string name="revanced_offline_delete_title">Eliminar descarga</string>
+    <string name="revanced_offline_download_complete">Descarga completa</string>
+    <string name="revanced_offline_download_complete_toast">Descargado: %s</string>
+    <string name="revanced_offline_download_failed">Descarga fallida: %s</string>
+    <string name="revanced_offline_download_merging">Fusionando vídeo y audio...</string>
+    <string name="revanced_offline_download_preparing">Preparando la descarga...</string>
+    <string name="revanced_offline_download_progress">Descargando %d%%</string>
+    <string name="revanced_offline_download_queued">Cola</string>
+    <string name="revanced_offline_download_queued_count">%d en cola</string>
+    <string name="revanced_offline_download_saving">Guardando para Películas/RVX...</string>
+    <string name="revanced_offline_download_started">Descarga iniciada</string>
+    <string name="revanced_offline_download_starting">Empezando...</string>
+    <string name="revanced_offline_download_unavailable">Este vídeo no se puede descargar</string>
+    <string name="revanced_offline_error_forbidden">El servidor de vídeo rechazó la descarga</string>
+    <string name="revanced_offline_error_space">No hay suficiente espacio libre, se necesitan porcentajes</string>
+    <string name="revanced_offline_error_time_limit">Se ha alcanzado el tiempo de descarga en segundo plano de Android</string>
+    <string name="revanced_offline_library_empty">Aún no hay vídeos descargados</string>
+    <string name="revanced_offline_library_no_results">Ninguna descarga coincide con tu búsqueda</string>
+    <string name="revanced_offline_library_resume">Reanudar en %s</string>
+    <string name="revanced_offline_library_search">Descargas de búsqueda</string>
+    <string name="revanced_offline_library_sort">Ordenar</string>
+    <string name="revanced_offline_library_sort_title">Título</string>
+    <string name="revanced_offline_library_title">Descargas</string>
+    <string name="revanced_offline_loading_formats">Cargando las calidades disponibles…</string>
+    <string name="revanced_offline_next">Siguiente</string>
+    <string name="revanced_offline_no_formats">No se ha encontrado ninguna calidad descargable para este vídeo</string>
+    <string name="revanced_offline_nothing_playing">No está funcionando nada</string>
+    <string name="revanced_offline_notification_channel_downloads">Descargas de vídeo</string>
+    <string name="revanced_offline_notification_channel_playback">Reproducción offline</string>
+    <string name="revanced_offline_pause">Pausa</string>
+    <string name="revanced_offline_picker_av1_hint">Archivo más pequeño</string>
+    <string name="revanced_offline_picker_av1_unplayable">No se puede reproducir en este dispositivo</string>
+    <string name="revanced_offline_picker_footer">Guardado en Películas/RVX (MP4, o WebM para VP9)</string>
+    <string name="revanced_offline_picker_h264_hint">Se puede reproducir en cualquier sitio</string>
+    <string name="revanced_offline_picker_subtitle">Calidad de descarga</string>
+    <string name="revanced_offline_picker_vp9_hint">Se reproduce en este dispositivo</string>
+    <string name="revanced_offline_play">Reproducir</string>
+    <string name="revanced_offline_playback_error">Este vídeo no se puede reproducir</string>
+    <string name="revanced_offline_playing_background">Reproducción en segundo plano</string>
+    <string name="revanced_offline_previous">Anterior</string>
+    <string name="revanced_offline_share_unsupported">No se soporta compartir en esta versión de Android</string>
+    <string name="revanced_offline_video_missing">Esta descarga ya no existe</string>
     <string name="revanced_open_links_externally_summary_off">Abre enlaces en el navegador de la app</string>
     <string name="revanced_open_links_externally_summary_on">Abre enlaces en el navegador externo</string>
     <string name="revanced_open_links_externally_title">Abrir enlaces en el navegador</string>
+    <string name="revanced_open_offline_library_summary">Vídeos descargados con el descargador integrado</string>
+    <string name="revanced_open_offline_library_title">Abrir biblioteca offline</string>
     <string name="revanced_overlay_button">Botón superpuesto</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Pulsa para activar los estados de repetición continua
 Mantén pulsado para pausar después de los estados de repetición"</string>
@@ -2136,6 +2217,9 @@ Información:
     <string name="revanced_replace_channel_handle_summary_off">Se utiliza el nombre de usuario del canal</string>
     <string name="revanced_replace_channel_handle_summary_on">Se utiliza el nombre del canal</string>
     <string name="revanced_replace_channel_handle_title">Reemplazar nombre de usuario del canal</string>
+    <string name="revanced_replace_downloads_page_summary_off">Se muestra la página de descargas de YouTube</string>
+    <string name="revanced_replace_downloads_page_summary_on">La página de descargas de YouTube abre la biblioteca offline</string>
+    <string name="revanced_replace_downloads_page_title">Página de Reemplazar Descargas</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Pulsa para mostrar el tiempo restante</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Pulsa para abrir el menú desplegable de velocidad de reproducción o de calidad de vídeo</string>
     <string name="revanced_replace_time_stamp_action_title">Reemplazar acción de marca de tiempo</string>
@@ -2557,6 +2641,9 @@ La mayoría de los errores no pueden solucionarse debido a las limitaciones del 
     <string name="revanced_shorts_player_type_regular_player">Reproductor normal</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Reproductor normal en pantalla completa</string>
     <string name="revanced_shorts_player_type_title">Abrir Shorts con</string>
+    <string name="revanced_show_offline_library_button_summary_off">No hay botón de Descargas en la pestaña Tú</string>
+    <string name="revanced_show_offline_library_button_summary_on">Un botón de Descargas junto a Configuración en la pestaña Tú abre la biblioteca offline</string>
+    <string name="revanced_show_offline_library_button_title">Botón de descargas en la pestaña Tú</string>
     <string name="revanced_show_search_button_summary_off">El botón de búsqueda no se muestra</string>
     <string name="revanced_show_search_button_title">Mostrar botón de Búsqueda</string>
     <string name="revanced_show_settings_button_summary_off">No se muestra el botón de configuración</string>

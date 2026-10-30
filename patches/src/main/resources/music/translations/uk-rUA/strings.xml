@@ -145,28 +145,35 @@
 
 Тексти пісень надходять зі сторонніх служб, які не пов'язані з RVX, не спонсоруються та не схвалюються ним. Кожна служба використовується як є: тексти пісень, їх доступність і ліцензування залишаються за цими службами та їхніми правовласниками, а користування ними може підпадати під їхні умови надання послуг. До увімкненої служби надходить лише запит, який ви зробили: назва, виконавець і, якщо служба цього потребує, ідентифікатор відео. Додаткова кінцева точка ШІ та транскрипція QuickLRC працюють лише після того, як ви їх налаштуєте, і отримують текст пісні або URL відео треку"</string>
     <string name="morphe_music_lyrics_about_title">Про сторонні тексти пісень</string>
-    <string name="morphe_music_lyrics_ai_config_api_token_hint">Ключ API (залиште порожнім для анонімного доступу)</string>
-    <string name="morphe_music_lyrics_ai_config_base_url_hint">URL-адреса кінцевої точки API (наприклад, https://text.pollinations.ai/openai)</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_instruction">Налаштуйте кінцеву точку API, сумісну з OpenAI, для AI-перекладу текстів пісень, романізації та розділів</string>
-    <string name="morphe_music_lyrics_ai_config_dialog_title">Налаштування AI</string>
-    <string name="morphe_music_lyrics_ai_config_model_hint">Назва моделі (наприклад, openai-fast, gpt-4o-mini)</string>
-    <string name="morphe_music_lyrics_ai_config_status_empty_model">Назва моделі не може бути порожньою</string>
-    <string name="morphe_music_lyrics_ai_config_status_empty_url">Базова URL-адреса не може бути порожньою</string>
+    <string name="morphe_music_lyrics_ai_config_api_token_label">Ключ API (необов\'язково)</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_hint">URL кінцевої точки API (наприклад, https://api.openai.com/v1/chat/completions, https://api.anthropic.com/v1/chat/completions, https://generativelanguage.googleapis.com/v1beta/openai/chat/completions)</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_label">Базова URL-адреса</string>
+    <string name="morphe_music_lyrics_ai_config_base_url_presets_title">Обрати сервіс</string>
+    <string name="morphe_music_lyrics_ai_config_deepl_key_label">Ключ автентифікації (Free або Pro)</string>
+    <string name="morphe_music_lyrics_ai_config_extra_body_hint">Цитуйте назви та значення, наприклад, {\"temperature\": 0.3}. Значення без лапок, що містять / чи :, відхиляється. Модель та повідомлення не можна встановити тут</string>
+    <string name="morphe_music_lyrics_ai_config_extra_body_label">Додаткове тіло запиту (необов\'язковий JSON)</string>
+    <string name="morphe_music_lyrics_ai_config_extra_headers_hint">Цитуйте назви та значення, наприклад, {\"api-key\": \"abc\"}. Значення без лапок, що містять / : або число, відхиляється. Порожнє значення видаляє заголовок</string>
+    <string name="morphe_music_lyrics_ai_config_extra_headers_label">Додаткові заголовки запиту (необов\'язковий JSON)</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models_failed">Не вдалося отримати моделі. Перевірте ключ API або з\'єднання</string>
+    <string name="morphe_music_lyrics_ai_config_fetch_models_success">Виберіть модель</string>
+    <string name="morphe_music_lyrics_ai_config_fetching_models">Отримання моделей…</string>
+    <string name="morphe_music_lyrics_ai_config_model_label">Модель</string>
+    <string name="morphe_music_lyrics_ai_config_prompt_label">Запит</string>
+    <string name="morphe_music_lyrics_ai_config_status_connected">%1$s: Підключено! (%2$s)</string>
+    <string name="morphe_music_lyrics_ai_config_status_failed">%1$s: Помилка підключення. Перевірте налаштування</string>
+    <string name="morphe_music_lyrics_ai_config_status_invalid">Налаштування неповні або відхилені постачальником</string>
     <string name="morphe_music_lyrics_ai_config_status_invalid_url">Базова URL-адреса має починатися з http:// або https://</string>
     <string name="morphe_music_lyrics_ai_config_status_validating">Перевірка з\'єднання…</string>
-    <string name="morphe_music_lyrics_ai_config_summary_configured">Модель %1$s налаштовано</string>
-    <string name="morphe_music_lyrics_ai_config_toast_invalid">Не вдалося підключитися до кінцевої точки AI. Будь ласка, перевірте налаштування</string>
-    <string name="morphe_music_lyrics_ai_config_toast_reset">Налаштування AI скинуто</string>
-    <string name="morphe_music_lyrics_ai_config_toast_saved">Налаштування AI збережено</string>
-    <string name="morphe_music_lyrics_ai_extra_body_hint">Додаткове тіло запиту (JSON, додається до кожного запиту ШІ)</string>
-    <string name="morphe_music_lyrics_ai_extra_body_invalid">Схоже, ти вставив уже готовий переклад замість англійського оригіналу. Надішли, будь ласка, англійський рядок, і я перекладу</string>
+    <string name="morphe_music_lyrics_ai_config_toast_saved">Налаштування перекладу та романізації збережено</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_hint">Заповнювачі: {language}, {task}, {title}, {artist}, {count}, {lines}</string>
     <string name="morphe_music_lyrics_ai_prompt_dialog_title">Шаблон запиту</string>
-    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Запит збережено, але кінцева точка AI ще непридатна до використання. Спочатку налаштуйте її в розділі \"Налаштування AI\"</string>
+    <string name="morphe_music_lyrics_ai_prompt_toast_endpoint_invalid">Запит збережено, але кінцева точка ШІ ще непридатна до використання. Спочатку налаштуйте її в розділі \"Налаштування ШІ\"</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_reset">Запит скинуто</string>
     <string name="morphe_music_lyrics_ai_prompt_toast_saved">Запит збережено</string>
+    <string name="morphe_music_lyrics_allow_transliteration_summary">Дозволити немовні латинське читання з джерела текстів; коли вимкнено, залишати лише латинські літери, літери з апострофами та цифри тональності</string>
+    <string name="morphe_music_lyrics_allow_transliteration_title">Увімкнути транслітерацію</string>
     <string name="morphe_music_lyrics_clear_cache_done">Очищено %1$s МБ</string>
-    <string name="morphe_music_lyrics_clear_cache_summary">Видалити тексти пісень, збережені на цьому пристрої</string>
+    <string name="morphe_music_lyrics_clear_cache_summary">Видалити збережені на цьому пристрої тексти пісень об’ємом %1$s МБ</string>
     <string name="morphe_music_lyrics_clear_cache_title">Очистити збережені тексти пісень</string>
     <string name="morphe_music_lyrics_contribute_credit">Утримуйте кнопку копіювання, щоб зберегти цей LRC; якщо ви можете точніше налаштувати таймінги та поділитися ними зі спільнотою постачальників, ми будемо вдячні</string>
     <string name="morphe_music_lyrics_copied">Скопійовано</string>
@@ -179,6 +186,10 @@
     <string name="morphe_music_lyrics_dual_only">Подвійний режим</string>
     <string name="morphe_music_lyrics_enabled_summary">Показує текст пісні зі стороннього сервісу, повертаючись до вбудованого тексту, якщо нічого не знайдено</string>
     <string name="morphe_music_lyrics_enabled_title">Використовувати сторонні тексти пісень</string>
+    <string name="morphe_music_lyrics_force_capitalize_summary">Робить першу літеру кожного рядка тексту пісні великою</string>
+    <string name="morphe_music_lyrics_force_capitalize_title">Починати з великої літери</string>
+    <string name="morphe_music_lyrics_force_center_summary">ON поміщає кожен рядок посередині й ігнорує джерело вирівнювання, включаючи сторони дуету; OFF залишає вирівнювання, яке просять тексти</string>
+    <string name="morphe_music_lyrics_force_center_title">Завжди центрувати тексти</string>
     <string name="morphe_music_lyrics_hide_info_summary">Приховати рядок з інформацією про авторів, що показується під текстом пісні</string>
     <string name="morphe_music_lyrics_hide_info_title">Приховати рядок з інформацією про авторів</string>
     <string name="morphe_music_lyrics_hide_played_summary">Приховувати рядки тексту пісні над рядком, що зараз відтворюється</string>
@@ -187,22 +198,92 @@
     <string name="morphe_music_lyrics_hide_unplayed_title">Приховувати ще не відтворені рядки тексту</string>
     <string name="morphe_music_lyrics_keep_screen_on_summary">Запобігає вимкненню екрана, поки відкрита панель тексту пісні</string>
     <string name="morphe_music_lyrics_keep_screen_on_title">Тримати екран увімкненим під час перегляду тексту пісні</string>
+    <string name="morphe_music_lyrics_line_scale_summary">Малювати кожен рядок, який зараз не співається, трохи меншим, поверх затемнення</string>
+    <string name="morphe_music_lyrics_line_scale_title">Зменшувати неактивні рядки</string>
     <string name="morphe_music_lyrics_local_romanization_dict_building">Читання %1$s: %2$d%%</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_chinese">Китайські слова (pinyin-pro, ~17 МБ)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_cldr">Грецька, слов\'янська кирилиця (включно з російською, українською, болгарською, сербською, білоруською, македонською), грузинська, вірменська, давньоарабська, арабська, амхарська та ассирійська транслітерація (CLDR, ~0,5 МБ)</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_empty">Оберіть щонайменше один словник</string>
     <string name="morphe_music_lyrics_local_romanization_dict_failed">Не вдалося завантажити, вимкніть і ввімкніть це знову, щоб повторити спробу</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_japanese">Японська (SudachiDict, ~75 МБ)</string>
     <string name="morphe_music_lyrics_local_romanization_dict_ready">Зчитування готове (записів: %1$d)</string>
-    <string name="morphe_music_lyrics_local_romanization_summary">Романізувати на пристрої, коли постачальник, ваша модель і Google Перекладач не спрацьовують. Читання відповідає кожному слову синхронізованого тексту пісні; синхронізація по словах має бути ввімкнена. Китайська, кантонська, японська, корейська, грецька, російська, грузинська, вірменська; близько 120 МБ</string>
+    <string name="morphe_music_lyrics_local_romanization_dict_unidict">Китайські кантонські символи (UniDict, ~8 МБ)</string>
+    <string name="morphe_music_lyrics_local_romanization_download_started">Завантаження словників читання…</string>
+    <string name="morphe_music_lyrics_local_romanization_summary">Зчитує кожне слово синхронізованого тексту (увімкнено синхронізацію слів); для корейської не потрібно завантажувати; чотирнадцять сценаріїв ділять одне завантаження CLDR; китайські символи читаються за допомогою списку слів Rime, якщо його таблиця слів охоплює мову</string>
     <string name="morphe_music_lyrics_local_romanization_title">Локальна романізація та вирівнювання</string>
     <string name="morphe_music_lyrics_mediasession_summary">Показує поточний рядок на екрані блокування, в Android Auto та через Bluetooth. Потрібен Android 11 або новіший</string>
     <string name="morphe_music_lyrics_mediasession_title">Показувати текст пісні MediaSession на екрані блокування</string>
+    <string name="morphe_music_lyrics_mini_artist_max_label">Максимальний час на екрані (мс)</string>
+    <string name="morphe_music_lyrics_mini_artist_min_label">Мінімальний час на екрані (мс)</string>
+    <string name="morphe_music_lyrics_mini_artist_timing_explanation">Лише для багаторядкових анімацій. Кожен кадр показується щонайменше мінімальний час. При досягненні максимуму рядок виконавця змінюється, навіть якщо рядок тексту залишається тим самим</string>
+    <string name="morphe_music_lyrics_mini_artist_timing_invalid">Мінімум має бути 0 або більше. Максимум має бути більшим за 0 і не меншим за мінімум</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_invalid">Формат має містити {lrc}</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_summary">Формат рядка тексту пісні в мініплеєрі та MediaSession. {lrc} це рядок, а {n} скільки разів поспіль він співається. Текст між двокрапками показується лише тоді, коли рядок повторюється. Для двокрапки використовуйте \\:</string>
+    <string name="morphe_music_lyrics_mini_encapsulation_title">Формат рядка тексту</string>
+    <string name="morphe_music_lyrics_mini_instrumental_summary">Показується в мініплеєрі та MediaSession під час інструментальної перерви. Кожен рядок це один кадр анімації. {t} це назва, {a} виконавець, а {lrc} останній рядок тексту</string>
+    <string name="morphe_music_lyrics_mini_instrumental_title">Інструментальна перерва</string>
+    <string name="morphe_music_lyrics_mini_line_limits_artist">"Обмеження рядка виконавця
+Розділяти заповнений формат треку на кадри, що циклічно змінюються. 0 вимикає розділення"</string>
+    <string name="morphe_music_lyrics_mini_line_limits_invalid">Введіть цілі числа лімітів від 0 до 10000 і вагу символу більшу за 0</string>
+    <string name="morphe_music_lyrics_mini_line_limits_lyrics">"Обмеження рядка тексту
+Розділяти довші рядки тексту на рівні половини. 0 вимикає розділення"</string>
+    <string name="morphe_music_lyrics_mini_line_limits_summary">Обмеження рядків тексту та виконавця й вага повноширинних символів</string>
+    <string name="morphe_music_lyrics_mini_line_limits_title">Обмеження довжини рядка</string>
+    <string name="morphe_music_lyrics_mini_line_limits_weight">"Вага повноширинного символу
+Застосовується до обох лімітів. При 1.75 чотири повноширинні символи враховуються як 7"</string>
+    <string name="morphe_music_lyrics_mini_next_offset_ms_summary">Зсуває момент показу наступного рядка в мініплеєрі та MediaSession. Використовуйте від\'ємне значення, якщо рядки з\'являються із запізненням, наприклад на екрані блокування</string>
+    <string name="morphe_music_lyrics_mini_next_offset_ms_title">Зсув синхронізації мініплеєра та MediaSession</string>
+    <string name="morphe_music_lyrics_mini_track_format_summary">Формат треку, що показується разом із текстом пісні в міні-плеєрі та MediaSession. {t} це назва, {a} виконавець, а {v} версія, наприклад Acoustic, якщо джерело тексту її надає. Текст між двома двокрапками показується лише тоді, коли кожна змінна всередині має значення; для звичайної двокрапки пишіть \\:. Кожен рядок показується по черзі, змінюючись щоразу, коли змінюється рядок тексту</string>
+    <string name="morphe_music_lyrics_mini_track_format_title">Формат назви пісні/виконавця</string>
     <string name="morphe_music_lyrics_miniplayer_summary">Показує поточний рядок у мініплеєрі, а трек переноситься в підзаголовок</string>
     <string name="morphe_music_lyrics_miniplayer_title">Показувати текст пісні в мініплеєрі</string>
     <string name="morphe_music_lyrics_offset_ms_summary">Синхронізовані тексти пісень слідують за відтворенням. Якщо вони збиваються, налаштуйте зсув часу. Зсуває синхронізовані тексти пісень уперед або назад. Використовуйте позитивне значення, якщо текст випереджає пісню</string>
     <string name="morphe_music_lyrics_offset_ms_title">Глобальний зсув часу</string>
+    <string name="morphe_music_lyrics_providers_keep_one">Щонайменше один постачальник має бути увімкнений</string>
     <string name="morphe_music_lyrics_refreshed">Оновлено</string>
     <string name="morphe_music_lyrics_refreshing">Оновлення</string>
+    <string name="morphe_music_lyrics_rime_char_source_cantonese">Кантонські символи</string>
+    <string name="morphe_music_lyrics_rime_char_source_none">Без читання символів</string>
+    <string name="morphe_music_lyrics_rime_char_source_pinyin">Мандаринські символи</string>
+    <string name="morphe_music_lyrics_rime_dict_add">Додати</string>
+    <string name="morphe_music_lyrics_rime_dict_add_hint">Файл .dict.yaml або архів zip, що містить один такий файл, з рядками виду 字 ham та 典 din2. Список завантажується, коли ви позначаєте його та натискаєте Зберегти, а вашу ліцензію можна перевірити</string>
+    <string name="morphe_music_lyrics_rime_dict_add_title">Додати список слів Rime</string>
+    <string name="morphe_music_lyrics_rime_dict_added">Додано %1$s — позначте його й натисніть «Зберегти», щоб завантажити</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_code">Код має складатися з двох або трьох літер, як-от hak</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_field">Назва та адреса не можуть містити вертикальну риску</string>
+    <string name="morphe_music_lyrics_rime_dict_bad_url">Адреса має починатися з https://</string>
+    <string name="morphe_music_lyrics_rime_dict_building">Читання списку слів: %1$d%%</string>
+    <string name="morphe_music_lyrics_rime_dict_duplicate">%1$s вже має таблицю слів</string>
+    <string name="morphe_music_lyrics_rime_dict_empty">"Для Rime Wordlist також потрібен UniDict: у постачальнику офлайн-словника позначте \"Китайські кантонські символи (UniDict)\" і дайте йому завантажитися. Без цього список із розпізнаванням символів не видасть читання
+
+Позначте списки, які має читати Rime Wordlist, потім натисніть Зберегти для їхнього завантаження. Список, який ви додали, видаляється, коли знімаєте позначку
+
+Кожен список — це ваша власна таблиця зіставлення слів із читанням, файл .dict.yaml з рядками виду:
+字 ham
+典 din2
+Перший стовпець — це слово, другий — його читання; додаткові стовпці та рядки без табуляції ігноруються"</string>
+    <string name="morphe_music_lyrics_rime_dict_failed">Завантаження списку слів не вдалося — натисніть «Зберегти» ще раз, щоб повторити</string>
+    <string name="morphe_music_lyrics_rime_dict_field_char_source">Символи, яких немає в слові</string>
+    <string name="morphe_music_lyrics_rime_dict_field_code">Код мови</string>
+    <string name="morphe_music_lyrics_rime_dict_field_code_hint">Дві або три літери, як-от hak або wuu</string>
+    <string name="morphe_music_lyrics_rime_dict_field_label">Назва</string>
+    <string name="morphe_music_lyrics_rime_dict_field_label_hint">Показується під читанням, як-от Hakka (Meixian)</string>
+    <string name="morphe_music_lyrics_rime_dict_field_url">Адреса списку слів</string>
+    <string name="morphe_music_lyrics_rime_dict_field_url_hint">Адреса https:// файлу .dict.yaml або його архіву zip</string>
+    <string name="morphe_music_lyrics_rime_dict_incomplete">Заповніть код, назву та адресу</string>
+    <string name="morphe_music_lyrics_rime_dict_no_table">Для мови вище не позначено жодного списку слів Rime. Натисніть на це ім\'я, щоб позначити один, або оберіть мову, для якої є список</string>
+    <string name="morphe_music_lyrics_rime_dict_ready">Списки слів готові</string>
+    <string name="morphe_music_lyrics_rime_dict_ready_toast">Списки слів готові (%1$d записів)</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved">%1$s зчитується вбудованим романізатором і не може мати список слів</string>
+    <string name="morphe_music_lyrics_rime_dict_reserved_row">Не використовується: ця мова вже має власне читання, тому зніміть прапорець, щоб видалити її</string>
+    <string name="morphe_music_lyrics_rime_dict_title">Список слів Rime</string>
+    <string name="morphe_music_lyrics_romanization_provider_local">Офлайн-словник</string>
+    <string name="morphe_music_lyrics_romanization_provider_title">Романографія або транслітерація</string>
+    <string name="morphe_music_lyrics_romanization_target_language">"Цільова мова транслітерації або романізації:
+%s"</string>
     <string name="morphe_music_lyrics_romanize_failed">Не вдалося романізувати текст пісні</string>
     <string name="morphe_music_lyrics_romanize_hide">Романізовано</string>
-    <string name="morphe_music_lyrics_romanize_language_title">Мова романізації</string>
+    <string name="morphe_music_lyrics_romanize_language_title">Мова романографії або транслітерації</string>
     <string name="morphe_music_lyrics_romanize_only">Лише романізовано</string>
     <string name="morphe_music_lyrics_romanized_by_ai">Романізовано %s</string>
     <string name="morphe_music_lyrics_romanized_by_google">Романізовано Google</string>
@@ -220,20 +301,22 @@
     <string name="morphe_music_lyrics_show_copy_button_title">Показати кнопку \"Копіювати\"</string>
     <string name="morphe_music_lyrics_show_refresh_button_summary">Натисніть, щоб перейти до наступного варіанта тексту пісні; натисніть і утримуйте, щоб шукати текст пісні за назвою пісні та виконавцем</string>
     <string name="morphe_music_lyrics_show_refresh_button_title">Показувати кнопку \"Оновити\"</string>
-    <string name="morphe_music_lyrics_show_romanize_button_summary">Натисніть, щоб увімкнути або вимкнути романізацію; натисніть і утримуйте, щоб показати лише романізацію. Використовує романізацію постачальника, Google Перекладач або API, сумісний з OpenAI</string>
-    <string name="morphe_music_lyrics_show_romanize_button_title">Показати кнопку \"Романізувати\"</string>
+    <string name="morphe_music_lyrics_show_romanize_button_summary">Натисніть, щоб увімкнути або вимкнути романографію чи транслітерацію; натисніть і утримуйте, щоб використати лише романографію або транслітерацію. Використовувати увімкнених постачальників романографії в порядку їх переліку</string>
+    <string name="morphe_music_lyrics_show_romanize_button_title">Показати кнопку романографії або транслітерації</string>
     <string name="morphe_music_lyrics_show_section_summary">Позначати кожен новий розділ тексту пісні невеликим тегом, наприклад \"Куплет\" або \"Приспів\"</string>
     <string name="morphe_music_lyrics_show_section_title">Показувати теги розділів</string>
-    <string name="morphe_music_lyrics_show_translate_button_summary">Натисніть, щоб увімкнути або вимкнути переклад; натисніть і утримуйте, щоб показати лише переклад. Використовує переклади постачальника, Google Перекладач або API, сумісний з OpenAI</string>
+    <string name="morphe_music_lyrics_show_translate_button_summary">Натисніть, щоб увімкнути або вимкнути переклад; натисніть і утримуйте, щоб показати лише переклад. Використовувати увімкнених постачальників перекладу в порядку їх переліку</string>
     <string name="morphe_music_lyrics_show_translate_button_title">Показати кнопку \"Перекласти\"</string>
     <string name="morphe_music_lyrics_source_all_disabled">Усі постачальники вимкнено, використовуються вбудовані та вбудовані в файл тексти пісень</string>
     <string name="morphe_music_lyrics_source_label">Джерело: %s</string>
     <string name="morphe_music_lyrics_source_reset_message">Відновити типовий порядок пріоритету постачальників</string>
     <string name="morphe_music_lyrics_source_reset_title">Скинути порядок постачальників?</string>
     <string name="morphe_music_lyrics_source_title">Сервіс текстів пісень</string>
-    <string name="morphe_music_lyrics_split_background_summary">Виносить бек-вокал, записаний у дужках, наприклад \"(Oh) I want you\", із рядка основного вокалу в окремий, тьмяніший рядок</string>
+    <string name="morphe_music_lyrics_split_background_summary">Розділяє фоновий вокал і гармонію від основного рядка. Переміщує фоновий вокал, записаний у дужках, наприклад \"(Oh) I want you\", із співного рядка в окремий, більш тьмяний рядок</string>
     <string name="morphe_music_lyrics_split_background_title">Показувати бек-вокал окремо</string>
-    <string name="morphe_music_lyrics_swap_trans_roma_summary">Увімкнено - романізація під текстом, переклад над текстом; вимкнено - романізація над текстом, переклад під текстом</string>
+    <string name="morphe_music_lyrics_strip_trailing_punctuation_summary">Прибирає крапки, коми, двокрапки та крапки з комою в кінці рядків тексту пісні. Знаки питання, знаки оклику, трикрапки, лапки та дужки залишаються</string>
+    <string name="morphe_music_lyrics_strip_trailing_punctuation_title">Прибирати кінцеву пунктуацію</string>
+    <string name="morphe_music_lyrics_swap_trans_roma_summary">ON поміщає романографію або транслітерацію під тексти й переклад над ними; OFF залишає романографію або транслітерацію зверху й переклад внизу. Читання, розміщене над кожним складом, рухається разом із ним, відразу над його складом вниз під нього</string>
     <string name="morphe_music_lyrics_swap_trans_roma_title">Поміняти місцями переклад і романізацію</string>
     <string name="morphe_music_lyrics_tap_to_seek_summary">Натисніть рядок, щоб перейти до цього моменту в пісні, натисніть і утримайте його, щоб скопіювати слово під пальцем або весь рядок, якщо натискання припало не на слово. Якщо вимкнено, обидва жести не працюватимуть</string>
     <string name="morphe_music_lyrics_tap_to_seek_title">Натисніть та утримуйте рядок</string>
@@ -251,7 +334,7 @@
     <string name="morphe_music_lyrics_transcribe_key_rejected">QuickLRC не прийняв цей ключ</string>
     <string name="morphe_music_lyrics_transcribe_key_saved">Ключ API QuickLRC збережено</string>
     <string name="morphe_music_lyrics_transcribe_key_set_summary">Ключ QuickLRC збережено. Скористайтеся кнопкою вирівнювання в діалозі пошуку тексту пісні або запитом на панелі, коли для треку немає тексту</string>
-    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRC транскрибує або синхронізує за часом текст пісні для поточного треку. Окремий сервіс, не пов\'язаний із кінцевою точкою, сумісною з OpenAI, вище</string>
+    <string name="morphe_music_lyrics_transcribe_key_summary">QuickLRC транскрибує або часове співставлення текстів для поточної треку</string>
     <string name="morphe_music_lyrics_transcribe_key_title">Ключ API QuickLRC</string>
     <string name="morphe_music_lyrics_transcribe_local_unsupported">Транскрибувати можна лише треки, відтворені з YouTube</string>
     <string name="morphe_music_lyrics_transcribe_no_text">Немає тексту для вирівнювання, натомість виконується транскрипція</string>
@@ -265,13 +348,11 @@
     <string name="morphe_music_lyrics_translated_by_google">Перекладено Google</string>
     <string name="morphe_music_lyrics_translating">Переклад…</string>
     <string name="morphe_music_lyrics_translation_language_title">Мова перекладу</string>
-    <string name="morphe_music_lyrics_use_ai_romanization_summary">Надає перевагу романізації, яку постачає провайдер, потім вашій моделі, сумісній з OpenAI, і Google Translate наостанок</string>
-    <string name="morphe_music_lyrics_use_ai_romanization_title">AI-романізація</string>
-    <string name="morphe_music_lyrics_use_ai_section_summary">Використовується лише тоді, коли постачальник не надає позначок розділів, таких як \"Приспів\" або \"Куплет\", які тоді визначає ваша модель, сумісна з OpenAI</string>
-    <string name="morphe_music_lyrics_use_ai_section_title">Розділ AI</string>
-    <string name="morphe_music_lyrics_use_ai_title">API, сумісний з OpenAI</string>
-    <string name="morphe_music_lyrics_use_ai_translation_summary">Надає перевагу перекладу, який постачає провайдер, потім вашій моделі, сумісній з OpenAI, і Google Translate наостанок</string>
-    <string name="morphe_music_lyrics_use_ai_translation_title">AI-переклад</string>
+    <string name="morphe_music_lyrics_translation_provider_title">Переклад</string>
+    <string name="morphe_music_lyrics_translation_target_language">"Мова перекладу:
+%s"</string>
+    <string name="morphe_music_lyrics_use_ai_section_summary">Використовується лише тоді, коли постачальник не надає позначок розділів, таких як Приспів або Куплет, які тоді виявляє ваша модель, сумісна з OpenAI. Редагування рядка також відкриває його запит</string>
+    <string name="morphe_music_lyrics_use_ai_section_title">Виявити секції за допомогою ШІ</string>
     <string name="morphe_music_lyrics_word_sync_summary">Надавати пріоритет тексту пісні по словах, коли доступно. Якщо текст пісні містить синхронізацію по словах, підсвічує кожне слово або склад у такт музиці</string>
     <string name="morphe_music_lyrics_word_sync_title">Підсвічувати синхронізовані слова або склади</string>
     <string name="morphe_music_musixmatch_token_dialog_hint">токен користувача</string>
@@ -315,6 +396,7 @@
     <string name="morphe_oauth2_connection_failure_timeout">OAuth2 тимчасово недоступний (тайм-аут API)</string>
     <string name="morphe_oauth2_toast_invalid">Недійсний токен входу у VR, спробуйте ввійти у VR ще раз</string>
     <string name="morphe_oauth2_toast_reset">Ви вийшли з Android VR</string>
+    <string name="morphe_playback_in_feeds_entry_off">Вимк</string>
     <string name="morphe_potoken_provider_summary">"Виправляє проблеми з відтворенням за допомогою вбудованого провайдера PoToken (Експериментально)
 Якщо ви є користувачем YouTube Premium, це налаштування може не знадобитися"</string>
     <string name="morphe_potoken_provider_title">Провайдер PoToken</string>
@@ -340,6 +422,8 @@
     <string name="morphe_settings_name_custom_item_hint">Введіть назву</string>
     <string name="morphe_settings_name_empty_warning">Назва не може бути порожньою</string>
     <string name="morphe_settings_name_title">Назва налаштувань RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">Кількість днів, протягом яких біля налаштувань і параметрів, доданих оновленням, показується крапка</string>
+    <string name="morphe_settings_new_indicator_days_title">Підсвічувати нові налаштування</string>
     <string name="morphe_settings_save">Зберегти</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Скорочуються лише паузи, не коротші за це значення. Набуває чинності при запуску наступного відео</string>
     <string name="morphe_skip_silence_minimum_pause_title">Мінімальна тривалість паузи</string>

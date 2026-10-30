@@ -308,7 +308,7 @@ final class LyricsProviderConfigDialog {
                     if (onSaved != null) {
                         onSaved.run();
                     }
-                    Utils.showToastShort(str("morphe_music_lyrics_ai_config_toast_reset"));
+                    Utils.showToastShort(str("revanced_settings_import_reset"));
                 },
                 true
         );

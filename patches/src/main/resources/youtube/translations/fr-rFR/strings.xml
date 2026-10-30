@@ -101,6 +101,8 @@ Les vidéos sont recherchées à l'aide d'un court préfixe de l'identifiant vid
     <string name="morphe_disable_quic_protocol_summary_on">Le protocole QUIC est désactivé</string>
     <string name="morphe_disable_quic_protocol_title">Désactiver le protocole QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Désactiver la limite de vitesse de défilement</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Affiche \'Abonnements\' dans la barre de navigation, si YouTube les déplace vers un onglet en haut de \'Accueil\'</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Désactiver les onglets de navigation de la barre d\'outils</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Étendre la durée du DVR des diffusions en direct' peut ne pas être disponible
 
 Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client par défaut' en 'TV Simply' ou 'visionOS'"</string>
@@ -195,6 +197,9 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_livestream_dvr_title">Activer le DVR des diffusions en direct</string>
     <string name="morphe_music_package_name_summary">Nom du paquet de votre application musicale installée</string>
     <string name="morphe_music_package_name_title">Nom du paquet de l\'application musicale</string>
+    <string name="morphe_navigation_bar_style_entry_2">Translucide</string>
+    <string name="morphe_navigation_bar_style_title">Style de la barre de navigation</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Ce style peut ne pas être pris en charge par votre appareil ou votre version de YouTube, et peut entraîner des problèmes de mise en page ou des plantages</string>
     <string name="morphe_notification_dot_color_summary">Modifie la couleur des points de notification</string>
     <string name="morphe_notification_dot_color_title">couleur du point de notification</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Impossible de se connecter à VR : %s</string>
@@ -223,6 +228,16 @@ Pour corriger cela, activez 'Falsifier les flux vidéo' et définissez 'Client p
     <string name="morphe_playback_in_feeds_title">Lecture dans les flux</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Ajustez l\'opacité de l\'arrière-plan derrière les boutons de contrôle du lecteur et la barre de temps (0 est invisible, 100 est opaque)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Opacité de l\'arrière-plan des boutons de contrôle</string>
+    <string name="morphe_post_image_download_failed">Impossible de télécharger l\'image</string>
+    <string name="morphe_post_image_download_flyout">Télécharger les images</string>
+    <string name="morphe_post_image_download_flyout_single">Télécharger l\'image</string>
+    <string name="morphe_post_image_download_not_found">Aucune image trouvée dans ce post</string>
+    <string name="morphe_post_image_download_saved">%1$s images enregistrées dans %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Image enregistrée dans %s</string>
+    <string name="morphe_post_image_download_started">Téléchargement de %s images…</string>
+    <string name="morphe_post_image_download_started_single">Téléchargement de l\'image…</string>
+    <string name="morphe_post_image_download_summary">Un bouton de téléchargement s\'affiche à côté du bouton \'Partager\' pour les posts contenant des images ou des GIF, et un élément de téléchargement est ajoutée à leur menu</string>
+    <string name="morphe_post_image_download_title">Télécharger les images des posts</string>
     <string name="morphe_potoken_provider_summary">" Résout les problèmes de lecture grâce au fournisseur PoToken intégré (Expérimental)
 
 Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas nécessaire. "</string>
@@ -263,6 +278,12 @@ Pour utiliser cette fonctionnalité, désactivez l'option \'Flux vidéo fictifs�
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Permet d\'enregistrer les shorts dans \'À regarder plus tard\' depuis le menu déroulant</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Afficher le bouton \'Enregistrer dans \"À regarder plus tard\"\' dans le menu déroulant shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Vidéo enregistrée avec succès dans la playlist \'À regarder plus tard\'</string>
+    <string name="morphe_search_comments_applied">Changez l\'ordre de tri ou rouvrez les commentaires pour effectuer une recherche</string>
+    <string name="morphe_search_comments_clear">Effacer</string>
+    <string name="morphe_search_comments_cleared">Recherche effacée. Changez l\"ordre de tri ou rouvrez les commentaires pour afficher tous les commentaires</string>
+    <string name="morphe_search_comments_hint">Mots à rechercher</string>
+    <string name="morphe_search_comments_summary">Appuyez sur le bouton de recherche dans les commentaires pour afficher uniquement les commentaires déjà chargés qui contiennent tous les mots recherchés. Placez les mots entre guillemets pour rechercher une expression exacte</string>
+    <string name="morphe_search_comments_title">Rechercher des commentaires</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Le plus revisionné</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Affiche une miniature de la vidéo lors du déplacement sur la barre de progression</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Activer les miniatures sur la barre de progression</string>
@@ -273,6 +294,8 @@ Pour utiliser cette fonctionnalité, désactivez l'option \'Flux vidéo fictifs�
     <string name="morphe_settings_name_custom_item_hint">Entrez un nom</string>
     <string name="morphe_settings_name_empty_warning">Le nom ne peut pas être vide</string>
     <string name="morphe_settings_name_title">Nom des paramètres de RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">Nombre de jours pendant lesquels un point est affiché à côté des paramètres et options ajoutés par une mise à jour</string>
+    <string name="morphe_settings_new_indicator_days_title">Mettre en évidence les nouveaux paramètres</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Seules les pauses d\'au moins cette durée sont raccourcies. Prend effet au démarrage de la vidéo suivante</string>
     <string name="morphe_skip_silence_minimum_pause_title">Durée minimale de pause</string>
     <string name="morphe_skip_silence_summary">Passe automatiquement les pauses silencieuses dans l\'audio des vidéos</string>
@@ -344,10 +367,10 @@ Si vous êtes abonné à YouTube Premium, ce paramètre n'est peut-être pas né
     <string name="morphe_spoof_video_streams_user_dialog_message">La désactivation de ce paramètre peut entraîner des problèmes de lecture</string>
     <string name="morphe_swap_save_and_queue_actions_summary">Appuyez pour afficher les options de la file d\'attente, appuyez longuement pour enregistrer dans \'À regarder plus tard</string>
     <string name="morphe_swap_save_and_queue_actions_title">Inverser les actions \'Enregistrer\' et \'File d\'attente\'</string>
-    <string name="morphe_tablet_layout_in_player_summary">"Restaure l'ancienne disposition du lecteur
+    <string name="morphe_tablet_layout_in_player_summary">"Restaure l'ancienne mise en page du lecteur
 
 Limitation : Si 'Restaurer l'ancienne barre d'actions vidéo' est désactivé, l'overlay 'Plus de vidéos' peut ne pas être disponible"</string>
-    <string name="morphe_tablet_layout_in_player_title">Activer la disposition tablette dans le lecteur</string>
+    <string name="morphe_tablet_layout_in_player_title">Activer la mise en page pour tablette dans le lecteur</string>
     <string name="morphe_theme_color_change_foreground_summary">Utilisez la couleur du thème pour le texte et les icônes</string>
     <string name="morphe_theme_color_change_foreground_title">Changer la couleur du premier plan</string>
     <string name="morphe_theme_entry_amoled_black">AMOLED Noir</string>
@@ -394,7 +417,7 @@ Pour continuer à utiliser les traductions, changez de fournisseur de traduction
     <string name="morphe_vot_http_error_title">Traduction indisponible</string>
     <string name="morphe_vot_max_speech_rate_summary">Multiplicateur maximal de vitesse pour adapter la parole à la durée du sous-titre</string>
     <string name="morphe_vot_max_speech_rate_title">Vitesse d\'élocution maximale</string>
-    <string name="morphe_vot_mymemory_email_summary">Optionnel. Entrez votre adresse e-mail MyMemory pour augmenter la limite quotidienne de 5,000 à 50,000 caractères. Laissez vide pour utiliser la limite anonyme</string>
+    <string name="morphe_vot_mymemory_email_summary">Facultatif. Entrez votre adresse e-mail MyMemory pour augmenter la limite quotidienne de 5,000 à 50,000 caractères. Laissez vide pour utiliser la limite anonyme</string>
     <string name="morphe_vot_mymemory_email_title">E-mail MyMemory</string>
     <string name="morphe_vot_mymemory_error">La traduction via MyMemory a échoué (statut : %s)</string>
     <string name="morphe_vot_mymemory_info_summary">"API de traduction gratuite, aucune clé API nécessaire. Jusqu'à 5,000 caractères par jour avec l'offre gratuite, ou jusqu'à 50,000 caractères par jour avec une adresse e-mail
@@ -491,18 +514,19 @@ L'activation de cette option peut corriger les images manquantes qui sont bloqu�
     <string name="revanced_change_form_factor_entry_4">Automobile</string>
     <string name="revanced_change_form_factor_entry_5">Tablette (Min 600 dpi)</string>
     <string name="revanced_change_form_factor_entry_6">Automobile</string>
-    <string name="revanced_change_form_factor_title">Disposition de l\'appareil</string>
+    <string name="revanced_change_form_factor_title">Mise en page de l\'appareil</string>
     <string name="revanced_change_form_factor_user_dialog_message">"Les changements incluent :
 
-Disposition tablette
+Mise en page pour tablette
 • Les posts destinés à la communauté sont masquées
 • Le paramètre de lecture dans les flux n'est pas disponible
 • Le bouton 'Remixer' et le bouton 'Son' ne sont pas disponibles dans les Shorts
 • L'overlay 'Plus de vidéos' peut ne pas être disponible
 • L'ancienne barre d'actions vidéo non réduite est affichée
+• Les éléments du menu déroulant peuvent ne pas fonctionner correctement
 
-Disposition automobile
-• Le flux est organisé par thèmes et chaînes
+Mise en page pour automobile
+• Le flux est organisé par topics et chaînes
 • Le paramètre de lecture dans les flux n'est pas disponible
 • Le bouton 'Remixer' et le bouton 'Son' ne sont pas disponibles dans les Shorts
 • L'overlay 'Plus de vidéos' peut ne pas être disponible
@@ -2659,6 +2683,8 @@ Ce problème peut être facilement résolu en cliquant sur le bouton Recharger l
 Parmi les clients JavaScript, le client recommandé est TV Simply"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Cliquez ici pour savoir comment obtenir un jeton d\'authentification</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">À propos d\'Android VR Auth</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Opaque</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Transparent</string>
     <string name="revanced_swipe_brightness_distance_summary">Nombre de pixels à balayer pour modifier la luminosité. Plus la valeur est faible, plus la luminosité change rapidement ; plus la valeur est élevée, plus le changement est lent (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Distance de luminosité</string>
     <string name="revanced_swipe_brightness_summary_off">Le geste de contrôle de la luminosité en plein écran est désactivé</string>

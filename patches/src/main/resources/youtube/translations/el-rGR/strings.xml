@@ -92,6 +92,8 @@
     <string name="morphe_disable_quic_protocol_summary_on">Το πρωτόκολλο QUIC είναι απενεργοποιημένο</string>
     <string name="morphe_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Απενεργοποίηση ορίου ταχύτητας κύλισης</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Εμφανίζει τις Συνδρομές στη γραμμή πλοήγησης, εάν το YouTube τις μεταφέρει σε μια καρτέλα στο πάνω μέρος της Αρχικής</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Απενεργοποίηση καρτελών πλοήγησης στη γραμμή εργαλείων</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Επέκταση διάρκειας DVR ζωντανής μετάδοσης' μπορεί να μην είναι διαθέσιμη
 
 Για να το διορθώσετε, ενεργοποιήστε το 'Πλαστογράφηση του βίντεο' και αλλάξτε το 'Προεπιλεγμένο πρόγραμμα-πελάτη' σε 'TV Simply' ή 'visionOS'"</string>
@@ -184,6 +186,9 @@
     <string name="morphe_livestream_dvr_title">Ενεργοποίηση εγγραφής ζωντανής μετάδοσης DVR</string>
     <string name="morphe_music_package_name_summary">Όνομα πακέτου της εγκατεστημένης εφαρμογής μουσικής σας</string>
     <string name="morphe_music_package_name_title">Όνομα πακέτου εφαρμογής μουσικής</string>
+    <string name="morphe_navigation_bar_style_entry_2">Ημιδιαφανές</string>
+    <string name="morphe_navigation_bar_style_title">Στυλ γραμμής πλοήγησης</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Αυτό το στυλ ενδέχεται να μην υποστηρίζεται από τη συσκευή σας ή την έκδοση του YouTube και μπορεί να προκαλέσει προβλήματα στη διάταξη ή κατάρρευση της εφαρμογής</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Δεν είναι δυνατή η σύνδεση στο VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Δεν είναι δυνατή η είσοδος στο VR, η ταυτοποίηση δεν εγκρίθηκε</string>
     <string name="morphe_oauth2_connection_failure_generic">Το OAuth2 είναι προσωρινά μη διαθέσιμο</string>
@@ -210,6 +215,16 @@
     <string name="morphe_playback_in_feeds_title">Αναπαραγωγή στις ροές</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Προσαρμόστε την αδιαφάνεια του φόντου πίσω από τα κουμπιά ελέγχου του προγράμματος αναπαραγωγής και τη γραμμή χρόνου (0 είναι αόρατο, 100 είναι αδιαφανές)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Αδιαφάνεια φόντου κουμπιών ελέγχου</string>
+    <string name="morphe_post_image_download_failed">Δεν ήταν δυνατή η λήψη της εικόνας</string>
+    <string name="morphe_post_image_download_flyout">Λήψη εικόνων</string>
+    <string name="morphe_post_image_download_flyout_single">Λήψη εικόνας</string>
+    <string name="morphe_post_image_download_not_found">Δεν βρέθηκε εικόνα σε αυτή τη δημοσίευση</string>
+    <string name="morphe_post_image_download_saved">%1$s εικόνες αποθηκεύτηκαν στο %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Η εικόνα αποθηκεύτηκε στο %s</string>
+    <string name="morphe_post_image_download_started">Λήψη %s εικόνων…</string>
+    <string name="morphe_post_image_download_started_single">Λήψη εικόνας…</string>
+    <string name="morphe_post_image_download_summary">Ένα κουμπί λήψης εμφανίζεται δίπλα στο κουμπί Κοινοποίησης των αναρτήσεων με εικόνες ή GIF, και ένα στοιχείο λήψης προστίθεται στο μενού τους</string>
+    <string name="morphe_post_image_download_title">Λήψη εικόνων ανάρτησης</string>
     <string name="morphe_preferred_caption_language_summary">Επιλέγει πρώτα τους υποτίτλους του παρόχου και στη συνέχεια μεταφράζει αυτόματα στην προτιμώμενη γλώσσα</string>
     <string name="morphe_preferred_caption_language_title">Προτιμώμενη γλώσσα υποτίτλων</string>
     <string name="morphe_queue_manager_check_failed_auth">Δεν έχετε συνδεθεί</string>
@@ -243,6 +258,12 @@
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Επιτρέπει την αποθήκευση των Shorts στη λίστα «Παρακολούθηση αργότερα» από το αναδυόμενο μενού</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Εμφάνιση του κουμπιού «Αποθήκευση για παρακολούθηση αργότερα» στο αναδυόμενο μενού των Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Το βίντεο αποθηκεύτηκε επιτυχώς στη λίστα παρακολούθησης αργότερα</string>
+    <string name="morphe_search_comments_applied">Αλλάξτε τη σειρά ταξινόμησης ή ανοίξτε ξανά τα σχόλια για να τα αναζητήσετε</string>
+    <string name="morphe_search_comments_clear">Καθαρισμός</string>
+    <string name="morphe_search_comments_cleared">Η αναζήτηση εκκαθαρίστηκε. Αλλάξτε τη σειρά ταξινόμησης ή ανοίξτε ξανά τα σχόλια για να εμφανίσετε όλα τα σχόλια</string>
+    <string name="morphe_search_comments_hint">Λέξεις προς αναζήτηση</string>
+    <string name="morphe_search_comments_summary">Πατήστε το κουμπί αναζήτησης στα σχόλια για να εμφανίσετε μόνο τα φορτωμένα σχόλια που περιέχουν όλες τις λέξεις αναζήτησης. Τοποθετήστε τις λέξεις σε εισαγωγικά για να αναζητήσετε μια φράση</string>
+    <string name="morphe_search_comments_title">Αναζήτηση σχολίων</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Πιο πολυαναπαραγόμενο</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Εμφανίζει μια μικρογραφία βίντεο κατά τη μετακίνηση της γραμμής αναζήτησης</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Ενεργοποίηση μικρογραφιών γραμμής αναζήτησης</string>
@@ -253,6 +274,8 @@
     <string name="morphe_settings_name_custom_item_hint">Εισαγάγετε ένα όνομα</string>
     <string name="morphe_settings_name_empty_warning">Το όνομα δεν μπορεί να είναι κενό</string>
     <string name="morphe_settings_name_title">Όνομα ρυθμίσεων RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">Αριθμός ημερών που εμφανίζεται μια τελεία δίπλα στις ρυθμίσεις και τις επιλογές που προστέθηκαν μέσω μιας ενημέρωσης</string>
+    <string name="morphe_settings_new_indicator_days_title">Επισημάνιση νέων ρυθμίσεων</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Συντομεύονται μόνο οι παύσεις που διαρκούν τουλάχιστον αυτό. Ισχύει όταν ξεκινήσει το επόμενο βίντεο</string>
     <string name="morphe_skip_silence_minimum_pause_title">Ελάχιστη διάρκεια παύσης</string>
     <string name="morphe_skip_silence_summary">Παραλείπει αυτόματα τις σιωπηλές παύσεις στον ήχο του βίντεο</string>
@@ -443,7 +466,23 @@
     <string name="revanced_change_form_factor_entry_5">Τάμπλετ (Μέγιστο dp 600)</string>
     <string name="revanced_change_form_factor_entry_6">Αυτοκίνητο</string>
     <string name="revanced_change_form_factor_title">Διάταξη συσκευής</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Οι αλλαγές περιλαμβάνουν:\n\nΔιάταξη tablet\n• Οι αναρτήσεις κοινότητας είναι κρυφές\n• Η ρύθμιση «Αναπαραγωγή στις ροές» δεν είναι διαθέσιμη\n• Το κουμπί Remix και το κουμπί ήχου δεν είναι διαθέσιμα στα Shorts\n• Η επικάλυψη «Περισσότερα βίντεο» ενδέχεται να μην είναι διαθέσιμη\n• Εμφανίζεται η μη συμπτυγμένη παλιά γραμμή ενεργειών βίντεο\n\nΔιάταξη αυτοκινήτου\n• Η ροή είναι οργανωμένη ανά θέμα και κανάλι\n• Η ρύθμιση «Αναπαραγωγή στις ροές» δεν είναι διαθέσιμη\n• Το κουμπί Remix και το κουμπί ήχου δεν είναι διαθέσιμα στα Shorts\n• Η επικάλυψη «Περισσότερα βίντεο» ενδέχεται να μην είναι διαθέσιμη\n• Τα Shorts ανοίγουν στο κανονικό πρόγραμμα αναπαραγωγής\n• Εμφανίζεται η μη συμπτυγμένη παλιά γραμμή ενεργειών βίντεο"</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Οι αλλαγές περιλαμβάνουν:
+
+Διάταξη tablet
+• Τα δημοσιεύματα της κοινότητας κρύβονται
+• Η ρύθμιση αναπαραγωγής στα feeds δεν είναι διαθέσιμη
+• Το κουμπί Remix και το κουμπί Ήχος δεν είναι διαθέσιμα στα Shorts
+• Το υπέρθεμα «Περισσότερα βίντεο» μπορεί να μην είναι διαθέσιμο
+• Εμφανίζεται η παλιά μπάρα εργαλείων μη συμπιεσμένων βίντεο
+• Τα στοιχεία του αναδιπλούμενου μενού μπορεί να μην λειτουργούν σωστά
+
+Διάταξη automotive
+• Το feed οργανώνεται ανά θέμα και κανάλι
+• Η ρύθμιση αναπαραγωγής στα feeds δεν είναι διαθέσιμη
+• Το κουμπί Remix και το κουμπί Ήχος δεν είναι διαθέσιμα στα Shorts
+• Το υπέρθεμα «Περισσότερα βίντεο» μπορεί να μην είναι διαθέσιμο
+• Τα Shorts ανοίγουν στον συνηθισμένο player
+• Εμφανίζεται η παλιά μπάρα εργαλείων μη συμπιεσμένων βίντεο"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Χρησιμοποιούνται εναλλαγές διακοπτών</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Χρησιμοποιούνται εναλλαγές κειμένου</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Τύπος εναλλαγής ρυθμίσεων</string>
@@ -2491,6 +2530,8 @@ Playlists
 Μεταξύ των προγραμμάτων πελάτη JavaScript, το προτεινόμενο είναι το TV Simply"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Πατήστε για να δείτε πώς να αποκτήσετε ένα διακριτικό εξουσιοδότησης</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Σχετικά με το Android VR (με σύνδεση χρήστη)</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Αδιαφανές</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Διαφανές</string>
     <string name="revanced_swipe_brightness_distance_summary">Ο αριθμός των pixel για σάρωση για αλλαγή της φωτεινότητας. Οι χαμηλότερες τιμές κάνουν την αλλαγή φωτεινότητας ταχύτερη, οι υψηλότερες την κάνουν πιο αργή (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Απόσταση φωτεινότητας</string>
     <string name="revanced_swipe_brightness_summary_off">Η χειρονομία σάρωσης για αλλαγή φωτεινότητας στην πλήρη οθόνη είναι απενεργοποιημένη</string>

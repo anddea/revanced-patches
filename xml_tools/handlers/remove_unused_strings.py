@@ -37,6 +37,7 @@ PREFIX_TO_IGNORE: tuple[str, ...] = (
     "revanced_gemini_error_already_running_",
     "revanced_gemini_loading_",
     "revanced_icon_",
+    "revanced_offline_library_sort_",
     "revanced_remember_video_quality_",
     "revanced_sb_",
     "revanced_shorts_custom_actions_",

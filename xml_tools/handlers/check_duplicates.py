@@ -71,4 +71,4 @@ def process(app: str, _base_dir: Path | None = None) -> None:
 
     logger.info("Duplicate string text found in %s:", path)
     for names in duplicate_strings.values():
-        logger.info("  ❌ %s", ", ".join(sorted(names)))
+        logger.info("  ❌ %s", " - ".join(sorted(names)))

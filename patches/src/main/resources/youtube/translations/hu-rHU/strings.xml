@@ -92,6 +92,8 @@ A videókat a hash-elt videóazonosító rövid előtagjával kérik le, így a 
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokoll letiltva</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokoll letiltása</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Görgetési sebességkorlát letiltása. ,\"key\":\"morphe_disable_scrolling_speed_limit_title\",\"context\":\"morphe_disable_scrolling_speed_limit_title\nlayout.disableScrollSpeedLimitPatch\",\"maxLength\":null,\"terms\":[]}</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Megjeleníti az Előfizetéseket a navigációs sávban, ha a YouTube lapra przenti őket a Kezdőlap tetejére</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Toolbar navigációs lapok kikapcsolása</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"Előfordulhat, hogy az 'Élő közvetítés DVR-időtartamának bővítése' nem érhető el
 
 A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módosítsd az 'Alapértelmezett kliens' értékét a következőre: 'TV Simply' vagy 'visionOS'"</string>
@@ -184,6 +186,9 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_livestream_dvr_title">Engedélyezze az élsőségi DVR-t</string>
     <string name="morphe_music_package_name_summary">A telepített zenelejátszó csomag neve</string>
     <string name="morphe_music_package_name_title">A zenelejátszó csomag neve</string>
+    <string name="morphe_navigation_bar_style_entry_2">Félt पारátlan</string>
+    <string name="morphe_navigation_bar_style_title">Navigációs sáv stílusa</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Ezt a stílustt nem támogatja az eszközöd vagy a YouTube verziójuk, ami elrendezési hibákhoz vagy összeomláshoz vezethet</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Nem tud bejelentkezni a VR-ba: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">Nem lehetséges a VR-ba belépni, a webhely hitelesítése nem lett jóváhagyva</string>
     <string name="morphe_oauth2_connection_failure_generic">Az OAuth2 átmenetileg nem elérhető</string>
@@ -210,6 +215,16 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_playback_in_feeds_title">Lejátszás a hírekben</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">A lejátszó vezérlőgombjai és az idővonal mögötti háttér átlátszatlanságának beállítása (0 láthatatlan, 100 átlátszatlan)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Vezérlőgombok hátterének átlátszatlansága</string>
+    <string name="morphe_post_image_download_failed">A kép letöltése nem sikerült</string>
+    <string name="morphe_post_image_download_flyout">Képek letöltése</string>
+    <string name="morphe_post_image_download_flyout_single">Kép letöltése</string>
+    <string name="morphe_post_image_download_not_found">Ebben a bejegyzésben nem található kép</string>
+    <string name="morphe_post_image_download_saved">%1$s kép mentve a %2$s mappába</string>
+    <string name="morphe_post_image_download_saved_single">Kép mentve a %s mappába</string>
+    <string name="morphe_post_image_download_started">%s kép letöltése…</string>
+    <string name="morphe_post_image_download_started_single">Kép letöltése…</string>
+    <string name="morphe_post_image_download_summary">A képekkel vagy GIF-ekkel rendelkező bejegyzések Megosztás gombja mellett megjelenik egy letöltés gomb, és a menüjükhez egy letöltési elem kerül hozzá</string>
+    <string name="morphe_post_image_download_title">Bejegyzési képek letöltése</string>
     <string name="morphe_preferred_caption_language_summary">Először a szolgáltató feliratait választja ki, majd automatikusan lefordítja az előnyben részesített nyelvre</string>
     <string name="morphe_preferred_caption_language_title">Feliratok előnyben részesített nyelve</string>
     <string name="morphe_queue_manager_check_failed_auth">Nem jelentkezett be</string>
@@ -243,6 +258,12 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Lehetővé teszi a Shorts mentését a \'Watch later\' listába a felugró menüből</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">A \'Watch later\' mentése gomb megjelenítése a Shorts felugró menüjében</string>
     <string name="morphe_save_to_watch_later_success_toast">A videó sikeresen mentve a „Később megnézem” lejátszási listára</string>
+    <string name="morphe_search_comments_applied">Módosítsa a rendezési sorrendet, vagy nyissa újra a hozzászólásokat a kereséshez</string>
+    <string name="morphe_search_comments_clear">Törlés</string>
+    <string name="morphe_search_comments_cleared">Keresés törölve. Módosítsa a rendezési sorrendet, vagy nyissa újra a hozzászólásokat az összes hozzászólás megjelenítéséhez</string>
+    <string name="morphe_search_comments_hint">Keresett szavak</string>
+    <string name="morphe_search_comments_summary">Koppintson a kereső gombra a hozzászólások között, hogy csak a betöltött, és az összes keresett szót tartalmazó hozzászólások jelenjenek meg. A pontos kifejezések kereséséhez tegye a szavakat idézőjelek közé</string>
+    <string name="morphe_search_comments_title">Hozzászólások keresése</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Legtöbbször újrajátszott</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Videó bélyegképet jelenít meg a keresősáv húzásakor</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Engedélyezze a keresősáv bélyegképeit</string>
@@ -253,6 +274,8 @@ A javításhoz kapcsold be a 'Videóstreamek meghamisítása' opciót, és módo
     <string name="morphe_settings_name_custom_item_hint">Adjon meg egy nevet</string>
     <string name="morphe_settings_name_empty_warning">A név nem lehet üres</string>
     <string name="morphe_settings_name_title">RVX-beállításnév</string>
+    <string name="morphe_settings_new_indicator_days_summary">Napok száma, amelyek alatt egy pont jelenik meg a frissítéssel hozzáadott beállítások és opciók mellett</string>
+    <string name="morphe_settings_new_indicator_days_title">Új beállítások kiemelése</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Csak a legalább ilyen hosszú szünetek rövidülnek le. A következő videó indításakor lép érvénybe</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimális szünet hossza</string>
     <string name="morphe_skip_silence_summary">Automatikusan kihagyja a néma szüneteket a videó hangjában</string>
@@ -443,22 +466,23 @@ Ez a beállítás megoldhatja a hiányzó képek problémáját, amelyek blokkol
     <string name="revanced_change_form_factor_entry_5">Tablet (min 600 dpi)</string>
     <string name="revanced_change_form_factor_entry_6">Autóipari</string>
     <string name="revanced_change_form_factor_title">Eszköz elrendezés</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Változások:
+    <string name="revanced_change_form_factor_user_dialog_message">"A módosítások a következők:
 
-Táblagép-elrendezés
+Tablet nézet
 • A közösségi bejegyzések el vannak rejtve
-• A lejátszás beállítása a feedekben nem érhető el
-• A Remix gomb és a Hang gomb nem érhetők el a Shorts-ban
-• A „További videók” átfedés nem feltétlenül érhető el
-• A nem összecsukott régi videó műveletsáv megjelenik
+• A hírfolyamban történő lejátszás beállítás nem elérhető
+• A Remix és a Hang gomb nem érhető el a Shortsokban
+• A 'További videók' átfedő ablak lehet, hogy nem érhető el
+• A nem összecsukott régi videóműveletsáv megjelenítése
+• A kibontási menüelemek lehet, hogy nem működnek megfelelően
 
-Autós elrendezés
-• A feed témák és csatornák szerint van rendezve
-• A lejátszás beállítása a feedekben nem érhető el
-• A Remix gomb és a Hang gomb nem érhetők el a Shorts-ban
-• A „További videók” átfedés nem feltétlenül érhető el
-• A Shorts a normál lejátszóban nyílik meg
-• A nem összecsukott régi videó műveletsáv megjelenik"</string>
+Autószórakoztató rendszer nézet
+• A hírfolyam témákra és csatornákra van szervezve
+• A hírfolyamban történő lejátszás beállítás nem elérhető
+• A Remix és a Hang gomb nem érhető el a Shortsokban
+• A 'További videók' átfedő ablak lehet, hogy nem érhető el
+• A Shortsok a szabályos lejátszóban nyílnak meg
+• A nem összecsukott régi videóműveletsáv megjelenítése"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Kapcsolók használata</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Szövegkapcsolók használata</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Kapcsolótípus megváltoztatása</string>
@@ -2498,6 +2522,8 @@ Ez könnyen megoldható, ha a lejátszóban a 'Videó újratöltése' gombra kat
 A JavaScript kliensek közül az ajánlott kliens a TV egyszerű"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kattintson ide, ha szeretné megtudni, hogyan szerezhet be hitelesítési tokent</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR hitelesítésről</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Átlátszatlan</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Átlátszó</string>
     <string name="revanced_swipe_brightness_distance_summary">A fényerő módosításához szükséges csúsztatás hossza pixelben. Az alacsonyabb értékek gyorsabbá, a magasabbak lassabbá teszik a fényerő változását (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Fényerő távolsága</string>
     <string name="revanced_swipe_brightness_summary_off">A teljes képernyős fényerő-húzás le van tiltva</string>

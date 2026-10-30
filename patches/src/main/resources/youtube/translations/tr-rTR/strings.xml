@@ -104,13 +104,15 @@ Videolar, karma video kimliğinin kısa bir önekiyle istenir; bu nedenle sunucu
     <string name="morphe_disable_scrolling_speed_limit_title">Kaydırma hız sınırını devre dışı bırak</string>
     <string name="morphe_disable_system_splash_summary">Statik sistem açılış simgesini şeffaf hale getirir</string>
     <string name="morphe_disable_system_splash_title">Sistem sıçramasını devre dışı bırak</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube, Abonelikler\'i Ana Sayfa\'nın üstündeki bir sekmeye taşırsa, onu gezinti çubuğunda gösterir</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Araç çubuğu gezinti sekmelerini devre dışı bırak</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayın DVR süresini genişlet' seçeneği kullanılamayabilir
 
 Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Varsayılan istemci'yi 'TV Simply' veya 'visionOS' olarak değiştir"</string>
     <string name="morphe_expand_livestream_dvr_duration_summary">Canlı yayınları 7 güne kadar geriye sarmanıza olanak tanır</string>
     <string name="morphe_expand_livestream_dvr_duration_title">Canlı yayın DVR süresini uzat</string>
     <string name="morphe_explore_menu_screen_summary">Keşfet menüsünde hangi bileşenlerin görüneceğini seçin</string>
-    <string name="morphe_explore_menu_screen_title">Menüyü keşfet</string>
+    <string name="morphe_explore_menu_screen_title">Keşfet menüsü</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">Çalışmazsa, MicroG\'u zorla kapatmayı deneyin</string>
     <string name="morphe_feed_long_press_menu_summary">Akış video üzerinde herhangi bir yere dokunup basılı tutmak, menüyü açar</string>
     <string name="morphe_feed_long_press_menu_title">Video menüsünü açmak için dokunun ve basılı tutun</string>
@@ -198,7 +200,11 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_livestream_dvr_title">Canlı yayın DVR\'ı etkinleştir</string>
     <string name="morphe_music_package_name_summary">Yüklü müzik uygulamanızın paket adı</string>
     <string name="morphe_music_package_name_title">Müzik uygulaması paket adı</string>
+    <string name="morphe_navigation_bar_style_entry_2">Yarı saydam</string>
+    <string name="morphe_navigation_bar_style_title">Gezinme çubuğu stili</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Bu stil, cihazınız veya YouTube sürümünüz tarafından desteklenmiyor olabilir; bu durum yerleşim sorunlarına veya çökmelere neden olabilir</string>
     <string name="morphe_notification_dot_color_summary">Bildirim noktalarının rengini değiştirir</string>
+    <string name="morphe_notification_dot_color_title">Bildirim nokta rengi</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR oturumu açılamadı: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR oturumu açılamadı, web sitesi kimlik doğrulaması onaylanmadı</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 geçici olarak kullanılamıyor</string>
@@ -225,7 +231,18 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_playback_in_feeds_title">Akışlarda oynatma</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Oynatıcı kontrol düğmelerinin ve zaman çubuğunun arkasındaki arka planın opaklığını ayarlayın (0 görünmez, 100 opaktır)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Düğme arka plan opaklığı</string>
+    <string name="morphe_post_image_download_failed">Görsel indirilemedi</string>
+    <string name="morphe_post_image_download_flyout">Görselleri indir</string>
+    <string name="morphe_post_image_download_flyout_single">Görseli indir</string>
+    <string name="morphe_post_image_download_not_found">Bu gönderide görsel bulunamadı</string>
+    <string name="morphe_post_image_download_saved">%1$s görsel %2$s konumuna kaydedildi</string>
+    <string name="morphe_post_image_download_saved_single">Görsel %s konumuna kaydedildi</string>
+    <string name="morphe_post_image_download_started">%s görsel indiriliyor…</string>
+    <string name="morphe_post_image_download_started_single">Görsel indiriliyor…</string>
+    <string name="morphe_post_image_download_summary">Görsel veya GIF içeren gönderilerin Paylaş düğmesinin yanında bir indirme düğmesi gösterilir ve menülerine bir indirme öğesi eklenir</string>
+    <string name="morphe_post_image_download_title">Gönderi görsellerini indir</string>
     <string name="morphe_potoken_provider_expired_dialog_turn_on">Aç</string>
+    <string name="morphe_potoken_provider_title">PoToken sağlayıcısı</string>
     <string name="morphe_preferred_caption_language_summary">Önce sağlayıcı altyazılarını seçer, ardından otomatik olarak tercih edilen dile çevirir</string>
     <string name="morphe_preferred_caption_language_title">Tercih edilen altyazı dili</string>
     <string name="morphe_queue_manager_check_failed_auth">Giriş yapılmadı</string>
@@ -259,6 +276,12 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Açılır menüden shorts videolarını “Daha sonra izle” bölümüne kaydetmeye olanak tanır</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">“Daha sonra izle” butonunu shorts açılır menüsünde göster</string>
     <string name="morphe_save_to_watch_later_success_toast">Video, daha sonra izle listesine başarıyla kaydedildi</string>
+    <string name="morphe_search_comments_applied">Yorumları aramak için sıralamayı değiştirin veya yorumları tekrar açın</string>
+    <string name="morphe_search_comments_clear">Temizle</string>
+    <string name="morphe_search_comments_cleared">Arama temizlendi. Tüm yorumları görüntülemek için sıralamayı değiştirin veya yorumları tekrar açın</string>
+    <string name="morphe_search_comments_hint">Aranacak kelimeler</string>
+    <string name="morphe_search_comments_summary">Yalnızca yüklü yorumlarda aranan tüm kelimeleri içeren yorumları görüntülemek için yorumlardaki arama düğmesine dokunun. Bir ifadeyi aramak için kelimeleri tırnak içine alın</string>
+    <string name="morphe_search_comments_title">Yorumları ara</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">En çok tekrar oynatılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Arama çubuğunu sürüklerken video küçük resmini gösterir</string>
     <string name="morphe_seekbar_thumbnail_preview_title">İlerleme çubuğu küçük resimlerini etkinleştir</string>
@@ -269,6 +292,8 @@ Bunu düzeltmek için 'Video akışlarını taklit et' seçeneğini aç ve 'Vars
     <string name="morphe_settings_name_custom_item_hint">Bir ad gir</string>
     <string name="morphe_settings_name_empty_warning">Ad boş olamaz</string>
     <string name="morphe_settings_name_title">RVX ayarları adı</string>
+    <string name="morphe_settings_new_indicator_days_summary">Bir güncelleme ile eklenen ayar ve seçeneklerin yanında bir noktanın gösterileceği gün sayısı</string>
+    <string name="morphe_settings_new_indicator_days_title">Yeni ayarları vurgula</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Yalnızca en az bu uzunluktaki duraklamalar kısaltılır. Bir sonraki video başladığında geçerli olur</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimum duraklama süresi</string>
     <string name="morphe_skip_silence_summary">Video sesindeki sessiz duraklamaları otomatik olarak atlar</string>
@@ -345,6 +370,8 @@ Sınırlamalar: 'Eski video eylem çubuğunu geri yükle' kapatılırsa, 'Daha f
     <string name="morphe_tablet_layout_in_player_title">Oynatıcıda tablet düzenini etkinleştir</string>
     <string name="morphe_theme_color_change_foreground_summary">Metin ve simgeler için tema rengini kullan</string>
     <string name="morphe_theme_color_change_foreground_title">Ön plan rengini değiştir</string>
+    <string name="morphe_theme_entry_amoled_black">Amoled Siyah</string>
+    <string name="morphe_theme_entry_classic_youtube">Klasik (Eski YouTube)</string>
     <string name="morphe_theme_entry_dark_blue">Koyu Mavi</string>
     <string name="morphe_theme_entry_dark_green">Koyu Yeşil</string>
     <string name="morphe_theme_entry_dark_orange">Koyu Turuncu</string>
@@ -357,12 +384,17 @@ Sınırlamalar: 'Eski video eylem çubuğunu geri yükle' kapatılırsa, 'Daha f
     <string name="morphe_theme_entry_light_pink">Açık Pembe</string>
     <string name="morphe_theme_entry_light_red">Açık Kırmızı</string>
     <string name="morphe_theme_entry_light_yellow">Açık Sarı</string>
+    <string name="morphe_theme_entry_pale_blue">Soluk Mavi</string>
+    <string name="morphe_theme_entry_pale_green">Soluk Yeşil</string>
+    <string name="morphe_theme_entry_pale_yellow">Soluk Sarı</string>
     <string name="morphe_theme_entry_white">Beyaz</string>
+    <string name="morphe_theme_settings_title">Tema ayarları</string>
     <string name="morphe_video_quality_prioritize_dialog">Bu ayar devre dışı bırakılırsa, eski videolar için video kalitesi seçenekleri görüntülenmeyebilir</string>
     <string name="morphe_video_quality_prioritize_summary">Kodek verimliliğinden ziyade en yüksek video kalitesine öncelik verir</string>
     <string name="morphe_video_quality_prioritize_title">Video kalitesine öncelik ver</string>
     <string name="morphe_volume_boost_summary">Maksimum ses seviyesinin ötesine kaydırmak sesi güçlendirir, bu da yüksek seslerin bozulmasına neden olabilir</string>
     <string name="morphe_volume_boost_title">Ses güçlendirme</string>
+    <string name="morphe_vot_auto_translate_summary_on">Tüm videolar için otomatik olarak Google Çeviri'yi etkinleştir</string>
     <string name="morphe_vot_caption_language_title">Dil</string>
     <string name="morphe_vot_cost_free">Ücretsiz</string>
     <string name="morphe_vot_cost_per_hour">100 video saati başına %s</string>
@@ -448,6 +480,7 @@ OpenRouter.ai'yi açmak için buraya dokunun"</string>
     <string name="revanced_auto_captions_style_entry_3">Ses kapatılmadığında göster</string>
     <string name="revanced_auto_captions_style_entry_4">Ses kapatıldığında göster</string>
     <string name="revanced_auto_captions_style_title">Otomatik altyazı görünürlüğü</string>
+    <string name="revanced_back_button_always_exits_feed_summary_on">Geri tuşuna basıldığında uygulamayı kapat</string>
     <string name="revanced_back_button_always_exits_feed_title">Geri düğmesi akıştan çıkar</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Güç tasarrufu Ambiyans modu kısıtlamaları atlanmıyor</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Güç tasarrufu Ambiyans modu kısıtlamaları atlanıyor</string>
@@ -469,20 +502,21 @@ Bunu etkinleştirmek, bazı bölgelerde engellenen eksik resimleri düzeltebilir
     <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
     <string name="revanced_change_form_factor_entry_6">Otomotiv</string>
     <string name="revanced_change_form_factor_title">Cihaz düzeni</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Değişiklikler:
+    <string name="revanced_change_form_factor_user_dialog_message">"Değişiklikler şunları içerir:
 
 Tablet düzeni
-• Topluluk gönderileri gizlenir
+• Topluluk gönderileri gizlidir
 • Akışlarda oynatma ayarı kullanılamaz
 • Shorts'ta Remix düğmesi ve Ses düğmesi bulunmaz
-• 'Daha fazla video' katmanı kullanılamayabilir
+• 'Daha fazla video' paneli kullanılamayabilir
 • Daraltılmamış eski video eylem çubuğu gösterilir
+• Açılır menü öğeleri düzgün çalışmayabilir
 
 Otomotiv düzeni
 • Akış, konulara ve kanallara göre düzenlenmiştir
 • Akışlarda oynatma ayarı kullanılamaz
-• Shorts'ta Remix düğmesi ve Ses düğmesi kullanılamaz
-• \"Daha fazla video\" katmanı kullanılamayabilir
+• Shorts'ta Remix düğmesi ve Ses düğmesi bulunmaz
+• 'Daha fazla video' paneli kullanılamayabilir
 • Shorts, normal oynatıcıda açılır
 • Daraltılmamış eski video eylem çubuğu gösterilir"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Anahtar geçişleri kullanılıyor</string>
@@ -539,12 +573,14 @@ Sınırlama: Araç çubuğundaki Geri butonu çalışmayabilir"</string>
     <string name="revanced_confirm_user_dialog_title">Devam etmek istediğinden emin misin?</string>
     <string name="revanced_copy_error">Metin kopyalanamadı</string>
     <string name="revanced_credits_title">Naber</string>
+    <string name="revanced_custom_dpi_title">Özel DPI (inç başına piksel sayısı)</string>
     <string name="revanced_custom_filter_strings_summary">Filtrelenecek bileşen yolu oluşturucu dizelerinin yeni satırlarla ayrılmış listesi</string>
     <string name="revanced_custom_filter_strings_title">Özel filtre</string>
     <string name="revanced_custom_filter_summary_off">Özel filtre devre dışı</string>
     <string name="revanced_custom_filter_summary_on">Özel filtre etkin</string>
     <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Geçersiz özel filtre: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">Geçersiz ses perdeleri</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Özel (Eski)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Özel (Modern)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Özel (Temasız)</string>
@@ -2543,6 +2579,8 @@ Bu durum, videoyu yeniden yüklemek için oynatıcıdaki 'Videoyu yenile düğme
 JavaScript istemcileri arasında önerilen istemci Basit TV"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Kimlik doğrulama belirtecinin nasıl alınacağını görmek için tıklayın</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">Android VR Kimlik Doğrulama Hakkında</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Opak</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Şeffaf</string>
     <string name="revanced_swipe_brightness_distance_summary">Parlaklığı değiştirmek için kaydırılacak piksel miktarı. Düşük değerler parlaklık değişimini hızlandırır, yüksek değerler yavaşlatır (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Parlaklık mesafesi</string>
     <string name="revanced_swipe_brightness_summary_off">Tam ekran parlaklık kaydırma devre dışı</string>

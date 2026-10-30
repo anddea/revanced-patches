@@ -92,6 +92,8 @@
     <string name="morphe_disable_quic_protocol_summary_on">QUIC协议已禁用</string>
     <string name="morphe_disable_quic_protocol_title">禁用QUIC协议</string>
     <string name="morphe_disable_scrolling_speed_limit_title">禁用滚动速度限制</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">如果 YouTube 将“订阅”移至主页顶部的标签页，则在导航栏中显示“订阅”</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">禁用工具栏导航标签</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"“扩展直播 DVR 时长”可能不可用
 
 要解决此问题，请开启“伪装视频流”，并将“默认客户端”更改为“TV Simply”或“visionOS”"</string>
@@ -184,6 +186,9 @@
     <string name="morphe_livestream_dvr_title">启用直播 DVR 功能</string>
     <string name="morphe_music_package_name_summary">您已安装的音乐应用的包名</string>
     <string name="morphe_music_package_name_title">音乐应用包名</string>
+    <string name="morphe_navigation_bar_style_entry_2">半透明</string>
+    <string name="morphe_navigation_bar_style_title">导航栏样式</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">您的设备或 YouTube 版本可能不支持此样式，这可能会导致布局问题或崩溃</string>
     <string name="morphe_oauth2_connection_failure_auth_error">无法登录 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">无法登录VR，网站认证未批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暂时不可用</string>
@@ -210,6 +215,16 @@
     <string name="morphe_playback_in_feeds_title">在信息流中播放</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">调整播放器控制按钮和时间栏后面背景的不透明度（0为不可见，100为完全不透明）</string>
     <string name="morphe_player_control_buttons_background_opacity_title">控制按钮背景不透明度</string>
+    <string name="morphe_post_image_download_failed">无法下载图片</string>
+    <string name="morphe_post_image_download_flyout">下载图片</string>
+    <string name="morphe_post_image_download_flyout_single">下载图片</string>
+    <string name="morphe_post_image_download_not_found">此帖子中未找到图片</string>
+    <string name="morphe_post_image_download_saved">%1$s 张图片已保存至 %2$s</string>
+    <string name="morphe_post_image_download_saved_single">图片已保存至 %s</string>
+    <string name="morphe_post_image_download_started">正在下载 %s 张图片……</string>
+    <string name="morphe_post_image_download_started_single">正在下载图片……</string>
+    <string name="morphe_post_image_download_summary">在带有图片或 GIF 的帖子中，分享按钮旁边会显示下载按钮，并且其菜单中会添加一个下载选项</string>
+    <string name="morphe_post_image_download_title">下载帖子图片</string>
     <string name="morphe_preferred_caption_language_summary">先选择提供方字幕，然后自动翻译为首选语言</string>
     <string name="morphe_preferred_caption_language_title">首选字幕语言</string>
     <string name="morphe_queue_manager_check_failed_auth">未登录</string>
@@ -243,6 +258,12 @@
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">允许从弹出菜单中将短视频保存到“稍后观看”</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">在短视频弹出菜单中显示“保存到稍后观看”按钮</string>
     <string name="morphe_save_to_watch_later_success_toast">视频已成功保存到稍后观看播放列表</string>
+    <string name="morphe_search_comments_applied">更改排序顺序或重新打开评论以进行搜索</string>
+    <string name="morphe_search_comments_clear">清除</string>
+    <string name="morphe_search_comments_cleared">搜索已清除。更改排序顺序或重新打开评论以显示所有评论</string>
+    <string name="morphe_search_comments_hint">要搜索的词语</string>
+    <string name="morphe_search_comments_summary">点击评论中的搜索按钮，仅显示包含所有搜索词的已加载评论。将词组放在引号中可搜索特定短语</string>
+    <string name="morphe_search_comments_title">搜索评论</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">播放最多的片段</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">拖动进度条时显示视频缩略图</string>
     <string name="morphe_seekbar_thumbnail_preview_title">启用进度条缩略图</string>
@@ -253,6 +274,8 @@
     <string name="morphe_settings_name_custom_item_hint">输入名称</string>
     <string name="morphe_settings_name_empty_warning">名称不能为空</string>
     <string name="morphe_settings_name_title">RVX 设置名称</string>
+    <string name="morphe_settings_new_indicator_days_summary">在更新添加的设置和选项旁边显示圆点的天数</string>
+    <string name="morphe_settings_new_indicator_days_title">高亮显示新设置</string>
     <string name="morphe_skip_silence_minimum_pause_summary">只有至少达到此长度的暂停才会被缩短。在下一个视频开始时生效</string>
     <string name="morphe_skip_silence_minimum_pause_title">最短暂停时长</string>
     <string name="morphe_skip_silence_summary">自动跳过视频音频中的静音停顿</string>
@@ -440,22 +463,23 @@
     <string name="revanced_change_form_factor_entry_5">平板（最小 600 dp）</string>
     <string name="revanced_change_form_factor_entry_6">汽车</string>
     <string name="revanced_change_form_factor_title">设备布局</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"更改内容包括：
+    <string name="revanced_change_form_factor_user_dialog_message">"更改包括：
 
 平板电脑布局
-• 社区帖子已隐藏
-• 信息流中的播放设置不可用
-• Remix 按钮和声音按钮在 Shorts 中不可用
-• “更多视频”叠加层可能不可用
-• 显示未折叠的旧版视频操作栏
+• 隐藏社区帖子
+• 无法使用“Feed 中播放”设置
+• Shorts 中无法使用 Remix 按钮和声音按钮
+• 可能无法使用“更多视频”叠加层
+• 显示未折叠的旧视频操作栏
+• 弹出式菜单项可能无法正常工作
 
-汽车布局
-• 信息流按主题和频道组织
-• 信息流中的播放设置不可用
-• Remix 按钮和声音按钮在 Shorts 中不可用
-• “更多视频”叠加层可能不可用
+车载布局
+• Feed 按主题和频道组织
+• 无法使用“Feed 中播放”设置
+• Shorts 中无法使用 Remix 按钮和声音按钮
+• 可能无法使用“更多视频”叠加层
 • Shorts 在常规播放器中打开
-• 显示未折叠的旧版视频操作栏"</string>
+• 显示未折叠的旧视频操作栏"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用开关切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用文本切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切换类型</string>
@@ -989,7 +1013,7 @@
 • 如果隐藏了所有轮播项，则整个评论区也会被隐藏。"</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_off">“创建Shorts”按钮已显示</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建Shorts”按钮已隐藏</string>
-    <string name="revanced_hide_comments_create_a_short_button_title">隐藏“创建 Short”按钮</string>
+    <string name="revanced_hide_comments_create_a_short_button_title">隐藏“创作短视频”按钮</string>
     <string name="revanced_hide_comments_highlighted_search_links_summary_off">高亮搜索链接已显示。</string>
     <string name="revanced_hide_comments_highlighted_search_links_summary_on">"“高亮搜索链接已隐藏。
 
@@ -2498,6 +2522,8 @@ uBlock Origin 已找到此问题的解决方法，可通过“绕过假缓冲”
 在 JavaScript 客户端中，推荐使用 TV Simply 客户端。"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">点击查看如何获取认证令牌。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">关于 Android VR 认证</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">不透明</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">透明</string>
     <string name="revanced_swipe_brightness_distance_summary">滑动以更改亮度的像素数量。值越低，亮度变化越快，值越高，变化越慢 (1-1000)。</string>
     <string name="revanced_swipe_brightness_distance_title">亮度距离</string>
     <string name="revanced_swipe_brightness_summary_off">已停用全屏亮度滑动</string>

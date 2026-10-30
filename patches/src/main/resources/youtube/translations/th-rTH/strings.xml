@@ -92,6 +92,8 @@
     <string name="morphe_disable_quic_protocol_summary_on">โพรโทคอล QUIC ถูกปิดใช้งาน</string>
     <string name="morphe_disable_quic_protocol_title">ปิดใช้งานโพรโทคอล QUIC</string>
     <string name="morphe_disable_scrolling_speed_limit_title">ปิดใช้งานการจำกัดความเร็วในการเลื่อน</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">แสดงการติดตามในแถบนำทาง หาก YouTube ย้ายไปไว้ในแท็บที่ด้านบนของหน้าหลัก</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">ปิดใช้งานแท็บการนำทางบนแถบเครื่องมือ</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'ขยายระยะเวลา DVR ไลฟ์สตรีม' อาจไม่สามารถใช้งานได้
 
 หากต้องการแก้ไข โปรดเปิด 'ปลอมแปลงสตรีมวิดีโอ' และเปลี่ยน 'ไคลเอ็นต์เริ่มต้น' เป็น 'TV Simply' หรือ 'visionOS'"</string>
@@ -185,6 +187,9 @@
     <string name="morphe_livestream_dvr_title">เปิดใช้งาน DVR ไลฟ์สตรีม</string>
     <string name="morphe_music_package_name_summary">ชื่อแพ็กเกจของแอปเพลงที่ติดตั้งไว้ของคุณ</string>
     <string name="morphe_music_package_name_title">ชื่อแพ็กเกจแอปเพลง</string>
+    <string name="morphe_navigation_bar_style_entry_2">โปร่งแสง</string>
+    <string name="morphe_navigation_bar_style_title">สไตล์ของแถบนำทาง</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">สไตล์นี้อาจไม่รองรับโดยอุปกรณ์หรือ YouTube เวอร์ชันของคุณ และอาจทำให้เกิดปัญหาด้านเลย์เอาต์หรือแอปค้างได้</string>
     <string name="morphe_oauth2_connection_failure_auth_error">ไม่สามารถเข้าสู่ระบบ VR: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">ไม่สามารถลงชื่อเข้าใช้ VR ได้ เว็บไซต์ยังไม่ได้อนุมัติการรับรอง</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 ไม่สามารถใช้งานได้ชั่วคราว</string>
@@ -211,6 +216,16 @@
     <string name="morphe_playback_in_feeds_title">การเล่นในฟีด</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">ปรับความทึบแสงของพื้นหลังด้านหลังปุ่มควบคุมเครื่องเล่นและแถบเวลา (0 คือโปร่งใส, 100 คือทึบแสง)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">ความทึบแสงของพื้นหลังปุ่มควบคุม</string>
+    <string name="morphe_post_image_download_failed">ไม่สามารถดาวน์โหลดรูปภาพได้</string>
+    <string name="morphe_post_image_download_flyout">ดาวน์โหลดรูปภาพ</string>
+    <string name="morphe_post_image_download_flyout_single">ดาวน์โหลดรูปภาพ</string>
+    <string name="morphe_post_image_download_not_found">ไม่พบรูปภาพในโพสต์นี้</string>
+    <string name="morphe_post_image_download_saved">บันทึกรูปภาพ %1$s รูปไปยัง %2$s</string>
+    <string name="morphe_post_image_download_saved_single">บันทึกรูปภาพไปยัง %s แล้ว</string>
+    <string name="morphe_post_image_download_started">กำลังดาวน์โหลดรูปภาพ %s รูป…</string>
+    <string name="morphe_post_image_download_started_single">กำลังดาวน์โหลดรูปภาพ…</string>
+    <string name="morphe_post_image_download_summary">ปุ่มดาวน์โหลดจะแสดงขึ้นถัดจากปุ่มแชร์ของโพสต์ที่มีรูปภาพหรือ GIF และจะมีการเพิ่มรายการดาวน์โหลดลงในเมนูของโพสต์ดังกล่าว</string>
+    <string name="morphe_post_image_download_title">ดาวน์โหลดรูปภาพในโพสต์</string>
     <string name="morphe_preferred_caption_language_summary">เลือกคำบรรยายที่ผู้ให้บริการจัดเตรียมไว้ก่อน จากนั้นจึงแปลเป็นภาษาที่ต้องการโดยอัตโนมัติ</string>
     <string name="morphe_preferred_caption_language_title">ภาษาคำบรรยายที่ต้องการ</string>
     <string name="morphe_queue_manager_check_failed_auth">ยังไม่ได้เข้าสู่ระบบ</string>
@@ -227,7 +242,7 @@
     <string name="morphe_replace_music_with_youtube_summary_on">ลิงก์ที่แชร์ใช้ youtube.com</string>
     <string name="morphe_replace_music_with_youtube_title">เปลี่ยนลิงก์การแชร์เป็น youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">คืนค่ารูปลักษณ์ตัวควบคุมเครื่องเล่นวิดีโอแบบหนาให้เป็นสไตล์ที่เก่ากว่าและบางกว่า</string>
-    <string name="morphe_restore_old_player_buttons_title">คืนค่าสไตล์ปุ่มของตัวเล่นแบบเก่า</string>
+    <string name="morphe_restore_old_player_buttons_title">คืนค่าสไตล์ปุ่มของเครื่องเล่นแบบเก่า</string>
     <string name="morphe_restore_original_titles_loading">กำลังโหลดชื่อวิดีโอ…</string>
     <string name="morphe_restore_original_titles_summary">แสดงชื่อวิดีโอ คำอธิบายวิดีโอ และคำอธิบายช่องต้นฉบับแทนรายการที่แปลอัตโนมัติ</string>
     <string name="morphe_restore_original_titles_title">กู้คืนชื่อวิดีโอต้นฉบับ</string>
@@ -244,6 +259,12 @@
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">อนุญาตให้บันทึก Shorts ไว้ใน \'ดูภายหลัง\' จากเมนูแบบเลื่อนออก</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">แสดงปุ่มบันทึกไปยังดูภายหลังในเมนูแบบเลื่อนออกของ Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">บันทึกวิดีโอลงในรายการดูภายหลังเรียบร้อยแล้ว</string>
+    <string name="morphe_search_comments_applied">เปลี่ยนลำดับการจัดเรียงหรือเปิดความคิดเห็นอีกครั้งเพื่อค้นหา</string>
+    <string name="morphe_search_comments_clear">ล้าง</string>
+    <string name="morphe_search_comments_cleared">ล้างการค้นหาแล้ว เปลี่ยนลำดับการจัดเรียงหรือเปิดความคิดเห็นอีกครั้งเพื่อแสดงความคิดเห็นทั้งหมด</string>
+    <string name="morphe_search_comments_hint">คำที่ต้องการค้นหา</string>
+    <string name="morphe_search_comments_summary">แตะปุ่มค้นหาในความคิดเห็นเพื่อแสดงเฉพาะความคิดเห็นที่โหลดแล้วซึ่งมีคำที่ค้นหาครบทุกคำ ใส่คำในเครื่องหมายคำพูดเพื่อค้นหาเป็นวลี</string>
+    <string name="morphe_search_comments_title">ค้นหาความคิดเห็น</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">เล่นซ้ำมากที่สุด</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">แสดงภาพขนาดย่อของวิดีโอขณะลากแถบเลื่อน</string>
     <string name="morphe_seekbar_thumbnail_preview_title">เปิดใช้งานภาพขนาดย่อของแถบเลื่อน</string>
@@ -254,6 +275,8 @@
     <string name="morphe_settings_name_custom_item_hint">ป้อนชื่อ</string>
     <string name="morphe_settings_name_empty_warning">ชื่อต้องไม่ว่างเปล่า</string>
     <string name="morphe_settings_name_title">ชื่อการตั้งค่า RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">จำนวนวันที่จุดจะปรากฏข้างการตั้งค่าและตัวเลือกที่เพิ่มเข้ามาจากการอัปเดต</string>
+    <string name="morphe_settings_new_indicator_days_title">ไฮไลต์การตั้งค่าใหม่</string>
     <string name="morphe_skip_silence_minimum_pause_summary">เฉพาะช่วงหยุดที่ยาวอย่างน้อยเท่านี้เท่านั้นที่จะถูกย่อให้สั้นลง จะมีผลเมื่อเริ่มวิดีโอถัดไป</string>
     <string name="morphe_skip_silence_minimum_pause_title">ระยะเวลาหยุดขั้นต่ำ</string>
     <string name="morphe_skip_silence_summary">ข้ามช่วงความเงียบในเสียงวิดีโอโดยอัตโนมัติ</string>
@@ -324,9 +347,9 @@
     <string name="morphe_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
     <string name="morphe_swap_save_and_queue_actions_summary">แตะเพื่อดูตัวเลือกในคิว แตะค้างไว้เพื่อบันทึกไปยังดูภายหลัง</string>
     <string name="morphe_swap_save_and_queue_actions_title">สลับการดำเนินการบันทึกและคิว</string>
-    <string name="morphe_tablet_layout_in_player_summary">"คืนรูปแบบตัวเล่นแบบเก่า
+    <string name="morphe_tablet_layout_in_player_summary">"คืนรูปแบบเครื่องเล่นแบบเก่า
 
-ข้อจำกัด: หากปิด 'คืนแถบการทำงานของวิดีโอแบบเก่า' การแสดงผล 'วิดีโอเพิ่มเติม' อาจใช้งานไม่ได้"</string>
+ข้อจำกัด: หากปิด 'คืนแถบการทำงานของวิดีโอแบบเก่า' ภาพซ้อนทับ 'วิดีโอเพิ่มเติม' อาจใช้งานไม่ได้"</string>
     <string name="morphe_tablet_layout_in_player_title">เปิดใช้งานรูปแบบแท็บเล็ตในเครื่องเล่น</string>
     <string name="morphe_theme_color_change_foreground_summary">ใช้สีธีมสำหรับข้อความและไอคอน</string>
     <string name="morphe_theme_color_change_foreground_title">เปลี่ยนสีพื้นหน้า</string>
@@ -410,7 +433,7 @@
     <string name="revanced_back_button_always_exits_feed_title">ปุ่มกลับออกจากฟีด</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">การจำกัดโหมดพักผ่อนสำหรับการประหยัดพลังงานไม่ถูกบายพาส</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">การจำกัดโหมดพักผ่อนสำหรับการประหยัดพลังงานถูกบายพาส</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">เลี่ยงข้อจำกัดของโหมดแอมเบี้ยนท์</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">เลี่ยงข้อจำกัดของโหมดแอมเบียนท์</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">"ใช้โฮสต์รูปภาพดั้งเดิม
 
 การเปิดใช้งานสิ่งนี้สามารถแก้ไขรูปภาพที่หายไปซึ่งถูกบล็อกในบางภูมิภาค"</string>
@@ -423,22 +446,23 @@
     <string name="revanced_change_form_factor_entry_3">แท็บเล็ต</string>
     <string name="revanced_change_form_factor_entry_4">ยานยนต์</string>
     <string name="revanced_change_form_factor_title">รูปแบบอุปกรณ์</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"มีการเปลี่ยนแปลงดังนี้:
+    <string name="revanced_change_form_factor_user_dialog_message">"การเปลี่ยนแปลงรวมถึง:
 
-เลย์เอาต์สำหรับแท็บเล็ต
-• โพสต์จากชุมชนจะถูกซ่อนไว้
-• จะไม่มีตัวเลือกการเล่นในฟีด
-• จะไม่มีปุ่มรีมิกซ์และปุ่มเสียงใน Shorts
-• อาจไม่สามารถใช้งานโอเวอร์เลย์ 'วิดีโอเพิ่มเติม' ได้
-• แถบการทำงานของวิดีโอแบบเดิมที่ไม่ยุบจะแสดงขึ้น
+เลย์เอาต์แท็บเล็ต
+• โพสต์จากชุมชนจะถูกซ่อน
+• การตั้งค่าการเล่นในฟีดไม่สามารถใช้งาน
+• ปุ่มรีมิกซ์และปุ่มเสียงไม่สามารถใช้งานใน Shorts
+• ภาพซ้อนทับ 'วิดีโอเพิ่มเติม' อาจไม่ปรากฏ
+• แถบดำเนินการวิดีโอแบบเก่าที่ไม่ยุบจะแสดง
+• รายการเมนูป๊อปอัพอาจทำงานไม่ถูกต้อง
 
-เลย์เอาต์สำหรับรถยนต์
-• ฟีดจะถูกจัดระเบียบตามหัวข้อและช่อง
-• จะไม่มีตัวเลือกการเล่นในฟีด
-• จะไม่มีปุ่มรีมิกซ์และปุ่มเสียงใน Shorts
-• อาจไม่สามารถใช้งานโอเวอร์เลย์ 'วิดีโอเพิ่มเติม' ได้
+เลย์เอาต์รถยนต์
+• ฟीडจัดเรียงตามหัวข้อและช่อง
+• การตั้งค่าการเล่นในฟีดไม่สามารถใช้งาน
+• ปุ่มรีมิกซ์และปุ่มเสียงไม่สามารถใช้งานใน Shorts
+• ภาพซ้อนทับ 'วิดีโอเพิ่มเติม' อาจไม่ปรากฏ
 • Shorts จะเปิดในเครื่องเล่นปกติ
-• แถบการทำงานของวิดีโอแบบเดิมที่ไม่ยุบจะแสดงขึ้น"</string>
+• แถบดำเนินการวิดีโอแบบเก่าที่ไม่ยุบจะแสดง"</string>
     <string name="revanced_change_start_page_entry_all_subscriptions">การติดตามทั้งหมด</string>
     <string name="revanced_change_start_page_entry_browse">เรียกดูช่อง</string>
     <string name="revanced_change_start_page_entry_courses">หลักสูตร / การเรียนรู้</string>
@@ -494,7 +518,7 @@
     <string name="revanced_debug_toast_on_error_title">แสดง toast เมื่อเกิดข้อผิดพลาดของ RVX</string>
     <string name="revanced_disable_ambient_mode_summary_off">โหมดพักผ่อนเปิดใช้งาน</string>
     <string name="revanced_disable_ambient_mode_summary_on">โหมดพักผ่อนปิดใช้งาน</string>
-    <string name="revanced_disable_ambient_mode_title">ปิดการใช้งานโหมดพักผ่อน</string>
+    <string name="revanced_disable_ambient_mode_title">ปิดใช้งานโหมดแอมเบียนท์</string>
     <string name="revanced_disable_auto_captions_summary_off">คำบรรยาย\"Auto\"ถูกเปิดใช้งาน</string>
     <string name="revanced_disable_auto_captions_summary_on">คำบรรยาย\"Auto\"ถูกปิดใช้งาน</string>
     <string name="revanced_disable_auto_captions_title">ปิดใช้งานคำบรรยายอัตโนมัติ</string>
@@ -521,17 +545,17 @@
     <string name="revanced_disable_layout_updates_summary_off">รูปแบบจะได้รับการอัปเดตจากเซิร์ฟเวอร์</string>
     <string name="revanced_disable_layout_updates_summary_on">รูปแบบจะไม่ได้รับการอัปเดตจากเซิร์ฟเวอร์</string>
     <string name="revanced_disable_layout_updates_title">ปิดการอัปเดตรูปแบบ</string>
-    <string name="revanced_disable_layout_updates_user_dialog_message">"เลย์เอาต์แอปพลิเคชันกลับไปใช้เลย์เอาต์ที่ใช้เมื่อติดตั้งครั้งแรก
+    <string name="revanced_disable_layout_updates_user_dialog_message">"เลย์เอาต์ของแอปกลับไปใช้เลย์เอาต์ที่ใช้เมื่อติดตั้งครั้งแรก
 
 เลย์เอาต์ด้านเซิร์ฟเวอร์บางส่วนอาจไม่กลับคืน
 
 การเปลี่ยนแปลง ได้แก่:
-• ส่วนประกอบในเมนูฟลายเอาท์ของตัวเล่น (หรือการตั้งค่าที่เกี่ยวข้อง) อาจไม่ทำงาน
+• ส่วนประกอบในเมนูแบบเลื่อนออกของเครื่องเล่น (หรือการตั้งค่าที่เกี่ยวข้อง) อาจไม่ทำงาน
 • ตัวเลขหมุนไม่มีการเคลื่อนไหว
-• แท็บไลบรารีจะแสดง
+• แท็บคลังจะแสดง
 • ส่วนเพลงของคำอธิบายวิดีโออาจไม่ทำงาน
-•ไอเท็มเมนูฟลายเอาท์ของตัวเล่นไม่สามารถซ่อนได้
-• ปุ่มสลับบัญชีอาจไม่ปรากฏบนแท็บไลบรารี"</string>
+• รายการเมนูแบบเลื่อนออกของเครื่องเล่นไม่สามารถซ่อนได้
+• ปุ่มสลับบัญชีอาจไม่ปรากฏบนแท็บคลัง"</string>
     <string name="revanced_disable_playlist_autoplay_title">ปิดการเล่นอัตโนมัติของเพลย์ลิสต์</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">เครื่องเล่น Shorts จะกลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">เครื่องเล่น Shorts จะไม่กลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
@@ -776,7 +800,7 @@
     <string name="revanced_hide_player_flyout_quality_title">ซ่อนเมนูคุณภาพ</string>
     <string name="revanced_hide_player_popup_ads_summary_off">โฆษณาป๊อปอัปเครื่องเล่นแสดงอยู่</string>
     <string name="revanced_hide_player_popup_ads_summary_on">โฆษณาป๊อปอัปเครื่องเล่นถูกซ่อนอยู่</string>
-    <string name="revanced_hide_player_popup_ads_title">ซ่อนป๊อปอัพของตัวเล่น</string>
+    <string name="revanced_hide_player_popup_ads_title">ซ่อนป๊อปอัพของเครื่องเล่น</string>
     <string name="revanced_hide_promote_button_summary_off">ปุ่มโปรโมทแสดงอยู่</string>
     <string name="revanced_hide_promote_button_summary_on">ปุ่มโปรโมทถูกซ่อน</string>
     <string name="revanced_hide_promote_button_title">ซ่อนปุ่มโปรโมต</string>
@@ -913,7 +937,7 @@
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">ซ่อนปุ่มขยายและปุ่มปิด</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">ปุ่มโอเวอร์เลย์ถูกแสดง</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">ปุ่มโอเวอร์เลย์ถูกซ่อน</string>
-    <string name="revanced_miniplayer_hide_overlay_buttons_title">ซ่อนปุ่มโอเวอร์เลย์</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">ซ่อนปุ่มซ้อนทับ</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">ข้ามไปข้างหน้าและข้างหลังแสดงอยู่</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">ข้ามไปข้างหน้าและข้างหลังถูกซ่อน</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">ซ่อนปุ่มข้ามไปข้างหน้าและข้างหลัง</string>
@@ -921,7 +945,7 @@
     <string name="revanced_miniplayer_hide_subtext_summary_on">ข้อความย่อยถูกซ่อน</string>
     <string name="revanced_miniplayer_hide_subtext_title">ซ่อนข้อความย่อย</string>
     <string name="revanced_miniplayer_hide_title_title">ซ่อนชื่อและช่อง</string>
-    <string name="revanced_miniplayer_opacity_title">ความทึบแสงของโอเวอร์เลย์</string>
+    <string name="revanced_miniplayer_opacity_title">ความทึบแสงของภาพซ้อนทับ</string>
     <string name="revanced_miniplayer_type_entry_2">น้อยที่สุด</string>
     <string name="revanced_miniplayer_type_entry_3">มินิมอล 2</string>
     <string name="revanced_miniplayer_type_entry_4">แท็บเล็ต</string>
@@ -984,7 +1008,7 @@
     <string name="revanced_restore_old_settings_menus_title">กู้คืนเมนูการตั้งค่าแบบเก่า</string>
     <string name="revanced_restore_old_video_action_bar_summary">"แก้ไขปัญหาที่ปุ่มการทำงานของวิดีโอไม่สามารถซ่อนได้
 
-ข้อจำกัด: ย้อนกลับไปใช้รูปแบบโอเวอร์เลย์ 'วิดีโอเพิ่มเติม' แบบเก่า"</string>
+ข้อจำกัด: ย้อนกลับไปใช้รูปแบบภาพซ้อนทับ 'วิดีโอเพิ่มเติม' แบบเก่า"</string>
     <string name="revanced_restore_old_video_action_bar_title">กู้คืนแถบการทำงานของวิดีโอแบบเดิม</string>
     <string name="revanced_ryd_attribution_summary">"Return YouTube Dislike คืนค่าการไม่ชอบที่ YouTube ซ่อนไว้ในปี 2021 จำนวนเหล่านี้มาจากข้อมูลที่เก็บถาวรก่อนการนำออก และประมาณการสำหรับวิดีโอใหม่จากการโหวตของผู้ใช้ ดังนั้นจึงเป็นค่าโดยประมาณและอัปเดตทุกสองสามวัน
 
@@ -1261,6 +1285,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 ถ้าปิดในภายหลัง แนะนําให้ล้างข้อมูลแอปเพื่อป้องกันข้อผิดพลาดของ UI"</string>
     <string name="revanced_spoof_device_dimensions_summary">การเปิดใช้งานสิ่งนี้สามารถปลดล็อกคุณภาพวิดีโอที่สูงขึ้น</string>
     <string name="revanced_spoof_device_dimensions_title">ปลอมแปลงมิติของอุปกรณ์</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">ทึบแสง</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">โปร่งใส</string>
     <string name="revanced_swipe_brightness_summary_off">ปิดใช้งานการเลื่อนความสว่างแบบเต็มหน้าจอ</string>
     <string name="revanced_swipe_brightness_summary_on">"เปิดใช้งานการเลื่อนความสว่างแบบเต็มหน้าจอ
 
@@ -1273,23 +1299,23 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">การปัดลงไปที่ค่าต่ำสุดของท่าทางความสว่างจะเปิดใช้งานความสว่างอัตโนมัติ</string>
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">เปิดใช้งานท่าทางความสว่างอัตโนมัติ</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">ปรับระดับความโปร่งใสของภาพซ้อนทับ (0 คือโปร่งใส 100 คือทึบแสง)</string>
-    <string name="revanced_swipe_overlay_background_opacity_title">ความทึบแสงพื้นหลังของสไลด์โอเวอร์เลย์</string>
+    <string name="revanced_swipe_overlay_background_opacity_title">ความทึบแสงพื้นหลังของภาพซ้อนทับการปัด</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">ตั้งค่าสีของแถบความคืบหน้าของการควบคุมความสว่าง</string>
-    <string name="revanced_swipe_overlay_progress_brightness_color_title">สีความสว่างของการซ้อนทับการปัด</string>
+    <string name="revanced_swipe_overlay_progress_brightness_color_title">สีความสว่างของภาพซ้อนทับการปัด</string>
     <string name="revanced_swipe_overlay_progress_speed_color_summary">ตั้งค่าสีของแถบแสดงความคืบหน้าของการควบคุมความเร็วในการเล่น</string>
-    <string name="revanced_swipe_overlay_progress_speed_color_title">สีของการซ้อนทับการปัดเปลี่ยนความเร็วในการเล่น</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">สีความเร็วของภาพซ้อนทับการปัด</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">ตั้งค่าสีของแถบความคืบหน้าของการควบคุมระดับเสียง</string>
-    <string name="revanced_swipe_overlay_progress_volume_color_title">สีระดับเสียงของการซ้อนทับการปัด</string>
-    <string name="revanced_swipe_overlay_style_entry_1">โอเวอร์เลย์แนวนอน</string>
-    <string name="revanced_swipe_overlay_style_entry_2">โอเวอร์เลย์แนวนอน (มินิมอล - ด้านบน)</string>
-    <string name="revanced_swipe_overlay_style_entry_3">โอเวอร์เลย์แนวนอน (มินิมอล - ตรงกลาง)</string>
-    <string name="revanced_swipe_overlay_style_entry_4">โอเวอร์เลย์แบบวงกลม</string>
-    <string name="revanced_swipe_overlay_style_entry_5">โอเวอร์เลย์แบบวงกลม (มินิมอล)</string>
-    <string name="revanced_swipe_overlay_style_entry_6">โอเวอร์เลย์แนวตั้ง</string>
-    <string name="revanced_swipe_overlay_style_entry_7">โอเวอร์เลย์แนวตั้ง (มินิมอล)</string>
-    <string name="revanced_swipe_overlay_style_title">รูปแบบโอเวอร์เลย์การปัด</string>
-    <string name="revanced_swipe_overlay_timeout_summary">จำนวนมิลลิวินาทีที่การแสดงทับจะมองเห็น</string>
-    <string name="revanced_swipe_overlay_timeout_title">เวลาหมดอายุของการแสดงทับการปัด</string>
+    <string name="revanced_swipe_overlay_progress_volume_color_title">สีระดับเสียงของภาพซ้อนทับการปัด</string>
+    <string name="revanced_swipe_overlay_style_entry_1">ภาพซ้อนทับแนวนอน</string>
+    <string name="revanced_swipe_overlay_style_entry_2">ภาพซ้อนทับแนวนอน (มินิมอล - ด้านบน)</string>
+    <string name="revanced_swipe_overlay_style_entry_3">ภาพซ้อนทับแนวนอน (มินิมอล - ตรงกลาง)</string>
+    <string name="revanced_swipe_overlay_style_entry_4">ภาพซ้อนทับแบบวงกลม</string>
+    <string name="revanced_swipe_overlay_style_entry_5">ภาพซ้อนทับแบบวงกลม (มินิมอล)</string>
+    <string name="revanced_swipe_overlay_style_entry_6">ภาพซ้อนทับแนวตั้ง</string>
+    <string name="revanced_swipe_overlay_style_entry_7">ภาพซ้อนทับแนวตั้ง (มินิมอล)</string>
+    <string name="revanced_swipe_overlay_style_title">รูปแบบของภาพซ้อนทับการปัด</string>
+    <string name="revanced_swipe_overlay_timeout_summary">จำนวนมิลลิวินาทีที่ภาพซ้อนทับจะมองเห็น</string>
+    <string name="revanced_swipe_overlay_timeout_title">เวลาหมดอายุของภาพซ้อนทับการปัด</string>
     <string name="revanced_swipe_press_to_engage_summary_off">ปิดใช้งานกดเพื่อปัด</string>
     <string name="revanced_swipe_press_to_engage_summary_on">เปิดใช้งานกดเพื่อปัด</string>
     <string name="revanced_swipe_press_to_engage_title">เปิดใช้งานท่าทางกดเพื่อปัด</string>
@@ -1299,7 +1325,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
     <string name="revanced_swipe_save_and_restore_brightness_title">บันทึกและคืนค่าความสว่าง</string>
     <string name="revanced_swipe_speed_title">เปิดใช้งานท่าทางความเร็ว</string>
     <string name="revanced_swipe_text_overlay_size_summary">ปรับขนาดตัวอักษรบนหน้าจอ (1-30)</string>
-    <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของการปัด</string>
+    <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของภาพซ้อนทับการปัด</string>
     <string name="revanced_swipe_threshold_summary">ตั้งค่าระยะการปัดที่จำเป็นก่อนที่จะเกิดการปรับ</string>
     <string name="revanced_swipe_threshold_title">เกณฑ์ขนาดของการปัด</string>
     <string name="revanced_swipe_top_zone_title">ท่าทางปัดไปด้านบน</string>

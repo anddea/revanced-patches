@@ -441,7 +441,7 @@ final class LyricsViewSupport {
                         romanizedAiModel), false, onRomanizationLanguage);
             } else if (romanizedLocalDictionary != null) {
                 // Named and nothing more: the licences are in the About row.
-                appendLink(text, String.format(str("morphe_music_lyrics_romanized_by_local"),
+                appendLink(text, String.format(str("morphe_music_lyrics_romanized_by_ai"),
                         romanizedLocalDictionary), false, onRomanizationLanguage);
             }
         }

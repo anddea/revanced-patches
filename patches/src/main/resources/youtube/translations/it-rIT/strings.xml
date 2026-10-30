@@ -104,6 +104,8 @@ I video vengono richiesti tramite un breve prefisso dell'ID video con hash, quin
     <string name="morphe_disable_scrolling_speed_limit_title">Disabilita il limite della velocità di scorrimento</string>
     <string name="morphe_disable_system_splash_summary">Rende trasparente l\'icona di avvio statica del sistema</string>
     <string name="morphe_disable_system_splash_title">Disattiva la schermata iniziale del sistema</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Mostra gli Iscritti nella barra di navigazione, se YouTube li sposta in una scheda nella parte superiore della Home</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Disabilita le schede di navigazione della barra degli strumenti</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Espandi durata DVR in diretta\' potrebbe non essere disponibile
 
 Per risolvere il problema, attiva \'Falsificazione dei flussi video\' e modifica \'Client predefinito\' in \'TV Simply\' o \'visionOS\'"</string>
@@ -135,7 +137,7 @@ Limitazioni:
 • Alcuni video IA potrebbero comunque essere visualizzati"</string>
     <string name="morphe_hide_aislist_attribution_summary">"I dati sono forniti da AiSList
 
-Tocca qui per aprire AiSlopList.com e visualizzare le opzioni di scaricamenti per altre piattaforme"</string>
+Tocca qui per aprire AiSlopList.com e visualizzare le opzioni di scaricamento per altre piattaforme"</string>
     <string name="morphe_hide_aislist_blocklist_category_title">Lista nera: Alta affidabilità</string>
     <string name="morphe_hide_aislist_hide_home_title">Nascondi i video nella Home</string>
     <string name="morphe_hide_aislist_hide_search_title">Nascondi i video nella ricerca</string>
@@ -198,6 +200,9 @@ Per risolvere il problema, attiva \'Falsificazione dei flussi video\' e modifica
     <string name="morphe_livestream_dvr_title">Abilita DVR sui video in diretta</string>
     <string name="morphe_music_package_name_summary">Nome del pacchetto dell\'applicazione musicale installata</string>
     <string name="morphe_music_package_name_title">Nome pacchetto dell\'applicazione musicale</string>
+    <string name="morphe_navigation_bar_style_entry_2">Traslucido</string>
+    <string name="morphe_navigation_bar_style_title">Stile della barra di navigazione</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Questo stile potrebbe non essere supportato dal tuo dispositivo o dalla versione di YouTube, e può causare problemi di layout o crash</string>
     <string name="morphe_notification_dot_color_summary">Modifica il colore dei puntini di notifica</string>
     <string name="morphe_notification_dot_color_title">Colore del puntino di notifica</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Impossibile accedere ad Android VR: %s</string>
@@ -226,6 +231,16 @@ Per risolvere il problema, attiva \'Falsificazione dei flussi video\' e modifica
     <string name="morphe_playback_in_feeds_title">Riproduzione nei feed</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Regola l\'opacità dello sfondo dietro i pulsanti di controllo del riproduttore e la barra del tempo (0 è invisibile, 100 è opaco)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Opacità dello sfondo dei pulsanti di controllo</string>
+    <string name="morphe_post_image_download_failed">Impossibile scaricare l\'immagine</string>
+    <string name="morphe_post_image_download_flyout">Scarica immagini</string>
+    <string name="morphe_post_image_download_flyout_single">Scarica immagine</string>
+    <string name="morphe_post_image_download_not_found">Nessuna immagine trovata in questo post</string>
+    <string name="morphe_post_image_download_saved">%1$s immagini salvate in %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Immagine salvata in %s</string>
+    <string name="morphe_post_image_download_started">Download di %s immagini in corso…</string>
+    <string name="morphe_post_image_download_started_single">Download dell\'immagine in corso…</string>
+    <string name="morphe_post_image_download_summary">Un pulsante di download viene mostrato accanto al pulsante Condividi dei post con immagini o GIF, e una voce di download viene aggiunta al loro menu</string>
+    <string name="morphe_post_image_download_title">Scarica immagini post</string>
     <string name="morphe_potoken_provider_expired_dialog_message">"Il token integrato in questa versione del fornitore PoToken non funziona più
 
 Attiva l\'opzione \'Falsifica i flussi video\' per risolvere il problema di riproduzione"</string>
@@ -252,7 +267,7 @@ Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi 
     <string name="morphe_replace_links_with_shortener_title">Cambia i collegamenti di condivisione in youtu.be</string>
     <string name="morphe_replace_music_with_youtube_summary_off">I collegamenti condivisi usano music.youtube.com</string>
     <string name="morphe_replace_music_with_youtube_summary_on">I collegamenti condivisi usano youtube.com</string>
-    <string name="morphe_replace_music_with_youtube_title">Cambia i collegqmenti di condivisione in youtube.com</string>
+    <string name="morphe_replace_music_with_youtube_title">Cambia i collegamenti di condivisione in youtube.com</string>
     <string name="morphe_restore_old_player_buttons_summary">Ripristina i controlli del riproduttore video in grassetto in contrapposizione allo stile visivo precedente e più sottile</string>
     <string name="morphe_restore_old_player_buttons_title">Ripristina stile precedente dei pulsanti del riproduttore</string>
     <string name="morphe_restore_original_titles_loading">Caricamento del titolo…</string>
@@ -271,6 +286,12 @@ Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi 
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Consente di salvare gli Shorts in \'Guarda più tardi\' dal menu a comparsa</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Mostra il pulsante Salva in Guarda più tardi nel menu a comparsa degli Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video salvato con successo nella lista di riproduzione Guarda più tardi</string>
+    <string name="morphe_search_comments_applied">Cambia l\'ordine di ordinamento o apri nuovamente i commenti per cercarli</string>
+    <string name="morphe_search_comments_clear">Disattiva</string>
+    <string name="morphe_search_comments_cleared">Ricerca cancellata. Cambia l\'ordine di ordinamento o apri nuovamente i commenti per mostrare tutti i commenti</string>
+    <string name="morphe_search_comments_hint">Parole da cercare</string>
+    <string name="morphe_search_comments_summary">Tocca il pulsante di ricerca nei commenti per mostrare solo i commenti caricati che contengono tutte le parole cercate. Inserisci le parole tra virgolette per cercare una frase</string>
+    <string name="morphe_search_comments_title">Cerca nei commenti</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Più riprodotti</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Mostra un\'anteprima in miniatura del video durante il trascinamento della barra di ricerca</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Abilita miniature della barra di avanzamento</string>
@@ -281,6 +302,8 @@ Per utilizzare questa funzione, disattiva l'opzione \'Falsificazione dei flussi 
     <string name="morphe_settings_name_custom_item_hint">Inserisci un nome</string>
     <string name="morphe_settings_name_empty_warning">Il nome non può essere vuoto</string>
     <string name="morphe_settings_name_title">Nome impostazioni RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">Numero di giorni in cui viene mostrato un punto accanto alle impostazioni e opzioni aggiunte tramite un aggiornamento</string>
+    <string name="morphe_settings_new_indicator_days_title">Evidenzia nuove impostazioni</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Solo le pause di almeno questa durata vengono ridotte. L\'effetto si applica quando inizia il video successivo</string>
     <string name="morphe_skip_silence_minimum_pause_title">Durata minima della pausa</string>
     <string name="morphe_skip_silence_summary">Salta automaticamente le pause di silenzio nell\'audio dei video</string>
@@ -882,8 +905,8 @@ Si prega di scaricare %2$s dal sito web"</string>
     <string name="revanced_external_downloader_other_item">Altro</string>
     <string name="revanced_external_downloader_other_item_hint">Inserisci nome pacchetto</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Il nome del pacchetto dell\'app di download esterna installata</string>
-    <string name="revanced_external_downloader_package_name_playlist_title">Nome del pacchetto dello scaricatore esterno delle playlist</string>
-    <string name="revanced_external_downloader_package_name_video_long_press_summary">Nome del pacchetto dello scaricatore esterno installato, come Newpipe o YTDLnis, su lunga pressione</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Nome del pacchetto dello scaricatore esterno della coda di riproduzione</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">Nome del pacchetto dello scaricatore esterno installato, come NewPipe o YTDLnis, su lunga pressione</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Nome pacchetto del downloader video su lunga pressione</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome del pacchetto dello scaricatore esterno dei video</string>
     <string name="revanced_external_downloader_package_not_found_warning">"Impossibile trovare un'app installata con il nome del pacchetto: %s
@@ -1088,10 +1111,10 @@ Negozio"</string>
     <string name="revanced_hide_comments_create_a_short_button_summary_on">Il pulsante Crea uno Short è nascosto</string>
     <string name="revanced_hide_comments_create_a_short_button_title">Nascondi il pulsante \'Crea uno Short\'</string>
     <string name="revanced_hide_comments_highlighted_search_links_summary_off">I link di ricerca evidenziati sono visibili</string>
-    <string name="revanced_hide_comments_highlighted_search_links_summary_on">"I link di ricerca evidenziati sono nascosti
+    <string name="revanced_hide_comments_highlighted_search_links_summary_on">"I collegamenti di ricerca evidenziati sono nascosti
 
-Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predefinito potrebbero non essere nascosti"</string>
-    <string name="revanced_hide_comments_highlighted_search_links_title">Nascondi i link di ricerca evidenziati</string>
+Nota: alcuni collegamenti di ricerca evidenziati che non hanno uno stile di testo predefinito potrebbero non essere nascosti"</string>
+    <string name="revanced_hide_comments_highlighted_search_links_title">Nascondi i collegamenti di ricerca evidenziati</string>
     <string name="revanced_hide_comments_information_button_summary_off">Il pulsante Informazioni è visibile</string>
     <string name="revanced_hide_comments_information_button_summary_on">Il pulsante Informazioni è nascosto</string>
     <string name="revanced_hide_comments_information_button_title">Nascondi il pulsante Informazioni</string>
@@ -1164,9 +1187,9 @@ Nota: alcuni link di ricerca evidenziati che non hanno uno stile di testo predef
     <string name="revanced_hide_featured_channels_section_summary_off">La sezione Canali in primo piano è visibile</string>
     <string name="revanced_hide_featured_channels_section_summary_on">La sezione Canali in primo piano è nascosta</string>
     <string name="revanced_hide_featured_channels_section_title">Nascondi la sezione Canali in evidenza</string>
-    <string name="revanced_hide_featured_links_section_summary_off">La sezione dei link in evidenza è mostrata</string>
-    <string name="revanced_hide_featured_links_section_summary_on">La sezione dei link in evidenza è nascosta</string>
-    <string name="revanced_hide_featured_links_section_title">Nascondi la sezione Link in evidenza</string>
+    <string name="revanced_hide_featured_links_section_summary_off">La sezione dei collegamenti in evidenza è mostrata</string>
+    <string name="revanced_hide_featured_links_section_summary_on">La sezione dei collegamenti in evidenza è nascosta</string>
+    <string name="revanced_hide_featured_links_section_title">Nascondi la sezione Collegamenti in evidenza</string>
     <string name="revanced_hide_featured_playlists_section_summary_off">La sezione Playlist in primo piano è visibile</string>
     <string name="revanced_hide_featured_playlists_section_summary_on">La sezione Playlist in primo piano è nascosta</string>
     <string name="revanced_hide_featured_playlists_section_title">Nascondi la sezione Playlist in evidenza</string>
@@ -1288,9 +1311,9 @@ Le parole con lettere maiuscole al centro devono corrispondere esattamente (ad e
     <string name="revanced_hide_like_dislike_button_summary_off">I pulsanti Mi Piace e Non Mi Piace sono visibili</string>
     <string name="revanced_hide_like_dislike_button_summary_on">I pulsanti Mi Piace e Non Mi Piace sono nascosti</string>
     <string name="revanced_hide_like_dislike_button_title">Nascondi i pulsanti Mi piace e Non mi piace</string>
-    <string name="revanced_hide_links_preview_summary_off">L\'anteprima dei link è mostrata</string>
-    <string name="revanced_hide_links_preview_summary_on">L\'anteprima dei link è nascosta</string>
-    <string name="revanced_hide_links_preview_title">Nascondi anteprima link</string>
+    <string name="revanced_hide_links_preview_summary_off">L\'anteprima dei collegamenti è mostrata</string>
+    <string name="revanced_hide_links_preview_summary_on">L\'anteprima dei collegamenti è nascosta</string>
+    <string name="revanced_hide_links_preview_title">Nascondi anteprima collegamenti</string>
     <string name="revanced_hide_live_chat_messages_summary_off">I messaggi della chat live sono visibili</string>
     <string name="revanced_hide_live_chat_messages_summary_on">I messaggi della chat live sono nascosti.\n\nNota: anche i messaggi della chat live degli Shorts saranno nascosti</string>
     <string name="revanced_hide_live_chat_messages_title">Nascondi i messaggi della chat live</string>
@@ -1518,9 +1541,9 @@ Nota: questa impostazione sembra essere obsoleta sul server. Usa invece \"Nascon
     <string name="revanced_hide_shop_button_summary_off">Il pulsante Acquisti è visibile</string>
     <string name="revanced_hide_shop_button_summary_on">Il pulsante Acquisti è nascosto</string>
     <string name="revanced_hide_shop_button_title">Nascondi il pulsante Negozio</string>
-    <string name="revanced_hide_shopping_links_summary_off">I link per lo shopping nella descrizione del video sono mostrati</string>
-    <string name="revanced_hide_shopping_links_summary_on">I link per lo shopping nella descrizione del video sono nascosti</string>
-    <string name="revanced_hide_shopping_links_title">Nascondi link per gli acquisti</string>
+    <string name="revanced_hide_shopping_links_summary_off">I collegamenti per gli acquisti nella descrizione del video sono mostrati</string>
+    <string name="revanced_hide_shopping_links_summary_on">I collegamenti per gli acquisti nella descrizione del video sono nascosti</string>
+    <string name="revanced_hide_shopping_links_title">Nascondi collegamenti per gli acquisti</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">L\'etichetta doppiata automaticamente è mostrata</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">L\'etichetta doppiata automaticamente è nascosta</string>
     <string name="revanced_hide_shorts_auto_dubbed_label_title">Nascondi l\'etichetta \'Auto-dubbed\'</string>
@@ -1547,7 +1570,7 @@ Nota: questa impostazione sembra essere obsoleta sul server. Usa invece \"Nascon
     <string name="revanced_hide_shorts_live_header_title">Nascondi l\'intestazione della chat live</string>
     <string name="revanced_hide_shorts_live_preview_summary_off">L\'anteprima dal vivo è mostrata</string>
     <string name="revanced_hide_shorts_live_preview_summary_on">L\'anteprima dal vivo è nascosta</string>
-    <string name="revanced_hide_shorts_live_preview_title">Nascondi anteprima link</string>
+    <string name="revanced_hide_shorts_live_preview_title">Nascondi anteprima delle dirette</string>
     <string name="revanced_hide_shorts_location_button_summary_off">Il pulsante Posizione è visibile</string>
     <string name="revanced_hide_shorts_location_button_summary_on">Il pulsante Posizione è nascosto</string>
     <string name="revanced_hide_shorts_location_button_title">Nascondi il pulsante Posizione</string>
@@ -1611,9 +1634,9 @@ Nota: lo scaffale Cronologia nella scheda Tu potrebbe essere nascosto"</string>
     <string name="revanced_hide_shorts_use_this_template_button_summary_off">Il pulsante Usa Questo Template è visibile</string>
     <string name="revanced_hide_shorts_use_this_template_button_summary_on">Il pulsante Usa Questo Template è nascosto</string>
     <string name="revanced_hide_shorts_use_this_template_button_title">Nascondi il pulsante Usa Questo Template</string>
-    <string name="revanced_hide_shorts_video_link_label_summary_off">L\'etichetta del link del video è visibile</string>
-    <string name="revanced_hide_shorts_video_link_label_summary_on">L\'etichetta del link del video è nascosta</string>
-    <string name="revanced_hide_shorts_video_link_label_title">Nascondi l\'etichetta del link del video</string>
+    <string name="revanced_hide_shorts_video_link_label_summary_off">L\'etichetta del collegamento del video è visibile</string>
+    <string name="revanced_hide_shorts_video_link_label_summary_on">L\'etichetta del collegamento del video è nascosta</string>
+    <string name="revanced_hide_shorts_video_link_label_title">Nascondi l\'etichetta del collegamento del video</string>
     <string name="revanced_hide_shorts_video_title_summary_off">Il titolo del video è mostrato</string>
     <string name="revanced_hide_shorts_video_title_summary_on">Il titolo del video è nascosto</string>
     <string name="revanced_hide_shorts_video_title_title">Nascondi il titolo del video</string>
@@ -1732,6 +1755,11 @@ Nota: il doodle di YouTube non è toccabile"</string>
     <string name="revanced_icon_xisr_yellow">Xisr Giallo</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube Scuro</string>
+    <string name="revanced_in_app_downloader_summary_off">I pulsanti di scaricamento dei video utilizzano il tuo programma di scaricamento esterno</string>
+    <string name="revanced_in_app_downloader_summary_on">"I pulsanti di scaricamento dei video avviano lo scaricamento tramite il programma di scaricamento integrato e salvano i documenti nella cartella Movies/RVX
+
+Per ogni scaricamento viene visualizzato il menu di selezione della qualità"</string>
+    <string name="revanced_in_app_downloader_title">Scaricatore integrato</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">Il tema delle notifiche snackbar non è invertito</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">Il tema delle notifiche snackbar è invertito</string>
     <string name="revanced_invert_snack_bar_theme_title">Inverti il tema delle notifiche snackbar</string>
@@ -1856,9 +1884,62 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_navigation_bar_order_drag_handle">Trascina per riordinare</string>
     <string name="revanced_navigation_bar_order_summary">Trascina le voci di navigazione nell\'ordine in cui devono apparire</string>
     <string name="revanced_navigation_bar_order_title">Ordine della barra di navigazione</string>
+    <string name="revanced_offline_action_delete">Elimina</string>
+    <string name="revanced_offline_action_open_youtube">Apri con YouTube</string>
+    <string name="revanced_offline_action_play_background">Riproduci in sottofondo</string>
+    <string name="revanced_offline_action_share">Condividi</string>
+    <string name="revanced_offline_already_downloaded">Questo video è già stato scaricato</string>
+    <string name="revanced_offline_already_downloading">Questo video sta già venendo scaricato</string>
+    <string name="revanced_offline_av1_unplayable_toast">Questo dispositivo potrebbe non essere in grado di riprodurre questo video in formato AV1. Lo schermo potrebbe rimanere nero</string>
+    <string name="revanced_offline_close">Chiudi</string>
+    <string name="revanced_offline_delete_message">Elimina \"%s\" da questo dispositivo?</string>
+    <string name="revanced_offline_delete_title">Elimina contenuto scaricato</string>
+    <string name="revanced_offline_download_complete">Scaricamento completo</string>
+    <string name="revanced_offline_download_complete_toast">Scaricati: %s</string>
+    <string name="revanced_offline_download_failed">Scaricamento fallito: %s</string>
+    <string name="revanced_offline_download_merging">Fusione di video e audio…</string>
+    <string name="revanced_offline_download_preparing">Preparazione dello scaricamento…</string>
+    <string name="revanced_offline_download_progress">Scaricando %d%%</string>
+    <string name="revanced_offline_download_queued">In coda</string>
+    <string name="revanced_offline_download_queued_count">%d in coda</string>
+    <string name="revanced_offline_download_saving">Salvando in Movies/RVX…</string>
+    <string name="revanced_offline_download_started">Scaricamento iniziato</string>
+    <string name="revanced_offline_download_starting">Iniziando…</string>
+    <string name="revanced_offline_download_unavailable">Questo video non può essere scaricato</string>
+    <string name="revanced_offline_error_forbidden">Il server video ha rifiutato lo scaricamento</string>
+    <string name="revanced_offline_error_space">Spazio libero insufficiente, sono necessari %s</string>
+    <string name="revanced_offline_error_time_limit">È stato raggiunto il limite di tempo per lo scaricamento in sottofondo su Android</string>
+    <string name="revanced_offline_library_empty">Nessun video scaricato</string>
+    <string name="revanced_offline_library_no_results">Nessun contenuto scaricato corrisponde alla tua ricerca</string>
+    <string name="revanced_offline_library_resume">Riprende a %s</string>
+    <string name="revanced_offline_library_search">Cerca contenuti scaricati</string>
+    <string name="revanced_offline_library_sort">Ordina</string>
+    <string name="revanced_offline_library_sort_title">Titolo</string>
+    <string name="revanced_offline_library_title">Contenuti scaricati</string>
+    <string name="revanced_offline_loading_formats">Caricamento qualità disponibili…</string>
+    <string name="revanced_offline_next">Prossimo</string>
+    <string name="revanced_offline_no_formats">Non è stata trovata alcuna qualità scaricabile per questo video</string>
+    <string name="revanced_offline_nothing_playing">Non c'è nulla in riproduzione</string>
+    <string name="revanced_offline_notification_channel_downloads">Scaricamenti video</string>
+    <string name="revanced_offline_notification_channel_playback">Riproduzione locale</string>
+    <string name="revanced_offline_pause">Pausa</string>
+    <string name="revanced_offline_picker_av1_hint">Documento più piccolo</string>
+    <string name="revanced_offline_picker_av1_unplayable">non è possibile riprodurre su questo dispositivo</string>
+    <string name="revanced_offline_picker_footer">Salvato in Movies/RVX (MP4 o WebM per VP9)</string>
+    <string name="revanced_offline_picker_h264_hint">Funziona ovunque</string>
+    <string name="revanced_offline_picker_subtitle">Qualità scaricamento</string>
+    <string name="revanced_offline_picker_vp9_hint">Funziona su questo dispositivo</string>
+    <string name="revanced_offline_play">Riproduci</string>
+    <string name="revanced_offline_playback_error">Questo video non può essere riprodotto</string>
+    <string name="revanced_offline_playing_background">Riproduzione in sottofondo</string>
+    <string name="revanced_offline_previous">Precedente</string>
+    <string name="revanced_offline_share_unsupported">La condivisione non è supportata su questa versione di Android</string>
+    <string name="revanced_offline_video_missing">Questo contenuto scaricato non è più disponibile</string>
     <string name="revanced_open_links_externally_summary_off">Browser dell\'app</string>
     <string name="revanced_open_links_externally_summary_on">Browser esterno</string>
-    <string name="revanced_open_links_externally_title">Cambia il modo di aprire i link</string>
+    <string name="revanced_open_links_externally_title">Apri i collegamenti esternamente</string>
+    <string name="revanced_open_offline_library_summary">Video scaricati con lo scaricatore integrato</string>
+    <string name="revanced_open_offline_library_title">Apri la libreria locale</string>
     <string name="revanced_overlay_button">Pulsanti in sovrapposizione</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tocca per attivare le ripetizioni dei video
 Tocca e tieni premuto per attivare la pausa dopo le ripetizione"</string>
@@ -1879,7 +1960,7 @@ Le risposte generate dall'IA possono contenere informazioni imprecise
 
 Tocca qui per ottenere una chiave API. "</string>
     <string name="revanced_overlay_button_gemini_about_title">Informazioni su Gemini</string>
-    <string name="revanced_overlay_button_gemini_summarize">Riassumeri</string>
+    <string name="revanced_overlay_button_gemini_summarize">Riassumi</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Inserisci una chiave API Gemini per riga. Ottieni chiavi API su https://aistudio.google.com/apikey"</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Chiavi API Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize_summary">"Tocca per riassumere il video. Tocca e tieni premuto per trascrivere
@@ -2081,7 +2162,7 @@ Puoi anche aprire il gestore delle code tenendo premuto il pulsante Indietro sul
 
 Questa impostazione è ancora in fase di sviluppo, pertanto la maggior parte delle funzionalità potrebbe non funzionare
 
-Usala solo per scopi di debug"</string>
+Usala solo per scopi di diagnosi errori"</string>
     <string name="revanced_queue_manager_video_information">Informazioni del video originale</string>
     <string name="revanced_queue_manager_video_information_no_description_user_dialog_message">"Canale
 ══════════════
@@ -2143,6 +2224,9 @@ Note:
     <string name="revanced_replace_channel_handle_summary_off">L\'handle è visibile</string>
     <string name="revanced_replace_channel_handle_summary_on">Il nome del canale è visibile</string>
     <string name="revanced_replace_channel_handle_title">Sostituisci l\'handle con il nome del canale</string>
+    <string name="revanced_replace_downloads_page_summary_off">La pagina Scaricati di YouTube è visibile</string>
+    <string name="revanced_replace_downloads_page_summary_on">La pagina Scaricati di YouTube apre la libreria locale</string>
+    <string name="revanced_replace_downloads_page_title">Sostituisci la pagina Scaricati</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Tocca per mostrare il tempo rimanente</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Tocca per aprire la finestra della velocità di riproduzione o della qualità video</string>
     <string name="revanced_replace_time_stamp_action_title">Sostituisci l\'azione del timestamp</string>
@@ -2557,6 +2641,9 @@ La maggior parte dei bug non può essere risolta a causa di limitazioni lato cli
     <string name="revanced_shorts_player_type_regular_player">Riproduttore normale</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Riproduttore normale a schermo intero</string>
     <string name="revanced_shorts_player_type_title">Apri Shorts con</string>
+    <string name="revanced_show_offline_library_button_summary_off">Nessun pulsante Scaricati nella scheda Tu</string>
+    <string name="revanced_show_offline_library_button_summary_on">Il pulsante Scaricati accanto a Impostazioni nella scheda Tu apre la libreria locale</string>
+    <string name="revanced_show_offline_library_button_title">Pulsante Scaricati nella scheda tu</string>
     <string name="revanced_show_search_button_summary_off">Il pulsante Cerca è nascosto</string>
     <string name="revanced_show_search_button_title">Mostra il pulsante Ricerca</string>
     <string name="revanced_show_settings_button_summary_off">Il pulsante Impostazioni è nascosto</string>
@@ -2925,7 +3012,7 @@ Se i server di Yandex non sono disponibili nella tua regione, utilizza l'opzione
     <string name="revanced_yandex_status_subs_found">Sottotitoli trovati, recuperando ...</string>
     <string name="revanced_yandex_status_transcription_delayed">La trascrizione è leggermente ritardata</string>
     <string name="revanced_yandex_status_youtube_specific">Gestione delle richieste audio di YouTube...</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">“Lingua di destinazione per i sottotitoli di Yandex: russo (ru), inglese (en), kazako (kk) o la lingua dell\'applicazione (‘app’). È possibile accedere ad altre lingue dell\'applicazione tramite la traduzione di Gemini (è richiesta una chiave API)”</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">“Lingua di destinazione per i sottotitoli di Yandex: russo (ru), inglese (en), kazako (kk) o la lingua dell\'applicazione (\'app'). È possibile accedere ad altre lingue dell\'applicazione tramite la traduzione di Gemini (è richiesta una chiave API)”</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Lingua Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Usa la trascrizione Yandex invece di Gemini. Yandex è più veloce e affidabile. Non è richiesta alcuna chiave API</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Trascrizione Yandex</string>

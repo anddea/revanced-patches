@@ -92,6 +92,8 @@
     <string name="morphe_disable_quic_protocol_summary_on">已停用 QUIC 協定</string>
     <string name="morphe_disable_quic_protocol_title">停用 QUIC 協定</string>
     <string name="morphe_disable_scrolling_speed_limit_title">停用捲動速度限制</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">如果 YouTube 將「訂閱」移至首頁頂端的分頁，則在導覽列中顯示訂閱</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">停用工具列導覽分頁</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"「延長直播 DVR 時長」可能無法使用
 
 要修正此問題，請開啟「偽造影片串流」，並將「預設用戶端」變更為「TV Simply」或「visionOS」"</string>
@@ -184,6 +186,9 @@
     <string name="morphe_livestream_dvr_title">啟用直播 DVR</string>
     <string name="morphe_music_package_name_summary">您已安裝音樂應用程式的套件名稱</string>
     <string name="morphe_music_package_name_title">音樂應用程式套件名稱</string>
+    <string name="morphe_navigation_bar_style_entry_2">半透明</string>
+    <string name="morphe_navigation_bar_style_title">導覽列樣式</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">您的裝置或 YouTube 版本可能不支援此樣式，這可能會導致版面配置問題或崩潰</string>
     <string name="morphe_oauth2_connection_failure_auth_error">無法登入 VR：%s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">無法登入 VR，網站驗證未獲批准</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 暫時不可用</string>
@@ -210,6 +215,16 @@
     <string name="morphe_playback_in_feeds_title">feeds 中的播放</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">調整播放器控制按鈕和時間列後方背景的不透明度（0 為隱形，100 為不透明）</string>
     <string name="morphe_player_control_buttons_background_opacity_title">控制按鈕背景不透明度</string>
+    <string name="morphe_post_image_download_failed">無法下載圖片</string>
+    <string name="morphe_post_image_download_flyout">下載圖片</string>
+    <string name="morphe_post_image_download_flyout_single">下載圖片</string>
+    <string name="morphe_post_image_download_not_found">此貼文中未找到圖片</string>
+    <string name="morphe_post_image_download_saved">%1$s 張圖片已儲存至 %2$s</string>
+    <string name="morphe_post_image_download_saved_single">圖片已儲存至 %s</string>
+    <string name="morphe_post_image_download_started">正在下載 %s 張圖片……</string>
+    <string name="morphe_post_image_download_started_single">正在下載圖片……</string>
+    <string name="morphe_post_image_download_summary">在包含圖片或 GIF 的貼文中，「分享」按鈕旁會顯示下載按鈕，且其選單中會新增下載選項</string>
+    <string name="morphe_post_image_download_title">下載貼文圖片</string>
     <string name="morphe_preferred_caption_language_summary">先選取提供者提供的字幕，再自動翻譯成偏好語言</string>
     <string name="morphe_preferred_caption_language_title">偏好字幕語言</string>
     <string name="morphe_queue_manager_check_failed_auth">未登入</string>
@@ -243,6 +258,12 @@
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">允許將 Shorts 儲存在彈出式選單的「稍後觀看」中</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">在 Shorts 彈出視窗中顯示「儲存以稍後觀看」按鈕</string>
     <string name="morphe_save_to_watch_later_success_toast">影片已成功儲存至稍後觀看播放清單</string>
+    <string name="morphe_search_comments_applied">更改排序順序或重新開啟評論以進行搜尋</string>
+    <string name="morphe_search_comments_clear">清除</string>
+    <string name="morphe_search_comments_cleared">搜尋已清除。更改排序順序或重新開啟評論以顯示所有評論</string>
+    <string name="morphe_search_comments_hint">要搜尋的字詞</string>
+    <string name="morphe_search_comments_summary">點擊評論中的搜尋按鈕，僅顯示包含所有搜尋字詞的已載入評論。將字詞放入引號中以搜尋特定短語</string>
+    <string name="morphe_search_comments_title">搜尋評論</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">最多重播</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">在拖動搜尋條時顯示影片縮圖</string>
     <string name="morphe_seekbar_thumbnail_preview_title">啟用跳轉列縮圖預覽</string>
@@ -253,6 +274,8 @@
     <string name="morphe_settings_name_custom_item_hint">輸入名稱</string>
     <string name="morphe_settings_name_empty_warning">名稱不可為空</string>
     <string name="morphe_settings_name_title">RVX 設定名稱</string>
+    <string name="morphe_settings_new_indicator_days_summary">更新後，設定和選項旁的圓點顯示天數</string>
+    <string name="morphe_settings_new_indicator_days_title">高亮顯示新設定</string>
     <string name="morphe_skip_silence_minimum_pause_summary">無聲停頓至少要足夠這個時間長度才會被縮短。會在下一段影片開始時生效。</string>
     <string name="morphe_skip_silence_minimum_pause_title">最短無聲停頓長度</string>
     <string name="morphe_skip_silence_summary">自動跳過影片音訊中的無聲停頓</string>
@@ -448,19 +471,20 @@ AV1 視訊播放可能會卡頓或丟格"</string>
     <string name="revanced_change_form_factor_user_dialog_message">"變更包括：
 
 平板電腦版面配置
-• 社群貼文會隱藏
-• 動態消息播放設定無法使用
-• Shorts 中無法使用 Remix 按鈕和聲音按鈕
-• 可能無法使用「更多影片」重疊畫面
-• 會顯示未收合的舊版影片動作列
+• 社群貼文已隱藏
+• 不可用「在資訊流中播放」設定
+• Shorts 中不可用「混音」按鈕和「音效」按鈕
+• 「更多影片」疊加層可能不可用
+• 顯示未摺疊的舊版影片動作欄
+• 彈出式選單項目可能無法正常運作
 
-汽車版面配置
-• 動態消息會依主題和頻道整理
-• 動態消息播放設定無法使用
-• Shorts 中無法使用 Remix 按鈕和聲音按鈕
-• 可能無法使用「更多影片」重疊畫面
-• Shorts 會在一般播放器中開啟
-• 會顯示未收合的舊版影片動作列"</string>
+車載版面配置
+• 資訊流依主題和頻道排列
+• 不可用「在資訊流中播放」設定
+• Shorts 中不可用「混音」按鈕和「音效」按鈕
+• 「更多影片」疊加層可能不可用
+• Shorts 將在一般播放器中開啟
+• 顯示未摺疊的舊版影片動作欄"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用開關切換。</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用檔案切換。</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切換類型</string>
@@ -2529,6 +2553,8 @@ YouTube 伺服器上的 n-sig 模式變化頻繁，如果正規表示式無法�
 此功能尚在開發中，請僅用於調試目的。"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">點擊查看如何取得身份驗證令牌。</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">關於 Android VR 驗證</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">不透明</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">透明</string>
     <string name="revanced_swipe_brightness_distance_summary">調整亮度所需滑動的像素數量。數值越低，亮度變化越快，數值越高，亮度變化越慢（1-1000）。</string>
     <string name="revanced_swipe_brightness_distance_title">亮度範圍</string>
     <string name="revanced_swipe_brightness_summary_off">已停用全螢幕亮度滑動調整</string>

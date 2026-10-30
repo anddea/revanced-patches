@@ -584,7 +584,7 @@ public final class LyricsRimeDictDialog {
             Logger.printDebug(() -> "Could not read the character source list", ex);
         }
         return new Pair<>(new String[]{"AUTO"}, new String[]{
-                str("morphe_music_lyrics_rime_char_source_auto")});
+                str("morphe_romanize_language_DEFAULT")});
     }
 
     private static String nextCharSource(String current) {

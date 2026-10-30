@@ -87,6 +87,7 @@
     <string name="morphe_dearrow_error_generic">DeArrow временно недоступен</string>
     <string name="morphe_dearrow_titles_icon_summary">Показывает значок DeArrow на названиях видео, созданных сообществом</string>
     <string name="morphe_dearrow_titles_icon_title">Показывать значок DeArrow</string>
+    <string name="morphe_dearrow_titles_summary">Заменяет названия видео на те, что предложили пользователи DeArrow</string>
     <string name="morphe_dearrow_titles_title">Названия DeArrow</string>
     <string name="morphe_disable_auto_feed_refresh_summary">Предотвращает автоматическое обновление лент после их устаревания</string>
     <string name="morphe_disable_auto_feed_refresh_title">Отключить автоматическое обновление ленты</string>
@@ -103,6 +104,8 @@
     <string name="morphe_disable_scrolling_speed_limit_title">Отключить ограничение скорости прокрутки</string>
     <string name="morphe_disable_system_splash_summary">Сделать статичную иконку заставки прозрачной</string>
     <string name="morphe_disable_system_splash_title">Отключить системную заставку</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Показывать «Подписки» в панели навигации, если YouTube перенесет их во вкладку в верхней части Главной</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Отключить вкладки навигации на панели инструментов</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"«Расширить длительность DVR прямых трансляций» может быть недоступно
 
 Чтобы исправить это, включите «Подмена видеопотоков» и измените «Клиент по умолчанию» на «TV Simply» или «visionOS»"</string>
@@ -197,6 +200,9 @@
     <string name="morphe_livestream_dvr_title">Включить прямую трансляцию DVR</string>
     <string name="morphe_music_package_name_summary">Имя пакета вашего установленного музыкального приложения</string>
     <string name="morphe_music_package_name_title">Имя пакета музыкального приложения</string>
+    <string name="morphe_navigation_bar_style_entry_2">Полупрозрачный</string>
+    <string name="morphe_navigation_bar_style_title">Стиль панели навигации</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Этот стиль может не поддерживаться вашим устройством или версией YouTube, что может привести к проблемам с разметкой или сбоям</string>
     <string name="morphe_notification_dot_color_summary">Изменяет цвет точек уведомлений</string>
     <string name="morphe_notification_dot_color_title">Цвет точки над уведомлениями</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не удается войти в VR: %s</string>
@@ -225,6 +231,16 @@
     <string name="morphe_playback_in_feeds_title">Воспроизведение в ленте</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Регулирует непрозрачность фона за кнопками управления плеером и временной шкалой (0 — невидимый, 100 — непрозрачный)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Прозрачность фона кнопок управления</string>
+    <string name="morphe_post_image_download_failed">Не удалось загрузить изображение</string>
+    <string name="morphe_post_image_download_flyout">Скачать изображения</string>
+    <string name="morphe_post_image_download_flyout_single">Скачать изображение</string>
+    <string name="morphe_post_image_download_not_found">В этом посте изображения не найдены</string>
+    <string name="morphe_post_image_download_saved">%1$s изображения, сохраненные в %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Изображение сохранено в %s</string>
+    <string name="morphe_post_image_download_started">Загрузка %s изображений…</string>
+    <string name="morphe_post_image_download_started_single">Загрузка изображения…</string>
+    <string name="morphe_post_image_download_summary">Рядом с кнопкой «Поделиться» в постах с изображениями или GIF-файлами отображается кнопка скачивания, а в их меню добавляется пункт «Скачать»</string>
+    <string name="morphe_post_image_download_title">Скачать изображения из поста</string>
     <string name="morphe_potoken_provider_expired_dialog_message">"Токен созданный в этой версии PoToken провайдера больше не работает 
 
 Включить \'Подмена видеопотока\' для исправления воспроизведения"</string>
@@ -234,6 +250,7 @@
 
 Если у вас YouTube Premium, эта настройка может не понадобиться"</string>
     <string name="morphe_potoken_provider_title">PoToken провайдер</string>
+    <string name="morphe_potoken_provider_unavailable_summary">"Исправляет проблемы с воспроизведением с помощью встроенного поставщика PoToken (экспериментально)</string>
     <string name="morphe_preferred_caption_language_summary">Сначала выбирает субтитры поставщика, затем автоматически переводит их на предпочитаемый язык</string>
     <string name="morphe_preferred_caption_language_title">Предпочитаемый язык субтитров</string>
     <string name="morphe_queue_manager_check_failed_auth">Не вошел в систему</string>
@@ -267,6 +284,12 @@
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Позволяет сохранять шортсы в «Посмотреть позже» из всплывающего меню</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Показывать кнопку «Сохранить в „Посмотреть позже“» во всплывающем меню шортсов</string>
     <string name="morphe_save_to_watch_later_success_toast">Видео успешно сохранено в плейлист \"Смотреть позже\"</string>
+    <string name="morphe_search_comments_applied">Измените порядок сортировки или снова откройте комментарии, чтобы выполнить поиск по ним</string>
+    <string name="morphe_search_comments_clear">Очистить</string>
+    <string name="morphe_search_comments_cleared">Поиск завершён. Измените порядок сортировки или снова откройте комментарии, чтобы отобразить все комментарии</string>
+    <string name="morphe_search_comments_hint">Слова для поиска</string>
+    <string name="morphe_search_comments_summary">Нажмите кнопку поиска в комментариях, чтобы отобразить только те загруженные комментарии, которые содержат все искомые слова. Чтобы найти фразу, заключите слова в кавычки</string>
+    <string name="morphe_search_comments_title">Поиск комментариев</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Чаще всего пересматривают</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Показывает миниатюру видео во время перетаскивания полосы прокрутки</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Включить миниатюры на полосе прокрутки</string>
@@ -277,6 +300,8 @@
     <string name="morphe_settings_name_custom_item_hint">Укажите название</string>
     <string name="morphe_settings_name_empty_warning">Поле имени не может быть пустым</string>
     <string name="morphe_settings_name_title">Настройки RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">Количество дней, в течение которых точка отображается рядом с настройками и опциями, добавленными в обновлении</string>
+    <string name="morphe_settings_new_indicator_days_title">Подсвечивать новые настройки</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Сокращаются только паузы длительностью не менее этого значения. Вступает в силу при запуске следующего видео</string>
     <string name="morphe_skip_silence_minimum_pause_title">Минимальная длительность паузы</string>
     <string name="morphe_skip_silence_summary">Автоматически пропускает паузы тишины в аудиодорожке видео</string>
@@ -499,20 +524,20 @@
     <string name="revanced_change_form_factor_title">Макет устройства</string>
     <string name="revanced_change_form_factor_user_dialog_message">"Изменения включают:
 
-Макет планшета
+Макет для планшета
 • Публикации сообщества скрыты
-• Настройка «Воспроизведение в лентах» недоступна
-• Кнопка «Ремикс» и кнопка «Звук» недоступны в Shorts
-• Оверлей «Больше видео» может быть недоступен
-• Показана старая развернутая панель действий видео
+• Настройка воспроизведения в лентах недоступна
+• Кнопки «Ремикс» и «Звук» недоступны в Shorts
+• Надпись «Больше видео» может быть недоступна
+• Отображается старая неразвернутая панель действий с видео
 
-Автомобильный макет
+Макет для автомобилей
 • Лента организована по темам и каналам
-• Настройка «Воспроизведение в лентах» недоступна
-• Кнопка «Ремикс» и кнопка «Звук» недоступны в Shorts
-• Оверлей «Больше видео» может быть недоступен
+• Настройка воспроизведения в лентах недоступна
+• Кнопки «Ремикс» и «Звук» недоступны в Shorts
+• Надпись «Больше видео» может быть недоступна
 • Shorts открываются в обычном плеере
-• Показана старая развернутая панель действий видео"</string>
+• Отображается старая неразвернутая панель действий с видео"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Текущий переключатель - Визуальный</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Текущий переключатель - Текстовый</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Изменить тип переключателя</string>
@@ -576,6 +601,10 @@
     <string name="revanced_custom_filter_summary_on">Кастомный фильтр включен</string>
     <string name="revanced_custom_filter_title">Включить кастомный фильтр</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Недопустимый кастомный фильтр: %s</string>
+    <string name="revanced_custom_playback_audio_pitches_invalid">Пользовательская высота тона — от %1$sx до %2$sx</string>
+    <string name="revanced_custom_playback_audio_pitches_parse_exception">Указана недопустимая высота тона</string>
+    <string name="revanced_custom_playback_audio_pitches_summary">Добавьте свои пресеты высоты тона, например 0.85x или 1.3x, через пробел или с новой строки (от 0.05x до 8x)</string>
+    <string name="revanced_custom_playback_audio_pitches_title">Изменить свои пресеты высоты тона</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_legacy">Свой (Старый)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_modern">Свой (Современный)</string>
     <string name="revanced_custom_playback_speed_menu_type_entry_custom_no_theme">Свой (Без темы)</string>
@@ -703,6 +732,8 @@
     <string name="revanced_disable_like_dislike_glow_summary_off">Кнопки \"Лайк\" и \"Дизлайк\" при упоминании подсвечиваются</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Кнопки \"Лайк\" и \"Дизлайк\" при упоминании не подсвечиваются</string>
     <string name="revanced_disable_like_dislike_glow_title">Отключить свечение кнопки \"Лайк\" и \"Дизлайк\"</string>
+    <string name="revanced_disable_playlist_autoplay_summary_off">Включает автопереход к следующему видео в плейлисте</string>
+    <string name="revanced_disable_playlist_autoplay_summary_on">Отключает автопереход к следующему видео в плейлисте</string>
     <string name="revanced_disable_playlist_autoplay_title">Отключить автовоспроизведение плейлиста</string>
     <string name="revanced_disable_quic_protocol_summary">"Отключает протокол, построенный поверх UDP, переходя на TCP"</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Продолжить просмотр&lt;/b&gt; возобновляется при запуске программы.&lt;br&gt;&lt;br&gt;Информация:&lt;br&gt;• &lt;b&gt;Продолжить просмотр&lt;/b&gt; это функция YouTube Premium.&lt;br&gt;• Этот параметр не включает принудительно &lt;b&gt;Продолжить просмотр&lt;/b&gt;</string>
@@ -1709,6 +1740,9 @@ Shorts
     <string name="revanced_icon_xisr_yellow">Xisr (желтая)</string>
     <string name="revanced_icon_youtube">Иконка YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube (черная)</string>
+    <string name="revanced_in_app_downloader_summary_off">Для скачивания видео применяется ваш внешний загрузчик</string>
+    <string name="revanced_in_app_downloader_summary_on">"Кнопки загрузки видео используют встроенный загрузчик и сохраняют файлы в Movies/RVX. Выбор качества отображается при каждой загрузке"</string>
+    <string name="revanced_in_app_downloader_title">Встроенный загрузчик</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">Тема панели взаимодействия не инвертирована</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">Тема панели взаимодействия инвертирована</string>
     <string name="revanced_invert_snack_bar_theme_title">Инвертировать тему панели взаимодействия</string>
@@ -1833,9 +1867,62 @@ Shorts
     <string name="revanced_navigation_bar_order_drag_handle">Перетащите, чтобы изменить порядок</string>
     <string name="revanced_navigation_bar_order_summary">Перетащите элементы навигации в том порядке, в котором они должны отображаться</string>
     <string name="revanced_navigation_bar_order_title">Порядок панели навигации</string>
+    <string name="revanced_offline_action_delete">Удалить</string>
+    <string name="revanced_offline_action_open_youtube">Открыть в YouTube</string>
+    <string name="revanced_offline_action_play_background">Фоновое воспроизведение</string>
+    <string name="revanced_offline_action_share">Поделиться</string>
+    <string name="revanced_offline_already_downloaded">Это видео уже скачано</string>
+    <string name="revanced_offline_already_downloading">Это видео уже скачивается</string>
+    <string name="revanced_offline_av1_unplayable_toast">Возможно, это устройство не сможет воспроизвести видео AV1. Картинка может не отображаться</string>
+    <string name="revanced_offline_close">Закрыть</string>
+    <string name="revanced_offline_delete_message">Удалить \" %s \" с этого устройства?</string>
+    <string name="revanced_offline_delete_title">Удалить скачанное</string>
+    <string name="revanced_offline_download_complete">Загрузка завершена</string>
+    <string name="revanced_offline_download_complete_toast">Скачано: %s</string>
+    <string name="revanced_offline_download_failed">Не удалось скачать: %s</string>
+    <string name="revanced_offline_download_merging">Объединяем видео и аудио…</string>
+    <string name="revanced_offline_download_preparing">Подготовка загрузки…</string>
+    <string name="revanced_offline_download_progress">Скачивание %d%%</string>
+    <string name="revanced_offline_download_queued">Добавлено в очередь</string>
+    <string name="revanced_offline_download_queued_count">Добавлено в очередь: %d</string>
+    <string name="revanced_offline_download_saving">Сохранение в Movies/RVX…</string>
+    <string name="revanced_offline_download_started">Начато скачивание</string>
+    <string name="revanced_offline_download_starting">Запуск…</string>
+    <string name="revanced_offline_download_unavailable">Не удаётся скачать это видео</string>
+    <string name="revanced_offline_error_forbidden">Сервер видео отклонил запрос на скачивание</string>
+    <string name="revanced_offline_error_space">Не хватает свободного места: требуется %s</string>
+    <string name="revanced_offline_error_time_limit">Время фоновой загрузки Android истекло</string>
+    <string name="revanced_offline_library_empty">Скачанных видео пока нет</string>
+    <string name="revanced_offline_library_no_results">По вашему запросу ничего не найдено среди скачанного</string>
+    <string name="revanced_offline_library_resume">Продолжить с %s</string>
+    <string name="revanced_offline_library_search">Поиск скачанных видео</string>
+    <string name="revanced_offline_library_sort">Сортировать</string>
+    <string name="revanced_offline_library_sort_title">Наименование</string>
+    <string name="revanced_offline_library_title">Скачанное</string>
+    <string name="revanced_offline_loading_formats">Загружаем доступные варианты качества…</string>
+    <string name="revanced_offline_next">Следующее</string>
+    <string name="revanced_offline_no_formats">Для этого видео нет доступных вариантов качества для скачивания</string>
+    <string name="revanced_offline_nothing_playing">Воспроизведение не запущено</string>
+    <string name="revanced_offline_notification_channel_downloads">Загрузка видео</string>
+    <string name="revanced_offline_notification_channel_playback">Воспроизведение офлайн</string>
+    <string name="revanced_offline_pause">Пауза</string>
+    <string name="revanced_offline_picker_av1_hint">Файл меньшего размера</string>
+    <string name="revanced_offline_picker_av1_unplayable">Невозможно воспроизвести на этом устройстве</string>
+    <string name="revanced_offline_picker_footer">Сохранено в Movies/RVX (MP4 или WebM для VP9)</string>
+    <string name="revanced_offline_picker_h264_hint">Воспроизводится везде</string>
+    <string name="revanced_offline_picker_subtitle">Качество загрузки</string>
+    <string name="revanced_offline_picker_vp9_hint">Воспроизводится на этом устройстве</string>
+    <string name="revanced_offline_play">Воспроизвести</string>
+    <string name="revanced_offline_playback_error">Не удаётся воспроизвести это видео</string>
+    <string name="revanced_offline_playing_background">Играет в фоне</string>
+    <string name="revanced_offline_previous">Предыдущее</string>
+    <string name="revanced_offline_share_unsupported">Отправка не поддерживается в этой версии Android</string>
+    <string name="revanced_offline_video_missing">Этот файл больше не существует</string>
     <string name="revanced_open_links_externally_summary_off">Открывает ссылки в браузере приложения</string>
     <string name="revanced_open_links_externally_summary_on">Открывает ссылки во внешнем браузере</string>
     <string name="revanced_open_links_externally_title">Открывать внешние ссылки</string>
+    <string name="revanced_open_offline_library_summary">Видео, скачанные через встроенный загрузчик</string>
+    <string name="revanced_open_offline_library_title">Открыть офлайн-библиотеку</string>
     <string name="revanced_overlay_button">Компоненты в плеере</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Нажать - все время повтор
 Нажать и удерживать - пауза после повтора"</string>
@@ -2111,6 +2198,9 @@ Shorts
     <string name="revanced_replace_channel_handle_summary_off">Используется псевдоним канала</string>
     <string name="revanced_replace_channel_handle_summary_on">Используется имя канала</string>
     <string name="revanced_replace_channel_handle_title">Заменить псевдоним канала</string>
+    <string name="revanced_replace_downloads_page_summary_off">Открывается страница загрузок YouTube</string>
+    <string name="revanced_replace_downloads_page_summary_on">Страница загрузок YouTube открывает офлайн-библиотеку</string>
+    <string name="revanced_replace_downloads_page_title">Заменить страницу загрузок</string>
     <string name="revanced_replace_time_stamp_action_summary_off">Нажмите, чтобы показать оставшееся время</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Открыть меню скорости просмотра или качества видео</string>
     <string name="revanced_replace_time_stamp_action_title">Заменить действие метки времени</string>
@@ -2530,6 +2620,9 @@ Shorts
     <string name="revanced_shorts_player_type_regular_player">Стандартный плеер</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">Стандартный полноэкранный плеер</string>
     <string name="revanced_shorts_player_type_title">Плеер для открытия Shorts</string>
+    <string name="revanced_show_offline_library_button_summary_off">На вкладке "Вы" нет кнопки "Загрузки"</string>
+    <string name="revanced_show_offline_library_button_summary_on">Кнопка "Загрузки" рядом с "Настройками" в разделе "Вы" открывает офлайн-библиотеку</string>
+    <string name="revanced_show_offline_library_button_title">Кнопка "Загрузки" на вкладке "Вы"</string>
     <string name="revanced_show_search_button_summary_off">Кнопка поиска не отображается</string>
     <string name="revanced_show_search_button_title">Показать кнопку \"Поиск\"</string>
     <string name="revanced_show_settings_button_summary_off">Кнопка «Настройки» не отображается</string>
@@ -2542,6 +2635,8 @@ Shorts
     <string name="revanced_show_toolbar_settings_button_summary_off">Кнопка «Настройки» скрыта на панели инструментов</string>
     <string name="revanced_show_toolbar_settings_button_summary_on">Кнопка «Настройки» отображается на панели инструментов</string>
     <string name="revanced_show_toolbar_settings_button_title">Показать кнопку \"Настройки\"</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_off">На вкладке "Вы" сохраняется исходное действие кнопки "Настройки"</string>
+    <string name="revanced_show_toolbar_settings_button_type_in_you_tab_summary_on">Действие кнопки настроек применяется к вкладке "Вы"</string>
     <string name="revanced_show_toolbar_settings_button_type_in_you_tab_title">Применить к вкладке You tab</string>
     <string name="revanced_show_video_title_section_summary">"Показывает секцию заголовка видео в полноэкранном режиме
 
@@ -2636,7 +2731,9 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
 Функция в разработке, используйте только для отладки"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">Нажмите, чтобы посмотреть, как получить токен авторизации</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">О Android VR авторизации</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Непрозрачная</string>
     <string name="revanced_status_bar_translucency_entry_transparent">Прозрачный</string>
+    <string name="revanced_status_bar_translucency_title">Прозрачность строки состояния</string>
     <string name="revanced_swipe_bottom_zone_title">Жест свайпа вниз</string>
     <string name="revanced_swipe_brightness_distance_summary">Количество пикселей, которое необходимо сдвинуть для изменения яркости. Чем меньше значение, тем быстрее меняется яркость, чем больше — тем медленнее (1 - 1000)</string>
     <string name="revanced_swipe_brightness_distance_title">Чувствительность жеста яркости</string>
@@ -2768,6 +2865,9 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_vot_audio_proxy_summary_on">Аудио поток идёт через прокси worker</string>
     <string name="revanced_vot_audio_proxy_title">Проксировать аудио</string>
     <string name="revanced_vot_auth_required">Требуется авторизация. Добавьте Яндекс OAuth токен в настройках</string>
+    <string name="revanced_vot_auto_translate_summary_off">Нажмите кнопку перевода, чтобы запустить перевод от Яндекса</string>
+    <string name="revanced_vot_auto_translate_summary_on">Перевод через Яндекс автоматически запускается для каждого видео</string>
+    <string name="revanced_vot_auto_translate_title">Автоматически переводить видео</string>
     <string name="revanced_vot_credits_summary">Реализация Yandex VOT от Jav1x и anddea. На основе ilyhalight/voice-over-translation</string>
     <string name="revanced_vot_enabled_summary_off">Закадровый перевод Яндекс выключен</string>
     <string name="revanced_vot_enabled_summary_on">Закадровый перевод Яндекс включён</string>
@@ -2789,7 +2889,13 @@ uBlock Origin обнаружил обход этой проблемы, вклю�
     <string name="revanced_vot_oauth_token_summary">Необходим для живых голосов</string>
     <string name="revanced_vot_original_audio_volume_summary">Громкость оригинального звука YouTube во время воспроизведения перевода</string>
     <string name="revanced_vot_original_audio_volume_title">Громкость оригинального аудио</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_off">Видео не останавливается, пока готовится перевод</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_summary_on">Видео останавливается при запросе перевода и снова запускается, когда готово переведённое аудио</string>
+    <string name="revanced_vot_pause_video_while_preparing_translation_title">Останавливать видео, пока готовится перевод</string>
     <string name="revanced_vot_playback_error">Не удалось воспроизвести аудио перевода</string>
+    <string name="revanced_vot_proxy_url_fetch_failed">Ошибка получения хоста прокси VOT worker</string>
+    <string name="revanced_vot_proxy_url_fetch_success">Хост прокси VOT worker обновлён: %s</string>
+    <string name="revanced_vot_proxy_url_fetch_summary">Укажите текущий хост прокси-воркера вручную. Автоматически он не обновляется</string>
     <string name="revanced_vot_proxy_url_fetch_title">Получить актуальный прокси-сервер</string>
     <string name="revanced_vot_proxy_url_summary">Хост прокси-сервера VOT worker. По умолчанию: vot-worker.eu.cc</string>
     <string name="revanced_vot_proxy_url_title">Прокси-сервер</string>

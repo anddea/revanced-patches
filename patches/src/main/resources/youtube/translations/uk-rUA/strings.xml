@@ -23,15 +23,15 @@
     <string name="morphe_ads_channel_whitelist_title">Білий список каналів для реклами</string>
     <string name="morphe_aislist_submit_already_blocklisted">Цей канал вже є в списку блокування AiSList</string>
     <string name="morphe_aislist_submit_already_warnlisted">Цей канал вже є в списку попереджень AiSList</string>
-    <string name="morphe_aislist_submit_category_title">Повідомити про AI-канали</string>
+    <string name="morphe_aislist_submit_category_title">Повідомити про ШІ-канали</string>
     <string name="morphe_aislist_submit_dialog_confirm">Повідомити</string>
     <string name="morphe_aislist_submit_dialog_message">"Надіслати %s до AiSList, використовуючи це відео як доказ?
 
 Повідомляйте лише про канали, які:
-• Використовують AI-голоси, візуали, сценарії чи музику як основний контент
-• Масово створюють контент за допомогою AI-інструментів з мінімальною людською роботою
+• Використовують ШІ-голоси, візуали, сценарії чи музику як основний контент
+• Масово створюють контент за допомогою ШІ-інструментів з мінімальною людською роботою
 
-Не повідомляйте про канали, які лише обговорюють AI, або використовують AI лише для деяких частин своїх відео
+Не повідомляйте про канали, які лише обговорюють ШІ, або використовують ШІлише для деяких частин своїх відео
 
 Звіти публічні та розглядаються перед додаванням каналу до списку. Видалення можливе лише через запит на GitHub"</string>
     <string name="morphe_aislist_submit_failed">Не вдалося надіслати звіт, перевірте з\'єднання</string>
@@ -41,10 +41,10 @@
     <string name="morphe_aislist_submit_failed_rejected">AiSList відхилив звіт</string>
     <string name="morphe_aislist_submit_flyout_menu_summary">Додає пункт до меню відео для звітування про канал відео до AiSList</string>
     <string name="morphe_aislist_submit_flyout_menu_title">Додати пункт звітування до меню відео</string>
-    <string name="morphe_aislist_submit_no_username">Встановіть ім\'я відправника в налаштуваннях фільтра AI-каналів, щоб повідомляти про канали</string>
+    <string name="morphe_aislist_submit_no_username">Встановіть ім\'я відправника в налаштуваннях фільтра ШІ-каналів, щоб повідомляти про канали</string>
     <string name="morphe_aislist_submit_resolving">Пошук каналу…</string>
     <string name="morphe_aislist_submit_success">Про канал повідомлено, очікується перевірка</string>
-    <string name="morphe_aislist_submit_title">Повідомити AI-канал</string>
+    <string name="morphe_aislist_submit_title">Повідомити ШІ-канал</string>
     <string name="morphe_aislist_submit_username_summary">Ім\'я, що показується поруч із вашими звітами в публічному рейтингу AiSList. Звітування недоступне, поки це поле порожнє</string>
     <string name="morphe_aislist_submit_username_title">Ім\'я відправника</string>
     <string name="morphe_app_refresh_rate_default">Типова</string>
@@ -104,6 +104,8 @@
     <string name="morphe_disable_scrolling_speed_limit_title">Вимкнути обмеження швидкості прокручування</string>
     <string name="morphe_disable_system_splash_summary">Робить статичний значок системної заставки прозорим</string>
     <string name="morphe_disable_system_splash_title">Вимкнути системну заставку</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Показує \"Підписки\" на панелі навігації, якщо YouTube переносить їх на вкладку вгорі \"Головної\"</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Вимкнути вкладки навігації на панелі інструментів</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\"Розширити тривалість DVR прямої трансляції\" може бути недоступним
 
 Щоб це виправити, увімкніть \"Підміна відеопотоків\" та змініть \"Типовий клієнт\" на \"TV Simply\" або \"visionOS\""</string>
@@ -140,7 +142,7 @@
     <string name="morphe_hide_aislist_hide_home_title">Приховувати відео на головній</string>
     <string name="morphe_hide_aislist_hide_search_title">Приховувати відео в пошуку</string>
     <string name="morphe_hide_aislist_screen_summary">Приховує відео з каналів, позначених спільнотою AiSList як згенеровані штучним інтелектом</string>
-    <string name="morphe_hide_aislist_screen_title">Фільтр AI каналів</string>
+    <string name="morphe_hide_aislist_screen_title">Фільтр ШІ каналів</string>
     <string name="morphe_hide_aislist_stats_blocklist_channels_title">Каналів в списку блокування</string>
     <string name="morphe_hide_aislist_stats_channels_disabled_summary">Увімкніть фільтр, щоб завантажити канали</string>
     <string name="morphe_hide_aislist_stats_channels_loading_summary">Завантаження каналів…</string>
@@ -198,6 +200,9 @@
     <string name="morphe_livestream_dvr_title">Увімкнути DVR для прямої трансляції</string>
     <string name="morphe_music_package_name_summary">Назва пакету встановленого музичного застосунку</string>
     <string name="morphe_music_package_name_title">Назва пакету музичного застосунку</string>
+    <string name="morphe_navigation_bar_style_entry_2">Напівпрозорий</string>
+    <string name="morphe_navigation_bar_style_title">Стиль панелі навігації</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Цей стиль може не підтримуватися вашим пристроєм або версією YouTube і може спричинити проблеми з макетом або збої</string>
     <string name="morphe_notification_dot_color_summary">Змінює колір точок сповіщень</string>
     <string name="morphe_notification_dot_color_title">Колір точки сповіщення</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Не вдається ввійти до VR: %s</string>
@@ -226,6 +231,16 @@
     <string name="morphe_playback_in_feeds_title">Відтворення в стрічках</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Налаштуйте прозорість фону за кнопками керування плеєром та панеллю часу (0 - невидиме, 100 - суцільне)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Прозорість фону кнопок керування</string>
+    <string name="morphe_post_image_download_failed">Не вдалося завантажити зображення</string>
+    <string name="morphe_post_image_download_flyout">Завантажити зображення</string>
+    <string name="morphe_post_image_download_flyout_single">Завантажити зображення</string>
+    <string name="morphe_post_image_download_not_found">У цьому дописі не знайдено зображення</string>
+    <string name="morphe_post_image_download_saved">Зображень збережено: %1$s у %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Зображення збережено у %s</string>
+    <string name="morphe_post_image_download_started">Завантаження зображень: %s…</string>
+    <string name="morphe_post_image_download_started_single">Завантаження зображення…</string>
+    <string name="morphe_post_image_download_summary">Кнопка завантаження показується поруч із кнопкою \"Поділитися\" для дописів із зображеннями або GIF, а до їхнього меню додається пункт завантаження</string>
+    <string name="morphe_post_image_download_title">Завантажити зображення з допису</string>
     <string name="morphe_potoken_provider_expired_dialog_message">"Токен, вбудований у цю версію провайдера PoToken, більше не працює
 
 Увімкніть опцію \'Імітувати відеопотоки\', щоб виправити проблему з відтворенням"</string>
@@ -268,6 +283,12 @@
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Дозволяє зберегти Shorts в \"Дивитися пізніше\" зі спливного меню</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Показувати кнопку \"Зберегти в \'Дивитися пізніше\'\" у спливному меню Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Відео збережено у списку відтворення \"Подивитися пізніше\"</string>
+    <string name="morphe_search_comments_applied">Змініть порядок сортування або відкрийте коментарі знову, щоб здійснити в них пошук</string>
+    <string name="morphe_search_comments_clear">Очистити</string>
+    <string name="morphe_search_comments_cleared">Пошук очищено. Змініть порядок сортування або відкрийте коментарі знову, щоб показати всі коментарі</string>
+    <string name="morphe_search_comments_hint">Слова для пошуку</string>
+    <string name="morphe_search_comments_summary">Натисніть кнопку пошуку в коментарях, щоб показати лише завантажені коментарі, які містять усі шукані слова. Візьміть слова в лапки, щоб шукати фразу</string>
+    <string name="morphe_search_comments_title">Пошук у коментарях</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Найпопулярніші моменти</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Показує мініатюру відео під час перетягування смуги відтворення</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Увімкнути мініатюри на смузі перемотування</string>
@@ -278,6 +299,8 @@
     <string name="morphe_settings_name_custom_item_hint">Введіть назву</string>
     <string name="morphe_settings_name_empty_warning">Назва не може бути порожньою</string>
     <string name="morphe_settings_name_title">Назва налаштувань RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">Кількість днів, протягом яких біля налаштувань і параметрів, доданих оновленням, показується крапка</string>
+    <string name="morphe_settings_new_indicator_days_title">Підсвічувати нові налаштування</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Скорочуються лише паузи, не коротші за це значення. Набуває чинності при запуску наступного відео</string>
     <string name="morphe_skip_silence_minimum_pause_title">Мінімальна тривалість паузи</string>
     <string name="morphe_skip_silence_summary">Автоматично пропускає тихі паузи у звуку відео</string>
@@ -508,6 +531,7 @@
 • Кнопки \"Ремікс\" та \"Звук\" недоступні в Shorts
 • Накладка \"Більше відео\" може бути недоступна
 • Відображається нерозгорнута стара панель дій відео
+• Пункти спливного меню можуть працювати неправильно
 
 Автомобільний макет
 • Стрічка організована за темами та каналами

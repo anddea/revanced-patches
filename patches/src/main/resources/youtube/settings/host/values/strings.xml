@@ -101,14 +101,14 @@ Tap here to open DeArrow.ajay.app"</string>
     <string name="morphe_disable_drc_audio_title">Disable DRC audio</string>
     <string name="morphe_disable_icon_only_navigation_buttons_summary">Shows the navigation buttons with labels, if YouTube sends them without labels</string>
     <string name="morphe_disable_icon_only_navigation_buttons_title">Disable navigation buttons without labels</string>
-    <string name="morphe_disable_toolbar_navigation_tabs_title">Disable toolbar navigation tabs</string>
-    <string name="morphe_disable_toolbar_navigation_tabs_summary">Shows Subscriptions in the navigation bar, if YouTube moves it to a tab at the top of Home</string>
     <string name="morphe_disable_quic_protocol_summary_off">QUIC protocol is enabled</string>
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protocol is disabled</string>
     <string name="morphe_disable_quic_protocol_title">Disable QUIC protocol</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Disable scrolling speed limit</string>
     <string name="morphe_disable_system_splash_summary">Makes the static system splash icon transparent</string>
     <string name="morphe_disable_system_splash_title">Disable system splash</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">Shows Subscriptions in the navigation bar, if YouTube moves it to a tab at the top of Home</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Disable toolbar navigation tabs</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"\'Expand livestream DVR duration\' may not be available
 
 To fix this, turn on \'Spoof video streams\' and change the \'Default client\' to \'TV Simply\' or \'visionOS\'"</string>
@@ -204,6 +204,9 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_livestream_dvr_title">Enable livestream DVR</string>
     <string name="morphe_music_package_name_summary">Package name of your installed music app</string>
     <string name="morphe_music_package_name_title">Music app package name</string>
+    <string name="morphe_navigation_bar_style_entry_2">Translucent</string>
+    <string name="morphe_navigation_bar_style_title">Navigation bar style</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">This style may not be supported by your device or YouTube version, and can cause layout issues or crashes</string>
     <string name="morphe_notification_dot_color_summary">Changes the color of notification dots</string>
     <string name="morphe_notification_dot_color_title">Notification dot color</string>
     <string name="morphe_oauth2_connection_failure_auth_error">Cannot sign in to VR: %s</string>
@@ -232,6 +235,16 @@ To fix this, turn on \'Spoof video streams\' and change the \'Default client\' t
     <string name="morphe_playback_in_feeds_title">Playback in feeds</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Adjust the opacity of the background behind the player control buttons and the time bar (0 is invisible, 100 is solid)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">Control buttons background opacity</string>
+    <string name="morphe_post_image_download_failed">Could not download the image</string>
+    <string name="morphe_post_image_download_flyout">Download images</string>
+    <string name="morphe_post_image_download_flyout_single">Download image</string>
+    <string name="morphe_post_image_download_not_found">No image found in this post</string>
+    <string name="morphe_post_image_download_saved">%1$s images saved to %2$s</string>
+    <string name="morphe_post_image_download_saved_single">Image saved to %s</string>
+    <string name="morphe_post_image_download_started">Downloading %s images…</string>
+    <string name="morphe_post_image_download_started_single">Downloading image…</string>
+    <string name="morphe_post_image_download_summary">A download button is shown next to the Share button of posts with images or GIFs, and a download item is added to their menu</string>
+    <string name="morphe_post_image_download_title">Download post images</string>
     <string name="morphe_potoken_provider_expired_dialog_message">"The token built into this version of PoToken provider no longer works
 
 Turn on \'Spoof video streams\' to fix playback"</string>
@@ -277,6 +290,12 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Allows saving Shorts to the \'Watch later\' playlist from the feed flyout menu</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Save button for Shorts</string>
     <string name="morphe_save_to_watch_later_success_toast">Video successfully saved in watch later playlist</string>
+    <string name="morphe_search_comments_applied">Change the sort order or open the comments again to search them</string>
+    <string name="morphe_search_comments_clear">Clear</string>
+    <string name="morphe_search_comments_cleared">Search cleared. Change the sort order or open the comments again to show all comments</string>
+    <string name="morphe_search_comments_hint">Words to search for</string>
+    <string name="morphe_search_comments_summary">Tap the search button in the comments to show only the loaded comments that contain all of the searched words. Put words in quotes to search for a phrase</string>
+    <string name="morphe_search_comments_title">Search comments</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Most replayed</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Shows a video thumbnail while dragging the seekbar</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Enable seekbar thumbnails</string>
@@ -291,6 +310,8 @@ To use this feature, turn off \'Spoof video streams\'"</string>
     <string name="morphe_settings_name_entry_3" translatable="false">Tweaks</string>
     <string name="morphe_settings_name_entry_4" translatable="false">Premium</string>
     <string name="morphe_settings_name_title">RVX settings name</string>
+    <string name="morphe_settings_new_indicator_days_summary">Number of days a dot is shown next to settings and options added by an update</string>
+    <string name="morphe_settings_new_indicator_days_title">Highlight new settings</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Only pauses at least this long are shortened. Takes effect when the next video starts</string>
     <string name="morphe_skip_silence_minimum_pause_title">Minimum pause length</string>
     <string name="morphe_skip_silence_summary">Automatically skips silent pauses in video audio</string>
@@ -1906,10 +1927,10 @@ Miniplayer can be dragged off-screen to the left or right"</string>
     <string name="revanced_offline_library_resume">Resume at %s</string>
     <string name="revanced_offline_library_search">Search downloads</string>
     <string name="revanced_offline_library_sort">Sort</string>
-    <string name="revanced_offline_library_sort_title">Title</string>
     <string name="revanced_offline_library_sort_newest">Newest</string>
     <string name="revanced_offline_library_sort_oldest">Oldest</string>
     <string name="revanced_offline_library_sort_size">Size</string>
+    <string name="revanced_offline_library_sort_title">Title</string>
     <string name="revanced_offline_library_title">Downloads</string>
     <string name="revanced_offline_loading_formats">Loading available qualities…</string>
     <string name="revanced_offline_next">Next</string>
@@ -3023,34 +3044,4 @@ Authorization is required to request translation with live voices for videos tha
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex language</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Use Yandex transcription instead of Gemini. Yandex is faster and more reliable. No API key is required</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex transcription</string>
-    <string name="morphe_search_comments_title">Search comments</string>
-    <string name="morphe_search_comments_summary">Tap the search button in the comments to show only the loaded comments that contain all of the searched words. Put words in quotes to search for a phrase</string>
-    <string name="morphe_search_comments_dialog_title">Search comments</string>
-    <string name="morphe_search_comments_hint">Words to search for</string>
-    <string name="morphe_search_comments_search">Search</string>
-    <string name="morphe_search_comments_clear">Clear</string>
-    <string name="morphe_search_comments_applied">Change the sort order or open the comments again to search them</string>
-    <string name="morphe_search_comments_cleared">Search cleared. Change the sort order or open the comments again to show all comments</string>
-    <string name="morphe_navigation_bar_style_title">Navigation bar style</string>
-    <string name="morphe_navigation_bar_style_entry_1">Default</string>
-    <string name="morphe_navigation_bar_style_entry_2">Translucent</string>
-    <string name="morphe_navigation_bar_style_entry_3">Transparent</string>
-    <string name="morphe_navigation_bar_style_entry_4">Opaque</string>
-    <string name="morphe_navigation_bar_style_user_dialog_message">This style may not be supported by your device or YouTube version, and can cause layout issues or crashes</string>
-    <string name="morphe_tablet_layout_in_player_user_dialog_message">"Enabling this may break some player layout features, such as the comment section or \'More videos\' shown below the player.
-
-The tablet layout is no longer supported by YouTube, and is partially or fully broken on recent YouTube versions. For a working tablet layout, patch YouTube 20.21.37"</string>
-    <string name="morphe_post_image_download_title">Download post images</string>
-    <string name="morphe_post_image_download_summary">A download button is shown next to the Share button of posts with images or GIFs, and a download item is added to their menu</string>
-    <string name="morphe_post_image_download_flyout">Download images</string>
-    <string name="morphe_post_image_download_flyout_single">Download image</string>
-    <string name="morphe_post_image_download_started">Downloading %s images…</string>
-    <string name="morphe_post_image_download_started_single">Downloading image…</string>
-    <string name="morphe_post_image_download_saved">%1$s images saved to %2$s</string>
-    <string name="morphe_post_image_download_saved_single">Image saved to %s</string>
-    <string name="morphe_post_image_download_failed">Could not download the image</string>
-    <string name="morphe_post_image_download_not_found">No image found in this post</string>
-    <string name="morphe_settings_new_indicator_days_title">Highlight new settings</string>
-    <string name="morphe_settings_new_indicator_days_summary">Number of days a dot is shown next to settings and options added by an update</string>
-    <string name="morphe_settings_new_indicator_days_off">Off</string>
 </resources>

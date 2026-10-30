@@ -103,6 +103,8 @@
     <string name="morphe_disable_scrolling_speed_limit_title">تعطيل تحديد سرعة التمرير</string>
     <string name="morphe_disable_system_splash_summary">يجعل أيقونة بدء تشغيل النظام الثابتة شفافة</string>
     <string name="morphe_disable_system_splash_title">تعطيل شاشة بدء تشغيل النظام</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">يعرض الاشتراكات في شريط التنقل، إذا قام YouTube بنقلها إلى علامة تبويب في أعلى الصفحة الرئيسية</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">تعطيل علامات تبويب التنقل في شريط الأدوات</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"قد لا يكون 'زيادة مدة رجوع البث المباشر' متاحًا
 
 لإصلاح ذلك، قم بتشغيل 'Spoof Video Streams' وغيّر 'العميل الافتراضي' إلى 'TV Simply' أو 'visionOS'"</string>
@@ -197,6 +199,9 @@
     <string name="morphe_livestream_dvr_title">تمكين التنقل في البث المباشر</string>
     <string name="morphe_music_package_name_summary">اسم حزمة تطبيق الموسيقى المثبت لديك</string>
     <string name="morphe_music_package_name_title">اسم حزمة تطبيق الموسيقى</string>
+    <string name="morphe_navigation_bar_style_entry_2">شبه شفاف</string>
+    <string name="morphe_navigation_bar_style_title">نمط شريط التنقل</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">قد لا يكون هذا النمط مدعومًا من قبل جهازك أو إصدار YouTube، ويمكن أن يتسبب في مشكلات في التخطيط أو توقف التطبيق عن العمل</string>
     <string name="morphe_notification_dot_color_summary">يُغيِّر لون نقاط الإشعارات</string>
     <string name="morphe_notification_dot_color_title">لون نقطة الإشعار</string>
     <string name="morphe_oauth2_connection_failure_auth_error">فشل تسجيل الدخول إلى VR: %s</string>
@@ -225,6 +230,16 @@
     <string name="morphe_playback_in_feeds_title">التشغيل في الخلاصات</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">ضبط شفافية الخلفية خلف أزرار تحكم المشغل وشريط الوقت (0 غير مرئية، 100 معتمة)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">شفافية خلفية أزرار التحكم</string>
+    <string name="morphe_post_image_download_failed">تعذر تنزيل الصورة</string>
+    <string name="morphe_post_image_download_flyout">تنزيل الصور</string>
+    <string name="morphe_post_image_download_flyout_single">تنزيل الصورة</string>
+    <string name="morphe_post_image_download_not_found">لم يتم العثور على صورة في هذا المنشور</string>
+    <string name="morphe_post_image_download_saved">%1$s صور حُفظت في %2$s</string>
+    <string name="morphe_post_image_download_saved_single">تم حفظ الصورة في %s</string>
+    <string name="morphe_post_image_download_started">جارٍ تنزيل %s من الصور...</string>
+    <string name="morphe_post_image_download_started_single">جارٍ تنزيل الصورة…</string>
+    <string name="morphe_post_image_download_summary">يظهر زر التنزيل بجانب زر المشاركة في المنشورات التي تحتوي على صور أو ملفات GIF، كما يتم إضافة عنصر تنزيل إلى القائمة الخاصة بها</string>
+    <string name="morphe_post_image_download_title">تنزيل صور المنشورات</string>
     <string name="morphe_potoken_provider_summary">"يُصلح هذا التحديث مشاكل التشغيل باستخدام موفر PoToken المدمج (تجريبي)
 
 إذا كنتَ مشتركًا في YouTube Premium، فقد لا تحتاج إلى هذا الإعداد. "</string>
@@ -256,7 +271,7 @@
     <string name="morphe_sanitize_sharing_links_summary_on">تمت إزالة معلمة استعلام التتبع من الروابط عند المشاركة</string>
     <string name="morphe_sanitize_sharing_links_title">تنظيف روابط المشاركة</string>
     <string name="morphe_save_to_watch_later_already_exists_toast">هذا الفيديو محفوظ بالفعل في قائمة المشاهدة لاحقًا</string>
-    <string name="morphe_save_to_watch_later_button_summary">انقر للحفظ في المشاهدة لاحقًا، واضغط مع الاستمرار لخيارات قائمة الانتظار</string>
+    <string name="morphe_save_to_watch_later_button_summary">انقر للحفظ في المشاهدة لاحقًا، واضغط مع الاستمرار لخيارات قائمة المحتوى التالي</string>
     <string name="morphe_save_to_watch_later_button_title">عرض زر الحفظ في المشاهدة لاحقًا</string>
     <string name="morphe_save_to_watch_later_error_toast">لا يمكن حفظ هذا الفيديو في قائمة المشاهدة لاحقًا</string>
     <string name="morphe_save_to_watch_later_flyout_title">الحفظ في المشاهدة لاحقًا</string>
@@ -265,6 +280,12 @@
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">يتيح حفظ فيديوهات Shorts في قائمة \"المشاهدة لاحقًا\" من القائمة المنبثقة</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">عرض زر \"الحفظ للمشاهدة لاحقًا\" في قائمة Shorts المنبثقة</string>
     <string name="morphe_save_to_watch_later_success_toast">تم حفظ الفيديو بنجاح في قائمة المشاهدة لاحقًا</string>
+    <string name="morphe_search_comments_applied">قم بتغيير ترتيب الفرز أو أعد فتح التعليقات للبحث فيها</string>
+    <string name="morphe_search_comments_clear">مسح</string>
+    <string name="morphe_search_comments_cleared">تم مسح البحث. قم بتغيير ترتيب الفرز أو افتح التعليقات مرة أخرى لعرض كل التعليقات</string>
+    <string name="morphe_search_comments_hint">كلمات للبحث عنها</string>
+    <string name="morphe_search_comments_summary">انقر على زر البحث في التعليقات لعرض التعليقات المحمَّلة فقط التي تحتوي على كل الكلمات التي تم البحث عنها. ضع الكلمات بين علامات الاقتباس للبحث عن عبارة محددة</string>
+    <string name="morphe_search_comments_title">البحث في التعليقات</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">الأكثر إعادة</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">يعرض صورة مصغرة للفيديو أثناء سحب شريط التقدم</string>
     <string name="morphe_seekbar_thumbnail_preview_title">تمكين مصغرات شريط التقدم</string>
@@ -275,6 +296,8 @@
     <string name="morphe_settings_name_custom_item_hint">أدخل اسم</string>
     <string name="morphe_settings_name_empty_warning">خانة الاسم لايمكن ان تكون فارغه</string>
     <string name="morphe_settings_name_title">اسم إعدادات RVX</string>
+    <string name="morphe_settings_new_indicator_days_summary">عدد الأيام التي تظهر فيها النقطة بجانب الإعدادات والخيارات التي أُضيفت بواسطة التحديث</string>
+    <string name="morphe_settings_new_indicator_days_title">تمييز الإعدادات الجديدة</string>
     <string name="morphe_skip_silence_minimum_pause_summary">يتم تقصير فترات التوقف التي تبلغ هذه المدة أو أكثر فقط. ويسري هذا عند بدء الفيديو التالي</string>
     <string name="morphe_skip_silence_minimum_pause_title">الحد الأدنى لمدة التوقف</string>
     <string name="morphe_skip_silence_summary">يتخطى تلقائيًا فترات الصمت في صوت الفيديو</string>
@@ -343,8 +366,8 @@
 
 إذا كنت مستخدمًا لـ YouTube Premium، فقد لا يكون هذا الإعداد مطلوبًا"</string>
     <string name="morphe_spoof_video_streams_user_dialog_message">قد يؤدي إيقاف تشغيل هذا الإعداد إلى مشكلات في التشغيل</string>
-    <string name="morphe_swap_save_and_queue_actions_summary">انقر لخيارات قائمة الانتظار، واضغط مع الاستمرار للحفظ في المشاهدة لاحقًا</string>
-    <string name="morphe_swap_save_and_queue_actions_title">تبديل إجراءات حفظ وإضافة إلى قائمة الانتظار</string>
+    <string name="morphe_swap_save_and_queue_actions_summary">انقر لخيارات قائمة المحتوى التالي، واضغط مع الاستمرار للحفظ في المشاهدة لاحقًا</string>
+    <string name="morphe_swap_save_and_queue_actions_title">تبديل إجراءات حفظ وإضافة إلى قائمة المحتوى التالي</string>
     <string name="morphe_tablet_layout_in_player_summary">"استعادة تخطيط المشغل القديم
 
 القيود: إذا تم إيقاف تشغيل 'استعادة شريط إجراءات الفيديو القديم'، فقد لا يتوفر عنصر 'المزيد من الفيديوهات'"</string>
@@ -498,22 +521,23 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_change_form_factor_entry_5">الجهاز اللوحي (الحد الأدنى 600 dp)</string>
     <string name="revanced_change_form_factor_entry_6">Automotive</string>
     <string name="revanced_change_form_factor_title">تخطيط الجهاز</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"تتضمن التغييرات:
+    <string name="revanced_change_form_factor_user_dialog_message">"تتضمن التغييرات ما يلي:
 
 تصميم الجهاز اللوحي
-• يتم إخفاء مشاركات المجتمع
+• يتم إخفاء منشورات المنتدى
 • إعداد التشغيل في الخلاصات غير متوفر
 • زر ريمكس وزر الصوت غير متوفرين في Shorts
-• قد لا تتوفر واجهة 'المزيد من الفيديوهات'
-• شريط إجراءات الفيديو غير مطوي
+• قد لا تتوفر واجهات 'مزيد من الفيديوهات'
+• يظهر شريط إجراءات الفيديو القديم غير المطوي
+• قد لا تعمل عناصر القائمة المنبثقة بشكل صحيح
 
 تصميم Automotive
-• الخلاصة مُنظمة حسب المواضيع والقنوات
+• يتم تنظيم الخلاصة حسب المواضيع والقنوات
 • إعداد التشغيل في الخلاصات غير متوفر
 • زر ريمكس وزر الصوت غير متوفرين في Shorts
-• قد لا تتوفر واجهة 'المزيد من الفيديوهات'
-• فيديوهات Shorts تفتح في المشغل العادي
-• شريط إجراءات الفيديو غير مطوي"</string>
+• قد لا تتوفر واجهات 'مزيد من الفيديوهات'
+• تفتح فيديوهات Shorts في المشغل العادي
+• يظهر شريط إجراءات الفيديو القديم غير المطوي"</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">يتم استخدام مفتاح التبديل</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">يتم استخدام مفتاح التبديل النصي</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">تغيير نوع التبديل</string>
@@ -1992,33 +2016,33 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
     <string name="revanced_preference_screen_video_title">الفيديو</string>
     <string name="revanced_preference_screen_watch_history_summary">تغيير الإعدادات المتعلقة بسجل المشاهدة</string>
     <string name="revanced_preference_screen_watch_history_title">سجل المشاهدة</string>
-    <string name="revanced_queue_manager_add_to_queue">إضافة إلى قائمة الانتظار</string>
-    <string name="revanced_queue_manager_add_to_queue_and_open_queue">إضافة إلى قائمة الانتظار وفتح</string>
-    <string name="revanced_queue_manager_add_to_queue_and_play_video">إضافة إلى قائمة الانتظار وتشغيل</string>
+    <string name="revanced_queue_manager_add_to_queue">إضافة إلى قائمة المحتوى التالي</string>
+    <string name="revanced_queue_manager_add_to_queue_and_open_queue">إضافة إلى قائمة المحتوى التالي وفتح</string>
+    <string name="revanced_queue_manager_add_to_queue_and_play_video">إضافة إلى قائمة المحتوى التالي وتشغيل</string>
     <string name="revanced_queue_manager_add_to_queue_and_reload_video">إضافة وإعادة تحميل الفيديو</string>
     <string name="revanced_queue_manager_check_failed_auth">تسجيل الدخول غير ممكن</string>
     <string name="revanced_queue_manager_check_failed_generic">فشل: %s</string>
     <string name="revanced_queue_manager_check_failed_playlist_id">لا يوجد معرّف قائمة تشغيل</string>
-    <string name="revanced_queue_manager_check_failed_queue">قائمة الانتظار فارغة</string>
+    <string name="revanced_queue_manager_check_failed_queue">قائمة المحتوى التالي فارغة</string>
     <string name="revanced_queue_manager_check_failed_video_id">لا يوجد معرّف فيديو</string>
-    <string name="revanced_queue_manager_fetch_failed_add">فشل الإضافة إلى قائمة الانتظار</string>
-    <string name="revanced_queue_manager_fetch_failed_create">فشل إنشاء قائمة الانتظار</string>
+    <string name="revanced_queue_manager_fetch_failed_add">فشل الإضافة إلى قائمة المحتوى التالي</string>
+    <string name="revanced_queue_manager_fetch_failed_create">فشل إنشاء قائمة المحتوى التالي</string>
     <string name="revanced_queue_manager_fetch_failed_delete">فشل في حذف قائمة الانتظار</string>
-    <string name="revanced_queue_manager_fetch_failed_remove">فشل الإزالة من قائمة الانتظار</string>
-    <string name="revanced_queue_manager_fetch_failed_save">فشل حفظ قائمة الانتظار</string>
+    <string name="revanced_queue_manager_fetch_failed_remove">فشل الإزالة من قائمة المحتوى التالي</string>
+    <string name="revanced_queue_manager_fetch_failed_save">فشل حفظ قائمة المحتوى التالي</string>
     <string name="revanced_queue_manager_fetch_failed_video_information">فشل في الحصول على معلومات الفيديو</string>
-    <string name="revanced_queue_manager_fetch_succeeded_add">تمت الإضافة إلى قائمة الانتظار</string>
-    <string name="revanced_queue_manager_fetch_succeeded_create">تم إنشاء قائمة الانتظار</string>
+    <string name="revanced_queue_manager_fetch_succeeded_add">تمت الإضافة إلى قائمة المحتوى التالي</string>
+    <string name="revanced_queue_manager_fetch_succeeded_create">تم إنشاء قائمة المحتوى التالي</string>
     <string name="revanced_queue_manager_fetch_succeeded_delete">تم حذف قائمة الانتظار بنجاح</string>
-    <string name="revanced_queue_manager_fetch_succeeded_remove">تمت الإزالة من قائمة الانتظار</string>
-    <string name="revanced_queue_manager_fetch_succeeded_save">تم حفظ قائمة الانتظار في %s</string>
-    <string name="revanced_queue_manager_open_queue">فتح قائمة الانتظار</string>
+    <string name="revanced_queue_manager_fetch_succeeded_remove">تمت الإزالة من قائمة المحتوى التالي</string>
+    <string name="revanced_queue_manager_fetch_succeeded_save">تم حفظ قائمة المحتوى التالي في %s</string>
+    <string name="revanced_queue_manager_open_queue">فتح قائمة المحتوى التالي</string>
     <string name="revanced_queue_manager_queue">قائمة الإنتظار</string>
-    <string name="revanced_queue_manager_remove_from_queue">إزالة من قائمة الانتظار</string>
-    <string name="revanced_queue_manager_remove_from_queue_and_open_queue">إزالة وفتح قائمة الانتظار</string>
+    <string name="revanced_queue_manager_remove_from_queue">إزالة من قائمة المحتوى التالي</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_open_queue">إزالة وفتح قائمة المحتوى التالي</string>
     <string name="revanced_queue_manager_remove_from_queue_and_reload_video">إزالة وإعادة تحميل الفيديو</string>
     <string name="revanced_queue_manager_remove_queue">إزالة قائمة الانتظار</string>
-    <string name="revanced_queue_manager_save_queue">حفظ قائمة الانتظار إلى قائمة تشغيل</string>
+    <string name="revanced_queue_manager_save_queue">حفظ قائمة المحتوى التالي إلى قائمة تشغيل</string>
     <string name="revanced_queue_manager_show_original_video_information">عرض معلومات الفيديو الأصلية</string>
     <string name="revanced_queue_manager_user_dialog_message">"بدلاً من فتح برنامج تنزيل خارجي، افتح نافذة مدير قائمة الانتظار
 
@@ -2586,6 +2610,8 @@ Mistral Nemo هو الخيار الأرخص، بينما توفر Gemma 4 أعل
 من بين عملاء JavaScript، يُنصح باستخدام TV Simply"</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_summary">انقر لمعرفة كيفية الحصول على رمز المصادقة</string>
     <string name="revanced_spoof_streaming_data_vr_auth_token_about_title">لمحة عن مصادقة Android VR</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">معتم</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">شفاف</string>
     <string name="revanced_swipe_brightness_distance_summary">عدد البكسلات اللازمة للسحب لتغيير السطوع. القيم الأقل تجعل تغيير السطوع أسرع، والقيم الأعلى تجعله أبطأ (1-1000)</string>
     <string name="revanced_swipe_brightness_distance_title">مسافة السحب للسطوع</string>
     <string name="revanced_swipe_brightness_summary_off">تم تعطيل إيماءة مستوى السطوع في وضع ملء الشاشة</string>

@@ -89,6 +89,8 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərinə razı ol"
     <string name="morphe_disable_quic_protocol_summary_on">QUIC protokolu qapadılıb</string>
     <string name="morphe_disable_quic_protocol_title">QUIC protokolunu qeyri-aktiv et</string>
     <string name="morphe_disable_scrolling_speed_limit_title">Sürüşdürmə sürət həddini qapat</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube onu Əsas Səhifənin yuxarısındakı vərəqə köçürərsə, fəaliyyət cərgəsində Abunəlikləri göstərir</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">Alət cərgəsi fəaliyyət səhifələrini qapat</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'Canlı yayım DVR müddətini genişləndir' əlçatan olmaya bilər
 
 Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir və 'İlkin qəbuledicini' 'TV Simply' və ya 'visionOS' olaraq dəyişdir"</string>
@@ -181,6 +183,9 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_livestream_dvr_title">Canlı yayım DVR-ni aktivləşdir</string>
     <string name="morphe_music_package_name_summary">Quraşdırdığınız musiqi tətbiqinin paket adı</string>
     <string name="morphe_music_package_name_title">Musiqi tətbiqi paketinin adı</string>
+    <string name="morphe_navigation_bar_style_entry_2">Yarımşəffaf</string>
+    <string name="morphe_navigation_bar_style_title">Fəaliyyət cərgəsi üslubu</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">Bu üslub cihazınız və ya YouTube versiyanız tərəfindən dəstəklənməyə bilər və tərtibat problemlərinə və ya çökmələrə səbəb ola bilər</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR-a daxil olmaq olmur: %s</string>
     <string name="morphe_oauth2_connection_failure_auth_not_approved">VR-a daxil olmaq olmur, veb sayt təsdiqlənməsi qəbul edilməyib</string>
     <string name="morphe_oauth2_connection_failure_generic">OAuth2 keçici olaraq əlçatan deyil</string>
@@ -207,6 +212,16 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_playback_in_feeds_title">Axınlarda oynatma</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">Oynadıcının idarəetmə düymələrinin və vaxt cizgisinin arxasındakı fonun çevrəsinin şəffaflığını tənzimlə (0 görünməzdir, 100 şəffaf olmayandır)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">İdarəetmə düymələrinin fon şəffaflığı</string>
+    <string name="morphe_post_image_download_failed">Şəkli yükləmək olmadı</string>
+    <string name="morphe_post_image_download_flyout">Şəkilləri yüklə</string>
+    <string name="morphe_post_image_download_flyout_single">Şəkli yüklə</string>
+    <string name="morphe_post_image_download_not_found">Bu postda şəkil tapılmadı</string>
+    <string name="morphe_post_image_download_saved">%1$s şəkil %2$s qovluğunda saxlanıldı</string>
+    <string name="morphe_post_image_download_saved_single">Şəkil %s qovluğunda saxlanıldı</string>
+    <string name="morphe_post_image_download_started">%s şəkli yükləyir…</string>
+    <string name="morphe_post_image_download_started_single">Şəkli yükləyir…</string>
+    <string name="morphe_post_image_download_summary">Yükləmə düyməsi Şəkil və ya GIF olan postların Paylaş düyməsi ilə yanaşı göstərilir və yükləmə elementi menyularına əlavə edilir</string>
+    <string name="morphe_post_image_download_title">Post şəkillərini yüklə</string>
     <string name="morphe_preferred_caption_language_summary">Əvvəlcə təminatçının altyazılarını seçir, sonra avtomatik üstünlük verilən dilə tərcümə edir</string>
     <string name="morphe_preferred_caption_language_title">Üstünlük verilmiş titr dili</string>
     <string name="morphe_queue_manager_check_failed_auth">Daxil olunmayıb</string>
@@ -240,6 +255,12 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">Shorts-ları açılan menyudan \"Sonra izləyin\" bölməsində saxlamağa imkan verir</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Shorts açılan menyusunda \"Daha sonra İzləmək üçün Saxla\" düyməsini göstər</string>
     <string name="morphe_save_to_watch_later_success_toast">Video uğurla sonra izləyin pleylistində saxlanıldı</string>
+    <string name="morphe_search_comments_applied">Onları axtarmaq üçün çeşidləmə sırasını dəyişin və ya şərhləri təkrar açın</string>
+    <string name="morphe_search_comments_clear">Təmizlə</string>
+    <string name="morphe_search_comments_cleared">Axtarış təmizləndi. Bütün şərhləri göstərmək üçün çeşidləmə sırasını dəyişdir və ya şərhləri təkrar aç</string>
+    <string name="morphe_search_comments_hint">Axtarılacaq sözlər</string>
+    <string name="morphe_search_comments_summary">Yalnız axtarılan sözlərin hamısını ehtiva edən yüklənilmiş şərhləri göstərmək üçün şərhlərdəki axtarış düyməsinə toxun. İfadəni axtarmaq üçün sözləri dırnaq arasında yaz</string>
+    <string name="morphe_search_comments_title">Şərhləri axtar</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">Ən çox təkrar oynadılan</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">Çəkmə cizgisin sürükləyərkən video miniatürün göstərir</string>
     <string name="morphe_seekbar_thumbnail_preview_title">Çəkmə cizgisinin miniatürlərini aktiv et</string>
@@ -250,6 +271,8 @@ Bunu düzəltmək üçün 'Video yayımlarını saxtalaşdır'-ı aktivləşdir 
     <string name="morphe_settings_name_custom_item_hint">Ad daxil edin</string>
     <string name="morphe_settings_name_empty_warning">Ad boş ola bilməz</string>
     <string name="morphe_settings_name_title">RVX tənzimləmələrinin adı</string>
+    <string name="morphe_settings_new_indicator_days_summary">Yeniləmə ilə əlavə edilən tənzimləmələr və seçimlər ilə yanaşı nöqtənin göstərildiyi günlərin sayı</string>
+    <string name="morphe_settings_new_indicator_days_title">Yeni tənzimləmələri vurğula</string>
     <string name="morphe_skip_silence_minimum_pause_summary">Yalnız ən azı bu uzunluqda olan fasilələr qısaldılır. Növbəti video başlayanda qüvvədə olur</string>
     <string name="morphe_skip_silence_minimum_pause_title">Ən qısa fasilə uzunluğu</string>
     <string name="morphe_skip_silence_summary">Video səsindəki səssiz fasilələri avtomatik ötürür</string>
@@ -425,6 +448,7 @@ Planşet tərtibatı
 • Shorts-da Remiks düyməsi və Səs düyməsi mövcud deyil
 • \"Daha çox video\" örtüyü mövcud olmaya bilər
 • Yığılmamış köhnə video fəaliyyət cizgisi göstərilir
+• Açılan menyu elementləri düzgün işləməyə bilər
 
 Avtomobil tərtibatı
 • Axın mövzular və kanallara görə qruplaşdırılır
@@ -1270,6 +1294,8 @@ Bu tətbiqin görünüşün və xüsusiyyətlərin dəyişdirəcək, lakin bilin
 Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların silmək tövsiyə olunur"</string>
     <string name="revanced_spoof_device_dimensions_summary">Bunun aktiv edilməsi daha yüksək video keyfiyyətlərinin kilidini aça bilər</string>
     <string name="revanced_spoof_device_dimensions_title">Cihaz ölçülərini saxtalaşdır</string>
+    <string name="revanced_status_bar_translucency_entry_opaque">Tutqun</string>
+    <string name="revanced_status_bar_translucency_entry_transparent">Şəffaf</string>
     <string name="revanced_swipe_brightness_summary_off">Tam ekran parlaqlıq sürüşdürməsi qapalıdır</string>
     <string name="revanced_swipe_brightness_summary_on">"Tam ekran parlaqlıq sürüşdürməsi aktivdir
 

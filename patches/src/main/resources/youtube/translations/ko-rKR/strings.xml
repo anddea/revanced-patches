@@ -104,6 +104,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_disable_scrolling_speed_limit_title">스크롤 속도 제한 비활성화하기</string>
     <string name="morphe_disable_system_splash_summary">정적 시스템 스플래시 아이콘을 투명하게 만듭니다</string>
     <string name="morphe_disable_system_splash_title">시스템 스플래시 비활성화하기</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_summary">YouTube에서 구독 탭이 홈 화면 상단으로 이동한 경우, 구독 탭을 하단바에 표시합니다</string>
+    <string name="morphe_disable_toolbar_navigation_tabs_title">툴바 탐색 탭 비활성화하기</string>
     <string name="morphe_expand_livestream_dvr_duration_not_available">"'실시간 스트림 DVR 탐색 구간 확장하기'를 사용할 수 없을 수 있습니다
 
 이 문제를 해결하려면, '동영상 스트림 속이기'에서 '기본 클라이언트'를 'TV Simply' 또는 'visionOS'로 변경하세요"</string>
@@ -112,10 +114,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_explore_menu_screen_summary">탐색 메뉴에 표시할 구성 요소를 선택하세요</string>
     <string name="morphe_explore_menu_screen_title">탐색 메뉴</string>
     <string name="morphe_external_potoken_provider_user_dialog_message">이 기능이 작동하지 않는다면, MicroG를 강제로 종료하세요</string>
-    <string name="morphe_feed_long_press_menu_summary">피드 동영상의 아무 곳이나 길게 누르면 해당 동영상의 메뉴가 열립니다</string>
-    <string name="morphe_feed_long_press_menu_title">동영상을 길게 누르면 메뉴가 열립니다</string>
-    <string name="morphe_feed_watch_later_button_summary">피드 동영상의 썸네일에 \'나중에 볼 목록\' 버튼이 표시됩니다. 버튼을 길게 누르면 플레이리스트에 저장됩니다</string>
-    <string name="morphe_feed_watch_later_button_title">썸네일에 \'나중에 볼 목록\' 버튼 표시</string>
+    <string name="morphe_feed_long_press_menu_summary">피드 동영상에서 아무 곳이나 길게 탭하면 해당 동영상 메뉴가 열립니다</string>
+    <string name="morphe_feed_long_press_menu_title">길게 탭하여 동영상 메뉴 열기</string>
+    <string name="morphe_feed_watch_later_button_summary">피드 동영상 썸네일에 \'나중에 볼 동영상에 저장\' 버튼을 표시합니다. 버튼을 길게 탭하면 재생목록에 저장됩니다</string>
+    <string name="morphe_feed_watch_later_button_title">썸네일에 \'나중에 볼 동영상에 저장\' 버튼 표시하기</string>
     <string name="morphe_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 \'기본 클라이언트\'를 \'Android Reel\' 또는 \'TV\'로 변경하세요</string>
     <string name="morphe_force_original_audio_summary_off">기본 오디오 언어를 활성화합니다</string>
     <string name="morphe_force_original_audio_summary_on">원본 오디오 언어를 활성화합니다</string>
@@ -198,6 +200,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_livestream_dvr_title">실시간 스트림 DVR 활성화하기</string>
     <string name="morphe_music_package_name_summary">사용자가 사용하고 싶은 Music 앱 패키지명을 설정하세요</string>
     <string name="morphe_music_package_name_title">Music 앱 패키지명</string>
+    <string name="morphe_navigation_bar_style_entry_2">반투명</string>
+    <string name="morphe_navigation_bar_style_title">하단바 스타일</string>
+    <string name="morphe_navigation_bar_style_user_dialog_message">이 스타일은 사용자의 기기 또는 YouTube 버전에서 지원되지 않을 수 있으며, 레이아웃 문제나 충돌을 일으킬 수 있습니다</string>
     <string name="morphe_notification_dot_color_summary">알림 점의 색상을 변경합니다</string>
     <string name="morphe_notification_dot_color_title">알림 점 색상</string>
     <string name="morphe_oauth2_connection_failure_auth_error">VR에 로그인할 수 없습니다: %s</string>
@@ -226,6 +231,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="morphe_playback_in_feeds_title">피드에서 재생</string>
     <string name="morphe_player_control_buttons_background_opacity_summary">플레이어 컨트롤 버튼과 시간 표시 버튼 뒤 배경의 투명도를 설정할 수 있습니다 (0: 투명, 100: 불투명)</string>
     <string name="morphe_player_control_buttons_background_opacity_title">컨트롤 버튼 배경 투명도</string>
+    <string name="morphe_post_image_download_failed">이미지를 다운로드할 수 없습니다</string>
+    <string name="morphe_post_image_download_flyout">이미지 다운로드</string>
+    <string name="morphe_post_image_download_flyout_single">이미지 다운로드</string>
+    <string name="morphe_post_image_download_not_found">이 게시물에서 이미지를 찾을 수 없습니다</string>
+    <string name="morphe_post_image_download_saved">%1$s 개의 이미지가 %2$s에 다운로드됨</string>
+    <string name="morphe_post_image_download_saved_single">이미지가 %s에 다운로드됨</string>
+    <string name="morphe_post_image_download_started">%s 개의 이미지를 다운로드하는 중…</string>
+    <string name="morphe_post_image_download_started_single">이미지를 다운로드하는 중…</string>
+    <string name="morphe_post_image_download_summary">이미지 또는 GIF가 포함된 게시물의 공유 버튼 옆에 다운로드 버튼이 표시되며, 해당 게시물의 메뉴에도 다운로드 항목이 추가됩니다</string>
+    <string name="morphe_post_image_download_title">게시물 이미지 다운로드하기</string>
     <string name="morphe_potoken_provider_expired_dialog_message">이 버전에 내장된 PotHelper 토큰이 더 이상 작동하지 않습니다
 
 재생 문제를 해결하려면 \'동영상 스트림 속이기\' 설정을 활성화하세요</string>
@@ -271,6 +286,12 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_save_to_watch_later_shorts_flyout_button_summary">피드 메뉴로 Shorts를 '나중에 볼 동영상' 재생목록에 저장할 수 있습니다</string>
     <string name="morphe_save_to_watch_later_shorts_flyout_button_title">Shorts에 '나중에 볼 동영상' 버튼 표시하기</string>
     <string name="morphe_save_to_watch_later_success_toast">동영상을 \'나중에 볼 동영상\' 재생목록에 성공적으로 저장하였습니다</string>
+    <string name="morphe_search_comments_applied">정렬 순서를 변경하거나 댓글을 다시 열어 검색하세요</string>
+    <string name="morphe_search_comments_clear">지우기</string>
+    <string name="morphe_search_comments_cleared">검색이 지워졌습니다. 정렬 순서를 변경하거나 댓글을 다시 열어 모든 댓글을 표시하세요</string>
+    <string name="morphe_search_comments_hint">검색어 입력</string>
+    <string name="morphe_search_comments_summary">댓글에서 검색 버튼을 탭하면 현재 불러온 댓글 중 검색한 단어가 모두 포함된 댓글만 표시됩니다. 구문을 검색하려면 단어를 따옴표로 묶으세요</string>
+    <string name="morphe_search_comments_title">댓글 검색</string>
     <string name="morphe_seekbar_thumbnail_heatmap_peak_point">가장 많이 다시 본 장면</string>
     <string name="morphe_seekbar_thumbnail_preview_summary">재생바를 드래그하는 동안에 동영상 썸네일을 표시합니다</string>
     <string name="morphe_seekbar_thumbnail_preview_title">재생바 썸네일 활성화하기</string>
@@ -281,6 +302,8 @@ YouTube Premium 사용자는 이 설정이 필요하지 않을 수 있습니다"
     <string name="morphe_settings_name_custom_item_hint">이름을 입력하세요</string>
     <string name="morphe_settings_name_empty_warning">이름을 비워 둘 수 없습니다</string>
     <string name="morphe_settings_name_title">RVX 설정 이름</string>
+    <string name="morphe_settings_new_indicator_days_summary">업데이트로 추가된 설정 및 옵션 옆에 점이 표시되는 기간을 지정할 수 있습니다 (일수)</string>
+    <string name="morphe_settings_new_indicator_days_title">새 설정 강조 표시하기</string>
     <string name="morphe_skip_silence_minimum_pause_summary">최소 이 시간 이상 일시 정지하는 경우에만 단축됩니다. 다음 동영상이 시작될 때 적용됩니다</string>
     <string name="morphe_skip_silence_minimum_pause_title">최소 일시 정지 길이</string>
     <string name="morphe_skip_silence_summary">동영상 오디오에서 무음 구간을 자동으로 건너뜁니다</string>
@@ -341,7 +364,7 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
     <string name="morphe_spoof_video_streams_sign_in_android_vr_toast_get_activation_code_failed">활성화 코드를 발급할 수 없습니다</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_off">동영상 스트림을 가져오는 데 사용되는 클라이언트를 전문 통계에서 표시하지 않습니다</string>
     <string name="morphe_spoof_video_streams_stats_for_nerds_summary_on">동영상 스트림을 가져오는 데 사용되는 클라이언트를 전문 통계에서 표시합니다</string>
-    <string name="morphe_spoof_video_streams_stats_for_nerds_title">전문 통계에서 속이기 정보 표시하기</string>
+    <string name="morphe_spoof_video_streams_stats_for_nerds_title">전문 통계에 속이기 정보 표시하기</string>
     <string name="morphe_spoof_video_streams_summary_off">"동영상 스트림이 속여지지 않습니다
 
 재생 문제가 발생할 수 있습니다
@@ -701,13 +724,13 @@ API 키는 절대로 다른 사람과 공유해서는 안 됩니다. API 키에 
     <string name="revanced_disable_layout_updates_title">레이아웃 업데이트 비활성화하기</string>
     <string name="revanced_disable_layout_updates_user_dialog_message">"앱 레이아웃이 처음 설치했을 때의 레이아웃으로 되돌아갑니다
 
-일부 서버 측 레이아웃은 원래대로 복원되지 않을 수 있습니다
+일부 서버 측 레이아웃은 원래대로 되돌아가지 않을 수 있습니다
 
 변경 사항:
 • 플레이어 메뉴 구성 요소(또는 관련 설정)가 작동하지 않을 수 있습니다
 • 롤링 넘버 애니메이션이 표시되지 않습니다
 • 보관함 탭이 표시됩니다
-• 동영상 설명의 음악 섹션이 작동하지 않을 수 있습니다
+• 동영상 설명에서 음악 섹션이 작동하지 않을 수 있습니다
 • 플레이어 메뉴 구성요소 항목을 숨길 수 없습니다
 • 보관함 탭에 계정 전환 버튼이 표시되지 않을 수 있습니다"</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용합니다</string>
@@ -910,7 +933,7 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_fix_swipe_tap_and_hold_speed_title">스와이프 제스처 길게 탭하기 속도 수정하기</string>
     <string name="revanced_fix_transcript_summary_off">사전 조건 검사를 실패하여 스크립트를 사용할 수 없을 수 있습니다</string>
     <string name="revanced_fix_transcript_summary_on">스크립트를 사용할 수 있습니다</string>
-    <string name="revanced_fix_transcript_title">스크립트 고치기</string>
+    <string name="revanced_fix_transcript_title">스크립트 수정하기</string>
     <string name="revanced_force_hdr_video_summary">앱이 이 기기를 HDR 지원 기기로 인식하도록 강제합니다</string>
     <string name="revanced_force_hdr_video_title">HDR 동영상 강제로 활성화하기</string>
     <string name="revanced_force_hdr_video_user_dialog_message">"일부 HyperOS 기기에서 HLG를 숨기는 경우처럼, HDR 디코딩은 작동하지만 YouTube에서 HDR을 제공하지 않을 경우 사용하세요
@@ -1751,6 +1774,11 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
+    <string name="revanced_in_app_downloader_summary_off">동영상 다운로드 버튼으로 외부 다운로더를 사용합니다</string>
+    <string name="revanced_in_app_downloader_summary_on">동영상 다운로드 버튼으로 내부 다운로더를 사용하여 다운로드하여 Movies/RVX 폴더에 저장합니다
+
+모든 다운로드에 대해 화질 선택기가 표시됩니다</string>
+    <string name="revanced_in_app_downloader_title">내부 다운로더</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">스낵바 테마를 반전시키지 않습니다</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">스낵바 테마를 반전시킵니다</string>
     <string name="revanced_invert_snack_bar_theme_title">스낵바 테마 반전시키기</string>
@@ -1874,9 +1902,62 @@ MainThread에서 무언가를 테스트할 경우에 사용할 수 있습니다"
     <string name="revanced_navigation_bar_order_drag_handle">드래그하여 순서 변경</string>
     <string name="revanced_navigation_bar_order_summary">하단바 항목을 표시할 순서대로 드래그하세요</string>
     <string name="revanced_navigation_bar_order_title">하단바 순서</string>
+    <string name="revanced_offline_action_delete">삭제</string>
+    <string name="revanced_offline_action_open_youtube">YouTube에서 열기</string>
+    <string name="revanced_offline_action_play_background">백그라운드 재생</string>
+    <string name="revanced_offline_action_share">공유</string>
+    <string name="revanced_offline_already_downloaded">이 동영상은 이미 다운로드되었습니다</string>
+    <string name="revanced_offline_already_downloading">이 동영상은 이미 다운로드 중입니다</string>
+    <string name="revanced_offline_av1_unplayable_toast">이 기기에서는 이 AV1 비디오를 재생하지 못할 수 있습니다. 화면이 검게 나올 수 있습니다</string>
+    <string name="revanced_offline_close">닫기</string>
+    <string name="revanced_offline_delete_message">이 기기에서 \'%s\'를 삭제하시겠습니까?</string>
+    <string name="revanced_offline_delete_title">다운로드 삭제</string>
+    <string name="revanced_offline_download_complete">다운로드 완료</string>
+    <string name="revanced_offline_download_complete_toast">다운로드 완료: %s</string>
+    <string name="revanced_offline_download_failed">다운로드 실패: %s</string>
+    <string name="revanced_offline_download_merging">동영상과 오디오를 병합하는 중…</string>
+    <string name="revanced_offline_download_preparing">다운로드를 준비하는 중...</string>
+    <string name="revanced_offline_download_progress">%d%% 다운로드 중</string>
+    <string name="revanced_offline_download_queued">대기하는 중</string>
+    <string name="revanced_offline_download_queued_count">%d 개 대기하는 중</string>
+    <string name="revanced_offline_download_saving">Movies/RVX에 저장하는 중…</string>
+    <string name="revanced_offline_download_started">다운로드 시작됨</string>
+    <string name="revanced_offline_download_starting">시작하는 중…</string>
+    <string name="revanced_offline_download_unavailable">이 동영상은 다운로드할 수 없습니다</string>
+    <string name="revanced_offline_error_forbidden">동영상 서버에서 다운로드를 거부하였습니다</string>
+    <string name="revanced_offline_error_space">여유 공간이 부족합니다. %s가 필요합니다</string>
+    <string name="revanced_offline_error_time_limit">Android 백그라운드 다운로드 시간 제한이 도달하였습니다</string>
+    <string name="revanced_offline_library_empty">아직 다운로드된 동영상이 없습니다</string>
+    <string name="revanced_offline_library_no_results">검색과 일치하는 다운로드가 없습니다</string>
+    <string name="revanced_offline_library_resume">%s에서 재개</string>
+    <string name="revanced_offline_library_search">다운로드 검색</string>
+    <string name="revanced_offline_library_sort">정렬</string>
+    <string name="revanced_offline_library_sort_title">제목</string>
+    <string name="revanced_offline_library_title">다운로드</string>
+    <string name="revanced_offline_loading_formats">사용 가능한 화질을 불러오는 중...</string>
+    <string name="revanced_offline_next">다음</string>
+    <string name="revanced_offline_no_formats">이 동영상은 다운로드 가능한 화질을 찾을 수 없습니다</string>
+    <string name="revanced_offline_nothing_playing">재생 중인 동영상이 없습니다</string>
+    <string name="revanced_offline_notification_channel_downloads">동영상 다운로드</string>
+    <string name="revanced_offline_notification_channel_playback">오프라인 재생</string>
+    <string name="revanced_offline_pause">일시 정지</string>
+    <string name="revanced_offline_picker_av1_hint">더 작은 파일</string>
+    <string name="revanced_offline_picker_av1_unplayable">이 기기에서 재생할 수 없음</string>
+    <string name="revanced_offline_picker_footer">Movies/RVX에 저장됨 (MP4 또는 VP9의 경우 WebM)</string>
+    <string name="revanced_offline_picker_h264_hint">어디서든 재생</string>
+    <string name="revanced_offline_picker_subtitle">다운로드 음질</string>
+    <string name="revanced_offline_picker_vp9_hint">이 기기에서 재생</string>
+    <string name="revanced_offline_play">재생</string>
+    <string name="revanced_offline_playback_error">이 동영상을 재생할 수 없습니다</string>
+    <string name="revanced_offline_playing_background">백그라운드에서 재생 중</string>
+    <string name="revanced_offline_previous">이전</string>
+    <string name="revanced_offline_share_unsupported">이 Android 버전에서는 공유가 지원되지 않습니다</string>
+    <string name="revanced_offline_video_missing">이 다운로드는 더 이상 존재하지 않습니다</string>
     <string name="revanced_open_links_externally_summary_off">앱 내에서 외부 링크를 열 경우에 내부 브라우저를 사용합니다</string>
     <string name="revanced_open_links_externally_summary_on">앱 내에서 외부 링크를 열 경우에 외부 브라우저를 사용합니다</string>
     <string name="revanced_open_links_externally_title">외부 브라우저 사용하기</string>
+    <string name="revanced_open_offline_library_summary">내부 다운로더로 다운로드한 동영상이 표시됩니다</string>
+    <string name="revanced_open_offline_library_title">오프라인 보관함 열기</string>
     <string name="revanced_overlay_button">오버레이 버튼</string>
     <string name="revanced_overlay_button_always_repeat_summary">"버튼을 탭하여 동영상 반복재생으로 전환할 수 있습니다
 길게 탭하면 동영상이 끝나면 일시 중지로 전환됩니다"</string>
@@ -2161,6 +2242,9 @@ Gemini API Key를 발급받으려면 여기를 탭하세요"</string>
     <string name="revanced_replace_channel_handle_summary_off">채널 핸들(@채널 아이디)을 사용합니다</string>
     <string name="revanced_replace_channel_handle_summary_on">채널 이름을 사용합니다</string>
     <string name="revanced_replace_channel_handle_title">채널 핸들 변경하기</string>
+    <string name="revanced_replace_downloads_page_summary_off">YouTube 다운로드 페이지가 표시됩니다</string>
+    <string name="revanced_replace_downloads_page_summary_on">YouTube 다운로드 페이지에서 오프라인 라이브러리가 열립니다</string>
+    <string name="revanced_replace_downloads_page_title">다운로드 페이지 교체하기</string>
     <string name="revanced_replace_time_stamp_action_summary_off">타임스탬프를 탭하면 남은 시간을 표시할 수 있습니다</string>
     <string name="revanced_replace_time_stamp_action_summary_on">타임스탬프를 탭하면 동영상 재생 속도 또는 동영상 화질 설정 메뉴 구성요소를 열 수 있습니다</string>
     <string name="revanced_replace_time_stamp_action_title">타임스탬프 탭하기 작업 변경하기</string>
@@ -2582,6 +2666,9 @@ API Key를 발급받는 방법을 보려면 여기를 탭하세요"</string>
     <string name="revanced_shorts_player_type_regular_player">일반 플레이어</string>
     <string name="revanced_shorts_player_type_regular_player_fullscreen">일반 플레이어 전체 화면</string>
     <string name="revanced_shorts_player_type_title">Shorts 재생 플레이어 유형</string>
+    <string name="revanced_show_offline_library_button_summary_off">'내 페이지' 탭에 다운로드 버튼이 없습니다</string>
+    <string name="revanced_show_offline_library_button_summary_on">'내 페이지' 탭애서 설정 옆에 있는 다운로드 버튼을 탭하면 오프라인 보관함이 열립니다</string>
+    <string name="revanced_show_offline_library_button_title">'내 페이지' 탭에서 다운로드 버튼 표시하기</string>
     <string name="revanced_show_search_button_summary_off">검색 버튼을 표시하지 않습니다</string>
     <string name="revanced_show_search_button_title">검색 버튼 표시하기</string>
     <string name="revanced_show_settings_button_summary_off">설정 버튼이 표시되지 않습니다</string>
